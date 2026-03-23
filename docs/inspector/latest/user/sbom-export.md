@@ -15,7 +15,7 @@ While these packages cannot be scanned for vulnerabilities, their hash values ar
 
 ###### Note
 
-Currently, Amazon Inspector doesn't support exporting SBOMs for Windows Amazon EC2 instances.
+Amazon Inspector now supports exporting SBOMs for Windows Amazon EC2 instances that are opted-in to Inspector's Enhanced EC2 Scanning feature.
 
 ## Amazon Inspector formats
 

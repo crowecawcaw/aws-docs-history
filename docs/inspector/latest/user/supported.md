@@ -65,10 +65,10 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | ----------------------------------- | --------------- | -------------------------------------- | ---------------------- | ------------------------ |
 | AlmaLinux                           | 8               | Errata CVE                             | Yes                    | Yes                      |
 | AlmaLinux                           | 9               | Errata CVE                             | Yes                    | Yes                      |
-| AlmaLinux                           | 10              | Errata CVE                             | No                     | Yes                      |
+| AlmaLinux                           | 10              | Errata CVE                             | Yes                    | Yes                      |
 | Amazon Linux (AL2)                  | AL2             | ALAS Errata CVE                        | Yes                    | Yes                      |
 | Amazon Linux 2023 (AL2023)          | AL2023          | ALAS Errata CVE                        | Yes                    | Yes                      |
-| Bottlerocket                        | 1.7.0 and later | Errata CVE                             | No                     | Yes                      |
+| Bottlerocket                        | 1.7.0 and later | Errata CVE                             | Yes                    | Yes                      |
 | Debian Server (Bullseye)            | 11              | DSA CVE                                | Yes                    | Yes                      |
 | Debian Server (Bookworm)            | 12              | DSA CVE                                | Yes                    | Yes                      |
 | Debian Server (Trixie)              | 13              | DSA CVE                                | Yes                    | Yes                      |
@@ -76,23 +76,23 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | OpenSUSE Leap                       | 15.6            | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux (Oracle)               | 8               | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux (Oracle)               | 9               | Errata CVE                             | Yes                    | Yes                      |
-| Oracle Linux (Oracle)               | 10              | Errata CVE                             | No                     | Yes                      |
+| Oracle Linux (Oracle)               | 10              | Errata CVE                             | Yes                    | Yes                      |
 | Red Hat Enterprise Linux (RHEL)     | 8               | RHEL VEX CVE                           | Yes                    | Yes                      |
 | Red Hat Enterprise Linux (RHEL)     | 9               | RHEL VEX CVE                           | Yes                    | Yes                      |
-| Red Hat Enterprise Linux (RHEL)     | 10              | RHEL VEX CVE                           | No                     | Yes                      |
+| Red Hat Enterprise Linux (RHEL)     | 10              | RHEL VEX CVE                           | Yes                    | Yes                      |
 | Rocky Linux                         | 8               | Errata CVE                             | Yes                    | Yes                      |
 | Rocky Linux                         | 9               | Errata CVE                             | Yes                    | Yes                      |
-| Rocky Linux                         | 10              | Errata CVE                             | No                     | Yes                      |
+| Rocky Linux                         | 10              | Errata CVE                             | Yes                    | Yes                      |
 | SUSE Linux Enterprise Server (SLES) | 15.7            | SUSE CVE                               | Yes                    | Yes                      |
 | Ubuntu (Xenial)                     | 16.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Bionic)                     | 18.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Focal)                      | 20.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Jammy)                      | 22.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Noble Numbat)               | 24.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
-| Windows Server                      | 2016            | MSKB                                   | No                     | Yes                      |
-| Windows Server                      | 2019            | MSKB                                   | No                     | Yes                      |
-| Windows Server                      | 2022            | MSKB                                   | No                     | Yes                      |
-| Windows Server                      | 2025            | MSKB                                   | No                     | Yes                      |
+| Windows Server                      | 2016            | MSKB                                   | Yes                    | Yes                      |
+| Windows Server                      | 2019            | MSKB                                   | Yes                    | Yes                      |
+| Windows Server                      | 2022            | MSKB                                   | Yes                    | Yes                      |
+| Windows Server                      | 2025            | MSKB                                   | Yes                    | Yes                      |
 | macOS (Mojave)                      | 10.14           | APPLE-SA                               | No                     | Yes                      |
 | macOS (Catalina)                    | 10.15           | APPLE-SA                               | No                     | Yes                      |
 | macOS (Big Sur)                     | 11              | APPLE-SA                               | No                     | Yes                      |
@@ -100,6 +100,7 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | macOS (Ventura)                     | 13              | APPLE-SA                               | No                     | Yes                      |
 | macOS (Sonoma)                      | 14              | APPLE-SA                               | No                     | Yes                      |
 | macOS (Sequoia)                     | 15              | APPLE-SA                               | No                     | Yes                      |
+| macOS (Tahoe)                       | 26              | APPLE-SA                               | No                     | Yes                      |
 
 ### Supported operating systems: Amazon ECR scanning with Amazon Inspector
 
@@ -214,6 +215,7 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 | Rocky Linux              | 9       |
 | Rocky Linux              | 10      |
 | SUSE Server              | 15.7    |
+| SUSE Server              | 16.0    |
 | Ubuntu                   | 16.04   |
 | Ubuntu                   | 18.04   |
 | Ubuntu                   | 20.04   |
@@ -451,6 +453,7 @@ Amazon Inspector Lambda code scanning currently supports the following runtimes 
   - python3.10
   - python3.11
   - python3.12
+  - python3.13
 
 - Ruby
   - ruby2.7

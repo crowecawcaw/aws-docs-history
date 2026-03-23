@@ -13,7 +13,7 @@ This topic includes the supported languages for Amazon Inspector Code Security.
 - JSX (React 17 or earlier)
 - Kotlin (Kotlin 2.0 or earlier)
 - PHP (PHP 8.2 or earlier)
-- Python (Python 3.11 or earlier within the Python 3 series)
+- Python (Python 3.13 or earlier within the Python 3 series)
 - Ruby (Ruby 2.7 and 3.2 only)
 - Rust
 - Scala (Scala 3.2.2 or earlier)
@@ -27,7 +27,7 @@ This topic includes the supported languages for Amazon Inspector Code Security.
 - Java (Java 17 or earlier)
 - JavaScript (EMCMAScript 2021 or earlier)
 - PHP (PHP 8.2 or earlier)
-- Python (Python 3.11 or earlier within the Python 3 series)
+- Python (Python 3.13 or earlier within the Python 3 series)
 - .Net
 - Ruby (Ruby 2.7 and 3.2 only)
 - Rust

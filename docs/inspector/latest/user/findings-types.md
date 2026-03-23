@@ -18,7 +18,13 @@ for publicly known information security vulnerabilities and exposures. For more
 information, see [https://www.cve.org/](https://www.cve.org/ "https://www.cve.org/").
 
 Amazon Inspector can generate package vulnerability findings for EC2 instances, ECR container images, and
-Lambda functions. Package vulnerability findings have additional details unique to this finding type, these are the [Inspector score and vulnerability intelligence](findings-understanding-score.md "findings-understanding-score.md").
+Lambda functions. Package vulnerability findings include details that are unique to this type of finding. These details are the [Inspector score and vulnerability intelligence](findings-understanding-score.md "findings-understanding-score.md").
+
+For Windows EC2 instances, package vulnerability findings can be identified by
+Microsoft Knowledge Base (KB) IDs instead of individual CVEs. If a KB update addresses
+one or more CVEs, Amazon Inspector reports a single KB finding, for example `KB5023697`, instead of a
+separate finding for each CVE. A KB finding specifies the highest CVSS score, EPSS
+score, and exploit availability across all constituent CVEs.
 
 ## Code vulnerability
 

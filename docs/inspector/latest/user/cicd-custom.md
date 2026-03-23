@@ -277,8 +277,147 @@ format or Amazon Inspector finding JSON. The default can be changed using the
 ```
 
 ```
+{
+  "sbom": {
+    "specVersion": "1.5",
+    "metadata": {
+      "tools": {
+        "services": [
+          {
+            "name": "Amazon Inspector Scan SBOM API",
+            "version": "d79c681c+d73b8663+5e50a5ab"
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "amazon:inspector:sbom_scanner:critical_vulnerabilities",
+          "value": "0"
+        },
+        {
+          "name": "amazon:inspector:sbom_scanner:high_vulnerabilities",
+          "value": "0"
+        },
+        {
+          "name": "amazon:inspector:sbom_scanner:medium_vulnerabilities",
+          "value": "1"
+        },
+        {
+          "name": "amazon:inspector:sbom_scanner:low_vulnerabilities",
+          "value": "0"
+        },
+        {
+          "name": "amazon:inspector:sbom_scanner:other_vulnerabilities",
+          "value": "0"
+        }
+      ],
+      "timestamp": "2026-03-17T00:00:52.344Z"
+    },
+    "components": [
+      {
+        "bom-ref": "comp-1",
+        "name": "defender",
+        "purl": "pkg:generic/microsoft/defender@4.18.25110.5",
+        "type": "application",
+        "version": "4.18.25110.5",
+        "properties": [
+          {
+            "name": "amazon:inspector:sbom_scanner:source_file_scanner",
+            "value": "windows-apps"
+          },
+          {
+            "name": "amazon:inspector:sbom_scanner:source_package_collector",
+            "value": "windows-app-defender"
+          },
+          {
+            "name": "amazon:inspector:sbom_scanner:path",
+            "value": "vol-0d994b0984fdaa2af:\\ProgramData\\Microsoft\\Windows Defender\\platform\\4.18.25110.5-0"
+          }
+        ]
+      }
+    ],
+    "serialNumber": "urn:uuid:6bed582d-191e-4cb7-9875-950dd0b99700",
+    "bomFormat": "CycloneDX",
+    "vulnerabilities": [
+      {
+        "advisories": [
+          {
+            "url": "https://support.microsoft.com/help/5011487"
+          },
+          {
+            "url": "https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB5011487"
+          }
+        ],
+        "bom-ref": "vuln-1",
+        "references": [
+          {
+            "id": "CVE-2022-23278",
+            "source": {
+              "name": "MICROSOFT",
+              "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-23278"
+            }
+          }
+        ],
+        "ratings": [
+          {
+            "severity": "none",
+            "score": 0.02691,
+            "method": "other",
+            "vector": "model:v2025.03.14,date:2026-03-15T12:55:00Z",
+            "source": {
+              "name": "EPSS",
+              "url": "https://api.first.org/data/v1/epss?cve=CVE-2022-23278"
+            }
+          },
+          {
+            "severity": "medium",
+            "score": 5.9,
+            "method": "CVSSv31",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+            "source": {
+              "name": "MICROSOFT",
+              "url": "https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB5011487"
+            }
+          }
+        ],
+        "created": "2022-03-08T08:00:00Z",
+        "description": "Security Update for Defender (2022-03). Install KB5011487 to remediate. A reboot is required for this update to take effect.",
+        "affects": [
+          {
+            "ref": "comp-1"
+          }
+        ],
+        "id": "KB5011487",
+        "source": {
+          "name": "MICROSOFT",
+          "url": "https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB5011487"
+        },
+        "published": "2022-03-08T08:00:00Z",
+        "analysis": {
+          "state": "in_triage"
+        },
+        "properties": [
+          {
+            "name": "amazon:inspector:sbom_scanner:priority",
+            "value": "standard"
+          },
+          {
+            "name": "amazon:inspector:sbom_scanner:priority_intelligence",
+            "value": "unverified"
+          },
+          {
+            "name": "amazon:inspector:sbom_scanner:fixed_version:comp-1",
+            "value": "10.0.19042.1586"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
-                        {
+```
+{
   "status": "SBOM parsed successfully, 1 vulnerability found",
   "inspector": {
     "messages": [
@@ -365,4 +504,56 @@ format or Amazon Inspector finding JSON. The default can be changed using the
   }
 }
 
+```
+
+```
+{
+  "sbom": {
+    "vulnerabilities": [
+      {
+        "severity": "medium",
+        "priority_intelligence": "unverified",
+        "related": [
+          "CVE-2022-23278"
+        ],
+        "references": [
+          "https://support.microsoft.com/help/5011487",
+          "https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB5011487"
+        ],
+        "created": "2022-03-08T08:00:00Z",
+        "description": "Security Update for Defender (2022-03). Install KB5011487 to remediate. A reboot is required for this update to take effect.",
+        "affects": [
+          {
+            "path": "vol-0d994b0984fdaa2af:\\ProgramData\\Microsoft\\Windows Defender\\platform\\4.18.25110.5-0",
+            "fixed_version": "10.0.19042.1586",
+            "installed_version": "pkg:generic/microsoft/defender@4.18.25110.5"
+          }
+        ],
+        "id": "KB5011487",
+        "source": "https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB5011487",
+        "published": "2022-03-08T08:00:00Z",
+        "priority": "standard",
+        "properties": {
+          "epss": 0.0269099995,
+          "cvss": [
+            {
+              "severity": "medium",
+              "cvss_3_base_score": 5.9000000954,
+              "cvss_3_base_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+              "source": "MICROSOFT",
+              "url": "https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB5011487"
+            }
+          ]
+        }
+      }
+    ],
+    "vulnerability_count": {
+      "high": 0,
+      "other": 0,
+      "critical": 0,
+      "low": 0,
+      "medium": 1
+    }
+  }
+}
 ```
