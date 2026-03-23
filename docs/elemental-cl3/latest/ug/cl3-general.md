@@ -36,6 +36,6 @@ Elemental Live, see the following:
 - [AWS Elemental Conductor Live API Reference](../apireference/about-this-manual.md "../apireference/about-this-manual.md")
 - [AWS Elemental Conductor Live Configuration Guide](../configguide.md "../configguide.md")
 - [AWS Elemental Live API
-  Reference](../../../elemental-onprem/latest/pdf/live-api.md "../../../elemental-onprem/latest/pdf/live-api.md")
+  Reference](../../../elemental-onprem/latest/pdf/live-api.pdf.md "../../../elemental-onprem/latest/pdf/live-api.pdf.md")
 - [AWS Elemental Live User
   Guide](../../../elemental-live/latest/ug.md "../../../elemental-live/latest/ug.md")
