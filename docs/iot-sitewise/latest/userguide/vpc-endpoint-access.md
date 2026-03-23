@@ -66,7 +66,7 @@ the following documentation sections for each SDK:
     * [AWS SDK for Java 2.x](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/client/config/SdkAdvancedClientOption.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/client/config/SdkAdvancedClientOption.html")
     * [AWS SDK for JavaScript](../../../AWSJavaScriptSDK/latest/AWS/Config.md#hostPrefixEnabled-property "../../../AWSJavaScriptSDK/latest/AWS/Config.md#hostPrefixEnabled-property")
     * [AWS SDK for .NET](../../../sdkfornet/v4/apidocs/items/Runtime/TClientConfig.md "../../../sdkfornet/v4/apidocs/items/Runtime/TClientConfig.md")
-    * [AWS SDK for PHP](../../../aws-sdk-php/v3/api/class-Aws.md#___construct "../../../aws-sdk-php/v3/api/class-Aws.md#___construct")
+    * [AWS SDK for PHP](../../../aws-sdk-php/v3/api/class-Aws.AwsClient.md#___construct "../../../aws-sdk-php/v3/api/class-Aws.AwsClient.md#___construct")
     * [AWS SDK for Python (Boto3)](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/config.html "https://botocore.amazonaws.com/v1/documentation/api/latest/reference/config.html")
     * [AWS SDK for Ruby](../../../sdk-for-ruby/v3/api/Aws/IoTSiteWise/Client.md#initialize-instance_method "../../../sdk-for-ruby/v3/api/Aws/IoTSiteWise/Client.md#initialize-instance_method")
 
