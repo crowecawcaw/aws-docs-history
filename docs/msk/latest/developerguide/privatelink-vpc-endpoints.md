@@ -10,9 +10,18 @@ When creating an Interface VPC Endpoint, choose one of the following service nam
 
 ###### For MSK Provisioned:
 
-- com.amazonaws.region.kafka
-- com.amazonaws.region.kafka-fips (FIPS-enabled)
-  Where region is your region name. Choose this service name to work with MSK Provisioned-compatible APIs. For more information, see [Operations](../../1.0/apireference/operations.md "../../1.0/apireference/operations.md") in the *https://docs.aws.amazon.com/msk/1.0/apireference/*.
+- The following service name endpoints are no longer supported for new connections:
+  - com.amazonaws.region.kafka
+  - com.amazonaws.region.kafka-fips (FIPS-enabled)
+
+- Dualstack endpoint service supporting both IPv4 and IPv6 traffic are:
+
+      + aws.api.region.kafka-api
+      + aws.api.region.kafka-api-fips (FIPS-enabled)
+
+  To set up the dualstack endpoints you must follow [Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md") guidelines.
+
+Where region is your region name. Choose this service name to work with MSK Provisioned-compatible APIs. For more information, see [Operations](../../1.0/apireference/operations.md "../../1.0/apireference/operations.md") in the *https://docs.aws.amazon.com/msk/1.0/apireference/*.
 
 ###### For MSK Connect:
 
