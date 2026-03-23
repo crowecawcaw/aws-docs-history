@@ -641,7 +641,7 @@ for each statement is unique within that policy. For information about creating 
 
 ## Configuring `ProfileRefreshingAWSCredentialProvider` to Refresh AWS Credentials
 
-If you use AWS Systems Manager for hybrid environments to manage AWS credentials, Systems Manager rotates session credentials in `c:\Windows\System32\config\systemprofile\.aws\credentials`. For more information about Systems Manager for hybrid environments, see [Setting up AWS Systems Manager for hybrid environments](../../../(systems-manager/latest/userguide/systems-manager-managedinstances.md "../../../(systems-manager/latest/userguide/systems-manager-managedinstances.md") in the _AWS Systems Manager User Guide_.
+If you use AWS Systems Manager for hybrid environments to manage AWS credentials, Systems Manager rotates session credentials in `c:\Windows\System32\config\systemprofile\.aws\credentials`. For more information about Systems Manager for hybrid environments, see [Setting up AWS Systems Manager for hybrid environments](<../../../(systems-manager/latest/userguide/systems-manager-managedinstances.html).md> "../../../(systems-manager/latest/userguide/systems-manager-managedinstances.html).md") in the _AWS Systems Manager User Guide_.
 
 Because the AWS .net SDK does not pick up new credentials automatically, we provide the `ProfileRefreshingAWSCredentialProvider` plug-in to refresh credentials.
 
