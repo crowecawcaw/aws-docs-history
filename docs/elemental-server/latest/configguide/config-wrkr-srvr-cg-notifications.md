@@ -14,7 +14,7 @@ AWS Elemental Server provides status information through alerts and messages. Yo
 | Visibility (web interface only) | You can toggle the visibility of active alerts on the web interface. Suppressing an<br>alert this way is similar to marking an email as read.<br>Alerts are available through the other access options, regardless of their visibility in<br>the web interface.                                    | You can toggle the visibility of recent error messages on the web interface. This is<br>similar to marking an email as read.<br>Visibility does not affect the return on SNMP and REST requests.                                                                                                                                                                                                                                                                    |
 
 The following sections describe how to setup notifications. For information about viewing
-alerts and messages on the web interface or through the API, see the [AWS Elemental Server API and User Guide](../../../elemental-onprem/latest/pdf/DOC-4544.md "../../../elemental-onprem/latest/pdf/DOC-4544.md").
+alerts and messages on the web interface or through the API, see the [AWS Elemental Server API and User Guide](../../../elemental-onprem/latest/pdf/DOC-4544.pdf.md "../../../elemental-onprem/latest/pdf/DOC-4544.pdf.md").
 
 ###### Topics
 
