@@ -62,6 +62,13 @@ request, namely [cryptographic operations](kms-cryptography.md#cryptographic-ope
 operations, such as [CreateAlias](../APIReference/API_CreateAlias.md "../APIReference/API_CreateAlias.md") or
 [DeleteAlias](../APIReference/API_DeleteAlias.md "../APIReference/API_DeleteAlias.md").
 
+###### Important
+
+A `Deny` policy statement with the `kms:RequestAlias` condition
+is not recommended because callers can bypass it by using the [key ID](concepts.md#key-id-key-id "concepts.md#key-id-key-id"), [key ARN](concepts.md#key-id-key-ARN "concepts.md#key-id-key-ARN"), or a different alias to identify the KMS key
+in the request. To deny access based on aliases associated with a KMS key, use the [kms:ResourceAliases](conditions-kms.md#conditions-kms-resource-aliases "conditions-kms.md#conditions-kms-resource-aliases") condition key
+instead.
+
 In the condition key, specify an [alias name](concepts.md#key-id-alias-name "concepts.md#key-id-alias-name") or
 alias name pattern. You cannot specify an [alias
 ARN](concepts.md#key-id-alias-ARN "concepts.md#key-id-alias-ARN").

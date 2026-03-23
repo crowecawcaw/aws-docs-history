@@ -123,7 +123,7 @@ Encryption SDK](../../../encryption-sdk/latest/developer-guide/introduction.md "
 these libraries to protect your data and the encryption keys that are used to encrypt that
 data.
 
-![Envelope encryption with multiple key encryption keys](/images/kms/latest/developerguide/images/key-hierarchy-kms-key.png)
+![Envelope encryption with multiple key encryption keys](images/key-hierarchy-kms-key.png)
 
 Envelope encryption offers several benefits:
 

@@ -23,7 +23,7 @@ documentation:
 - **Amazon Q** permissions - [Data encryption for
   Amazon Q](../../../amazonq/latest/qbusiness-ug/data-encryption.md "../../../amazonq/latest/qbusiness-ug/data-encryption.md")
 - **Amazon Relational Database Service** permissions - [AWS KMS key
-  management](../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md "../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md")
+  management](../../../AmazonRDS/latest/UserGuide/Overview.Encryption.Keys.md "../../../AmazonRDS/latest/UserGuide/Overview.Encryption.Keys.md")
 - **AWS Secrets Manager** permissions - [Authorizing use
   of the KMS key](../../../secretsmanager/latest/userguide/security-encryption.md#security-encryption-authz "../../../secretsmanager/latest/userguide/security-encryption.md#security-encryption-authz")
 - **Amazon Simple Queue Service** permissions - [Amazon SQS Key
