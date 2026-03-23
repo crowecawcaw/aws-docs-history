@@ -214,6 +214,14 @@ You can use the following permissions in IAM policies for AWS Partner Central. Y
 - **Required resources:** Does not support specifying a resource Amazon Resource Number (ARN) in the `Resource` element of an IAM policy statement. To allow access, specify `"Resource": "*"` in your policy.
 - **Condition keys:** `partnercentral:Catalog`
 
+### UseSession
+
+`UseSession` provides access to use Partner Central agents sessions in AWS Partner Central.
+
+- **Action groups:** `ReadWrite`
+- **Required resources:** Does not support specifying a resource Amazon Resource Number (ARN) in the `Resource` element of an IAM policy statement. To allow access, specify `"Resource": "*"` in your policy.
+- **Condition keys:** `partnercentral:Catalog`
+
 ## Condition keys for AWS Partner Central
 
 AWS Partner Central defines the following condition keys that you can use in the `Condition` element of an IAM policy.
