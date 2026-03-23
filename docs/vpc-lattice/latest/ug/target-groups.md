@@ -12,7 +12,7 @@ create different target groups for different types of requests. For example, cre
 target group for general requests and other target groups for requests that include specific
 rule conditions, such as a path or header value.
 
-![A service with a listener, listener rules, and two target groups.](images/service.png)
+![A service with a listener, listener rules, and two target groups.](/images/vpc-lattice/latest/ug/images/service.png)
 You define health check settings for your service on a per target group basis. Each target
 group uses the default health check settings, unless you override them when you create the
 target group or modify them later on. After you specify a target group in a rule for a
@@ -82,6 +82,12 @@ targets, regardless of their health status. This means that if all targets fail 
 checks at the same time, the VPC Lattice service fails open. The effect of the fail-open
 is to allow traffic to all targets, regardless of their health status, based on the
 round robin algorithm.
+
+VPC Lattice supports Availability Zone (AZ) affinity for routing traffic. When a client sends
+a request to VPC Lattice, VPC Lattice responds with the IP address for the service or resource from
+the same AZ as the client. If that AZ is unavailable, VPC Lattice responds with IP addresses from
+other AZs. From VPC Lattice to the target, the routing is to targets, which might be distributed across AZs. Additionally, there are no inter-AZ data transfer charges in
+VPC Lattice.
 
 ## Target type
 

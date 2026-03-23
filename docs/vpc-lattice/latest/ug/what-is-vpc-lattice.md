@@ -185,6 +185,15 @@ The second layer enables users to attach security groups to the association betw
 VPC and the service network. The third and fourth layers are auth policies that can be applied
 individually at the service network level and the service level.
 
+**Availability Zone affinity**
+
+VPC Lattice supports Availability Zone (AZ) affinity for routing traffic. When a client
+sends a request to VPC Lattice, VPC Lattice responds with the IP address for the service or
+resource from the same AZ as the client. If that AZ is unavailable, VPC Lattice responds with IP
+addresses from other AZs. From VPC Lattice to the target, the routing is to targets, which might
+be distributed across AZs. Additionally, there are no inter-AZ data transfer charges in
+VPC Lattice.
+
 ## Accessing VPC Lattice
 
 You can create, access, and manage VPC Lattice using any of the following interfaces:

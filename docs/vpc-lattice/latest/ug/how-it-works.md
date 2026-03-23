@@ -52,7 +52,13 @@ group 2). They do this by specifying the target instances on which the services 
 specify the VPCs in which these targets reside.
 
 In the preceding diagram, the solid arrows represent services routing traffic to target
-groups, and resource configurations routing to resources. 4. **Associate services with the service network**
+groups, and resource configurations routing to resources.
+
+VPC Lattice supports Availability Zone (AZ) affinity for routing traffic. When a client sends
+a request to VPC Lattice, VPC Lattice responds with the IP address for the service or resource from
+the same AZ as the client. If that AZ is unavailable, VPC Lattice responds with IP addresses from
+other AZs. From VPC Lattice to the target, the routing is to targets, which might be distributed across AZs. Additionally, there are no inter-AZ data transfer charges in
+VPC Lattice. 4. **Associate services with the service network**
 
 The service network owner or the service owner associates the services with the service
 network. The associations are shown as arrows with check marks pointing to the service network
