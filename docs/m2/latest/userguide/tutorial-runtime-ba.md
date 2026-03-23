@@ -3,9 +3,9 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Tutorial: Set up managed runtime for AWS Blu Age
+# Tutorial: Set up managed runtime for AWS Transform for mainframe
 
-You can deploy a AWS Blu Age modernized application into an AWS Mainframe Modernization runtime environment with a demo
+You can deploy a AWS Transform for mainframe modernized application into an AWS Mainframe Modernization runtime environment with a demo
 application specified in this tutorial.
 
 ###### Topics
@@ -79,7 +79,7 @@ stored the sample application zip file (e.g., `${s3-source}/PlanetsDemo-v4.zip`)
 
 Make sure to create the application definition file on your local as a text file.
 
-For more information on the application definition, see [AWS Blu Age application definition sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba").
+For more information on the application definition, see [AWS Transform for mainframe application definition sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba").
 
 ## Step 3: Create a runtime environment
 
@@ -89,9 +89,9 @@ To create the AWS Mainframe Modernization runtime environment, perform the follo
 2. In the AWS Region selector, choose the Region where you want to create the environment.
    This AWS Region must match the Region where you created the S3 bucket in [Step 1: Upload the demo application](#tutorial-runtime-ba-step1 "#tutorial-runtime-ba-step1").
 3. Under **Modernize mainframe applications**, choose **Refactor
-   with Blu Age**, and then choose **Get started**.
+   with AWS Transform for mainframe**, and then choose **Get started**.
 
-![The Modernize mainframe applications section with selected Refactor AWS Blu Age.](images/m2-ba-get-started.png) 4. Under **How can AWS Mainframe Modernization help**, choose
+![The Modernize mainframe applications section with selected Refactor AWS Transform for mainframe.](images/m2-ba-get-started.png) 4. Under **How can AWS Mainframe Modernization help**, choose
 **Deploy** and **Create runtime environment**.
 
 ![The How would you like to start with AWS Mainframe Modernization section with deploy and create runtime environment selected.](images/update-m2-ba-deploy-create-env.png) 5. In the left navigation, choose **Environments**, then choose
@@ -100,7 +100,7 @@ page, enter a name and description for your environment, and then make sure **AW
 Age** engine is selected. Optionally, you can add tags to the created resource. Then
 choose **Next**.
 
-![The AWS Mainframe Modernization Specify basic information page with the AWS Blu Age engine selected.](images/m2-ba-env-basic.png) 6. On the **Specify configurations** page, choose **Standalone
+![The AWS Mainframe Modernization Specify basic information page with the AWS Transform for mainframe engine selected.](images/m2-ba-env-basic.png) 6. On the **Specify configurations** page, choose **Standalone
 runtime environment**.
 
 ![The AWS Mainframe Modernization Availability section with Standalone runtime environment selected.](images/m2-ba-config-avail.png) 7. Under **Security and network**, make the following changes:
@@ -132,9 +132,9 @@ and then choose **Next**. 11. In **Review and create**, review the information, 
 2. In the navigation pane, choose **Applications**, and then choose
    **Create application**. On the **Specify basic information**
    page, enter a name and description for the application, and make sure that the **AWS
-   Blu Age** engine is selected. Then choose **Next**.
+   AWS Transform for mainframe** engine is selected. Then choose **Next**.
 
-![The application Specify basic information page with the AWS Blu Age engine selected.](images/m2-ba-app-basic.png) 3. On the **Specify resources and configurations** page, copy and paste the
+![The application Specify basic information page with the AWS Transform for mainframe engine selected.](images/m2-ba-app-basic.png) 3. On the **Specify resources and configurations** page, copy and paste the
 updated application definition JSON you created in [Step 2: Create the application definition](#tutorial-runtime-ba-step2 "#tutorial-runtime-ba-step2").
 
 ![The Resources and configurations section with the updated application definition JSON pasted in.](images/m2-ba-resources-configs.png) 4. In **Review and create**, review your choices, and then choose

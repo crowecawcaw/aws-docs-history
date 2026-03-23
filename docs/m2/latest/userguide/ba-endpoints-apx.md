@@ -3,9 +3,9 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Data structures for AWS Blu Age user
+# Data structures for AWS Transform for mainframe user
 
-You can learn about various data structures for AWS Blu Age engine in the following section.
+You can learn about various data structures for AWS Transform for mainframe engine in the following section.
 
 ###### Topics
 

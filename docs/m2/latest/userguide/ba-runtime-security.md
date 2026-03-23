@@ -8,7 +8,7 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 The following topics describe how to secure Gapwalk applications.
 
 It is your responsibility to provide the right configuration to ensure that the use of the
-AWS Blu Age framework is secure.
+AWS Transform for mainframe framework is secure.
 
 All security-related features are disabled by default. To enable authentication (and
 CSRF,XSS,CSP, and so on), set `gapwalk-application.security` to `enabled` and
@@ -18,4 +18,4 @@ CSRF,XSS,CSP, and so on), set `gapwalk-application.security` to `enabled` and
 
 - [Configure URI accessibility for Gapwalk applications](ba-runtime-filteringURIs.md "ba-runtime-filteringURIs.md")
 - [Configure authentication for Gapwalk applications](ba-runtime-auth.md "ba-runtime-auth.md")
-- [Configure rate limiting for AWS Blu Age Runtime](ba-runtime-rate-limiting.md "ba-runtime-rate-limiting.md")
+- [Configure rate limiting for AWS Transform for mainframe Runtime](ba-runtime-rate-limiting.md "ba-runtime-rate-limiting.md")

@@ -62,16 +62,16 @@ AWS Mainframe Modernization supports encryption in transit on this database. If 
 sure that you specify `sslMode` in the database secret along with the connection
 details of the database. For more information, see [AWS Secrets Manager secret](#applications-m2-other-resources-secret "#applications-m2-other-resources-secret").
 
-If you use the AWS Blu Age refactoring pattern, and you need a Blusam database, the AWS Blu Age runtime
+If you use the AWS Transform for mainframe refactoring pattern, and you need a Blusam database, the AWS Transform for mainframe runtime
 engine expects an Amazon Aurora PostgreSQL database, which you must create, configure, and manage. The
 Blusam database is optional. Create this database only if your application requires it. To
 create the database, follow the steps in [Creating an Amazon Aurora DB
-cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md") in the _Amazon Aurora User Guide_.
+cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.md") in the _Amazon Aurora User Guide_.
 
 If you are using the Rocket Software replatforming pattern, you can create either an Amazon RDS or an
 Amazon Aurora PostgreSQL database. To create the database, follow the steps in [Creating an
 Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/USER_CreateDBInstance.md "../../../AmazonRDS/latest/UserGuide/USER_CreateDBInstance.md") in the _Amazon RDS User Guide_ or in [Creating
-an Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md") in the _Amazon Aurora User Guide_.
+an Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.md") in the _Amazon Aurora User Guide_.
 
 For both runtime engines, you must store the database credentials in AWS Secrets Manager using an
 AWS KMS key to encrypt them.

@@ -10,12 +10,12 @@ If you're new to AWS Mainframe Modernization see the following topics to get sta
 - [What is AWS Mainframe Modernization?](what-is-m2.md "what-is-m2.md")
 - [Set up for AWS Mainframe Modernization](setting-up.md "setting-up.md")
 - [Get started with AWS Mainframe Modernization](getting-started.md "getting-started.md")
-- [Tutorial: Set up managed runtime for AWS Blu Age](tutorial-runtime-ba.md "tutorial-runtime-ba.md")
+- [Tutorial: Set up managed runtime for AWS Transform for mainframe](tutorial-runtime-ba.md "tutorial-runtime-ba.md")
 - [Tutorial: Set up managed runtime for Rocket Software (formerly Micro Focus)](tutorial-runtime-mf.md "tutorial-runtime-mf.md")
   A runtime environment in AWS Mainframe Modernization is a named combination of AWS compute resources, a
   runtime engine, and the configuration details that you specify. The runtime environment hosts
   one or more applications. Applications in AWS Mainframe Modernization contain migrated mainframe workloads. You can
-  choose the runtime engine for the environments that you create. Choose AWS Blu Age if you are using the
+  choose the runtime engine for the environments that you create. Choose AWS Transform for mainframe if you are using the
   automated refactoring pattern, and Rocket Software (formerly Micro Focus) if you are using the replatforming
   pattern. You can also choose the amount of compute resources that are right for your application
   and optionally attach storage to runtime environments. AWS Mainframe Modernization enables Amazon CloudWatch metrics and logging

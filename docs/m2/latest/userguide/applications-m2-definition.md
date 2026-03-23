@@ -8,20 +8,20 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 In AWS Mainframe Modernization, you configure migrated mainframe applications in an application definition
 JSON file, which is specific to the runtime engine you choose. An application definition
 contains both general information and engine-specific information. This topic describes both
-the AWS Blu Age and Rocket Software (formerly Micro Focus) application definitions and identifies all required and
+the AWS Transform for mainframe and Rocket Software (formerly Micro Focus) application definitions and identifies all required and
 optional elements.
 
 ###### Contents
 
 - [General header section](applications-m2-definition.md#applications-m2-definition-general "applications-m2-definition.md#applications-m2-definition-general")
 - [Definition section overview](applications-m2-definition.md#applications-m2-definition-overview "applications-m2-definition.md#applications-m2-definition-overview")
-- [AWS Blu Age application definition sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba")
-- [AWS Blu Age definition details](applications-m2-definition.md#applications-m2-definition-ba-details "applications-m2-definition.md#applications-m2-definition-ba-details")
+- [AWS Transform for mainframe application definition sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba")
+- [AWS Transform for mainframe definition details](applications-m2-definition.md#applications-m2-definition-ba-details "applications-m2-definition.md#applications-m2-definition-ba-details")
   - [Listener(s) - required](applications-m2-definition.md#applications-m2-definition-ba-details-listener "applications-m2-definition.md#applications-m2-definition-ba-details-listener")
-  - [AWS Blu Age application - required](applications-m2-definition.md#applications-m2-definition-ba-details-application "applications-m2-definition.md#applications-m2-definition-ba-details-application")
+  - [AWS Transform for mainframe application - required](applications-m2-definition.md#applications-m2-definition-ba-details-application "applications-m2-definition.md#applications-m2-definition-ba-details-application")
   - [Blusam - optional](applications-m2-definition.md#applications-m2-definition-ba-details-blusam "applications-m2-definition.md#applications-m2-definition-ba-details-blusam")
-  - [AWS Blu Age message queues - optional](applications-m2-definition.md#applications-m2-definition-ba-message-queues "applications-m2-definition.md#applications-m2-definition-ba-message-queues")
-  - [AWS Blu Age Application storage EFS config - optional](applications-m2-definition.md#applications-m2-definitions-ba--details-efs "applications-m2-definition.md#applications-m2-definitions-ba--details-efs")
+  - [AWS Transform for mainframe message queues - optional](applications-m2-definition.md#applications-m2-definition-ba-message-queues "applications-m2-definition.md#applications-m2-definition-ba-message-queues")
+  - [AWS Transform for mainframe Application storage EFS config - optional](applications-m2-definition.md#applications-m2-definitions-ba--details-efs "applications-m2-definition.md#applications-m2-definitions-ba--details-efs")
 
 - [Rocket Software (formerly Micro Focus) application definition](applications-m2-definition.md#applications-m2-definition-mf "applications-m2-definition.md#applications-m2-definition-mf")
 - [Rocket Software definition details](applications-m2-definition.md#applications-m2-definition-mf-details "applications-m2-definition.md#applications-m2-definition-mf-details")
@@ -117,7 +117,7 @@ application definition JSON file.
 The definition section is engine-specific and subject to change. The following
 sections show sample engine-specific application definitions for both engines.
 
-## AWS Blu Age application definition sample
+## AWS Transform for mainframe application definition sample
 
 ```
 {
@@ -158,7 +158,7 @@ sections show sample engine-specific application definitions for both engines.
 }
 ```
 
-## AWS Blu Age definition details
+## AWS Transform for mainframe definition details
 
 ### Listener(s) - required
 
@@ -183,7 +183,7 @@ port.
 
 (Required) Currently, only `http` is supported.
 
-### AWS Blu Age application - required
+### AWS Transform for mainframe application - required
 
 Specify the location where the engine picks up the application image file using
 the following structure.
@@ -208,12 +208,12 @@ stored.
 (Optional) The location of the input/output files for batches. Must be
 a subfolder of the Amazon EFS or Amazon FSx mount point setup at environment
 level. The subfolder must be owned by a suitable user for use by the
-**Blu Age** application running inside
+**AWS Transform for mainframe** application running inside
 AWS Mainframe Modernization. To achieve this, when attaching the drive to a Linux Amazon EC2
 instance, a group with ID `101` and a user with ID
 `3001` must be created, and the desired folder must be
 owned by this user. _For example, this way, the
-`testclient` folder can be used by **Blu Age** AWS Mainframe Modernization Managed._
+`testclient` folder can be used by **AWS Transform for mainframe** AWS Mainframe Modernization Managed._
 
 ```
 groupadd -g 101 mygroup
@@ -231,8 +231,8 @@ this to false prevents the JICS database from being spawned.
 
 (Optional) Specifies whether to enable restart feature for batch jobs.
 Defaults to false. For more information regarding batch restart
-configurations, see AWS Blu Age engine properties prefixed
-`jcl.checkpoint` in [Configuration properties for the managed application with AWS Blu Age
+configurations, see AWS Transform for mainframe engine properties prefixed
+`jcl.checkpoint` in [Configuration properties for the managed application with AWS Transform for mainframe
 engine](applications-m2-ba-config-props.md#gapwalk-app-props "applications-m2-ba-config-props.md#gapwalk-app-props").
 
 **shared-app-location**
@@ -304,9 +304,9 @@ Redis cache.
   specify `secret-manager-arn`. For more information,
   see [Step 4: Create and configure an AWS Secrets Manager database secret](tutorial-runtime-mf.md#tutorial-runtime-mf-secret "tutorial-runtime-mf.md#tutorial-runtime-mf-secret").
 
-### AWS Blu Age message queues - optional
+### AWS Transform for mainframe message queues - optional
 
-Specify the JMS-MQ connection details for AWS Blu Age application.
+Specify the JMS-MQ connection details for AWS Transform for mainframe application.
 
 ```
 "message-queues": [
@@ -336,7 +336,7 @@ Specify the JMS-MQ connection details for AWS Blu Age application.
 **product-type**
 
 (Required) Specifies the product type. Currently, this can only be
-"JMS-MQ" for AWS Blu Age applications.
+"JMS-MQ" for AWS Transform for mainframe applications.
 
 **queue-manager**
 
@@ -370,7 +370,7 @@ connection.
 (Optional) Specifies the Amazon Resource Name (ARN) of Secrets Manager that
 provides the password of the specified user.
 
-### AWS Blu Age Application storage EFS config - optional
+### AWS Transform for mainframe Application storage EFS config - optional
 
 Specify the application storage EFS Access point details using the following
 structure.

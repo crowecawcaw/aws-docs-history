@@ -3,13 +3,13 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age Runtime artifacts
+# AWS Transform for mainframe Runtime artifacts
 
-AWS Blu Age Runtime artifacts are the components for deploying and running modernized applications. This
+AWS Transform for mainframe Runtime artifacts are the components for deploying and running modernized applications. This
 document outlines the different types of artifacts available, their storage locations, and
 how to access them.
 
-## AWS Blu Age Runtime artifacts
+## AWS Transform for mainframe Runtime artifacts
 
 ### Artifacts contents
 
@@ -17,19 +17,19 @@ In both Release and Pre-release buckets, you'll find:
 
 **gapwalk-x.y.z.zip**
 
-This archive, where x.y.z represents the version number (see [AWS Blu Age versioning](ba-versioning.md "ba-versioning.md")), contains the core
-AWS Blu Age Runtime components essential for executing AWS Blu Age applications, including:
+This archive, where x.y.z represents the version number (see [AWS Transform for mainframe versioning](ba-versioning.md "ba-versioning.md")), contains the core
+AWS Transform for mainframe Runtime components essential for executing AWS Transform for mainframe applications, including:
 
-| Artifact                      | Description                                                                       | Type | Distribution Folder |
-| ----------------------------- | --------------------------------------------------------------------------------- | ---- | ------------------- |
-| gapwalk-application-x.y.z.war | Blu Age main web application **Gapwalk**                                          | War  | webapps             |
-| \*.jar                        | Blu Age Runtime Framework \*_Shared Libraries_<br>• (Gapwalk)                     | Jars | shared              |
-| gapwalk-\*-x.y.z.war          | Blu Age additional web applications **(utility-pgm, hierarchical support, ... )** | War  | webapps-extra       |
-| bac-x.y.z.war / jac-x.y.z.war | Blu Age **Administration Consoles (non-standalone)**                              | War  | webapps-consoles    |
+| Artifact                      | Description                                                                                           | Type | Distribution Folder |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------- | ---- | ------------------- |
+| gapwalk-application-x.y.z.war | AWS Transform for mainframe main web application **Gapwalk**                                          | War  | webapps             |
+| \*.jar                        | AWS Transform for mainframe Runtime Framework \*_Shared Libraries_<br>• (Gapwalk)                     | Jars | shared              |
+| gapwalk-\*-x.y.z.war          | AWS Transform for mainframe additional web applications **(utility-pgm, hierarchical support, ... )** | War  | webapps-extra       |
+| bac-x.y.z.war / jac-x.y.z.war | AWS Transform for mainframe **Administration Consoles (non-standalone)**                              | War  | webapps-consoles    |
 
 **aws-bluage-webapps-x.y.z.zip**
 
-This archive, where x.y.z follows the same versioning scheme as above, includes Blu Age Administration Consoles (standalone)
+This archive, where x.y.z follows the same versioning scheme as above, includes AWS Transform for mainframe Administration Consoles (standalone)
 
 - **BAC** (Blusam console) WAR file, which is
   used for monitoring the Blusam database.
@@ -55,7 +55,7 @@ Here the result example for a certified file :
 jar verified.
 ```
 
-For details on how security vulnerabilities are addressed, see [AWS Mainframe Modernization Refactor with AWS Blu Age release
+For details on how security vulnerabilities are addressed, see [AWS Mainframe Modernization Refactor with AWS Transform for mainframe release
 overview](lifecycle-m2.md#lifecycle-ba-overview "lifecycle-m2.md#lifecycle-ba-overview").
 
 ###### Note

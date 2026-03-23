@@ -3,31 +3,31 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Upgrade the AWS Blu Age Runtime on Amazon EC2
+# Upgrade the AWS Transform for mainframe Runtime on Amazon EC2
 
-This guide describes how to upgrade the AWS Blu Age Runtime on Amazon EC2.
+This guide describes how to upgrade the AWS Transform for mainframe Runtime on Amazon EC2.
 
 ###### Topics
 
 - [Prerequisites](#ba-runtime-maint-prereq "#ba-runtime-maint-prereq")
-- [Upgrade the AWS Blu Age Runtime in the Amazon EC2 instance](#ba-runtime-maint-copy-files "#ba-runtime-maint-copy-files")
-- [Upgrade the AWS Blu Age Runtime in a container](#ba-runtime-maint-copy-files "#ba-runtime-maint-copy-files")
+- [Upgrade the AWS Transform for mainframe Runtime in the Amazon EC2 instance](#ba-runtime-maint-copy-files "#ba-runtime-maint-copy-files")
+- [Upgrade the AWS Transform for mainframe Runtime in a container](#ba-runtime-maint-copy-files "#ba-runtime-maint-copy-files")
 
 ## Prerequisites
 
 Before you begin, make sure you meet the following prerequisites.
 
-- To check if there are specific instructions for your version, see [Upgrading instructions for AWS Blu Age](ba-migration-notes.md "ba-migration-notes.md").
-- Complete [AWS Blu Age Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
-- Ensure that you have an Amazon EC2 instance with an existing AWS Blu Age Runtime installation. For more
+- To check if there are specific instructions for your version, see [Upgrading instructions for AWS Transform for mainframe](ba-migration-notes.md "ba-migration-notes.md").
+- Complete [AWS Transform for mainframe Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Transform for mainframe Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
+- Ensure that you have an Amazon EC2 instance with an existing AWS Transform for mainframe Runtime installation. For more
   information, see [Get started with Amazon EC2 Linux instances](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md").
 - Make sure you can connect to the Amazon EC2 instance successfully, for example, by using
   SSM.
-- Download the AWS Blu Age Runtime version you want to upgrade to. The framework consists of two archive files : `gapwalk-x.y.z.zip` and `aws-bluage-webapps-x.y.z.zip`. For more information, see [AWS Blu Age Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md").
+- Download the AWS Transform for mainframe Runtime version you want to upgrade to. The framework consists of two archive files : `gapwalk-x.y.z.zip` and `aws-bluage-webapps-x.y.z.zip`. For more information, see [AWS Transform for mainframe Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md").
 
-## Upgrade the AWS Blu Age Runtime in the Amazon EC2 instance
+## Upgrade the AWS Transform for mainframe Runtime in the Amazon EC2 instance
 
-Complete the following steps to upgrade the AWS Blu Age Runtime.
+Complete the following steps to upgrade the AWS Transform for mainframe Runtime.
 
 1. Connect to your Amazon EC2 instance and change the user to **su**
    by running the following command.
@@ -95,15 +95,15 @@ curl http://localhost:8181/bac/api/services/rest/bluesamserver/serverIsUp
 
 The response should be empty.
 
-The AWS Blu Age runtime is successfully upgraded.
+The AWS Transform for mainframe runtime is successfully upgraded.
 
-## Upgrade the AWS Blu Age Runtime in a container
+## Upgrade the AWS Transform for mainframe Runtime in a container
 
-Complete the following steps to upgrade the AWS Blu Age Runtime.
+Complete the following steps to upgrade the AWS Transform for mainframe Runtime.
 
-1. Rebuild your Docker image with the desired AWS Blu Age Runtime version. For instructions, see [Set up AWS Blu Age Runtime on Amazon EC2](ba-runtime-deploy-ec2.md "ba-runtime-deploy-ec2.md").
+1. Rebuild your Docker image with the desired AWS Transform for mainframe Runtime version. For instructions, see [Set up AWS Transform for mainframe Runtime on Amazon EC2](ba-runtime-deploy-ec2.md "ba-runtime-deploy-ec2.md").
 2. Push your Docker image to your Amazon ECR repository.
 3. Stop and restart your Amazon ECS or Amazon EKS service.
 4. Check the logs.
 
-The AWS Blu Age Runtime is successfully upgraded.
+The AWS Transform for mainframe Runtime is successfully upgraded.

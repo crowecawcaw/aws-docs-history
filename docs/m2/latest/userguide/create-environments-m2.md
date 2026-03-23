@@ -65,7 +65,7 @@ These instructions assume that you've completed the steps in [Set up for AWS Mai
       with IPv6-enabled subnets.
    3. Choose a Virtual Private Cloud (VPC).
    4. If you're using the high availability pattern, choose two or more subnets. If
-      you're using the standalone pattern with the AWS Blu Age engine, choose two or more
+      you're using the standalone pattern with the AWS Transform for mainframe engine, choose two or more
       subnets. If you're using the standalone pattern with the Rocket Software engine, you can
       specify one subnet.
    5. Choose a security group for the VPC that you selected.

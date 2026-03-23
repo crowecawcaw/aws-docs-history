@@ -181,7 +181,7 @@ executables). It also creates metadata that tracks various entities used for the
 AWS Mainframe Modernization, and creates logs and metrics. The logs and metrics that are customer-visible
 include:
 
-- CloudWatch logs that reflect application and runtime engine (either AWS Blu Age or Rocket Software (formerly
+- CloudWatch logs that reflect application and runtime engine (either AWS Transform for mainframe or Rocket Software (formerly
   Micro Focus)).
 - CloudWatch metrics for operation dashboards.
 

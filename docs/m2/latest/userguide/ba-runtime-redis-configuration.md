@@ -3,29 +3,29 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Available Redis cache properties in AWS Blu Age Runtime
+# Available Redis cache properties in AWS Transform for mainframe Runtime
 
-You can use this document to learn about the Redis caches in AWS Blu Age Runtime, along with
+You can use this document to learn about the Redis caches in AWS Transform for mainframe Runtime, along with
 Gapwalk configuration, supported Redis properties and how `application-main.yml`
 file can reference secret ARN for Redis caches.
 
-## Redis caches in AWS Blu Age Runtime
+## Redis caches in AWS Transform for mainframe Runtime
 
-Redis servers can be used as caches for various features in the AWS Blu Age Gapwalk application,
+Redis servers can be used as caches for various features in the AWS Transform for mainframe Gapwalk application,
 such as:
 
-| AWS Blu Age Runtime features that use Redis caching | Description                                                                                                                                                                    |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Blusam cache                                        | A Redis Blusam cache for reading records efficiently, using a write-behind<br>strategy, to optimize write-intensive workloads encountered on batch payloads.                   |
-| Blusam locks                                        | A cache for distributed locks for datasets and records.                                                                                                                        |
-| Dataset catalog                                     | The catalog dataset cache.                                                                                                                                                     |
-| Session cache                                       | A Redis cache for HttpSession. The cache stores the username, the state of the<br>dialogue with the Angular frontend, and specific 'dialect' (BMS, MFS, AS400)<br>information. |
-| Session tracker                                     | A cache of active sessions with associated username and session-creation-time<br>information.                                                                                  |
-| JICS cache                                          | A cache for JICS resource definitions.                                                                                                                                         |
-| TS queues                                           | Storage for TS queues.                                                                                                                                                         |
-| JCL checkpoint                                      | JCL checkpoint cache.                                                                                                                                                          |
-| Gapwalk file locks                                  | A cache for distributed file locks by job.                                                                                                                                     |
-| Blu4iv locks                                        | Storage for Blu4iv record locks.                                                                                                                                               |
+| AWS Transform for mainframe Runtime features that use Redis caching | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Blusam cache                                                        | A Redis Blusam cache for reading records efficiently, using a write-behind<br>strategy, to optimize write-intensive workloads encountered on batch payloads.                   |
+| Blusam locks                                                        | A cache for distributed locks for datasets and records.                                                                                                                        |
+| Dataset catalog                                                     | The catalog dataset cache.                                                                                                                                                     |
+| Session cache                                                       | A Redis cache for HttpSession. The cache stores the username, the state of the<br>dialogue with the Angular frontend, and specific 'dialect' (BMS, MFS, AS400)<br>information. |
+| Session tracker                                                     | A cache of active sessions with associated username and session-creation-time<br>information.                                                                                  |
+| JICS cache                                                          | A cache for JICS resource definitions.                                                                                                                                         |
+| TS queues                                                           | Storage for TS queues.                                                                                                                                                         |
+| JCL checkpoint                                                      | JCL checkpoint cache.                                                                                                                                                          |
+| Gapwalk file locks                                                  | A cache for distributed file locks by job.                                                                                                                                     |
+| Blu4iv locks                                                        | Storage for Blu4iv record locks.                                                                                                                                               |
 
 ## Redis Gapwalk configuration
 
@@ -101,7 +101,7 @@ To enable the global Redis configuration, add the following configuration in
 ## Supported Redis properties
 
 The following table shows the Redis properties that are supported for global and specific
-Redis caches on AWS Blu Age Runtime.
+Redis caches on AWS Transform for mainframe Runtime.
 
 | Property name                    | Required? | Description                                                                                                                                                                                                               | Values      | Default      |
 | -------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------ | ------------ |
@@ -480,4 +480,4 @@ datasimplifier:
 
 The `application-main.yaml` file can reference the secret ARN for Redis
 caches. For information about how to integrate AWS Secrets Manager to securely retrieve Redis connection
-details at runtime, see [AWS Blu Age Runtime secrets](ba-runtime-config-app-secrets.md "ba-runtime-config-app-secrets.md").
+details at runtime, see [AWS Transform for mainframe Runtime secrets](ba-runtime-config-app-secrets.md "ba-runtime-config-app-secrets.md").

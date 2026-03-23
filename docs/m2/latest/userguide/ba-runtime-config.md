@@ -3,14 +3,14 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Set up configuration for AWS Blu Age Runtime
+# Set up configuration for AWS Transform for mainframe Runtime
 
-The AWS Blu Age Runtime and the client code are web applications using the [Spring Boot
+The AWS Transform for mainframe Runtime and the client code are web applications using the [Spring Boot
 framework](https://docs.spring.io/spring-boot/docs/2.5.14/reference/html/ "https://docs.spring.io/spring-boot/docs/2.5.14/reference/html/"). It leverages Spring capabilities to supply configuration, with several
 possible locations and precedence rules. There are also similar precedence rules for supplying
 many other files, such as groovy scripts, sql, etc.
 
-The AWS Blu Age Runtime also contains additional optional web applications, that can be opted-in if
+The AWS Transform for mainframe Runtime also contains additional optional web applications, that can be opted-in if
 needed.
 
 ###### Topics
@@ -18,11 +18,11 @@ needed.
 - [Application configuration basics](#ba-runtime-config-app-basics "#ba-runtime-config-app-basics")
 - [Application precedence](#ba-runtime-config-app-precedence "#ba-runtime-config-app-precedence")
 - [JNDI for databases](#ba-runtime-config-app-jndi "#ba-runtime-config-app-jndi")
-- [AWS Blu Age Runtime secrets](ba-runtime-config-app-secrets.md "ba-runtime-config-app-secrets.md")
+- [AWS Transform for mainframe Runtime secrets](ba-runtime-config-app-secrets.md "ba-runtime-config-app-secrets.md")
 - [Other files (groovy, sql, etc.)](#ba-runtime-config-app-files "#ba-runtime-config-app-files")
 - [Additional web application](#ba-runtime-config-app-webapp "#ba-runtime-config-app-webapp")
-- [Enable properties for AWS Blu Age Runtime](ba-runtime-key-value.md "ba-runtime-key-value.md")
-- [Available Redis cache properties in AWS Blu Age Runtime](ba-runtime-redis-configuration.md "ba-runtime-redis-configuration.md")
+- [Enable properties for AWS Transform for mainframe Runtime](ba-runtime-key-value.md "ba-runtime-key-value.md")
+- [Available Redis cache properties in AWS Transform for mainframe Runtime](ba-runtime-redis-configuration.md "ba-runtime-redis-configuration.md")
 - [Configure security for Gapwalk applications](ba-runtime-security.md "ba-runtime-security.md")
 
 ## Application configuration basics
@@ -49,7 +49,7 @@ The following example shows a typical client YAML file.
 
 ![Client YAML example](images/client-yaml.png)
 
-For information about the content of the YAML files, see [Enable properties for AWS Blu Age Runtime](ba-runtime-key-value.md "ba-runtime-key-value.md").
+For information about the content of the YAML files, see [Enable properties for AWS Transform for mainframe Runtime](ba-runtime-key-value.md "ba-runtime-key-value.md").
 
 ## Application precedence
 
@@ -124,7 +124,7 @@ the application war file.
 
 ## Additional web application
 
-The AWS Blu Age Runtime contains additional web applications in its `webapps-extra`
+The AWS Transform for mainframe Runtime contains additional web applications in its `webapps-extra`
 folder. These applications are not served by default by the tomcat server.
 
 Opting-in to these web applications is modernization project dependent and is done by moving

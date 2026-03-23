@@ -10,7 +10,7 @@ each runtime engine.
 
 ###### Topics
 
-- [Tutorial: Set up managed runtime for AWS Blu Age](tutorial-runtime-ba.md "tutorial-runtime-ba.md")
+- [Tutorial: Set up managed runtime for AWS Transform for mainframe](tutorial-runtime-ba.md "tutorial-runtime-ba.md")
 - [Tutorial: Set up managed runtime for Rocket Software (formerly Micro Focus)](tutorial-runtime-mf.md "tutorial-runtime-mf.md")
   To continue learning, see the following tutorials.
 

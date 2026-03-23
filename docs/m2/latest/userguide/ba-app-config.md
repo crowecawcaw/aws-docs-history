@@ -3,15 +3,15 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Configure the AWS Blu Age managed application
+# Configure the AWS Transform for mainframe managed application
 
 You can configure your application to include access to legacy utilities.
 You can customize additional properties as well.
-In order to understand what you can configure and where, refer the [Structure of AWS Blu Age managed applications](applications-m2-other-resources-structure.md "applications-m2-other-resources-structure.md") section
-to understand the overall structure of an AWS Blu Age modernized application.
+In order to understand what you can configure and where, refer the [Structure of AWS Transform for mainframe managed applications](applications-m2-other-resources-structure.md "applications-m2-other-resources-structure.md") section
+to understand the overall structure of an AWS Transform for mainframe modernized application.
 
 ###### Topics
 
-- [Structure of AWS Blu Age managed applications](applications-m2-other-resources-structure.md "applications-m2-other-resources-structure.md")
+- [Structure of AWS Transform for mainframe managed applications](applications-m2-other-resources-structure.md "applications-m2-other-resources-structure.md")
 - [Configure access to utilities for managed applications](applications-m2-ba-utilities.md "applications-m2-ba-utilities.md")
-- [Add configuration properties for the managed application with AWS Blu Age engine](applications-m2-ba-config-props.md "applications-m2-ba-config-props.md")
+- [Add configuration properties for the managed application with AWS Transform for mainframe engine](applications-m2-ba-config-props.md "applications-m2-ba-config-props.md")

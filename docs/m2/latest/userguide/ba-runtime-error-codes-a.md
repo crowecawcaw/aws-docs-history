@@ -3,7 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age Runtime Generic Error Codes
+# AWS Transform for mainframe Runtime Generic Error Codes
 
 Generic error codes, prefixed with `BA-A`.
 
@@ -53,4 +53,4 @@ Generic error codes, prefixed with `BA-A`.
 | `BA-A2000` | Fatal    | Can not parse the aws secret.                                                                                                                                                                             |                                                                                                                                                |
 | `BA-A2001` | Fatal    | AWS permission issue while parsing secret.                                                                                                                                                                | The error displays the underlying error. It is often related to a missing permission in the used IAM role.                                     |
 | `BA-A2002` | Fatal    | Application requires network access to AWS Secrets Manager service in order to start. This can be fixed either by using a publicly accessible environment, or by creating a PrivateLink or a NAT Gateway. | See [Access AWS Mainframe Modernization using an AWS PrivateLink interface endpoint](vpc-interface-endpoints.md "vpc-interface-endpoints.md"). |
-| `BA-A2003` | Fatal    | DB name for the database secret was passed neither in the secret nor in the yaml key. Add the database name to the configuration, either in a `dbname` field in the secret, or in the dedicated yaml key. | See [AWS Blu Age Runtime secrets](ba-runtime-config-app-secrets.md "ba-runtime-config-app-secrets.md").                                        |
+| `BA-A2003` | Fatal    | DB name for the database secret was passed neither in the secret nor in the yaml key. Add the database name to the configuration, either in a `dbname` field in the secret, or in the dedicated yaml key. | See [AWS Transform for mainframe Runtime secrets](ba-runtime-config-app-secrets.md "ba-runtime-config-app-secrets.md").                        |

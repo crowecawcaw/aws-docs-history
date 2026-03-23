@@ -3,13 +3,13 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age security vulnerabilities
+# AWS Transform for mainframe security vulnerabilities
 
 Common Vulnerabilities and Exposures (CVE) is a reference list for publicly known
 cybersecurity vulnerabilities. Each entry contains an identification number, a description,
 and at least one public reference.
 
-We recommend that you always upgrade to the latest AWS Blu Age version release to be protected
+We recommend that you always upgrade to the latest AWS Transform for mainframe version release to be protected
 against known vulnerabilities. Security scans are continuously performed with [Amazon Inspector](https://aws.amazon.com/inspector/ "https://aws.amazon.com/inspector/") and findings are
 classified as per their severity in [NIST](https://nvd.nist.gov/ "https://nvd.nist.gov/").
 
@@ -34,5 +34,5 @@ from the use of dependencies:
 
 ###### Note
 
-For details on CVEs fixed in previous release versions, please contact your AWS Blu Age
+For details on CVEs fixed in previous release versions, please contact your AWS Transform for mainframe
 delivery manager

@@ -3,9 +3,9 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Add configuration properties for the managed application with AWS Blu Age engine
+# Add configuration properties for the managed application with AWS Transform for mainframe engine
 
-You can add a file in the `config` folder for your refactored application that will give you access to new features in the AWS Blu Age runtime engine.
+You can add a file in the `config` folder for your refactored application that will give you access to new features in the AWS Transform for mainframe runtime engine.
 You must name this file `user-properties.yml`.
 This file doesn’t replace the application definition but extends it.
 This topic describes the properties you can include in the `user-properties.yml` file.
@@ -15,9 +15,9 @@ This topic describes the properties you can include in the `user-properties.yml`
 You can’t change some parameters because they are controlled either by AWS Mainframe Modernization or by the application definition.
 All parameters defined in the application definition for your application have priority over the parameters you specify in `user-properties.yml`.
 
-For more information about the structure of refactored applications, see [Structure of AWS Blu Age managed applications](applications-m2-other-resources-structure.md "applications-m2-other-resources-structure.md").
+For more information about the structure of refactored applications, see [Structure of AWS Transform for mainframe managed applications](applications-m2-other-resources-structure.md "applications-m2-other-resources-structure.md").
 
-The following diagram shows where to locate the `user-properties.yml` file within the structure of the AWS Blu Age sample application, PlanetsDemo.
+The following diagram shows where to locate the `user-properties.yml` file within the structure of the AWS Transform for mainframe sample application, PlanetsDemo.
 
 ```
 PlanetsDemo-v1/
@@ -319,7 +319,7 @@ Default: null
 Optional. List of commands to turn off, separated by comma.
 Allowed values are `PGM_BASIC`, `RCVMSG`, `SNDRCVF`, `CHGVAR`, `QCLRDTAQ`, `RTVJOBA`, `ADDLFM`, `ADDPFM`, `RCVF`, `OVRDBF`, `DLTOVR`, `CPYF`, `SNDDTAQ`.
 Useful when you want to disable or overwrite an existing program.
-`PGM_BASIC` is a specific AWS Blu Age Runtime program designed for debugging purposes.
+`PGM_BASIC` is a specific AWS Transform for mainframe Runtime program designed for debugging purposes.
 
 Type: string
 

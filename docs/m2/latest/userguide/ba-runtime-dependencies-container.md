@@ -3,10 +3,10 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Set up licensed dependencies in AWS Blu Age Runtime on container
+# Set up licensed dependencies in AWS Transform for mainframe Runtime on container
 
 This topic describes how to set up additional licensed dependencies that you can use with
-AWS Blu Age Runtime on container.
+AWS Transform for mainframe Runtime on container.
 
 ###### Topics
 
@@ -17,7 +17,7 @@ AWS Blu Age Runtime on container.
 
 Before you begin, make sure you complete the following prerequisites.
 
-- Complete [AWS Blu Age Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
+- Complete [AWS Transform for mainframe Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Transform for mainframe Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
 - Get the following dependencies from their source.
 
 ### Oracle database

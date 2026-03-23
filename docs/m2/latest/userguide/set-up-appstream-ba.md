@@ -3,7 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Tutorial: Set up WorkSpaces Applications for AWS Blu Age Developer IDE
+# Tutorial: Set up WorkSpaces Applications for AWS Transform for mainframe Developer IDE
 
 AWS Mainframe Modernization provides several tools through Amazon WorkSpaces Applications. WorkSpaces Applications is a fully managed, secure
 application streaming service that lets you stream desktop applications to users without rewriting
@@ -17,7 +17,7 @@ Requirements and Feature Support (Web Browser)](../../../appstream2/latest/devel
 WorkSpaces Applications see [Troubleshooting AppStream
 2.0 User Issues](../../../appstream2/latest/developerguide/troubleshooting-user-issues.md "../../../appstream2/latest/developerguide/troubleshooting-user-issues.md") in the _Amazon WorkSpaces Applications Administration Guide_.
 
-This document describes how to set up AWS Blu Age Developer IDE on an WorkSpaces Applications fleet.
+This document describes how to set up AWS Transform for mainframe Developer IDE on an WorkSpaces Applications fleet.
 
 ###### Topics
 
@@ -43,7 +43,7 @@ For first time users, do this:
 Amazon WorkSpaces Applications uses IAM roles to manage your WorkSpaces Applications resources and AWS will create
 these roles when you do this.
 
-Then, download the [archive file](https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/appstream-bluage-developer-ide.zip "https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/appstream-bluage-developer-ide.zip") that contains the artifacts that you need to set up AWS Blu Age Developer IDE
+Then, download the [archive file](https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/appstream-bluage-developer-ide.zip "https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/appstream-bluage-developer-ide.zip") that contains the artifacts that you need to set up AWS Transform for mainframe Developer IDE
 under WorkSpaces Applications.
 
 ###### Note
@@ -106,7 +106,7 @@ WorkSpaces Applications fleet.
 ## Step 5: Create the fleet with CloudFormation
 
 In this step, you use the `cfn-m2-appstream-elastic-fleet-linux.yaml`
-CloudFormation template to create an WorkSpaces Applications fleet and stack to host the AWS Blu Age Developer IDE. After you
+CloudFormation template to create an WorkSpaces Applications fleet and stack to host the AWS Transform for mainframe Developer IDE. After you
 create the fleet and stack, you will run the other CloudFormation templates you downloaded in the
 previous step to install the Developer IDE and other required tools.
 

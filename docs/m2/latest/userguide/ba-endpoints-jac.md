@@ -3,9 +3,9 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Manage JICS application console in AWS Blu Age
+# Manage JICS application console in AWS Transform for mainframe
 
-The JICS component is the AWS Blu Age support for modernization of the legacy CICS resources. The
+The JICS component is the AWS Transform for mainframe support for modernization of the legacy CICS resources. The
 JICS application console web application is dedicated to administrate JICS resources. The
 following endpoints allow to perform the administration tasks without having to interact with the
 JAC user interface. Whenever an endpoint requires authentication, the request will have to include

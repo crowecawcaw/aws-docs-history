@@ -3,7 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age Runtime Error Codes related to Batches
+# AWS Transform for mainframe Runtime Error Codes related to Batches
 
 Batches error codes, prefixed with `BA-C`.
 

@@ -3,11 +3,11 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age lifecycle
+# AWS Transform for mainframe lifecycle
 
-This section defines end of life (EOL) dates for the AWS Blu Age Runtime major versions. This enables
+This section defines end of life (EOL) dates for the AWS Transform for mainframe Runtime major versions. This enables
 you to plan for version upgrades so that you can stay up to date with the latest maintenance
-and features. To upgrade your version, see [Upgrading instructions for AWS Blu Age](ba-migration-notes.md "ba-migration-notes.md").
+and features. To upgrade your version, see [Upgrading instructions for AWS Transform for mainframe](ba-migration-notes.md "ba-migration-notes.md").
 
 We recommend you check for new versions every 3 months and upgrade to recent versions
 frequently. For each upgrade, you should perform non regression tests of your modernized
@@ -18,7 +18,7 @@ applications prior to production or critical deployments.
 End of life dates may be subject to change due to critical security remediations. For
 more details, see [AWS Mainframe Modernization components lifecycle](lifecycle-m2.md "lifecycle-m2.md").
 
-## AWS Blu Age Runtime End of Life (EOL)
+## AWS Transform for mainframe Runtime End of Life (EOL)
 
 The following table summarizes EOL date for each major version.
 

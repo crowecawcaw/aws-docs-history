@@ -191,4 +191,4 @@ won't continue to be charged for them. Complete the following steps:
 
 - Delete the CodeCommit repository you created for this tutorial. For more information, see
   [Delete an CodeCommit repository](../../../codecommit/latest/userguide/how-to-delete-repository.md "../../../codecommit/latest/userguide/how-to-delete-repository.md") in the _AWS CodeCommit User Guide_.
-- Delete the database you created for this tutorial. For more information, see [Deleting a DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Deleting.PostgreSQL "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Deleting.PostgreSQL").
+- Delete the database you created for this tutorial. For more information, see [Deleting a DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md#CHAP_GettingStarted.Deleting.PostgreSQL "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md#CHAP_GettingStarted.Deleting.PostgreSQL").

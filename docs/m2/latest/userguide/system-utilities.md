@@ -3,9 +3,9 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age Runtime Utilities
+# AWS Transform for mainframe Runtime Utilities
 
-Mainframe JCL scripts use customer business programs and system utilities. AWS Blu Age Runtime includes support for commonly used system utilities to enable proper JCL modernization to Groovy, plus additional convenience utilities.
+Mainframe JCL scripts use customer business programs and system utilities. AWS Transform for mainframe Runtime includes support for commonly used system utilities to enable proper JCL modernization to Groovy, plus additional convenience utilities.
 
 The purpose of this document is to:
 
@@ -14,7 +14,7 @@ The purpose of this document is to:
 
 ## Configure and deploy Utility web application
 
-Utilities are provided in `gapwalk-utility-pgm-<version>.war` (where `<version>` is the Blu Age runtime release). Deploy alongside `gapwalk-application` and modernized applications to enable utility access from modernized JCL scripts.
+Utilities are provided in `gapwalk-utility-pgm-<version>.war` (where `<version>` is the AWS Transform for mainframe runtime release). Deploy alongside `gapwalk-application` and modernized applications to enable utility access from modernized JCL scripts.
 
 All supported utilities are registered as programs in the "Programs Registry" (see this [Running and calling programs](ba-shared-structure.md#ba-shared-structure-run-call "ba-shared-structure.md#ba-shared-structure-run-call") for details about registering programs and using them in scripts or in other programs). Therefore, they can be called either by other programs or by modernized job scripts.
 

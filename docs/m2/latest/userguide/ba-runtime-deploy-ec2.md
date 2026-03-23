@@ -3,9 +3,9 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Set up AWS Blu Age Runtime on Amazon EC2
+# Set up AWS Transform for mainframe Runtime on Amazon EC2
 
-This topic explains how to set up and deploy the PlanetsDemo sample application using AWS Blu Age Runtime
+This topic explains how to set up and deploy the PlanetsDemo sample application using AWS Transform for mainframe Runtime
 on Amazon EC2.
 
 ###### Topics
@@ -19,7 +19,7 @@ on Amazon EC2.
 Before you begin, make sure you complete the following prerequisites.
 
 - Configure the AWS CLI by following the steps in [Configuring the AWS CLI](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md").
-- Complete [AWS Blu Age Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
+- Complete [AWS Transform for mainframe Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Transform for mainframe Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
 - Create an Amazon EC2 instance using one of the supported instance types. For more information, see [Get started with Amazon
   EC2 Linux instances](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md").
 - Make sure you can connect to the Amazon EC2 instance successfully, for example by using
@@ -31,15 +31,15 @@ Throughout this guide, the Tomcat installation path is assumed to be
 `/m2-anywhere/tomcat-gapwalk/velocity`. Ensure you use this path when following the
 instructions below or adapt the following instruction to the path of your choice.
 
-- Download and extract AWS Blu Age Runtime (on Amazon EC2) directly to the velocity directory `/m2-anywhere/tomcat-gapwalk/velocity` (the Tomcat installation folder). For
-  instructions on how to retrieve the AWS Blu Age Runtime artifacts, including information
-  about storage, access, and content, see [AWS Blu Age Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md").
+- Download and extract AWS Transform for mainframe Runtime (on Amazon EC2) directly to the velocity directory `/m2-anywhere/tomcat-gapwalk/velocity` (the Tomcat installation folder). For
+  instructions on how to retrieve the AWS Transform for mainframe Runtime artifacts, including information
+  about storage, access, and content, see [AWS Transform for mainframe Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md").
 - Download the [PlanetsDemo
   application archive](https://d3lkpej5ajcpac.cloudfront.net/demo/bluage/PlanetsDemo-v1.zip "https://d3lkpej5ajcpac.cloudfront.net/demo/bluage/PlanetsDemo-v1.zip").
 - Unzip the archive and upload the application to an Amazon S3 bucket of your choice.
-- Create an Amazon Aurora PostgreSQL database for JICS. The AWS Blu Age Runtime will automatically execute the
+- Create an Amazon Aurora PostgreSQL database for JICS. The AWS Transform for mainframe Runtime will automatically execute the
   `PlanetsDemo-v1/jics/sql/initJics.sql` script during the first
-  startup. For information about how to create an Amazon Aurora PostgreSQL database, see [Creating and connecting to an Aurora PostgreSQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster").
+  startup. For information about how to create an Amazon Aurora PostgreSQL database, see [Creating and connecting to an Aurora PostgreSQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster").
 
 ## Setting up
 
@@ -69,7 +69,7 @@ Replace `path-to-demo-app-webapps` with the correct Amazon S3 URI for the bucket
 where you previously unzipped the PlanetsDemo archive. 4. Copy the content of `PlanetsDemo-v1/config/` folder to
 `/m2-anywhere/tomcat-gapwalk/velocity/config/`. 5. Provide the connection information for the database that you created as part of the
 prerequisites in the following snippet in the `/m2-anywhere/tomcat-gapwalk/velocity/config/application-main.yml` file.
-For more information see, [Creating and connecting to an Aurora PostgreSQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster").
+For more information see, [Creating and connecting to an Aurora PostgreSQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster").
 
 ```
 datasource:

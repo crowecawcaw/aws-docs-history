@@ -3,7 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age Runtime secrets
+# AWS Transform for mainframe Runtime secrets
 
 Some of the resource configurations that contain credentials can be further secured by using
 AWS secrets. The idea is to store critical data in an AWS secret and have a reference to the

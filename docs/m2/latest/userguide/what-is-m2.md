@@ -47,13 +47,13 @@ AWS Mainframe Modernization features support the following use cases:
 
 - Assess: AWS Mainframe Modernization's assessment capability can help you assess, scope, and plan a migration and
   modernization project.
-- Refactor: powered by AWS Blu Age, you can use refactoring to convert legacy application
+- Refactor: powered by AWS Transform for mainframe, you can use refactoring to convert legacy application
   programming languages, to create macroservices or microservices, and to modernize user
   interfaces (UIs) and application software stacks.
 
-AWS AWS Transform for mainframe refactor is now available from the AWS Management Console through single sign-on.
-You do not have to manage separate AWS AWS Transform for mainframe refactor credentials any longer.
-You can access both the AWS AWS Blu Age Codebase and Transformation Center features directly from the AWS Management Console.
+AWS Transform for mainframe refactor is now available from the AWS Management Console through single sign-on.
+You do not have to manage separate AWS Transform for mainframe refactor credentials any longer.
+You can access both the AWS Transform for mainframe Codebase and Transformation Center features directly from the AWS Management Console.
 
 - Replatform: powered by the Micro Focus Enterprise solution, you can port the application where
   much of the application source code is recompiled without changes.
@@ -76,7 +76,7 @@ For more information, see [AWS Mainframe Modernization features](https://aws.ama
 
 ## Patterns
 
-The Automated Refactoring pattern, powered by AWS Blu Age, is focused on accelerating
+The Automated Refactoring pattern, powered by AWS Transform for mainframe, is focused on accelerating
 modernization by converting the complete legacy application stack and its data layer into a
 modern Java-based application while preserving functional equivalence. During this automated
 transformation, it creates a multi-tier application with an Angular-based front-end, an
@@ -97,11 +97,11 @@ Replatform](https://aws.amazon.com/mainframe-modernization/patterns/replatform/ 
 ## How to get started with AWS Mainframe Modernization
 
 Try it! We offer tutorials and sample applications to help you get a sense of what AWS Mainframe Modernization
-offers. Choose either the [Tutorial: Set up managed runtime for AWS Blu Age](tutorial-runtime-ba.md "tutorial-runtime-ba.md") or the [Tutorial: Set up managed runtime for Rocket Software (formerly Micro Focus)](tutorial-runtime-mf.md "tutorial-runtime-mf.md") for a complete,
+offers. Choose either the [Tutorial: Set up managed runtime for AWS Transform for mainframe](tutorial-runtime-ba.md "tutorial-runtime-ba.md") or the [Tutorial: Set up managed runtime for Rocket Software (formerly Micro Focus)](tutorial-runtime-mf.md "tutorial-runtime-mf.md") for a complete,
 step-by-step tutorial.
 
-If you are interested in automated refactoring, check out the AWS Blu Age tools at [AWS Transform for mainframe refactor](https://bluinsights.aws/ "https://bluinsights.aws/"). You can also set up WorkSpaces Applications to access the
-AWS Blu Age Developer IDE, or the Rocket Enterprise Analyzer (formerly Micro Focus Enterprise Analyzer) and Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer) tools.
+If you are interested in automated refactoring, check out the AWS Transform for mainframe tools at [AWS Transform for mainframe refactor](https://bluinsights.aws/ "https://bluinsights.aws/"). You can also set up WorkSpaces Applications to access the
+AWS Transform for mainframe Developer IDE, or the Rocket Enterprise Analyzer (formerly Micro Focus Enterprise Analyzer) and Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer) tools.
 
 The tutorials and sample applications only give you a sense of what AWS Mainframe Modernization provides. When you
 are ready to start a modernization project, see [Modernization approach](modernization-m2.md "modernization-m2.md") for details about the stages and tasks of a modernization
@@ -147,5 +147,5 @@ incurred for other AWS services that you use in connection with AWS Mainframe Mo
 days' notice before any pricing changes take effect for use of AWS Mainframe Modernization. For more information, see
 [Mainframe Modernization with AWS](https://aws.amazon.com/mainframe/ "https://aws.amazon.com/mainframe/").
 
-With AWS AWS Transform for mainframe refactor, you pay for Transformation Center usage.
+With AWS Transform for mainframe refactor, you pay for Transformation Center usage.
 For more information, see [AWS Mainframe Modernization pricing](https://aws.amazon.com/mainframe-modernization/pricing/ "https://aws.amazon.com/mainframe-modernization/pricing/").

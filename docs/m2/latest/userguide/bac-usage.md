@@ -11,7 +11,7 @@ step, you'll be redirected to the home page. The home page presents the paginate
 sets found in the Blusam storage:
 
 ![Blusam Administration Console showing configuration settings and a table of data sets.](images/ba-bac-list-datasets.png)
-To return to the home page with the data sets listing, choose the Blu Age logo in the upper
+To return to the home page with the data sets listing, choose the AWS Transform for mainframe logo in the upper
 left corner of any page of the application. The following image shows the logo.
 
 ![Blu Age logo with stylized blue text and orange hyphen.](images/logo_blu_age_aws_console_s.png)
@@ -601,7 +601,7 @@ first column.
 ### Create data sets from LISTCAT
 
 This feature makes it possible to take advantage of the LISTCAT JSON files created during
-the BluAge transformation process using AWS Transform for mainframe refactor Transformation Center as the result of
+the AWS Transform for mainframe transformation process using AWS Transform for mainframe refactor Transformation Center as the result of
 parsing LISTCAT export from the legacy platforms: LISTCAT exports are parsed and transformed
 into JSON files that hold the data set definitions (names, data set type, keys definitions, and
 whether the record length is fixed or variable).

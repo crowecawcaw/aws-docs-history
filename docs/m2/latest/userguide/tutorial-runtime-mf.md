@@ -172,7 +172,7 @@ For more information on parameter groups, see [Working with parameter groups](..
 ###### Note
 
 You can also use an Amazon Aurora PostgreSQL database with AWS Mainframe Modernization but there is no free tier
-option. For more information, see [Working with Amazon Aurora postgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md").
+option. For more information, see [Working with Amazon Aurora postgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.md").
 
 ## Step 3: Create and configure an AWS KMS key
 
@@ -808,7 +808,7 @@ avoid additional charges. To do so, complete the following steps:
 - Delete the KMS key that you created for this tutorial. For more information,
   see [Deleting AWS KMS keys](../../../kms/latest/developerguide/deleting-keys.md "../../../kms/latest/developerguide/deleting-keys.md").
 - Delete the Amazon RDS database that you created for this tutorial. For more
-  information, see [Delete the EC2 instance and DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Deleting.PostgreSQL "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Deleting.PostgreSQL") in the
+  information, see [Delete the EC2 instance and DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md#CHAP_GettingStarted.Deleting.PostgreSQL "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md#CHAP_GettingStarted.Deleting.PostgreSQL") in the
   _Amazon RDS User Guide_.
 - If you added a Security Group rule for port 6000, delete the rule.
 

@@ -3,18 +3,18 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age release notes
+# AWS Transform for mainframe release notes
 
-This section contains the release notes of AWS Blu Age Runtime and Modernization Tools from version
+This section contains the release notes of AWS Transform for mainframe Runtime and Modernization Tools from version
 3.5.0 onward, most recent first, organized by version number.
 
-For each release, AWS Blu Age Runtime has been validated on specific versions of tools
+For each release, AWS Transform for mainframe Runtime has been validated on specific versions of tools
 (Tomcat, Postgres, Oracle, MQ, etc.) and dependencies (Spring, Angular, etc.). Using other versions
 (e.g., upgrading to newer versions) requires thorough customer testing and validation.
 
 ###### Note
 
-For release notes predating this document, contact AWS Blu Age delivery services. For information
+For release notes predating this document, contact AWS Transform for mainframe delivery services. For information
 about the latest AWS Transform for mainframe refactor features, see [AWS Transform for mainframe refactor
 releases](https://bluinsights.aws/releases "https://bluinsights.aws/releases").
 
@@ -22,7 +22,7 @@ releases](https://bluinsights.aws/releases "https://bluinsights.aws/releases").
 
 Released on: February 16, 2025
 
-This release of AWS Blu Age Runtime and Transformation Engines introduces significant enhancements to platform capabilities, performance optimizations, and modernized technologies. Some key features and changes include:
+This release of AWS Transform for mainframe Runtime and Transformation Engines introduces significant enhancements to platform capabilities, performance optimizations, and modernized technologies. Some key features and changes include:
 
 - **Comprehensive JCL Utility Enhancements**
 
@@ -40,7 +40,7 @@ Blusam enhancements optimize dataset operations with improved selective warmup f
 
 Optimized SQL query generation for positioning operations significantly improves database performance. Query execution time reduced by over 99%, with end-to-end batch processing improved by 220x (11 minutes to 3 seconds) and individual queries accelerated by 7,161x (3,103ms to 0.36ms) on production workloads.
 
-This version of the AWS Blu Age Runtime has been tested with the following stack:
+This version of the AWS Transform for mainframe Runtime has been tested with the following stack:
 
 |                           |                         |
 | ------------------------- | ----------------------- |
@@ -58,7 +58,7 @@ This version of the AWS Blu Age Runtime has been tested with the following stack
 | Report                    | Jasper 6                |
 | Application server        | Apache Tomcat 10.1.40   |
 
-## AWS Blu Age Runtime
+## AWS Transform for mainframe Runtime
 
 ### zOS
 
@@ -272,7 +272,7 @@ This version of the AWS Blu Age Runtime has been tested with the following stack
   - Improved support of data passed to a Data Queue API.
   - Improved interactive job persistence
 
-## AWS Blu Age Transformation Engines
+## AWS Transform for mainframe Transformation Engines
 
 ### zOS
 
@@ -375,7 +375,7 @@ This version of the AWS Blu Age Runtime has been tested with the following stack
   - Improved the support of condition fields defined in a JOIN logical file
   - Enhanced support of SQL long column names labeling
 
-### AWS Blu Age Transformation Engine & Runtime for GS21
+### AWS Transform for mainframe Transformation Engine & Runtime for GS21
 
 **Improvements**
 
@@ -385,12 +385,12 @@ This version of the AWS Blu Age Runtime has been tested with the following stack
 
 Released on: November 18, 2025
 
-This release of AWS Blu Age Runtime and Transformation Engines introduces significant enhancements to platform capabilities, performance optimizations, and modernized technologies. Some key features and changes include:
+This release of AWS Transform for mainframe Runtime and Transformation Engines introduces significant enhancements to platform capabilities, performance optimizations, and modernized technologies. Some key features and changes include:
 
 For more information about the changes included in this release, see the following
 sections.
 
-- **AWS Blu Age Transformation Engines & Runtime for GS21**
+- **AWS Transform for mainframe Transformation Engines & Runtime for GS21**
 
 Added support of Fujitsu proprietary mainframe GS21 in the context of the MAJI (Modernization Acceleration Joint Initiative) partnership. Main features
 include several new languages like PSAM, ADL, ACSGEN or JCL XSP, modernization of the network database NDB, implementation of GS21 ecosystems
@@ -401,7 +401,7 @@ like AIM, OFM and ACSAPI and support of the JEF encoding.
 Upgraded from Java 17 to Java 21, increasing security, performance, and allowing customers to deploy and run applications implemented in a of more modern
 language and to use recent third party framework versions
 
-This version of the AWS Blu Age Runtime has been tested with the following stack:
+This version of the AWS Transform for mainframe Runtime has been tested with the following stack:
 
 |                           |                         |
 | ------------------------- | ----------------------- |
@@ -419,7 +419,7 @@ This version of the AWS Blu Age Runtime has been tested with the following stack
 | Report                    | Jasper 6                |
 | Application server        | Apache Tomcat 10.1.40   |
 
-## AWS Blu Age Runtime
+## AWS Transform for mainframe Runtime
 
 ### zOS
 
@@ -564,7 +564,7 @@ This version of the AWS Blu Age Runtime has been tested with the following stack
   - Improved support of the ErrorCode parameter for command QMHSNDPM
   - Improved support for date conversion from ISO to EUR
 
-## AWS Blu Age Transformation Engines
+## AWS Transform for mainframe Transformation Engines
 
 ### zOS
 
@@ -645,7 +645,7 @@ This version of the AWS Blu Age Runtime has been tested with the following stack
 - Misc
   - Improved support for PFkey convertion to take into account encoding when converting symbolic constants for CICS aid keys
 
-## AWS Blu Age Transformation Engines & Runtime for GS21
+## AWS Transform for mainframe Transformation Engines & Runtime for GS21
 
 **Improvements**
 
@@ -687,7 +687,7 @@ This version of the AWS Blu Age Runtime has been tested with the following stack
 
 Released on: August 29, 2025
 
-This release of AWS Blu Age Runtime and Transformation Engines introduces enhancements to platform capabilities, performance optimizations, and modernized technologies. Some key features and changes include:
+This release of AWS Transform for mainframe Runtime and Transformation Engines introduces enhancements to platform capabilities, performance optimizations, and modernized technologies. Some key features and changes include:
 
 - **Enhanced AS/400 Library Resolution**
 
@@ -697,7 +697,7 @@ Introduced a smart library list management system that delivers native AS/400 li
 
 Front-end applications have been upgraded to Angular version 20, bringing the latest features and performance improvements to the user interface.
 
-This version of the AWS Blu Age Runtime has been tested with the following stack:
+This version of the AWS Transform for mainframe Runtime has been tested with the following stack:
 
 |                           |                         |
 | ------------------------- | ----------------------- |
@@ -714,7 +714,7 @@ This version of the AWS Blu Age Runtime has been tested with the following stack
 | Oracle 21c                |
 | Application server        | Apache Tomcat 10.1.40   |
 
-## AWS Blu Age Runtime
+## AWS Transform for mainframe Runtime
 
 ### zOS
 
@@ -850,7 +850,7 @@ This version of the AWS Blu Age Runtime has been tested with the following stack
   - Added Redis support for user spaces
   - Added support for the API QUSLFLD that generates a list of fields within a specified file record format name using the user space.
 
-## AWS Blu Age Transformation Engines
+## AWS Transform for mainframe Transformation Engines
 
 ### zOS
 
@@ -902,7 +902,7 @@ This version of the AWS Blu Age Runtime has been tested with the following stack
 
 Release date: July 17, 2025
 
-This release of AWS Blu Age Runtime and Transformation Engines introduces key updates to core dependencies:
+This release of AWS Transform for mainframe Runtime and Transformation Engines introduces key updates to core dependencies:
 
 - **AS400**: Introduced an alternative JDBC-based implementation alongside the existing JPA support in our DAO framework.
   Users can now switch between JPA and JDBC implementations through YML configuration.
@@ -915,7 +915,7 @@ This release of AWS Blu Age Runtime and Transformation Engines introduces key up
   types. This ensures successful migration from mainframe to distributed platforms while
   maintaining operational integrity.
 
-We tested this version of the AWS Blu Age Runtime with the following stack.
+We tested this version of the AWS Transform for mainframe Runtime with the following stack.
 
 |                           |                         |
 | ------------------------- | ----------------------- |
@@ -1064,7 +1064,7 @@ We tested this version of the AWS Blu Age Runtime with the following stack.
   - Improved SQL Grammar to accept quote escape sequence
   - Improved support for packed key types for OVRDBF POSITION.
 
-## AWS Blu Age Transformation Engine 4.9.0
+## AWS Transform for mainframe Transformation Engine 4.9.0
 
 ### zOS
 
@@ -1148,14 +1148,14 @@ We tested this version of the AWS Blu Age Runtime with the following stack.
 
 Release date: April 23, 2025
 
-This release of AWS Blu Age Runtime and Transformation Engines introduces key updates to enhance database transformation capabilities and performance:
+This release of AWS Transform for mainframe Runtime and Transformation Engines introduces key updates to enhance database transformation capabilities and performance:
 
 - **IBM IMS database transformation** — Added support
-  for transforming IBM IMS databases into our JHDB customized Blu Age
+  for transforming IBM IMS databases into our JHDB customized AWS Transform for mainframe
   solution.
 - **In-memory cache feature** — Added in-memory cache feature that enables users to cache read-only data within memory, improving performance for data-intensive programs.
 
-We tested this version of the AWS Blu Age Runtime with the following stack.
+We tested this version of the AWS Transform for mainframe Runtime with the following stack.
 
 |                           |                         |
 | ------------------------- | ----------------------- |
@@ -1276,7 +1276,7 @@ We tested this version of the AWS Blu Age Runtime with the following stack.
   - Improved handling of RPG statement RETURN in subroutines
   - Improved the support of user info in SharedContext
 
-## AWS Blu Age Transformation Engine 4.8.0
+## AWS Transform for mainframe Transformation Engine 4.8.0
 
 ### zOS
 
@@ -1327,11 +1327,11 @@ We tested this version of the AWS Blu Age Runtime with the following stack.
 
 Release date: March 12, 2025
 
-This release of AWS Blu Age Runtime and Transformation Engines introduces key updates to core dependencies:
-AWS Blu Age Runtime has been upgraded to use the latest Spring Boot version 3.4.2, and modernized frontend
+This release of AWS Transform for mainframe Runtime and Transformation Engines introduces key updates to core dependencies:
+AWS Transform for mainframe Runtime has been upgraded to use the latest Spring Boot version 3.4.2, and modernized frontend
 applications now utilize the latest Angular version 19.
 
-We've tested this version of the AWS Blu Age Runtime with the following stack. Other versions might also
+We've tested this version of the AWS Transform for mainframe Runtime with the following stack. Other versions might also
 be compatible.
 
 |                      |                           |
@@ -1398,7 +1398,7 @@ be compatible.
 - Message Queue Integration
   - Enhanced error handling in MQ GET operations, providing clearer status indication MQCC_FAILED for empty message bodies
   - Enhanced support for MQ PUT operations by handling MQRFH2 header in XA transaction context
-  - Improved support for AWS Blu AgeRuntime secrets to handle
+  - Improved support for AWS Transform for mainframeRuntime secrets to handle
     additional properties for JMS MQ
   - Enhanced JMS MQ connection pool configuration capacity
 
@@ -1469,7 +1469,7 @@ be compatible.
 - SQL
   - Optimized the SQLExecutorBuilder to handle partial record fetching more efficiently, particularly when retrieving multiple rows with fetch limits exceeding one
 
-## AWS Blu AgeTransformation Engine 4.7.0
+## AWS Transform for mainframeTransformation Engine 4.7.0
 
 ### zOS
 
@@ -1534,7 +1534,7 @@ be compatible.
 
 Release date: January 24, 2025
 
-We've tested this version of the AWS Blu Age Runtime with the following stack. Other versions might also
+We've tested this version of the AWS Transform for mainframe Runtime with the following stack. Other versions might also
 be compatible.
 
 |                           |                       |
@@ -1700,7 +1700,7 @@ be compatible.
     removal of related records before inserting updated records
   - Optimized DAO mapper generated code to improve time execution performances
 
-## AWS Blu Age Transformation Engine 4.6.0
+## AWS Transform for mainframe Transformation Engine 4.6.0
 
 ### zOS
 
@@ -1769,7 +1769,7 @@ be compatible.
 
 Release date: December 20, 2024
 
-This release of AWS Blu Age Runtime and AWS Blu Age Transformation Engines includes the following key
+This release of AWS Transform for mainframe Runtime and AWS Transform for mainframe Transformation Engines includes the following key
 features.
 
 - **JCL support** — It is now possible to generate and
@@ -1790,7 +1790,7 @@ features.
   management, reducing complexity and improving application maintenance for developers. Node.JS
   has also been updated from v20 to v22.
 
-We've tested this version of the AWS Blu Age Runtime with the following stack. Other versions might also
+We've tested this version of the AWS Transform for mainframe Runtime with the following stack. Other versions might also
 be compatible.
 
 |                           |                       |
@@ -1887,7 +1887,7 @@ be compatible.
     database, enhancing data traceability and facilitate graphic compute
   - Enhanced parsing support of CASE WHEN pattern of SQL queries across runtime
     utilities
-  - Improved SQL Postgres Blu Age built-in function gwdecimal the runtime relies on to fit
+  - Improved SQL Postgres AWS Transform for mainframe built-in function gwdecimal the runtime relies on to fit
     with DECIMAL DB2 built-in function.
 
 - Misc
@@ -1990,7 +1990,7 @@ be compatible.
     case.
   - Improved Commitment Control support to make it program-scope
 
-## AWS Blu Age Transformation Engine 4.5.0
+## AWS Transform for mainframe Transformation Engine 4.5.0
 
 ### zOS
 
@@ -2051,12 +2051,12 @@ be compatible.
 
 Release date: November 13, 2024
 
-This release of AWS Blu Age Runtime and Transformation Engines focuses on upgrading critical dependencies
+This release of AWS Transform for mainframe Runtime and Transformation Engines focuses on upgrading critical dependencies
 and supported technologies while boosting performance in multiple functionalities. Some key
 features and changes in this release include:
 
 - **Dependencies updates**: Console applications (BAC and JAC),
-  and modernized applications are now running on Bootstrap 5. The AWS Blu Age Runtime is now powered by Spring
+  and modernized applications are now running on Bootstrap 5. The AWS Transform for mainframe Runtime is now powered by Spring
   Boot 3.3.5 framework.
 - **Performance**: Improved the performance of the state
   machines execution (up to 10x faster), thanks to a new implementation that overcomes a
@@ -2072,7 +2072,7 @@ features and changes in this release include:
   projects. It allows to handle more cases with a simplified architecture for the generated
   code.
 
-We tested this version of the AWS Blu Age Runtime with the following stack. Other component versions might
+We tested this version of the AWS Transform for mainframe Runtime with the following stack. Other component versions might
 also be compatible.
 
 |                           |                       |
@@ -2304,7 +2304,7 @@ gapwalk-application.cl:ftpservice:passive` to enable passive mode
 - Improved state machine performances by integrating a new framework
 - Improved algorithm for assignment optimization to prevent unexpected rewriting
 
-## AWS Blu Age Transformation Engine 4.4.0
+## AWS Transform for mainframe Transformation Engine 4.4.0
 
 ### zOS
 
@@ -2347,7 +2347,7 @@ gapwalk-application.cl:ftpservice:passive` to enable passive mode
 
 Release date: September 16, 2024
 
-This release of AWS Blu Age Runtime and Modernization Tools focuses on extending the capabilities and
+This release of AWS Transform for mainframe Runtime and Modernization Tools focuses on extending the capabilities and
 coverage to modernize mainframe functionalities. Some key features and changes in this release
 include:
 
@@ -2362,7 +2362,7 @@ include:
   and robustness of commonly used commands such as CPYF, OVRDBF, SBMJOB, and OPNQRYF and many
   more.
 
-We tested this version of the AWS Blu Age Runtime with the following stack. Other component versions might
+We tested this version of the AWS Transform for mainframe Runtime with the following stack. Other component versions might
 also be compatible.
 
 |                           |                       |
@@ -2597,7 +2597,7 @@ sections.
 
 Release date: July 10, 2024
 
-This release of AWS Blu Age Runtime and Modernization Tools is focused on performance and security. Some
+This release of AWS Transform for mainframe Runtime and Modernization Tools is focused on performance and security. Some
 key features and changes in this release are:
 
 - We improved transformation performance, especially for large projects with over 30 million
@@ -2625,7 +2625,7 @@ key features and changes in this release are:
   also error-prone. You can now modernize nested COBOL programs without the need for manual
   separation.
 
-We tested this version of the AWS Blu Age Runtime with the following stack. Other component versions might
+We tested this version of the AWS Transform for mainframe Runtime with the following stack. Other component versions might
 also be compatible.
 
 |                           |                       |
@@ -2834,14 +2834,14 @@ sections.
 
 Release date: May 31, 2024
 
-This release of AWS Blu Age Runtime and Modernization Tools is focused on performance and security. Some
+This release of AWS Transform for mainframe Runtime and Modernization Tools is focused on performance and security. Some
 key features and changes in this release are:
 
 - **Transformation and performance**: To allow projects with a
   large codebase (+50M lines of code) to transform successfully, we have optimized the
   performance and memory footprint of the whole transformation mechanism.
 - **BAC/JAC**: Security at AWS is the highest priority.
-  Applications modernized with AWS Blu Age must comply with security standards. We have made some major
+  Applications modernized with AWS Transform for mainframe must comply with security standards. We have made some major
   upgrades to the <noloc>Blusam</noloc> Administration Console (BAC) and the JICS
   Administration Console (JAC) to make them more secure:
   - Updated the application to Angular v17.
@@ -2854,7 +2854,7 @@ key features and changes in this release are:
   possibility to plug a shared and external caching server (Redis) to run a batch application on
   multiple instances, like managed AWS Mainframe Modernization.
 
-This version of the Blu Age runtime has been tested with the following stack. Other versions
+This version of the AWS Transform for mainframe runtime has been tested with the following stack. Other versions
 might also be compatible.
 
 |                           |                       |
@@ -3075,9 +3075,9 @@ Added support for the dynamic configuration of OAuth2 provider secret.
 
 Release date: April 8, 2024
 
-For instructions on how to migrate from AWS Blu Age Runtime 3.10.0 to 4.0.0, see [Migrating from 3.10.0 to 4.0.0](ba-migration-notes.md#3.10-to-4.0 "ba-migration-notes.md#3.10-to-4.0").
+For instructions on how to migrate from AWS Transform for mainframe Runtime 3.10.0 to 4.0.0, see [Migrating from 3.10.0 to 4.0.0](ba-migration-notes.md#3.10-to-4.0 "ba-migration-notes.md#3.10-to-4.0").
 
-This release of AWS Blu Age Runtime and Modernization Tools is focused on upgrading critical dependencies
+This release of AWS Transform for mainframe Runtime and Modernization Tools is focused on upgrading critical dependencies
 and supported technologies while boosting performance in multiple functionalities. Some key
 features and changes in this release are:
 
@@ -3098,7 +3098,7 @@ features and changes in this release are:
     context reducing the impact of loading complex structures inherent in legacy
     complexity.
 
-This version of the AWS Blu Age Runtime was tested with the following stack. Other versions might also be
+This version of the AWS Transform for mainframe Runtime was tested with the following stack. Other versions might also be
 compatible.
 
 |                           |                       |
@@ -3379,7 +3379,7 @@ sections.
 
 ## Release notes 3.10.0
 
-This release of AWS Blu Age Runtime and Modernization Tools is focused on core baseline upgrades and
+This release of AWS Transform for mainframe Runtime and Modernization Tools is focused on core baseline upgrades and
 improvements across the product striving to increase performance and robustness in all
 transformation and execution steps. Some key features and changes in this release are:
 
@@ -3535,7 +3535,7 @@ This runtime is based on Java17, Spring2.7, and Angular16.
 
 ## Release notes 3.9.0
 
-This release of AWS Blu Age Runtime and Modernization Tools is focused on multiple transversal
+This release of AWS Transform for mainframe Runtime and Modernization Tools is focused on multiple transversal
 enhancements across the product striving to increase performance in high-availability
 architectures, along with new capabilities to raise jobs executions to the next level. Some key
 features and changes in this release are:
@@ -3697,7 +3697,7 @@ sections.
 
 **Improvements**
 
-- Added gapwalk poms to AWS Blu Age on Amazon EC2 packaging
+- Added gapwalk poms to AWS Transform for mainframe on Amazon EC2 packaging
 - Uses the new signal handler paradigm by default
 - Add support for lock when disposition is MOD or OLD
 - Added cache to store database date time patterns
@@ -3800,7 +3800,7 @@ sections.
 
 ## Release notes 3.8.0
 
-This release of AWS Blu Age Runtime and Modernization Tools is focused on multiple transversal
+This release of AWS Transform for mainframe Runtime and Modernization Tools is focused on multiple transversal
 enhancements across the product to improve its quality and security, along with improvements in
 performance for caching and the unification of commands supports in a single distribution. Some
 key features and changes in this release are:
@@ -3997,7 +3997,7 @@ sections.
 
 ## Release notes 3.7.0
 
-This release of AWS Blu Age Runtime and Modernization Tools mainly includes enhancements to better
+This release of AWS Transform for mainframe Runtime and Modernization Tools mainly includes enhancements to better
 support commands and utilities, capabilities to integrate with AWS Secrets Manager and new
 monitoring features. Some of the key changes in this release are:
 
@@ -4173,7 +4173,7 @@ sections.
 
 ## Release notes 3.6.0
 
-This release of AWS Blu Age Runtime and Modernization Tools provides new features for both zOS and
+This release of AWS Transform for mainframe Runtime and Modernization Tools provides new features for both zOS and
 AS400 legacy migrations, mainly oriented to expanding CICS support mechanisms, complementing JCL
 capabilities, optimizing performance in concurrent and high-volume features, and adding
 multi-data-source capabilities. Some of the key changes in this release are:
@@ -4183,7 +4183,7 @@ multi-data-source capabilities. Some of the key changes in this release are:
   from batches to programs.
 - Enhanced support of multiple CICS commands, including inquiry for several CICS resource
   types.
-- The capability to have different databases when using Blu Age Runtime Utilities, best
+- The capability to have different databases when using AWS Transform for mainframe Runtime Utilities, best
   suited for scenarios when business data is distributed across multiple sources.
 
 For more information about the changes included in this release, see the following
@@ -4388,7 +4388,7 @@ sections.
 
 ## Release notes 3.5.0
 
-This release of AWS Blu Age Runtime and Modernization Tools provides new features for both zOS and
+This release of AWS Transform for mainframe Runtime and Modernization Tools provides new features for both zOS and
 AS400 legacy migrations, mainly oriented to datasets and messaging optimization, as well as
 extended Java capabilities as a resulting asset of the transformation process. Some of the key
 changes in this release are:

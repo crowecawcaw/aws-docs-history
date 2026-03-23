@@ -3,23 +3,23 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age versioning
+# AWS Transform for mainframe versioning
 
-The AWS Blu Age Transformation and Runtime products are versioned using a semver (semantic
+The AWS Transform for mainframe Transformation and Runtime products are versioned using a semver (semantic
 versioning) compliant scheme. To deploy your application, you need to use the corresponding
 runtime version compatible with your modernized code. If you have questions about what
-version to use, contact your AWS Blu Age delivery manager.
+version to use, contact your AWS Transform for mainframe delivery manager.
 
 ## Releases
 
 Each _release_ is identified with a **`[Major].[Minor].[Patch]`** pattern. For example,
-with AWS Blu Age Runtime version `4.1.0`, the major version is 4, the minor version is 1,
+with AWS Transform for mainframe Runtime version `4.1.0`, the major version is 4, the minor version is 1,
 and the patch version is 0.
 
-We intend to release new AWS Blu Age Runtime minor versions monthly, and new major versions when
+We intend to release new AWS Transform for mainframe Runtime minor versions monthly, and new major versions when
 there are impactful changes to the product or its dependencies.
 
-For details on the new features available in each version, see [AWS Blu Age release notes](ba-release-notes.md "ba-release-notes.md").
+For details on the new features available in each version, see [AWS Transform for mainframe release notes](ba-release-notes.md "ba-release-notes.md").
 
 ## Alpha pre-releases
 

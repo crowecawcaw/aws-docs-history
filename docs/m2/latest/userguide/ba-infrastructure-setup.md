@@ -3,20 +3,20 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Infrastructure setup requirements for AWS Blu Age Runtime
+# Infrastructure setup requirements for AWS Transform for mainframe Runtime
 
-This topic describes the minimum infrastructure configuration required to run AWS Blu Age Runtime. The
-following procedures describe how to set up AWS Blu Age Runtime on your compute of choice to deploy a
-modernized application on the AWS Blu Age Runtime. The resources that you create must be in an Amazon VPC that
+This topic describes the minimum infrastructure configuration required to run AWS Transform for mainframe Runtime. The
+following procedures describe how to set up AWS Transform for mainframe Runtime on your compute of choice to deploy a
+modernized application on the AWS Transform for mainframe Runtime. The resources that you create must be in an Amazon VPC that
 has a subnet that is dedicated to your application domain.
 
 ###### Topics
 
 - [Infrastructure requirements](#infrastructure-requirements "#infrastructure-requirements")
-- [Running AWS Blu Age Runtime on Amazon EC2](#ba-running-on-ec2 "#ba-running-on-ec2")
-- [Running AWS Blu Age Runtime on Amazon ECS on Amazon EC2](#ba-running-on-ecs-on-ec2 "#ba-running-on-ecs-on-ec2")
-- [Running AWS Blu Age Runtime on Amazon EKS on Amazon EC2](#ba-running-on-eks-on-ec2 "#ba-running-on-eks-on-ec2")
-- [Running AWS Blu Age Runtime on Amazon ECS managed by AWS Fargate](#ba-running-on-fargate "#ba-running-on-fargate")
+- [Running AWS Transform for mainframe Runtime on Amazon EC2](#ba-running-on-ec2 "#ba-running-on-ec2")
+- [Running AWS Transform for mainframe Runtime on Amazon ECS on Amazon EC2](#ba-running-on-ecs-on-ec2 "#ba-running-on-ecs-on-ec2")
+- [Running AWS Transform for mainframe Runtime on Amazon EKS on Amazon EC2](#ba-running-on-eks-on-ec2 "#ba-running-on-eks-on-ec2")
+- [Running AWS Transform for mainframe Runtime on Amazon ECS managed by AWS Fargate](#ba-running-on-fargate "#ba-running-on-fargate")
 
 ## Infrastructure requirements
 
@@ -65,7 +65,7 @@ security group in the following procedures instead of creating a new one.
 6. Enter a name for the role, then choose **Create
    role**.
 
-## Running AWS Blu Age Runtime on Amazon EC2
+## Running AWS Transform for mainframe Runtime on Amazon EC2
 
 To create an Amazon EC2 instance, use the following steps.
 
@@ -89,19 +89,19 @@ To create an Amazon EC2 instance, use the following steps.
 
 1.  When the state of the Amazon EC2 instance changes to **Running**,
     connect to the instance.
-2.  Install the following software components on the instance (Refer to the versions mentioned into the [AWS Blu Age release notes](ba-release-notes.md "ba-release-notes.md")):
+2.  Install the following software components on the instance (Refer to the versions mentioned into the [AWS Transform for mainframe release notes](ba-release-notes.md "ba-release-notes.md")):
 
         * Java Runtime Environment (JRE).
         * Apache Tomcat.
-        * AWS Blu Age Runtime (on Amazon EC2). Install the AWS Blu Age runtime at the root of Apache Tomcat
+        * AWS Transform for mainframe Runtime (on Amazon EC2). Install the AWS Transform for mainframe runtime at the root of Apache Tomcat
          installation folder (some files will be added while others will be
          overwritten).
 
-    To install the additional webapps delivered alongside the AWS Blu Age Runtime archive, set
+    To install the additional webapps delivered alongside the AWS Transform for mainframe Runtime archive, set
     up a secondary instance of the Apache Tomcat server, and decompress the webapps
-    archive at that location. For detailed instructions, see [AWS Blu Age Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md").
+    archive at that location. For detailed instructions, see [AWS Transform for mainframe Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md").
 
-## Running AWS Blu Age Runtime on Amazon ECS on Amazon EC2
+## Running AWS Transform for mainframe Runtime on Amazon ECS on Amazon EC2
 
 1. Create an Amazon ECS cluster, with **Amazon EC2 instances** as an
    underlying infrastructure. See [Getting started with Windows on Amazon EC2](../../../AmazonECS/latest/developerguide/getting-started-ecs-ec2-v2.md#getting-started-ec2-cluster-v2 "../../../AmazonECS/latest/developerguide/getting-started-ecs-ec2-v2.md#getting-started-ec2-cluster-v2") in the
@@ -111,7 +111,7 @@ To create an Amazon EC2 instance, use the following steps.
 4. In **Network settings for Amazon EC2 instances**, choose the
    security group that you created in the previous steps.
 
-## Running AWS Blu Age Runtime on Amazon EKS on Amazon EC2
+## Running AWS Transform for mainframe Runtime on Amazon EKS on Amazon EC2
 
 1. Create an Amazon EKS cluster. See [Creating an Amazon EKS cluster](../../../eks/latest/userguide/create-cluster.md "../../../eks/latest/userguide/create-cluster.md") in the _Amazon EKS User Guide_.
 2. As mentioned previously, a security group is created on your behalf.
@@ -121,7 +121,7 @@ To create an Amazon EC2 instance, use the following steps.
 5. Amazon EKS will automatically assign the security group to the spawned Amazon EC2
    instances.
 
-## Running AWS Blu Age Runtime on Amazon ECS managed by AWS Fargate
+## Running AWS Transform for mainframe Runtime on Amazon ECS managed by AWS Fargate
 
 Create an Amazon ECS cluster with **AWS Fargate (serverless)** as an
 underlying infrastructure. See [Getting started with Fargate](../../../AmazonECS/latest/developerguide/getting-started-fargate.md "../../../AmazonECS/latest/developerguide/getting-started-fargate.md") in the _Amazon Elastic Container Service Developer Guide_.

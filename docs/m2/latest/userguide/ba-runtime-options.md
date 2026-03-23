@@ -3,43 +3,43 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age Runtime
+# AWS Transform for mainframe Runtime
 
-AWS Blu Age offers a single Runtime to cater to different stages of your
+AWS Transform for mainframe offers a single Runtime to cater to different stages of your
 modernization journey and operational needs. This page describes its
 characteristics, use cases, and how to access it.
 
-## AWS Blu Age Runtime
+## AWS Transform for mainframe Runtime
 
-With AWS Blu Age Runtime you can deploy your modernized application in your own AWS account
+With AWS Transform for mainframe Runtime you can deploy your modernized application in your own AWS account
 , allowing you to manage your own infrastructure. This option provides both
 release and alpha pre-release versions, giving you the flexibility to operate all the
 technical components required to run your modernized application the way you want. You
 can choose between stable releases for production environments or alpha pre-release versions
 for testing and development purposes.
 
-The AWS Blu Age Runtime is deployed and managed by the customer, offering more control
+The AWS Transform for mainframe Runtime is deployed and managed by the customer, offering more control
 over the runtime environment. It provides automated refactoring capabilities and is
 suitable for customized deployment scenarios.
 
 ### When to use
 
-The AWS Blu Age Runtime is suitable for testing and production environments, and
+The AWS Transform for mainframe Runtime is suitable for testing and production environments, and
 is particularly useful when specific customization of the runtime environment is
 required.
 
 ### How to access
 
-The AWS Blu Age Runtime is accessible from [AWS Transform for mainframe refactor Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction").
+The AWS Transform for mainframe Runtime is accessible from [AWS Transform for mainframe refactor Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction").
 
 ###### Note
 
-Access to the [AWS Transform for mainframe refactor Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction") is provided as part of your AWS Blu Age project
+Access to the [AWS Transform for mainframe refactor Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction") is provided as part of your AWS Transform for mainframe project
 engagement.
 
 ### Deployment
 
-AWS Blu Age Runtime is available for deployment on:
+AWS Transform for mainframe Runtime is available for deployment on:
 
 - Amazon EC2
 - Amazon ECS on Amazon EC2
@@ -51,4 +51,4 @@ containerized application, which is the preferred way when using Amazon ECS or
 Amazon EKS.
 
 For detailed deployment instructions, see [Set
-up AWS Blu Age Runtime](ba-runtime-setup.md "ba-runtime-setup.md") documentation.
+up AWS Transform for mainframe Runtime](ba-runtime-setup.md "ba-runtime-setup.md") documentation.

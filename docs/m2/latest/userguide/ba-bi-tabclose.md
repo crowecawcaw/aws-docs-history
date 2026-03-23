@@ -3,12 +3,12 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Troubleshooting: AWS AWS Transform for mainframe refactor does not open from the console
+# Troubleshooting: AWS Transform for mainframe refactor does not open from the console
 
 This page describes how you can resolve AWS Transform for mainframe refactor page not opening from the AWS Mainframe Modernization
 console.
 
-- Engine: AWS Blu Age
+- Engine: AWS Transform for mainframe
 - Component: AWS Transform for mainframe refactor
   When you try to access AWS Transform for mainframe refactor from the AWS Mainframe Modernization console, it doesn't open and the new tab is
   closed immediately.

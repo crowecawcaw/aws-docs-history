@@ -3,12 +3,12 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Set up AWS Blu Age Runtime on container
+# Set up AWS Transform for mainframe Runtime on container
 
-This topic explains how to set up and deploy the PlanetsDemo sample application using AWS Blu Age Runtime
+This topic explains how to set up and deploy the PlanetsDemo sample application using AWS Transform for mainframe Runtime
 on a docker container.
 
-AWS Blu Age Runtime on container is available for Amazon ECS managed by Amazon EC2, Amazon ECS managed by AWS Fargate,
+AWS Transform for mainframe Runtime on container is available for Amazon ECS managed by Amazon EC2, Amazon ECS managed by AWS Fargate,
 and Amazon EKS managed by Amazon EC2. It isn't compatible with Amazon EKS managed by AWS Fargate.
 
 ###### Topics
@@ -23,15 +23,15 @@ Before you begin, make sure you complete the following prerequisites.
 
 - Configure the AWS CLI by following the steps in [Configuring the AWS
   CLI](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md").
-- Complete [AWS Blu Age Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
-- Download the AWS Blu Age Runtime binaries. For instructions, see
-  [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
+- Complete [AWS Transform for mainframe Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Transform for mainframe Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
+- Download the AWS Transform for mainframe Runtime binaries. For instructions, see
+  [Onboarding AWS Transform for mainframe Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
 - Download the Apache Tomcat binaries.
 - Download the [PlanetsDemo
   application archive](https://d3lkpej5ajcpac.cloudfront.net/demo/bluage/PlanetsDemo-v1.zip "https://d3lkpej5ajcpac.cloudfront.net/demo/bluage/PlanetsDemo-v1.zip").
 - Create an Amazon Aurora PostgreSQL database for JICS, and run the
   `PlanetsDemo-v1/jics/sql/initJics.sql` query on it. For information
-  about how to create an Amazon Aurora PostgreSQL database see, [Creating and connecting to an Aurora PostgreSQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster").
+  about how to create an Amazon Aurora PostgreSQL database see, [Creating and connecting to an Aurora PostgreSQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster").
 
 ## Setting up
 
@@ -51,7 +51,7 @@ common.loader="${catalina.base}/lib","${catalina.base}/lib/*.jar","${catalina.ho
    archive.
 3. Prepare a [Dockerfile](https://docs.docker.com/engine/reference/builder/ "https://docs.docker.com/engine/reference/builder/") to build your custom image based on the provided runtime binaries
    and Apache Tomcat server binaries. See the following example Dockerfile. The goal is to
-   install Apache Tomcat, followed by AWS Blu Age Runtime (for Amazon ECS managed by
+   install Apache Tomcat, followed by AWS Transform for mainframe Runtime (for Amazon ECS managed by
    AWS Fargate) extracted at the root of Apache Tomcat installation directory, and then
    to install the sample modernized application named PlanetsDemo.
 
@@ -110,7 +110,7 @@ TEMP_DIR=/bluage-on-fargate/tomcat.gapwalk/temp
 echo "Installing Gapwalk and Tomcat"
 sudo rm -rf /bluage-on-fargate
 mkdir -p ${TEMP_DIR}
-# Copy Blu Age runtime and tomcat archives to temporary extraction dir
+# Copy AWS Transform for mainframe runtime and tomcat archives to temporary extraction dir
 sudo cp /usr/local/velocity/installation/gapwalk/gapwalk.zip ${TEMP_DIR}
 sudo cp /usr/local/velocity/installation/tomcat.tar.gz ${TEMP_DIR}
 # Create velocity dir
@@ -121,7 +121,7 @@ tar -xvf ${TEMP_DIR}/tomcat.tar.gz -C ${TEMP_DIR}
 cp -fr ${TEMP_DIR}/apache-tomcat-10.x.x/* /bluage/tomcat.gapwalk/velocity
 # Remove default webapps of Tomcat
 rm -f /bluage-on-fargate/tomcat.gapwalk/velocity/webapps/*
-# Extract Blu Age runtime at velocity dir
+# Extract AWS Transform for mainframe runtime at velocity dir
 unzip ${TEMP_DIR}/gapwalk.zip -d /bluage/tomcat.gapwalk
 # Remove temporary extraction dir
 sudo rm -rf ${TEMP_DIR}
@@ -143,7 +143,7 @@ cp -r ${APP_DIR}/config/* ${TOMCAT_GAPWALK_DIR}/velocity/config/
 4. Provide the connection information for the database that you created as part of the
    prerequisites in the following snippet in the `application-main.yml`
    file, which is located in the `{TOMCAT_GAPWALK_DIR}/config` folder. For
-   more information see, [Creating and connecting to an Aurora PostgreSQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster").
+   more information see, [Creating and connecting to an Aurora PostgreSQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster").
 
 ```
 datasource:
@@ -166,7 +166,7 @@ datasource:
    you created as part of the initial Infrastructure setup. Then, while creating the
    service, expand the **Networking** section,
    and configure the VPC, subnets, and security group that you created as part of the
-   initial Infrastructure setup. See, [Infrastructure setup requirements for AWS Blu Age Runtime](ba-infrastructure-setup.md "ba-infrastructure-setup.md") .
+   initial Infrastructure setup. See, [Infrastructure setup requirements for AWS Transform for mainframe Runtime](ba-infrastructure-setup.md "ba-infrastructure-setup.md") .
 
 ## Test the deployed application
 

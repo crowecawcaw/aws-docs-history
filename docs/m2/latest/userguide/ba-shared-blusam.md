@@ -3,7 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age Blusam
+# AWS Transform for mainframe Blusam
 
 On mainframe systems (referred to in the following topic as "legacy"), business data is often
 stored using VSAM (Virtual Storage Access Method). The data is stored in "records" (byte arrays),
@@ -27,11 +27,11 @@ There are four data set organizations:
   backward;
 - **LDS**: Linear data sets - no records there, simply a stream
   of bytes, organized in pages. Mainly used for internal purposes on legacy platforms.
-  When modernizing legacy applications, using AWS Blu Age refactoring approach, modernized
+  When modernizing legacy applications, using AWS Transform for mainframe refactoring approach, modernized
   applications are no longer intended to access VSAM stored data, while preserving the data access
   logic. The Blusam component is the answer: it allows importing data from legacy VSAM data sets
   exports, provides an API for the modernized application to manipulate them along with a dedicated
-  administration web application. See [AWS Blu Age Blusam Administration Console](ba-shared-bac-userguide.md "ba-shared-bac-userguide.md").
+  administration web application. See [AWS Transform for mainframe Blusam Administration Console](ba-shared-bac-userguide.md "ba-shared-bac-userguide.md").
 
 ###### Note
 
@@ -255,9 +255,9 @@ or
 Importing LargeKSDS and LargeESDS on Mainframe Modernization managed environments is only
 possible using groovy scripts for now.
 
-On AWS Blu Age Runtime on Amazon EC2:
+On AWS Transform for mainframe Runtime on Amazon EC2:
 
-- Import data set by using the [AWS Blu Age Blusam Administration Console](ba-shared-bac-userguide.md "ba-shared-bac-userguide.md").
+- Import data set by using the [AWS Transform for mainframe Blusam Administration Console](ba-shared-bac-userguide.md "ba-shared-bac-userguide.md").
 
 or
 
@@ -509,7 +509,7 @@ Blusam has to be configured on two aspects:
 ### Blusam storage and caches access configuration
 
 For information about how to configure access to Blusam storage and caches using either
-secrets managers or datasources, see [Set up configuration for AWS Blu Age Runtime](ba-runtime-config.md "ba-runtime-config.md").
+secrets managers or datasources, see [Set up configuration for AWS Transform for mainframe Runtime](ba-runtime-config.md "ba-runtime-config.md").
 
 ###### Note
 
@@ -563,7 +563,7 @@ prefix:
 ###### Note
 
 Whenever Redis is used as cache mechanism, either for data or locks (see below), access
-to the Redis instances is to be configured. For details, see [Available Redis cache properties in AWS Blu Age Runtime](ba-runtime-redis-configuration.md "ba-runtime-redis-configuration.md").
+to the Redis instances is to be configured. For details, see [Available Redis cache properties in AWS Transform for mainframe Runtime](ba-runtime-redis-configuration.md "ba-runtime-redis-configuration.md").
 
 ##### Optional properties
 
@@ -761,7 +761,7 @@ TESTFILE:
 ## Blusam Administration Console
 
 The Blusam Administration Console (BAC) is a web-application, used to administrate the
-Blusam storage. For information about the BAC, see [AWS Blu Age Blusam Administration Console](ba-shared-bac-userguide.md "ba-shared-bac-userguide.md").
+Blusam storage. For information about the BAC, see [AWS Transform for mainframe Blusam Administration Console](ba-shared-bac-userguide.md "ba-shared-bac-userguide.md").
 
 ## Appendix
 

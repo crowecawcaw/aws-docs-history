@@ -8,9 +8,9 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 This page describes how you can resolve your error when you see another application in an
 environment is holding a lock on a shared data set.
 
-- Engine: AWS Blu Age
+- Engine: AWS Transform for mainframe
 - Component: Blusam
-  If you see this error in the Amazon CloudWatch logs for a AWS Mainframe Modernization application using the AWS Blu Age engine and
+  If you see this error in the Amazon CloudWatch logs for a AWS Mainframe Modernization application using the AWS Transform for mainframe engine and
   running in an environment with the High Availability pattern, it indicates that another
   application is holding a lock on a shared data set. Typically, this situation occurs if the other
   application crashes or otherwise fails and does not release the lock.
@@ -81,12 +81,12 @@ sets or records. You can adjust the following parameters in the application defi
     running in an AWS Mainframe Modernization runtime environment is started or rebooted, or when a timeout
     expires during an attempt to lock a dataset. Expired locks are released immediately.
 
-For more information on the application definition for a AWS Blu Age application, see [AWS Blu Age application definition sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba").
+For more information on the application definition for a AWS Transform for mainframe application, see [AWS Transform for mainframe application definition sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba").
 
 ## Blusam locks manager
 
 In the context of an AWS Mainframe Modernization runtime environment using the High Availability pattern, a
-AWS Blu Age application might be deployed multiple times. For those applications that handle Blusam
+AWS Transform for mainframe application might be deployed multiple times. For those applications that handle Blusam
 data sets, concurrent access problems might occur. The Blusam locks manager ensures data
 integrity and manages read and write access to records and data sets by providing shared locks
 between applications using ElastiCache. This mechanism allows more than one application to read the

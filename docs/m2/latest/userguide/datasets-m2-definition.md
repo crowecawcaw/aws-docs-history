@@ -22,7 +22,7 @@ the data set definition JSON file.
 
 For more information on Rocket Software runtime engine, see [DFCONV Batch File Conversion](https://www.microfocus.com/documentation/enterprise-developer/ed70/ED-Eclipse/BKFHFHCONVS001.html "https://www.microfocus.com/documentation/enterprise-developer/ed70/ED-Eclipse/BKFHFHCONVS001.html") in the _Rocket Software_ documentation.
 
-For more information on AWS Blu Age, see [Set up configuration for AWS Blu Age Runtime](ba-runtime-config.md "ba-runtime-config.md").
+For more information on AWS Transform for mainframe, see [Set up configuration for AWS Transform for mainframe Runtime](ba-runtime-config.md "ba-runtime-config.md").
 
 ###### Topics
 
@@ -76,7 +76,7 @@ Required. Applies to the **target** location.
 Specifies whether the data set is stored in a database or a file system.
 Possible values are `Database` or `FileSystem`.
 
-- AWS Blu Age runtime engine: file systems are not supported. You must use
+- AWS Transform for mainframe runtime engine: file systems are not supported. You must use
   a database.
 - Rocket Software runtime engine: databases and file systems are both
   supported. You can use either Amazon Relational Database Service or Amazon Aurora for databases,
@@ -99,7 +99,7 @@ file system.
 `vsam`, `gdg`, `ps`, `po`,
 or `unknown`.
 
-- AWS Blu Age runtime engine: only VSAM type data sets are
+- AWS Transform for mainframe runtime engine: only VSAM type data sets are
   supported.
 - Rocket Software runtime engine: VSAM, GDG, PS, PO, or Unknown type data sets
   are supported.
@@ -120,7 +120,7 @@ follows:
 
 ## Sample data set request format for VSAM
 
-- AWS Blu Age runtime engine: supported.
+- AWS Transform for mainframe runtime engine: supported.
 - Rocket Software runtime engine: supported.
 
 If you are importing VSAM data sets, specify `vsam` as the
@@ -164,7 +164,7 @@ values are ASCII (`A`), EBCDIC (`E`), and Unknown
 
 (Required) Specifies the VSAM data set type and the record format.
 
-- AWS Blu Age runtime engine: possible values are ESDS (`ES`)
+- AWS Transform for mainframe runtime engine: possible values are ESDS (`ES`)
   and KSDS (`KS`). Record format can be fixed or
   variable.
 - Rocket Software runtime engine: possible values are ESDS (`ES`),
@@ -184,7 +184,7 @@ Consists of the primary key name, key offset, and key length. The
 (Required) Specifies the length of a record. For fixed-length record
 formats, these values must match.
 
-- AWS Blu Age runtime engine: for VSAM ESDS, and KSDS, `min` is
+- AWS Transform for mainframe runtime engine: for VSAM ESDS, and KSDS, `min` is
   optional and `max` is required.
 - Rocket Software runtime engine: `min` and `max` are
   required.
@@ -194,9 +194,9 @@ formats, these values must match.
 (Required) Specifies the **source** location:
 that is, the Amazon S3 bucket where you uploaded the data set.
 
-### Blu Age engine-specific properties
+### AWS Transform for mainframe engine-specific properties
 
-The AWS Blu Age runtime engine supports compression for VSAM data sets. The following
+The AWS Transform for mainframe runtime engine supports compression for VSAM data sets. The following
 example shows how you can specify this property in JSON.
 
 ```
@@ -225,7 +225,7 @@ consider setting this flag to `true`.
 
 ## Sample data set request format for GDG base
 
-- AWS Blu Age runtime engine: not supported.
+- AWS Transform for mainframe runtime engine: not supported.
 - Rocket Software runtime engine: supported.
 
 If you are importing GDG base data sets, specify `gdg` as the
@@ -262,7 +262,7 @@ is reached or exceeded. Possible values are `No Scratch and No
 
 ## Sample data set request format for PS or GDG generations
 
-- AWS Blu Age runtime engine: not supported.
+- AWS Transform for mainframe runtime engine: not supported.
 - Rocket Software runtime engine: supported.
 
 If you are importing PS or GDG generations data sets, specify `ps` as the

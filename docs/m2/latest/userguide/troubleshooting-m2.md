@@ -6,12 +6,12 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 # Troubleshooting in AWS Mainframe Modernization
 
 Use the information in this section to help you troubleshoot common errors in AWS Mainframe Modernization
-applications and runtime environments using both the AWS Blu Age and Rocket Software engines.
+applications and runtime environments using both the AWS Transform for mainframe and Rocket Software engines.
 
 ###### Topics
 
 - [Troubleshooting error: Time out while waiting for data set name to be unlocked](ba-blusam-timeout.md "ba-blusam-timeout.md")
 - [Troubleshooting error: Cannot access an application URL](both-application-connectivity.md "both-application-connectivity.md")
-- [Troubleshooting: AWS AWS Transform for mainframe refactor does not open from the console](ba-bi-tabclose.md "ba-bi-tabclose.md")
+- [Troubleshooting: AWS Transform for mainframe refactor does not open from the console](ba-bi-tabclose.md "ba-bi-tabclose.md")
 - [Troubleshooting error: Environment unhealthy](env-unhealthy.md "env-unhealthy.md")
 - [Troubleshooting license issues for Rocket Software (formerly Micro Focus)](mf-runtime-setup-troubleshoot.md "mf-runtime-setup-troubleshoot.md")

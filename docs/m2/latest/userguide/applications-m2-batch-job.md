@@ -52,7 +52,7 @@ A batch job restart is available on the following engine versions:
 
 - Micro Focus (Rocket) environment engine versions 8.0.6 or greater. You also need to have an
   EFS or FSx file system attached to your environment.
-- AWS Blu Age environment engine versions 4.3.0 or greater. You also need to have an EFS or FSx
+- AWS Transform for mainframe environment engine versions 4.3.0 or greater. You also need to have an EFS or FSx
   file system attached if it is HA environment.
 
 1. Open the AWS Mainframe Modernization console at [https://console.aws.amazon.com/m2/](https://console.aws.amazon.com/m2/ "https://console.aws.amazon.com/m2/").
@@ -62,7 +62,7 @@ A batch job restart is available on the following engine versions:
 4. On the application details page, choose **Batch jobs**.
 5. Select the batch job you want to restart from the generated list. Navigate to the **Actions** menu, and choose **Restart job**.
 6. Specify how you want to restart the batch job. You can do the following for Micro Focus (Rocket)
-   environment engine and AWS Blu Age environment engine:
+   environment engine and AWS Transform for mainframe environment engine:
    - For Micro Focus (Rocket) environment engine, you can either choose to **Restart from
      the beginning** or **Restart using steps or procsteps**.
      - **Restart from the beginning** option allows you to restart all
@@ -76,7 +76,7 @@ A batch job restart is available on the following engine versions:
 The end step or procstep must be greater than or equal to the start step or procstep
 number.
 
-    * For AWS Blu Age environment engine, you can either restart a batch job's most recent execution
+    * For AWS Transform for mainframe environment engine, you can either restart a batch job's most recent execution
      from a previously failed JCL/PROC step or perform a delayed restart by bypassing previously
      successful steps.
 

@@ -8,7 +8,7 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 This page describes how you can resolve your error when you can't access URL for a running
 AWS Mainframe Modernization application.
 
-- Engine: AWS Blu Age and Rocket Software (formerly Micro Focus)
+- Engine: AWS Transform for mainframe and Rocket Software (formerly Micro Focus)
 - Component: applications
   If you can't access the URL for a running AWS Mainframe Modernization application that you created and deployed to
   an AWS Mainframe Modernization runtime environment, you might need to configure the inbound rules on the security group

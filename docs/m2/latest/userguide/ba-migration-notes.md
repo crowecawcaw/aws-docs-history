@@ -3,9 +3,9 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Upgrading instructions for AWS Blu Age
+# Upgrading instructions for AWS Transform for mainframe
 
-This page contains instructions for upgrading the AWS Blu Age version.
+This page contains instructions for upgrading the AWS Transform for mainframe version.
 
 ###### Topics
 
@@ -15,10 +15,10 @@ This page contains instructions for upgrading the AWS Blu Age version.
 
 ## Common upgrades
 
-In most of the cases, when upgrading the AWS Blu Age Runtime version, you should replace the artifacts
+In most of the cases, when upgrading the AWS Transform for mainframe Runtime version, you should replace the artifacts
 (WARs, configuration files, scripts, etc.) of your previous version with the ones provided in the
 new one and restart your application. Make sure to perform extensive regression tests of your
-modernized applications once you upgrade. You may also contact your AWS Blu Age delivery manager for
+modernized applications once you upgrade. You may also contact your AWS Transform for mainframe delivery manager for
 specific instructions applicable to your application.
 
 Some upgrades may require additional configuration to ensure compatibility. In that case,
@@ -31,7 +31,7 @@ Tomcat 9 to Tomcat 10.
 
 ### Code changes
 
-This section lists changes required to make the modernized code compatible with AWS Blu Age Runtime
+This section lists changes required to make the modernized code compatible with AWS Transform for mainframe Runtime
 4.0.0. You can skip this section if you decide to launch a new generation using the 4.0.0
 version on AWS Transform for mainframe refactor (Transformation Center).
 
@@ -69,12 +69,12 @@ Due to the dependency change referenced above, references to
 The custom class `PostgreSQLDialect.java` is removed. References to it in the
 main launcher must be removed too.
 
-### Deployment (AWS Blu Age Runtime)
+### Deployment (AWS Transform for mainframe Runtime)
 
 **Tomcat**
 
 This version is compatible with Tomcat `10.1.17`. Upgrading the Tomcat server to
-this version is required to run the Blu Age Runtime `4.0.0`. Make sure to port the
+this version is required to run the AWS Transform for mainframe Runtime `4.0.0`. Make sure to port the
 old configuration changes (notably the Catalina properties).
 
 **Shared dependencies**
@@ -92,7 +92,7 @@ The main change in 5.86.0 ([Alpha pre-releases](ba-versioning.md#ba-versioning-a
 
 ### Code changes
 
-This section lists changes required to make the modernized code compatible with AWS Blu Age Runtime 5.86.0. You can skip this section if you decide to launch a new generation using the 5.86.0 version on Blu Insights (Transformation Center).
+This section lists changes required to make the modernized code compatible with AWS Transform for mainframe Runtime 5.86.0. You can skip this section if you decide to launch a new generation using the 5.86.0 version on Blu Insights (Transformation Center).
 
 **POM changes**
 
@@ -121,11 +121,11 @@ Due to the dependencies change referenced above, references to:
 - `org.springframework.boot.autoconfigure.domain.EntityScan` must be changed to `org.springframework.boot.persistence.autoconfigure.EntityScan`.
 - `org.springframework.boot.autoconfigure.jdbc.DataSourceProperties` must be changed to `org.springframework.boot.jdbc.autoconfigure.DataSourceProperties`.
 
-### Deployment (AWS Blu Age Runtime)
+### Deployment (AWS Transform for mainframe Runtime)
 
 **Tomcat**
 
-This version is compatible with Tomcat `11.0.15`. Upgrading the Tomcat server to this version is required to run the Blu Age Runtime `5.86.0`. Make sure to port the old configuration changes (notably the Catalina properties).
+This version is compatible with Tomcat `11.0.15`. Upgrading the Tomcat server to this version is required to run the AWS Transform for mainframe Runtime `5.86.0`. Make sure to port the old configuration changes (notably the Catalina properties).
 
 **Shared dependencies**
 

@@ -3,10 +3,10 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Set up licensed dependencies in AWS Blu Age Runtime on Amazon EC2
+# Set up licensed dependencies in AWS Transform for mainframe Runtime on Amazon EC2
 
 This guide describes how to set up additional licensed dependencies that you can use with
-AWS Blu Age Runtime on Amazon EC2.
+AWS Transform for mainframe Runtime on Amazon EC2.
 
 ###### Topics
 
@@ -17,8 +17,8 @@ AWS Blu Age Runtime on Amazon EC2.
 
 Before you begin, make sure you complete the following prerequisites.
 
-- Complete [AWS Blu Age Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
-- Make sure that you have an Amazon EC2 instance with AWS Blu Age Runtime (on Amazon EC2) installed. For more
+- Complete [AWS Transform for mainframe Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Transform for mainframe Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
+- Make sure that you have an Amazon EC2 instance with AWS Transform for mainframe Runtime (on Amazon EC2) installed. For more
   information, see [Get started with Amazon EC2 Linux instances](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md").
 - Make sure you can connect to the Amazon EC2 instance successfully, for example, by using
   SSM.
@@ -27,12 +27,12 @@ Before you begin, make sure you complete the following prerequisites.
 ### Oracle database
 
 Supply an [Oracle database
-driver](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html "https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html"). We tested the AWS Blu Age Runtime (on Amazon EC2) functionality with version **ojdbc11-23.3.0.23.09.jar**, but a more recent version might be compatible.
+driver](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html "https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html"). We tested the AWS Transform for mainframe Runtime (on Amazon EC2) functionality with version **ojdbc11-23.3.0.23.09.jar**, but a more recent version might be compatible.
 
 ### IBM MQ connection
 
 Supply an [IBM MQ
-client](https://www.ibm.com/support/pages/mqc91-ibm-mq-clients "https://www.ibm.com/support/pages/mqc91-ibm-mq-clients"). We tested the AWS Blu Age Runtime (on Amazon EC2) functionality with version **com.ibm.mq.jakarta.client-9.3.4.1.jar**, but a more recent version might be
+client](https://www.ibm.com/support/pages/mqc91-ibm-mq-clients "https://www.ibm.com/support/pages/mqc91-ibm-mq-clients"). We tested the AWS Transform for mainframe Runtime (on Amazon EC2) functionality with version **com.ibm.mq.jakarta.client-9.3.4.1.jar**, but a more recent version might be
 compatible.
 
 With this dependency version, also supply the following transitive dependencies:
@@ -44,7 +44,7 @@ With this dependency version, also supply the following transitive dependencies:
 ### DDS Printer files
 
 Supply the Jasper reports library
-(https://community.jaspersoft.com/download-jaspersoft/community-edition). We tested the AWS Blu Age Runtime (on Amazon EC2)
+(https://community.jaspersoft.com/download-jaspersoft/community-edition). We tested the AWS Transform for mainframe Runtime (on Amazon EC2)
 functionality with **jasperreports-6.16.0.jar**, but a more recent
 version might be compatible.
 

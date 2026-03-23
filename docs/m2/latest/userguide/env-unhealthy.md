@@ -8,7 +8,7 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 This page describes how you can resolve your error when you receive a notification that one
 of your AWS Mainframe Modernization environments are unhealthy.
 
-- Engine: AWS Blu Age and Rocket Software (formerly Micro Focus)
+- Engine: AWS Transform for mainframe and Rocket Software (formerly Micro Focus)
 - Component: environments
   If you receive a notification that says one of your AWS Mainframe Modernization environments has become unhealthy,
   this applies to you. You are notified through one of these sources:

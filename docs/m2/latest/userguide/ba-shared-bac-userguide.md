@@ -3,7 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age Blusam Administration Console
+# AWS Transform for mainframe Blusam Administration Console
 
 The Blusam Administration Console (BAC) is a secure web-application for handling Blusam data
 sets. This guide covers the BAC user interface. For remote management through REST endpoints, see

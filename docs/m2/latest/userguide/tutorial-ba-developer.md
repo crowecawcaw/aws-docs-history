@@ -3,9 +3,9 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Tutorial: Use AWS Blu Age Developer on WorkSpaces Applications
+# Tutorial: Use AWS Transform for mainframe Developer on WorkSpaces Applications
 
-This tutorial shows you how to access AWS Blu Age Developer on WorkSpaces Applications and use it with a sample
+This tutorial shows you how to access AWS Transform for mainframe Developer on WorkSpaces Applications and use it with a sample
 application so you can try out the features. When you finish this tutorial, you can use the same
 steps with your own applications.
 
@@ -56,7 +56,7 @@ create a rule of type **PostgreSQL**. For rule source, use the security group
 
 ## Step 2: Access the environment
 
-In this step, you access the AWS Blu Age development environment on WorkSpaces Applications.
+In this step, you access the AWS Transform for mainframe development environment on WorkSpaces Applications.
 
 1. Contact your administrator for the proper way to access your WorkSpaces Applications instance. For general
    information about possible clients and configurations, see [WorkSpaces Applications Access Methods
@@ -66,7 +66,7 @@ In this step, you access the AWS Blu Age development environment on WorkSpaces A
 
 ## Step 3: Set up the runtime
 
-In this step, you set up the AWS Blu Age runtime. You must set up the runtime at first launch and
+In this step, you set up the AWS Transform for mainframe runtime. You must set up the runtime at first launch and
 again if you are notified of a runtime upgrade. This step populates your `.m2`
 folder.
 
@@ -88,7 +88,7 @@ workspace.
 ![Launch Application icon on the toolbar in WorkSpaces Applications. Eclipse JEE is selected.](images/aas-ba-eclipse.png) 2. When the launcher opens, enter the location where you want to create your workspace, and
 choose **Launch**.
 
-![Blu Age Eclipse IDE launcher in WorkSpaces Applications. Workspace is selected.](images/ba-eclipse-launcher.png)
+![AWS Transform for mainframe Eclipse IDE launcher in WorkSpaces Applications. Workspace is selected.](images/ba-eclipse-launcher.png)
 
 Optionally, you can launch Eclipse from the command line, as follows:
 
@@ -106,7 +106,7 @@ In this step, you import a Maven project for the Planets demo application.
 3. Navigate inside the unzipped folder and open the root `pom.xml` of your
    project in a text editor.
 4. Edit the `gapwalk.version` property so that it matches the installed
-   AWS Blu Age runtime.
+   AWS Transform for mainframe runtime.
 
 If you are unsure of the installed version, issue the following command in a
 terminal:
@@ -150,7 +150,7 @@ application.
 1. In Eclipse, choose **Window > Show View > Servers** to show the
    **Servers** view:
 
-![AWS Blu Age Eclipse with Servers view selected.](images/ba-eclipse-servers.png) 2. Choose **No servers are available. Click this link to create a new
+![AWS Transform for mainframe Eclipse with Servers view selected.](images/ba-eclipse-servers.png) 2. Choose **No servers are available. Click this link to create a new
 server...**. The **New Server**wizard appears. In the
 **Select the server type** field of the wizard, enter **tomcat
 v9** , and choose **Tomcat v9.0 Server**. Then choose
@@ -164,7 +164,7 @@ A **Servers** project is created in the workspace, and a Tomcat v9.0
 server is now available in the **Servers** view. This is where the compiled
 application will be deployed and started:
 
-![AWS Blu Age Eclipse Servers tab with new Tomcat server listed.](images/ba-eclipse-server-added.png)
+![AWS Transform for mainframe Eclipse Servers tab with new Tomcat server listed.](images/ba-eclipse-server-added.png)
 
 ## Step 7: Deploy to Tomcat
 
@@ -182,7 +182,7 @@ the application.
    `Servers/Tomcat v9.0...` subfolder that you created for your Tomcat
    server:
 
-![AWS Blu Age Eclipse Tomcat v9.0 subfolder and the files that it contains.](images/ba-eclipse-tomcat-subfolder.png) 4. Open the `tomcat v9.0` server entry in the Servers view. The server
+![AWS Transform for mainframe Eclipse Tomcat v9.0 subfolder and the files that it contains.](images/ba-eclipse-tomcat-subfolder.png) 4. Open the `tomcat v9.0` server entry in the Servers view. The server
 properties editor appears:
 
 ![The server properties editor. The Overview tab is selected.](images/ba-eclipse-server-properties-editor.png) 5. In the **Overview** tab, increase the **Timeouts**

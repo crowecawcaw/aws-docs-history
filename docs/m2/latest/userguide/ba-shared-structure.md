@@ -3,7 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age structure of a modernized application
+# AWS Transform for mainframe structure of a modernized application
 
 This document provides details about the structure of modernized applications (using AWS Mainframe Modernization refactoring tools), so that developers can accomplish various tasks, such as:
 
@@ -15,7 +15,7 @@ This document provides details about the structure of modernized applications (u
 - legacy common coding concepts, such as records, data sets and their access modes to records -- indexed, sequential --, VSAM, run units, jcl scripts, CICS concepts, and so on.
 - java coding using the [Spring framework](https://spring.io/projects/spring-framework "https://spring.io/projects/spring-framework").
 - Throughout the document, we use `short class names` for readability.
-  For more information, see [AWS Blu Age fully qualified name mappings](#ba-shared-structure-fqn-table "#ba-shared-structure-fqn-table") to retrieve the corresponding fully qualified names for AWS Blu Age runtime elements
+  For more information, see [AWS Transform for mainframe fully qualified name mappings](#ba-shared-structure-fqn-table "#ba-shared-structure-fqn-table") to retrieve the corresponding fully qualified names for AWS Transform for mainframe runtime elements
   and [Third party fully qualified name mappings](#ba-shared-structure-3pfqn-table "#ba-shared-structure-3pfqn-table") to retrieve the corresponding fully qualified names for third party elements.
 - All artifacts and samples are taken from the modernization process outputs of the sample COBOL/CICS [CardDemo application](https://github.com/aws-samples/aws-mainframe-modernization-carddemo "https://github.com/aws-samples/aws-mainframe-modernization-carddemo").
 
@@ -28,8 +28,8 @@ This document provides details about the structure of modernized applications (u
 
 ## Artifacts organization
 
-AWS Blu Age modernized applications are packaged as java web applications (.war), that you can deploy on a JEE server.
-Typically, the server is a [Tomcat](https://tomcat.apache.org/ "https://tomcat.apache.org/") instance that embeds the AWS Blu Age Runtime, which is currently built upon the
+AWS Transform for mainframe modernized applications are packaged as java web applications (.war), that you can deploy on a JEE server.
+Typically, the server is a [Tomcat](https://tomcat.apache.org/ "https://tomcat.apache.org/") instance that embeds the AWS Transform for mainframe Runtime, which is currently built upon the
 [Springboot](https://spring.io/projects/spring-boot "https://spring.io/projects/spring-boot") and
 [Angular](https://angular.io/ "https://angular.io/") (for the UI part) frameworks.
 
@@ -62,7 +62,7 @@ RPG modernization outputs are based on a different layout.
 Before any refactoring, the packages organization in the entities project is tied to the modernized programs.
 You can accomplish this in a couple of different ways.
 The preferred way is to use the Refactoring toolbox, which operates before you trigger the code generation mechanism.
-This is an advanced operation, which is explained in the BluAge trainings.
+This is an advanced operation, which is explained in the AWS Transform for mainframe trainings.
 For more information, see [Refactoring workshop](https://catalog.workshops.aws/aws-blu-age-l3-certification-workshop/en-US/refactoring "https://catalog.workshops.aws/aws-blu-age-l3-certification-workshop/en-US/refactoring").
 This approach allows you to preserve the capability to re-generate the java code later, to benefit from further improvements in the future, for instance).
 The other way is to do regular java refactoring, directly on the generated source code, using any java refactoring approach you might like to apply -- at your own risk.
@@ -95,7 +95,7 @@ The business.context sub-package contains two classes, a configuration class and
 
 The model sub-package contains all the data structures that the given program can use.
 For instance, any 01 level COBOL data structure corresponds to a class in the model sub-package (lower level data structures are properties of their owning 01 level structure).
-For more information about how we modernize 01 data structures, see [What are data simplifiers in AWS Blu Age](ba-shared-data.md "ba-shared-data.md").
+For more information about how we modernize 01 data structures, see [What are data simplifiers in AWS Transform for mainframe](ba-shared-data.md "ba-shared-data.md").
 
 ![Sample record entity (partial view)](images/sample_record_entity.png)
 
@@ -132,7 +132,7 @@ The most exhaustive case will have three packages:
 
 - `*base package*.*program*.service`: contains an interface named *Program*Process, which has business methods to handle the business logic, preserving the legacy execution control flow.
 - `*base package*.*program*.service.impl`: contains a class named *Program*ProcessImpl, which is the implementation of the Process interface described previously.
-  This is where the legacy statements are "translated" to java statements, relying on the AWS Blu Age framework:
+  This is where the legacy statements are "translated" to java statements, relying on the AWS Transform for mainframe framework:
 
 ![Sample modernized CICS statements (SEND MAP, RECEIVE MAP)](images/sample_cics_statements.png)
 
@@ -192,7 +192,7 @@ In the case of the modernization of a CICS online application, the modernization
 
 ![BMS MAPs json files in resources folder.](images/maps_json_files.png)
 
-The Blu Age runtime consumes those json files to bind the records used by the SEND MAP statement with the screen fields.
+The AWS Transform for mainframe runtime consumes those json files to bind the records used by the SEND MAP statement with the screen fields.
 
 - Groovy Scripts
 
@@ -234,7 +234,7 @@ The corresponding modern elements will be, for every map, a html file accompanie
 
 The web project only takes care of the front end aspect of the application
 The service project, which relies on the utility and entities projects, provides the backend services.
-The link between the front end and the backend is made through the web application named Gapwalk-Application, which is part of the standard AWS Blu Age runtime distribution.
+The link between the front end and the backend is made through the web application named Gapwalk-Application, which is part of the standard AWS Transform for mainframe runtime distribution.
 
 ## Running and calling programs
 
@@ -256,7 +256,7 @@ In this example, the program is registered once, under the name 'CBACT04C' (look
 The tomcat logs show every program registration.
 The program registration only depends on the declared program identifiers and not the program class name itself (though typically the program identifiers and program class names are aligned.
 
-The same registration mechanism applies to utility programs brought by the various utility AWS Blu Age web applications, which are part of the AWS Blu Age runtime distribution.
+The same registration mechanism applies to utility programs brought by the various utility AWS Transform for mainframe web applications, which are part of the AWS Transform for mainframe runtime distribution.
 For instance, the Gapwalk-Utility-Pgm webapp provides the functional equivalents of the z/OS system utilities (IDCAMS, ICEGENER, SORT,and so on) and can be called by modernized programs or scripts.
 All available utility programs that are registered at Tomcat startup are logged in the Tomcat logs.
 
@@ -392,7 +392,7 @@ The following example shows choosing "MYUTILPG" as the single identifier:
 ### Associate the program to a context
 
 The program needs a companion `RuntimeContext` instance.
-For modernized programs, AWS Blu Age automatically generates the companion context, using the data structures that are part of the legacy program.
+For modernized programs, AWS Transform for mainframe automatically generates the companion context, using the data structures that are part of the legacy program.
 
 If you're writing your own program, you must write the companion context as well.
 
@@ -478,9 +478,9 @@ When you're sure that your program is properly registered, you can start iterati
 
 ## Fully qualified name mappings
 
-This section contains lists of the AWS Blu Age and third-party fully qualified name mappings for use in your modernized applications.
+This section contains lists of the AWS Transform for mainframe and third-party fully qualified name mappings for use in your modernized applications.
 
-### AWS Blu Age fully qualified name mappings
+### AWS Transform for mainframe fully qualified name mappings
 
 | Short name                     | Fully qualified name                                                              |
 | ------------------------------ | --------------------------------------------------------------------------------- |

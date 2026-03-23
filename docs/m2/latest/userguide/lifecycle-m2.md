@@ -99,14 +99,14 @@ To minimize risks during any upgrade:
 For more guidance on deployment strategies and change management,
 refer to the [AWS Well-Architected Reliability Pillar](../../../wellarchitected/latest/reliability-pillar/rel_tracking_change_management_immutable_infrastructure.md#implementation-guidance "../../../wellarchitected/latest/reliability-pillar/rel_tracking_change_management_immutable_infrastructure.md#implementation-guidance").
 
-## AWS Mainframe Modernization Refactor with AWS Blu Age release overview
+## AWS Mainframe Modernization Refactor with AWS Transform for mainframe release overview
 
-With AWS Blu Age runtime, the version follows a `Major.Minor.Patch` pattern. For
-example, for AWS Blu Age runtime version `4.1.0`, the major version is 4, the minor
+With AWS Transform for mainframe runtime, the version follows a `Major.Minor.Patch` pattern. For
+example, for AWS Transform for mainframe runtime version `4.1.0`, the major version is 4, the minor
 version is 1, and the patch version is 0.
 
-We intend to release new AWS Blu Age runtime major versions when there are impactful changes
-to runtime or their dependencies. AWS Blu Age runtime major versions are supported for at least
+We intend to release new AWS Transform for mainframe runtime major versions when there are impactful changes
+to runtime or their dependencies. AWS Transform for mainframe runtime major versions are supported for at least
 12 months unless some **Common Vulnerabilities and Exposures
 (CVEs)** appear. The support covers for bugs in the runtime features as
 mentioned in our documentation. In case of Critical and High CVEs in the dependencies of
@@ -114,7 +114,7 @@ the runtime (Spring, Java, Tomcat, and others), the major version support durati
 reduced to 6 months for High CVEs, and 3 months for Critical CVEs from the release date
 of the new runtime version fixing the CVE, unless explicitly stated otherwise.
 
-We intend to release new AWS Blu Age minor versions monthly. Customers are expected to
+We intend to release new AWS Transform for mainframe minor versions monthly. Customers are expected to
 upgrade versions regularly to obtain the latest security fixes, bug fixes, and feature
 enhancements. Active projects not yet in production have to adopt the latest runtime
 version as soon as it becomes available.
@@ -130,7 +130,7 @@ Alpha pre-releases are short-lived versions made available for quick iteration d
 delivery projects. Fixes for issues identified in alpha pre-releases are provided in the
 later minor versions, as no patches are delivered for Alpha pre-release versions.
 
-You can find release dates and details about each runtime version in the [AWS Blu Age release notes](ba-release-notes.md "ba-release-notes.md").
+You can find release dates and details about each runtime version in the [AWS Transform for mainframe release notes](ba-release-notes.md "ba-release-notes.md").
 
 Security scans are performed by [Amazon
 Inspector](https://aws.amazon.com/inspector/ "https://aws.amazon.com/inspector/").

@@ -3,7 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Endpoints for Gapwalk application in AWS Blu Age
+# Endpoints for Gapwalk application in AWS Transform for mainframe
 
 In this topic, learn about the endpoints for the Gapwalk web application. These use the root
 path `/gapwalk-application`.
@@ -272,7 +272,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 ###### Warning
 
 - The runtime makes its best effort to kill the target job execution nicely. Thus, the
-  response from the /kill endpoint might take a bit of time to reach the caller, as the AWS Blu Age
+  response from the /kill endpoint might take a bit of time to reach the caller, as the AWS Transform for mainframe
   runtime will try to minimize the business impact of killing the job.
 - Forcefully killing a job execution should not be done lightly, as it may have direct
   business consequences, including possible data loss or corruption. It should be reserved for
@@ -531,7 +531,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Path: `/services`
 - Returns the list of registered runtime services, as a html page. The given services are
-  brought by the AWS Blu Age runtime as utilities, that can be used for instance in groovy scripts.
+  brought by the AWS Transform for mainframe runtime as utilities, that can be used for instance in groovy scripts.
   Blusam load services (to create Blusam datasets from legacy datasets) fall into that
   category.
 
@@ -663,7 +663,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 ## Job queues related endpoints
 
-Job queues are the AWS Blu Age support for the AS400 jobs submission mechanism. Job queues are
+Job queues are the AWS Transform for mainframe support for the AS400 jobs submission mechanism. Job queues are
 used in AS400 to run job on specific thread pools. A job queue is defined by a name and a maximum
 number of threads that corresponds to the maximum number of programs that can be run
 simultaneously on that queue. If more jobs are submitted on the queue than the maximum number of

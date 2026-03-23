@@ -3,7 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Set up AWS Blu Age Runtime (on Amazon EC2) Amazon CloudWatch alarms
+# Set up AWS Transform for mainframe Runtime (on Amazon EC2) Amazon CloudWatch alarms
 
 You can set up CloudWatch to receive your application log and add an alarm to warn you of
 possible errors. This allows you to have more visible notifications whenever your deployed
@@ -108,5 +108,5 @@ your application and your needs. Specifically, you can set up proactive alarms f
 alerts, in order to be warned in the case of errors that might put your application in a
 grace period (and in the end, prevent it from working at all). To achieve this, you can
 add a metric concerning the "Error C5001" string in the logs, which highlights errors in
-the connection to the AWS Blu Age control system. You can then define an alarm that reacts to
+the connection to the AWS Transform for mainframe control system. You can then define an alarm that reacts to
 this metric.

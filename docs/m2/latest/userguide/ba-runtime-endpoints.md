@@ -3,9 +3,9 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age Runtime APIs
+# AWS Transform for mainframe Runtime APIs
 
-The AWS Blu Age Runtime uses several web-applications to expose REST endpoints, providing ways to interact with the modernized applications using REST clients (e.g. calling jobs using a scheduler).
+The AWS Transform for mainframe Runtime uses several web-applications to expose REST endpoints, providing ways to interact with the modernized applications using REST clients (e.g. calling jobs using a scheduler).
 
 The purpose of this document is to list available REST endpoints, giving details about:
 
@@ -20,7 +20,7 @@ We assume that you already have a basic knowledge of using REST endpoints using 
 ###### Topics
 
 - [Available endpoints for user when building URLs](ba-endpoints-build-urls.md "ba-endpoints-build-urls.md")
-- [Endpoints for Gapwalk application in AWS Blu Age](ba-endpoints-gapwalk.md "ba-endpoints-gapwalk.md")
+- [Endpoints for Gapwalk application in AWS Transform for mainframe](ba-endpoints-gapwalk.md "ba-endpoints-gapwalk.md")
 - [Blusam application console REST endpoints](ba-endpoints-bac.md "ba-endpoints-bac.md")
-- [Manage JICS application console in AWS Blu Age](ba-endpoints-jac.md "ba-endpoints-jac.md")
-- [Data structures for AWS Blu Age user](ba-endpoints-apx.md "ba-endpoints-apx.md")
+- [Manage JICS application console in AWS Transform for mainframe](ba-endpoints-jac.md "ba-endpoints-jac.md")
+- [Data structures for AWS Transform for mainframe user](ba-endpoints-apx.md "ba-endpoints-apx.md")

@@ -267,4 +267,4 @@ you don't incur further charges. Complete the following steps:
 - Use the **EA_Admin** tool to delete the workspace.
 - Delete the S3 buckets that you created for this tutorial. For more information, see [Deleting a
   bucket](../../../AmazonS3/latest/userguide/delete-bucket.md "../../../AmazonS3/latest/userguide/delete-bucket.md") in the _Amazon S3 User Guide_.
-- Delete the database that you created for this tutorial. For more information, see [Deleting a DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Deleting.PostgreSQL "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Deleting.PostgreSQL").
+- Delete the database that you created for this tutorial. For more information, see [Deleting a DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md#CHAP_GettingStarted.Deleting.PostgreSQL "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md#CHAP_GettingStarted.Deleting.PostgreSQL").

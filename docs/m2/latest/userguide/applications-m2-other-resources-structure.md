@@ -3,9 +3,9 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Structure of AWS Blu Age managed applications
+# Structure of AWS Transform for mainframe managed applications
 
-If you use the AWS Blu Age refactoring pattern, the AWS Blu Age runtime engine expects the following
+If you use the AWS Transform for mainframe refactoring pattern, the AWS Transform for mainframe runtime engine expects the following
 structure in the folder specified by `app-location` in your application definition:
 
 ![The expected structure within the application-name folder.](images/ba-app-structure.png)

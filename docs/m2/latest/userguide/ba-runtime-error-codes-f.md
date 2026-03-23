@@ -3,7 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age Runtime Error codes related to Files
+# AWS Transform for mainframe Runtime Error codes related to Files
 
 Files error codes, prefixed with `BA-F`. These errors are related to files operations including ESDS and GDG (Generation Data Groups).
 

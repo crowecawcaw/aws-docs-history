@@ -3,15 +3,15 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Blu Age Runtime concepts
+# AWS Transform for mainframe Runtime concepts
 
-Understanding the basic concepts of the AWS Blu Age Runtime can help you understand how your applications are
+Understanding the basic concepts of the AWS Transform for mainframe Runtime can help you understand how your applications are
 modernized with automated refactoring.
 
 ###### Topics
 
-- [AWS Blu Age Runtime high level architecture](ba-shared-architecture.md "ba-shared-architecture.md")
-- [AWS Blu Age structure of a modernized application](ba-shared-structure.md "ba-shared-structure.md")
-- [What are data simplifiers in AWS Blu Age](ba-shared-data.md "ba-shared-data.md")
-- [AWS Blu Age Blusam](ba-shared-blusam.md "ba-shared-blusam.md")
-- [AWS Blu Age Blusam Administration Console](ba-shared-bac-userguide.md "ba-shared-bac-userguide.md")
+- [AWS Transform for mainframe Runtime high level architecture](ba-shared-architecture.md "ba-shared-architecture.md")
+- [AWS Transform for mainframe structure of a modernized application](ba-shared-structure.md "ba-shared-structure.md")
+- [What are data simplifiers in AWS Transform for mainframe](ba-shared-data.md "ba-shared-data.md")
+- [AWS Transform for mainframe Blusam](ba-shared-blusam.md "ba-shared-blusam.md")
+- [AWS Transform for mainframe Blusam Administration Console](ba-shared-bac-userguide.md "ba-shared-bac-userguide.md")

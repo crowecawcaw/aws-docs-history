@@ -37,7 +37,7 @@ These instructions assume that you have completed the steps in [Set up for AWS M
    - **Lists** are ordered collection of groups. You can see all your
      transaction resources and groups in a list view. The **startup list**
      determines which resources are loaded when the server is initialized.
-     - With AWS Blu Age refactor engine, you specify the lists to be included at the startup. There
+     - With AWS Transform for mainframe refactor engine, you specify the lists to be included at the startup. There
        is no limit to number of lists.
      - With Rocket Software replatform engine, you can specify up to four lists in one SIT.
 

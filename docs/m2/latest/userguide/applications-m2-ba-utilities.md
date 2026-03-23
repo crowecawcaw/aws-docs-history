@@ -5,9 +5,9 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 
 # Configure access to utilities for managed applications
 
-When you refactor a mainframe application with AWS Blu Age, you might need to provide support for
+When you refactor a mainframe application with AWS Transform for mainframe, you might need to provide support for
 various legacy platform utility programs, such as IDCAMS, INFUTILB, SORT, and so on, if your
-application depends on them. AWS Blu Age refactoring provides this access with a dedicated web
+application depends on them. AWS Transform for mainframe refactoring provides this access with a dedicated web
 application that is deployed alongside modernized applications. This web application requires a
 configuration file, `application-utility-pgm.yml`, that you must provide. If
 you don't provide this configuration file, the web application can't deploy alongside your

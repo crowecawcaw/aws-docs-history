@@ -12,7 +12,7 @@ particulars of your client’s company and business. The two main approaches tha
 are automated refactoring or replatforming. Which to choose depends on your client’s
 situation.
 
-Automated refactoring uses AWS Blu Age tools to automatically convert code, data, and dependencies
+Automated refactoring uses AWS Transform for mainframe tools to automatically convert code, data, and dependencies
 to modern language, datastore, and frameworks, while at the same time guaranteeing functional
 equivalence with the same business functions.
 
@@ -59,9 +59,9 @@ on AWS. Most or all of these tasks are conducted in AWS Mainframe Modernization,
 tool to which AWS Mainframe Modernization provides access.
 
 If you want to use automated refactoring, see [AWS Transform for mainframe refactor](https://bluinsights.aws/ "https://bluinsights.aws/").
-AWS AWS Transform for mainframe refactor is now available from the AWS Management Console through single sign-on.
-You do not have to manage separate AWS AWS Transform for mainframe refactor credentials any longer.
-You can access both the AWS AWS Blu Age Codebase and Transformation Center features directly from the AWS Management Console.
+AWS Transform for mainframe refactor is now available from the AWS Management Console through single sign-on.
+You do not have to manage separate AWS Transform for mainframe refactor credentials any longer.
+You can access both the AWS Transform for mainframe Codebase and Transformation Center features directly from the AWS Management Console.
 
 For migrating data from the mainframe to AWS, we recommend the AWS SCT and
 the AWS Database Migration Service. For more information, see [What is the AWS Schema Conversion

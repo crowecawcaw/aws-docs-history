@@ -30,7 +30,7 @@ the application.
 
 Alternatively, choose **Use an application definition JSON file in an Amazon S3
 bucket** and provide the location of the application definition that you want to
-use. For more information, see [AWS Blu Age application definition sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba") or [Rocket Software (formerly Micro Focus) application definition](applications-m2-definition.md#applications-m2-definition-mf "applications-m2-definition.md#applications-m2-definition-mf"). 6. When you're finished updating the application definition, choose
+use. For more information, see [AWS Transform for mainframe application definition sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba") or [Rocket Software (formerly Micro Focus) application definition](applications-m2-definition.md#applications-m2-definition-mf "applications-m2-definition.md#applications-m2-definition-mf"). 6. When you're finished updating the application definition, choose
 **Update**.
 
 ###### Note
