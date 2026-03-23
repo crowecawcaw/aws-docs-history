@@ -269,7 +269,7 @@ Example output:
 
 This command generates a new asymmetric RSA 2048-bit key pair. It creates a
 new private key and its matching public key. You can retrieve the public key
-using the [getPublicCertificate](keys.md "keys.md") API.
+using the [getPublicCertificate](keys.getpubliccertificate-example.md "keys.getpubliccertificate-example.md") API.
 
 ```
 `$` `aws payment-cryptography create-key --exportable \

@@ -34,7 +34,7 @@ Denoted by `KeyUsage` of TR31_M7_HMAC_KEY including HMAC_SHA224, HMAC_SHA256, HM
 
 **AS2805.4.1 MAC**
 
-Denoted by `KeyUsage` of TR31_M0_ISO_16609_MAC_KEY. For more details on AS2805, see [AS2805](advanced.regional.md "advanced.regional.md")
+Denoted by `KeyUsage` of TR31_M0_ISO_16609_MAC_KEY. For more details on AS2805, see [AS2805](advanced.regional.as2805.md "advanced.regional.as2805.md")
 
 **DUKPT MAC**
 

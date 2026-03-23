@@ -59,6 +59,8 @@ The following are some Multi-Region key replication limitations and consideratio
 - Replica Region key count towards your AWS account level AWS Payment Cryptography limit.
 - The Primary Region key and Replica Region key use the same key identifier which allows you to reference
   both keys by the same ARN in IAM policies.
+- You must have `CreateKey` permissions in the replica AWS Region
+  for replication to succeed.
 
 ## Enabling Multi-Region key replication
 

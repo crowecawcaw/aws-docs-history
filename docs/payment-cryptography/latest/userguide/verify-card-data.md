@@ -6,7 +6,7 @@ that rely on encryption principals such as `DISCOVER_DYNAMIC_CARD_VERIFICATION_C
 The input values are typically provided as part of an inbound transaction to an
 issuer or supporting platform
 partner. To verify an ARQC cryptogram (used for EMV chips cards),
-please see [Verify ARQC](data-operations.md "data-operations.md").
+please see [Verify ARQC](data-operations.verifyauthrequestcryptogram.md "data-operations.verifyauthrequestcryptogram.md").
 
 For more information, see [VerifyCardValidationData](../DataAPIReference/API_VerifyCardValidationData.md "../DataAPIReference/API_VerifyCardValidationData.md") in the API guide.
 
