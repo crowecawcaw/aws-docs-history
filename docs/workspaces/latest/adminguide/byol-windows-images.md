@@ -124,8 +124,9 @@ Your VM must run one of the following Windows versions:
 - Windows 10 Version 22H2 (November 2022 Update)
 - Windows 10 Enterprise LTSC 2019 (1809)
 - Windows 10 Enterprise LTSC 2021 (21H2)
-- Windows 11 Enterprise 23H2 (October 2023 release)
+- Windows 11 Enterprise LTSC 2024 (24H2)
 - Windows 11 Enterprise 22H2 (October 2022 release)
+- Windows 11 Enterprise 23H2 (October 2023 release)
 - Windows 11 Enterprise 24H2 (October 2024 release)
 - Windows 11 Enterprise 25H2 (September 2025 release)
 

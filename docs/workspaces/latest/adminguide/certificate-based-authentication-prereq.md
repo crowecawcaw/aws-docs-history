@@ -25,7 +25,7 @@ will become mandatory for certificate-based authentication after
 September 10, 2025. 4. Add the `sts:TagSession` permission to the IAM role trust
 policy that you use with your SAML 2.0 configuration. For more information,
 see [Passing session
-tags in AWS STS](../../../IAM/latest/UserGuide/id_session-tags.md "../../../IAM/latest/UserGuide/id_session-tags.md") in the _AWS Identity and Access Management User Guide_.
+tags in AWS STS](../../../IAM/latest/UserGuide/id_session-tags.html.md "../../../IAM/latest/UserGuide/id_session-tags.html.md") in the _AWS Identity and Access Management User Guide_.
 This permission is required to use certificate-based authentication. For
 more information, see [Step 5: Create a SAML 2.0 federation IAM role](create-directory-pools.md#saml-directory-saml-federation-role-in-iam "create-directory-pools.md#saml-directory-saml-federation-role-in-iam"). 5. Create a private certificate authority (CA) using AWS Private CA, if you
 don't have one configured with your Active Directory. AWS Private CA is
