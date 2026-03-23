@@ -5,7 +5,7 @@ Parameter Store](../../../systems-manager/latest/userguide/systems-manager-param
 
 Using the _alfred_ helper, you can use values that are
 stored in the SSM Parameter Store and without updating the CloudFormation template. For more
-information, see [What is an CloudFormation template?](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md#gettingstarted.templatebasics.what "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md#gettingstarted.templatebasics.what") in the _CloudFormation User Guide_.
+information, see [What is an CloudFormation template?](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md#gettingstarted.templatebasics.what "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md#gettingstarted.templatebasics.what") in the _CloudFormation User Guide_.
 
 ###### Important
 

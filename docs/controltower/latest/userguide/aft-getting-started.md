@@ -240,6 +240,54 @@ During deployment, to change the compute type that AFT uses for CodeBuild, set t
 For information about accepted compute types, see [About on-demand environment types](../../../codebuild/latest/userguide/build-env-ref-compute-types.md#environment.types "../../../codebuild/latest/userguide/build-env-ref-compute-types.md#environment.types"). The default compute type is
 `BUILD_GENERAL1_MEDIUM`.
 
+- **Optionally configure OpenID Connect (OIDC) for
+  Terraform**
+
+Customers using Terraform Enterprise or HCP Terraform (formerly Terraform
+Cloud) can use Terraform's Workload identity tokens (or dynamic provider
+credentials), built on the OIDC protocol, to securely connect and authenticate
+workspaces with AFT.
+
+You can enable OIDC integration for AFT workspaces by setting the
+`terraform_oidc_integration` parameter to `true`. By
+default, this parameter is set to `false`. When enabling this
+parameter, the `terraform_oidc_aws_audience` and
+`terraform_oidc_hostname` parameters should be reviewed and
+configured if the defaults (`aws.workload.identity` and
+`app.terraform.io`, respectively) do not match your
+environment.
+
+Example configuration:
+
+```
+
+module "aft" {
+  source = "github.com/aws-ia/terraform-aws-control_tower_account_factory"
+
+  # Terraform distribution must be "tfc" or "tfe" for OIDC
+  terraform_distribution = "tfc"
+
+  # Terraform OIDC Configuration
+  terraform_oidc_integration  = true
+  terraform_oidc_aws_audience = "aws.workload.identity"  # default
+  terraform_oidc_hostname     = "app.terraform.io"       # default; set to your TFE hostname if applicable
+
+  # Other AFT parameters...
+}
+
+```
+
+###### Note
+
+This parameter is only applicable to Terraform Enterprise or HCP Terraform
+deployments.
+
+###### Note
+
+If you are currently leveraging an OIDC provider for Terraform in the AFT
+management account, you must delete that provider prior to opting-in to this
+integration. AFT will re-create that provider for you upon deployment.
+
 **Step 6: Call the Account Factory for Terraform module to deploy
 AFT**
 

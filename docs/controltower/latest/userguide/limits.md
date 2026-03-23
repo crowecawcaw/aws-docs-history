@@ -25,6 +25,13 @@ This section describes known limitations and unsupported use cases in AWS Contro
     Account Factory, through an asynchronous process, with up to five (5)
     account-related operations in progress simultaneously. Unmanaging
     accounts must be performed one account at a time.
+  - Account Factory for Terraform (AFT) has additional concurrency parameters
+    configured during deployment. AWS has tested AFT with these default values:
+
+        - `concurrent_account_factory_actions`: 5 (account provisioning)
+        - `maximum_concurrent_customizations`: 5 (customization pipelines)
+
+    Increasing these limits beyond the tested defaults may reduce stability.
 
 - Email addresses of shared accounts in the Security OU can be changed, but you
   must update your landing zone to see these changes in the AWS Control Tower
