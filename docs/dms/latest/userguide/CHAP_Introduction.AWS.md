@@ -1,73 +1,38 @@
-# Constructing an Amazon Resource Name (ARN) for AWS DMS
+# Using AWS DMS with other AWS services
 
-If you use the AWS CLI or AWS DMS API to automate your database migration, then you
-work with Amazon Resource Name (ARNs). Each resource that is created in Amazon Web Services is
-identified by an ARN, which is a unique identifier. If you use the AWS CLI or AWS DMS
-API to set up your database migration, you supply the ARN of the resource that you
-want to work with.
+You can use AWS DMS with several other AWS services:
 
-An ARN for an AWS DMS resource uses the following syntax:
+- You can use an Amazon EC2 instance or Amazon RDS DB instance as a target for a data
+  migration.
+- You can use the AWS Schema Conversion Tool (AWS SCT) to convert your source schema and SQL
+  code into an equivalent target schema and SQL code.
+- You can use Amazon S3 as a storage site for your data, or you can use it as an
+  intermediate step when migrating large amounts of data.
+- You can use CloudFormation to set up your AWS resources for infrastructure management
+  or deployment. For example, you can provision AWS DMS resources such as
+  replication instances, tasks, certificates, and endpoints. You create a template
+  that describes all the AWS resources that you want, and CloudFormation provisions and
+  configures those resources for you.
 
-`arn:aws:dms:`region`:`account
-number`:`resourcetype`:`resourcename``
+## AWS DMS support for AWS CloudFormation
 
-In this syntax, the following apply:
+You can provision AWS DMS resources using AWS CloudFormation. AWS CloudFormation is a service that
+helps you model and set up your AWS resources for infrastructure management or
+deployment. For example, you can provision AWS DMS resources such as replication
+instances, tasks, certificates, and endpoints. You create a template that describes
+all the AWS resources that you want and AWS CloudFormation provisions and configures those
+resources for you.
 
-- `region` is the ID of the AWS Region
-  where the AWS DMS resource was created, such as `us-west-2`.
+As a developer or system administrator, you can create and manage collections of
+these resources that you can then use for repetitive migration tasks or deploying
+resources to your organization. For more information about AWS CloudFormation, see [AWS CloudFormation concepts](../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md "../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md") in the
+_AWS CloudFormation User Guide._
 
-The following table shows AWS Region names and the values that you should
-use when constructing an ARN.
+AWS DMS supports creating the following AWS DMS resources using AWS CloudFormation:
 
-| Region                           | Name           |
-| -------------------------------- | -------------- |
-| Asia Pacific (Tokyo) Region      | ap-northeast-1 |
-| Asia Pacific (Seoul) Region      | ap-northeast-2 |
-| Asia Pacific (Mumbai) Region     | ap-south-1     |
-| Asia Pacific (Singapore) Region  | ap-southeast-1 |
-| Asia Pacific (Sydney) Region     | ap-southeast-2 |
-| Canada (Central) Region          | ca-central-1   |
-| China (Beijing) Region           | cn-north-1     |
-| China (Ningxia) Region           | cn-northwest-1 |
-| Europe (Stockholm) Region        | eu-north-1     |
-| Europe (Milan) Region            | eu-south-1     |
-| EU (Frankfurt) Region            | eu-central-1   |
-| Europe (Ireland) Region          | eu-west-1      |
-| EU (London) Region               | eu-west-2      |
-| EU (Paris) Region                | eu-west-3      |
-| South America (São Paulo) Region | sa-east-1      |
-| US East (N. Virginia) Region     | us-east-1      |
-| US East (Ohio) Region            | us-east-2      |
-| US West (N. California) Region   | us-west-1      |
-| US West (Oregon) Region          | us-west-2      |
-
-- `*`account number`*` is
-  your account number with dashes omitted. To find your account number, sign in to
-  your AWS account at http://aws.amazon.com, choose **My
-  Account/Console**, and then choose **My
-  Account**.
-- _`resourcetype`_ is
-  the type of AWS DMS resource.
-
-The following table shows the resource types to use when constructing an ARN
-for a particular AWS DMS resource.
-
-| AWS DMS resource type | ARN format                                                   |
-| --------------------- | ------------------------------------------------------------ |
-| Replication instance  | `arn:aws:dms:`region`:<br>`account`:rep:<br>`resourcename``  |
-| Endpoint              | `arn:aws:dms:`region`:`account`:endpoint:<br>`resourcename`` |
-| Replication task      | `arn:aws:dms:`region`:`account`:task:`resourcename``         |
-| Subnet group          | `arn:aws:dms:`region`:`account`:subgrp:`resourcename``       |
-
-- `resourcename` is the resource name
-  assigned to the AWS DMS resource. This is a generated arbitrary string.
-  The following table shows examples of ARNs for AWS DMS resources. Here, we assume an AWS
-  account of 123456789012, which were created in the US East (N. Virginia) Region, and has a
-  resource name.
-
-| Resource type        | Sample ARN                                                               |
-| -------------------- | ------------------------------------------------------------------------ |
-| Replication instance | `arn:aws:dms:us-east-1:123456789012:rep:QLXQZ64MH7CXF4QCQMGRVYVXAI`      |
-| Endpoint             | `arn:aws:dms:us-east-1:123456789012:endpoint:D3HMZ2IGUCGFF3NTAXUXGF6S5A` |
-| Replication task     | `arn:aws:dms:us-east-1:123456789012:task:2PVREMWNPGYJCVU2IBPTOYTIV4`     |
-| Subnet group         | `arn:aws:dms:us-east-1:123456789012:subgrp:test-tag-grp`                 |
+- [AWS::DMS::Certificate](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.md")
+- [AWS::DMS::Endpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.md")
+- [AWS::DMS::EventSubscription](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.md")
+- [AWS::DMS::ReplicationInstance](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.md")
+- [AWS::DMS::ReplicationSubnetGroup](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.md")
+- [AWS::DMS::ReplicationTask](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.md")

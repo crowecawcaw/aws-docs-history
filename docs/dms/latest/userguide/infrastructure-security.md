@@ -19,7 +19,7 @@ support the following:
   control access from specific Amazon VPC endpoints or specific virtual private clouds (VPCs).
   Effectively, this isolates network access to a given AWS DMS resource from only the
   specific VPC within the AWS network. For more information about using resource-based access
-  policies with AWS DMS, including examples, see [Fine-grained access control using resource names and tags](CHAP_Security.md "CHAP_Security.md").
+  policies with AWS DMS, including examples, see [Fine-grained access control using resource names and tags](CHAP_Security.FineGrainedAccess.md "CHAP_Security.FineGrainedAccess.md").
 
 To confine your communications with AWS DMS within a single VPC, you can create a
 VPC interface endpoint that enables you to connect to AWS DMS through AWS PrivateLink.

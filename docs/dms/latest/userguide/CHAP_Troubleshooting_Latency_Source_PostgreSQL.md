@@ -61,7 +61,7 @@ If your source PostgreSQL has a high workload, check the following to reduce lat
   `pglogical` plugin instead. Unlike the `test_decoding` plugin, the
   `pglogical` plugin filters write ahead log (WAL) changes at the source,
   and only sends relevant changes to the replication instance. For information about using the
-  `pglogical` plugin with AWS DMS, see [Configuring the pglogical plugin](CHAP_Source.md#CHAP_Source.PostgreSQL.Security.Pglogical "CHAP_Source.md#CHAP_Source.PostgreSQL.Security.Pglogical").
+  `pglogical` plugin with AWS DMS, see [Configuring the pglogical plugin](CHAP_Source.PostgreSQL.md#CHAP_Source.PostgreSQL.Security.Pglogical "CHAP_Source.PostgreSQL.md#CHAP_Source.PostgreSQL.Security.Pglogical").
 
 ## High network throughput
 
@@ -118,5 +118,5 @@ To mitigate this, increase the `logical_decoding_work_mem` parameter value.
 
 You can check the current transaction overflow with the `aurora_stat_file` function.
 For more information, see
-[Adjusting working memory for logical decoding](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.BestPractices.md#AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.logical-decoding-work-mem "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.BestPractices.md#AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.logical-decoding-work-mem") in the
+[Adjusting working memory for logical decoding](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.md#AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.logical-decoding-work-mem "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.md#AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.logical-decoding-work-mem") in the
 _Amazon Relational Database Service Developer Guide_.

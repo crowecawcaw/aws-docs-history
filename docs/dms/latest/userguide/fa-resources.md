@@ -5,7 +5,7 @@
 End of support notice: On May 20, 2026, AWS will end support for AWS Database Migration Service Fleet
 Advisor. After May 20, 2026, you will no longer be able to access the AWS DMS Fleet
 Advisor console or AWS DMS Fleet Advisor resources. For more information, see [AWS DMS Fleet Advisor
-end of support](dms_fleet.md "dms_fleet.md").
+end of support](dms_fleet.advisor-end-of-support.md "dms_fleet.advisor-end-of-support.md").
 
 DMS Fleet Advisor needs a set of AWS resources in your account to forward and import
 inventory information, and to update the status of the DMS data collector.
@@ -65,12 +65,12 @@ resources that make up a stack. The template is stored as a JSON file.
 
 1. Open the context (right-click) menu for one of the following links and
    choose **Save Link As**:
-   - If you plan to use DMS Fleet Advisor, choose [dms-fleetadvisor-iam-slr-s3.zip](samples/dms-fleetadvisor-iam-slr-s3.md "samples/dms-fleetadvisor-iam-slr-s3.md"). If you have
-     already created the SLR for DMS Fleet Advisor, choose [dms-fleetadvisor-iam-s3.zip](samples/dms-fleetadvisor-iam-s3.md "samples/dms-fleetadvisor-iam-s3.md")
+   - If you plan to use DMS Fleet Advisor, choose [dms-fleetadvisor-iam-slr-s3.zip](samples/dms-fleetadvisor-iam-slr-s3.zip.md "samples/dms-fleetadvisor-iam-slr-s3.zip.md"). If you have
+     already created the SLR for DMS Fleet Advisor, choose [dms-fleetadvisor-iam-s3.zip](samples/dms-fleetadvisor-iam-s3.zip.md "samples/dms-fleetadvisor-iam-s3.zip.md")
    - If you plan to use the AWS Application Discovery Service (ADS)
      Agentless Collector and have not created the SLR for it, then
-     choose [dms-fleetadvisor-ads-iam-slr-s3.zip](samples/dms-fleetadvisor-ads-iam-slr-s3.md "samples/dms-fleetadvisor-ads-iam-slr-s3.md"). If you have
-     created the SLR for DMS Fleet Advisor with ADS before, choose [dms-fleetadvisor-ads-iam-s3.zip](samples/dms-fleetadvisor-ads-iam-s3.md "samples/dms-fleetadvisor-ads-iam-s3.md").
+     choose [dms-fleetadvisor-ads-iam-slr-s3.zip](samples/dms-fleetadvisor-ads-iam-slr-s3.zip.md "samples/dms-fleetadvisor-ads-iam-slr-s3.zip.md"). If you have
+     created the SLR for DMS Fleet Advisor with ADS before, choose [dms-fleetadvisor-ads-iam-s3.zip](samples/dms-fleetadvisor-ads-iam-s3.zip.md "samples/dms-fleetadvisor-ads-iam-s3.zip.md").
 
 2. Save the file to your computer.
 

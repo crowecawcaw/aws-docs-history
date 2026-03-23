@@ -84,7 +84,7 @@ To troubleshoot a misconfigured polling interval, do the following:
   [The Transaction Log (SQL Server)](https://learn.microsoft.com/en-us/sql/relational-databases/logs/the-transaction-log-sql-server?view=sql-server-ver16#FactorsThatDelayTruncation "https://learn.microsoft.com/en-us/sql/relational-databases/logs/the-transaction-log-sql-server?view=sql-server-ver16#FactorsThatDelayTruncation") in the [SQL Server technical documentation](https://learn.microsoft.com/en-us/sql/sql-server/?view=sql-server-ver16 "https://learn.microsoft.com/en-us/sql/sql-server/?view=sql-server-ver16").
 
 If you find issues with any of the items in the previous list, tune the MS-CDC polling interval. For information
-about tuning the polling interval, see [Recommended settings when using RDS for SQL Server as a source for AWS DMS](CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.Configuration.Settings "CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.Configuration.Settings").
+about tuning the polling interval, see [Recommended settings when using RDS for SQL Server as a source for AWS DMS](CHAP_Source.SQLServer.CDC.md#CHAP_Source.SQLServer.Configuration.Settings "CHAP_Source.SQLServer.CDC.md#CHAP_Source.SQLServer.Configuration.Settings").
 
 ## Multiple CDC tasks replicating from the same source database
 

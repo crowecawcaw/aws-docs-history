@@ -30,6 +30,6 @@ View the following topics to discover more details about AWS DMS Serverless.
 
 ###### Topics
 
-- [AWS DMS Serverless components](CHAP_Serverless.md "CHAP_Serverless.md")
-- [AWS DMS Serverless limitations](CHAP_Serverless.md "CHAP_Serverless.md")
-- [AWS DMS Serverless premigration.](CHAP_Serverless.md "CHAP_Serverless.md")
+- [AWS DMS Serverless components](CHAP_Serverless.Components.md "CHAP_Serverless.Components.md")
+- [AWS DMS Serverless limitations](CHAP_Serverless.Limitations.md "CHAP_Serverless.Limitations.md")
+- [AWS DMS Serverless premigration.](CHAP_Serverless.Premigrations.md "CHAP_Serverless.Premigrations.md")

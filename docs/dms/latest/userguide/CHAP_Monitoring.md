@@ -30,7 +30,7 @@ the number of inserts, deletes, and updates have occurred for the table. For
 more information about monitoring task and task resource condition, see
 [Task status](#CHAP_Tasks.Status "#CHAP_Tasks.Status")
 and [Table state during tasks](#CHAP_Tasks.CustomizingTasks.TableState "#CHAP_Tasks.CustomizingTasks.TableState"). For more
-information about control tables, see [Control table task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+information about control tables, see [Control table task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.ControlTable.md "CHAP_Tasks.CustomizingTasks.TaskSettings.ControlTable.md").
 
 **Amazon CloudWatch alarms and logs**
 
@@ -59,7 +59,7 @@ only for full-load and CDC tasks and for CDC only tasks. To turn on Time Travel
 or to modify any existing Time Travel settings, ensure that your task is
 stopped.
 
-For more information about Time Travel logs, see [Time Travel task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md"). For
+For more information about Time Travel logs, see [Time Travel task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md"). For
 best practices for using Time Travel logs, see [Troubleshooting replication tasks with Time Travel](CHAP_BestPractices.md#CHAP_BestPractices.TimeTravel "CHAP_BestPractices.md#CHAP_BestPractices.TimeTravel").
 
 **AWS CloudTrail logs**
@@ -95,7 +95,7 @@ For more information, see the following topics.
 - [Logging AWS DMS API calls with AWS CloudTrail](#logging-using-cloudtrail "#logging-using-cloudtrail")
 - [AWS DMS Context logging](#datarep_Monitoring_ContextLogging "#datarep_Monitoring_ContextLogging")
 - [Enhanced monitoring dashboard](enhanced-monitoring-dashboard.md "enhanced-monitoring-dashboard.md")
-- [Viewing AWS DMS events](CHAP_Monitoring.View.dms.md "CHAP_Monitoring.View.dms.md")
+- [Viewing AWS DMS events](CHAP_Monitoring.View.dms.events.md "CHAP_Monitoring.View.dms.events.md")
 
 ## Task status
 
@@ -199,7 +199,7 @@ the replication task and then select the **CloudWatch metrics**
 tab.
 
 To view and modify the CloudWatch task log settings, choose **Modify task logging**.
-For more information, see [Logging task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+For more information, see [Logging task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.Logging.md "CHAP_Tasks.CustomizingTasks.TaskSettings.Logging.md").
 
 ![AWS DMS monitoring](images/datarep-monitoring1.png)
 
@@ -383,7 +383,7 @@ Replication task monitoring includes metrics for the following statistics.
 ## Viewing and managing AWS DMS task logs
 
 You can use Amazon CloudWatch to log task information during an AWS DMS migration process. You
-enable logging when you select task settings. For more information, see [Logging task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+enable logging when you select task settings. For more information, see [Logging task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.Logging.md "CHAP_Tasks.CustomizingTasks.TaskSettings.Logging.md").
 
 To view logs of a task that ran, follow these steps:
 

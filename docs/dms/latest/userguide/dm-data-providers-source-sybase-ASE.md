@@ -6,7 +6,7 @@ You can use DMS Schema Conversion to convert database code objects from SAP ASE 
 
 - Aurora PostgreSQL
 - RDS for PostgreSQL
-  For information about the supported SAP ASE (Sybase ASE) database versions, see [Source data providers for DMS Schema Conversion](CHAP_Introduction.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.md#CHAP_Introduction.Sources.SchemaConversion")
+  For information about the supported SAP ASE (Sybase ASE) database versions, see [Source data providers for DMS Schema Conversion](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion")
 
 ## Privileges for SAP ASE (Sybase ASE) as a source database
 

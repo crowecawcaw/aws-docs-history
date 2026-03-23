@@ -2,7 +2,7 @@
 
 You can use Amazon RDS for Db2 databases as a migration target in DMS Schema Conversion.
 
-For more information regarding supported target databases, see [Target data providers for DMS Schema Conversion](CHAP_Introduction.md#CHAP_Introduction.Targets.SchemaConversion "CHAP_Introduction.md#CHAP_Introduction.Targets.SchemaConversion").
+For more information regarding supported target databases, see [Target data providers for DMS Schema Conversion](CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.SchemaConversion "CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.SchemaConversion").
 
 ## Privileges for Amazon RDS for Db2 as a target
 

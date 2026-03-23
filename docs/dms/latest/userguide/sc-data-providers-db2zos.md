@@ -6,7 +6,7 @@ You can use DMS Schema Conversion to convert database code objects from Db2 for 
 
 - Amazon RDS for Db2
   For more information regarding the supported IBM Db2 for z/OS database versions, see
-  [Source data providers for DMS Schema Conversion](CHAP_Introduction.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.md#CHAP_Introduction.Sources.SchemaConversion").
+  [Source data providers for DMS Schema Conversion](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion").
 
 ## Prerequisites for IBM Db2 for z/OS as a source database
 

@@ -9,7 +9,7 @@ to the following targets:
 - Aurora PostgreSQL
 - RDS for MySQL
 - RDS for PostgreSQL
-  For information about the supported SQL Server database versions, see [Source data providers for DMS Schema Conversion](CHAP_Introduction.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.md#CHAP_Introduction.Sources.SchemaConversion").
+  For information about the supported SQL Server database versions, see [Source data providers for DMS Schema Conversion](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion").
 
 For more information about using DMS Schema Conversion with a source SQL Server database, see the
 [SQL Server to MySQL migration step-by-step walkthrough](../sbs/schema-conversion-sql-server-mysql.md "../sbs/schema-conversion-sql-server-mysql.md").
@@ -61,7 +61,7 @@ In the preceding example, replace the
 with the name of the SQL Server Agent role. Then replace the
 `<user_name>` placeholder
 with the name of the user who you previously granted with the required
-privileges. For more information, see [Adding a user to the SQLAgentUser role](../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.md#SQLServerAgent.AddUser "../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.md#SQLServerAgent.AddUser") in the
+privileges. For more information, see [Adding a user to the SQLAgentUser role](../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Agent.md#SQLServerAgent.AddUser "../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Agent.md#SQLServerAgent.AddUser") in the
 _Amazon RDS User Guide_.
 
 To detect log shipping, grant the `SELECT on dbo.log_shipping_primary_databases`

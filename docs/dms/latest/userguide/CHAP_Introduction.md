@@ -1,36 +1,23 @@
-# DDL statements supported by AWS DMS
+# AWS DMS Terminology and concepts
 
-You can execute data definition language (DDL) statements on the source database
-during the data migration process. These statements are replicated to the target
-database by the replication server.
+AWS Database Migration Service (AWS DMS) is a web service that you can use to migrate data from a source
+data store to a target data store. These two data stores are called endpoints. You can
+migrate between source and target endpoints that use the same database engine, such as from
+an Oracle database to an Oracle database. You can also migrate between source and target
+endpoints that use different database engines, such as from an Oracle database to a
+PostgreSQL database. The only requirement to use AWS DMS is that one of your endpoints
+must be on an AWS service. You can't use AWS DMS to migrate from an on-premises
+database to another on-premises database.
 
-Supported DDL statements include the following:
+For information on the cost of database migration, see the [AWS Database Migration Service pricing page](https://aws.amazon.com/dms/pricing/ "https://aws.amazon.com/dms/pricing/").
 
-- Create table
-- Drop table
-- Rename table
-- Truncate table
-- Add column
-- Drop column
-- Rename column
-- Change column data type
-  DMS doesn’t capture all supported DDL statements for some source engine types. And DMS handles DDL
-  statements differently when applying them to specific target engines. For information about which DDL
-  statements are supported for a specific source, and how they’re applied to a target, see the specific
-  documentation topic for that source and target endpoint.
+Use the following topics to better understand AWS DMS.
 
-You can use task settings to configure the way DMS handles DDL behavior during change data capture (CDC).
-For more information, see
-[Task settings for change processing DDL handling](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+###### Topics
 
-## Limitations and considerations
-
-Rapid sequences of DDL operations in the source database (such as DDL>DML>DDL) can
-cause AWS DMS to parse the log incorrectly, leading to data loss or unexpected
-behavior. To maintain data consistency, wait for AWS DMS to apply each change to the
-target before performing subsequent operations.
-
-For example, during change data capture (CDC), multiple rapid table rename
-operations on a source table can trigger errors. If you rename a table and then
-quickly rename it back to its original name, AWS DMS might report that the table
-already exists in the target database.
+- [High-level view of AWS DMS](CHAP_Introduction.HighLevelView.md "CHAP_Introduction.HighLevelView.md")
+- [Components of AWS DMS](CHAP_Introduction.Components.md "CHAP_Introduction.Components.md")
+- [Sources for AWS DMS](CHAP_Introduction.Sources.md "CHAP_Introduction.Sources.md")
+- [Targets for AWS DMS](CHAP_Introduction.Targets.md "CHAP_Introduction.Targets.md")
+- [Constructing an Amazon Resource Name (ARN) for AWS DMS](CHAP_Introduction.AWS.ARN.md "CHAP_Introduction.AWS.ARN.md")
+- [Using AWS DMS with other AWS services](CHAP_Introduction.AWS.md "CHAP_Introduction.AWS.md")

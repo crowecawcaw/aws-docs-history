@@ -64,9 +64,9 @@ requirements and limitations.
 SQL Server
 
 - For configuration requirements, see
-  [Using a Microsoft SQL Server database as a source for AWS DMS](CHAP_Source.md "CHAP_Source.md").
+  [Using a Microsoft SQL Server database as a source for AWS DMS](CHAP_Source.SQLServer.md "CHAP_Source.SQLServer.md").
 - For change data capture (CDC) requirements, see
-  [Capturing data changes for ongoing replication from SQL Server](CHAP_Source.SQLServer.md "CHAP_Source.SQLServer.md").
+  [Capturing data changes for ongoing replication from SQL Server](CHAP_Source.SQLServer.CDC.md "CHAP_Source.SQLServer.CDC.md").
 
 ###### Note
 
@@ -75,17 +75,17 @@ RDS SQL Server and Azure SQL Server cannot be used as sources for self-managed z
 Oracle
 
 - For configuration requirements and limitations, see
-  [Using an Oracle database as a source for AWS DMS](CHAP_Source.md "CHAP_Source.md").
+  [Using an Oracle database as a source for AWS DMS](CHAP_Source.Oracle.md "CHAP_Source.Oracle.md").
 
 MySQL
 
 - For configuration requirements and limitations, see
-  [Using a MySQL-compatible database as a source for AWS DMS](CHAP_Source.md "CHAP_Source.md").
+  [Using a MySQL-compatible database as a source for AWS DMS](CHAP_Source.MySQL.md "CHAP_Source.MySQL.md").
 
 PostgreSQL
 
 - For configuration requirements and limitations, see
-  [Using a PostgreSQL database as an AWS DMS source](CHAP_Source.md "CHAP_Source.md").
+  [Using a PostgreSQL database as an AWS DMS source](CHAP_Source.PostgreSQL.md "CHAP_Source.PostgreSQL.md").
 - When using a self-managed PostgreSQL database as a source, the following limitation applies:
   - For self-managed PostgreSQL sources, you must set `CaptureDdls` to `false` in the PostgreSQL endpoint settings when creating the source endpoint. To set this parameter, use the following when creating your source endpoint:
 

@@ -69,7 +69,7 @@ choose one of the following configurations.
    address** under **Connectivity and security**
    on the **Details** tab.
 4. Allow access from the public IP address of your data migration in your
-   target database security group. For more information, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md") in the _Amazon Relational Database Service User
+   target database security group. For more information, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md") in the _Amazon Relational Database Service User
    Guide_.
 
 ###### To configure a public network for your source data provider and a private network for your target data provider
@@ -84,7 +84,7 @@ choose one of the following configurations.
    address** under **Connectivity and security**
    on the **Details** tab.
 4. Allow access from the public IP address of your data migration in your
-   source database security group. For more information, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md") in the _Amazon Relational Database Service User
+   source database security group. For more information, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md") in the _Amazon Relational Database Service User
    Guide_.
 
 ## Using an on-premises source data provider

@@ -324,7 +324,7 @@ JSON
 
 ```
 
-For more information on creating a role based on this policy, see [Amazon S3 bucket settings](CHAP_Target.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets "CHAP_Target.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets").
+For more information on creating a role based on this policy, see [Amazon S3 bucket settings](CHAP_Target.Redshift.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets "CHAP_Target.Redshift.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets").
 
 ## Accessing AWS DMS resources based on tags
 

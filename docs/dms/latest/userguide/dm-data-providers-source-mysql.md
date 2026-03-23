@@ -52,7 +52,7 @@ This section describes how to configure your MySQL compatible databases that are
 or on Amazon EC2 instances.
 
 Check the version of your source MySQL or MariaDB database. Make sure that AWS DMS supports
-your source MySQL or MariaDB database version as described in [Sources for DMS homogeneous data migrations](CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations "CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations").
+your source MySQL or MariaDB database version as described in [Sources for DMS homogeneous data migrations](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.HomogeneousDataMigrations "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.HomogeneousDataMigrations").
 
 To use CDC, make sure to enable binary logging. To enable binary logging, configure the
 following parameters in the `my.ini` (Windows) or
@@ -85,7 +85,7 @@ For more information about setting up automatic backups, see [Enabling automated
 
 For more information about setting up binary logging for an
 Amazon RDS for MySQL or MariaDB database, see
-[Setting the binary logging format](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.md") in the _Amazon RDS User Guide_.
+[Setting the binary logging format](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.BinaryFormat.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.BinaryFormat.md") in the _Amazon RDS User Guide_.
 
 For more information about setting up binary logging for an Aurora MySQL cluster, see
 [How do I turn on binary logging for my Amazon Aurora MySQL cluster?](https://aws.amazon.com/premiumsupport/knowledge-center/enable-binary-logging-aurora/ "https://aws.amazon.com/premiumsupport/knowledge-center/enable-binary-logging-aurora/").
@@ -123,6 +123,6 @@ The following limitations apply when using a MySQL compatible database as a sour
 
 - AWS DMS homogeneous data migrations creates unencrypted MySQL and MariaDB objects on the target Amazon RDS instances even if the source objects were encrypted.
   RDS for MySQL doesn't support the MySQL keyring_aws AWS Keyring Plugin required for encrypted objects.
-  Refer to the [MySQL Keyring Plugin not supported documentation](../../../AmazonRDS/latest/UserGuide/MySQL.md#MySQL.Concepts.Limits.KeyRing "../../../AmazonRDS/latest/UserGuide/MySQL.md#MySQL.Concepts.Limits.KeyRing") in the Amazon RDS User Guide
+  Refer to the [MySQL Keyring Plugin not supported documentation](../../../AmazonRDS/latest/UserGuide/MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.Limits.KeyRing "../../../AmazonRDS/latest/UserGuide/MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.Limits.KeyRing") in the Amazon RDS User Guide
 - AWS DMS does not use Global Transaction Identifiers (GTIDs) for for data
   replication even if the source data contains them.

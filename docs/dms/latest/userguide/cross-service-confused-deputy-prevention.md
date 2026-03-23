@@ -78,7 +78,7 @@ JSON
 ## IAM policy to store preflight assessments in Amazon S3 for cross-service confused deputy prevention
 
 To store preassessment results in your S3 bucket, you create an IAM policy that allows
-AWS DMS to manage objects in Amazon S3. For more information, see [Create IAM resources](CHAP_Tasks.AssessmentReport.md#CHAP_Tasks.AssessmentReport.Prerequisites.IAM "CHAP_Tasks.AssessmentReport.md#CHAP_Tasks.AssessmentReport.Prerequisites.IAM").
+AWS DMS to manage objects in Amazon S3. For more information, see [Create IAM resources](CHAP_Tasks.AssessmentReport.Prerequisites.md#CHAP_Tasks.AssessmentReport.Prerequisites.IAM "CHAP_Tasks.AssessmentReport.Prerequisites.md#CHAP_Tasks.AssessmentReport.Prerequisites.IAM").
 
 The following example shows a trust policy with confused deputy conditions that are set on
 an IAM role that allows AWS DMS to access all tasks and assessment runs under a specified
@@ -117,7 +117,7 @@ JSON
 To use Amazon DynamoDB as a target endpoint for your database migration, you must create
 the IAM role that allows AWS DMS to assume and grant access to the DynamoDB tables. Then,
 use this role when you create your target DynamoDB endpoint in AWS DMS. For more information,
-see [Using Amazon DynamoDB as a target](CHAP_Target.md "CHAP_Target.md").
+see [Using Amazon DynamoDB as a target](CHAP_Target.DynamoDB.md "CHAP_Target.DynamoDB.md").
 
 The following example shows a trust policy with confused deputy conditions that are set on
 an IAM role that allows all AWS DMS endpoints to access DynamoDB tables.

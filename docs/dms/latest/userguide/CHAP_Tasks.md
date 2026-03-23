@@ -1,143 +1,61 @@
-# Setting LOB support for source databases in an AWS DMS task
+# Working with AWS DMS tasks
 
-Large binary objects (LOBs) can sometimes be difficult to migrate between systems.
-AWS DMS offers a number of options to help with the tuning of LOB columns. To see
-which and when data types are considered LOBs by AWS DMS, see the AWS DMS
-documentation.
+An AWS Database Migration Service (AWS DMS) task is where all the work happens. You specify what tables (or
+views) and schemas to use for your migration and any special processing, such as logging
+requirements, control table data, and error handling.
 
-When you migrate data from one database to another, you might take the opportunity
-to rethink how your LOBs are stored, especially for heterogeneous migrations. If you
-want to do so, there's no need to migrate the LOB data.
+A task can consist of three major phases:
 
-If you decide to include LOBs, you can then decide the other LOB settings:
+- Migration of existing data (Full load)
+- The application of cached changes
+- Ongoing replication (Change Data Capture)
+  For more information and an overview of how AWS DMS migration tasks migrate data, see [High-level view of AWS DMS](CHAP_Introduction.HighLevelView.md "CHAP_Introduction.HighLevelView.md")
 
-- The LOB mode determines how LOBs are handled:
-  - **Full LOB mode** – In full
-    LOB mode AWS DMS migrates all LOBs from source to target regardless of
-    size. In this configuration, AWS DMS has no information about the
-    maximum size of LOBs to expect. Thus, LOBs are migrated one at a
-    time, piece by piece. Full LOB mode can be quite slow.
-  - **Limited LOB mode** – In
-    limited LOB mode, you set a maximum LOB size for DMS to accept. That
-    enables DMS to pre-allocate memory and load the LOB data in bulk. LOBs
-    that exceed the maximum LOB size are truncated, and a warning is issued
-    to the log file. In limited LOB mode, you can gain significant
-    performance over full LOB mode. We recommend that you use limited LOB
-    mode whenever possible. The maximum value for this parameter is 102400 KB (100 MB).
+When creating a migration task, you need to know several things:
 
-  ###### Note
+- Before you can create a task, make sure that you create a source endpoint, a
+  target endpoint, and a replication instance.
+- You can specify many task settings to tailor your migration task. You can set
+  these by using the AWS Management Console, AWS Command Line Interface (AWS CLI), or AWS DMS API. These settings
+  include specifying how migration errors are handled, error logging, and control
+  table information. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
+- After you create a task, you can run it immediately. The target tables with the
+  necessary metadata definitions are automatically created and loaded, and you can
+  specify ongoing replication.
+- By default, AWS DMS starts your task as soon as you create it. However, in some
+  situations, you might want to postpone the start of the task. For example, when
+  using the AWS CLI, you might have a process that creates a task and a different
+  process that starts the task based on some triggering event. As needed, you can
+  postpone your task's start.
+- You can monitor, stop, or restart tasks using the console, AWS CLI, or AWS DMS
+  API. For information about stopping a task using the AWS DMS API, see
+  [StopReplicationTask](../APIReference/API_StopReplicationTask.md "../APIReference/API_StopReplicationTask.md")
+  in the [AWS DMS API Reference](../APIReference.md "../APIReference.md").
+  The following are actions that you can do when working with an AWS DMS task.
 
-  Using the Max LOB size (K) option with a value greater than 63KB
-  impacts the performance of a full load configured to run in limited
-  LOB mode. During a full load, DMS allocates memory by multiplying
-  the Max LOB size (k) value by the Commit rate, and the product is
-  multiplied by the number of LOB columns. When DMS cannot
-  pre-allocate that memory, it consumes SWAP memory which negatively
-  impacts performance of the full load tasks. If you experience
-  performance issues when using limited LOB mode, consider decreasing
-  the commit rate until you achieve an acceptable level of
-  performance. During a CDC mode, DMS allocates memory by multiplying
-  the number of LOB Columns by the Max LOB Size parameter specified in
-  the Limited LOB task settings, and then by the record size. DMS CDC
-  process is single threaded per DMS task. For more information, see
-  [Change processing tuning
-  settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+| Task                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Relevant documentation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Creating a task**<br>When you create a task, you specify the source, target, and<br>replication instance, along with any migration settings.                                                                                                                                                                                                                                                                                                                                                                                                                              | [Creating a task](CHAP_Tasks.Creating.md "CHAP_Tasks.Creating.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Creating an ongoing replication task**<br>You can set up a task to provide continuous replication between the<br>source and target.                                                                                                                                                                                                                                                                                                                                                                                                                                       | [Creating tasks for ongoing replication using AWS DMS](CHAP_Task.CDC.md "CHAP_Task.CDC.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| **Applying task settings**<br>Each task has settings that you can configure according to the needs<br>of your database migration. You create these settings in a JSON file or,<br>with some settings, you can specify the settings using the AWS DMS<br>console. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example"). | [Specifying task settings for AWS Database Migration Service tasks](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| **Using table mapping**<br>Table mapping specifies additional task settings for tables using<br>several types of rules. These rules allows you to specify the data<br>source, source schema, tables and views, data, any table and data<br>transformations that are to occur during the task, and settings for how<br>these tables and columns are migrated from the source to the<br>target.                                                                                                                                                                               | Selection rules<br>[Selection rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.md")<br>Transformation rules<br>[Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Transformations.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Transformations.md")Table-settings rules<br>[Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md") |
+| **Running premigration task assessments**<br>You can enable and run premigration task assessments showing issues<br>with a supported source and target database that can cause problems<br>during a migration. This can include issues such as unsupported data<br>types, mismatched indexes and primary keys, and other conflicting task<br>settings. These premigration assessments run before you run the task to<br>identify potential issues before they occur during a migration.                                                                                     | [Enabling and working with premigration assessments for a task](CHAP_Tasks.AssessmentReport.md "CHAP_Tasks.AssessmentReport.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Data validation**<br>Data validation is a task setting you can use to have AWS DMS<br>compare the data on your target data store with the data from your<br>source data store.                                                                                                                                                                                                                                                                                                                                                                                            | [AWS DMS data validation](CHAP_Validating.md "CHAP_Validating.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Modifying a task**<br>When a task is stopped, you can modify the settings for the<br>task.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | [Modifying a task](CHAP_Tasks.Modifying.md "CHAP_Tasks.Modifying.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| **Moving a task**<br>When a task is stopped, you can move the task to a different<br>replication instance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [Moving a task](CHAP_Tasks.Moving.md "CHAP_Tasks.Moving.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **Reloading tables during a task**<br>You can reload a table during a task if an error occurs during the<br>task.                                                                                                                                                                                                                                                                                                                                                                                                                                                           | [Reloading tables during a task](CHAP_Tasks.ReloadTables.md "CHAP_Tasks.ReloadTables.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **Applying filters**<br>You can use source filters to limit the number and type of records<br>transferred from your source to your target. For example, you can<br>specify that only employees with a location of headquarters are moved to<br>the target database. You apply filters on a column of data.                                                                                                                                                                                                                                                                  | [Using source filters](CHAP_Tasks.CustomizingTasks.Filters.md "CHAP_Tasks.CustomizingTasks.Filters.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Monitoring a task**<br>There are several ways to get information on the performance of a task<br>and the tables used by the task.                                                                                                                                                                                                                                                                                                                                                                                                                                         | [Monitoring AWS DMS tasks](CHAP_Monitoring.md "CHAP_Monitoring.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Managing task logs**<br>You can view and delete task logs using the AWS DMS API or AWS CLI.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [Viewing and managing AWS DMS task logs](CHAP_Monitoring.md#CHAP_Monitoring.ManagingLogs "CHAP_Monitoring.md#CHAP_Monitoring.ManagingLogs")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-  To validate limited LOB size, you must set
-  `ValidationPartialLobSize` to the same value as
-  `LobMaxSize` (K).
-  - **Inline LOB mode** –
-    In inline LOB mode, you set the maximum LOB size that DMS transfers inline.
-    LOBs smaller than the specified size are transferred inline. LOBs larger than the
-    specified size are replicated using full LOB mode. You can select this option to replicate
-    both small and large LOBs when most of the LOBs are small. DMS doesn’t support
-    inline LOB mode for endpoints that don’t support Full LOB mode, like S3 and Redshift.
+###### Topics
 
-###### Note
-
-With Oracle, LOBs are treated as VARCHAR data types whenever possible.
-This approach means that AWS DMS fetches them from the database in bulk,
-which is significantly faster than other methods. The maximum size of a
-VARCHAR in Oracle is 32 K. Therefore, a limited LOB size of less than 32
-K is optimal when Oracle is your source database.
-
-- When a task is configured to run in limited LOB mode, the **Max
-  LOB size (K)** option sets the maximum size LOB that AWS DMS
-  accepts. Any LOBs that are larger than this value is truncated to this
-  value.
-- When a task is configured to use full LOB mode, AWS DMS retrieves LOBs in
-  pieces. The **LOB chunk size (K)** option determines the
-  size of each piece. When setting this option, pay particular attention to
-  the maximum packet size allowed by your network configuration. If the LOB
-  chunk size exceeds your maximum allowed packet size, you might see
-  disconnect errors. The recommended value for
-  `LobChunkSize` is 64 kilobytes. Increasing the value
-  for `LobChunkSize` above 64 kilobytes can cause task
-  failures.
-- When a task is configured to run in inline LOB mode, the `InlineLobMaxSize` setting
-  determines which LOBs DMS transfers inline.
-
-###### Note
-
-A primary key is mandatory for tables containing LOB columns during Change Data Capture (CDC)
-operations. DMS uses this key to look up LOB values in the source table.
-This requirement only applies to CDC tasks - full-load tasks can read and
-copy entire LOB columns directly from source to target without
-restrictions.
-For information on the task settings to specify these options, see [Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md")
-
-## SQL Commands to check max LOB column length on source table
-
-Use the following SQL commands to check the Max LOB column length and accordingly
-configure the DMS limited LOB settings to avoid any data truncation in the
-migration:
-
-**Oracle**
-
-```
-SELECT dbms_lob.getlength(<COL_NAME>) as LOB_LENGTH
-FROM <TABLE_NAME>
-ORDER BY dbms_lob.getlength(<COL_NAME>) DESC
-FETCH FIRST 10 ROWS ONLY;
-
-Select ((max(length(<COL_NAME>)))/(1024)) from <TABLE_NAME>
-```
-
-**SQL Server**
-
-```
-Select top 10 datalength(<COL_NAME>) as fieldsize from <TABLE_NAME> order by datalength(<COL_NAME>) desc;
-```
-
-**MySQL**
-
-```
-Select (max(length(<COL_NAME>))/(1024)) as "Size in KB" from <TABLE_NAME>;
-```
-
-**PostgreSQL**
-
-```
-Select max((octet_length(<COL_NAME>))/(1024.0)) as "Size in KB" from <TABLE_NAME>;
-
-```
-
-**Db2 LUW**
-
-```
--- Method 1: Using SYSCAT.COLUMNS (converting to KB)
-
-SELECT TABSCHEMA, TABNAME, COLNAME, LENGTH/1024 as LENGTH_KB, TYPENAME FROM SYSCAT.COLUMNS WHERE TYPENAME IN ('BLOB', 'CLOB', 'DBCLOB') ORDER BY LENGTH DESC;
-
--- Method 2: For specific table with KB conversion
-
-  SELECT COLNAME, LENGTH/1024 as LENGTH_KB, TYPENAME FROM SYSCAT.COLUMNS WHERE TABSCHEMA = 'YOUR_SCHEMA'AND TABNAME = 'YOUR_TABLE'AND TYPENAME IN ('BLOB', 'CLOB', 'DBCLOB');
-
--- Method 3: Using SYSIBM.SYSCOLUMNS
-
-SELECT TBCREATOR, TBNAME, NAME, LENGTH/1024 as LENGTH_KB, COLTYPE FROM SYSIBM.SYSCOLUMNS WHERE COLTYPE IN ('BLOB', 'CLOB', 'DBCLOB') ORDER BY LENGTH DESC;
-
-SYBASE :
-
-SELECT c.name as column_name, t.name as data_type, (c.length)/1024 as length_KB FROM syscolumns c JOIN systypes t ON c.usertype = t.usertype WHERE object_name(c.id) = 'YOUR_TABLE_NAME'AND t.name IN ('text', 'image', 'unitext') ORDER BY c.length DESC;
-```
+- [Creating a task](CHAP_Tasks.Creating.md "CHAP_Tasks.Creating.md")
+- [Creating tasks for ongoing replication using AWS DMS](CHAP_Task.CDC.md "CHAP_Task.CDC.md")
+- [Modifying a task](CHAP_Tasks.Modifying.md "CHAP_Tasks.Modifying.md")
+- [Moving a task](CHAP_Tasks.Moving.md "CHAP_Tasks.Moving.md")
+- [Reloading tables during a task](CHAP_Tasks.ReloadTables.md "CHAP_Tasks.ReloadTables.md")
+- [Using table mapping to specify task settings](CHAP_Tasks.CustomizingTasks.TableMapping.md "CHAP_Tasks.CustomizingTasks.TableMapping.md")
+- [Using source filters](CHAP_Tasks.CustomizingTasks.Filters.md "CHAP_Tasks.CustomizingTasks.Filters.md")
+- [Enabling and working with premigration assessments for a task](CHAP_Tasks.AssessmentReport.md "CHAP_Tasks.AssessmentReport.md")
+- [Specifying supplemental data for task settings](CHAP_Tasks.TaskData.md "CHAP_Tasks.TaskData.md")

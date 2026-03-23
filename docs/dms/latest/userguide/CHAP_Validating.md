@@ -12,7 +12,7 @@
 - [Enhanced data validation for AWS Database Migration Service](#CHAP_Validating_Enhanced "#CHAP_Validating_Enhanced")
 - [Limitations](#CHAP_Validating.Limitations "#CHAP_Validating.Limitations")
 - [Amazon S3 target data validation](CHAP_Validating_S3.md "CHAP_Validating_S3.md")
-- [AWS DMS data resync](CHAP_Validating.md "CHAP_Validating.md")
+- [AWS DMS data resync](CHAP_Validating.DataResync.md "CHAP_Validating.DataResync.md")
   AWS DMS provides support for data validation to ensure that your data was migrated
   accurately from the source to the target. If enabled, validation begins immediately
   after a full load is performed for a table. Validation compares the incremental
@@ -50,9 +50,9 @@ Data validation requires additional time, beyond the amount required for the
 migration itself. The extra time required depends on how much data was
 migrated.
 
-For more information about these settings, see [Data validation task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+For more information about these settings, see [Data validation task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.DataValidation.md "CHAP_Tasks.CustomizingTasks.TaskSettings.DataValidation.md").
 
-For an example of `ValidationSettings` task settings in a JSON file, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
+For an example of `ValidationSettings` task settings in a JSON file, see [Task settings example](CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
 
 ## Replication task statistics
 
@@ -94,7 +94,7 @@ the table level:
 - ValidationFailed—The number of
   records that didn't pass the data validation phase.
 
-For an example of `ValidationSettings` task settings in a JSON file, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
+For an example of `ValidationSettings` task settings in a JSON file, see [Task settings example](CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
 
 You can view the data validation information using the console, the AWS CLI,
 or the AWS DMS API.
@@ -266,7 +266,7 @@ You can create validation only tasks to preview and validate data without perfor
 any migration or data replication. To create a validation only task, set the
 `EnableValidation` and `ValidationOnly` settings to
 `true`. When enabling `ValidationOnly`, additional
-requirements apply. For more information, see [Data validation task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+requirements apply. For more information, see [Data validation task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.DataValidation.md "CHAP_Tasks.CustomizingTasks.TaskSettings.DataValidation.md").
 
 For a full load only migration type, a validation only task
 completes much faster than its CDC equivalent when many failures are reported. But
@@ -338,7 +338,7 @@ separate _validation only task_ includes, but is not limited to, the following:
   validation only task quickly reports failures for the data repair script to
   act upon.
 
-For an example of `ValidationSettings` task settings in a JSON file, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example")).
+For an example of `ValidationSettings` task settings in a JSON file, see [Task settings example](CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example")).
 
 ## Troubleshooting
 
@@ -350,7 +350,7 @@ information to `awsdms_control.awsdms_validation_failures_v1`. You can query thi
 to help troubleshoot validation errors.
 
 For information about changing the default schema the table is created in on the target, see
-[Control table task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+[Control table task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.ControlTable.md "CHAP_Tasks.CustomizingTasks.TaskSettings.ControlTable.md").
 
 Following is a description of the `awsdms_control.awsdms_validation_failures_v1`
 table:

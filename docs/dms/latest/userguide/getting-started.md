@@ -8,7 +8,7 @@ converted code to your target database.
 
 The following tutorial covers the prerequisite tasks and demonstrates the conversion of an
 Amazon RDS for SQL Server database to Amazon RDS for MySQL. You can use any of the supported source and target
-data providers. For more information, see [Source data providers for DMS Schema Conversion](CHAP_Introduction.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.md#CHAP_Introduction.Sources.SchemaConversion").
+data providers. For more information, see [Source data providers for DMS Schema Conversion](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion").
 
 For more information about DMS Schema Conversion, read the step-by-step migration walkthroughs for
 [Oracle to

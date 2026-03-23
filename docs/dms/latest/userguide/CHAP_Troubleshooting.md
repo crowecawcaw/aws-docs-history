@@ -61,7 +61,7 @@ your replication instance or split your tasks across multiple replication instan
 a more efficient migration.
 
 For more information about determining the size of your replication instance, see
-[Selecting the best size for a replication instance](CHAP_BestPractices.md "CHAP_BestPractices.md").
+[Selecting the best size for a replication instance](CHAP_BestPractices.SizingReplicationInstance.md "CHAP_BestPractices.SizingReplicationInstance.md").
 
 You can increase the speed of an initial migration load by doing the following:
 
@@ -74,7 +74,7 @@ You can increase the speed of an initial migration load by doing the following:
   IOPS.
 - If your migration data contains LOBs, make sure that the task is
   optimized for LOB migration. For more information on optimizing for LOBs, see
-  [Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+  [Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata.md").
 
 ## Task status bar doesn't move
 
@@ -94,7 +94,7 @@ Do the following if nothing was migrated after your task has completed.
 - Check if the user that created the endpoint has read access to the table you intend to migrate.
 - Check if the object you want to migrate is a table. If it is a view, update table mappings
   and specify the object-locator as “view” or “all”. For more information, see
-  [Specifying table selection and transformations rules from the console](CHAP_Tasks.CustomizingTasks.TableMapping.md "CHAP_Tasks.CustomizingTasks.TableMapping.md").
+  [Specifying table selection and transformations rules from the console](CHAP_Tasks.CustomizingTasks.TableMapping.Console.md "CHAP_Tasks.CustomizingTasks.TableMapping.Console.md").
 
 ## Foreign keys and secondary indexes are missing
 
@@ -436,9 +436,9 @@ NLS_LENGTH_SEMANTICS parameter is set to BYTE.
 ### NUMBER data type being misinterpreted
 
 The Oracle NUMBER data type is converted into various AWS DMS data types, depending
-on the precision and scale of NUMBER. These conversions are documented here [Source data types for Oracle](CHAP_Source.md#CHAP_Source.Oracle.DataTypes "CHAP_Source.md#CHAP_Source.Oracle.DataTypes"). The way the NUMBER type is
+on the precision and scale of NUMBER. These conversions are documented here [Source data types for Oracle](CHAP_Source.Oracle.md#CHAP_Source.Oracle.DataTypes "CHAP_Source.Oracle.md#CHAP_Source.Oracle.DataTypes"). The way the NUMBER type is
 converted can also be affected by using endpoint settings for the source
-Oracle endpoint. These endpoint settings are documented in [Endpoint settings when using Oracle as a source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib "CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib").
+Oracle endpoint. These endpoint settings are documented in [Endpoint settings when using Oracle as a source for AWS DMS](CHAP_Source.Oracle.md#CHAP_Source.Oracle.ConnectionAttrib "CHAP_Source.Oracle.md#CHAP_Source.Oracle.ConnectionAttrib").
 
 ### Records missing during full load
 
@@ -463,7 +463,7 @@ closed in time, you can set `FailOnTransactionConsistencyBreached` to `true`.
 doesn't reference a primary key column, and supplemental logging isn't used for all columns.
 
 To fix this issue, turn on supplemental logging for all columns of the referenced table. For more information,
-see [Setting up supplemental logging](CHAP_Source.md#CHAP_Source.Oracle.Self-Managed.Configuration.SupplementalLogging "CHAP_Source.md#CHAP_Source.Oracle.Self-Managed.Configuration.SupplementalLogging").
+see [Setting up supplemental logging](CHAP_Source.Oracle.md#CHAP_Source.Oracle.Self-Managed.Configuration.SupplementalLogging "CHAP_Source.Oracle.md#CHAP_Source.Oracle.Self-Managed.Configuration.SupplementalLogging").
 
 ### Error: Cannot retrieve Oracle archived Redo log destination ids
 
@@ -551,7 +551,7 @@ Path to redo or archive log file []:
 ###### Next steps
 
 - When results show that read speed is below an acceptable threshold, run the
-  [Oracle diagnostic support script](CHAP_SupportScripts.md "CHAP_SupportScripts.md")
+  [Oracle diagnostic support script](CHAP_SupportScripts.Oracle.md "CHAP_SupportScripts.Oracle.md")
   on the endpoint, review Wait Time, Load Profile, and IO Profile sections. Then
   adjust any abnormal configuration that might improve read performance. For example,
   if your redo log files are up to 2 GB, try increasing LOG_BUFFER to 200 MB to help
@@ -1017,7 +1017,7 @@ try to break the transaction into several smaller transactions.
 
 To migrate a view, set `table-type` to `all` or
 `view`. For more information, see
-[Specifying table selection and transformations rules from the console](CHAP_Tasks.CustomizingTasks.TableMapping.md "CHAP_Tasks.CustomizingTasks.TableMapping.md").
+[Specifying table selection and transformations rules from the console](CHAP_Tasks.CustomizingTasks.TableMapping.Console.md "CHAP_Tasks.CustomizingTasks.TableMapping.Console.md").
 
 Sources that support views include the following.
 
@@ -1048,7 +1048,7 @@ approach effectively prevents encoding-related errors without requiring
 modifications to the source data.
 
 For more information, see _Character set validation and
-replacement_ bullet point in [Character substitution task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md") topic.
+replacement_ bullet point in [Character substitution task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.CharacterSubstitution.md "CHAP_Tasks.CustomizingTasks.TaskSettings.CharacterSubstitution.md") topic.
 
 ## Troubleshooting issues with Microsoft SQL Server
 
@@ -1081,7 +1081,7 @@ MAZ instances, under certain circumstances the secondary database owner can be s
 ```
 
 To fix this, follow the steps in
-[Changing the db_owner to the rdsa account for your database](../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.md "../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.md"), and then resume your DMS task.
+[Changing the db_owner to the rdsa account for your database](../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.ChangeDBowner.md "../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.ChangeDBowner.md"), and then resume your DMS task.
 
 ### Errors capturing changes for SQL server database
 
@@ -1098,7 +1098,7 @@ To enable all changes to be captured, you must perform a full database backup.
 
 ```
 
-Review the prerequisites listed for using SQL Server as a source in [Using a Microsoft SQL Server database as a source for AWS DMS](CHAP_Source.md "CHAP_Source.md").
+Review the prerequisites listed for using SQL Server as a source in [Using a Microsoft SQL Server database as a source for AWS DMS](CHAP_Source.SQLServer.md "CHAP_Source.SQLServer.md").
 
 ### Missing identity columns
 
@@ -1135,7 +1135,7 @@ is automatically truncated. This truncation means that the log becomes available
 reuse and older log entries can be overwritten. When log entries are overwritten,
 changes can't be captured. This issue is why AWS DMS does not support the SIMPLE
 data recovery model. For information on other required prerequisites for using SQL
-Server as a source, see [Using a Microsoft SQL Server database as a source for AWS DMS](CHAP_Source.md "CHAP_Source.md").
+Server as a source, see [Using a Microsoft SQL Server database as a source for AWS DMS](CHAP_Source.SQLServer.md "CHAP_Source.SQLServer.md").
 
 ### Non-uniform table mapped across partitions
 
@@ -1232,7 +1232,7 @@ have the following permissions:
 - Bulk load
 - Create, alter, drop (if required by the task's definition)
 
-To see the prerequisites required for using Amazon Redshift as a target, see [Using an Amazon Redshift database as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md").
+To see the prerequisites required for using Amazon Redshift as a target, see [Using an Amazon Redshift database as a target for AWS Database Migration Service](CHAP_Target.Redshift.md "CHAP_Target.Redshift.md").
 
 ## Troubleshooting issues with Amazon Aurora MySQL
 
@@ -1288,7 +1288,7 @@ IBM Db2 databases.
 
 For ongoing replication (CDC), if you plan to start replication from a specific timestamp, set the extra connection attribute
 `StartFromContext` to the required timestamp. For more information, see
-[Extra Connection Attributes (ECAs) when using Db2 LUW](CHAP_Source.md#CHAP_Source.DB2.ConnectionAttrib "CHAP_Source.md#CHAP_Source.DB2.ConnectionAttrib"). Setting
+[Extra Connection Attributes (ECAs) when using Db2 LUW](CHAP_Source.DB2.md#CHAP_Source.DB2.ConnectionAttrib "CHAP_Source.DB2.md#CHAP_Source.DB2.ConnectionAttrib"). Setting
 `StartFromContext` to the required timestamp prevents the following issue:
 
 ```

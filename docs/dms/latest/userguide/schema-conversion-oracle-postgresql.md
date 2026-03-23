@@ -7,7 +7,7 @@ Oracle to PostgreSQL conversion settings in DMS Schema Conversion include the fo
   successfully converted using generative AI will be clearly identified with
   **Action Item 5444**, which states: "This
   conversion uses machine learning models that generate predictions based on
-  patterns in data. For more information, see [Converting database objects with generative AI](schema-conversion-convert.md "schema-conversion-convert.md").
+  patterns in data. For more information, see [Converting database objects with generative AI](schema-conversion-convert.databaseobjects.md "schema-conversion-convert.databaseobjects.md").
   - You can convert schemas for different supported versions of your
     target database, not just the latest version. To specify a version,
     use the **Target engine version**

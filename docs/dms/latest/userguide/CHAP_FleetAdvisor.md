@@ -5,7 +5,7 @@
 End of support notice: On May 20, 2026, AWS will end support for AWS Database Migration Service Fleet
 Advisor. After May 20, 2026, you will no longer be able to access the AWS DMS Fleet
 Advisor console or AWS DMS Fleet Advisor resources. For more information, see [AWS DMS Fleet
-Advisor end of support](dms_fleet.md "dms_fleet.md").
+Advisor end of support](dms_fleet.advisor-end-of-support.md "dms_fleet.advisor-end-of-support.md").
 
 You can use DMS Fleet Advisor to collect metadata and performance metrics from multiple
 database environments. These collected metrics provide insight into your data
@@ -29,10 +29,10 @@ use DMS Fleet Advisor Target Recommendations to plan the migration of their on-p
 to AWS. You can explore different available migration options and export these
 recommendations into the AWS Pricing Calculator to further optimize the cost.
 
-For the list of supported source databases, see [Sources for DMS Fleet Advisor](CHAP_Introduction.md#CHAP_Introduction.Sources.FleetAdvisor "CHAP_Introduction.md#CHAP_Introduction.Sources.FleetAdvisor").
+For the list of supported source databases, see [Sources for DMS Fleet Advisor](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.FleetAdvisor "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.FleetAdvisor").
 
 For the list of databases that DMS Fleet Advisor uses to generate target recommendations, see
-[Targets for DMS Fleet Advisor](CHAP_Introduction.md#CHAP_Introduction.Targets.FleetAdvisor "CHAP_Introduction.md#CHAP_Introduction.Targets.FleetAdvisor"). DMS Fleet Advisor generates
+[Targets for DMS Fleet Advisor](CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.FleetAdvisor "CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.FleetAdvisor"). DMS Fleet Advisor generates
 like to like recommedations, for example, from source Oracle to target Oracle database.
 DMS Fleet Advisor also generates heterogenous recommendations, such as migration from source
 Oracle or Microsoft SQL Server to target RDS for PostgreSQL or Aurora PostgreSQL database.

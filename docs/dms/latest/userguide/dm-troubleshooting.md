@@ -24,9 +24,9 @@ If you get the `Failed` status when you start a data migration in your migration
 check the versions of your source and target data providers. To do so, run the `SELECT VERSION();`
 query in your MySQL or PostgreSQL database. Make sure that you use the supported database version.
 
-For the list of supported source databases, see [Sources for DMS homogeneous data migrations](CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations "CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations").
+For the list of supported source databases, see [Sources for DMS homogeneous data migrations](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.HomogeneousDataMigrations "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.HomogeneousDataMigrations").
 
-For the list of supported target databases, see [Targets for DMS homogeneous data migrations](CHAP_Introduction.md#CHAP_Introduction.Targets.HomogeneousDataMigrations "CHAP_Introduction.md#CHAP_Introduction.Targets.HomogeneousDataMigrations").
+For the list of supported target databases, see [Targets for DMS homogeneous data migrations](CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.HomogeneousDataMigrations "CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.HomogeneousDataMigrations").
 
 If you use an unsupported database version, then upgrade your source or target database, and try again.
 

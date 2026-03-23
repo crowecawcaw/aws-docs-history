@@ -4,7 +4,7 @@ AWS Database Migration Service (AWS DMS) can use many of the most popular databa
 replication. The target can be on an Amazon Elastic Compute Cloud (Amazon EC2) instance, an Amazon Relational Database Service (Amazon RDS)
 instance, or an on-premises database.
 
-For a comprehensive list of valid targets, see [Targets for AWS DMS](CHAP_Introduction.md "CHAP_Introduction.md").
+For a comprehensive list of valid targets, see [Targets for AWS DMS](CHAP_Introduction.Targets.md "CHAP_Introduction.Targets.md").
 
 ###### Note
 
@@ -16,24 +16,24 @@ endpoint types:
 - Amazon Kinesis Data Streams
   Amazon Aurora PostgreSQL Limitless is available as a target for AWS Database Migration Service (AWS DMS). For
   more information see [Using a PostgreSQL database as a target for
-  AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md").
+  AWS Database Migration Service](CHAP_Target.PostgreSQL.md "CHAP_Target.PostgreSQL.md").
 
 ###### Topics
 
-- [Using an Oracle database as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using a Microsoft SQL Server database as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using a PostgreSQL database as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using a MySQL-compatible database as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using an Amazon Redshift database as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using a SAP ASE database as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using Amazon S3 as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using an Amazon DynamoDB database as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using Amazon Kinesis Data Streams as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using Apache Kafka as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using an Amazon OpenSearch Service cluster as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using Amazon DocumentDB as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using Amazon Neptune as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using Redis OSS as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using Babelfish as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using Amazon Timestream as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
-- [Using Amazon RDS for Db2 and IBM Db2 LUW as a target for AWS DMS](CHAP_Target.md "CHAP_Target.md")
+- [Using an Oracle database as a target for AWS Database Migration Service](CHAP_Target.Oracle.md "CHAP_Target.Oracle.md")
+- [Using a Microsoft SQL Server database as a target for AWS Database Migration Service](CHAP_Target.SQLServer.md "CHAP_Target.SQLServer.md")
+- [Using a PostgreSQL database as a target for AWS Database Migration Service](CHAP_Target.PostgreSQL.md "CHAP_Target.PostgreSQL.md")
+- [Using a MySQL-compatible database as a target for AWS Database Migration Service](CHAP_Target.MySQL.md "CHAP_Target.MySQL.md")
+- [Using an Amazon Redshift database as a target for AWS Database Migration Service](CHAP_Target.Redshift.md "CHAP_Target.Redshift.md")
+- [Using a SAP ASE database as a target for AWS Database Migration Service](CHAP_Target.SAP.md "CHAP_Target.SAP.md")
+- [Using Amazon S3 as a target for AWS Database Migration Service](CHAP_Target.S3.md "CHAP_Target.S3.md")
+- [Using an Amazon DynamoDB database as a target for AWS Database Migration Service](CHAP_Target.DynamoDB.md "CHAP_Target.DynamoDB.md")
+- [Using Amazon Kinesis Data Streams as a target for AWS Database Migration Service](CHAP_Target.Kinesis.md "CHAP_Target.Kinesis.md")
+- [Using Apache Kafka as a target for AWS Database Migration Service](CHAP_Target.Kafka.md "CHAP_Target.Kafka.md")
+- [Using an Amazon OpenSearch Service cluster as a target for AWS Database Migration Service](CHAP_Target.Elasticsearch.md "CHAP_Target.Elasticsearch.md")
+- [Using Amazon DocumentDB as a target for AWS Database Migration Service](CHAP_Target.DocumentDB.md "CHAP_Target.DocumentDB.md")
+- [Using Amazon Neptune as a target for AWS Database Migration Service](CHAP_Target.Neptune.md "CHAP_Target.Neptune.md")
+- [Using Redis OSS as a target for AWS Database Migration Service](CHAP_Target.Redis.md "CHAP_Target.Redis.md")
+- [Using Babelfish as a target for AWS Database Migration Service](CHAP_Target.Babelfish.md "CHAP_Target.Babelfish.md")
+- [Using Amazon Timestream as a target for AWS Database Migration Service](CHAP_Target.Timestream.md "CHAP_Target.Timestream.md")
+- [Using Amazon RDS for Db2 and IBM Db2 LUW as a target for AWS DMS](CHAP_Target.DB2.md "CHAP_Target.DB2.md")

@@ -4,7 +4,7 @@ You can use a MongoDB-compatible database as a source for Homogeneous data migra
 In this case, your source data provider can be an on-premises, Amazon EC2 for MongoDB database or
 Amazon DocumentDB (with MongoDB compatibility) database.
 
-For supported database versions, see [Source data providers for DMS homogeneous data migrations](CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations "CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations").
+For supported database versions, see [Source data providers for DMS homogeneous data migrations](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.HomogeneousDataMigrations "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.HomogeneousDataMigrations").
 
 The following sections describe specific configuration prerequisites for self-managed MongoDB databases
 and AWS-managed Amazon DocumentDB databases.
@@ -23,17 +23,17 @@ This section describes how to configure your MongoDB databases that are hosted
 on-premises or on Amazon EC2 instances.
 
 Check the version of your source MongoDB database. Make sure that AWS DMS supports your source MongoDB
-database version as described in [Source data providers for DMS homogeneous data migrations](CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations "CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations").
+database version as described in [Source data providers for DMS homogeneous data migrations](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.HomogeneousDataMigrations "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.HomogeneousDataMigrations").
 
 To run homogeneous data migrations with a MongoDB source, you can create either a user account with
 root privileges, or a user with permissions only on the database to migrate. For more information about
-user creation, see [Permissions needed when using MongoDB as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MongoDB.PrerequisitesCDC "CHAP_Source.md#CHAP_Source.MongoDB.PrerequisitesCDC").
+user creation, see [Permissions needed when using MongoDB as a source for AWS DMS](CHAP_Source.MongoDB.md#CHAP_Source.MongoDB.PrerequisitesCDC "CHAP_Source.MongoDB.md#CHAP_Source.MongoDB.PrerequisitesCDC").
 
 To use ongoing replication or CDC with MongoDB, AWS DMS requires access to the MongoDB operations log (oplog).
-For more information, see [Configuring a MongoDB replica set for CDC](CHAP_Source.md#CHAP_Source.MongoDB.PrerequisitesCDC.ReplicaSet "CHAP_Source.md#CHAP_Source.MongoDB.PrerequisitesCDC.ReplicaSet").
+For more information, see [Configuring a MongoDB replica set for CDC](CHAP_Source.MongoDB.md#CHAP_Source.MongoDB.PrerequisitesCDC.ReplicaSet "CHAP_Source.MongoDB.md#CHAP_Source.MongoDB.PrerequisitesCDC.ReplicaSet").
 
 For information about MongoDB authentication methods, see
-[Security requirements when using MongoDB as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MongoDB.Security "CHAP_Source.md#CHAP_Source.MongoDB.Security").
+[Security requirements when using MongoDB as a source for AWS DMS](CHAP_Source.MongoDB.md#CHAP_Source.MongoDB.Security "CHAP_Source.MongoDB.md#CHAP_Source.MongoDB.Security").
 
 For MongoDB as a source, homogeneous data migrations supports all of the datatypes that Amazon DocumentDB supports.
 
@@ -59,7 +59,7 @@ Use the master username for the Amazon DocumentDB instance as the user account f
 source data provider for homogeneous data migrations in AWS DMS. The master user account has the required roles that
 allow it to set up CDC. If you use an account other than the master user account, then the
 account must have the root role. For more information on the user creation as a root account,
-see [Setting permissions to use Amazon DocumentDB as a source](CHAP_Source.md#CHAP_Source.DocumentDB.Permissions "CHAP_Source.md#CHAP_Source.DocumentDB.Permissions").
+see [Setting permissions to use Amazon DocumentDB as a source](CHAP_Source.DocumentDB.md#CHAP_Source.DocumentDB.Permissions "CHAP_Source.DocumentDB.md#CHAP_Source.DocumentDB.Permissions").
 
 To turn on logical replication, set the `change_stream_log_retention_duration` parameter in
 your database parameter group to a setting appropriate for your transaction workload. Changing this static parameter

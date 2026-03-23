@@ -1,107 +1,48 @@
-# Configuring AWS DMS secrets manager VPC Endpoint
+# Advanced endpoint configuration
 
-You must create a VPC endpoint to access the AWS Secrets Manager from a
-replication instance in a private subnet. This allows the replication instance
-access the Secrets Manager directly through the private network without sending
-traffic over the public internet.
+You can configure advanced settings for your endpoints in AWS Database Migration Service (AWS DMS) to setup
+control over how source and target endpoints behave during the migration process. As
+part of the advanced setup you can configure AWS DMS VPC peering to enable secure
+communication between VPCs, DMS Security Groups to control inbound and outbound traffic,
+Newtwork Access Control lists (NACLs) as additional layer of security, and VPC endpoints
+for AWS Secrets Manager.
 
-To configure, you must follow the following steps:
+You can set these configurations during endpoint creation or modified later through
+the AWS DMS Console or API, to fine-tune the migration processes based on specific
+database engine requirements and performance needs.
 
-###### Create a security group for the VPC endpoint.
+Following, you can find out more details about advanced endpoint configuration.
 
-1. Navigate to the [Amazon
-   VPC console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. In the navigation pane on the left, select **Security
-   groups**, and choose **Create security
-   group**.
-3. Configure security group details:
-   - **Security group name**: Example:
-     `SecretsManagerEndpointSG`
-   - **Description**: Enter an appropriate
-     description. (Example: Security group for secrets manager VPC
-     endpoint).
-   - **VPC**: Select the VPC where your
-     replication instance and endpoints reside.
+###### Topics
 
-4. Click **Add Rule** to set inbound rules and configure the
-   following:
-   - Type: HTTPS (As the secrets manager uses HTTPS on port
-     443).
-   - Source: Choose **Custom**, and enter the securty
-     group ID of your replication instance. This ensures that any
-     instance associated with that security group can access the VPC
-     endpoint.
+- [VPC peering configuration for AWS DMS.](CHAP_Advanced.Endpoints.vpc.peering.md "CHAP_Advanced.Endpoints.vpc.peering.md")
+- [Security group configuration for AWS DMS](CHAP_Advanced.Endpoints.securitygroup.md "CHAP_Advanced.Endpoints.securitygroup.md")
+- [Network Access Control List (NACL) configuration for AWS DMS](CHAP_Advanced.Ednpoints.NACL.md "CHAP_Advanced.Ednpoints.NACL.md")
+- [Configuring AWS DMS secrets manager VPC Endpoint](CHAP_Advanced.Endpoints.secretsmanager.md "CHAP_Advanced.Endpoints.secretsmanager.md")
+- [Additional considerations](#CHAP_secretsmanager.additionalconsiderations "#CHAP_secretsmanager.additionalconsiderations")
 
-5. Review the changes and click **Create security
-   group**.
+## Additional considerations
 
-###### Create a VPC endpoint for secrets manager
+You must consider the following additional configuration information:
 
-###### Note
+**Replication instance security group:**
 
-Create an interface VPC endpoint as outline in the [Creating an Interface Endpoint documentation](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") topic in the
-_Amazon Virtual Private Cloud user
-guide_. When following this procedure, ensure the
-following:
+- Ensure that the security group associated with your replication instance
+  allows outbound traffic to the VPC endpoint on port 443 (HTTPS).
 
-- For **Service Category**, you should select
-  **AWS services.**
-- For **Service name**, search
-  `seretsmanager` and select the secretes manager
-  service.
+**VPC DNS settings:**
 
-1. Select **VPC and Subnets** and configure the
-   following:
-   - **VPC**: Ensure it is the same VPC as
-     your replication instance.
-   - **Subnets**: Select the subnets where
-     your replication instance resides.
+- Confirm that **DNS resolution** and **DNS
+  hotnames** are enabled in your VPC. This allows your instances
+  to resolve the VPC endpoint DNS names. You can confirm that by navigating to
+  VPCs in the [Amazon VPC
+  console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/") and select your VPC to verify that **DNS
+  resolution** and **DNS hotnames** are set to
+  "**Yes**".
 
-2. In **Additional Settings**, ensure that the
-   **Enable DNS name** is enabled by default for the
-   interface endpoints
-3. Under **Security group**, select the appropriate security
-   group name. Example: `SecretsManagerEndpointSG` as created
-   earlier).
-4. Review all the settings and Click **Create
-   endpoint**.
+**Testing connectivity:**
 
-###### Retrieve the VPC endpoint DNS name
-
-1. Access the VPC endpoint details:
-   1. Navigate to the [Amazon VPC console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/") and choose
-      **Endpoints**.
-   2. Select the appropriate endpoint you created.
-
-2. Copy the DNS name:
-   1. Under the **Details** tab, navigate to the
-      **DNS Names** section.
-   2. Copy the first DNS name listed. (Example:
-      `vpce-0abc123def456789g-secretsmanager.us-east-1.vpce.amazonaws.com`).
-      This is the regional DNS name.
-
-###### Update your DMS endpoint
-
-1. Navigate to the [AWS DMS](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2") console.
-2. Modify the DMS endpoint:
-   1. In the navigation pane on the left, select
-      **Endpoints**.
-   2. Choose the appropriate endpoint you want to configure.
-   3. Click **Actions** and select
-      **Modify**.
-
-3. Configure endpoint settings:
-   1. Navigate to **Endpoint settings** and select
-      **Use endpoint connection attributes**
-      checkbox.
-   2. In the **Connection attributes** field, add:
-      `secretsManagerEndpointOverride=<copied DNS
-name>`.
-
-   ###### Note
-
-   If you have multiple connection attributes, you can separate
-   them with a semicolon ";". For example:
-   `datePartitionEnabled=false;secretsManagerEndpointOverride=vpce-0abc123def456789g-secretsmanager.us-east-1.vpce.amazonaws.com`
-
-4. Click **Modify endpoint** to save your changes.
+- From your replication instance, you can perform a DNS lookup to ensure it
+  resolves the VPC endpoint: `nslookup
+secretsmanager.<region>amazonaws.com`. It must return the Ip
+  address associated with your VPC endpoint

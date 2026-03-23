@@ -74,7 +74,7 @@ JSON
 In this step, you create an IAM role that provides AWS DMS with access to AWS Secrets Manager, Amazon EC2, and CloudWatch.
 
 When creating an IAM role, you must also create a `dms-vpc-role`. For
-more information, see [Creating an IAM role for AWS DMS to manage Amazon VPC](../../../AmazonRDS/latest/UserGuide/USER_DMS_migration-IAM.md "../../../AmazonRDS/latest/UserGuide/USER_DMS_migration-IAM.md")
+more information, see [Creating an IAM role for AWS DMS to manage Amazon VPC](../../../AmazonRDS/latest/UserGuide/USER_DMS_migration-IAM.dms-vpc-role.md "../../../AmazonRDS/latest/UserGuide/USER_DMS_migration-IAM.dms-vpc-role.md")
 in the _Amazon Relational Database Service User
 Guide_.
 

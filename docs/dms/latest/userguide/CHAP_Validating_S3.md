@@ -32,7 +32,7 @@ S3 target validation requires AWS DMS version 3.5.0 or later.
 
 Before using S3 target validation, check the following settings and permissions:
 
-- Set the `DataFormat` value for your endpoint's [S3Settings](../APIReference/API_S3Settings.md "../APIReference/API_S3Settings.md") to `parquet`. For more information, see [Parquet settings for S3](CHAP_Target.md#CHAP_Target.S3.EndpointSettings.Parquet "CHAP_Target.md#CHAP_Target.S3.EndpointSettings.Parquet").
+- Set the `DataFormat` value for your endpoint's [S3Settings](../APIReference/API_S3Settings.md "../APIReference/API_S3Settings.md") to `parquet`. For more information, see [Parquet settings for S3](CHAP_Target.S3.md#CHAP_Target.S3.EndpointSettings.Parquet "CHAP_Target.S3.md#CHAP_Target.S3.EndpointSettings.Parquet").
 - Ensure that the role assigned to the user account that was used to create the
   migration task has the correct set of permissions. See [Permissions](#CHAP_Validating_S3_permissions "#CHAP_Validating_S3_permissions") following.
 
@@ -46,7 +46,7 @@ For tasks using ongoing replication (CDC), check the following settings:
   There are no limitations on the timestamp column name. For more information, see
   [S3Settings](../APIReference/API_S3Settings.md "../APIReference/API_S3Settings.md").
 - Set up date-based folder partitioning for the target. For more information,
-  see [Using date-based folder partitioning](CHAP_Target.md#CHAP_Target.S3.DatePartitioning "CHAP_Target.md#CHAP_Target.S3.DatePartitioning").
+  see [Using date-based folder partitioning](CHAP_Target.S3.md#CHAP_Target.S3.DatePartitioning "CHAP_Target.S3.md#CHAP_Target.S3.DatePartitioning").
 
 ## Permissions for using S3 target validation
 

@@ -125,7 +125,7 @@ specify multiple resources in a single statement, separate the ARNs with commas.
 ```
 
 For more information on controlling access to AWS DMS resources using policies, see
-[Using resource names to control access](CHAP_Security.md#CHAP_Security.FineGrainedAccess.ResourceName "CHAP_Security.md#CHAP_Security.FineGrainedAccess.ResourceName"). To see a list of
+[Using resource names to control access](CHAP_Security.FineGrainedAccess.md#CHAP_Security.FineGrainedAccess.ResourceName "CHAP_Security.FineGrainedAccess.md#CHAP_Security.FineGrainedAccess.ResourceName"). To see a list of
 AWS DMS resource types and their ARNs, see [Resources Defined by AWS Database Migration Service](../../../IAM/latest/UserGuide/list_awsdatabasemigrationservice.md#awsdatabasemigrationservice-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_awsdatabasemigrationservice.md#awsdatabasemigrationservice-resources-for-iam-policies") in the
 _IAM User Guide_. To learn with which actions you can specify
 the ARN of each resource, see [Actions Defined by AWS Database Migration Service](../../../IAM/latest/UserGuide/list_awsdatabasemigrationservice.md#awsdatabasemigrationservice-actions-as-permissions "../../../IAM/latest/UserGuide/list_awsdatabasemigrationservice.md#awsdatabasemigrationservice-actions-as-permissions").
@@ -146,7 +146,7 @@ some global condition keys. To see all AWS global condition keys, see [AWS globa
 context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_.
 
 AWS DMS defines a set of standard tags that you can use in its condition keys and
-also allows you defined your own custom tags. For more information, see [Using tags to control access](CHAP_Security.md#CHAP_Security.FineGrainedAccess.Tags "CHAP_Security.md#CHAP_Security.FineGrainedAccess.Tags").
+also allows you defined your own custom tags. For more information, see [Using tags to control access](CHAP_Security.FineGrainedAccess.md#CHAP_Security.FineGrainedAccess.Tags "CHAP_Security.FineGrainedAccess.md#CHAP_Security.FineGrainedAccess.Tags").
 
 To see a list of AWS DMS condition keys, see [Condition Keys for AWS Database Migration Service](../../../IAM/latest/UserGuide/list_awsdatabasemigrationservice.md#awsdatabasemigrationservice-policy-keys "../../../IAM/latest/UserGuide/list_awsdatabasemigrationservice.md#awsdatabasemigrationservice-policy-keys")
 in the _IAM User Guide_. To learn with which actions and
@@ -184,7 +184,7 @@ This policy defines which principal entities (accounts, users, roles, and federa
 users) can encrypt migrated data on the supported target endpoint.
 
 To learn how to attach a resource-based policy to an encryption key that you create
-for the supported target endpoints, see [Creating and using AWS KMS keys to encrypt Amazon Redshift target data](CHAP_Target.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.md#CHAP_Target.Redshift.KMSKeys") and [Creating AWS KMS keys to encrypt Amazon S3 target objects](CHAP_Target.md#CHAP_Target.S3.KMSKeys "CHAP_Target.md#CHAP_Target.S3.KMSKeys").
+for the supported target endpoints, see [Creating and using AWS KMS keys to encrypt Amazon Redshift target data](CHAP_Target.Redshift.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.Redshift.md#CHAP_Target.Redshift.KMSKeys") and [Creating AWS KMS keys to encrypt Amazon S3 target objects](CHAP_Target.S3.md#CHAP_Target.S3.KMSKeys "CHAP_Target.S3.md#CHAP_Target.S3.KMSKeys").
 
 ### Examples
 
@@ -200,7 +200,7 @@ element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md 
  `aws:RequestTag/`key-name``, or
 `aws:TagKeys` condition key. AWS DMS defines a set of standard tags that you
 can use in its condition keys and also enables you to define your own custom tags. For
-more information, see [Using tags to control access](CHAP_Security.md#CHAP_Security.FineGrainedAccess.Tags "CHAP_Security.md#CHAP_Security.FineGrainedAccess.Tags").
+more information, see [Using tags to control access](CHAP_Security.FineGrainedAccess.md#CHAP_Security.FineGrainedAccess.Tags "CHAP_Security.FineGrainedAccess.md#CHAP_Security.FineGrainedAccess.Tags").
 
 For an example identity-based policy that limits access to a resource based on tags,
 see [Accessing AWS DMS resources based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-resources-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-resources-tags").
@@ -243,15 +243,15 @@ certain source or target endpoints:
 - Roles with permissions to allow AWS DMS access to the following source
   and target endpoints (or their resources):
 
-      + Amazon DynamoDB as a target – For more information see [Prerequisites for using DynamoDB as a target for AWS Database Migration Service](CHAP_Target.md#CHAP_Target.DynamoDB.Prerequisites "CHAP_Target.md#CHAP_Target.DynamoDB.Prerequisites").
-      + OpenSearch as a target – For more information see [Prerequisites for using Amazon OpenSearch Service as a target for AWS Database Migration Service](CHAP_Target.md#CHAP_Target.Elasticsearch.Prerequisites "CHAP_Target.md#CHAP_Target.Elasticsearch.Prerequisites").
-      + Amazon Kinesis as a target – For more information see [Prerequisites for using a Kinesis data stream as a target for AWS Database Migration Service](CHAP_Target.md#CHAP_Target.Kinesis.Prerequisites "CHAP_Target.md#CHAP_Target.Kinesis.Prerequisites").
+      + Amazon DynamoDB as a target – For more information see [Prerequisites for using DynamoDB as a target for AWS Database Migration Service](CHAP_Target.DynamoDB.md#CHAP_Target.DynamoDB.Prerequisites "CHAP_Target.DynamoDB.md#CHAP_Target.DynamoDB.Prerequisites").
+      + OpenSearch as a target – For more information see [Prerequisites for using Amazon OpenSearch Service as a target for AWS Database Migration Service](CHAP_Target.Elasticsearch.md#CHAP_Target.Elasticsearch.Prerequisites "CHAP_Target.Elasticsearch.md#CHAP_Target.Elasticsearch.Prerequisites").
+      + Amazon Kinesis as a target – For more information see [Prerequisites for using a Kinesis data stream as a target for AWS Database Migration Service](CHAP_Target.Kinesis.md#CHAP_Target.Kinesis.Prerequisites "CHAP_Target.Kinesis.md#CHAP_Target.Kinesis.Prerequisites").
       + Amazon Redshift as a target – You need to create the specified role only
        for creating a custom KMS encryption key to encrypt the target data or
        for specifying a custom S3 bucket to hold intermediate task storage. For
-       more information, see [Creating and using AWS KMS keys to encrypt Amazon Redshift target data](CHAP_Target.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.md#CHAP_Target.Redshift.KMSKeys") or [Amazon S3 bucket settings](CHAP_Target.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets "CHAP_Target.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets").
+       more information, see [Creating and using AWS KMS keys to encrypt Amazon Redshift target data](CHAP_Target.Redshift.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.Redshift.md#CHAP_Target.Redshift.KMSKeys") or [Amazon S3 bucket settings](CHAP_Target.Redshift.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets "CHAP_Target.Redshift.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets").
       + Amazon S3 as a source or as a target – For more information, see
-       [Prerequisites when using Amazon S3 as a source for AWS DMS](CHAP_Source.md#CHAP_Source.S3.Prerequisites "CHAP_Source.md#CHAP_Source.S3.Prerequisites") or [Prerequisites for using Amazon S3 as a target](CHAP_Target.md#CHAP_Target.S3.Prerequisites "CHAP_Target.md#CHAP_Target.S3.Prerequisites").
+       [Prerequisites when using Amazon S3 as a source for AWS DMS](CHAP_Source.S3.md#CHAP_Source.S3.Prerequisites "CHAP_Source.S3.md#CHAP_Source.S3.Prerequisites") or [Prerequisites for using Amazon S3 as a target](CHAP_Target.S3.md#CHAP_Target.S3.Prerequisites "CHAP_Target.S3.md#CHAP_Target.S3.Prerequisites").
 
   For example, to read data from an S3 source endpoint or to push data to an
   S3 target endpoint, you must create a service role as a prerequisite to

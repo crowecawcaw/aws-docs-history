@@ -1,71 +1,29 @@
-# Specifying table selection and transformations rules from the console
+# Using table mapping to specify task settings
 
-You can use the AWS Management Console to perform table mapping, including specifying table
-selection and transformations. On the console, use the **Where**
-section to specify the schema, table, and action (include or exclude). Use the
-**Filter** section to specify the column name in a table and
-the conditions that you want to apply to a replication task. Together, these two
-actions create a selection rule.
+Table mapping uses several types of rules to specify the data source, source schema,
+data, and any transformations that should occur during the task. You can use table
+mapping to specify individual tables in a database to migrate and the schema to use for
+the migration.
 
-You can include transformations in a table mapping after you have specified at
-least one selection rule. You can use transformations to rename a schema or table,
-add a prefix or suffix to a schema or table, or remove a table column.
+When working with table mapping, you can use filters to specify data that you want
+replicated from table columns. In addition, you can use transformations to modify
+selected schemas, tables, or views before they are written to the target
+database.
 
-###### Note
+###### Topics
 
-AWS DMS doesn't support more than one transformation rule per schema level, table
-level, or column level.
-
-The following procedure shows how to set up selection rules, based on a table
-called `Customers` in a schema called
-`EntertainmentAgencySample`.
-
-###### To specify a table selection, filter criteria, and transformations using the console
-
-1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-
-If you are signed in as an IAM user, make sure that you have the
-appropriate permissions to access AWS DMS. For more information about the permissions
-required, see [IAM permissions needed to use AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions"). 2. On the **Dashboard** page, choose
-**Database migration tasks**. 3. Choose **Create Task**. 4. In the **Task configuration** section, enter the task
-information, including **Task identifier**,
-**Replication instance**, **Source database
-endpoint**, **Target database endpoint**, and
-**Migration type**.
-
-![Schema and table selection](images/datarep-create-task-20.png) 5. In the **Table mapping** section, enter the schema name
-and table name. You can use "%" as a wildcard value when
-specifying the schema name or the table name. For information about other wildcards you can use, see
-[Wildcards in table mapping](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
-Specify the action to be taken, to include or
-exclude data defined by the filter.
-
-![Schema and table selection](images/datarep-Tasks-selecttransfrm.png) 6. Specify filter information using the **Add column
-filter** and the **Add condition** links.
-
-    1. Choose **Add column filter** to specify a column
-     and conditions.
-    2. Choose **Add condition**  to add additional
-     conditions. The following example shows a filter for the
-
-`Customers` table that includes
-`AgencyIDs` between `01` and
-`85`.
-
-![Schema and table selection](images/datarep-Tasks-filter.png) 7. When you have created the selections you want, choose **Add
-new selection rule**. 8. After you have created at least one selection rule, you can add a
-transformation to the task. Choose **add transformation
-rule**.
-
-![transformation rule](images/datarep-Tasks-transform1.png) 9. Choose the target that you want to transform, and enter the additional
-information requested. The following example shows a transformation that
-deletes the `AgencyStatus` column from the
-`Customer` table.
-
-![transformation rule](images/datarep-Tasks-transform2.png) 10. Choose **Add transformation rule**. 11. Choose **Create
-task**.
+- [Specifying table selection and transformations rules from the console](CHAP_Tasks.CustomizingTasks.TableMapping.Console.md "CHAP_Tasks.CustomizingTasks.TableMapping.Console.md")
+- [Specifying table selection and transformations rules using JSON](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md")
+- [Selection rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.md")
+- [Wildcards in table mapping](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Wildcards.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Wildcards.md")
+- [Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Transformations.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Transformations.md")
+- [Using transformation rule expressions to define column content](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions.md")
+- [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md")
+- [Using data masking to hide sensitive information](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Masking.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Masking.md")
 
 ###### Note
 
-AWS DMS doesn't support more than one transformation rule per schema level, table
-level, or column level.
+When working with table mapping for a MongoDB source endpoint, you can use filters to specify
+data that you want replicated, and specify a database name in place of the
+`schema_name`. Or, you can use the default
+`"%"`.

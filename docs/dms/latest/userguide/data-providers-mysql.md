@@ -2,7 +2,7 @@
 
 You can use MySQL databases as a migration target in DMS Schema Conversion.
 
-For information about supported target databases, see [Target data providers for DMS Schema Conversion](CHAP_Introduction.md#CHAP_Introduction.Targets.SchemaConversion "CHAP_Introduction.md#CHAP_Introduction.Targets.SchemaConversion").
+For information about supported target databases, see [Target data providers for DMS Schema Conversion](CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.SchemaConversion "CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.SchemaConversion").
 
 ## Privileges for MySQL as a target
 

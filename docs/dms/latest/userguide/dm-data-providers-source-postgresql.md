@@ -26,7 +26,7 @@ AWS DMS supports CDC for PostgreSQL tables with primary keys. If a table doesn't
 write-ahead logs (WAL) don't include a before image of the database row. Here, you can use additional
 configuration settings and use table replica identity as a workaround. However, this approach can generate
 extra logs. We recommend that you use table replica identity as a workaround only after careful testing.
-For more information, see [Additional configuration settings when using a PostgreSQL database as a DMS source](CHAP_Source.md#CHAP_Source.PostgreSQL.Advanced "CHAP_Source.md#CHAP_Source.PostgreSQL.Advanced").
+For more information, see [Additional configuration settings when using a PostgreSQL database as a DMS source](CHAP_Source.PostgreSQL.md#CHAP_Source.PostgreSQL.Advanced "CHAP_Source.PostgreSQL.md#CHAP_Source.PostgreSQL.Advanced").
 
 The following sections describe specific configuration prerequisites for self-managed and
 AWS-managed PostgreSQL databases.
@@ -43,7 +43,7 @@ This section describes how to configure your PostgreSQL databases that are hoste
 or on Amazon EC2 instances.
 
 Check the version of your source PostgreSQL database. Make sure that AWS DMS supports
-your source PostgreSQL database version as described in [Sources for DMS homogeneous data migrations](CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations "CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations").
+your source PostgreSQL database version as described in [Sources for DMS homogeneous data migrations](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.HomogeneousDataMigrations "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.HomogeneousDataMigrations").
 
 Homogeneous data migrations support change data capture (CDC) using logical replication.
 To turn on logical replication on a self-managed PostgreSQL source database, set the

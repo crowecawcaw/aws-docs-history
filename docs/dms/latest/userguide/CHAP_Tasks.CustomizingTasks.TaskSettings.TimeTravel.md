@@ -1,44 +1,198 @@
-# Using the Time Travel logs
+# Time Travel task settings
 
-_Time Travel log files_ are
-comma-separated value (CSV) files with the fields following.
+To log and debug replication tasks, you can use AWS DMS Time Travel. In this
+approach, you use Amazon S3 to store logs and encrypt them using your encryption
+keys. Only with access to your Time Travel S3 bucket, can you retrieve your S3
+logs using date-time filters, then view, download, and obfuscate logs as needed.
+By doing this, you can securely "travel back in time" to investigate database
+activities. Time Travel works independently from the CloudWatch logging. For more
+information on CloudWatch logging, see [Logging task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.Logging.md "CHAP_Tasks.CustomizingTasks.TaskSettings.Logging.md").
+
+You can use Time Travel in all AWS Regions with AWS DMS-supported Oracle, Microsoft SQL Server,
+and PostgreSQL source endpoints, and AWS DMS-supported PostgreSQL and MySQL target endpoints.
+You can turn on Time Travel only for full-load and change data capture (CDC) tasks and
+for CDC-only tasks. To turn on Time Travel or to modify any existing Time Travel settings,
+ensure that your replication task is stopped.
+
+The Time Travel settings include the `TTSettings` properties following:
+
+- `EnableTT` – If this option is set to
+  `true`, Time Travel logging is turned on for the task.
+  The default value is `false`.
+
+Type: Boolean
+
+Required: No
+
+- `EncryptionMode` – The type of server-side
+  encryption being used on your S3 bucket to store your data and logs. You
+  can specify either `"SSE_S3"` (the default) or
+  `"SSE_KMS"`.
+
+You can change `EncryptionMode` from `"SSE_KMS"`
+to `"SSE_S3"`, but not the reverse.
+
+Type: String
+
+Required: No
+
+- `ServerSideEncryptionKmsKeyId` – If you specify
+  `"SSE_KMS"` for `EncryptionMode`, provide the
+  ID for your custom managed AWS KMS key. Make sure that the key that you
+  use has an attached policy that
+  turns on AWS Identity and Access Management (IAM) user permissions and allows use of the key.
+
+Only your own custom-managed symmetric KMS key is supported with the
+`"SSE_KMS"` option.
+
+Type: String
+
+Required: Only if you set `EncryptionMode` to `"SSE_KMS"`
+
+- `ServiceAccessRoleArn` – The Amazon Resource Name
+  (ARN) used by the service to access the IAM role. Set the role name to
+  `dms-tt-s3-access-role`. This is a required setting that
+  allows AWS DMS to write and read objects from an S3 bucket.
+
+Type: String
+
+Required: If Time Travel is turned on
+
+Following is an example policy for this role.
+
+JSON
 
 ```
-log_timestamp
-component
-dms_source_code_location
-transaction_id
-event_id
-event_timestamp
-lsn/scn
-primary_key
-record_type
-event_type
-schema_name
-table_name
-statement
-action
-result
-raw_data
-```
-
-After your Time Travel logs are available in S3, you can directly access
-and query them with tools such as Amazon Athena. Or you can download the logs as
-you can any file from S3.
-
-The example following shows a Time Travel log where transactions for a
-table called `mytable` are logged. The line endings for the
-following log are added for readability.
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "VisualEditor0",
+ "Effect": "Allow",
+ "Action": [
+ "s3:PutObject",
+ "kms:GenerateDataKey",
+ "kms:Decrypt",
+ "s3:ListBucket",
+ "s3:DeleteObject"
+ ],
+ "Resource": [
+ "arn:aws:s3:::S3bucketName*",
+ "arn:aws:kms:us-east-1:112233445566:key/1234a1a1-1m2m-1z2z-d1d2-12dmstt1234"
+ ]
+ }
+ ]
+}`
 
 ```
-"log_timestamp ","tt_record_type","dms_source_code_location ","transaction_id",
-"event_id","event_timestamp","scn_lsn","primary_key","record_type","event_type",
-"schema_name","table_name","statement","action","result","raw_data"
-"2021-09-23T01:03:00:778230","SOURCE_CAPTURE","postgres_endpoint_wal_engine.c:00819",
-"609284109","565612992","2021-09-23 01:03:00.765321+00","00000E9C/D53AB518","","DML",
-"UPDATE (3)","dmstest","mytable","","Migrate","","table dmstest.mytable:
-UPDATE: id[bigint]:2244937 phone_number[character varying]:'phone-number-482'
-age[integer]:82 gender[character]:'f' isactive[character]:'true '
-date_of_travel[timestamp without time zone]:'2021-09-23 01:03:00.76593'
-description[text]:'TEST DATA TEST DATA TEST DATA TEST DATA'"
+
+Following is an example trust policy for this role.
+
+JSON
+
 ```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": [
+ "dms.amazonaws.com"
+ ]
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+}`
+
+```
+
+- `BucketName` – The name of the S3 bucket to store
+  Time Travel logs. Make sure to create this S3 bucket before turning on
+  Time Travel logs.
+
+Type: String
+
+Required: If Time Travel is turned on
+
+- `BucketFolder` – An optional parameter to set a
+  folder name in the S3 bucket. If you specify this parameter, DMS creates
+  the Time Travel logs in the path
+  `"/`BucketName`/`BucketFolder`/`taskARN`/`YYYY`/`MM`/`DD`/`hh`"`.
+  If you don't specify this parameter, AWS DMS creates the default path as
+  `"/`BucketName`/dms-time-travel-logs/`taskARN`/`YYYY`/`MM`/`DD`/`hh``.
+
+Type: String
+
+Required: No
+
+- `EnableDeletingFromS3OnTaskDelete` – When this
+  option is set to `true`, AWS DMS deletes the Time Travel logs
+  from S3 if the task is deleted. The default value is
+  `false`.
+
+Type: String
+
+Required: No
+
+- `EnableRawData` – When this option is set to
+  `true`, the data manipulation language (DML) raw data for
+  Time Travel logs appears under the `raw_data` column of the
+  Time Travel logs. For the details, see
+  [Using the Time Travel logs](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.LogSchema.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.LogSchema.md").
+  The default value is `false`. When this option is set to
+  `false`, only the type of DML is captured.
+
+Type: String
+
+Required: No
+
+- `RawDataFormat` – In AWS DMS versions 3.5.0 and higher,
+  when `EnableRawData` is set to `true`. This property
+  specifies a format for the raw data of the DML in a Time Travel log and can be
+  presented as:
+
+      + `"TEXT"` – Parsed, readable column names
+       and values for DML events captured during CDC as `Raw` fields.
+      + `"HEX"` – The original hexidecimal for column names
+       and values captured for DML events during CDC.
+
+  This property applies to Oracle and Microsoft SQL Server database sources.
+
+Type: String
+
+Required: No
+
+- `OperationsToLog` – Specifies the type of DML operations to log in Time Travel logs. You can specify one
+  of the following:
+
+      + `"INSERT"`
+      + `"UPDATE"`
+      + `"DELETE"`
+      + `"COMMIT"`
+      + `"ROLLBACK"`
+      + `"ALL"`
+
+  The default is `"ALL"`.
+
+Type: String
+
+Required: No
+
+- `MaxRecordSize` – Specifies the maximum size
+  of Time Travel log records that are logged for each row. Use this
+  property to control the growth of Time Travel logs for especially
+  busy tables. The default is 64 KB.
+
+Type: Integer
+
+Required: No
+For more information on turning on and using Time Travel logs, see the
+following topics.
+
+###### Topics
+
+- [Turning on the Time Travel logs for a task](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.TaskEnabling.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.TaskEnabling.md")
+- [Using the Time Travel logs](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.LogSchema.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.LogSchema.md")
+- [How often AWS DMS uploads Time Travel logs to S3](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.UploadsToS3.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.UploadsToS3.md")

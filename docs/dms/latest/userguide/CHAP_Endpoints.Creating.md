@@ -1,181 +1,68 @@
-# Using IAM authentication for Amazon RDS endpoint in AWS DMS
+# Creating source and target endpoints
 
-AWS Identity and Access Management (IAM) database authentication provides
-enhanced security for your Amazon RDS databases by managing database access through AWS
-IAM credentials. Instead of using traditional database passwords, IAM authentication
-generates short-lived authentication tokens, valid for 15 minutes, using AWS
-credentials. This approach significantly improves security by eliminating the need
-to store database passwords in application code, reducing the risk of credential
-exposure, and providing centralized access management through IAM. It also
-simplifies access management by leveraging existing AWS IAM roles and policies,
-enabling you to control database access using the same IAM framework you use for
-other AWS services.
+You can create source and target endpoints when you create your replication instance
+or you can create endpoints after your replication instance is created. The source and
+target data stores can be on an Amazon Elastic Compute Cloud (Amazon EC2) instance, an
+Amazon Relational Database Service (Amazon RDS) DB instance, or an on-premises database.
+(Note that one of your endpoints must be on an AWS service. You can't use AWS DMS to
+migrate from an on-premises database to another on-premises database.)
 
-AWS DMS now supports IAM authentication for replication instances running DMS
-version 3.6.1 or later when connecting to MySQL, PostgreSQL, Aurora PostgreSQL,
-Aurora MySQL, or MariaDB endpoints on Amazon RDS. When creating a new endpoint for
-these engines, you can select IAM authentication and specify an IAM role instead of
-providing database credentials. This integration enhances security by eliminating
-the need to manage and store database passwords for your migration tasks.
+The following procedure assumes that you have chosen the AWS DMS console wizard.
+Note that you can also do this step by selecting **Endpoints** from the
+AWS DMS console's navigation pane and then selecting **Create
+endpoint**. When using the console wizard, you create both the source and
+target endpoints on the same page. When not using the console wizard, you create each
+endpoint separately.
 
-## Configuring IAM authentication for Amazon RDS endpoint in AWS DMS
+###### To specify source or target database endpoints using the AWS console
 
-When creating an endpoint you can configure IAM authentication for your Amazon RDS
-database. To configure IAM authentication, do the following:
+1. On the **Connect source and target database endpoints** page,
+   specify your connection information for the source or target database. The following table
+   describes the settings.
 
-1. Ensure the Amazon RDS and the database user has IAM authentication
-   enabled. For more information, see [Enabling and disabling IAM database
-   authentication](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md") in the _Amazon
-   Relational Database Service user guide_.
-2. Navigate to the IAM Console, create an IAM role with the below
-   policies:
+| Configuration options                                          | Configuration settings                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Endpoint type**                                              | Choose whether this endpoint is the source or target<br>endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **Select RDS DB Instance**                                     | Choose this option if the endpoint is an Amazon RDS database<br>instance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Endpoint identifier**                                        | Type the name you want to use to identify the endpoint.<br>You might want to include in the name the type of endpoint,<br>such as `oracle-source` or<br>`PostgreSQL-target`. The name must<br>be unique for all replication instances.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **Descriptive Amazon Resource Name (ARN)<br>• _optional_**     | Provide a name to override the default DMS ARN. This setting<br>is optional.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **Source engine\*<br>• and **Target<br>engine\*\*              | Choose the type of database engine that is the<br>endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **Access to endpoint database**                                | Choose the option you want to use to specify endpoint<br>database credentials:<br>• [Choose<br>AWS Secrets Manager](#ChooseAWSSecretsManager "#ChooseAWSSecretsManager")<br>– Use secrets defined in<br>AWS Secrets Manager to secretly provide<br>your credentials as shown following. For more<br>information on creating these secrets and the secret<br>access roles that enable AWS DMS to access them, see<br>[Using secrets to access AWS Database Migration Service endpoints](security_iam_secretsmanager.md "security_iam_secretsmanager.md").<br>• [Provide access information<br>manually](#ProvideAccessInformationManually "#ProvideAccessInformationManually") – Use clear-text<br>credentials that you enter directly as shown<br>following.<br>• [IAM authentication](CHAP_Endpoints.Creating.IAMRDS.md "CHAP_Endpoints.Creating.IAMRDS.md")<br>– IAM as the authentication type instead of<br>username and password for your Amazon RDS database<br>instance. |
+| **Choose<br>AWS Secrets Manager**                              | Set the following secret credentials.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Secret ID**                                                  | Type the full Amazon Resource Name (ARN), partial ARN, or<br>friendly name of a secret that you have created in the<br>AWS Secrets Manager for endpoint database<br>access.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **IAM role**                                                   | Type the ARN of a secret access role that you have created<br>in IAM to provide AWS DMS access on your behalf<br>to the secret identified by **Secret<br>ID**. For information about creating a secret access role,<br>see [Using secrets to access AWS Database Migration Service endpoints](security_iam_secretsmanager.md "security_iam_secretsmanager.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Secret ID for Oracle automatic storage<br>management (ASM)** | (For Oracle source endpoints using Oracle ASM only) Type<br>the full Amazon Resource Name (ARN), partial ARN, or<br>friendly name of a secret that you have created in the<br>AWS Secrets Manager for Oracle ASM access. This<br>secret is typically created to access Oracle ASM on the same<br>server as the secret identified by **Secret<br>ID**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **IAM role for Oracle ASM**                                    | (For Oracle source endpoints using Oracle ASM only) Type<br>the ARN of a secret access role that you have created in<br>IAM to provide AWS DMS access on your behalf to<br>the secret identified by **Secret ID for Oracle<br>automatic storage management (ASM)**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Provide access information<br>manually**                     | Set the following clear-text credentials.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Server name**                                                | Type the server name. For an on-premises database, this<br>can be the IP address or the public hostname. For an Amazon<br>RDS DB instance, this can be the endpoint (also called the<br>DNS name) for the DB instance, such as<br>`mysqlsrvinst.abcd12345678.us-west-2.rds.amazonaws.com`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **Port**                                                       | Type the port used by the database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Secure Socket Layer (SSL) mode**                             | Choose an SSL mode if you want to enable connection<br>encryption for this endpoint. Depending on the mode you<br>select, you might be asked to provide certificate and server<br>certificate information.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **User name**                                                  | Type the user name with the permissions required to allow<br>data migration. For information on the permissions required,<br>see the security section for the source or target database<br>engine in this user guide.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Password**                                                   | Type the password for the account with the required<br>permissions. Passwords for AWS DMS source and target endpoints<br>have character restrictions, depending on the database<br>engine. For more information, see the following table.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Database name**                                              | For certain database engines, the name of the database you<br>want to use as the endpoint database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-Policy
+The following table lists the unsupported characters in endpoint passwords
+and secret manager secrets for
+the listed database engines. If you want to use commas (,) in your endpoint
+passwords, use the Secrets Manager support provided in AWS DMS to authenticate
+access to your AWS DMS instances. For more information, see [Using secrets to access AWS Database Migration Service endpoints](security_iam_secretsmanager.md "security_iam_secretsmanager.md").
 
-JSON
+| For this database engine                                                                                                                           | The following characters are unsupported in an endpoint password<br>and secret manager secrets |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| All                                                                                                                                                | `{ }`                                                                                          |
+| Microsoft Azure, as a source only                                                                                                                  | `;`                                                                                            |
+| Microsoft SQL Server                                                                                                                               | `, ;`                                                                                          |
+| MySQL-compatible, including MySQL, MariaDB, and<br>Amazon Aurora MySQL                                                                             | `;`                                                                                            |
+| Oracle                                                                                                                                             | `,`                                                                                            |
+| PostgreSQL, Amazon Aurora PostgreSQL-Compatible Edition, and Amazon Aurora<br>Serverless as a target only for Aurora PostgreSQL-Compatible Edition | `; + %`                                                                                        |
+| Amazon Redshift, as a target only                                                                                                                  | `, ;`                                                                                          |
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "VisualEditor0",
- "Effect": "Allow",
- "Action": [
- "rds-db:connect"
- ],
- "Resource": "*"
- }
- ]
-}`
+2. Choose **Endpoint settings** and **AWS KMS key** if you need them. You can test the endpoint connection by choosing
+   **Run test**. The following table describes the
+   settings.
 
-```
-
-Trust policy:
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "",
- "Effect": "Allow",
- "Principal": {
- "Service": [
- "dms.amazonaws.com"
- ]
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
-
-```
-
-3. During the endpoint configuration in the [AWS DMS console](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2"), navigate to the **Access to endpoint database** section and select **IAM authentication**.
-4. In the **IAM role for RDS database authentication** dropdown menu, select the IAM role with appropriate permissions to access the database.
-
-For more information, see [Creating source and target endpoints](CHAP_Endpoints.md "CHAP_Endpoints.md").
-
-1. Ensure the Amazon RDS and the database user has IAM authentication
-   enabled. For more information, see [Enabling and disabling IAM database
-   authentication](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md") in the _Amazon
-   Relational Database Service user guide_.
-2. Navigate to the AWS CLI, create an IAM role, and allow DMS
-   to assume the role:
-
-Policy:
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "VisualEditor0",
- "Effect": "Allow",
- "Action": [
- "rds-db:connect"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
-
-Trust policy:
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "",
- "Effect": "Allow",
- "Principal": {
- "Service": [
- "dms.amazonaws.com"
- ]
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
-
-```
-
-3. Run the following command to import the certificate and
-   download the PEM file. For more information, see [Download certificate bundles for Amazon
-   RDS](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload") in the _Amazon Relational
-   Database Service user guide_.
-
-```
-aws dms import-certificate --certificate-identifier rdsglobal --certificate-pem file://~/global-bundle.pem
-```
-
-4. Run the following commands to create an IAM endpoint:
-   - For PostgreSQL/Aurora PostgreSQL endpoints (When
-     `sslmode` is set to
-     `required`, `--certificate-arn`
-     flag is not required):
-
-   ```
-   aws dms create-endpoint --endpoint-identifier <endpoint-name> --endpoint-type <source/target> --engine-name <postgres/aurora-postgres> --username <db username with iam auth privileges> --server-name <db server name> --port <port number> --ssl-mode <required/verify-ca/verify-full> --postgre-sql-settings "{\"ServiceAccessRoleArn\": \"role arn created from step 2 providing permissions for iam authentication\", \"AuthenticationMethod\": \"iam\", \"DatabaseName\": \"database name\"}" --certificate-arn <if sslmode is verify-ca/verify full use cert arn generated in step 3, otherwise this parameter is not required>
-   ```
-
-   - For MySQL, MariaDB, or Aurora MySQL endpoints:
-
-   ```
-   aws dms create-endpoint --endpoint-identifier <endpoint-name> --endpoint-type <source/target> --engine-name <mysql/mariadb/aurora> --username <db username with iam auth privileges> --server-name <db server name> --port <port number> --ssl-mode <verify-ca/verify-full> --my-sql-settings "{\"ServiceAccessRoleArn\": \"role arn created from step 2 providing permissions for iam authentication\", \"AuthenticationMethod\": \"iam\", \"DatabaseName\": \"database name\"}" --certificate-arn <cert arn from previously imported cert in step 3>
-   ```
-
-5. Run a test connection against your desired replication
-   instance to create the instance endpoint association and verify
-   everything is set up correctly:
-
-```
-aws dms test-connection --replication-instance-arn <replication instance arn> --endpoint-arn <endpoint arn from previously created endpoint in step 4>
-```
-
-###### Note
-
-When using IAM authentication, the replication instance
-provided in test-connection must be on AWS DMS version 3.6.1
-or later.
-
-## Limitations
-
-AWS DMS has following limitations when using IAM authentication with Amazon RDS
-endpoint:
-
-- Currently Amazon RDS PostgreSQL and Amazon Aurora PostgreSQL instances do
-  not support CDC connections with IAM authentication. For more
-  information, see [Limitations for IAM database authentication](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Limitations "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Limitations") in the
-  _Amazon Relational Database Service User
-  Guide_.
+| Configuration options                   | Configuration settings                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Endpoint settings**                   | Select any additional connection parameters here. For more<br>information about endpoint settings, see the documentation<br>section for your **Source engine\*<br>• or<br>**Target engine*<br>• (specified in step<br>1).<br>For an Oracle source endpoint that uses Oracle ASM, if you<br>choose \*\*Provide access information<br>manually*<br>• in step 1, you might also need to<br>type in endpoint setting to specify Oracle ASM user<br>credentials. For more information on these Oracle ASM<br>endpoint settings, see [Using Oracle LogMiner or AWS DMS Binary Reader for CDC](CHAP_Source.Oracle.md#CHAP_Source.Oracle.CDC "CHAP_Source.Oracle.md#CHAP_Source.Oracle.CDC"). |
+| **AWS KMS key**                         | Choose the encryption key to use to encrypt replication<br>storage and connection information. If you choose<br>**(Default) aws/dms**, the default AWS<br>Key Management Service (AWS KMS) key associated with your<br>account and AWS Region is used. For more information on using<br>the encryption key, see [Setting an encryption key and specifying AWS KMS permissions](CHAP_Security.md#CHAP_Security.EncryptionKey "CHAP_Security.md#CHAP_Security.EncryptionKey").                                                                                                                                                                                                          |
+| **Test endpoint connection (optional)** | Add the VPC and replication instance name. To test the<br>connection, choose **Run test**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |

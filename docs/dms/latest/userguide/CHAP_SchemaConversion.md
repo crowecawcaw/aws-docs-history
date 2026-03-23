@@ -23,9 +23,9 @@ connection credentials. A _migration project_ contains data providers, an
 instance profile, and migration rules. AWS DMS uses data providers and an instance profile to
 design a process that converts database schemas and code objects.
 
-For the list of supported source databases, see [Sources for DMS Schema Conversion](CHAP_Introduction.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.md#CHAP_Introduction.Sources.SchemaConversion").
+For the list of supported source databases, see [Sources for DMS Schema Conversion](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion").
 
-For the list of supported target databases, see [Targets for DMS Schema Conversion](CHAP_Introduction.md#CHAP_Introduction.Targets.SchemaConversion "CHAP_Introduction.md#CHAP_Introduction.Targets.SchemaConversion").
+For the list of supported target databases, see [Targets for DMS Schema Conversion](CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.SchemaConversion "CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.SchemaConversion").
 
 The following diagram illustrates the DMS Schema Conversion process.
 
@@ -46,7 +46,7 @@ Use the following topics to better understand how to use DMS Schema Conversion.
 - [Creating database migration assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md")
 - [Using DMS Schema Conversion](schema-conversion.md "schema-conversion.md")
 - [Using extension packs in DMS Schema Conversion](extension-pack.md "extension-pack.md")
-- [AWS IAM actions to API mapping for DMS Schema Conversion and Common Studio Framework (CSF)](schema-conversion-iam.md "schema-conversion-iam.md")
+- [AWS IAM actions to API mapping for DMS Schema Conversion and Common Studio Framework (CSF)](schema-conversion-iam.mapping.md "schema-conversion-iam.mapping.md")
 
 ## Supported AWS Regions
 

@@ -61,9 +61,9 @@ same VPC as your instance profile, choose one of the following configurations.
    [Enable DNS resolution
    for a VPC peering connection](../../../vpc/latest/peering/vpc-peering-dns.md "../../../vpc/latest/peering/vpc-peering-dns.md").
 5. Allow access from the CIDR block of source database’s VPC for target
-   database security group. For more information, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md").
+   database security group. For more information, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md").
 6. Allow access from the CIDR block of target database’s VPC for target
-   database security group. For more information, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md").
+   database security group. For more information, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md").
 
 ### To connect through a Public network
 
@@ -90,7 +90,7 @@ the data migration:
 4. Setup Routing table for NAT gateway. For more information see [NAT gateway
    use cases](../../../vpc/latest/userguide/nat-gateway-scenarios.md "../../../vpc/latest/userguide/nat-gateway-scenarios.md").
 5. Allow access from the public IP address of your NAT Gateway in your
-   database security group. For more information, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md").
+   database security group. For more information, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md").
 
 ## Using Direct Connect or a VPN to configure a network to a VPC
 

@@ -67,7 +67,7 @@ Before you configure a VPC endpoint with AWS Secrets Manager in AWS DMS, you mus
 the following prerequisites:
 
 - Ensure you configure all the [Common AWS DMS prerequisites](#CHAP_VPC_Endpoints.prereq "#CHAP_VPC_Endpoints.prereq").
-- Create and configure [source](CHAP_Introduction.md "CHAP_Introduction.md") or [target](CHAP_Introduction.md "CHAP_Introduction.md") database that you want to connect
+- Create and configure [source](CHAP_Introduction.Sources.md "CHAP_Introduction.Sources.md") or [target](CHAP_Introduction.Targets.md "CHAP_Introduction.Targets.md") database that you want to connect
   with.
 - Create secret in AWS Secrets manager with credentials to access source and
   target databases. Secret must be located in the same region as AWS DMS replication
@@ -155,7 +155,7 @@ Before you configure a VPC endpoint with Amazon S3 in AWS DMS, you must meet the
 following prerequisites:
 
 - Ensure you configure all the [Common AWS DMS prerequisites](#CHAP_VPC_Endpoints.prereq "#CHAP_VPC_Endpoints.prereq").
-- Create an Amazon S3 bucket to use as [source](CHAP_Introduction.md "CHAP_Introduction.md") or [target](CHAP_Introduction.md "CHAP_Introduction.md") databases with AWS DMS. Do not enable
+- Create an Amazon S3 bucket to use as [source](CHAP_Introduction.Sources.md "CHAP_Introduction.Sources.md") or [target](CHAP_Introduction.Targets.md "CHAP_Introduction.Targets.md") databases with AWS DMS. Do not enable
   versioning for S3. If you need S3 versioning, use lifecycle policies to actively
   delete old versions. Otherwise, you can encounter endpoint test connection
   failures because of an S3 list-object call timeout.
@@ -241,7 +241,7 @@ information, see:
 
 - [Common AWS DMS prerequisites](#CHAP_VPC_Endpoints.prereq "#CHAP_VPC_Endpoints.prereq")
 - [Using Amazon Kinesis
-  Data Streams as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
+  Data Streams as a target for AWS Database Migration Service](CHAP_Target.Kinesis.md "CHAP_Target.Kinesis.md")
 
 ## Setup an Amazon VPC endpoint for Amazon Redshift
 
@@ -296,7 +296,7 @@ replication subnets groups.
 ###### Create DMS replication instance (provisioned)
 
 1. Navigate to the AWS Management Console to create a replication instance. For more
-   information, see [Creating a replication instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md"). To
+   information, see [Creating a replication instance](CHAP_ReplicationInstance.Creating.md "CHAP_ReplicationInstance.Creating.md"). To
    understand more choosing, sizing, and configuring replication instances, see
    [Working with an AWS DMS replication
    instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
@@ -304,7 +304,7 @@ replication subnets groups.
    VPC from the **Virtual private cloud (VPC) for IPv4** or
    **Dual-stack mode** where you want to create the AWS DMS
    replication instance. For more information, see [Setting up a network for a replication
-   instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
+   instance](CHAP_ReplicationInstance.VPC.md "CHAP_ReplicationInstance.VPC.md").
 3. From the **Replication subnet group** dropdown menu,
    choose the subnet group that you created for your replication
    instance.
@@ -324,7 +324,7 @@ endpoint.
 If you do not specify the subnet groups, DMS chooses the default
 **Replication subnet group** or creates it if it does
 not exist. For more information, see [Security group configuration for
-AWS DMS](CHAP_Advanced.Endpoints.md "CHAP_Advanced.Endpoints.md"). 6. Complete the replication instance configuration and select
+AWS DMS](CHAP_Advanced.Endpoints.securitygroup.md "CHAP_Advanced.Endpoints.securitygroup.md"). 6. Complete the replication instance configuration and select
 **Create replication instance**.
 
 You must wait until the status becomes `Available`.
@@ -364,7 +364,7 @@ For AWS DMS serverless replication, you cannot test the connection for
 the DMS endpoint or use the `TestConnection` API. The
 connection test is performed during serverless replication launch
 between DMS instance and your source/target databases. For more
-information, see [AWS DMS Serverless components](CHAP_Serverless.md "CHAP_Serverless.md"). 5. Select **Create endpoint**.
+information, see [AWS DMS Serverless components](CHAP_Serverless.Components.md "CHAP_Serverless.Components.md"). 5. Select **Create endpoint**.
 
 ###### Create DMS replication subnet groups
 
@@ -384,14 +384,14 @@ information, see [AWS DMS Serverless components](CHAP_Serverless.md "CHAP_Server
 ###### Create DMS serverless replication
 
 1. Navigate to the DMS console to create a serverless instance. For more
-   information, see [Creating a serverless replication](CHAP_Serverless.md#CHAP_Serverless.create "CHAP_Serverless.md#CHAP_Serverless.create"). To
+   information, see [Creating a serverless replication](CHAP_Serverless.Components.md#CHAP_Serverless.create "CHAP_Serverless.Components.md#CHAP_Serverless.create"). To
    understand more choosing, sizing, and configuring serverless instances, see
    [Working with AWS DMS serverless](CHAP_Serverless.md "CHAP_Serverless.md").
 2. In the **Connectivity and security** section, select the
    VPC from the **Virtual private cloud (VPC)** dropdown menu
    where you want to create the AWS DMS serverless instance . For more
    information, see [Setting up a network for a replication
-   instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
+   instance](CHAP_ReplicationInstance.VPC.md "CHAP_ReplicationInstance.VPC.md").
 3. From the **Subnet group** dropdown menu, choose the
    subnet group that you created for your serverless instance.
 
@@ -453,7 +453,7 @@ AWS Secrets Manager, you typically don't need to adjust the routing table. Alway
 for each service.
 
 For more information on configuring VPC endpoints for an AWS DMS replication
-instance, see [Network configurations for database migration](CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations "CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations"). For more information
+instance, see [Network configurations for database migration](CHAP_ReplicationInstance.VPC.md#CHAP_ReplicationInstance.VPC.Configurations "CHAP_ReplicationInstance.VPC.md#CHAP_ReplicationInstance.VPC.Configurations"). For more information
 on creating interface VPC endpoints for accessing AWS services generally, see [Access an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the
 _AWS PrivateLink Guide_. For information on AWS DMS regional
 availability for VPC endpoints, see the [AWS Region

@@ -65,7 +65,7 @@ You can use the AWS CLI or the AWS DMS API to add, list, and delete tags on AWS 
 resources. When using the AWS CLI or the AWS DMS API, you must provide the Amazon
 Resource Name (ARN) for the AWS DMS resource you want to work with. For more
 information about constructing an ARN,
-see [Constructing an Amazon Resource Name (ARN) for AWS DMS](CHAP_Introduction.AWS.md "CHAP_Introduction.AWS.md").
+see [Constructing an Amazon Resource Name (ARN) for AWS DMS](CHAP_Introduction.AWS.ARN.md "CHAP_Introduction.AWS.ARN.md").
 
 Note that tags are cached for authorization purposes. Because of this, additions and updates
 to tags on AWS DMS resources might take several minutes before they are available.
@@ -82,7 +82,7 @@ You can add, list, or remove tags for a AWS DMS resource using the AWS DMS API.
   operation.
 
 To learn more about how to construct the required ARN,
-see [Constructing an Amazon Resource Name (ARN) for AWS DMS](CHAP_Introduction.AWS.md "CHAP_Introduction.AWS.md").
+see [Constructing an Amazon Resource Name (ARN) for AWS DMS](CHAP_Introduction.AWS.ARN.md "CHAP_Introduction.AWS.ARN.md").
 
 When working with XML using the AWS DMS API, tags use the following schema:
 

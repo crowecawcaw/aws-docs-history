@@ -16,9 +16,9 @@ the source data provider, reads the source data, dumps the files on the disk, an
 using native database tools. For more information about instance profiles, data providers, and
 migration projects, see [Working with data providers, instance profiles, and migration projects in AWS DMS](migration-projects.md "migration-projects.md").
 
-For the list of supported source databases, see [Sources for DMS homogeneous data migrations](CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations "CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations").
+For the list of supported source databases, see [Sources for DMS homogeneous data migrations](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.HomogeneousDataMigrations "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.HomogeneousDataMigrations").
 
-For the list of supported target databases, see [Targets for DMS homogeneous data migrations](CHAP_Introduction.md#CHAP_Introduction.Targets.HomogeneousDataMigrations "CHAP_Introduction.md#CHAP_Introduction.Targets.HomogeneousDataMigrations").
+For the list of supported target databases, see [Targets for DMS homogeneous data migrations](CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.HomogeneousDataMigrations "CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.HomogeneousDataMigrations").
 
 The following diagram illustrates how homogeneous data migrations work.
 
@@ -115,4 +115,4 @@ The following limitations apply when you use homogeneous data migrations:
 - You can't use the 8081 port for homogeneous migrations from your data providers.
 - Homogeneous data migrations migrate encrypted MySQL databases and tables as
   unencrypted on the target database. This is because RDS for MySQL does not support
-  encryption using Keyring plugin. For more information, see [MySQL Keyring Plugin not supported documentation](../../../AmazonRDS/latest/UserGuide/MySQL.md#MySQL.Concepts.Limits.KeyRing "../../../AmazonRDS/latest/UserGuide/MySQL.md#MySQL.Concepts.Limits.KeyRing") in the Amazon RDS User Guide.
+  encryption using Keyring plugin. For more information, see [MySQL Keyring Plugin not supported documentation](../../../AmazonRDS/latest/UserGuide/MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.Limits.KeyRing "../../../AmazonRDS/latest/UserGuide/MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.Limits.KeyRing") in the Amazon RDS User Guide.

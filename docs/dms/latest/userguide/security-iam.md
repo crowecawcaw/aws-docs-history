@@ -114,7 +114,7 @@ with a task.
 ###### Note
 
 You can further restrict access to AWS DMS resources using tagging. For more
-information about restricting access to AWS DMS resources using tagging, see [Fine-grained access control using resource names and tags](CHAP_Security.md "CHAP_Security.md").
+information about restricting access to AWS DMS resources using tagging, see [Fine-grained access control using resource names and tags](CHAP_Security.FineGrainedAccess.md "CHAP_Security.FineGrainedAccess.md").
 
 JSON
 

@@ -5,7 +5,7 @@
 End of support notice: On May 20, 2026, AWS will end support for AWS Database Migration Service Fleet
 Advisor. After May 20, 2026, you will no longer be able to access the AWS DMS Fleet
 Advisor console or AWS DMS Fleet Advisor resources. For more information, see [AWS DMS Fleet Advisor
-end of support](dms_fleet.md "dms_fleet.md").
+end of support](dms_fleet.advisor-end-of-support.md "dms_fleet.advisor-end-of-support.md").
 
 To explore and choose an optimal migration target, you can generate target recommendations
 for your source on-premises databases in DMS Fleet Advisor. A _recommendation_ includes one or more
@@ -56,7 +56,7 @@ memory-optimized, and burstable performance Amazon RDS DB instances.
 - db.x1e
 - db.z1d
 
-For more information about Amazon RDS DB instance classes, see [DB instance classes](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md") in the
+For more information about Amazon RDS DB instance classes, see [DB instance classes](../../../AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.md "../../../AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.md") in the
 _Amazon RDS User Guide_.
 
 ## How does DMS Fleet Advisor determine target instance specifications for the recommendation?

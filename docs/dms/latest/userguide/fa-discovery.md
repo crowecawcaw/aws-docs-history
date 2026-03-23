@@ -5,7 +5,7 @@
 End of support notice: On May 20, 2026, AWS will end support for AWS Database Migration Service Fleet
 Advisor. After May 20, 2026, you will no longer be able to access the AWS DMS Fleet
 Advisor console or AWS DMS Fleet Advisor resources. For more information, see [AWS DMS Fleet
-Advisor end of support](dms_fleet.md "dms_fleet.md").
+Advisor end of support](dms_fleet.advisor-end-of-support.md "dms_fleet.advisor-end-of-support.md").
 
 You can use the DMS data collector to find and list all available servers in your network.
 Discovering all the available database servers in your network is recommended, but

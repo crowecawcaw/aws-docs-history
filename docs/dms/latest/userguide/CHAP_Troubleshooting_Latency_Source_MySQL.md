@@ -56,7 +56,7 @@ SHOW MASTER STATUS;
 To further optimize performance, tune the `EventsPollInterval`. By default, DMS polls
 the binary log every 5 seconds, but you may improve performance by reducing this value. For more information
 about the `EventsPollInterval` setting, see
-[Endpoint settings when using MySQL as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.ConnectionAttrib "CHAP_Source.md#CHAP_Source.MySQL.ConnectionAttrib").
+[Endpoint settings when using MySQL as a source for AWS DMS](CHAP_Source.MySQL.md#CHAP_Source.MySQL.ConnectionAttrib "CHAP_Source.MySQL.md#CHAP_Source.MySQL.ConnectionAttrib").
 
 ## Binary log contention
 

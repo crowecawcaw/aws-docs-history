@@ -1,45 +1,92 @@
-# Cross-region inference in AWS Database Migration Service
+# Data protection in AWS Database Migration Service
 
-Certain AWS Database Migration Service features use cross-region AI inference to automatically select the optimal AWS Region within your
-geography to process inference requests, maximizing available compute resources and model availability, and providing the
-best customer experience. With cross-region inference, you get:
+## Data encryption
 
-- Access to the most advanced AI capabilities and features
-- Increased throughput and resilience during high demand periods
+You can enable encryption for data resources of supported AWS DMS target endpoints.
+AWS DMS also encrypts connections to AWS DMS and between AWS DMS and all its source and
+target endpoints. In addition, you can manage the keys that AWS DMS and its supported
+target endpoints use to enable this encryption.
 
-Cross-region AI inference requests are kept within the AWS Regions that are part of the same geography as your primary
-AWS Region. For example, a request made from a primary AWS Region in the US is kept within the AWS Regions in the US.
-Your data remains stored only in your primary AWS Region. All data is transmitted encrypted across Amazon's secure network.
+###### Topics
 
-###### Note
+- [Encryption at rest](#CHAP_Security.DataProtection.DataEncryption.EncryptionAtRest "#CHAP_Security.DataProtection.DataEncryption.EncryptionAtRest")
+- [Encryption in transit](#CHAP_Security.DataProtection.DataEncryption.EncryptionInTransit "#CHAP_Security.DataProtection.DataEncryption.EncryptionInTransit")
+- [Key management](#CHAP_Security.DataProtection.DataEncryption.KeyManagement "#CHAP_Security.DataProtection.DataEncryption.KeyManagement")
 
-Amazon CloudWatch and AWS CloudTrail logs don't specify the AWS Region in which AI inference occurs.
+### Encryption at rest
 
-## Cross-region inference in DMS Schema Conversion
+AWS DMS supports encryption at rest by allowing you to specify the server-side
+encryption mode that you want used to push your replicated data to Amazon S3 before it is
+copied to supported AWS DMS target endpoints. You can specify this encryption mode by
+setting the `encryptionMode` extra connection attribute for the endpoint.
+If this `encryptionMode` setting specifies KMS key encryption mode, you
+can also create custom AWS KMS keys specifically to encrypt the target data for the
+following AWS DMS target endpoints:
 
-When you use Generative AI features in DMS Schema Conversion, anonymized code fragments and related schema metadata might be sent to
-other AWS Regions within the same geography for AI processing. Your production data remains in your primary AWS Region
-and is never accessed or transmitted.
+- Amazon Redshift – For more information about setting
+  `encryptionMode`, see [Endpoint settings when using Amazon Redshift as a target for AWS DMS](CHAP_Target.Redshift.md#CHAP_Target.Redshift.ConnectionAttrib "CHAP_Target.Redshift.md#CHAP_Target.Redshift.ConnectionAttrib"). For more
+  information about creating a custom AWS KMS encryption key, see [Creating and using AWS KMS keys to encrypt Amazon Redshift target data](CHAP_Target.Redshift.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.Redshift.md#CHAP_Target.Redshift.KMSKeys").
+- Amazon S3 – For more information about setting
+  `encryptionMode`, see [Endpoint settings when using Amazon S3 as a target for AWS DMS](CHAP_Target.S3.md#CHAP_Target.S3.Configuring "CHAP_Target.S3.md#CHAP_Target.S3.Configuring"). For more information about
+  creating a custom AWS KMS encryption key, see [Creating AWS KMS keys to encrypt Amazon S3 target objects](CHAP_Target.S3.md#CHAP_Target.S3.KMSKeys "CHAP_Target.S3.md#CHAP_Target.S3.KMSKeys").
 
-###### Important
+### Encryption in transit
 
-Cross-region inference is always enabled when you use Generative AI features in DMS Schema Conversion. To keep schema conversion
-processing resident in your primary AWS Region, use schema conversion with disabled Generative AI features.
+AWS DMS supports encryption in transit by ensuring that the data it replicates
+moves securely from the source endpoint to the target endpoint. This includes
+encrypting an S3 bucket on the replication instance that your replication task
+uses for intermediate storage as the data moves through the replication
+pipeline. To encrypt task connections to source and target endpoints AWS DMS uses
+Secure Socket Layer (SSL) or Transport Layer Security (TLS). By encrypting
+connections to both endpoints, AWS DMS ensures that your data is secure as it
+moves both from the source endpoint to your replication task and from your task
+to the target endpoint. For more information about using SSL/TLS with AWS DMS, see
+[Using SSL with AWS Database Migration Service](CHAP_Security.SSL.md "CHAP_Security.SSL.md")
 
-Generative AI features in DMS Schema Conversion are currently available in a limited number of regions. The following table describes
-what AWS Regions your requests may be routed to depending on your primary AWS Region.
+AWS DMS supports both default and custom keys to encrypt both intermediate
+replication storage and connection information. You manage these keys by using
+AWS KMS. For more information, see [Setting an encryption key and specifying AWS KMS permissions](CHAP_Security.md#CHAP_Security.EncryptionKey "CHAP_Security.md#CHAP_Security.EncryptionKey").
 
-| Primary AWS Region                     | Inference AWS Regions                                                                                                                                                                                                           |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Asia Pacific (Tokyo) (ap-northeast-1)  | Asia Pacific (Tokyo) (ap-northeast-1)<br>Asia Pacific (Osaka) (ap-northeast-3)                                                                                                                                                  |
-| Asia Pacific (Osaka) (ap-northeast-3)  | Asia Pacific (Tokyo) (ap-northeast-1)<br>Asia Pacific (Osaka) (ap-northeast-3)                                                                                                                                                  |
-| Asia Pacific (Sydney) (ap-southeast-2) | Asia Pacific (Sydney) (ap-southeast-2)<br>Asia Pacific (Melbourne) (ap-southeast-4)                                                                                                                                             |
-| Canada (Central) (ca-central-1)        | Canada (Central) (ca-central-1)<br>US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                                                                              |
-| Europe (Frankfurt) (eu-central-1)      | Europe (Frankfurt) (eu-central-1)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Milan) (eu-south-1)<br>Europe (Spain) (eu-south-2)<br>Europe (Ireland) (eu-west-1)<br>Europe (Paris) (eu-west-3)                                |
-| Europe (Stockholm) (eu-north-1)        | Europe (Frankfurt) (eu-central-1)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Milan) (eu-south-1)<br>Europe (Spain) (eu-south-2)<br>Europe (Ireland) (eu-west-1)<br>Europe (Paris) (eu-west-3)                                |
-| Europe (Ireland) (eu-west-1)           | Europe (Frankfurt) (eu-central-1)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Milan) (eu-south-1)<br>Europe (Spain) (eu-south-2)<br>Europe (Ireland) (eu-west-1)<br>Europe (Paris) (eu-west-3)                                |
-| Europe (London) (eu-west-2)            | Europe (Frankfurt) (eu-central-1)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Milan) (eu-south-1)<br>Europe (Spain) (eu-south-2)<br>Europe (Ireland) (eu-west-1)<br>Europe (London) (eu-west-2)<br>Europe (Paris) (eu-west-3) |
-| Europe (Paris) (eu-west-3)             | Europe (Frankfurt) (eu-central-1)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Milan) (eu-south-1)<br>Europe (Spain) (eu-south-2)<br>Europe (Ireland) (eu-west-1)<br>Europe (Paris) (eu-west-3)                                |
-| US East (N. Virginia) (us-east-1)      | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                                                                                                                 |
-| US East (Ohio) (us-east-2)             | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                                                                                                                 |
-| US West (Oregon) (us-west-2)           | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                                                                                                                 |
+### Key management
+
+AWS DMS supports default or custom keys to encrypt replication storage,
+connection information, and the target data storage for certain target
+endpoints. You manage these keys by using AWS KMS. For more information, see [Setting an encryption key and specifying AWS KMS permissions](CHAP_Security.md#CHAP_Security.EncryptionKey "CHAP_Security.md#CHAP_Security.EncryptionKey").
+
+## Internetwork traffic privacy
+
+Connections are provided with protection between AWS DMS and source and target
+endpoints in the same AWS Region, whether running on premises or as part of an
+AWS service in the cloud. (At least one endpoint, source or target, must run as
+part of an AWS service in the cloud.) This protection applies whether these
+components share the same virtual private cloud (VPC) or exist in separate VPCs, if
+the VPCs are all in the same AWS Region. For more information about the supported
+network configurations for AWS DMS, see [Setting up a network for a replication instance](CHAP_ReplicationInstance.VPC.md "CHAP_ReplicationInstance.VPC.md"). For more information about the
+security considerations when using these network configurations, see [Network security for AWS Database Migration Service](CHAP_Security.md#CHAP_Security.Network "CHAP_Security.md#CHAP_Security.Network").
+
+## Data protection in DMS Fleet Advisor
+
+DMS Fleet Advisor collects and analyzes your database metadata to determine the right size of
+the migration target. DMS Fleet Advisor doesn't access data in your tables and doesn't transfer
+it. Also, DMS Fleet Advisor doesn't track database feature usage and doesn't access your usage
+statistics.
+
+You control access to your databases when you create database users which DMS Fleet Advisor
+uses to work with your databases. You grant the required privileges to these users.
+To use DMS Fleet Advisor, you grant your database users with read permissions. DMS Fleet Advisor doesn't
+modify your databases and doesn't require write permissions. For more information, see
+[Creating database users for AWS DMS Fleet Advisor](fa-database-users.md "fa-database-users.md").
+
+You can use data encryption in your databases. AWS DMS also encrypts connections
+within DMS Fleet Advisor and within its data collectors.
+
+DMS data collector uses the Data Protection application programming interface (DPAPI) to encrypt,
+protect, and store information about customer's environment and database credentials.
+DMS Fleet Advisor stores this encrypted data in a file on the server where your DMS data collector works.
+DMS Fleet Advisor doesn't transfer this data from this server. For more information about
+DPAPI, see [How to: Use Data Protection](https://learn.microsoft.com/en-us/dotnet/standard/security/how-to-use-data-protection "https://learn.microsoft.com/en-us/dotnet/standard/security/how-to-use-data-protection").
+
+After you install the DMS data collector, you can view all queries that this application runs
+to collect metrics. You can run the DMS data collector in an offline mode and then review the
+collected data on your server. Also, you can review this collected data in your Amazon S3
+bucket. For more information, see [How does DMS data collector work?](fa-collecting.md#fa-data-collectors-how-it-works "fa-collecting.md#fa-data-collectors-how-it-works").

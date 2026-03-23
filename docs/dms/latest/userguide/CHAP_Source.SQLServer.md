@@ -1,1362 +1,531 @@
-# Capturing data changes for ongoing replication from SQL Server
+# Using a Microsoft SQL Server database as a source for AWS DMS
 
-This topic describes how to set up CDC replication on a SQL Server source.
+Migrate data from one or many Microsoft SQL Server databases using AWS DMS. With a SQL
+Server database as a source, you can migrate data to another SQL Server database, or to
+one of the other AWS DMS supported databases.
 
-###### Topics
+For information about versions of SQL
+Server that AWS DMS supports as a source, see [Sources for AWS DMS](CHAP_Introduction.Sources.md "CHAP_Introduction.Sources.md").
 
-- [Capturing data changes for self-managed SQL Server on-premises or on Amazon EC2](#CHAP_Source.SQLServer.CDC.Selfmanaged "#CHAP_Source.SQLServer.CDC.Selfmanaged")
-- [Setting up ongoing replication on a cloud SQL Server DB instance](#CHAP_Source.SQLServer.Configuration "#CHAP_Source.SQLServer.Configuration")
+The source SQL Server database can be installed on any computer in your network. A SQL
+Server account with appropriate access privileges to the source database for the type of
+task you chose is required for use with AWS DMS. For more information, see
+[Permissions for SQL Server tasks](#CHAP_Source.SQLServer.Permissions "#CHAP_Source.SQLServer.Permissions").
 
-## Capturing data changes for self-managed SQL Server on-premises or on Amazon EC2
+AWS DMS supports migrating data from named instances of SQL Server. You can use the
+following notation in the server name when you create the source endpoint.
 
-To capture changes from a source Microsoft SQL Server database, make sure that the database
-is configured for full backups. Configure the database either in full recovery mode
-or bulk-logged mode.
+```
+IPAddress\InstanceName
+```
 
-For a self-managed SQL Server source, AWS DMS uses the following:
+For example, the following is a correct source endpoint server name. Here, the first
+part of the name is the IP address of the server, and the second part is the SQL Server
+instance name (in this example, SQLTest).
 
-**MS-Replication**
+```
+10.0.0.25\SQLTest
+```
 
-To capture changes for tables with primary keys. You can configure
-this automatically by giving sysadmin privileges to the AWS DMS endpoint
-user on the source SQL Server instance. Or you can follow the steps in
-this section to prepare the source and use a user that doesn't have
-sysadmin privileges for the AWS DMS endpoint.
-
-**MS-CDC**
-
-To capture changes for tables without primary keys. Enable MS-CDC at
-the database level and for all of the tables individually.
-
-When setting up a SQL Server database for ongoing replication (CDC), you can do
-one of the following:
-
-- Set up ongoing replication using the sysadmin role.
-- Set up ongoing replication to not use the sysadmin role.
+Also, obtain the port number that your named instance of SQL Server listens on, and
+use it to configure your AWS DMS source endpoint.
 
 ###### Note
 
-You can use the following script to find all table without a primary or a unique
-key:
+Port 1433 is the default for Microsoft SQL Server. But dynamic ports that change
+each time SQL Server is started, and specific static port numbers used to connect to
+SQL Server through a firewall are also often used. So, you want to know the actual
+port number of your named instance of SQL Server when you create the AWS DMS source
+endpoint.
 
-```
-USE [DBname]
-SELECT SCHEMA_NAME(schema_id) AS schema_name, name AS table_name
-FROM sys.tables
-WHERE OBJECTPROPERTY(object_id, 'TableHasPrimaryKey') = 0
-        AND  OBJECTPROPERTY(object_id, 'TableHasUniqueCnst') = 0
-ORDER BY schema_name, table_name;
-```
+You can use SSL to encrypt connections between your SQL Server endpoint and the
+replication instance. For more information on using SSL with a SQL Server endpoint, see
+[Using SSL with AWS Database Migration Service](CHAP_Security.SSL.md "CHAP_Security.SSL.md").
 
-### Setting up ongoing replication on a self-managed SQL Server
+You can use CDC for ongoing migration from a SQL Server database. For information
+about configuring your source SQL server database for CDC, see
+[Capturing data changes for ongoing replication from SQL Server](CHAP_Source.SQLServer.CDC.md "CHAP_Source.SQLServer.CDC.md").
 
-This section contains information about setting up ongoing replication on a self-managed
-SQL server with or without using the sysadmin role.
+For additional details on working with SQL Server source databases and AWS DMS, see the
+following.
 
 ###### Topics
 
-- [Setting up ongoing replication on a self-managed SQL Server: Using sysadmin role](#CHAP_Source.SQLServer.CDC.MSCDC.Sysadmin "#CHAP_Source.SQLServer.CDC.MSCDC.Sysadmin")
-- [Setting up ongoing replication on a standalone SQL Server: Without sysadmin role](#CHAP_SupportScripts.SQLServer.standalone "#CHAP_SupportScripts.SQLServer.standalone")
-- [Setting up ongoing replication on a SQL Server in an availability group environment: Without sysadmin role](#CHAP_SupportScripts.SQLServer.ag "#CHAP_SupportScripts.SQLServer.ag")
+- [Limitations on using SQL Server as a source for AWS DMS](#CHAP_Source.SQLServer.Limitations "#CHAP_Source.SQLServer.Limitations")
+- [Permissions for SQL Server tasks](#CHAP_Source.SQLServer.Permissions "#CHAP_Source.SQLServer.Permissions")
+- [Prerequisites for using ongoing replication (CDC) from a SQL Server source](#CHAP_Source.SQLServer.Prerequisites "#CHAP_Source.SQLServer.Prerequisites")
+- [Supported compression methods for SQL Server](#CHAP_Source.SQLServer.Compression "#CHAP_Source.SQLServer.Compression")
+- [Working with self-managed SQL Server AlwaysOn availability groups](#CHAP_Source.SQLServer.AlwaysOn "#CHAP_Source.SQLServer.AlwaysOn")
+- [Endpoint settings when using SQL Server as a source for AWS DMS](#CHAP_Source.SQLServer.ConnectionAttrib "#CHAP_Source.SQLServer.ConnectionAttrib")
+- [Source data types for SQL Server](#CHAP_Source.SQLServer.DataTypes "#CHAP_Source.SQLServer.DataTypes")
+- [Capturing data changes for ongoing replication from SQL Server](CHAP_Source.SQLServer.CDC.md "CHAP_Source.SQLServer.CDC.md")
 
-#### Setting up ongoing replication on a self-managed SQL Server: Using sysadmin role
+## Limitations on using SQL Server as a source for AWS DMS
 
-AWS DMS ongoing replication for SQL Server uses native SQL Server replication
-for tables with primary keys, and change data capture (CDC) for tables without
-primary keys.
+The following limitations apply when using a SQL Server database as a source for
+AWS DMS:
 
-Before setting up ongoing replication, see [Prerequisites for using ongoing replication (CDC) from a SQL Server source](CHAP_Source.md#CHAP_Source.SQLServer.Prerequisites "CHAP_Source.md#CHAP_Source.SQLServer.Prerequisites").
-
-For tables with primary keys, AWS DMS can generally configure the required
-artifacts on the source. However, for SQL Server source instances that are
-self-managed, make sure to first configure the SQL Server distribution manually.
-After you do so, AWS DMS source users with sysadmin permission can automatically
-create the publication for tables with primary keys.
-
-To check if distribution has already been configured, run the following
-command.
-
-```
-sp_get_distributor
-```
-
-If the result is `NULL` for column distribution, distribution
-isn't configured. You can use the following procedure to set up
-distribution.
-
-###### To set up distribution
-
-1. Connect to your SQL Server source database using the SQL Server
-   Management Studio (SSMS) tool.
-2. Open the context (right-click) menu for the **Replication** folder, and choose **Configure Distribution**. The Configure Distribution
-   wizard appears.
-3. Follow the wizard to enter the default values and create the
-   distribution.
-
-###### To set up CDC
-
-AWS DMS version 3.4.7 and greater can set up MS CDC for your database and
-all of your tables automatically if you aren't using a read-only replica.
-To use this feature, set the `SetUpMsCdcForTables` ECA to true. For information
-about ECAs, see [Endpoint settings](CHAP_Source.md#CHAP_Source.SQLServer.ConnectionAttrib "CHAP_Source.md#CHAP_Source.SQLServer.ConnectionAttrib").
-
-For versions of AWS DMS earlier than 3.4.7, or for a read-only replica as a source, perform the following steps:
-
-1. For tables without primary keys, set up MS-CDC for the database. To do so, use
-   an account that has the sysadmin role assigned to it, and run the following
-   command.
+- The identity property for a column isn't migrated to a target
+  database column.
+- The SQL Server endpoint doesn't support the use of tables with sparse
+  columns.
+- Windows Authentication isn't supported.
+- Changes to computed fields in a SQL Server aren't replicated.
+- Temporal tables aren't supported.
+- SQL Server partition switching isn't supported.
+- When using the WRITETEXT and UPDATETEXT utilities, AWS DMS doesn't
+  capture events applied on the source database.
+- The following data manipulation language (DML) pattern isn't
+  supported.
 
 ```
-use [DBname]
-EXEC sys.sp_cdc_enable_db
+SELECT * INTO `new_table` FROM `existing_table`
 ```
 
-2. Next, set up MS-CDC for each of the source tables. For each table with unique
-   keys but no primary key, run the following query to set up MS-CDC.
+- When using SQL Server as a source, column-level encryption isn't
+  supported.
+- AWS DMS doesn't support server level audits on SQL Server 2008 or SQL
+  Server 2008 R2 as sources. This is because of a known issue with SQL Server
+  2008 and 2008 R2. For example, running the following command causes AWS DMS to
+  fail.
 
 ```
-exec sys.sp_cdc_enable_table
-@source_schema = N'schema_name',
-@source_name = N'table_name',
-@index_name = N'unique_index_name',
-@role_name = NULL,
-@supports_net_changes = 1
-GO
-```
-
-3. For each table with no primary key or no unique keys, run the following query
-   to set up MS-CDC.
-
-```
-exec sys.sp_cdc_enable_table
-@source_schema = N'schema_name',
-@source_name = N'table_name',
-@role_name = NULL
-GO
-```
-
-For more information on setting up MS-CDC for specific tables, see the [SQL Server
-documentation](https://msdn.microsoft.com/en-us/library/cc627369.aspx "https://msdn.microsoft.com/en-us/library/cc627369.aspx").
-
-#### Setting up ongoing replication on a standalone SQL Server: Without sysadmin role
-
-This section describes how to set up ongoing replication for a standalone SQL Server database source that
-doesn't require the user account to have sysadmin privileges.
-
-###### Note
-
-After running the steps in this section, the non-sysadmin DMS user will have permissions
-to do the following:
-
-- Read changes from the online transactions log file
-- Disk access to read changes from transactional log backup files
-- Add or alter the publication which DMS uses
-- Add articles to the publication
-
-1. Set up Microsoft SQL Server for Replication as described in
-   [Capturing data changes for ongoing replication from SQL Server](CHAP_Source.SQLServer.md "CHAP_Source.SQLServer.md").
-2. Enable MS-REPLICATION on the source database. This can either be done manually or by running the task once as a sysadmin user.
-3. Create the `awsdms` schema on the source database using the following script:
-
-```
-use master
-go
-create schema awsdms
-go
-
-
--- Create the table valued function [awsdms].[split_partition_list] on the Master database, as follows:
 USE [master]
 GO
-
-set ansi_nulls on
-go
-
-set quoted_identifier on
-go
-
-if (object_id('[awsdms].[split_partition_list]','TF')) is not null
-
-drop function [awsdms].[split_partition_list];
-
-go
-
-create function [awsdms].[split_partition_list]
-
-(
-
-@plist varchar(8000), --A delimited list of partitions
-
-@dlm nvarchar(1) --Delimiting character
-
-)
-
-returns @partitionsTable table --Table holding the BIGINT values of the string fragments
-
-(
-
-pid bigint primary key
-
-)
-
-as
-
-begin
-
-declare @partition_id bigint;
-
-declare @dlm_pos integer;
-
-declare @dlm_len integer;
-
-set @dlm_len = len(@dlm);
-
-while (charindex(@dlm,@plist)>0)
-
-begin
-
-set @dlm_pos = charindex(@dlm,@plist);
-
-set @partition_id = cast( ltrim(rtrim(substring(@plist,1,@dlm_pos-1))) as bigint);
-
-insert into @partitionsTable (pid) values (@partition_id)
-
-set @plist = substring(@plist,@dlm_pos+@dlm_len,len(@plist));
-
-end
-
-set @partition_id = cast (ltrim(rtrim(@plist)) as bigint);
-
-insert into @partitionsTable (pid) values ( @partition_id );
-
-return
-
-end
-
+ALTER SERVER AUDIT [my_audit_test-20140710] WITH (STATE=on)
 GO
 ```
 
-4. Create the `[awsdms].[rtm_dump_dblog]` procedure on the Master database
-   using the following script:
+- Geometry and Geography columns are not supported in full lob mode when
+  using SQL Server as a source. Instead, use limited lob mode or set the
+  `InlineLobMaxSize` task setting to use inline lob mode.
+- When using a Microsoft SQL Server source database in a replication task,
+  the SQL Server Replication Publisher definitions aren't removed if you
+  remove the task. A Microsoft SQL Server system administrator must delete
+  those definitions from Microsoft SQL Server.
+- Migrating data from schema-bound and non-schema-bound views is supported for full-load only tasks.
+- Renaming tables using sp_rename isn't supported (for example,
+  `sp_rename 'Sales.SalesRegion', 'SalesReg;)`
+- Renaming columns using sp_rename isn't supported (for example,
+  `sp_rename 'Sales.Sales.Region', 'RegID', 'COLUMN';`)
+- AWS DMS doesn't support change processing to set and unset column
+  default values (using the `ALTER COLUMN SET DEFAULT` clause with `ALTER TABLE`
+  statements).
+- AWS DMS doesn't support change processing to set column nullability
+  (using the `ALTER COLUMN [SET|DROP] NOT NULL` clause with `ALTER TABLE`
+  statements).
+- With SQL Server 2012 and SQL Server 2014, when using DMS replication with Availability Groups,
+  the distribution database can't be placed in an availability group. SQL 2016 supports placing the
+  distribution database into an availability group, except for distribution databases used in merge, bidirectional,
+  or peer-to-peer replication topologies.
+- For partitioned tables, AWS DMS doesn't support different data compression settings
+  for each partition.
+- When inserting a value into SQL Server spatial data types (GEOGRAPHY and
+  GEOMETRY), you can either ignore the spatial reference system identifier
+  (SRID) property or specify a different number. When replicating tables with
+  spatial data types, AWS DMS replaces the SRID with the default SRID (0 for
+  GEOMETRY and 4326 for GEOGRAPHY).
+- If your database isn't configured for MS-REPLICATION or MS-CDC, you
+  can still capture tables that do not have a Primary Key, but only
+  INSERT/DELETE DML events are captured. UPDATE and TRUNCATE TABLE events are
+  ignored.
+- Columnstore indexes aren't supported.
+- Memory-optimized tables (using In-Memory OLTP) aren't
+  supported.
+- When replicating a table with a primary key that consists of multiple
+  columns, updating the primary key columns during full load isn't
+  supported.
+- Delayed durability isn't supported.
+- The `readBackupOnly=true` endpoint setting (extra connection
+  attribute) doesn't work on RDS for SQL Server source instances because of the way RDS
+  performs backups.
+- `EXCLUSIVE_AUTOMATIC_TRUNCATION` doesn’t work on Amazon RDS SQL
+  Server source instances because RDS users don't have access to run the
+  SQL Server stored procedure, `sp_repldone`.
+- AWS DMS doesn't capture truncate commands.
+- AWS DMS doesn't support replication from databases with accelerated database
+  recovery (ADR) turned on.
+- AWS DMS doesn't support capturing data definition language (DDL) and data
+  manipulation language (DML) statements within a single transaction.
+- AWS DMS doesn't support the replication of data-tier application
+  packages (DACPAC).
+- UPDATE statements that involve primary keys or unique indexes and update
+  multiple data rows, can cause conflicts when you apply changes to the target
+  database. This might happen, for example, when the target database applies
+  updates as INSERT and DELETE statements instead of a single UPDATE statement.
+  With the batch optimized apply mode, the table might be ignored. With the
+  transactional apply mode, the UPDATE operation might result in constraint
+  violations. To avoid this issue, reload the relevant table. Alternatively,
+  locate the problematic records in the Apply Exceptions control table
+  (`dmslogs.awsdms_apply_exceptions`) and edit them manually
+  in the target database. For more information, see [Change processing tuning settings](CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.md "CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.md").
+- AWS DMS doesn't support the replication of tables and schemas, where
+  the name includes a special character from the following set.
+
+`\\ -- \n \" \b \r ' \t ;`
+
+- Data masking isn't supported. AWS DMS migrates masked data
+  without masking.
+- AWS DMS replicates up to 32,767 tables with primary keys and up to 1,000
+  columns for each table. This is because AWS DMS creates a SQL Server replication
+  article for each replicated table, and SQL Server replication articles have
+  these limitations.
+- When using Change Data Capture (CDC), you must define all columns that make up a unique index
+  as `NOT NULL`. If this requirement is not met, SQL Server system error 22838 will result.
+- You may lose events if SQL Server archives from the active transaction log to the backup log, or truncates
+  them from the active transaction log.
+
+The following limitations apply when accessing the backup transaction logs:
+
+- Encrypted backups aren't supported.
+- Backups stored at a URL or on Windows Azure aren't supported.
+- AWS DMS doe snot support direct processing of transaction log backups at the
+  file level from alternative shared folders.
+- For Cloud SQL Server sources other than Amazon RDS for Microsoft SQL Server, AWS DMS supports ongoing replication (CDC)
+  with the active transaction log only. You can't use the backup
+  log with CDC. You may lose events if SQL server archives them from the active transaction log to the backup log, or truncates
+  them from the active transaction log before DMS can read it.
+- For Amazon RDS for Microsoft SQL Server sources, AWS DMS 3.5.2 and below supports ongoing replication (CDC) with the
+  active transaction log only, because DMS can’t access the backup log with CDC.
+  You may lose events if RDS for SQL Server archives them from the active transaction log to
+  the backup log, or truncate them from the active transaction log before DMS can
+  read it. This limitation does not apply to AWS DMS version 3.5.3 and above.
+- AWS DMS does not support CDC for Amazon RDS Proxy for SQL Server as a
+  source.
+- If the SQL Server source becomes unavailable during a full load task, AWS DMS
+  might mark the task as completed after multiple reconnection attempts, even
+  though the data migration remains incomplete. In this scenario, the target
+  tables contain only the records migrated before the connection loss, potentially
+  creating data inconsistencies between the source and target systems. To ensure
+  data completeness, you must either restart the full load task entirely or reload
+  the specific tables affected by the connection interruption.
+
+## Permissions for SQL Server tasks
+
+###### Topics
+
+- [Permissions for full load only tasks](#CHAP_Source.SQLServer.Permissions.FullLoad "#CHAP_Source.SQLServer.Permissions.FullLoad")
+- [Permissions for tasks with ongoing replication](#CHAP_Source.SQLServer.Permissions.Ongoing "#CHAP_Source.SQLServer.Permissions.Ongoing")
+
+### Permissions for full load only tasks
+
+The following permissions are required to perform full load only tasks. Note that
+AWS DMS does not create the `dms_user` login. For information about
+creating a login for SQL Server, see [Create a database user](https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver16 "https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver16") topic in _Microsoft's
+documentation_.
 
 ```
-use [MASTER]
+USE db_name;
 
-go
+                CREATE USER dms_user FOR LOGIN dms_user;
+                ALTER ROLE [db_datareader] ADD MEMBER dms_user;
+                GRANT VIEW DATABASE STATE to dms_user;
+                GRANT VIEW DEFINITION to dms_user;
 
-if (object_id('[awsdms].[rtm_dump_dblog]','P')) is not null drop procedure [awsdms].[rtm_dump_dblog];
-go
+                USE master;
 
-
-set ansi_nulls on
-go
-
-set quoted_identifier on
-GO
-
-
-
-CREATE procedure [awsdms].[rtm_dump_dblog]
-
-(
-
-@start_lsn varchar(32),
-
-@seqno integer,
-
-@filename varchar(260),
-
-@partition_list varchar(8000), -- A comma delimited list: P1,P2,... Pn
-
-@programmed_filtering integer,
-
-@minPartition bigint,
-
-@maxPartition bigint
-
-)
-
-as begin
-
-declare @start_lsn_cmp varchar(32); -- Stands against the GT comparator
-
-SET NOCOUNT ON -- – Disable "rows affected display"
-
-set @start_lsn_cmp = @start_lsn;
-
-if (@start_lsn_cmp) is null
-
-set @start_lsn_cmp = '00000000:00000000:0000';
-
-if (@partition_list is null)
-
-begin
-
-RAISERROR ('Null partition list waspassed',16,1);
-
-return
-
-end
-
-if (@start_lsn) is not null
-
-set @start_lsn = '0x'+@start_lsn;
-
-if (@programmed_filtering=0)
-
-
-
-SELECT
-
-[Current LSN],
-
-[operation],
-
-[Context],
-
-[Transaction ID],
-
-[Transaction Name],
-
-[Begin Time],
-
-[End Time],
-
-[Flag Bits],
-
-[PartitionID],
-
-[Page ID],
-
-[Slot ID],
-
-[RowLog Contents 0],
-
-[Log Record],
-
-[RowLog Contents 1]
-
-FROM
-
-fn_dump_dblog (
-
-@start_lsn, NULL, N'DISK', @seqno, @filename,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default)
-
-where [Current LSN] collate SQL_Latin1_General_CP1_CI_AS > @start_lsn_cmp collate SQL_Latin1_General_CP1_CI_AS
-
-and
-
-(
-
-( [operation] in ('LOP_BEGIN_XACT','LOP_COMMIT_XACT','LOP_ABORT_XACT') )
-
-or
-
-( [operation] in ('LOP_INSERT_ROWS','LOP_DELETE_ROWS','LOP_MODIFY_ROW')
-
-and
-
-( ( [context] in ('LCX_HEAP','LCX_CLUSTERED','LCX_MARK_AS_GHOST') ) or ([context] = 'LCX_TEXT_MIX' and (datalength([RowLog Contents 0]) in (0,1))))
-
-and [PartitionID] in ( select * from master.awsdms.split_partition_list (@partition_list,','))
-
-)
-
-or
-
-([operation] = 'LOP_HOBT_DDL')
-
-)
-
-
-else
-
-
-SELECT
-
-[Current LSN],
-
-[operation],
-
-[Context],
-
-[Transaction ID],
-
-[Transaction Name],
-
-[Begin Time],
-
-[End Time],
-
-[Flag Bits],
-
-[PartitionID],
-
-[Page ID],
-
-[Slot ID],
-
-[RowLog Contents 0],
-
-[Log Record],
-
-[RowLog Contents 1] -- After Image
-
-FROM
-
-fn_dump_dblog (
-
-@start_lsn, NULL, N'DISK', @seqno, @filename,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default,
-
-default, default, default, default, default, default, default)
-
-where [Current LSN] collate SQL_Latin1_General_CP1_CI_AS > @start_lsn_cmp collate SQL_Latin1_General_CP1_CI_AS
-
-and
-
-(
-
-( [operation] in ('LOP_BEGIN_XACT','LOP_COMMIT_XACT','LOP_ABORT_XACT') )
-
-or
-
-( [operation] in ('LOP_INSERT_ROWS','LOP_DELETE_ROWS','LOP_MODIFY_ROW')
-
-and
-
-( ( [context] in ('LCX_HEAP','LCX_CLUSTERED','LCX_MARK_AS_GHOST') ) or ([context] = 'LCX_TEXT_MIX' and (datalength([RowLog Contents 0]) in (0,1))))
-
-and ([PartitionID] is not null) and ([PartitionID] >= @minPartition and [PartitionID]<=@maxPartition)
-
-)
-
-or
-
-([operation] = 'LOP_HOBT_DDL')
-
-)
-
-
-
-SET NOCOUNT OFF -- Re-enable "rows affected display"
-
-end
-
-GO
+                GRANT VIEW SERVER STATE TO dms_user;
 ```
 
-5. Create the certificate on the Master database using the following script:
+### Permissions for tasks with ongoing replication
+
+Self-managed SQL Server instances can be configured for ongoing replication using DMS with or without
+using the `sysadmin` role. For SQL Server instances, where you can't grant the `sysadmin` role,
+ensure that the DMS user has the privileges described as follows.
+
+###### Set up permissions for ongoing replication from a self-managed SQL Server database
+
+1. Create a new SQL Server account with password authentication using SQL Server Management Studio (SSMS)
+   or as described previously in [Permissions for full load only tasks](#CHAP_Source.SQLServer.Permissions.FullLoad "#CHAP_Source.SQLServer.Permissions.FullLoad"), for example, `self_managed_user`.
+2. Run the following `GRANT` commands:
 
 ```
-Use [master]
-Go
+GRANT VIEW SERVER STATE TO `self_managed_user`;
 
-CREATE CERTIFICATE [awsdms_rtm_dump_dblog_cert] ENCRYPTION BY PASSWORD = N'@5trongpassword'
+USE msdb;
+    GRANT SELECT ON msdb.dbo.backupset TO `self_managed_user`;
+    GRANT SELECT ON msdb.dbo.backupmediafamily TO `self_managed_user`;
+    GRANT SELECT ON msdb.dbo.backupfile TO `self_managed_user`;
 
-WITH SUBJECT = N'Certificate for FN_DUMP_DBLOG Permissions';
+USE db_name;
+    CREATE USER `self_managed_user` FOR LOGIN `self_managed_user`;
+    ALTER ROLE [db_owner] ADD MEMBER `self_managed_user`;
+    GRANT VIEW DEFINITION to `self_managed_user`;
 ```
 
-6. Create the login from the certificate using the following script:
+3. In addition to the preceding permissions, the user needs one of the following:
+   - The user must be a member of the `sysadmin` fixed server role
+   - Configurations and permissions as described in [Setting up ongoing replication on a SQL Server in an availability group environment: Without sysadmin role](CHAP_Source.SQLServer.CDC.md#CHAP_SupportScripts.SQLServer.ag "CHAP_Source.SQLServer.CDC.md#CHAP_SupportScripts.SQLServer.ag") or
+     [Setting up ongoing replication on a standalone SQL Server: Without sysadmin role](CHAP_Source.SQLServer.CDC.md#CHAP_SupportScripts.SQLServer.standalone "CHAP_Source.SQLServer.CDC.md#CHAP_SupportScripts.SQLServer.standalone"),
+     depending on your source configuration.
+
+#### Set up permissions for ongoing replication from a cloud SQL Server database
+
+A cloud-hosted SQL server instance is an instance running on Amazon RDS for Microsoft SQL Server, an Azure SQL Managed Instance,
+or any other managed cloud SQL Server instance supported by DMS.
+
+Create a new SQL Server account with password authentication using SQL Server Management Studio (SSMS) or
+as described previously in [Permissions for full load only tasks](#CHAP_Source.SQLServer.Permissions.FullLoad "#CHAP_Source.SQLServer.Permissions.FullLoad"), for example, `rds_user`.
+
+Run the following grant commands.
 
 ```
-Use [master]
-Go
-
-CREATE LOGIN awsdms_rtm_dump_dblog_login FROM CERTIFICATE [awsdms_rtm_dump_dblog_cert];
+GRANT VIEW SERVER STATE TO rds_user;
 ```
 
-7. Add the login to the sysadmin server role using the following script:
+For Amazon RDS for Microsoft SQL Server sources, DMS version 3.5.3 and above support reading from transaction
+log backups. To ensure that DMS is able to access the log backups, in addition to the above,
+either grant `master` user privileges, or the following privileges on an RDS SQL Server source:
 
 ```
-ALTER SERVER ROLE [sysadmin] ADD MEMBER [awsdms_rtm_dump_dblog_login];
+
+USE msdb;
+    GRANT EXEC ON msdb.dbo.rds_dms_tlog_download TO rds_user;
+    GRANT EXEC ON msdb.dbo.rds_dms_tlog_read TO rds_user;
+    GRANT EXEC ON msdb.dbo.rds_dms_tlog_list_current_lsn TO rds_user;
+    GRANT EXEC ON msdb.dbo.rds_task_status TO rds_user;
+
+USE db_name;
+    CREATE USER rds_user FOR LOGIN rds_user;
+    ALTER ROLE [db_owner] ADD MEMBER rds_user;
+    GRANT VIEW DEFINITION to rds_user;
 ```
 
-8. Add the signature to [master].[awsdms].[rtm\_dump\_dblog] using the certificate, using
-   the following script:
+For Amazon Azure SQL Managed Instances grant the following privileges:
 
 ```
-Use [master]
-GO
-ADD SIGNATURE
-TO [master].[awsdms].[rtm_dump_dblog] BY CERTIFICATE [awsdms_rtm_dump_dblog_cert] WITH PASSWORD = '@5trongpassword';
+GRANT SELECT ON msdb.dbo.backupset TO rds_user;
+GRANT SELECT ON msdb.dbo.backupmediafamily TO rds_user;
+GRANT SELECT ON msdb.dbo.backupfile TO rds_user;
 ```
+
+## Prerequisites for using ongoing replication (CDC) from a SQL Server source
+
+You can use ongoing replication (change data capture, or CDC) for a self-managed
+SQL Server database on-premises or on Amazon EC2, or a cloud database such as Amazon RDS or a
+Microsoft Azure SQL managed instance.
+
+The following requirements apply specifically when using ongoing replication with
+a SQL Server database as a source for AWS DMS:
+
+- SQL Server must be configured for full backups, and you must perform a
+  backup before beginning to replicate data.
+- The recovery model must be set to **Bulk logged** or
+  **Full**.
+- SQL Server backup to multiple disks isn't supported. If the backup is
+  defined to write the database backup to multiple files over different disks,
+  AWS DMS can't read the data and the AWS DMS task fails.
+- For self-managed SQL Server sources, SQL Server Replication Publisher
+  definitions for the source used in a DMS CDC task aren't removed when
+  you remove the task. A SQL Server system administrator must delete these
+  definitions from SQL Server for self-managed sources.
+- During CDC, AWS DMS needs to look up SQL Server transaction log backups to
+  read changes. AWS DMS doesn't support SQL Server transaction log backups
+  created using third-party backup software that*aren't* in native format. To support transaction log
+  backups that _are_ in native format and
+  created using third-party backup software, add the
+  `use3rdPartyBackupDevice=Y` connection attribute to the
+  source endpoint.
+- For self-managed SQL Server sources, be aware that SQL Server doesn't
+  capture changes on newly created tables until they've been published.
+  When tables are added to a SQL Server source, AWS DMS manages creating the
+  publication. However, this process might take several minutes. Operations
+  made to newly created tables during this delay aren't captured or
+  replicated to the target.
+- AWS DMS change data capture requires full transaction logging to be turned on in SQL
+  Server. To turn on full transaction logging in SQL Server, either enable MS-REPLICATION
+  or CHANGE DATA CAPTURE (CDC).
+- SQL Server _tlog_ entries won't be marked for re-use until the MS CDC
+  capture job processes those changes.
+- CDC operations aren't supported on memory-optimized tables. This
+  limitation applies to SQL Server 2014 (when the feature was first
+  introduced) and higher.
+- AWS DMS change data capture requires a distribution database by default on Amazon EC2 or On-Prem SQL server as source.
+  So, ensure that you have activated the distributor while configuring MS replication for tables with primary keys.
+
+## Supported compression methods for SQL Server
+
+Note the following about support for SQL Server compression methods in AWS DMS:
+
+- AWS DMS supports Row/Page compression in SQL Server version 2008 and later.
+- AWS DMS doesn't support the Vardecimal storage format.
+- AWS DMS doesn't support sparse columns and columnar structure compression.
+
+## Working with self-managed SQL Server AlwaysOn availability groups
+
+SQL Server Always On availability groups provide high availability and disaster
+recovery as an enterprise-level alternative to database mirroring.
+
+In AWS DMS, you can migrate changes from a single primary or secondary availability
+group replica.
+
+### Working with the primary availability group replica
+
+###### To use the primary availability group as a source in AWS DMS, do the following:
+
+1. Turn on the distribution option for all SQL Server instances in your
+   availability replicas. For more information, see [Setting up ongoing replication on a self-managed SQL Server](CHAP_Source.SQLServer.CDC.md#CHAP_Source.SQLServer.CDC.MSCDC "CHAP_Source.SQLServer.CDC.md#CHAP_Source.SQLServer.CDC.MSCDC").
+2. In the AWS DMS console, open the SQL Server source database settings. For
+   **Server Name**, specify the Domain Name Service (DNS)
+   name or IP address that was configured for your availability group listener.
+
+When you start an AWS DMS task for the first time, it might take longer than usual
+to start. This slowness occurs because the creation of the table articles is being
+duplicated by the availability group server.
+
+### Working with a secondary availability group replica
+
+###### To use a secondary availability group as a source in AWS DMS, do the following:
+
+1. Use the same credentials for connecting to individual replicas as those used by the AWS DMS source endpoint user.
+2. Ensure that your AWS DMS replication instance can resolve DNS names for
+   all existing replicas, and connect to them. You can use the following SQL
+   query to get DNS names for all of your replicas.
+
+```
+select ar.replica_server_name, ar.endpoint_url from sys.availability_replicas ar
+JOIN sys.availability_databases_cluster adc
+ON adc.group_id = ar.group_id AND adc.database_name = '<source_database_name>';
+```
+
+3. When you create the source endpoint, specify the DNS name of the
+   availability group listener for the endpoint's **Server
+   name** or for the endpoint secret's **Server
+   address**. For more information about availability group
+   listeners, see [What is an availability group listener?](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/availability-group-listener-overview?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/availability-group-listener-overview?view=sql-server-ver15") in the SQL Server documentation.
+
+You can use either a public DNS server or an on-premises DNS server to
+resolve the availability group listener, the primary replica, and the
+secondary replicas. To use an on-premises DNS server, configure the
+Amazon Route 53 Resolver. For more information, see [Using your own on-premises name server](CHAP_BestPractices.md#CHAP_BestPractices.Rte53DNSResolver "CHAP_BestPractices.md#CHAP_BestPractices.Rte53DNSResolver"). 4. Add the following extra connection attributes to your source endpoint.
+
+| Extra connection attribute             | Value      | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| -------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `applicationIntent`                    | `ReadOnly` | Without this ODBC setting, the replication task is<br>routed to the primary availability group replica. For more<br>information, see [SQL Server Native Client Support for High<br>Availability, Disaster Recovery](https://docs.microsoft.com/en-us/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery?view=sql-server-ver15") in the SQL Server documentation. |
+| `multiSubnetFailover`                  | `yes`      | For more information, see [SQL Server Native Client Support for High<br>Availability, Disaster Recovery](https://docs.microsoft.com/en-us/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery?view=sql-server-ver15") in the SQL Server<br>documentation.                                                                                                         |
+| `alwaysOnSharedSynchedBackupIsEnabled` | `false`    | For more information, see [Endpoint settings when using SQL Server as a source for AWS DMS](#CHAP_Source.SQLServer.ConnectionAttrib "#CHAP_Source.SQLServer.ConnectionAttrib").                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `activateSafeguard`                    | `false`    | For more information, see [Limitations](#CHAP_Source.SQLServer.AlwaysOn.Secondary.limitations "#CHAP_Source.SQLServer.AlwaysOn.Secondary.limitations") following.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `setUpMsCdcForTables`                  | `false`    | For more information, see [Limitations](#CHAP_Source.SQLServer.AlwaysOn.Secondary.limitations "#CHAP_Source.SQLServer.AlwaysOn.Secondary.limitations") following.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+
+5. Enable the distribution option on all replicas in your availability group. Add all nodes to
+   the distributors list. For more information, see [To set up distribution](CHAP_Source.SQLServer.CDC.md#CHAP_Source.SQLServer.CDC.MSCDC.Setup "CHAP_Source.SQLServer.CDC.md#CHAP_Source.SQLServer.CDC.MSCDC.Setup").
+6. Run the following query on the primary read-write replica to enable publication of your
+   database. You run this query only once for your database.
+
+```
+sp_replicationdboption @dbname = N'<source DB name>', @optname = N'publish', @value = N'true';
+```
+
+#### Limitations
+
+Following are limitations for working with a secondary availability group
+replica:
+
+- AWS DMS doesn't support Safeguard when using a read-only availability group replica as a source.
+  For more information, see [Endpoint settings when using SQL Server as a source for AWS DMS](#CHAP_Source.SQLServer.ConnectionAttrib "#CHAP_Source.SQLServer.ConnectionAttrib").
+- AWS DMS doesn't support the `setUpMsCdcForTables` extra connection attribute when
+  using a read-only availability group replica as a source. For more
+  information, see [Endpoint settings when using SQL Server as a source for AWS DMS](#CHAP_Source.SQLServer.ConnectionAttrib "#CHAP_Source.SQLServer.ConnectionAttrib").
+- AWS DMS can use a self-managed secondary availability group replica as a source database for
+  ongoing replication (change data capture, or CDC) starting from version 3.4.7.
+  Cloud SQL Server Multi-AZ read replicas are not supported.
+  If you use previous versions of AWS DMS, make sure that you use the primary
+  availability group replica as a source database for CDC.
+
+#### Failover to other nodes
+
+If you set the `ApplicationIntent` extra connection attribute
+for your endpoint to `ReadOnly`, your AWS DMS task connects to the
+read-only node with the highest read-only routing priority. It then fails over
+to other read-only nodes in your availability group when the highest priority
+read-only node is unavailable. If you don't set `ApplicationIntent`,
+your AWS DMS task only connects to the primary (read/write) node in your
+availability group.
+
+## Endpoint settings when using SQL Server as a source for AWS DMS
+
+You can use endpoint settings to configure your SQL Server source database similar to using
+extra connection attributes. You specify the settings when you create the source
+endpoint using the AWS DMS console, or by using the `create-endpoint` command in the
+[AWS CLI](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md"), with the
+`--microsoft-sql-server-settings '{"`EndpointSetting"`:
+ `"value"`, `...`}'` JSON syntax.
+
+The following table shows the endpoint settings that you can use with
+SQL Server as a source.
+
+| Name                                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ActivateSafeguard`                    | This attribute turns Safeguard on or off. For information<br>about Safeguard, see `SafeguardPolicy` following.<br>Default value:<br>`true`<br>Valid values: {`false`,<br>`true`}<br>Example: `'{"ActivateSafeguard": true}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `AlwaysOnSharedSynchedBackupIsEnabled` | This attribute adjusts the behavior of AWS DMS when migrating<br>from an SQL Server source database that is hosted as part of an<br>Always On availability group cluster.<br>AWS DMS has enhanced support for SQL Server source databases<br>that are configured to run in an Always On cluster. In this case,<br>AWS DMS attempts to track if transaction backups are happening from<br>nodes in the Always On cluster other than the node where the source<br>database instance is hosted. At migration task start-up, AWS DMS tries<br>to connect to each node in the cluster, but fails if it can't<br>connect to any one of the nodes.<br>If you need AWS DMS to poll all the nodes in the Always On<br>cluster for transaction backups, set this attribute to<br>`false`.<br>Default value: `true`<br>Valid values: `true` or `false`<br>Example: `'{"AlwaysOnSharedSynchedBackupIsEnabled": false}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `"ApplicationIntent": "readonly"`      | This ODBC driver attribute setting causes SQL Server to route your replication task to the<br>highest priority read-only node. Without this setting, SQL Server<br>routes your replication task to the primary read-write node.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `ConnectionTimeout`                    | Use this extra connection attribute (ECA) to set the endpoint<br>connection timeout for the SQL Server instance, in seconds. The<br>default value is 10 seconds. ECA Example:<br>`ConnectionTimeout=30`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `EnableNonSysadminWrapper`             | Use this endpoint setting when you are setting up ongoing replication on a standalone<br>SQL server without a sysadmin user. This parameter is supported on AWS DMS version 3.4.7<br>and higher. For information about setting up ongoing replication<br>on a standalone SQL server, see [Capturing data changes for ongoing replication from SQL Server](CHAP_Source.SQLServer.CDC.md "CHAP_Source.SQLServer.CDC.md").<br>Default value:<br>`false`<br>Valid values: `true`, `false`<br>Example: `'{"EnableNonSysadminWrapper": true}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `ExecuteTimeout`                       | Use this extra connection attribute (ECA) to set the client statement timeout for the<br>SQL Server instance, in seconds. The default value is 60<br>seconds.<br>Example: `'{"ExecuteTimeout": 100}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `FatalOnSimpleModel`                   | When set to `true`, this setting generates a fatal error when SQL Server database<br>recovery model is set to `simple`.<br>Default value: `false`<br>Valid values: `true` or `false`<br>Example: `'{"FatalOnSimpleModel": true}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `ForceLobLookup`                       | Forces LOB lookup on inline LOB.<br>Default value:<br>`false`<br>Valid values: `true`, `false`<br>Example: `'{"ForceLobLookup": false}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `"MultiSubnetFailover": "Yes"`         | This ODBC driver attribute helps DMS to connect to the new primary in case of an Availability<br>Group failover. This attribute is designed for situations<br>when the connection is broken or the listener IP<br>address is incorrect. In these situations, AWS DMS attempts<br>to connect to all IP addresses associated with the Availability<br>Group listener.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `ReadBackupOnly`                       | Use of this attribute requires \*_sysadmin_<br>• privileges. When this<br>attribute is set to `true`, during ongoing replication<br>AWS DMS reads changes only from transaction log backups and<br>doesn't read from the active transaction log file. Setting this<br>parameter to `true` enables you to control active<br>transaction log file growth during full load and ongoing replication<br>tasks. However, it can add some source latency to ongoing<br>replication.<br>Valid values: `true` or `true`. The<br>default is `false`.<br>Example: `'{"ReadBackupOnly": true}'`<br>NoteThis parameter does not work on Amazon RDS SQL Server source<br>instances because of the way RDS performs backups.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `SafeguardPolicy`                      | For optimal performance, AWS DMS tries to capture all unread<br>changes from the active transaction log (TLOG). However,<br>sometimes due to truncation, the active TLOG might not contain<br>all the unread changes. When this occurs, AWS DMS accesses the<br>log backup to capture the missing changes. To minimize the need<br>to access the log backup, AWS DMS prevents truncation using one of<br>the following methods:<br>1. `RELY_ON_SQL_SERVER_REPLICATION_AGENT`<br>(**Start transactions in the database)**:<br>This is the default for AWS DMS.<br>When you use this setting, AWS DMS<br>requires that the SQL Server Log Reader Agent be running, so that<br>AWS DMS can move transactions that are marked for replication from the<br>active TLOG. Note that if the Log Reader Agent is not running,<br>the active TLOG can become full, causing the source database to switch<br>to read-only mode until you can resolve the issue. If<br>you need to enable Microsoft Replication in your database for a purpose<br>other than AWS DMS,<br>then you must choose this setting.<br>When you use this setting, AWS DMS minimizes log backup reads by creating<br>a table called `awsdms_truncation_safeguard` and prevents TLOG<br>truncation by mimicking an open transaction in the database. This keeps the database<br>from truncating events and moving them to the backup log for five minutes (by default).<br>Make sure that the table is not included in any maintenance plan, as it may cause the<br>maintenance job to fail. You can safely delete the table if there are no tasks configured<br>with the `Start Transactions` database option.<br>2. `EXCLUSIVE_AUTOMATIC_TRUNCATION` **(Exclusively use `sp_repldone`<br>with a single task)**: When you use this setting, AWS DMS has full control of the replication agent<br>process that marks log entries as `ready for truncation` using `sp_repldone`.<br>With this setting, AWS DMS doesn't use a dummy transaction as with the<br>`RELY_ON_SQL_SERVER_REPLICATION_AGENT` (default) setting. You can only use this setting<br>when MS Replication is not used for any other purpose other than AWS DMS on the source database.<br>Also, when using this setting, only one AWS DMS task can access the database.<br>If you need to run parallel AWS DMS tasks against the same database, use `RELY_ON_SQL_SERVER_REPLICATION_AGENT`.<br>• This setting requires that the Log Reader Agent be stopped in the database. If the Log Reader<br>Agent is running when the task starts, the AWS DMS task will force it to stop. Alternatively, you can<br>stop the Log Reader Agent manually before starting the task.<br>• When using this method with MS-CDC, you should stop and disable the **MS-CDC capture**<br>and **MS-CDC cleanup\*<br>• jobs.<br>• You can't use this setting when the **Microsoft SQL Server Migration\*\* job<br>runs on a remote Distributor machine, because AWS DMS doesn't have access to the remote machine.<br>• `EXCLUSIVE_AUTOMATIC_TRUNCATION` doesn't work on Amazon RDS for SQL Server source instances<br>because Amazon RDS users don't have access to run the `sp_repldone` stored procedure.<br>• If you set `SafeguardPolicy` to `EXCLUSIVE_AUTOMATIC_TRUNCATION` without<br>using the sysadmin role, you must grant permissions on the `dbo.syscategories` and<br>`dbo.sysjobs` objects to the `dmsuser` user.<br>Default value:<br>`RELY_ON_SQL_SERVER_REPLICATION_AGENT`<br>Valid values: {`EXCLUSIVE_AUTOMATIC_TRUNCATION`,<br>`RELY_ON_SQL_SERVER_REPLICATION_AGENT`}<br>Example: `'{"SafeguardPolicy": "EXCLUSIVE_AUTOMATIC_TRUNCATION"}'` |
+| `SetUpMsCdcForTables`                  | This attribute turns on MS-CDC for the source database and for tables in<br>the task mapping that don't have MS-Replication enabled. Setting this value to<br>`true` runs the `sp_cdc_enable_db` stored procedure on the source<br>database, and runs the `sp_cdc_enable_table` stored procedure on each table<br>in the task that doesn't have MS-Replication enabled in the source database.<br>For more information<br>about turning on distribution, see [Setting up ongoing replication on a self-managed SQL Server](CHAP_Source.SQLServer.CDC.md#CHAP_Source.SQLServer.CDC.MSCDC "CHAP_Source.SQLServer.CDC.md#CHAP_Source.SQLServer.CDC.MSCDC").<br>Valid values: {`true`,<br>`false`}<br>Example: `'{"SetUpMsCdcForTables": true}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `TlogAccessMode`                       | Indicates the mode used to fetch CDC data.<br>Default value:<br>`PreferTlog`<br>Valid values: `BackupOnly`,<br>`PreferBackup`, `PreferTlog`, `TlogOnly`<br>Example: `'{"TlogAccessMode": "PreferTlog"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `Use3rdPartyBackupDevice`              | When this attribute is set to `Y`, AWS DMS<br>processes third-party transaction log backups if they are<br>created in native format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+## Source data types for SQL Server
+
+Data migration that uses SQL Server as a source for AWS DMS supports most SQL Server
+data types. The following table shows the SQL Server source data types that are
+supported when using AWS DMS and the default mapping from AWS DMS data types.
+
+For information on how to view the data type that is mapped in the target, see the
+section for the target endpoint you are using.
+
+For additional information about AWS DMS data types, see [Data types for AWS Database Migration Service](CHAP_Reference.DataTypes.md "CHAP_Reference.DataTypes.md").
+
+| SQL Server data types                  | AWS DMS data types                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BIGINT                                 | INT8                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| BIT                                    | BOOLEAN                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| DECIMAL                                | NUMERIC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| INT                                    | INT4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| MONEY                                  | NUMERIC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| NUMERIC (p,s)                          | NUMERIC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| SMALLINT                               | INT2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| SMALLMONEY                             | NUMERIC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| TINYINT                                | UINT1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| REAL                                   | REAL4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| FLOAT                                  | REAL8                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| DATETIME                               | DATETIME                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| DATETIME2 (SQL Server 2008 and higher) | DATETIME                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| SMALLDATETIME                          | DATETIME                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| DATE                                   | DATE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| TIME                                   | TIME                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| DATETIMEOFFSET                         | WSTRING                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| CHAR                                   | STRING                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| VARCHAR                                | STRING                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| VARCHAR (max)                          | CLOB<br>TEXT<br>To use this data type with AWS DMS, you must enable the use of<br>CLOB data types for a specific task.<br>For SQL Server tables, AWS DMS updates LOB columns in the target<br>even for UPDATE statements that don't change the value of<br>the LOB column in SQL Server.<br>During CDC, AWS DMS supports CLOB data types only in tables that<br>include a primary key.                                                                                                                                                                           |
+| NCHAR                                  | WSTRING                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| NVARCHAR (length)                      | WSTRING                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| NVARCHAR (max)                         | NCLOB<br>NTEXT<br>To use this data type with AWS DMS, you must enable the use of<br>SupportLobs for a specific task. For more information about<br>enabling Lob support, see [Setting LOB support for source databases in an AWS DMS task](CHAP_Tasks.LOBSupport.md "CHAP_Tasks.LOBSupport.md").<br>For SQL Server tables, AWS DMS updates LOB columns in the target<br>even for UPDATE statements that don't change the value of<br>the LOB column in SQL Server.<br>During CDC, AWS DMS supports CLOB data types only in tables that<br>include a primary key. |
+| BINARY                                 | BYTES                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| VARBINARY                              | BYTES                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| VARBINARY (max)                        | BLOB<br>IMAGE<br>For SQL Server tables, AWS DMS updates LOB columns in the target<br>even for UPDATE statements that don't change the value of<br>the LOB column in SQL Server.<br>To use this data type with AWS DMS, you must enable the use of<br>BLOB data types for a specific task.<br>AWS DMS supports BLOB data types only in tables that include a<br>primary key.                                                                                                                                                                                      |
+| TIMESTAMP                              | BYTES                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| UNIQUEIDENTIFIER                       | STRING                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| HIERARCHYID                            | Use HIERARCHYID when replicating to a SQL Server target<br>endpoint.<br>Use WSTRING (250) when replicating to all other target<br>endpoints.                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| XML                                    | NCLOB<br>For SQL Server tables, AWS DMS updates LOB columns in the target<br>even for UPDATE statements that don't change the value of<br>the LOB column in SQL Server.<br>To use this data type with AWS DMS, you must enable the use of<br>NCLOB data types for a specific task.<br>During CDC, AWS DMS supports NCLOB data types only in tables<br>that include a primary key.                                                                                                                                                                                |
+| GEOMETRY                               | Use GEOMETRY when replicating to target endpoints that support<br>this data type.<br>Use CLOB when replicating to target endpoints that don't<br>support this data type.                                                                                                                                                                                                                                                                                                                                                                                         |
+| GEOGRAPHY                              | Use GEOGRAPHY when replicating to target endpoints that<br>support this data type.<br>Use CLOB when replicating to target endpoints that don't<br>support this data type.                                                                                                                                                                                                                                                                                                                                                                                        |
+
+AWS DMS doesn't support tables that include fields with the following data
+types.
+
+- CURSOR
+- SQL_VARIANT
+- TABLE
 
 ###### Note
 
-If you recreate the stored procedure, you need to add the signature again. 9. Create the [awsdms].[rtm\_position\_1st\_timestamp] on the Master database using the following
-script:
-
-```
-use [master]
-    if object_id('[awsdms].[rtm_position_1st_timestamp]','P') is not null
-    DROP PROCEDURE [awsdms].[rtm_position_1st_timestamp];
-    go
-    create procedure [awsdms].[rtm_position_1st_timestamp]
-    (
-    @dbname                sysname,      -- Database name
-    @seqno                 integer,      -- Backup set sequence/position number within file
-    @filename              varchar(260), -- The backup filename
-    @1stTimeStamp          varchar(40)   -- The timestamp to position by
-    )
-    as begin
-
-    SET NOCOUNT ON       -- Disable "rows affected display"
-
-    declare @firstMatching table
-    (
-    cLsn varchar(32),
-    bTim datetime
-    )
-
-    declare @sql nvarchar(4000)
-    declare @nl                       char(2)
-    declare @tb                       char(2)
-    declare @fnameVar                 nvarchar(254) = 'NULL'
-
-    set @nl  = char(10); -- New line
-    set @tb  = char(9)   -- Tab separator
-
-    if (@filename is not null)
-    set @fnameVar = ''''+@filename +''''
-
-    set @sql='use ['+@dbname+'];'+@nl+
-    'select top 1 [Current LSN],[Begin Time]'+@nl+
-    'FROM fn_dump_dblog (NULL, NULL, NULL, '+ cast(@seqno as varchar(10))+','+ @fnameVar+','+@nl+
-    @tb+'default, default, default, default, default, default, default,'+@nl+
-    @tb+'default, default, default, default, default, default, default,'+@nl+
-    @tb+'default, default, default, default, default, default, default,'+@nl+
-    @tb+'default, default, default, default, default, default, default,'+@nl+
-    @tb+'default, default, default, default, default, default, default,'+@nl+
-    @tb+'default, default, default, default, default, default, default,'+@nl+
-    @tb+'default, default, default, default, default, default, default,'+@nl+
-    @tb+'default, default, default, default, default, default, default,'+@nl+
-    @tb+'default, default, default, default, default, default, default)'+@nl+
-    'where operation=''LOP_BEGIN_XACT''' +@nl+
-    'and [Begin Time]>= cast('+''''+@1stTimeStamp+''''+' as datetime)'+@nl
-
-    --print @sql
-    delete from  @firstMatching
-    insert into @firstMatching  exec sp_executesql @sql    -- Get them all
-
-    select top 1 cLsn as [matching LSN],convert(varchar,bTim,121) as [matching Timestamp] from @firstMatching;
-
-    SET NOCOUNT OFF      -- Re-enable "rows affected display"
-
-    end
-    GO
-```
-
-10. Create the certificate on the Master database using the following script:
-
-```
-Use [master]
-Go
-CREATE CERTIFICATE [awsdms_rtm_position_1st_timestamp_cert]
-ENCRYPTION BY PASSWORD = '@5trongpassword'
-WITH SUBJECT = N'Certificate for FN_POSITION_1st_TIMESTAMP Permissions';
-```
-
-11. Create the login from the certificate using the following script:
-
-```
-Use [master]
-Go
-CREATE LOGIN awsdms_rtm_position_1st_timestamp_login FROM CERTIFICATE [awsdms_rtm_position_1st_timestamp_cert];
-```
-
-12. Add the login to the sysadmin role using the following script:
-
-```
-ALTER SERVER ROLE [sysadmin] ADD MEMBER [awsdms_rtm_position_1st_timestamp_login];
-```
-
-13. Add the signature to [master].[awsdms].[rtm\_position\_1st\_timestamp] using the certificate,
-    using the following script:
-
-```
-Use [master]
-    GO
-    ADD SIGNATURE
-    TO [master].[awsdms].[rtm_position_1st_timestamp]
-    BY CERTIFICATE [awsdms_rtm_position_1st_timestamp_cert]
-    WITH PASSWORD = '@5trongpassword';
-```
-
-14. Grant the DMS user execute access to the new stored procedure using the following script:
-
-```
-use master
-go
-GRANT execute on [awsdms].[rtm_position_1st_timestamp] to dms_user;
-```
-
-15. Create a user with the following permissions and roles in each of the following databases:
-
-###### Note
-
-You should create the dmsnosysadmin user account with the same SID on each replica. The following
-SQL query can help verify the dmsnosysadmin account SID value on each replica. For more information about
-creating a user, see
-[CREATE USER (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-user-transact-sql "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-user-transact-sql") in the
-[Microsoft SQL server documentation](https://learn.microsoft.com/en-us/sql/ "https://learn.microsoft.com/en-us/sql/").
-For more information about creating SQL user accounts for Azure SQL database, see
-[Active geo-replication](https://learn.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview "https://learn.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview") .
-
-```
-use master
-go
-grant select on sys.fn_dblog to [DMS_user]
-grant view any definition to [DMS_user]
-grant view server state to [DMS_user]--(should be granted to the login).
-grant execute on sp_repldone to [DMS_user]
-grant execute on sp_replincrementlsn to [DMS_user]
-grant execute on sp_addpublication to [DMS_user]
-grant execute on sp_addarticle to [DMS_user]
-grant execute on sp_articlefilter to [DMS_user]
-grant select on [awsdms].[split_partition_list] to [DMS_user]
-grant execute on [awsdms].[rtm_dump_dblog] to [DMS_user]
-```
-
-```
-use msdb
-go
-grant select on msdb.dbo.backupset to `self_managed_user`
-grant select on msdb.dbo.backupmediafamily to `self_managed_user`
-grant select on msdb.dbo.backupfile to `self_managed_user`
-```
-
-Run the following script on the source database:
-
-```
-use Source_DB
-    Go
-    EXEC sp_addrolemember N'db_owner', N'DMS_user'
-```
-
-16. Lastly, add an Extra Connection Attribute (ECA) to the source SQL Server endpoint:
-
-```
-enableNonSysadminWrapper=true;
-```
-
-#### Setting up ongoing replication on a SQL Server in an availability group environment: Without sysadmin role
-
-This section describes how to set up ongoing replication for a SQL Server database source
-in an availability group environment that
-doesn't require the user account to have sysadmin privileges.
-
-###### Note
-
-After running the steps in this section, the non-sysadmin DMS user will have permissions
-to do the following:
-
-- Read changes from the online transactions log file
-- Disk access to read changes from transactional log backup files
-- Add or alter the publication which DMS uses
-- Add articles to the publication
-
-###### To set up ongoing replication without using the sysadmin user in an Availability Group environment
-
-1. Set up Microsoft SQL Server for Replication as described in
-   [Capturing data changes for ongoing replication from SQL Server](CHAP_Source.SQLServer.md "CHAP_Source.SQLServer.md").
-2. Enable MS-REPLICATION on the source database. This can either be done manually or by running
-   the task once using a sysadmin user.
-
-###### Note
-
-You should either configure the MS-REPLICATION distributor as local or in a way that allows
-access to non-sysadmin users via the associated linked server. 3. If the **Exclusively use sp_repldone within a single task** endpoint option is
-enabled, stop the MS-REPLICATION Log Reader job. 4. Perform the following steps on each replica:
-
-    1. Create the `[awsdms]`[awsdms] schema in the master database:
-
-
-
-    ```
-    CREATE SCHEMA [awsdms]
-    ```
-    2. Create the `[awsdms].[split_partition_list]` table valued function on the Master database:
-
-
-
-    ```
-    USE [master]
-    GO
-
-    SET ansi_nulls on
-    GO
-
-    SET quoted_identifier on
-    GO
-
-    IF (object_id('[awsdms].[split_partition_list]','TF')) is not null
-      DROP FUNCTION [awsdms].[split_partition_list];
-    GO
-
-    CREATE FUNCTION [awsdms].[split_partition_list]
-    (
-      @plist varchar(8000),    --A delimited list of partitions
-      @dlm nvarchar(1)    --Delimiting character
-    )
-    RETURNS @partitionsTable table --Table holding the BIGINT values of the string fragments
-    (
-      pid bigint primary key
-    )
-    AS
-    BEGIN
-      DECLARE @partition_id bigint;
-      DECLARE @dlm_pos integer;
-      DECLARE @dlm_len integer;
-      SET @dlm_len = len(@dlm);
-      WHILE (charindex(@dlm,@plist)>0)
-      BEGIN
-        SET @dlm_pos = charindex(@dlm,@plist);
-        SET @partition_id = cast( ltrim(rtrim(substring(@plist,1,@dlm_pos-1))) as bigint);
-        INSERT into @partitionsTable (pid) values (@partition_id)
-        SET @plist = substring(@plist,@dlm_pos+@dlm_len,len(@plist));
-      END
-      SET @partition_id = cast (ltrim(rtrim(@plist)) as bigint);
-      INSERT into @partitionsTable (pid) values (  @partition_id  );
-      RETURN
-    END
-    GO
-    ```
-    3. Create the `[awsdms].[rtm_dump_dblog]` procedure on the Master database:
-
-
-
-    ```
-    USE [MASTER]
-    GO
-
-    IF (object_id('[awsdms].[rtm_dump_dblog]','P')) is not null
-      DROP PROCEDURE [awsdms].[rtm_dump_dblog];
-    GO
-
-    SET ansi_nulls on
-    GO
-
-    SET quoted_identifier on
-    GO
-
-    CREATE PROCEDURE [awsdms].[rtm_dump_dblog]
-    (
-      @start_lsn            varchar(32),
-      @seqno                integer,
-      @filename             varchar(260),
-      @partition_list       varchar(8000), -- A comma delimited list: P1,P2,... Pn
-      @programmed_filtering integer,
-      @minPartition         bigint,
-      @maxPartition         bigint
-    )
-    AS
-    BEGIN
-
-      DECLARE @start_lsn_cmp varchar(32); -- Stands against the GT comparator
-
-      SET NOCOUNT ON  -- Disable "rows affected display"
-
-      SET @start_lsn_cmp = @start_lsn;
-      IF (@start_lsn_cmp) is null
-        SET @start_lsn_cmp = '00000000:00000000:0000';
-
-      IF (@partition_list is null)
-        BEGIN
-          RAISERROR ('Null partition list was passed',16,1);
-          return
-          --set @partition_list = '0,';    -- A dummy which is never matched
-        END
-
-      IF (@start_lsn) is not null
-        SET @start_lsn = '0x'+@start_lsn;
-
-      IF (@programmed_filtering=0)
-        SELECT
-          [Current LSN],
-          [operation],
-          [Context],
-          [Transaction ID],
-          [Transaction Name],
-          [Begin Time],
-          [End Time],
-          [Flag Bits],
-          [PartitionID],
-          [Page ID],
-          [Slot ID],
-          [RowLog Contents 0],
-          [Log Record],
-          [RowLog Contents 1] -- After Image
-        FROM
-          fn_dump_dblog (
-            @start_lsn, NULL, N'DISK', @seqno, @filename,
-            default, default, default, default, default, default, default,
-            default, default, default, default, default, default, default,
-            default, default, default, default, default, default, default,
-            default, default, default, default, default, default, default,
-            default, default, default, default, default, default, default,
-            default, default, default, default, default, default, default,
-            default, default, default, default, default, default, default,
-            default, default, default, default, default, default, default,
-            default, default, default, default, default, default, default)
-        WHERE
-          [Current LSN] collate SQL_Latin1_General_CP1_CI_AS > @start_lsn_cmp collate SQL_Latin1_General_CP1_CI_AS -- This aims for implementing FN_DBLOG based on GT comparator.
-          AND
-          (
-            (  [operation] in ('LOP_BEGIN_XACT','LOP_COMMIT_XACT','LOP_ABORT_XACT') )
-            OR
-            (  [operation] in ('LOP_INSERT_ROWS','LOP_DELETE_ROWS','LOP_MODIFY_ROW')
-              AND
-              ( ( [context]   in ('LCX_HEAP','LCX_CLUSTERED','LCX_MARK_AS_GHOST') ) or ([context] = 'LCX_TEXT_MIX') )
-              AND
-              [PartitionID] in ( select * from master.awsdms.split_partition_list (@partition_list,','))
-            )
-          OR
-          ([operation] = 'LOP_HOBT_DDL')
-        )
-        ELSE
-          SELECT
-            [Current LSN],
-            [operation],
-            [Context],
-            [Transaction ID],
-            [Transaction Name],
-            [Begin Time],
-            [End Time],
-            [Flag Bits],
-            [PartitionID],
-            [Page ID],
-            [Slot ID],
-            [RowLog Contents 0],
-            [Log Record],
-            [RowLog Contents 1] -- After Image
-          FROM
-            fn_dump_dblog (
-              @start_lsn, NULL, N'DISK', @seqno, @filename,
-              default, default, default, default, default, default, default,
-              default, default, default, default, default, default, default,
-              default, default, default, default, default, default, default,
-              default, default, default, default, default, default, default,
-              default, default, default, default, default, default, default,
-              default, default, default, default, default, default, default,
-              default, default, default, default, default, default, default,
-              default, default, default, default, default, default, default,
-              default, default, default, default, default, default, default)
-          WHERE [Current LSN] collate SQL_Latin1_General_CP1_CI_AS > @start_lsn_cmp collate SQL_Latin1_General_CP1_CI_AS -- This aims for implementing FN_DBLOG based on GT comparator.
-          AND
-          (
-            (  [operation] in ('LOP_BEGIN_XACT','LOP_COMMIT_XACT','LOP_ABORT_XACT') )
-            OR
-            (  [operation] in ('LOP_INSERT_ROWS','LOP_DELETE_ROWS','LOP_MODIFY_ROW')
-              AND
-              ( ( [context]   in ('LCX_HEAP','LCX_CLUSTERED','LCX_MARK_AS_GHOST') ) or ([context] = 'LCX_TEXT_MIX') )
-              AND ([PartitionID] is not null) and ([PartitionID] >= @minPartition and [PartitionID]<=@maxPartition)
-            )
-            OR
-            ([operation] = 'LOP_HOBT_DDL')
-          )
-          SET NOCOUNT OFF -- Re-enable "rows affected display"
-    END
-    GO
-    ```
-    4. Create a certificate on the Master Database:
-
-
-
-    ```
-    USE [master]
-    GO
-    CREATE CERTIFICATE [awsdms_rtm_dump_dblog_cert]
-      ENCRYPTION BY PASSWORD = N'@hardpassword1'
-      WITH SUBJECT = N'Certificate for FN_DUMP_DBLOG Permissions'
-    ```
-    5. Create a login from the certificate:
-
-
-
-    ```
-    USE [master]
-    GO
-    CREATE LOGIN awsdms_rtm_dump_dblog_login FROM CERTIFICATE
-      [awsdms_rtm_dump_dblog_cert];
-    ```
-    6. Add the login to the sysadmin server role:
-
-
-
-    ```
-    ALTER SERVER ROLE [sysadmin] ADD MEMBER [awsdms_rtm_dump_dblog_login];
-    ```
-    7. Add the signature to the [master].[awsdms].[rtm\_dump\_dblog] procedure using the certificate:
-
-
-
-    ```
-    USE [master]
-    GO
-
-    ADD SIGNATURE
-      TO [master].[awsdms].[rtm_dump_dblog]
-      BY CERTIFICATE [awsdms_rtm_dump_dblog_cert]
-      WITH PASSWORD = '@hardpassword1';
-    ```
-
-    ###### Note
-
-    If you recreate the stored procedure, you need to add the signature again.
-    8. Create the `[awsdms].[rtm_position_1st_timestamp]` procedure on the Master database:
-
-
-
-    ```
-    USE [master]
-    IF object_id('[awsdms].[rtm_position_1st_timestamp]','P') is not null
-      DROP PROCEDURE [awsdms].[rtm_position_1st_timestamp];
-    GO
-    CREATE PROCEDURE [awsdms].[rtm_position_1st_timestamp]
-    (
-      @dbname                sysname,      -- Database name
-      @seqno                 integer,      -- Backup set sequence/position number within file
-      @filename              varchar(260), -- The backup filename
-      @1stTimeStamp          varchar(40)   -- The timestamp to position by
-    )
-    AS
-    BEGIN
-      SET NOCOUNT ON       -- Disable "rows affected display"
-
-      DECLARE @firstMatching table
-      (
-        cLsn varchar(32),
-        bTim datetime
-      )
-      DECLARE @sql nvarchar(4000)
-      DECLARE @nl                       char(2)
-      DECLARE @tb                       char(2)
-      DECLARE @fnameVar                 sysname = 'NULL'
-
-      SET @nl  = char(10); -- New line
-      SET @tb  = char(9)   -- Tab separator
-
-      IF (@filename is not null)
-        SET @fnameVar = ''''+@filename +''''
-      SET @filename = ''''+@filename +''''
-      SET @sql='use ['+@dbname+'];'+@nl+
-        'SELECT TOP 1 [Current LSN],[Begin Time]'+@nl+
-        'FROM fn_dump_dblog (NULL, NULL, NULL, '+ cast(@seqno as varchar(10))+','+ @filename +','+@nl+
-        @tb+'default, default, default, default, default, default, default,'+@nl+
-        @tb+'default, default, default, default, default, default, default,'+@nl+
-        @tb+'default, default, default, default, default, default, default,'+@nl+
-        @tb+'default, default, default, default, default, default, default,'+@nl+
-        @tb+'default, default, default, default, default, default, default,'+@nl+
-        @tb+'default, default, default, default, default, default, default,'+@nl+
-        @tb+'default, default, default, default, default, default, default,'+@nl+
-        @tb+'default, default, default, default, default, default, default,'+@nl+
-        @tb+'default, default, default, default, default, default, default)'+@nl+
-        'WHERE operation=''LOP_BEGIN_XACT''' +@nl+
-        'AND [Begin Time]>= cast('+''''+@1stTimeStamp+''''+' as datetime)'+@nl
-
-        --print @sql
-        DELETE FROM @firstMatching
-        INSERT INTO @firstMatching  exec sp_executesql @sql    -- Get them all
-        SELECT TOP 1 cLsn as [matching LSN],convert(varchar,bTim,121) AS[matching Timestamp] FROM @firstMatching;
-
-        SET NOCOUNT OFF      -- Re-enable "rows affected display"
-
-    END
-    GO
-    ```
-    9. Create a certificate on the Master database:
-
-
-
-    ```
-    USE [master]
-    GO
-    CREATE CERTIFICATE [awsdms_rtm_position_1st_timestamp_cert]
-      ENCRYPTION BY PASSWORD = N'@hardpassword1'
-      WITH SUBJECT = N'Certificate for FN_POSITION_1st_TIMESTAMP Permissions';
-    ```
-    10. Create a login from the certificate:
-
-
-
-    ```
-    USE [master]
-    GO
-    CREATE LOGIN awsdms_rtm_position_1st_timestamp_login FROM CERTIFICATE
-      [awsdms_rtm_position_1st_timestamp_cert];
-    ```
-    11. Add the login to the sysadmin server role:
-
-
-
-    ```
-    ALTER SERVER ROLE [sysadmin] ADD MEMBER [awsdms_rtm_position_1st_timestamp_login];
-    ```
-    12. Add the signature to the `[master].[awsdms].[rtm_position_1st_timestamp]` procedure
-     using the certificate:
-
-
-
-    ```
-    USE [master]
-    GO
-    ADD SIGNATURE
-      TO [master].[awsdms].[rtm_position_1st_timestamp]
-      BY CERTIFICATE [awsdms_rtm_position_1st_timestamp_cert]
-      WITH PASSWORD = '@hardpassword1';
-    ```
-
-    ###### Note
-
-    If you recreate the stored procedure, you need to add the signature again.
-    13. Create a user with the following permissions/roles in each of the following databases:
-
-
-    ###### Note
-
-    You should create the dmsnosysadmin user account with the same SID on each replica. The following
-     SQL query can help verify the dmsnosysadmin account SID value on each replica. For more information about
-     creating a user, see
-     [CREATE USER (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-user-transact-sql "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-user-transact-sql")  in the
-     [Microsoft SQL server documentation](https://learn.microsoft.com/en-us/sql/ "https://learn.microsoft.com/en-us/sql/").
-     For more information about creating SQL user accounts for Azure SQL database, see
-     [Active geo-replication](https://learn.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview "https://learn.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview") .
-
-
-
-    ```
-    SELECT @@servername servername, name, sid, create_date, modify_date
-      FROM sys.server_principals
-      WHERE name = 'dmsnosysadmin';
-    ```
-    14. Grant permissions on the master database on each replica:
-
-
-
-    ```
-    USE master
-    GO
-
-    GRANT select on sys.fn_dblog to dmsnosysadmin;
-    GRANT view any definition to dmsnosysadmin;
-    GRANT view server state to dmsnosysadmin -- (should be granted to the login).
-    GRANT execute on sp_repldone to dmsnosysadmin;
-    GRANT execute on sp_replincrementlsn to dmsnosysadmin;
-    GRANT execute on sp_addpublication to dmsnosysadmin;
-    GRANT execute on sp_addarticle to dmsnosysadmin;
-    GRANT execute on sp_articlefilter to dmsnosysadmin;
-    GRANT select on [awsdms].[split_partition_list] to dmsnosysadmin;
-    GRANT execute on [awsdms].[rtm_dump_dblog] to dmsnosysadmin;
-    GRANT execute on [awsdms].[rtm_position_1st_timestamp] to dmsnosysadmin;
-    ```
-    15. Grant permissions on the msdb database on each replica:
-
-
-
-    ```
-    USE msdb
-    GO
-    GRANT select on msdb.dbo.backupset TO `self_managed_user`
-    GRANT select on msdb.dbo.backupmediafamily TO `self_managed_user`
-    GRANT select on msdb.dbo.backupfile TO `self_managed_user`
-    ```
-    16. Add the `db_owner` role to `dmsnosysadmin` on
-     the source database. Because the database is synchronized, you can add the role on
-     the primary replica only.
-
-
-
-    ```
-    use <source DB>
-    GO
-    EXEC sp_addrolemember N'db_owner', N'dmsnosysadmin'
-    ```
-
-## Setting up ongoing replication on a cloud SQL Server DB instance
-
-This section describes how to set up CDC on a cloud-hosted SQL Server database instance.
-A cloud-hosted SQL server instance is an instance running on Amazon RDS for SQL Server, an Azure SQL Manged Instance,
-or any other managed cloud SQL Server instance. For information about limitations for ongoing replication for
-each database type, see [Limitations on using SQL Server as a source for AWS DMS](CHAP_Source.md#CHAP_Source.SQLServer.Limitations "CHAP_Source.md#CHAP_Source.SQLServer.Limitations").
-
-Before setting up ongoing replication, see [Prerequisites for using ongoing replication (CDC) from a SQL Server source](CHAP_Source.md#CHAP_Source.SQLServer.Prerequisites "CHAP_Source.md#CHAP_Source.SQLServer.Prerequisites").
-
-Unlike self-managed Microsoft SQL Server sources, Amazon RDS for SQL Server doesn't support
-MS-Replication. Therefore, AWS DMS needs to use MS-CDC for tables with or without
-primary keys.
-
-Amazon RDS doesn't grant sysadmin privileges for setting replication artifacts
-that AWS DMS uses for ongoing changes in a source SQL Server instance. Make sure to
-turn on MS-CDC for the Amazon RDS instance (using master user privileges) as in the
-following procedure.
-
-###### To turn on MS-CDC for a cloud SQL Server DB instance
-
-1. Run one of the following queries at the database level.
-
-For an RDS for SQL Server DB instance, use this query.
-
-```
-exec msdb.dbo.rds_cdc_enable_db '`DB_name`'
-```
-
-For an Azure SQL managed DB instance, use this query.
-
-```
-USE `DB_name`
-GO
-EXEC sys.sp_cdc_enable_db
-GO
-```
-
-2. For each table with a primary key, run the following query to turn on
-   MS-CDC.
-
-```
-exec sys.sp_cdc_enable_table
-@source_schema = N'schema_name',
-@source_name = N'table_name',
-@role_name = NULL,
-@supports_net_changes = 1
-GO
-```
-
-For each table with unique keys but no primary key, run the following
-query to turn on MS-CDC.
-
-```
-exec sys.sp_cdc_enable_table
-@source_schema = N'schema_name',
-@source_name = N'table_name',
-@index_name = N'unique_index_name',
-@role_name = NULL,
-@supports_net_changes = 1
-GO
-```
-
-For each table with no primary key nor unique keys, run the following
-query to turn on MS-CDC.
-
-```
-exec sys.sp_cdc_enable_table
-@source_schema = N'schema_name',
-@source_name = N'table_name',
-@role_name = NULL
-GO
-```
-
-3. Set the retention period:
-   - For RDS for SQL Server instances that are replicating using DMS version 3.5.3 and above,
-     make sure that the retention period is set to the default value of 5 seconds. If you’re upgrading or moving from DMS 3.5.2 and
-     below to DMS 3.5.3 and above, change the polling interval value after the tasks are running
-     on the new or upgraded instance. The following script sets the retention period to 5 seconds:
-
-   ```
-   use *dbname*
-   EXEC sys.sp_cdc_change_job @job_type = 'capture' ,@pollinginterval = 5
-   exec sp_cdc_stop_job 'capture'
-   exec sp_cdc_start_job 'capture'
-   ```
-
-   - The parameter `@pollinginterval` is measured in seconds with a
-     recommended value set to 86399. This means that the transaction log retains
-     changes for 86,399 seconds (one day) when `@pollinginterval =
-86399`. The procedure `exec sp_cdc_start_job 'capture'`
-     initiates the settings.
-
-   ###### Note
-
-   With some versions of SQL Server, if the value of
-   `pollinginterval` is set to more than 3599 seconds, the
-   value resets to the default five seconds. When this happens, T-Log
-   entries are purged before AWS DMS can read them. To determine which SQL
-   Server versions are affected by this known issue, see [this Microsoft KB article](https://support.microsoft.com/en-us/topic/kb4459220-fix-incorrect-results-occur-when-you-convert-pollinginterval-parameter-from-seconds-to-hours-in-sys-sp-cdc-scan-in-sql-server-dac8aefe-b60b-7745-f987-582dda2cfa78 "https://support.microsoft.com/en-us/topic/kb4459220-fix-incorrect-results-occur-when-you-convert-pollinginterval-parameter-from-seconds-to-hours-in-sys-sp-cdc-scan-in-sql-server-dac8aefe-b60b-7745-f987-582dda2cfa78").
-
-   If you are using Amazon RDS with Multi-AZ, make sure that you also set your
-   secondary to have the right values in case of failover.
-
-   ```
-   exec rdsadmin..rds_set_configuration 'cdc_capture_pollinginterval' , <5 or preferred value>
-
-   ```
-
-###### To maintain the retention period when an AWS DMS replication task is stopped for more than one hour
-
-###### Note
-
-The following steps aren’t needed for a RDS for SQL Server source replicating using DMS 3.5.3 and above.
-
-1. Stop the job truncating the transaction logs by using the following
-   command.
-
-```
-exec sp_cdc_stop_job 'capture'
-```
-
-2. Find your task on the AWS DMS console and resume the task.
-3. Choose the **Monitoring** tab, and check the
-   `CDCLatencySource` metric.
-4. After the `CDCLatencySource` metric equals 0 (zero) and stays
-   there, restart the job truncating the transaction logs using the following
-   command.
-
-```
-exec sp_cdc_start_job 'capture'
-```
-
-Remember to start the job that truncates SQL Server transaction logs.
-Otherwise, storage on your SQL Server instance might fill up.
-
-### Recommended settings when using RDS for SQL Server as a source for AWS DMS
-
-#### For AWS DMS 3.5.3 and above
-
-###### Note
-
-The initial release of the RDS for SQL Server log backup feature is enabled by default for endpoints that
-you created or modified after the release of DMS version 3.5.3. To use this feature for existing endpoints,
-modify the endpoint without making any changes.
-
-AWS DMS version 3.5.3 introduces support for reading from log backups. DMS primarily relies on reading from
-the active transaction logs to replicate events. If a transaction is backed up before DMS can read it from
-the active log, the task accesses the RDS backups on-demand and reads from the subsequent backup logs until
-it catches up to the active transaction log. To ensure that DMS has access to log backups, set the RDS
-automated backup retention period to at least one day. For information about setting the automated
-backup retention period, see [Backup retention period](../../../AmazonRDS/latest/UserGuide/USER_ManagingAutomatedBackups.md#USER_WorkingWithAutomatedBackups.BackupRetention "../../../AmazonRDS/latest/UserGuide/USER_ManagingAutomatedBackups.md#USER_WorkingWithAutomatedBackups.BackupRetention") in the _Amazon RDS User Guide_.
-
-A DMS task accessing log backups utilizes storage on the RDS instance. Note that the task only accesses the log backups
-needed for replication. Amazon RDS removes these downloaded backups in a couple of hours. This removal doesn't
-affect the Amazon RDS backups retained in Amazon S3, or Amazon RDS `RESTORE DATABASE` functionality. It is advisable to
-allocate additional storage on your RDS for SQL Server source if you intend to replicate using DMS. One way to
-estimate the amount of storage needed is to identify the backup from which DMS will start or resume
-replicating from, and add up the file sizes of all the subsequent backups using the RDS `tlog backup`
-metadata function. For more information about the `tlog backup` function, see
-[Listing available transaction log backups](../../../AmazonRDS/latest/UserGuide/USER.SQLServer.AddlFeat.md#USER.SQLServer.AddlFeat.TransactionLogAccess.Listing "../../../AmazonRDS/latest/UserGuide/USER.SQLServer.AddlFeat.md#USER.SQLServer.AddlFeat.TransactionLogAccess.Listing") in the _Amazon RDS User Guide_.
-
-Alternately, you may choose to enable storage autoscaling and/ or trigger storage scaling
-based on the CloudWatch `FreeStorageSpace` metric for your Amazon RDS instance.
-
-We strongly recommend that you don’t start or resume from a point too far back in the transaction log backups,
-as it might lead to storage on your SQL Server instance filling up. In such cases, it is advisable to start
-a full load. Replicating from the transaction log backup is slower than reading from the active transaction logs.
-For more information, see [Transaction log backup processing for RDS for SQL Server](CHAP_Troubleshooting_Latency_Source_SQLServer.md#CHAP_Troubleshooting_Latency_Source_SQLServer_backup "CHAP_Troubleshooting_Latency_Source_SQLServer.md#CHAP_Troubleshooting_Latency_Source_SQLServer_backup").
-
-Note that accessing the log backups requires additional privileges. For more information, see
-as detailed in [Set up permissions for ongoing replication from a cloud SQL Server database](CHAP_Source.md#CHAP_Source.SQLServer.Permissions.Cloud "CHAP_Source.md#CHAP_Source.SQLServer.Permissions.Cloud")
-Make sure that you grant these privileges before the task starts replicating.
-
-#### For AWS DMS 3.5.2 and below
-
-When you work with Amazon RDS for SQL Server as a source, the MS-CDC capture job relies on the parameters
-`maxscans` and `maxtrans`. These parameters govern the maximum
-number of scans that the MS-CDC capture does on the transaction log and the number of
-transactions that are processed for each scan.
-
-For databases, where a number of transactions is greater than
-`maxtrans*maxscans`, increasing the `polling_interval` value
-can cause an accumulation of active transaction log records. In turn, this accumulation
-can lead to an increase in the size of the transaction log.
-
-Note that AWS DMS does not rely on the MS-CDC capture job. The MS-CDC capture job marks
-the transaction log entries as having been processed. This allows the transaction log backup
-job to remove the entries from the transaction log.
-
-We recommend that you monitor the size of the transaction log and the success of the MS-CDC jobs. If
-the MS-CDC jobs fail, the transaction log could grow excessively and cause AWS DMS replication failures.
-You can monitor MS-CDC capture job errors using the `sys.dm_cdc_errors` dynamic management view
-in the source database. You can monitor the transaction log size using the `DBCC SQLPERF(LOGSPACE)`
-management command.
-
-###### To address the transaction log increase that is caused by MS-CDC
-
-1. Check the `Log Space Used %` for the database AWS DMS is replicating from and validate that it increases continuously.
-
-```
-DBCC SQLPERF(LOGSPACE)
-```
-
-2. Identify what is blocking the transaction log backup process.
-
-```
-Select log_reuse_wait, log_reuse_wait_desc, name from sys.databases where name = db_name();
-```
-
-If the `log_reuse_wait_desc` value equals `REPLICATION`,
-the log backup retention is caused by the latency in MS-CDC. 3. Increase the number of events processed by the capture job by increasing the
-`maxtrans` and `maxscans` parameter values.
-
-```
-EXEC sys.sp_cdc_change_job @job_type = 'capture' ,@maxtrans = 5000, @maxscans = 20
-exec sp_cdc_stop_job 'capture'
-exec sp_cdc_start_job 'capture'
-```
-
-To address this issue, set the values of `maxscans` and
-`maxtrans` so that `maxtrans*maxscans` is equal to the average
-number of events generated for tables that AWS DMS replicates from the source database for
-each day.
-
-If you set these parameters higher than the recommended value, the capture jobs process all events
-in the transaction logs. If you set these parameters below the recommended value, MS-CDC latency
-increases and your transaction log grows.
-
-Identifying appropriate values for `maxscans` and `maxtrans` can
-be difficult because changes in workload produce varying number of events. In this case,
-we recommend that you set up monitoring on MS-CDC latency. For more information, see
-[Monitor the process](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/administer-and-monitor-change-data-capture-sql-server?view=sql-server-ver15#Monitor "https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/administer-and-monitor-change-data-capture-sql-server?view=sql-server-ver15#Monitor") in SQL Server documentation. Then configure
-`maxtrans` and `maxscans` dynamically based on the monitoring
-results.
-
-If the AWS DMS task is unable to find the log sequence numbers (LSNs) needed to resume or continue the task, the task may fail and require a complete reload.
-
-###### Note
-
-When using AWS DMS to replicate data from an RDS for SQL Server source, you may encounter errors
-when trying to resume replication after a stop-start event of the Amazon RDS instance. This is
-due to the SQL Server Agent process restarting the capture job process when it restarts after the
-stop-start event. This bypasses the MS-CDC polling interval.
-
-Because of this, on databases with transaction volumes lower than the MS-CDC capture
-job processing, this can cause data to be processed or marked as replicated and backed up
-before AWS DMS can resume from where it stopped, resulting in the following error:
-
-```
-[SOURCE_CAPTURE ]E: Failed to access LSN '0000dbd9:0006f9ad:0003' in the backup log sets since BACKUP/LOG-s are not available. [1020465] (sqlserver_endpoint_capture.c:764)
-```
-
-To mitigate this issue, set the `maxtrans` and `maxscans` values as
-recommended prior.
+User-defined data types are supported according to their base type. For
+example, a user-defined data type based on DATETIME is handled as a DATETIME
+data type.

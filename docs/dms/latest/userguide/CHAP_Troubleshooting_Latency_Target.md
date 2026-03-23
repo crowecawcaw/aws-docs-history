@@ -49,7 +49,7 @@ To troubleshoot this issue, check the CloudWatch logs for a message similar to e
 
 If your logs contain a message similar to the first message, disable any trace logging for the task, and
 increase the replication instance storage. For information about increasing replication instance storage, see
-[Modifying a replication instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
+[Modifying a replication instance](CHAP_ReplicationInstance.Modifying.md "CHAP_ReplicationInstance.Modifying.md").
 
 If your logs contain a message similar to the second message, do the following:
 
@@ -58,10 +58,10 @@ If your logs contain a message similar to the second message, do the following:
 - Increase the `MemoryLimitTotal` and `MemoryKeepTime` settings to
   hold the transaction for a longer duration in memory. This won't help if the latency is sustained,
   but it can help keep latency down during short bursts of transactional volume. For information about
-  these task settings, see [Change processing tuning settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+  these task settings, see [Change processing tuning settings](CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.md "CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.md").
 - Evaluate if you can use batch apply for your transaction by setting `BatchApplyEnabled`
   to `true`. For information about the `BatchApplyEnabled` setting, see
-  [Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+  [Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata.md").
 
 ## Database locking
 

@@ -13,7 +13,7 @@ database engine's native API.
 You can migrate views using full-load tasks only. If your task is either a
 CDC-only task or a full-load task that starts CDC after it completes, the migration
 includes only tables from the source. Using a full-load-only task, you can migrate
-views or a combination of tables and views. For more information, see [Specifying table selection and transformations rules using JSON](CHAP_Tasks.CustomizingTasks.TableMapping.md "CHAP_Tasks.CustomizingTasks.TableMapping.md").
+views or a combination of tables and views. For more information, see [Specifying table selection and transformations rules using JSON](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
 
 Each source engine has specific configuration requirements for exposing this change
 stream to a given user account. Most engines require some additional configuration to
@@ -44,11 +44,11 @@ examples of how AWS DMS does that:
   enough. For specific settings for each endpoint, see the following:
 
       + **Amazon RDS for Oracle:**
-      [Configuring an AWS-managed Oracle source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.Amazon-Managed.Configuration "CHAP_Source.md#CHAP_Source.Oracle.Amazon-Managed.Configuration").
+      [Configuring an AWS-managed Oracle source for AWS DMS](CHAP_Source.Oracle.md#CHAP_Source.Oracle.Amazon-Managed.Configuration "CHAP_Source.Oracle.md#CHAP_Source.Oracle.Amazon-Managed.Configuration").
       + **Amazon RDS for MySQL and Aurora MySQL:**
-      [Using an AWS-managed MySQL-compatible database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.AmazonManaged "CHAP_Source.md#CHAP_Source.MySQL.AmazonManaged").
+      [Using an AWS-managed MySQL-compatible database as a source for AWS DMS](CHAP_Source.MySQL.md#CHAP_Source.MySQL.AmazonManaged "CHAP_Source.MySQL.md#CHAP_Source.MySQL.AmazonManaged").
       + **Amazon RDS for SQL Server:**
-      [Setting up ongoing replication on a cloud SQL Server DB instance](CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.Configuration "CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.Configuration").
+      [Setting up ongoing replication on a cloud SQL Server DB instance](CHAP_Source.SQLServer.CDC.md#CHAP_Source.SQLServer.Configuration "CHAP_Source.SQLServer.CDC.md#CHAP_Source.SQLServer.Configuration").
       + **Amazon RDS for PostgreSQL and Aurora PostgreSQL:**
        PostgreSQL automatically keeps the required WAL.
 
@@ -203,7 +203,7 @@ need to specify this native CDC start point. Set the DMS API
 `CdcStartPosition` parameter to this value
 when you create the CDC task to begin replication at this
 start point for your PostgreSQL source. For information on
-using the AWS CLI to create this CDC task, see [Enabling CDC with an AWS-managed PostgreSQL DB instance with AWS DMS](CHAP_Source.md#CHAP_Source.PostgreSQL.RDSPostgreSQL.CDC "CHAP_Source.md#CHAP_Source.PostgreSQL.RDSPostgreSQL.CDC").
+using the AWS CLI to create this CDC task, see [Enabling CDC with an AWS-managed PostgreSQL DB instance with AWS DMS](CHAP_Source.PostgreSQL.md#CHAP_Source.PostgreSQL.RDSPostgreSQL.CDC "CHAP_Source.PostgreSQL.md#CHAP_Source.PostgreSQL.RDSPostgreSQL.CDC").
 
 **Oracle**
 

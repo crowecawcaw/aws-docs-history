@@ -1,51 +1,50 @@
-# Troubleshooting assessment runs
+# Enabling and working with premigration assessments for a task
 
-Following, you can find topics about troubleshooting issues with running assessment reports with AWS Database Migration Service.
-These topics can help you to resolve common issues.
+A premigration assessment evaluates specified components of a database migration task
+to help identify any problems that might prevent a migration task from running as
+expected. This assessment gives you a chance to identify and fix issues before you run a new or
+modified task. This allows you to avoid delays related to task failures caused by missing requirements
+or known limitations.
 
-###### Topics
+AWS DMS provides access to two different options for premigration assessments:
 
-- [ResourceNotFoundFault when running StartReplicationTaskAssessment](#CHAP_Tasks.AssessmentReport.Troubleshooting.ResourceNotFoundFault "#CHAP_Tasks.AssessmentReport.Troubleshooting.ResourceNotFoundFault")
+- **Data type assessment**: A legacy report that provides
+  a limited scope of assessments.
+- **Premigration assessment run**: Contains various types
+  of individual assessments, including data type assessment results.
 
-## ResourceNotFoundFault when running StartReplicationTaskAssessment
+###### Note
 
-You may encounter the following exception when running the [StartReplicationTaskAssessment](../APIReference/API_StartReplicationTaskAssessment.md "../APIReference/API_StartReplicationTaskAssessment.md") action.
+If you choose a premigration assessment run,
+you don't need to choose a data type assessment separately.
 
-```
-An error occurred (ResourceNotFoundFault) when calling the StartReplicationTaskAssessment operation: Task assessment has not been run or dms-access-for-tasks IAM Role not configured correctly
-```
+These options are described in the following
+topics:
 
-If you encounter this exception, create the **dms-access-for-tasks** role by doing the following:
+- [Specifying, starting, and viewing premigration assessment runs](CHAP_Tasks.PremigrationAssessmentRuns.md "CHAP_Tasks.PremigrationAssessmentRuns.md"): A premigration (recommended)
+  assessment run specifies one or more individual assessments to run based on a
+  new or existing migration task configuration. Each individual assessment
+  evaluates a specific element of a supported source and/or target database
+  from the perspective of criteria such as the migration type, supported objects, index
+  configuration, and other task settings, such as table mappings that identify the
+  schemas and tables to migrate.
 
-1. Open the IAM console at
-   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, choose **Roles**.
-3. Choose **Create role**.
-4. On the **Select trusted entity** page, for **Trusted entity type**,
-   choose **Custom trust policy**.
-5. Paste the following JSON in the editor, replacing the existing text.
+For example, an individual assessment might evaluate what source data types or
+primary key formats can or can't be migrated, possibly based on the AWS DMS
+engine version. You can start and view the results of the latest assessment run
+and view the results of all prior assessment runs for a task either using the
+AWS DMS Management Console or using the AWS CLI and SDKs to access the AWS DMS API.
+You can also view the results of prior assessment runs for a task in an Amazon S3
+bucket that you have selected for AWS DMS to store these results.
 
-JSON
+###### Note
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "1",
- "Effect": "Allow",
- "Principal": {
- "Service": "dms.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
+The number and types of available individual assessments can increase over
+time. For more information about periodic updates, see [Specifying individual assessments](CHAP_Tasks.PremigrationAssessmentRuns.md#CHAP_Tasks.PremigrationAssessmentRuns.Individual "CHAP_Tasks.PremigrationAssessmentRuns.md#CHAP_Tasks.PremigrationAssessmentRuns.Individual").
 
-```
-
-The preceding policy grants the `sts:AssumeRole` permission to AWS DMS. When you add the
-**AmazonDMSRedshiftS3Role** policy, DMS can to create the S3 bucket in your account,
-and put the data type assessment results into this S3 bucket. 6. Choose **Next**. 7. On the **Add permissions** page, search for and add the
-**AmazonDMSRedshiftS3Role** policy. Choose **Next**. 8. On the **Name, review, and create** page, name the role
-**dms-access-for-tasks**. Choose **Create role**.
+- [Starting and viewing data type assessments (Legacy)](CHAP_Tasks.DataTypeAssessments.md "CHAP_Tasks.DataTypeAssessments.md"): A data type (legacy)
+  assessment returns the results of a single type of premigration assessment in a
+  single JSON structure: the data types that might not be migrated correctly in a
+  supported relational source database instance. This report returns the results
+  for all problematic data types found in every schema and table in the
+  source database that is selected for migration.
