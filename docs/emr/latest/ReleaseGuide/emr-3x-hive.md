@@ -117,7 +117,7 @@ group.
 
 For information about how to modify your security groups for access, see
 [Amazon RDS
-security groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md") in the
+security groups](../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md") in the
 _Amazon RDS User Guide_. 3. Set the JDBC configuration values in
 `hive-site.xml`:
 
@@ -153,7 +153,7 @@ _Amazon RDS User Guide_. 3. Set the JDBC configuration values in
      database. For more information about connecting to MySQL and Aurora
      database instances, see [Connecting to a
      DB instance running the MySQL database engine](../../../AmazonRDS/latest/UserGuide/USER_ConnectToInstance.md "../../../AmazonRDS/latest/UserGuide/USER_ConnectToInstance.md") and [Connecting to an
-     Aurora DB cluster](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md") in the
+     Aurora DB cluster](../../../AmazonRDS/latest/UserGuide/Aurora.Connecting.md "../../../AmazonRDS/latest/UserGuide/Aurora.Connecting.md") in the
      *Amazon RDS User Guide*.
 
 

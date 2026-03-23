@@ -60,7 +60,7 @@ request load is too high, you can relaunch the cluster and set the [Read percent
 throttle the Amazon EMR operations. For information about DynamoDB throughput settings, see
 [Provisioned throughput](../../../amazondynamodb/latest/developerguide/WorkingWithDDTables.md#ProvisionedThroughput "../../../amazondynamodb/latest/developerguide/WorkingWithDDTables.md#ProvisionedThroughput").
 
-If a table is configured for [On-Demand mode](../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.OnDemand "../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.OnDemand"), you should change the table back to provisioned mode
+If a table is configured for [On-Demand mode](../../../amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.md#HowItWorks.OnDemand "../../../amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.md#HowItWorks.OnDemand"), you should change the table back to provisioned mode
 before running an export or import operation. Pipelines need a throughput ratio in
 order to calculate resources to use from a DynamoDBtable. On-demand mode removes
 provisioned throughput. To provision throughput capacity, you can use Amazon CloudWatch Events

@@ -57,7 +57,7 @@ sqoop export --connect jdbc:mariadb://$`HOSTNAME`:3306/`mydb`?verifyServerCertif
 ```
 
 For more information about SSL encryption in RDS, see [Using SSL to encrypt a connection to a
-DB instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md") in the Amazon RDS User Guide.
+DB instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md") in the Amazon RDS User Guide.
 
 For more information, see the [Apache
 Sqoop](http://sqoop.apache.org "http://sqoop.apache.org") documentation.

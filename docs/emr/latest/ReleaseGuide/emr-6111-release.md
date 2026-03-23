@@ -8,10 +8,10 @@ The table below lists the application versions available in this release of Amaz
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following topics:
 
-- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
-- [Application versions in Amazon EMR 6.x releases](emr-release-app-versions-6.md "emr-release-app-versions-6.md")
-- [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.md "emr-release-app-versions-5.md")
-- [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.md "emr-release-app-versions-4.md")
+- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.x.md "emr-release-app-versions-7.x.md")
+- [Application versions in Amazon EMR 6.x releases](emr-release-app-versions-6.x.md "emr-release-app-versions-6.x.md")
+- [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.x.md "emr-release-app-versions-5.x.md")
+- [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.x.md "emr-release-app-versions-4.x.md")
 
 | Application version information |                  | emr-6.11.1       | emr-6.11.0       | emr-6.10.1       | emr-6.10.0 |
 | ------------------------------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------- |

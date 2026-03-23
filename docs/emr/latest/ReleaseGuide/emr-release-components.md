@@ -13,7 +13,7 @@ You specify the release number with the _release label_. Release labels are in t
 
 Beginning with Amazon EMR 5.18.0, you can use the Amazon EMR artifact repository to build your job code against the exact versions of libraries and dependencies that are available with specific Amazon EMR releases. For more information, see [Checking dependencies using the Amazon EMR artifact repository](emr-artifact-repository.md "emr-artifact-repository.md").
 
-To get updates when a new Amazon EMR release is available, subscribe to the [RSS feed for Amazon EMR release notes](amazon-emr-release-notes.md "amazon-emr-release-notes.md").
+To get updates when a new Amazon EMR release is available, subscribe to the [RSS feed for Amazon EMR release notes](amazon-emr-release-notes.rss.md "amazon-emr-release-notes.rss.md").
 
 **Latest release** details, including application versions, release notes, components, and configuration classifications of Amazon EMR 7.x, 6.x, and 5.x series:
 
@@ -31,10 +31,10 @@ New Amazon EMR releases are made available in different Regions over a period of
 - [Amazon EMR archive of release notes](emr-whatsnew-history.md "emr-whatsnew-history.md")
   **A comprehensive history of application versions** in each Amazon EMR release:
 
-- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
-- [Application versions in Amazon EMR 6.x releases](emr-release-app-versions-6.md "emr-release-app-versions-6.md")
-- [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.md "emr-release-app-versions-5.md")
-- [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.md "emr-release-app-versions-4.md")
+- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.x.md "emr-release-app-versions-7.x.md")
+- [Application versions in Amazon EMR 6.x releases](emr-release-app-versions-6.x.md "emr-release-app-versions-6.x.md")
+- [Application versions in Amazon EMR 5.x releases](emr-release-app-versions-5.x.md "emr-release-app-versions-5.x.md")
+- [Application versions in Amazon EMR 4.x releases](emr-release-app-versions-4.x.md "emr-release-app-versions-4.x.md")
   **Details for each Amazon EMR release** and differences between release series, where applicable:
 
 - [Amazon EMR 7.x release versions](emr-release-7x.md "emr-release-7x.md")

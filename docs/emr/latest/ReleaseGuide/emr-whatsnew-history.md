@@ -3,7 +3,7 @@
 Release notes for all Amazon EMR releases are available below. For comprehensive release
 information for each release, see [Amazon EMR 6.x release versions](emr-release-6x.md "emr-release-6x.md"), [Amazon EMR 5.x release versions](emr-release-5x.md "emr-release-5x.md") and [Amazon EMR 4.x release versions](emr-release-4x.md "emr-release-4x.md").
 
-To get updates when a new Amazon EMR release is available, subscribe to the [RSS feed for Amazon EMR release notes](amazon-emr-release-notes.md "amazon-emr-release-notes.md").
+To get updates when a new Amazon EMR release is available, subscribe to the [RSS feed for Amazon EMR release notes](amazon-emr-release-notes.rss.md "amazon-emr-release-notes.rss.md").
 
 ## Release 6.14.0
 

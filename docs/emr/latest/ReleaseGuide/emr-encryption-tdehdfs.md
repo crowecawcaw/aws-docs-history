@@ -302,7 +302,7 @@ Amazon EMR cluster with multiple primary nodes, you must provide the following c
 - User name and password for MySQL
 - Password for Ranger KMS root key
 - Certificate Authority (CA) PEM file for SSL connection to MySQL
-  server. You can download the certificate bundle for your AWS Region from [Download certificate bundles for Amazon RDS](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload").
+  server. You can download the certificate bundle for your AWS Region from [Download certificate bundles for Amazon RDS](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesDownload "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesDownload").
 
 You can provide these configurations by using `ranger-kms-dbks-site`
 classification and `ranger-kms-db-ca` classification, as the following
@@ -343,7 +343,7 @@ KMS.
 **Considerations**
 
 - It is highly recommended that you encrypt your Amazon RDS instance to improve
-  security. For more information, see [Overview of encrypting Amazon RDS resources](../../../AmazonRDS/latest/UserGuide/Overview.md#Overview.Encryption.Overview "../../../AmazonRDS/latest/UserGuide/Overview.md#Overview.Encryption.Overview").
+  security. For more information, see [Overview of encrypting Amazon RDS resources](../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md#Overview.Encryption.Overview "../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md#Overview.Encryption.Overview").
 - It is highly recommended that you use separate MySQL database for each
   Amazon EMR cluster with multiple primary nodes for high security bar.
 - To configure transparent encryption in HDFS on an Amazon EMR cluster with multiple primary nodes, you
@@ -352,5 +352,5 @@ KMS.
   started. Reconfiguring `hdfs-encryption-zones` classification or
   any of the Hadoop KMS configuration classifications on a running cluster is
   not supported on Amazon EMR cluster with multiple primary nodes.
-- The PEM certificate bundle that you downlaod from [Download certificate bundles for Amazon RDS](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload") groups multiple certificates into one file. Amazon EMR 7.3.0 and higher supports importing multiple
+- The PEM certificate bundle that you downlaod from [Download certificate bundles for Amazon RDS](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesDownload "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesDownload") groups multiple certificates into one file. Amazon EMR 7.3.0 and higher supports importing multiple
   certificates from the PEM file with the configuration `ranger.kms.trust.ca.file.s3.url`.

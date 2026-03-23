@@ -7,11 +7,11 @@ You specify the release number with the _release label_. Release labels are in t
 
 New Amazon EMR releases are made available in different Regions over a period of several days, beginning with the first Region on the initial release date. The latest release version may not be available in your Region during this period.
 
-For a comprehensive table of application versions in every Amazon EMR 7.x release, see [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md").
+For a comprehensive table of application versions in every Amazon EMR 7.x release, see [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.x.md "emr-release-app-versions-7.x.md").
 
 ###### Topics
 
-- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.md "emr-release-app-versions-7.md")
+- [Application versions in Amazon EMR 7.x releases](emr-release-app-versions-7.x.md "emr-release-app-versions-7.x.md")
 - [Amazon EMR release 7.12.0](emr-7120-release.md "emr-7120-release.md")
 - [Amazon EMR release 7.11.0](emr-7110-release.md "emr-7110-release.md")
 - [Amazon EMR release 7.10.0](emr-7100-release.md "emr-7100-release.md")

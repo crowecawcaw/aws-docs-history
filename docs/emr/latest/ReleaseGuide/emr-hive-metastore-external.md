@@ -20,8 +20,8 @@ location.
 1. Create a MySQL or Aurora PostgreSQL database. If you use PostgreSQL, you must configure it
    after you've provisioned your cluster. Only MySQL is supported at cluster
    creation. For information about the differences between Aurora MySQL and Aurora
-   PostgreSQL, see [Overview of Amazon Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMySQL.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMySQL.md") and [Working
-   with Amazon Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md"). For information about how to create an
+   PostgreSQL, see [Overview of Amazon Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMySQL.Overview.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMySQL.Overview.md") and [Working
+   with Amazon Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.md"). For information about how to create an
    Amazon RDS database in general, see [https://aws.amazon.com/rds/](https://aws.amazon.com/rds/ "https://aws.amazon.com/rds/").
 2. Modify your security groups to allow JDBC connections between your database and the
    **ElasticMapReduce-Master** security group. For
@@ -53,7 +53,7 @@ explicitly denies permissions to the
      your database. For more information about connecting to MySQL and Aurora
      database instances, see [Connecting to a DB
      instance running the MySQL database engine](../../../AmazonRDS/latest/UserGuide/USER_ConnectToInstance.md "../../../AmazonRDS/latest/UserGuide/USER_ConnectToInstance.md") and [Connecting to an Athena DB
-     cluster](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md") in the *Amazon RDS User Guide*. `javax.jdo.option.ConnectionURL` is the JDBC
+     cluster](../../../AmazonRDS/latest/UserGuide/Aurora.Connect.md "../../../AmazonRDS/latest/UserGuide/Aurora.Connect.md") in the *Amazon RDS User Guide*. `javax.jdo.option.ConnectionURL` is the JDBC
      connect string for a JDBC metastore. `javax.jdo.option.ConnectionDriverName` is the driver class
      name for a JDBC metastore.
 

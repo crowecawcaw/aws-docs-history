@@ -53,3 +53,7 @@ Do not turn on "trust" setting by default for all tool calls initially and opera
 ### 2. What are the common example prompts to leverage the troubleshooting tools?
 
 Please refer to [Prompt Examples](spark-troubleshooting-agent-prompt-examples.md "spark-troubleshooting-agent-prompt-examples.md") for the prompt examples about leveraging troubleshooting tools.
+
+### 3. What data is transmitted to the LLM and how is it handled?
+
+Customer data and files remain within your chosen AWS Region and are not transmitted cross-region. When the agent operates in a Region that uses global cross-region inference from Amazon Bedrock, the service may route requests to the nearest Region with available capacity depending on demand. In such cases, only extracted metadata from customer logs and processed inference results are transmitted, not the underlying customer data or files. All data is PII-masked before it is sent to the LLM for processing, whether the inference occurs within the same Region or is routed to another Region. For more details on how cross-region inference works and which Regions are affected, see [Cross-Region Processing for the Apache Spark Troubleshooting Agent](spark-troubleshooting-cross-region-processing.md "spark-troubleshooting-cross-region-processing.md").

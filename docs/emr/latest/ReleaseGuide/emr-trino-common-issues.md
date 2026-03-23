@@ -49,7 +49,7 @@ Mitigating HTTP 503 errors is discussed in more detail in the _HTTP slow down_ s
   changing the `fs.s3.maxRetries` parameter.
 - **Choose an Amazon S3 storage class** – Choosing the appropriate storage class for data at different points in its lifecycle can help both with performance and
   cost, based on your requirements for specific data collections.
-  For more information, see [Understanding and managing Amazon S3 storage classes](../../../AmazonS3/latest/userguide/storage-class-intro.md "../../../AmazonS3/latest/userguide/storage-class-intro.md") in
+  For more information, see [Understanding and managing Amazon S3 storage classes](../../../AmazonS3/latest/userguide/storage-class-intro.htm.md "../../../AmazonS3/latest/userguide/storage-class-intro.htm.md") in
   the Amazon S3 documentation.
 - **Migrate to Iceberg** – Another solution to mitigate performance issues, specifically regarding running queries on small files, is to migrate to Iceberg tables. Iceberg has features that handle small files well.
 - **Use automatic data compaction** – If you utilize Iceberg tables, automatic data compaction with the AWS Glue Data Catalog can optimize data size and result in better query performance.

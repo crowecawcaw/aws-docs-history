@@ -10,7 +10,7 @@ pages, along with the application versions, component versions, and available co
 classifications for each release.
 
 - For release notes from prior releases, see the [Amazon EMR archive of release notes](emr-whatsnew-history.md "emr-whatsnew-history.md").
-- To get updates when a new Amazon EMR release is available, subscribe to the [RSS feed for Amazon EMR release notes](amazon-emr-release-notes.md "amazon-emr-release-notes.md").
+- To get updates when a new Amazon EMR release is available, subscribe to the [RSS feed for Amazon EMR release notes](amazon-emr-release-notes.rss.md "amazon-emr-release-notes.rss.md").
 
 ###### Note
 
