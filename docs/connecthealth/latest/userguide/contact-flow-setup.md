@@ -27,7 +27,7 @@ You can assign this flow to your preferred phone number if the provisioned numbe
 
 ## Provisioned resources
 
-###### Chart 1: Sample Connect Health Contact Flow
+###### Sample Connect Health contact flow
 
 Amazon Connect Health provisions the following resources as part of the sample contact flow deployment:
 

@@ -15,7 +15,7 @@ The Patient verification agent eliminates time-consuming manual EHR lookups by a
 The Patient verification agent provides the following capabilities:
 
 - **Real-time patient identity verification** – Verifies patient identity through Epic FHIR APIs.
-- **Configurable multi-factor authentication** – Supports verification using phone number, MRN, date of birth, zip code, and SSN.
+- **Configurable multi-factor authentication** – Supports verification using phone number, medical record number (MRN), date of birth, zip code, and Social Security number (SSN).
 - **LLM-based safety guardrails** – Detects safety concerns, frustrated patients, and complex requests.
 - **Intelligent escalation to human agents** – Escalates to human agents with full verification context.
 - **24/7 availability** – Provides around-the-clock availability for routine verification tasks.
@@ -24,11 +24,11 @@ The Patient verification agent provides the following capabilities:
 
 You can configure the Patient verification agent to match your organization’s verification requirements. To customize the agent, choose **Customize** on the Agent setup card in the Amazon Connect Health console.
 
-You can configure the following settings:
+You can configure the following settings.
 
-| Setting                 | Description                                                                                                             |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Verification attributes | Choose which factors are required for authentication, such as MRN, date of birth, zip code, or last four digits of SSN. |
+Verification attributes
+
+Choose which factors are required for authentication, such as MRN, date of birth, zip code, or last four digits of SSN.
 
 After you configure the settings, choose **Publish** to apply the changes.
 

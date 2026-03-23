@@ -11,7 +11,7 @@ The appointment management agent handles full scheduling tasks from finding avai
 
 ## Capabilities
 
-The Appointment management agent provides the following capabilities:
+The Appointment management agent provides the following capabilities.
 
 - **New appointment scheduling with real-time provider availability lookup** – Finds available slots across a provider’s locations and books appointments within a single conversation.
 - **Appointment rescheduling and cancellation** – Retrieves the current appointment, presents available alternatives for rescheduling, or processes cancellations and provides confirmation to the patient.
@@ -21,7 +21,7 @@ The Appointment management agent provides the following capabilities:
 
 ## Configuration options
 
-You can configure the following settings for the Appointment management agent:
+You can configure the following settings for the Appointment management agent.
 
 | Setting                | Description                                                                                                                                                                                                                                                                                                    |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

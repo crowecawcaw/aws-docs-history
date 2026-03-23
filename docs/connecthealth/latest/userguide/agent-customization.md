@@ -9,7 +9,7 @@ The following table summarizes the customization areas available for each agent.
 | Scheduling capabilities | Select which appointment actions (schedule, reschedule, cancel, lookup) are available to patients. For more information, see [Appointment management agent](appointment-management-agent.md "appointment-management-agent.md").                            |
 | Insurance verification  | Enable or disable real-time insurance eligibility verification through customer-owned Lambda functions. For more information, see [Insurance verification integration](insurance-verification.md "insurance-verification.md").                             |
 | AI autonomy             | Configure whether the appointment is fully self-serviced or preferences are collected and shared with staff for final action. For more information, see [Appointment management agent](appointment-management-agent.md "appointment-management-agent.md"). |
-| Verification attributes | Select which factors (for example, MRN, date of birth, zip code) are required for authentication. For more information, see [Patient verification agent](patient-verification-agent.md "patient-verification-agent.md").                                   |
+| Verification attributes | Select which factors (for example, medical record number (MRN), date of birth, zip code) are required for authentication. For more information, see [Patient verification agent](patient-verification-agent.md "patient-verification-agent.md").           |
 
 ## To customize agent settings
 
@@ -25,7 +25,7 @@ The following table summarizes the customization areas available for each agent.
 3. Configure three sequential identity verification steps by selecting the required patient inputs:
    - **Step 1** – Phone number or MRN
    - **Step 2** – Date of birth
-   - **Step 3** – Zip code or last four digits of SSN
+   - **Step 3** – Zip code or last four digits of Social Security number (SSN)
 
 4. Choose **Publish** to apply the updates.
 

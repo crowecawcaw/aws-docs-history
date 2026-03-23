@@ -28,6 +28,8 @@ You don’t need RTE Lambda if:
 
 ## How it works
 
+Insurance verification involves a setup phase and a runtime phase.
+
 ### Setup phase
 
 The customer deploys a Lambda function that connects to their preferred RTE vendor (for example, Experian Health or Waystar). The Lambda function is registered with Amazon Connect Health and granted invocation permissions.
@@ -44,7 +46,7 @@ For the sample Lambda code, see [sample-healthcare-realtime-eligibility](https:/
 
 ### Input schema
 
-The Appointment management agent provides the following information to your Lambda function:
+The Appointment management agent provides the following information to your Lambda function.
 
 | Field                            | Description                                                |
 | -------------------------------- | ---------------------------------------------------------- |
@@ -65,7 +67,7 @@ The Appointment management agent provides the following information to your Lamb
 
 ### Output schema
 
-Your Lambda function must return the following information to the Appointment management agent:
+Your Lambda function must return the following information to the Appointment management agent.
 
 | Field             | Type              | Description                                    |
 | ----------------- | ----------------- | ---------------------------------------------- |
@@ -82,7 +84,7 @@ The customer must attach a resource-based policy to their Lambda function granti
 - **Principal Service**: `health-agent.amazonaws.com`
 - **Action**: `lambda:InvokeFunction`
 - **Resource**: Your Lambda function ARN
-- **Condition**: `ArnLike` with `AWS:SourceArn` matching `arn:aws:healthcareai:<region>:<aws-account-id>:*`
+- **Condition**: `ArnLike` with `AWS:SourceArn` matching `arn:aws:health-agent:<region>:<aws-account-id>:*`
 
 See [Granting Lambda function access to AWS services](../../../lambda/latest/dg/permissions-function-services.md "../../../lambda/latest/dg/permissions-function-services.md") for reference.
 

@@ -1,6 +1,6 @@
 # Patient insights
 
-Patient insights synthesizes longitudinal patient data into a concise, actionable pre-visit summary. Clinicians typically spend 8 to 12 minutes manually reviewing dozens of pages of patient records before each encounter. Patient insights addresses this by retrieving structured clinical records, clinical documents, and ad-hoc files, then generating a focused summary so clinicians can walk into the exam room informed.
+Patient insights synthesizes longitudinal patient data into a concise, actionable pre-visit summary by retrieving structured clinical records, clinical documents, and ad-hoc files, then generating a focused summary for clinicians to review before each encounter.
 
 Patient insights provides the following capabilities:
 
@@ -150,4 +150,4 @@ To present the summary to clinicians in your application:
 
 For the Condition Review sections, render each surfaced condition as an interactive element that allows the clinician to confirm, dismiss, or annotate each condition directly within the workflow. The structured output format gives you full control over how the summary is rendered.
 
-For complete API parameter details and request/response schemas, see the Amazon Connect Health API Reference.
+For complete API parameter details and request/response schemas, see the [Amazon Connect Health API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").

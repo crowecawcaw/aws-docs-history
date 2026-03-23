@@ -105,7 +105,7 @@ If your audio has two channels, you can use channel identification to transcribe
 
 In addition to the standard transcript sections (transcripts and items), requests with channel identification enabled include a channel_labels section. This section contains each utterance or punctuation mark, grouped by channel, and its associated channel label, timestamps, and confidence score. Note that if a person on one channel speaks at the same time as a person on a separate channel, timestamps for each channel overlap while the individuals are speaking over each other.
 
-For detailed information about HTTP/2 streaming setup, authentication, and event stream encoding, see the Amazon Connect Health API Reference.
+For detailed information about HTTP/2 streaming setup, authentication, and event stream encoding, see the [Amazon Connect Health API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
 ## Using the AWS SDKs
 
@@ -366,6 +366,10 @@ Patient context can include:
 
 The context is used throughout the generated note to improve specificity and accuracy when the necessary information is not present in the transcript alone, with evidence mapping to source materials for clinician review.
 
+###### Note
+
+The following example uses fictional patient data for illustration purposes only.
+
 **Example patient context**
 
 ```
@@ -596,4 +600,4 @@ The after-visit summary file contains a patient-facing summary written in access
 
 The summary is generated from the clinical documentation file, not directly from the transcript, ensuring consistency between the clinical note and the patient-facing summary.
 
-For complete API parameter details, request/response schemas, and streaming setup instructions, see the Amazon Connect Health API Reference.
+For complete API parameter details, request/response schemas, and streaming setup instructions, see the [Amazon Connect Health API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").

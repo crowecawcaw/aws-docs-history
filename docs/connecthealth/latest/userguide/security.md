@@ -13,7 +13,6 @@ Security is a shared responsibility between AWS and you. The [shared responsibil
 - [Security topics](#security-topics "#security-topics")
 - [Data protection in Amazon Connect Health](data-protection.md "data-protection.md")
 - [Identity and access management for Amazon Connect Health](security-iam.md "security-iam.md")
-- [Logging and monitoring in Amazon Connect Health](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Compliance validation for Amazon Connect Health](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon Connect Health](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Connect Health](infrastructure-security.md "infrastructure-security.md")
@@ -22,7 +21,7 @@ Security is a shared responsibility between AWS and you. The [shared responsibil
 
 - [Data protection in Amazon Connect Health](data-protection.md "data-protection.md") – Learn about encryption, zero-persistence architecture, and PHI handling.
 - [Identity and access management for Amazon Connect Health](security-iam.md "security-iam.md") – Learn about IAM policies, service roles, and fine-grained permissions.
-- [Logging and monitoring in Amazon Connect Health](logging-using-cloudtrail.md "logging-using-cloudtrail.md") – Learn about logging Amazon Connect Health API calls with AWS CloudTrail.
+- [Logging and monitoring in Amazon Connect Health](logging-using-cloudtrail.md "logging-using-cloudtrail.md") – Learn about logging Amazon Connect Health API calls with AWS CloudTrail. For more information, see [Monitoring Amazon Connect Health](monitoring-overview.md "monitoring-overview.md").
 - [Compliance validation for Amazon Connect Health](compliance-validation.md "compliance-validation.md") – Learn about HIPAA eligibility and cross-region inference disclosure.
 - [Resilience in Amazon Connect Health](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md") – Learn about resilience and Availability Zone support.
 - [Infrastructure security in Amazon Connect Health](infrastructure-security.md "infrastructure-security.md") – Learn about network isolation and infrastructure protection.

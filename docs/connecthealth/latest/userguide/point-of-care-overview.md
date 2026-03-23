@@ -4,7 +4,7 @@ Amazon Connect Health point of care features are AI-powered capabilities that st
 
 Point of care features operate within a domain that you provision in your AWS account. Each feature accepts inputs — such as a real-time audio stream of a patient-clinician conversation, patient context from the EHR, and a clinical note template — and produces structured outputs for provider review including clinical documentation, evidence mappings, and after-visit summaries.
 
-At launch, point of care capabilities include patient insights (preview) and ambient documentation (GA).
+At launch, point of care capabilities include patient insights and ambient documentation.
 
 ###### Topics
 

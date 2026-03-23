@@ -57,7 +57,7 @@ Read-only console policy:
 
 ```
 {
-  "Version": "{POLICY_VERSION}",
+  "Version": "2012-10-17" ,
   "Statement": [
     {
       "Effect": "Allow",
@@ -77,7 +77,7 @@ Full access console policy:
 
 ```
 {
-  "Version": "{POLICY_VERSION}",
+  "Version": "2012-10-17" ,
   "Statement": [
     {
       "Effect": "Allow",
@@ -86,7 +86,6 @@ Full access console policy:
         "health-agent:DeleteDomain",
         "health-agent:ListDomains",
         "health-agent:GetDomain",
-        "health-agent:GenerateMedicalCodes",
         "health-agent:StartPatientInsightsJob",
         "health-agent:GetPatientInsightsJob",
         "health-agent:CreateIntegration",
@@ -122,7 +121,7 @@ Full access console policy:
         "connect:ListInstances",
         "connect:AssociatePhoneNumberContactFlow",
         "connect:ListPhoneNumbersV2",
-        "kms:ListKeysForService",
+        "kms:ListKeys",
         "kms:DescribeKey",
         "kms:ListAliases",
         "sso:CreateApplication",
@@ -134,14 +133,10 @@ Full access console policy:
         "sso:ListDirectoryAssociations",
         "sso-directory:SearchUsers",
         "sso-directory:CreateUser",
-        "s3:getBucket",
-        "s3:getBucketVersions",
-        "s3:getVersioning",
-        "s3:getLocation",
-        "s3:getService",
         "s3:putObject",
         "s3:getObject",
-        "s3:deleteObject"
+        "s3:ListBucket",
+        "s3:ListAllMyBuckets"
       ],
       "Resource": "*"
     }
@@ -169,7 +164,7 @@ The following policy grants full access to a specific Amazon Connect Health doma
 
 ```
 {
-  "Version": "{POLICY_VERSION}",
+  "Version": "2012-10-17" ,
   "Statement": [
     {
       "Effect": "Allow",
@@ -191,7 +186,7 @@ The following policy allows users to start and retrieve ambient documentation se
 
 ```
 {
-  "Version": "{POLICY_VERSION}",
+  "Version": "2012-10-17" ,
   "Statement": [
     {
       "Effect": "Allow",
@@ -211,7 +206,7 @@ The following policy grants read-only access to ambient documentation sessions.
 
 ```
 {
-  "Version": "{POLICY_VERSION}",
+  "Version": "2012-10-17" ,
   "Statement": [
     {
       "Effect": "Allow",
@@ -231,7 +226,7 @@ The following policy grants full access to all Amazon Connect Health resources.
 
 ```
 {
-  "Version": "{POLICY_VERSION}",
+  "Version": "2012-10-17" ,
   "Statement": [
     {
       "Effect": "Allow",
@@ -248,7 +243,7 @@ The following policy grants read-only access to domains and agents while explici
 
 ```
 {
-  "Version": "{POLICY_VERSION}",
+  "Version": "2012-10-17" ,
   "Statement": [
     {
       "Effect": "Allow",
@@ -277,7 +272,7 @@ This example shows how you might create a policy that allows IAM users to view t
 
 ```
 {
-  "Version": "{POLICY_VERSION}",
+  "Version": "2012-10-17" ,
   "Statement": [
     {
       "Sid": "ViewOwnUserInfo",
@@ -318,7 +313,7 @@ The following example shows a service role policy for Amazon Connect Health that
 
 ```
 {
-  "Version": "{POLICY_VERSION}",
+  "Version": "2012-10-17" ,
   "Statement": [
     {
       "Sid": "DescribeUserWithSourceIdentity",
@@ -383,7 +378,7 @@ The following example shows a trust policy that allows the Amazon Connect Health
 
 ```
 {
-  "Version": "{POLICY_VERSION}",
+  "Version": "2012-10-17" ,
   "Statement": [
     {
       "Sid": "AllowHealthAgentServicePrincipal",

@@ -19,3 +19,49 @@ All Amazon Connect Health control plane API calls are logged as management event
 ### Data events
 
 Amazon Connect Health logs data plane API calls as data events. Data events are not logged by default. To log data events, you must create a trail or event data store and configure it to log data events. For more information about configuring data events, see [Logging data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") in the _AWS CloudTrail User Guide_.
+
+## Understanding Amazon Connect Health log file entries
+
+CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on.
+
+The following example shows a CloudTrail log entry that demonstrates the `CreateSubscription` action.
+
+```
+{
+  "eventVersion": "1.09",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROA123456789EXAMPLE:session-name",
+    "arn": "arn:aws:sts::123456789012:assumed-role/ExampleRole/session-name",
+    "accountId": "123456789012"
+  },
+  "eventTime": "2026-03-12T19:54:27Z",
+  "eventSource": "health-agent.amazonaws.com",
+  "eventName": "CreateSubscription",
+  "awsRegion": "us-west-2",
+  "sourceIPAddress": "192.0.2.1",
+  "userAgent": "aws-cli/2.18.6",
+  "requestParameters": {
+    "domainId": "dom-EXAMPLE1234567890"
+  },
+  "responseElements": {
+    "subscriptionId": "sub-EXAMPLE1234567890",
+    "domainId": "dom-EXAMPLE1234567890",
+    "status": "ACTIVE"
+  },
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::HealthAgent::Subscription",
+      "ARN": "arn:aws:health-agent:us-west-2:123456789012:domain/dom-EXAMPLE1234567890/subscription/*"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management"
+}
+```

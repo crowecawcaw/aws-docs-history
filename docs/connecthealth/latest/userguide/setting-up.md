@@ -1,4 +1,6 @@
-# IT administrators: Setting up Amazon Connect Health
+# Setting up Amazon Connect Health
+
+This section is intended for IT administrators who are responsible for setting up and configuring Amazon Connect Health.
 
 Before you use Amazon Connect Health, complete the following tasks.
 
@@ -75,6 +77,10 @@ To create a domain, complete the following steps:
    - **Skip for now** — Defer this setup to a later time.
    - **Create and use a new Amazon Connect instance** (selected by default) — Recommended for most users. The access URL is auto-populated based on the domain name.
    - **Use an existing Amazon Connect instance** — For organizations with an existing Amazon Connect instance.
+
+###### Important
+
+Before you create a new Amazon Connect instance, check your service quota. By default, each account can have 2 Amazon Connect instances. To request a quota increase, see [Amazon Connect service quotas](../../../connect/latest/adminguide/amazon-connect-service-limits.md "../../../connect/latest/adminguide/amazon-connect-service-limits.md") in the _Amazon Connect Administrator Guide_.
 
 ###### Important
 
