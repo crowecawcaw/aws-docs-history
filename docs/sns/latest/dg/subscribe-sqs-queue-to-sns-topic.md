@@ -25,7 +25,7 @@ following:
   To learn about how to set up a topic to send messages to a queue that is in a different
   AWS-account, see [Sending Amazon SNS messages to an Amazon SQS queue in a different account](sns-send-message-to-sqs-cross-account.md "sns-send-message-to-sqs-cross-account.md").
 
-To see an CloudFormation template that creates a topic that sends messages to two queues, see [Automate Amazon SNS to Amazon SQS messaging with AWS CloudFormation](SendMessageToSQS.md "SendMessageToSQS.md").
+To see an CloudFormation template that creates a topic that sends messages to two queues, see [Automate Amazon SNS to Amazon SQS messaging with AWS CloudFormation](SendMessageToSQS.cloudformation.md "SendMessageToSQS.cloudformation.md").
 
 ## Step 1: Get the ARN of the queue and topic
 

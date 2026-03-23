@@ -20,7 +20,7 @@ Amazon SNS topic using the AWS Management Console, AWS SDK for Java, or AWS SDK 
   Support.
 - Exceeding the limit of 10 messages per second (TPS) for an email or email-json endpoint
   will trigger an automatic suspension of the subscription, placing it in a pending confirmation status.
-  The subscription remains in PendingConfirmation state for 48 hours,
+  The subscription remains in PendingConfirmation state for 30 days,
   after which it will be automatically deleted unless action is taken.
 
 ## Subscribing an email address to an Amazon SNS topic using the AWS Management Console

@@ -7,7 +7,7 @@ attempts to publish a message to the deleted topic, the publisher will receive a
 message indicating that the topic doesn't exist. Similarly, any attempt to subscribe to the
 deleted topic will also result in an error message. You can't delete a subscription that's
 pending confirmation. Amazon SNS automatically deletes unconfirmed subscriptions after 48
-hours.
+hours, with the exception of email subscriptions, which are deleted after 30 days.
 
 ###### Important
 

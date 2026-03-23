@@ -42,7 +42,7 @@ the AWS SDK for Java and you have the AWS security credentials for your AWS acco
 For more information, see [AWS SDK for Java](http://aws.amazon.com/sdkforjava/ "http://aws.amazon.com/sdkforjava/"). For more information about credentials, see [AWS security credentials](../../../general/latest/gr/getting-aws-sec-creds.md "../../../general/latest/gr/getting-aws-sec-creds.md")
 in the _IAM User Guide_.
 
-1.  Download and unzip the [snsmobilepush.zip](samples/snsmobilepush.md "samples/snsmobilepush.md") file.
+1.  Download and unzip the [snsmobilepush.zip](samples/snsmobilepush.zip.md "samples/snsmobilepush.zip.md") file.
 2.  Create a new **Java project** in Eclipse and import
     the `SNSSamples` folder to the project.
 3.  Download the [OpenCSV

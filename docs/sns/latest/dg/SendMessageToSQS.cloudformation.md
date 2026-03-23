@@ -7,7 +7,7 @@ creating two queues, creating a topic with subscriptions to the queues, adding a
 queues so that the topic can send messages to the queues, and creating IAM users and groups to
 control access to those resources.
 
-For more information about deploying AWS resources using an CloudFormation template, see [Get Started](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md") in the _CloudFormation
+For more information about deploying AWS resources using an CloudFormation template, see [Get Started](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.Walkthrough.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.Walkthrough.md") in the _CloudFormation
 User Guide_.
 
 ## Using an CloudFormation template to set up topics and queues within an AWS account

@@ -686,5 +686,5 @@ message is filtered out and not delivered to the subscribed queues.
 }
 ```
 
-For more information about deploying AWS resources using an CloudFormation template, see [Get Started](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md") in the
+For more information about deploying AWS resources using an CloudFormation template, see [Get Started](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.Walkthrough.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.Walkthrough.md") in the
 _CloudFormation User Guide_.
