@@ -77,7 +77,7 @@ preserved. You can override this option by setting the
       meaningful statistics will be available. Changing these parameters
       will require you to reboot your DB instance. For more information,
       see [Working with parameters on your Amazon RDS for PostgreSQL DB
-      instance](../../../AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../../../AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.md").
+      instance](../../../AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.Parameters.md "../../../AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.Parameters.md").
   3.  If the `track_io_timing` parameter is turned off, the
       I/O level statistics will not be included in the operational review.
       Changing `track_io_timing` will require you to reboot

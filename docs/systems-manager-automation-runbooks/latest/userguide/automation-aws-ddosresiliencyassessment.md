@@ -16,7 +16,7 @@ report is available in an Amazon S3 bucket of your choice as an HTML file.
 
 This runbook contains a series of checks for the various types of resources that are
 enabled for public access and if they have protections configured as per the
-recommendations in the [AWS DDoS Best Practices Whitepaper](../../../pdfs/whitepapers/latest/aws-best-practices-ddos-resiliency/aws-best-practices-ddos-resiliency.md "../../../pdfs/whitepapers/latest/aws-best-practices-ddos-resiliency/aws-best-practices-ddos-resiliency.md"). The runbook performs the
+recommendations in the [AWS DDoS Best Practices Whitepaper](../../../pdfs/whitepapers/latest/aws-best-practices-ddos-resiliency/aws-best-practices-ddos-resiliency.pdf.md "../../../pdfs/whitepapers/latest/aws-best-practices-ddos-resiliency/aws-best-practices-ddos-resiliency.pdf.md"). The runbook performs the
 following:
 
 - Checks if a subscription to AWS Shield Advanced is enabled.

@@ -50,7 +50,7 @@ and password are stored using a key/value pair in the format
 access to secrets.
 
 For more information about the tool, refer to the `TROUBLESHOOTING.md` and
-`README.md` files in the [AmazonFSxADValidation](../../../fsx/latest/WindowsGuide/samples/AmazonFSxADValidation.md "../../../fsx/latest/WindowsGuide/samples/AmazonFSxADValidation.md") file.
+`README.md` files in the [AmazonFSxADValidation](../../../fsx/latest/WindowsGuide/samples/AmazonFSxADValidation.zip.md "../../../fsx/latest/WindowsGuide/samples/AmazonFSxADValidation.zip.md") file.
 
 **Runbook execution**
 
