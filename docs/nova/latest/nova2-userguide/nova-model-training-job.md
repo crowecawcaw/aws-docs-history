@@ -91,7 +91,7 @@ Don't use SFT when the gap is knowledge rather than behavior. It doesn't teach t
 
 ###### Topics
 
-- [Nova Customization SDK](nova-customization-sdk.md "nova-customization-sdk.md")
+- [Nova Forge SDK](nova-forge-sdk.md "nova-forge-sdk.md")
 - [Training for Amazon Nova models](smtj-training.md "smtj-training.md")
 - [Monitoring Progress Across Iterations](nova-model-monitor.md "nova-model-monitor.md")
 - [Evaluating your SageMaker AI-trained model](nova-model-evaluation.md "nova-model-evaluation.md")

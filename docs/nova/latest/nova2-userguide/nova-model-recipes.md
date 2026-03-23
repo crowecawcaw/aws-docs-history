@@ -70,7 +70,7 @@ The Amazon Nova customization recipes are in the following folders.
 
 ## Getting Amazon Nova Forge recipes
 
-To access specialized Amazon Nova Forge recipes for jobs, please [set up your access to Amazon Nova Forge](nova-forge-access.md "nova-forge-access.md") and then follow [this workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US/02-smhp-rig/03-nova-forge "https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US/02-smhp-rig/03-nova-forge") to set up the Forge version of the CLI. For SageMaker Training Jobs, the AWS Console and Nova Customization SDK will automatically access Forge recipes.
+To access specialized Amazon Nova Forge recipes for jobs, please [set up your access to Amazon Nova Forge](nova-forge-access.md "nova-forge-access.md") and then follow [this workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US/02-smhp-rig/03-nova-forge "https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US/02-smhp-rig/03-nova-forge") to set up the Forge version of the CLI. For SageMaker Training Jobs, the AWS Console and Nova Forge SDK will automatically access Forge recipes.
 
 ## Available models and algorithms
 

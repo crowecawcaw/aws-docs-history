@@ -1,16 +1,16 @@
 # Multimodal understanding
 
 Amazon Nova 2 Lite can understand multiple input modalities. This model is equipped with vision
-capabilities that enable it to comprehend and analyze images, documents, videos and speech
+capabilities that enable it to comprehend and analyze images, documents, videos, and speech
 to infer and answer questions based on the content provided.
 
-This section outlines guidelines for working with images, documents and videos in Amazon Nova
+This section outlines guidelines for working with images, documents, and videos in Amazon Nova
 including preprocessing strategies employed, code examples and relevant limitations to
 consider.
 
-## Supported-content-type-by-modality
+## Supported content type by modality
 
-The following information details the file formats supported by media file and the accepted input method.
+The following information details the file formats supported by each media file type and the accepted input method.
 
 | Media file type | File formats supported                                                                                             | Input method                                                                                                                                    | Size limitations | Number of objects |
 | --------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
@@ -24,7 +24,6 @@ The following information details the file formats supported by media file and t
 - [Image understanding](#image-understanding "#image-understanding")
 - [Video understanding](#video-understanding "#video-understanding")
 - [Document understanding](#document-understanding "#document-understanding")
-- [Examples: Using Nova's document understanding via API and S3](#document-understanding-api-s3 "#document-understanding-api-s3")
 
 ## Image understanding
 
@@ -87,14 +86,14 @@ resolution:
 
 For an example of how to embed image data directly in the request, refer to the Multimodal input using embedded asset - Converse API (non-streaming) example in the [Code library](code-library.md "code-library.md").
 
-To upload large image files or multiple image files, where the overall payload is greater than 25 MB, use Amazon S3. For a full example of how use Amazon S3 URI references for image input, refer to refer to the Multimodal input using S3 URI - Converse API (non-streaming) example in the [Code library](code-library.md "code-library.md").
+To upload large image files or multiple image files, where the overall payload is greater than 25 MB, use Amazon S3. For a full example of how to use Amazon S3 URI references for image input, refer to the Multimodal input using S3 URI - Converse API (non-streaming) example in the [Code library](code-library.md "code-library.md").
 
 ###### Note
 
 When using S3, ensure the Amazon Bedrock service has permission to access the bucket and
 object.
 
-### Limitations
+### Key limitations
 
 The following list outlines current limitations of image understanding
 models:
@@ -192,14 +191,14 @@ might not be guaranteed:
   limited spatial reasoning capabilities. They may struggle with tasks that
   require precise understanding of object positions, distances, or spatial
   relationships in videos.
-- **Inappropriate content**: The Nova models
+- **Inappropriate content**: The Amazon Nova models
   will not process inappropriate or explicit images that violate the
   Acceptable Use Policy.
 - **Healthcare applications**: Due to the
-  sensitive nature of these artifacts, even though Nova models could give
+  sensitive nature of these artifacts, even though Amazon Nova models could give
   general analysis on some healthcare images or videos, we do not recommend
   their use to interpret sensitive medical images like complex diagnostic
-  scans. The response of Nova models should never be considered a substitute
+  scans. The response of Amazon Nova models should never be considered a substitute
   for professional medical advice.
 
 ## Document understanding
@@ -231,7 +230,7 @@ Supported file formats include common document types such as:
 - Spreadsheets: XLS, XLSX, HTML, Markdown
 - Standard image formats (for images within documents): PNG, JPG, GIF, WebP
 - Document formats: DOC, DOCX, PDF
-- PDFs that contain image encodings, such as CYMK or SVG are not supported.
+- PDFs that contain image encodings, such as CMYK or SVG are not supported.
 
 ### Document size limits and usage guidelines
 
@@ -251,7 +250,7 @@ including attached documents) and output tokens (the model's response).
 a standard 8.5x11 inch PDF page ≈ 2,560 input tokens (this estimate covers both text
 and visual elements on a typical page).
 
-## Examples: Using Nova's document understanding via API and S3
+### Examples: Using Nova's document understanding via API and S3
 
 For an example of how to use it via API, refer to the Multimodal input using embedded asset - Converse API (non-streaming) example in the [Code library](code-library.md "code-library.md").
 
