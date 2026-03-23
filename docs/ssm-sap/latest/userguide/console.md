@@ -1,11 +1,10 @@
-# AWS Management Console
+# AWS Console for SAP applications
 
-Using AWS Management Console, you can register SAP HANA and SAP ABAP applications, and start or stop SAP applications with Systems Manager for SAP.
+The AWS Console for SAP applications provides a centralized view for managing your SAP applications on AWS. To open the console, search for "AWS for SAP" in the AWS Management Console search bar, or navigate directly to https://console.aws.amazon.com/awsforsap/home.
 
 ###### Topics
 
-- [Register SAP HANA database with AWS Systems Manager for SAP](hana-app-manager.md "hana-app-manager.md")
-- [Register SAP ABAP application with AWS Systems Manager for SAP](abap-app-manager.md "abap-app-manager.md")
-- [Start SAP application](start-console.md "start-console.md")
-- [Stop SAP application](stop-console.md "stop-console.md")
+- [Console overview](console-overview.md "console-overview.md")
+- [Register an application](register-console.md "register-console.md")
+- [Manage SAP applications](manage-console.md "manage-console.md")
 - [Run Configuration Checks](configuration-checks-console.md "configuration-checks-console.md")

@@ -13,10 +13,9 @@ See also [support restrictions for Systems Manager for SAP](supported-versions.m
 
 ## To access configuration checks
 
-1. Open the AWS Systems Manager console at https://console.aws.amazon.com/systems-manager/
-2. In the navigation pane, choose **Application Tools**, then choose **Application Manager**
-3. From the list of registered applications, choose the SAP application you want to evaluate
-4. Choose **Actions**, then choose **SAP Configuration Checks**
+1. Open the [AWS Console for SAP applications](https://console.aws.amazon.com/awsforsap/home "https://console.aws.amazon.com/awsforsap/home").
+2. Choose **Applications**, then choose the SAP application that you want to evaluate.
+3. Choose the **SAP configuration checks** tab.
 
 ## To evaluate configuration checks
 
