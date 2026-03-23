@@ -18,7 +18,7 @@ The following considerations apply to zero-ETL integrations with Amazon Redshift
   materialized views in the destination database. However, you can use materialized views on
   other tables in the target data warehouse.
 - Materialized views are supported when used in cross-database queries. For information
-  about creating materialized views with data replicated through zero-ETL integrations, see [Querying replicated data with materialized views](zero-etl-using.md#zero-etl-using.transforming "zero-etl-using.md#zero-etl-using.transforming").
+  about creating materialized views with data replicated through zero-ETL integrations, see [Querying replicated data with materialized views](zero-etl-using.querying-and-creating-materialized-views.md#zero-etl-using.transforming "zero-etl-using.querying-and-creating-materialized-views.md#zero-etl-using.transforming").
 - By default, you can query tables only in the target data warehouse that are in the
   `Synced` state. To query tables in another state, set the database parameter
   `QUERY_ALL_STATES` to `TRUE`. For information about setting
@@ -41,7 +41,7 @@ zero-ETL integrations with Amazon Redshift](https://aws.amazon.com/blogs/databas
   from the source Aurora DB cluster to the target Amazon Redshift data warehouse. Rather than
   replicating all data to the target, you can define one or more filters that selectively
   include or exclude certain tables from being replicated. For more information, see [Data
-  filtering for Aurora zero-ETL integrations with Amazon Redshift](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md") in the
+  filtering for Aurora zero-ETL integrations with Amazon Redshift](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.md") in the
   _Amazon Aurora User Guide_.
 - For Aurora PostgreSQL zero-ETL integrations with Amazon Redshift, Amazon Redshift supports a maximum of 100 databases from
   Aurora PostgreSQL. Each database replicates from source to target independently.
@@ -97,7 +97,7 @@ delete from schema.user_table where _record_delete_time <= '2024-09-10 12:34:56'
 - When a table with history mode on is excluded from replication using a table filter,
   all rows are set as inactive and it is changed to `DroppedSource` state. For
   more information about table filters, see [Data filtering for
-  Aurora zero-ETL integrations with Amazon Redshift](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md") in the
+  Aurora zero-ETL integrations with Amazon Redshift](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.md") in the
   _Amazon Aurora User Guide_.
 - History mode can only be switched to `true` or `false` for
   tables in `Synced` state.
@@ -112,7 +112,7 @@ The following considerations apply to Aurora and Amazon RDS zero-ETL integration
   replicating all data to the target, you can define one or more filters that selectively
   include or exclude certain tables from being replicated. For more information, see
   [Data filtering for
-  Aurora zero-ETL integrations with Amazon Redshift](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md") in the
+  Aurora zero-ETL integrations with Amazon Redshift](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.md") in the
   _Amazon Aurora User Guide_.
 - Tables in the integration source must have a primary key. Otherwise, your tables
   can't be replicated to the target data warehouse in Amazon Redshift.
@@ -131,7 +131,7 @@ zero-ETL integrations with Amazon Redshift](https://aws.amazon.com/blogs/databas
   _Amazon Redshift Database Developer Guide_.
 
 For more information about data type differences between zero-ETL integration sources and Amazon Redshift
-databases, see [Data type differences between Aurora and Amazon Redshift](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.data-type-mapping "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.data-type-mapping") in the
+databases, see [Data type differences between Aurora and Amazon Redshift](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.querying.md#zero-etl.data-type-mapping "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.querying.md#zero-etl.data-type-mapping") in the
 _Amazon Aurora User Guide_.
 
 For Aurora sources, also see [Limitations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.reqs-lims "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.reqs-lims") in the _Amazon Aurora User Guide_.

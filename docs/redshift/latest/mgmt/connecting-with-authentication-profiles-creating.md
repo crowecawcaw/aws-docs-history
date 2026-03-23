@@ -39,7 +39,7 @@ Each customer has a quota of ten (10) authentication profiles.
 
 Certain errors can occur with authentication profiles. Examples are if you
 create a new profile with an existing name, or if you exceed your profile quota.
-For more information, see [CreateAuthenticationProfile](../APIReference/redshift-api.md#API_CreateAuthenticationProfile "../APIReference/redshift-api.md#API_CreateAuthenticationProfile").
+For more information, see [CreateAuthenticationProfile](../APIReference/redshift-api.pdf.md#API_CreateAuthenticationProfile "../APIReference/redshift-api.pdf.md#API_CreateAuthenticationProfile").
 
 You can't store certain option keys and values for JDBC, ODBC, and Python
 connection strings in the authentication profile store:

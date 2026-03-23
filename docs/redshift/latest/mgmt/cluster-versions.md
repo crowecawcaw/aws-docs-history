@@ -67,6 +67,7 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
+- Released a [new query compilation enhancement](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/ "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/") that increases performance for new queries (first runs of queries) in the Redshift CURRENT Maintenance Track. The TRAILING track will follow in an upcoming patch release.
 - Enabled support for Column level grants from a consumer using Redshift federated permissions for a new grantee on producer.
 - Enabled support for scoped permission checks in the Metadata Security (MDS) feature.
 - Amazon Redshift federated permissions supports querying external tables through Late Binding Views (LBVs).
@@ -82,6 +83,7 @@ Cluster versions in this patch:
   Auto REFRESH queries now run with the same priority as other user queries and are no longer deferred by autonomics background processes.
   The MV Auto REFRESH behavior change feature is only enabled for Amazon Redshift Provisioned clusters on the CURRENT Track of patch release
   P198 and newer. It is currently disabled on Serverless.
+- Improved scheduling for automatic tasks to better prioritize user-critical tasks such as streaming ingestion, auto-copy (COPY JOB), and materialized view auto refresh.
 - Fixed an issue where pg_last_query_id() incorrectly returned the rewritten query ID instead of the user query ID for Multi-AZ clusters
 - Fixes an issue where SHOW GRANTS would fail to process one-part object references.
 - Fixed an issue where DROP TABLE conflicted with the catalog rebuild worker's timestamp auto worker due to simultaneous updates on pg_class_extended, by skipping deletion during DROP TABLE and allowing the timestamp worker to clean up on its next run.
@@ -110,6 +112,7 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
+- Released a [new query compilation enhancement](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/ "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/") that increases performance for new queries (first runs of queries) in the Redshift CURRENT Maintenance Track. The TRAILING track will follow in an upcoming patch release.
 - Improves INTERSECT and EXCEPT queries by applying proper collation rules when comparing columns against constant values.
 - Enables auto refresh of manually created materialized views to run on concurrency scaling clusters.
 - Improves connection performance by enabling direct connections between main clusters and concurrency scaling clusters, reducing latency and eliminating connection throughput limitations.

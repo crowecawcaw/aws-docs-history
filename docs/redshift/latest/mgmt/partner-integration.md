@@ -16,7 +16,7 @@ inbound traffic. The following AWS Partners can integrate with Amazon Redshift:
 - [Fivetran](https://fivetran.com/partners/aws "https://fivetran.com/partners/aws")
 - [SnapLogic](https://www.snaplogic.com/partners/amazon-web-services "https://www.snaplogic.com/partners/amazon-web-services")
 - [Stitch](https://www.stitchdata.com/data-warehouses/amazon-redshift/ "https://www.stitchdata.com/data-warehouses/amazon-redshift/")
-- [Upsolver](https://www.upsolver.com/integrations/redshift "https://www.upsolver.com/integrations/redshift")
+- [Upsolver](https://www.upsolver.com/old-integrations/redshift "https://www.upsolver.com/old-integrations/redshift")
 - [Matillion (preview)](https://www.matillion.com/technology/cloud-data-warehouse/amazon-redshift/ "https://www.matillion.com/technology/cloud-data-warehouse/amazon-redshift/")
 - [Sisense (preview)](https://www.sisense.com/ "https://www.sisense.com/")
 - [Thoughtspot](https://www.thoughtspot.com/partners/aws "https://www.thoughtspot.com/partners/aws")

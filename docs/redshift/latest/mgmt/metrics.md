@@ -39,5 +39,5 @@ categories:
   Amazon Redshift provides performance data (both CloudWatch metrics and query and load data) at no
   additional charge. Performance data is recorded every minute. You can access historical
   values of performance data in the Amazon Redshift console. For detailed information about using
-  CloudWatch to access the Amazon Redshift performance data that is exposed as CloudWatch metrics, see [What is CloudWatch?](../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.md") in the
+  CloudWatch to access the Amazon Redshift performance data that is exposed as CloudWatch metrics, see [What is CloudWatch?](../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html.md "../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html.md") in the
   _Amazon CloudWatch User Guide_.

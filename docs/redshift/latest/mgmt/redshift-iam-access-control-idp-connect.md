@@ -80,6 +80,18 @@ can access the database and appropriate objects in the database through their AW
 IAM Identity Center-based, namespace-prefixed identity. For more information about connecting to Redshift
 databases with query editor v2 sign-in, see [Querying a database using the query editor v2](query-editor-v2.md "query-editor-v2.md").
 
+## Using AWS IAM Identity Center across multiple AWS Regions
+
+Amazon Redshift supports AWS IAM Identity Center in multiple AWS Regions. You can extend AWS IAM Identity Center from
+your primary AWS Region to additional Regions for improved performance through proximity to
+users and reliability. When a new Region is added in AWS IAM Identity Center, you can create Redshift
+IAM Identity Center applications in the new Region without replicating identities from the primary Region.
+You can set up Amazon Redshift federated permissions using AWS IAM Identity Center in the new Region where you can
+enable row-level, column-level, and masking controls. For more details to get started with
+AWS IAM Identity Center in multiple Regions, see [Manage
+AWS IAM Identity Center in multiple AWS Regions](../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md "../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md") in the _AWS IAM Identity Center User
+Guide_.
+
 ## Limitations for connecting to Amazon Redshift with AWS IAM Identity Center
 
 When using AWS IAM Identity Center single sign-on, consider the following limitation:

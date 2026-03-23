@@ -16,8 +16,7 @@ you choose.
 
 You can load data from the following partners:
 
-- [Informatica](https://www.informatica.com/solutions/explore-ecosystems/aws.html "https://www.informatica.com/solutions/explore-ecosystems/aws.html") – [IP
-  addresses](https://knowledge.informatica.com/s/article/611041?language=en_US "https://knowledge.informatica.com/s/article/611041?language=en_US")
+- [Informatica](https://www.informatica.com/solutions/explore-ecosystems/aws.html "https://www.informatica.com/solutions/explore-ecosystems/aws.html")
 
 ###### To load data to an Amazon Redshift cluster with a partner
 

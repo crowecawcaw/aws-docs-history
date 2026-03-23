@@ -14,4 +14,4 @@ After you create an authentication profile, users can add the ready-to-use profi
 a connection string. By doing this, they can connect to Amazon Redshift with the right settings for
 each role and use case.
 
-For Amazon Redshift API information, see [CreateAuthenticationProfile](../APIReference/redshift-api.md#API_CreateAuthenticationProfile "../APIReference/redshift-api.md#API_CreateAuthenticationProfile").
+For Amazon Redshift API information, see [CreateAuthenticationProfile](../APIReference/redshift-api.pdf.md#API_CreateAuthenticationProfile "../APIReference/redshift-api.pdf.md#API_CreateAuthenticationProfile").
