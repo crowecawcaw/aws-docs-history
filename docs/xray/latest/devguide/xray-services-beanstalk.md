@@ -17,7 +17,7 @@ You can use Elastic Beanstalk environment properties to configure the X-Ray SDK.
 uses to pass environment properties to your application varies by platform. Use the X-Ray SDK's
 environment variables or system properties depending on your platform.
 
-- **[Node.js platform](../../../elasticbeanstalk/latest/dg/create_deploy_nodejs.md "../../../elasticbeanstalk/latest/dg/create_deploy_nodejs.md")** – Use [environment variables](xray-sdk-nodejs-configuration.md#xray-sdk-nodejs-configuration-envvars "xray-sdk-nodejs-configuration.md#xray-sdk-nodejs-configuration-envvars")
+- **[Node.js platform](../../../elasticbeanstalk/latest/dg/create_deploy_nodejs.container.md "../../../elasticbeanstalk/latest/dg/create_deploy_nodejs.container.md")** – Use [environment variables](xray-sdk-nodejs-configuration.md#xray-sdk-nodejs-configuration-envvars "xray-sdk-nodejs-configuration.md#xray-sdk-nodejs-configuration-envvars")
 - **[Java SE
   platform](../../../elasticbeanstalk/latest/dg/java-se-platform.md "../../../elasticbeanstalk/latest/dg/java-se-platform.md")** – Use [environment variables](xray-sdk-java-configuration.md#xray-sdk-java-configuration-envvars "xray-sdk-java-configuration.md#xray-sdk-java-configuration-envvars")
 - **[Tomcat

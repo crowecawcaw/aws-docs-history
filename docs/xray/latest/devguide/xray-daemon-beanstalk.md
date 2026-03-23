@@ -19,7 +19,7 @@ automatically. You can enable the daemon in a configuration file in your source 
 choosing an option in the Elastic Beanstalk console. When you enable the configuration option, the daemon is
 installed on the instance and runs as a service.
 
-The version included on Elastic Beanstalk platforms might not be the latest version. See the [Supported Platforms topic](../../../elasticbeanstalk/latest/dg/concepts.md "../../../elasticbeanstalk/latest/dg/concepts.md") to find out the
+The version included on Elastic Beanstalk platforms might not be the latest version. See the [Supported Platforms topic](../../../elasticbeanstalk/latest/dg/concepts.platforms.md "../../../elasticbeanstalk/latest/dg/concepts.platforms.md") to find out the
 version of the daemon that is available for your platform configuration.
 
 Elastic Beanstalk does not provide the X-Ray daemon on the Multicontainer Docker (Amazon ECS) platform.
@@ -95,7 +95,7 @@ files:
 ```
 
 See [Viewing Logs from Your Elastic Beanstalk
-Environment's Amazon EC2 Instances](../../../elasticbeanstalk/latest/dg/using-features.md "../../../elasticbeanstalk/latest/dg/using-features.md") in the _AWS Elastic Beanstalk Developer Guide_
+Environment's Amazon EC2 Instances](../../../elasticbeanstalk/latest/dg/using-features.logging.md "../../../elasticbeanstalk/latest/dg/using-features.logging.md") in the _AWS Elastic Beanstalk Developer Guide_
 for more information.
 
 ## Downloading and running the X-Ray daemon manually (advanced)

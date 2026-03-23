@@ -18,7 +18,7 @@ segments** and adds them to the full trace. Inferred segments represent downstre
 in the trace map.
 
 X-Ray provides a **JSON schema** for segment documents. You can download the
-schema here: [xray-segmentdocument-schema-v1.0.0](samples/xray-segmentdocument-schema-v1.0.0.md "samples/xray-segmentdocument-schema-v1.0.0.md").
+schema here: [xray-segmentdocument-schema-v1.0.0](samples/xray-segmentdocument-schema-v1.0.0.zip.md "samples/xray-segmentdocument-schema-v1.0.0.zip.md").
 The fields and objects listed in the schema are described in more detail in the following sections.
 
 A subset of segment fields are indexed by X-Ray for use with filter expressions. For example, if you set the

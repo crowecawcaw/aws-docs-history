@@ -21,7 +21,7 @@ spring.jpa.database-platform=org.hibernate.dialect.PostgreSQL94Dialect
 ###### Note
 
 See [Configuring Databases with
-Elastic Beanstalk](../../../elasticbeanstalk/latest/dg/using-features.managing.md "../../../elasticbeanstalk/latest/dg/using-features.managing.md") in the _AWS Elastic Beanstalk Developer Guide_ for
+Elastic Beanstalk](../../../elasticbeanstalk/latest/dg/using-features.managing.db.md "../../../elasticbeanstalk/latest/dg/using-features.managing.db.md") in the _AWS Elastic Beanstalk Developer Guide_ for
 details on how to add a PostgreSQL database to the application environment.
 
 The X-Ray demo page in the `xray` branch includes a demo that uses the

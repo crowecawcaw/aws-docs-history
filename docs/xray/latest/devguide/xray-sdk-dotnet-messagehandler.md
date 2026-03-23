@@ -150,7 +150,7 @@ you will see a fourth node on the service map with a fallback name that you spec
 
 To use the same name for all request segments, specify the name of your application when
 you initialize the message handler, as shown in [the previous section](#xray-sdk-dotnet-messagehandler-globalasax "#xray-sdk-dotnet-messagehandler-globalasax"). This has
-the same effect as creating a [`FixedSegmentNamingStrategy`](../../../xray-sdk-for-dotnet/latest/reference/html/T_Amazon_XRay_Recorder_Core_Strategies_FixedSegmentNamingStrategy.md "../../../xray-sdk-for-dotnet/latest/reference/html/T_Amazon_XRay_Recorder_Core_Strategies_FixedSegmentNamingStrategy.md") and passing it to the
+the same effect as creating a [`FixedSegmentNamingStrategy`](../../../xray-sdk-for-dotnet/latest/reference/html/T_Amazon_XRay_Recorder_Core_Strategies_FixedSegmentNamingStrategy.htm.md "../../../xray-sdk-for-dotnet/latest/reference/html/T_Amazon_XRay_Recorder_Core_Strategies_FixedSegmentNamingStrategy.htm.md") and passing it to the
 `RegisterXRay` method.
 
 ```
@@ -165,7 +165,7 @@ You can override the default service name that you define in code with the
 
 A dynamic naming strategy defines a pattern that hostnames should match, and a default
 name to use if the hostname in the HTTP request does not match the pattern. To name segments
-dynamically, create a [`DynamicSegmentNamingStrategy`](../../../xray-sdk-for-dotnet/latest/reference/html/T_Amazon_XRay_Recorder_Core_Strategies_DynamicSegmentNamingStrategy.md "../../../xray-sdk-for-dotnet/latest/reference/html/T_Amazon_XRay_Recorder_Core_Strategies_DynamicSegmentNamingStrategy.md") and pass it to the
+dynamically, create a [`DynamicSegmentNamingStrategy`](../../../xray-sdk-for-dotnet/latest/reference/html/T_Amazon_XRay_Recorder_Core_Strategies_DynamicSegmentNamingStrategy.htm.md "../../../xray-sdk-for-dotnet/latest/reference/html/T_Amazon_XRay_Recorder_Core_Strategies_DynamicSegmentNamingStrategy.htm.md") and pass it to the
 `RegisterXRay` method.
 
 ```
