@@ -29,4 +29,4 @@ as core principles.
 ## Resources
 
 - [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/ "https://aws.amazon.com/compliance/gdpr-center/")
-- [Privacy by Design on AWS](../../../whitepapers/latest/privacy-by-design-on-aws/privacy-by-design-on-aws.md "../../../whitepapers/latest/privacy-by-design-on-aws/privacy-by-design-on-aws.md")
+- [Privacy by Design on AWS](../../../whitepapers/latest/privacy-by-design-on-aws/privacy-by-design-on-aws.pdf.md "../../../whitepapers/latest/privacy-by-design-on-aws/privacy-by-design-on-aws.pdf.md")
