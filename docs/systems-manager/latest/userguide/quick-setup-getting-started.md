@@ -133,7 +133,10 @@ JSON
  "Resource": "arn:aws:iam::`111122223333`:role/AWS-QuickSetup-*",
  "Condition": {
  "StringEquals": {
- "iam:PassedToService": "ssm-quicksetup.amazonaws.com"
+ "iam:PassedToService": [
+ "ssm-quicksetup.amazonaws.com",
+ "cloudformation.amazonaws.com"
+ ]
  }
  }
  },

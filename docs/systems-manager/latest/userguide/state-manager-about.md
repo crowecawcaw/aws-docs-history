@@ -66,7 +66,7 @@ association, you specify the following information:
   State Manager will assume this role and call required APIs when dispatching
   configurations to nodes. For information about setting up the custom-provided role,
   see [Setup roles for AssociationDispatchAssumeRole](#setup-assume-role "#setup-assume-role").
-  If no role is provided, [service-linked role for Systems Manager](systems-manager/latest/userguide/using-service-linked-roles.md "systems-manager/latest/userguide/using-service-linked-roles.md") will be used.
+  If no role is provided, [service-linked role for Systems Manager](using-service-linked-roles.md "using-service-linked-roles.md") will be used.
 
 ###### Note
 

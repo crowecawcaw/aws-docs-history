@@ -87,7 +87,7 @@ bucket.
 A report generated for a single managed node provides both summary
 and detailed information.
 
-[Download a sample report (single node)](samples/Sample-single-instance-patch-compliance-report.md "samples/Sample-single-instance-patch-compliance-report.md")
+[Download a sample report (single node)](samples/Sample-single-instance-patch-compliance-report.zip.md "samples/Sample-single-instance-patch-compliance-report.zip.md")
 
 Summary information for a single managed node includes the
 following:
@@ -143,7 +143,7 @@ specified.
 A report generated for all managed nodes provides only summary
 information.
 
-[Download a sample report (all managed nodes)](samples/Sample-all-instances-patch-compliance-report.md "samples/Sample-all-instances-patch-compliance-report.md")
+[Download a sample report (all managed nodes)](samples/Sample-all-instances-patch-compliance-report.zip.md "samples/Sample-all-instances-patch-compliance-report.zip.md")
 
 Summary information for all managed nodes includes the
 following:

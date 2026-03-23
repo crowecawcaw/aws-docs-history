@@ -192,7 +192,7 @@ Automation by using CloudFormation.
 
 ###### To create the required IAM roles and policies for EC2Rescue
 
-1. Download [`AWSSupport-EC2RescueRole.zip`](samples/AWSSupport-EC2RescueRole.md "samples/AWSSupport-EC2RescueRole.md")
+1. Download [`AWSSupport-EC2RescueRole.zip`](samples/AWSSupport-EC2RescueRole.zip.md "samples/AWSSupport-EC2RescueRole.zip.md")
    and extract the
    `AWSSupport-EC2RescueRole.json` file
    to a directory on your local machine.

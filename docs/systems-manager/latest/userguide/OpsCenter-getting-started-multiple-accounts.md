@@ -186,7 +186,7 @@ aws iam create-service-linked-role \
 
 Use AWS CloudFormation stacksets to create an `OpsItemGroup` resource
 policy and an IAM execution role that give users permission to work with
-OpsItems across accounts. To get started, download and unzip the [`OpsCenterCrossAccountMembers.zip`](samples/OpsCenterCrossAccountMembers.md "samples/OpsCenterCrossAccountMembers.md") file. This
+OpsItems across accounts. To get started, download and unzip the [`OpsCenterCrossAccountMembers.zip`](samples/OpsCenterCrossAccountMembers.zip.md "samples/OpsCenterCrossAccountMembers.zip.md") file. This
 file contains the `OpsCenterCrossAccountMembers.yaml` CloudFormation
 template file. When you create a stack set by using this template,
 CloudFormation automatically creates the
@@ -221,7 +221,7 @@ permissions for member accounts to view related resources. You must also
 create an IAM role to provide management accounts with permission to view
 and interact with related resources, which you will complete in this task.
 
-To get started, download and unzip the [`OpsCenterCrossAccountManagementRole.zip`](samples/OpsCenterCrossAccountManagementRole.md "samples/OpsCenterCrossAccountManagementRole.md") file.
+To get started, download and unzip the [`OpsCenterCrossAccountManagementRole.zip`](samples/OpsCenterCrossAccountManagementRole.zip.md "samples/OpsCenterCrossAccountManagementRole.zip.md") file.
 This file contains the `OpsCenterCrossAccountManagementRole.yaml`
 CloudFormation template file. When you create a stack by using this template,
 CloudFormation automatically creates the

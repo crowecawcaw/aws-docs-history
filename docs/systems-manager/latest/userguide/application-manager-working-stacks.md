@@ -65,7 +65,7 @@ edit, or delete CloudFormation templates and stacks by using Application Manager
 - [CloudFormation best
   practices](../../../AWSCloudFormation/latest/UserGuide/best-practices.md "../../../AWSCloudFormation/latest/UserGuide/best-practices.md")
 - [Learn
-  template basics](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md")
+  template basics](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md")
 - [Working with AWS CloudFormation
   stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md")
 - [Working with AWS CloudFormation

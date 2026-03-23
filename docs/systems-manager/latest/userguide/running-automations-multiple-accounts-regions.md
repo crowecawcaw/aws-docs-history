@@ -92,12 +92,12 @@ automations.
 
 ###### To create the required IAM administration role for multi-Region and multi-account automations by using CloudFormation
 
-1. Download and unzip the [`AWS-SystemsManager-AutomationAdministrationRole.zip`](samples/AWS-SystemsManager-AutomationAdministrationRole.md "samples/AWS-SystemsManager-AutomationAdministrationRole.md").
+1. Download and unzip the [`AWS-SystemsManager-AutomationAdministrationRole.zip`](samples/AWS-SystemsManager-AutomationAdministrationRole.zip.md "samples/AWS-SystemsManager-AutomationAdministrationRole.zip.md").
 
 -or-
 
 If your accounts are managed by AWS Organizations [`AWS-SystemsManager-AutomationAdministrationRole
-(org).zip`](samples/AWS-SystemsManager-AutomationAdministrationRole (org).md "samples/AWS-SystemsManager-AutomationAdministrationRole (org).md").
+(org).zip`](samples/AWS-SystemsManager-AutomationAdministrationRole (org).zip.md "samples/AWS-SystemsManager-AutomationAdministrationRole (org).zip.md").
 
 These files contain the
 `AWS-SystemsManager-AutomationAdministrationRole.yaml`
@@ -122,12 +122,12 @@ you want to target to run multi-Region and multi-account automations.
 
 ###### To create the required IAM automation role for multi-Region and multi-account automations by using CloudFormation
 
-1. Download the [`AWS-SystemsManager-AutomationExecutionRole.zip`](samples/AWS-SystemsManager-AutomationExecutionRole.md "samples/AWS-SystemsManager-AutomationExecutionRole.md").
+1. Download the [`AWS-SystemsManager-AutomationExecutionRole.zip`](samples/AWS-SystemsManager-AutomationExecutionRole.zip.md "samples/AWS-SystemsManager-AutomationExecutionRole.zip.md").
 
 -or
 
 If your accounts are managed by AWS Organizations [`AWS-SystemsManager-AutomationExecutionRole
-(org).zip`](samples/AWS-SystemsManager-AutomationExecutionRole (org).md "samples/AWS-SystemsManager-AutomationExecutionRole (org).md").
+(org).zip`](samples/AWS-SystemsManager-AutomationExecutionRole (org).zip.md "samples/AWS-SystemsManager-AutomationExecutionRole (org).zip.md").
 
 These files contains the
 `AWS-SystemsManager-AutomationExecutionRole.yaml` and

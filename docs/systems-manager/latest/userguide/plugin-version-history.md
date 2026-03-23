@@ -29,6 +29,7 @@ plugin.
 
 | Version   | Release date       | Details                                                                                                                                                                                                         |
 | --------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.2.792.0 | March 17, 2026     | **Bug fix**: Add<br>international keyboard support for<br>Windows.                                                                                                                                              |
 | 1.2.779.0 | February 12, 2026  | **Enhancement**: Update Go<br>version to 1.25 in Dockerfile.<br>**Bug fix**: Add shebang<br>lines to debian packaging scripts.                                                                                  |
 | 1.2.764.0 | November 19, 2025  | **Enhancement**: Added<br>support for signing OpenDataChannel request.<br>**Bug fix**: Fix checkstyle<br>issues to support newer Go version.                                                                    |
 | 1.2.707.0 | February 6, 2025   | **Enhancement**: Upgraded<br>the Go version to 1.23 in the Dockerfile. Updated the<br>version configuration step in the README.                                                                                 |

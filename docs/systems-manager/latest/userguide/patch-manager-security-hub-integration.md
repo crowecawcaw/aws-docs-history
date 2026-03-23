@@ -62,7 +62,7 @@ All findings in Security Hub CSPM use a standard JSON format called the AWS Secu
 Finding Format (ASFF). The ASFF includes details about the source of the issue,
 the affected resources, and the current status of the finding. For more
 information, see [AWS
-Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub User Guide_.
+Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.htm.md "../../../securityhub/latest/userguide/securityhub-findings-format.htm.md") in the _AWS Security Hub User Guide_.
 
 ### Types of findings that Patch Manager sends
 

@@ -13,7 +13,7 @@ information about supported platforms, see [Supported package platforms and arch
 When you create a package, the system creates a new [SSM document](documents.md "documents.md"). This document allows you to
 deploy the package to managed nodes.
 
-For demonstration purposes only, an example package, [ExamplePackage.zip](samples/ExamplePackage.md "samples/ExamplePackage.md"), is available for you to download from our website.
+For demonstration purposes only, an example package, [ExamplePackage.zip](samples/ExamplePackage.zip.md "samples/ExamplePackage.zip.md"), is available for you to download from our website.
 The example package includes a completed JSON manifest and three .zip files
 containing installers for PowerShell v7.0.0. The installation and uninstallation
 scripts don't contain valid commands. Although you must zip each software
@@ -157,7 +157,7 @@ package code files. When you have your required code files added to a folder or
 directory, and the manifest is populated with correct values, upload your
 package to an S3 bucket.
 
-An example package, [ExamplePackage.zip](samples/ExamplePackage.md "samples/ExamplePackage.md"), is available for you to download from our
+An example package, [ExamplePackage.zip](samples/ExamplePackage.zip.md "samples/ExamplePackage.zip.md"), is available for you to download from our
 website. The example package includes a completed JSON manifest and three .zip
 files.
 
@@ -218,7 +218,7 @@ For more information about installing or updating packages, see [Install or upda
 
 For examples of .zip files, including sample **install**
 and **uninstall** scripts, download the example package,
-[ExamplePackage.zip](samples/ExamplePackage.md "samples/ExamplePackage.md").
+[ExamplePackage.zip](samples/ExamplePackage.zip.md "samples/ExamplePackage.zip.md").
 
 ### Step 2: Create the JSON package manifest
 
@@ -593,7 +593,7 @@ once.
 
 #### Package example
 
-An example package, [ExamplePackage.zip](samples/ExamplePackage.md "samples/ExamplePackage.md"), is available for you to download from
+An example package, [ExamplePackage.zip](samples/ExamplePackage.zip.md "samples/ExamplePackage.zip.md"), is available for you to download from
 our website. The example package includes a completed JSON manifest and
 three .zip files.
 

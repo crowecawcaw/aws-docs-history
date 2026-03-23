@@ -140,6 +140,7 @@ Manager
 - [Issue: Patching fails with ‘Error unpacking rpm package…’ message](#error-unpacking-rpm "#error-unpacking-rpm")
 - [Issue: Patching fails with 'Encounter service side error when uploading the inventory'](#inventory-upload-error "#inventory-upload-error")
 - [Issue: Patching fails with ‘Errors were encountered while downloading packages’ message](#errors-while-downloading "#errors-while-downloading")
+- [Issue: Patching fails with an out of memory (OOM) error](#patch-manager-troubleshooting-linux-oom "#patch-manager-troubleshooting-linux-oom")
 - [Issue: Patching fails with a message that 'The following signatures couldn't be verified because the public key is not available'](#public-key-unavailable "#public-key-unavailable")
 - [Issue: Patching fails with a 'NoMoreMirrorsRepoError' message](#no-more-mirrors-repo-error "#no-more-mirrors-repo-error")
 - [Issue: Patching fails with an 'Unable to download payload' message](#payload-download-error "#payload-download-error")
@@ -430,6 +431,45 @@ memory is available on a managed node.
 **Solution**: Configure the swap memory, or
 upgrade the instance to a different type to increase the memory support. Then
 start a new patching operation.
+
+### Issue: Patching fails with an out of memory (OOM) error
+
+**Problem**: When you run
+`AWS-RunPatchBaseline`, the patching operation fails due to
+insufficient memory on the managed node. You might see errors such as
+`Cannot allocate memory`, `Killed` (from the Linux
+OOM killer), or the operation fails unexpectedly. This error is more likely to
+occur on instances with less than 1 GB of RAM, but can also affect instances
+with more memory when a large number of updates are available.
+
+**Cause**: Patch Manager runs patching operations
+using the native package manager on the managed node. The memory required
+during a patching operation depends on several factors, including:
+
+- The number of packages installed and available updates on the managed
+  node.
+- The package manager in use and its memory
+  characteristics.
+- Other processes running on the managed node at the time of the
+  patching operation.
+
+Managed nodes with a large number of installed packages or a large number
+of available updates require more memory during patching operations. When
+available memory is insufficient, the patching process will fail and exit
+with an error. The operating system can also terminate the patching
+process.
+
+**Solution**: Try one or more of the
+following:
+
+- Schedule patching operations during periods of low workload activity
+  on the managed node, such as by using maintenance windows.
+- Upgrade the instance to a type with more memory.
+- Configure swap memory on the managed node. Note that on instances
+  with limited EBS throughput, heavy swap usage may cause performance
+  degradation.
+- Review and reduce the number of processes running on the managed node
+  during patching operations.
 
 ### Issue: Patching fails with a message that 'The following signatures couldn't be verified because the public key is not available'
 

@@ -11,7 +11,7 @@ Systems Manager Automation by using CloudFormation.
 
 ###### To create the required IAM role
 
-1. Download and unzip the [`AWS-SystemsManager-AutomationServiceRole.zip`](samples/AWS-SystemsManager-AutomationServiceRole.md "samples/AWS-SystemsManager-AutomationServiceRole.md")
+1. Download and unzip the [`AWS-SystemsManager-AutomationServiceRole.zip`](samples/AWS-SystemsManager-AutomationServiceRole.zip.md "samples/AWS-SystemsManager-AutomationServiceRole.zip.md")
    file. This file includes the
    `AWS-SystemsManager-AutomationServiceRole.yaml` CloudFormation
    template file.
