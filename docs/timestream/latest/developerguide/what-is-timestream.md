@@ -64,7 +64,7 @@ Examples of a growing list of use cases for Timestream for LiveAnalytics include
 
 We recommend that you begin by reading the following sections:
 
-- **[Tutorial](getting-started.md "getting-started.md") -**
+- **[Tutorial](getting-started.db-w-sample-data.md "getting-started.db-w-sample-data.md") -**
   To create a database populated with sample data sets and run sample queries.
 - **[Amazon Timestream for LiveAnalytics concepts](concepts.md "concepts.md") -**
   To learn essential Timestream for LiveAnalytics concepts.

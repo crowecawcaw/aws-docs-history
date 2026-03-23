@@ -5,7 +5,7 @@ data ingestion and single-digit millisecond query response times for real-time a
 
 If Timestream rejects records, you will receive a
 `RejectedRecordsException` with details about the rejection. Please refer
-to [Handling write failure](code-samples.md#code-samples.write.rejectedRecordException "code-samples.md#code-samples.write.rejectedRecordException") for more information on how to extract this
+to [Handling write failure](code-samples.write.md#code-samples.write.rejectedRecordException "code-samples.write.md#code-samples.write.rejectedRecordException") for more information on how to extract this
 information from the WriteRecords response.
 
 All rejections will be included in this response **with the

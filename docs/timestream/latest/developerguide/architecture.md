@@ -132,5 +132,5 @@ REST API operations for Timestream for Live Analytics, you will need to interact
 with the cellular endpoints._ For guidance on how to do so, see
 [VPC Endpoints](VPCEndpoints.md "VPCEndpoints.md") for instructions on how to
 set up VPC endpoints, and [Endpoint Discovery
-Pattern](Using.md "Using.md") for instructions on direct invocation of the REST API
+Pattern](Using.API.md "Using.API.md") for instructions on direct invocation of the REST API
 operations.

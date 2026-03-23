@@ -27,4 +27,4 @@ Syntax, parameters and other usage information for the
 Reference](API_DescribeEndpoints.md "API_DescribeEndpoints.md"). Note that the `DescribeEndpoints` action is
 available via both SDKs, and is identical for each.
 
-For implementation of the endpoint discovery pattern, see [Implementing the endpoint discovery pattern](Using-API.endpoint-discovery.describe-endpoints.md "Using-API.endpoint-discovery.describe-endpoints.md").
+For implementation of the endpoint discovery pattern, see [Implementing the endpoint discovery pattern](Using-API.endpoint-discovery.describe-endpoints.implementation.md "Using-API.endpoint-discovery.describe-endpoints.implementation.md").

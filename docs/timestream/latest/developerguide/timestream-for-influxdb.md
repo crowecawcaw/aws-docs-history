@@ -374,7 +374,7 @@ network needs. Here are some important things to consider:
   processor requirements for your application or service? You use these settings to help you
   determine what DB instance class to use. For specifications about DB instance classes, see
   [DB
-  instance classes](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md").
+  instance classes](../../../AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.md "../../../AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.md").
 - **VPC and security group** — Your DB instance will
   most likely be in a _virtual private cloud (VPC)_. To connect to your DB
   instance, you need to set up security group rules. These rules are set up differently
@@ -388,14 +388,14 @@ The following list describes the rules for each VPC option:
      you specify the default VPC when you create the DB instance, make sure to create a
      *VPC security group* that authorizes connections from the application or
      service to the Amazon Timestream for InfluxDB DB instance. Use the **Security Group** option on the VPC console or the AWS CLI to create VPC
-     security groups. For more information, see [Step 3: Create a VPC security group](../../../AmazonRDS/latest/UserGuide/USER_VPC.md#USER_VPC.CreateVPCSecurityGroup "../../../AmazonRDS/latest/UserGuide/USER_VPC.md#USER_VPC.CreateVPCSecurityGroup").
+     security groups. For more information, see [Step 3: Create a VPC security group](../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.CreateVPCSecurityGroup "../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.CreateVPCSecurityGroup").
 
 - **User-defined VPC** — If you want to specify a
   user-defined VPC when you create a DB instance, be aware of the following:
   - Make sure to create a _VPC security group_ that authorizes
     connections from the application or service to the Amazon Timestream for InfluxDB DB
     instance. Use the **Security Group** option on the VPC console
-    or the AWS CLI to create VPC security groups. For information, see [Step 3: Create a VPC security group](../../../AmazonRDS/latest/UserGuide/USER_VPC.md#USER_VPC.CreateVPCSecurityGroup "../../../AmazonRDS/latest/UserGuide/USER_VPC.md#USER_VPC.CreateVPCSecurityGroup").
+    or the AWS CLI to create VPC security groups. For information, see [Step 3: Create a VPC security group](../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.CreateVPCSecurityGroup "../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.CreateVPCSecurityGroup").
   - The VPC must meet certain requirements in order to host DB instances, such as having at
     least two subnets, each in a separate Availability Zone. For
     information, see [Amazon VPC and

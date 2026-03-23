@@ -4,7 +4,7 @@ data ingestion and single-digit millisecond query response times for real-time a
 # ListBatchLoadTasks
 
 Provides a list of batch load tasks, along with the name, status, when the task is resumable until, and other
-details. See [code sample](code-samples.md "code-samples.md") for
+details. See [code sample](code-samples.list-batch-load-tasks.md "code-samples.list-batch-load-tasks.md") for
 details.
 
 ## Request Syntax

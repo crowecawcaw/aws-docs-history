@@ -6,7 +6,7 @@ data ingestion and single-digit millisecond query response times for real-time a
 Returns information about the batch load task, including configurations, mappings, progress, and other details.
 [Service quotas apply](ts-limits.md "ts-limits.md"). See
 [code
-sample](code-samples.md "code-samples.md") for details.
+sample](code-samples.describe-batch-load.md "code-samples.describe-batch-load.md") for details.
 
 ## Request Syntax
 

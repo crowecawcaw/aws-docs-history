@@ -14,7 +14,7 @@ Due to the nature of distributed retries, the operation can return either succes
 ResourceNotFoundException. Clients should consider them equivalent.
 
 See [code
-sample](code-samples.md "code-samples.md") for details.
+sample](code-samples.delete-db.md "code-samples.delete-db.md") for details.
 
 ## Request Syntax
 

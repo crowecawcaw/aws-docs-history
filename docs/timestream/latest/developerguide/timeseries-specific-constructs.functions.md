@@ -1,57 +1,17 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Correlation functions
+# Time series functions
 
-Given two similar length time series, correlation functions provide a correlation
-coefficient, which explains how the two time series trend over time. The correlation
-coefficient ranges from `-1.0` to `1.0`. `-1.0`
-indicates that the two time series trend in opposite directions at the same rate.
-whereas `1.0` indicates that the two timeseries trend in the same
-direction at the same rate. A value of `0` indicates no correlation
-between the two time series. For example, if the price of oil increases, and the
-stock price of an oil company increases, the trend of the price increase of oil and
-the price increase of the oil company will have a positive correlation coefficient.
-A high positive correlation coefficient would indicate that the two prices trend at
-a similar rate. Similarly, the correlation coefficient between bond prices and bond
-yields is negative, indicating that these two values trends in the opposite
-direction over time.
+Amazon Timestream for LiveAnalytics supports timeseries functions, such as derivatives, integrals, and
+correlations, as well as others, to derive deeper insights from your time series data.
+This section provides usage information for each of these functions, as well as sample
+queries. Select a topic below to learn more.
 
-Amazon Timestream supports two variants of correlation functions. This section
-provides usage information for the Timestream for LiveAnalytics correlation functions, as well as sample
-queries.
+###### Topics
 
-## Usage information
-
-| Function                                        | Output data type | Description                                                                                                                                                                                                                                                                      |
-| ----------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `correlate_pearson(timeseries,<br>timeseries)`  | double           | Calculates [Pearson's correlation coefficient](https://wikipedia.org/wiki/Pearson_correlation_coefficient "https://wikipedia.org/wiki/Pearson_correlation_coefficient") for the two<br>`timeseries`. The timeseries must have the<br>same timestamps.                            |
-| `correlate_spearman(timeseries,<br>timeseries)` | double           | Calculates [Spearman's correlation coefficient](https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient "https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient") for the two<br>`timeseries`. The timeseries must have the<br>same timestamps. |
-
-## Query examples
-
-###### Example
-
-```
-WITH cte_1 AS (
-    SELECT INTERPOLATE_LINEAR(
-        CREATE_TIME_SERIES(time, measure_value::double),
-        SEQUENCE(min(time), max(time), 10m)) AS result
-    FROM sample.DevOps
-    WHERE measure_name = 'cpu_utilization'
-    AND hostname = 'host-Hovjv' AND time > ago(1h)
-    GROUP BY hostname, measure_name
-),
-cte_2 AS (
-    SELECT INTERPOLATE_LINEAR(
-        CREATE_TIME_SERIES(time, measure_value::double),
-        SEQUENCE(min(time), max(time), 10m)) AS result
-    FROM sample.DevOps
-    WHERE measure_name = 'cpu_utilization'
-    AND hostname = 'host-Hovjv' AND time > ago(1h)
-    GROUP BY hostname, measure_name
-)
-SELECT correlate_pearson(cte_1.result, cte_2.result) AS result
-FROM cte_1, cte_2
-
-```
+- [Interpolation functions](timeseries-specific-constructs.functions.interpolation.md "timeseries-specific-constructs.functions.interpolation.md")
+- [Derivatives functions](timeseries-specific-constructs.functions.derivatives.md "timeseries-specific-constructs.functions.derivatives.md")
+- [Integral functions](timeseries-specific-constructs.functions.integrals.md "timeseries-specific-constructs.functions.integrals.md")
+- [Correlation functions](timeseries-specific-constructs.functions.correlation.md "timeseries-specific-constructs.functions.correlation.md")
+- [Filter and reduce functions](timeseries-specific-constructs.functions.filter-reduce.md "timeseries-specific-constructs.functions.filter-reduce.md")

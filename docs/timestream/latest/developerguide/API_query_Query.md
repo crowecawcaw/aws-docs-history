@@ -15,7 +15,7 @@ The maximum number of `Query` API requests you're allowed to make with `QueryIns
 `Query` will time out after 60 seconds.
 You must update the default timeout in the SDK to support a timeout of 60 seconds. See
 the [code
-sample](code-samples.md "code-samples.md") for details.
+sample](code-samples.run-query.md "code-samples.run-query.md") for details.
 
 Your query request will fail in the following cases:
 

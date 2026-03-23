@@ -4,4 +4,4 @@ data ingestion and single-digit millisecond query response times for real-time a
 # Using batch load with the AWS SDKs
 
 For examples of how to create, describe, and list batch load tasks with the AWS
-SDKs, see [Create batch load task](code-samples.md "code-samples.md"), [Describe batch load task](code-samples.md "code-samples.md"), [List batch load tasks](code-samples.md "code-samples.md"), and [Resume batch load task](code-samples.md "code-samples.md").
+SDKs, see [Create batch load task](code-samples.create-batch-load.md "code-samples.create-batch-load.md"), [Describe batch load task](code-samples.describe-batch-load.md "code-samples.describe-batch-load.md"), [List batch load tasks](code-samples.list-batch-load-tasks.md "code-samples.list-batch-load-tasks.md"), and [Resume batch load task](code-samples.resume-batch-load-task.md "code-samples.resume-batch-load-task.md").

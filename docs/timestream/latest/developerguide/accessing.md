@@ -13,8 +13,8 @@ review the following:
 - [Provide Timestream for LiveAnalytics access](#getting-started.prereqs.iam-user "#getting-started.prereqs.iam-user")
 - [Grant programmatic access](#programmatic-access "#programmatic-access")
 - [Using the console](console_timestream.md "console_timestream.md")
-- [Accessing Amazon Timestream for LiveAnalytics using the AWS CLI](Tools.md "Tools.md")
-- [Using the API](Using.md "Using.md")
+- [Accessing Amazon Timestream for LiveAnalytics using the AWS CLI](Tools.CLI.md "Tools.CLI.md")
+- [Using the API](Using.API.md "Using.API.md")
 - [Using the AWS SDKs](getting-started-sdks.md "getting-started-sdks.md")
 
 ## Sign up for an AWS account

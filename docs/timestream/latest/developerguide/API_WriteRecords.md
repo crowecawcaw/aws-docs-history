@@ -14,7 +14,7 @@ of a recently completed write operation. The results may also include some stale
 request after a short time, the results should return the latest data. [Service quotas apply](ts-limits.md "ts-limits.md").
 
 See [code
-sample](code-samples.md "code-samples.md") for details.
+sample](code-samples.write.md "code-samples.write.md") for details.
 
 **Upserts**
 

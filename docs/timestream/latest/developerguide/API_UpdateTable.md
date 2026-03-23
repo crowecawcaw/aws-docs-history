@@ -10,7 +10,7 @@ of data, but will be populated with 24 hours of data 22 hours after this change 
 not retrieve data from the magnetic store to populate the memory store.
 
 See [code
-sample](code-samples.md "code-samples.md") for details.
+sample](code-samples.update-table.md "code-samples.update-table.md") for details.
 
 ## Request Syntax
 

@@ -6,7 +6,7 @@ data ingestion and single-digit millisecond query response times for real-time a
 Adds a new table to an existing database in your account. In an AWS account, table names must be
 at least unique within each Region if they are in the same database. You might have identical table names in the same
 Region if the tables are in separate databases. While creating the table, you must specify the table name, database
-name, and the retention properties. [Service quotas apply](ts-limits.md "ts-limits.md"). See [code sample](code-samples.md "code-samples.md") for details.
+name, and the retention properties. [Service quotas apply](ts-limits.md "ts-limits.md"). See [code sample](code-samples.create-table.md "code-samples.create-table.md") for details.
 
 ## Request Syntax
 

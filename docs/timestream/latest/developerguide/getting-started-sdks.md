@@ -13,9 +13,9 @@ Once you've completed the necessary prerequisites for your SDK of choice, you ca
 
 ###### Topics
 
-- [Java](getting-started.md "getting-started.md")
-- [Java v2](getting-started.md "getting-started.md")
-- [Go](getting-started.md "getting-started.md")
-- [Python](getting-started.md "getting-started.md")
-- [Node.js](getting-started.md "getting-started.md")
-- [.NET](getting-started.md "getting-started.md")
+- [Java](getting-started.java.md "getting-started.java.md")
+- [Java v2](getting-started.java-v2.md "getting-started.java-v2.md")
+- [Go](getting-started.go.md "getting-started.go.md")
+- [Python](getting-started.python.md "getting-started.python.md")
+- [Node.js](getting-started.node-js.md "getting-started.node-js.md")
+- [.NET](getting-started.dot-net.md "getting-started.dot-net.md")

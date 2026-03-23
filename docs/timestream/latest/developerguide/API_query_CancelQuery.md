@@ -8,7 +8,7 @@ not completed running before the cancellation request was issued. Because cancel
 is an idempotent operation, subsequent cancellation requests will return a
 `CancellationMessage`, indicating that the query has already been
 canceled. See [code
-sample](code-samples.md "code-samples.md") for details.
+sample](code-samples.cancel-query.md "code-samples.cancel-query.md") for details.
 
 ## Request Syntax
 

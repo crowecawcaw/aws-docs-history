@@ -13,7 +13,7 @@ You can create batch load tasks by using the AWS Management Console, the AWS CLI
 more information, see [Using batch load with the console](batch-load-using-console.md "batch-load-using-console.md"), [Using batch load with the AWS CLI](batch-load-using-cli.md "batch-load-using-cli.md"), and [Using batch load with the AWS SDKs](batch-load-using-sdk.md "batch-load-using-sdk.md").
 
 In addition to batch load, you can write multiple records at the same time with the
-WriteRecords API operation. For guidance about which to use, see [Choosing between the WriteRecords API operation and batch load](writes.md "writes.md").
+WriteRecords API operation. For guidance about which to use, see [Choosing between the WriteRecords API operation and batch load](writes.writes-or-batch-load.md "writes.writes-or-batch-load.md").
 
 ###### Topics
 

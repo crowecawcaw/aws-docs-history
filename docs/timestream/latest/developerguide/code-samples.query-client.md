@@ -1,0 +1,70 @@
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
+data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+# Query SDK client
+
+You can use the following code snippets to create a Timestream client for the Query SDK.
+The Query SDK is used to query your existing time series data stored in Timestream.
+
+###### Note
+
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
+For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
+
+Java
+
+```
+    private static AmazonTimestreamQuery buildQueryClient() {
+        AmazonTimestreamQuery client = AmazonTimestreamQueryClient.builder().withRegion("us-east-1").build();
+        return client;
+    }
+```
+
+Java v2
+
+```
+    private static TimestreamQueryClient buildQueryClient() {
+        return TimestreamQueryClient.builder()
+                .region(Region.US_EAST_1)
+                .build();
+    }
+```
+
+Go
+
+```
+sess, err := session.NewSession(&aws.Config{Region: aws.String("us-east-1")})
+```
+
+Python
+
+```
+query_client = session.client('timestream-query')
+```
+
+Node.js
+The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Query Client - ,AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-query/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-query/index.md").
+
+An additional command import is shown here. The `QueryCommand` import is not required to create the client.
+
+```
+import { TimestreamQueryClient, QueryCommand } from "@aws-sdk/client-timestream-query";
+const queryClient = new TimestreamQueryClient({ region: "us-east-1" });
+```
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+
+```
+queryClient = new AWS.TimestreamQuery();
+```
+
+.NET
+
+```
+var queryClientConfig = new AmazonTimestreamQueryConfig
+{
+    RegionEndpoint = RegionEndpoint.USEast1
+};
+
+var queryClient = new AmazonTimestreamQueryClient(queryClientConfig);
+```

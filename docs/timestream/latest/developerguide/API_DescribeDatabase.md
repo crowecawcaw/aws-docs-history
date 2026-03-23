@@ -4,7 +4,7 @@ data ingestion and single-digit millisecond query response times for real-time a
 # DescribeDatabase
 
 Returns information about the database, including the database name, time that the database was created, and the
-total number of tables found within the database. [Service quotas apply](ts-limits.md "ts-limits.md"). See [code sample](code-samples.md "code-samples.md") for details.
+total number of tables found within the database. [Service quotas apply](ts-limits.md "ts-limits.md"). See [code sample](code-samples.describe-db.md "code-samples.describe-db.md") for details.
 
 ## Request Syntax
 

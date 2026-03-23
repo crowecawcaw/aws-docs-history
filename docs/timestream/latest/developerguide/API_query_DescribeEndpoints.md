@@ -15,7 +15,7 @@ _it is not recommended that you use this API unless_:
   support
 - You require better control over the client-side implementation
   For detailed information on how and when to use and implement DescribeEndpoints, see
-  [The Endpoint Discovery Pattern](Using.md#Using-API.endpoint-discovery "Using.md#Using-API.endpoint-discovery").
+  [The Endpoint Discovery Pattern](Using.API.md#Using-API.endpoint-discovery "Using.API.md#Using-API.endpoint-discovery").
 
 ## Response Syntax
 

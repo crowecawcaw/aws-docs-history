@@ -3,7 +3,7 @@ data ingestion and single-digit millisecond query response times for real-time a
 
 # ListTables
 
-Provides a list of tables, along with the name, status, and retention properties of each table. See [code sample](code-samples.md "code-samples.md") for
+Provides a list of tables, along with the name, status, and retention properties of each table. See [code sample](code-samples.list-table.md "code-samples.list-table.md") for
 details.
 
 ## Request Syntax

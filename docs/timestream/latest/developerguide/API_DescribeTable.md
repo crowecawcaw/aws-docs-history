@@ -4,7 +4,7 @@ data ingestion and single-digit millisecond query response times for real-time a
 # DescribeTable
 
 Returns information about the table, including the table name, database name, retention duration of the memory
-store and the magnetic store. [Service quotas apply](ts-limits.md "ts-limits.md"). See [code sample](code-samples.md "code-samples.md") for details.
+store and the magnetic store. [Service quotas apply](ts-limits.md "ts-limits.md"). See [code sample](code-samples.describe-table.md "code-samples.describe-table.md") for details.
 
 ## Request Syntax
 

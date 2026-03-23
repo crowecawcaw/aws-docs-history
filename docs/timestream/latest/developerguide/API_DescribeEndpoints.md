@@ -15,7 +15,7 @@ operation unless_:
 - Your application uses a programming language that does not yet have SDK support
 - You require better control over the client-side implementation
   For detailed information on how and when to use and implement DescribeEndpoints, see [The Endpoint Discovery
-  Pattern](Using.md#Using-API.endpoint-discovery "Using.md#Using-API.endpoint-discovery").
+  Pattern](Using.API.md#Using-API.endpoint-discovery "Using.API.md#Using-API.endpoint-discovery").
 
 ## Response Syntax
 

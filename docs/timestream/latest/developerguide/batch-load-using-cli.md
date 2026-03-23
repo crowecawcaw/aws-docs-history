@@ -7,11 +7,11 @@ data ingestion and single-digit millisecond query response times for real-time a
 
 To start using batch load, go through the following steps.
 
-1. Install the AWS CLI using the instructions at [Accessing Amazon Timestream for LiveAnalytics using the AWS CLI](Tools.md "Tools.md").
+1. Install the AWS CLI using the instructions at [Accessing Amazon Timestream for LiveAnalytics using the AWS CLI](Tools.CLI.md "Tools.CLI.md").
 2. Run the following command to verify that the Timestream CLI commands have been
    updated. Verify that create-batch-load-task is in the list.
 
-`aws timestream-write help` 3. Prepare a data source using the instructions at [Preparing a batch load data file](batch-load-preparing-data-file.md "batch-load-preparing-data-file.md"). 4. Create a database and table using the instructions at [Accessing Amazon Timestream for LiveAnalytics using the AWS CLI](Tools.md "Tools.md"). 5. Create an S3 bucket for report output. The bucket must be in the same Region.
+`aws timestream-write help` 3. Prepare a data source using the instructions at [Preparing a batch load data file](batch-load-preparing-data-file.md "batch-load-preparing-data-file.md"). 4. Create a database and table using the instructions at [Accessing Amazon Timestream for LiveAnalytics using the AWS CLI](Tools.CLI.md "Tools.CLI.md"). 5. Create an S3 bucket for report output. The bucket must be in the same Region.
 For more information about buckets, see [Creating,
 configuring, and working with Amazon S3 buckets](../../../AmazonS3/latest/userguide/creating-buckets-s3.md "../../../AmazonS3/latest/userguide/creating-buckets-s3.md"). 6. Create a batch load task. For steps, see [Create a batch load task](#batch-load-using-cli-create-task "#batch-load-using-cli-create-task"). 7. Confirm the status of the task. For steps, see [Describe batch load task](#batch-load-using-cli-describe-task "#batch-load-using-cli-describe-task").
 
@@ -171,7 +171,7 @@ aws timestream-write create-table --database-name BatchLoad \
 2. Using the console, create an S3 bucket and copy the
    `sample.csv` file to that location. You can download a
    sample CSV at [sample
-   CSV](samples/batch-load-sample-file.csv.md "samples/batch-load-sample-file.csv.md").
+   CSV](samples/batch-load-sample-file.csv.zip.md "samples/batch-load-sample-file.csv.zip.md").
 3. Using the console create an S3 bucket for Timestream for LiveAnalytics to write a report if the
    batch load task completes with errors.
 4. Create a batch load task. Make sure to replace

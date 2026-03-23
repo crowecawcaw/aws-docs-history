@@ -110,7 +110,7 @@ One of `DOUBLE`, `BIGINT`
 This example demonstrates mapping to multi-measure records, the preferred
 approach, which store each measure value in a dedicated column. You can download a
 sample CSV at [sample
-CSV](samples/batch-load-sample-file.csv.md "samples/batch-load-sample-file.csv.md"). The sample has the following headings to map to a target column in a
+CSV](samples/batch-load-sample-file.csv.zip.md "samples/batch-load-sample-file.csv.zip.md"). The sample has the following headings to map to a target column in a
 Timestream for LiveAnalytics table.
 
 - `time`

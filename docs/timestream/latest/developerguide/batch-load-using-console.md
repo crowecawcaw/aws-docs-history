@@ -4,7 +4,7 @@ data ingestion and single-digit millisecond query response times for real-time a
 # Using batch load with the console
 
 Following are steps for using batch load with the AWS Management Console. You can download a sample
-CSV at [sample CSV](samples/batch-load-sample-file.csv.md "samples/batch-load-sample-file.csv.md").
+CSV at [sample CSV](samples/batch-load-sample-file.csv.zip.md "samples/batch-load-sample-file.csv.zip.md").
 
 ###### Topics
 

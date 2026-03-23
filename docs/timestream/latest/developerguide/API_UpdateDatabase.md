@@ -8,7 +8,7 @@ database name and the identifier of the new AWS KMS key to be used (`KmsKeyId`).
 any concurrent `UpdateDatabase` requests, first writer wins.
 
 See [code
-sample](code-samples.md "code-samples.md") for details.
+sample](code-samples.update-db.md "code-samples.update-db.md") for details.
 
 ## Request Syntax
 

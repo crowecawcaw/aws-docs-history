@@ -16,7 +16,7 @@ criteria. Tags can help you do the following:
 To get started with tagging, do the following:
 
 1. Understand [Tagging restrictions](TaggingRestrictions.md "TaggingRestrictions.md").
-2. Create tags by using [Tagging operations](Tagging.md "Tagging.md").
+2. Create tags by using [Tagging operations](Tagging.Operations.md "Tagging.Operations.md").
    Finally, it is good practice to follow optimal tagging strategies. For information, see
    [AWS Tagging
    Strategies](https://d0.awsstatic.com/aws-answers/AWS_Tagging_Strategies.pdf "https://d0.awsstatic.com/aws-answers/AWS_Tagging_Strategies.pdf").

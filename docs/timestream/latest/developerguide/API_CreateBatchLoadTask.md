@@ -9,7 +9,7 @@ Errors and events are written to a report at an S3 location. For the report, if 
 specified, the report will be encrypted with an S3 managed key when `SSE_S3` is the option. Otherwise an
 error is thrown. For more information, see [AWS managed keys](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk"). [Service quotas apply](ts-limits.md "ts-limits.md"). For details,
 see [code
-sample](code-samples.md "code-samples.md").
+sample](code-samples.create-batch-load.md "code-samples.create-batch-load.md").
 
 ## Request Syntax
 

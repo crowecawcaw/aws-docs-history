@@ -13,7 +13,7 @@ Java
    following the instructions from
    [GitHub](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository "https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository").
 2. Configure the AWS SDK to connect to Timestream for LiveAnalytics following the instructions described in
-   Getting Started with [Java](getting-started.md "getting-started.md").
+   Getting Started with [Java](getting-started.java.md "getting-started.java.md").
 3. Run the
    [Java sample application](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/java "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/java")
    following the instructions described
@@ -26,7 +26,7 @@ Java v2
    following the instructions from
    [GitHub](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository "https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository").
 2. Configure the AWS SDK to connect to Amazon Timestream for LiveAnalytics following the instructions described in
-   Getting Started with [Java v2](getting-started.md "getting-started.md").
+   Getting Started with [Java v2](getting-started.java-v2.md "getting-started.java-v2.md").
 3. Run the
    [Java 2.0 sample application](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/javaV2 "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/javaV2")
    following the instructions described
@@ -36,7 +36,7 @@ Go 1. Clone the GitHub repository
 [Timestream for LiveAnalytics sample applications](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps")
 following the instructions from
 [GitHub](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository "https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository"). 2. Configure the AWS SDK to connect to Amazon Timestream for LiveAnalytics following the instructions described in
-Getting Started with [Go](getting-started.md "getting-started.md"). 3. Run the
+Getting Started with [Go](getting-started.go.md "getting-started.go.md"). 3. Run the
 [Go sample application](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/goV2 "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/goV2")
 following the instructions described
 [here](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps/goV2/README.md "https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps/goV2/README.md")
@@ -48,7 +48,7 @@ Python
    following the instructions from
    [GitHub](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository "https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository").
 2. Configure the AWS SDK to connect to Amazon Timestream for LiveAnalytics following the instructions described in
-   [Python](getting-started.md "getting-started.md").
+   [Python](getting-started.python.md "getting-started.python.md").
 3. Run the
    [Python sample application](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/python "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/python")
    following the instructions described
@@ -61,7 +61,7 @@ Node.js
    following the instructions from
    [GitHub](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository "https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository").
 2. Configure the AWS SDK to connect to Amazon Timestream for LiveAnalytics following the instructions described in
-   Getting Started with [Node.js](getting-started.md "getting-started.md").
+   Getting Started with [Node.js](getting-started.node-js.md "getting-started.node-js.md").
 3. Run the
    [Node.js sample application](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/js")
    following the instructions described
@@ -74,7 +74,7 @@ Node.js
    following the instructions from
    [GitHub](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository "https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository").
 2. Configure the AWS SDK to connect to Amazon Timestream for LiveAnalytics following the instructions described in
-   Getting Started with [.NET](getting-started.md "getting-started.md").
+   Getting Started with [.NET](getting-started.dot-net.md "getting-started.dot-net.md").
 3. Run the
    [.NET sample application](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/dotnet "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/dotnet")
    following the instructions described

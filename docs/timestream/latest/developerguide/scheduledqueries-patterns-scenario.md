@@ -13,7 +13,7 @@ operations.
 
 You can create these scheduled queries after filling in the preceding options,
 [creating
-the target](code-samples.md "code-samples.md") (or derived) table, and executing the through the AWS CLI.
+the target](code-samples.create-table.md "code-samples.create-table.md") (or derived) table, and executing the through the AWS CLI.
 For example, assume that a scheduled query definition is stored in a file,
 `scheduled_query_example.json`. You can create the query using the
 CLI command.

@@ -13,16 +13,20 @@ Using the AWS Management Console:
 4.  Select **InfluxDB 3** as your engine version.
 5.  Choose **Enterprise** edition for production workloads.
 6.  Configure cluster deployment:
-    1. Select either **1-node** (single node handling writer,
-       reader, and compactor roles) or **3-node** configuration
+    1. Select either **1-node** (single node handling writer,
+       reader, and compactor roles), **3-node** configuration, or
+       a **multi-node cluster (up to 15 nodes)** using a custom
+       parameter group. For details on multi-node configurations, see
+       [Scaling a cluster](multi-node-scaling.md "multi-node-scaling.md").
 
     ###### Note
 
     Single node deployments use Single-AZ compute resources. In case of an issue, a new
-    compute resource must be initialized, resulting in longer remediation time 2. For 3-node deployments, the system will automatically configure:
+    compute resource must be initialized, resulting in longer remediation time 2. For multi-node deployments, the system configures:
 
-        1. Two writer/reader nodes for handling both write and read operations.
-        2. One dedicated compactor node for storage optimization.
+        1. 1-4 writer/reader nodes for handling both write and read operations.
+        2. 0-13 reader-only nodes dedicated to processing read queries.
+        3. One dedicated compactor node for storage optimization (required for clusters with 3+ nodes).
 
 7.  Configure cluster-level settings:
     1. **Instance class**: Select the appropriate `db.influx`
@@ -65,7 +69,8 @@ Key settings that apply to all nodes in your cluster include:
 - **Cluster identifier**: Unique name for your cluster
 - **Instance class**: Compute and memory capacity (same for all
   nodes)
-- **Node configuration**: 1-node or 3-node deployment
+- **Node configuration**: 1-node, 3-node, or multi-node deployment
+  (up to 15 nodes)
 - **Parameter group**: Engine configuration settings
 - **Network type**: IPv4 or dual-stack
 - **VPC and subnets**: Network isolation and availability
@@ -76,14 +81,15 @@ Key settings that apply to all nodes in your cluster include:
 
 - **Uniform node configuration**: All nodes in a cluster must use
   the same instance class and network configuration.
-- **Future scalability**: While initially limited to 1-node and
-  3-node configurations, future updates will enable scaling to additional nodes through parameter
-  group modifications.
-- **High availability**: 3-node configurations provide better
-  availability and performance distribution.
-- **Compactor optimization**: In 3-node deployments, the dedicated
-  compactor node ensures write and read performance isn't impacted by background optimization
-  tasks
+- **Scalability**: Enterprise clusters support up to 15 nodes.
+  You can scale your cluster by creating a new parameter group with your desired node
+  configuration and applying it to your cluster. See [Scaling a cluster](multi-node-scaling.md "multi-node-scaling.md").
+- **High availability**: Multi-node configurations provide better
+  availability and performance distribution, with nodes spread across multiple Availability
+  Zones.
+- **Compactor optimization**: In multi-node deployments (3+ nodes),
+  the dedicated compactor node ensures write and read performance isn't impacted by background
+  optimization tasks
 
 ###### Topics
 

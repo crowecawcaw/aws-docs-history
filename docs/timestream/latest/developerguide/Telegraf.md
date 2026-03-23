@@ -12,6 +12,6 @@ plugin, and how open source Telegraf works with Timestream for LiveAnalytics.
 
 ###### Topics
 
-- [Installing Telegraf with the Timestream for LiveAnalytics output plugin](Telegraf.md "Telegraf.md")
-- [Running Telegraf with the Timestream for LiveAnalytics output plugin](Telegraf.running-output-plugin.md "Telegraf.running-output-plugin.md")
-- [Mapping Telegraf/InfluxDB metrics to the Timestream for LiveAnalytics model](Telegraf.md "Telegraf.md")
+- [Installing Telegraf with the Timestream for LiveAnalytics output plugin](Telegraf.installing-output-plugin.md "Telegraf.installing-output-plugin.md")
+- [Running Telegraf with the Timestream for LiveAnalytics output plugin](Telegraf.running-output-plugin.title.md "Telegraf.running-output-plugin.title.md")
+- [Mapping Telegraf/InfluxDB metrics to the Timestream for LiveAnalytics model](Telegraf.how-it-works.md "Telegraf.how-it-works.md")

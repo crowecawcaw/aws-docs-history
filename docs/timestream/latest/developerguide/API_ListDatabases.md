@@ -3,7 +3,7 @@ data ingestion and single-digit millisecond query response times for real-time a
 
 # ListDatabases
 
-Returns a list of your Timestream databases. [Service quotas apply](ts-limits.md "ts-limits.md"). See [code sample](code-samples.md "code-samples.md") for details.
+Returns a list of your Timestream databases. [Service quotas apply](ts-limits.md "ts-limits.md"). See [code sample](code-samples.list-db.md "code-samples.list-db.md") for details.
 
 ## Request Syntax
 

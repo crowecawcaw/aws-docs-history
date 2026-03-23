@@ -7,7 +7,7 @@ Creates a new Timestream database. If the AWS KMS key is not specified, the data
 encrypted with a Timestream managed AWS KMS key located in your account. For more information,
 see [AWS
 managed keys](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk"). [Service
-quotas apply](ts-limits.md "ts-limits.md"). For details, see [code sample](code-samples.md "code-samples.md").
+quotas apply](ts-limits.md "ts-limits.md"). For details, see [code sample](code-samples.create-db.md "code-samples.create-db.md").
 
 ## Request Syntax
 

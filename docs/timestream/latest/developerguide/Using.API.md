@@ -26,5 +26,5 @@ to learn more.
 
 ###### Topics
 
-- [How the endpoint discovery pattern works](Using-API.endpoint-discovery.md "Using-API.endpoint-discovery.md")
-- [Implementing the endpoint discovery pattern](Using-API.endpoint-discovery.describe-endpoints.md "Using-API.endpoint-discovery.describe-endpoints.md")
+- [How the endpoint discovery pattern works](Using-API.endpoint-discovery.how-it-works.md "Using-API.endpoint-discovery.how-it-works.md")
+- [Implementing the endpoint discovery pattern](Using-API.endpoint-discovery.describe-endpoints.implementation.md "Using-API.endpoint-discovery.describe-endpoints.implementation.md")
