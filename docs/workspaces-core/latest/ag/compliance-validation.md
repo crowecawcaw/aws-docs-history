@@ -19,7 +19,7 @@ AWS provides the following resources to help with compliance:
 - [Security and Compliance Quick Start Guides](https://aws.amazon.com/quickstart/?awsf.quickstart-homepage-filter=categories%23security-identity-compliance "https://aws.amazon.com/quickstart/?awsf.quickstart-homepage-filter=categories%23security-identity-compliance") – These deployment guides discuss architectural
   considerations and provide steps for deploying security- and compliance-focused baseline environments on
   AWS.
-- [Architecting for HIPAA Security and Compliance on Amazon Web Services](../../../pdfs/whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md "../../../pdfs/whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md") –
+- [Architecting for HIPAA Security and Compliance on Amazon Web Services](../../../pdfs/whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.pdf.md "../../../pdfs/whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.pdf.md") –
   This whitepaper describes how companies can use AWS to create HIPAA-compliant
   applications.
 - [AWS Compliance
