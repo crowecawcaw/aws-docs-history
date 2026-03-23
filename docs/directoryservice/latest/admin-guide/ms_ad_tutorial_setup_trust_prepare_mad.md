@@ -52,7 +52,7 @@ directory. Your specific configuration may require additional ports be open.
    the search results, select the Security Group with the description `AWS created security
 group for `yourdirectoryID` directory controllers`.
 
-![In the Amazon VPC Console, search results for the security group for the directory controllers are highlighted.](images/security-group-search.png) 5. Go to the **Outbound Rules** tab for that security
+![In the Amazon VPC Console, search results for the security group for the directory controllers are highlighted.](/images/directoryservice/latest/admin-guide/images/security-group-search.png) 5. Go to the **Outbound Rules** tab for that security
 group. Choose **Edit outbound rules**, and then **Add rule**.
 For the new rule, enter the following values:
 

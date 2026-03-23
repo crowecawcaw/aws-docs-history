@@ -530,7 +530,7 @@ to creation, authentication, and connectivity:
 
 **DirectoryServicePortTest tool**
 
-The [DirectoryServicePortTest](samples/DirectoryServicePortTest.md "samples/DirectoryServicePortTest.md") testing tool can be helpful when
+The [DirectoryServicePortTest](samples/DirectoryServicePortTest.zip.md "samples/DirectoryServicePortTest.zip.md") testing tool can be helpful when
 troubleshooting connectivity issues between AD Connector and customer managed
 Active Directory or DNS servers. For more information on how to use the tool, see [Test your AD Connector](ad_connector_getting_started.md#connect_verification "ad_connector_getting_started.md#connect_verification").
 

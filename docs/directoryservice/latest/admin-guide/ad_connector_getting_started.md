@@ -313,7 +313,7 @@ VPC. To test if these conditions are met, perform the following steps:
 1. Launch a Windows instance in the VPC and connect to it over RDP. The
    instance must be a member of your existing domain. The remaining steps are
    performed on this VPC instance.
-2. Download and unzip the [DirectoryServicePortTest](samples/DirectoryServicePortTest.md "samples/DirectoryServicePortTest.md") test application. The source code and
+2. Download and unzip the [DirectoryServicePortTest](samples/DirectoryServicePortTest.zip.md "samples/DirectoryServicePortTest.zip.md") test application. The source code and
    Visual Studio project files are included so you can modify the test
    application if desired.
 

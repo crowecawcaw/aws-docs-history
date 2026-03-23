@@ -139,7 +139,7 @@ creation issues between AWS Managed Microsoft AD and an on-premises Microsoft Ac
 
 **DirectoryServicePortTest tool**
 
-The [DirectoryServicePortTest](samples/DirectoryServicePortTest.md "samples/DirectoryServicePortTest.md")
+The [DirectoryServicePortTest](samples/DirectoryServicePortTest.zip.md "samples/DirectoryServicePortTest.zip.md")
 testing tool can be helpful when troubleshooting trust creation issues between AWS Managed Microsoft AD
 and on-premises Active Directory. For an example on how the tool can be used, see [Test your AD Connector](ad_connector_getting_started.md#connect_verification "ad_connector_getting_started.md#connect_verification").
 
