@@ -10,7 +10,7 @@ Before you get started with the query editor, access Amazon SageMaker
 and create a project with the **SQL analytics** or **All Capabilities** project profile.
 For more information, see [Setting up Amazon SageMaker](setting-up.md "setting-up.md").
 
-Download the file [sales-data.zip](samples/sales-data.md "samples/sales-data.md").
+Download the file [sales-data.zip](samples/sales-data.zip.md "samples/sales-data.zip.md").
 
 ## Query sample data using Amazon Athena in Amazon SageMaker
 
