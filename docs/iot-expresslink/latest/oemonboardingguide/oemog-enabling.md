@@ -28,4 +28,4 @@ completely outside the scope of this document and are not essential to the onboa
 process.
 
 For an example implementation of a basic (web) registration portal, refer to the
-[claim provisioning reference implementation](samples/el-claim-provisioning-ref-impl.md "samples/el-claim-provisioning-ref-impl.md") (download).
+[claim provisioning reference implementation](samples/el-claim-provisioning-ref-impl.zip.md "samples/el-claim-provisioning-ref-impl.zip.md") (download).
