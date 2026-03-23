@@ -13,7 +13,7 @@ For Grafana workspaces that support Grafana version 8.x, see
 Stats show one large stat value with an optional graph sparkline. You can control
 the background or value color using thresholds or overrides.
 
-![An image showing an example of a stat visualization in Grafana.](/images/grafana/latest/userguide/images/viz/stat_panel_example.png)
+![An image showing an example of a stat visualization in Grafana.](images/viz/stat_panel_example.png)
 By default, a Stat displays one of the following:
 
 - Just the value for a single series or field.
