@@ -24,9 +24,9 @@ practices related to reliability.
 
 ## Whitepapers
 
-- [AWS Fault Isolation Boundaries](../../../pdfs/whitepapers/latest/aws-fault-isolation-boundaries/aws-fault-isolation-boundaries.md#abstract-and-introduction "../../../pdfs/whitepapers/latest/aws-fault-isolation-boundaries/aws-fault-isolation-boundaries.md#abstract-and-introduction")
+- [AWS Fault Isolation Boundaries](../../../pdfs/whitepapers/latest/aws-fault-isolation-boundaries/aws-fault-isolation-boundaries.pdf.md#abstract-and-introduction "../../../pdfs/whitepapers/latest/aws-fault-isolation-boundaries/aws-fault-isolation-boundaries.pdf.md#abstract-and-introduction")
 - [Availability
-  and Beyond](../../../pdfs/whitepapers/latest/availability-and-beyond-improving-resilience/availability-and-beyond-improving-resilience.md "../../../pdfs/whitepapers/latest/availability-and-beyond-improving-resilience/availability-and-beyond-improving-resilience.md")
+  and Beyond](../../../pdfs/whitepapers/latest/availability-and-beyond-improving-resilience/availability-and-beyond-improving-resilience.pdf.md "../../../pdfs/whitepapers/latest/availability-and-beyond-improving-resilience/availability-and-beyond-improving-resilience.pdf.md")
 
 ## Partner solutions
 
