@@ -15,7 +15,7 @@ found`**".
 
 These errors can occur if you enable integration between AWS RAM and AWS Organizations by
 using either the [Organizations console or
-the Organizations EnableAWSServiceAccess API](../../../organizations/latest/userguide/orgs_integrate_services.md "../../../organizations/latest/userguide/orgs_integrate_services.md") instead of by [using the AWS RAM console](getting-started-sharing.md#getting-started-sharing-orgs "getting-started-sharing.md#getting-started-sharing-orgs"). When you
+the Organizations EnableAWSServiceAccess API](../../../organizations/latest/userguide/orgs_integrate_services.htm.md "../../../organizations/latest/userguide/orgs_integrate_services.htm.md") instead of by [using the AWS RAM console](getting-started-sharing.md#getting-started-sharing-orgs "getting-started-sharing.md#getting-started-sharing-orgs"). When you
 enable integration by using the Organizations console or API, the service doesn’t create the
 `AWSServiceRoleForResourceAccessManager` role in your account. That
 role is needed to access information about your organization. Because the role
