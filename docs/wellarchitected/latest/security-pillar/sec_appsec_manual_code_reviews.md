@@ -132,7 +132,7 @@ repositories and continuous integration/continuous deployment
 **Related documents:**
 
 - [DevOps
-  Guidance: DL.CR.2 Perform peer review for code changes](../devops-guidance/dl.cr.md "../devops-guidance/dl.cr.md")
+  Guidance: DL.CR.2 Perform peer review for code changes](../devops-guidance/dl.cr.2-perform-peer-review-for-code-changes.md "../devops-guidance/dl.cr.2-perform-peer-review-for-code-changes.md")
 - [About
   pull requests in GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests")
 

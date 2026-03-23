@@ -195,7 +195,7 @@ deployment process.
 - [SEC11-BP02 Automate testing throughout the development and release lifecycle](sec_appsec_automate_testing_throughout_lifecycle.md "sec_appsec_automate_testing_throughout_lifecycle.md")
 - [DL.CI.2
   Trigger builds automatically upon source code
-  modifications](../devops-guidance/dl.ci.md "../devops-guidance/dl.ci.md")
+  modifications](../devops-guidance/dl.ci.2-trigger-builds-automatically-upon-source-code-modifications.md "../devops-guidance/dl.ci.2-trigger-builds-automatically-upon-source-code-modifications.md")
 
 **Related documents:**
 

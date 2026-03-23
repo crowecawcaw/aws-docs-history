@@ -68,7 +68,7 @@ of delivering this capability.
 
 **Related documents:**
 
-- [DevOps Guidance: DL.CS.2 Sign code artifacts after each build](../devops-guidance/dl.cs.md "../devops-guidance/dl.cs.md")
+- [DevOps Guidance: DL.CS.2 Sign code artifacts after each build](../devops-guidance/dl.cs.2-sign-code-artifacts-after-each-build.md "../devops-guidance/dl.cs.2-sign-code-artifacts-after-each-build.md")
 - [Supply chain Levels for Software Artifacts (SLSA)](https://slsa.dev/ "https://slsa.dev/")
 
 **Related examples:**

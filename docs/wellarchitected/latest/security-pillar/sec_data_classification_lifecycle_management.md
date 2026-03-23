@@ -120,7 +120,7 @@ help you determine how to best track your provenance.
 - [AWS Blueprint for Ransomware Defense](https://d1.awsstatic.com/whitepapers/compliance/AWS-Blueprint-for-Ransomware-Defense.pdf "https://d1.awsstatic.com/whitepapers/compliance/AWS-Blueprint-for-Ransomware-Defense.pdf")
 - [DevOps
   Guidance: Improve traceability with data provenance
-  tracking](../devops-guidance/ag.dlm.md "../devops-guidance/ag.dlm.md")
+  tracking](../devops-guidance/ag.dlm.8-improve-traceability-with-data-provenance-tracking.md "../devops-guidance/ag.dlm.8-improve-traceability-with-data-provenance-tracking.md")
 
 **Related examples:**
 
