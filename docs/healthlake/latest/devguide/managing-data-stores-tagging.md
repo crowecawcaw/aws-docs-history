@@ -23,7 +23,7 @@ _AWS General Reference Guide_.
 
 Use `TagResource` to tag a HealthLake data store. The following menus provide a
 procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more
-information, see [`TagResource`](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") in the _AWS HealthLake API Reference_.
+information, see [`TagResource`](../APIReference/API_TagResource.html.md "../APIReference/API_TagResource.html.md") in the _AWS HealthLake API Reference_.
 
 ###### To tag a HealthLake data store
 
@@ -148,7 +148,7 @@ The **Manage tags** page opens. 4. Choose **Add new tag**. 5. Enter a **Key** an
 
 Use `ListTagsForResource` to list tags for a HealthLake data store. The following
 menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs.
-For more information, see [`ListTagsForResource`](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md") in the _AWS HealthLake API
+For more information, see [`ListTagsForResource`](../APIReference/API_ListTagsForResource.html.md "../APIReference/API_ListTagsForResource.html.md") in the _AWS HealthLake API
 Reference_.
 
 ###### To list tags for a HealthLake data store
@@ -284,7 +284,7 @@ The **Data store details** page opens. Under the
 
 Use `UntagResource` to remove a tag from a HealthLake data store. The following
 menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs.
-For more information, see [`UntagResource`](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md") in the _AWS HealthLake API
+For more information, see [`UntagResource`](../APIReference/API_UntagResource.html.md "../APIReference/API_UntagResource.html.md") in the _AWS HealthLake API
 Reference_.
 
 ###### To untag a HealthLake data store
