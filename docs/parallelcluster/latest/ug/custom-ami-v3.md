@@ -24,7 +24,7 @@ component](../../../imagebuilder/latest/userguide/toe-component-manager.md "../.
 was launched by the created image. For more information, see [Create a custom component with Image Builder](../../../imagebuilder/latest/userguide/create-component.md "../../../imagebuilder/latest/userguide/create-component.md")
 in the _EC2 Image Builder User Guide_.
 
-When called from pcluster [build-image](pcluster.md "pcluster.md") to create a custom image, Image Builder uses the
+When called from pcluster [build-image](pcluster.build-image-v3.md "pcluster.build-image-v3.md") to create a custom image, Image Builder uses the
 build image configuration with the AWS ParallelCluster cookbook to bootstrap AWS ParallelCluster on your [ParentImage](Build-v3.md#yaml-build-image-Build-ParentImage "Build-v3.md#yaml-build-image-Build-ParentImage"). Image Builder downloads components, runs build and validate phases, creates
 the AMI, launches an instance from the AMI, and runs tests. When the process completes, Image Builder then produces a new image or a stop message.
 
@@ -49,15 +49,15 @@ configuration file](image-builder-configuration-file-v3.md "image-builder-config
 
 ## Monitor the Image Builder process with `pcluster` commands to aid in debugging
 
-[describe-image](pcluster.md "pcluster.md")
+[describe-image](pcluster.describe-image-v3.md "pcluster.describe-image-v3.md")
 
 Use this command to monitor the build image status.
 
-[list-image-log-streams](pcluster.md "pcluster.md")
+[list-image-log-streams](pcluster.list-image-log-streams-v3.md "pcluster.list-image-log-streams-v3.md")
 
-Use this command to get the IDs of log streams that you can use to retrieve log events with [get-image-log-events](pcluster.md "pcluster.md").
+Use this command to get the IDs of log streams that you can use to retrieve log events with [get-image-log-events](pcluster.get-image-log-events-v3.md "pcluster.get-image-log-events-v3.md").
 
-[get-image-log-events](pcluster.md "pcluster.md")
+[get-image-log-events](pcluster.get-image-log-events-v3.md "pcluster.get-image-log-events-v3.md")
 
 Use this command to get the log stream of build image process events.
 
@@ -69,11 +69,11 @@ For example, you can tail build image events using the following command.
  --query "events[*].message" | tail -n 50'`
 ```
 
-[get-image-stack-events](pcluster.md "pcluster.md")
+[get-image-stack-events](pcluster.get-image-stack-events-v3.md "pcluster.get-image-stack-events-v3.md")
 
 Use this command to retrieve image stack events for the stack that Image Builder creates.
 
-[export-image-logs](pcluster.md "pcluster.md")
+[export-image-logs](pcluster.export-image-logs-v3.md "pcluster.export-image-logs-v3.md")
 
 Use this command save image logs.
 

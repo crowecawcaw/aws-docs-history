@@ -8,6 +8,6 @@ version.
 
 ###### Topics
 
-- [Slurm dynamic node allocation strategies in version 3.8.0](scheduler-node-allocation-v3-3.8.md "scheduler-node-allocation-v3-3.8.md")
-- [Slurm dynamic node allocation strategies in version 3.7.x](scheduler-dynamic-node-allocation-v3-3.7.md "scheduler-dynamic-node-allocation-v3-3.7.md")
-- [Slurm dynamic node allocation strategies in version 3.6.x and previous](scheduler-dynamic-node-allocation-v3-3.6.md "scheduler-dynamic-node-allocation-v3-3.6.md")
+- [Slurm dynamic node allocation strategies in version 3.8.0](scheduler-node-allocation-v3-3.8.0.md "scheduler-node-allocation-v3-3.8.0.md")
+- [Slurm dynamic node allocation strategies in version 3.7.x](scheduler-dynamic-node-allocation-v3-3.7.x.md "scheduler-dynamic-node-allocation-v3-3.7.x.md")
+- [Slurm dynamic node allocation strategies in version 3.6.x and previous](scheduler-dynamic-node-allocation-v3-3.6.x.md "scheduler-dynamic-node-allocation-v3-3.6.x.md")

@@ -29,9 +29,9 @@ This CLI is distributed as a separate package. For more information, see
 
 ###### Topics
 
-- [awsbsub](awsbatchcli.md "awsbatchcli.md")
-- [awsbstat](awsbatchcli.md "awsbatchcli.md")
-- [awsbout](awsbatchcli.md "awsbatchcli.md")
-- [awsbkill](awsbatchcli.md "awsbatchcli.md")
-- [awsbqueues](awsbatchcli.md "awsbatchcli.md")
-- [awsbhosts](awsbatchcli.md "awsbatchcli.md")
+- [awsbsub](awsbatchcli.awsbsub-v3.md "awsbatchcli.awsbsub-v3.md")
+- [awsbstat](awsbatchcli.awsbstat-v3.md "awsbatchcli.awsbstat-v3.md")
+- [awsbout](awsbatchcli.awsbout-v3.md "awsbatchcli.awsbout-v3.md")
+- [awsbkill](awsbatchcli.awsbkill-v3.md "awsbatchcli.awsbkill-v3.md")
+- [awsbqueues](awsbatchcli.awsbqueues-v3.md "awsbatchcli.awsbqueues-v3.md")
+- [awsbhosts](awsbatchcli.awsbhosts-v3.md "awsbatchcli.awsbhosts-v3.md")

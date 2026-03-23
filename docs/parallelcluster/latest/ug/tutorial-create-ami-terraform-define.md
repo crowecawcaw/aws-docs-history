@@ -41,7 +41,7 @@ provider "aws-parallelcluster" {
 To review the image properties that you can set within the `image_configuration` element, see [Build image configuration files](image-builder-configuration-file-v3.md "image-builder-configuration-file-v3.md").
 
 To review the options that you can set for image creation, for example
-`image_id` and `rollback_on_failure`, see [pcluster build-image](pcluster.md "pcluster.md").
+`image_id` and `rollback_on_failure`, see [pcluster build-image](pcluster.build-image-v3.md "pcluster.build-image-v3.md").
 
 ```
 data "aws-parallelcluster_list_official_images" "parent_image" {

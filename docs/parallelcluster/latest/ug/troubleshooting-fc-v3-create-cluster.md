@@ -1,10 +1,10 @@
 # Trying to create a cluster
 
 When using AWS ParallelCluster version 3.5.0 and later to create a cluster, and a cluster creation failed with
-`--rollback-on-failure` set to `false`, use the [pcluster describe-cluster](pcluster.md "pcluster.md") CLI command to get status and failure information. In this case, the expected
+`--rollback-on-failure` set to `false`, use the [pcluster describe-cluster](pcluster.describe-cluster-v3.md "pcluster.describe-cluster-v3.md") CLI command to get status and failure information. In this case, the expected
 `clusterStatus` of the `pcluster describe-cluster` output is `CREATE_FAILED`. Check the `failures`
 section in the output to find the `failureCode` and `failureReason`. Then, in the following section, find the matching
-`failureCode` for additional troubleshooting help. For more information, see [pcluster describe-cluster](pcluster.md "pcluster.md").
+`failureCode` for additional troubleshooting help. For more information, see [pcluster describe-cluster](pcluster.describe-cluster-v3.md "pcluster.describe-cluster-v3.md").
 
 In the following sections, we recommend that you check the logs on the head node, such as the `/var/log/cfn-init.log` and
 `/var/log/chef-client.log` files. For more information about AWS ParallelCluster logs and how to view them, see [Key logs for debugging](troubleshooting-v3-scaling-issues.md#troubleshooting-v3-key-logs "troubleshooting-v3-scaling-issues.md#troubleshooting-v3-key-logs") and [Retrieving and preserving logs](troubleshooting-v3-get-logs.md "troubleshooting-v3-get-logs.md").
@@ -166,7 +166,7 @@ The custom AMI is invalid because it wasn't built using AWS ParallelCluster.
 - How to resolve?
 
 Use the `pcluster build-image` command to create an AMI by making your AMI the parent image. For more
-information, see [pcluster build-image](pcluster.md "pcluster.md").
+information, see [pcluster build-image](pcluster.build-image-v3.md "pcluster.build-image-v3.md").
 
 ## `failureCode` is `HeadNodeBootstrapFailure` with `failureReason` Failed to set up the head node.
 

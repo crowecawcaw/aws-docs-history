@@ -1,7 +1,7 @@
 # Login Nodes lifecycle
 
 Currently, there is no dedicated command to stop and start the login nodes in a pool. In order to stop the login nodes in a pool the cluster administrator has to update the cluster
-configuration specifying zero on the count of login nodes (`Count: 0` ) and then run an [pcluster.update-cluster-v3](pcluster.md "pcluster.md")
+configuration specifying zero on the count of login nodes (`Count: 0` ) and then run an [pcluster.update-cluster-v3](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md")
 command.
 
 ###### Note
@@ -12,4 +12,4 @@ shown is customizable by the cluster administrator from the head node or from a 
 `/opt/parallelcluster/shared_login_nodes/loginmgtd_config.json`. This termination message is
 not visible when you are connected using the [AWS Systems Manager Session Manager](../../../systems-manager/latest/userguide/what-is-systems-manager.md "../../../systems-manager/latest/userguide/what-is-systems-manager.md") Session Manager.
 
-In order to start the login nodes pool the cluster administrator has to restore the previous `Count` value in the cluster configuration and then run an [update-cluster](pcluster.md "pcluster.md") command.
+In order to start the login nodes pool the cluster administrator has to restore the previous `Count` value in the cluster configuration and then run an [update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md") command.

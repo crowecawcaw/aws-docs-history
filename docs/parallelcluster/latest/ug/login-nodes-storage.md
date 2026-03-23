@@ -4,10 +4,10 @@ All shared storage configured on the cluster using ParallelCluster including man
 
 **Retrieve login nodes information**
 
-To retrieve the address of the single connection provisioned to access the login nodes, the cluster administrator can run the [describe-cluster](pcluster.md "pcluster.md") command. The command will also provide more information about the status of
+To retrieve the address of the single connection provisioned to access the login nodes, the cluster administrator can run the [describe-cluster](pcluster.describe-cluster-v3.md "pcluster.describe-cluster-v3.md") command. The command will also provide more information about the status of
 the login nodes.
 
-Login nodes are a new node type supported by ParallelCluster that can be specified with the [describe-cluster-instances](pcluster.md "pcluster.md") command when querying the status of a specific node type.
+Login nodes are a new node type supported by ParallelCluster that can be specified with the [describe-cluster-instances](pcluster.describe-cluster-instances-v3.md "pcluster.describe-cluster-instances-v3.md") command when querying the status of a specific node type.
 
 The availability of a single connection address to the Login nodes pool doesn’t prevent direct access to a specific login node. However, it is not recommended to use the direct connection to
 avoid warnings from the ssh client. The ssh client stores host identifiers locally for each target address. Since the host identifier is specific per pool, use of different IPs and/or the single

@@ -18,7 +18,7 @@ Image:
 
 `Name` (**Optional**, `String`)
 
-Specifies the name of the AMI. If not specified, the name used when calling the [pcluster build-image](pcluster.md "pcluster.md") command is used.
+Specifies the name of the AMI. If not specified, the name used when calling the [pcluster build-image](pcluster.build-image-v3.md "pcluster.build-image-v3.md") command is used.
 
 ### `Tags`
 

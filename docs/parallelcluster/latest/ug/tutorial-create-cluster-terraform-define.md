@@ -67,7 +67,7 @@ every cluster, you can explicitly define the cluster properties within the local
 To review the cluster properties that you can set within the configuration element,
 see [Cluster configuration file](cluster-configuration-file-v3.md "cluster-configuration-file-v3.md").
 
-To review the options that you can set for cluster creation, see [pcluster create-cluster](pcluster.md "pcluster.md").
+To review the options that you can set for cluster creation, see [pcluster create-cluster](pcluster.create-cluster-v3.md "pcluster.create-cluster-v3.md").
 
 ```
 locals {

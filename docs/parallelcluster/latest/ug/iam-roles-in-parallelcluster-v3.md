@@ -139,7 +139,8 @@ JSON
  "dynamodb:PutItem",
  "dynamodb:UpdateItem",
  "dynamodb:Query",
- "dynamodb:TagResource"
+ "dynamodb:TagResource",
+ "dynamodb:UntagResource"
  ],
  "Resource": "arn:aws:dynamodb:*:`111122223333`:table/parallelcluster-*",
  "Effect": "Allow",
@@ -177,7 +178,9 @@ JSON
  "cloudwatch:PutMetricAlarm",
  "cloudwatch:DeleteAlarms",
  "cloudwatch:DescribeAlarms",
- "cloudwatch:PutCompositeAlarm"
+ "cloudwatch:PutCompositeAlarm",
+ "cloudwatch:TagResource",
+ "cloudwatch:UntagResource"
  ],
  "Resource": "*",
  "Effect": "Allow",
@@ -298,7 +301,8 @@ JSON
  "logs:DescribeExportTasks",
  "logs:DescribeMetricFilters",
  "logs:PutMetricFilter",
- "logs:DeleteMetricFilter"
+ "logs:DeleteMetricFilter",
+ "logs:ListTagsForResource"
  ],
  "Resource": "*",
  "Effect": "Allow",
@@ -725,7 +729,8 @@ JSON
  "Action": [
  "iam:CreateServiceLinkedRole",
  "iam:DeleteRole",
- "iam:TagRole"
+ "iam:TagRole",
+ "iam:UntagRole"
  ],
  "Resource": [
  "arn:aws:iam::`111122223333`:role/parallelcluster/*"

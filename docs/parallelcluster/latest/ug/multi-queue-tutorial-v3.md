@@ -21,7 +21,7 @@ First, verify that AWS ParallelCluster is correctly installed by running the fol
 `$` `pcluster version`
 ```
 
-For more information about `pcluster version`, see [pcluster version](pcluster.md "pcluster.md").
+For more information about `pcluster version`, see [pcluster version](pcluster.version-v3.md "pcluster.version-v3.md").
 
 This command returns the running version of AWS ParallelCluster.
 
@@ -32,7 +32,7 @@ follow this command.
 `$` `pcluster configure --config multi-queue-mode.yaml`
 ```
 
-For more information about the `pcluster configure` command, see [pcluster configure](pcluster.md "pcluster.md").
+For more information about the `pcluster configure` command, see [pcluster configure](pcluster.configure-v3.md "pcluster.configure-v3.md").
 
 After you complete this step, a basic configuration file named `multi-queue-mode.yaml` appears. This file contains a basic cluster
 configuration.
@@ -100,7 +100,7 @@ Create a cluster that's named `multi-queue-cluster` based on your configuration 
 }`
 ```
 
-For more information about the `pcluster create-cluster` command, see [pcluster create-cluster](pcluster.md "pcluster.md").
+For more information about the `pcluster create-cluster` command, see [pcluster create-cluster](pcluster.create-cluster-v3.md "pcluster.create-cluster-v3.md").
 
 To check the status of the cluster, run the following command.
 
@@ -127,7 +127,7 @@ Use your private SSH key file to log in to the head node.
 `$` `pcluster ssh --cluster-name multi-queue-cluster -i `~/path/to/yourkeyfile.pem``
 ```
 
-For more information about `pcluster ssh`, see [pcluster ssh](pcluster.md "pcluster.md").
+For more information about `pcluster ssh`, see [pcluster ssh](pcluster.ssh-v3.md "pcluster.ssh-v3.md").
 
 After logging in, run the `sinfo` command to verify that your scheduler queues are set up and
 configured.
@@ -271,7 +271,7 @@ spot* up infinite 3 idle spot-dy-t2micro-1,spot-st-c5xlarge-1,spot-st-t2micro-1
 ondemand up infinite 10 idle~ ondemand-dy-c52xlarge-[1-10]`
 ```
 
-After logging off of the cluster, you can clean up by running `pcluster delete-cluster`. For more information, see [pcluster list-clusters](pcluster.md "pcluster.md") and [pcluster delete-cluster](pcluster.md "pcluster.md").
+After logging off of the cluster, you can clean up by running `pcluster delete-cluster`. For more information, see [pcluster list-clusters](pcluster.list-clusters-v3.md "pcluster.list-clusters-v3.md") and [pcluster delete-cluster](pcluster.delete-cluster-v3.md "pcluster.delete-cluster-v3.md").
 
 ```
 `$` `pcluster list-clusters``{

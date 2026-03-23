@@ -17,60 +17,60 @@ pcluster [-h]
 
 ``pcluster `command```
 
-Possible choices: [build-image](pcluster.md "pcluster.md") |
-[configure](pcluster.md "pcluster.md") |
-[create-cluster](pcluster.md "pcluster.md") |
-[dcv-connect](pcluster.md "pcluster.md") |
-[delete-cluster](pcluster.md "pcluster.md") |
-[delete-cluster-instances](pcluster.md "pcluster.md") |
-[delete-image](pcluster.md "pcluster.md") |
-[describe-cluster](pcluster.md "pcluster.md") |
-[describe-cluster-instances](pcluster.md "pcluster.md") |
-[describe-compute-fleet](pcluster.md "pcluster.md") |
-[describe-image](pcluster.md "pcluster.md") |
-[export-cluster-logs](pcluster.md "pcluster.md") |
-[export-image-logs](pcluster.md "pcluster.md") |
-[get-cluster-log-events](pcluster.md "pcluster.md") |
-[get-cluster-stack-events](pcluster.md "pcluster.md") |
-[get-image-log-events](pcluster.md "pcluster.md") |
-[get-image-stack-events](pcluster.md "pcluster.md") |
-[list-clusters](pcluster.md "pcluster.md") |
-[list-cluster-log-streams](pcluster.md "pcluster.md") |
-[list-images](pcluster.md "pcluster.md") |
-[list-image-log-streams](pcluster.md "pcluster.md") |
-[list-official-images](pcluster.md "pcluster.md") |
-[ssh](pcluster.md "pcluster.md") |
-[update-cluster](pcluster.md "pcluster.md") |
-[update-compute-fleet](pcluster.md "pcluster.md") |
-[version](pcluster.md "pcluster.md")
+Possible choices: [build-image](pcluster.build-image-v3.md "pcluster.build-image-v3.md") |
+[configure](pcluster.configure-v3.md "pcluster.configure-v3.md") |
+[create-cluster](pcluster.create-cluster-v3.md "pcluster.create-cluster-v3.md") |
+[dcv-connect](pcluster.dcv-connect-v3.md "pcluster.dcv-connect-v3.md") |
+[delete-cluster](pcluster.delete-cluster-v3.md "pcluster.delete-cluster-v3.md") |
+[delete-cluster-instances](pcluster.delete-cluster-instances-v3.md "pcluster.delete-cluster-instances-v3.md") |
+[delete-image](pcluster.delete-image-v3.md "pcluster.delete-image-v3.md") |
+[describe-cluster](pcluster.describe-cluster-v3.md "pcluster.describe-cluster-v3.md") |
+[describe-cluster-instances](pcluster.describe-cluster-instances-v3.md "pcluster.describe-cluster-instances-v3.md") |
+[describe-compute-fleet](pcluster.describe-compute-fleet-v3.md "pcluster.describe-compute-fleet-v3.md") |
+[describe-image](pcluster.describe-image-v3.md "pcluster.describe-image-v3.md") |
+[export-cluster-logs](pcluster.export-cluster-logs-v3.md "pcluster.export-cluster-logs-v3.md") |
+[export-image-logs](pcluster.export-image-logs-v3.md "pcluster.export-image-logs-v3.md") |
+[get-cluster-log-events](pcluster.get-cluster-log-events-v3.md "pcluster.get-cluster-log-events-v3.md") |
+[get-cluster-stack-events](pcluster.get-cluster-stack-events-v3.md "pcluster.get-cluster-stack-events-v3.md") |
+[get-image-log-events](pcluster.get-image-log-events-v3.md "pcluster.get-image-log-events-v3.md") |
+[get-image-stack-events](pcluster.get-image-stack-events-v3.md "pcluster.get-image-stack-events-v3.md") |
+[list-clusters](pcluster.list-clusters-v3.md "pcluster.list-clusters-v3.md") |
+[list-cluster-log-streams](pcluster.list-cluster-log-streams-v3.md "pcluster.list-cluster-log-streams-v3.md") |
+[list-images](pcluster.list-images-v3.md "pcluster.list-images-v3.md") |
+[list-image-log-streams](pcluster.list-image-log-streams-v3.md "pcluster.list-image-log-streams-v3.md") |
+[list-official-images](pcluster.list-official-images-v3.md "pcluster.list-official-images-v3.md") |
+[ssh](pcluster.ssh-v3.md "pcluster.ssh-v3.md") |
+[update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md") |
+[update-compute-fleet](pcluster.update-compute-fleet-v3.md "pcluster.update-compute-fleet-v3.md") |
+[version](pcluster.version-v3.md "pcluster.version-v3.md")
 
 **Sub-commands:**
 
 ###### Topics
 
-- [pcluster build-image](pcluster.md "pcluster.md")
-- [pcluster configure](pcluster.md "pcluster.md")
-- [pcluster create-cluster](pcluster.md "pcluster.md")
-- [pcluster dcv-connect](pcluster.md "pcluster.md")
-- [pcluster delete-cluster](pcluster.md "pcluster.md")
-- [pcluster delete-cluster-instances](pcluster.md "pcluster.md")
-- [pcluster delete-image](pcluster.md "pcluster.md")
-- [pcluster describe-cluster](pcluster.md "pcluster.md")
-- [pcluster describe-cluster-instances](pcluster.md "pcluster.md")
-- [pcluster describe-compute-fleet](pcluster.md "pcluster.md")
-- [pcluster describe-image](pcluster.md "pcluster.md")
-- [pcluster export-cluster-logs](pcluster.md "pcluster.md")
-- [pcluster export-image-logs](pcluster.md "pcluster.md")
-- [pcluster get-cluster-log-events](pcluster.md "pcluster.md")
-- [pcluster get-cluster-stack-events](pcluster.md "pcluster.md")
-- [pcluster get-image-log-events](pcluster.md "pcluster.md")
-- [pcluster get-image-stack-events](pcluster.md "pcluster.md")
-- [pcluster list-clusters](pcluster.md "pcluster.md")
-- [pcluster list-cluster-log-streams](pcluster.md "pcluster.md")
-- [pcluster list-images](pcluster.md "pcluster.md")
-- [pcluster list-image-log-streams](pcluster.md "pcluster.md")
-- [pcluster list-official-images](pcluster.md "pcluster.md")
-- [pcluster ssh](pcluster.md "pcluster.md")
-- [pcluster update-cluster](pcluster.md "pcluster.md")
-- [pcluster update-compute-fleet](pcluster.md "pcluster.md")
-- [pcluster version](pcluster.md "pcluster.md")
+- [pcluster build-image](pcluster.build-image-v3.md "pcluster.build-image-v3.md")
+- [pcluster configure](pcluster.configure-v3.md "pcluster.configure-v3.md")
+- [pcluster create-cluster](pcluster.create-cluster-v3.md "pcluster.create-cluster-v3.md")
+- [pcluster dcv-connect](pcluster.dcv-connect-v3.md "pcluster.dcv-connect-v3.md")
+- [pcluster delete-cluster](pcluster.delete-cluster-v3.md "pcluster.delete-cluster-v3.md")
+- [pcluster delete-cluster-instances](pcluster.delete-cluster-instances-v3.md "pcluster.delete-cluster-instances-v3.md")
+- [pcluster delete-image](pcluster.delete-image-v3.md "pcluster.delete-image-v3.md")
+- [pcluster describe-cluster](pcluster.describe-cluster-v3.md "pcluster.describe-cluster-v3.md")
+- [pcluster describe-cluster-instances](pcluster.describe-cluster-instances-v3.md "pcluster.describe-cluster-instances-v3.md")
+- [pcluster describe-compute-fleet](pcluster.describe-compute-fleet-v3.md "pcluster.describe-compute-fleet-v3.md")
+- [pcluster describe-image](pcluster.describe-image-v3.md "pcluster.describe-image-v3.md")
+- [pcluster export-cluster-logs](pcluster.export-cluster-logs-v3.md "pcluster.export-cluster-logs-v3.md")
+- [pcluster export-image-logs](pcluster.export-image-logs-v3.md "pcluster.export-image-logs-v3.md")
+- [pcluster get-cluster-log-events](pcluster.get-cluster-log-events-v3.md "pcluster.get-cluster-log-events-v3.md")
+- [pcluster get-cluster-stack-events](pcluster.get-cluster-stack-events-v3.md "pcluster.get-cluster-stack-events-v3.md")
+- [pcluster get-image-log-events](pcluster.get-image-log-events-v3.md "pcluster.get-image-log-events-v3.md")
+- [pcluster get-image-stack-events](pcluster.get-image-stack-events-v3.md "pcluster.get-image-stack-events-v3.md")
+- [pcluster list-clusters](pcluster.list-clusters-v3.md "pcluster.list-clusters-v3.md")
+- [pcluster list-cluster-log-streams](pcluster.list-cluster-log-streams-v3.md "pcluster.list-cluster-log-streams-v3.md")
+- [pcluster list-images](pcluster.list-images-v3.md "pcluster.list-images-v3.md")
+- [pcluster list-image-log-streams](pcluster.list-image-log-streams-v3.md "pcluster.list-image-log-streams-v3.md")
+- [pcluster list-official-images](pcluster.list-official-images-v3.md "pcluster.list-official-images-v3.md")
+- [pcluster ssh](pcluster.ssh-v3.md "pcluster.ssh-v3.md")
+- [pcluster update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md")
+- [pcluster update-compute-fleet](pcluster.update-compute-fleet-v3.md "pcluster.update-compute-fleet-v3.md")
+- [pcluster version](pcluster.version-v3.md "pcluster.version-v3.md")

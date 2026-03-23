@@ -68,7 +68,7 @@ To see more information about what caused the `"CREATE_FAILED"` status, you can 
 
 ### Use the CLI to view and filter CloudFormation events on `CREATE_FAILED`
 
-To diagnose the cluster creation issue, you can use the [pcluster get-cluster-stack-events](pcluster.md "pcluster.md") command by filtering for `CREATE_FAILED` status. For more information, see [Filtering AWS CLI output](../../../cli/latest/userguide/cli-usage-filter.md "../../../cli/latest/userguide/cli-usage-filter.md") in the
+To diagnose the cluster creation issue, you can use the [pcluster get-cluster-stack-events](pcluster.get-cluster-stack-events-v3.md "pcluster.get-cluster-stack-events-v3.md") command by filtering for `CREATE_FAILED` status. For more information, see [Filtering AWS CLI output](../../../cli/latest/userguide/cli-usage-filter.md "../../../cli/latest/userguide/cli-usage-filter.md") in the
 _AWS Command Line Interface User Guide_.
 
 ```
@@ -106,7 +106,7 @@ In the previous example, the failure was in the head node setup.
 
 ## Use the CLI to view log streams
 
-To debug this kind of issue, you can list the log streams available from the head node with the [pcluster list-cluster-log-streams](pcluster.md "pcluster.md") by filtering for `node-type` and
+To debug this kind of issue, you can list the log streams available from the head node with the [pcluster list-cluster-log-streams](pcluster.list-cluster-log-streams-v3.md "pcluster.list-cluster-log-streams-v3.md") by filtering for `node-type` and
 then analyzing the log streams content.
 
 ```
@@ -143,7 +143,7 @@ chef failed` error in this log. Look at the lines immediately before this line f
 - `cloud-init` is the log for [cloud-init](https://cloudinit.readthedocs.io/ "https://cloudinit.readthedocs.io/"). If you don't see anything in
   `cfn-init`, then try checking this log next.
 
-You can retrieve the content of the log stream by using the [pcluster get-cluster-log-events](pcluster.md "pcluster.md") (note the `--limit 5` option to limit the number of retrieved events):
+You can retrieve the content of the log stream by using the [pcluster get-cluster-log-events](pcluster.get-cluster-log-events-v3.md "pcluster.get-cluster-log-events-v3.md") (note the `--limit 5` option to limit the number of retrieved events):
 
 ```
 `$` `pcluster get-cluster-log-events --cluster-name `mycluster` \
@@ -185,7 +185,7 @@ custom bootstrap script used in the `OnNodeConfigured` configuration parameter o
 AWS ParallelCluster creates cluster CloudWatch log streams in log groups. You can view these logs in the CloudWatch console **Custom
 Dashboards** or **Log groups**. For more information, see [Integration with Amazon CloudWatch Logs](cloudwatch-logs-v3.md "cloudwatch-logs-v3.md") and [Amazon CloudWatch dashboard](cloudwatch-dashboard-v3.md "cloudwatch-dashboard-v3.md"). If there are no log
 streams available, the failure might be caused by the [CustomActions](HeadNode-v3.md#HeadNode-v3-CustomActions "HeadNode-v3.md#HeadNode-v3-CustomActions") custom
-bootstrap script or an AMI-related issue. To diagnose the creation issue in this case, create the cluster again using [pcluster create-cluster](pcluster.md "pcluster.md"), including the `--rollback-on-failure` parameter set
+bootstrap script or an AMI-related issue. To diagnose the creation issue in this case, create the cluster again using [pcluster create-cluster](pcluster.create-cluster-v3.md "pcluster.create-cluster-v3.md"), including the `--rollback-on-failure` parameter set
 to `false`. Then, use SSH to view the cluster, as shown in the following:
 
 ```

@@ -37,8 +37,8 @@ Key points:
 
 - The process takes about 1 hour. This time can vary if there are additional [Build](Build-v3.md "Build-v3.md") / [Components](Build-v3.md#Build-v3-Components "Build-v3.md#Build-v3-Components") to be installed at build time.
 - The AMI is tagged with the versions of the main components. These include the kernel, scheduler, and [EFA](../../../AWSEC2/latest/UserGuide/efa.md "../../../AWSEC2/latest/UserGuide/efa.md") driver. A subset of the component versions are also reported in the AMI description.
-- Starting from AWS ParallelCluster 3.0.0, a new set of CLI commands can be used to manage the lifecycle of images. This includes [build-image](pcluster.md "pcluster.md"), [list-images](pcluster.md "pcluster.md"),
-  [describe-image](pcluster.md "pcluster.md"), and [delete-image](pcluster.md "pcluster.md").
+- Starting from AWS ParallelCluster 3.0.0, a new set of CLI commands can be used to manage the lifecycle of images. This includes [build-image](pcluster.build-image-v3.md "pcluster.build-image-v3.md"), [list-images](pcluster.list-images-v3.md "pcluster.list-images-v3.md"),
+  [describe-image](pcluster.describe-image-v3.md "pcluster.describe-image-v3.md"), and [delete-image](pcluster.delete-image-v3.md "pcluster.delete-image-v3.md").
 - This method is repeatable. You can re-run it to keep AMIs updated (for example, OS updates), and then use them when you update an existing
   cluster.
 
@@ -66,7 +66,7 @@ Build:
  ParentImage: `<BASE_AMI_ID>`
 ```
 
-3. Use the CLI command [pcluster build-image](pcluster.md "pcluster.md") to build an AWS ParallelCluster AMI
+3. Use the CLI command [pcluster build-image](pcluster.build-image-v3.md "pcluster.build-image-v3.md") to build an AWS ParallelCluster AMI
    starting from the AMI that you provide as the base.
 
 ```
@@ -88,7 +88,7 @@ Build:
 `pcluster build-image` uses the default VPC. If you delete the default VPC using AWS Control Tower or AWS Landing Zone, the subnet
 ID must be specified in the image configuration file. For more information, see [SubnetId](HeadNode-v3.md#yaml-HeadNode-Networking-SubnetId "HeadNode-v3.md#yaml-HeadNode-Networking-SubnetId").
 
-For a list of other parameters, see the [pcluster build-image](pcluster.md "pcluster.md") command reference
+For a list of other parameters, see the [pcluster build-image](pcluster.build-image-v3.md "pcluster.build-image-v3.md") command reference
 page. The results of the preceding command are as follows:
 
     * A CloudFormation stack is created based on the image configuration. The stack includes all of the EC2 Image Builder resources required for the
@@ -164,16 +164,16 @@ page. The results of the preceding command are as follows:
 
 **Troubleshooting and monitoring AMI creation process**
 
-Image creation completes in about an hour. You can monitor the process by running the [pcluster describe-image](pcluster.md "pcluster.md") command or log retrieval commands.
+Image creation completes in about an hour. You can monitor the process by running the [pcluster describe-image](pcluster.describe-image-v3.md "pcluster.describe-image-v3.md") command or log retrieval commands.
 
 ```
 `$` `pcluster describe-image --image-id `IMAGE_ID` --region `REGION``
 ```
 
-The [build-image](pcluster.md "pcluster.md") command creates a CloudFormation stack with all the Amazon EC2 resources that
+The [build-image](pcluster.build-image-v3.md "pcluster.build-image-v3.md") command creates a CloudFormation stack with all the Amazon EC2 resources that
 are required to build the image, and launches the EC2 Image Builder process.
 
-After running the [build-image](pcluster.md "pcluster.md") command, it's possible to retrieve CloudFormation stack events by using [pcluster get-image-stack-events](pcluster.md "pcluster.md"). You can filter results with the
+After running the [build-image](pcluster.build-image-v3.md "pcluster.build-image-v3.md") command, it's possible to retrieve CloudFormation stack events by using [pcluster get-image-stack-events](pcluster.get-image-stack-events-v3.md "pcluster.get-image-stack-events-v3.md"). You can filter results with the
 `--query` parameter to see the latest events. For more information, see [Filtering AWS CLI output](../../../cli/latest/userguide/cli-usage-filter.md "../../../cli/latest/userguide/cli-usage-filter.md") in the _AWS Command Line Interface User Guide_.
 
 ```
@@ -193,7 +193,7 @@ After running the [build-image](pcluster.md "pcluster.md") command, it's possibl
 ```
 
 After about 15 minutes, the stack events appear in the log event entry related to Image Builder creation. You can now list image log streams and
-monitor the Image Builder steps by using [pcluster list-image-log-streams](pcluster.md "pcluster.md") and [pcluster get-image-log-events](pcluster.md "pcluster.md") commands.
+monitor the Image Builder steps by using [pcluster list-image-log-streams](pcluster.list-image-log-streams-v3.md "pcluster.list-image-log-streams-v3.md") and [pcluster get-image-log-events](pcluster.get-image-log-events-v3.md "pcluster.get-image-log-events-v3.md") commands.
 
 ```
 `$` `pcluster list-image-log-streams --image-id `IMAGE_ID` --region `REGION` \
@@ -224,7 +224,7 @@ monitor the Image Builder steps by using [pcluster list-image-log-streams](pclus
 }`
 ```
 
-Continue to check with the [describe-image](pcluster.md "pcluster.md") command until you see the `BUILD_COMPLETE` status.
+Continue to check with the [describe-image](pcluster.describe-image-v3.md "pcluster.describe-image-v3.md") command until you see the `BUILD_COMPLETE` status.
 
 ```
 `$` `pcluster describe-image --image-id `IMAGE_ID` --region `REGION``
@@ -287,7 +287,7 @@ configured. You can start with one of these as your base.
 
 Key points:
 
-- This method is faster than the [build-image](pcluster.md "pcluster.md") command. However, it's a manual
+- This method is faster than the [build-image](pcluster.build-image-v3.md "pcluster.build-image-v3.md") command. However, it's a manual
   process and not automatically repeatable.
 - With this method, you don't have access to the log retrieval and image lifecycle management commands that are available through the
   CLI.
@@ -296,7 +296,7 @@ Steps:
 
 New Amazon EC2 console
 
-1. Find the AMI that corresponds to the specific AWS Region that you use. To find it, use the [pcluster list-official-images](pcluster.md "pcluster.md") command with the `--region` parameter
+1. Find the AMI that corresponds to the specific AWS Region that you use. To find it, use the [pcluster list-official-images](pcluster.list-official-images-v3.md "pcluster.list-official-images-v3.md") command with the `--region` parameter
    to select the specific AWS Region and `--os` and `--architecture` parameters to filter for the desired AMI with the OS and
    architecture that you want to use. From the output, retrieve the Amazon EC2 Image ID.
 2. Sign in to the AWS Management Console and open the Amazon EC2 console at
@@ -329,7 +329,7 @@ Navigate to **Instances**, choose the new instance, select **Instance state**, a
 
 Old Amazon EC2 console
 
-1. Find the AWS ParallelCluster AMI that corresponds to the specific AWS Region that you use. To find it you can use the [pcluster list-official-images](pcluster.md "pcluster.md") command with the `--region` parameter to
+1. Find the AWS ParallelCluster AMI that corresponds to the specific AWS Region that you use. To find it you can use the [pcluster list-official-images](pcluster.list-official-images-v3.md "pcluster.list-official-images-v3.md") command with the `--region` parameter to
    select the specific AWS Region and `--os` and `--architecture` parameters to filter for the desired AMI with the OS and
    architecture that you want to use. From the output you can retrieve the Amazon EC2 Image ID.
 2. Sign in to the AWS Management Console and open the Amazon EC2 console at

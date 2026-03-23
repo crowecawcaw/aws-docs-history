@@ -2502,7 +2502,7 @@ parameter values depends on the running workload.
 
 The default value of the `QueueUpdateStrategy` parameter. With
 this setting, updating parameters under the [SlurmQueues](#Scheduling-v3-SlurmQueues "#Scheduling-v3-SlurmQueues") section requires you to [stop
-the compute fleet](pcluster.md "pcluster.md") before you perform a cluster update:
+the compute fleet](pcluster.update-compute-fleet-v3.md "pcluster.update-compute-fleet-v3.md") before you perform a cluster update:
 
 ```
 `$` `pcluster update-compute-fleet --status STOP_REQUESTED`

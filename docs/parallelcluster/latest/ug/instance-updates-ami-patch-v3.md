@@ -22,8 +22,8 @@ User Guide for Linux Instances_.
 
 The compute nodes are ephemeral instances. By default you can only access them from the head node. Starting with AWS ParallelCluster version 3.0.0, you can update the
 AMI associated with compute instances by modifying the [Scheduling](Scheduling-v3.md "Scheduling-v3.md") / [SlurmQueues](Scheduling-v3.md#Scheduling-v3-SlurmQueues "Scheduling-v3.md#Scheduling-v3-SlurmQueues") / [Image](Scheduling-v3.md#Scheduling-v3-SlurmQueues-Image "Scheduling-v3.md#Scheduling-v3-SlurmQueues-Image") / [CustomAmi](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Image-CustomAmi "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Image-CustomAmi")
-parameter and running the [pcluster update-cluster](pcluster.md "pcluster.md") command,
-after stopping the compute fleet with [pcluster update-compute-fleet](pcluster.md "pcluster.md"):
+parameter and running the [pcluster update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md") command,
+after stopping the compute fleet with [pcluster update-compute-fleet](pcluster.update-compute-fleet-v3.md "pcluster.update-compute-fleet-v3.md"):
 
 ```
 `$` `pcluster update-compute-fleet-status --status STOP_REQUESTED`
@@ -31,7 +31,7 @@ after stopping the compute fleet with [pcluster update-compute-fleet](pcluster.m
 
 It's possible to automate the creation of an updated custom AMI for the compute nodes by using one of the following methods:
 
-- Use the [pcluster build-image](pcluster.md "pcluster.md") command
+- Use the [pcluster build-image](pcluster.build-image-v3.md "pcluster.build-image-v3.md") command
   with an updated [Build](Build-v3.md "Build-v3.md") / [ParentImage](Build-v3.md#yaml-build-image-Build-ParentImage "Build-v3.md#yaml-build-image-Build-ParentImage").
 - Run the build with [Build](Build-v3.md "Build-v3.md") / [UpdateOsPackages](Build-v3.md#Build-v3-UpdateOsPackages "Build-v3.md#Build-v3-UpdateOsPackages") / [Enabled](Build-v3.md#yaml-build-image-Components-UpdateOsPackages-Enabled "Build-v3.md#yaml-build-image-Components-UpdateOsPackages-Enabled"):`true`.
 

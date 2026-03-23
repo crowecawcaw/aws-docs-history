@@ -19,7 +19,7 @@ LoginNodes:
 AWS ParallelCluster sets `/home/`<DEFAULT_AMI_USER>`` as the [DCV server storage
 folder](../../../dcv/latest/adminguide/manage-storage.md "../../../dcv/latest/adminguide/manage-storage.md"). For more information about Amazon DCV configuration parameters, see [HeadNode](HeadNode-v3.md "HeadNode-v3.md") / [Dcv](HeadNode-v3.md#HeadNode-v3-Dcv "HeadNode-v3.md#HeadNode-v3-Dcv").
 
-To connect to the Amazon DCV session on the head node, use the [dcv-connect](pcluster.md "pcluster.md") command. To connect on a login node, use `dcv-connect` with the `--login-node-ip` parameter and pass in the public or private IP address of the login node you wish to connect to.
+To connect to the Amazon DCV session on the head node, use the [dcv-connect](pcluster.dcv-connect-v3.md "pcluster.dcv-connect-v3.md") command. To connect on a login node, use `dcv-connect` with the `--login-node-ip` parameter and pass in the public or private IP address of the login node you wish to connect to.
 
 ## Amazon DCV HTTPS certificate
 
@@ -27,7 +27,7 @@ Amazon DCV automatically generates a self-signed certificate to secure traffic b
 server.
 
 To replace the default self-signed Amazon DCV certificate with another certificate, first connect to the head node.
-Then, copy both the certificate and key to the `/etc/dcv` folder before running the [pcluster dcv-connect](pcluster.md "pcluster.md") command.
+Then, copy both the certificate and key to the `/etc/dcv` folder before running the [pcluster dcv-connect](pcluster.dcv-connect-v3.md "pcluster.dcv-connect-v3.md") command.
 
 For more information, see [Changing the
 TLS certificate](../../../dcv/latest/adminguide/manage-cert.md "../../../dcv/latest/adminguide/manage-cert.md") in the _Amazon DCV Administrator Guide_.

@@ -329,7 +329,7 @@ The AWS ParallelCluster command line interface (CLI) has been changed. The new s
 **Configuring a new cluster**
 
 The `pcluster configure` command includes different parameters in AWS ParallelCluster 3 as compared to AWS ParallelCluster 2. For more
-information, see [pcluster configure](pcluster.md "pcluster.md").
+information, see [pcluster configure](pcluster.configure-v3.md "pcluster.configure-v3.md").
 
 Note also that the configuration file syntax has changed from AWS ParallelCluster 2. For a full reference of the cluster configuration settings,
 see [Cluster configuration file](cluster-configuration-file-v3.md "cluster-configuration-file-v3.md").
@@ -337,10 +337,10 @@ see [Cluster configuration file](cluster-configuration-file-v3.md "cluster-confi
 **Creating a new cluster**
 
 AWS ParallelCluster 2's `pcluster create` command has been replaced by the [pcluster
-create-cluster](pcluster.md "pcluster.md") command.
+create-cluster](pcluster.create-cluster-v3.md "pcluster.create-cluster-v3.md") command.
 
 Note the default behavior in AWS ParallelCluster 2.x, without the `-nw` option, is to wait on cluster creation events, while
-AWS ParallelCluster 3.x command returns immediately. The progress of the cluster creation can be monitored using [pcluster describe-cluster](pcluster.md "pcluster.md").
+AWS ParallelCluster 3.x command returns immediately. The progress of the cluster creation can be monitored using [pcluster describe-cluster](pcluster.describe-cluster-v3.md "pcluster.describe-cluster-v3.md").
 
 An AWS ParallelCluster 3 configuration file contains a single cluster definition, so the `-t` parameter is no more needed.
 
@@ -364,7 +364,7 @@ The following is an example configuration file.
 **Listing clusters**
 
 The `pcluster list` AWS ParallelCluster 2.x command must be replaced with [pcluster
-list-clusters](pcluster.md "pcluster.md") command.
+list-clusters](pcluster.list-clusters-v3.md "pcluster.list-clusters-v3.md") command.
 
 Note: You need AWS ParallelCluster v2 CLI to list clusters created with 2.x versions of AWS ParallelCluster. See [Install AWS ParallelCluster in a virtual environment (recommended)](install-v3-virtual-environment.md "install-v3-virtual-environment.md") for how to install multiple versions of
 AWS ParallelCluster using virtual environments.
@@ -378,7 +378,7 @@ AWS ParallelCluster using virtual environments.
 
 **Starting and Stopping a cluster**
 
-The `pcluster start` and `pcluster stop` AWS ParallelCluster 2.x commands must be replaced with [pcluster update-compute-fleet](pcluster.md "pcluster.md") commands.
+The `pcluster start` and `pcluster stop` AWS ParallelCluster 2.x commands must be replaced with [pcluster update-compute-fleet](pcluster.update-compute-fleet-v3.md "pcluster.update-compute-fleet-v3.md") commands.
 
 Starting a compute fleet:
 
@@ -420,7 +420,7 @@ Stopping a compute fleet:
 
 **Connecting to a cluster**
 
-The `pcluster ssh` AWS ParallelCluster 2.x command has different parameters names in AWS ParallelCluster 3.x. See [pcluster ssh](pcluster.md "pcluster.md").
+The `pcluster ssh` AWS ParallelCluster 2.x command has different parameters names in AWS ParallelCluster 3.x. See [pcluster ssh](pcluster.ssh-v3.md "pcluster.ssh-v3.md").
 
 Connecting to a cluster:
 

@@ -1,13 +1,13 @@
 # Using `pcluster update-cluster`
 
-In AWS ParallelCluster 3.x, [pcluster update-cluster](pcluster.md "pcluster.md") analyzes the settings used to create the current
+In AWS ParallelCluster 3.x, [pcluster update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md") analyzes the settings used to create the current
 cluster and the settings in the configuration file for issues. If any issues are discovered,
 they are reported, and the steps to take to fix the issues are displayed. For example, if the
 compute [InstanceType](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-InstanceType "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-InstanceType") is changed, the compute fleet must be stopped before an
 update can proceed. This issue is reported when it is discovered. If no blocking issues are
 discovered, update process is started and the changes are reported.
 
-You can use the [pcluster update-cluster](pcluster.md "pcluster.md")
+You can use the [pcluster update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md")
 `--dryrun option` to see the changes before their run. For more information, see
 [pcluster update-cluster examples](#pcluster-update-cluster-examples "#pcluster-update-cluster-examples").
 
@@ -29,7 +29,7 @@ This update policy is supported starting with AWS ParallelCluster version 3.7.0.
 
 **Update policy: Login node pools can be added, but removing a pool requires all login nodes in the cluster are stopped.**
 
-To remove a pool, you must stop all login nodes in the cluster. (You can stop login nodes in the cluster by setting each pool’s Count equal to 0). After the cluster’s login nodes have been stopped, you can update the cluster ([pcluster update-cluster](pcluster.md "pcluster.md")) to activate the changes.
+To remove a pool, you must stop all login nodes in the cluster. (You can stop login nodes in the cluster by setting each pool’s Count equal to 0). After the cluster’s login nodes have been stopped, you can update the cluster ([pcluster update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md")) to activate the changes.
 
 ###### Note
 
@@ -37,7 +37,7 @@ This update policy is supported starting with AWS ParallelCluster version 3.11.0
 
 **Update policy: The login nodes in the pool must be stopped for this setting to be changed for an update.**
 
-You can't change these settings while login nodes in the pool are in use. Either you must revert the change, or you must stop the pool’s login nodes. (You can stop the login nodes in the pool by setting the pool’s Count equal to 0). After the pool’s login nodes have been stopped, you can update the cluster ([pcluster update-cluster](pcluster.md "pcluster.md")) to activate the changes.
+You can't change these settings while login nodes in the pool are in use. Either you must revert the change, or you must stop the pool’s login nodes. (You can stop the login nodes in the pool by setting the pool’s Count equal to 0). After the pool’s login nodes have been stopped, you can update the cluster ([pcluster update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md")) to activate the changes.
 
 ###### Note
 
@@ -46,7 +46,7 @@ This update policy is supported starting with AWS ParallelCluster version 3.11.0
 **Update policy: This
 setting can be changed during an update.**
 
-After changing this setting, the cluster can be updated using [pcluster update-cluster](pcluster.md "pcluster.md").
+After changing this setting, the cluster can be updated using [pcluster update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md").
 
 **Update policy: If this setting is
 changed, the update is not allowed.**
@@ -54,19 +54,19 @@ changed, the update is not allowed.**
 After changing this setting, the cluster can't be updated. You must revert the
 settings for the original cluster and create a new cluster with the updated settings.
 You can delete the original cluster at a later date. To create the new cluster, use
-[pcluster create-cluster](pcluster.md "pcluster.md"). To delete the original cluster, use [pcluster delete-cluster](pcluster.md "pcluster.md").
+[pcluster create-cluster](pcluster.create-cluster-v3.md "pcluster.create-cluster-v3.md"). To delete the original cluster, use [pcluster delete-cluster](pcluster.delete-cluster-v3.md "pcluster.delete-cluster-v3.md").
 
 **Update policy: This
 setting is not analyzed during an update.**
 
-These settings can be changed, and the cluster updated using [pcluster update-cluster](pcluster.md "pcluster.md").
+These settings can be changed, and the cluster updated using [pcluster update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md").
 
 **Update policy: The compute
 fleet must be stopped for this setting to be changed for an update.**
 
 These settings cannot be changed while the compute fleet exists. Either the change
-must be reverted or the compute fleet must be stopped (using [pcluster update-compute-fleet](pcluster.md "pcluster.md")). After the compute fleet is stopped you
-can update the cluster ([pcluster update-cluster](pcluster.md "pcluster.md")) to activate the changes. For example, if you
+must be reverted or the compute fleet must be stopped (using [pcluster update-compute-fleet](pcluster.update-compute-fleet-v3.md "pcluster.update-compute-fleet-v3.md")). After the compute fleet is stopped you
+can update the cluster ([pcluster update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md")) to activate the changes. For example, if you
 are using a Slurm scheduler with [SlurmQueues](Scheduling-v3.md#Scheduling-v3-SlurmQueues "Scheduling-v3.md#Scheduling-v3-SlurmQueues") / [ComputeResources](Scheduling-v3.md#Scheduling-v3-SlurmQueues-ComputeResources "Scheduling-v3.md#Scheduling-v3-SlurmQueues-ComputeResources") / - [Name](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Name "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Name") /
 [MinCount](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-MinCount "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-MinCount") > 0, a compute fleet is started.
 
@@ -76,8 +76,8 @@ update.**
 
 These settings cannot be changed while the compute fleet exists or if the login
 nodes are in use. Either the change must be reverted or the compute fleet and login
-nodes must be stopped (The compute fleet can be stopped using [pcluster update-compute-fleet](pcluster.md "pcluster.md")). After the compute fleet and login nodes
-have been stopped, you can update the cluster ([pcluster update-cluster](pcluster.md "pcluster.md")) to
+nodes must be stopped (The compute fleet can be stopped using [pcluster update-compute-fleet](pcluster.update-compute-fleet-v3.md "pcluster.update-compute-fleet-v3.md")). After the compute fleet and login nodes
+have been stopped, you can update the cluster ([pcluster update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md")) to
 activate the changes.
 
 **Update policy: This setting
@@ -86,7 +86,7 @@ can't be decreased during an update.**
 These settings can be changed, but they cannot be decreased. If these settings must
 be decreased, you must revert the settings for the original cluster and create a new
 cluster with the updated settings. You can delete the original cluster at a later date.
-To create the new cluster, use [pcluster create-cluster](pcluster.md "pcluster.md"). To delete the original cluster, use [pcluster delete-cluster](pcluster.md "pcluster.md").
+To create the new cluster, use [pcluster create-cluster](pcluster.create-cluster-v3.md "pcluster.create-cluster-v3.md"). To delete the original cluster, use [pcluster delete-cluster](pcluster.delete-cluster-v3.md "pcluster.delete-cluster-v3.md").
 
 **Update policy:
 If this setting is changed, the update is not allowed. If you force the update, the new
@@ -95,14 +95,14 @@ value will be ignored and the old value will be used.**
 After changing this setting, the cluster can't be updated. You must revert the
 settings for the original cluster and create a new cluster with the updated settings.
 You can delete the original cluster at a later date. To create the new cluster, use
-[pcluster create-cluster](pcluster.md "pcluster.md"). To delete the original cluster, use [pcluster delete-cluster](pcluster.md "pcluster.md").
+[pcluster create-cluster](pcluster.create-cluster-v3.md "pcluster.create-cluster-v3.md"). To delete the original cluster, use [pcluster delete-cluster](pcluster.delete-cluster-v3.md "pcluster.delete-cluster-v3.md").
 
 **Update policy: The
 compute fleet must be stopped or [QueueUpdateStrategy](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy "Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy") must be set for this setting to be changed
 for an update.**
 
-These settings can be changed. Either the compute fleet must be stopped (using [pcluster update-compute-fleet](pcluster.md "pcluster.md")) or [QueueUpdateStrategy](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy "Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy") must be set. After the compute fleet is
-stopped or [QueueUpdateStrategy](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy "Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy") is set, you can update the cluster ([pcluster update-cluster](pcluster.md "pcluster.md")) to
+These settings can be changed. Either the compute fleet must be stopped (using [pcluster update-compute-fleet](pcluster.update-compute-fleet-v3.md "pcluster.update-compute-fleet-v3.md")) or [QueueUpdateStrategy](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy "Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy") must be set. After the compute fleet is
+stopped or [QueueUpdateStrategy](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy "Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy") is set, you can update the cluster ([pcluster update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md")) to
 activate the changes.
 
 ###### Note
@@ -115,17 +115,17 @@ values setting, a new value can be added during an update or the compute fleet m
 stopped when removing an existing value.**
 
 A new value for these settings can be added during an update. After adding a new
-value to the list, the cluster can be updated using ([pcluster update-cluster](pcluster.md "pcluster.md")).
+value to the list, the cluster can be updated using ([pcluster update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md")).
 
 To remove an existing value from the list, the compute fleet must be stopped (using
-[pcluster update-compute-fleet](pcluster.md "pcluster.md")).
+[pcluster update-compute-fleet](pcluster.update-compute-fleet-v3.md "pcluster.update-compute-fleet-v3.md")).
 
 For example, if you are using a Slurm scheduler and adding a new instance type to
 [Instances/InstanceType](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Instances "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Instances"),
 you can update the cluster without stopping the compute fleet. To remove an existing instance type
 from [Instances/InstanceType](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Instances "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Instances"),
 the compute fleet must be stopped first (using
-[pcluster update-compute-fleet](pcluster.md "pcluster.md")).
+[pcluster update-compute-fleet](pcluster.update-compute-fleet-v3.md "pcluster.update-compute-fleet-v3.md")).
 
 ###### Note
 
@@ -141,7 +141,7 @@ the compute fleet must be stopped (using pcluster update-compute-fleet) or
 must be set to TERMINATE. After the compute fleet is stopped or
 [QueueUpdateStrategy](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy "Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy")
 is set to TERMINATE, you can update the cluster
-([pcluster update-cluster](pcluster.md "pcluster.md") to activate the changes.
+([pcluster update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md") to activate the changes.
 
 The TERMINATE set when resizing the capacity of the cluster, will only terminates
 the nodes from the back of the node list, and will leave untouched all the other nodes
@@ -173,12 +173,12 @@ list values setting, the compute fleet must be stopped or [QueueUpdateStrategy](
 fleet must be stopped when removing an existing value.**
 
 A new value for these settings can be added during an update. Either the compute
-fleet must be stopped (using [pcluster update-compute-fleet](pcluster.md "pcluster.md")) or [QueueUpdateStrategy](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy "Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy") must be set. After the compute fleet is
-stopped or [QueueUpdateStrategy](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy "Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy") is set, you can update the cluster ([pcluster update-cluster](pcluster.md "pcluster.md")) to
+fleet must be stopped (using [pcluster update-compute-fleet](pcluster.update-compute-fleet-v3.md "pcluster.update-compute-fleet-v3.md")) or [QueueUpdateStrategy](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy "Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy") must be set. After the compute fleet is
+stopped or [QueueUpdateStrategy](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy "Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy") is set, you can update the cluster ([pcluster update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md")) to
 activate the changes.
 
 To remove an existing value from the list, the compute fleet must be stopped (using
-[pcluster update-compute-fleet](pcluster.md "pcluster.md")).
+[pcluster update-compute-fleet](pcluster.update-compute-fleet-v3.md "pcluster.update-compute-fleet-v3.md")).
 
 ###### Note
 
@@ -190,7 +190,7 @@ compute nodes must be stopped for a managed placement group deletion. The comput
 must be stopped or [QueueUpdateStrategy](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy "Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy") must be set for this setting to be changed
 for an update.**
 
-The compute fleet must be stopped (using [pcluster update-compute-fleet](pcluster.md "pcluster.md")) in order to remove a managed placement
+The compute fleet must be stopped (using [pcluster update-compute-fleet](pcluster.update-compute-fleet-v3.md "pcluster.update-compute-fleet-v3.md")) in order to remove a managed placement
 group. If you run a cluster update to remove a managed placement group before stopping
 the compute fleet, an invalid configuration message is returned and the update doesn't
 proceed. Stopping the compute fleet guarantees no instances are running.
@@ -203,7 +203,7 @@ compute fleet must be stopped (using pcluster update-compute-fleet) or
 must be set to TERMINATE. After the compute fleet is stopped or
 [QueueUpdateStrategy](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy "Scheduling-v3.md#yaml-Scheduling-SlurmSettings-QueueUpdateStrategy")
 is set to TERMINATE, you can update the cluster
-([pcluster update-cluster](pcluster.md "pcluster.md") to activate the changes.
+([pcluster update-cluster](pcluster.update-cluster-v3.md "pcluster.update-cluster-v3.md") to activate the changes.
 
 - This example demonstrates an update with some allowed changes and the update is
   started directly.

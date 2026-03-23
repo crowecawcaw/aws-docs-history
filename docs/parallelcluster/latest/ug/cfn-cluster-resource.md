@@ -53,7 +53,7 @@ The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of
 
 **ClusterProperties:**
 
-The values from the [pcluster describe-cluster](pcluster.md "pcluster.md") operation.
+The values from the [pcluster describe-cluster](pcluster.describe-cluster-v3.md "pcluster.describe-cluster-v3.md") operation.
 
 **validationMessages:**
 

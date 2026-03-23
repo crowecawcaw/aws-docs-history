@@ -28,7 +28,7 @@ It's your responsibility to create a database server with the configuration and 
 - You have an [Amazon EC2 key pair](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md").
 - You have an IAM role with the [permissions](iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-example-user-policies "iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-example-user-policies") that are required to run the [pcluster](pcluster-v3.md "pcluster-v3.md") CLI.
 - The region that you deploy the quick-create template in supports Amazon Aurora MySQL serverless v2. For more
-  information, see [Aurora Serverless v2 with Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.amy "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.amy").
+  information, see [Aurora Serverless v2 with Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.amy "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.amy").
 
 ## Step 1: Create the VPC and subnets for AWS ParallelCluster
 

@@ -103,7 +103,7 @@ If the user has the permission to [`DescribeSecret`](../../../secretsmanager/lat
 see [Base AWS ParallelCluster pcluster user policy](iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-base-user-policy "iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-base-user-policy").
 
 When the value of the secret changes, the cluster _isn't_ automatically updated. To update the cluster for the new
-secret value, you must stop the compute fleet with the [pcluster update-compute-fleet](pcluster.md "pcluster.md") command and then run the
+secret value, you must stop the compute fleet with the [pcluster update-compute-fleet](pcluster.update-compute-fleet-v3.md "pcluster.update-compute-fleet-v3.md") command and then run the
 following command from within the head node.
 
 ```

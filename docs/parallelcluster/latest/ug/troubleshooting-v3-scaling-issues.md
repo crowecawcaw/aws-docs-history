@@ -11,7 +11,7 @@ before you begin to troubleshoot. This prevents incurring any unexpected costs.
  --status STOP_REQUESTED`
 ```
 
-You can list the log streams available from the cluster nodes by using the [pcluster list-cluster-log-streams](pcluster.md "pcluster.md") command and filtering by using the `private-dns-name` of one of the failing nodes or
+You can list the log streams available from the cluster nodes by using the [pcluster list-cluster-log-streams](pcluster.list-cluster-log-streams-v3.md "pcluster.list-cluster-log-streams-v3.md") command and filtering by using the `private-dns-name` of one of the failing nodes or
 the head node:
 
 ```
@@ -20,7 +20,7 @@ the head node:
 
 ```
 
-Then, you can retrieve the content of the log stream to analyze it by using the [pcluster get-cluster-log-events](pcluster.md "pcluster.md") command and passing the `--log-stream-name` corresponding to one of the key logs
+Then, you can retrieve the content of the log stream to analyze it by using the [pcluster get-cluster-log-events](pcluster.get-cluster-log-events-v3.md "pcluster.get-cluster-log-events-v3.md") command and passing the `--log-stream-name` corresponding to one of the key logs
 mentioned in the following section:
 
 ```

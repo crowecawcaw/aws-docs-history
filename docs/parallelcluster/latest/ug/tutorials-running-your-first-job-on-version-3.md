@@ -56,7 +56,7 @@ AWS ParallelCluster:
 `$` `pcluster configure --config hello-world.yaml`
 ```
 
-If the [pcluster create-cluster](pcluster.md "pcluster.md") command
+If the [pcluster create-cluster](pcluster.create-cluster-v3.md "pcluster.create-cluster-v3.md") command
 succeeds, you see output similar to the following:
 
 ```

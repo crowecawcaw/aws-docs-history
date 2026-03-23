@@ -4,7 +4,7 @@ This section assumes that you've installed AWS ParallelCluster. You will learn h
 that AWS ParallelCluster installed correctly, how to update to the latest version of
 AWS ParallelCluster, and how to uninstall.
 
-You can verify that AWS ParallelCluster was installed correctly by running [pcluster version](pcluster.md "pcluster.md").
+You can verify that AWS ParallelCluster was installed correctly by running [pcluster version](pcluster.version-v3.md "pcluster.version-v3.md").
 
 ```
 `$` `pcluster version`

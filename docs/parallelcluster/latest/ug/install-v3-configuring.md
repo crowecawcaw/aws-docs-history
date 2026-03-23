@@ -432,7 +432,7 @@ The stack can be deleted using the [`delete-stack`](../../../goto/aws-cli/cloudf
  --stack-name `parallelclusternetworking-pubpriv-20191029205804``
 ```
 
-The VPC that [pcluster configure](pcluster.md "pcluster.md") creates for you _isn't_ created in the CloudFormation networking stack.
+The VPC that [pcluster configure](pcluster.configure-v3.md "pcluster.configure-v3.md") creates for you _isn't_ created in the CloudFormation networking stack.
 You can delete that VPC manually in the console or by using the AWS CLI.
 
 ```

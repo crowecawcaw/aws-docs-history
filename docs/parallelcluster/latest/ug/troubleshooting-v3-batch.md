@@ -24,8 +24,8 @@ documentation for help.
 
 ## Job failures
 
-If a job fails, you can run the [awsbout](awsbatchcli.md "awsbatchcli.md")
-command to retrieve the job output. You can also run the [awsbstat](awsbatchcli.md "awsbatchcli.md") command to obtain a link to the job logs stored by Amazon CloudWatch.
+If a job fails, you can run the [awsbout](awsbatchcli.awsbout-v3.md "awsbatchcli.awsbout-v3.md")
+command to retrieve the job output. You can also run the [awsbstat](awsbatchcli.awsbstat-v3.md "awsbatchcli.awsbstat-v3.md") command to obtain a link to the job logs stored by Amazon CloudWatch.
 
 ## Connect timeout on endpoint URL error
 
