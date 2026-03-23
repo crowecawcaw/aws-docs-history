@@ -5,9 +5,12 @@ Amazon Quick _namespace_ is a logical container that you
 can use to organize clients, subsidiaries, teams, and so on. Namespaces can help you achieve
 the following goals:
 
-- You can allow the users of your Amazon Quick subscription to discover shared
-  content and share with other users. At the same time, you can be sure that users in
-  one namespace can't see or interact with users in another namespace.
+- Your Amazon Quick subscription allows users to discover shared
+  content and share with other users. At the same time, in the Amazon Quick end-user
+  console experience, users in one namespace can't see or
+  interact with users in another namespace. The Amazon Quick administrative
+  console uses a different permission model. For more information, see the following
+  important note.
 - You can securely isolate data and also support diverse workloads without adding
   additional AWS accounts. Access to data is still strictly controlled by AWS
   security features. Users can see assets (like data and dashboards) only if they have
@@ -22,7 +25,25 @@ the following goals:
   administrative complexity or overhead.
 - Namespaces are designed to span AWS Regions, so the use containment doesn't
   change even if a person signs in to a different AWS Region.
-  Namespaces currently have the following limitations:
+
+###### Namespace isolation and the administrative console
+
+Amazon Quick uses two different permission models depending on the console experience.
+In the Amazon Quick end-user console, namespace-level isolation is enforced. Each user's
+Amazon Quick role determines the actions that they can perform, and their namespace determines
+which users and groups they can interact with.
+
+In the Amazon Quick administrative console, only AWS Identity and Access Management (IAM) permissions are
+enforced. Users operate outside of the namespace context, and the user's IAM
+policies determine access, not their namespace membership.
+
+Users can operate under both permission models. When they use the end-user console,
+their Amazon Quick role and namespace determine their access. When they use the
+administrative console, their IAM permissions determine their access. For example, an
+IAM administrator with the appropriate permissions can view and manage users and groups
+across namespaces from the administrative console.
+
+Namespaces currently have the following limitations:
 
 - Custom namespaces—those that are not the default namespace—are only
   accessible to IAM Federated Single-Sign On users.
@@ -39,7 +60,7 @@ the following goals:
   operation, there's a list of links to the same operation in the SDKs for other
   languages. To see what SDKs are available, see [SDKs and toolkits](aws.amazon.comgetting-started/tools-sdks.md "aws.amazon.comgetting-started/tools-sdks.md") in the
   [AWS getting started resource
-  center](aws.amazon.md "aws.amazon.md").
+  center](aws.amazon.comgetting-started.md "aws.amazon.comgetting-started.md").
 - Namespaces are useful for isolating users and permissions, but not for sharing
   assets. Dashboards, datasets, and analyses can be shared with users in different
   namespaces. By default, users can't access items that exist in the same
@@ -86,6 +107,7 @@ To implement namespaces, you use the following Amazon Quick API operations:
 
 - `af-south-1` Africa (Cape Town)
 - `ap-southeast-3` Asia Pacific (Jakarta)
+- `ap-southeast-5` Asia Pacific (Malaysia)
 - `eu-south-1` Europe (Milan)
 - `eu-central-2` Europe (Zurich)
 

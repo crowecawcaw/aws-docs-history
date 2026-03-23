@@ -80,4 +80,4 @@ SSL-Session:
 4. The administrator corrects the problem by installing the SSL
    certificate on the user's database server.
    For more detail on the solution in this example, see [Using SSL
-   to Encrypt a Connection to a DB Instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md") in the*Amazon RDS User Guide.*
+   to Encrypt a Connection to a DB Instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md") in the*Amazon RDS User Guide.*

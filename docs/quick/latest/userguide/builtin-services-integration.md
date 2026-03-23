@@ -86,43 +86,43 @@ Example trust policy:
 
 ## Create AWS services action connector
 
-After preparing your IAM role and permissions, follow these steps to create your AWS
-services action connector:
+After preparing your IAM role and permissions, follow these steps to set up AWS Actions in Quick Suite.
 
-1. In the Amazon Quick console, choose the user icon in the upper right corner.
-2. From the dropdown menu, select **Manage Quick**. This takes you to the Admin console.
-3. In the left navigation panel, select **AWS actions**.
-4. Choose **New Action**.
-5. Choose one of the supported AWS services:
-   - Bedrock Agent
-   - Bedrock Runtime
-   - Bedrock Data Automation
-   - Comprehend
-   - Comprehend Medical
-   - Textract
-   - Amazon S3
+###### Note
 
-6. Select **Next** to eview all of the supported actions in the list for your selected service.
-7. Select **Next**.
-8. Customize the connection details:
-   - **Name** - Enter a descriptive name for your action connector.
-   - **Description** - Describe the purpose of this action connector.
-   - **Role ARN** - Enter the ARN of the IAM role that provides the proper permissions for the AWS service.
+You need administrative access to Amazon Quick Suite to perform the following steps. See documentation on [Configure Amazon Quick subscriptions](managing-qbs-subscriptions.md "managing-qbs-subscriptions.md") to learn more.
 
-9. Select **Next**.
-10. Share the integration with users and/or user groups.
-    1. Provide **Owner** access, for any users who need to edit, share and delete the integration. Note: Owner access is required to add Integrations to Automation Groups in order to give access within Quick Automate.
-    2. Provide **User** access, for any users who need to invoke actions across Quick. For a list of integrations supported in various Amazon Quick capabilities, see [Supported action connector types and available actions](../../../quicksuite/latest/userguide/action-connector-apis-supported-types.md#action-connector-compatibility-matrix "../../../quicksuite/latest/userguide/action-connector-apis-supported-types.md#action-connector-compatibility-matrix").
+### Steps to create a new AWS integration
 
-11. Select **Add** to finish creating the action connector. For more information, see [Integration workflows](integration-workflows.md "integration-workflows.md").
+1. Choose the **profile icon**, then select **Manage Quick Suite**.
+2. Select **AWS actions** under the **Permissions** section.
+3. Choose **New Action** to create a new AWS integration.
+4. Choose one of the **supported AWS services**.
+5. Select **Next** to review available actions for this service.
+6. Select **Next** to configure the connection details:
+   - **Name** – Enter a descriptive name for your integration.
+   - **Description** – Optionally, add notes about how this integration will be used.
+   - **Role ARN** – Enter the ARN of the IAM role to be used for this AWS service.
 
-After creating the action connector, it becomes available for use in Amazon Quick Automate workflows. The connector will be found in Actions tab under integration.
+7. Select **Next** to share the integration with users and/or user groups.
+   - Provide **Owner access** for any users who need to edit, share, and delete the integration.
+
+   ###### Note
+
+   Owner access is required to add integrations to Automation Groups in order to give access within Quick Automate.
+   - Provide **User access** for any users who need to invoke actions across Quick Suite.
+
+   For a list of integrations supported in various Quick Suite capabilities, see [Action connector compatibility matrix](action-connector-apis-supported-types.md#action-connector-compatibility-matrix "action-connector-apis-supported-types.md#action-connector-compatibility-matrix").
+
+8. Select **Add** to finish creating the integration.
+
+See [Integration workflows](integration-workflows.md "integration-workflows.md") to learn more.
 
 ## Next steps
 
 After creating your action integration, you can:
 
-- Share the integration with additional users or groups as needed
-- Add the integration to an Automation Group to use it in Amazon Quick Automate. For more information, see [Getting Started](../../../quicksuite/latest/userguide/getting-started-quick-automate.md#automate-setup-tasks "../../../quicksuite/latest/userguide/getting-started-quick-automate.md#automate-setup-tasks").
-- Monitor the integration's usage and performance through the admin console
-- Update the integration's configuration or permissions as requirements change
+- Share the integration with additional users or groups as needed.
+- Add the integration to an **Automation Group** in order to use it in Quick Automate. See [Setup tasks](getting-started-quick-automate.md#automate-setup-tasks "getting-started-quick-automate.md#automate-setup-tasks") for more details.
+- Monitor the integration's usage and performance through the admin console.
+- Update the integration's configuration or permissions as requirements change.

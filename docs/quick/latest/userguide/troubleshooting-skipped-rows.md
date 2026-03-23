@@ -103,7 +103,7 @@ in different ways, resulting in different reporting results later on.
 ###### To practice troubleshooting skipped rows
 
 1. Download [`CSV files for troubleshooting skipped
-rows.zip`](samples/csv-files-for-troubleshooting-skipped-rows.md "samples/csv-files-for-troubleshooting-skipped-rows.md").
+rows.zip`](samples/csv-files-for-troubleshooting-skipped-rows.zip.md "samples/csv-files-for-troubleshooting-skipped-rows.zip.md").
 2. Extract the files into a folder that you can use to upload the sample .csv
    file into Quick Sight.
 

@@ -17,6 +17,6 @@ Use the sections below to set up and use conditional rules.
 
 ###### Topics
 
-- [Hiding a visual by default](hiding-a-visual-by-default.md "hiding-a-visual-by-default.md")
-- [Setting a conditional rule](setting-a-conditional-rule.md "setting-a-conditional-rule.md")
+- [Hiding a visual by default](hiding-a-visual-by-default.title.md "hiding-a-visual-by-default.title.md")
+- [Setting a conditional rule](setting-a-conditional-rule.title.md "setting-a-conditional-rule.title.md")
 - [Using conditional rules](using-conditional-rules.md "using-conditional-rules.md")

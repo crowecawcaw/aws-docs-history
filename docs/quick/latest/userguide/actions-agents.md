@@ -108,75 +108,150 @@ Custom agent is an intelligent action that processes natural language inputs to 
 
 ### Properties
 
-Title
-Name of the step/custom agent
+- **Title**: Name of the step/custom agent
+- **Mode**: A mode defines how the agent operates based on your use case. The three available modes are: Fast, Pro, and Custom. Fast is best for simple tasks like summarization, classification, and high-volume automations, and Pro is ideal for complex tasks that involve reasoning and orchestration of multiple tools or actions. Fast and Pro are fully managed modes that require no pre-setup needed in advance. In Custom Mode, you'll need a Bedrock runtime connector and can select the model you want to use (Explained below). This is ideal when you already have a prompt fine-tuned for a particular Bedrock model, specifically need a particular Bedrock model for the Agent, or want to include your own custom or fine-tuned model hosted on Bedrock. In Custom Mode, since you bring your own model from Bedrock via an integration, model inference is billed separately to the account associated with that Bedrock integration.
+- **Instructions**: In this field you write the prompt for the agent in natural language. Best practices while writing the prompt:
+  - Be clear and explicit about what you want.
+  - Structure the prompt. Start with mentioning the 'Task' or 'Role' first and then 'Instructions' to achieve the task with numbered steps
+  - To improve tool-call accuracy and guide the Agent, clearly specify in the prompt which tool to use at each step, if applicable.
+  - Specify length requirements (e.g., less that 100 words) or output format (e.g., date in MM/DD/YY format) clearly
+  - Wrap the text in triple quotes (""") to write multiline prompts. For example:
 
-Mode
+  ```
+  """You are content summarization agent.
+  Summarize the last two paragraphs of the provided text, focusing only on the main conclusion."""
+  ```
 
-A mode defines how the Agent operates based on your use case. The three available modes are: Fast, Pro, and Custom. Fast is best for simple tasks like summarization, classification, and high-volume automations, and Pro is ideal for complex tasks that involve reasoning and orchestration of multiple tools or actions. Fast and Pro are fully managed modes that require no pre-setup needed in advance. In Custom Mode, you'll need an Bedrock Converse connector and can select the model you want to use. This is ideal if you already have a prompt fine-tuned for a particular Bedrock model, specifically need a particular Bedrock model for the Agent, or want to include your own custom or fine-tuned model hosted on Bedrock. In Custom Mode, since you bring your own model from Bedrock via a connector, model inference is billed separately to the account associated with that Bedrock connector.
+- **Actions**: Action is a tool that enables the AI agent to interact with external systems or perform specific tasks. This is optional. You can run the custom agent without any actions. Below are the different actions which can be used in the custom agent
+  - **General Actions**
+    - **Create user task** - If enabled, this tool allows the Agent to trigger a Human-in-the-Loop (HITL) task whenever it gets stuck and needs assistance during execution. The Agent pauses and waits for human input. The HITL task is visible in the task center. For best results, the author can specify in the prompt exactly when the Agent should invoke HITL. This is selected by default. The automation runs until the task is finished.
+    - **Code** - The Code action generates and executes python code within a restricted python environment, same as code actions, to solve tasks involving calculations, data manipulation, and file processing. Unlike code generators, it actively creates and runs scripts to accomplish objectives, working with Excel, PDF files, various data formats and available integrations
+      - **Key Capabilities:**
+        - **File Operations**: Process multi-tab Excel files, extract content, perform date calculations, apply conditional formatting, and upload results to S3
+        - **Data Transformation**: Convert between JSON and table formats, transpose data, rename columns, and join tables
+        - **Advanced Computations**: Generate numerical sequences and perform automated validation
 
-Instructions
+  - **Integrations**: If you have added specific integration actions — such as Salesforce, MS Exchange, or Bedrock—to your automation group, their corresponding actions appear here to be use in the custom agent. The author can then select the relevant actions to use as tools for the agent.
 
-In this field you write the prompt for the agent in natural language. Best practices while writing the prompt:
+  List of integrations which can be used as tools/actions in the custom agent
 
-- Be clear and explicit about what you want.
-- Structure the prompt. Start with mentioning the 'Task' or 'Role' first and then 'Instructions' to achieve the task with numbered steps
-- To improve tool-call accuracy and guide the Agent, clearly specify in the prompt which tool to use at each step, if applicable.
-- Specify length requirements (e.g., less that 100 words) or output format (e.g., date in MM/DD/YY format) clearly
+      - Amazon S3
+      - Amazon Bedrock Data automation
+      - Amazon Comprehend
+      - Amazon Textract
+      - Custom REST API
+      - Custom MCP connector
+      - Microsoft Outlook
+      - Salesforce
 
-Wrap the text in triple quotes (""") to write multiline prompts. For example:
+- **Structured Output (optional)**
 
-```
-"""You are content summarization agent.
-Summarize the last two paragraphs of the provided text, focusing only on the main conclusion."""
-```
-
-Tools (Optional)
-
-A tool enables the AI agent to interact with external systems or perform specific tasks
-
-**General tools**
-
-**Create user task**
-
-If enabled, this tool allows the Agent to trigger a Human-in-the-Loop (HITL) task whenever it gets stuck and needs assistance during execution. The Agent will pause and wait for human input, then resume once the required information is provided. The HITL task will be visible in the task center. For best results, the author can specify in the prompt exactly when the Agent should invoke HITL.
-
-**Integrations**
-
-If you've added specific connectors—such as Salesforce, MS Exchange, or Bedrock—to your automation group, their corresponding actions will appear here. The author can then select the relevant actions to use as tools for the Agent. For optimal performance, it's recommended to limit the Agent to 3–5 tools.
-
-Structured Output (optional)
-
-Configure your AI agent to return structured JSON output that can be easily processed in subsequent steps. This feature is ideal for text summarization, report generation, data transformation, and extracting statistics from unstructured content. This is an optional field. If you dont define structured output, the agent will by default return output in natural language.
-
-Agent response: Name of the variable to assign the output of this operation
+Configure your AI agent to return structured JSON output that downstream steps can process. This feature is ideal for text summarization, report generation, data transformation, and extracting statistics from unstructured content. This is an optional field. If you do not define structured output, the agent returns output in natural language by default. Use structured output when your output has a defined structure, such as a list, data table, or JSON.
 
 ###### Note
 
 The structured output configuration for Custom agents follows the same format as UI agents. Refer to the UI agent structured output section for detailed configuration instructions.
 
+- **Agent response**: Name of the variable to assign the output of the agent. The response follow your structured output format in a JSON schema if defined, otherwise is a free-form text.
+
+### Using Custom Models in Custom Agent (Bring your own bedrock model)
+
+Integrate your desired or custom fine-tuned models hosted in AWS Bedrock with Quick Suite automation workflows.
+
+Before you begin, ensure you have the following:
+
+- A fine-tuned model deployed and accessible in AWS Bedrock
+- Quick Suite Admin access for creating connectors
+- An IAM role with Bedrock permissions for invoking models
+- Your model ID (for example, `us.anthropic.claude-3-5-sonnet-20241022-v2:0`)
+
+**Step 1:** Create a Bedrock Runtime Action integration by following the detailed instructions in [AWS service action connectors](builtin-services-integration.md "builtin-services-integration.md")
+
+**Step 2:** Set Up Your Automation Group
+
+Create an automation group and connect the integration:
+
+- **Create an automation group** - Follow the detailed instructions in [Setup tasks](getting-started-quick-automate.md#automate-setup-tasks "getting-started-quick-automate.md#automate-setup-tasks")
+- **Configure integrations** - Follow the detailed instructions in [Setup tasks](getting-started-quick-automate.md#automate-setup-tasks "getting-started-quick-automate.md#automate-setup-tasks")
+- Once configured, the connector appears in your available assets list
+
+**Step 3:** Configure a Custom Agent
+
+Add and configure a custom agent to use your fine-tuned model:
+
+- Within your automation workflow, add a custom agent
+- Configure the following agent settings:
+  - **Agent Title**: Enter a descriptive name for your agent
+  - **Instructions**: Enter custom prompts tailored to your use case
+  - **Mode**: Select Custom
+  - **Connector**: Choose your Bedrock Runtime connector (required when Custom mode is selected)
+  - **Custom Model**: Enter your model ID (for example, `us.anthropic.claude-3-5-sonnet-20241022-v2:0`) - required when Custom mode is selected
+
+**Next Steps**
+
+Once configured, your custom agent uses the fine-tuned model to process requests according to the instructions you provided. You can now incorporate this agent into your Quick Automate workflows.
+
+###### Note
+
+Ensure your model ID is correctly formatted and matches the model deployed in your AWS Bedrock account. You can find your model ID in the AWS Bedrock console under your provisioned models.
+
 ### Custom agent testing
 
-Users can test the agent independently of the full automation to validate behavior, debug prompts, and iterate faster.
+Custom agent testing enables you to test individual agents independently from the complete automation workflow. This capability helps you validate agent behavior, debug prompts, and iterate more efficiently without executing the entire workflow.
 
-**Start test**
+#### Prerequisites
 
-- Hover on the agent card, a separate run button will show up on top of the card
-- Click on the button to unit test this specific agent
-- A variable collection window will pop up and automatically detect any variables used in the prompt/instruction
-  - A preview of the prompt of this agent is displayed and highlights all the auto detected variables
-  - Input put values for each variables before kick off unit test. Similar to all other expression fields of Amazon Quick Automate, the value of a given variable has to be valid expression syntax. Otherwise, an error will show up on the screen and prevent user to start test,
+- An automation workflow with at least one configured custom agent
+- Appropriate permissions to run automations in your workspace
 
-**Test running**
+#### Start a test
 
-Users can see the execution log feed in the audit panel on the right side. The experience is the same as running the whole automation.
+- In the workflow canvas, hover over the agent card you want to test
+- Choose the **Unit test** button that appears at the top of the card
+- In the variable collection window that opens, review the automatically detected variables from your agent's prompt
+  - The prompt preview displays all detected variables with highlighting
 
-**After test run**
+- Enter a value for each variable
+  - Values must use valid expression syntax
+  - If a value contains invalid syntax, an error message appears and prevents test execution
 
-- User can see the input variables and output result at the Watch Variables` tab below the log feed.
-- User can see basic metric card above the log feed (total time used and tools used).
+#### Monitor test execution
 
-### Examples
+During test execution, you can monitor progress in the audit panel on the right side of the screen. The test skips all preceding workflow steps and executes only the selected agent. You get the same logging experience as a full workflow run.
+
+#### Review test results
+
+After the test completes, review the following information in the Test panel:
+
+- Metrics Card (Monitor Tab at the top of the Test panel)
+  - Total execution time
+  - Number of tools used
+  - Number of tasks created
+
+- Logs in between
+- Watch Variables Tab (Bottom accordion of the Test panel)
+  - Input - View input variables and their values
+  - Output - Examine output results from the agent execution
+  - For structured outputs, click View Details button to choose the JSON viewer to open the View Output dialog box:
+    - Fields Tab - Navigate data using the tree structure view
+    - Fields - Highlight corresponding values by selecting tree nodes in Fields tab
+    - Output fields - Corresponding values for the JSON keys
+
+### Using Custom agent with Build with Assistant
+
+The current tenet for custom agent is it has to be specifically mentioned to consistently get it invoked, here are the things needed in the prompt to make it appear:
+
+```
+- Function names: `use_inline_agent`
+- Representation names: "Custom Agent", "Inline Agent" → use `use_inline_agent`
+- Generic terms: "agentic skills" → default to `use_inline_agent`
+```
+
+Otherwise, the model is preferred to author the workflow deterministically.
+
+Although, in practice, when no appropriate actions are available, planner might pick custom agent as a workaround. But to consistently invoke custom agent in the workflow, the above phrases are encouraged to use in the prompt.
+
+### Examples of agent use cases
 
 **Use Case 1: Email Classification and Assignment Agent**
 

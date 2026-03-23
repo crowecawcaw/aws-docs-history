@@ -10,7 +10,7 @@ The following limits apply to flow creation and management in your Quick instanc
 
 ## Input limits
 
-Input limits vary depending on whether you're using General knowledge or Quick data as your data source.
+Input limits vary depending on whether you are using General knowledge or Quick data as your data source.
 
 ### Text input limits
 
@@ -24,7 +24,7 @@ File upload limits depend on your knowledge source and file type:
 **File size limits:**
 
 - **General knowledge:**
-  - Document files: Up to 50 MB (supported file types depend output preference)
+  - Document files: Up to 50 MB (supported file types depend on output preference)
   - Video files: Up to 1 GB
   - Image files: Up to 4.5 MB
 
@@ -59,6 +59,12 @@ Output limits control the size of prompts and generated responses:
 - **Maximum output characters rendered:**
   - General knowledge: Up to 40,000 characters
   - Quick data: 8,000 characters
+
+## Reasoning group limits
+
+- **Maximum iterations per reasoning group:** 50 iterations
+
+When referencing the output of a reasoning group, especially looped content, the output is bound by the input character limits of the receiving step. For larger outputs, consider staging the results and querying them in a later step.
 
 ## Schedule limits
 

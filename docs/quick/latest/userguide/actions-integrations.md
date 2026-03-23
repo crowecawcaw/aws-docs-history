@@ -319,10 +319,194 @@ SAP actions allow you to automate processes involving business partner data, mat
 - **SAP Physical Inventory**
   - **Get Phys Inventory Doc Item** - Retrieves physical inventory document items including counting results and inventory differences.
 
-## Custom REST APIs
+## REST API Integration
 
-Actions for working with any REST API endpoint.
+The REST API Connection integration enables Quick Automate to interact with custom REST APIs and web services, allowing you to extend automation capabilities to external systems. This integration supports action execution for GET, POST, DELETE, PATCH and PUT HTTP methods.
 
-- **Get request** - Retrieves data from a REST API. Used to fetch information from web services and APIs.
-- **Post request** - Sends data to a REST API. Used to create or submit information to web services and APIs.
-- **Put request** - Replaces data in a REST API endpoint. Used to update existing information through web services and APIs.
+**Common Use Cases:**
+
+- Sending notifications to external systems
+- Retrieving data from third-party services
+- Updating records in external databases
+- Triggering workflows in connected applications
+
+**Prerequisites**
+
+Before creating automations with REST API integration, ensure you have:
+
+- **Configured REST API Integration**
+  - Access Quick Suite console
+  - Navigate to Integrations > REST API Connection
+  - Configure your REST API endpoint with base URL
+  - Complete authentication setup (see Authentication section below)
+  - Full details: [REST API Connection integration](rest-api-integration.md "rest-api-integration.md")
+
+- **Connected Integration to Automation Group**
+  - Link your configured REST API integration to your automation group
+  - Verify integration appears in available actions
+  - Step-by-step guide: [AWS service action connectors](builtin-services-integration.md "builtin-services-integration.md")
+
+- **Authentication Configured**
+  - OAuth 2.0 credentials obtained from your API provider
+
+### Authentication
+
+For Quick Automate, this integration supports **OAuth 2.0** authentication. You must configure OAuth credentials before creating automations.
+
+**OAuth 2.0 Setup Steps:**
+
+- Obtain OAuth credentials (Client ID and Client Secret) from your identity provider
+- In the Quick Suite console, navigate to your REST API integration settings
+- Select OAuth 2.0 as the authentication method
+- Enter your Client ID and Client Secret
+- Configure the authorization URL and token URL provided by your API provider
+- Complete the OAuth flow to authorize Quick Suite
+- Test the connection to verify authentication
+
+**Important Notes:**
+
+- Quick Automate does not support bearer token authentication in request headers. Use OAuth configuration instead.
+- Configure authentication at the integration level, not per automation action
+
+### Configuration
+
+**Setting Up Your REST API Integration**
+
+Step 1: Create Base URL Configuration
+
+Step 2: Connect to Automation Group
+
+Step 3: Access REST API Actions
+
+- Open the Actions Panel in your automation
+- Locate REST API action
+- Drag and drop actions into your automation workflow
+- ###### Note
+
+REST API actions must be added through the Actions Panel; they are not available in the Build with Assistant interface
+
+### Properties Reference
+
+- **Q Action Connector ID (Required)**
+  - **Description:** Unique identifier that links the REST API action to your configured integration, including base URL and authentication settings.
+  - **Format:** Auto-populated from your connected integration
+  - **Example:** `rest-api-connector-abc123`
+
+- **URI (Optional)**
+  - **Description:** Additional path appended to the base URL to specify the exact API endpoint.
+  - **Format:** Path string with or without leading slash (depends on the base url format)
+  - **How It Works:**
+    - Base URL: `https://api.example.com`
+    - URI: `/users/123`
+    - Final URL: `https://api.example.com/users/123`
+
+  - **Examples:**
+
+  ```
+  /users/123
+  prod/send-email
+  /v2/orders
+  customers/search
+  ```
+
+- **Additional Headers (Optional)**
+  - **Description:** Custom HTTP headers to include in the API request as key-value pairs.
+  - **Format:**
+
+  ```
+  Key: Value
+  ```
+
+  - **Common Examples:**
+
+  ```
+  Content-Type: application/json
+  Accept: application/json
+  X-Custom-Header: custom-value
+  X-API-Version: 2.0
+  ```
+
+  - **Important Limitations:**
+    - Do not include Authorization headers; authentication is handled via OAuth configuration
+    - Each header must be on a separate line
+    - Headers are case-sensitive
+
+- **Request (Required)**
+  - **Description:** JSON-formatted data to send with POST or PUT requests.
+  - **Format:** Valid JSON object. {} for blank requests
+  - **POST Request Example (Creating a resource):**
+
+  ```
+  {
+    "title": "My New Post",
+    "body": "This is the content of my new post.",
+    "userId": 1,
+    "tags": ["automation", "api"],
+    "published": true
+  }
+  ```
+
+  - **PUT Request Example (Updating a resource):**
+
+  ```
+  {
+    "status": "completed",
+    "completedDate": "2026-01-27",
+    "notes": "Task finished successfully"
+  }
+  ```
+
+- **Output Variable (Optional)**
+  - **Description:** Variable name to store the JSON response from the API call for use in subsequent automation actions.
+  - **Format:** Alphanumeric variable name (no spaces)
+  - **Example:** `apiResponse`, `userData`, `orderDetails`
+
+### Example of API usage
+
+#### Example 1: GET Request - Retrieve Ticket Details
+
+**Scenario:** Retrieve details of an existing support ticket from an external ticketing system
+
+**Configuration:**
+
+- **Q Action Connector ID:** rest-api-connector-tickets
+- **HTTP Method:** GET
+- **URI:** /tickets/`ticketId`
+- **Additional Headers:**
+
+```
+Accept: application/json
+```
+
+- **Request Body:** {} (empty for GET requests)
+- **Output Variable:** ticketDetails
+
+#### Example 2: POST Request - Create New Record
+
+**Scenario:** Submit a new support ticket to an external ticketing system
+
+**Configuration:**
+
+- **Q Action Connector ID:** rest-api-connector-tickets
+- **HTTP Method:** POST
+- **URI:** `/tickets`
+- **Additional Headers:**
+
+```
+Content-Type: application/json
+Accept: application/json
+```
+
+- **Request Body:**
+
+```
+{
+  "title": "{{ticketTitle}}",
+  "description": "{{ticketDescription}}",
+  "priority": "{{ticketPriority}}",
+  "requestedBy": "{{userEmail}}",
+  "category": "technical_support"
+}
+```
+
+- **Output Variable:** `ticketResponse`

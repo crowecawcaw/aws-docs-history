@@ -106,6 +106,6 @@ your MySQL or Aurora MySQL database to version 5.7.28 or higher.
 For more detail on the solution in this example, see the following:
 
 - [SSL Support for MySQL DB Instances](../../../AmazonRDS/latest/UserGuide/CHAP_MySQL.md#MySQL.Concepts.SSLSupport.html "../../../AmazonRDS/latest/UserGuide/CHAP_MySQL.md#MySQL.Concepts.SSLSupport.html") in the _Amazon RDS User Guide_.
-- [Using SSL to Encrypt a Connection to a DB Instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md") in the
+- [Using SSL to Encrypt a Connection to a DB Instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md") in the
   _Amazon RDS User Guide_.
 - [MySQL documentation](https://dev.mysql.com/doc/refman/5.6/en/using-encrypted-connections.html "https://dev.mysql.com/doc/refman/5.6/en/using-encrypted-connections.html")

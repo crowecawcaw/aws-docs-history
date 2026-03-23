@@ -32,6 +32,6 @@ You can interact with a chat agent in the following ways:
 
 ###### Tip
 
-You can also use your chat agents while automating your routine tasks with Quick Flows. For more information, see [Chat agents in Amazon Quick Flows](chat-agents-quick-flows.md "chat-agents-quick-flows.md").
+You can also use your chat agents while automating your routine tasks with Quick Flows. For more information, see [Chat agent](ai-response-steps.md#chat-agent-step "ai-response-steps.md#chat-agent-step").
 
 To learn more about chatting using chat agents, see [Using Amazon Quick chat](../../../quicksuite/latest/userguide/using-quick-chat.md "../../../quicksuite/latest/userguide/using-quick-chat.md").

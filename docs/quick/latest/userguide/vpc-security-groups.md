@@ -101,7 +101,7 @@ instances that are not in a VPC and are on the EC2-Classic platform.
 If this is your configuration, and you aren't moving your DB instance into the
 VPC for use with Amazon Quick, make sure to update your DB security group's
 inbound rules. Update them to allow inbound traffic from the VPC security group
-that you're using for Amazon Quick. For more information, see [Controlling Access with Security Groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md") in the
+that you're using for Amazon Quick. For more information, see [Controlling Access with Security Groups](../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md") in the
 _Amazon RDS User Guide._
 
 ## Outbound rules

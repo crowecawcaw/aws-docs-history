@@ -23,6 +23,7 @@ Guide.
 
 - [Create and preview custom chat agents](#create-custom-agents "#create-custom-agents")
 - [Share custom chat agents](#share-custom-agents "#share-custom-agents")
+- [Embed custom chat agents](#embed-custom-agents "#embed-custom-agents")
 - [Update custom chat agents](#update-custom-agents "#update-custom-agents")
 - [Manage access to a custom chat agent](#remove-access-custom-agents "#remove-access-custom-agents")
 - [View chat agents](#view-agents "#view-agents")
@@ -357,6 +358,68 @@ agents.
      use the chat agent.
 
 6. Select **Share**.
+
+## Embed custom chat agents
+
+You can embed a custom chat agent in an external website or application so that
+users can interact with it outside of the Amazon Quick console. To embed a chat
+agent, you must first allow the hosting domain in the Amazon Quick admin settings,
+and then generate the embed code from the chat agent's share options.
+
+Embedding a chat agent involves two steps:
+
+1. **Allow the hosting domain** – A
+   Amazon Quick admin must add the domain (and optionally its subdomains) where
+   the embedded chat agent will be hosted to the domain allow list.
+2. **Generate the embed code** – The chat
+   agent owner or an authorized user generates the embed code from the chat
+   agent's share options.
+
+### Allow a domain for embedded chat agents
+
+Before you can embed a chat agent on an external website, a Amazon Quick admin
+must add the hosting domain to the allow list. You must be a Amazon Quick admin
+to complete this procedure. This ensures that only approved
+domains can host embedded chat agents.
+
+###### To allow a domain for embedding
+
+1. Log in to the Amazon Quick console.
+2. Choose the profile icon.
+3. Choose **Manage account**.
+4. In the navigation pane under **Security**, choose
+   **Manage domains**.
+5. In the **Domain** field, enter the domain name where
+   you want to host the embedded chat agent (for example,
+   `https://example.com`).
+6. (Optional) Select **Include subdomains** to allow
+   embedded chat agents on all subdomains of the specified domain.
+7. Choose **Add**.
+
+The domain now appears in the list of allowed domains. You can edit or delete existing domains by choosing the edit or delete icons next to each
+domain in the list.
+
+### Generate the embed code for a chat agent
+
+After you allow the hosting domain, you can generate the embed code for
+a chat agent.
+
+###### To generate the embed code for a chat agent
+
+1. Log in to the Amazon Quick console.
+2. From the navigation pane, choose **Chat
+   agents**.
+3. From the **Actions** column for the chat agent you
+   want to embed, choose the menu icon, and then choose
+   **Edit**.
+4. In the chat agent editor, choose
+   **Share**.
+5. In the share options, choose **Share via
+   embed**.
+6. Copy the provided embed code and paste it into the HTML of your
+   website or application where you want the chat agent to appear.
+
+The embedded chat agent is now available on your website. Users who visit the page can interact with the chat agent directly.
 
 ## Update custom chat agents
 

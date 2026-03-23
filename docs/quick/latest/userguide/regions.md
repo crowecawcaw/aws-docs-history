@@ -36,6 +36,7 @@ AWS Region.
 | US West (Oregon)            | us-west-2      | `https://us-west-2.quicksight.aws.amazon.com`      | `quicksight.us-west-2.amazonaws.com`      | 54.70.204.128/27                              |
 | Africa (Cape Town)\*        | af-south-1     | `https://af-south-1.quicksight.aws.amazon.com`     | `quicksight.af-south-1.amazonaws.com`     | 13.246.220.192/27                             |
 | Asia Pacific (Jakarta)\*    | ap-southeast-3 | `https://ap-southeast-3.quicksight.aws.amazon.com` | `quicksight.ap-southeast-3.amazonaws.com` | 43.218.71.192/27                              |
+| Asia Pacific (Malaysia)\*   | ap-southeast-5 | `https://ap-southeast-5.quicksight.aws.amazon.com` | `quicksight.ap-southeast-5.amazonaws.com` | 56.68.33.0/27                                 |
 | Asia Pacific (Mumbai)\*     | ap-south-1     | `https://ap-south-1.quicksight.aws.amazon.com`     | `quicksight.ap-south-1.amazonaws.com`     | 52.66.193.64/27                               |
 | Asia Pacific (Seoul)\*      | ap-northeast-2 | `https://ap-northeast-2.quicksight.aws.amazon.com` | `quicksight.ap-northeast-2.amazonaws.com` | 13.124.145.32/27                              |
 | Asia Pacific (Singapore)\*  | ap-southeast-1 | `https://ap-southeast-1.quicksight.aws.amazon.com` | `quicksight.ap-southeast-1.amazonaws.com` | 13.229.254.0/27                               |

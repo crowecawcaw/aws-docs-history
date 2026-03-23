@@ -10,10 +10,11 @@ When you select an integration from the main grid, the console branches based on
   supports different combinations of actions and knowledge base creation. For
   example, Google Drive supports data ingestion not actions. OneDrive supports
   both data ingestion and actions.
-- **User tier** - Professional subscriptions enable
-  you to create knowledge bases out of Google Drive, OneDrive, Confluence, and
-  SharePoint. In order to set up actions and bring data from S3 and Web Crawler,
-  you need to have the Enterprise subscriptions.
+- **Subscription** – Configuring integrations
+  requires an Enterprise subscription. This includes creating action connectors,
+  setting up knowledge bases, and managing integration settings. Users with a
+  Professional subscription can use integrations that have been shared with
+  them.
 - **Existing integrations** - The console first shows existing integrations before offering to create new ones.
 
 ## View setup process examples

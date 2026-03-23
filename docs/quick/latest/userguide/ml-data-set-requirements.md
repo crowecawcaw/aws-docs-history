@@ -30,5 +30,5 @@ The data must have the following properties:
 - If you want to analyze anomalies or forecasts, you also need at least one date
   dimension.
   If you don't have a dataset to get started, you can download this sample dataset:
-  [ML Insights Sample Dataset VI](samples/ml-insights.csv.md "samples/ml-insights.csv.md").
+  [ML Insights Sample Dataset VI](samples/ml-insights.csv.zip.md "samples/ml-insights.csv.zip.md").
   After you have a dataset ready, create a new analysis from the dataset.

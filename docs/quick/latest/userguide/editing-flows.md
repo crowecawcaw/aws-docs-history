@@ -1,338 +1,188 @@
 # Editing flows
 
-Once you've created your flow, you can edit and configure it to meet your specific
-requirements. This section describes how to modify your flow's components, structure, and
-settings.
+After creating a flow, you can edit and configure it in the Flow editor.
 
 ## Accessing the Flow editor
 
-To edit an existing flow:
-
 1. Sign in to the Amazon Quick console.
-2. In the navigation pane, choose _Flows_.
+2. In the navigation pane, choose **Flows**.
 3. Find the flow you want to edit.
-4. Choose the flow name to open it in the Flow editor.
-
-The Flows editor provides a visual interface where you can modify your flow's components,
-connections, and settings.
+4. Choose the flow tile, or choose the ellipsis (⋮) and select **Open**.
 
 ## Configuring step types
 
-Each type of step in a flow has specific configuration options. This section describes
-how to configure each step type.
+Most steps with a prompt field support @ references to include data from previous steps. See each step's configuration for specific limitations.
 
-### Configuring input text steps
+### Configuring text input steps
 
-Input text steps collect text input from users. To configure an input text step:
+In Editor mode, add or select a text input step. In the configuration panel, set the following:
 
-1. Select the input text step in the Flow editor.
-2. In the configuration panel, set the following options:
-   - _Label_: The text that appears above the input field.
-   - _Placeholder_: Optional text that appears inside the input field
-     when it's empty.
-   - _Default value_: Optional text that pre-fills the input field.
-   - _Required_: Toggle to specify whether the input is required.
-
-3. Choose _Save_ to save your changes.
+- **Title**: A name for the step.
+- **Placeholder**: Optional text that appears inside the input field when it is empty. This text is not used for the flow run.
+- **Default Value**: Optional. The value provided if the user doesn't enter an input.
+- **Allow override of default value**: Toggle to let users replace the default value at runtime.
 
 ### Configuring file upload steps
 
-File upload steps allow users to upload files to your flow. To configure a file upload
-step:
+In Editor mode, add or select a file upload step. In the configuration panel, set the following:
 
-1. Select the file upload step in the Flow editor.
-2. In the configuration panel, set the following options:
-   - _Label_: The text that appears above the upload control.
-   - _Upload default file_: Upload a default file that can be used during flow run.
-   - _Allow override of default files_: Enable runtime users to override default files.
-
-3. Choose _Save_ to save your changes.
-
-###### Note
-
-File uploads are processed according to the capabilities of the selected model. Some
-models have limitations on file types and sizes they can process.
+- **Title**: A name for the step.
+- **Default file**: Optional. Upload a document, image, or video to use if the user doesn't provide one. You can upload one file per step.
+- **Allow override of default value**: Toggle to let users replace the default file at runtime.
 
 ### Configuring general knowledge steps
 
-General knowledge steps display text responses from models to users. To configure a general knowledge step:
+In Editor mode, add or select a general knowledge step. In the configuration panel, set the following:
 
-1. Select the general knowledge step from the add step menu in the Flow editor.
-2. In the configuration panel, set the following options:
-   - _Output preference_: Choose output response preference from Faster responses or Versatility and Performance.
-   - _Prompt_: Write the prompt that instructs the model what to generate. You can use @ references to include data from previous steps.
-   - _Advanced settings_: Configure model specific parameters such as creativity level to manage randomness of the LLM response.
+- **Output preference**: Choose one:
+  - **Fast responses** — Across image, video, and text inputs.
+  - **Versatility and performance** — Balanced capabilities for diverse tasks.
 
-3. Choose _Save_ to save your changes.
+- **Prompt**: Write the prompt that instructs the model what to generate.
+- **Creativity Level**: Optional. Adjust the slider from low to high to control the randomness of the response.
 
-### Configuring Quick suite data steps
+For more information, see [General knowledge](ai-response-steps.md#general-knowledge-step "ai-response-steps.md#general-knowledge-step").
 
-Quick suite data steps display text responses from internet search to users. To configure a Quick suite data:
+### Configuring Quick data steps
 
-1. Select the Quick suite data step from the add step menu in the Flow editor.
-2. In the configuration panel, set the following options:
-   - _Prompt_: Write the prompt that instructs what content to generate from the web. You can use @ references to include data from previous steps.
-   - _Link specific resources_: Select spaces and knowledge bases that you would like to get insights from. By default, responses are generated from all knowledge sources user has access to.
+In Editor mode, add or select a Quick data step. In the configuration panel, set the following:
 
-3. Choose _Save_ to save your changes.
+- **Prompt**: Write the prompt that instructs what content to retrieve.
+- **Link specific resources**: Select spaces and knowledge bases to get insights from. By default, responses are generated from all knowledge sources the user has access to.
 
-### Configuring web steps
+### Configuring web search steps
 
-Web steps display text responses from internet search to users. To configure a web step:
+In Editor mode, add or select a web search step. In the configuration panel, set the following:
 
-1. Select the web step from the add step menu in the Flow editor.
-2. In the configuration panel, set the following options:
-   - _Prompt_: Write the prompt that instructs what content to generate from the web. You can use @ references to include data from previous steps.
+- **Prompt**: Write the prompt that instructs what content to search for on the web.
 
-3. Choose _Save_ to save your changes.
+### Configuring research steps
 
-For more information about writing effective prompts, see [Prompt writing for output steps](#prompt-writing-output-steps "#prompt-writing-output-steps").
+In Editor mode, add or select a research step. In the configuration panel, set the following:
 
-### Configuring output image steps
+- **Title**: A name for the step.
+- **Research objective**: Describe what you want to research.
+- **File uploads**: Optional. Upload default files to help guide your research.
+- **Research materials**:
+  - **Preferred websites**: Optional. Specify websites or types of websites the agent should prioritize (for example, government websites, academic journals).
+  - **Websites to avoid**: Optional. Specify websites or types of websites to exclude (for example, social media, blogs).
 
-Output image steps generate and display images to users. To configure an output image
-step:
+- **Data and apps**: Select all data and apps, or choose specific ones.
 
-1. Select the output image step in the Flow editor.
-2. In the configuration panel, set the following options:
-   - _Prompt_: Write the prompt that describes the image to generate.
-     You can use @ references to include data from previous steps.
-   - _Advanced settings_: Configure mode-specific parameters such as creativity level (defines the randomness of the LLM response), Exclude (a parameter to define what not to include), and image seed (control the determinism of the images generated).
+### Configuring chat agent steps
 
-3. Choose _Save_ to save your changes.
+In Editor mode, add or select a chat agent step. In the configuration panel, set the following:
 
-### Configuring output Quick Sight steps
+- **Title**: A name for the step.
+- **Chat agent**: Select the agent to use.
+- **Prompt instruction**: Write the prompt that instructs the agent.
+- **Data and apps**: Optionally narrow down the selected data and apps to refine your use case.
+- **Web search**: Toggle to enable or disable web search for the agent.
 
-Output Quick Sight steps display Quick Sight visualizations to users. To
-configure an output Quick Sight step:
+### Configuring UI Agent steps
 
-1. Select the output Quick Sight step in the Flow editor.
-2. In the configuration panel, set the following options:
-   - _Quick Sight source_: Choose from Dashboard or a Topic.
-   - _Prompt_: Describe insights you want to get from your Quick Sight dashboard or topic. You can use @ references to include data from previous steps.
+In Editor mode, add or select a UI Agent step. In the configuration panel, set the following:
 
-3. Choose _Apply_ to save your changes.
+- **Title**: A name for the step.
+- **UI Agent Instructions**: Write the instructions for the UI agent. Use single, complete URLs for faster, more accurate results.
 
-For more information about integrating Quick visualizations in your flows, see [Amazon Quick Sight steps in flows](amazon-quick-sight-steps-in-flows.md "amazon-quick-sight-steps-in-flows.md").
+### Configuring Create Image steps
+
+In Editor mode, add or select a Create Image step. In the configuration panel, set the following:
+
+- **Prompt**: Describe the image to generate.
+- **Advanced settings**: Configure creativity level, exclude terms, and image seed.
+
+### Configuring Dashboards and topics steps
+
+In Editor mode, add or select a Dashboards and topics step. In the configuration panel, set the following:
+
+- **Quick Sight source**: Choose from Dashboard or Topic.
+- **Prompt**: Describe the insights you want from your dashboard or topic.
+
+For more information, see [Dashboards and topics](data-insight-steps.md#dashboards-and-topics-step "data-insight-steps.md#dashboards-and-topics-step").
 
 ### Configuring action steps
 
-Action steps perform operations in connected systems. To configure an action step:
+In Editor mode, add or select an action step. In the configuration panel, set the following:
 
-1. Select the action step in the Flow editor.
-2. In the configuration panel, set the following options:
-   - _Action connector_: Select the connector to use (e.g.,
-     Salesforce, Jira, Slack).
-   - _Action_: Select the specific action to perform.
-   - _Prompt_: Write prompt instructions to execute your actions. You can use @ references to include data from previous steps.
+- **Action connector**: Select the connector to use (for example, Salesforce, Jira, Slack).
+- **Action**: Select the specific action to perform.
+- **Prompt**: Write prompt instructions to execute your actions.
 
-3. Choose _Apply_ to save your changes.
-
-For more information about configuring action steps, see [Action steps in flows](action-steps-in-flows.md "action-steps-in-flows.md").
+For more information, see [Action steps](action-steps-in-flows.md "action-steps-in-flows.md").
 
 ### Configuring reasoning groups
 
-Reasoning groups process information using AI models. To configure a reasoning group:
+In Editor mode, add or select a reasoning group. In the configuration panel, set the following:
 
-1. Select the reasoning group in the Flow editor.
-2. In the configuration panel, set the following options:
-   - _Instructions_: Write the instructions that tell the model what
-     to do with the inputs. You can use @ references to include data from previous steps.
+- **Instructions**: Write instructions that tell the model what to do, such as conditions, loops, or validation logic. You can reference the output of a previous step as the input to a loop or conditional statement.
 
-3. Choose _Apply_ to save your changes.
+## Prompt writing for steps
 
-## Prompt writing for output steps
-
-Writing effective prompts is essential for getting the desired results from output steps.
-This section provides guidance on writing prompts and using @ references.
-
-### Prompt writing basics
-
-When writing prompts for output steps, consider the following best practices:
+When writing prompts for steps, consider the following best practices:
 
 - Be clear and specific about what you want the model to generate.
 - Provide context to help the model understand the task.
 - Specify the desired format, tone, and style of the output.
+- Use specific language to control the output — for example, "respond in bullet points", "limit the response to three sentences", or "use a formal tone".
 - Use examples to illustrate the expected output when appropriate.
-
-Example prompt for a customer support response:
-
-```
-
-You are a helpful customer support agent for a software company.
-Write a response to the customer's inquiry below.
-Be professional, empathetic, and solution-oriented.
-Include specific steps the customer can follow to resolve their issue.
-
-Customer inquiry: @{input_text}
-
-```
-
-### Using @ references
-
-@ references allow you to include data from previous steps in your prompts. To use an @
-reference:
-
-1. In the prompt field, type the @ symbol (@).
-2. A dropdown menu will appear showing available references from previous steps.
-3. Select the reference you want to include.
-4. The reference will be inserted in the format @{step_id}.
-
-You can use @ references in various ways:
-
-- Include user input: `@{input_text}`
-- Include file content: `@{file_upload}`
-- Include action results: `@{action_step}`
-
-###### Example Prompt with multiple @ references
-
-```
-
-Analyze the customer's message: @{customer_input}
-
-Consider the customer's account information:
-- Account type: @{account_info.type}
-- Subscription status: @{account_info.status}
-- Support level: @{account_info.support_level}
-
-Based on this information, provide a personalized response that addresses the customer's concerns and offers appropriate solutions.
-
-```
 
 ## Adding and removing steps
 
-You can add new steps to your flow or remove existing ones as needed.
-
 ### Adding steps
 
-To add a new step to your flow:
-
-1. In the Flow editor, choose _Add step_ from the toolbar.
-2. Select the type of step you want to add from the dropdown menu.
+1. In the Flow editor, choose **Add step** from the toolbar.
+2. Select the type of step you want to add.
 3. Drag the step to the desired position in your flow.
 4. Configure the step as needed.
-5. Connect the step to other steps in your flow using @ reference of existing steps.
 
 ### Removing steps
 
-To remove a step from your flow:
-
 1. Select the step you want to remove.
-2. Choose _Delete_ from the context menu.
+2. Choose **Delete** from the context menu.
 3. Confirm the deletion when prompted.
 
 ###### Note
 
-When you remove a step, any connections to and from that step are also removed. You
-may need to reconnect other steps to maintain the flow of your application.
-
-## Sequential flow
-
-Quick Flows uses a sequential flow model, where steps are run in a specific order based
-on their connections.
-
-To create a sequential flow:
-
-1. Arrange your steps in the order you want them to run.
-2. Connect each step to the next by dragging a connection from the output port of one
-   step to the input port of the next.
-3. Ensure that all steps are connected in a logical sequence, with no disconnected
-   steps.
-
-The sequential flow determines:
-
-- The order in which steps are presented to users
-- The data flow between steps
-- The availability of @ references from previous steps
-
-## Quick data vs general knowledge
-
-When configuring reasoning groups and output steps, you can choose between using Quick data and general knowledge.
-
-### Knowledge sources
-
-Quick data
-
-Uses your organization's knowledge base to provide responses based on your
-company's specific information, documents, and data.
-
-General knowledge
-
-Uses the model's built-in knowledge to provide responses based on general
-information available during the model's training.
-
-### Output preference details
-
-Instead of selecting specific models, you can choose output preferences that optimize the AI response for your specific needs. When configuring output preferences, consider:
-
-- _Faster responses_: Optimized for speed, providing quicker results when time is critical for your workflow.
-- _Versatility and Performance_: Balanced approach that handles a wide range of tasks effectively across different use cases.
-
-The system automatically selects the most appropriate Amazon Bedrock model based on your chosen preference and the specific requirements of your flow. For more information about output preferences and model abstraction, see [Using response preferences in General knowledge step](using-response-preferences-in-general-knowledge-step.md "using-response-preferences-in-general-knowledge-step.md").
-
-### Spaces details
-
-Spaces are containers for company knowledge that can be used in your flows. You can create and configure spaces with specific knowledge sources (if you have Author Pro or Reader Pro tier access), such as:
-
-- Document repositories
-- Wikis and knowledge bases
-- Databases and structured data
-- Custom data sources
-
-When configuring a reasoning group or output step, you can select which space to use as
-the knowledge source. This determines what information is available to the model when
-processing inputs and generating outputs.
+When you remove a step, any @ references to that step in other steps are also removed. You may need to update other steps to maintain your flow.
 
 ## Publishing changes
 
-After making changes to your flow, you need to publish them to make them available to
-users.
+After making changes to your flow, publish them to make them available to users.
 
-1. In the Flow editor, choose _Save_ to save your changes.
-2. Choose _Publish_ to publish your changes.
-3. Choose _Publish_ to confirm.
+1. In the Flow editor, choose **Save** to save your changes.
+2. Choose **Publish**.
+3. Choose **Publish** to confirm.
 
-When you publish changes to a flow:
-
-- The changes become immediately available to all users who have access to the flow.
+When you publish, the changes become immediately available to all users who have access to the flow.
 
 ## Updating Flow details
 
-You can update your flow's title, description, and view the original prompt used to
-create it (if applicable).
-
 ### Updating title and description
 
-To update your flow's title and description:
-
-1. In the Flow editor, directly edit title and description of your flow in-line.
-2. Choose _Save_ to apply your changes.
-3. Choose _Publish_ to publish your changes.
+1. In the Flow editor, directly edit the title and description in-line.
+2. Choose **Save**.
+3. Choose **Publish**.
 
 ### Viewing the original prompt
 
-If your flow was created using a natural language prompt, you can view the original
-prompt:
+If your flow was created using a natural language prompt, you can view the original prompt:
 
 1. In the Flow editor, select the kebab menu in the header.
-2. From the options displayed in the menu, choose _View prompt_.
-3. The original prompt used to create the flow is displayed.
+2. Choose **View prompt**.
 
 ###### Note
 
-The original prompt is read-only and cannot be modified. If you want to create a new
-Flow based on a modified prompt, you can create a new flow using the natural language
-prompt method.
+The original prompt is read-only. To create a new flow based on a modified prompt, use the natural language prompt method.
 
 ## Best practices for editing flows
 
-Consider these best practices when editing your flows:
-
 - Test your changes thoroughly before publishing them to ensure they work as expected.
-- Use clear and descriptive names for steps to make your flow easier to understand and
-  maintain.
+- Use clear and descriptive names for steps to make your flow easier to understand and maintain.
 - Write detailed prompts and instructions to get the best results from AI models.
 - Use @ references to create dynamic flows that adapt to user inputs.
 - Consider the user experience when designing the flow of steps.
-- Document your changes in the publication description to maintain a clear history of
-  updates.
+- Document your changes in the publication description to maintain a clear history of updates.
+
+Step configurations and available features may change over time. For the latest information, see the [Terminology and key concepts](terminology-and-key-concepts.md "terminology-and-key-concepts.md") and the [Amazon Quick Flows product page](https://aws.amazon.com/quicksight/q-apps/ "https://aws.amazon.com/quicksight/q-apps/").

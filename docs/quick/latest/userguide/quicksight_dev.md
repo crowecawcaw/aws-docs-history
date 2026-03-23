@@ -75,7 +75,7 @@ sample of the language-specific API documentation available.
 
 ###### AWS SDK for PHP
 
-- [QuickSightClient](../../../aws-sdk-php/v3/api/class-Aws.QuickSight.md "../../../aws-sdk-php/v3/api/class-Aws.QuickSight.md")
+- [QuickSightClient](../../../aws-sdk-php/v3/api/class-Aws.QuickSight.QuickSightClient.md "../../../aws-sdk-php/v3/api/class-Aws.QuickSight.QuickSightClient.md")
 
 ###### AWS SDK for Python (Boto3)
 

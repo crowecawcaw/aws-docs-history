@@ -1,150 +1,269 @@
-# Jira Cloud integration
+# Atlassian Jira Cloud integration
 
-Connect Amazon Quick to your Jira Cloud instance to manage issues, projects, and other Jira objects. You can create, update, and query Jira content without leaving your Amazon Quick environment. This integration requires Amazon Quick Pro tier or higher.
+Use the Atlassian Jira Cloud action connector to create, update, search, and manage
+Jira issues, projects, sprints, and users directly in Amazon Quick through natural language.
 
-## What you can do
-
-With Jira Cloud integration, you can perform actions within your Jira instances through the Jira REST API.
-
-**Action connector**
-
-Create, update, and query Jira issues, projects, and other objects through the Jira REST API.
-
-###### Note
-
-This integration supports action execution only. You can't use it to create knowledge bases or access Jira data for search purposes.
+Setting up this integration involves two steps. First, you create an OAuth 2.0 (3LO)
+app in the Atlassian Developer Console and configure its permissions. Then, you create
+the integration in Amazon Quick and connect it to your Atlassian app. For information
+about the authentication methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md "quick-action-auth.md").
 
 ## Before you begin
 
-You need the following to set up Jira integration:
+Make sure you have the following before you set up the integration.
 
-- Jira Cloud instance with appropriate permissions.
-- Jira user account or API token credentials.
-- Amazon Quick Author or higher.
-- Administrative access to configure OAuth applications (for user authentication).
+- Atlassian Jira Cloud.
+- Access to the [Atlassian
+  Developer Console](https://developer.atlassian.com/console/myapps/ "https://developer.atlassian.com/console/myapps/") to create or manage an OAuth app.
+- For subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
-## Create a Jira API token
+## Configure the Atlassian Developer Console
 
-To use API key authentication, create an API token in your Atlassian account.
+If you plan to use user authentication (3LO), create an OAuth 2.0 app in the
+Atlassian Developer Console before you configure Amazon Quick. Complete all of the
+following steps before moving to the Amazon Quick console.
 
-1. Go to your Atlassian account settings and choose **Security**.
-2. Create a new API token for Amazon Quick integration.
-3. Copy the generated token to use in your Amazon Quick integration setup.
-4. Note your Jira Cloud instance URL and user email address. Your Jira Cloud
-   instance URL is a special value for API calls that can be found by navigating to
-   `https://`your-domain`.atlassian.net/_edge/tenant_info`.
+If you plan to use service authentication (API Key) only, you can skip this
+section and proceed to [Set up the integration in Amazon Quick](#jira-integration-setup "#jira-integration-setup").
+
+For more information about OAuth 2.0 (3LO) apps, see [OAuth 2.0 (3LO) apps](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/ "https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/") in the Atlassian developer
+documentation.
+
+### Create an OAuth 2.0 (3LO) app
+
+Amazon Quick uses an Atlassian OAuth 2.0 (3LO) app to authenticate with
+your Atlassian Cloud product on behalf of your users. Create this app in the
+Atlassian Developer Console before you configure Amazon Quick.
+
+1. Open the [Atlassian
+   Developer Console](https://developer.atlassian.com/console/myapps/ "https://developer.atlassian.com/console/myapps/") and sign in with your Atlassian
+   account.
+2. Choose **Create**, then choose **OAuth 2.0
+   integration**.
+3. For **Name**, enter a descriptive name for your
+   integration, for example
+   ``your-app-name`
+   connector`.
+4. Review and accept the Atlassian developer terms.
+5. Choose **Create**.
+
+### Configure permissions
+
+After you create the OAuth 2.0 app, add the API permissions that
+Amazon Quick needs to interact with your Atlassian product.
+
+1. From your app in the Atlassian Developer Console, choose
+   **Permissions** in the left navigation.
+2. Find the API for your Atlassian product (for example,
+   **Jira API** or
+   **Confluence API**) and choose
+   **Add**. The button changes to
+   **Configure** after the API is added.
+3. Choose **Configure**. The scopes page opens with
+   **Classic scopes** and
+   **Granular scopes** tabs.
+4. On the **Classic scopes** tab, choose
+   **Edit Scopes**. Select the required classic
+   scopes and choose **Save**.
+5. Choose the **Granular scopes** tab, then choose
+   **Edit Scopes**. Select the required granular
+   scopes and choose **Save**.
+
+For the specific scopes required for your integration, see the scopes
+section that follows.
+
+### Configure API permissions
+
+Add the following scopes to your OAuth 2.0 app for the Jira Cloud action
+integration.
+
+**Classic scopes**
+
+On the **Classic scopes** tab, choose
+**Edit Scopes** and select the following scopes.
+
+| Jira action integration – classic scopes | Scope                                                                                                                             | Description |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `read:jira-work`                         | Read Jira project and issue data, search for issues, and<br>objects associated with issues like attachments and<br>worklogs.      |
+| `manage:jira-project`                    | Create and edit project settings and create new<br>project-level objects (for example, versions and<br>components).               |
+| `manage:jira-configuration`              | Take Jira administration actions (for example, create<br>projects and custom fields, view workflows, manage issue link<br>types). |
+| `read:jira-user`                         | View user information in Jira that the user has access to,<br>including usernames, email addresses, and avatars.                  |
+| `write:jira-work`                        | Create and edit issues in Jira, post comments as the user,<br>create worklogs, and delete issues.                                 |
+| `manage:jira-webhook`                    | Fetch, register, refresh, and delete dynamically declared<br>Jira webhooks.                                                       |
+
+**Granular scopes**
+
+Choose the **Granular scopes** tab, then choose
+**Edit Scopes**. Use the search bar to find the scopes
+below. For example, search for `sprint:jira-software` to find
+sprint-related scopes.
+
+| Jira action integration – granular scopes | Scope                        | Description |
+| ----------------------------------------- | ---------------------------- | ----------- |
+| `read:board-scope:jira-software`          | Read board configurations.   |
+| `read:sprint:jira-software`               | Read sprint information.     |
+| `write:sprint:jira-software`              | Create and modify sprints.   |
+| `delete:sprint:jira-software`             | Delete sprints.              |
+| `write:board-scope:jira-software`         | Manage board configurations. |
+| `read:project:jira`                       | Read project details.        |
+
+### Configure authorization
+
+Set the callback URL so that Atlassian can redirect users back to
+Amazon Quick after they authorize the app.
+
+1. From your app in the Atlassian Developer Console, choose
+   **Authorization** in the left navigation.
+2. Next to **OAuth 2.0 (3LO)**, choose
+   **Add**.
+3. For **Callback URLs**, enter
+   `https://`region`.quicksight.aws.amazon.com/sn/oauthcallback`.
+   Replace `region` with the AWS Region
+   where your Amazon Quick instance is deployed, for example
+   `us-east-1`.
+4. Choose **Save changes**.
+
+### Record your credentials
+
+Before you leave the Atlassian Developer Console, confirm that you have
+the following values. You need them for the Amazon Quick configuration.
+
+1. From your app in the Atlassian Developer Console, choose
+   **Settings** in the left navigation.
+2. Under **Authentication details**, copy the
+   **Client ID** and **Secret**
+   values.
+
+| Required credentials from Atlassian Developer Console | Value                                       | Where to find it |
+| ----------------------------------------------------- | ------------------------------------------- | ---------------- |
+| Client ID                                             | Settings page, under Authentication details |
+| Secret                                                | Settings page, under Authentication details |
+
+## Set up the integration in Amazon Quick
+
+After you prepare your authentication credentials, create the integration in
+Amazon Quick.
+
+1. In the Amazon Quick console, choose **Integrations**.
+2. Choose the **Actions** tab.
+3. Under **Set up a new app integration for Actions**,
+   find **Atlassian Jira Cloud** and choose the Add
+   (plus "+") button.
+4. In the **Create integration** wizard, fill in the
+   following fields:
+   - **Name** – Descriptive name for your Jira
+     integration.
+   - **Description** (Optional) – Notes about how
+     this connection will be used.
+   - **Connection type** – Choose
+     **Public network**.
+
+5. Under **Authentication settings**, choose your
+   authentication method and fill in the required fields:
+   1. For **User authentication**,
+      configure the following fields:
+      - **Base URL** – Your Jira instance URL
+        for API calls. This is not the same URL that users log into.
+        It resembles the following:
+        `https://api.atlassian.com/ex/jira/`yourInstanceId``.
+To find your instance ID, navigate to
+`https://`your-domain`.atlassian.net/\_edge/tenant_info`.
+      - **Client ID** – Client ID from the Settings page of your Atlassian OAuth app.
+      - **Client secret** – Secret from the Settings page of your Atlassian OAuth app.
+      - **Token URL** –
+        `https://auth.atlassian.com/oauth/token`
+      - **Authorization URL** –
+        `https://auth.atlassian.com/authorize`
+      - **Redirect URL** – This field is
+        pre-populated with your Amazon Quick callback URL.
+
+   2. For **Service authentication**,
+      configure the following fields:
+      - **API Key** – Jira API token.
+      - **Base URL** – Your Jira instance URL for API calls.
+      - **Email** – Associated user account email.
+
+6. Choose **Create and continue**.
+7. (Optional) On the **Share integration** page, choose
+   users to share the integration with.
 
 ###### Important
 
-Jira Cloud may return HTTP 200 success responses even when API tokens are revoked or improperly configured.
-For more infomration see [JRACLOUD-82932](https://jira.atlassian.com/browse/JRACLOUD-82932 "https://jira.atlassian.com/browse/JRACLOUD-82932").
-If your integration appears to connect successfully but actions fail unexpectedly, verify that your
-API token is valid and has not been revoked.
-
-## Set up Jira integration
-
-Follow these steps to connect Amazon Quick to your Jira Cloud instance.
-
-1. In the Amazon Quick console, choose **Integrations**.
-2. Click **Add** (plus "+" button).
-3. Complete the integration details:
-   - **Name** - Enter a descriptive name for your Jira integration.
-   - **Description** (Optional) - Describe the purpose of this integration.
-
-4. Choose connection type (user or service authentication).
-5. Complete the connection settings based on authentication method:
-   - **For User authentication (OAuth):**
-     - **Base URL** - Your Jira Cloud instance URL. This must be provided in the
-       following format:
-       `https://api.atlassian.com/ex/jira/`instanceid``.
-Your `instanceid`can be found by
-navigating to`https://`your-domain`.atlassian.net/\_edge/tenant_info`.
-     - **Client ID** - Your Atlassian OAuth app client ID.
-     - **Client Secret** - Your Atlassian OAuth app client secret.
-     - **Token URL** - Atlassian OAuth token endpoint.
-     - **Auth URL** - Atlassian OAuth authorization endpoint.
-     - **Redirect URL** - OAuth redirect URI.
-
-   - **For Service authentication (API Key):**
-     - **Base URL** - Your Jira Cloud instance URL.
-     - **API Key** - Your Jira API token.
-     - **Email** - Email address associated with your Jira user account.
-
-6. Select **Create and continue**.
-7. Select users to share the integration with.
-8. Click **Next**.
-
-## Configure authentication
-
-Jira Cloud integration supports two authentication methods. Choose the method that works best for your organization.
-
-**User authentication (OAuth)**
-
-Use OAuth when you want actions to be performed under individual user identities. Configure these fields:
-
-- **Base URL** - Your Jira Cloud instance URL.
-- **Client ID** - Your Atlassian OAuth app client ID.
-- **Client Secret** - Your Atlassian OAuth app client secret.
-- **Token URL** - Atlassian OAuth token endpoint.
-- **Auth URL** - Atlassian OAuth authorization endpoint.
-- **Redirect URL** - OAuth redirect URI.
-
-**Required OAuth scopes:**
-
-- `read:jira-user` - Read user information.
-- `read:jira-work` - Read issues, projects, and work items.
-- `write:jira-work` - Create and modify issues and work items.
-- `manage:jira-project` - Manage project settings.
-- `manage:jira-configuration` - Manage Jira configuration.
-- `manage:jira-webhook` - Manage webhooks.
-- `read:sprint:jira-software` - Read sprint information.
-- `write:sprint:jira-software` - Create and modify sprints.
-- `delete:sprint:jira-software` - Delete sprints.
-- `write:board-scope:jira-software` - Manage board configurations.
-
-**Service authentication (API Key)**
-
-Use API key authentication for service-to-service connections. Configure these fields:
-
-- **Base URL** - Your Jira Cloud instance URL.
-- **API Key** - Your Jira API token.
-- **Email** - Email address associated with your Jira user account.
-
-###### Note
-
-Due to a known Jira Cloud behavior, the integration may appear to connect successfully even with revoked or invalid API tokens. If actions fail unexpectedly after setup, verify your API token is still valid in your Atlassian account settings.
+Jira Cloud may return HTTP 200 success responses even when API tokens are
+revoked or improperly configured. For more information, see [JRACLOUD-82932](https://jira.atlassian.com/browse/JRACLOUD-82932 "https://jira.atlassian.com/browse/JRACLOUD-82932"). If your integration appears to connect
+successfully but actions fail unexpectedly, verify that your API token is
+valid and has not been revoked.
 
 ## Available actions
 
-After you create your Jira integration, you can use these actions to interact with Jira Cloud:
+After you set up the integration, the following actions are available.
 
-- Create, read, update, and delete Jira issues.
-- Manage issue transitions and workflows.
-- Query issues using JQL (Jira Query Language).
-- Manage projects, components, and versions.
-- Add comments and attachments to issues.
-- Manage user assignments and watchers.
-- Access project and issue metadata.
+| Jira Cloud available actions   | Action                                 | Description |
+| ------------------------------ | -------------------------------------- | ----------- |
+| Add Attachment                 | Add an attachment to an issue.         |
+| Add Comment                    | Add new comment.                       |
+| Change Issue Status            | Change task status of an issue.        |
+| Create Issue                   | Create new issue or subtask.           |
+| Create Project                 | Create new project.                    |
+| Create Sprint                  | Create a sprint in a project.          |
+| Delete Comment                 | Remove comment.                        |
+| Delete Issue                   | Delete an issue in a project.          |
+| Delete Project                 | Remove project.                        |
+| Delete Sprint                  | Delete a sprint in a project.          |
+| Edit Issue                     | Modify issue.                          |
+| Find Users                     | Search for a Jira user.                |
+| Get All Labels                 | View all labels.                       |
+| Get All Users                  | List all Jira users.                   |
+| Get Attachment Content         | View the contents of an attachment.    |
+| Get Comments                   | View issue comments.                   |
+| Get Issue                      | View details of an issue in a project. |
+| Get Issue Types For Project    | View project issue types.              |
+| Get Priorities                 | View issue priorities.                 |
+| Get Project                    | View project details.                  |
+| Get Sprint                     | View details of a sprint in a project. |
+| Move Issues to Backlog         | Move issues to backlog.                |
+| Move Issues To Sprint And Rank | Assign an issue to a sprint.           |
+| Search Issues                  | Search for issues.                     |
+| Search Projects                | Find visible projects.                 |
+| Search Statuses                | Search issue statuses.                 |
+| Update Comment                 | Edit comment.                          |
+| Update Project                 | Modify project.                        |
+| Update Sprint                  | Update sprint details.                 |
 
 ###### Note
 
-The actions you can use depend on the permissions configured in your Jira Cloud instance and your authentication method.
+The actions you can use depend on the permissions configured in your Jira
+Cloud instance and your authentication method.
 
-## Share integrations
+## Manage and troubleshoot
 
-You can share your Jira action connector with other users in your organization.
+To edit, share, or delete your integration, see [Managing existing integrations](integration-workflows.md#managing-existing-integrations "integration-workflows.md#managing-existing-integrations").
 
-1. After you create the integration, choose **Share integration**.
-2. Select the users or groups you want to share the integration with.
-3. Set appropriate permissions for shared access.
-4. Confirm your sharing settings.
+### Authentication issues
 
-## Manage Jira integrations
+- **Incorrect app configuration** – Verify
+  the OAuth app in the Atlassian Developer Console includes the required
+  scopes and that the redirect URI matches your Amazon Quick
+  configuration.
+- **Expired or revoked API token** – If
+  using service authentication, check that the API token has not expired or
+  been revoked. Due to a known Jira Cloud behavior ([JRACLOUD-82932](https://jira.atlassian.com/browse/JRACLOUD-82932 "https://jira.atlassian.com/browse/JRACLOUD-82932")), the integration may appear to connect
+  successfully even with invalid tokens.
+- **Incorrect Base URL** – The Base URL for
+  API calls is not the same as the Jira Cloud login URL. Verify you are
+  using the API URL format:
+  `https://api.atlassian.com/ex/jira/`yourInstanceId``.
+To find your instance ID, navigate to
+`https://`your-domain`.atlassian.net/\_edge/tenant_info`.
 
-You can perform these management tasks for your Jira integrations:
+### Common error messages
 
-- **Edit integration settings** - Update authentication settings or Jira instance configuration.
-- **Share integration access** - Make the integration available to other users in your organization.
-- **Monitor usage metrics** - View integration activity and API usage metrics.
-- **Review available actions** - See the complete list of available Jira actions.
-- **Delete integration** - Remove the integration and revoke associated authentication.
+- **`Access denied. You do not have permission
+to perform this action`** – The authenticated user
+  does not have the required permissions in Jira Cloud. Contact your Jira
+  Cloud administrator to verify and grant appropriate
+  permissions.
+- **`OAuth 2.0 authorization
+failed`** – Verify the client ID, client secret,
+  and OAuth scopes are configured correctly in both the Atlassian Developer
+  Console and Amazon Quick.

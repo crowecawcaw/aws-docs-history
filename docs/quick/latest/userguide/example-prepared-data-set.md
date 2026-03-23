@@ -2,7 +2,7 @@
 
 Use the following procedure to prepare the Marketing dataset and create an
 analysis. If you don't see the Web and Social Media Analytics sample data
-already in Amazon Quick Sight, you can download it: [web-and-social-analytics.csv.zip](samples/web-and-social-analytics.csv.md "samples/web-and-social-analytics.csv.md").
+already in Amazon Quick Sight, you can download it: [web-and-social-analytics.csv.zip](samples/web-and-social-analytics.csv.zip.md "samples/web-and-social-analytics.csv.zip.md").
 
 ###### To prepare the Marketing dataset and create an analysis
 

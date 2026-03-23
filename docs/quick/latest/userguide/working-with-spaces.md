@@ -105,18 +105,12 @@ The following list outlines the limitations of spaces:
 - Files uploaded to a space must be one of the following formats:
   `.html`, `.ppt`, `.docx`,
   `.txt`, `.pdf`, `.csv`, `.xlsx`,
-  `.xml`, `.jpeg`, `.svg`
+  `.xml`,
   `.json`, `.md`
   `.rtf`, `.xslt`
   `.mp3`, `.wav`
   `.m4a`, `.flac`, `.ogg`, `.mp4`,
   `.mov`, `.m4v`.
-
-###### Note
-
-You can only upload JPG images to spaces. PNG is not supported at this
-time.
-
 - File uploads are limited to 30 MB for Excel and CSV files, and 50 MB for all
   other supported file types. You will get a "character limit exceeded" error when
   you upload larger documents.

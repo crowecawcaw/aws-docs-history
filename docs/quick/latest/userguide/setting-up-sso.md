@@ -33,6 +33,7 @@ In the regions listed below, Amazon Quick accounts can only use [IAM Identity Ce
 
 - `af-south-1` Africa (Cape Town)
 - `ap-southeast-3` Asia Pacific (Jakarta)
+- `ap-southeast-5` Asia Pacific (Malaysia)
 - `eu-south-1` Europe (Milan)
 - `eu-central-2` Europe (Zurich)
   IAM Identity Center helps you securely create or connect your workforce identities and manage their

@@ -10,7 +10,7 @@ count by month of people that have added themselves to the mailing list.
 
 1. From the Amazon Quick homepage, from Amazon Quick Sight, choose
    **Analyses** from the left navigation menu. If you
-   don't have sample data, you can download it from [web-and-social-analytics.csv.zip](samples/web-and-social-analytics.csv.md "samples/web-and-social-analytics.csv.md"). Unzip the file so you can use
+   don't have sample data, you can download it from [web-and-social-analytics.csv.zip](samples/web-and-social-analytics.csv.zip.md "samples/web-and-social-analytics.csv.zip.md"). Unzip the file so you can use
    the .csv file.
 
 To upload the sample data, do the following:

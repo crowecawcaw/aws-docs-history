@@ -1,172 +1,109 @@
 # Model Context Protocol (MCP) integration
 
-With Model Context Protocol (MCP) integration in Amazon Quick, you can connect to MCP servers for both task execution and data access capabilities. MCP provides a standardized way to connect AI systems with external tools and data sources.
+Model Context Protocol (MCP) is an open standard that defines how AI applications communicate with external tools and data sources. MCP uses a client-server architecture. AI applications act as clients that connect to MCP servers. Each MCP server exposes a set of tools. These tools are structured operations that the AI application can invoke to perform tasks, such as querying databases, calling APIs, or interacting with third-party services.
+
+With MCP integration in Amazon Quick, you can connect to remote MCP servers so that your AI assistant can use the tools that those servers provide. For example, you can connect to an MCP server that provides access to your project management system. This connection allows the assistant to create tickets, look up issues, or update statuses as part of a conversation. Because MCP is an open standard, you can connect to any compatible server without building custom integrations for each tool.
 
 ## What you can do
 
-With MCP integration, you can connect to MCP servers for both action execution and data access through standardized protocols.
+MCP integration registers MCP server tools as actions in Amazon Quick.
 
 **Action connector**
 
-Connect to MCP servers to perform actions and execute tasks through standardized MCP protocols.
-
-**Data access integration**
-
-Access data sources through MCP servers to create knowledge bases and retrieve information.
+Each tool that is exposed by an MCP server is registered as an action that your AI assistant can invoke during conversations. The integration secures these connections by using Proof Key for Code Exchange (PKCE) with the S256 challenge method and Resource Indicators (RFC 8707) to bind access tokens to specific MCP servers.
 
 ## Before you begin
 
-Before you set up MCP integration, make sure you have the following:
+Before you set up MCP integration, make sure that you have the following:
 
-- MCP server endpoint with appropriate access.
-- Authentication credentials for the MCP server.
-- Amazon Quick Author or higher for action connectors.
-- Amazon Quick Professional subscription
-
-###### Note
-
-MCP integration supports remote servers only. HTTP streaming is preferred over Server-Sent Events (SSE). Local stdio connections are not supported. VPC connectivity is not supported.
-
-## Popular MCP servers
-
-The following are examples of popular MCP servers being used with Amazon Quick and
-the remote MCP server URLs:
-
-:
-
-| Popular MCP servers      | Provider                                                                                                            | MCP Server URL |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------- | -------------- |
-| Asana                    | `https://mcp.asana.com/sse`                                                                                         |
-| Atlassian                | `https://mcp.atlassian.com/v1/sse`                                                                                  |
-| AWS Knowledge MCP Server | [https://knowledge-mcp.global.api.aws](https://knowledge-mcp.global.api.aws "https://knowledge-mcp.global.api.aws") |
-| Box                      | `http://mcp.box.com/`                                                                                               |
-| HubSpot                  | `https://mcp.hubspot.com`                                                                                           |
-| HuggingFace              | `https://huggingface.co/mcp`                                                                                        |
-| Intercom                 | `https://mcp.intercom.com/mcp`                                                                                      |
-| Linear                   | `https://mcp.linear.app/mcp`                                                                                        |
-| Monday                   | `https://mcp.monday.com/sse`                                                                                        |
-| Notion                   | `https://mcp.notion.com/mcp`                                                                                        |
-| PagerDuty                | `https://identity.pagerduty.com/global/oauth/anonymous/.well-known/openid-configuration`                            |
-| Workato                  | `https://`MCP_ID`.apim.mcp.workato.com`                                                                             |
-| Zapier                   | [https://mcp.zapier.com/MCP_ID](https://mcp.zapier.com/(unique "https://mcp.zapier.com/(unique")                    |
-
-The proceeding table shows just some of the many MCPs supported for use with Amazon Quick.
+- An MCP server endpoint with appropriate access.
+- Authentication credentials for the MCP server, if required. For more information, see [Prepare MCP server setup and authentication](#mcp-integration-authentication "#mcp-integration-authentication").
+- An Amazon Quick Enterprise subscription.
 
 ###### Note
 
-These servers require appropriate authentication credentials. Refer to each provider's documentation for specific authentication requirements.
+MCP integration supports remote servers only. HTTP streaming is preferred over Server-Sent Events (SSE). Local stdio connections and VPC connectivity are not supported.
 
 ## Prepare MCP server setup and authentication
 
-Before setting up the integration in Amazon Quick, prepare your MCP server configuration and authentication credentials. MCP integration supports multiple authentication methods and configuration approaches. Choose the method that matches your MCP server requirements:
+When you connect to an MCP server, Amazon Quick uses OAuth 2.0 Protected Resource Metadata (RFC 9728) to automatically discover authorization server information. The client sends an initial unauthenticated request to the MCP server. If the server responds with a 401 status that contains a `WWW-Authenticate` header with a `resource_metadata` URL, then Amazon Quick uses that URL to fetch the metadata document. If the header is not present, Amazon Quick falls back to the well-known URI at the server root.
+
+If the authorization server supports Dynamic Client Registration (DCR), Amazon Quick automatically registers itself by using the discovered `registration_endpoint` from the authorization server metadata. No manual credential configuration is required. Both confidential and public client flows are supported. DCR applies regardless of the authentication method that you choose.
+
+If the authorization server does not support DCR, you must manually provide credentials. Choose the authentication method that matches your MCP server requirements.
 
 **User authentication (OAuth)**
 
-MCP servers support two configuration approaches for OAuth authentication:
+Gather the following information from your MCP server configuration:
 
-**Dynamic Client Registration (DCR)**
-
-When your MCP server advertises Dynamic Client Registration support, no manual configuration is required. The MCP client automatically registers itself with the server and receives the necessary credentials during the connection process. This streamlined approach eliminates the need to manually gather client IDs, secrets, and endpoint URLs.
-
-**Manual configuration**
-
-For MCP servers that don't support DCR, gather the following information from your MCP server configuration:
-
-- **Client ID** - OAuth client ID.
-- **Client Secret** - OAuth client secret.
-- **Token URL** - OAuth token endpoint.
-- **Auth URL** - OAuth authorization endpoint.
-- **Redirect URL** - OAuth redirect URI.
+- **Client ID** – The OAuth client ID.
+- **Client Secret** – The OAuth client secret.
+- **Token URL** – The OAuth token endpoint.
+- **Authorization URL** – The OAuth authorization endpoint.
+- **Redirect URL** – The OAuth redirect URI.
 
 **Service authentication (Service-to-Service)**
 
 Gather the following information from your MCP server configuration:
 
-- **Client ID** - Service client ID.
-- **Client Secret** - Service client secret.
-- **Token URL** - Service token endpoint.
+- **Client ID** – The service client ID.
+- **Client Secret** – The service client secret.
+- **Token URL** – The service token endpoint.
+
+**No authentication**
+
+If the MCP server does not require authentication, no credentials are needed. Select this option for MCP servers that allow unauthenticated access.
 
 ## Set up MCP integration
 
-After preparing your MCP server configuration and authentication credentials, follow these steps to create your MCP integration:
+After you prepare your MCP server configuration and authentication credentials, create your MCP integration.
 
 1. In the Amazon Quick console, choose **Integrations**.
-2. Click **Add** (plus "+" button).
-3. On the Create Integration page, enter integration details:
-   - **Name** - Descriptive name for your MCP integration.
-   - **Description** (Optional) - Purpose of the integration.
-   - **MCP server endpoint** - URL of the MCP server.
+2. Choose **Add**.
+3. On the **Create Integration** page, enter the integration details:
+   - **Name** – A descriptive name for your MCP integration.
+   - **Description** (Optional) – The purpose of the integration.
+   - **MCP server endpoint** – The URL of the MCP server.
 
-4. Click **Next**.
-5. Select the authentication method (user or service).
+4. Choose **Next**.
+5. Select the authentication method (user, service, or no authentication).
 6. Provide the appropriate configuration details.
-7. Select **Create and continue**.
+7. Choose **Create and continue**.
 8. Review the integration details.
-9. Select **Next**.
+9. Choose **Next**.
 10. Share the integration with other users if needed.
 
-After creating your MCP integration, a knowledge base is automatically created on completion of integration creation.
-
-## Manage knowledge bases
-
-After setting up your MCP integration, you can create and manage knowledge bases from your MCP data sources.
-
-### Edit existing knowledge bases
-
-You can modify your existing MCP knowledge bases:
-
-1. In the Amazon Quick console, choose **Knowledge bases**.
-2. Select your MCP knowledge base from the list.
-3. Choose **Actions**, then choose **Edit knowledge base**.
-4. Update your configuration settings as needed and choose **Save**.
-
-### Create additional knowledge bases
-
-You can create multiple knowledge bases from the same MCP integration:
-
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose your existing MCP integration from the list.
-3. Choose **Actions**, then choose **Create knowledge base**.
-4. Configure your knowledge base settings and choose **Create**.
-
-For detailed information about knowledge base configuration options, see [Common configuration settings](knowledge-base-integrations.md#common-configuration-settings "knowledge-base-integrations.md#common-configuration-settings").
+After you create your MCP integration, the available tools are discovered and registered as actions.
 
 ## Review integration
 
 After you configure authentication, review the MCP integration capabilities:
 
 1. The system connects to the MCP server and discovers available capabilities.
-2. Review the list of available actions and tasks provided by the MCP server.
-3. Verify data access capabilities if the MCP server provides data sources.
-4. Confirm the integration configuration and capabilities.
+2. Review the list of available actions and tasks that the MCP server provides.
+3. Confirm the integration configuration and capabilities.
 
 ### Capability discovery
 
-MCP integration automatically discovers and lists:
-
-- Available tools and actions.
-- Data sources and resources.
-- Supported protocols and methods.
-- Server metadata and capabilities.
+During the connection process that is described in [Prepare MCP server setup and authentication](#mcp-integration-authentication "#mcp-integration-authentication"), Amazon Quick also discovers and registers the tools that are available on the MCP server. After discovery completes, each tool is listed as an action that you can review and turn on.
 
 ## Manage MCP integrations
 
-After you create your MCP integration, you can manage it using these options:
-
-- **Share integration** - Make the integration available to other users in your organization.
-- **Review tools** - Review tools that are
-  enabled.
-
-###### Note
-
-MCP integrations depend on the availability and configuration of the target MCP server. Changes to the server or authentication requirements may affect integration functionality.
+To edit, share, or delete your integration, see [Managing existing integrations](integration-workflows.md#managing-existing-integrations "integration-workflows.md#managing-existing-integrations").
 
 ## Limitations
 
-When using MCP integrations in Amazon Quick, be aware of the following limitations:
+When you use MCP integrations in Amazon Quick, be aware of the following limitations:
 
 - MCP operations have a fixed 60-second timeout. Operations that exceed this limit automatically fail with an HTTP 424 error.
 - Custom HTTP headers are not supported in MCP operations. Only standard system headers are transmitted.
-- Tool lists remain static after initial registration. You must manually refresh actions to detect server-side changes.
-- Connector creation may fail if the Amazon Quick callback URI is not allow-listed by third-party providers.
+- Tool lists remain static after initial registration. To pick up server-side tool changes, you must delete the integration and recreate it.
+- Connector creation might fail if the Amazon Quick callback URI is not allow-listed by third-party providers.
 - Server connectivity issues result in immediate failure without retry attempts.
+- Step-up authorization is not supported. If an MCP server requires additional scopes after the initial authorization (HTTP 403 with `insufficient_scope`), you must re-authorize the entire connection. Incremental permission upgrades are not available.
+- Scope handling has the following limitations:
+  - Amazon Quick does not extract the `scope` parameter from the server's initial 401 `WWW-Authenticate` challenge. Scopes are determined from the Protected Resource Metadata document instead.
+  - When the metadata does not specify supported scopes, Amazon Quick applies default scopes rather than omitting them. This behavior might cause authentication failures with servers that do not recognize the default scopes.
+
+- Only Dynamic Client Registration (DCR) is supported for automatic client registration. Client ID Metadata Documents are not supported.
+- Well-known URI discovery uses the server root path only. Path-specific metadata locations (path-insertion discovery) are not supported. This limitation might prevent discovery of servers that serve metadata only at path-specific URIs.

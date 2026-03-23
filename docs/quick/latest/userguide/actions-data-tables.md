@@ -41,8 +41,11 @@ Example filters:
 # Column 'title' contains text 'Director'
 "title.str.contains('Director')"
 
-# Column 'start_date' is less than '2024-02-02'
-"start_date < '2024-02-02'"
+# Column 'Customer No' equals a variable customer_id
+"`Customer No` == " + str(customer_id)
+
+# Column 'ProfitCenter' equals variable profitCenter
+"`ProfitCenter` == '" + str(profitCenter) + "'"
 ```
 
 ## Lookup Value
@@ -90,7 +93,7 @@ Drops extra columns from a table. Used to select a specific subset of columns yo
 
 ## Add New Row
 
-Appends a new row to a table. The new row can be created with specific values or as a blank row and will be added to the bottom of the table.
+Appends a new row to a table. The new row can be created with specific values or as a blank row and is added to the bottom of the table.
 
 **Properties:**
 
@@ -136,7 +139,7 @@ Combines the rows of two tables. Used to add data from one table to another.
 
 ## Create New Table
 
-Creates an empty table. Used to set up a table with required columns to add rows to in subsequent steps. The new table will have no rows.
+Creates an empty table. Used to set up a table with required columns to add rows to in subsequent steps. The new table has no rows.
 
 **Properties:**
 
@@ -168,10 +171,10 @@ Creates an HTML formatted table. Used to output your table as formatted text for
 
 **Loop through rows in a table**
 
-To loop through rows in a data table, use the "Loop through items" action under "Process flow". Provide the data table variable as an input for "Collection of items". Update the "Item reference" to `row` as each item will represent a single row of the table.
+To loop through rows in a data table, use the "Loop through items" action under "Process flow". Provide the data table variable as an input for "Collection of items". Update the "Item reference" to `row` as each item represents a single row of the table.
 
 **Use or update cell values in a row**
 
 When looping through rows in a table, refer to individual cell values using the syntax of `row["column name"]` where column name is replaced with the name of the column for the specific cell.
 
-To update the value of a cell in a row, use the "Save value" action under "General". The "Value to save" will be the value you want to update the cell with. The "Variable name" will be the reference to the cell using the same syntax as above, `row["column name"]`.
+To update the value of a cell in a row, use the "Save value" action under "General". The "Value to save" is the value you want to update the cell with. The "Variable name" is the reference to the cell using the same syntax as above, `row["column name"]`.
