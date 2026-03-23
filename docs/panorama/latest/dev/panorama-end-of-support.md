@@ -30,7 +30,7 @@ The existing AWS Panorama appliance is based on the Nvidia Jetson Xavier platfor
 
 AWS Panorama applications need to be rewritten to eliminate the use of any AWS Panorama-specific API calls. AWS Panorama applications only support video input through Real-Time Streaming Protocol (RTSP) feeds using H.264 and those video inputs are provided using camera nodes in the AWS Panorama device SDK.
 
-To port an existing application, you will need to implement an application class similar to AWS Panorama so that the existing code can be mostly re-used. Sample code is available in the [banner-code.zip](samples/banner-code.md "samples/banner-code.md") file that shows an example of this implementation using both PyAV and OpenCV.
+To port an existing application, you will need to implement an application class similar to AWS Panorama so that the existing code can be mostly re-used. Sample code is available in the [banner-code.zip](samples/banner-code.zip.md "samples/banner-code.zip.md") file that shows an example of this implementation using both PyAV and OpenCV.
 
 This is a simple approach with a minimal amount of code changes, but has many of the same limitations as the current AWS Panorama based implementation in terms of the types of video streams supported.
 
