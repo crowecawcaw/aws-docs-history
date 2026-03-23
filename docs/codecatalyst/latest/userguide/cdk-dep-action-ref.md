@@ -301,7 +301,7 @@ produced by build**
 Specify the CodeCatalyst environment to use with the action. The action connects to
 the AWS account and optional Amazon VPC specified in the chosen environment. The action uses the
 default IAM role specified in the environment to connect to the AWS account, and uses the
-IAM role specified in the [Amazon VPC connection](../adminguide/managing-vpcs.md "../adminguide/managing-vpcs.md") to
+IAM role specified in the [Amazon VPC connection](../adminguide/managing-vpcs.add.md "../adminguide/managing-vpcs.add.md") to
 connect to the Amazon VPC.
 
 ###### Note
@@ -644,7 +644,7 @@ you can specify which ones you want to convert to workflow output variables usin
 `CfnOutputVariables` property.
 
 For more information about CloudFormation output variables, see the documentation for the
-`CfnOutput` construct, available at [class CfnOutput (construct)](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md") in the
+`CfnOutput` construct, available at [class CfnOutput (construct)](../../../cdk/api/v2/docs/aws-cdk-lib.CfnOutput.md "../../../cdk/api/v2/docs/aws-cdk-lib.CfnOutput.md") in the
 _AWS Cloud Development Kit (AWS CDK) API Reference_.
 
 Corresponding UI: Configuration tab/**CloudFormation output variables**

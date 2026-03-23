@@ -35,7 +35,7 @@ AWS account specified in the environment.
 ###### Note
 
 You can also add an Amazon VPC to the environment. For more information, see [Adding
-VPC connections for a space](../adminguide/managing-vpcs.md "../adminguide/managing-vpcs.md") in the _CodeCatalyst Administration
+VPC connections for a space](../adminguide/managing-vpcs.add.md "../adminguide/managing-vpcs.add.md") in the _CodeCatalyst Administration
 Guide_ and [Associating a VPC with an environment](deploy-environments-associate-vpc.md "deploy-environments-associate-vpc.md").
 
 ## Can multiple environments exist within a single workflow?

@@ -92,7 +92,7 @@ again.
 
 ###### To delete CodeCatalyst resources used by the AmazonCodeCatalystServiceRoleForIdentityCenterApplicationSynchronization
 
-- [Delete the space](spaces-delete.md "spaces-delete.md").
+- [Delete the space](spaces-delete.htm.md "spaces-delete.htm.md").
 
 **To manually delete the service-linked role using
 IAM**

@@ -49,6 +49,6 @@ edit the devfile from the root of the source repository in CodeCatalyst. If you 
 a supported IDE, you must commit and push your changes to the source repository or create a
 pull request so a team member can review and approve the devfile edits.
 
-- [Editing the repository devfile for a Dev Environment in AWS Cloud9](../../../cloud9/latest/user-guide/devenvironment-cloud9.md#ide-toolkits-edit-devfile-cloud9 "../../../cloud9/latest/user-guide/devenvironment-cloud9.md#ide-toolkits-edit-devfile-cloud9")
+- [Editing the repository devfile for a Dev Environment in AWS Cloud9](../../../cloud9/latest/user-guide/devenvironment-cloud9.title.md#ide-toolkits-edit-devfile-cloud9 "../../../cloud9/latest/user-guide/devenvironment-cloud9.title.md#ide-toolkits-edit-devfile-cloud9")
 - [Editing the repository devfile for a Dev Environment in VS Code](../../../toolkit-for-vscode/latest/userguide/codecatalyst-devenvironment.md#codecatalyst-devenvironment-devfile "../../../toolkit-for-vscode/latest/userguide/codecatalyst-devenvironment.md#codecatalyst-devenvironment-devfile")
 - [Editing the repository devfile for a Dev Environment in JetBrains](../../../toolkit-for-jetbrains/latest/userguide/codecatalyst-overview.md#codecatalyst-overview-default "../../../toolkit-for-jetbrains/latest/userguide/codecatalyst-overview.md#codecatalyst-overview-default")

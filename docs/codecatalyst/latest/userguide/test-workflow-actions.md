@@ -12,11 +12,11 @@ analysis reports. These reports are displayed in the CodeCatalyst console.
 - [Quality report types](#test-reporting "#test-reporting")
 - [Adding the test action](test-add-action.md "test-add-action.md")
 - [Viewing the results of a test action](test-view-results.md "test-view-results.md")
-- [Skipping failed tests in an action](test.md "test.md")
-- [Integrating with universal-test-runner](test.md "test.md")
+- [Skipping failed tests in an action](test.error-handling.md "test.error-handling.md")
+- [Integrating with universal-test-runner](test.universal-test-runner.md "test.universal-test-runner.md")
 - [Configuring quality reports in an action](test-config-action.md "test-config-action.md")
 - [Best practices for testing](test-best-practices.md "test-best-practices.md")
-- [Supported SARIF properties](test.md "test.md")
+- [Supported SARIF properties](test.sarif.md "test.sarif.md")
 
 ## Quality report types
 

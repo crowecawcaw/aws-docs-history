@@ -3,6 +3,6 @@ Amazon CodeCatalyst is no longer open to new customers. Existing customers can c
 # Referencing a secret
 
 For instructions on referencing a secret in the workflow definition file, see
-[Using a secret](workflows-secrets.md "workflows-secrets.md").
+[Using a secret](workflows-secrets.using.md "workflows-secrets.using.md").
 
 For an example, see [Example: Referencing a secret](workflows-working-with-variables-ex.md#workflows-working-with-variables-ex-refer-secret "workflows-working-with-variables-ex.md#workflows-working-with-variables-ex-refer-secret").

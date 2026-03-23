@@ -74,7 +74,7 @@ export class HelloCdkStack extends Stack {
 ```
 
 For more information about the `CfnOutput` construct, see [interface
-CfnOutputProps](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md") in the _AWS Cloud Development Kit (AWS CDK) API Reference_. 2. Save and commit your code. 3. Proceed to [To verify that the application URL was added](#deploy-app-url-verify "#deploy-app-url-verify").
+CfnOutputProps](../../../cdk/api/v2/docs/aws-cdk-lib.CfnOutputProps.md "../../../cdk/api/v2/docs/aws-cdk-lib.CfnOutputProps.md") in the _AWS Cloud Development Kit (AWS CDK) API Reference_. 2. Save and commit your code. 3. Proceed to [To verify that the application URL was added](#deploy-app-url-verify "#deploy-app-url-verify").
 
 ###### To display the app URL in the "Deploy CloudFormation stack" action
 

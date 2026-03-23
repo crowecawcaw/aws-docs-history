@@ -254,7 +254,7 @@ Corresponding UI: Inputs tab/**Variables - optional**
 Specify the CodeCatalyst environment to use with the action. The action connects to
 the AWS account and optional Amazon VPC specified in the chosen environment. The action uses the
 default IAM role specified in the environment to connect to the AWS account, and uses the
-IAM role specified in the [Amazon VPC connection](../adminguide/managing-vpcs.md "../adminguide/managing-vpcs.md") to
+IAM role specified in the [Amazon VPC connection](../adminguide/managing-vpcs.add.md "../adminguide/managing-vpcs.add.md") to
 connect to the Amazon VPC.
 
 ###### Note
