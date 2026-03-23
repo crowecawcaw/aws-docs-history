@@ -115,3 +115,20 @@ aws s3 cp s3://`<bucket-name>`/`key` ./`<path-to-node-logs>`.tar.gz
 kubectl delete nodediagnostics.eks.amazonaws.com/`<node-name>`
 
 ```
+
+## NodeDiagnostic `node` Destination
+
+Starting with version `v1.6.0` of the Node Monitoring Agent, there is an option to set the log collection destination to `node`. Using this destination will lead to the collection and temporary persistence of logs on the node for later collection. In addition to this functionality, within the Node Monitoring Agent’s GitHub repository is a `kubectl` plugin you can install for easy interaction and log collection. For more information, see the [documentation for the `kubectl ekslogs` plugin](https://github.com/aws/eks-node-monitoring-agent/blob/main/tools/kubectl-ekslogs/README.md "https://github.com/aws/eks-node-monitoring-agent/blob/main/tools/kubectl-ekslogs/README.md").
+
+## Example Usage
+
+```
+# Collect NodeDiagnostic logs from a single node
+kubectl ekslogs <node-name>
+
+# Collect NodeDiagnostic logs from multiple nodes
+kubectl ekslogs <node-name-1> <node-name-2> <node-name-3>
+
+# Collect NodeDiagnostic logs from all nodes with a specific label
+kubectl ekslogs -l <key>=<value>
+```

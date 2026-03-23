@@ -126,7 +126,16 @@ The `ApplicationNetworkPolicy` combines the capabilities of standard Kubernetes 
 1. Defining restrictions at layers 3 and 4 of the network stack using IP blocks and port numbers.
 2. Defining rules that operate at layer 7 of the network stack and letting you filter traffic based on FQDNs.
 
-**Important note**: DNS based rules defined using the `ApplicationNetworkPolicy` are only applicable to workloads running in EKS Auto Mode-launched EC2 instances.
+###### Important
+
+DNS based rules defined using the `ApplicationNetworkPolicy` are only applicable to workloads running in EKS Auto Mode-launched EC2 instances.
+`ApplicationNetworkPolicy` supports all fields of the standard Kubernetes `NetworkPolicy`, with an additional FQDN filter for egress rules.
+
+###### Warning
+
+Do not use the same name for an `ApplicationNetworkPolicy` and a `NetworkPolicy` within the same namespace. If the names collide, the resulting `PolicyEndpoints` objects may not reflect either policy correctly. Both resources are accepted without error, making this issue difficult to diagnose.
+
+To resolve a naming conflict, rename either the `ApplicationNetworkPolicy` or the `NetworkPolicy` so they are unique within the namespace, then verify that the corresponding `PolicyEndpoints` objects are updated correctly.
 
 #### Example
 

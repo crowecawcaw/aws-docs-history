@@ -11,7 +11,7 @@ The table below shows the supported GPU instance types for each EKS-optimized ac
 | EKS AMI variant                           | EC2 instance types                                                                           |
 | ----------------------------------------- | -------------------------------------------------------------------------------------------- |
 | AL2023 x86_64 NVIDIA                      | p6-b300, p6-b200, p5, p5e, p5en, p4d, p4de, p3, p3dn, g7e, gr6, g6, g6e, g6f, gr6f, g5, g4dn |
-| AL2023 ARM NVIDIA                         | p6e-gb200, g5g                                                                               |
+| AL2023 ARM NVIDIA                         | p6e-gb200, p6e-gb300, g5g                                                                    |
 | AL2023 x86_64 Neuron                      | inf1, inf2, trn1, trn2                                                                       |
 | Bottlerocket x86_64 aws-k8s-nvidia        | p6-b300, p6-b200, p5, p5e, p5en, p4d, p4de, p3, p3dn, g7e, gr6, g6, g6e, g6f, gr6f, g5, g4dn |
 | Bottlerocket aarch64/arm64 aws-k8s-nvidia | g5g                                                                                          |
@@ -27,7 +27,7 @@ When using Amazon Elastic Fabric Adaptor (EFA) with the EKS-optimized AL2023 or 
 
 ## EKS AL2023 NVIDIA AMIs
 
-When using the [NVIDIA GPU operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html") with the EKS-optimized AL2023 NVIDIA AMIs, you must disable the operator installation of the driver and toolkit, as these are already included in the EKS AMIs. The EKS-optimized AL2023 NVIDIA AMIs do not include the NVIDIA Kubernetes device plugin or the NVIDIA DRA driver, and these must be installed separately. For more information, see [Install NVIDIA Kubernetes device plugin](ml-eks-k8s-device-plugin.md#eks-nvidia-device-plugin "ml-eks-k8s-device-plugin.md#eks-nvidia-device-plugin").
+When using the [NVIDIA GPU operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html") with the EKS-optimized AL2023 NVIDIA AMIs, you must disable the operator installation of the driver and toolkit, as these are already included in the EKS AMIs. The EKS-optimized AL2023 NVIDIA AMIs do not include the NVIDIA Kubernetes device plugin or the NVIDIA DRA driver, and these must be installed separately. For more information, see [Manage NVIDIA GPU devices on Amazon EKS](device-management-nvidia.md "device-management-nvidia.md").
 
 In addition to the standard EKS AMI components, the EKS-optimized AL2023 NVIDIA AMIs include the following components.
 
@@ -84,7 +84,7 @@ When using Amazon Elastic Fabric Adaptor (EFA) with the EKS-optimized AL2023 or 
 
 ## EKS AL2023 Neuron AMIs
 
-The EKS-optimized AL2023 Neuron AMIs do not include the Neuron Kubernetes device plugin or the [Neuron Kubernetes scheduler extension](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-neuron-scheduler.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-neuron-scheduler.html"), and these must be installed separately. For more information, see [Install Neuron Kubernetes device plugin](ml-eks-k8s-device-plugin.md#eks-neuron-device-plugin "ml-eks-k8s-device-plugin.md#eks-neuron-device-plugin").
+The EKS-optimized AL2023 Neuron AMIs do not include the Neuron DRA driver, Neuron Kubernetes device plugin, or the [Neuron Kubernetes scheduler extension](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-neuron-scheduler.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-neuron-scheduler.html"), and these must be installed separately. For more information, see [Manage Neuron devices on Amazon EKS](device-management-neuron.md "device-management-neuron.md").
 
 In addition to the standard EKS AMI components, the EKS-optimized AL2023 Neuron AMIs include the following components.
 
@@ -98,7 +98,7 @@ See the EKS AL2023 Neuron AMI [installation script](https://github.com/awslabs/a
 
 The standard Bottlerocket variants (aws-k8s) include the Neuron dependencies that are automatically detected and loaded when running on AWS Inferentia or Trainium EC2 instances.
 
-The EKS-optimized Bottlerocket AMIs do not include the Neuron Kubernetes device plugin or the [Neuron Kubernetes scheduler extension](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-neuron-scheduler.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-neuron-scheduler.html"), and these must be installed separately. For more information, see [Install Neuron Kubernetes device plugin](ml-eks-k8s-device-plugin.md#eks-neuron-device-plugin "ml-eks-k8s-device-plugin.md#eks-neuron-device-plugin").
+The EKS-optimized Bottlerocket AMIs do not include the Neuron DRA driver, Neuron Kubernetes device plugin, or the [Neuron Kubernetes scheduler extension](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-neuron-scheduler.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-neuron-scheduler.html"), and these must be installed separately. For more information, see [Manage Neuron devices on Amazon EKS](device-management-neuron.md "device-management-neuron.md").
 
 In addition to the standard EKS AMI components, the EKS-optimized Bottlerocket Neuron AMIs include the following components.
 

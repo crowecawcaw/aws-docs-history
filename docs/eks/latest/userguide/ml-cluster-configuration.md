@@ -9,7 +9,6 @@ This section is designed to help you configure Amazon EKS clusters optimized for
 ###### Topics
 
 - [Use EKS-optimized accelerated AMIs for GPU instances](ml-eks-optimized-ami.md "ml-eks-optimized-ami.md")
-- [Install Kubernetes device plugin for GPUs](ml-eks-k8s-device-plugin.md "ml-eks-k8s-device-plugin.md")
 - [Run GPU-accelerated containers (Windows on EC2 G-Series)](ml-eks-windows-optimized-ami.md "ml-eks-windows-optimized-ami.md")
 - [Run machine learning training on Amazon EKS with Elastic Fabric Adapter](node-efa.md "node-efa.md")
 - [Use AWS Inferentia instances with Amazon EKS for Machine Learning](inferentia-support.md "inferentia-support.md")

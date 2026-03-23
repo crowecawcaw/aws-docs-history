@@ -31,7 +31,7 @@ Amazon Application Recovery Controller (ARC) helps you prepare for and accomplis
 
 Zonal shift is a capability in ARC that allows you to move traffic for a resource like an EKS cluster or an Elastic Load Balancer away from an Availability Zone in an AWS Region to quickly mitigate an issue and quickly recover your application. You might choose to shift traffic, for example, because a bad deployment is causing latency issues, or because the Availability Zone is impaired. A zonal shift requires no advance configuration steps.
 
-[Learn more about ARC zonal shift](../../../r53recovery/latest/dg/arc-zonal-shift.md "../../../r53recovery/latest/dg/arc-zonal-shift.md")
+[Learn more about ARC zonal shift](../../../r53recovery/latest/dg/arc-zonal-shift.how-it-works.md "../../../r53recovery/latest/dg/arc-zonal-shift.how-it-works.md")
 
 ## What is zonal autoshift?
 
@@ -39,7 +39,7 @@ Zonal autoshift is a capability in ARC that you can enable to authorize AWS to s
 
 AWS ends autoshifts when indicators show that there is no longer an issue or potential issue.
 
-[Learn more about ARC zonal autoshift](../../../r53recovery/latest/dg/arc-zonal-autoshift.md "../../../r53recovery/latest/dg/arc-zonal-autoshift.md")
+[Learn more about ARC zonal autoshift](../../../r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.md "../../../r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.md")
 
 ## What does EKS do during an autoshift?
 
@@ -61,5 +61,5 @@ If you want AWS to detect and avoid impaired availability zones, you need to con
 
 ## Next Steps
 
-- Learn how to [enable zonal autoshift](../../../r53recovery/latest/dg/arc-zonal-autoshift.md "../../../r53recovery/latest/dg/arc-zonal-autoshift.md").
-- Learn how to manually [start a zonal shift](../../../r53recovery/latest/dg/arc-zonal-shift.md "../../../r53recovery/latest/dg/arc-zonal-shift.md").
+- Learn how to [enable zonal autoshift](../../../r53recovery/latest/dg/arc-zonal-autoshift.start-cancel.md "../../../r53recovery/latest/dg/arc-zonal-autoshift.start-cancel.md").
+- Learn how to manually [start a zonal shift](../../../r53recovery/latest/dg/arc-zonal-shift.start-cancel.md "../../../r53recovery/latest/dg/arc-zonal-shift.start-cancel.md").

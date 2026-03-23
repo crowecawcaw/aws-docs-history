@@ -105,7 +105,7 @@ This means many upstream Linux packages and tools need to be backported to work 
 
 A few of the most common packages that are not included or which changed in AL2023, include:
 
-- Some [source binary packages in Amazon Linux 2](../../../linux/al2023/release-notes/removed-AL2023.md "../../../linux/al2023/release-notes/removed-AL2023.md") are no longer available in Amazon Linux 2023
+- Some [source binary packages in Amazon Linux 2](../../../linux/al2023/release-notes/removed-AL2023.6-AL2.md "../../../linux/al2023/release-notes/removed-AL2023.6-AL2.md") are no longer available in Amazon Linux 2023
 - Changes in how Amazon Linux supports different versions of packages (e.g., [amazon-linux-extras system](https://repost.aws/questions/QUWGU3VFJMRSGf6MDPWn4tLg/how-to-resolve-amazon-linux-extras-in-al2023 "https://repost.aws/questions/QUWGU3VFJMRSGf6MDPWn4tLg/how-to-resolve-amazon-linux-extras-in-al2023")) in AL2023
 - [Extra Packages for Enterprise Linux (EPEL)](../../../linux/al2023/ug/epel.md "../../../linux/al2023/ug/epel.md") are not supported in AL2023
 - [32-bit applications](../../../linux/al2023/ug/deprecated-al2.md#deprecated-32bit-rpms "../../../linux/al2023/ug/deprecated-al2.md#deprecated-32bit-rpms") are not supported in AL2023
