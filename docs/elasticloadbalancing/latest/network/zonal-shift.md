@@ -35,7 +35,7 @@ for these connections to complete gracefully.
   impaired Availability Zone persist until they organically close, while new connections
   are no longer routed to targets in the impaired Availability Zone.
 
-For more information, see [Best practices for zonal shifts in ARC](../../../r53recovery/latest/dg/route53-arc-best-practices.md "../../../r53recovery/latest/dg/route53-arc-best-practices.md") in the _Amazon Application Recovery Controller (ARC)
+For more information, see [Best practices for zonal shifts in ARC](../../../r53recovery/latest/dg/route53-arc-best-practices.zonal-shifts.md "../../../r53recovery/latest/dg/route53-arc-best-practices.zonal-shifts.md") in the _Amazon Application Recovery Controller (ARC)
 Developer Guide_.
 
 ## Zonal shift administrative override

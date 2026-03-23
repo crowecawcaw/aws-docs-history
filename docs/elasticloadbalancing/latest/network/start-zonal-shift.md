@@ -10,7 +10,7 @@ for the load balancer.
 
 Console
 This procedure explains how to start a zonal shift using the Amazon EC2 console.
-For steps to start a zonal shift using the ARC console, see [Starting a zonal shift](../../../r53recovery/latest/dg/arc-zonal-shift.md "../../../r53recovery/latest/dg/arc-zonal-shift.md")
+For steps to start a zonal shift using the ARC console, see [Starting a zonal shift](../../../r53recovery/latest/dg/arc-zonal-shift.start-cancel.md "../../../r53recovery/latest/dg/arc-zonal-shift.start-cancel.md")
 in the _Amazon Application Recovery Controller (ARC) Developer Guide_.
 
 ###### To start a zonal shift
