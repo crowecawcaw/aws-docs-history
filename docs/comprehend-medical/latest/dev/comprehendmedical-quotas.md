@@ -46,5 +46,5 @@ Amazon Comprehend Medical batch analysis (async) operations have the following q
 | Maximum size of batch jobs (sum total of all files submitted in a batch job)                                                                                                                                                                                                                                                                                   | 1 GB    |
 | Maximum number of active running batch jobs for each operation                                                                                                                                                                                                                                                                                                 | 10 jobs |
 
-If your text is larger than the character quotas, use [segment.py](samples/segment.py.md "samples/segment.py.md")
+If your text is larger than the character quotas, use [segment.py](samples/segment.py.zip.md "samples/segment.py.zip.md")
 to create smaller segments that can be analyzed.
