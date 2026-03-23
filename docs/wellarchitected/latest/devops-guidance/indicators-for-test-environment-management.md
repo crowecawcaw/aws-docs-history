@@ -6,9 +6,9 @@ production deployment.
 
 ###### Indicators
 
-- [[QA.TEM.1] Establish dedicated testing environments](qa.tem.md "qa.tem.md")
-- [[QA.TEM.2] Ensure consistent test case execution using test beds](qa.tem.md "qa.tem.md")
-- [[QA.TEM.3] Store and manage test results](qa.tem.md "qa.tem.md")
-- [[QA.TEM.4] Implement a unified test data repository for enhanced test efficiency](qa.tem.md "qa.tem.md")
-- [[QA.TEM.5] Run tests in parallel for faster results](qa.tem.md "qa.tem.md")
-- [[QA.TEM.6] Enhance developer experience through scalable quality assurance platforms](qa.tem.md "qa.tem.md")
+- [[QA.TEM.1] Establish dedicated testing environments](qa.tem.1-establish-dedicated-testing-environments.md "qa.tem.1-establish-dedicated-testing-environments.md")
+- [[QA.TEM.2] Ensure consistent test case execution using test beds](qa.tem.2-ensure-consistent-test-case-execution-using-test-beds.md "qa.tem.2-ensure-consistent-test-case-execution-using-test-beds.md")
+- [[QA.TEM.3] Store and manage test results](qa.tem.3-store-and-manage-test-results.md "qa.tem.3-store-and-manage-test-results.md")
+- [[QA.TEM.4] Implement a unified test data repository for enhanced test efficiency](qa.tem.4-implement-a-unified-test-data-repository-for-enhanced-test-efficiency.md "qa.tem.4-implement-a-unified-test-data-repository-for-enhanced-test-efficiency.md")
+- [[QA.TEM.5] Run tests in parallel for faster results](qa.tem.5-run-tests-in-parallel-for-faster-results.md "qa.tem.5-run-tests-in-parallel-for-faster-results.md")
+- [[QA.TEM.6] Enhance developer experience through scalable quality assurance platforms](qa.tem.6-enhance-developer-experience-through-scalable-quality-assurance-platforms.md "qa.tem.6-enhance-developer-experience-through-scalable-quality-assurance-platforms.md")

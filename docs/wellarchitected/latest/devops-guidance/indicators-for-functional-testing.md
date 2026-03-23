@@ -6,7 +6,7 @@ correctly and meet predefined requirements.
 
 ###### Indicators
 
-- [[QA.FT.1] Ensure individual component functionality with unit tests](qa.ft.md "qa.ft.md")
-- [[QA.FT.2] Validate system interactions and data flows with integration tests](qa.ft.md "qa.ft.md")
-- [[QA.FT.3] Confirm end-user experience and functional correctness with acceptance tests](qa.ft.md "qa.ft.md")
-- [[QA.FT.4] Balance developer feedback and test coverage using advanced test selection](qa.ft.md "qa.ft.md")
+- [[QA.FT.1] Ensure individual component functionality with unit tests](qa.ft.1-ensure-individual-component-functionality-with-unit-tests.md "qa.ft.1-ensure-individual-component-functionality-with-unit-tests.md")
+- [[QA.FT.2] Validate system interactions and data flows with integration tests](qa.ft.2-validate-system-interactions-and-data-flows-with-integration-tests.md "qa.ft.2-validate-system-interactions-and-data-flows-with-integration-tests.md")
+- [[QA.FT.3] Confirm end-user experience and functional correctness with acceptance tests](qa.ft.3-confirm-end-user-experience-and-functional-correctness-with-acceptance-tests.md "qa.ft.3-confirm-end-user-experience-and-functional-correctness-with-acceptance-tests.md")
+- [[QA.FT.4] Balance developer feedback and test coverage using advanced test selection](qa.ft.4-balance-developer-feedback-and-test-coverage-using-advanced-test-selection.md "qa.ft.4-balance-developer-feedback-and-test-coverage-using-advanced-test-selection.md")

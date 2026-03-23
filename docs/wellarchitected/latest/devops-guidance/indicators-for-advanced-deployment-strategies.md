@@ -8,9 +8,9 @@ experience.
 
 ###### Indicators
 
-- [[DL.ADS.1] Test deployments in pre-production environments](dl.ads.md "dl.ads.md")
-- [[DL.ADS.2] Implement automatic rollbacks for failed deployments](dl.ads.md "dl.ads.md")
-- [[DL.ADS.3] Use staggered deployment and release strategies](dl.ads.md "dl.ads.md")
-- [[DL.ADS.4] Implement Incremental Feature Release Techniques](dl.ads.md "dl.ads.md")
-- [[DL.ADS.5] Ensure backwards compatibility for data store and schema changes](dl.ads.md "dl.ads.md")
-- [[DL.ADS.6] Use cell-based architectures for granular deployment and release](dl.ads.md "dl.ads.md")
+- [[DL.ADS.1] Test deployments in pre-production environments](dl.ads.1-test-deployments-in-pre-production-environments.md "dl.ads.1-test-deployments-in-pre-production-environments.md")
+- [[DL.ADS.2] Implement automatic rollbacks for failed deployments](dl.ads.2-implement-automatic-rollbacks-for-failed-deployments.md "dl.ads.2-implement-automatic-rollbacks-for-failed-deployments.md")
+- [[DL.ADS.3] Use staggered deployment and release strategies](dl.ads.3-use-staggered-deployment-and-release-strategies.md "dl.ads.3-use-staggered-deployment-and-release-strategies.md")
+- [[DL.ADS.4] Implement Incremental Feature Release Techniques](dl.ads.4-implement-incremental-feature-release-techniques.md "dl.ads.4-implement-incremental-feature-release-techniques.md")
+- [[DL.ADS.5] Ensure backwards compatibility for data store and schema changes](dl.ads.5-ensure-backwards-compatibility-for-data-store-and-schema-changes.md "dl.ads.5-ensure-backwards-compatibility-for-data-store-and-schema-changes.md")
+- [[DL.ADS.6] Use cell-based architectures for granular deployment and release](dl.ads.6-utilize-cell-based-architectures-for-granular-deployment-and-release.md "dl.ads.6-utilize-cell-based-architectures-for-granular-deployment-and-release.md")

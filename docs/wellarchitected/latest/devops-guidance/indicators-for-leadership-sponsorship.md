@@ -5,8 +5,8 @@ adoption with clear strategy, communication, and resources.
 
 ###### Indicators
 
-- [[OA.LS.1] Appoint a decision-making leader to own DevOps adoption](oa.ls.md "oa.ls.md")
-- [[OA.LS.2] Align DevOps adoption with business objectives](oa.ls.md "oa.ls.md")
-- [[OA.LS.3] Drive continued improvement through business reviews](oa.ls.md "oa.ls.md")
-- [[OA.LS.4] Open dialogue between leadership and teams](oa.ls.md "oa.ls.md")
-- [[OA.LS.5] Assemble a cross-functional enabling team that focuses on organizational transformation](oa.ls.md "oa.ls.md")
+- [[OA.LS.1] Appoint a decision-making leader to own DevOps adoption](oa.ls.1-appoint-a-decision-making-leader-to-own-devops-adoption.md "oa.ls.1-appoint-a-decision-making-leader-to-own-devops-adoption.md")
+- [[OA.LS.2] Align DevOps adoption with business objectives](oa.ls.2-align-devops-adoption-with-business-objectives.md "oa.ls.2-align-devops-adoption-with-business-objectives.md")
+- [[OA.LS.3] Drive continued improvement through business reviews](oa.ls.3-drive-continued-improvement-through-business-reviews.md "oa.ls.3-drive-continued-improvement-through-business-reviews.md")
+- [[OA.LS.4] Open dialogue between leadership and teams](oa.ls.4-open-dialogue-between-leadership-and-teams.md "oa.ls.4-open-dialogue-between-leadership-and-teams.md")
+- [[OA.LS.5] Assemble a cross-functional enabling team that focuses on organizational transformation](oa.ls.5-assemble-a-cross-functional-enabling-team-that-focuses-on-organizational-transformation.md "oa.ls.5-assemble-a-cross-functional-enabling-team-that-focuses-on-organizational-transformation.md")
