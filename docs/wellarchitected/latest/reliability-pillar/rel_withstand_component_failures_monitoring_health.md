@@ -155,7 +155,7 @@ failures, see
 - [Enable
   or Disable Detailed Monitoring for Your Instance](../../../AWSEC2/latest/UserGuide/using-cloudwatch-new.md "../../../AWSEC2/latest/UserGuide/using-cloudwatch-new.md")
 - [Enhanced
-  Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md")
+  Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md")
 - [Monitoring
   Your Auto Scaling Groups and Instances Using Amazon CloudWatch](../../../autoscaling/ec2/userguide/as-instance-monitoring.md "../../../autoscaling/ec2/userguide/as-instance-monitoring.md")
 - [Publishing

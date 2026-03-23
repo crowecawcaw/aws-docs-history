@@ -152,7 +152,7 @@ practices:**
 - [ECS
   Deployments - Multi-AZ](https://github.com/aws-samples/ecs-refarch-cloudformation "https://github.com/aws-samples/ecs-refarch-cloudformation")
 - [Switch
-  traffic using Amazon Application Recovery Controller](../../../r53recovery/latest/dg/routing-control.md "../../../r53recovery/latest/dg/routing-control.md")
+  traffic using Amazon Application Recovery Controller](../../../r53recovery/latest/dg/routing-control.failover-different-accounts.md "../../../r53recovery/latest/dg/routing-control.failover-different-accounts.md")
 - [Lambda
   with an Application Load Balancer and Failover](../../../lambda/latest/dg/services-alb.md "../../../lambda/latest/dg/services-alb.md")
 - [ACM

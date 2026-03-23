@@ -75,7 +75,7 @@ Consider some services in a secondary Region, if the service is mission critical
 - [Amazon
   Builders' Library: Avoiding overload in distributed systems by
   putting the smaller service in control](https://aws.amazon.com/builders-library/avoiding-overload-in-distributed-systems-by-putting-the-smaller-service-in-control/ "https://aws.amazon.com/builders-library/avoiding-overload-in-distributed-systems-by-putting-the-smaller-service-in-control/")
-- [Amazon DynamoDB API (control plane and data plane)](../../../amazondynamodb/latest/developerguide/HowItWorks.md "../../../amazondynamodb/latest/developerguide/HowItWorks.md")
+- [Amazon DynamoDB API (control plane and data plane)](../../../amazondynamodb/latest/developerguide/HowItWorks.API.md "../../../amazondynamodb/latest/developerguide/HowItWorks.API.md")
 - [AWS Lambda Executions](../../../whitepapers/latest/security-overview-aws-lambda/lambda-executions.md "../../../whitepapers/latest/security-overview-aws-lambda/lambda-executions.md") (split into the control plane and the data plane)
 - [AWS Elemental MediaStore Data Plane](../../../mediastore/latest/apireference/API_Operations_AWS_Elemental_MediaStore_Data_Plane.md "../../../mediastore/latest/apireference/API_Operations_AWS_Elemental_MediaStore_Data_Plane.md")
 - [Building
