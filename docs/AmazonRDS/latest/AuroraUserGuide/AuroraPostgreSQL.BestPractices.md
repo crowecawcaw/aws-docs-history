@@ -15,6 +15,8 @@ cluster. Be sure to also review basic maintenance tasks. For more information, s
 - [Tuning memory parameters for Aurora PostgreSQL](AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.md "AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.md")
 - [Using Amazon CloudWatch metrics to analyze resource usage for Aurora PostgreSQL](AuroraPostgreSQL_AnayzeResourceUsage.md "AuroraPostgreSQL_AnayzeResourceUsage.md")
 - [Using logical replication to perform a major version upgrade for Aurora PostgreSQL](AuroraPostgreSQL.MajorVersionUpgrade.md "AuroraPostgreSQL.MajorVersionUpgrade.md")
+- [Managing custom casts in Aurora PostgreSQL](PostgreSQL.CustomCasts.md "PostgreSQL.CustomCasts.md")
+- [Best Practices for Parallel Queries in Aurora PostgreSQL](PostgreSQL.ParallelQueries.md "PostgreSQL.ParallelQueries.md")
 - [Troubleshooting storage issues in Aurora PostgreSQL](AuroraPostgreSQL.BestPractices.TroubleshootingStorage.md "AuroraPostgreSQL.BestPractices.TroubleshootingStorage.md")
 
 ## Avoiding slow performance, automatic restart, and failover for Aurora PostgreSQL DB instances

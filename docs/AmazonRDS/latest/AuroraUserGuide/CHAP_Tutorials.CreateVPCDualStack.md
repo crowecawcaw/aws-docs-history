@@ -263,7 +263,7 @@ that runs in dual-stack mode.
    - **Network type** – Choose **Dual-stack
      mode**.
 
-   ![Network type section in the console with Dual-stack mode selected](/images/AmazonRDS/latest/AuroraUserGuide/images/dual-stack-mode.png)
+   ![Network type section in the console with Dual-stack mode selected](images/dual-stack-mode.png)
    - **Virtual private cloud (VPC)** – Choose an
      existing VPC with both public and private subnets, such as
      **tutorial-dual-stack-vpc**
