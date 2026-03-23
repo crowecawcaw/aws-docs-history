@@ -28,7 +28,7 @@ following tasks:
 - Create [AWS IoT TwinMaker
   entities](twinmaker-gs-entity.md "twinmaker-gs-entity.md").
 - (Optional) Read [Using
-  and creating component types](twinmaker-component-types.md "twinmaker-component-types.md").
+  and creating component types](twinmaker-component-types.htm.md "twinmaker-component-types.htm.md").
 - (Optional) Read [AWS IoT TwinMaker
   data connector interface](data-connector-interface.md "data-connector-interface.md") to get a general understanding of
   AWS IoT TwinMaker data connectors.
