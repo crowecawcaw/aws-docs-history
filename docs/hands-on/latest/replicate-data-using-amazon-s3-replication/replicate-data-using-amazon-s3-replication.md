@@ -206,7 +206,7 @@ archive data that rarely needs to be accessed, and
 optimize storage costs for data with unpredictable or changing
 access patterns. For more information, see the documentation on
 [using
-Amazon S3 storage classes.](../../../AmazonS3/latest/userguide/storage-class-intro.md "../../../AmazonS3/latest/userguide/storage-class-intro.md")
+Amazon S3 storage classes.](../../../AmazonS3/latest/userguide/storage-class-intro.htm.md "../../../AmazonS3/latest/userguide/storage-class-intro.htm.md")
 
 ![The selection interface.](images/selection-interface-2.png) 7. Choose additional options
 
