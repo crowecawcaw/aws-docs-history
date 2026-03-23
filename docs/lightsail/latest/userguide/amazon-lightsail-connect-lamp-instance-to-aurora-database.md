@@ -121,7 +121,7 @@ Aurora database](#configure-security-group "#configure-security-group") section 
 
 Now that you’ve confirmed you can connect to your database from your instance, you should
 migrate the data from your LAMP instance database to your Aurora database. For more
-information, see [Migrating data to an Amazon Aurora MySQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.md") in the _Amazon Aurora User
+information, see [Migrating data to an Amazon Aurora MySQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.md") in the _Amazon Aurora User
 Guide for Aurora_.
 
 ## Step 5: Configure your application to connect to your Aurora managed database

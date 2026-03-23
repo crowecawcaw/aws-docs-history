@@ -66,14 +66,28 @@ addresses for Lightsail resources](understanding-public-ip-and-private-ip-addres
    OpenClaw**, choose **Connect using SSH**. A browser-based SSH
    terminal opens.
 
-![The OpenClaw Getting Started tab.](images/openclaw/getting_started_tab.png) 3. In the SSH terminal, locate the **Dashboard URL** displayed in the
+![The OpenClaw Getting Started tab.](images/openclaw/getting_started_tab.png)
+
+###### Did you know?
+
+The Message of the Day (MOTD) service running on your OpenClaw instance manages several
+automated configuration tasks, including origin detection, certificate management, and token rotation.
+You can check your MOTD version by connecting to your instance via SSH.
+
+Your OpenClaw instance automatically configures the gateway to accept connections
+from the instance’s IP address. MOTD version 2.0.0 includes an automatic origin detection
+feature that runs during instance startup and configures the allowed origin to be the instance's
+current IP address. When you attach a static IP address to your instance, the system automatically
+updates the allowed origin to use the static IP address instead.
+
+![The OpenClaw Getting Started tab.](images/openclaw/motd_welcome_message.png) 3. In the SSH terminal, locate the **Dashboard URL** displayed in the
 welcome message. Copy this URL and open it in a new browser tab.
 
-![Pairing a device with OpenClaw](images/openclaw/device_pairing.png) 4. In the OpenClaw dashboard that opens, locate the **Gateway Token**
+![Pairing a device with OpenClaw using sample data](images/openclaw/device_pairing.png) 4. In the OpenClaw dashboard that opens, locate the **Gateway Token**
 field. 5. Back in the SSH terminal, copy the **Access Token** displayed. 6. Paste the copied access token into the **Gateway Token** field in the
 OpenClaw dashboard, then click **Connect**.
 
-![Entering a token for the OpenClaw Gateway.](images/openclaw/gateway_access.png) 7. Return to the SSH terminal. When prompted, press `y` to continue
+![Entering a token for the OpenClaw Gateway using sample data](images/openclaw/gateway_access.png) 7. Return to the SSH terminal. When prompted, press `y` to continue
 with device pairing. 8. Press `a` to approve the device pairing request.
 
 When pairing is complete, the status in the OpenClaw dashboard will show
@@ -100,15 +114,18 @@ Bedrock API.
    **Copy the script** button. Then click the **Launch
    CloudShell** button to open CloudShell.
 
-![Copy the Bedrock script for IAM role creation.](images/openclaw/bedrock_script.png) 3. Paste the copied script into the CloudShell terminal and press
+###### What does the setup script do?
+
+The setup script performs the following actions: creates an IAM role specifically
+for your OpenClaw instance, attaches a policy granting access to Amazon Bedrock APIs,
+attaches a policy granting AWS Marketplace permissions (required for third-party models),
+and configures the instance profile to use this role. You can review the IAM policy details
+in the [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") after running the
+script. The IAM role will be named `LightsailRoleFor-[your-instance-id]`.
+
+![Copy the Bedrock script for IAM role creation using test data.](images/openclaw/bedrock_script.png) 3. Paste the copied command into the CloudShell terminal and press
 **Enter**. 4. Wait for the script to complete. When you see **Done** in the output,
 the permissions have been applied successfully.
-
-###### Tip
-
-The script creates an IAM role and attaches a policy that grants your OpenClaw instance
-access to Amazon Bedrock API. You can view and customize this IAM policy at any time in the
-[IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 
 Once this step is complete, navigate to **Chat** in the OpenClaw
 dashboard to start using your AI assistant.
@@ -152,7 +169,7 @@ and add your **Telegram user ID** to the allow list.
 openclaw pairing approve telegram [pairing code]
 ```
 
-![Telegram is not paired with your OpenClaw instance](images/openclaw/telegram_pairing.png) 10. Test the integration again by sending a message to the bot you created in Telegram in Step 2
+![Telegram pairing information using sample data](images/openclaw/telegram_pairing.png) 10. Test the integration again by sending a message to the bot you created in Telegram in Step 2
 
 ![Telegram is paired with your OpenClaw instance](images/openclaw/telegram_successful_message.png)
 
@@ -261,13 +278,19 @@ Models from Amazon, Meta, Mistral AI, DeepSeek, and Qwen are not sold through AW
 
 For more information, see [Access Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access.md "../../../bedrock/latest/userguide/model-access.md") in the Amazon Bedrock User Guide.
 
-**How does HTTPS work?**
+**How does HTTPS work with my OpenClaw instance?**
 
 Your OpenClaw instance comes with a built-in HTTPS endpoint secured by a Let's Encrypt certificate. When your instance is created, a Let's Encrypt certificate is automatically issued for your instance's IPv4 address — no manual setup is required.
 
 **What happens to my SSL certificate if my instance's IP address changes?**
 
-Your OpenClaw instance includes a built-in certificate management daemon (`lightsail-manage-certd`) that monitors your instance's IP address. If the IP address changes — for example, when you attach or detach a static IP — the daemon automatically detects the change and issues a new Let's Encrypt certificate for the new IP address. No manual action is required.
+Your OpenClaw instance includes a built-in certificate management daemon (`lightsail-manage-certd`)
+that monitors your instance's IP address. If the IP address changes — for example, when you attach or detach
+a static IP — the daemon automatically detects the change and issues a new Let's Encrypt certificate for the
+new IP address. No manual action is required for your SSL certificate.
+
+Note: The gateway access token will remain the same, but you will need to re-pair your browsers again by
+following the steps in **Step 2: Pair your browser with OpenClaw**
 
 **How often is my SSL certificate renewed?**
 
@@ -279,6 +302,12 @@ Yes. OpenClaw supports plugin installation, and some plugins or configuration ch
 
 To manage the gateway after installing a plugin or updating a configuration, SSH into your OpenClaw instance and use the following commands:
 
+- Stop the OpenClaw gateway service: `openclaw gateway stop`
+- Start the OpenClaw gateway service: `openclaw gateway start`
+- Check the current status of the service: `openclaw gateway status`
+
+**Note:**If you are using MOTD 1.0.0 (OpenClaw 2026.2.17), use the following commands instead:
+
 - Stop the OpenClaw gateway service: `sudo systemctl stop openclaw-gateway`
 - Start the OpenClaw gateway service: `sudo systemctl start openclaw-gateway`
 - Check the current status of the service: `sudo systemctl status openclaw-gateway`
@@ -287,7 +316,11 @@ To manage the gateway after installing a plugin or updating a configuration, SSH
 
 If the token is ever exposed — for example, leaked in logs, accidentally shared, or exposed through a prompt injection attack — anyone who has it can access your OpenClaw gateway until you manually regenerate it.
 
-**How do I rotate my gateway token?**
+**Is my gateway token automatically rotated?**
+
+Yes. It is automatically rotated at 3:00 UTC every day. This rotation will require you to re-pair your browser with your OpenClaw instance.
+
+**How do I manually rotate my gateway token?**
 
 To rotate your gateway token:
 
@@ -299,11 +332,24 @@ openclaw token rotate
 ```
 
 - The old token is immediately invalidated. Any browsers or clients currently paired with the old token will be disconnected.
-- Re-pair your browsers using the new token by following the steps in Step 2: Pair your browser with OpenClaw.
+- Re-pair your browsers again using the new token by following the steps in **Step 2: Pair your browser with OpenClaw.**
 
 ###### Tip
 
 After rotating your token, check that all trusted devices have been re-paired before resuming use.
+
+**How does automatic token rotation work?**
+
+MOTD 2.0.0 includes automatic token rotation that enhances security by rotating your gateway access token every day.
+
+**Important implications:**
+
+- When the token is automatically rotated, all paired browsers and devices will be disconnected.
+- You will need to re-pair your browser again by following the steps in Step 2: Pair your browser with OpenClaw.
+
+If you don't want the token to be rotated, you can disable it in the MOTD by changing the security settings.
+
+![Setting to rotate tokens.](images/openclaw/token_rotation.png)
 
 **How do I rotate my messaging channel credentials (Telegram, WhatsApp, Slack)?**
 
@@ -328,3 +374,131 @@ Select the channel you want to update and enter the new token or credential when
 ###### Note
 
 Rotating a messaging credential does not affect your gateway token or other connected channels — each credential is managed independently.
+
+**What does the `setup-lightsail-openclaw-bedrock-role.sh` script do?**
+
+It creates an IAM role that permits only your OpenClaw instance to use foundational models available via Amazon Bedrock and the AWS Marketplace.
+
+**How do I restore an OpenClaw instance from a snapshot?**
+
+- Create a new instance from an existing OpenClaw snapshot. For more information, see
+  [Creating an instance from a snapshot](lightsail-how-to-create-instance-from-snapshot.md "lightsail-how-to-create-instance-from-snapshot.md").
+- SSH into your new OpenClaw instance from the Lightsail console
+- Run the following command to get the instance ID for your Lightsail instance, e.g. `i-1234567890abcdef1`:
+
+```
+TOKEN=`curl -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` && curl -w "\n" -s -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/instance-id
+```
+
+- Run the following command to get the IAM role associated with the instance:
+
+```
+grep 'role_arn' /home/ubuntu/.aws/config | head -1 | awk '{print $3}'
+```
+
+- Find the role you retrieved in the previous step on the [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"), e.g. `LightsailRoleFor-i-0d15d5483571b95bb`
+- Select `Trust relationships`
+- Select `Edit trust policy`
+- Update the trust policy with the ARN of the instance ID retrieved earlier, e.g. `"arn:aws:sts::0123456789012:assumed-role/AmazonLightsailInstance/i-1234567890abcdef1"`.
+- Select `Update policy`
+
+**How do I configure AllowedOrigin for my OpenClaw instance?**
+
+AllowedOrigin is a security setting that controls which web addresses (origins) are permitted to connect to your OpenClaw gateway. This prevents unauthorized websites from accessing your instance and protects against cross-origin security issues.
+
+**MOTD 2.0.0 (OpenClaw 2026.3.2 and later):** AllowedOrigin is automatically managed by the MOTD service. When your instance starts or when the IP address changes, the service automatically detects the correct origin, and updates the configuration. No manual action is required.
+
+**MOTD 1.0.0 (OpenClaw 2026.2.17):** You need to manually configure AllowedOrigin if you are accessing OpenClaw from a specific domain. SSH into your instance and edit the OpenClaw configuration file by following below instructions to add your allowed origins.
+
+- SSH into your OpenClaw instance from the Lightsail console
+- Open the configuration file: `~/.openclaw/openclaw.json`
+- Add or modify the AllowedOrigin setting:
+
+```
+{
+    "gateway": {
+        "controlUi": {
+            "allowedOrigins": [
+                "https://<your-domain.com>"
+            ]
+        }
+    }
+}
+```
+
+- Restart the OpenClaw gateway service: `sudo systemctl restart openclaw-gateway`
+
+**How do I update OpenClaw to the latest version?**
+
+To update your OpenClaw gateway to the latest version:
+
+- SSH into your OpenClaw instance
+- Run the update command: `sudo openclaw update`
+
+**Important notes:**
+
+- The OpenClaw blueprint installs the gateway globally on the instance, which is why sudo privileges are required
+- After the update command completes, it will attempt to start the gateway as the root user, but this will fail because the gateway must run as the `ubuntu` user
+- You must manually restart the gateway after updating: `openclaw gateway restart`
+- The "Update" button in the OpenClaw control UI dashboard will not work because it doesn't have `sudo` privileges
+
+**What happens to device pairing when I attach a static IP address?**
+
+When you attach a static IP address to your OpenClaw instance, the instance's IP address changes. This has important implications for device pairing:
+
+- All previously paired browsers and devices will be disconnected
+- The gateway token remains valid, but the connection endpoint has changed
+- You must explicitly pair all browsers and devices again after attaching the static IP
+
+**To re-pair your devices:**
+
+- SSH into your instance (the SSH connection will work with the new static IP)
+- Follow the pairing steps in Step 2 to reconnect each browser
+- For messaging channels (Telegram, WhatsApp), you may also need to re-approve pairing
+
+**How do I grant sandbox permissions for enabling tools?**
+
+By default, OpenClaw runs tools and plugins in isolated Docker container environments (sandboxes) to protect your instance from potentially harmful operations. This isolation restricts what tools can access, including system commands, file system access, network connections, and host system resources.
+
+While this provides strong security, some tools may require less restrictive settings to function properly. For example, web scraping tools need network access, and file management tools need broader filesystem access. Without these permissions, the sandbox functions primarily as a basic chatbot with limited capabilities.
+
+To make the sandbox less restrictive:
+
+- SSH into your OpenClaw instance from the Lightsail console
+- Run the following commands to configure tool execution settings:
+
+```
+openclaw config set tools.exec.host gateway
+openclaw config set tools.exec.ask off
+openclaw config set tools.exec.security full
+```
+
+- Restart the OpenClaw gateway service for the changes to take effect:
+
+```
+openclaw gateway restart
+```
+
+What these settings do:
+
+- `tools.exec.host gateway` - Allows tools to execute directly on the gateway host instead of in an isolated Docker container, giving them access to system commands and resources
+- `tools.exec.ask off` - Disables permission prompts before tool execution, allowing tools to run automatically without manual approval
+- `tools.exec.security full` - Sets the security level for tool execution
+
+**Security consideration:** These settings significantly reduce the isolation between tools and your system. Only configure these settings if you trust the tools you're using. Running tools with less restrictive sandbox settings may expose your instance to security risks if a tool is compromised or malicious.
+
+**What are the differences between MOTD versions?**
+
+OpenClaw instances use different MOTD (Message of the Day) versions depending on when they were created. Here's what you need to know:
+
+**MOTD 1.0.0 (OpenClaw 2026.2.17):**
+
+- Gateway management: Use `sudo systemctl start/stop/status openclaw-gateway`
+- Token rotation: Manual only (use `openclaw token rotate`)
+
+**MOTD 2.0.0 (OpenClaw 2026.3.2 and later):**
+
+- Gateway management: Use simplified commands `openclaw gateway start/stop/status`
+- Token rotation: Automatic daily rotation
+
+**How to check your MOTD version:** SSH into your instance and look at the welcome message displayed. The MOTD version will be shown at the top.

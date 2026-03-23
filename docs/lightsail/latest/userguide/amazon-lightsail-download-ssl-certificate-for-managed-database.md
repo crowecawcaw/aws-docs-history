@@ -16,7 +16,7 @@ for managed databases in Lightsail.
 
 To get a certificate bundle that contains both the intermediate and root certificates for
 all AWS Regions, or if your application is on Microsoft Windows and requires a PKCS7 file,
-see [Certificate bundles for all AWS Regions](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesAllRegions "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesAllRegions") in the Amazon Relational Database Service User Guide.
+see [Certificate bundles for all AWS Regions](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesAllRegions "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesAllRegions") in the Amazon Relational Database Service User Guide.
 
 This root certificate is a trusted root entity and should work in most cases. However, it
 might fail if your application doesn't accept certificate chains. If your application doesn't
@@ -25,4 +25,4 @@ accept certificate chains, continue to the next section of this document.
 ## Certificate bundles for specific AWS Regions
 
 To get a certificate bundle that contains both the intermediate and root certificates for
-a specific AWS Region, see [Certificate bundles for specific AWS Regions](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificates "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificates") in the Amazon Relational Database Service User Guide.
+a specific AWS Region, see [Certificate bundles for specific AWS Regions](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.RegionCertificates "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.RegionCertificates") in the Amazon Relational Database Service User Guide.

@@ -304,7 +304,7 @@ sure to replace `domain` with your domain, such as
 `/etc/letsencrypt/live/`example.com`/`. 2. Make note of the expiration date specified in the message. You use it to renew your
 certificate by that date.
 
-![Let's Encrypt certificate renewal date.](images/instances/lets-encrypt/certificate-renewal-date.png) 3. Now that you have the Let’s Encrypt SSL certificate, continue to the [next section](#link-the-lets-encrypt-certificate-files-in-the-nginx-directory-nginx "#link-the-lets-encrypt-certificate-files-in-the-nginx-directory-nginx") of this tutorial.
+![Let's Encrypt certificate renewal date.](/images/lightsail/latest/userguide/images/instances/lets-encrypt/certificate-renewal-date.png) 3. Now that you have the Let’s Encrypt SSL certificate, continue to the [next section](#link-the-lets-encrypt-certificate-files-in-the-nginx-directory-nginx "#link-the-lets-encrypt-certificate-files-in-the-nginx-directory-nginx") of this tutorial.
 
 ## Step 7: Create links to the Let’s Encrypt certificate files in the NGINX server directory
 

@@ -71,6 +71,11 @@ Learn more about [Amazon Linux 2023](https://aws.amazon.com/linux/amazon-linux-2
 
 \***\*Amazon Linux 2\*\***
 
+###### Important
+
+Amazon Linux 2 will reach End of Long Term Support on June 30, 2026. You will not be
+able to create new Lightsail instances with this blueprint on or after June 30, 2026. For more information, see the [Amazon Linux 2 website](https://aws.amazon.com/amazon-linux-2/faqs/ "https://aws.amazon.com/amazon-linux-2/faqs/").
+
 Amazon Linux 2 is the previous generation of Amazon Linux, a Linux server operating
 system from AWS. It provides a secure, stable, and high performance execution
 environment to develop and run cloud and enterprise applications. With Amazon Linux 2,
@@ -107,7 +112,7 @@ This blueprint is compatible with a Lightsail IPv6-only instance plan.
 
 Learn more at the [_CentOS Stream_](https://www.centos.org/centos-stream/ "https://www.centos.org/centos-stream/") website.
 
-\***\*Debian 11 and 12\*\***
+\***\*Debian 11, 12, and 13\*\***
 
 ###### Important
 
@@ -124,7 +129,7 @@ This blueprint is compatible with a Lightsail IPv6-only instance plan.
 
 Learn more at the [_Debian_](https://www.debian.org/doc/ "https://www.debian.org/doc/") website.
 
-\***\*FreeBSD 13 and 14\*\***
+\***\*FreeBSD 13, 14, and 15\*\***
 
 ###### Important
 

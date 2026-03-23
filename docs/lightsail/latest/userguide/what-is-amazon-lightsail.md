@@ -74,7 +74,7 @@ time, from anywhere on the internet. You can also host static content on the clo
 Lightsail enables content delivery network (CDN) distributions, which are built on
 the same infrastructure as Amazon CloudFront. You can easily distribute your content to a global
 audience by setting up proxy servers across the world, so that your users can access
-your website geographically closer to them, thus reducing latency. [Learn more](amazon-lightsail-databases.md "amazon-lightsail-databases.md")
+your website geographically closer to them, thus reducing latency. [Learn more](amazon-lightsail-content-delivery-network-distributions.md "amazon-lightsail-content-delivery-network-distributions.md")
 
 **Access to AWS services**
 

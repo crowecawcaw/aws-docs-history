@@ -270,7 +270,7 @@ website, for example `https://www.example.com/`.
 Storefront**, **Use Secure URLs in Admin**, and
 **Upgrade Insecure Requests** options.
 
-![Magento administration dashboard](/images/lightsail/latest/userguide/images/magento-quick-start-magento-base-urls-secure-options.png) 15. Choose Save Config at the top of the page.
+![Magento administration dashboard](images/magento-quick-start-magento-base-urls-secure-options.png) 15. Choose Save Config at the top of the page.
 
 HTTPS is now configured for your Magento website. When customers browse to the HTTP
 version (e.g., `http://www.example.com`) of your Magento website, they will be

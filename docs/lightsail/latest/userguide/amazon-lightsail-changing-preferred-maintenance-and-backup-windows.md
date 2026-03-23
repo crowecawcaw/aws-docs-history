@@ -14,7 +14,7 @@ block of time for each AWS Region. It also occurs on a random day of the week.
 ###### Note
 
 For more information about the preferred maintenance window time blocks for each region,
-see the [Maintaining a DB Instance](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md") guide in the Amazon Relational Database Service (Amazon
+see the [Maintaining a DB Instance](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.md") guide in the Amazon Relational Database Service (Amazon
 RDS) documentation. For more information about the preferred backup window time blocks for
 each region, see the [Working With Backups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md#USER_WorkingWithAutomatedBackups.BackupWindow "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md#USER_WorkingWithAutomatedBackups.BackupWindow") guide in the Amazon RDS documentation.
 

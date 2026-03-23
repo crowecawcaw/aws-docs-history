@@ -113,7 +113,7 @@ IP** (if you previously created a static IP that you can attach to your
 instance), then follow the instructions on the page. For more information, see [Create a static IP and attach it to an
 instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
 
-![Attach static IP address in the Lightsail console](images/quick-start-static-ip-address.png)
+![Attach static IP address in the Lightsail console](/images/lightsail/latest/userguide/images/quick-start-static-ip-address.png)
 
 - Register a domain in Lightsail Register and
   manage domain names in Lightsail. Lightsail uses Amazon Route 53, a highly
