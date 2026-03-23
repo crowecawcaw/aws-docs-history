@@ -28,7 +28,7 @@ dataset to your computer.
 
 ###### To get the sample data
 
-1. Download the zip file [tutorial-reviews-data.zip](samples/tutorial-reviews-data.md "samples/tutorial-reviews-data.md") to your computer.
+1. Download the zip file [tutorial-reviews-data.zip](samples/tutorial-reviews-data.zip.md "samples/tutorial-reviews-data.zip.md") to your computer.
 2. Extract the zip file on your computer. There are two files. The file
    `THIRD_PARTY_LICENSES.txt` is the open source license for the
    dataset published by Xiang Zhang et al. The file `amazon-reviews.csv`
