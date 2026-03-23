@@ -57,7 +57,7 @@ the following:
 
 ###### To prepare training data
 
-1. Download the zip file, [electricityusagedata.zip](samples/electricityusagedata.md "samples/electricityusagedata.md").
+1. Download the zip file, [electricityusagedata.zip](samples/electricityusagedata.zip.md "samples/electricityusagedata.zip.md").
 
 For this exercise, you use a modified version of the individual household electric
 power consumption dataset. (Dua, D. and Karra Taniskidou, E. (2017). UCI Machine Learning
