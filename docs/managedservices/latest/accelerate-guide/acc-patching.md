@@ -143,11 +143,11 @@ for a two availability zone Windows HA EC2 application using the baseline approv
 described above.
 
 - Windows Dev CFN Stack Example: 
-  [HA-Patching-Dev-Stack.json](samples/HA-Patching-Dev-Stack.md "samples/HA-Patching-Dev-Stack.md")
+  [HA-Patching-Dev-Stack.json](samples/HA-Patching-Dev-Stack.zip.md "samples/HA-Patching-Dev-Stack.zip.md")
 - Windows Test CFN Stack Example: 
-  [HA-Patching-Test-Stack.json](samples/HA-Patching-Test-Stack.md "samples/HA-Patching-Test-Stack.md")
+  [HA-Patching-Test-Stack.json](samples/HA-Patching-Test-Stack.zip.md "samples/HA-Patching-Test-Stack.zip.md")
 - Windows Prod CFN Stack Example: 
-  [HA-Patching-Prod-Stack.json](samples/HA-Patching-Prod-Stack.md "samples/HA-Patching-Prod-Stack.md")
+  [HA-Patching-Prod-Stack.json](samples/HA-Patching-Prod-Stack.zip.md "samples/HA-Patching-Prod-Stack.zip.md")
 
 ### Patch recommendations FAQs
 

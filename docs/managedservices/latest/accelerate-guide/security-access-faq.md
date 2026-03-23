@@ -118,7 +118,7 @@ You can search for "AMS" to find AMS specific security artifacts from an AMS man
 
 ## Does AMS share reference architecture diagrams of different aspects of AMS features?
 
-To view AMS reference architecture, download the [AWS Managed Services for Proactive Monitoring PDF](samples/AWS-managed-services-for-operational-excellence-ra.md "samples/AWS-managed-services-for-operational-excellence-ra.md").
+To view AMS reference architecture, download the [AWS Managed Services for Proactive Monitoring PDF](samples/AWS-managed-services-for-operational-excellence-ra.zip.md "samples/AWS-managed-services-for-operational-excellence-ra.zip.md").
 
 ## How does AMS track who access my accounts and what the business need is for access?
 

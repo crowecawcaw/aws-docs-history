@@ -183,7 +183,7 @@ For more information, see
 [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions")
 in the _AWS Identity and Access Management User Guide_.
 
-You can download the JSON AWSManagedServices_EventsServiceRolePolicy in this ZIP: [EventsServiceRolePolicy.zip](samples/EventsServiceRolePolicy.md "samples/EventsServiceRolePolicy.md").
+You can download the JSON AWSManagedServices_EventsServiceRolePolicy in this ZIP: [EventsServiceRolePolicy.zip](samples/EventsServiceRolePolicy.zip.md "samples/EventsServiceRolePolicy.zip.md").
 
 ### Creating an EventBridge SLR for AMS Accelerate
 
@@ -263,7 +263,7 @@ The role permissions policy named AWSManagedServices_ContactsServiceRolePolicy a
 
 - Action: Allows the Contacts Service to read the tags specifically set up to contain the email for AMS to send incident notifications on any AWS resource.
 
-You can download the JSON AWSManagedServices_ContactsServiceRolePolicy in this ZIP: [ContactsServicePolicy.zip](samples/ContactsServicePolicy.md "samples/ContactsServicePolicy.md").
+You can download the JSON AWSManagedServices_ContactsServiceRolePolicy in this ZIP: [ContactsServicePolicy.zip](samples/ContactsServicePolicy.zip.md "samples/ContactsServicePolicy.zip.md").
 
 ### Creating a Contacts SLR for AMS Accelerate
 

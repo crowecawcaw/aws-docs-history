@@ -41,7 +41,7 @@ definition as per your use-case.
 
 ## Outbound internet connectivity in Accelerate
 
-1. Download [`egressMgmt.zip`](samples/egressMgmt.md "samples/egressMgmt.md").
+1. Download [`egressMgmt.zip`](samples/egressMgmt.zip.md "samples/egressMgmt.zip.md").
 2. Open the **`ams-egress.json`** file.
 3. Find the URLs under the JSON properties:
    - `WindowsPatching`

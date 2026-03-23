@@ -3,9 +3,9 @@
 The following AMS role grants permissions to your AMS cloud architect (CA). The following zip file contains Terraform code and CloudFormation template that simplifies creating
 the IAM role, permissions policy, and trust policy. For more information, consult with your CA.
 
-| Role Name                             | Required by                          | Sample Templates                                                                                       |
-| ------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `aws_managedservices_onboarding_role` | AMS personnel during onboarding only | [onboarding_role_minimal.zip](samples/onboarding_role_minimal.md "samples/onboarding_role_minimal.md") |
+| Role Name                             | Required by                          | Sample Templates                                                                                               |
+| ------------------------------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| `aws_managedservices_onboarding_role` | AMS personnel during onboarding only | [onboarding_role_minimal.zip](samples/onboarding_role_minimal.zip.md "samples/onboarding_role_minimal.zip.md") |
 
 ###### Note
 

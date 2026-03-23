@@ -507,7 +507,7 @@ you need help from AMS to make changes in other situations, consider using
 
 AMS Accelerate can make changes to your operating system software during
 unavailability situations via incident resolution as defined in our
-[Service Level Agreement](samples/acc_sla.md "samples/acc_sla.md"). AMS can also make changes to your operating systems as
+[Service Level Agreement](samples/acc_sla.zip.md "samples/acc_sla.zip.md"). AMS can also make changes to your operating systems as
 part of [Automated instance configuration in AMS Accelerate](acc-inst-auto-config.md "acc-inst-auto-config.md").
 
 **Application code and configuration**

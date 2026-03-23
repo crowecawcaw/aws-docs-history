@@ -1,7 +1,7 @@
 # Resource inventory for Accelerate
 
 All the resources that AMS Accelerate deploys to your AWS account or accounts are listed in
-the [`resource_inventory.zip`](samples/resource_inventory3.md "samples/resource_inventory3.md") file resource_inventory.xlsx spreadsheet (compressed).
+the [`resource_inventory.zip`](samples/resource_inventory3.zip.md "samples/resource_inventory3.zip.md") file resource_inventory.xlsx spreadsheet (compressed).
 
 ###### Note
 

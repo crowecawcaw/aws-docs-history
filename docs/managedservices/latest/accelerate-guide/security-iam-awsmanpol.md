@@ -47,7 +47,7 @@ This policy includes the following permissions.
 - `Amazon Elastic Kubernetes Service` – Allows permissions to describe Amazon EKS cluster.
 - `Amazon ElastiCache` – Allows permissions to describe resources.
 
-You can download the policy file in this ZIP: [RecommendedPermissionBoundary.zip](samples/RecommendedPermissionBoundary.md "samples/RecommendedPermissionBoundary.md").
+You can download the policy file in this ZIP: [RecommendedPermissionBoundary.zip](samples/RecommendedPermissionBoundary.zip.md "samples/RecommendedPermissionBoundary.zip.md").
 
 ## AWS managed policy: AWSManagedServices_DetectiveControlsConfig_ServiceRolePolicy
 
@@ -72,7 +72,7 @@ This policy has the following permissions to allow AWS Managed Services Detectiv
 - `AWS Config` – Allows AMS Detective Controls to create AMS config rules, configure an aggregator and tag resources.
 - `Amazon S3` – allows AMS Detective Controls to manage its s3 buckets.
 
-You can download the JSON policy file in this ZIP: [DetectiveControlsConfig_ServiceRolePolicy.zip](samples/DetectiveControlsConfig_ServiceRolePolicy.md "samples/DetectiveControlsConfig_ServiceRolePolicy.md").
+You can download the JSON policy file in this ZIP: [DetectiveControlsConfig_ServiceRolePolicy.zip](samples/DetectiveControlsConfig_ServiceRolePolicy.zip.md "samples/DetectiveControlsConfig_ServiceRolePolicy.zip.md").
 
 ## AWS managed policy: AWSManagedServicesDeploymentToolkitPolicy
 
@@ -95,7 +95,7 @@ This policy has the following permissions to allow AWS Managed Services Detectiv
 - `Elastic Container Registry` – allows AMS Deployment Toolkit to manage its ECR repository that is used to deploy assets needed by AMS CDK apps.
 
 You can download the JSON policy file in this ZIP:
-[AWSManagedServicesDeploymentToolkitPolicy.zip](samples/AWSManagedServices_DeploymentToolkitPolicy.md "samples/AWSManagedServices_DeploymentToolkitPolicy.md").
+[AWSManagedServicesDeploymentToolkitPolicy.zip](samples/AWSManagedServices_DeploymentToolkitPolicy.zip.md "samples/AWSManagedServices_DeploymentToolkitPolicy.zip.md").
 
 ## AWS managed policy: AWSManagedServices_EventsServiceRolePolicy
 
@@ -115,7 +115,7 @@ This policy has the following permissions to allow Amazon EventBridge to deliver
 - `events` – Allows Accelerate to create Amazon EventBridge managed rule. This rule is the infrastructure required
   in your AWS account to deliver alarm state change information from your account to AWS Managed Services.
 
-You can download the JSON policy file in this ZIP: [EventsServiceRolePolicy.zip](samples/EventsServiceRolePolicy.md "samples/EventsServiceRolePolicy.md").
+You can download the JSON policy file in this ZIP: [EventsServiceRolePolicy.zip](samples/EventsServiceRolePolicy.zip.md "samples/EventsServiceRolePolicy.zip.md").
 
 ## AWS managed policy: AWSManagedServices_ContactsServiceRolePolicy
 
@@ -149,7 +149,7 @@ This policy has the following permissions to allow the Contacts SLR to read your
 
 - "iam:ListRoleTags", "iam:ListUserTags", "tag:GetResources", "tag:GetTagKeys", "tag:GetTagValues", "ec2:DescribeTags", "s3:GetBucketTagging"
 
-You can download the JSON policy file in this ZIP: [ContactsServicePolicy.zip](samples/ContactsServicePolicy.md "samples/ContactsServicePolicy.md").
+You can download the JSON policy file in this ZIP: [ContactsServicePolicy.zip](samples/ContactsServicePolicy.zip.md "samples/ContactsServicePolicy.zip.md").
 
 ## Accelerate updates to AWS managed policies
 
