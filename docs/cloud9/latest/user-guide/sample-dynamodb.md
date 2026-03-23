@@ -180,7 +180,7 @@ In this code, `N` represents an attribute value that is a number.
 `S` is a string attribute value. `M` is a map attribute,
 which is a set of attribute-value pairs. You must specify an attribute's data type
 whenever you work with items. For additional available attribute data types, see
-[Data Types](../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.DataTypes "../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.DataTypes") in the _Amazon DynamoDB Developer Guide_. 2. Run the DynamoDB**`put-item`** command, specifying the table's name (`--table-name`) and the
+[Data Types](../../../amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.md#HowItWorks.DataTypes "../../../amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.md#HowItWorks.DataTypes") in the _Amazon DynamoDB Developer Guide_. 2. Run the DynamoDB**`put-item`** command, specifying the table's name (`--table-name`) and the
 path to the JSON-formatted item (`--item`).
 
 ```

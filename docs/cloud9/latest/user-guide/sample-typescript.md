@@ -182,7 +182,7 @@ The sum of 2 and 3 is 5.
 The sum of 5 and 9 is 14.
 ```
 
-![Node.js output after running the code in the AWS Cloud9 IDE](/images/cloud9/latest/user-guide/images/ide-nodejs-simple.png)
+![Node.js output after running the code in the AWS Cloud9 IDE](images/ide-nodejs-simple.png)
 
 ###### Note
 

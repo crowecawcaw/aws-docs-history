@@ -7,7 +7,7 @@ AWS Cloud9 can continue to use the service as normal.
 This topic contains a list of significant changes to the
 _AWS Cloud9 User Guide_. For notification about updates to this documentation,
 you can subscribe to the [RSS
-feed](aws-cloud9-user-guide-updates.md "aws-cloud9-user-guide-updates.md").
+feed](aws-cloud9-user-guide-updates.rss.md "aws-cloud9-user-guide-updates.rss.md").
 
 **Recent updates**
 

@@ -96,7 +96,7 @@ requirements, see one or more of the following resources:
     + For Amazon Lightsail, see [Connect to your Linux/Unix-based Lightsail instance](../../../en_us/lightsail/latest/userguide/lightsail-how-to-connect-to-your-instance-virtual-private-server.md "../../../en_us/lightsail/latest/userguide/lightsail-how-to-connect-to-your-instance-virtual-private-server.md") in the
      *Amazon Lightsail Documentation*.
     + For AWS Elastic Beanstalk, see [Listing and Connecting
-     to Server Instances](../../../elasticbeanstalk/latest/dg/using-features.md "../../../elasticbeanstalk/latest/dg/using-features.md") in the
+     to Server Instances](../../../elasticbeanstalk/latest/dg/using-features.ec2connect.md "../../../elasticbeanstalk/latest/dg/using-features.ec2connect.md") in the
      *AWS Elastic Beanstalk Developer Guide*.
     + For AWS OpsWorks, see [Using SSH to Log In to a Linux Instance](../../../opsworks/latest/userguide/workinginstances-ssh.md "../../../opsworks/latest/userguide/workinginstances-ssh.md") in the
      *AWS OpsWorks User Guide*.

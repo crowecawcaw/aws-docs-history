@@ -168,7 +168,7 @@ should no longer appear in the list.
 You don't have to delete the bucket if you want to keep using it. For more
 information, see [Add an
 Object to a Bucket](../../../AmazonS3/latest/userguide/uploading-an-object-bucket.md "../../../AmazonS3/latest/userguide/uploading-an-object-bucket.md") in the _Amazon Simple Storage Service User Guide_. See also
-[s3 commands](../../../cli/latest/reference/s3/rm.md "../../../cli/latest/reference/s3/rm.md") in the
+[s3 commands](../../../cli/latest/reference/s3/rm.html.md "../../../cli/latest/reference/s3/rm.html.md") in the
 _AWS CLI Command Reference_. (Remember, if you don't delete the
 bucket, it might result in ongoing charges to your AWS account.)
 
