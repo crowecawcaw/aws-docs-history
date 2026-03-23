@@ -17,4 +17,4 @@ Use efficient storage formats and streamlined query configurations to reduce unn
 
 - [Data
   formats for AWS Clean Rooms](../../../clean-rooms/latest/userguide/data-formats.md "../../../clean-rooms/latest/userguide/data-formats.md")
-- [Data Analytics Lens](../analytics-lens/best-practice-10.md "../analytics-lens/best-practice-10.md")
+- [Data Analytics Lens](../analytics-lens/best-practice-10.4---partition-your-data-to-avoid-unnecessary-file-reads.md "../analytics-lens/best-practice-10.4---partition-your-data-to-avoid-unnecessary-file-reads.md")

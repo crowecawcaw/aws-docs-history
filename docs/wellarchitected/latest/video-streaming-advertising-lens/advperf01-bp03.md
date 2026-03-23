@@ -47,4 +47,4 @@ possible latency between instances.
   Amazon EKS managed node group with placement group for low latency critical applications](https://aws.amazon.com/blogs/containers/leveraging-amazon-eks-managed-node-group-with-placement-group-for-low-latency-critical-applications "https://aws.amazon.com/blogs/containers/leveraging-amazon-eks-managed-node-group-with-placement-group-for-low-latency-critical-applications")
 - [New Amazon EC2 Instances (C7gd, M7gd, and R7gd) Powered by AWS Graviton3 Processor with Local NVMe-based SSD Storage](https://aws.amazon.com/blogs/aws/new-amazon-ec2-instances-c7gd-m7gd-and-r7gd-powered-by-aws-graviton3-processor-with-local-nvme-based-ssd-storage/ "https://aws.amazon.com/blogs/aws/new-amazon-ec2-instances-c7gd-m7gd-and-r7gd-powered-by-aws-graviton3-processor-with-local-nvme-based-ssd-storage/")
 - [Enhanced
-  Networking](../../../pdfs/AWSEC2/latest/UserGuide/ec2-ug.md#enhanced-networking "../../../pdfs/AWSEC2/latest/UserGuide/ec2-ug.md#enhanced-networking")
+  Networking](../../../pdfs/AWSEC2/latest/UserGuide/ec2-ug.pdf.md#enhanced-networking "../../../pdfs/AWSEC2/latest/UserGuide/ec2-ug.pdf.md#enhanced-networking")

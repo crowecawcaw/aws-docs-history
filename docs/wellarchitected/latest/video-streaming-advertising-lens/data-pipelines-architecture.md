@@ -67,7 +67,7 @@ following features:
 The reporting module creates a secure connection to the data warehouse and provisions
 the out-of-the-box dashboards in business intelligence Amazon Quick.
 
-For more information, see [Guidance for Clickstream Analytics on AWS](../../../pdfs/solutions/latest/clickstream-analytics-on-aws/clickstream-analytics-on-aws.md "../../../pdfs/solutions/latest/clickstream-analytics-on-aws/clickstream-analytics-on-aws.md").
+For more information, see [Guidance for Clickstream Analytics on AWS](../../../pdfs/solutions/latest/clickstream-analytics-on-aws/clickstream-analytics-on-aws.pdf.md "../../../pdfs/solutions/latest/clickstream-analytics-on-aws/clickstream-analytics-on-aws.pdf.md").
 
 ## Clickstream analytics on AWS
 
@@ -94,7 +94,7 @@ marketing investments.
   (ALB), [Amazon Elastic Container Service](https://aws.amazon.com/ecs/ "https://aws.amazon.com/ecs/") (Amazon ECS), [Amazon Managed Streaming for Apache Kafka](https://aws.amazon.com/msk/ "https://aws.amazon.com/msk/") (Amazon MSK), [Amazon Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams/ "https://aws.amazon.com/kinesis/data-streams/"), **Amazon S3**,
   [Amazon EMR Serverless](https://aws.amazon.com/emr/ "https://aws.amazon.com/emr/"), [Amazon Redshift](https://aws.amazon.com/redshift/ "https://aws.amazon.com/redshift/"), and [Amazon Quick Sight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/").
 
-For more information, see [Guidance for Clickstream Analytics on AWS](../../../pdfs/solutions/latest/clickstream-analytics-on-aws/clickstream-analytics-on-aws.md "../../../pdfs/solutions/latest/clickstream-analytics-on-aws/clickstream-analytics-on-aws.md").
+For more information, see [Guidance for Clickstream Analytics on AWS](../../../pdfs/solutions/latest/clickstream-analytics-on-aws/clickstream-analytics-on-aws.pdf.md "../../../pdfs/solutions/latest/clickstream-analytics-on-aws/clickstream-analytics-on-aws.pdf.md").
 
 ## RTB event capture solution guidance
 

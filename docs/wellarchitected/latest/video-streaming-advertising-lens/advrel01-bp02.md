@@ -29,4 +29,4 @@ reporting can see reduced requirements. 
 ## Resources
 
 - [Establishing
-  RPO and RTO Targets for Cloud Applications](\aws.amazon.md "\\aws.amazon.md")
+  RPO and RTO Targets for Cloud Applications](\aws.amazon.com\blogs\mt\establishing-rpo-and-rto-targets-for-cloud-applications.md "\\aws.amazon.com\\blogs\\mt\\establishing-rpo-and-rto-targets-for-cloud-applications.md")

@@ -32,7 +32,7 @@ teams.
 - [Leverage
   AWS Resilience Lifecycle Framework to assess and improve the resilience of application using AWS Resilience Hub](https://aws.amazon.com/blogs/mt/leverage-aws-resilience-lifecycle-framework-to-assess-and-improve-the-resilience-of-application-using-aws-resilience-hub/index.html "https://aws.amazon.com/blogs/mt/leverage-aws-resilience-lifecycle-framework-to-assess-and-improve-the-resilience-of-application-using-aws-resilience-hub/index.html")
 - [[QA.NT.6]
-  Experiment with failure using resilience testing to build recovery preparedness](../devops-guidance/qa.nt.md "../devops-guidance/qa.nt.md")
+  Experiment with failure using resilience testing to build recovery preparedness](../devops-guidance/qa.nt.6-experiment-with-failure-using-resilience-testing-to-build-recovery-preparedness.md "../devops-guidance/qa.nt.6-experiment-with-failure-using-resilience-testing-to-build-recovery-preparedness.md")
 
 **Related
 videos:**

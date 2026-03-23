@@ -79,4 +79,4 @@ resilient configurations.
 - [What
   is Amazon Relational Database Service (Amazon RDS)?](../../../AmazonRDS/latest/UserGuide/Welcome.md "../../../AmazonRDS/latest/UserGuide/Welcome.md")
 - [Multi-AZ
-  DB instance deployments for Amazon RDS](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md")
+  DB instance deployments for Amazon RDS](../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.md "../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.md")
