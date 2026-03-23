@@ -17,7 +17,7 @@ Region switch runs these evaluations regularly, and generates a warning for any 
 Region switch also calculates an actual recovery time value for each plan execution,
 to help you evaluate if the plan is meeting your objectives. You can view recovery time and other
 details about plan executions in Region switch dashboards in the AWS Management Console. For more information, see
-[Region switch dashboards](region-switch.md "region-switch.md").
+[Region switch dashboards](region-switch.dashboarding-and-reports.md "region-switch.dashboarding-and-reports.md").
 
 To learn more about each of these areas in Region switch, see the following sections.
 

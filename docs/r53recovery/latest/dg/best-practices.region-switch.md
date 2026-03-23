@@ -40,7 +40,7 @@ limiting cost. To learn more, see [Pilot light with reserved capacity: How to op
 
 **Use the extremely reliable data plane API operations to list and get information about Region switch plans**
 Use data plane API operations to work with and execute your Region switch plan during
-an event. For a list of Region switch data plane operations, see [Region switch API operations](actions.md "actions.md").
+an event. For a list of Region switch data plane operations, see [Region switch API operations](actions.region-switch.md "actions.region-switch.md").
 
 The Region switch console in each Region uses data plane operations for executing Region switch plans. You can also
 call data plane API operations by using the AWS CLI or by running code that you write using one of the AWS

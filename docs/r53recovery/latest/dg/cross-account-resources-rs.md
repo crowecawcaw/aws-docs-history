@@ -30,4 +30,4 @@ Important: Your AWS account must own the plans that you want to share. You canno
 that has been shared with you. To share a plan with your organization, or with an organizational unit in
 AWS Organizations, you must enable sharing with Organizations.
 
-For more information about AWS RAM, see [Support sharing plans across accounts for ARC Region switch](resource-sharing.md "resource-sharing.md").
+For more information about AWS RAM, see [Support sharing plans across accounts for ARC Region switch](resource-sharing.region-switch.md "resource-sharing.region-switch.md").

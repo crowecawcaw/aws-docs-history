@@ -60,7 +60,7 @@ CloudTrail lets you view recent events in **Event history**. Most events for Reg
 are in the Region where you work with a Region switch plan, for example, where you create a plan or execute a plan.
 However, some Region switch actions that you run in the ARC console are made using control plan API operations,
 rather than data plane operations. For control plane operations, you view events in US East (N. Virginia). To learn about which
-API calls are control plane operations, see [Region switch API operations](actions.md "actions.md").
+API calls are control plane operations, see [Region switch API operations](actions.region-switch.md "actions.region-switch.md").
 
 ## Understanding ARC log file entries
 

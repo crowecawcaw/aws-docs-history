@@ -7,7 +7,7 @@ endpoints and quotas](../../../general/latest/gr/r53arc.md "../../../general/lat
 Zonal shift and zonal autoshift are currently available in the AWS Regions listed here.
 Zonal shift and zonal autoshift also available in the China Regions, that is,
 China (Beijing) Region and China (Ningxia) Region. Resources that use Amazon Application Recovery Controller (ARC) may have
-additional considerations. For more information, refer to [Supported resources](arc-zonal-shift.md "arc-zonal-shift.md").
+additional considerations. For more information, refer to [Supported resources](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md").
 
 | Region Name                | Region         | Endpoint                                                                                                                           | Protocol                |
 | -------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |

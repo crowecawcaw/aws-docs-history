@@ -25,7 +25,7 @@ Zonal shift supports Application Load Balancers, Network Load Balancers, Amazon 
 }
 ```
 
-For more information, see [Supported resources](arc-zonal-shift.md "arc-zonal-shift.md").
+For more information, see [Supported resources](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md").
 
 In addition to the permissions outlined in the IAM overview topic, the following applies to zonal
 shift for IAM and permissions:

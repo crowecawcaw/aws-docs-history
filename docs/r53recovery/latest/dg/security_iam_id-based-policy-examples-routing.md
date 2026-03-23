@@ -176,7 +176,7 @@ configured as safeguards for routing controls. This permission might be required
 bypass the safeguards in disasters or other urgent failover scenarios. For example, an operator might need to
 fail over quickly for disaster recovery, and one or more safety rules might unexpectedly prevent a routing control
 state update required to reroute traffic. This permission allows the operator to specify safety rules to override
-when making API calls to update routing control states. For more information, see [Overriding safety rules to reroute traffic](routing-control.md "routing-control.md").
+when making API calls to update routing control states. For more information, see [Overriding safety rules to reroute traffic](routing-control.override-safety-rule.md "routing-control.override-safety-rule.md").
 
 If you want to allow an operator to use the recovery cluster data plane API but _prevent_
 overriding safety rules, you can attach a policy such as the following, with `AllowSafetyRuleOverrides`

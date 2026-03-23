@@ -29,4 +29,4 @@ adding execution block steps in your workflows.
 - [Create triggers](working-with-rs-triggers.md "working-with-rs-triggers.md")
 - [Execute a plan](plan-execution-rs.md "plan-execution-rs.md")
   The procedures in this section illustrate how to work with plans, workflows, execution blocks, and triggers
-  by using the AWS Management Console. To work with Region switch API operations instead, see [Region switch API operations](actions.md "actions.md").
+  by using the AWS Management Console. To work with Region switch API operations instead, see [Region switch API operations](actions.region-switch.md "actions.region-switch.md").

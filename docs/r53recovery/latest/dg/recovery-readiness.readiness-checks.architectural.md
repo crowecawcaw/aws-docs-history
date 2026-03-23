@@ -18,4 +18,4 @@ With this information, you can determine if there are changes that you need to m
 your cells to the correct zones or Regions.
 
 To get started, you create DNS target resources for your application, and resource sets and
-readiness checks for them. For more information, see [Getting architecture recommendations in ARC](recovery-readiness.md "recovery-readiness.md").
+readiness checks for them. For more information, see [Getting architecture recommendations in ARC](recovery-readiness.evaluate-arch.md "recovery-readiness.evaluate-arch.md").

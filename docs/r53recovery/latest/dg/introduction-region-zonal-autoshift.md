@@ -3,7 +3,7 @@
 Zonal shift and zonal autoshift are currently available in the commercial AWS Regions, as well as the China Regions, that is,
 China (Beijing) Region and China (Ningxia) Region.
 
-Resources that use Amazon Application Recovery Controller (ARC) can include additional considerations. For more information, see [Supported resources](arc-zonal-shift.md "arc-zonal-shift.md").
+Resources that use Amazon Application Recovery Controller (ARC) can include additional considerations. For more information, see [Supported resources](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md").
 
 For a list of Regions and detailed information about Regional support and service endpoints for ARC,
 see [Amazon Application Recovery Controller (ARC)

@@ -26,7 +26,7 @@ endpoints. To get or update routing control states, you must specify the Regiona
 the endpoint URL) in your CLI command.
 
 For more information about using the AWS CLI, see the AWS CLI Command Reference. For a list of routing control API actions,
-see [Routing control API operations](actions.md "actions.md") and [Routing control API operations](actions.md "actions.md").
+see [Routing control API operations](actions.routing-control.md "actions.routing-control.md") and [Routing control API operations](actions.routing-control.md "actions.routing-control.md").
 
 We'll start by creating the components you need to manage failover by using routing controls, beginning
 with creating a cluster.

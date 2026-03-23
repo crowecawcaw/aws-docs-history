@@ -15,7 +15,7 @@ which can then be associated with a DNS record that redirects traffic, for examp
 
 If there's an application failure or latency issue, you can update routing control states to shift traffic from your primary replica to, for
 example, a standby replica. By using the highly reliable ARC data plane API operations to make routing control queries and routing control state
-updates, you can rely on ARC for failover during disaster recovery scenarios. For more information, see [Getting and updating routing control states using the ARC API (recommended)](routing-control.update.md "routing-control.update.md").
+updates, you can rely on ARC for failover during disaster recovery scenarios. For more information, see [Getting and updating routing control states using the ARC API (recommended)](routing-control.update.api.md "routing-control.update.api.md").
 
 ARC maintains routing control states in a _cluster_, which is a set of five redundant Regional endpoints. ARC
 propagates routing control state changes across the cluster, which is located in an Amazon EC2 fleet, to get a quorum across five AWS Regions.

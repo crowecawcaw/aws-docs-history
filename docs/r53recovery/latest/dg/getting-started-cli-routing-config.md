@@ -252,7 +252,7 @@ in place when you enable and disable them, to avoid unintentional consequences, 
 controls off and stopping all traffic flow. To create these safeguards, you create routing control safety rules.
 
 There are two types of safety rules: assertion rules and gating rules. To learn more about safety
-rules, see [Creating safety rules for routing control](routing-control.md "routing-control.md").
+rules, see [Creating safety rules for routing control](routing-control.safety-rules.md "routing-control.safety-rules.md").
 
 The following call provides an example of creating an assertion rule that makes sure that at least
 one of two routing controls is set to `On` at any given time. To create the rule, you run `create-safety-rule`

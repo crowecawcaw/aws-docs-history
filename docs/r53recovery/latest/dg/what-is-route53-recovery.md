@@ -20,7 +20,7 @@ Starting a zonal shift helps your application recover quickly, for example, from
 Shifting traffic away from the impaired AZ reduces the impact for clients who are using your application in the impaired AZ.
 
 You can start a zonal shift for any supported resource in your account in an AWS Region. Zonal shifts are manual and temporary. When you start a zonal shift, you must specify an
-(extendable) expiration of up to three days. To enable zonal shift for supported resources, refer to [Supported resources](arc-zonal-shift.md "arc-zonal-shift.md").
+(extendable) expiration of up to three days. To enable zonal shift for supported resources, refer to [Supported resources](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md").
 
 _Zonal autoshift_
 

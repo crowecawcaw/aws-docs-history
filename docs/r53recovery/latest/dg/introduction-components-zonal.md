@@ -12,7 +12,7 @@ The following are components of the zonal shift capability in ARC.
 You start a zonal shift for a managed resource in your AWS account to temporarily move
 traffic away from an Availability Zone in an AWS Region, to healthy AZs in
 the Region, to quickly recover from an issue in one AZ. For more information
-on supported resources for zonal shift, refer to [Supported resources](arc-zonal-shift.md "arc-zonal-shift.md").
+on supported resources for zonal shift, refer to [Supported resources](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md").
 
 **Built-in safety checks**
 Checks that are built into ARC prevent more than one traffic shift for a resource from
@@ -22,7 +22,7 @@ away from an Availability Zone. For example, if you start a zonal shift for
 a resource when it is currently shifted away with autoshift, your zonal
 shift takes precedence. For more information, see [Zonal autoshift in ARC](arc-zonal-autoshift.md "arc-zonal-autoshift.md") and
 [Outcomes for practice
-runs](arc-zonal-autoshift.how-it-works.md#ZAShiftPrecedence "arc-zonal-autoshift.how-it-works.md#ZAShiftPrecedence").
+runs](arc-zonal-autoshift.how-it-works.precedence.md#ZAShiftPrecedence "arc-zonal-autoshift.how-it-works.precedence.md#ZAShiftPrecedence").
 
 **Resource identifier**
 
@@ -30,12 +30,12 @@ The identifier for a resource to include in a zonal shift. The identifier is the
 
 For a zonal shift, you can only choose resources in your account for an AWS service
 that is supported by ARC. For more information on supported resources
-for zonal shift, refer to [Supported resources](arc-zonal-shift.md "arc-zonal-shift.md").
+for zonal shift, refer to [Supported resources](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md").
 
 **Managed resource**
 
 Some AWS resources must manually opt-in to zonal shift, and others are automatically enabled. For more information on
-supported resources for zonal shift, refer to [Supported resources](arc-zonal-shift.md "arc-zonal-shift.md").
+supported resources for zonal shift, refer to [Supported resources](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md").
 
 **Resource name**
 The name of a resource in ARC that you can specify for a zonal shift.

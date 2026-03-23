@@ -18,7 +18,7 @@ scenario.
 
 For more information about using the AWS CLI, see the
 [AWS CLI Command Reference](../../../cli/latest/reference/route53-recovery-readiness/index.md "../../../cli/latest/reference/route53-recovery-readiness/index.md").
-For a list of readiness API actions and links to more information, see [Readiness check API operations](actions.md "actions.md").
+For a list of readiness API actions and links to more information, see [Readiness check API operations](actions.readiness.md "actions.readiness.md").
 
 _Cells_ in ARC represent fault boundaries (like Availability Zones or Regions) and are collected
 into _recovery groups_. A recovery group represents an application that you want to check
@@ -260,7 +260,7 @@ limits (where available and applicable), and routing configurations.
 To see the rules that are applied to a resource in a readiness check, you can use the
 `get-readiness-check-resource-status` API, as described in step 5. To see a list of
 all the readiness rules in ARC, use
-`list-rules` or see [Readiness rules descriptions in ARC](recovery-readiness.md "recovery-readiness.md").
+`list-rules` or see [Readiness rules descriptions in ARC](recovery-readiness.rules-resources.md "recovery-readiness.rules-resources.md").
 ARC has a specific set of rules that it runs for each resource type; they're not customizable at this time.
 
 4a. Create a readiness check for the resource set, ImportantInformationTables.

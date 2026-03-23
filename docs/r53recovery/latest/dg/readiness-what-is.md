@@ -12,24 +12,24 @@ when ARC detects a mismatch with a readiness check, it can take steps to align t
 lower quota to match the higher quota. When the quotas match, the readiness check status shows `READY`. (Note
 that this isn't an immediate update process, and the total time depends on the specific resource type and other factors.)
 
-The first step is setting up readiness checks to create a [recovery group](recovery-readiness.md "recovery-readiness.md")
+The first step is setting up readiness checks to create a [recovery group](recovery-readiness.recovery-groups.md "recovery-readiness.recovery-groups.md")
 that represents your application.
 Each recovery group includes _cells_ for each individual failure-containment unit or _replica_ of
-your application. Next, you create [resource sets](recovery-readiness.recovery-groups.md "recovery-readiness.recovery-groups.md")
+your application. Next, you create [resource sets](recovery-readiness.recovery-groups.readiness-scope.md "recovery-readiness.recovery-groups.readiness-scope.md")
 for each resource type in your application, and associate
 _readiness checks_ with the resource sets. Finally, you associate the resources with _readiness scopes_,
 so you can get readiness status about the resources in a recovery group (your application) or individual cells (replicas, which are
 Regions or Availability Zones (AZs)).
 
 Readiness (that is, `READY` or `NOT READY`) is based on the resources that are in the scope of the readiness
-check and the set of rules for a resource type. There are [sets of readiness rules](recovery-readiness.md#recovery-readiness.list-rules "recovery-readiness.md#recovery-readiness.list-rules")
+check and the set of rules for a resource type. There are [sets of readiness rules](recovery-readiness.rules-resources.md#recovery-readiness.list-rules "recovery-readiness.rules-resources.md#recovery-readiness.list-rules")
 for each resource type, which ARC checks use to audit resources for readiness. Whether a resource is `READY` or not
 is based on how each readiness rule is defined. All readiness rules evaluate resources, but some compare resources to each other
 and some look at specific information about each resource in the resource set.
 
 By adding readiness checks, you can monitor readiness status, in one of several ways: with EventBridge, in the AWS Management Console, or by using
 ARC API actions. You can also monitor readiness status of resources in different contexts, including the readiness of cells and the readiness of your
-application. Use the [cross-account authorization](recovery-readiness.md "recovery-readiness.md")
+application. Use the [cross-account authorization](recovery-readiness.cross-account.md "recovery-readiness.cross-account.md")
 feature in ARC to make it easier to set up and monitor distributed resources from a single AWS account.
 
 ## Monitoring application replicas with readiness checks
@@ -69,7 +69,7 @@ You can monitor the readiness status for your application's resources in specifi
 or for your overall application. You can be notified when a readiness check status changes, for example, to `Not ready`,
 by creating rules in EventBridge. For more information, see [Using readiness check in ARC with Amazon EventBridge](eventbridge-readiness.md "eventbridge-readiness.md"). You can also view
 readiness status in the AWS Management Console, or by using API operations, such as `get-recovery-readiness`. For more information,
-see [Readiness check API operations](actions.md "actions.md").
+see [Readiness check API operations](actions.readiness.md "actions.readiness.md").
 
 ### How readiness check works
 
@@ -98,4 +98,4 @@ You can monitor the readiness status for your application's resources in specifi
 or for your overall application. You can be notified when a readiness check status changes, for example, to `Not ready`,
 by creating rules in EventBridge. For more information, see [Using readiness check in ARC with Amazon EventBridge](eventbridge-readiness.md "eventbridge-readiness.md"). You can also view
 readiness status in the AWS Management Console, or by using API operations, such as `get-recovery-readiness`. For more information,
-see [Readiness check API operations](actions.md "actions.md").
+see [Readiness check API operations](actions.readiness.md "actions.readiness.md").

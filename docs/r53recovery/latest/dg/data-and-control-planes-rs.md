@@ -25,12 +25,12 @@ For Region switch, the control planes and data planes are divided as follows:
   that is, executing plans. _The Region switch configuration control plane API operations are not highly available._
 - Region switch has independent data planes in each AWS Region. You should use the data plane
   for recovery actions, that is, for executing Region switch plans. For a list of the data
-  plane operations, see [Region switch API operations](actions.md "actions.md").
+  plane operations, see [Region switch API operations](actions.region-switch.md "actions.region-switch.md").
   _These Region switch data plane operations are highly available._
   Region switch provides an independent console in each AWS Region, which calls data plane API operations for
   recovery tasks, so you can use the console in the Region that you're activating to execute plans for application
   recovery. For more information about key considerations when you prepare for and complete a recovery operation with Region switch,
-  see [Best practices for Region switch in ARC](best-practices.md "best-practices.md").
+  see [Best practices for Region switch in ARC](best-practices.region-switch.md "best-practices.region-switch.md").
 
 For more information about data planes, control planes, and how AWS builds services to meet high availability targets,
 see the [Static

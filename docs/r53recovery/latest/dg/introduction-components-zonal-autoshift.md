@@ -63,7 +63,7 @@ ARC reports an outcome for each practice run. The following are the possible pra
   reasons. For example, a practice run that ends because the blocking alarm specified for the practice run
   entered an `ALARM` state has an outcome of `INTERRUPTED`. For more information about
   reasons for an `INTERRUPTED` outcome, see [Outcomes for
-  practice runs](arc-zonal-autoshift.md#ZAConsiderationsPracticeRunOutcomes "arc-zonal-autoshift.md#ZAConsiderationsPracticeRunOutcomes").
+  practice runs](arc-zonal-autoshift.considerations.md#ZAConsiderationsPracticeRunOutcomes "arc-zonal-autoshift.considerations.md#ZAConsiderationsPracticeRunOutcomes").
 - **FAILED:** The outcome alarm entered an `ALARM` state during
   the practice run.
 - **CAPACITY_CHECK_FAILED:** The check for balanced capacity across Availability Zones for your load balancing
@@ -75,7 +75,7 @@ in effect at a time. That is, only one customer-initiated zonal shift, practice 
 or by a customer), or autoshift for the resource can be actively shifting traffic away
 from an Availability Zone. For example, if you start a zonal shift for a resource when it is currently shifted away with
 autoshift, your zonal shift takes precedence. For more information, see [Precedence
-for zonal shifts](arc-zonal-autoshift.how-it-works.md#ZAShiftPrecedence "arc-zonal-autoshift.how-it-works.md#ZAShiftPrecedence").
+for zonal shifts](arc-zonal-autoshift.how-it-works.precedence.md#ZAShiftPrecedence "arc-zonal-autoshift.how-it-works.precedence.md#ZAShiftPrecedence").
 
 **Resource identifier**
 

@@ -33,7 +33,7 @@ For routing control, the control planes and data planes are divided as follows:
   Because the routing control data plane is highly available, we recommend that you plan to use the AWS Command Line Interface to
   make API calls to work with routing control states when you want to fail over to recover from an event. For more
   information about key considerations when you prepare for and complete a recovery operation with routing control,
-  see [Best practices for routing control in ARC](route53-arc-best-practices.md "route53-arc-best-practices.md").
+  see [Best practices for routing control in ARC](route53-arc-best-practices.regional.md "route53-arc-best-practices.regional.md").
 
 For more information about data planes, control planes, and how AWS builds services to meet high availability targets,
 see the [Static

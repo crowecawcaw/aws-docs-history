@@ -14,7 +14,7 @@ However, you can update a zonal shift later to set a new expiration.
 
 For more information about using the AWS CLI, see the
 [AWS CLI Command Reference](../../../cli/latest/reference/arc-zonal-shift/index.md "../../../cli/latest/reference/arc-zonal-shift/index.md").
-For a list of zonal shift API actions and links to more information, see [Zonal shift API operations](actions.md "actions.md").
+For a list of zonal shift API actions and links to more information, see [Zonal shift API operations](actions.zonalshift.md "actions.zonalshift.md").
 
 ## Start zonal shift
 

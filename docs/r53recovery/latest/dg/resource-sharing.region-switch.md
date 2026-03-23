@@ -189,4 +189,4 @@ For detailed pricing information and examples, see
 
 All resources created in a shared plan count toward quotas for the plan owner.
 
-For a list of Region switch plan quotas, see [Quotas for Region switch](quotas.md "quotas.md").
+For a list of Region switch plan quotas, see [Quotas for Region switch](quotas.region-switch.md "quotas.region-switch.md").

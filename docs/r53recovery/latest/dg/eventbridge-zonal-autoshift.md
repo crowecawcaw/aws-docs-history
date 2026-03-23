@@ -12,7 +12,7 @@ You can also choose, in addition to or instead of other notifications, to enable
 which provides a notification event whenever AWS starts an autoshift for a potentially impaired Availability Zone. Autoshift observer
 notification is separate from notifications that you receive when the traffic for resources that you have enabled for zonal
 autoshift is shifted away from an Availability Zone. You don't need to configure any resources with zonal autoshift to
-enable autoshift observer notification. For more information, see [Enabling and working with zonal autoshift](arc-zonal-autoshift.md "arc-zonal-autoshift.md").
+enable autoshift observer notification. For more information, see [Enabling and working with zonal autoshift](arc-zonal-autoshift.start-cancel.md "arc-zonal-autoshift.start-cancel.md").
 
 To capture specific zonal autoshift events that you're interested in, define event-specific patterns that EventBridge can use to detect the events.
 Event patterns have the same structure as the events that they match. The pattern quotes the fields that you want to match and provides
@@ -80,7 +80,7 @@ You can choose to monitor all AWS autoshifts by enabling _autoshift observer
 notifications_. After you enable autoshift observer notification, to receive the
 notifications, choose to be notified for the zonal autoshift detail type `Autoshift In Progress`.
 To see the steps for enabling autoshift observer notification, see
-[Enabling and working with zonal autoshift](arc-zonal-autoshift.md "arc-zonal-autoshift.md").
+[Enabling and working with zonal autoshift](arc-zonal-autoshift.start-cancel.md "arc-zonal-autoshift.start-cancel.md").
 
 For examples, see the [Example zonal autoshift
 events](#ZAEventBridgeEventSamples "#ZAEventBridgeEventSamples") section.

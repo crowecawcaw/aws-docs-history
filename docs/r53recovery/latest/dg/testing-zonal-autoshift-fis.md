@@ -43,13 +43,13 @@ there are unexpected events, such as network outages or system issues. In the AR
 console, the expiration time field will display AWS FIS-managed, and the actual expected
 expiration is determined by the duration specified in the zonal shift action. For more
 information on practice runs, see [How zonal
-autoshift and practice runs work](arc-zonal-autoshift.md "arc-zonal-autoshift.md")
+autoshift and practice runs work](arc-zonal-autoshift.how-it-works.md "arc-zonal-autoshift.how-it-works.md")
 
 There can be no more than one applied zonal shift at a given time. That is, only one
 practice run zonal shift, customer-initiated zonal shift, autoshift, or AWS FIS experiment for the
 resource. When a second zonal shift is started, ARC follows a precedence to determine which
 zonal shift type is in effect for a resource. For more information on precedence for zonal
-shifts, see [Precedence for zonal shifts](arc-zonal-autoshift.how-it-works.md "arc-zonal-autoshift.how-it-works.md").
+shifts, see [Precedence for zonal shifts](arc-zonal-autoshift.how-it-works.precedence.md "arc-zonal-autoshift.how-it-works.precedence.md").
 
 For more information about AWS FIS recovery actions, refer to the
 [AWS FIS recovery action](../../../fis/latest/userguide/fis-actions-reference.md#fis-actions-recovery.html "../../../fis/latest/userguide/fis-actions-reference.md#fis-actions-recovery.html") in the _AWS Fault Injection Service User
