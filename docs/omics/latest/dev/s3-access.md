@@ -36,7 +36,7 @@ You can use the following Amazon S3 API operations on the active read sets to li
 You can access archived read sets through Amazon S3 URIs after they have been activated.
 
 - [GetObject](../../../AmazonS3/latest/API/API_GetObject.md "../../../AmazonS3/latest/API/API_GetObject.md")— Retrieves an object from Amazon S3.
-- [HeadObject](../../../AmazonS3/latest/API/API_HeadObject.md "../../../AmazonS3/latest/API/API_HeadObject.md")— The HEAD operation retrieves metadata from an object without returning the
+- [HeadObject](../../../AmazonS3/latest/API/API_HeadObject.html.md "../../../AmazonS3/latest/API/API_HeadObject.html.md")— The HEAD operation retrieves metadata from an object without returning the
   object itself. This operation is useful if you only want an object's metadata.
 - [ListObjects and ListObject v2](../../../AmazonS3/latest/API/API_ListObjects.md "../../../AmazonS3/latest/API/API_ListObjects.md")— Returns some or all (up
   to 1,000) of the objects in a bucket.

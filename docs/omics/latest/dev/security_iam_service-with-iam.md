@@ -106,7 +106,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 ```
 
 To see a list of HealthOmics resource types and their ARNs, see
-[Resources Defined by AWS HealthOmics](../../../IAM/latest/UserGuide/list_awshealthomics.md#awshealthomics-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_awshealthomics.md#awshealthomics-resources-for-iam-policies") in the _Service Authorization Reference_. To learn with
+[Resources Defined by AWS HealthOmics](../../../IAM/latest/UserGuide/list_awshealthomics.html.md#awshealthomics-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_awshealthomics.html.md#awshealthomics-resources-for-iam-policies") in the _Service Authorization Reference_. To learn with
 which actions you can specify the ARN of each resource, see
 [Actions Defined by AWS HealthOmics](../../../IAM/latest/UserGuide/list_awshealthomics.md#awshealthomics-actions-as-permissions "../../../IAM/latest/UserGuide/list_awshealthomics.md#awshealthomics-actions-as-permissions") .
 

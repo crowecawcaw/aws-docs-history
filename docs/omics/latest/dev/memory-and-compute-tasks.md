@@ -111,8 +111,9 @@ You can optionally specify GPU resources for each task in a workflow, so that He
 allocates an accelerated-computing instance for the task. For information on how to specify the GPU information in
 the workflow definition file, see [Task accelerators in a HealthOmics workflow definition](task-accelerators.md "task-accelerators.md").
 
-If you specify a GPU that supports multiple instance types, HealthOmics selects the instance type based on
-availability. If both instance types are available, HealthOmics gives preference to the lower cost instance.
+If you specify a task accelerator that supports multiple instance types, HealthOmics selects the instance type based on
+availability. If more than one instance types are available, HealthOmics gives preference to the lower cost instance. The exception is
+for the nvidia-t4-a10g-l4 task accelerator which gives preference to the latest generation instance available in your region.
 
 G4 instances aren't supported in the Israel (Tel Aviv) Region. G5 instances aren't support in the Asia Pacific (Singapore) Region.
 
@@ -124,7 +125,7 @@ G4 instances aren't supported in the Israel (Tel Aviv) Region. G5 instances aren
 ### G6 and G6e instance types
 
 HealthOmics supports the following G6 accelerated-computing instance configurations. All omics.g6 instances use
-Nvidia L4 or Nvidia L4 A10G GPUs.
+Nvidia L4 GPUs.
 
 HealthOmics supports the G6 and G6e instances in these regions: US West (Oregon) and US East (N. Virginia).
 
@@ -154,7 +155,7 @@ All omics.g6e instances use Nvidia L40s GPUs.
 
 HealthOmics supports the following G4 and G5 accelerated-computing instance configurations.
 
-All omics.g5 instances use Nvidia L4 A10G, Nvidia Tesla A10G, or Nvidia Tesla T4 A10G GPUs.
+All omics.g5 instances use Nvidia Tesla A10G GPUs.
 
 | Instance          | Number of vCPUs | Memory  | Number of GPUs | GPU memory |
 | ----------------- | --------------- | ------- | -------------- | ---------- |
@@ -166,7 +167,7 @@ All omics.g5 instances use Nvidia L4 A10G, Nvidia Tesla A10G, or Nvidia Tesla T4
 | omics.g5.16xlarge | 64              | 256 GiB | 1              | 24 GiB     |
 | omics.g5.24xlarge | 96              | 384 GiB | 4              | 96 GiB     |
 
-All omics.g4dn instances use Nvidia Tesla T4 or Nvidia Tesla T4 A10G GPUs.
+All omics.g4dn instances use Nvidia Tesla T4 GPUs.
 
 | Instance            | Number of vCPUs | Memory  | Number of GPUs | GPU memory |
 | ------------------- | --------------- | ------- | -------------- | ---------- |
