@@ -58,4 +58,4 @@ following:
 - [Attaching a project policy (SDK)](md-attach-project-policy.md "md-attach-project-policy.md")
 - [Copying a model (SDK)](md-copy-model-sdk.md "md-copy-model-sdk.md")
 - [Listing project policies (SDK)](md-list-project-policies.md "md-list-project-policies.md")
-- [Deleting a project policy (SDK)](md-delete-project-policy.md "md-delete-project-policy.md")
+- [Deleting a project policy (SDK)](md-delete-project-policy.title.md "md-delete-project-policy.title.md")
