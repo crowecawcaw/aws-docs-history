@@ -17,10 +17,10 @@ For Amazon ML formatting requirements, see [Understanding the Data Format for Am
 
 1. Download the file that contains the historical data for customers who have purchased
    products similar to your bank term deposit by clicking
-   [banking.zip](samples/banking.md "samples/banking.md"). Unzip the folder and save the banking.csv file to your computer.
+   [banking.zip](samples/banking.zip.md "samples/banking.zip.md"). Unzip the folder and save the banking.csv file to your computer.
 2. Download the file that you will use to predict whether potential customers will respond
    to your offer by clicking
-   [banking-batch.zip](samples/banking-batch.md "samples/banking-batch.md"). Unzip the folder and save the banking-batch.csv file to your computer.
+   [banking-batch.zip](samples/banking-batch.zip.md "samples/banking-batch.zip.md"). Unzip the folder and save the banking-batch.csv file to your computer.
 3. Open `banking.csv`. You will see rows and columns of data. The
    _header row_ contains the attribute names for each column. An
    _attribute_ is a unique, named property that describes a particular
