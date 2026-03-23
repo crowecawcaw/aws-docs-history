@@ -66,7 +66,7 @@ MwaaEnvironment:
 ```
 
 Alternatively, if migrating from an existing Amazon MWAA environment, you can copy the following Python script that uses the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html")
-to clone your environment. You can also [download the script](../userguide/samples/clone_environment.md "../userguide/samples/clone_environment.md").
+to clone your environment. You can also [download the script](../userguide/samples/clone_environment.zip.md "../userguide/samples/clone_environment.zip.md").
 
 ```
 # This Python file uses the following encoding: utf-8
