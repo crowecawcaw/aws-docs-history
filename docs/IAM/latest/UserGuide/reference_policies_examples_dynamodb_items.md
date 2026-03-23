@@ -6,7 +6,7 @@ Then, follow the directions in [create a policy](access_policies_create.md "acce
 
 To use this policy, you must structure your DynamoDB table so the Amazon Cognito identity pool user ID is the
 partition key. For more information, see [Creating
-a Table](../../../amazondynamodb/latest/developerguide/WorkingWithTables.md#WorkingWithTables.Basics.CreateTable "../../../amazondynamodb/latest/developerguide/WorkingWithTables.md#WorkingWithTables.Basics.CreateTable") in the _Amazon DynamoDB Developer Guide_.
+a Table](../../../amazondynamodb/latest/developerguide/WorkingWithTables.Basics.md#WorkingWithTables.Basics.CreateTable "../../../amazondynamodb/latest/developerguide/WorkingWithTables.Basics.md#WorkingWithTables.Basics.CreateTable") in the _Amazon DynamoDB Developer Guide_.
 
 To learn more about DynamoDB condition keys, see [Specifying Conditions:
 Using Condition Keys](../../../amazondynamodb/latest/developerguide/specifying-conditions.md#FGAC_DDB.ConditionKeys "../../../amazondynamodb/latest/developerguide/specifying-conditions.md#FGAC_DDB.ConditionKeys") in the _Amazon DynamoDB Developer Guide_.

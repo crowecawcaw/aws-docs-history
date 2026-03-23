@@ -136,7 +136,7 @@ Some of the use cases include the following:
   to your cloud applications. You can also connect to Amazon Keyspaces using temporary credentials. For
   more information, see [Using
   temporary credentials to connect to Amazon Keyspaces using an IAM role and the SigV4
-  plugin](../../../keyspaces/latest/devguide/access.md#temporary.credentials.IAM "../../../keyspaces/latest/devguide/access.md#temporary.credentials.IAM") in the _Amazon Keyspaces (for Apache Cassandra) Developer
+  plugin](../../../keyspaces/latest/devguide/access.credentials.md#temporary.credentials.IAM "../../../keyspaces/latest/devguide/access.credentials.md#temporary.credentials.IAM") in the _Amazon Keyspaces (for Apache Cassandra) Developer
   Guide_.
 
 ## Follow best practices to protect your root user credentials

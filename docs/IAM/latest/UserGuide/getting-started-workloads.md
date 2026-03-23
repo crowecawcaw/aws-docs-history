@@ -132,7 +132,7 @@ Console
    your AWS resources using temporary credentials, use AWS authentication
    with the SigV4 authentication plugin for Amazon Keyspaces. For more
    information see, [Using temporary credentials to connect to Amazon Keyspaces (for Apache Cassandra) using an IAM role and
-   the SigV4 plugin](../../../keyspaces/latest/devguide/access.md#temporary.credentials.IAM "../../../keyspaces/latest/devguide/access.md#temporary.credentials.IAM") in the _Amazon Keyspaces (for Apache Cassandra) Developer
+   the SigV4 plugin](../../../keyspaces/latest/devguide/access.credentials.md#temporary.credentials.IAM "../../../keyspaces/latest/devguide/access.credentials.md#temporary.credentials.IAM") in the _Amazon Keyspaces (for Apache Cassandra) Developer
    Guide_.
    - **X.509 Signing certificates**–Select
      **Create X.509 Certificate** if you need to make secure

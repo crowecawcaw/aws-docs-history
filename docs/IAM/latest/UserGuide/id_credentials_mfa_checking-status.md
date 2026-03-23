@@ -26,7 +26,7 @@ enabled.
 3. If necessary, add the **MFA** column to the users table by completing
    the following steps:
    1. Above the table on the far right, choose the settings icon (
-      ![Settings icon](images/console-settings-icon.console.png)
+      ![Settings icon](/images/IAM/latest/UserGuide/images/console-settings-icon.console.png)
       ).
    2. In **Manage Columns**, select **MFA**.
    3. (Optional) Clear the checkbox for any column headings that you do not want to

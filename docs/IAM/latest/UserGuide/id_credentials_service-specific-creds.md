@@ -16,6 +16,18 @@ supported service per IAM user. This limit allows you to maintain one active set
 rotating to a new set when needed. AWS currently supports service-specific credentials for
 the following services:
 
+## When to use service-specific credentials
+
+Service-specific credentials are intended for compatibility with third-party libraries,
+SDKs, tools, or applications that are not natively compatible with AWS credentials, AWS
+SDKs, or AWS APIs. Such use cases include migrating to AWS services from
+self-hosted infrastructure or from services hosted by other providers.
+
+When starting from scratch, and wherever possible, we recommend that you use AWS
+temporary credentials, such as those provided by an IAM role, to authenticate with an
+AWS service using an AWS SDK or a library that supports AWS temporary
+credentials.
+
 ## Rotating service-specific credentials
 
 As a security best practice, rotate service-specific credentials regularly. To rotate

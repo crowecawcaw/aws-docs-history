@@ -112,7 +112,7 @@ work with IAM, including links to more information on each, see [AWS services th
 ### Using IAM with Amazon RDS
 
 - [Using AWS Identity and Access Management (IAM) to Manage
-  Access to Amazon RDS Resources](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md") – Describes how to use IAM to control
+  Access to Amazon RDS Resources](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.md") – Describes how to use IAM to control
   access to database instances, database snapshots, and more.
 - [A
   Primer on RDS Resource-Level Permissions](https://aws.amazon.com/blogs/security/a-primer-on-rds-resource-level-permissions "https://aws.amazon.com/blogs/security/a-primer-on-rds-resource-level-permissions") – Describes how to use IAM

@@ -294,7 +294,7 @@ The following permission boundary is submitted as "SQSAccessorBoundary" for "par
 
 This includes a same-account condition to avoid granting access to queues in other accounts with open resource policies. A direct reference to the customer's account ID cannot be included because the boundary is shared across all customers and cannot be templated.
 
-Since this is the first version of this policy, its ARN is arn:aws:iam::partner:policy/partner.com/SQSAccessorBoundary_20250115
+Since this is the first version of this policy, its ARN is arn:aws:iam::partner:policy/permissions-boundary/partner.com/SQSAccessorBoundary_2025_01_15
 
 The following policy template is submitted for temporary access permissions:
 
@@ -319,7 +319,7 @@ The following policy template is submitted for temporary access permissions:
             "Resource": "arn:aws:iam::@{AccountId}:role/partner.com/SQSAccessor",
             "Condition": {
                 "StringEquals": {
-                    "iam:PermissionsBoundary": "arn:aws:iam::partner:policy/partner.com/SQSAccessorBoundary_20250115"
+                    "iam:PermissionsBoundary": "arn:aws:iam::partner:policy/permissions-boundary/partner.com/SQSAccessorBoundary_2025_01_15"
                 }
             }
         }
@@ -409,7 +409,7 @@ Policy template to tag pre-existing queues and create the role:
             "Resource": "arn:aws:iam::@{AccountId}:role/partner.com/SQSAccessor",
             "Condition": {
                 "StringEquals": {
-                    "iam:PermissionsBoundary": "arn:aws:iam::partner:policy/partner.com/SQSAccessorBoundary_20250115"
+                    "iam:PermissionsBoundary": "arn:aws:iam::partner:policy/permissions-boundary/partner.com/SQSAccessorBoundary_2025_01_15"
                 }
             }
         }
@@ -443,7 +443,7 @@ Updated permission boundary with additional permission:
 }
 ```
 
-As the second version, this policy has the ARN: arn:aws:iam::partner:policy/partner.com/SQSAccessorBoundary_2025_01_20
+As the second version, this policy has the ARN: arn:aws:iam::partner:policy/permissions-boundary/partner.com/SQSAccessorBoundary_2025_01_20
 
 Policy template to update the permission boundary on the existing role:
 
@@ -459,7 +459,7 @@ Policy template to update the permission boundary on the existing role:
             "Resource": "arn:aws:iam::@{AccountId}:role/partner.com/SQSAccessor",
             "Condition": {
                 "StringEquals": {
-                    "iam:PermissionsBoundary": "arn:aws:iam::partner:policy/partner.com/SQSAccessorBoundary_2025_01_20"
+                    "iam:PermissionsBoundary": "arn:aws:iam::partner:policy/permissions-boundary/partner.com/SQSAccessorBoundary_2025_01_20"
                 }
             }
         }

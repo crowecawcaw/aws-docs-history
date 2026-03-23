@@ -37,7 +37,7 @@ For more information, see the following documentation:
 - [Amazon EC2 Security Groups
   for Windows Instances](../../../AWSEC2/latest/WindowsGuide/using-network-security.md "../../../AWSEC2/latest/WindowsGuide/using-network-security.md") in the _Amazon EC2 User Guide_
 - [Amazon RDS Security
-  Groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md") in the _Amazon RDS User Guide_
+  Groups](../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md") in the _Amazon RDS User Guide_
 
 **WorkSpaces**
 

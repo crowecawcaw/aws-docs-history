@@ -91,8 +91,8 @@ For more information about how some other AWS services are affected by this, con
 following resources:
 
 - **Amazon DynamoDB**: [Read
-  consistency](../../../amazondynamodb/latest/developerguide/HowItWorks.md "../../../amazondynamodb/latest/developerguide/HowItWorks.md") in the _DynamoDB Developer Guide_, and
-  [Read Consistency](../../../amazondynamodb/latest/developerguide/HowItWorks.md "../../../amazondynamodb/latest/developerguide/HowItWorks.md") in
+  consistency](../../../amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.md "../../../amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.md") in the _DynamoDB Developer Guide_, and
+  [Read Consistency](../../../amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.md "../../../amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.md") in
   the Amazon DynamoDB Developer Guide.
 - **Amazon EC2**: [EC2 Eventual
   Consistency](../../../AWSEC2/latest/APIReference/query-api-troubleshooting.md#eventual-consistency "../../../AWSEC2/latest/APIReference/query-api-troubleshooting.md#eventual-consistency") in the _Amazon EC2 API Reference_.

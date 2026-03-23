@@ -1,10 +1,10 @@
 # Perform a privileged task on an AWS Organizations member account
 
 The AWS Organizations management account or a delegated administrator account for IAM can perform
-some root user tasks on member accounts using short-term root access. These tasks can only be
-performed when you sign in as the root user of an account. Short-term privileged sessions give
-you temporary credentials that you can scope to take privileged actions on a member account
-in your organization.
+some privileged tasks on member accounts that would otherwise require root user credentials.
+With centralized root access, these tasks are performed through short-term privileged sessions.
+These sessions provide temporary credentials scoped to specific privileged actions, without requiring
+root user sign-in on the member account.
 
 Once you launch a privileged session, you can delete a misconfigured Amazon S3 bucket policy,
 delete a misconfigured Amazon SQS queue policy, delete the root user credentials for a member
@@ -12,9 +12,9 @@ account, and reenable root user credentials for a member account.
 
 ###### Note
 
-To use centralized root access, you must sign in via a management account or a
-delegated administrator account and must have the `sts:AssumeRoot` permission
-explicitly granted.
+To use centralized root access, you must sign in via a management account or a delegated
+administrator account as an IAM user or role with the `sts:AssumeRoot` permission
+explicitly granted. You cannot use root user credentials to call `sts:AssumeRoot`.
 
 ## Prerequisites
 

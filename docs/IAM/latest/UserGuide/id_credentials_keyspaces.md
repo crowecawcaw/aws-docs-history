@@ -10,7 +10,7 @@ user.
 
 To access Amazon Keyspaces programmatically with AWS access keys, you can use the AWS SDK, the
 AWS Command Line Interface (AWS CLI) or open-source Cassandra drivers with the SigV4 plugin. To learn more, see
-[Create and configure AWS credentials for Amazon Keyspaces](../../../keyspaces/latest/devguide/access.md "../../../keyspaces/latest/devguide/access.md") in the _Amazon Keyspaces (for Apache Cassandra) Developer Guide_.
+[Create and configure AWS credentials for Amazon Keyspaces](../../../keyspaces/latest/devguide/access.credentials.md "../../../keyspaces/latest/devguide/access.credentials.md") in the _Amazon Keyspaces (for Apache Cassandra) Developer Guide_.
 
 ###### Note
 

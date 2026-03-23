@@ -178,7 +178,7 @@ roles with permissions to call a service that uses a service-linked role may hav
 access to services that can be accessed by that service-linked role.
 
 For example, when you create an Amazon RDS DB instance, [a service-linked role for
-RDS](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.md") is automatically created if one does not already exist. This service-linked role
+RDS](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.ServiceLinkedRoles.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.ServiceLinkedRoles.md") is automatically created if one does not already exist. This service-linked role
 allows RDS to call Amazon EC2, Amazon SNS, Amazon CloudWatch Logs, and Amazon Kinesis on your behalf. If you allow users
 and roles in your account to modify or create RDS databases, then they may be able to
 indirectly interact with Amazon EC2, Amazon SNS, Amazon CloudWatch Logs logs, and Amazon Kinesis resources by calling RDS,

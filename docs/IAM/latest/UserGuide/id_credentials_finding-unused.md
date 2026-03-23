@@ -43,7 +43,7 @@ information from the AWS CLI or the IAM API.
 Due to a service issue, password last used data does not include password use from
 May 3rd 2018 22:50 PDT to May 23rd 2018 14:08 PDT. This affects [last sign-in](id_credentials_finding-unused.md "id_credentials_finding-unused.md") dates
 shown in the IAM console and password last used dates in the [IAM
-credential report](SupportedTypes.md "SupportedTypes.md"), and returned by the [GetUser API operation](../APIReference/API_GetUser.md "../APIReference/API_GetUser.md"). If users signed in
+credential report](SupportedTypes.xmlid_credentials_getting-report.md "SupportedTypes.xmlid_credentials_getting-report.md"), and returned by the [GetUser API operation](../APIReference/API_GetUser.md "../APIReference/API_GetUser.md"). If users signed in
 during the affected time, the password last used date that is returned is the date the
 user last signed in before May 3rd 2018. For users that signed in after May 23rd 2018
 14:08 PDT, the returned password last used date is accurate.
