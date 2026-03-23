@@ -32,7 +32,7 @@ rejecting the association proposal. You can accept or reject the association pro
 
 ###### To view association proposals using the command line or API
 
-- [describe-direct-connect-gateway-association-proposals](../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-association-proposals.md "../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-association-proposals.md") (AWS CLI)
+- [describe-direct-connect-gateway-association-proposals](../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-association-proposals.htm.md "../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-association-proposals.htm.md") (AWS CLI)
 - [DescribeDirectConnectGatewayAssociationProposals](../APIReference/API_DescribeDirectConnectGatewayAssociationProposals.md "../APIReference/API_DescribeDirectConnectGatewayAssociationProposals.md") (Direct Connect API)
 
 ###### To accept an association proposal using the command line or API

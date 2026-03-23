@@ -19,5 +19,5 @@ the Direct Connect console or the Direct Connect API or command line.
 
 ###### To verify a Direct Connect gateway association to a Cloud WAN core network using the command line or API
 
-- [DescribeDirectConnectGatewayAssociations](../APIReference/API_DescribeDirectConnectGatewayAssociations.md "../APIReference/API_DescribeDirectConnectGatewayAssociations.md") (Direct Connect API)
+- [DescribeDirectConnectGatewayAssociations](../APIReference/API_DescribeDirectConnectGatewayAssociations.html.md "../APIReference/API_DescribeDirectConnectGatewayAssociations.html.md") (Direct Connect API)
 - [describe-direct-connect-gateway-association](../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-association.md "../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-association.md") (AWS CLI)
