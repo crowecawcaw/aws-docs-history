@@ -152,7 +152,7 @@ environments with appropriate controls for each.
 - [Amazon SageMaker AI Role Manager](../../../sagemaker/latest/dg/role-manager.md "../../../sagemaker/latest/dg/role-manager.md")
 - [Service Catalog](https://aws.amazon.com/servicecatalog/ "https://aws.amazon.com/servicecatalog/")
 - [Build
-  a Secure Enterprise Machine Learning Platform on AWS](../../../whitepapers/latest/build-secure-enterprise-ml-platform/build-secure-enterprise-ml-platform.md "../../../whitepapers/latest/build-secure-enterprise-ml-platform/build-secure-enterprise-ml-platform.md")
+  a Secure Enterprise Machine Learning Platform on AWS](../../../whitepapers/latest/build-secure-enterprise-ml-platform/build-secure-enterprise-ml-platform.pdf.md "../../../whitepapers/latest/build-secure-enterprise-ml-platform/build-secure-enterprise-ml-platform.pdf.md")
 - [Protecting
   data at rest](../security-pillar/protecting-data-at-rest.md "../security-pillar/protecting-data-at-rest.md")
 - [Security
