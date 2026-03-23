@@ -12,7 +12,7 @@ This example uses the following CloudFormation resources for Secrets Manager:
 - [`AWS::SecretsManager::Secret`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.md")
 - [`AWS::SecretsManager::SecretTargetAttachment`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.md")
 - [`AWS::SecretsManager::RotationSchedule`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.md")
-  For information about creating resources with CloudFormation, see [Learn template basics](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md") in the CloudFormation User Guide.
+  For information about creating resources with CloudFormation, see [Learn template basics](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md") in the CloudFormation User Guide.
 
 ## JSON
 

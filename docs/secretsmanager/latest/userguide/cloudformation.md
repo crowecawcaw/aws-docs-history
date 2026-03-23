@@ -12,7 +12,7 @@ database to the secret that Secrets Manager needs to rotate the secret. Finally,
 - [Create a secret with Amazon DocumentDB credentials](cfn-example_DocDB-secret.md "cfn-example_DocDB-secret.md")
   To attach a resource policy to your secret, use the `AWS::SecretsManager::ResourcePolicy` resource.
 
-For information about creating resources with CloudFormation, see [Learn template basics](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md") in the CloudFormation User Guide. You can also use the AWS Cloud Development Kit (AWS CDK). For more information, see [AWS Secrets Manager
+For information about creating resources with CloudFormation, see [Learn template basics](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md") in the CloudFormation User Guide. You can also use the AWS Cloud Development Kit (AWS CDK). For more information, see [AWS Secrets Manager
 Construct Library](../../../cdk/api/latest/docs/aws-secretsmanager-readme.md "../../../cdk/api/latest/docs/aws-secretsmanager-readme.md").
 
 ## How Secrets Manager uses AWS CloudFormation

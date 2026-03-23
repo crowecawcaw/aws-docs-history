@@ -48,7 +48,7 @@ For SDK documentation, see:
 - [JavaScript](../../../AWSJavaScriptSDK/latest/AWS/SecretsManager.md "../../../AWSJavaScriptSDK/latest/AWS/SecretsManager.md")
 - [Kotlin](https://sdk.amazonaws.com/kotlin/api/latest/secretsmanager/index.html "https://sdk.amazonaws.com/kotlin/api/latest/secretsmanager/index.html")
 - [.NET](../../../sdkfornet/v3/apidocs/items/SecretsManager/NSecretsManagerModel.md "../../../sdkfornet/v3/apidocs/items/SecretsManager/NSecretsManagerModel.md")
-- [PHP](../../../aws-sdk-php/v3/api/namespace-Aws.md "../../../aws-sdk-php/v3/api/namespace-Aws.md")
+- [PHP](../../../aws-sdk-php/v3/api/namespace-Aws.SecretsManager.md "../../../aws-sdk-php/v3/api/namespace-Aws.SecretsManager.md")
 - [Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/secretsmanager.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/secretsmanager.html")
 - [Ruby](../../../sdk-for-ruby/v3/api/Aws/SecretsManager.md "../../../sdk-for-ruby/v3/api/Aws/SecretsManager.md")
 - [Rust](https://crates.io/crates/aws-sdk-secretsmanager "https://crates.io/crates/aws-sdk-secretsmanager")

@@ -2,7 +2,7 @@
 
 AWS Glue DataBrew is a visual data preparation tool that you can use to clean and normalize
 data without writing any code. In DataBrew, a set of data transformation steps is called a
-recipe. AWS Glue DataBrew provides the [`DETERMINISTIC_DECRYPT`](../../../databrew/latest/dg/recipe-actions.md "../../../databrew/latest/dg/recipe-actions.md"), [`DETERMINISTIC_ENCRYPT`](../../../databrew/latest/dg/recipe-actions.md "../../../databrew/latest/dg/recipe-actions.md"), and [`CRYPTOGRAPHIC_HASH`](../../../databrew/latest/dg/recipe-actions.md "../../../databrew/latest/dg/recipe-actions.md") recipe steps to perform transformations
+recipe. AWS Glue DataBrew provides the [`DETERMINISTIC_DECRYPT`](../../../databrew/latest/dg/recipe-actions.DETERMINISTIC_DECRYPT.md "../../../databrew/latest/dg/recipe-actions.DETERMINISTIC_DECRYPT.md"), [`DETERMINISTIC_ENCRYPT`](../../../databrew/latest/dg/recipe-actions.DETERMINISTIC_ENCRYPT.md "../../../databrew/latest/dg/recipe-actions.DETERMINISTIC_ENCRYPT.md"), and [`CRYPTOGRAPHIC_HASH`](../../../databrew/latest/dg/recipe-actions.CRYPTOGRAPHIC_HASH.md "../../../databrew/latest/dg/recipe-actions.CRYPTOGRAPHIC_HASH.md") recipe steps to perform transformations
 on personally identifiable information (PII) in a dataset, which use an encryption key
 stored in a Secrets Manager secret. If you use the DataBrew _default secret_ to
 store the encryption key, DataBrew creates a [managed
