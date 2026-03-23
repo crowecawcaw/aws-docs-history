@@ -95,7 +95,7 @@ The following diagram outlines the steps for creating an App Runner service:
     If the AWS account has existing services, the **Services** page with a list of your services is displayed. Choose **Create
     service**.
 
-    ![App Runner console services page](images/getting-started-services.png) 3. On the **Source and deployment** page, in the **Source** section, for **Repository type**,
+    ![App Runner console services page](/images/apprunner/latest/dg/images/getting-started-services.png) 3. On the **Source and deployment** page, in the **Source** section, for **Repository type**,
     choose **Source code repository**. 4. Select a **Provider Type**. Choose either **GitHub** or **Bitbucket**. 5. Next choose **Add new**. If prompted, provide your GitHub or Bitbucket credentials. 6. Choose the next set of steps based on the **Provider type** you previously selected.
 
     ###### Note

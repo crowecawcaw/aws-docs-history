@@ -108,7 +108,7 @@ You can do any of the following from this page:
 - Delete an auto scaling configuration.
 - Set an auto scaling configuration as the default.
 
-![App Runner Auto scaling configurations page](/images/apprunner/latest/dg/images/asc-top-level.png)
+![App Runner Auto scaling configurations page](images/asc-top-level.png)
 
 ###### To manage auto scaling configurations in your account
 
