@@ -109,7 +109,7 @@ domain](#configure-custom-open-click-domain-http "#configure-custom-open-click-d
 2. Verify the subdomain for use with SES. For more information, see
    [Creating a domain identity](creating-identities.md#verify-domain-procedure "creating-identities.md#verify-domain-procedure").
 3. Create a new account with a Content Delivery Network (CDN), such as [Amazon CloudFront](https://aws.amazon.com/cloudfront "https://aws.amazon.com/cloudfront"), see [Get started
-   with a basic CloudFront distribution](../../../AmazonCloudFront/latest/DeveloperGuide/GettingStarted.md "../../../AmazonCloudFront/latest/DeveloperGuide/GettingStarted.md").
+   with a basic CloudFront distribution](../../../AmazonCloudFront/latest/DeveloperGuide/GettingStarted.SimpleDistribution.md "../../../AmazonCloudFront/latest/DeveloperGuide/GettingStarted.SimpleDistribution.md").
 4. Configure the CDN to the origin which is the SES tracking domain,
    such as `r.us-east-1.awstrack.me` for example. The CDN must point
    to the AWS tracking domain that's in the same region as your custom

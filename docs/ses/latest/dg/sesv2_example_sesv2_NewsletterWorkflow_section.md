@@ -933,8 +933,8 @@ public class SESv2Wrapper
   - [DeleteEmailIdentity](../../../goto/DotNetSDKV3/sesv2-2019-09-27/DeleteEmailIdentity.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/DeleteEmailIdentity.md")
   - [DeleteEmailTemplate](../../../goto/DotNetSDKV3/sesv2-2019-09-27/DeleteEmailTemplate.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/DeleteEmailTemplate.md")
   - [ListContacts](../../../goto/DotNetSDKV3/sesv2-2019-09-27/ListContacts.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/ListContacts.md")
-  - [SendEmail.simple](../../../goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.md")
-  - [SendEmail.template](../../../goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.md")
+  - [SendEmail.simple](../../../goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.simple.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.simple.md")
+  - [SendEmail.template](../../../goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.template.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/SendEmail.template.md")
 
 Java
 
@@ -1160,8 +1160,8 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
   - [DeleteEmailIdentity](../../../goto/SdkForJavaV2/sesv2-2019-09-27/DeleteEmailIdentity.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/DeleteEmailIdentity.md")
   - [DeleteEmailTemplate](../../../goto/SdkForJavaV2/sesv2-2019-09-27/DeleteEmailTemplate.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/DeleteEmailTemplate.md")
   - [ListContacts](../../../goto/SdkForJavaV2/sesv2-2019-09-27/ListContacts.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/ListContacts.md")
-  - [SendEmail.simple](../../../goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.md")
-  - [SendEmail.template](../../../goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.md")
+  - [SendEmail.simple](../../../goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.simple.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.simple.md")
+  - [SendEmail.template](../../../goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.template.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/SendEmail.template.md")
 
 Python
 
@@ -1355,8 +1355,8 @@ class SESv2Workflow:
   - [DeleteEmailIdentity](../../../goto/boto3/sesv2-2019-09-27/DeleteEmailIdentity.md "../../../goto/boto3/sesv2-2019-09-27/DeleteEmailIdentity.md")
   - [DeleteEmailTemplate](../../../goto/boto3/sesv2-2019-09-27/DeleteEmailTemplate.md "../../../goto/boto3/sesv2-2019-09-27/DeleteEmailTemplate.md")
   - [ListContacts](../../../goto/boto3/sesv2-2019-09-27/ListContacts.md "../../../goto/boto3/sesv2-2019-09-27/ListContacts.md")
-  - [SendEmail.simple](../../../goto/boto3/sesv2-2019-09-27/SendEmail.md "../../../goto/boto3/sesv2-2019-09-27/SendEmail.md")
-  - [SendEmail.template](../../../goto/boto3/sesv2-2019-09-27/SendEmail.md "../../../goto/boto3/sesv2-2019-09-27/SendEmail.md")
+  - [SendEmail.simple](../../../goto/boto3/sesv2-2019-09-27/SendEmail.simple.md "../../../goto/boto3/sesv2-2019-09-27/SendEmail.simple.md")
+  - [SendEmail.template](../../../goto/boto3/sesv2-2019-09-27/SendEmail.template.md "../../../goto/boto3/sesv2-2019-09-27/SendEmail.template.md")
 
 Rust
 
