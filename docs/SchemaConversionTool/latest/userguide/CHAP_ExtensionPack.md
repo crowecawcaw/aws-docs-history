@@ -54,8 +54,8 @@ You can apply AWS SCT extension packs in two ways:
 
 For a conversion from Microsoft SQL Server to PostgreSQL, you can use the SQL Server
 to PostgreSQL extension pack in AWS SCT. This extension pack emulates SQL Server Agent
-and SQL Server Database Mail. For more information, see [Emulating SQL Server Agent in PostgreSQL with an extension pack](CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.md "CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.md")
-and [Emulating SQL Server Database Mail in PostgreSQL with an extension pack](CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.md "CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.md").
+and SQL Server Database Mail. For more information, see [Emulating SQL Server Agent in PostgreSQL with an extension pack](CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.Agent.md "CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.Agent.md")
+and [Emulating SQL Server Database Mail in PostgreSQL with an extension pack](CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.Mail.md "CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.Mail.md").
 
 Following, you can find more information about working with AWS SCT extension
 packs.
@@ -161,7 +161,7 @@ The extension pack wizard appears. 2. Read the **Welcome** page, and then choose
      installed. You can also use credentials that you previously stored in a profile
      in the global application settings and associated with the project. If necessary,
      choose **Navigate to global settings** to configure of associate
-     a different profile with your AWS SCT project. For more information, see [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md").
+     a different profile with your AWS SCT project. For more information, see [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.Profiles.md "CHAP_UserInterface.Profiles.md").
 
 4. If you are uploading a new library, then choose **I need to upload a library**
    on the **Library upload** page. Use this step only when you convert OLAP databases
@@ -180,7 +180,7 @@ When you are done, choose **Finish**.
 ###### To apply the extension pack when applying the converted code
 
 1. Specify the Amazon S3 bucket in your AWS service profile. Use this step only when you convert
-   OLAP databases or ETL scripts. For more information, see [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md").
+   OLAP databases or ETL scripts. For more information, see [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.Profiles.md "CHAP_UserInterface.Profiles.md").
 
 Make sure that your Amazon S3 bucket policy includes the following permissions:
 
@@ -216,7 +216,7 @@ JSON
 ```
 
 In the preceding example, replace `111122223333:user/DataExtractionAgentName`
-with the name of your IAM user. 2. Convert your source data warehouse schemas. For more information, see [Converting data warehouse schemas](CHAP_Converting.md "CHAP_Converting.md"). 3. In the right pane, choose the converted schema. 4. Open the context (right-click) menu for the schema element, and then choose
+with the name of your IAM user. 2. Convert your source data warehouse schemas. For more information, see [Converting data warehouse schemas](CHAP_Converting.DW.md "CHAP_Converting.DW.md"). 3. In the right pane, choose the converted schema. 4. Open the context (right-click) menu for the schema element, and then choose
 **Apply to database**. 5. AWS SCT generates extension packs with the required components and adds the
 `aws_`database_engine_name`_ext` schema
 in the target tree. Next, AWS SCT applies the converted code and the extension
@@ -274,7 +274,7 @@ and then choose **Next**. 3. On the **AWS profile settings** page, do the follow
      **Navigate to Project Settings** to associate a
      different profile with the project. If necessary, choose
      **Global Settings** to create a new profile.
-     For more information, see [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md").
+     For more information, see [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.Profiles.md "CHAP_UserInterface.Profiles.md").
 
 4. On the **Email Sending Service** page,
    do the following:

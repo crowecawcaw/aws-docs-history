@@ -91,8 +91,8 @@ The following limitations apply when converting using AWS SCT with AWS Glue.
 
 To create a new project, take these high-level steps:
 
-1. Create a new project in AWS SCT. For more information, see [Starting and managing Projects in AWS SCT](CHAP_UserInterface.md "CHAP_UserInterface.md").
-2. Add your source and target databases to the project. For more information, see [Adding servers to project in AWS SCT](CHAP_UserInterface.md "CHAP_UserInterface.md").
+1. Create a new project in AWS SCT. For more information, see [Starting and managing Projects in AWS SCT](CHAP_UserInterface.Project.md "CHAP_UserInterface.Project.md").
+2. Add your source and target databases to the project. For more information, see [Adding servers to project in AWS SCT](CHAP_UserInterface.AddServers.md "CHAP_UserInterface.AddServers.md").
 
 Make sure that you have chosen **Use AWS Glue** in the target database
 connection settings. To do so, choose the **AWS Glue** tab.

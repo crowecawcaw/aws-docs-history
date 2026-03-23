@@ -14,7 +14,7 @@ understand the complexity of migration to a selected database platform. In this 
 you don't need to connect to your target database platform. For example, you can use Babelfish
 for Aurora PostgreSQL as a virtual target database platform to create
 a database migration assessment report. For more information on virtual
-target database platforms, see [Mapping to virtual targets in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md").
+target database platforms, see [Mapping to virtual targets in the AWS Schema Conversion Tool](CHAP_Mapping.VirtualTargets.md "CHAP_Mapping.VirtualTargets.md").
 
 The migration assessment report includes the following:
 
@@ -33,8 +33,8 @@ your license type.
 
 ###### Topics
 
-- [Creating an assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
-- [Viewing an assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
-- [Saving the assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
-- [Configuring an assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
-- [Creating a multiserver assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
+- [Creating an assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.Create.md "CHAP_AssessmentReport.Create.md")
+- [Viewing an assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.View.md "CHAP_AssessmentReport.View.md")
+- [Saving the assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.Save.md "CHAP_AssessmentReport.Save.md")
+- [Configuring an assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.Configure.md "CHAP_AssessmentReport.Configure.md")
+- [Creating a multiserver assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.Multiserver.md "CHAP_AssessmentReport.Multiserver.md")

@@ -11,7 +11,7 @@ of data migration, use several AWS SCT agents in parallel. According to our test
 agents migrate data faster than AWS DMS by 15–35 percent. The difference in speed is due to
 data compression, support of migration of table partitions in parallel, and different
 configuration settings. For more information, see
-[Using an Amazon Redshift database as a target for AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.md "../../../dms/latest/userguide/CHAP_Target.md").
+[Using an Amazon Redshift database as a target for AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.Redshift.md "../../../dms/latest/userguide/CHAP_Target.Redshift.md").
 
 Amazon S3 is a storage and retrieval service. To store an object in Amazon S3, you upload
 the file you want to store to an Amazon S3 bucket. When you upload a file, you can set
@@ -81,7 +81,7 @@ source data warehouses:
 ## Prerequisites for using data extraction agents
 
 Before you work with data extraction agents, add the required permissions for Amazon Redshift as a target
-to your Amazon Redshift user. For more information, see [Permissions for Amazon Redshift as a target](CHAP_Converting.md#CHAP_Converting.DW.ConfigureTarget "CHAP_Converting.md#CHAP_Converting.DW.ConfigureTarget").
+to your Amazon Redshift user. For more information, see [Permissions for Amazon Redshift as a target](CHAP_Converting.DW.md#CHAP_Converting.DW.ConfigureTarget "CHAP_Converting.DW.md#CHAP_Converting.DW.ConfigureTarget").
 
 Then, store your Amazon S3 bucket information and set up your Secure Sockets Layer (SSL)
 trust and key store.
@@ -96,7 +96,7 @@ You store your credentials and bucket information
 in a profile in the global application settings,
 and then associate the profile with your AWS SCT project.
 If necessary, choose **Global settings**
-to create a new profile. For more information, see [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md").
+to create a new profile. For more information, see [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.Profiles.md "CHAP_UserInterface.Profiles.md").
 
 To migrate data into your target Amazon Redshift database, the AWS SCT data extraction agent needs permission
 to access the Amazon S3 bucket on your behalf. To provide this permission, create an AWS Identity and Access Management (IAM) user
@@ -886,7 +886,7 @@ To configure your data extraction agent, enter your source and target database e
 Also, make sure that you downloaded JDBC drivers for your source and target databases
 on the computer where you run your data extraction agent. Data extraction agents use
 these drivers to connect to your source and target databases. For more information, see
-[Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.md "CHAP_Installing.md").
+[Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.JDBCDrivers.md "CHAP_Installing.JDBCDrivers.md").
 
 In Windows, the data extraction agent installer launches the configuration wizard
 in the command prompt window. In Linux, run the `sct-extractor-setup.sh` file
@@ -1153,7 +1153,7 @@ the size specified, AWS SCT triggers the native partitioning mechanism.
    **File**. The **New project** dialog
    box appears.
 2. Create a new project, add your source and target servers, and
-   create mapping rules. For more information, see [Starting and managing Projects in AWS SCT](CHAP_UserInterface.md "CHAP_UserInterface.md").
+   create mapping rules. For more information, see [Starting and managing Projects in AWS SCT](CHAP_UserInterface.Project.md "CHAP_UserInterface.Project.md").
 3. Choose **View**, and then choose **Main view**.
 4. For **Project settings**, choose the **Data migration**
    tab. Choose **Use automatic partitioning.** For Greenplum and Netezza source

@@ -1,171 +1,77 @@
-# Migrating from Oracle to Amazon RDS for MySQL or Amazon Aurora MySQL with the AWS Schema Conversion Tool
+# Connecting to Oracle Databases with the AWS Schema Conversion Tool
 
-To emulate Oracle database functions in your converted MySQL code, use the Oracle
-to MySQL extension pack in AWS SCT. For more information about extension packs, see
-[Using extension packs with AWS Schema Conversion Tool](CHAP_ExtensionPack.md "CHAP_ExtensionPack.md").
+You can use AWS SCT to convert schemas, database code objects, and application code from Oracle Database to the following targets:
+
+- Amazon RDS for MySQL
+- Amazon Aurora MySQL-Compatible Edition
+- Amazon RDS for PostgreSQL
+- Amazon Aurora PostgreSQL-Compatible Edition
+- Amazon RDS for Oracle
+- Amazon RDS for MariaDB
+  When the source is an Oracle database, comments can be converted to the
+  appropriate format in, for example, a PostgreSQL database. AWS SCT can convert comments on
+  tables, views, and columns. Comments can include apostrophes; AWS SCT doubles the apostrophes
+  when converting SQL statements, just as it does for string literals.
+
+For more information, see the following.
 
 ###### Topics
 
-- [Privileges for MySQL as a target database](#CHAP_Source.Oracle.ToMySQL.ConfigureTarget "#CHAP_Source.Oracle.ToMySQL.ConfigureTarget")
-- [Oracle to MySQL conversion settings](#CHAP_Source.Oracle.ToMySQL.ConversionSettings "#CHAP_Source.Oracle.ToMySQL.ConversionSettings")
-- [Migration considerations](#CHAP_Source.Oracle.ToMySQL.MigrationConsiderations "#CHAP_Source.Oracle.ToMySQL.MigrationConsiderations")
-- [Converting the WITH statement in Oracle to RDS for MySQL or Amazon Aurora MySQL](#CHAP_Source.Oracle.ToMySQL.With "#CHAP_Source.Oracle.ToMySQL.With")
+- [Privileges for Oracle as a source](#CHAP_Source.Oracle.Permissions "#CHAP_Source.Oracle.Permissions")
+- [Connecting to Oracle as a source](#CHAP_Source.Oracle.Connecting "#CHAP_Source.Oracle.Connecting")
+- [Migrating from Oracle to Amazon RDS for PostgreSQL or Amazon Aurora PostgreSQL with AWS Schema Conversion Tool](CHAP_Source.Oracle.ToPostgreSQL.md "CHAP_Source.Oracle.ToPostgreSQL.md")
+- [Migrating from Oracle to Amazon RDS for MySQL or Amazon Aurora MySQL with the AWS Schema Conversion Tool](CHAP_Source.Oracle.ToMySQL.md "CHAP_Source.Oracle.ToMySQL.md")
+- [Migrating from Oracle Database to Amazon RDS for Oracle with AWS Schema Conversion Tool](CHAP_Source.Oracle.ToRDSOracle.md "CHAP_Source.Oracle.ToRDSOracle.md")
 
-## Privileges for MySQL as a target database
+## Privileges for Oracle as a source
 
-The privileges required for MySQL as a target are as follows:
+The privileges required for Oracle as a source
+are as follows:
 
-- CREATE ON \*.\*
-- ALTER ON \*.\*
-- DROP ON \*.\*
-- INDEX ON \*.\*
-- REFERENCES ON \*.\*
-- SELECT ON \*.\*
-- CREATE VIEW ON \*.\*
-- SHOW VIEW ON \*.\*
-- TRIGGER ON \*.\*
-- CREATE ROUTINE ON \*.\*
-- ALTER ROUTINE ON \*.\*
-- EXECUTE ON \*.\*
-- CREATE TEMPORARY TABLES ON \*.\*
-- AWS_LAMBDA_ACCESS
-- INSERT, UPDATE ON AWS_ORACLE_EXT.\*
-- INSERT, UPDATE, DELETE ON AWS_ORACLE_EXT_DATA.\*
+- CONNECT
+- SELECT_CATALOG_ROLE
+- SELECT ANY DICTIONARY
+- SELECT ON SYS.ARGUMENT$
 
-If you use a MySQL database version 5.7 or lower as a target, then grant the INVOKE LAMBDA \*.\*
-permission instead of AWS_LAMBDA_ACCESS. For MySQL databases version 8.0 and higher, grant
-the AWS_LAMBDA_ACCESS permission.
+## Connecting to Oracle as a source
 
-You can use the following code example to create a database user and grant the privileges.
+Use the following procedure to connect to your Oracle source database
+with the AWS Schema Conversion Tool.
 
-```
-CREATE USER '`user_name`' IDENTIFIED BY '`your_password`';
-GRANT CREATE ON *.* TO '`user_name`';
-GRANT ALTER ON *.* TO '`user_name`';
-GRANT DROP ON *.* TO '`user_name`';
-GRANT INDEX ON *.* TO '`user_name`';
-GRANT REFERENCES ON *.* TO '`user_name`';
-GRANT SELECT ON *.* TO '`user_name`';
-GRANT CREATE VIEW ON *.* TO '`user_name`';
-GRANT SHOW VIEW ON *.* TO '`user_name`';
-GRANT TRIGGER ON *.* TO '`user_name`';
-GRANT CREATE ROUTINE ON *.* TO '`user_name`';
-GRANT ALTER ROUTINE ON *.* TO '`user_name`';
-GRANT EXECUTE ON *.* TO '`user_name`';
-GRANT CREATE TEMPORARY TABLES ON *.* TO '`user_name`';
-GRANT AWS_LAMBDA_ACCESS TO '`user_name`';
-GRANT INSERT, UPDATE ON AWS_ORACLE_EXT.* TO '`user_name`';
-GRANT INSERT, UPDATE, DELETE ON AWS_ORACLE_EXT_DATA.* TO '`user_name`';
-```
+###### To connect to an Oracle source database
 
-In the preceding example, replace `user_name` with the name of your user.
-Then, replace `your_password` with a secure password.
+1. In the AWS Schema Conversion Tool,
+   choose **Add source**.
+2. Choose **Oracle**, then choose **Next**.
 
-If you use a MySQL database version 5.7 or lower as a target, then use
-`GRANT INVOKE LAMBDA ON *.* TO '`user_name`'`
-instead of `GRANT AWS_LAMBDA_ACCESS TO '`user_name`'`.
+The **Add source** dialog box appears. 3. For **Connection name**, enter a name for your database.
+AWS SCT displays this name in the tree in the left panel. 4. Use database credentials from AWS Secrets Manager or enter them manually:
 
-To use Amazon RDS for MySQL or Aurora MySQL as a target, set the `lower_case_table_names` parameter
-to `1`. This value means that the MySQL server handles identifiers of such object names as tables,
-indexes, triggers, and databases as case insensitive.
-If you have turned on binary logging in your target instance, then set the
-`log_bin_trust_function_creators` parameter to `1`.
-In this case, you don't need to use the `DETERMINISTIC`,
-`READS SQL DATA` or `NO SQL` characteristics to create stored functions.
-To configure these parameters, create a new DB parameter group or modify an existing DB parameter group.
+    * To use database credentials from Secrets Manager, use the following
+     instructions:
 
-## Oracle to MySQL conversion settings
 
-To edit Oracle to MySQL conversion settings, choose
-**Settings** in AWS SCT, and then choose **Conversion
-settings**. From the upper list, choose **Oracle**,
-and then choose **Oracle – MySQL**. AWS SCT displays all
-available settings for Oracle to MySQL conversion.
 
-Oracle to MySQL conversion settings in AWS SCT include options for the following:
 
-- To limit the number of comments with action items in the converted code.
+    	1. For **AWS Secret**, choose
+    	 the name of the secret.
+    	2. Choose **Populate** to automatically fill in
+    	 all values in the database connection dialog box from Secrets Manager.
+    For information about using database credentials from Secrets Manager, see [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.SecretsManager.md "CHAP_UserInterface.SecretsManager.md").
+    * To enter the Oracle source database connection
+     information manually, use the following instructions:
 
-For **Add comments in the converted code for the action items of selected severity and higher**,
-choose the severity of action items. AWS SCT adds comments in the converted code
-for action items of the selected severity and higher.
 
-For example, to minimize the number of comments in your converted code, choose
-**Errors only**. To include comments for all action items in your
-converted code, choose **All messages**.
 
-- To address that your source Oracle database can use the
-  `ROWID` pseudocolumn but MySQL doesn't support similar
-  functionality. AWS SCT can emulate the `ROWID` pseudocolumn in
-  the converted code. To do so, choose **Generate as
-  identity** for **Generate row ID?**.
 
-If your source Oracle code doesn't use the `ROWID`
-pseudocolumn, choose **Don't generate** for
-**Generate row ID?** In this case, the converted code
-works faster.
+    | Parameter | Action |
+    | --- | --- |
+    | **Type** | Choose the connection type to your database.<br>Depending on your type, provide the following additional information:<br>+ **SID**<br>• **Server name**: The Domain Name System (DNS) name or IP address of your<br>source database server.<br>• **Server port**: The port used to connect to your<br>source database server.<br>• **Oracle SID**: The Oracle System ID (SID).<br>To find the Oracle SID, submit the following query to your Oracle database:<br>`SELECT sys_context('userenv','instance_name') AS SID FROM dual;`<br>+ **Service name**<br>• **Server name**: The DNS name or IP address of your<br>source database server.<br>You can connect to your source Oracle database using an IPv6 address protocol. To do so,<br>make sure that you use square brackets to enter the IP address, as shown in the following<br>example.<br>```<br>[2001:db8:ffff:ffff:ffff:ffff:ffff:fffe]<br>```<br>• **Server port**: The port used to connect to your<br>source database server.<br>• **Service name**: The name of the Oracle service<br>to connect to.<br>+ **TNS alias**<br>• **TNS file path**: The path to the<br>file that contains the Transparent Network<br>Substrate (TNS) name connection information.<br>After you choose the TNS file, AWS SCT adds all Oracle database<br>connections from the file to the **TNS alias*<br>• list.<br>Choose this option to connect to Oracle Real Application Clusters (RAC).<br>• **TNS alias**: The TNS alias from this file<br>to use to connect to the source database.<br>+ **TNS connect identifier**<br>• **TNS connect identifier**: The identifier for the<br>registered TNS connection information. |
+    | **User name*<br>• and **Password** | Enter the database credentials to connect to your<br>source database server.<br>The first time you connect to the Oracle database, you enter the path to<br>the Oracle Driver file (ojdbc8.jar). You can download the file at [http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html "http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html").<br>Make sure to register on the free Oracle Technical Network website to complete<br>the download. AWS SCT uses the selected driver for any future Oracle database<br>connections. The driver path can be modified using the **Drivers*<br>• tab<br>in **Global Settings**.<br>AWS SCT uses the password to connect to your source database<br>only when you choose to connect to your database in a project.<br>To guard against exposing the password for your source database,<br>AWS SCT doesn't store the password by default.<br>If you close your AWS SCT project and reopen it,<br>you are prompted for the password to connect to your source database as needed. |
+    | **Use SSL** | Choose this option to use Secure Sockets Layer (SSL) to connect<br>to your database. Provide the following additional information,<br>as applicable, on the **SSL*<br>• tab:<br>+ **SSL authentication**: Select this option<br>to use SSL authentication by certificate Set up your trust store and key<br>store in **Settings**, **Global settings**,<br>**Security**.<br>+ **Trust store**: The trust store to use.<br>+ **Key store**: The key store to use. |
+    | **Store password** | AWS SCT creates a secure vault to store SSL certificates and database passwords.<br>Choose this option to store the database password and to connect quickly to the<br>database without having to enter the password. |
+    | **Oracle driver path** | Enter the path to the driver to use to connect to the source database.<br>For more information,<br>see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.JDBCDrivers.md "CHAP_Installing.JDBCDrivers.md").<br>If you store the driver path in the global project settings, the driver path<br>doesn't appear in the connection dialog box. For more information, see [Storing driver paths in the global settings](CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings"). |
 
-- To work with your source Oracle code when it includes the
-  `TO_CHAR`, `TO_DATE`, and `TO_NUMBER`
-  functions with parameters that MySQL doesn't support. By default,
-  AWS SCT emulates the usage of these parameters in the converted code.
-
-When your source Oracle code includes only parameters that PostgreSQL
-supports, you can use native MySQL `TO_CHAR`, `TO_DATE`, and `TO_NUMBER`
-functions. In this case, the converted code works faster. To include only these parameters,
-select the following values:
-
-    + **Function TO\_CHAR() does not use Oracle specific formatting strings**
-    + **Function TO\_DATE() does not use Oracle specific formatting strings**
-    + **Function TO\_NUMBER() does not use Oracle specific formatting strings**
-
-- To addess whether your database and applications run in different time
-  zones. By default, AWS SCT
-  emulates time zones in the converted code. However, you don't need this emulation when your
-  database and applications use the same time zone. In this case, select
-  **Time zone on the client side matches the time zone on server**.
-
-## Migration considerations
-
-When you convert Oracle to RDS for MySQL or Aurora MySQL, to change the order that
-statements run in, you can use a `GOTO` statement and a label. Any PL/SQL
-statements that follow a `GOTO` statement are skipped, and processing
-continues at the label. You can use `GOTO` statements and labels anywhere
-within a procedure, batch, or statement block. You can also next GOTO
-statements.
-
-MySQL doesn't use `GOTO` statements. When AWS SCT converts
-code that contains a `GOTO` statement, it converts the statement to use a
-`BEGIN…END` or `LOOP…END LOOP` statement.
-
-You can find examples of how AWS SCT converts `GOTO` statements in
-the table following.
-
-| Oracle statement                                                                                                                                      | MySQL statement                                                                                                                                                                                |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<br>BEGIN<br>....<br>statement1;<br>....<br>GOTO label1;<br>statement2;<br>....<br>label1:<br>Statement3;<br>....<br>END<br>`                        | `<br>BEGIN<br>label1:<br>BEGIN<br>....<br>statement1;<br>....<br>LEAVE label1;<br>statement2;<br>....<br>END;<br>Statement3;<br>....<br>END<br>`                                               |
-| `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>statement2;<br>....<br>GOTO label1;<br>statement3;<br>....<br>statement4;<br>....<br>END<br>` | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>LOOP<br>statement2;<br>....<br>ITERATE label1;<br>LEAVE label1;<br>END LOOP;<br>statement3;<br>....<br>statement4;<br>....<br>END<br>` |
-| `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>statement2;<br>....<br>statement3;<br>....<br>statement4;<br>....<br>END<br>`                 | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>BEGIN<br>statement2;<br>....<br>statement3;<br>....<br>statement4;<br>....<br>END;<br>END<br>`                                         |
-
-## Converting the WITH statement in Oracle to RDS for MySQL or Amazon Aurora MySQL
-
-You use the WITH clause (subquery_factoring) in Oracle to assign a name
-(query_name) to a subquery block. You can then reference the subquery block multiple
-places in the query by specifying query_name. If a subquery block doesn't contain
-links or parameters (local, procedure, function, package), then AWS SCT converts the
-clause to a view or a temporary table.
-
-The advantage of converting the clause to a temporary table is that repeated
-references to the subquery might be more efficient. The greater efficiency is
-because the data is easily retrieved from the temporary table rather than being
-required by each reference. You can emulate this by using additional views or a
-temporary table. The view name uses the format
-`<procedure_name>$<subselect_alias>`.
-
-You can find examples in the table following.
-
-| Oracle statement                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | MySQL statement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<br>CREATE PROCEDURE<br>TEST_ORA_PG.P_WITH_SELECT_VARIABLE_01<br>(p_state IN NUMBER)<br>AS<br>l_dept_id NUMBER := 1;<br>BEGIN<br>FOR cur IN<br>(WITH dept_empl(id, name, surname,<br>lastname, state, dept_id)<br>AS<br>(<br>SELECT id, name, surname,<br>lastname, state, dept_id<br>FROM test_ora_pg.dept_employees<br>WHERE state = p_state AND<br>dept_id = l_dept_id)<br>SELECT id,state<br>FROM dept_empl<br>ORDER BY id)  LOOP<br>NULL;<br>END LOOP;<br>`                 | `<br>CREATE PROCEDURE test_ora_pg.P_WITH_SELECT_VARIABLE_01(IN par_P_STATE DOUBLE)<br>BEGIN<br>DECLARE var_l_dept_id DOUBLE DEFAULT 1;<br>DECLARE var$id VARCHAR (8000);<br>DECLARE var$state VARCHAR (8000);<br>DECLARE done INT DEFAULT FALSE;<br>DECLARE cur CURSOR FOR SELECT<br>ID, STATE<br>FROM (SELECT<br>ID, NAME, SURNAME, LASTNAME, STATE, DEPT_ID<br>FROM TEST_ORA_PG.DEPT_EMPLOYEES<br>WHERE STATE = par_p_state AND DEPT_ID = var_l_dept_id) AS dept_empl<br>ORDER BY ID;<br>DECLARE CONTINUE HANDLER FOR NOT FOUND<br>SET done := TRUE;<br>OPEN cur;<br>read_label:<br>LOOP<br>FETCH cur INTO var$id, var$state;<br>IF done THEN<br>LEAVE read_label;<br>END IF;<br>BEGIN<br>END;<br>END LOOP;<br>CLOSE cur;<br>END;<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `<br>CREATE PROCEDURE<br>TEST_ORA_PG.P_WITH_SELECT_REGULAR_MULT_01<br>AS<br>BEGIN<br>FOR cur IN  (<br>WITH dept_empl AS<br>(<br>SELECT id, name, surname,<br>lastname, state, dept_id<br>FROM test_ora_pg.dept_employees<br>WHERE state = 1),<br>dept AS<br>(SELECT id deptid, parent_id,<br>name deptname<br>FROM test_ora_pg.department<br>)<br>SELECT dept_empl.*,dept.*<br>FROM dept_empl, dept<br>WHERE dept_empl.dept_id = dept.deptid<br>) LOOP<br>NULL;<br>END LOOP;<br>` | ``<br>CREATE VIEW TEST_ORA_PG.`P_WITH_SELECT_REGULAR_MULT_01$dept_empl<br>`(id, name, surname, lastname, state, dept_id)<br>AS<br>(SELECT id, name, surname, lastname, state, dept_id<br>FROM test_ora_pg.dept_employees<br>WHERE state = 1);<br>CREATE VIEW TEST_ORA_PG.`P_WITH_SELECT_REGULAR_MULT_01$dept<br>`(deptid, parent_id,deptname)<br>AS<br>(SELECT id deptid, parent_id, name deptname<br>FROM test_ora_pg.department);<br>CREATE PROCEDURE test_ora_pg.P_WITH_SELECT_REGULAR_MULT_01()<br>BEGIN<br>DECLARE var$ID DOUBLE;<br>DECLARE var$NAME VARCHAR (30);<br>DECLARE var$SURNAME VARCHAR (30);<br>DECLARE var$LASTNAME VARCHAR (30);<br>DECLARE var$STATE DOUBLE;<br>DECLARE var$DEPT_ID DOUBLE;<br>DECLARE var$deptid DOUBLE;<br>DECLARE var$PARENT_ID DOUBLE;<br>DECLARE var$deptname VARCHAR (200);<br>DECLARE done INT DEFAULT FALSE;<br>DECLARE cur CURSOR FOR SELECT<br>dept_empl.*, dept.*<br>FROM TEST_ORA_PG.`P_WITH_SELECT_REGULAR_MULT_01$dept_empl<br>` AS dept_empl,<br>TEST_ORA_PG.`P_WITH_SELECT_REGULAR_MULT_01$dept<br>` AS dept<br>WHERE dept_empl.DEPT_ID = dept.DEPTID;<br>DECLARE CONTINUE HANDLER FOR NOT FOUND<br>SET done := TRUE;<br>OPEN cur;<br>read_label:<br>LOOP<br>FETCH cur INTO var$ID, var$NAME, var$SURNAME,<br>var$LASTNAME, var$STATE, var$DEPT_ID, var$deptid,<br>var$PARENT_ID, var$deptname;<br>IF done THEN<br>LEAVE read_label;<br>END IF;<br>BEGIN<br>END;<br>END LOOP;<br>CLOSE cur;<br>END;<br>call test_ora_pg.P_WITH_SELECT_REGULAR_MULT_01()<br>`` |
-| `<br>CREATE PROCEDURE<br>TEST_ORA_PG.P_WITH_SELECT_VAR_CROSS_02(p_state IN NUMBER)<br>AS<br>l_dept_id NUMBER := 10;<br>BEGIN<br>FOR cur IN  (<br>WITH emp AS<br>(SELECT id, name, surname,<br>lastname, state, dept_id<br>FROM test_ora_pg.dept_employees<br>WHERE dept_id > 10<br>),<br>active_emp AS<br>(<br>SELECT id<br>FROM emp<br>WHERE emp.state = p_state<br>)<br>SELECT *<br>FROM active_emp<br>) LOOP<br>NULL;<br>END LOOP;<br>END;<br>`                                | ``<br>CREATE VIEW TEST_ORA_PG.`P_WITH_SELECT_VAR_CROSS_01$emp<br>`(id, name, surname, lastname, state, dept_id)<br>AS<br>(SELECT<br>id, name, surname, lastname,<br>state, dept_id<br>FROM TEST_ORA_PG.DEPT_EMPLOYEES<br>WHERE DEPT_ID > 10);<br>CREATE PROCEDURE<br>test_ora_pg.P_WITH_SELECT_VAR_CROSS_02(IN par_P_STATE DOUBLE)<br>BEGIN<br>DECLARE var_l_dept_id DOUBLE DEFAULT 10;<br>DECLARE var$ID DOUBLE;<br>DECLARE done INT DEFAULT FALSE;<br>DECLARE cur CURSOR FOR SELECT *<br>FROM (SELECT<br>ID<br>FROM<br>TEST_ORA_PG.<br>`P_WITH_SELECT_VAR_CROSS_01$emp` AS emp<br>WHERE emp.STATE = par_p_state)<br>AS active_emp;<br>DECLARE CONTINUE HANDLER FOR NOT FOUND<br>SET done := TRUE;<br>OPEN cur;<br>read_label:<br>LOOP<br>FETCH cur INTO var$ID;<br>IF done THEN<br>LEAVE read_label;<br>END IF;<br>BEGIN<br>END;<br>END LOOP;<br>CLOSE cur;<br>END;<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+5. Choose **Test Connection** to verify
+   that AWS SCT can connect to your source database.
+6. Choose **Connect** to connect to your source database.

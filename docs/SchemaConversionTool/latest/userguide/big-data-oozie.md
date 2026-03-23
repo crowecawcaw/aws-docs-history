@@ -58,7 +58,7 @@ Make sure that your script includes the following steps.
 
 To start the conversion of your Apache Oozie cluster, create a new AWS SCT project. Next, connect to your
 source and target services. Make sure that you create and provision your target AWS resources before you
-start the migration. For more information, see [Prerequisites for using Apache Oozie as a source](CHAP_Source.md#CHAP_Source.Oozie.Prerequisites "CHAP_Source.md#CHAP_Source.Oozie.Prerequisites").
+start the migration. For more information, see [Prerequisites for using Apache Oozie as a source](CHAP_Source.Oozie.md#CHAP_Source.Oozie.Prerequisites "CHAP_Source.Oozie.md#CHAP_Source.Oozie.Prerequisites").
 
 In this step, you use the following AWS SCT CLI commands.
 
@@ -70,7 +70,7 @@ In this step, you use the following AWS SCT CLI commands.
   project.
 - `ConnectTarget` – to connect to AWS Step Functions.
 
-For examples of using these AWS SCT CLI commands, see [Connecting to Apache Oozie](CHAP_Source.md "CHAP_Source.md").
+For examples of using these AWS SCT CLI commands, see [Connecting to Apache Oozie](CHAP_Source.Oozie.md "CHAP_Source.Oozie.md").
 
 When you run the `ConnectSource` or `ConnectTarget` commands, AWS SCT tries
 to establish the connection to your services. If the connection attempt fails, then AWS SCT stops
@@ -278,7 +278,7 @@ as the value of this parameter.
 
 The following uploads the `State machine definitions` folder of your `AWS_STEP_FUNCTIONS`
 target object to the Amazon S3 bucket. AWS SCT uses the Amazon S3 bucket that you stored in the AWS service profile in
-the [Prerequisites](CHAP_Source.md#CHAP_Source.Oozie.Prerequisites "CHAP_Source.md#CHAP_Source.Oozie.Prerequisites") step.
+the [Prerequisites](CHAP_Source.Oozie.md#CHAP_Source.Oozie.Prerequisites "CHAP_Source.Oozie.md#CHAP_Source.Oozie.Prerequisites") step.
 
 ```
 SaveOnS3
@@ -337,7 +337,7 @@ This command uses up to five parameters. Make sure that you use `Oozie2SF` for
   to create an execution role for AWS Step Functions.
 
 To install and use the extension pack, make sure that you provide the required permissions. For more information,
-see [Permissions for using AWS Lambda functions in the extension pack](CHAP_Source.md#CHAP_Source.Oozie.TargetPrerequisites "CHAP_Source.md#CHAP_Source.Oozie.TargetPrerequisites").
+see [Permissions for using AWS Lambda functions in the extension pack](CHAP_Source.Oozie.md#CHAP_Source.Oozie.TargetPrerequisites "CHAP_Source.Oozie.md#CHAP_Source.Oozie.TargetPrerequisites").
 
 For more information about the `Convert`, `SaveOnS3`, `ConfigureStateMachine`,
 `ApplyToTarget`, and `CreateLambdaExtPack` commands, see the [AWS Schema Conversion Tool CLI

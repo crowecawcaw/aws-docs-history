@@ -28,15 +28,15 @@ You can add multiple scripts to a single AWS SCT project.
 ###### To add a MultiLoad job script to your AWS SCT project
 
 1. Create a new project in AWS SCT or open an existing project.
-   For more information, see [Starting and managing Projects in AWS SCT](CHAP_UserInterface.md "CHAP_UserInterface.md").
+   For more information, see [Starting and managing Projects in AWS SCT](CHAP_UserInterface.Project.md "CHAP_UserInterface.Project.md").
 2. Choose **Add source** from the menu, and then choose
    **Teradata** to add your source database to the
-   project. For more information, see [Teradata databases](CHAP_Source.md "CHAP_Source.md").
+   project. For more information, see [Teradata databases](CHAP_Source.Teradata.md "CHAP_Source.Teradata.md").
 3. Choose **Add target** from the menu and to add a target Amazon Redshift database to
    your AWS SCT project.
 
-You can use a virtual Amazon Redshift target database platform. For more information, see [Mapping to virtual targets in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md"). 4. Create a new mapping rule that includes your source Teradata database and your Amazon Redshift target.
-For more information, see [Mapping new data types in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md"). 5. On the **View** menu, choose **Main view**. 6. In the left panel, expand the **Scripts** node. 7. Choose **MultiLoad**, open the context (right-click) menu, and then
+You can use a virtual Amazon Redshift target database platform. For more information, see [Mapping to virtual targets in the AWS Schema Conversion Tool](CHAP_Mapping.VirtualTargets.md "CHAP_Mapping.VirtualTargets.md"). 4. Create a new mapping rule that includes your source Teradata database and your Amazon Redshift target.
+For more information, see [Mapping new data types in the AWS Schema Conversion Tool](CHAP_Mapping.New.md "CHAP_Mapping.New.md"). 5. On the **View** menu, choose **Main view**. 6. In the left panel, expand the **Scripts** node. 7. Choose **MultiLoad**, open the context (right-click) menu, and then
 choose **Load scripts**. 8. Enter the location of your source Teradata MultiLoad job scripts and
 choose **Select folder**.
 

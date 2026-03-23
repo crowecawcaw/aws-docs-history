@@ -1,17 +1,23 @@
-# Starting and managing Projects in AWS SCT
+# Navigating the user interface of the AWS SCT
 
-To start the AWS Schema Conversion Tool, double-click the application icon.
+Use the following topics to help you work with the AWS SCT user interface. For
+information on installing AWS SCT, see [Installing and Configuring AWS Schema Conversion Tool](CHAP_Installing.md "CHAP_Installing.md").
 
-Use the following procedure to create an AWS Schema Conversion Tool project.
+###### Topics
 
-###### To create your project
-
-1. Start the AWS Schema Conversion Tool.
-2. On the **File** menu, choose **New
-   project**. The **New project** dialog box appears.
-
-![New Project dialog box](images/file-new-project.png) 3. Enter a name for your project, which is stored locally on your computer. 4. Enter the location for your local project file. 5. Choose **OK** to create your AWS SCT project. 6. Choose **Add source** to add a new source database to your AWS SCT project. You can add multiple source databases to your AWS SCT project. 7. Choose **Add target** to add a new target platform in your AWS SCT project. You can add multiple target platforms to your AWS SCT project. 8. Choose the source database schema in the left panel. 9. In the right panel, specify the target database platform for the selected source schema. 10. Choose **Create mapping**. This button becomes active after you
-choose the source database schema and the target database platform. For more information,
-see [Data type mapping](CHAP_Mapping.md "CHAP_Mapping.md").
-
-Now, your AWS SCT project is set up. You can save your project, create database migration assessment report, and convert your source database schemas.
+- [Viewing the Project Window in AWS SCT](CHAP_UserInterface.Overview.ProjectWindow.md "CHAP_UserInterface.Overview.ProjectWindow.md")
+- [Starting and managing Projects in AWS SCT](CHAP_UserInterface.Project.md "CHAP_UserInterface.Project.md")
+- [Using the AWS SCT Wizard](CHAP_UserInterface.Wizard.md "CHAP_UserInterface.Wizard.md")
+- [Saving projects in AWS SCT](CHAP_UserInterface.SaveProject.md "CHAP_UserInterface.SaveProject.md")
+- [Adding servers to project in AWS SCT](CHAP_UserInterface.AddServers.md "CHAP_UserInterface.AddServers.md")
+- [Using offline mode in AWS Schema Conversion Tool](CHAP_UserInterface.OfflineMode.md "CHAP_UserInterface.OfflineMode.md")
+- [Using tree filters in AWS Schema Conversion Tool](CHAP_UserInterface.TreeFilters.md "CHAP_UserInterface.TreeFilters.md")
+- [Hiding schemas in AWS Schema Conversion Tool](CHAP_UserInterface.HidingSchemas.md "CHAP_UserInterface.HidingSchemas.md")
+- [Viewing the Assessment Report in AWS Schema Conversion Tool](CHAP_UserInterface.AssessmentReport.md "CHAP_UserInterface.AssessmentReport.md")
+- [Converting Schemas in AWS Schema Conversion Tool](CHAP_UserInterface.Converting.md "CHAP_UserInterface.Converting.md")
+- [Applying the converted schemas in AWS Schema Conversion Tool](CHAP_UserInterface.ApplyingConversion.md "CHAP_UserInterface.ApplyingConversion.md")
+- [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.Profiles.md "CHAP_UserInterface.Profiles.md")
+- [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.SecretsManager.md "CHAP_UserInterface.SecretsManager.md")
+- [Storing passwords in the AWS Schema Conversion Tool](CHAP_UserInterface.StoringPasswords.md "CHAP_UserInterface.StoringPasswords.md")
+- [Creating UNION ALL view in the AWS Schema Conversion Tool](CHAP_UserInterface.UnionAllView.md "CHAP_UserInterface.UnionAllView.md")
+- [Using Keyboard Shortcuts in the AWS Schema Conversion Tool](CHAP_UserInterface.KeyboardShortcuts.md "CHAP_UserInterface.KeyboardShortcuts.md")

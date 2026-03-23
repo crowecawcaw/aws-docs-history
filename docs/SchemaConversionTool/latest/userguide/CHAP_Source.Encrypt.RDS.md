@@ -3,7 +3,7 @@
 To open encrypted connections to Amazon RDS or Amazon Aurora databases from an application, you
 need to import AWS root certificates into some form of key storage. You can download the
 root certificates from AWS at [Using
-SSL/TLS to encrypt a connection to a DB instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md") in the
+SSL/TLS to encrypt a connection to a DB instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md") in the
 _Amazon RDS User Guide_.
 
 Two options are available, a root certificate that works for all AWS Regions and a
@@ -17,7 +17,7 @@ procedures.
 1. Download a certificate or certificates from one of the following sources:
 
 For information about downloading certificates, see [Using
-SSL/TLS to encrypt a connection to a DB instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md") in the
+SSL/TLS to encrypt a connection to a DB instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md") in the
 _Amazon RDS User Guide_. 2. In your Windows search window, enter `Manage computer
  certificates`. When prompted as to whether to let the application
 make changes to your computer, choose **Yes**. 3. When the certificates window opens, if needed expand **Certificates -
@@ -45,7 +45,7 @@ it exists. The name of the certificate starts with `Amazon RDS`. 6. Restart your
    sources:
 
 For information about downloading certificates, see [Using
-SSL/TLS to encrypt a connection to a DB instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md") in the
+SSL/TLS to encrypt a connection to a DB instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md") in the
 _Amazon RDS User Guide_. 2. If you downloaded the certificate bundle, split it into individual
 certificates files. To do so, place each certificate block, beginning with
 `-----BEGIN CERTIFICATE-----` and ending with `-----END

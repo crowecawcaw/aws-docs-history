@@ -42,7 +42,7 @@ connection. Also, store database credentials in AWS Secrets Manager.
 ###### To create a custom connector
 
 1. Download the JDBC driver for your data store. For more information about JDBC drivers
-   that AWS SCT uses, see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.md "CHAP_Installing.md").
+   that AWS SCT uses, see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.JDBCDrivers.md "CHAP_Installing.JDBCDrivers.md").
 2. Upload this driver file to your Amazon S3 bucket. For more information, see
    [Upload an object to your bucket](../../../AmazonS3/latest/userguide/uploading-an-object-bucket.md "../../../AmazonS3/latest/userguide/uploading-an-object-bucket.md") in the _Amazon Simple Storage Service User Guide_.
 3. Sign in to the AWS Management Console and open the AWS Glue Studio console at [https://console.aws.amazon.com/gluestudio/](https://console.aws.amazon.com/gluestudio/ "https://console.aws.amazon.com/gluestudio/").
@@ -103,7 +103,7 @@ You can add multiple SSIS packages to a single AWS SCT project.
 ###### To add an SSIS package to your AWS SCT project
 
 1. Create a new project with AWS SCT or open an existing project.
-   For more information, see [Starting and managing Projects in AWS SCT](CHAP_UserInterface.md "CHAP_UserInterface.md").
+   For more information, see [Starting and managing Projects in AWS SCT](CHAP_UserInterface.Project.md "CHAP_UserInterface.Project.md").
 2. Choose **Add source** from the menu, and then choose
    **SQL Server Integration Services**.
 3. For **Connection name**, enter a name for your SSIS packages. AWS SCT
@@ -114,7 +114,7 @@ You can add multiple SSIS packages to a single AWS SCT project.
    **AWS Glue Studio**.
 
 To connect to AWS Glue Studio, AWS SCT uses your AWS profile. For more
-information, see [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md"). 6. Create a mapping rule, which includes your source SSIS package
+information, see [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.Profiles.md "CHAP_UserInterface.Profiles.md"). 6. Create a mapping rule, which includes your source SSIS package
 and your AWS Glue Studio target. For more information, see [Mapping data types in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md"). 7. Create AWS Glue Studio connections in the AWS Glue Studio console. For more information, see [Creating connections for connectors](../../../glue/latest/ug/connectors-chapter.md#creating-connections "../../../glue/latest/ug/connectors-chapter.md#creating-connections"). 8. Choose **Connection managers** in the left tree,
 open the context (right-click) menu, and then choose
 **Configure connections**.

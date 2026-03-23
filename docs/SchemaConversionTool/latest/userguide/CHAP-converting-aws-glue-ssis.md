@@ -14,7 +14,7 @@ files.
 ###### To convert an SSIS package to AWS Glue using AWS SCT
 
 1.  Create a new project in AWS SCT or open an existing project.
-    For more information, see [Starting and managing Projects in AWS SCT](CHAP_UserInterface.md "CHAP_UserInterface.md").
+    For more information, see [Starting and managing Projects in AWS SCT](CHAP_UserInterface.Project.md "CHAP_UserInterface.Project.md").
 2.  Choose **Add source** from the menu
     to add a new source SSIS package to your project.
 3.  Choose **SQL Server Integration Services**
@@ -43,8 +43,8 @@ files.
       bucket that you plan to use.
 
 You can use a virtual AWS Glue target. In this case, you don't need to specify
-the connection credentials. For more information, see [Mapping to virtual targets in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md"). 6. Create a new mapping rule that includes your source SSIS package and
-your AWS Glue target. For more information, see [Mapping new data types in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md"). 7. On the **View** menu, choose **Main view**. 8. In the SSIS tree view, open the context (right-click) menu for **Connection
+the connection credentials. For more information, see [Mapping to virtual targets in the AWS Schema Conversion Tool](CHAP_Mapping.VirtualTargets.md "CHAP_Mapping.VirtualTargets.md"). 6. Create a new mapping rule that includes your source SSIS package and
+your AWS Glue target. For more information, see [Mapping new data types in the AWS Schema Conversion Tool](CHAP_Mapping.New.md "CHAP_Mapping.New.md"). 7. On the **View** menu, choose **Main view**. 8. In the SSIS tree view, open the context (right-click) menu for **Connection
 managers**, and then choose **Configure
 connections**. 9. Configure the project connection manager.
 

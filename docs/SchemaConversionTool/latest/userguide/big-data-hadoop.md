@@ -58,7 +58,7 @@ In this step, you use the following AWS SCT CLI commands.
 - `AddTargetClusterHDFS` – to connect to the target HDFS service in your
   project
 
-For examples of using these AWS SCT CLI commands, see [Connecting to Apache Hadoop](CHAP_Source.md "CHAP_Source.md").
+For examples of using these AWS SCT CLI commands, see [Connecting to Apache Hadoop](CHAP_Source.Hadoop.md "CHAP_Source.Hadoop.md").
 
 When you run the command that connects to a source or target cluster, AWS SCT tries to establish the
 connection to this cluster. If the connection attempt fails, then AWS SCT stops running the commands
@@ -315,7 +315,7 @@ IP address of your Hadoop cluster. If needed, configure the value of the port va
 replace `hadoop_user` and `hadoop_password`
 with the name of your Hadoop user and the password for this user. For `path\name`,
 enter the name and path to the PEM file for your source Hadoop cluster. For more information about adding your source
-and target clusters, see [Connecting to Apache Hadoop databases with the AWS Schema Conversion Tool](CHAP_Source.md "CHAP_Source.md").
+and target clusters, see [Connecting to Apache Hadoop databases with the AWS Schema Conversion Tool](CHAP_Source.Hadoop.md "CHAP_Source.Hadoop.md").
 
 After you connect to your source and target Hadoop clusters, you must connect to your Hive and HDFS services,
 as well as to your Amazon S3 bucket. To do so, you use the `ConnectSourceClusterHive`,

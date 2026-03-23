@@ -19,7 +19,7 @@ Almost all work you do with AWS SCT starts with the following steps:
 5. Create mapping rules. For more information about mapping rules,
    see [Mapping data types in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md").
 6. Run and then review the Database Migration Assessment Report. For more information
-   about the assessment report, see [Viewing the Assessment Report in AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md").
+   about the assessment report, see [Viewing the Assessment Report in AWS Schema Conversion Tool](CHAP_UserInterface.AssessmentReport.md "CHAP_UserInterface.AssessmentReport.md").
 7. Convert the source database schemas. There are several aspects of the conversion you
    need to keep in mind, such as what to do with items that don't convert, and how to map items
    that should be converted a particular way. For more information about converting a
@@ -28,10 +28,10 @@ Almost all work you do with AWS SCT starts with the following steps:
 
 If you are converting a data warehouse schema, there are also aspects you need to consider
 before doing the conversion. For more information, see
-[Converting data warehouse schemas to Amazon RDS using AWS SCT](CHAP_Converting.md "CHAP_Converting.md"). 8. Applying the schema conversion to your target.
+[Converting data warehouse schemas to Amazon RDS using AWS SCT](CHAP_Converting.DW.md "CHAP_Converting.DW.md"). 8. Applying the schema conversion to your target.
 For more information about applying a source
-schema conversion, see [Applying converted schemas](CHAP_UserInterface.md "CHAP_UserInterface.md"). 9. You can also use AWS SCT to convert SQL stored procedures and other
+schema conversion, see [Applying converted schemas](CHAP_UserInterface.ApplyingConversion.md "CHAP_UserInterface.ApplyingConversion.md"). 9. You can also use AWS SCT to convert SQL stored procedures and other
 application code. For more information,
-see [Converting application SQL using AWS SCT](CHAP_Converting.md "CHAP_Converting.md")
+see [Converting application SQL using AWS SCT](CHAP_Converting.App.md "CHAP_Converting.App.md")
 You can also use AWS SCT to migrate your data from a source database to an Amazon-managed
 database. For examples, see [Migrating data from on-premises data warehouse to Amazon Redshift with AWS Schema Conversion Tool](agents.md "agents.md").
