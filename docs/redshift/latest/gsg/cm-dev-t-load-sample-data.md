@@ -4,7 +4,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # Load data
 
-Many of the examples in this guide use the TICKIT sample dataset. You can download the file [tickitdb.zip](samples/tickitdb.md "samples/tickitdb.md"), which
+Many of the examples in this guide use the TICKIT sample dataset. You can download the file [tickitdb.zip](samples/tickitdb.zip.md "samples/tickitdb.zip.md"), which
 contains individual sample data files. You can then upload the sample data to your own Amazon S3 bucket.
 
 To load the sample data for your database, first create the tables. Then use the COPY

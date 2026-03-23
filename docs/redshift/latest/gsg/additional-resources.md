@@ -27,7 +27,7 @@ about the concepts introduced in this guide by using the following Amazon Redshi
   - [Getting started with data
     sharing](../dg/getting-started-datashare.md "../dg/getting-started-datashare.md"): This section describes how to share and access data in other
     Amazon Redshift clusters.
-  - [Using spatial SQL functions with Amazon Redshift](../dg/spatial-tutorial.md "../dg/spatial-tutorial.md"): This tutorial demonstrates how to use some of the spatial SQL functions with Amazon Redshift.
+  - [Using spatial SQL functions with Amazon Redshift](../dg/spatial-tutorial.html.md "../dg/spatial-tutorial.html.md"): This tutorial demonstrates how to use some of the spatial SQL functions with Amazon Redshift.
   - [Querying nested data with Amazon Redshift
     Spectrum](../dg/tutorial-query-nested-data.md "../dg/tutorial-query-nested-data.md"): This tutorial describes how to use Redshift Spectrum to query nested data in Parquet, ORC, JSON, and Ion file formats using external tables.
   - [Configuring manual workload management (WLM) queues](../dg/tutorial-configuring-workload-management.md "../dg/tutorial-configuring-workload-management.md"): This tutorial describes how to configure manual workload management (WLM) in Amazon Redshift.
