@@ -8,7 +8,7 @@ have completed the prerequisites listed in [Get started with AWS Signer](getting
 
 If you're coming here from the Amazon ECR image signing documentation, be aware that you must fulfill all of the requirements related to Amazon ECR before beginning these AWS Signer procedures. For more
 information, see [Signing an
-image](../../../AmazonECR/latest/userguide/image-signing.md "../../../AmazonECR/latest/userguide/image-signing.md") in the _Amazon Elastic Container Registry User Guide_.
+image](../../../AmazonECR/latest/userguide/image-signing.htm.md "../../../AmazonECR/latest/userguide/image-signing.htm.md") in the _Amazon Elastic Container Registry User Guide_.
 
 ###### Topics
 
