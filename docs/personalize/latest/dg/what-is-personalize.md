@@ -74,8 +74,6 @@ can:
 - Automate and schedule Amazon Personalize tasks with [Maintaining Personalized Experiences with Machine Learning](https://aws.amazon.com/solutions/implementations/maintaining-personalized-experiences-with-ml/ "https://aws.amazon.com/solutions/implementations/maintaining-personalized-experiences-with-ml/"). This AWS
   Solutions Implementation automates the Amazon Personalize workflow, including data import, solution
   version training, and batch workflows.
-- Use Amazon CloudWatch Evidently to perform A/B testing with Amazon Personalize recommendations. For more information,
-  see [A/B testing with CloudWatch Evidently](ab-testing-evidently.md "ab-testing-evidently.md").
 
 ## Third-party services
 

@@ -21,14 +21,10 @@ The workflow for performing A/B testing with Amazon Personalize recommendations 
    recommendations to track results.
 4. **Evaluate results** – Analyze experiment results to determine if the modification
    made a statistically significant difference for the experiment group.
-   You can use Amazon CloudWatch Evidently to perform A/B testing with Amazon Personalize recommendations. With CloudWatch Evidently, you can define
-   your experiment, track key performance indicators (KPIs), route recommendation request traffic to the relevant Amazon Personalize
-   resource, and evaluate experiment results. For more information, see [A/B testing with CloudWatch Evidently](ab-testing-evidently.md "ab-testing-evidently.md").
 
 ###### Topics
 
 - [A/B testing best practices](#ab-testing-best-practices "#ab-testing-best-practices")
-- [A/B testing with CloudWatch Evidently](ab-testing-evidently.md "ab-testing-evidently.md")
 
 ## A/B testing best practices
 
