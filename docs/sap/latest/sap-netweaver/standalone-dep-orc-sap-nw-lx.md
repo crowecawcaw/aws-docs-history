@@ -75,7 +75,7 @@ You can also launch Amazon EC2 instances using the AWS Management Console. For m
 
 ## Step 4: Prepare the Oracle Linux OS
 
-Before starting the installation, you need to perform Oracle Enterprise Linux specific prerequisite tasks. For more information, refer to SAP Notes [1635808](https://launchpad.support.sap.com/#/notes/1635808 "https://launchpad.support.sap.com/#/notes/1635808"), [2069760](https://launchpad.support.sap.com/#/notes/2069760 "https://launchpad.support.sap.com/#/notes/2069760"), and [2936683](https://launchpad.support.sap.com/#/notes/2936683 "https://launchpad.support.sap.com/#/notes/2936683") (login required).
+Before starting the installation, you need to perform Oracle Enterprise Linux specific prerequisite tasks. For more information, refer to SAP Notes [1635808](https://me.sap.com/notes/1635808 "https://me.sap.com/notes/1635808"), [2069760](https://me.sap.com/notes/2069760 "https://me.sap.com/notes/2069760"), and [2936683](https://me.sap.com/notes/2936683 "https://me.sap.com/notes/2936683") (login required).
 
 ## Step 5: Prepare each Amazon EC2 instance for SAP Oracle installation
 

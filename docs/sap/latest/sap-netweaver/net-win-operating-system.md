@@ -8,4 +8,4 @@ Ensure that you have access to the appropriate Windows Server AMIs before procee
 
 As with any operating system, we recommend that you keep the OS up-to-date with the latest patches. You can also refer to the following SAP Notes:
 
-- [2325651](https://launchpad.support.sap.com/#/notes/2325651 "https://launchpad.support.sap.com/#/notes/2325651"): Required Windows Patches for SAP Operations
+- [2325651](https://me.sap.com/notes/2325651 "https://me.sap.com/notes/2325651"): Required Windows Patches for SAP Operations

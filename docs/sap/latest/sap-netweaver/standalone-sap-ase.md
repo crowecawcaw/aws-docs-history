@@ -81,8 +81,8 @@ You can also launch Amazon EC2 instances using the AWS Management Console. For m
 
 Before starting the installation, you need to perform Linux specific prerequisite tasks. For more information, refer to the following SAP Notes (requires SAP portal access).
 
-- [SAP Note 1554717 – SYB: Planning information for SAP on ASE](https://launchpad.support.sap.com/#/notes/0001554717 "https://launchpad.support.sap.com/#/notes/0001554717")
-- [SAP Note 1748888 – SYB: Inst.Systems Based on NW 7.3 and Higher: SAP ASE](https://launchpad.support.sap.com/#/notes/1748888 "https://launchpad.support.sap.com/#/notes/1748888")
+- [SAP Note 1554717 – SYB: Planning information for SAP on ASE](https://me.sap.com/notes/0001554717 "https://me.sap.com/notes/0001554717")
+- [SAP Note 1748888 – SYB: Inst.Systems Based on NW 7.3 and Higher: SAP ASE](https://me.sap.com/notes/1748888 "https://me.sap.com/notes/1748888")
 
 ## Step 5: Prepare each Amazon EC2 instance for SAP ASE installation
 

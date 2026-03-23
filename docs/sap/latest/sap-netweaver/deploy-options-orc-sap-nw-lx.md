@@ -20,7 +20,7 @@ In high availability deployment, you deploy two Amazon EC2 instances across two 
 
 ###### Note
 
-When using native Oracle with SAP and AWS features, the design must be a subset of supported features, as described in [SAP Note 105047](https://launchpad.support.sap.com/#/notes/105047 "https://launchpad.support.sap.com/#/notes/105047") and [SAP Note 2358420](https://launchpad.support.sap.com/#/notes/2358420 "https://launchpad.support.sap.com/#/notes/2358420").
+When using native Oracle with SAP and AWS features, the design must be a subset of supported features, as described in [SAP Note 105047](https://me.sap.com/notes/105047 "https://me.sap.com/notes/105047") and [SAP Note 2358420](https://me.sap.com/notes/2358420 "https://me.sap.com/notes/2358420").
 
 **Option 1: high availability with Oracle Data Guard**
 

@@ -72,4 +72,4 @@ https://your-server:9090/
 e.g https://rhxhost01:9090
 ```
 
-For more information, see [Configuring and Managing High Availability Clusters](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/managing-cluster-resources_configuring-and-managing-high-availability-clusters "https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/managing-cluster-resources_configuring-and-managing-high-availability-clusters") in the Red Hat Documentation.
+For more information, see [Configuring and Managing High Availability Clusters](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters") in the Red Hat Documentation.

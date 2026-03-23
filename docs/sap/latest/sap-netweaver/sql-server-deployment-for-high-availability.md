@@ -61,7 +61,7 @@ Install the database instance on the primary node. Follow SAP installation guide
 
 9. Install SAP Host agent on secondary instance with SWPM.
 10. Create a SQL Server Always On availability group. See the [Microsoft documentation](https://techcommunity.microsoft.com/t5/ITOps-Talk-Blog/Step-By-Step-Creating-a-SQL-Server-Always-On-Availability-Group/ba-p/648772 "https://techcommunity.microsoft.com/t5/ITOps-Talk-Blog/Step-By-Step-Creating-a-SQL-Server-Always-On-Availability-Group/ba-p/648772") for SQL Always On availability group installation instructions.
-11. Adjust the SAP profile files for parameters per the following example. Make sure to replace the `<availabilitygroup listener>` placeholder with appropriate the value for your setup. For details, refer to [SAP Note 1772688 - SQL Server Always On and SAP applications](https://launchpad.support.sap.com/#/notes/1772688 "https://launchpad.support.sap.com/#/notes/1772688").
+11. Adjust the SAP profile files for parameters per the following example. Make sure to replace the `<availabilitygroup listener>` placeholder with appropriate the value for your setup. For details, refer to [SAP Note 1772688 - SQL Server Always On and SAP applications](https://me.sap.com/notes/1772688 "https://me.sap.com/notes/1772688").
 
 ```
 dbs/mss/server = <availabilitygroup listener>;MultiSubnetFailover=yes

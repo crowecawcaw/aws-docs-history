@@ -40,8 +40,8 @@ For each of these operating systems, you can bring your own subscription to AWS 
 
 Review the following SAP Notes. You require SAP portal access to check these references from SAP.
 
-- SAP Note: [1656099 - SAP Applications on AWS: Supported DB/OS and Amazon EC2 products](https://launchpad.support.sap.com/#/notes/1656099 "https://launchpad.support.sap.com/#/notes/1656099")
-- SAP Note: [2871484 - SAP supported variants of Red Hat Enterprise Linux](https://launchpad.support.sap.com/#/notes/2871484 "https://launchpad.support.sap.com/#/notes/2871484")
-- SAP Note: [2358420 - Oracle Database Support for Amazon Web Services EC2](https://launchpad.support.sap.com/#/notes/2358420 "https://launchpad.support.sap.com/#/notes/2358420")
-- SAP Note: [62988 - Service Packs for MS SQL Server](https://launchpad.support.sap.com/#/notes/62988 "https://launchpad.support.sap.com/#/notes/62988")
-- SAP Note: [2235581 - SAP HANA: Supported Operating systems](https://launchpad.support.sap.com/#/notes/2235581 "https://launchpad.support.sap.com/#/notes/2235581")
+- SAP Note: [1656099 - SAP Applications on AWS: Supported DB/OS and Amazon EC2 products](https://me.sap.com/notes/1656099 "https://me.sap.com/notes/1656099")
+- SAP Note: [2871484 - SAP supported variants of Red Hat Enterprise Linux](https://me.sap.com/notes/2871484 "https://me.sap.com/notes/2871484")
+- SAP Note: [2358420 - Oracle Database Support for Amazon Web Services EC2](https://me.sap.com/notes/2358420 "https://me.sap.com/notes/2358420")
+- SAP Note: [62988 - Service Packs for MS SQL Server](https://me.sap.com/notes/62988 "https://me.sap.com/notes/62988")
+- SAP Note: [2235581 - SAP HANA: Supported Operating systems](https://me.sap.com/notes/2235581 "https://me.sap.com/notes/2235581")

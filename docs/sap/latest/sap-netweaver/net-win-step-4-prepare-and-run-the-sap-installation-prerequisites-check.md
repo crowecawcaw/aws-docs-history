@@ -12,4 +12,4 @@
 
    2. Optionally add the server to your Active Directory domain (this can be done with [AWS Systems Manager](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-systems-manager-dx-domain/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-systems-manager-dx-domain/")).
    3. Pagefile size will have a minimum recommended value based on services selected.
-   4. Continuous Availability feature on Windows Server 2012 R2 can result in long wait times. See [SAP note 1823833](https://launchpad.support.sap.com/#/notes/1823833 "https://launchpad.support.sap.com/#/notes/1823833") for a fix.
+   4. Continuous Availability feature on Windows Server 2012 R2 can result in long wait times. See [SAP note 1823833](https://me.sap.com/notes/1823833 "https://me.sap.com/notes/1823833") for a fix.

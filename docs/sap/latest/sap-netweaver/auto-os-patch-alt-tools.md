@@ -4,7 +4,7 @@ In addition to AWS Systems Manager, there are other automated patching tools tha
 
 ## SUSE Manager
 
-SUSE Manager is an infrastructure management tool for Linux systems. With SUSE manager, you can automate software management of SLES< RHEL and OEL operating systems. For more information, and a list of Amazon EC2 instances, see [SUSE Manager 4.0 Documentation](https://documentation.suse.com/external-tree/en-us/suma/4.0/suse-manager/index.html "https://documentation.suse.com/external-tree/en-us/suma/4.0/suse-manager/index.html").
+SUSE Manager is an infrastructure management tool for Linux systems. With SUSE manager, you can automate software management of SLES< RHEL and OEL operating systems. For more information, and a list of Amazon EC2 instances, see [SUSE Manager Documentation](https://documentation.suse.com/suma/ "https://documentation.suse.com/suma/").
 
 ## Repository Mirroring Tool (For SUSE Linux)
 

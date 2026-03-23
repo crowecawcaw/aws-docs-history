@@ -3,10 +3,9 @@
 These additional AWS security resources can help you achieve the level of security that you require for your SAP NetWeaver environment on AWS:
 
 - [AWS Cloud Security Center](https://aws.amazon.com/security/ "https://aws.amazon.com/security/")
-- [CIS Amazon Web Services Foundations whitepaper](https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf "https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf")
+- [CIS AWS Foundations Benchmark](../../../securityhub/latest/userguide/cis-aws-foundations-benchmark.md "../../../securityhub/latest/userguide/cis-aws-foundations-benchmark.md")
 - [Introduction to AWS Security](../../../whitepapers/latest/introduction-aws-security/welcome.md "../../../whitepapers/latest/introduction-aws-security/welcome.md")
-- [AWS Security Best Practices whitepaper](http://d0.awsstatic.com/whitepapers/aws-security-best-practices.pdf "http://d0.awsstatic.com/whitepapers/aws-security-best-practices.pdf")
-- [AWS Well-Architected Framework Security Pillar whitepaper](https://d1.awsstatic.com/whitepapers/architecture/AWS-Security-Pillar.pdf "https://d1.awsstatic.com/whitepapers/architecture/AWS-Security-Pillar.pdf")
+- [AWS Well-Architected Framework Security Pillar](../../../wellarchitected/latest/security-pillar/welcome.md "../../../wellarchitected/latest/security-pillar/welcome.md")
 - [Network and Security topic](../../../AWSEC2/latest/WindowsGuide/ec2-network-and-security.md "../../../AWSEC2/latest/WindowsGuide/ec2-network-and-security.md") from the _Amazon EC2 User Guide for Windows Instances_
 
 ## OS Hardening
@@ -21,7 +20,7 @@ We provide guidance on how to best secure your Windows EC2 instances:
 
 You can also refer to the following SAP note:
 
-- [1837765](https://launchpad.support.sap.com/#/notes/1837765 "https://launchpad.support.sap.com/#/notes/1837765"): Security policies for <SID>adm and SapService<SID> on Windows
+- [1837765](https://me.sap.com/notes/1837765 "https://me.sap.com/notes/1837765"): Security policies for <SID>adm and SapService<SID> on Windows
 
 ## Encryption
 

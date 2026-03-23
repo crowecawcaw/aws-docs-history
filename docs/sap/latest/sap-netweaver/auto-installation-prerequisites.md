@@ -14,7 +14,7 @@ You must provide the SAP installation media files, which are obtained from SAP, 
 
 Read the following SAP Note:
 
-- SAP Note: [2230669 - System Provisioning Using a Parameter Input File](https://launchpad.support.sap.com/#/notes/2230669 "https://launchpad.support.sap.com/#/notes/2230669")
+- SAP Note: [2230669 - System Provisioning Using a Parameter Input File](https://me.sap.com/notes/2230669 "https://me.sap.com/notes/2230669")
 
 **Additional references**
 

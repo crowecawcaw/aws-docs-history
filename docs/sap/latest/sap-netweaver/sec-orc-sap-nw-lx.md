@@ -3,7 +3,7 @@
 The following are additional AWS security resources to help you achieve the optimum level of security for your SAP NetWeaver environment on AWS:
 
 - [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/")
-- [CIS AWS Foundations](https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf "https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf")
+- [CIS AWS Foundations Benchmark](../../../securityhub/latest/userguide/cis-aws-foundations-benchmark.md "../../../securityhub/latest/userguide/cis-aws-foundations-benchmark.md")
 - [AWS Well-Architected Framework](../../../wellarchitected/latest/security-pillar/welcome.md "../../../wellarchitected/latest/security-pillar/welcome.md")
 
 ## OS Hardening
@@ -12,10 +12,10 @@ Check the following resources to strengthen the security of your workloads. You 
 
 - Refer to [Security in Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-security.md "../../../AWSEC2/latest/UserGuide/ec2-security.md").
 - Use [Amazon Inspector](https://aws.amazon.com/inspector/ "https://aws.amazon.com/inspector/").
-- [SAP Note 1635808](https://launchpad.support.sap.com/#/notes/1635808 "https://launchpad.support.sap.com/#/notes/1635808")
-- [SAP Note 2069760](https://launchpad.support.sap.com/#/notes/2069760 "https://launchpad.support.sap.com/#/notes/2069760")
-- [SAP Note 2936683](https://launchpad.support.sap.com/#/notes/2936683 "https://launchpad.support.sap.com/#/notes/2936683")
-- [SAP Note 1565179](https://launchpad.support.sap.com/#/notes/1565179 "https://launchpad.support.sap.com/#/notes/1565179")
+- [SAP Note 1635808](https://me.sap.com/notes/1635808 "https://me.sap.com/notes/1635808")
+- [SAP Note 2069760](https://me.sap.com/notes/2069760 "https://me.sap.com/notes/2069760")
+- [SAP Note 2936683](https://me.sap.com/notes/2936683 "https://me.sap.com/notes/2936683")
+- [SAP Note 1565179](https://me.sap.com/notes/1565179 "https://me.sap.com/notes/1565179")
 
 To follow the CIS Benchmarks, see [Securing Oracle Linux](https://www.cisecurity.org/benchmark/oracle_linux/ "https://www.cisecurity.org/benchmark/oracle_linux/").
 
@@ -27,7 +27,7 @@ The important aspect of securing your workloads is encrypting your data, both at
 - [Data encryption in Amazon EFS](../../../efs/latest/ug/encryption.md "../../../efs/latest/ug/encryption.md")
 - [Data encryption in Amazon S3](../../../AmazonS3/latest/userguide/UsingEncryption.md "../../../AmazonS3/latest/userguide/UsingEncryption.md")
 
-In addition to AWS encryption features, you can also use Oracle Transparent Data Encryption, as described in [SAP Note 974876](https://launchpad.support.sap.com/#/notes/974876 "https://launchpad.support.sap.com/#/notes/974876").
+In addition to AWS encryption features, you can also use Oracle Transparent Data Encryption, as described in [SAP Note 974876](https://me.sap.com/notes/974876 "https://me.sap.com/notes/974876").
 
 ## Security group
 

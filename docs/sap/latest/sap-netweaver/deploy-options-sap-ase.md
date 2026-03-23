@@ -26,8 +26,8 @@ The SAP ASE always-on option is a high availability/disaster recovery system tha
 
 _We recommend referring to the following SAP Notes (SAP portal access required) for a high availability deployment._
 
-- _[SAP Note 1650511 – SYB: High Availability Offerings with SAP Adaptive Server Enterprise](https://launchpad.support.sap.com/#/notes/1650511 "https://launchpad.support.sap.com/#/notes/1650511")_
-- _[SAP Note 2808173 – Special Instructions when Installing and Upgrading HADR with SAP Business Suite on SAP ASE](https://launchpad.support.sap.com/#/notes/2808173 "https://launchpad.support.sap.com/#/notes/2808173")_
+- _[SAP Note 1650511 – SYB: High Availability Offerings with SAP Adaptive Server Enterprise](https://me.sap.com/notes/1650511 "https://me.sap.com/notes/1650511")_
+- _[SAP Note 2808173 – Special Instructions when Installing and Upgrading HADR with SAP Business Suite on SAP ASE](https://me.sap.com/notes/2808173 "https://me.sap.com/notes/2808173")_
 
 ## Disaster recovery deployment
 
@@ -42,7 +42,7 @@ With this option, you can either choose pilot light, where the recovery instance
 _For more details, check the following SAP resources._
 
 - _[HADR System with DR Node Users Guide](https://help.sap.com/doc/f0a13ab3128b4eb0a5042281050c95d8/16.0.3.6/en-US/HADR_System_with_DR_Node_Users_Guide.pdf "https://help.sap.com/doc/f0a13ab3128b4eb0a5042281050c95d8/16.0.3.6/en-US/HADR_System_with_DR_Node_Users_Guide.pdf")_
-- _[2934459 - HADR support of two ASE servers on Primary and Companion machines - SAP ASE](https://launchpad.support.sap.com/#/notes/2934459 "https://launchpad.support.sap.com/#/notes/2934459") (requires SAP portal access)_
+- _[2934459 - HADR support of two ASE servers on Primary and Companion machines - SAP ASE](https://me.sap.com/notes/2934459 "https://me.sap.com/notes/2934459") (requires SAP portal access)_
 
 ![SAP ASE servers on EC2 instances in multiple Availability Zones of one Region with replication to another Region.](images/ase-dr-1.jpg)
 

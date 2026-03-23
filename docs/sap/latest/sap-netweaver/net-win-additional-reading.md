@@ -13,9 +13,9 @@ This is for SAP NetWeaver deployments on Linux, but is a useful point of compari
 
 ## SAP Documentation
 
-- [SAPS Ratings of AWS Instance types supported for SAP Note 1656099](https://launchpad.support.sap.com/#/notes/1656099 "https://launchpad.support.sap.com/#/notes/1656099")
-- [1588667 - SAP on AWS: Overview of related SAP Notes and Web-Links](https://launchpad.support.sap.com/#/notes/1588667 "https://launchpad.support.sap.com/#/notes/1588667")
-- [1656250 - SAP on AWS: Support prerequisites](https://launchpad.support.sap.com/#/notes/1656250 "https://launchpad.support.sap.com/#/notes/1656250")
-- [2539944 - Windows Server / Microsoft SQL Server on AMI](https://launchpad.support.sap.com/#/notes/2539944 "https://launchpad.support.sap.com/#/notes/2539944")
-- [1409604 - Virtualization on Windows: Enhanced monitoring](https://launchpad.support.sap.com/#/notes/1409604 "https://launchpad.support.sap.com/#/notes/1409604")
-- [2198693 - Key Monitoring Metrics for SAP on Amazon Web Services](https://launchpad.support.sap.com/#/notes/2198693 "https://launchpad.support.sap.com/#/notes/2198693")
+- [SAPS Ratings of AWS Instance types supported for SAP Note 1656099](https://me.sap.com/notes/1656099 "https://me.sap.com/notes/1656099")
+- [1588667 - SAP on AWS: Overview of related SAP Notes and Web-Links](https://me.sap.com/notes/1588667 "https://me.sap.com/notes/1588667")
+- [1656250 - SAP on AWS: Support prerequisites](https://me.sap.com/notes/1656250 "https://me.sap.com/notes/1656250")
+- [2539944 - Windows Server / Microsoft SQL Server on AMI](https://me.sap.com/notes/2539944 "https://me.sap.com/notes/2539944")
+- [1409604 - Virtualization on Windows: Enhanced monitoring](https://me.sap.com/notes/1409604 "https://me.sap.com/notes/1409604")
+- [2198693 - Key Monitoring Metrics for SAP on Amazon Web Services](https://me.sap.com/notes/2198693 "https://me.sap.com/notes/2198693")

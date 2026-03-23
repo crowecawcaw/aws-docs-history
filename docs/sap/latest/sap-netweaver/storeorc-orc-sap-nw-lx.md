@@ -4,15 +4,15 @@ This section describes the key considerations for designing storage layout of Or
 
 ## Amazon FSx for NetApp ONTAP
 
-FSx for ONTAP is certified for Oracle databases on SAP NetWeaver. For more information, see [SAP Note 1656250 - SAP on AWS: Support prerequisites](https://launchpad.support.sap.com/#/notes/1656250 "https://launchpad.support.sap.com/#/notes/1656250") (portal access required).
+FSx for ONTAP is certified for Oracle databases on SAP NetWeaver. For more information, see [SAP Note 1656250 - SAP on AWS: Support prerequisites](https://me.sap.com/notes/1656250 "https://me.sap.com/notes/1656250") (portal access required).
 
 ## File system
 
 The file system structure for SAP Oracle deployment may differ with the database version. Refer to the following SAP Notes for individual Oracle database versions:
 
-- [SAP Note 2660017](https://launchpad.support.sap.com/#/notes/2660017 "https://launchpad.support.sap.com/#/notes/2660017")
-- [SAP Note 1915301](https://launchpad.support.sap.com/#/notes/1915301 "https://launchpad.support.sap.com/#/notes/1915301")
-- [SAP Note 1524205](https://launchpad.support.sap.com/#/notes/1524205 "https://launchpad.support.sap.com/#/notes/1524205")
+- [SAP Note 2660017](https://me.sap.com/notes/2660017 "https://me.sap.com/notes/2660017")
+- [SAP Note 1915301](https://me.sap.com/notes/1915301 "https://me.sap.com/notes/1915301")
+- [SAP Note 1524205](https://me.sap.com/notes/1524205 "https://me.sap.com/notes/1524205")
 
 The directory structure for database installation requires several file systems. This section only focuses on the storage layout of the file systems mentioned in the following table. The other file systems (used for storing Oracle software binaries, trace, and log files) are critical for operations but do not have heavy performance requirements as compared to the following files.
 

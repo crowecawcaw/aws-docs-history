@@ -3,7 +3,7 @@
 The following are additional AWS security resources to help you achieve the optimum level of security for your SAP NetWeaver environment on AWS:
 
 - [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/")
-- [CIS AWS Foundations](https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf "https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf")
+- [CIS AWS Foundations Benchmark](../../../securityhub/latest/userguide/cis-aws-foundations-benchmark.md "../../../securityhub/latest/userguide/cis-aws-foundations-benchmark.md")
 - [AWS Well-Architected Framework](../../../wellarchitected/latest/security-pillar/welcome.md "../../../wellarchitected/latest/security-pillar/welcome.md")
 
 ## Infrastructure hardening
@@ -23,7 +23,7 @@ The important aspect of securing your workloads is encrypting your data, both at
 
 _You can also refer to the following SAP resources._
 
-- _[SAP Note 2481596 – SYB: Encrypted data transfer between SAP system and SAP ASE database](https://launchpad.support.sap.com/#/notes/2481596 "https://launchpad.support.sap.com/#/notes/2481596") (requires SAP portal access)_
+- _[SAP Note 2481596 – SYB: Encrypted data transfer between SAP system and SAP ASE database](https://me.sap.com/notes/2481596 "https://me.sap.com/notes/2481596") (requires SAP portal access)_
 - [SAP Adaptive Server Enterprise – Database Encryption](https://help.sap.com/docs/SAP_ASE/833788dd3e9c413799014a0fd002d0b2/a7b86bb3bc2b1014b9b08178723a5ee2.html "https://help.sap.com/docs/SAP_ASE/833788dd3e9c413799014a0fd002d0b2/a7b86bb3bc2b1014b9b08178723a5ee2.html")
 
 ## Security group

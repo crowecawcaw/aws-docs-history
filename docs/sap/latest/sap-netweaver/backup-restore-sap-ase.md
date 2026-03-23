@@ -54,9 +54,9 @@ You can improve Amazon S3 data upload performance with Gateway endpoints and AWS
 
 Review the following SAP Notes (portal access required) for more details.
 
-- [SAP Note 1585981 - SYB: Ensuring Recoverability for SAP ASE](https://launchpad.support.sap.com/#/notes/1585981 "https://launchpad.support.sap.com/#/notes/1585981")
-- [SAP Note 1887068 - SYB: Using external backup and restore with SAP ASE](https://launchpad.support.sap.com/#/notes/1887068 "https://launchpad.support.sap.com/#/notes/1887068")
-- [SAP Note 1588316 - SYB: Configure automatic database and log backups](https://launchpad.support.sap.com/#/notes/1588316 "https://launchpad.support.sap.com/#/notes/1588316")
-- [SAP Note 1618817 - SYB: How to restore an SAP ASE database server (UNIX)](https://launchpad.support.sap.com/#/notes/1618817 "https://launchpad.support.sap.com/#/notes/1618817")
+- [SAP Note 1585981 - SYB: Ensuring Recoverability for SAP ASE](https://me.sap.com/notes/1585981 "https://me.sap.com/notes/1585981")
+- [SAP Note 1887068 - SYB: Using external backup and restore with SAP ASE](https://me.sap.com/notes/1887068 "https://me.sap.com/notes/1887068")
+- [SAP Note 1588316 - SYB: Configure automatic database and log backups](https://me.sap.com/notes/1588316 "https://me.sap.com/notes/1588316")
+- [SAP Note 1618817 - SYB: How to restore an SAP ASE database server (UNIX)](https://me.sap.com/notes/1618817 "https://me.sap.com/notes/1618817")
 
 To use third-party tools to backup your SAP ASE database, see [AWS Storage Competency Partners](https://aws.amazon.com/backup-recovery/partner-solutions "https://aws.amazon.com/backup-recovery/partner-solutions").
