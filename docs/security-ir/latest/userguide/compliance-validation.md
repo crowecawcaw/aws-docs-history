@@ -27,7 +27,7 @@ compliance:
   for deploying security- and compliance-focused baseline
   environments on AWS.
 - [Architecting
-  for HIPAA security and compliance whitepaper](../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md "../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md") – This
+  for HIPAA security and compliance whitepaper](../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.pdf.md "../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.pdf.md") – This
   whitepaper describes how companies can use AWS to create
   HIPAA-compliant applications.
 - [AWS
