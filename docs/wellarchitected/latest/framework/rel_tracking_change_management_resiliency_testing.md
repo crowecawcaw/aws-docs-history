@@ -89,7 +89,7 @@ engineering.
 
 - [Experiment
   with failure using resilience testing to build recovery
-  preparedness](../devops-guidance/qa.nt.md "../devops-guidance/qa.nt.md")
+  preparedness](../devops-guidance/qa.nt.6-experiment-with-failure-using-resilience-testing-to-build-recovery-preparedness.md "../devops-guidance/qa.nt.6-experiment-with-failure-using-resilience-testing-to-build-recovery-preparedness.md")
 - [Continually
   assessing application resilience with AWS Resilience Hub and
   AWS CodePipeline](https://aws.amazon.com/blogs/architecture/continually-assessing-application-resilience-with-aws-resilience-hub-and-aws-codepipeline/ "https://aws.amazon.com/blogs/architecture/continually-assessing-application-resilience-with-aws-resilience-hub-and-aws-codepipeline/")

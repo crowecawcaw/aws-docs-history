@@ -41,7 +41,7 @@ Data optimization includes several techniques to ensure efficient data storage a
   - Data partitioning to split data into smaller parts and
     reduce data scanning time.
     - [Partitioning data in Athena](../../../athena/latest/ug/partitions.md "../../../athena/latest/ug/partitions.md")
-    - [Partitions and data distribution](../../../amazondynamodb/latest/developerguide/HowItWorks.md "../../../amazondynamodb/latest/developerguide/HowItWorks.md")
+    - [Partitions and data distribution](../../../amazondynamodb/latest/developerguide/HowItWorks.Partitions.md "../../../amazondynamodb/latest/developerguide/HowItWorks.Partitions.md")
 
   - Data indexing on the common columns in the query.
   - Use materialized views for frequent queries.
@@ -60,7 +60,7 @@ Data optimization includes several techniques to ensure efficient data storage a
 
 **Related documents:**
 
-- [Amazon Aurora best practices](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md")
+- [Amazon Aurora best practices](../../../AmazonRDS/latest/UserGuide/Aurora.BestPractices.md "../../../AmazonRDS/latest/UserGuide/Aurora.BestPractices.md")
 - [Amazon Redshift performance](../../../redshift/latest/dg/c_challenges_achieving_high_performance_queries.md "../../../redshift/latest/dg/c_challenges_achieving_high_performance_queries.md")
 - [Amazon Athena top 10 performance tips](https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/?ref=wellarchitected "https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/?ref=wellarchitected")
 - [AWS Database Caching](https://aws.amazon.com/caching/database-caching/?ref=wellarchitected "https://aws.amazon.com/caching/database-caching/?ref=wellarchitected")

@@ -57,19 +57,19 @@ measurements related to database performance.
     metrics for in an Amazon RDS instance](../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md "../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md")
   - [Monitoring DB load with Performance Insights on Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md")
   - [Overview of Enhanced
-    Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md")
+    Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.overview.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.overview.md")
   - [DynamoDB
     Metrics and dimensions](../../../amazondynamodb/latest/developerguide/metrics-dimensions.md "../../../amazondynamodb/latest/developerguide/metrics-dimensions.md")
   - [Monitoring
-    DynamoDB Accelerator](../../../amazondynamodb/latest/developerguide/DAX.md "../../../amazondynamodb/latest/developerguide/DAX.md")
+    DynamoDB Accelerator](../../../amazondynamodb/latest/developerguide/DAX.Monitoring.md "../../../amazondynamodb/latest/developerguide/DAX.Monitoring.md")
   - [Monitoring
     Amazon MemoryDB with Amazon CloudWatch](../../../memorydb/latest/devguide/monitoring-cloudwatch.md "../../../memorydb/latest/devguide/monitoring-cloudwatch.md")
-  - [Which Metrics Should I Monitor?](../../../AmazonElastiCache/latest/red-ug/CacheMetrics.md "../../../AmazonElastiCache/latest/red-ug/CacheMetrics.md")
+  - [Which Metrics Should I Monitor?](../../../AmazonElastiCache/latest/red-ug/CacheMetrics.WhichShouldIMonitor.md "../../../AmazonElastiCache/latest/red-ug/CacheMetrics.WhichShouldIMonitor.md")
   - [Monitoring
     Amazon Redshift cluster performance](../../../redshift/latest/mgmt/metrics.md "../../../redshift/latest/mgmt/metrics.md")
   - [Timestream
     metrics and dimensions](../../../timestream/latest/developerguide/metrics-dimensions.md "../../../timestream/latest/developerguide/metrics-dimensions.md")
-  - [Amazon CloudWatch metrics for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.md")
+  - [Amazon CloudWatch metrics for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md")
   - [Logging and monitoring in Amazon Keyspaces (for Apache Cassandra)](../../../keyspaces/latest/devguide/monitoring.md "../../../keyspaces/latest/devguide/monitoring.md")
   - [Monitoring
     Amazon Neptune Resources](../../../neptune/latest/userguide/monitoring.md "../../../neptune/latest/userguide/monitoring.md")
@@ -83,7 +83,7 @@ measurements related to database performance.
   thresholds are breached.
 - Check if data store monitoring can benefit from a machine
   learning solution that detects performance anomalies.
-  - [Amazon DevOps Guru for Amazon RDS](../../../devops-guru/latest/userguide/working-with-rds.overview.md "../../../devops-guru/latest/userguide/working-with-rds.overview.md") provides visibility into
+  - [Amazon DevOps Guru for Amazon RDS](../../../devops-guru/latest/userguide/working-with-rds.overview.how-it-works.md "../../../devops-guru/latest/userguide/working-with-rds.overview.how-it-works.md") provides visibility into
     performance issues and makes recommendations for
     corrective actions.
 
@@ -100,7 +100,7 @@ measurements related to database performance.
 
 - [AWS Database Caching](https://aws.amazon.com/caching/database-caching/ "https://aws.amazon.com/caching/database-caching/")
 - [Amazon Athena top 10 performance tips](https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/ "https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/")
-- [Amazon Aurora best practices](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md")
+- [Amazon Aurora best practices](../../../AmazonRDS/latest/UserGuide/Aurora.BestPractices.md "../../../AmazonRDS/latest/UserGuide/Aurora.BestPractices.md")
 - [DynamoDB Accelerator](https://aws.amazon.com/dynamodb/dax/ "https://aws.amazon.com/dynamodb/dax/")
 - [Amazon DynamoDB best practices](../../../amazondynamodb/latest/developerguide/BestPractices.md "../../../amazondynamodb/latest/developerguide/BestPractices.md")
 - [Amazon Redshift Spectrum best practices](https://aws.amazon.com/blogs/big-data/10-best-practices-for-amazon-redshift-spectrum/ "https://aws.amazon.com/blogs/big-data/10-best-practices-for-amazon-redshift-spectrum/")

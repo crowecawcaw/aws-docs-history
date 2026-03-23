@@ -66,7 +66,7 @@ AWS also provides options for client-side encryption, allowing you to encrypt da
   encryption configured will automatically encrypt root
   volumes and snapshots.
 - **Configure** [**Amazon RDS
-  encryption**](../../../AmazonRDS/latest/AuroraUserGuide/Overview.md "../../../AmazonRDS/latest/AuroraUserGuide/Overview.md")**:**
+  encryption**](../../../AmazonRDS/latest/AuroraUserGuide/Overview.Encryption.md "../../../AmazonRDS/latest/AuroraUserGuide/Overview.Encryption.md")**:**
   Configure encryption for your Amazon RDS database clusters
   and snapshots at rest by using the encryption option.
 - **Create and configure AWS KMS keys
@@ -102,7 +102,7 @@ AWS also provides options for client-side encryption, allowing you to encrypt da
 - [Default
   encryption for Amazon EBS volumes](https://aws.amazon.com/blogs/aws/new-opt-in-to-default-encryption-for-new-ebs-volumes/ "https://aws.amazon.com/blogs/aws/new-opt-in-to-default-encryption-for-new-ebs-volumes/")
 - [Encrypting
-  Amazon RDS Resources](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md")
+  Amazon RDS Resources](../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md "../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md")
 - [How
   do I enable default encryption for an Amazon S3 bucket?](../../../AmazonS3/latest/user-guide/default-bucket-encryption.md "../../../AmazonS3/latest/user-guide/default-bucket-encryption.md")
 - [Protecting

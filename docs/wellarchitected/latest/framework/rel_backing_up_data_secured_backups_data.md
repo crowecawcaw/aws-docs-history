@@ -58,7 +58,7 @@ To enhance backup security against cyber threats, consider implementing these ad
 
 1. Use encryption on each of your data stores. If your source data is
    encrypted, then the backup will also be encrypted.
-   - [Use encryption in Amazon RDS.](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md"). You can configure encryption at rest using AWS Key Management Service
+   - [Use encryption in Amazon RDS.](../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md "../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md"). You can configure encryption at rest using AWS Key Management Service
      when you create an RDS instance.
    - [Use encryption on Amazon EBS volumes.](../../../AWSEC2/latest/UserGuide/EBSEncryption.md "../../../AWSEC2/latest/UserGuide/EBSEncryption.md"). You can configure default encryption or specify
      a unique key upon volume creation.
@@ -93,13 +93,13 @@ To enhance backup security against cyber threats, consider implementing these ad
 - [DynamoDB
   Encryption at Rest](../../../amazondynamodb/latest/developerguide/EncryptionAtRest.md "../../../amazondynamodb/latest/developerguide/EncryptionAtRest.md")
 - [Encrypting
-  Amazon RDS Resources](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md")
+  Amazon RDS Resources](../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md "../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md")
 - [Encrypting
   Data and Metadata in Amazon EFS](../../../efs/latest/ug/encryption.md "../../../efs/latest/ug/encryption.md")
 - [Encryption
   for Backups in AWS](../../../aws-backup/latest/devguide/encryption.md "../../../aws-backup/latest/devguide/encryption.md")
 - [Managing
-  Encrypted Tables](../../../amazondynamodb/latest/developerguide/encryption.md "../../../amazondynamodb/latest/developerguide/encryption.md")
+  Encrypted Tables](../../../amazondynamodb/latest/developerguide/encryption.tutorial.md "../../../amazondynamodb/latest/developerguide/encryption.tutorial.md")
 - [Security
   Pillar - AWS Well-Architected Framework](../security-pillar/welcome.md "../security-pillar/welcome.md")
 - [What is AWS Elastic Disaster Recovery?](../../../drs/latest/userguide/what-is-drs.md "../../../drs/latest/userguide/what-is-drs.md")

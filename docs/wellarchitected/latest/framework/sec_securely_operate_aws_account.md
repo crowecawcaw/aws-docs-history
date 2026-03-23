@@ -76,7 +76,7 @@ member account root users.
 
 The following implementation steps are recommended to establish controls for the root
 user. Where applicable, recommendations are cross-referenced to [CIS AWS
-Foundations benchmark version 1.4.0](../../../securityhub/latest/userguide/securityhub-cis-controls-1.4.md "../../../securityhub/latest/userguide/securityhub-cis-controls-1.4.md"). In addition to these steps, consult [AWS best
+Foundations benchmark version 1.4.0](../../../securityhub/latest/userguide/securityhub-cis-controls-1.4.0.md "../../../securityhub/latest/userguide/securityhub-cis-controls-1.4.0.md"). In addition to these steps, consult [AWS best
 practice guidelines](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices/ "https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices/") for securing your AWS account and resources.
 
 **Preventative controls**

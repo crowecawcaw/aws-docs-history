@@ -53,7 +53,7 @@ data is not expected. Alerting on sensitive data at this stage can
 highlight gaps in protections before deployment to production.
 Other features such as sensitive data detection in
 [AWS Glue](../../../glue/latest/dg/detect-PII.md "../../../glue/latest/dg/detect-PII.md"),
-[Amazon SNS](../../../sns/latest/dg/sns-message-data-protection-managed-data-identifiers.md "../../../sns/latest/dg/sns-message-data-protection-managed-data-identifiers.md"), and
+[Amazon SNS](../../../sns/latest/dg/sns-message-data-protection-managed-data-identifiers.htm.md "../../../sns/latest/dg/sns-message-data-protection-managed-data-identifiers.htm.md"), and
 [Amazon CloudWatch](../../../AmazonCloudWatch/latest/logs/mask-sensitive-log-data.md "../../../AmazonCloudWatch/latest/logs/mask-sensitive-log-data.md") can also be used to detect PII and take
 mitigating action. For any automated tool or service, understand
 how it defines sensitive data, and augment it with other human or

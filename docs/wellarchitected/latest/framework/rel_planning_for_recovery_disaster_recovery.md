@@ -236,7 +236,7 @@ When using multiple AZs within a single Region, your DR implementation uses mult
 elements of the above strategies. First you must create a high-availability (HA)
 architecture, using multiple AZs as shown in Figure 23. This architecture makes use of a
 multi-site active/active approach, as the [Amazon EC2 instances](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#concepts-availability-zones "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#concepts-availability-zones") and the [Elastic Load Balancer](../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#availability-zones "../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#availability-zones") have resources deployed in multiple AZs, actively handing
-requests. The architecture also demonstrates hot standby, where if the primary [Amazon RDS](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md") instance fails (or the AZ itself fails), then the standby instance is
+requests. The architecture also demonstrates hot standby, where if the primary [Amazon RDS](../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZ.md "../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZ.md") instance fails (or the AZ itself fails), then the standby instance is
 promoted to primary.
 
 ![Diagram showing a Figure 24: Multi-AZ architecture](images/multi-az-architecture2.png)

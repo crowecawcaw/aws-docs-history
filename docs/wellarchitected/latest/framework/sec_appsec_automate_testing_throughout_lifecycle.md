@@ -140,7 +140,7 @@ to address potential issues.
 
 - [DevOps
   Guidance: DL.CR.3 Establish clear completion criteria for code
-  tasks](../devops-guidance/dl.cr.md "../devops-guidance/dl.cr.md")
+  tasks](../devops-guidance/dl.cr.3-establish-clear-completion-criteria-for-code-tasks.md "../devops-guidance/dl.cr.3-establish-clear-completion-criteria-for-code-tasks.md")
 
 **Related documents:**
 

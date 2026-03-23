@@ -178,7 +178,7 @@ plan:** Medium-High
 **Related examples:**
 
 - [Make
-  informed decisions using data (The DevOps Sagas)](../devops-guidance/oa.bcl.md "../devops-guidance/oa.bcl.md")
+  informed decisions using data (The DevOps Sagas)](../devops-guidance/oa.bcl.10-make-informed-decisions-using-data.md "../devops-guidance/oa.bcl.10-make-informed-decisions-using-data.md")
 - [Using
   development value stream mapping to identify constraints to
   DevOps outcomes](../../../prescriptive-guidance/latest/strategy-devops-value-stream-mapping/introduction.md "../../../prescriptive-guidance/latest/strategy-devops-value-stream-mapping/introduction.md")

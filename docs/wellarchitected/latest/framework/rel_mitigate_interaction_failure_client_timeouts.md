@@ -41,7 +41,7 @@ Take advantage of well-established design patterns like retries and circuit brea
 - Configure timeouts on remote service calls and take advantage of built-in language timeout features or open source timeout libraries.
 - When your workload makes calls with an AWS SDK, review the documentation for language specific timeout configuration.
   - [Python](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html")
-  - [PHP](../../../aws-sdk-php/v3/api/class-Aws.DefaultsMode.md "../../../aws-sdk-php/v3/api/class-Aws.DefaultsMode.md")
+  - [PHP](../../../aws-sdk-php/v3/api/class-Aws.DefaultsMode.Configuration.md "../../../aws-sdk-php/v3/api/class-Aws.DefaultsMode.Configuration.md")
   - [.NET](../../../sdk-for-net/v3/developer-guide/retries-timeouts.md "../../../sdk-for-net/v3/developer-guide/retries-timeouts.md")
   - [Ruby](../../../sdk-for-ruby/v3/developer-guide/timeout-duration.md "../../../sdk-for-ruby/v3/developer-guide/timeout-duration.md")
   - [Java](../../../sdk-for-java/latest/developer-guide/best-practices.md#bestpractice5 "../../../sdk-for-java/latest/developer-guide/best-practices.md#bestpractice5")
