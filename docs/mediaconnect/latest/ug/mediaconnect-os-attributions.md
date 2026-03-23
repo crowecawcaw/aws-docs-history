@@ -2,4 +2,4 @@
 
 To view the open-source components used by MediaConnect, download the following file:
 
-- [MediaConnectOpenSourceAttributions.zip](samples/MediaConnectOpenSourceAttributions.md "samples/MediaConnectOpenSourceAttributions.md")
+- [MediaConnectOpenSourceAttributions.zip](samples/MediaConnectOpenSourceAttributions.zip.md "samples/MediaConnectOpenSourceAttributions.zip.md")
