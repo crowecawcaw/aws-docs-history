@@ -271,7 +271,7 @@ When moving databases to AWS managed services, such as RDS
 enable
 
 [IAM
-database authentication](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md"). This allows you to use IAM
+database authentication](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md"). This allows you to use IAM
 roles instead of static or [hard
 coded credentials](../../../secretsmanager/latest/userguide/hardcoded-db-creds.md "../../../secretsmanager/latest/userguide/hardcoded-db-creds.md") to authenticate and access the
 databases, improving security by removing the need to manage

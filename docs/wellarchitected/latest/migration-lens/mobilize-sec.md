@@ -321,7 +321,7 @@ rest.
 
 Protect data at rest by using [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/ "https://aws.amazon.com/kms/") to create and control the
 cryptographic keys used to encrypt your data. Additionally,
-use the built-in encryption capabilities of services like [Amazon S3](../../../AmazonS3/latest/userguide/UsingEncryption.md "../../../AmazonS3/latest/userguide/UsingEncryption.md"), [Amazon EBS](../../../AWSEC2/latest/UserGuide/EBSEncryption.md "../../../AWSEC2/latest/UserGuide/EBSEncryption.md"), [Amazon RDS](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md"), and [AWS Lambda](../../../lambda/latest/dg/security-dataprotection.md#security-privacy-atrest "../../../lambda/latest/dg/security-dataprotection.md#security-privacy-atrest") for protecting data at rest.
+use the built-in encryption capabilities of services like [Amazon S3](../../../AmazonS3/latest/userguide/UsingEncryption.md "../../../AmazonS3/latest/userguide/UsingEncryption.md"), [Amazon EBS](../../../AWSEC2/latest/UserGuide/EBSEncryption.md "../../../AWSEC2/latest/UserGuide/EBSEncryption.md"), [Amazon RDS](../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md "../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md"), and [AWS Lambda](../../../lambda/latest/dg/security-dataprotection.md#security-privacy-atrest "../../../lambda/latest/dg/security-dataprotection.md#security-privacy-atrest") for protecting data at rest.
 
 **Suggestion 7.1.3:** Use
 AWS CloudHSM when compliance dictates.

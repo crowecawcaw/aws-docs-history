@@ -102,7 +102,7 @@ You can monitor
 [Application Migration Service](../../../mgn/latest/ug/instance-type.md "../../../mgn/latest/ug/instance-type.md")
 and
 
-[DMS](../../../dms/latest/userguide/CHAP_BestPractices.md "../../../dms/latest/userguide/CHAP_BestPractices.md")
+[DMS](../../../dms/latest/userguide/CHAP_BestPractices.SizingReplicationInstance.md "../../../dms/latest/userguide/CHAP_BestPractices.SizingReplicationInstance.md")
 replication server performance in CloudWatch. A replication
 server with too little performance causes a bottleneck that
 can increase costs elsewhere, such as operations. A
