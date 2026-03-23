@@ -122,15 +122,20 @@ userid | query  | elapsed  | source_query
 
 ## Compiled code
 
-The leader node distributes fully optimized compiled code across all of the nodes
-of a cluster. Compiling the query decreases the overhead associated with an
-interpreter and therefore increases the runtime speed, especially for complex
-queries. The compiled code is cached and shared across sessions on the same cluster.
-As a result, future runs of the same query will be faster, often even with different
-parameters.
+Code compilation – Amazon Redshift generates and compiles optimized code for each
+query execution plan. The compiled code runs faster because it eliminates the
+overhead of using an interpreter. To minimize latency for new queries while
+preserving the performance benefits of compiled code, Amazon Redshift uses a technique
+called composition. Composition generates a lightweight arrangement of pre-existing
+logic to process new queries immediately, while simultaneously compiling highly
+optimized, query-specific code in the background. This removes compilation from the
+critical path of query execution, so new queries start faster and deliver
+performance consistent with subsequent runs.
 
-The query run engine compiles different code for the JDBC and
-ODBC connection protocols, so two clients using different
-protocols each incur the first-time cost of compiling the code. Clients
-that use the same protocol, however, benefit from sharing the cached
-code.
+Amazon Redshift also uses a serverless compilation service to scale query compilations
+beyond the compute resources of an Amazon Redshift cluster. Compiled code segments are
+cached both locally on the cluster and in a virtually unlimited remote cache that
+persists after cluster reboots. Subsequent executions of the same query run faster
+because they can skip the compilation phase. By using a scalable compilation
+service, Amazon Redshift compiles code in parallel to provide consistently fast
+performance.

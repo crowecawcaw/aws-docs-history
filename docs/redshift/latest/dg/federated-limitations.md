@@ -39,7 +39,7 @@ Amazon Redshift:
       + Use a specific Aurora DB cluster instance endpoint (instead of using the Aurora DB cluster cluster endpoint). This method uses REPEATABLE READ transaction isolation for the results from the PostgreSQL database.
       + Use an Aurora DB cluster reader endpoint and set `pg_federation_repeatable_read` to false for the session. This method uses READ COMMITTED transaction isolation for the results from the PostgreSQL database.
        For more information about Aurora DB cluster reader endpoints, see
-       [Types of Aurora DB cluster endpoints](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.md#Aurora.Overview.Endpoints.Types "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.md#Aurora.Overview.Endpoints.Types")
+       [Types of Aurora DB cluster endpoints](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.md#Aurora.Overview.Endpoints.Types "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.md#Aurora.Overview.Endpoints.Types")
        in the *Amazon Aurora User Guide*.
        For information about `pg_federation_repeatable_read`, see
        [pg\_federation\_repeatable\_read](r_pg_federation_repeatable_read.md "r_pg_federation_repeatable_read.md").

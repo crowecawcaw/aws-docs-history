@@ -101,7 +101,7 @@ step, you upload the files to an Amazon S3 bucket.
 
 ###### To download the data files
 
-1. Download the zipped file: [LoadingDataSampleFiles.zip](samples/LoadingDataSampleFiles.md "samples/LoadingDataSampleFiles.md").
+1. Download the zipped file: [LoadingDataSampleFiles.zip](samples/LoadingDataSampleFiles.zip.md "samples/LoadingDataSampleFiles.zip.md").
 2. Extract the files to a folder on your computer.
 3. Verify that your folder contains the following files.
 

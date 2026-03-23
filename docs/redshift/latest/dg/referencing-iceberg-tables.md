@@ -50,7 +50,7 @@ For example, to query an Iceberg table in an auto-mounted Amazon S3 table catalo
 SELECT * FROM "`my_table_bucket`@s3tablescatalog".`my_database`.`my_iceberg_table`;
 ```
 
-For more information about integrating Amazon S3 table buckets with Amazon Redshift, see [Integrating S3 Tables with Amazon Redshift](../../../s3/latest/userguide/s3-tables-integrating-redshift.md "../../../s3/latest/userguide/s3-tables-integrating-redshift.md") in the _Amazon S3 User Guide_.
+For more information about integrating Amazon S3 table buckets with Amazon Redshift, see [Integrating S3 Tables with Amazon Redshift](../../../AmazonS3/latest/userguide/s3-tables-integrating-redshift.md "../../../AmazonS3/latest/userguide/s3-tables-integrating-redshift.md") in the _Amazon S3 User Guide_.
 
 You can also use the `USE` statement to set a default catalog and database:
 

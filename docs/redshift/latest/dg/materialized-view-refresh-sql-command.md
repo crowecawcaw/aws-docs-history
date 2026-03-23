@@ -155,7 +155,7 @@ The COUNT, SUM, MIN, MAX, and AVG aggregate functions are supported.
 - Mutable functions, such as date-time functions, RANDOM and non-STABLE
   user-defined functions.
 - For limitations regarding incremental refresh for zero-ETL integrations, see [Considerations when using
-  zero-ETL integrations with Amazon Redshift](../mgmt/zero-etl.md "../mgmt/zero-etl.md").
+  zero-ETL integrations with Amazon Redshift](../mgmt/zero-etl.reqs-lims.md "../mgmt/zero-etl.reqs-lims.md").
 - Accessing tables from more than one database.
 
 For more information about materialized-view limitations, including the effect of

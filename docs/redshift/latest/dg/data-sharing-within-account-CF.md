@@ -41,7 +41,7 @@ If you are prompted, sign in.
 The stack creation process starts, referencing a CloudFormation template file,
 which is stored in Amazon S3. A CloudFormation _template_ is a text file in JSON format that declares AWS
 resources that make up a stack. For more information about CloudFormation
-templates, see [Learn template basics](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md"). 2. Choose **Next** to enter the stack details. 3. Under **Parameters**, for each cluster, enter the
+templates, see [Learn template basics](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md"). 2. Choose **Next** to enter the stack details. 3. Under **Parameters**, for each cluster, enter the
 following:
 
     * Your Amazon Redshift cluster name, for example

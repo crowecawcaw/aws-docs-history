@@ -56,7 +56,7 @@ SVV_INTEGRATION.
 
 For an example, see [Create databases to receive results of zero-ETL integrations](#r_CREATE_DATABASE-integration "#r_CREATE_DATABASE-integration"). For more information about
 creating databases with zero-ETL integrations, see [Creating
-destination databases in Amazon Redshift](../mgmt/zero-etl-using.md "../mgmt/zero-etl-using.md") in the
+destination databases in Amazon Redshift](../mgmt/zero-etl-using.creating-db.md "../mgmt/zero-etl-using.creating-db.md") in the
 _Amazon Redshift Management Guide_.
 
 SET

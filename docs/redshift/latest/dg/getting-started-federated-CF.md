@@ -28,7 +28,7 @@ security group for your Aurora PostgreSQL database instance.
 For more information about getting started setting up an Amazon Redshift
 cluster, see [Get started with Amazon Redshift provisioned data warehouses](../gsg/new-user.md "../gsg/new-user.md"). For more information
 about setting up resources with CloudFormation, see [What is AWS CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md"). For more information
-about setting up an Aurora DB cluster database, see [Creating an Aurora DB cluster Serverless v1 DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless.md").
+about setting up an Aurora DB cluster database, see [Creating an Aurora DB cluster Serverless v1 DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless.create.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless.create.md").
 
 ## Launching a CloudFormation stack for Redshift federated queries
 

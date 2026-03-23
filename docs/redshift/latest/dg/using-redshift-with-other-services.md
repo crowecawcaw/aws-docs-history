@@ -35,4 +35,4 @@ You can migrate data to Amazon Redshift using AWS Database Migration Service. AW
 from most widely used commercial and open-source databases such as Oracle,
 PostgreSQL, Microsoft SQL Server, Amazon Redshift, Aurora DB cluster, DynamoDB, Amazon S3, MariaDB, and MySQL. For
 more information, see [Using an
-Amazon Redshift database as a target for AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.md "../../../dms/latest/userguide/CHAP_Target.md").
+Amazon Redshift database as a target for AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.Redshift.md "../../../dms/latest/userguide/CHAP_Target.Redshift.md").

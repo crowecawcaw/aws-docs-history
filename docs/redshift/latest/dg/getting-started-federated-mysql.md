@@ -21,7 +21,7 @@ For more information about VPC networking, see the following.
 
     * [What is VPC peering?](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md") in the
      *Amazon VPC Peering Guide*
-    * [Working with a DB instance in a VPC](../../../AmazonRDS/latest/UserGuide/USER_VPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.md")  in the
+    * [Working with a DB instance in a VPC](../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md")  in the
      *Amazon RDS User Guide*
 
 ###### Note

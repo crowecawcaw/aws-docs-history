@@ -48,21 +48,20 @@ process.
   written affects its performance. As much as possible, write queries to process and
   return as little data as meets your needs. For more information, see [Amazon Redshift best practices for designing queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md").
 - Code compilation – Amazon Redshift generates and
-  compiles code for each query execution plan.
+  compiles optimized code for each query execution plan.
+  The compiled code runs faster because it eliminates the overhead of using an
+  interpreter. To minimize latency for new queries while preserving the performance
+  benefits of compiled code, Amazon Redshift uses a technique called composition. Composition
+  generates a lightweight arrangement of pre-existing logic to process new queries
+  immediately, while simultaneously compiling highly optimized, query-specific code in
+  the background. This removes compilation from the critical path of query execution,
+  so new queries start faster and deliver performance consistent with subsequent
+  runs.
 
-The compiled code runs faster because it removes the overhead of using an interpreter. You generally have some overhead cost the
-first time code is generated and compiled. As a result, the performance of a query
-the first time you run it can be misleading. The overhead cost might be especially
-noticeable when you run one-off queries. Run the query a second time to determine
-its typical performance. Amazon Redshift uses a serverless compilation service to scale query
-compilations beyond the compute resources of an Amazon Redshift cluster. The compiled code
-segments are cached locally on the cluster and in a virtually unlimited cache.
-This cache persists after cluster reboots. Subsequent executions of the same query
-run faster because they can skip the compilation phase.
-
-The cache is not
-compatible across Amazon Redshift versions, so the compilation cache is flushed and the code is recompiled when queries run after
-a version upgrade. If your queries have strict SLAs, we recommend you pre-run query segments that scan data from
-cluster tables. This lets Amazon Redshift cache the base table data, reducing the planning time for queries after a version upgrade.
-By using a scalable compilation service, Amazon Redshift can compile code in parallel to provide consistently fast performance. The magnitude
-of workload speed-up depends on the complexity and concurrency of queries.
+Amazon Redshift also uses a serverless compilation service to scale query
+compilations beyond the compute resources of an Amazon Redshift cluster. Compiled code
+segments are cached both locally on the cluster and in a virtually unlimited remote
+cache that persists after cluster reboots. Subsequent executions of the same query
+run faster because they can skip the compilation phase. By using a scalable
+compilation service, Amazon Redshift compiles code in parallel to provide consistently fast
+performance.

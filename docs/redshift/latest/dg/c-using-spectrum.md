@@ -17,6 +17,7 @@ copies of the data for each cluster.
 
 - [Amazon Redshift Spectrum overview](c-spectrum-overview.md "c-spectrum-overview.md")
 - [Getting started with Amazon Redshift Spectrum](c-getting-started-using-spectrum.md "c-getting-started-using-spectrum.md")
+- [Query Amazon S3 Tables from Amazon Redshift](querying-s3Tables.md "querying-s3Tables.md")
 - [IAM policies for Amazon Redshift Spectrum](c-spectrum-iam-policies.md "c-spectrum-iam-policies.md")
 - [Redshift Spectrum and AWS Lake Formation](spectrum-lake-formation.md "spectrum-lake-formation.md")
 - [Data files for queries in Amazon Redshift Spectrum](c-spectrum-data-files.md "c-spectrum-data-files.md")
