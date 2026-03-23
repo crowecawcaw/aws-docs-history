@@ -1,10 +1,5 @@
 # Downloads for Amazon Corretto 26
 
-This is an intermediate build made available for testing purposes only. The code is untested and presumed
-incompatible with the Java SE Specification. You should not deploy or write to this code, but
-instead use a tested and certified Java SE compatible version of the code. Redistribution of this
-build must retain this notice.
-
 This topic lists all the downloads available for Amazon Corretto 26.
 You can choose Permanent URLs pointing to the
 latest version, or use Version Specific URLs which point to a specific version.
@@ -69,12 +64,16 @@ https://corretto.aws/[latest/latest_checksum]/amazon-corretto-[corretto_version]
 
 ## Signature Verification
 
-The public key to verify the SIGNATURE file can be downloaded [here](https://corretto.aws/downloads/resources/26.0.0.35.1/B04F24E3.pub "https://corretto.aws/downloads/resources/26.0.0.35.1/B04F24E3.pub")
+The public key to verify the SIGNATURE file can be downloaded [here](https://corretto.aws/downloads/resources/26.0.0.35.2/B04F24E3.pub "https://corretto.aws/downloads/resources/26.0.0.35.2/B04F24E3.pub")
 
 ## Versioned Downloads
 
 For versioned downloads and earlier versions, see [Corretto-26
 Releases](https://github.com/corretto/corretto-26/releases "https://github.com/corretto/corretto-26/releases") on GitHub.
+
+## Nightly Build Downloads
+
+Nightly builds can be downloaded from [here](https://downloads.corretto.aws/#/downloads?build=nightly&version=26 "https://downloads.corretto.aws/#/downloads?build=nightly&version=26")
 
 ## Change Logs
 
