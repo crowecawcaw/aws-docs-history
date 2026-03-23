@@ -50,7 +50,7 @@ quality for Amazon Redshift or custom types assets via the data portal
 is not supported.
 
 You can also use the APIs to enable data quality for your new or existing
-data sources. You can do this by invoking the [CreateDataSource](../../datazone/latest/APIReference/API_CreateDataSource.md "../../datazone/latest/APIReference/API_CreateDataSource.md") or [UpdateDataSource](../../datazone/latest/APIReference/API_UpdateDataSource.md "../../datazone/latest/APIReference/API_UpdateDataSource.md") and setting the
+data sources. You can do this by invoking the [CreateDataSource](../../datazone/latest/APIReference/API_CreateDataSource.htmlAPI.md "../../datazone/latest/APIReference/API_CreateDataSource.htmlAPI.md") or [UpdateDataSource](../../datazone/latest/APIReference/API_UpdateDataSource.htmlAPI.md "../../datazone/latest/APIReference/API_UpdateDataSource.htmlAPI.md") and setting the
 `autoImportDataQualityResult` parameter to 'True'.
 
 After data quality is enabled, you can run the data source on demand or on
