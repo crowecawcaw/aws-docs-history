@@ -95,7 +95,7 @@ ID.
 The source ARN and source account values are included in the authorization context
 only when a request comes to AWS KMS from another AWS service. This combination of
 conditions implements least privileged permissions and avoids a potential [confused deputy
-scenario](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md"). For more information, see [Permissions for AWS services in key policies](../../../kms/latest/developerguide/key-policy-services.md "../../../kms/latest/developerguide/key-policy-services.md").
+scenario](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md"). For more information, see [Permissions for AWS services in key policies](../../../kms/latest/developerguide/key-policy-services.html.md "../../../kms/latest/developerguide/key-policy-services.html.md").
 
 ```
    "Condition": {
