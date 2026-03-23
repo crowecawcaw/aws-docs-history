@@ -3,6 +3,38 @@
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first,
 organized by date of release.
 
+## March 19, 2026
+
+### IVS Player SDK: Android 1.50.0, iOS 1.50.0
+
+| Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Android player<br>1.50.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.50.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.50.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.50.0/android/")<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                                                                                                   |
+| [iOS Player 1.50.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.50.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.50.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.50.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.50.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.50.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.50.0/ios/")<br>• Annotated `NS_SWIFT_SENDABLE` conformance<br>to public data classes.<br>• Bug fixes and stability improvements. |
+
+#### Mobile SDK Size: Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 1.477 MB        | 3.825 MB          |
+| armeabi-v7a  | 1.308 MB        | 2.710 MB          |
+| x86_64       | 1.479 MB        | 3.889 MB          |
+| x86          | 1.534 MB        | 3.896 MB          |
+
+#### Mobile SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 0.797 MB        | 1.740 MB          |
+
+## March 19, 2026
+
+### IVS Player SDK: Web 1.50.0
+
+| Platform                                                                                                                                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Web player 1.50.0](player-web.md "player-web.md") &<br>[Video.js integration](player-videojs.md "player-videojs.md")<br>& [JW player<br>integration](player-jwplayer.md "player-jwplayer.md") | **NPM Package:**<br>[https://www.npmjs.com/package/amazon-ivs-player](https://www.npmjs.com/package/amazon-ivs-player "https://www.npmjs.com/package/amazon-ivs-player")<br>**Script asset:\*<br>• [https://player.live-video.net/1.50.0/amazon-ivs-player.min.js](https://player.live-video.net/1.50.0/amazon-ivs-player.min.js "https://player.live-video.net/1.50.0/amazon-ivs-player.min.js")<br>**Video.js tech asset:_<br>• [https://player.live-video.net/1.50.0/amazon-ivs-videojs-tech.min.js](https://player.live-video.net/1.50.0/amazon-ivs-videojs-tech.min.js "https://player.live-video.net/1.50.0/amazon-ivs-videojs-tech.min.js")<br>\*\*Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.50.0/web/](https://aws.github.io/amazon-ivs-player-docs/1.50.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.50.0/web/")<br>• Bug fixes and stability improvements. |
+
 ## March 12, 2026
 
 ### IVS Broadcast SDK: Web 1.33.0 (Low-Latency Streaming)
@@ -59,7 +91,7 @@ organized by date of release.
 | ------------ | --------------- | ----------------- |
 | arm64        | 0.810 MB        | 1.773 MB          |
 
-## February 19, 2025
+## February 19, 2026
 
 ### IVS Player SDK: Web 1.49.0
 
