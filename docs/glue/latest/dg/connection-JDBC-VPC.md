@@ -87,4 +87,4 @@ For information about managing a VPC with Amazon Redshift, see [Managing Cluster
 Virtual Private Cloud (VPC)](../../../redshift/latest/mgmt/managing-clusters-vpc.md "../../../redshift/latest/mgmt/managing-clusters-vpc.md").
 
 For information about managing a VPC with Amazon Relational Database Service (Amazon RDS), see [Working with an
-Amazon RDS DB Instance in a VPC](../../../AmazonRDS/latest/UserGuide/USER_VPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.md").
+Amazon RDS DB Instance in a VPC](../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md").

@@ -9,7 +9,7 @@ The original DynamoDB connector uses Glue DynamicFrame objects to work with the 
 In addition to the AWS Glue DynamoDB ETL connector, you can read from DynamoDB using the DynamoDB export
 connector, that invokes a DynamoDB `ExportTableToPointInTime` request and stores it in an Amazon S3 location
 you supply, in the format of [DynamoDB
-JSON](../../../amazondynamodb/latest/developerguide/DataExport.md "../../../amazondynamodb/latest/developerguide/DataExport.md"). AWS Glue then creates a DynamicFrame object by reading the data from the Amazon S3 export
+JSON](../../../amazondynamodb/latest/developerguide/DataExport.Output.md "../../../amazondynamodb/latest/developerguide/DataExport.Output.md"). AWS Glue then creates a DynamicFrame object by reading the data from the Amazon S3 export
 location.
 
 The DynamoDB writer is available in AWS Glue version 1.0 or later versions. The
@@ -136,7 +136,7 @@ to configure the number of splits for Spark executor parallelism or DynamoDB thr
 ###### Note
 
 DynamoDB has specific requirements to invoke the `ExportTableToPointInTime` requests. For
-more information, see [Requesting a table export in DynamoDB](../../../amazondynamodb/latest/developerguide/DataExport.md "../../../amazondynamodb/latest/developerguide/DataExport.md"). For example, Point-in-Time-Restore (PITR) needs to be
+more information, see [Requesting a table export in DynamoDB](../../../amazondynamodb/latest/developerguide/DataExport.Requesting.md "../../../amazondynamodb/latest/developerguide/DataExport.Requesting.md"). For example, Point-in-Time-Restore (PITR) needs to be
 enabled on the table to use this connector. The DynamoDB connector also supports AWS KMS encryption for
 DynamoDB exports to Amazon S3. Supplying your security configuration in the AWS Glue job configuration enables
 AWS KMS encryption for a DynamoDB export. The KMS key must be in the same Region as the Amazon S3
@@ -286,7 +286,7 @@ object GlueApp {
 ## Simplifying usage of DynamoDB export JSON
 
 The DynamoDB exports with the AWS Glue DynamoDB export connector results in JSON files of
-specific nested structures. For more information, see [Data objects](../../../amazondynamodb/latest/developerguide/S3DataExport.md "../../../amazondynamodb/latest/developerguide/S3DataExport.md"). AWS Glue supplies a DynamicFrame transformation, which can unnest
+specific nested structures. For more information, see [Data objects](../../../amazondynamodb/latest/developerguide/S3DataExport.Output.md "../../../amazondynamodb/latest/developerguide/S3DataExport.Output.md"). AWS Glue supplies a DynamicFrame transformation, which can unnest
 such structures into an easier-to-use form for downstream applications.
 
 The transform can be invoked in one of two ways. You can set the connection option

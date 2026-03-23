@@ -597,7 +597,7 @@ option group to the Oracle instance.
    how to add an option on the Amazon RDS console, see [Adding an Option to an Option Group](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption") in the
    _Amazon RDS User Guide_. For more information about
    the Oracle SSL option, see [Oracle
-   SSL](../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.md "../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.md") in the _Amazon RDS User Guide_.
+   SSL](../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.SSL.md "../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.SSL.md") in the _Amazon RDS User Guide_.
 4. On the AWS Glue console, create a connection to the Amazon RDS
    Oracle instance. In the connection definition, select **Require
    SSL connection**. When requested, enter the

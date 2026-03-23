@@ -33,8 +33,8 @@ This section describes new features and advantages of AWS Glue version
   This feature enables read and write operations from your AWS Glue ETL jobs on registered tables when the job role has full table access.
 - **Spark native fine-grained access control (FGAC) support using** - DDL/DML operations (like CREATE, ALTER, DELETE, DROP) with fine grained access control for
   Apache Hive, Apache Iceberg and Delta Lake tables registered in .
-- **Audit context for Spark jobs** - Audit context for AWS Glue ETL jobs with enabled jobs will be available
-  for AWS Glue and AWS Lake Formation API calls in log
+- **Audit context for Spark jobs** - Audit context for AWS Glue ETL jobs will be available
+  for AWS Glue and AWS Lake Formation API calls in the AWS CloudTrail logs
 
 ###### Known Issues and Limitations
 

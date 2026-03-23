@@ -1571,7 +1571,7 @@ only showing top 20 rows
 
 **`simplify_ddb_json(): DynamicFrame`**
 
-Simplifies nested columns in a `DynamicFrame` that are specifically in the DynamoDB JSON structure, and returns a new simplified `DynamicFrame`. If there’re multiple types or Map type in a List type, the elements in the List will not be simplified. Note that this is a specific type of transform that behaves differently from the regular `unnest` transform and requires the data to already be in the DynamoDB JSON structure. For more information, see [DynamoDB JSON](../../../amazondynamodb/latest/developerguide/DataExport.md#DataExport.Output.Data "../../../amazondynamodb/latest/developerguide/DataExport.md#DataExport.Output.Data").
+Simplifies nested columns in a `DynamicFrame` that are specifically in the DynamoDB JSON structure, and returns a new simplified `DynamicFrame`. If there’re multiple types or Map type in a List type, the elements in the List will not be simplified. Note that this is a specific type of transform that behaves differently from the regular `unnest` transform and requires the data to already be in the DynamoDB JSON structure. For more information, see [DynamoDB JSON](../../../amazondynamodb/latest/developerguide/DataExport.Output.md#DataExport.Output.Data "../../../amazondynamodb/latest/developerguide/DataExport.Output.md#DataExport.Output.Data").
 
 For example, the schema of a reading an export with the DynamoDB JSON structure might look like the following:
 
@@ -2298,7 +2298,7 @@ root
 
 ## unnest_ddb_json
 
-Unnests nested columns in a `DynamicFrame` that are specifically in the DynamoDB JSON structure, and returns a new unnested `DynamicFrame`. Columns that are of an array of struct types will not be unnested. Note that this is a specific type of unnesting transform that behaves differently from the regular `unnest` transform and requires the data to already be in the DynamoDB JSON structure. For more information, see [DynamoDB JSON](../../../amazondynamodb/latest/developerguide/DataExport.md#DataExport.Output.Data "../../../amazondynamodb/latest/developerguide/DataExport.md#DataExport.Output.Data").
+Unnests nested columns in a `DynamicFrame` that are specifically in the DynamoDB JSON structure, and returns a new unnested `DynamicFrame`. Columns that are of an array of struct types will not be unnested. Note that this is a specific type of unnesting transform that behaves differently from the regular `unnest` transform and requires the data to already be in the DynamoDB JSON structure. For more information, see [DynamoDB JSON](../../../amazondynamodb/latest/developerguide/DataExport.Output.md#DataExport.Output.Data "../../../amazondynamodb/latest/developerguide/DataExport.Output.md#DataExport.Output.Data").
 
 ###### `unnest_ddb_json(transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
 

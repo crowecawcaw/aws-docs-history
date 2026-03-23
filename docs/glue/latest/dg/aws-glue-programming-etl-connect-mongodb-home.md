@@ -41,9 +41,7 @@ You can then proceed to configure AWS Glue for use with MongoDB.
 
    A MongoDB URL is provided in the format `mongodb://`mongoHost`:`mongoPort`/`mongoDBname``.
 
-   A MongoDB Atlas URL is provided in the format `mongodb+srv://`mongoHost`:`mongoPort`/`mongoDBname``.
-
-   Providing the default database for the connection, `mongoDBname` is optional.
+   A MongoDB Atlas URL is provided in the format `mongodb+srv://`mongoHost`/`mongoDBname``.
    - If you chose to create an Secrets Manager secret, choose the AWS Secrets Manager **Credential type**.
 
    Then, in **AWS Secret** provide `secretName`.

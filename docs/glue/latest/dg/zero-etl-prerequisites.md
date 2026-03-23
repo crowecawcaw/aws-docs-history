@@ -108,7 +108,7 @@ To set up a target database in the AWS Glue Data Catalog with an Amazon S3 locat
 
 The Amazon S3 bucket must be in the same region as the AWS Glue database.
 
-For information on creating a new database in AWS Glue, see [Getting started with the AWS Glue Data Catalog](start-data-catalog.md "start-data-catalog.md").
+For information on creating a new database in AWS Glue, see [Getting started with the AWS Glue Data Catalog](start-data-catalog.htm.md "start-data-catalog.htm.md").
 
 You can also use the [`create-database`](../../../cli/latest/reference/glue/create-database.md "../../../cli/latest/reference/glue/create-database.md") CLI to create the database in AWS Glue. Note that the `LocationUri` in `--database-input` is required.
 
@@ -281,9 +281,9 @@ JSON
 
 When your zero-ETL integration target is an Amazon Redshift data warehouse, create the data warehouse if you don't already have one. To create an Amazon Redshift Serverless workgroup, see [Creating a workgroup with a namespace](../../../redshift/latest/mgmt/serverless-console-workgroups-create-workgroup-wizard.md "../../../redshift/latest/mgmt/serverless-console-workgroups-create-workgroup-wizard.md"). To create an Amazon Redshift cluster, see [Creating a cluster](../../../redshift/latest/mgmt/create-cluster.md "../../../redshift/latest/mgmt/create-cluster.md").
 
-The target Amazon Redshift workgroup or cluster must have the `enable_case_sensitive_identifier` parameter turned on for the integration to be successful. For more information on enabling case sensitivity, see [Turn on case sensitivity for your data warehouse](../../../redshift/latest/mgmt/zero-etl-setting-up.md "../../../redshift/latest/mgmt/zero-etl-setting-up.md") in the Amazon Redshift management guide.
+The target Amazon Redshift workgroup or cluster must have the `enable_case_sensitive_identifier` parameter turned on for the integration to be successful. For more information on enabling case sensitivity, see [Turn on case sensitivity for your data warehouse](../../../redshift/latest/mgmt/zero-etl-setting-up.case-sensitivity.md "../../../redshift/latest/mgmt/zero-etl-setting-up.case-sensitivity.md") in the Amazon Redshift management guide.
 
-After the Amazon Redshift workgroup or cluster setup is complete, you need to configure your data warehouse. See [Getting started with zero-ETL integrations](../../../redshift/latest/mgmt/zero-etl-using.md "../../../redshift/latest/mgmt/zero-etl-using.md") in the Amazon Redshift Management Guide for more information.
+After the Amazon Redshift workgroup or cluster setup is complete, you need to configure your data warehouse. See [Getting started with zero-ETL integrations](../../../redshift/latest/mgmt/zero-etl-using.setting-up.md "../../../redshift/latest/mgmt/zero-etl-using.setting-up.md") in the Amazon Redshift Management Guide for more information.
 
 ## Setting up a VPC for your zero-ETL integration
 

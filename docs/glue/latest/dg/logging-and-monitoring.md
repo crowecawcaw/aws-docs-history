@@ -9,7 +9,8 @@ based on cron. You can also trigger jobs when an event-based trigger fires.
 AWS Glue is integrated with AWS CloudTrail, a service that provides a record of actions taken by a
 user, role, or AWS service in AWS Glue. If you create a trail, you can enable continuous
 delivery of CloudTrail events to an Amazon Simple Storage Service (Amazon S3) bucket, Amazon CloudWatch Logs, and Amazon CloudWatch Events. Every event
-or log entry contains information about who generated the request.
+or log entry contains information about who generated the request. With AWS Glue version 5.1,
+audit context for AWS Glue and AWS Lake Formation API calls will be available in the AWS CloudTrail logs.
 
 Use Amazon CloudWatch Events to automate your AWS services and respond automatically to system events
 such as application availability issues or resource changes. Events from AWS services are

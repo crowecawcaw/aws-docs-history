@@ -208,7 +208,7 @@ Before creating a zero-ETL integration with an Amazon SageMaker Lakehouse catalo
 
 To set up Amazon Redshiftmanaged storage for your zero-ETL integration:
 
-1. Create or use an existing Amazon Redshift cluster or Serverless workgroup. Make sure the target Amazon Redshift workgroup or cluster has the `enable_case_sensitive_identifier` parameter turned on for the integration to be successful. For more information on enabling case sensitivity, see [Turn on case sensitivity for your data warehouse](../../../redshift/latest/mgmt/zero-etl-setting-up.md "../../../redshift/latest/mgmt/zero-etl-setting-up.md") in the Amazon Redshift management guide.
+1. Create or use an existing Amazon Redshift cluster or Serverless workgroup. Make sure the target Amazon Redshift workgroup or cluster has the `enable_case_sensitive_identifier` parameter turned on for the integration to be successful. For more information on enabling case sensitivity, see [Turn on case sensitivity for your data warehouse](../../../redshift/latest/mgmt/zero-etl-setting-up.case-sensitivity.md "../../../redshift/latest/mgmt/zero-etl-setting-up.case-sensitivity.md") in the Amazon Redshift management guide.
 2. Register an integration from Redshift into the catalog in AWS Lake Formation. See [Registering Amazon Redshift clusters and namespaces to the AWS Glue Data Catalog](../../../redshift/latest/dg/iceberg-integration-register.md "../../../redshift/latest/dg/iceberg-integration-register.md").
 3. Create a federated or managed catalog in AWS Lake Formation. For more information, see:
    - [Bringing Amazon Redshift data into the AWS Glue Data Catalog](../../../lake-formation/latest/dg/managing-namespaces-datacatalog.md "../../../lake-formation/latest/dg/managing-namespaces-datacatalog.md")
@@ -240,13 +240,13 @@ To set up an Amazon Redshift data warehouse for your zero-ETL integration:
 
 1. Navigate to the [Amazon Redshift console](https://console.aws.amazon.com/redshiftv2/home "https://console.aws.amazon.com/redshiftv2/home") and click **Create cluster** or use an existing cluster. For Amazon Redshift Serverless, click **Create workgroup**.
 2. If creating a new cluster, choose an appropriate cluster size and ensure your cluster is encrypted. For Serverless, configure the workgroup settings according to your requirements.
-3. Make sure the target Amazon Redshift workgroup or cluster has the `enable_case_sensitive_identifier` parameter turned on for the integration to be successful. For more information on enabling case sensitivity, see [Turn on case sensitivity for your data warehouse](../../../redshift/latest/mgmt/zero-etl-setting-up.md "../../../redshift/latest/mgmt/zero-etl-setting-up.md") in the Amazon Redshift management guide.
+3. Make sure the target Amazon Redshift workgroup or cluster has the `enable_case_sensitive_identifier` parameter turned on for the integration to be successful. For more information on enabling case sensitivity, see [Turn on case sensitivity for your data warehouse](../../../redshift/latest/mgmt/zero-etl-setting-up.case-sensitivity.md "../../../redshift/latest/mgmt/zero-etl-setting-up.case-sensitivity.md") in the Amazon Redshift management guide.
 4. Configure IAM permissions to allow the zero-ETL integration to access your Amazon Redshift data warehouse. You'll need to create an IAM role with the following permissions:
    - Permissions to access the Amazon Redshift cluster or workgroup
    - Permissions to create and manage databases and tables in Amazon Redshift
    - CloudWatch and Amazon CloudWatch Logs permissions for monitoring
 
-5. After the Amazon Redshift workgroup or cluster setup is complete, you need to configure your data warehouse for zero-ETL integrations. See [Getting started with zero-ETL integrations](../../../redshift/latest/mgmt/zero-etl-using.md "../../../redshift/latest/mgmt/zero-etl-using.md") in the Amazon Redshift Management Guide for more information.
+5. After the Amazon Redshift workgroup or cluster setup is complete, you need to configure your data warehouse for zero-ETL integrations. See [Getting started with zero-ETL integrations](../../../redshift/latest/mgmt/zero-etl-using.setting-up.md "../../../redshift/latest/mgmt/zero-etl-using.setting-up.md") in the Amazon Redshift Management Guide for more information.
 
 ###### Note
 

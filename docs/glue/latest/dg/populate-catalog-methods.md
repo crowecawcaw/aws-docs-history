@@ -21,5 +21,6 @@ You can populate the AWS Glue Data Catalog using the following methods:
 
 - [Using crawlers to populate the Data Catalog](add-crawler.md "add-crawler.md")
 - [Defining metadata manually](populate-dg-manual.md "populate-dg-manual.md")
+- [Integrating with Amazon S3 Tables](glue-federation-s3tables.md "glue-federation-s3tables.md")
 - [Integrating with other AWS services](populate-dc-other-services.md "populate-dc-other-services.md")
 - [Data Catalog settings](console-data-catalog-settings.md "console-data-catalog-settings.md")

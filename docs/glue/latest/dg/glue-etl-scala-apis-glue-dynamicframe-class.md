@@ -623,7 +623,7 @@ Prints rows from this `DynamicFrame` in JSON format.
 ## Def simplifyDDBJson
 
 DynamoDB exports with the AWS Glue DynamoDB export connector results in JSON files of specific nested
-structures. For more information, see [Data objects](../../../amazondynamodb/latest/developerguide/S3DataExport.md "../../../amazondynamodb/latest/developerguide/S3DataExport.md").
+structures. For more information, see [Data objects](../../../amazondynamodb/latest/developerguide/S3DataExport.Output.md "../../../amazondynamodb/latest/developerguide/S3DataExport.Output.md").
 `simplifyDDBJson` Simplifies nested columns in a DynamicFrame of this type of data, and returns a new
 simplified DynamicFrame. If there are multiple types or a Map type contained in a List type, the elements in the List will not
 be simplified. This method only supports data in the DynamoDB export
@@ -989,7 +989,7 @@ unnestDDBJson(transformationContext : String = "",
 
 ```
 
-Unnests nested columns in a `DynamicFrame` that are specifically in the DynamoDB JSON structure, and returns a new unnested `DynamicFrame`. Columns that are of an array of struct types will not be unnested. Note that this is a specific type of unnesting transform that behaves differently from the regular `unnest` transform and requires the data to already be in the DynamoDB JSON structure. For more information, see [DynamoDB JSON](../../../amazondynamodb/latest/developerguide/DataExport.md#DataExport.Output.Data "../../../amazondynamodb/latest/developerguide/DataExport.md#DataExport.Output.Data").
+Unnests nested columns in a `DynamicFrame` that are specifically in the DynamoDB JSON structure, and returns a new unnested `DynamicFrame`. Columns that are of an array of struct types will not be unnested. Note that this is a specific type of unnesting transform that behaves differently from the regular `unnest` transform and requires the data to already be in the DynamoDB JSON structure. For more information, see [DynamoDB JSON](../../../amazondynamodb/latest/developerguide/DataExport.Output.md#DataExport.Output.Data "../../../amazondynamodb/latest/developerguide/DataExport.Output.md#DataExport.Output.Data").
 
 For example, the schema of a reading an export with the DynamoDB JSON structure might look like the following:
 
