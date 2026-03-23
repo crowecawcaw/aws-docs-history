@@ -12,7 +12,7 @@ platform versions remain available until the published retirement date of their 
 On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnotes/release-2022-07-18-linux-al1-retire.md") Elastic Beanstalk set the
 status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
 For more information, see
-[AL1 platform retirement FAQ](../dg/using-features.migration-al.md "../dg/using-features.migration-al.md") in the _AWS Elastic Beanstalk Developer Guide_.
+[AL1 platform retirement FAQ](../dg/using-features.migration-al.FAQ.md "../dg/using-features.migration-al.FAQ.md") in the _AWS Elastic Beanstalk Developer Guide_.
 
 The following sections provide information about all retiring platform versions.
 

@@ -30,20 +30,9 @@ The following Elastic Beanstalk platform versions for Single Container Docker we
 | **Docker AL2 version 4.6.0**<br>_64bit Amazon Linux 2 v4.6.0 running Docker_         | 2.0.20260216     |           | 25.0.14 | 5.1.0          | nginx 1.28.2 |
 | **ECS AL2 version 3.7.0**<br>_64bit Amazon Linux 2 v3.7.0 running ECS_               | 2.0.20260216     | 1.101.3   | 25.0.14 |                |              |
 
-## February 25, 2026 – February 25, 2026
+## February 12, 2026 – February 25, 2026
 
-The following Elastic Beanstalk platform versions for Single Container Docker were current between February 25, 2026 and February 25, 2026:
-
-| Platform Version and _Solution Stack Name_                                         | AMI              | ECS Agent | Docker  | Docker Compose | Proxy Server |
-| ---------------------------------------------------------------------------------- | ---------------- | --------- | ------- | -------------- | ------------ |
-| **Docker AL2023 version 4.9.4**<br>_64bit Amazon Linux 2023 v4.9.4 running Docker_ | 2023.10.20260216 |           | 25.0.14 | 5.0.2          | nginx 1.28.2 |
-| **ECS AL2023 version 4.3.5**<br>_64bit Amazon Linux 2023 v4.3.5 running ECS_       | 2023.10.20260216 | 1.101.3   | 25.0.14 |                |              |
-| **Docker AL2 version 4.5.4**<br>_64bit Amazon Linux 2 v4.5.4 running Docker_       | 2.0.20260216     |           | 25.0.14 | 5.0.2          | nginx 1.28.2 |
-| **ECS AL2 version 3.6.5**<br>_64bit Amazon Linux 2 v3.6.5 running ECS_             | 2.0.20260216     | 1.101.3   | 25.0.14 |                |              |
-
-## February 12, 2026 – February 24, 2026
-
-The following Elastic Beanstalk platform versions for Single Container Docker were current between February 12, 2026 and February 24, 2026:
+The following Elastic Beanstalk platform versions for Single Container Docker were current between February 12, 2026 and February 25, 2026:
 
 | Platform Version and _Solution Stack Name_                                         | AMI              | ECS Agent | Docker  | Docker Compose | Proxy Server |
 | ---------------------------------------------------------------------------------- | ---------------- | --------- | ------- | -------------- | ------------ |

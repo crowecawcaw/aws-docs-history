@@ -28,20 +28,9 @@ The following Elastic Beanstalk platform versions for .NET Core on Linux were cu
 | **.NET 8 on AL2023 version 3.8.0**<br>_64bit Amazon Linux 2023 v3.8.0 running .NET 8_   | .NET 8.0.24, supports 8.0.24 | nginx 1.28.2 | 2023.10.20260216 | 3.6.2     |
 | **.NET Core on AL2 version 2.13.0**<br>_64bit Amazon Linux 2 v2.13.0 running .NET Core_ | .NET 8.0.24, supports 8.0.24 | nginx 1.28.2 | 2.0.20260216     | 3.6.2     |
 
-## February 25, 2026 – February 25, 2026
+## February 12, 2026 – February 25, 2026
 
-The following Elastic Beanstalk platform versions for .NET Core on Linux were current between February 25, 2026 and February 25, 2026:
-
-| Platform Version and _Solution Stack Name_                                              | Framework                    | Proxy Server | AMI              | AWS X-Ray |
-| --------------------------------------------------------------------------------------- | ---------------------------- | ------------ | ---------------- | --------- |
-| **.NET 10 on AL2023 version 3.7.4**<br>_64bit Amazon Linux 2023 v3.7.4 running .NET 10_ | .NET 10.0.3, supports 10.0.3 | nginx 1.28.2 | 2023.10.20260216 | 3.6.2     |
-| **.NET 9 on AL2023 version 3.7.4**<br>_64bit Amazon Linux 2023 v3.7.4 running .NET 9_   | .NET 9.0.13, supports 9.0.13 | nginx 1.28.2 | 2023.10.20260216 | 3.6.2     |
-| **.NET 8 on AL2023 version 3.7.4**<br>_64bit Amazon Linux 2023 v3.7.4 running .NET 8_   | .NET 8.0.24, supports 8.0.24 | nginx 1.28.2 | 2023.10.20260216 | 3.6.2     |
-| **.NET Core on AL2 version 2.12.5**<br>_64bit Amazon Linux 2 v2.12.5 running .NET Core_ | .NET 8.0.24, supports 8.0.24 | nginx 1.28.2 | 2.0.20260216     | 3.6.2     |
-
-## February 12, 2026 – February 24, 2026
-
-The following Elastic Beanstalk platform versions for .NET Core on Linux were current between February 12, 2026 and February 24, 2026:
+The following Elastic Beanstalk platform versions for .NET Core on Linux were current between February 12, 2026 and February 25, 2026:
 
 | Platform Version and _Solution Stack Name_                                              | Framework                    | Proxy Server | AMI              | AWS X-Ray |
 | --------------------------------------------------------------------------------------- | ---------------------------- | ------------ | ---------------- | --------- |
