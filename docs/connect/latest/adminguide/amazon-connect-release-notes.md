@@ -3784,7 +3784,7 @@ Released Amazon Connect outbound campaigns, formerly known as High-volume outbou
 This release includes a set of APIs for creating and managing outbound campaigns. For more
 information, see [Enable Amazon Connect outbound
 campaigns](outbound-campaigns.md "outbound-campaigns.md") and [Amazon Connect Outbound Campaigns API
-Reference](../../../connect-outbound/latest/APIReference/Welcome.md "../../../connect-outbound/latest/APIReference/Welcome.md").
+Reference](../../../connect-outbound/latest/APIReference/Welcome.html.md "../../../connect-outbound/latest/APIReference/Welcome.html.md").
 
 #### Released GetCurrentUserData API
 

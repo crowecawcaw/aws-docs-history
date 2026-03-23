@@ -348,7 +348,7 @@ securing the external layer:
 
 - [Security
   Pillar](../../../wellarchitected/latest/security-pillar/welcome.md "../../../wellarchitected/latest/security-pillar/welcome.md")
-- [Introduction to AWS Security](../../../whitepapers/latest/introduction-aws-security/introduction-aws-security.md "../../../whitepapers/latest/introduction-aws-security/introduction-aws-security.md")
+- [Introduction to AWS Security](../../../whitepapers/latest/introduction-aws-security/introduction-aws-security.pdf.md "../../../whitepapers/latest/introduction-aws-security/introduction-aws-security.pdf.md")
 - [AWS Security Best Practices](https://aws.amazon.com/architecture/security-identity-compliance/ "https://aws.amazon.com/architecture/security-identity-compliance/")
 
 **Videos**

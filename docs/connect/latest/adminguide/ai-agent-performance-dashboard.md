@@ -14,6 +14,7 @@ Agents metrics such as invocation count, latency, and success rate.
 - [AI agent assistance performance summary](#ai-agent-assistance-performance-summary-dashboard "#ai-agent-assistance-performance-summary-dashboard")
 - [AI agents by version chart](#ai-agents-by-version-chart "#ai-agents-by-version-chart")
 - [AI agents by invocation success rate](#ai-agents-by-invocation-success-chart "#ai-agents-by-invocation-success-chart")
+- [Knowledge base usage](#knowledge-base-usage "#knowledge-base-usage")
 - [AI prompts by version](#ai-prompts-by-version "#ai-prompts-by-version")
 
 ## Enable access to the dashboard
@@ -128,6 +129,20 @@ directly from this chart.
 The following image shows an example **AI agents by invocation success rate** chart.
 
 ![The AI agents by invocation success rate chart.](images/ai-agents-by-invocation-success-chart.png)
+
+## Knowledge base usage
+
+This table provides a drill-down view of knowledge base articles referenced by your AI agents. You can expand
+by AI agent type and AI agent rows to drill down into specific knowledge base name to see how many times a knowledge
+base was referenced by AI agents.
+
+**Metrics displayed:**
+
+- **Reference count** – Number of times the article was referenced by AI agents.
+
+The following image shows an example **Knowledge base usage** table.
+
+![The knowledge base usage table.](images/knowledge-base-usage.png)
 
 ## AI prompts by version
 

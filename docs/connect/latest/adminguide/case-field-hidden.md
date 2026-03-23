@@ -22,12 +22,15 @@ For example, you may want to hide the **Advanced Configuration** field unless th
 3. Choose **New Field Condition**.
 4. On the **Create new field condition** page, select **Hidden** as the condition type.
 5. Use the **Source field** dropdown list to choose the field you want to evaluate for the condition.
-6. Configure the visibility settings:
+6. You can add up to 5 field conditions and choose whether they are fulfilled by AND or OR conditions, by clicking the Add Condition button.
+7. Configure the visibility settings:
    - **Default visibility**: Choose whether the field is hidden or shown when no conditions match
    - **Show field when**: Define the conditions that will show the field
 
-7. Choose the operator and the value to check.
-8. Choose **Save**, and then proceed to the next step to add the condition to your template.
+8. Choose the operator and the value to check.
+9. You can add up to 5 field conditions and choose whether they are fulfilled by AND or OR conditions, by clicking the Add Condition button.
+
+![A hidden field condition with 3 conditions configured.](images/conditionally-hidden-with-3-conditions.png) 10. Choose **Save**, and then proceed to the next step to add the condition to your template.
 
 ## Step 2: Add hidden field conditions to a template
 

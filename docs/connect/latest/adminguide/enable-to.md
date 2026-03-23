@@ -62,7 +62,7 @@ Requests that are not auto-approved are displayed as follows:
 
 
 
-    ![The Scheduling page, the Published schedule calendar tab, the time off requests.](images/request-drawer-view-to.png)
+    ![The Scheduling page, the Published schedule calendar tab, the time off requests.](/images/connect/latest/adminguide/images/request-drawer-view-to.png)
     + Agent application: Requests are displayed as **Awaiting
      Approval**.
 

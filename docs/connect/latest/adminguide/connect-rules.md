@@ -11,7 +11,7 @@ console. No coding is required.
 - [Add real-time alerts to Contact Lens for supervisors based on keywords and phrases in a call](add-rules-for-alerts.md "add-rules-for-alerts.md")
 - [Automatically categorize contacts by matching conversations with natural language statements, or specific words and phrases](rules.md "rules.md")
 - [Create a rule that generates a task](contact-lens-rules-create-task.md "contact-lens-rules-create-task.md")
-- [Create a Contact Lens rule that generates an EventBridge event](contact-lens-rules-eventbridge-event.md "contact-lens-rules-eventbridge-event.md")
+- [Create a rule that generates an EventBridge event](contact-lens-rules-eventbridge-event.md "contact-lens-rules-eventbridge-event.md")
 - [Create rules that send email notifications](contact-lens-rules-email.md "contact-lens-rules-email.md")
 - [Notify supervisors and agents about performance evaluations](create-evaluation-rules.md "create-evaluation-rules.md")
 - [Create alerts on real-time metrics in Amazon Connect](rule-real-time-metrics.md "rule-real-time-metrics.md")

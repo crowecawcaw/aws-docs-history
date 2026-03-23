@@ -6,7 +6,7 @@ To integrate an MCP server application with Amazon Connect, you must configure a
 
 Only one instance can be associated with a gateway, and that instance must be configured with the gateway's Discovery URL in Bedrock AgentCore. Each gateway can only be used with one MCP server.
 
-## How to integrate an MCP server application
+## How to integrate an MCP server
 
 1. On the **Add application** page, enter the following information:
    1. **Basic information**
@@ -35,4 +35,4 @@ Only one instance can be associated with a gateway, and that instance must be co
 2. Choose **Save**.
 3. If the application was successfully created, you will be sent to the **View applications** page where you will see a success banner and the application summary.
 
-![The View applications page showing a success banner after creating an MCP server application.](images/3p-apps-mcp-success.png)
+![The View applications page showing a success banner after integrating an MCP server.](images/3p-apps-mcp-success.png)

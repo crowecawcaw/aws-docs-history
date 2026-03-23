@@ -10,4 +10,4 @@ object type mapping from external applications to the standard order.
 - [Standard order
   definition](standard-order-definition.md "standard-order-definition.md")
 - [Mapping
-  Shopify objects](mapping-shopify-objects-standard-order.md "mapping-shopify-objects-standard-order.md")
+  Shopify objects](mapping-shopify-objects-standard-order.html.md "mapping-shopify-objects-standard-order.html.md")

@@ -49,25 +49,27 @@ set up:
    **Source field** dropdown list to choose the field you
    want to validate, as shown in the following image:
 
-![The Conditions section, the Source field dropdown list.](images/cfc-choose-field.png) 5. Choose the operator and the value to check.
+![The Conditions section, the Source field dropdown list.](images/cfc-choose-field-1.png) 5. Choose the operator and the value to check.
 
 For example, the following image shows when the
-**Country** field equals the **USA**,
+**State** field equals **New York**,
 a case field will be required.
 
-![The Create new field condition page, example settings to make a field required.](images/cfc-country.png)
+![The Create new field condition page, example settings to make a field required.](images/cfc-country-2.png)
 
 The condition is configured as follows:
 
-    * **Source** = **Country**
+    * **Source** = **State**
     * **Operator** = **equals**
-    * **Value** = **USA**
+    * **Value** = **New York**
     * **Required** is selected. A case field that you
      specify in [Step 2](#step2-add-casefieldcondition-template "#step2-add-casefieldcondition-template") will be required when this condition is
      met.
 
-6. For **Fallback condition**, if the condition is not met,
-   choose this field to set the default experience.
+6. You can add up to 5 field conditions and choose whether they are fulfilled by AND or OR conditions, by clicking the Add Condition button.
+
+![A conditionally required field with 3 conditions configured.](images/conditionally-required-with-3-conditions.png) 7. For **Fallback condition**, if the condition is not met,
+choose this field to set the default experience.
 
 For example, if you leave **Fallback condition**
 unselected, when **Country** does not equal
@@ -75,7 +77,7 @@ unselected, when **Country** does not equal
 won't be required. So, if you apply the condition to
 **State**, but the **Country =
 France**, the **State** field won't be
-required. 7. Choose **Save**, and then proceed to the next step to add
+required. 8. Choose **Save**, and then proceed to the next step to add
 the condition to your template.
 
 ## Step 2: Add case field conditions to a template
@@ -97,7 +99,7 @@ to escalations, but not to general inquires. 4. In the **Fields** section, choos
 to the field you want to apply the condition to. The following image shows
 the settings icon for the **State** field.
 
-![The case templates page, the settings icon for a field.](images/cfc-gear-icon.png) 5. In the **Modify field conditions for**
+![The case templates page, the settings icon for a field.](images/cfc-gear-icon-2.png) 5. In the **Modify field conditions for**
 [`field`] use the dropdown box to choose the
 condition you want to apply to the field.
 
@@ -105,14 +107,14 @@ In the following image, the **USA requirements**
 condition is going to be applied to the **State**
 field.
 
-![The Modify field conditions dialog box.](images/cfc-choose-condition.png) 6. Choose **Apply**, and then choose
+![The Modify field conditions dialog box.](images/cfc-choose-condition-2.png) 6. Choose **Apply**, and then choose
 **Save** to save the change to the template.
 
 The status page indicates which conditions have been applied to a field.
 The following image shows the **USA requirements**
 condition is applied to the **State** field.
 
-![The Fields on a template, the Required column.](images/cfc-condition-applied.png)
+![The Fields on a template, the Required column.](images/cfc-condition-applied-2.png)
 
 ## Example case field conditions
 
@@ -128,7 +130,7 @@ condition is applied to the **State** field.
 
     The following image shows how to set up this condition.
 
-![The Create new field condition page, example settings to make a field optional.](images/cfc-example1.png) 2. Assign this condition to the **Closed Reason** field
+![The Create new field condition page, example settings to make a field optional.](images/cfc-example1-2.png) 2. Assign this condition to the **Closed Reason** field
 on the cases template. 3. Result: When agents save a case and the **Closed
 Reason** field is blank, they will be prompted to enter a
 value.
@@ -142,7 +144,7 @@ blank, then a case field will be required. If the **Date/Time
 Created** field is empty, then that case field is optional.
 The following image shows how to set up this condition.
 
-![The Create new field condition page, example settings to make a field optional.](images/cfc-example2.png) 2. Assign this condition to the **Agent Handle Reason**
+![The Create new field condition page, example settings to make a field optional.](images/cfc-example2-2.png) 2. Assign this condition to the **Agent Handle Reason**
 field on the cases template. 3. Result: When agents save a case and the **Agent Handle
 Reason** is blank, they will be prompted to enter a
 value.
@@ -164,7 +166,7 @@ You can copy the ARN of a queue from the
 
 The following image shows how to set up this condition.
 
-![The Create new field condition page, example settings to make a field optional.](images/cfc-escalationqueue.png) 2. Assign this condition to the **Escalation reason**
+![The Create new field condition page, example settings to make a field optional.](images/cfc-escalationqueue-2.png) 2. Assign this condition to the **Escalation reason**
 field on the cases template. 3. Result: When agents assign a case to the **Escalation
 queue**, and the **Escalation reason**
 field is blank, they will be prompted to enter a value.

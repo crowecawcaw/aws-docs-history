@@ -21,7 +21,7 @@ application, then it will have the ability to make the following requests:
 to subscribe to an event or make a request for data that it does not have permission
 for, your app may not function as intended.
 
-To learn more about each request and event, see the [API Reference](../../../agentworkspace/latest/devguide/api-reference-3p-apps-events-and-requests.md "../../../agentworkspace/latest/devguide/api-reference-3p-apps-events-and-requests.md").
+To learn more about each request and event, see the [API Reference](../../../agentworkspace/latest/devguide/api-reference-3p-apps-events-and-requests.html.md "../../../agentworkspace/latest/devguide/api-reference-3p-apps-events-and-requests.html.md").
 
 | Permission                   | Description                                                                                 | Requests                                                                                                                                                                                                                 | Events                                                                                |
 | ---------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |

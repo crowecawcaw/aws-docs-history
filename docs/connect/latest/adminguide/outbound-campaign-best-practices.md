@@ -167,7 +167,7 @@ Here are examples of how to use Customer Profile attributes in prompts:
 - Remove the **Loop prompts** from the **Default customer
   queue** flow and replace them with **End flow / Resume**.
 
-![The Default customer queue set to End flow / Resume.](images/cmpgn-default-customer-queue.png)
+![The Default customer queue set to End flow / Resume.](/images/connect/latest/adminguide/images/cmpgn-default-customer-queue.png)
 
 - If agents don't answer within 2 seconds of calls going to queue, you can minimize silent
   calls by using **Loop prompts** and play a message for the customer. The

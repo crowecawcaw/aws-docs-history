@@ -21,15 +21,13 @@ Guide](../../../agentworkspace/latest/devguide/getting-started.md "../../../agen
 ###### Contents
 
 - [Requirements](#onboard-3p-apps-requirements "#onboard-3p-apps-requirements")
-- [How to integrate a
-  third-party application](#onboard-3p-apps-how-to-integrate "#onboard-3p-apps-how-to-integrate")
-- [Delete third-party
-  applications](#delete-3p-apps "#delete-3p-apps")
+- [How to add an integration](#onboard-3p-apps-how-to-integrate "#onboard-3p-apps-how-to-integrate")
+- [Delete integrations](#delete-3p-apps "#delete-3p-apps")
 - [Assign
   permissions](assign-security-profile-3p-apps.md "assign-security-profile-3p-apps.md")
 - [Iframe permissions when
   granting third-party application access](3p-apps-iframe-permissions.md "3p-apps-iframe-permissions.md")
-- [MCP server applications](3p-apps-mcp-server.md "3p-apps-mcp-server.md")
+- [Integrate an MCP server](3p-apps-mcp-server.md "3p-apps-mcp-server.md")
 - [Events and
   requests](3p-apps-events-requests.md "3p-apps-events-requests.md")
 - [Access third-party
@@ -70,60 +68,66 @@ JSON
 
 ```
 
-## How to integrate a third-party application
+## Integrations
 
 ###### Note
 
-To integrate third-party applications into your instances, ensure that your
+To add an integration to your instances, ensure that your
 instance is using a Service-Linked Role (SLR). If your instance currently does
-not use an SLR but you wish to integrate third-party applications, you will need
-to migrate to an SLR. Third-party applications can only be integrated and used
-in instances that are using an SLR. For more information, see [For instances created before October 2018](connect-slr.md#migrate-slr "connect-slr.md#migrate-slr").
+not use an SLR but you wish to add an integration, you will need
+to migrate to an SLR. Integration can only be add to instances that are using an SLR. For more information, see [For instances created before October 2018](connect-slr.md#migrate-slr "connect-slr.md#migrate-slr").
 
 1. Open the Amazon Connect
    [console](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/")
    (https://console.aws.amazon.com/connect/).
-2. On the left navigation pane, choose **Third-party
-   applications**. If you do not see this menu, it's because it is
+2. On the left navigation pane, choose **Integrations**. If you do not see this menu, it's because it is
    not available in your region. To check the regions where this feature is
    available, see [Availability of Amazon Connect features by Region](regions.md "regions.md").
-3. On the **Third-party applications** page, choose
-   **Add application**.
+3. On the **Integrations** page, choose
+   **Add integration**.
 
-![The properties page of the Set contact attributes block.](images/3p-app-integration-image-1.png) 4. On the **Add application** page, enter:
+![The properties page of the Set contact attributes block.](images/integrations-list.png) 4. On the **Add integration** page, enter:
 
     1. **Basic information**
 
 
     	1. **Display name**: A friendly
-    	 name for the application. This name is displayed on security
+    	 name for the integration. This name is displayed on security
     	 profiles and to your agents on the tab in the agent
     	 workspace. You can come back and change this name.
-    	2. **Application identifier**:
-    	 The official name that is unique for your application. If
+    	2. **Description (optional)**:
+    	 You may optionally provide any description for this
+    	 integration. This description is not displayed to
+    	 agents.
+    	3. **Integration type**:
+    	 Indicates whether the integration is a standard web
+    	 application, service, or MCP server. This determines how the
+    	 integration will be accessed within the
+    	 system.
+    	4. **Integration identifier**:
+    	 The official name that is unique for integrations of type standard application or service. If
     	 you have only one application per access URL, we recommend
     	 that you use the origin of the access URL. You cannot
     	 change this name.
-    	3. **Description (optional)**:
-    	 You may optionally provide any description for this
-    	 application. This description is not displayed to
-    	 agents.
-    	4. **Application type**:
-    	 Indicates whether the application is a standard web
-    	 application, service, or MCP server. This determines how the
-    	 application will be integrated and accessed within the
-    	 system.
-    	5. **Contact Scope**: Indicates
-    	 whether the application refreshes for each contact or
-    	 refreshes only with each new browser session. This setting
-    	 affects how frequently the application updates its
-    	 data.
-    	6. **Initialization timeout**:
+    	5. **Initialization timeout**:
     	 The maximum time allowed to establish a connection with the
     	 workspace. The time allowed is in milliseconds. This setting
     	 helps manage connection issues and ensures timely
     	 application startup.
-    2. **Access**
+    2. **Application details**
+
+
+    	1. **Contact Scope**: Indicates
+    	 whether the web application refreshes for each contact or
+    	 refreshes only with each new browser session. This setting
+    	 affects how frequently the application updates its
+    	 data.
+    	2. **Initialization timeout**:
+    	 The maximum time allowed to establish a connection with the
+    	 workspace. The time allowed is in milliseconds. This setting
+    	 helps manage connection issues and ensures timely
+    	 application startup.
+    3. **Access**
 
 
     	1. **Access URL**: This is the
@@ -178,8 +182,10 @@ in instances that are using an SLR. For more information, see [For instances cre
 
     				1. If the directive is `same origin`
     				 or `deny`, then this URL cannot be
-    				 iframed by AWS/Amazon ConnectHere's what you can do if the app cannot be
+    				 iframed by AWS/Amazon Connect
+    	Here's what you can do if the app cannot be
     	 iframed:
+
 
 
 
@@ -197,7 +203,7 @@ in instances that are using an SLR. For more information, see [For instances cre
     	 permitted, if different than the access URL. The URL must be
     	 secure, starting with https, unless it's a local
     	 host.
-    3. Add permissions to [events
+    4. Add permissions to [events
      and requests](3p-apps-events-requests.md "3p-apps-events-requests.md").
 
 
@@ -210,29 +216,34 @@ in instances that are using an SLR. For more information, see [For instances cre
 
     **Providing basic information and access
      details**
-    4. **Instance association**
+    5. **Instance association**
 
 
     	1. You may give any instance(s) within this account-region
     	 access to this application.
-    	2. While associating the application to an instance is
+    	2. While associating the integration with an instance is
     	 optional, you will not be able to use this application until
     	 you associate it with instance(s).
 
-![Providing basic information and access details.](images/onboard-3p-apps-with-permissions-basic-info.png)
+
+    	###### Note
+
+    	For MCP servers, you can only select the instance that is configured with the selected Gateway's Discovery URL.
+
+![Providing basic information and access details.](images/integrations-add-basic-info.png)
 
 **Granting permissions to the application for workspace
 data integration**
 
-![Granting permissions to the application for workspace data integration.](images/onboard-3p-apps-with-permissions-granting-permissions-1.png)
+![Granting permissions to the application for workspace data integration.](images/integrations-add-permissions.png)
 
 **Iframe configuration**
 
-![Iframe configuration.](images/onboard-3p-apps-with-permissions-granting-permissions-iframe.png) 5. Choose **Save**. 6. If the application was successfully created, you will be returned to the
-**Third-party applications** page, you will see a
-success banner, and you should see the application on the list.
+![Iframe configuration.](images/integrations-add-iframe-config.png) 5. Choose **Add integration**. 6. If the integration was successfully created, you will be sent to the
+**Integration details** page, and you will see a
+success banner.
 
-![Granting permissions to the application for workspace data integration.](images/onboard-3p-apps-with-permissions-granting-permissions-2.png)
+![Granting permissions to the application for workspace data integration.](images/integrations-view.png)
 
 You can edit certain attributes of an existing app, such as its Display
 Name, Access URL, and Permissions.
@@ -242,28 +253,28 @@ Name, Access URL, and Permissions.
      error message, and you can take the corresponding action to correct
      the issue.
 
-## Delete third-party applications
+## Delete integrations
 
-If you no longer want to use a third-party application in the foreseeable future,
+If you no longer want to use an integration in the foreseeable future,
 you can delete it. If you temporarily want to stop using it, but you may want to use
 it again in the foreseeable future, we recommend that you disassociate it from an
-instance to avoid having to add it again. To delete third-party applications,
-navigate to the AWS Management Console, select an application, and choose
+instance to avoid having to add it again. To delete integrations,
+navigate to the AWS Management Console, select an integration, and choose
 **Delete**.
 
 **Troubleshooting**
 
-- The operation will fail if the application is associated with any
-  instance. You will first have to disassociate the application from any
-  instance. Then you can come back and delete.
+- The operation will fail if the integration is associated with any
+  instance. You will first have to disassociate the integration from any
+  instance. Then you can come back and delete it.
 
 ###### Tip
 
-If you created an application before Dec 15, 2023, then you may encounter
-issues when updating the association of the application to instance(s). This is
+If you created an integration before Dec 15, 2023, then you may encounter
+issues when updating the association of the integration to instance(s). This is
 because you need to make updates to your IAM policy.
 
-![IAM error when trying to delete a third-party app due to insufficient permissions](images/delete-3p-apps.png)
+![IAM error when trying to delete an integration due to insufficient permissions](images/delete-3p-apps.png)
 
 Your IAM policy will need to be updated to include the following
 permissions:

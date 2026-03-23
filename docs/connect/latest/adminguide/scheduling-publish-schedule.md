@@ -35,7 +35,18 @@ generate, depending on the number of agents, number of configured rules,
 schedule duration, and more. After the schedule is generated, it's status is
 **Complete** or **Failed**. 11. To view any warnings, breaches of rules, or constraints breaches, choose
 the warnings icon, as shown in the following image. More information about
-the warnings is displayed.
+the warnings is displayed. Schedule generation warnings come in three
+severities: **HIGH**, **MEDIUM**,
+and **LOW**.
+
+    1. **HIGH** warnings indicate an agent has
+     not been successfully scheduled.
+    2. **MEDIUM** warnings indicate an agent was scheduled
+     but could not meet all the given requirements
+     (e.g. an agent's schedule for a day not meeting the minimum
+     working hours required for them).
+    3. **LOW** warnings indicate minor problems
+     with the schedule (e.g. overstaffing occurring for a given day).
 
 ![The schedule calendar, the warnings icon, an example of schedule warnings.](images/wfm-scheduling-warnings.png) 12. When the status is **Complete**, choose the draft
 schedule to view it. The following image shows a sample schedule for one

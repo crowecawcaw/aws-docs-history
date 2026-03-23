@@ -1,4 +1,4 @@
-# Create a Contact Lens rule that generates an EventBridge event
+# Create a rule that generates an EventBridge event
 
 In real-time or post-call/chat, you can get events and use them to trigger
 subsequent notifications or alerts, or aggregate reports outside of Amazon Connect.
