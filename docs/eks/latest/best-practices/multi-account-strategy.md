@@ -263,13 +263,13 @@ and `kubernetes-namespace` tags all have the expected value.
         {
             "Effect": "Allow",
             "Principal": {
-                "AWS": "&region-arn;iam::111122223333:root"
+                "AWS": "arn:aws:iam::111122223333:root"
             },
             "Action": "sts:AssumeRole",
             "Condition": {
                 "StringEquals": {
                     "aws:PrincipalTag/kubernetes-service-account": "PayrollApplication",
-                    "aws:PrincipalTag/eks-cluster-arn": "&region-arn;eks:&region_api_default;:111122223333:cluster/ProductionCluster",
+                    "aws:PrincipalTag/eks-cluster-arn": "arn:aws:eks:us-east-1:111122223333:cluster/ProductionCluster",
                     "aws:PrincipalTag/kubernetes-namespace": "PayrollNamespace"
                 }
             }

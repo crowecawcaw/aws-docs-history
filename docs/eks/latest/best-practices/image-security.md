@@ -204,7 +204,7 @@ restrict access might look like the following:
         "ecr:CompleteLayerUpload"
       ],
       "Resource": [
-        "&region-arn;ecr:&region_api_default;:123456789012:repository/team-a/*"
+        "arn:aws:ecr:us-east-1:123456789012:repository/team-a/*"
       ]
     }
   ]

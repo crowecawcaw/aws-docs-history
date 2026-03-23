@@ -925,16 +925,16 @@ values, where the EKS cluster is hosted in the AWS account
         {
             "Effect": "Allow",
             "Principal": {
-                "AWS": "&region-arn;iam::111122223333:root"
+                "AWS": "arn:aws:iam::111122223333:root"
             },
             "Action": "s3:*",
             "Resource":            [
-                "&region-arn;s3:::ExampleBucket/*"
+                "arn:aws:s3:::ExampleBucket/*"
             ],
             "Condition": {
                 "StringEquals": {
                     "aws:PrincipalTag/kubernetes-service-account": "s3objectservice",
-                    "aws:PrincipalTag/eks-cluster-arn": "&region-arn;eks:us-west-2:111122223333:cluster/ProductionCluster",
+                    "aws:PrincipalTag/eks-cluster-arn": "arn:aws:eks:us-west-2:111122223333:cluster/ProductionCluster",
                     "aws:PrincipalTag/kubernetes-namespace": "s3datanamespace"
                 }
             }

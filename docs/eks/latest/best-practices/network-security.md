@@ -719,7 +719,7 @@ Private CA:
                 "acm-pca:IssueCertificate"
             ],
             "Effect": "Allow",
-            "Resource": "&region-arn;acm-pca:us-west-2:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012"
+            "Resource": "arn:aws:acm-pca:us-west-2:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012"
         }
     ]
 }
