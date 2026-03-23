@@ -3,7 +3,7 @@
 _Last documentation update:_ June 18, 2019
 
 The following table describes important changes to the AWS Toolkit for Microsoft Azure DevOps over the course of its history.
-For notification about updates to this documentation, you can subscribe to an [RSS feed](amazon-tools-for-vsts-guide-doc-history.md "amazon-tools-for-vsts-guide-doc-history.md").
+For notification about updates to this documentation, you can subscribe to an [RSS feed](amazon-tools-for-vsts-guide-doc-history.rss.md "amazon-tools-for-vsts-guide-doc-history.rss.md").
 
 | Change                                                                                                           | Description                                                                                                                  | Date              |
 | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------- |
