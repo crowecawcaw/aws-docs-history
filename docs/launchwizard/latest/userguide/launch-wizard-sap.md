@@ -300,7 +300,7 @@ applications. This allows the components to communicate.
 
 ### Amazon Elastic File System
 
-[Amazon EFS](../../../efs/latest/ug/whatisefs.md "../../../efs/latest/ug/whatisefs.md") provides
+[Amazon EFS](../../../efs/latest/ug/whatisefs.htm.md "../../../efs/latest/ug/whatisefs.htm.md") provides
 file storage in the AWS Cloud. With Amazon EFS, you can create a file system,
 mount the file system on an Amazon EC2 instance, and then read and write data to and from
 your file system. For more information, see [Amazon Elastic File System setup for transport directory](how-launch-wizard-sap-works.md#launch-wizard-sap-efs "how-launch-wizard-sap-works.md#launch-wizard-sap-efs").
