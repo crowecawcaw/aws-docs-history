@@ -75,7 +75,7 @@ Once you have extended the volume, you need to extend the drive with your Linux 
 
 Operating system maintenance across large estates of EC2 instances can be managed by:
 
-- Tools specific to each operating system such as [SUSE Manager](https://www.suse.com/products/suse-manager/ "https://www.suse.com/products/suse-manager/") and [Red Hat Smart Management](https://www.redhat.com/en/blog/red-hat-smart-management-and-satellite-ask-me-anything-qa-march "https://www.redhat.com/en/blog/red-hat-smart-management-and-satellite-ask-me-anything-qa-march").
+- Tools specific to each operating system such as [SUSE Manager](https://documentation.suse.com/suma/ "https://documentation.suse.com/suma/") and [Red Hat Smart Management](https://www.redhat.com/en/blog/introducing-red-hat-smart-management-red-hat-enterprise-linux "https://www.redhat.com/en/blog/introducing-red-hat-smart-management-red-hat-enterprise-linux").
 - 3rd party products such as those available on the [AWS Marketplace](https://aws.amazon.com/marketplace "https://aws.amazon.com/marketplace").
 - Using [AWS Systems Manager](https://aws.amazon.com/systems-manager/ "https://aws.amazon.com/systems-manager/").
 

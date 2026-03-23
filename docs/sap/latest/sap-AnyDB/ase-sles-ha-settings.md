@@ -42,7 +42,7 @@ The cluster setup relies on the following parameters.
 | Host additional IP     | `<host_additional_ip>` | `10.1.10.2`                | `10.1.20.2`                 |
 | Configured subnet      | `<subnet_id>`          | `subnet-xxxxxxxxxxsubnet1` | `subnet-xxxxxxxxxxsubnet2`  |
 
-- Hostname – Hostnames must comply with SAP requirements outlined in [SAP Note 611361 - Hostnames of SAP ABAP Platform servers](https://launchpad.support.sap.com/#/notes/611361 "https://launchpad.support.sap.com/#/notes/611361") (requires SAP portal access).
+- Hostname – Hostnames must comply with SAP requirements outlined in [SAP Note 611361 - Hostnames of SAP ABAP Platform servers](https://me.sap.com/notes/611361 "https://me.sap.com/notes/611361") (requires SAP portal access).
 
 Run the following command on your instances to retrieve the hostname.
 
@@ -68,7 +68,7 @@ For more details, see [Retrieve instance metadata](../../../AWSEC2/latest/UserGu
 | VPC Route Tables           | `<rtb_id>`             | `rtb-xxxxxroutetable1`                       |
 | FSx for ONTAP mount points | `<ase_db_fs>`          | `svm-xxx.fs-xxx.fsx.us-east-1.amazonaws.com` |
 
-- SAP details – SAP parameters must follow the guidance and limitations of SAP and Software Provisioning Manager. Refer to [SAP Note 1979280 - Reserved SAP System Identifiers (SAPSID) with Software Provisioning Manager](https://launchpad.support.sap.com/#/notes/1979280 "https://launchpad.support.sap.com/#/notes/1979280") for more details.
+- SAP details – SAP parameters must follow the guidance and limitations of SAP and Software Provisioning Manager. Refer to [SAP Note 1979280 - Reserved SAP System Identifiers (SAPSID) with Software Provisioning Manager](https://me.sap.com/notes/1979280 "https://me.sap.com/notes/1979280") for more details.
 
 Post-installation, use the following command to find the details of the instances running on a host.
 

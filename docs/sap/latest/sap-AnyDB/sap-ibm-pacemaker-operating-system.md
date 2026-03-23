@@ -14,13 +14,13 @@ If you plan to use Bring Your Own Subscription (BYOS) images provided by SUSE, e
 
 RHEL for SAP with HA and US provides access to Red Hat Pacemaker cluster software for High Availability, extended update support, and the libraries that are required to configure pacemaker HA. For details, see the [RHEL for SAP Offerings on AWS FAQ](https://access.redhat.com/articles/3671571 "https://access.redhat.com/articles/3671571")in the _Red Hat knowledgebase_.
 
-If you plan to use the BYOS model with RHEL, either through the [Red Hat Cloud Access program](https://access.redhat.com/articles/3490141 "https://access.redhat.com/articles/3490141") or another means, ensure that you have access to a RHEL for SAP Solutions subscription. For details, see [Overview of the Red Hat Enterprise Linux for SAP Solutions subscription](https://access.redhat.com/solutions/3082481 "https://access.redhat.com/solutions/3082481") in the _Red Hat knowledgebase_.
+If you plan to use the BYOS model with RHEL, either through the [Red Hat Cloud Access program](https://access.redhat.com/articles/3490141 "https://access.redhat.com/articles/3490141") or another means, ensure that you have access to a RHEL for SAP Solutions subscription. For details, see [Red Hat Enterprise Linux for SAP Solutions](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions") in the Red Hat documentation.
 
 The correct subscription is required to download the required packages for configuring the Pacemaker cluster.
 
 ## Compute
 
-AWS provides a wide array of SAP supported Amazon EC2 instances for your SAP workloads. See [SAP Note 1656099 - SAP Applications on AWS: Supported DB/OS and Amazon EC2 products](https://launchpad.support.sap.com/#/notes/1656099 "https://launchpad.support.sap.com/#/notes/1656099") for details. Based on the results of your sizing exercise, you can deploy your IBM Db2 on any of the SAP supported Amazon EC2 instances that meets your requirement.
+AWS provides a wide array of SAP supported Amazon EC2 instances for your SAP workloads. See [SAP Note 1656099 - SAP Applications on AWS: Supported DB/OS and Amazon EC2 products](https://me.sap.com/notes/1656099 "https://me.sap.com/notes/1656099") for details. Based on the results of your sizing exercise, you can deploy your IBM Db2 on any of the SAP supported Amazon EC2 instances that meets your requirement.
 
 ## Storage
 

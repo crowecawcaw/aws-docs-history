@@ -12,7 +12,7 @@ You must install the SAP MaxDB as per the instructions provided by SAP. For more
 
 **Backup and restore**
 
-Backup and restore operations are supported by standard SAP MaxDB tools. For more information, see [SAP Note 1928060 - Data backup and recovery with file system backup](https://launchpad.support.sap.com/#/notes/1928060 "https://launchpad.support.sap.com/#/notes/1928060")(requires access to the SAP portal).
+Backup and restore operations are supported by standard SAP MaxDB tools. For more information, see [SAP Note 1928060 - Data backup and recovery with file system backup](https://me.sap.com/notes/1928060 "https://me.sap.com/notes/1928060")(requires access to the SAP portal).
 
 SAP ASE
 You must install the SAP ASE as per the instructions provided by SAP. You can select the relevant guide from the [Guide Finder for SAP NetWeaver and ABAP Platform](https://help.sap.com/docs/SAP_NETWEAVER/9e41ead9f54e44c1ae1a1094b0f80712/576f5c1808de4d1abecbd6e503c9ba42.html?language=en-US "https://help.sap.com/docs/SAP_NETWEAVER/9e41ead9f54e44c1ae1a1094b0f80712/576f5c1808de4d1abecbd6e503c9ba42.html?language=en-US") on SAP website.
@@ -23,10 +23,10 @@ FSx for ONTAP snapshot is a read-only image of an FSx for ONTAP volume at a poin
 
 Backup and restore operations are also supported by standard SAP ASE tools. You can check the following SAP Notes (requires SAP portal access) to learn more.
 
-- [SAP Note 1585981 - SYB: Ensuring Recoverability for SAP ASE](https://launchpad.support.sap.com/#/notes/1585981 "https://launchpad.support.sap.com/#/notes/1585981")
-- [SAP Note 1588316 - SYB: Configure automatic database and log backups](https://launchpad.support.sap.com/#/notes/1588316 "https://launchpad.support.sap.com/#/notes/1588316")
-- [SAP Note 1618817 - SYB: How to restore an SAP ASE database server (UNIX)](https://launchpad.support.sap.com/#/notes/1618817 "https://launchpad.support.sap.com/#/notes/1618817")
-- [SAP Note 1887068 - SYB: Using external backup and restore with SAP ASE](https://launchpad.support.sap.com/#/notes/1887068 "https://launchpad.support.sap.com/#/notes/1887068")
+- [SAP Note 1585981 - SYB: Ensuring Recoverability for SAP ASE](https://me.sap.com/notes/1585981 "https://me.sap.com/notes/1585981")
+- [SAP Note 1588316 - SYB: Configure automatic database and log backups](https://me.sap.com/notes/1588316 "https://me.sap.com/notes/1588316")
+- [SAP Note 1618817 - SYB: How to restore an SAP ASE database server (UNIX)](https://me.sap.com/notes/1618817 "https://me.sap.com/notes/1618817")
+- [SAP Note 1887068 - SYB: Using external backup and restore with SAP ASE](https://me.sap.com/notes/1887068 "https://me.sap.com/notes/1887068")
 
 Oracle
 You must install the Oracle database as per the instructions provided by SAP. You can select the relevant guide from the [Guide Finder for SAP NetWeaver and ABAP Platform](https://help.sap.com/docs/SAP_NETWEAVER/9e41ead9f54e44c1ae1a1094b0f80712/576f5c1808de4d1abecbd6e503c9ba42.html?language=en-US "https://help.sap.com/docs/SAP_NETWEAVER/9e41ead9f54e44c1ae1a1094b0f80712/576f5c1808de4d1abecbd6e503c9ba42.html?language=en-US") on SAP website.

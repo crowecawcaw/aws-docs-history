@@ -100,7 +100,7 @@ You can use the Quick Sizer tool from SAP to calculate the compute requirement i
 MSSQL
 FSx for ONTAP is supported for SAP applications using MSSQL database in a Single or Multi-Availability Zone deployment. You can use FSx for ONTAP as the primary storage solution for MSSQL `data`, `log`, `tempdb`, `SQL binaries`, and `backup` volumes with supported Amazon EC2 instances.
 
-For a complete list of supported Amazon EC2 instances for the databases, see [SAP Note 1656099 - SAP Applications on Amazon EC2: Supported DB/OS and Amazon EC2 products](https://launchpad.support.sap.com/#/notes/1656099 "https://launchpad.support.sap.com/#/notes/1656099") (requires SAP portal access).
+For a complete list of supported Amazon EC2 instances for the databases, see [SAP Note 1656099 - SAP Applications on Amazon EC2: Supported DB/OS and Amazon EC2 products](https://me.sap.com/notes/1656099 "https://me.sap.com/notes/1656099") (requires SAP portal access).
 
 ## Sizing
 

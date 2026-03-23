@@ -43,7 +43,7 @@ Before installing SAP ASE database, ASCS and ERS must be installed, and the `/sa
 
 ### Check SAP host agent version
 
-The SAP host agent is used for ASE database instance control and monitoring. This agent is used by SAP cluster resource agents and hooks. It is recommended that you have the latest version installed on both instances. For more details, see [SAP Note 2219592 – Upgrade Strategy of SAP Host Agent](https://launchpad.support.sap.com/#/notes/2219592 "https://launchpad.support.sap.com/#/notes/2219592").
+The SAP host agent is used for ASE database instance control and monitoring. This agent is used by SAP cluster resource agents and hooks. It is recommended that you have the latest version installed on both instances. For more details, see [SAP Note 2219592 – Upgrade Strategy of SAP Host Agent](https://me.sap.com/notes/2219592 "https://me.sap.com/notes/2219592").
 
 Use the following command to check the version of the host agent.
 

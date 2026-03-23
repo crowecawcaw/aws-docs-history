@@ -66,10 +66,10 @@ SAP ASE is a single point of failure in a highly available SAP architecture. The
 In addition to this guide, see the following references for more details.
 
 - [SAP Note: 1650511 - SYB: High Availability Offerings with SAP Adaptive Server Enterprise](https://me.sap.com/notes/1650511/E "https://me.sap.com/notes/1650511/E")
-- [SAP Note: 1656099 - SAP Applications on AWS: Supported DB/OS and Amazon EC2 products](https://launchpad.support.sap.com/#/notes/1656099 "https://launchpad.support.sap.com/#/notes/1656099")
-- [SAP Note: 1984787 - SUSE Linux Enterprise Server 12: Installation Notes](https://launchpad.support.sap.com/#/notes/1984787 "https://launchpad.support.sap.com/#/notes/1984787")
-- [SAP Note: 2578899 - SUSE Linux Enterprise Server 15: Installation Notes](https://launchpad.support.sap.com/#/notes/2578899 "https://launchpad.support.sap.com/#/notes/2578899")
-- [SAP Note: 1275776 - Linux: Preparing SLES for SAP environments](https://launchpad.support.sap.com/#/notes/1275776 "https://launchpad.support.sap.com/#/notes/1275776")
+- [SAP Note: 1656099 - SAP Applications on AWS: Supported DB/OS and Amazon EC2 products](https://me.sap.com/notes/1656099 "https://me.sap.com/notes/1656099")
+- [SAP Note: 1984787 - SUSE Linux Enterprise Server 12: Installation Notes](https://me.sap.com/notes/1984787 "https://me.sap.com/notes/1984787")
+- [SAP Note: 2578899 - SUSE Linux Enterprise Server 15: Installation Notes](https://me.sap.com/notes/2578899 "https://me.sap.com/notes/2578899")
+- [SAP Note: 1275776 - Linux: Preparing SLES for SAP environments](https://me.sap.com/notes/1275776 "https://me.sap.com/notes/1275776")
 
 You must have SAP portal access for reading all SAP Notes.
 

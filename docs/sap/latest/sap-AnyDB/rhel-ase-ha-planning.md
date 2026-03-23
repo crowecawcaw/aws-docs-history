@@ -36,7 +36,7 @@ For more information, see [AWS – Overlay IP](#overlay-ip-rhel "#overlay-ip-rhe
 
 Protecting SAP ASE database with a pacemaker cluster requires packages from Red Hat, including targeted cluster resource agents for SAP and AWS that may not be available in standard repositories.
 
-SAP and Red Hat recommend the use of Red Hat Enterprise Linux for SAP. Starting with Red Hat Enterprise Linux 8 (RHEL 8), either RHEL for SAP Solutions or RHEL for SAP Applications are required for running SAP applications in production environments. See [SAP Note 1656099 - SAP Applications on AWS: Supported DB/OS and Amazon EC2 products](https://launchpad.support.sap.com/#/notes/1656099 "https://launchpad.support.sap.com/#/notes/1656099") (requires SAP portal access).
+SAP and Red Hat recommend the use of Red Hat Enterprise Linux for SAP. Starting with Red Hat Enterprise Linux 8 (RHEL 8), either RHEL for SAP Solutions or RHEL for SAP Applications are required for running SAP applications in production environments. See [SAP Note 1656099 - SAP Applications on AWS: Supported DB/OS and Amazon EC2 products](https://me.sap.com/notes/1656099 "https://me.sap.com/notes/1656099") (requires SAP portal access).
 
 Built on the Red Hat Enterprise Linux operating system, Red Hat Enterprise Linux for SAP expands existing capabilities, lso you can get the most out of SAP’s powerful analytics and data management portfolio. See [Red Hat Enterprise Solutions for SAP](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/sap "https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/sap") product page from Red Hat.
 
@@ -69,10 +69,10 @@ In addition to this guide, see the following references for more details.
 
 - Red Hat: [Is there a High Availability resource agent for SAP (Sybase) ASE database, and how can I configure it in a Red Hat Enterprise Linux HA Cluster?](https://access.redhat.com/solutions/2969211 "https://access.redhat.com/solutions/2969211")
 - Red Hat: [Red Hat Enterprise Linux for SAP offerings on Amazon Web Services FAQ](https://access.redhat.com/solutions/2969211 "https://access.redhat.com/solutions/2969211")
-- [SAP Note: 1656099 - SAP Applications on AWS: Supported DB/OS and Amazon EC2 products](https://launchpad.support.sap.com/#/notes/1656099 "https://launchpad.support.sap.com/#/notes/1656099")
-- [SAP Note: 1618572 - Linux: Support Statement for RHEL on Amazon Web Services](https://launchpad.support.sap.com/#/notes/1618572 "https://launchpad.support.sap.com/#/notes/1618572")
-- [SAP Note: 2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2002167 "https://launchpad.support.sap.com/#/notes/2002167")
-- [SAP Note: 2772999 - Red Hat Enterprise Linux 8.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2772999 "https://launchpad.support.sap.com/#/notes/2772999")
+- [SAP Note: 1656099 - SAP Applications on AWS: Supported DB/OS and Amazon EC2 products](https://me.sap.com/notes/1656099 "https://me.sap.com/notes/1656099")
+- [SAP Note: 1618572 - Linux: Support Statement for RHEL on Amazon Web Services](https://me.sap.com/notes/1618572 "https://me.sap.com/notes/1618572")
+- [SAP Note: 2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://me.sap.com/notes/2002167 "https://me.sap.com/notes/2002167")
+- [SAP Note: 2772999 - Red Hat Enterprise Linux 8.x: Installation and Upgrade](https://me.sap.com/notes/2772999 "https://me.sap.com/notes/2772999")
 
 You must have SAP portal access for reading all SAP Notes.
 
