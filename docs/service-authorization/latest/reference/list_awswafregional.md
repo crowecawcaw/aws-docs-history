@@ -4,7 +4,7 @@ AWS WAF Regional (service prefix: `waf-regional`) provides the following service
 
 References:
 
-- Learn how to [configure this service](../../../waf/latest/developerguide/classic-waf-chapter.md "../../../waf/latest/developerguide/classic-waf-chapter.md").
+- Learn how to [configure this service](../../../waf/latest/developerguide/classic-waf-chapter.htm.md "../../../waf/latest/developerguide/classic-waf-chapter.htm.md").
 - View a list of the [API operations available for this service](../../../waf/latest/APIReference/API_Operations_AWS_WAF_Regional.md "../../../waf/latest/APIReference/API_Operations_AWS_WAF_Regional.md").
 - Learn how to secure this service and its resources by [using IAM](../../../waf/latest/developerguide/classic-waf-auth-and-access-control.md "../../../waf/latest/developerguide/classic-waf-auth-and-access-control.md") permission policies.
 

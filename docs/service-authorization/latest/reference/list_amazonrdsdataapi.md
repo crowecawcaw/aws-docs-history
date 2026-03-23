@@ -6,7 +6,7 @@ References:
 
 - Learn how to [configure this service](../../../AmazonRDS/latest/AuroraUserGuide/data-api.md "../../../AmazonRDS/latest/AuroraUserGuide/data-api.md").
 - View a list of the [API operations available for this service](../../../rdsdataservice/latest/APIReference/Welcome.md "../../../rdsdataservice/latest/APIReference/Welcome.md").
-- Learn how to secure this service and its resources by [using IAM](../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.md") permission policies.
+- Learn how to secure this service and its resources by [using IAM](../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAM.md "../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAM.md") permission policies.
 
 ###### Topics
 
@@ -51,9 +51,9 @@ For details about the columns in the following table, see [Actions table](refere
 
 The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements. Each action in the [Actions table](#amazonrdsdataapi-actions-as-permissions "#amazonrdsdataapi-actions-as-permissions") identifies the resource types that can be specified with that action. A resource type can also define which condition keys you can include in a policy. These keys are displayed in the last column of the Resource types table. For details about the columns in the following table, see [Resource types table](reference_policies_actions-resources-contextkeys.md#resources_table "reference_policies_actions-resources-contextkeys.md#resources_table").
 
-| Resource types                                                                                           | ARN                                                                          | Condition keys                                                                                                                                                                                         |
-| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [cluster](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md") | `arn:${Partition}:rds:${Region}:${Account}:cluster:${DbClusterInstanceName}` | [aws:ResourceTag/${TagKey}](#amazonrdsdataapi-aws_ResourceTag___TagKey_ "#amazonrdsdataapi-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#amazonrdsdataapi-aws_TagKeys "#amazonrdsdataapi-aws_TagKeys") |
+| Resource types                                                                                                             | ARN                                                                          | Condition keys                                                                                                                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [cluster](../../../AmazonRDS/latest/UserGuide/Aurora.Managing.md "../../../AmazonRDS/latest/UserGuide/Aurora.Managing.md") | `arn:${Partition}:rds:${Region}:${Account}:cluster:${DbClusterInstanceName}` | [aws:ResourceTag/${TagKey}](#amazonrdsdataapi-aws_ResourceTag___TagKey_ "#amazonrdsdataapi-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#amazonrdsdataapi-aws_TagKeys "#amazonrdsdataapi-aws_TagKeys") |
 
 ## Condition keys for Amazon RDS Data API
 
