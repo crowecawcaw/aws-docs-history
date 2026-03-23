@@ -11,9 +11,9 @@ labels such as Palm Tree (object), Beach (scene), Running (action), and Outdoors
 operations**
 
 - To download the latest list of labels and object bounding boxes supported by Amazon Rekognition,
-  click [here](samples/AmazonRekognitionLabels_v3.0.md "samples/AmazonRekognitionLabels_v3.0.md").
+  click [here](samples/AmazonRekognitionLabels_v3.0.zip.md "samples/AmazonRekognitionLabels_v3.0.zip.md").
 - To download the
-  previous list of labels and object bounding boxes, click [here](samples/AmazonRekognitionLabels_v2.0.md "samples/AmazonRekognitionLabels_v2.0.md").
+  previous list of labels and object bounding boxes, click [here](samples/AmazonRekognitionLabels_v2.0.zip.md "samples/AmazonRekognitionLabels_v2.0.zip.md").
 
 ###### Note
 

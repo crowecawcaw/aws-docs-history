@@ -245,7 +245,7 @@ through this tutorial. That will prevent you from being charged for resources yo
 ## Creating a MySQL Database in Amazon RDS
 
 Before going further, make sure you have completed the [setup
-procedure](../../../AmazonRDS/latest/UserGuide/CHAP_SettingUp.md "../../../AmazonRDS/latest/UserGuide/CHAP_SettingUp.md") for Amazon RDS and [created a MySQL DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.md "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.md") using Amazon RDS.
+procedure](../../../AmazonRDS/latest/UserGuide/CHAP_SettingUp.md "../../../AmazonRDS/latest/UserGuide/CHAP_SettingUp.md") for Amazon RDS and [created a MySQL DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.md "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.md") using Amazon RDS.
 
 The following code makes use of the [PyMySQL](https://pypi.org/project/PyMySQL/ "https://pypi.org/project/PyMySQL/") library and your Amazon RDS DB instance. It creates a table to hold the names of
 your images and the labels associated with those images. Amazon RDS receives commands to create

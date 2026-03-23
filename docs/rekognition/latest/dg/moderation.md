@@ -21,7 +21,7 @@ See [Enhancing accuracy with Custom Moderation](moderation-custom-moderation.md 
 **Labels supported by Rekognition content moderation
 operations**
 
-- To download a list of the moderation labels, click [here](samples/rekognition-moderation-labels.md "samples/rekognition-moderation-labels.md").
+- To download a list of the moderation labels, click [here](samples/rekognition-moderation-labels.zip.md "samples/rekognition-moderation-labels.zip.md").
 
 ###### Topics
 
