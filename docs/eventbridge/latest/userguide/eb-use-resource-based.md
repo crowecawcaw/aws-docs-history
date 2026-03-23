@@ -70,6 +70,36 @@ If you use the AWS Management Console to add CloudWatch Logs as the target of a 
 policy is created automatically. If you use the AWS CLI to add the target, and the policy
 doesn't already exist, you must create it.
 
+The following resource-based policy example allows EventBridge to write to all log groups
+that have names that start with `/aws/events/`. If you use a different naming
+policy for these types of logs, adjust the resource ARN accordingly.
+
+```
+{
+  "Effect": "Allow",
+  "Principal": {
+    "Service": [
+      "events.amazonaws.com",
+      "delivery.logs.amazonaws.com"
+    ]
+  },
+  "Action": [
+    "logs:CreateLogStream",
+    "logs:PutLogEvents"
+  ],
+  "Resource": "arn:aws:logs:`region`:`account-id`:log-group:/aws/events/*:*"
+}
+```
+
+###### To create a resource policy for CloudWatch Logs using the AWS CLI
+
+- At a command prompt, enter the following command.
+
+```
+aws logs put-resource-policy --policy-name EventBridgeToCWLogsPolicy \
+--policy-document '{"Version":"2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"Service":["events.amazonaws.com","delivery.logs.amazonaws.com"]},"Action":["logs:CreateLogStream","logs:PutLogEvents"],"Resource":"arn:aws:logs:`region`:`account-id`:log-group:/aws/events/*:*"}]}'
+```
+
 For more information, see [PutResourcePolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.md") in the _CloudWatch Logs API Reference guide_.
 
 ## AWS Lambda permissions

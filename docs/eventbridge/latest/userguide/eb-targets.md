@@ -87,6 +87,10 @@ Use [`SageMakerPipelineParameters`](../APIReference/API_SageMakerPipelineParamet
 
 Use [`SqsParameters`](../APIReference/API_SqsParameters.md "../APIReference/API_SqsParameters.md") to specify the message group to use as the target.
 
+- Systems Manager Run Command
+
+Use [`RunCommandParameters`](../APIReference/API_RunCommandParameters.md "../APIReference/API_RunCommandParameters.md") to specify the SSM document and target instances. For more information, see [Systems Manager Run Command as a target](#targets-specifics-ssm-run-command "#targets-specifics-ssm-run-command").
+
 ###### Note
 
 EventBridge does not support all JSON Path syntax and evaluate it at runtime.
@@ -252,6 +256,65 @@ If you use [InputTransformers](eb-transform-target-input.md "eb-transform-target
 ## Incident Manager response plans as targets
 
 If the matched event came from CloudWatch Alarms, the alarm state change details are populated into the trigger details of the StartIncidentRequest call to Incident Manager.
+
+## Systems Manager Run Command as a target
+
+When you specify Systems Manager Run Command as a target, EventBridge calls the [`SendCommand`](../../../systems-manager/latest/APIReference/API_SendCommand.md "../../../systems-manager/latest/APIReference/API_SendCommand.md") API
+on your behalf. Configure the target using [`RunCommandParameters`](../APIReference/API_RunCommandParameters.md "../APIReference/API_RunCommandParameters.md"), which specifies the SSM document to run and the
+target instances or tags.
+
+`RunCommandParameters` contains the following fields:
+
+- `RunCommandTargets` — (Required) A list of key-value pairs that specify the
+  target instances. Use `Key` set to `InstanceIds` with a list of instance IDs,
+  or `Key` set to `tag:`tag-name`` with tag values to
+  target instances by tag. You can specify between 1 and 5 run command targets.
+
+To specify which SSM document to run and pass parameters to it, use the `Input` field on the
+[`Target`](../APIReference/API_Target.md "../APIReference/API_Target.md")
+object. The `Input` value must be a JSON object with the following structure:
+
+```
+{
+  "DocumentName": "`document-name`",
+  "DocumentVersion": "`version`",
+  "Parameters": {
+    "`parameter-key`": ["`parameter-value`"]
+  }
+}
+```
+
+Where:
+
+- `DocumentName` — The name or ARN of the SSM document to run.
+- `DocumentVersion` — (Optional) The version of the document. If omitted, the default version is used.
+- `Parameters` — (Optional) A map of parameter names to value arrays, matching the parameters defined in the SSM document.
+
+For example, the following AWS CLI command creates a rule that runs the `AWS-RunShellScript`
+document on a specific instance when an EventBridge event matches:
+
+```
+aws events put-targets --rule "my-rule" --targets '[{
+  "Id": "ssm-target-1",
+  "Arn": "arn:aws:ssm:`region`:`account-id`:document/AWS-RunShellScript",
+  "RoleArn": "arn:aws:iam::`account-id`:role/`EventBridgeSSMRole`",
+  "Input": "{\\"Parameters\\":{\\"commands\\":[\\"echo Hello from EventBridge\\"]}}",
+  "RunCommandParameters": {
+    "RunCommandTargets": [{
+      "Key": "InstanceIds",
+      "Values": ["`i-0123456789abcdef0`"]
+    }]
+  }
+}]'
+```
+
+###### Note
+
+The `Input` field on the `Target` object is used to pass the document name
+and parameters to Systems Manager Run Command. This is different from the
+[`InputTransformer`](../APIReference/API_InputTransformer.md "../APIReference/API_InputTransformer.md"), which transforms the event payload. When using
+Systems Manager Run Command as a target, set the document parameters in `Input` and
+specify the target instances in `RunCommandParameters`.
 
 ## Amazon SQS queues as targets
 
