@@ -424,11 +424,13 @@ users to enter their username, email address, or phone number. Amazon Cognito th
 one-time password (OTP), a code that they must confirm. A successful code completes
 authentication.
 
-Passwordless authentication flows aren't compatible with required multi-factor
-authentication (MFA) in your user pool. If MFA is optional in your user pool, users who have
-activated MFA can't sign in with a passwordless first factor. Users who don't have an MFA
-preference in an MFA-optional user pool can sign in with passwordless factors. For more
-information, see [Things to know about user pool MFA](user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites "user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites").
+One-time password (OTP) authentication flows aren't compatible with required multi-factor
+authentication (MFA) in your user pool. Passkey authentication with user verification can
+satisfy MFA requirements when you set `FactorConfiguration` to
+`MULTI_FACTOR_WITH_USER_VERIFICATION`. If MFA is optional in your user pool,
+users who have activated MFA can't sign in with an OTP first factor. Users who don't have
+an MFA preference in an MFA-optional user pool can sign in with passwordless factors. For
+more information, see [Things to know about user pool MFA](user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites "user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites").
 
 When a user correctly enters a code they received in an SMS or email message as part of
 passwordless authentication, in addition to authenticating the user, your user pool marks
@@ -614,13 +616,18 @@ You might want to replace passwords with the thumbprint, face, or security-key
 authentication. This is _passkey_ or _WebAuthn_ authentication. It's common for application developers
 to permit users to enroll a biometric device after they first sign in with a password. With
 Amazon Cognito user pools, your application can configure this sign-in option for users. Passkey
-authentication isn't eligible for multi-factor authentication (MFA).
+authentication can satisfy multi-factor authentication (MFA) requirements when your user
+pool has `FactorConfiguration` set to
+`MULTI_FACTOR_WITH_USER_VERIFICATION`. In this configuration, passkey
+authentication with user verification counts as multi-factor authentication.
 
-Passwordless authentication flows aren't compatible with required multi-factor
-authentication (MFA) in your user pool. If MFA is optional in your user pool, users who have
-activated MFA can't sign in with a passwordless first factor. Users who don't have an MFA
-preference in an MFA-optional user pool can sign in with passwordless factors. For more
-information, see [Things to know about user pool MFA](user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites "user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites").
+One-time password (OTP) authentication flows aren't compatible with required multi-factor
+authentication (MFA) in your user pool. Passkey authentication with user verification can
+satisfy MFA requirements when you set `FactorConfiguration` to
+`MULTI_FACTOR_WITH_USER_VERIFICATION`. If MFA is optional in your user pool,
+users who have activated MFA can't sign in with an OTP first factor. Users who don't have
+an MFA preference in an MFA-optional user pool can sign in with passwordless factors. For
+more information, see [Things to know about user pool MFA](user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites "user-pool-settings-mfa.md#user-pool-settings-mfa-prerequisites").
 
 ### What are passkeys?
 
@@ -816,7 +823,8 @@ domain, or a domain of your own choosing.
 ```
 "WebAuthnConfiguration": {
    "RelyingPartyId": "`example.auth.us-east-1.amazoncognito.com`",
-   "UserVerification": "`preferred`"
+   "UserVerification": "`preferred`",
+   "FactorConfiguration": "`SINGLE_FACTOR`"
 }
 ```
 
@@ -935,11 +943,13 @@ provider. It will return an [AuthenticationResponseJSON](https://www.w3.org/TR/w
 
 You can set up users who complete sign-in with a username-password flow to be prompted
 for additional verification with a one-time password from an email message, SMS message, or
-code-generating application. MFA is distinct from passwordless sign-in, a first
-authentication factor with one-time passwords or WebAuthn passkeys that doesn't include MFA.
-MFA in user pools is a challenge-response model, where a user first demonstrates they know
-the password, then they demonstrate that they have access to their registered second-factor
-device.
+code-generating application. MFA is distinct from passwordless sign-in with one-time
+passwords. However, passkeys with user verification can satisfy MFA requirements when you
+configure `FactorConfiguration` as
+`MULTI_FACTOR_WITH_USER_VERIFICATION` in your user pool
+`WebAuthnConfiguration`. For password-based flows, MFA in user pools is a
+challenge-response model where a user first demonstrates they know the password, then
+demonstrates that they have access to their registered second-factor device.
 
 ###### Implementation resources
 

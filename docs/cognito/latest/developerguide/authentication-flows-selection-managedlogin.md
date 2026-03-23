@@ -18,7 +18,7 @@ code to implement sign-in and sign-out flows. You can build managed login with m
 relying-party implementations. We recommend that you work with [certified OIDC
 relying party libraries](https://openid.net/developers/certified-openid-connect-implementations/ "https://openid.net/developers/certified-openid-connect-implementations/") where possible. For more information, see [Getting started with user pools](getting-started-user-pools.md "getting-started-user-pools.md").
 
-Typically, OIDC relying party libraries preiodically check the
+Typically, OIDC relying party libraries periodically check the
 `.well-known/openid-configuration` endpoint of your user pool to determine issuer
 URLs like the token endpoint and authorization endpoint. As a best practice, implement this
 automatic-discovery behavior where you have to option to. Manual configuration of issuer

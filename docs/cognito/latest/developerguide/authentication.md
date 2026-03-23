@@ -148,8 +148,9 @@ migration. When passwordless sign-in is active:
    number for an available passwordless sign-in option. For more information, see [Importing users into user pools from a CSV file](cognito-user-pools-using-import-tool.md "cognito-user-pools-using-import-tool.md").
 4. Passwordless authentication doesn't invoke the [user migration Lambda
    trigger](user-pool-lambda-migrate-user.md "user-pool-lambda-migrate-user.md").
-5. Users who sign in with a passwordless first factor can't add a [multi-factor authentication (MFA)](user-pool-settings-mfa.md "user-pool-settings-mfa.md") factor
-   to their session. Only password-based authentication flows support MFA.
+5. Users who sign in with a one-time password (OTP) first factor can't add a [multi-factor authentication (MFA)](user-pool-settings-mfa.md "user-pool-settings-mfa.md") factor
+   to their session. Passkeys with user verification can satisfy MFA requirements
+   when configured with `MULTI_FACTOR_WITH_USER_VERIFICATION`.
 
 **Passkey relying party URLs can't be on the public suffix list**
 

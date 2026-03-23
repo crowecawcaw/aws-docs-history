@@ -127,7 +127,7 @@ in supported platforms.
 - [AWS SDK for Java V2](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cognitoidentityprovider/CognitoIdentityProviderClient.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cognitoidentityprovider/CognitoIdentityProviderClient.html")
 - [AWS SDK for
   JavaScript](../../../AWSJavaScriptSDK/latest/AWS/CognitoIdentityServiceProvider.md "../../../AWSJavaScriptSDK/latest/AWS/CognitoIdentityServiceProvider.md")
-- [AWS SDK for PHP V3](../../../aws-sdk-php/v3/api/class-Aws.CognitoIdentityProvider.md "../../../aws-sdk-php/v3/api/class-Aws.CognitoIdentityProvider.md")
+- [AWS SDK for PHP V3](../../../aws-sdk-php/v3/api/class-Aws.CognitoIdentityProvider.CognitoIdentityProviderClient.md "../../../aws-sdk-php/v3/api/class-Aws.CognitoIdentityProvider.CognitoIdentityProviderClient.md")
 - [AWS SDK for Python](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html")
 - [AWS SDK for Ruby
   V3](../../../sdk-for-ruby/v3/api/Aws/CognitoIdentityProvider/Client.md "../../../sdk-for-ruby/v3/api/Aws/CognitoIdentityProvider/Client.md")

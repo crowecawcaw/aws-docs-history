@@ -46,13 +46,17 @@ sign-in factor.
 Before you set up MFA, consider the following:
 
 - Users can either have MFA _or_ sign in with
-  passwordless factors.
+  passwordless factors, with one exception: passkeys with user verification can satisfy
+  MFA requirements when you set `FactorConfiguration` to
+  `MULTI_FACTOR_WITH_USER_VERIFICATION` in your user pool
+  `WebAuthnConfiguration`.
 
-      + You can't set MFA to required in user pools that support [one-time passwords](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless") or [passkeys](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passkey "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passkey").
-      + You can't add `WEB_AUTHN`, `EMAIL_OTP`, or
+      + You can't set MFA to required in user pools that support [one-time passwords](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless").
+      + You can't add `EMAIL_OTP` or
        `SMS_OTP` to `AllowedFirstAuthFactors` when MFA is required
-       in your user pool. In the Amazon Cognito console, you can't edit **Options for
-       choice-based sign-in** to include passwordless factors.
+       in your user pool. You can add `WEB_AUTHN` when
+       `FactorConfiguration` is set to
+       `MULTI_FACTOR_WITH_USER_VERIFICATION`.
       + [Choice-based
        sign-in](authentication-flows-selection-sdk.md#authentication-flows-selection-choice "authentication-flows-selection-sdk.md#authentication-flows-selection-choice") only offers `PASSWORD` and `PASSWORD_SRP`
        factors in all app clients when MFA is required in the user pool. For more
@@ -68,13 +72,15 @@ Before you set up MFA, consider the following:
   configuration of MFA factors on users' ability to sign in with passwordless
   factors.
 
-| User pool MFA setting | User MFA status | Webauthn/OTP available                             | Prompted for MFA after password sign-in | Can sign in with WebAuthn/OTP |
-| --------------------- | --------------- | -------------------------------------------------- | --------------------------------------- | ----------------------------- |
-| Required              | Configured      | No                                                 | Yes                                     | No                            |
-| Required              | Not configured  | No                                                 | No (can't sign in)                      | No                            |
-| Optional              | Configured      | Can set up WebAuthn but can't sign in with passkey | Yes                                     | No                            |
-| Optional              | Not configured  | Yes                                                | No                                      | Yes                           |
-| Off                   | Any             | Yes                                                | No                                      | Yes                           |
+| User pool MFA setting               | User MFA status        | Webauthn/OTP available                             | Prompted for MFA after password sign-in | Can sign in with WebAuthn/OTP                      |
+| ----------------------------------- | ---------------------- | -------------------------------------------------- | --------------------------------------- | -------------------------------------------------- |
+| Required                            | Configured             | No                                                 | Yes                                     | No                                                 |
+| Required                            | Not configured         | No                                                 | No (can't sign in)                      | No                                                 |
+| Optional                            | Configured             | Can set up WebAuthn but can't sign in with passkey | Yes                                     | No                                                 |
+| Optional                            | Not configured         | Yes                                                | No                                      | Yes                                                |
+| Optional (with passkey MFA enabled) | Passkey MFA configured | Yes                                                | Yes (after password sign-in)            | Yes (passkey with user verification satisfies MFA) |
+| Required (with passkey MFA enabled) | Passkey MFA configured | Yes                                                | Yes (after password sign-in)            | Yes (passkey with user verification satisfies MFA) |
+| Off                                 | Any                    | Yes                                                | No                                      | Yes                                                |
 
 - A user's preferred MFA method influences the methods they can use to recover their
   password. Users whose preferred MFA is by email message can't receive a password-reset

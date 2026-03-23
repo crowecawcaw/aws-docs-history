@@ -53,16 +53,15 @@ The following Python example generates a
 ```
 #!/usr/bin/env python3
 
-import random
+import secrets
 from base64 import urlsafe_b64encode
 from hashlib import sha256
 from string import ascii_letters
 from string import digits
 
-# use a cryptographically strong random number generator source
-rand = random.SystemRandom()
-
-code_verifier = ''.join(rand.choices(ascii_letters + digits, k=128))
+# use the secrets module for cryptographically strong random values
+alphabet = ascii_letters + digits
+code_verifier = ''.join(secrets.choice(alphabet) for _ in range(128))
 code_verifier_hash = sha256(code_verifier.encode()).digest()
 code_challenge = urlsafe_b64encode(code_verifier_hash).decode().rstrip('=')
 

@@ -220,9 +220,9 @@ parameter to the [Login endpoint](login-endpoint.md "login-endpoint.md") and aut
 username value.
 
 When your authorization request invokes a redirect to OIDC
-IdPs or Google, Amazon Cognito adds a `login_hint` parameter
+IdPs, Amazon Cognito adds a `login_hint` parameter
 to the request to that third-party authorizer. You can't forward
-login hints to SAML, Apple, Login With Amazon, or Facebook
+login hints to SAML, Apple, Login With Amazon, Google, or Facebook
 (Meta) IdPs.
 
 **`prompt`**

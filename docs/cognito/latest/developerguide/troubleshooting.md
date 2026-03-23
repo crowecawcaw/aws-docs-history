@@ -292,14 +292,16 @@ For more information, see [Adding MFA to a user pool](user-pool-settings-mfa.md 
 
 **Problem**
 
-Users who sign in with passwordless authentication methods or passkeys cannot add
+Users who sign in with one-time password (OTP) authentication methods cannot add
 or use multi-factor authentication.
 
 **Solution**
 
-This is an intended limitation. You can configure your user pool so that users
-have MFA or sign in with passwordless factors, but not both. MFA is only available for
-password-based authentication flows.
+OTP sign-in flows don't support MFA. However, passkey authentication with user
+verification can satisfy MFA requirements. Set `FactorConfiguration` to
+`MULTI_FACTOR_WITH_USER_VERIFICATION` in your user pool
+`WebAuthnConfiguration` to allow passkeys to count as multi-factor
+authentication.
 
 For more information, see [Authentication with
 user pools](getting-started-identity-pools-application.md#user-pool-authentication "getting-started-identity-pools-application.md#user-pool-authentication").

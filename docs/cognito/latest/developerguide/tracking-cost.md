@@ -10,8 +10,8 @@ Amazon Cognito charges for the following dimensions of your usage.
 
 - User pool monthly active users (MAUs)—rate varies by [feature plan](cognito-sign-in-feature-plans.md "cognito-sign-in-feature-plans.md")
 - User pool MAUs signed in with OIDC or SAML federation
-- Active user pool app clients and request volume for machine to machine (M2M)
-  authorization with client credentials grants
+- Request volume for machine to machine (M2M) authorization with client credentials
+  grants
 - Purchased usage above default quotas for some categories of user pool APIs
   Additionally, features of your user pool like email messages, SMS messages, and Lambda
   triggers can incur costs in dependent services. For a complete overview, see [Amazon Cognito Pricing](https://aws.amazon.com/cognito/pricing "https://aws.amazon.com/cognito/pricing").
@@ -99,13 +99,6 @@ persistently manage the frequency of requests for credentials.
 
 To query the attributes of users in your user pool, use the [ListUsers](../../../cognito-user-identity-pools/latest/APIReference/API_ListUsers.md "../../../cognito-user-identity-pools/latest/APIReference/API_ListUsers.md") API operation and associated [SDK](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/") methods when possible. [AdminGetUser](../../../cognito-user-identity-pools/latest/APIReference/API_AdminGetUser.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminGetUser.md") marks a user as active for the month and contributes to the
 monthly active users (MAUs) that are used to calculate your bill for user pools.
-
-###### Delete unused client credentials app clients
-
-M2M authorization bills based on two factors: the rate of token requests and the
-number of app clients that do client credentials grants. When app clients for M2M
-authorization aren’t in use, delete them or remove their authorization to issue client
-credentials. For more information about managing app client configuration, see [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
 
 ###### Manage feature plans
 
