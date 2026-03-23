@@ -44,7 +44,7 @@ environment against best practices and identify areas for improvement. Applying
 Well-Architected Framework best practices to your workload increases the likelihood of
 business success and protection of cultural and historical knowledge. We developed specific
 domain lenses, such as the [Government Lens](../government-lens/government-lens.md "../government-lens/government-lens.md"),
-the [Healthcare Lens,](../../../pdfs/wellarchitected/latest/healthcare-industry-lens/healthcare-industry-lens.md#healthcare-industry-lens "../../../pdfs/wellarchitected/latest/healthcare-industry-lens/healthcare-industry-lens.md#healthcare-industry-lens") or the [Financial
+the [Healthcare Lens,](../../../pdfs/wellarchitected/latest/healthcare-industry-lens/healthcare-industry-lens.pdf.md#healthcare-industry-lens "../../../pdfs/wellarchitected/latest/healthcare-industry-lens/healthcare-industry-lens.pdf.md#healthcare-industry-lens") or the [Financial
 Services Industry Lens](../financial-services-industry-lens/welcome.md "../financial-services-industry-lens/welcome.md").
 
 Guidance and lenses are intended to help AWS customers and other organisations reflect
