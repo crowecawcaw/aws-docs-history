@@ -1,36 +1,78 @@
-# Amazon Neptune Engine Version 1.0.5.1.R2 (2021-10-26)
+# Amazon Neptune Engine Version 1.0.5.1 (2021-10-01)
 
-As of 2021-10-26, engine version 1.0.5.1.R2 is being generally deployed. Please note
+As of 2021-10-01, engine version 1.0.5.1 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
+
+## Subsequent Patch Releases for This Release
+
+- [Release: 1.0.5.1.R2 (2021-10-26)](engine-releases-1.0.5.1.R2.md "engine-releases-1.0.5.1.R2.md")
+- [Release: 1.0.5.1.R3 (2022-01-13)](engine-releases-1.0.5.1.R3.md "engine-releases-1.0.5.1.R3.md")
+- [Maintenance release: 1.0.5.1.R4 (2022-05-16)](engine-releases-1.0.5.1.R4.md "engine-releases-1.0.5.1.R4.md")
+
+## New Features in This Engine Release
+
+- Added a [results cache](gremlin-results-cache.md "gremlin-results-cache.md")
+  for caching the results of specified queries.
+- Added Date/time support in Neptune openCypher.
+- Added support for `List` and `Map` access to
+  elements in Neptune openCypher.
+
+## Improvements in This Engine Release
+
+- Made Neptune openCypher endpoint names case-insensitive.
+- Improved openCypher explain.
+- Improved Gremlin single upsert query patterns terminating with
+  `iterate()` and `profile()` steps.
+- Improved performance in Gremlin `keys()` and
+  `property()` functions.
+- The Gremlin `dedup()` step is run in the DFE when it is
+  used with global scope.
+- The following Gremlin `HAS` predicates are run in the
+  DFE engine when the DFE engine is enabled:
+  - `EQ`
+  - `NEQ`
+  - `LT`
+  - `LTE`
+  - `GT`
+  - `GTE`
+  - `BETWEEN`
+  - `INSIDE`
+  - `OUTSIDE`
+  - `WITHIN`
+  - `AND (connectives)`
+  - `OR (connectives)`
+
+- Improved LIMIT query performance.
+- Improved performance of openCypher general aggregation queries.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a bug that caused a server restart when a transient error
-  occurred while creating an older version of a graph element, under repeatable
-  read isolation. Neptune now returns an error instead, so that the client can
-  retry.
-- Fixed a bug that caused a server restart when a transient error
-  occurrred during a single cardinality update. Neptune now returns an error
-  instead, so that the client can retry.
+- Fixed a Gremlin bug that allowed an edge to be connected to another
+  edge.
+- Fixed a Gremlin bug that caused a sub-optimal join strategy to
+  be chosen.
+- Fixed a Gremlin bug that caused serialization of nodes and relationships
+  to stall when more than 100 properties were present.
+- Fixed a bug that slowed down query execution planning for queries
+  with large graph patterns.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.5.1.R2, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.5.1, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin version:_ `3.4.11`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.5.1.R2
-
-Your cluster will be upgraded to this patch release automatically during your next
-maintenance window if you are running engine version `1.0.5.1`.
+## Upgrade Paths to Engine Release 1.0.5.1
 
 You can manually upgrade any previous Neptune engine release to this release.
 
+You will not automatically upgrade to this release.
+
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.5.1.R2 is now generally available.
+Amazon Neptune 1.0.5.1 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

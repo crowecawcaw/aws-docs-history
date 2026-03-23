@@ -146,7 +146,7 @@ s3://bucket-name/ade
   access to the S3 bucket. For information about creating a role that has access to Amazon S3
   and then associating it with a Neptune cluster, see [Prerequisites: IAM Role and Amazon S3 Access](bulk-load-tutorial-IAM.md "bulk-load-tutorial-IAM.md").
 
-Starting with [engine release 1.2.1.0.R3](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md"),
+Starting with [engine release 1.2.1.0.R3](engine-releases-1.2.1.0.R3.md "engine-releases-1.2.1.0.R3.md"),
 you can also chain multiple IAM roles if the Neptune DB instance and the Amazon S3 bucket
 are located in different AWS Accounts. In this case, `iamRoleArn` contains
 a comma-separated list of role ARNs, as described in [Chaining IAM roles in Amazon Neptune](bulk-load-tutorial-chain-roles.md "bulk-load-tutorial-chain-roles.md"). For example:

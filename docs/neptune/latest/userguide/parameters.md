@@ -102,8 +102,8 @@ separating them with commas, like this:
 
 Lab mode features are typically disabled by default. An exception is the
 `DFEQueryEngine` feature, which became enabled by default for use with
-query hints (`DFEQueryEngine=viaQueryHint`) starting in [Neptune engine release 1.0.5.0](engine-releases-1.0.5.md "engine-releases-1.0.5.md").
-Beginning with [Neptune engine release 1.1.1.0](engine-releases-1.1.1.md "engine-releases-1.1.1.md")
+query hints (`DFEQueryEngine=viaQueryHint`) starting in [Neptune engine release 1.0.5.0](engine-releases-1.0.5.0.md "engine-releases-1.0.5.0.md").
+Beginning with [Neptune engine release 1.1.1.0](engine-releases-1.1.1.0.md "engine-releases-1.1.1.0.md")
 the DFE engine is no longer in lab mode, and is now controlled using
 the [neptune_dfe_query_engine](#parameters-instance-parameters-neptune_dfe_query_engine "#parameters-instance-parameters-neptune_dfe_query_engine")
 instance parameter in an instance's DB parameter group.
@@ -164,7 +164,7 @@ Allowed values are from `1` to `90`, inclusive. The default
 is `7`.
 
 This parameter was introduced in [engine
-version 1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md").
+version 1.2.0.0](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md").
 
 This parameter is static, meaning that changes to it do not take
 effect on any instance until it has been rebooted.
@@ -249,7 +249,7 @@ Allowed values are `1` (enabled), and `0` (disabled). The default value is `0`.
 
 ## `neptune_dfe_query_engine` (instance-level parameter)
 
-Starting with [Neptune engine release 1.1.1.0](engine-releases-1.1.1.md "engine-releases-1.1.1.md"),
+Starting with [Neptune engine release 1.1.1.0](engine-releases-1.1.1.0.md "engine-releases-1.1.1.0.md"),
 this DB instance parameter is used to control how the [DFE
 query engine](neptune-dfe-engine.md "neptune-dfe-engine.md") is used. Allowed values are as follows:
 

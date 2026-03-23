@@ -1,7 +1,7 @@
 # Creating IAM data-access policies in Amazon Neptune
 
 The following examples show how to create custom IAM policies that use fine-grained
-access control of data-plane APIs and actions, introduced in Neptune [engine release version 1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md").
+access control of data-plane APIs and actions, introduced in Neptune [engine release version 1.2.0.0](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md").
 
 ## Policy example allowing unrestricted access to the data in a Neptune DB cluster
 

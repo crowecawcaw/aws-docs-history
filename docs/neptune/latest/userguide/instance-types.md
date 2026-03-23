@@ -95,7 +95,7 @@ performance, upgrade to one of the other instance families.
 
 _DEPRECATED_   –   The `r4` family
 was offered when Neptune was launched in 2018, but now newer instance types offer much
-better price/performance. As of engine version [1.1.0.0](engine-releases-1.1.0.md "engine-releases-1.1.0.md"), Neptune no longer supports
+better price/performance. As of engine version [1.1.0.0](engine-releases-1.1.0.0.md "engine-releases-1.1.0.0.md"), Neptune no longer supports
 `r4` instance types.
 
 ## `r5` family of instance types

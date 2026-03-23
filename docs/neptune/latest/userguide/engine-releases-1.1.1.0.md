@@ -1,6 +1,6 @@
-# Amazon Neptune maintenance release, version 1.1.1.0.R2 (2022-05-16)
+# Amazon Neptune Engine Version 1.1.1.0 (2022-04-19)
 
-As of 2022-05-16, engine version 1.1.1.0.R2 is being generally deployed. Please note
+As of 2022-04-19, engine version 1.1.1.0 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Important
@@ -41,17 +41,31 @@ This process generates the following events:
   - `Finished applying off-line patches to DB instance`
   - `DB instance restarted`
 
-###### Note
+## Subsequent Patch Releases for This Release
+
+- [Maintenance release: 1.1.1.0.R2 (2022-05-16)](engine-releases-1.1.1.0.R2.md "engine-releases-1.1.1.0.R2.md")
+- [Release: 1.1.1.0.R3 (2022-06-07)](engine-releases-1.1.1.0.R3.md "engine-releases-1.1.1.0.R3.md")
+- [Release: 1.1.1.0.R4 (2022-06-23)](engine-releases-1.1.1.0.R4.md "engine-releases-1.1.1.0.R4.md")
+- [Release: 1.1.1.0.R5 (2022-07-21)](engine-releases-1.1.1.0.R5.md "engine-releases-1.1.1.0.R5.md")
+- [Release: 1.1.1.0.R6 (2022-09-23)](engine-releases-1.1.1.0.R6.md "engine-releases-1.1.1.0.R6.md")
+- [Release: 1.1.1.0.R7 (2023-01-23)](engine-releases-1.1.1.0.R7.md "engine-releases-1.1.1.0.R7.md")
+
+## New Features in This Engine Release
+
+- The [openCypher query language](access-graph-opencypher.md "access-graph-opencypher.md")
+  is now generally available for production use.
+
+###### Warning
 
 There is a breaking change in this release for code that uses openCypher with IAM
-authentication. Up to now, the host string in the IAM signature included the protocol,
-such as `bolt://`, like this:
+authentication. In the Neptune preview for openCypher, the host string in the
+IAM signature included the protocol, such as `bolt://`, like this:
 
 ```
 "Host":"bolt://`(host URL)`:`(port)`"
 ```
 
-Starting with engine release `1.1.1.0`, the protocol must be omitted:
+Starting with this engine release, the protocol must be omitted:
 
 ```
 "Host":"`(host URL)`:`(port)`"
@@ -59,9 +73,115 @@ Starting with engine release `1.1.1.0`, the protocol must be omitted:
 
 See [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-opencypher-bolt.md") for examples.
 
+- Added support for TinkerPop `3.5.2`. Among the [changes in this
+  release](https://github.com/apache/tinkerpop/blob/3.5.2/CHANGELOG.asciidoc#release-3-5-2 "https://github.com/apache/tinkerpop/blob/3.5.2/CHANGELOG.asciidoc#release-3-5-2") are support for remote transactions and bytecode support for sessions (using [`g.tx`](https://tinkerpop.apache.org/docs/current/reference/#transactions "https://tinkerpop.apache.org/docs/current/reference/#transactions")),
+  and the addition of the `datetime()` function to the Gremlin language.
+
+###### Warning
+
+There are several breaking changes introduced in TinkerPop 3.5.0, 3.5.1, and
+3.5.2 which may affect your Gremlin code. For example, [using traversals spawned
+by a GraphTraversalSource as children](https://issues.apache.org/jira/browse/TINKERPOP-2361 "https://issues.apache.org/jira/browse/TINKERPOP-2361") like this will no longer work:
+`g.V().union(identity(), g.V())`.
+
+Now instead, use an anonymous traversal like this:
+`g.V().union(identity(), __.V())`.
+
+- Added support for [AWS
+  global condition keys](iam-data-condition-keys.md#iam-data-global-condition-keys "iam-data-condition-keys.md#iam-data-global-condition-keys") that you can use in [IAM data-access policies](iam-admin-policies.md "iam-admin-policies.md") that control access
+  to data stored in Neptune a Neptune DB cluster.
+- The [Neptune DFE query engine](neptune-dfe-engine.md "neptune-dfe-engine.md")
+  is now generally available for production use with the openCypher query language,
+  but not yet for Gremlin and SPARQL queries. You now enable it using its own [neptune_dfe_query_engine](parameters.md#parameters-instance-parameters-neptune_dfe_query_engine "parameters.md#parameters-instance-parameters-neptune_dfe_query_engine") instance
+  parameter rather than the lab-mode parameter.
+
+## Improvements in This Engine Release
+
+- Added new features to [openCypher](access-graph-opencypher.md "access-graph-opencypher.md")
+  such as parameterized query support, abstract syntax tree (AST) caching for parameterized
+  queries, variable length path (VLP) improvements, and new operators and clauses.
+  See [openCypher specification compliance in Amazon Neptune](feature-opencypher-compliance.md "feature-opencypher-compliance.md")
+  for the current level of language support.
+- Made significant performance improvements to openCypher for simple
+  read and write workloads, resulting in higher throughput when compared to Release
+  1.1.0.0.
+- Removed openCypher bi-directional and depth limitations handling
+  variable-length paths.
+- Completed support in the DFE engine for Gremlin `within` and
+  `without` predicates, including cases where they are combined with
+  other predicate operators. For example:
+
+```
+g.V().has('age', within(12, 15, 18).or(gt(30)))
+```
+
+- Extended support in the DFE engine for the Gremlin `order`
+  step when the scope is global (that is, not `order(local)`), and
+  when `by()` modulators are not used. For example, this query
+  would now have DFE support:
+
+```
+ g.V().values("age").order()
+```
+
+- Added an `isLastOp` field to the [Neptune streams change-log](streams-using-api-reponse.md "streams-using-api-reponse.md") response
+  format, to indicate that a record is the last operation in its transaction.
+- Significantly improved the performance of audit logging and reduced
+  latency when audit logging is enabled.
+- Converted Gremlin WebSocket bytecode and HTTP queries into a user-readable
+  format in audit logs. Queries can now be directly copied from the audit logs
+  to be executed in Neptune notebooks and elsewhere. Note that this change to
+  the current audit log format constitutes a breaking change.
+
+## Defects Fixed in This Engine Release
+
+- Fixed a rare Gremlin bug where no results were returned when using nested
+  `filter()` and `count()` steps in combination, such as in
+  the following query:
+
+```
+g.V("1").filter(out("knows")
+        .filter(in("knows")
+        .hasId("notExists"))
+        .count())
+```
+
+- Fixed a Gremlin bug where an error was returned when using a vertex
+  stored by an aggregate step in either `to()` or `from()`
+  traversals in conjunction with an `addE` step. An example of
+  such a query is:
+
+```
+g.V("id").aggregate("v").out().addE().to(select("v").unfold()))
+```
+
+- Fixed a Gremlin bug where the `not` step was failing in
+  edge cases when using the DFE engine. For example:
+
+```
+g.V().not(V())
+```
+
+- Fixed a Gremlin bug where `sideEffect` values were not
+  available within `to()` and `from()` traversals.
+- Fixed a bug that occasionally caused a fast reset to
+  trigger an instance failover.
+- Fixed a bulk loader bug where a failed transaction would not be
+  closed before beginning the next load job.
+- Fixed a bulk loader bug where a low memory condition could cause
+  a crash of the system.
+- Added a retry to fix a bulk loader bug where the loader did not
+  wait long enough for IAM credentials to become availble after a failover.
+- Fixed a bug where the internal credential cache was not being
+  cleared properly for non-query endpoints such as the `status` endpoint.
+- Fixed a streams bug to ensure that stream commit sequence numbers
+  are properly ordered.
+- Fixed a bug where long-running connections were terminated sooner
+  than ten days on IAM-enabled clusters.
+
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.1.1.0.R2, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.1.1.0, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.5.2`
@@ -69,13 +189,13 @@ with these query-language versions:
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade paths to engine release 1.1.1.0.R2
-
-Your cluster will be upgraded to this maintenance patch release automatically
-during your next maintenance window if you are running engine version
-`1.1.1.0`.
+## Upgrade Paths to Engine Release 1.1.1.0
 
 You can manually upgrade any previous Neptune engine release to this release.
+Note that versions prior to the major version engine (1.1.0.0) will take longer to
+upgrade to this release.
+
+You will not be automatically upgraded to this release.
 
 ## Upgrading to This Release
 
@@ -120,7 +240,9 @@ For Linux, OS X, or Unix:
 ```
 aws neptune modify-db-cluster \
     --db-cluster-identifier `(your-neptune-cluster)` \
+    --engine neptune \
     --engine-version 1.1.1.0 \
+    --allow-major-version-upgrade \
     --apply-immediately
 ```
 
@@ -129,13 +251,30 @@ For Windows:
 ```
 aws neptune modify-db-cluster ^
     --db-cluster-identifier `(your-neptune-cluster)` ^
+    --engine neptune ^
     --engine-version 1.1.1.0 ^
+    --allow-major-version-upgrade ^
     --apply-immediately
 ```
 
-Updates are applied to all instances in a DB cluster simultaneously. An update requires
-a database restart on those instances, so you will experience downtime ranging
-from 20–30 seconds to several minutes, after which you can resume using the DB cluster.
+Instead of `--apply-immediately`, you can specify
+`--no-apply-immediately`. To perform a major version upgrade, the
+allow-major-version-upgrade parameter is required. Also, be sure to include
+the engine version or your engine may be upgraded to a different version.
+
+If your cluster uses a custom cluster parameter group, be sure to include this paramater
+to specify it:
+
+```
+    --db-cluster-parameter-group-name `(name of the custom DB cluster parameter group)`
+```
+
+Similarly, if any instances in the cluster use a custom DB parameter group, be sure
+to include this parameter to specify it:
+
+```
+    --db-instance-parameter-group-name `(name of the custom instance parameter group)`
+```
 
 ### Always test before you upgrade
 
@@ -183,7 +322,7 @@ following:
 ```
 
 If you encounter this error, wait for the pending action to finish, or trigger
-a maintenance window immediately to let the previous upgrade complete.
+a maintenance window immediately to let a previous upgrade complete.
 
 For more information about upgrading your engine version, see [Maintaining your Amazon Neptune DB Cluster](cluster-maintenance.md "cluster-maintenance.md"). If you have any questions or concerns, the AWS Support
 team is available on the community forums and through [AWS Premium Support](http://aws.amazon.com/support "http://aws.amazon.com/support").

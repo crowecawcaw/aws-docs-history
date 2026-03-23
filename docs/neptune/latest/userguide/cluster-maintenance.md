@@ -35,7 +35,7 @@ better control over their upgrade paths. As a result, engine release numbering
 changed.
 
 From November 2019 up until [engine release
-1.3.0.0](engine-releases-1.3.0.md "engine-releases-1.3.0.md"), engine version numbers have 5 parts. Take version number `1.0.2.0.R2`
+1.3.0.0](engine-releases-1.3.0.0.md "engine-releases-1.3.0.0.md"), engine version numbers have 5 parts. Take version number `1.0.2.0.R2`
 as an example:
 
 - The first part was always 1.
@@ -51,7 +51,7 @@ version updates was not always clear.
 
 ### Version numbering from engine release 1.3.0.0 on
 
-Starting with [engine release 1.3.0.0](engine-releases-1.3.0.md "engine-releases-1.3.0.md"),
+Starting with [engine release 1.3.0.0](engine-releases-1.3.0.0.md "engine-releases-1.3.0.0.md"),
 Neptune changed the way engine updates are numbered and managed.
 
 Engine version numbers now have four parts, each of which corresponds to a

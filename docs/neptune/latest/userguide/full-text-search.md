@@ -3,7 +3,7 @@
 Neptune integrates with [Amazon OpenSearch Service (OpenSearch Service)](../../../opensearch-service/latest/developerguide.md "../../../opensearch-service/latest/developerguide.md") to
 support full-text search in both Gremlin and SPARQL queries.
 
-Starting with [engine release 1.3.0.0](engine-releases-1.3.0.md "engine-releases-1.3.0.md"),
+Starting with [engine release 1.3.0.0](engine-releases-1.3.0.0.md "engine-releases-1.3.0.0.md"),
 Amazon Neptune supports using [Amazon OpenSearch Service Serverless](../../../opensearch-service/latest/developerguide/serverless.md "../../../opensearch-service/latest/developerguide/serverless.md")
 for full-text search in Gremlin and SPARQL queries.
 

@@ -21,7 +21,7 @@ instance.
 **Reboot with failover** is beneficial when you want to simulate a failure
 of a DB instance for testing or restore operations to the original Availability Zone after a
 failover occurs. For more information, see [High
-Availability (Multi-AZ)](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md") in the _Amazon RDS User Guide_. When you reboot
+Availability (Multi-AZ)](../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZ.md "../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZ.md") in the _Amazon RDS User Guide_. When you reboot
 a DB cluster, it fails over to the standby replica. Rebooting a Neptune replica does not
 initiate a failover.
 
@@ -35,11 +35,11 @@ an in-progress backup, a customer-requested modification, or a maintenance windo
 
 ###### Note
 
-Before [Release: 1.2.0.0 (2022-07-21)](engine-releases-1.2.0.md "engine-releases-1.2.0.md"),
+Before [Release: 1.2.0.0 (2022-07-21)](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md"),
 all the read-replicas in a DB cluster were automatically rebooted whenever the primary (writer)
 instance restarted.
 
-Starting with [Release: 1.2.0.0 (2022-07-21)](engine-releases-1.2.0.md "engine-releases-1.2.0.md"),
+Starting with [Release: 1.2.0.0 (2022-07-21)](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md"),
 restarting the primary instance does not cause any of the replicas to restart.
 This means that if you are changing a cluster parameter, you must restart each instance separately
 to pick up the parameter change (see [Parameter groups](parameter-groups.md "parameter-groups.md")).

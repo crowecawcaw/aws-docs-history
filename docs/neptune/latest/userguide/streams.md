@@ -44,7 +44,7 @@ The following diagram shows how change-log data can be retrieved from Neptune St
   charges associated with the change-log data.
 - By default, change records are automatically purged one week after they
   are created. Starting with [engine release
-  1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md"), this retention period can be changed using the the [neptune_streams_expiry_days](parameters.md#parameters-db-cluster-parameters-neptune_streams_expiry_days "parameters.md#parameters-db-cluster-parameters-neptune_streams_expiry_days")
+  1.2.0.0](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md"), this retention period can be changed using the the [neptune_streams_expiry_days](parameters.md#parameters-db-cluster-parameters-neptune_streams_expiry_days "parameters.md#parameters-db-cluster-parameters-neptune_streams_expiry_days")
   DB cluster parameter to any number of days between 1 and 90.
 - Read performance on the streams scales with instances.
 - You can achieve high availability and read throughput using read replicas. There is no limit

@@ -10,7 +10,7 @@ can use wildcards to include multiple resources.
 Data-access policy statements can also include the [neptune-db:QueryLanguage](iam-data-condition-keys.md#iam-neptune-condition-keys "iam-data-condition-keys.md#iam-neptune-condition-keys") condition key to
 restrict access by query language.
 
-Starting with [Release: 1.2.0.0 (2022-07-21)](engine-releases-1.2.0.md "engine-releases-1.2.0.md"),
+Starting with [Release: 1.2.0.0 (2022-07-21)](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md"),
 Neptune supports restricting permissions to one or more [specific Neptune actions](../../../service-authorization/latest/reference/list_amazonneptune.md "../../../service-authorization/latest/reference/list_amazonneptune.md"). This provides
 more granular access control than was previously possible.
 

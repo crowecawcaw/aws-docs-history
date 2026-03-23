@@ -9,7 +9,7 @@ To check the health of an instance and get DB cluster status using `curl`:
 curl -G https://`your-neptune-endpoint`:`port`/status
 ```
 
-Or, starting with [engine release 1.2.1.0.R6](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md"),
+Or, starting with [engine release 1.2.1.0.R6](engine-releases-1.2.1.0.R6.md "engine-releases-1.2.1.0.R6.md"),
 you can use the following CLI command instead:
 
 ```

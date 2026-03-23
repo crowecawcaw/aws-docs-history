@@ -35,7 +35,7 @@ g.V().hasLabel('airport').
   out()
 ```
 
-TinkerPop 3.4.11 was enabled in Neptune [engine version 1.0.5.0](engine-releases-1.0.5.md "engine-releases-1.0.5.md").
+TinkerPop 3.4.11 was enabled in Neptune [engine version 1.0.5.0](engine-releases-1.0.5.0.md "engine-releases-1.0.5.0.md").
 
 ## Understanding Gremlin traversal processing in Neptune
 

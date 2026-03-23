@@ -3,7 +3,7 @@
 ###### Important
 
 openCypher query hint is only available from engine release
-[1.3.2.0](engine-releases-1.3.2.md "engine-releases-1.3.2.md") and later.
+[1.3.2.0](engine-releases-1.3.2.0.md "engine-releases-1.3.2.0.md") and later.
 
 In Amazon Neptune, you can use the `USING` clause to specify query hints for openCypher queries. These hints
 allow you to control optimization and evaluation strategies.

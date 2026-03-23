@@ -67,7 +67,7 @@ RETURN count > 0 AS nonEmpty    // Does NOT work!
   read-only queries are supported, but mutation queries are **not**
   currently supported.
 - `USING`   –   `USING` is supported from engine version
-  [1.3.2.0](engine-releases-1.3.2.md "engine-releases-1.3.2.md"). See
+  [1.3.2.0](engine-releases-1.3.2.0.md "engine-releases-1.3.2.0.md"). See
   [Query hints](opencypher-query-hints.md "opencypher-query-hints.md") for
   more information.
 

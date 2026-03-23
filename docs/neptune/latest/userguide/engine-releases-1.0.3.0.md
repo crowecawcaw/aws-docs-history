@@ -1,46 +1,75 @@
-# Amazon Neptune Engine Version 1.0.3.0.R2 (2020-10-12)
+# Amazon Neptune Engine Version 1.0.3.0 (2020-08-03)
 
-As of 2020-10-12, engine version 1.0.3.0.R2 is being generally deployed. Please note
+As of 2020-08-03, engine version 1.0.3.0 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
+
+## Subsequent Patch Releases for This Release
+
+- [Release: 1.0.3.0.R2 (2020-10-12)](engine-releases-1.0.3.0.R2.md "engine-releases-1.0.3.0.R2.md")
+- [Release: 1.0.3.0.R3 (2021-02-19)](engine-releases-1.0.3.0.R3.md "engine-releases-1.0.3.0.R3.md")
+
+## New Features in This Engine Release
+
+- Neptune has introduced a new, alternative query engine (DFE)
+  which can significantly speed up query execution. See [The Amazon Neptune alternative query engine (DFE)](neptune-dfe-engine.md "neptune-dfe-engine.md").
+- The DFE relies on pre-generated statistics about your
+  Neptune graph data that are managed through new statistics endpoints. See
+  [DFE statistics](neptune-dfe-statistics.md "neptune-dfe-statistics.md").
+- You can now exclude queued load jobs from the list of load IDs
+  returned by the Loader Get-Status API by setting the new `includeQueuedLoads`
+  parameter to FALSE. See [Neptune Loader Get-Status request parameters](load-api-reference-status-requests.md#load-api-reference-status-parameters "load-api-reference-status-requests.md#load-api-reference-status-parameters").
+- Neptune now supports trailing headers for SPARQL query responses
+  that can contain an error code and message if a request fails after it begins to
+  return response chunks. See [Optional HTTP trailing headers for multi-part SPARQL responses](access-graph-sparql-http-trailing-headers.md "access-graph-sparql-http-trailing-headers.md").
+- Neptune now also lets you enable chunked response encoding for
+  Gremlin queries. As in the SPARQL case, the response chunks have trailing headers
+  that can contain an error code and message if a failure occurs after the query has
+  begun to return response chunks. See [Use optional HTTP trailing headers to enable multi-part Gremlin responses](access-graph-gremlin-rest-trailing-headers.md "access-graph-gremlin-rest-trailing-headers.md").
 
 ## Improvements in This Engine Release
 
-- Improved performance for the Gremlin `properties()` step.
-- Added details about `BindOp` and `MultiplexerOp`
-  in explain and profile reports.
-- For SPARQL query responses, added `charset` to the Content-Type header,
-  enabling HTTP clients to recognize the charset being used automatically.
+- You can now provide the size of batch requests to ElasticSearch for full-
+  text searches in Gremlin.
+- Improved memory usage for SPARQL GROUP BY queries.
+- Added a new Gremlin query optimizer to prune certain unbound filters.
+- Increased the maximum time a WebSocket connection authenticated
+  using IAM can stay open, from 36 hours to 10 days.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a SPARQL bug where `CancellationException` was not handled.
-- Fixed a SPARQL bug where queries containing nested optionals did not work correctly.
-- Fixed a SPARQL bug in LOAD where a `ConcurrentModificationException`
-  could cause a query to hang.
-- Fixed a SPARQL bug that prevented query responses from being gzip-compressed.
-- Fixed a Gremlin bug in the `groupBy()` step.
-- Fixed a Gremlin bug related to the use of an `aggregate()` step
-  inside a `local()` step.
-- Fixed a Gremlin bug related to using `bothE()` followed by a predicate
-  that uses aggregate values.
-- Fixed a Gremlin bug related to using the `bothE()` step with the `repeat()` step.
-- Fixed a potential Gremlin memory leak related to the `both()` step.
-- Fixed a bug where request metrics were missing because an endpoint ending
-  in '/' was not being handled correctly.
-- Fixed a bug that could raise a `ThrottlingException` even when
-  the request queue is not full.
-- Fixed a bug in fetching load status when a load fails for a reason such as
-  `LOAD_DATA_FAILED_DUE_TO_FEED_MODIFIED_OR_DELETE`.
+- Fixed a bug where if you sent an un-encoded URL parameter in a POST
+  request, Neptune returned an HTTP status code of 500 and an `InternalServerErrorException`.
+  Now Neptune returns an HTTP status code of 400 and a `BadRequestException`,
+  with the message: `Failure to process the POST request parameters`.
+- Fixed a Gremlin bug where a WebSocket connection failure was not
+  correctly reported.
+- Fixed a Gremlin bug involving disappearing sideEffects.
+- Fixed a Gremlin bug where the full-text search `batchsize`
+  parameter was not properly supported.
+- Fixed a Gremlin bug to handle `toV` and `fromV`
+  individually for each direction on `bothE`.
+- Fixed a Gremlin bug involving `Edge pathType`
+  in the `hasLabel` step.
+- Fixed a SPARQL bug where join re-ordering with static bindings was
+  not working correctly.
+- Fixed a SPARQL UPDATE LOAD bug where an unavailable Amazon S3 bucket was not
+  correctly reported.
+- Fixed a SPARQL bug where an issue with a SERVICE node in a subquery was not
+  correctly reported.
+- Fixed a SPARQL bug in which queries containing nested FILTER EXISTS or
+  FILTER NOT EXISTS conditions were not being properly evaluated.
+- Fixed a SPARQL bug to correctly handle duplicate generated bindings
+  when calling SPARQL Service endpoints through generate queries.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.3.0.R2, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.3.0, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin version:_ `3.4.3`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.3.0.R2
+## Upgrade Paths to Engine Release 1.0.3.0
 
 You can manually upgrade any previous Neptune engine release to this release.
 
@@ -50,7 +79,7 @@ the date of this release, during a maintenance window.
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.3.0.R2 is now generally available.
+Amazon Neptune 1.0.3.0 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

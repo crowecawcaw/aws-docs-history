@@ -26,11 +26,11 @@ group, you must create a new DB cluster parameter group before you can set the
 
 When you make a change to a static DB cluster parameter such as `neptune_lab_mode`,
 you must re-start the primary (writer) instance of the cluster for the change to take effect.
-Before [Release: 1.2.0.0 (2022-07-21)](engine-releases-1.2.0.md "engine-releases-1.2.0.md"),
+Before [Release: 1.2.0.0 (2022-07-21)](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md"),
 all the read-replicas in a DB cluster would then automatically be rebooted when the primary
 instance restarted.
 
-Beginning with [Release: 1.2.0.0 (2022-07-21)](engine-releases-1.2.0.md "engine-releases-1.2.0.md"),
+Beginning with [Release: 1.2.0.0 (2022-07-21)](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md"),
 restarting the primary instance does not cause any of the replicas to restart.
 This means that you must restart each instance separately
 to pick up a DB cluster parameter change (see [Parameter groups](parameter-groups.md "parameter-groups.md")).
@@ -129,9 +129,9 @@ Neptune has extended support for the datetime functionality. To enable datetime 
 
 ###### Note
 
-This feature is available starting in [Neptune engine release 1.3.2.0](engine-releases-1.3.2.md "engine-releases-1.3.2.md").
+This feature is available starting in [Neptune engine release 1.3.2.0](engine-releases-1.3.2.0.md "engine-releases-1.3.2.0.md").
 
-Default value: enabled (disabled by default prior to [Neptune engine release 1.4.0.0](engine-releases-1.4.0.md "engine-releases-1.4.0.md"))
+Default value: enabled (disabled by default prior to [Neptune engine release 1.4.0.0](engine-releases-1.4.0.0.md "engine-releases-1.4.0.0.md"))
 
 Allowed values: enabled/disabled
 
@@ -151,7 +151,7 @@ For more information, see [Per-query timeouts](best-practices-gremlin-java-per-q
 
 ###### Note
 
-This feature is available starting in [Neptune engine release 1.4.0.0](engine-releases-1.4.0.md "engine-releases-1.4.0.md").
+This feature is available starting in [Neptune engine release 1.4.0.0](engine-releases-1.4.0.0.md "engine-releases-1.4.0.0.md").
 
 Default value: disabled
 

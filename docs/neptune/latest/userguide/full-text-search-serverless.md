@@ -1,6 +1,6 @@
 # Replication to OpenSearch Serverless
 
-Starting with [engine release 1.3.0.0](engine-releases-1.3.0.md "engine-releases-1.3.0.md"),
+Starting with [engine release 1.3.0.0](engine-releases-1.3.0.0.md "engine-releases-1.3.0.0.md"),
 Amazon Neptune supports using [Amazon OpenSearch Service Serverless](../../../opensearch-service/latest/developerguide/serverless.md "../../../opensearch-service/latest/developerguide/serverless.md")
 for full-text search in Gremlin and SPARQL queries. Using OpenSearch Serverless requires you to
 [enable IAM authentication](iam-auth-enable.md "iam-auth-enable.md")

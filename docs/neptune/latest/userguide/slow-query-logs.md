@@ -6,7 +6,7 @@ automatically logged to make this process easier.
 
 ###### Note
 
-Slow-query logging was introduced in Neptune [engine release 1.2.1.0](engine-releases-1.2.1.md "engine-releases-1.2.1.md").
+Slow-query logging was introduced in Neptune [engine release 1.2.1.0](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md").
 
 You enable slow-query logging using the [neptune_enable_slow_query_log](parameters.md#parameters-db-cluster-parameters-neptune_enable_slow_query_log "parameters.md#parameters-db-cluster-parameters-neptune_enable_slow_query_log")
 DB cluster parameter. By default, this parameter is set to `disabled`. Setting

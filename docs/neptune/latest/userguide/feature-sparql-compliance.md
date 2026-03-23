@@ -114,7 +114,7 @@ Because a Neptune cluster has several different endpoints, using the request
 URL of a query or update as the base IRI could lead to unexpected results when
 resolving relative IRIs.
 
-As of [engine release 1.2.1.0](engine-releases-1.2.1.md "engine-releases-1.2.1.md"),
+As of [engine release 1.2.1.0](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md"),
 Neptune uses `http://aws.amazon.com/neptune/default/` as the base
 IRI if an explicit base IRI is not part of the request.
 

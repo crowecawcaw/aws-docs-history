@@ -36,7 +36,7 @@ Copies the specified DB parameter group.
 - **SourceDBParameterGroupIdentifier**  (in the CLI: `--source-db-parameter-group-identifier`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
 
 The identifier or ARN for the source DB parameter group. For information
-about creating an ARN, see [Constructing an Amazon Resource Name (ARN)](../UserGuide/tagging.md#tagging.ARN.Constructing "../UserGuide/tagging.md#tagging.ARN.Constructing").
+about creating an ARN, see [Constructing an Amazon Resource Name (ARN)](../UserGuide/tagging.ARN.md#tagging.ARN.Constructing "../UserGuide/tagging.ARN.md#tagging.ARN.Constructing").
 
 Constraints:
 
@@ -105,7 +105,7 @@ Copies the specified DB cluster parameter group.
 - **SourceDBClusterParameterGroupIdentifier**  (in the CLI: `--source-db-cluster-parameter-group-identifier`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
 
 The identifier or Amazon Resource Name (ARN) for the source DB cluster
-parameter group. For information about creating an ARN, see [Constructing an Amazon Resource Name (ARN)](../UserGuide/tagging.md#tagging.ARN.Constructing "../UserGuide/tagging.md#tagging.ARN.Constructing").
+parameter group. For information about creating an ARN, see [Constructing an Amazon Resource Name (ARN)](../UserGuide/tagging.ARN.md#tagging.ARN.Constructing "../UserGuide/tagging.ARN.md#tagging.ARN.Constructing").
 
 Constraints:
 

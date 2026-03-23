@@ -142,7 +142,7 @@ _Type_: boolean. _Default_: _True_.
 ###### Note
 
 The `enableInterContainerTrafficEncryption` parameter is only available in
-[engine release 1.2.0.2.R3](engine-releases-1.2.0.2.md "engine-releases-1.2.0.2.md").
+[engine release 1.2.0.2.R3](engine-releases-1.2.0.2.R3.md "engine-releases-1.2.0.2.R3.md").
 
 - **`s3OutputEncryptionKMSKey`**   –  
   (_Optional_) The AWS Key Management Service (AWS KMS) key that SageMaker AI uses to

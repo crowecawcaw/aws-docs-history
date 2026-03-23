@@ -12,7 +12,7 @@ graph:
 
 ###### Note
 
-The graph summary API was introduced in Neptune [engine release 1.2.1.0](engine-releases-1.2.1.md "engine-releases-1.2.1.md").
+The graph summary API was introduced in Neptune [engine release 1.2.1.0](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md").
 
 With the graph summary API, you can quickly gain a high-level understanding
 of your graph data size and content. You can also use the API interactively within

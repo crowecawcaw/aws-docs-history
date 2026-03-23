@@ -1,42 +1,75 @@
-# Amazon Neptune Engine Version 1.0.2.1.R4 (2019-12-20)
+# Amazon Neptune Engine Version 1.0.2.1 (2019-11-22)
+
+## Subsequent Patch Releases for This Release
+
+- [Release: 1.0.2.1.R6 (2020-04-22)](engine-releases-1.0.2.1.R6.md "engine-releases-1.0.2.1.R6.md")
+- [Release: 1.0.2.1.R5 (2020-04-22)](engine-releases-1.0.2.1.R5.md "engine-releases-1.0.2.1.R5.md") _This
+  patch release was not deployed._
+- [Release: 1.0.2.1.R4 (2019-12-20)](engine-releases-1.0.2.1.R4.md "engine-releases-1.0.2.1.R4.md")
+- [Release: 1.0.2.1.R3 (2019-12-12)](engine-releases-1.0.2.1.R3.md "engine-releases-1.0.2.1.R3.md")
+- [Release: 1.0.2.1.R2 (2019-11-25)](engine-releases-1.0.2.1.R2.md "engine-releases-1.0.2.1.R2.md")
+
+## New Features in This Engine Release
+
+- Added full-text search capabilities through integration with the Amazon OpenSearch Service.
+  See [Neptune full text search](full-text-search.md "full-text-search.md")
+- Added the option using lab mode to create a fourth index (an OSGP index)
+  for large numbers of predicates. See [OSGP index](features-lab-mode.md#features-lab-mode-features-osgp-index "features-lab-mode.md#features-lab-mode-features-osgp-index").
+- Added a _details_ mode to SPARQL Explain.
+  See [Using SPARQL explain](sparql-explain-using.md "sparql-explain-using.md")
+  and [Details mode output](sparql-explain-examples.md#sparql-explain-example-details "sparql-explain-examples.md#sparql-explain-example-details") for details.
+- Added lab mode information to the engine status report. See [Instance Status](access-graph-status.md "access-graph-status.md") for details.
+- DB Cluster snapshots can now be copied across AWS Regions. See [Copying a Snapshot](backup-restore-copy-snapshot.md "backup-restore-copy-snapshot.md").
 
 ## Improvements in This Engine Release
 
-- Neptune now tries always to place any full-text-search call first in the
-  execution pipeline. This reduces the volume of calls to OpenSearch, which
-  can significantly improve performance. See [Full-text-search query execution](full-text-search-query-execution.md "full-text-search-query-execution.md").
-- Neptune now raises an `IllegalArgumentException` if you try to
-  access a non-existent property, vertex, or edge. Previously, Neptune raised
-  an `UnsupportedOperationException` in that situation.
-
-For example, if you try to add an edge referencing a nonexistent vertex,
-you will now raise an `IllegalArgumentException`.
+- Improved performance when handling a large number of predicates.
+- Enhanced query optimization. While this should be entirely transparent to
+  customers, we encourage you to test your applications before upgrading to ensure that
+  they behave as expected.
+- Minor enhancements to error reporting.
+- Added optimizations for Gremlin `.project()` and
+  `.identity()` steps.
+- Added optimizations for non-terminal Gremlin `.union()` cases.
+- Added native support for Gremlin `.path().by()` traversals.
+- Added native support for Gremlin `.coalesce()`.
+- Further optimization of bulk write.
+- We now require that HTTPS connections use at least TLS version 1.2 or higher,
+  to prevent outdated/insecure ciphers being used.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a Gremlin bug where a `union` traversal inside a
-  `project-by` does not return results or returns incorrect results.
-- Fixed a Gremlin bug that caused nested `.project().by()`
-  steps to return incorrect results.
+- Fixed a Gremlin `addE()` inner traversal handling bug.
+- Fixed a Gremlin bug caused by AST annotations leaking from child traversals to the parent.
+- Fixed a bug that occurred in Gremlin when `.otherV()` was called
+  after `select()`.
+- Fixed a Gremlin bug that caused some `.hasLabel()` steps to
+  fail if they appeared after a `bothE()` step.
+- Made minor fixes for Gremlin .sum() and .project().
+- Fixed a bug in processing SPARQL queries that lack a closing brace.
+- Fixed some minor bugs in SPARQL Explain.
+- Fixed a bug in the handling of concurrent get load status requests.
+- Reduced memory used for executing some Gremlin traversals with
+  `.project()` steps.
+- Fixed numeric comparisons of special values in SPARQL. See [Standards Compliance](feature-overview-standards-compliance.md "feature-overview-standards-compliance.md").
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.2.1.R4, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.2.1, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin version:_ `3.4.1`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.2.1.R4
+## Upgrade Paths to Engine Release 1.0.2.1
 
 You can manually upgrade any previous Neptune engine release to this release.
 
-However, **automatic updating to this release is not
-supported**.
+You will not automatically upgrade to this release.
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.2.1.R4 is now generally available.
+Amazon Neptune 1.0.2.1 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

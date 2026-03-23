@@ -2,7 +2,7 @@
 
 AWS Database Migration Service (AWS DMS) is a cloud service that makes it easy to migrate relational
 databases, data warehouses, NoSQL databases, and other types of data stores.
-If you have graph data stored in one of the relational or NoSQL [databases that AWS DMS supports](../../../dms/latest/userguide/CHAP_Introduction.md "../../../dms/latest/userguide/CHAP_Introduction.md"),
+If you have graph data stored in one of the relational or NoSQL [databases that AWS DMS supports](../../../dms/latest/userguide/CHAP_Introduction.Sources.md "../../../dms/latest/userguide/CHAP_Introduction.Sources.md"),
 AWS DMS can help you migrate to Neptune quickly and securely, without requiring
 downtime from your current database. See [Using AWS Database Migration Service to load data into Amazon Neptune from a different data store](dms-neptune.md "dms-neptune.md") for details.
 

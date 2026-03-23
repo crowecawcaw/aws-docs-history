@@ -1,56 +1,50 @@
-# Amazon Neptune Engine Version 1.0.2.0.R3 (2020-05-05)
+# Amazon Neptune Engine Version 1.0.2.0 (2019-11-08)
 
 ## IMPORTANT: THIS ENGINE VERSION IS NOW DEPRECATED
 
 Starting from 2020-05-19, no new instances using this engine version will be created.
 
 This engine version is now superseded by [version
-1.0.2.1](engine-releases-1.0.2.md "engine-releases-1.0.2.md"), which contains all the bug fixes in this version as well as
+1.0.2.1](engine-releases-1.0.2.1.md "engine-releases-1.0.2.1.md"), which contains all the bug fixes in this version as well as
 additional features such as full-text search integration, OSGP index support,
 and database snapshot cluster copy across AWS Regions.
 
 Starting June 1, 2020, Neptune will automatically upgrade any cluster running
 this engine version to [the latest patch
-of version 1.0.2.1](engine-releases-1.0.2.1.md "engine-releases-1.0.2.1.md") during the next maintenance window. You can upgrade manually
-before then, as described [here](engine-releases-1.0.2.md "engine-releases-1.0.2.md").
+of version 1.0.2.1](engine-releases-1.0.2.1.R6.md "engine-releases-1.0.2.1.R6.md") during the next maintenance window. You can upgrade manually
+before then, as described [here](engine-releases-1.0.2.1.md "engine-releases-1.0.2.1.md").
 
 If you have any issues with the upgrade, please contact us through [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support") or the [AWS Developer Forums](https://forums.aws.amazon.com/forum.jspa?forumID=253 "https://forums.aws.amazon.com/forum.jspa?forumID=253").
 
-## Defects Fixed in This Engine Release
+## Subsequent Patch Releases for This Release
 
-- Fixed a bug where `ConcurrentModificationConflictException`
-  and `TransactionException` were reported as generic
-  `InternalFailureException`s.
-- Fixed bugs in health checks that caused frequent restarts of
-  the server during start up.
-- Fixed a bug where data was not visible on replicas because commits
-  were out of order under certain conditions.
-- Fixed a bug in load-status serialization where a load failed
-  from a lack of Amazon S3 access permissions.
-- Fixed a resource leak in Gremlin sessions.
-- Fixed a bug in health check that hid the unhealthy status on
-  start-up of components managing IAM authentication.
-- Fixed a bug where Neptune failed to send a WebSocket close frame
-  before closing the channel.
+- [Release: 1.0.2.0.R3 (2020-05-05)](engine-releases-1.0.2.0.R3.md "engine-releases-1.0.2.0.R3.md")
+- [Release: 1.0.2.0.R2 (2019-11-21)](engine-releases-1.0.2.0.R2.md "engine-releases-1.0.2.0.R2.md")
+
+## New Features in This Engine Release
+
+In addition to maintenance updates, this release adds new functionality to support
+more than one engine version at a time (see [Maintaining your Amazon Neptune DB Cluster](cluster-maintenance.md "cluster-maintenance.md")).
+
+As a result, the numbering of engine releases has changed (see [Version numbering before engine release 1.3.0.0](cluster-maintenance.md#older-engine-numbers "cluster-maintenance.md#older-engine-numbers")).
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.2.0.R3, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.2.0, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin version:_ `3.4.1`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.2.0.R3
+## Upgrade Paths to Engine Release 1.0.2.0
 
-Your cluster will be upgraded to this patch release automatically during your next
-maintenance window if you are running engine version `1.0.2.0`.
+You can manually upgrade any previous Neptune engine release to this release.
 
-You can manually upgrade any earlier Neptune engine release to this release.
+You will not automatically upgrade to this release.
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.2.0.R3 is now generally available.
+Amazon Neptune 1.0.2.0 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

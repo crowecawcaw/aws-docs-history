@@ -1,10 +1,10 @@
 # Upgrading to engine version 1.2.0.0 or above from a version earlier than 1.2.0.0
 
-[Engine release 1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md") introduced
+[Engine release 1.2.0.0](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md") introduced
 several significant changes that can make upgrading from an earlier version more
 complicated than usual:
 
-- [Engine release 1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md") introduced
+- [Engine release 1.2.0.0](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md") introduced
   a new format for custom parameter groups and custom cluster parameter
   groups. As a result, if you are upgrading from an engine version earlier than 1.2.0.0
   to engine version 1.2.0.0 or above, you must re-create all your existing custom

@@ -2,14 +2,14 @@
 
 ###### Important
 
-The new bulk load cross-account feature introduced in [engine release 1.2.1.0.R3](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md") that takes
+The new bulk load cross-account feature introduced in [engine release 1.2.1.0.R3](engine-releases-1.2.1.0.R3.md "engine-releases-1.2.1.0.R3.md") that takes
 advantage of chaining IAM roles may in some cases cause you to observe degraded bulk
 load performance. As a result, upgrades to engine releases that support this feature
 have been temporarily suspended until this problem is resolved.
 
 When you attach a role to your cluster, your cluster can assume that role to
 gain access to data stored in Amazon S3. Starting with [engine
-release 1.2.1.0.R3](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md"), if that role doesn't have access to all the resources you need,
+release 1.2.1.0.R3](engine-releases-1.2.1.0.R3.md "engine-releases-1.2.1.0.R3.md"), if that role doesn't have access to all the resources you need,
 you can chain one or more additional roles that your cluster can assume to gain access to
 other resources. Each role in the chain assumes the next role in the chain, until your cluster
 has assumed the role at the end of chain.

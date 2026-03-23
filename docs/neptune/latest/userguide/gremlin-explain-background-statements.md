@@ -81,7 +81,7 @@ the property name (key), and the object is the individual property value. The gr
 again the default graph identifier, the null graph, displayed as
 `<~>`.
 
-Consider the following example.
+Consider the following vertex property example.
 
 ```
 g.V("v1").property("name", "John")
@@ -111,4 +111,17 @@ This results in the following.
 ```
 StatementEvent[Added(<v1> <phone> "956-424-2563" <~>) .]
 StatementEvent[Added(<v1> <phone> "956-354-3692" <~>) .]
+```
+
+Edge properties are handled similarly to vertex properties, but use the edge identifier
+in the (S) position. For example, adding a property to an edge:
+
+```
+g.E("e1").property("weight", 0.8)
+```
+
+This results in the following statement being added to the graph.
+
+```
+StatementEvent[Added(<e1> <weight> 0.8 <~>) .]
 ```

@@ -5,7 +5,7 @@ Neptune supports dictionary garbage collection (GC) which can be enabled via the
 for property graph data. It can be enabled for clusters with only property graph data when `neptune_streams` is
 not enabled. The feature is automatically disabled if `neptune_streams` is enabled or there is any unexpired
 `neptune_streams` data. The feature requires a writer instance reboot to activate. This feature is available
-from engine release [1.4.3.0](../../../releases/release-1.4.3.0.md "../../../releases/release-1.4.3.0.md").
+from engine release [1.4.3.0](../../../releases/release-1.4.3.0.xml.md "../../../releases/release-1.4.3.0.xml.md").
 
 When enabled, the unused dictionary entries are cleaned up by a background job. It does not reduce
 `VolumeBytesUsed`, instead it frees up space in the index for new inserts. The rate of growth in

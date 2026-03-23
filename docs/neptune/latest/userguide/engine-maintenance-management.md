@@ -149,7 +149,7 @@ choose **Cancel**.
 ###### Important
 
 `AutoMinorVersionUpgrade` is only effective for minor
-version upgrades above [engine release 1.3.0.0](engine-releases-1.3.0.md "engine-releases-1.3.0.md").
+version upgrades above [engine release 1.3.0.0](engine-releases-1.3.0.0.md "engine-releases-1.3.0.0.md").
 
 If you have the `AutoMinorVersionUpgrade` field set to `true`
 in the writer (primary) instance of your DB cluster, minor version updates are applied

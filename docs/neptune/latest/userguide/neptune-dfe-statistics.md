@@ -5,11 +5,11 @@
 Support for openCypher depends on the DFE query engine in Neptune.
 
 The DFE engine was first available in lab mode in [Neptune
-engine release 1.0.3.0](engine-releases-1.0.3.md "engine-releases-1.0.3.md"), and starting in [Neptune
-engine release 1.0.5.0](engine-releases-1.0.5.md "engine-releases-1.0.5.md"), it became enabled by default, but only for use with
+engine release 1.0.3.0](engine-releases-1.0.3.0.md "engine-releases-1.0.3.0.md"), and starting in [Neptune
+engine release 1.0.5.0](engine-releases-1.0.5.0.md "engine-releases-1.0.5.0.md"), it became enabled by default, but only for use with
 query hints and for openCypher support.
 
-Beginning with [Neptune engine release 1.1.1.0](engine-releases-1.1.1.md "engine-releases-1.1.1.md")
+Beginning with [Neptune engine release 1.1.1.0](engine-releases-1.1.1.0.md "engine-releases-1.1.1.0.md")
 the DFE engine is no longer in lab mode, and is now controlled using
 the [neptune_dfe_query_engine](parameters.md#parameters-instance-parameters-neptune_dfe_query_engine "parameters.md#parameters-instance-parameters-neptune_dfe_query_engine")
 instance parameter in an instance's DB parameter group.
@@ -19,7 +19,7 @@ to make effective trade-offs when planning query execution. This information tak
 form of statistics that include so-called characteristic sets and predicate statistics
 that can guide query planning.
 
-Starting with [engine release 1.2.1.0](engine-releases-1.2.1.md "engine-releases-1.2.1.md"),
+Starting with [engine release 1.2.1.0](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md"),
 you can retrieve [summary information](neptune-graph-summary.md "neptune-graph-summary.md") about your graph from these statistics
 using the [GetGraphSummary](iam-dp-actions.md#getgraphsummary "iam-dp-actions.md#getgraphsummary") API or the
 `summary` endpoint.
@@ -42,13 +42,13 @@ endpoints:
 
 ###### Note
 
-As of [engine release 1.1.1.0](engine-releases-1.1.1.md "engine-releases-1.1.1.md"),
+As of [engine release 1.1.1.0](engine-releases-1.1.1.0.md "engine-releases-1.1.1.0.md"),
 the Gremlin statistics endpoint (`https://`your-neptune-host`:`port`/gremlin/statistics`)
 is being deprecated in favor of the `propertygraph` or `pg` endpoint.
 It is still supported for backward compatibility but may be
 removed in future releases.
 
-As of [engine release 1.2.1.0](engine-releases-1.2.1.md "engine-releases-1.2.1.md"),
+As of [engine release 1.2.1.0](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md"),
 the SPARQL statistics endpoint (`https://`your-neptune-host`:`port`/sparql/statistics`)
 is being deprecated in favor of the `rdf` endpoint. It is still supported
 for backward compatibility but may be
@@ -101,13 +101,13 @@ The response to a status request contains the following fields:
   ###### Note
 
   Prior to [engine release
-  1.2.1.0](engine-releases-1.2.1.md "engine-releases-1.2.1.md"), this was represented with minute precision, but from engine
+  1.2.1.0](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md"), this was represented with minute precision, but from engine
   release 1.2.1.0 forward, it is represented with millisecond precision
   (for example, `2023-01-24T00:47:43.319Z`).
   - `note`  –   A note about
     problems in the case where statistics are invalid.
   - `signatureInfo`  –   Contains information about
-    the characteristic sets generated in the statistics (prior to [engine release 1.2.1.0](engine-releases-1.2.1.md "engine-releases-1.2.1.md"), this field
+    the characteristic sets generated in the statistics (prior to [engine release 1.2.1.0](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md"), this field
     was named `summary`). These are generally not directly actionable:
     - `signatureCount`  –   The total
       number of signatures across all characteristic sets.

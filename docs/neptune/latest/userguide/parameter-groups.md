@@ -89,11 +89,11 @@ as follows:
 
 ###### Note
 
-Before [Release: 1.2.0.0 (2022-07-21)](engine-releases-1.2.0.md "engine-releases-1.2.0.md"),
+Before [Release: 1.2.0.0 (2022-07-21)](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md"),
 all the read-replica instances in a DB cluster were automatically rebooted whenever the primary
 (writer) instance restarted.
 
-From [Release: 1.2.0.0 (2022-07-21)](engine-releases-1.2.0.md "engine-releases-1.2.0.md")
+From [Release: 1.2.0.0 (2022-07-21)](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md")
 going forwards, restarting the primary instance does not cause any of the replica instances to restart.
 This means that if you are changing a cluster-level parameter, you must restart each instance
 separately to pick up the parameter change.

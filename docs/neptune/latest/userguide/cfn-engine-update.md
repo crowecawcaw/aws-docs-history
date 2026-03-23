@@ -38,7 +38,7 @@ For a major version upgrade, your template should set the following properties i
 
 In the case of a custom parameter group, make sure that the family of your existing
 custom parameter group is compatible with the new engine version. Engine versions earlier
-than [1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md") used parameter group family
+than [1.2.0.0](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md") used parameter group family
 `neptune1`, whereas engine releases from 1.2.0.0 forward require parameter
 group family `neptune1.2`. See [Amazon Neptune parameter groups](parameter-groups.md "parameter-groups.md") for more information.
 

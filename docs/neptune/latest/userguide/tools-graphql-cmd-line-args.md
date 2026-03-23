@@ -98,7 +98,7 @@ runs the resolver.
 - **`--output-resolver-query-sdk`**   –  
   This argument specifies that the utility's Lambda function should query Neptune
   using the Neptune data SDK, which has been available starting with Neptune
-  [engine version 1.2.1.0.R5](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md") (this is
+  [engine version 1.2.1.0.R5](engine-releases-1.2.1.0.R5.md "engine-releases-1.2.1.0.R5.md") (this is
   the default). However, if the utility detects an older Neptune engine version,
   it suggests using the HTTPS Lambda option instead, which you can invoke using the
   `--output-resolver-query-https` argument.

@@ -17,4 +17,4 @@ to write complex queries.
 - [metaphacts](visualization-metaphacts.md "visualization-metaphacts.md")
 - [G.V() graph database client](gv-tool.md "gv-tool.md")
 - [Linkurious](visualization-Linkurious.md "visualization-Linkurious.md")
-- [Graph.Build](visualization-graph.md "visualization-graph.md")
+- [Graph.Build](visualization-graph.build.md "visualization-graph.build.md")

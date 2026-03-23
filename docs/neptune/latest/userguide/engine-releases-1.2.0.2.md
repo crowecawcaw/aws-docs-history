@@ -1,13 +1,13 @@
-# Amazon Neptune Engine Version 1.2.0.2.R4 (2023-05-08)
+# Amazon Neptune Engine Version 1.2.0.2 (2022-11-20)
 
-As of 2023-05-08, engine version 1.2.0.2.R4 is being generally deployed. Please note
+As of 2022-11-20, engine version 1.2.0.2 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Note
 
 **If upgrading from an engine version earlier than 1.2.0.0:**
 
-- [Engine release 1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md") introduced
+- [Engine release 1.2.0.0](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md") introduced
   a new format for custom parameter groups and custom cluster parameter
   groups. As a result, if you are upgrading from an engine version earlier than 1.2.0.0
   to engine version 1.2.0.0 or above, you must re-create all your existing custom
@@ -39,30 +39,59 @@ a support case may help you explore additional strategies for bringing it down.
   In other languages, the `/openCypher` can be appended to the endpoint
   URI. See [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-opencypher-bolt.md") for examples.
 
-## Defects Fixed in This Engine Release
+## Subsequent Patch Releases for This Release
 
-- Fixed a SPARQL bug where a large number of values injected through the
-  `VALUES` clause could lead to performance degradation.
+- [Release: 1.2.0.2.R2 (2022-12-15)](engine-releases-1.2.0.2.R2.md "engine-releases-1.2.0.2.R2.md")
+- [Release: 1.2.0.2.R3 (2023-03-27)](engine-releases-1.2.0.2.R3.md "engine-releases-1.2.0.2.R3.md")
+- [Release: 1.2.0.2.R4 (2023-05-08)](engine-releases-1.2.0.2.R4.md "engine-releases-1.2.0.2.R4.md")
+- [Release: 1.2.0.2.R5 (2023-08-16)](engine-releases-1.2.0.2.R5.md "engine-releases-1.2.0.2.R5.md")
+- [Release: 1.2.0.2.R6 (2023-09-12)](engine-releases-1.2.0.2.R6.md "engine-releases-1.2.0.2.R6.md")
+
+## New Features in This Engine Release
+
+- Introduced [real-time
+  inductive inference](machine-learning-overview-evolving-data.md#inductive-vs-transductive-inference "machine-learning-overview-evolving-data.md#inductive-vs-transductive-inference") for Gremlin in Neptune ML.
+- Introduced an openCypher extension that supports specifying [custom ID values for entities](access-graph-opencypher-extensions.md#opencypher-compliance-custom-ids "access-graph-opencypher-extensions.md#opencypher-compliance-custom-ids")
+  instead of the UUIDs that Neptune otherwise generates. The ability to assign
+  custom IDs makes it easier to migrate to Neptune from Neo4j.
+
+###### Warning
+
+This extension to the openCypher specification is not backward
+compatible, because `~id` is now considered a reserved property name.
+If you are already using `~id` as a property in your data and queries,
+you must [migrate the
+~id property to a new property key](access-graph-opencypher-extensions.md#opencypher-compliance-custom-ids-migrating "access-graph-opencypher-extensions.md#opencypher-compliance-custom-ids-migrating") before upgrading to this
+release.
+
+- Added [several new
+  SPARQL DESCRIBE modes](sparql-query-hints-for-describe.md "sparql-query-hints-for-describe.md") along with query hints to configure
+  them.
+
+## Improvements in This Engine Release
+
+- Improved openCypher performance, particularly for VLP queries.
+- Improved DFE performance for Gremlin queries with non-terminal limits, such as:
+
+```
+g.withSideEffect('Neptune#useDFE',true).V().hasLabel('Student').limit(5).out('takesCourse')
+```
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.2.0.2.R4, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.2.0.2, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.5.2`
-- _Gremlin latest version supported:_ `3.5.6`
+- _Gremlin latest version supported:_ `3.5.4`
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.2.0.2.R4
-
-Your Neptune DB cluster will be upgraded to this maintenance patch release
-automatically during your next maintenance window if you are running engine version
-`1.2.0.2`.
+## Upgrade Paths to Engine Release 1.2.0.2
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.2.0.2.R4 is now generally available.
+Amazon Neptune 1.2.0.2 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

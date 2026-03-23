@@ -1,31 +1,54 @@
-# Amazon Neptune Engine Version 1.0.4.1.R2.1 (2021-03-11)
+# Amazon Neptune Engine Version 1.0.4.1.R2 (2021-02-24)
 
-As of 2021-03-11, engine version 1.0.4.1.R2.1 is being generally deployed. Please note
+As of 2021-02-24, engine version 1.0.4.1.R2 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
+
+## Subsequent Patch Releases for This Release
+
+- [Release: 1.0.4.1.R2.1 (2021-03-11)](engine-releases-1.0.4.1.R2.1.md "engine-releases-1.0.4.1.R2.1.md")
+
+## New Features in This Engine Release
+
+- Neptune now supports compression of single files in `bzip2`
+  format for bulk loads. See [Load Data Formats](bulk-load-tutorial-format.md "bulk-load-tutorial-format.md").
 
 ## Defects Fixed in This Engine Release
 
-- Disabled an optimization for Gremlin conditional insert patterns which can add
-  or append to existing labels and properties.
+- Fixed a bug in [Release: 1.0.4.0 (2020-10-12)](engine-releases-1.0.4.0.md "engine-releases-1.0.4.0.md") that allowed connections to Neptune
+  using `HTTP` or earlier versions of TLS, rather than `HTTPS`
+  and TLS 1.2.
+
+###### Important
+
+**Having to use SSL/TLS for all connections to
+Neptune can be a breaking change.** It affects your connections with the Gremlin
+console, the Gremlin driver, Gremlin Python, .NET, nodeJs, REST APIs, and also
+load-balancer connections. If you have been using HTTP or an older TLS version
+for any or all of these up until now, you must update the relevant client and drivers
+before installing this patch, and change your code to use HTTPS exclusively.
+
+- Fixed a Gremlin bug where `InternalFailureException`
+  was set as the response code in certain circumstances when a
+  `ConcurrentModificationException` occurred.
+- Fixed a Gremlin bug where under certain conditions updating
+  edges or vertices could cause a transient `InternalFailureException`.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.4.1.R2.1, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.4.1.R2, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin version:_ `3.4.8`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.4.1.R2.1
+## Upgrade Paths to Engine Release 1.0.4.1.R2
 
 Your cluster will be upgraded to this patch release automatically during your next
-maintenance window if you are running engine version `1.0.4.1.R2`.
-
-You can manually upgrade any previous Neptune engine release to this release.
+maintenance window if you are running engine version `1.0.4.1`.
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.4.1.R2.1 is now generally available.
+Amazon Neptune 1.0.4.1.R2 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster
@@ -37,7 +60,7 @@ For Linux, OS X, or Unix:
 ```
 aws neptune modify-db-cluster \
     --db-cluster-identifier `(your-neptune-cluster)` \
-    --engine-version 1.0.4.1.R2 \
+    --engine-version 1.0.4.1 \
     --apply-immediately
 ```
 
@@ -46,7 +69,7 @@ For Windows:
 ```
 aws neptune modify-db-cluster ^
     --db-cluster-identifier `(your-neptune-cluster)` ^
-    --engine-version 1.0.4.1.R2 ^
+    --engine-version 1.0.4.1 ^
     --apply-immediately
 ```
 

@@ -4,7 +4,7 @@ Neptune supports inline Server-Generated Edge IDs. It can be enabled via the Nep
 [parameter](parameters.md "parameters.md")
 `neptune_enable_inline_server_generated_edge_id` when `neptune_streams` is not enabled. This
 feature is available for Gremlin queries starting with engine release
-[1.4.3.0](../../../releases/release-1.4.3.0.md "../../../releases/release-1.4.3.0.md"), and will be available for OpenCypher
+[1.4.3.0](../../../releases/release-1.4.3.0.xml.md "../../../releases/release-1.4.3.0.xml.md"), and will be available for OpenCypher
 queries in a future release.
 
 Edge ID is a unique identifier for an edge. An edge ID can be provided when inserting an edge. If no ID is provided,

@@ -1,48 +1,96 @@
-# Amazon Neptune Engine Version 1.0.4.0.R2 (2021-02-24)
+# Amazon Neptune Engine Version 1.0.4.0 (2020-10-12)
 
-As of 2021-02-24, engine version 1.0.4.0.R2 is being generally deployed. Please note
+As of 2020-10-12, engine version 1.0.4.0 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
-## Defects Fixed in This Engine Release
+## Subsequent Patch Releases for This Release
 
-- Fixed a bug in [Release: 1.0.4.0 (2020-10-12)](engine-releases-1.0.4.md "engine-releases-1.0.4.md") that allowed connections to Neptune
-  using `HTTP` or earlier versions of TLS, rather than `HTTPS`
-  and TLS 1.2.
+- [Release: 1.0.4.0.R2 (2021-02-24)](engine-releases-1.0.4.0.R2.md "engine-releases-1.0.4.0.R2.md")
+
+## New Features in This Engine Release
+
+- Added frame-level compression for Gremlin.
+
+## Improvements in This Engine Release
+
+- Amazon Neptune now requires the use of the Secure Sockets Layer (SSL) with the TLSv1.2
+  protocol for all connections to Neptune in all regions, using these strong cipher
+  suites:
+
+      + `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+      + `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
+      + `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
+      + `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
+      + `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
+      + `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+
+  This is true for both REST and WebSocket connections to Neptune, and means that
+  you must use HTTPS rather than HTTP when connecting to Neptune in all regions.
+
+Because client connections using HTTP or TLS 1.1 will no longer be supported
+anywhere, please make sure that your clients and code have been updated to use
+TLS 1.2 and HTTPS before upgrading to this engine release.
 
 ###### Important
 
 **Having to use SSL/TLS for all connections to
-Neptune can be a breaking change.** It affects your connections with the Gremlin
-console, the Gremlin driver, Gremlin Python, .NET, nodeJs, REST APIs, and also
-load-balancer connections. If you have been using HTTP or an older TLS version
-for any or all of these up until now, you must update the relevant client and drivers
-before installing this patch, and change your code to use HTTPS exclusively.
+Neptune can be a breaking change.** It affects your
+connections with the Gremlin console, the Gremlin driver, Gremlin Python, .NET,
+nodeJs, REST APIs, and also load-balancer connections. If you have been using HTTP
+for any or all of these, you must now update the relevant client and drivers and
+change your code to use HTTPS or your connections will fail.
 
-- Fixed a bug in the CSV bulk load involving labels that end in `#`.
-- Fixed a Gremlin bug where `InternalFailureException`
-  was set as the response code in certain circumstances when a
-  `ConcurrentModificationException` occurred.
-- Fixed a Gremlin bug where under certain conditions updating
-  edges or vertices could cause a transient `InternalFailureException`.
+A bug in this release has allowed HTTP connections and/or outdated TLS connections
+to continue to work for customers who previously set a DB cluster parameter to prevent
+enforcement of HTTPS connections. That bug was fixed in patch releases [1.0.4.0.R2](engine-releases-1.0.4.0.R2.md "engine-releases-1.0.4.0.R2.md") and [1.0.4.1.R2](engine-releases-1.0.4.1.R2.md "engine-releases-1.0.4.1.R2.md"), but the fix has caused unexpected
+connection failures when the patches are automatically installed.
+
+For this reason, both patches have been reverted, and can only be installed manually,
+to give you a chance to update your setup for TLS 1.2.
+
+- Upgraded TinkerPop to version 3.4.8. This is a backwards compatible
+  upgrade. See the [TinkerPop
+  change log](https://github.com/apache/tinkerpop/blob/master/CHANGELOG.asciidoc#tinkerpop-348-release-date-august-3-2020 "https://github.com/apache/tinkerpop/blob/master/CHANGELOG.asciidoc#tinkerpop-348-release-date-august-3-2020") for what's new.
+- Improved performance for the Gremlin `properties()` step.
+- Added details about `BindOp` and `MultiplexerOp`
+  in explain and profile reports.
+- Added data prefetch to improve performance when there are cache misses.
+- Added a new `allowEmptyStrings` setting in the bulk loader's
+  `parserConfiguration` parameter that allows empty strings to be
+  treated as valid property values in CSV loads (see [Neptune Loader Request Parameters](load-api-reference-load.md#load-api-reference-load-parameters "load-api-reference-load.md#load-api-reference-load-parameters")).
+- The loader now allows an escaped semicolon in multivalue CSV columns.
+
+## Defects Fixed in This Engine Release
+
+- Fixed a potential Gremlin memory leak related to the `both()` step.
+- Fixed a bug where request metrics were missing because an endpoint ending
+  in '/' was not being handled correctly.
+- Fix a bug that caused replicas to fall behind and restart under heavy
+  load when the DFE engine is enabled in lab mode.
+- Fixed a bug that prevented the correct error message from being reported
+  when a bulk load failed because of an out-of-memory condition.
+- Fixed a SPARQL bug where the character encoding was placed in the
+  Content-Encoding header in SPARQL query responses. Now `charset` is placed
+  in the Content-Type header instead, enabling HTTP clients to recognize the character
+  set being used automatically.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.4.0.R2, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.4.0, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin version:_ `3.4.8`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.4.0.R2
-
-Your cluster will be upgraded to this patch release automatically during your next
-maintenance window if you are running engine version `1.0.4.0`.
+## Upgrade Paths to Engine Release 1.0.4.0
 
 You can manually upgrade any previous Neptune engine release to this release.
 
+You will not automatically upgrade to this release.
+
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.4.0.R2 is now generally available.
+Amazon Neptune 1.0.4.0 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

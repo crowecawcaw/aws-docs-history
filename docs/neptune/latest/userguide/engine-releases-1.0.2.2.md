@@ -1,43 +1,71 @@
-# Amazon Neptune Engine Version 1.0.2.2.R2 (2020-04-02)
+# Amazon Neptune Engine Version 1.0.2.2 (2020-03-09)
 
-As of 2020-04-02, engine version 1.0.2.2.R2 is being generally deployed. Please note
+As of 2020-03-09, engine version 1.0.2.2 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
+
+## Subsequent Patch Releases for This Release
+
+- [Release: 1.0.2.2.R2 (2020-04-02)](engine-releases-1.0.2.2.R2.md "engine-releases-1.0.2.2.R2.md")
+- [Release: 1.0.2.2.R3 (2020-07-22)](engine-releases-1.0.2.2.R3.md "engine-releases-1.0.2.2.R3.md")
+- [Release: 1.0.2.2.R4 (2020-07-23)](engine-releases-1.0.2.2.R4.md "engine-releases-1.0.2.2.R4.md")
+- [Release: 1.0.2.2.R5 (2020-10-12)](engine-releases-1.0.2.2.R5.md "engine-releases-1.0.2.2.R5.md")
+- [Release: 1.0.2.2.R6 (2021-02-19)](engine-releases-1.0.2.2.R6.md "engine-releases-1.0.2.2.R6.md")
 
 ## Improvements in This Engine Release
 
-- You can now queue up to 64 bulk-load jobs, rather than having to
-  wait for one to finish before initiating the next one. You can also make execution of a
-  queued load request contingent on the successful completion of one or more previously
-  queued load jobs using the `dependencies` parameter of the `load`
-  command. See [Neptune Loader Command](load-api-reference-load.md "load-api-reference-load.md").
-- Full-text-search output can now be sorted (see [Full-text search parameters](full-text-search-parameters.md "full-text-search-parameters.md")).
-- There is now a DB cluster parameter for invoking Neptune streams,
-  and the feature has been moved out of Lab Mode. See [Enabling Neptune Streams](streams-using-enabling.md "streams-using-enabling.md").
+- Added information to the status API about transactions that are
+  being rolled back. See [Instance Status](access-graph-status.md "access-graph-status.md").
+- Upgraded the version of Apache TinkerPop to 3.4.3.
+
+Version 3.4.3 is backwards compatible with the previous version
+supported by Neptune (3.4.1). It does introduce one minor change in
+behavior: Gremlin no longer returns an error when you try to close
+a session that does not exist (see [Prevent error
+when closing sessions that don't exist](https://issues.apache.org/jira/browse/TINKERPOP-2237 "https://issues.apache.org/jira/browse/TINKERPOP-2237")).
+
+- Removed performance bottlenecks in execution of Gremlin full-text
+  search steps.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a stochastic failure in server startup which delayed instance creation.
-- Fixed an optimizer issue where `BIND` statements in the query
-  made the optimizer start out with unselective patterns in join-order planning.
+- Fixed a SPARQL bug in the handling of empty graph patterns in queries.
+- Fixed a SPARQL bug in the handling of unencoded semicolons in URL-encoded queries.
+- Fixed a Gremlin bug in the handling of repeated vertices in the `Union` step.
+- Fixed a Gremlin bug that caused some queries with a `.simplePath()` or
+  `.cyclicPath()` inside a `.repeat()` to return incorrect results.
+- Fixed a Gremlin bug that caused `.project()` to return incorrect results
+  if its child traversal returned no solutions.
+- Fixed a Gremlin bug where errors from read-write conflicts raised an
+  `InternalFailureException` rather than a `ConcurrentModificationException`.
+- Fixed a Gremlin bug that caused `.group().by(...).by(values("property"))`
+  failures.
+- Fixed Gremlin bugs in the profile output for full-text-search steps.
+- Fixed a resource leak in Gremlin sessions.
+- Fixed a bug that prevented the status API from reporting the correct orderable
+  version in some cases.
+- Fixed a bulk loader bug that allowed a URL to a location other than
+  Amazon S3 to be used as the source in a bulk load request.
+- Fixed a bulk loader bug in the detailed load status.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.2.2.R2, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.2.2, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin version:_ `3.4.3`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.2.2.R2
-
-Your cluster will be upgraded to this patch release automatically during your next
-maintenance window if you are running engine version `1.0.2.2`.
+## Upgrade Paths to Engine Release 1.0.2.2
 
 You can manually upgrade any previous Neptune engine release to this release.
 
+If your cluster has its `AutoMinorVersionUpgrade` parameter set to `True`,
+your cluster will be upgraded to this engine release automatically two to three weeks after
+the date of this release, during a maintenance window.
+
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.2.2.R2 is now generally available.
+Amazon Neptune 1.0.2.2 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

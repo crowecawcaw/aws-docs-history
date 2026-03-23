@@ -323,7 +323,7 @@ of the most recent 1,024 bulk load jobs, and stores the last 10,000 error detail
 per job.
 
 See [Neptune
-Loader Get-Status API](load-api-reference-status.md "load-api-reference-status.md") for more information.
+Loader Get-Status API](load-api-reference-status.htm.md "load-api-reference-status.htm.md") for more information.
 
 When invoking this operation in a Neptune cluster that has IAM authentication
 enabled, the IAM user or role making the request must have a policy attached that
@@ -491,7 +491,7 @@ Returns the status of the job list request.
 
 Cancels a specified load job. This is an HTTP `DELETE` request.
 See [Neptune
-Loader Get-Status API](load-api-reference-status.md "load-api-reference-status.md") for more information.
+Loader Get-Status API](load-api-reference-status.htm.md "load-api-reference-status.htm.md") for more information.
 
 When invoking this operation in a Neptune cluster that has IAM authentication
 enabled, the IAM user or role making the request must have a policy attached that

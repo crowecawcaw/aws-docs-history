@@ -38,5 +38,6 @@ the cloud and security _in_ the cloud:
 - [Using service-linked roles for Amazon Neptune](security-iam-service-linked-roles.md "security-iam-service-linked-roles.md")
 - [Using temporary credentials to connect to Amazon Neptune](iam-auth-temporary-credentials.md "iam-auth-temporary-credentials.md")
 - [Logging and monitoring usage and performance in Amazon Neptune](security-monitoring.md "security-monitoring.md")
+- [Amazon Neptune and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Compliance considerations for Amazon Neptune](neptune-compliance.md "neptune-compliance.md")
 - [Building resilient and disaster-tolerant Amazon Neptune deployments](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")

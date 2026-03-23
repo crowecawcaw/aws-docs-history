@@ -27,6 +27,7 @@ body. Neptune workbench provides the following line magics:
 - [%summary](#notebooks-line-magics-summary "#notebooks-line-magics-summary")
 - [%reset_graph](#notebooks-line-magics-reset-graph "#notebooks-line-magics-reset-graph")
 - [%get_graph](#notebooks-line-magics-get-graph "#notebooks-line-magics-get-graph")
+- [%degreeDistribution](#notebooks-line-magics-degreeDistribution "#notebooks-line-magics-degreeDistribution")
   _Cell magics_ are preceded by two percent signs (`%%`) rather
   than one, and use the cell content as input, although they can also take line content as
   input. Neptune workbench provides the following cell magics:
@@ -203,16 +204,6 @@ The line magic looks like this:
 %load_status `load id`
 ```
 
-## The `%reset_graph` line magic
-
-The `%reset_graph` (or `%_graph_reset`) line magic executes a
-[ResetGraph](../../../neptune-analytics/latest/apiref/API_ResetGraph.md "../../../neptune-analytics/latest/apiref/API_ResetGraph.md")
-call against the Neptune Analytics endpoint. It accepts the following optional line input:
-
-- -ns or --no-skip-snapshot - If present, a final graph snapshot will be created before the graph data is deleted.
-- --silent – If present, no output is displayed after the reset call is submitted.
-- --store-to – Used to specify a variable to which to store the ResetGraph response.
-
 ## The `%cancel_load` line magic
 
 The `%cancel_load` line magic cancels a particular load job (see [Neptune Loader Cancel Job](load-api-reference-cancel.md "load-api-reference-cancel.md")). The request takes this form:
@@ -239,12 +230,6 @@ For Neptune Analytics hosts, the status will be retrieved via the
 [GetGraph API](../../../neptune-analytics/latest/apiref/API_GetGraph.md "../../../neptune-analytics/latest/apiref/API_GetGraph.md").
 See [%get_graph](#notebooks-line-magics-get-graph "#notebooks-line-magics-get-graph") for more
 information.
-
-## The `%get_graph` line magic
-
-The `%get_graph` line magic retrieves information about a graph via the
-[GetGraph API](../../../neptune-analytics/latest/apiref/API_GetGraph.md "../../../neptune-analytics/latest/apiref/API_GetGraph.md").
-This magic is functionally identical to [%status](#notebooks-line-magics-status "#notebooks-line-magics-status") when used with Neptune Analytics.
 
 ## The `%gremlin_status` line magic
 
@@ -279,10 +264,6 @@ following optional arguments:
 - **`--silent`**   –  
   If present, no output is displayed after the query completes.
 
-## The `%sparql_status` line magic
-
-Retrieves [SPARQL query status information](sparql-api-status.md "sparql-api-status.md").
-
 ## The `%stream_viewer` line magic
 
 The `%stream_viewer` line magic displays an interface that allows for
@@ -300,6 +281,10 @@ on the Neptune cluster. It accepts the following optional arguments:
 
 The `%stream_viewer` line magic is fully supported only
 on engine versions 1.0.5.1 and earlier.
+
+## The `%sparql_status` line magic
+
+Retrieves [SPARQL query status information](sparql-api-status.md "sparql-api-status.md").
 
 ## The `%graph_notebook_config` line magic
 
@@ -412,25 +397,39 @@ If not supplied, the default is the `basic` summary display mode.
 - **`--store-to`**   –  
   Used to specify a variable to which to store the query results.
 
-## The `%%graph_notebook_config` cell magic
+## The `%reset_graph` line magic
 
-The `%%graph_notebook_config` cell magic uses a JSON object containing
-configuration information to modify the settings that the notebook is using to communicate
-with Neptune, if possible. The configuration takes the same form returned by the [%graph_notebook_config](#notebooks-line-magics-graph-notebook-config "#notebooks-line-magics-graph-notebook-config") line magic.
+The `%reset_graph` (or `%_graph_reset`) line magic executes a
+[ResetGraph](../../../neptune-analytics/latest/apiref/API_ResetGraph.md "../../../neptune-analytics/latest/apiref/API_ResetGraph.md")
+call against the Neptune Analytics endpoint. It accepts the following optional line input:
 
-For example:
+- -ns or --no-skip-snapshot - If present, a final graph snapshot will be created before the graph data is deleted.
+- --silent – If present, no output is displayed after the reset call is submitted.
+- --store-to – Used to specify a variable to which to store the ResetGraph response.
 
-```
-%%graph_notebook_config
-{
-  "host": "my-new-cluster-endpoint.amazon.com",
-  "port": 8182,
-  "auth_mode": "DEFAULT",
-  "load_from_s3_arn": "",
-  "ssl": true,
-  "aws_region": "us-east-1"
-}
-```
+## The `%get_graph` line magic
+
+The `%get_graph` line magic retrieves information about a graph via the
+[GetGraph API](../../../neptune-analytics/latest/apiref/API_GetGraph.md "../../../neptune-analytics/latest/apiref/API_GetGraph.md").
+This magic is functionally identical to [%status](#notebooks-line-magics-status "#notebooks-line-magics-status") when used with Neptune Analytics.
+
+## The `%degreeDistribution` line magic
+
+The `%degreeDistribution` line magic creates an interactive histogram visualizing the
+degree distribution of vertices in a graph. The histogram displays the number of vertices (y-axis)
+that have a specific degree (x-axis). It is available only with Neptune Analytics.
+
+It accepts the following parameters, which can also be chosen in the dropdown menu:
+
+- **`--traversalDirection`**   –  
+  Specifies which degree to analyze. Must be one of: `"both"` (default),
+  `"inbound"`, or `"outbound"`.
+- **`--vertexLabels`**   –  
+  Filter vertices by the provided labels (for example, `airport country`).
+  The default is an empty list.
+- **`--edgeLabels`**   –  
+  Filter edges by the provided labels (for example, `route`).
+  The default is an empty list.
 
 ## The `%%sparql` cell magic
 
@@ -601,6 +600,26 @@ endpoint. It accepts the following optional line input arguments:
     MATCH (n {name: $name, age: $age})
     RETURN n
     ```
+
+## The `%%graph_notebook_config` cell magic
+
+The `%%graph_notebook_config` cell magic uses a JSON object containing
+configuration information to modify the settings that the notebook is using to communicate
+with Neptune, if possible. The configuration takes the same form returned by the [%graph_notebook_config](#notebooks-line-magics-graph-notebook-config "#notebooks-line-magics-graph-notebook-config") line magic.
+
+For example:
+
+```
+%%graph_notebook_config
+{
+  "host": "my-new-cluster-endpoint.amazon.com",
+  "port": 8182,
+  "auth_mode": "DEFAULT",
+  "load_from_s3_arn": "",
+  "ssl": true,
+  "aws_region": "us-east-1"
+}
+```
 
 ## The `%%graph_notebook_vis_options` cell magic
 

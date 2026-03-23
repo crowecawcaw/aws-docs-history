@@ -151,7 +151,7 @@ The Amazon Neptune loader API is non-ACID.
 
 ## IAM authentication and access control
 
-In Neptune engine versions prior to [release 1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md"),
+In Neptune engine versions prior to [release 1.2.0.0](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md"),
 IAM authentication and access control is only supported at the DB cluster level.
 From release `1.2.0.0` forward, however, you can control query-based
 access at a more granular level using condition keys in IAM policies. For more

@@ -15,7 +15,7 @@ As the volume of data increases and exceeds the currently allocated storage, Nep
 automatically expands the cluster volume by adding new segments. A Neptune cluster
 volume can grow to a maximum size of 128 tebibytes (TiB) in all supported regions
 except China and GovCloud, where it is limited to 64 TiB. For engine releases earlier
-than [Release: 1.0.2.2 (2020-03-09)](engine-releases-1.0.2.md "engine-releases-1.0.2.md"),
+than [Release: 1.0.2.2 (2020-03-09)](engine-releases-1.0.2.2.md "engine-releases-1.0.2.2.md"),
 however, the size of cluster volumes is limited to 64 TiB in all regions.
 
 The DB cluster volume contains all your user data, indices and dictionaries

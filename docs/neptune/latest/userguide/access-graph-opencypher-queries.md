@@ -204,7 +204,7 @@ common values.
 ## Optional HTTP trailing headers for multi-part OpenCypher responses
 
 This feature is available starting with Neptune engine release
-[1.4.5.0](../../../releases/release-1.4.5.0.md "../../../releases/release-1.4.5.0.md").
+[1.4.5.0](../../../releases/release-1.4.5.0.xml.md "../../../releases/release-1.4.5.0.xml.md").
 
 The HTTP response to OpenCypher queries and updates is typically returned in multiple chunks. When failures
 occur after the initial response chunks have been sent (with an HTTP status code of 200), it can be challenging

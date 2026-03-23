@@ -30,7 +30,7 @@ resources, or used in a Condition statement in an IAM policy for Amazon Neptune.
 - **ResourceName**  (in the CLI: `--resource-name`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
 
 The Amazon Neptune resource that the tags are added to. This value is an
-Amazon Resource Name (ARN). For information about creating an ARN, see [Constructing an Amazon Resource Name (ARN)](../UserGuide/tagging.md#tagging.ARN.Constructing "../UserGuide/tagging.md#tagging.ARN.Constructing").
+Amazon Resource Name (ARN). For information about creating an ARN, see [Constructing an Amazon Resource Name (ARN)](../UserGuide/tagging.ARN.md#tagging.ARN.Constructing "../UserGuide/tagging.ARN.md#tagging.ARN.Constructing").
 
 - **Tags**  (in the CLI: `--tags`) –  _Required:_ An array of [Tag](#Tag "#Tag") objects.
 
@@ -61,7 +61,7 @@ This parameter is not currently supported.
 - **ResourceName**  (in the CLI: `--resource-name`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
 
 The Amazon Neptune resource with tags to be listed. This value is an Amazon
-Resource Name (ARN). For information about creating an ARN, see [Constructing an Amazon Resource Name (ARN)](../UserGuide/tagging.md#tagging.ARN.Constructing "../UserGuide/tagging.md#tagging.ARN.Constructing").
+Resource Name (ARN). For information about creating an ARN, see [Constructing an Amazon Resource Name (ARN)](../UserGuide/tagging.ARN.md#tagging.ARN.Constructing "../UserGuide/tagging.ARN.md#tagging.ARN.Constructing").
 
 **Response**
 
@@ -86,7 +86,7 @@ Removes metadata tags from an Amazon Neptune resource.
 - **ResourceName**  (in the CLI: `--resource-name`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
 
 The Amazon Neptune resource that the tags are removed from. This value
-is an Amazon Resource Name (ARN). For information about creating an ARN, see [Constructing an Amazon Resource Name (ARN)](../UserGuide/tagging.md#tagging.ARN.Constructing "../UserGuide/tagging.md#tagging.ARN.Constructing").
+is an Amazon Resource Name (ARN). For information about creating an ARN, see [Constructing an Amazon Resource Name (ARN)](../UserGuide/tagging.ARN.md#tagging.ARN.Constructing "../UserGuide/tagging.ARN.md#tagging.ARN.Constructing").
 
 - **TagKeys**  (in the CLI: `--tag-keys`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
 
@@ -133,7 +133,7 @@ Valid values:
 - **ResourceIdentifier**  (in the CLI: `--resource-identifier`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
 
 The Amazon Resource Name (ARN) of the resource that the pending maintenance
-action applies to. For information about creating an ARN, see [Constructing an Amazon Resource Name (ARN)](../UserGuide/tagging.md#tagging.ARN.Constructing "../UserGuide/tagging.md#tagging.ARN.Constructing").
+action applies to. For information about creating an ARN, see [Constructing an Amazon Resource Name (ARN)](../UserGuide/tagging.ARN.md#tagging.ARN.Constructing "../UserGuide/tagging.ARN.md#tagging.ARN.Constructing").
 
 **Response**
 

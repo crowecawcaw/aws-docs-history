@@ -208,7 +208,7 @@ aws dms test-connection \
 
 Once you have completed the previous steps successfully, create a replication
 task for migrating data from your source data store to Neptune, using the AWS DMS
-[CreateReplicationTask](../../../dms/latest/APIReference/API_CreateReplicationTask.md "../../../dms/latest/APIReference/API_CreateReplicationTask.md")
+[CreateReplicationTask](../../../dms/latest/APIReference/API_CreateReplicationTask.html.md "../../../dms/latest/APIReference/API_CreateReplicationTask.html.md")
 API like this:
 
 ```

@@ -58,7 +58,7 @@ SET n = removeKeyFromMap(val, '~id')
 
 Available in Neptune Database 1.2.0.2 and up, and Neptune Analytics.
 
-Starting in [engine release 1.2.0.2](engine-releases-1.2.0.md "engine-releases-1.2.0.md"),
+Starting in [engine release 1.2.0.2](engine-releases-1.2.0.2.md "engine-releases-1.2.0.2.md"),
 Neptune has extended the openCypher specification so that you can now specify the
 `id` values for nodes and relationships in
 `CREATE`, `MERGE`, and `MATCH` clauses. This lets
@@ -104,7 +104,7 @@ RETURN r
 
 ### What to do if you're currently using `~id` as a property
 
-With [engine release 1.2.0.2](engine-releases-1.2.0.md "engine-releases-1.2.0.md"), the
+With [engine release 1.2.0.2](engine-releases-1.2.0.2.md "engine-releases-1.2.0.2.md"), the
 `~id` key in openCypher clauses is now treated as `id` instead of
 as a property. This means that if you have a property named `~id`, accessing
 it becomes impossible.
@@ -416,7 +416,7 @@ match (n:person) with collect(n) as people return collSortNodes(people, {key: 'a
 ## Temporal functions
 
 Temporal functions are available from Neptune version
-[1.4.5.0](../../../releases/release-1.4.5.0.md "../../../releases/release-1.4.5.0.md") and up.
+[1.4.5.0](../../../releases/release-1.4.5.0.xml.md "../../../releases/release-1.4.5.0.xml.md") and up.
 
 ### day
 

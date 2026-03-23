@@ -4,7 +4,7 @@ A SPARQL `DESCRIBE` query provides a flexible mechanism for requesting
 resource descriptions. However, the SPARQL specifications do not define the precise
 semantics of `DESCRIBE`.
 
-Starting with [engine release 1.2.0.2](engine-releases-1.2.0.md "engine-releases-1.2.0.md"),
+Starting with [engine release 1.2.0.2](engine-releases-1.2.0.2.md "engine-releases-1.2.0.2.md"),
 Neptune supports several different `DESCRIBE` modes and algorithms that
 are suited to different situations.
 
