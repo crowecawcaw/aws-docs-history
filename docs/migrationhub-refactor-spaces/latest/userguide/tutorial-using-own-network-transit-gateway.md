@@ -43,7 +43,7 @@ and private subnets (NAT)](../../../vpc/latest/userguide/VPC_Scenario2.md "../..
 
 1. [Create an
    Amazon EC2 instance in the private subnet](../../../AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.md "../../../AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.md").
-2. [Install a web server on the Amazon EC2 instance](../../../AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.md "../../../AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.md").
+2. [Install a web server on the Amazon EC2 instance](../../../AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateWebServer.md "../../../AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateWebServer.md").
 3. [Create a security group](../../../vpc/latest/userguide/VPC_SecurityGroups.md#creating-security-groups "../../../vpc/latest/userguide/VPC_SecurityGroups.md#creating-security-groups") in a member VPC with an inbound rule
    allowing traffic from the CIDR in Environment Owner Account
    10.1.0.0/16.

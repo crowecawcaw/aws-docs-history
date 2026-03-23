@@ -59,7 +59,7 @@ connections](../../../vpc/latest/peering/working-with-vpc-peering.md "../../../v
 
 1. [Create an
    Amazon EC2 instance in the private subnet](../../../AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.md "../../../AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.md").
-2. [Install a web server on the Amazon EC2 instance](../../../AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.md "../../../AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.md"). Run the web server
+2. [Install a web server on the Amazon EC2 instance](../../../AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateWebServer.md "../../../AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateWebServer.md"). Run the web server
    on any port, for example, port 3000.
 3. [Create a security group](../../../vpc/latest/userguide/VPC_SecurityGroups.md#creating-security-groups "../../../vpc/latest/userguide/VPC_SecurityGroups.md#creating-security-groups") in the VPC with an inbound rule that
    allows traffic from the environment owner account CIDR range to the server
