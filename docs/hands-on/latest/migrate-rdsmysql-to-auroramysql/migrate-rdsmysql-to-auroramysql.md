@@ -22,7 +22,7 @@ instance and Aurora Read Replica approaches zero, redirect your
 client applications to the Aurora Read Replica, and make the
 Aurora Read Replica a standalone Aurora MySQL DB cluster. For more
 information, refer
-[Amazon Aurora documentation](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.RDSMySQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.RDSMySQL.md").
+[Amazon Aurora documentation](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.RDSMySQL.Replica.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.RDSMySQL.Replica.md").
 
 The methodology and steps discussed in this tutorial are
 applicable to any application’s database that resides on Amazon RDS MySQL DB instance and needs to be migrated to Aurora MySQL DB
@@ -514,7 +514,7 @@ Some storage constraints are not factored in this tutorial
 and should be considered for your production migrations. For more
 details, refer to Migrating Your Databases to Amazon Aurora white
 paper and
-[documentation](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.RDSMySQL.md#AuroraMySQL.Migrating.RDSMySQL.Space "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.RDSMySQL.md#AuroraMySQL.Migrating.RDSMySQL.Space").
+[documentation](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.RDSMySQL.Import.md#AuroraMySQL.Migrating.RDSMySQL.Space "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.RDSMySQL.Import.md#AuroraMySQL.Migrating.RDSMySQL.Space").
 
 ![A web-based address book interface hosted on Amazon Web Services, displaying a table of names, phone numbers, emails, and options to edit or remove entries.](images/based-address-book-interface-hosted-2.png)
 It is a best practice to delete instances and resources that you are
