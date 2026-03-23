@@ -1,29 +1,9 @@
-# Columnstore index functionality
+# Physical storage overview
 
-This topic provides reference information about the compatibility of columnstore indexes when migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. Aurora PostgreSQL does not offer a directly comparable feature to SQL Server’s columnstore indexes, which are used for data compression and query performance improvement in data warehousing scenarios.
+This topic provides conceptual content comparing feature compatibility between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. It covers three main areas: columnstore indexes, indexed views and materialized views, and partitioning. The content explores how these features are implemented in both database systems, highlighting similarities, differences, and potential migration challenges. By understanding these concepts, database administrators and developers can better prepare for the transition from SQL Server to Aurora PostgreSQL. This knowledge allows them to anticipate feature gaps, plan for necessary adjustments in their database design and optimization strategies, and make informed decisions when migrating their data warehousing and analytical workloads.
 
-| Feature compatibility    | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                 |
-| ------------------------ | ---------------------------------- | ------------------------- | ----------------------------------------------- |
-| No feature compatibility | No automation                      | N/A                       | Aurora PostgreSQL offers no comparable feature. |
+###### Topics
 
-## SQL Server Usage
-
-SQL Server provides columnstore indexes that use column-based data storage to compress data and improve query performance in data warehouses. Columnstore indexes are the preferred data storage format for data warehousing and analytic workloads. As a best practice, use Columnstore indexes with fact tables and large dimension workloads.
-
-### Examples
-
-The following example creates
-
-```
-CREATE TABLE products(ID [int] NOT NULL, OrderDate [int] NOT NULL, ShipDate [int] NOT NULL);
-GO
-
-CREATE CLUSTERED COLUMNSTORE INDEX cci_T1 ON products;
-GO
-```
-
-For more information, see [Columnstore indexes: Overview](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-overview?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-overview?view=sql-server-2017") in the _SQL Server documentation_.
-
-## PostgreSQL Usage
-
-Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) doesn’t currently provide a directly comparable alternative for SQL Server columnstore index.
+- [Columnstore index functionality](chap-sql-server-aurora-pg.storage.columnstore.md "chap-sql-server-aurora-pg.storage.columnstore.md")
+- [Indexed view functionality](chap-sql-server-aurora-pg.storage.materializedviews.md "chap-sql-server-aurora-pg.storage.materializedviews.md")
+- [Partitioning databases](chap-sql-server-aurora-pg.storage.partitioning.md "chap-sql-server-aurora-pg.storage.partitioning.md")
