@@ -4,7 +4,7 @@ Cost and Usage Reports contain details about your usage. The following sections 
 subset of columns that you see in your report, and the corresponding definitions.
 
 To download the full list of the columns that can appear in AWS Cost and Usage Reports (AWS CUR) and the
-services that the columns apply to, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md"). This
+services that the columns apply to, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md"). This
 comma-separated values (CSV) list includes **Identity**,
 **Bill**,
 **LineItem**,

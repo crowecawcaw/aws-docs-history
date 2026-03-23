@@ -455,7 +455,7 @@ application programming interface that conforms to the constraints of
   - Amazon ElastiCache
   - Amazon EMR
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md").
+  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/instanceSize
 
@@ -482,7 +482,7 @@ application programming interface that conforms to the constraints of
   - Amazon ElastiCache
   - Amazon EMR
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md").
+  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/instanceTypeFamily
 
@@ -576,7 +576,7 @@ application programming interface that conforms to the constraints of
   - Amazon RDS
   - Amazon DynamoDB
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md").
+  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/locationType
 
@@ -592,7 +592,7 @@ application programming interface that conforms to the constraints of
   - Amazon RDS
   - Amazon DynamoDB
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md").
+  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/logsDestination
 
@@ -611,7 +611,7 @@ application programming interface that conforms to the constraints of
   - Amazon RDS
   - Amazon DynamoDB
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md").
+  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ## M
 
@@ -691,7 +691,7 @@ application programming interface that conforms to the constraints of
   - Amazon SageMaker AI
   - AWS Database Migration Service
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md").
+  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/normalizationSizeFactor
 
@@ -741,7 +741,7 @@ application programming interface that conforms to the constraints of
   - Amazon CloudWatch
   - Amazon Redshift
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md").
+  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/originationIdType
 
@@ -860,7 +860,7 @@ E5-2670`, `AMD EPYC 7571`
   - Amazon RDS
   - Amazon DynamoDB
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md").
+  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/ProductName
 
@@ -927,7 +927,7 @@ E5-2670`, `AMD EPYC 7571`
   - Amazon RDS
   - Amazon DynamoDB
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md").
+  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/regioncode
 
@@ -1055,7 +1055,7 @@ E5-2670`, `AMD EPYC 7571`
   - Amazon RDS
   - Amazon DynamoDB
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md").
+  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/storage
 
@@ -1071,7 +1071,7 @@ E5-2670`, `AMD EPYC 7571`
   - OpenSearch Service
   - Amazon WorkSpaces
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md").
+  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/storageclass
 
@@ -1171,7 +1171,7 @@ E5-2670`, `AMD EPYC 7571`
   - Amazon CloudFront
   - Amazon Lightsail
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md").
+  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/toRegionCode
 
@@ -1233,7 +1233,7 @@ For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricin
   - Amazon RDS
   - Amazon DynamoDB
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md").
+  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ## V
 
@@ -1254,7 +1254,7 @@ For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricin
   - OpenSearch Service
   - Amazon ElastiCache
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md").
+  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/videoCodec
 
@@ -1301,7 +1301,7 @@ For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricin
   - Amazon DynamoDB
   - Amazon Glacier
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.md "samples/Column_Attribute_Service.md").
+  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ## W
 
