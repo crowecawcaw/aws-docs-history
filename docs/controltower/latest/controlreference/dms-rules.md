@@ -234,7 +234,7 @@ in-transit with SSL, you can protect the confidentiality of data during AWS DMS 
 ###### Usage considerations
 
 - This control applies only to AWS DMS endpoints with an EngineName property of `mysql`, `oracle`, `postgres`, `mariadb`, `aurora`, `aurora-postgresql`, `db2,` sybase`,` mongodb`,` docdb`, or` sqlserver'.
-- Not all SSL modes work with all database endpoints. See [Using SSL with AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Security.md "../../../dms/latest/userguide/CHAP_Security.md") in the
+- Not all SSL modes work with all database endpoints. See [Using SSL with AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Security.SSL.md "../../../dms/latest/userguide/CHAP_Security.SSL.md") in the
   _AWS Database Migration Service User Guide_ for information on which SSL modes are supported for each database engine, and limitations of using SSL with AWS DMS.
 
 ### Remediation for rule failure

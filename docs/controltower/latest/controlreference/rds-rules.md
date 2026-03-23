@@ -348,7 +348,7 @@ Enhanced monitoring metrics are useful when you want to see how different proces
 ###### Usage considerations
 
 - This control applies only to Amazon RDS DB engine types `aurora`, `aurora-mysql`, `aurora-postgresql`, `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`
-- This control applies to a standalone RDS instance and an RDS instance that is part of a DB cluster. Do not enable this control if you want to manage enhanced monitoring on the cluster level instead of requiring it to be specified on each RDS DB instance within the cluster. For more information on configuring enahanced monitoring at the cluster level, refer to [Setting up and enabling Enhanced Monitoring](../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.OS.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.OS.md") in the _Amazon Aurora User Guide_.
+- This control applies to a standalone RDS instance and an RDS instance that is part of a DB cluster. Do not enable this control if you want to manage enhanced monitoring on the cluster level instead of requiring it to be specified on each RDS DB instance within the cluster. For more information on configuring enahanced monitoring at the cluster level, refer to [Setting up and enabling Enhanced Monitoring](../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.OS.Enabling.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.OS.Enabling.md") in the _Amazon Aurora User Guide_.
 
 ### Remediation for rule failure
 
