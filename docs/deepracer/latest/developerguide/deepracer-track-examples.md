@@ -54,7 +54,7 @@ it offers a compelling challenge for both first-time and experienced racers. The
 track is a 1:1 physical reproduction of the virtual track available in the console. It provides racers the opportunity to
 train a model in a virtual environment and then deploy the model to a physical AWS DeepRacer device for autonomous racing on a physical track.
 
-To print or create your own A to Z Speedway (Basic) track, download this [AWS DeepRacer A to Z Speedway (Basic) file](samples/deepracer-A-to-Z-speedway-basic.ai.md "samples/deepracer-A-to-Z-speedway-basic.ai.md").
+To print or create your own A to Z Speedway (Basic) track, download this [AWS DeepRacer A to Z Speedway (Basic) file](samples/deepracer-A-to-Z-speedway-basic.ai.zip.md "samples/deepracer-A-to-Z-speedway-basic.ai.zip.md").
 
 ## AWS DeepRacer Smile Speedway (Intermediate) track template
 
@@ -68,7 +68,7 @@ We recommend this intermediate track for events with experienced racers and larg
 train a model in a virtual environment and then deploy the model to a physical AWS DeepRacer device for autonomous racing on a physical track.
 
 To print or create your own AWS DeepRacer Smile Speedway (Intermediate) track, download this [AWS DeepRacer Smile Speedway (Intermediate)
-track file](samples/deepracer-championship-cup-intermediate.ai.md "samples/deepracer-championship-cup-intermediate.ai.md").
+track file](samples/deepracer-championship-cup-intermediate.ai.zip.md "samples/deepracer-championship-cup-intermediate.ai.zip.md").
 
 ## AWS DeepRacer RL Speedway (Advanced) track template
 
@@ -82,7 +82,7 @@ The AWS DeepRacer RL Speedway (Advanced) track is a 1:1 physical reproduction of
 environment and then deploy the model to a physical AWS DeepRacer device for autonomous racing on a physcial track.
 
 To print or create your own AWS RL Speedway (Advanced) track, download this [AWS DeepRacer RL Speedway (Advanced)
-track file](samples/deepracer-summit-speedway-advanced.ai.md "samples/deepracer-summit-speedway-advanced.ai.md").
+track file](samples/deepracer-summit-speedway-advanced.ai.zip.md "samples/deepracer-summit-speedway-advanced.ai.zip.md").
 
 ## AWS DeepRacer Single-turn track template
 

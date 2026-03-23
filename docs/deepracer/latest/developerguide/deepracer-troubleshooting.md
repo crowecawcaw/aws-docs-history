@@ -5,7 +5,7 @@ Here you'll find troubleshooting tips for frequently asked questions as well as 
 ###### Topics
 
 - [How to resolve common AWS DeepRacer LIVE issues](deepracer-troubleshooting-deepracer-live.md "deepracer-troubleshooting-deepracer-live.md")
-- [Why can't I connect to the device console with USB connection between my computer and vehicle?](deepracer-troubleshooting-connect-to-deepracer.md "deepracer-troubleshooting-connect-to-deepracer.md")
+- [Why can't I connect to the device console with USB connection between my computer and vehicle?](deepracer-troubleshooting-connect-to-deepracer.aws.md "deepracer-troubleshooting-connect-to-deepracer.aws.md")
 - [How to switch AWS DeepRacer compute module power source from battery to a power outlet](deepracer-troubleshooting-switch-battery-to-wall-power.md "deepracer-troubleshooting-switch-battery-to-wall-power.md")
 - [How to use a USB flash drive to connect AWS DeepRacer to your Wi-Fi network](deepracer-troubleshooting-wifi-connection-first-time.md "deepracer-troubleshooting-wifi-connection-first-time.md")
 - [How to charge the AWS DeepRacer drive module battery](deepracer-troubleshooting-charge-vehicle-battery-first-time.md "deepracer-troubleshooting-charge-vehicle-battery-first-time.md")

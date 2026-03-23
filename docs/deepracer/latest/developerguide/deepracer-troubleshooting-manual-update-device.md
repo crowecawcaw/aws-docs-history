@@ -5,7 +5,7 @@ unable to update automatically. Follow the steps below to manually update such a
 
 ###### To manually update an AWS DeepRacer device
 
-1. Download to your computer and unzip this [manually update a AWS DeepRacer device script](samples/deepracer-device-manual-update.sh.md "samples/deepracer-device-manual-update.sh.md").
+1. Download to your computer and unzip this [manually update a AWS DeepRacer device script](samples/deepracer-device-manual-update.sh.zip.md "samples/deepracer-device-manual-update.sh.zip.md").
 
 The default name of the uncompressed file for this script is
 `deepracer-device-manual-update.sh`. In this topic, we'll assume you

@@ -50,7 +50,7 @@ cut in between races.
 ## AWS DeepRacer scene templates
 
 The AWS DeepRacer League Virtual Circuit team has created a collection of template files for you to use for your LIVE community
-races. Download the [AWS DeepRacer Scene Templates](samples/AWS_DeepRacer_Twitch_Frames.md "samples/AWS_DeepRacer_Twitch_Frames.md") and use them
+races. Download the [AWS DeepRacer Scene Templates](samples/AWS_DeepRacer_Twitch_Frames.zip.md "samples/AWS_DeepRacer_Twitch_Frames.zip.md") and use them
 to broadcast a professional-looking event.
 
 ###### Scene types and how to use them

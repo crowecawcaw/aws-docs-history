@@ -11,13 +11,13 @@ educator playbooks.
 
 ###### Curriculum Playbook
 
-The [AWS DeepRacer Student Curriculum Playbook](samples/AWS_DeepRacer_Educator_Playbook_Curriculum.md "samples/AWS_DeepRacer_Educator_Playbook_Curriculum.md") outlines each AWS DeepRacer Student module’s
+The [AWS DeepRacer Student Curriculum Playbook](samples/AWS_DeepRacer_Educator_Playbook_Curriculum.zip.md "samples/AWS_DeepRacer_Educator_Playbook_Curriculum.zip.md") outlines each AWS DeepRacer Student module’s
 overview, learning objectives, learning outcomes, key concepts, support material, and assessment
 and activity suggestions.
 
 ###### Student Labs Playbook
 
-The [AWS DeepRacer Student Labs Playbook](samples/AWS_DeepRacer_Educator_Playbook_Labs.md "samples/AWS_DeepRacer_Educator_Playbook_Labs.md") provides the information and resources for educators to
+The [AWS DeepRacer Student Labs Playbook](samples/AWS_DeepRacer_Educator_Playbook_Labs.zip.md "samples/AWS_DeepRacer_Educator_Playbook_Labs.zip.md") provides the information and resources for educators to
 hold AWS DeepRacer Student hands-on labs. Hands-on labs consist of virtual events like AWS DeepRacer Student League races,
 Private Community Races, Live Virtual Racing, and in person events with a physical track and AWS DeepRacer device.
 
