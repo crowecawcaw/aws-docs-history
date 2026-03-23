@@ -5,6 +5,27 @@ Specifies the Server Message Block (SMB) protocol configuration that AWS DataSyn
 
 ## Contents
 
+**CmkSecretConfig**
+
+Specifies configuration information for a DataSync-managed secret, such as a
+`Password` or set of credentials that DataSync uses to access a
+specific transfer location, and a customer-managed AWS KMS key.
+
+Type: [CmkSecretConfig](API_CmkSecretConfig.md "API_CmkSecretConfig.md") object
+
+Required: No
+
+**CustomSecretConfig**
+
+Specifies configuration information for a customer-managed secret, such as a
+`Password` or set of credentials that DataSync uses to access a
+specific transfer location. This configuration includes the secret ARN, and the ARN
+for an IAM role that provides access to the secret.
+
+Type: [CustomSecretConfig](API_CustomSecretConfig.md "API_CustomSecretConfig.md") object
+
+Required: No
+
 **Domain**
 
 Specifies the name of the Windows domain that your storage virtual machine (SVM) belongs

@@ -47,7 +47,18 @@ Required: Yes
          }
       },
       "SMB": {
+         "CmkSecretConfig": {
+            "KmsKeyArn": "***string***",
+            "SecretArn": "***string***"
+         },
+         "CustomSecretConfig": {
+            "SecretAccessRoleArn": "***string***",
+            "SecretArn": "***string***"
+         },
          "Domain": "***string***",
+         "ManagedSecretConfig": {
+            "SecretArn": "***string***"
+         },
          "MountOptions": {
             "Version": "***string***"
          },

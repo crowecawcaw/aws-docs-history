@@ -118,4 +118,4 @@ To create a custom estimate using the amount of data that you plan to transfer, 
 
 To view the open-source components used by DataSync, download the following link:
 
-- [datasync-open-source-components.zip](samples/datasync-open-source-components.md "samples/datasync-open-source-components.md")
+- [datasync-open-source-components.zip](samples/datasync-open-source-components.zip.md "samples/datasync-open-source-components.zip.md")

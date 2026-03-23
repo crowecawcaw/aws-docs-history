@@ -12,6 +12,14 @@ FSx for Windows File Server file systems](create-fsx-location.md#create-fsx-loca
 
 ```
 {
+   "CmkSecretConfig": {
+      "KmsKeyArn": "`string`",
+      "SecretArn": "`string`"
+   },
+   "CustomSecretConfig": {
+      "SecretAccessRoleArn": "`string`",
+      "SecretArn": "`string`"
+   },
    "Domain": "`string`",
    "FsxFilesystemArn": "`string`",
    "Password": "`string`",
@@ -32,6 +40,48 @@ FSx for Windows File Server file systems](create-fsx-location.md#create-fsx-loca
 For information about the parameters that are common to all actions, see [Common Parameters](CommonParameters.md "CommonParameters.md").
 
 The request accepts the following data in JSON format.
+
+**[CmkSecretConfig](#API_CreateLocationFsxWindows_RequestSyntax "#API_CreateLocationFsxWindows_RequestSyntax")**
+
+Specifies configuration information for a DataSync-managed secret, which
+includes the password that DataSync uses to access a specific FSx Windows
+storage location, with a customer-managed AWS KMS key.
+
+When you include this parameter as part of a `CreateLocationFsxWindows` request,
+you provide only the KMS key ARN. DataSync uses this KMS key together with the `Password` you specify for
+to create a DataSync-managed secret to store the location access credentials.
+
+Make sure that DataSync has permission to access the KMS key that
+you specify. For more information, see [Using a service-managed secret encrypted with a custom AWS KMS key](location-credentials.md#service-secret-custom-key "location-credentials.md#service-secret-custom-key").
+
+###### Note
+
+You can use either `CmkSecretConfig` (with `Password`) or
+`CustomSecretConfig` (without `Password`) to provide
+credentials for a `CreateLocationFsxWindows` request. Do not provide both
+parameters for the same request.
+
+Type: [CmkSecretConfig](API_CmkSecretConfig.md "API_CmkSecretConfig.md") object
+
+Required: No
+
+**[CustomSecretConfig](#API_CreateLocationFsxWindows_RequestSyntax "#API_CreateLocationFsxWindows_RequestSyntax")**
+
+Specifies configuration information for a customer-managed Secrets Manager secret where
+the password for an FSx for Windows File Server storage location is stored in plain text, in Secrets
+Manager. This configuration includes the secret ARN, and the ARN for an IAM role
+that provides access to the secret. For more information, see [Using a secret that you manage](location-credentials.md#custom-secret-custom-key "location-credentials.md#custom-secret-custom-key").
+
+###### Note
+
+You can use either `CmkSecretConfig` (with `Password`) or
+`CustomSecretConfig` (without `Password`) to provide
+credentials for a `CreateLocationFsxWindows` request. Do not provide both
+parameters for the same request.
+
+Type: [CustomSecretConfig](API_CustomSecretConfig.md "API_CustomSecretConfig.md") object
+
+Required: No
 
 **[Domain](#API_CreateLocationFsxWindows_RequestSyntax "#API_CreateLocationFsxWindows_RequestSyntax")**
 
@@ -73,7 +123,7 @@ Length Constraints: Maximum length of 104.
 
 Pattern: `^.{0,104}$`
 
-Required: Yes
+Required: No
 
 **[SecurityGroupArns](#API_CreateLocationFsxWindows_RequestSyntax "#API_CreateLocationFsxWindows_RequestSyntax")**
 

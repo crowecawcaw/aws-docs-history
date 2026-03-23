@@ -18,6 +18,14 @@ transfers with FSx for ONTAP](create-ontap-location.md "create-ontap-location.md
          }
       },
       "SMB": {
+         "CmkSecretConfig": {
+            "KmsKeyArn": "`string`",
+            "SecretArn": "`string`"
+         },
+         "CustomSecretConfig": {
+            "SecretAccessRoleArn": "`string`",
+            "SecretArn": "`string`"
+         },
          "Domain": "`string`",
          "MountOptions": {
             "Version": "`string`"

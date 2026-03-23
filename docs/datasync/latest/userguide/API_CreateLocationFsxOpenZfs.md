@@ -25,7 +25,18 @@ Request parameters related to `SMB` aren't supported with the
          }
       },
       "SMB": {
+         "CmkSecretConfig": {
+            "KmsKeyArn": "`string`",
+            "SecretArn": "`string`"
+         },
+         "CustomSecretConfig": {
+            "SecretAccessRoleArn": "`string`",
+            "SecretArn": "`string`"
+         },
          "Domain": "`string`",
+         "ManagedSecretConfig": {
+            "SecretArn": "`string`"
+         },
          "MountOptions": {
             "Version": "`string`"
          },

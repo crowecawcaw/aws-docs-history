@@ -115,7 +115,7 @@ you provide only the KMS key ARN. DataSync uses this KMS key together with the a
 location access credentials.
 
 Make sure that DataSync has permission to access the KMS key that
-you specify.
+you specify. For more information, see [Using a service-managed secret encrypted with a custom AWS KMS key](location-credentials.md#service-secret-custom-key "location-credentials.md#service-secret-custom-key").
 
 ###### Note
 
@@ -145,7 +145,7 @@ Required: Yes
 Specifies configuration information for a customer-managed Secrets Manager secret where
 the authentication token for an AzureBlob storage location is stored in plain text, in Secrets
 Manager. This configuration includes the secret ARN, and the ARN for an IAM role
-that provides access to the secret.
+that provides access to the secret. For more information, see [Using a secret that you manage](location-credentials.md#custom-secret-custom-key "location-credentials.md#custom-secret-custom-key").
 
 ###### Note
 

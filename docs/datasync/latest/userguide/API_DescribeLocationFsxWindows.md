@@ -32,10 +32,21 @@ Required: Yes
 
 ```
 {
+   "CmkSecretConfig": {
+      "KmsKeyArn": "***string***",
+      "SecretArn": "***string***"
+   },
    "CreationTime": ***number***,
+   "CustomSecretConfig": {
+      "SecretAccessRoleArn": "***string***",
+      "SecretArn": "***string***"
+   },
    "Domain": "***string***",
    "LocationArn": "***string***",
    "LocationUri": "***string***",
+   "ManagedSecretConfig": {
+      "SecretArn": "***string***"
+   },
    "SecurityGroupArns": [ "***string***" ],
    "User": "***string***"
 }
@@ -47,11 +58,28 @@ If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
+**[CmkSecretConfig](#API_DescribeLocationFsxWindows_ResponseSyntax "#API_DescribeLocationFsxWindows_ResponseSyntax")**
+
+Describes configuration information for a DataSync-managed secret, such as a
+`Password` that DataSync uses to access
+a specific storage location, with a customer-managed AWS KMS key.
+
+Type: [CmkSecretConfig](API_CmkSecretConfig.md "API_CmkSecretConfig.md") object
+
 **[CreationTime](#API_DescribeLocationFsxWindows_ResponseSyntax "#API_DescribeLocationFsxWindows_ResponseSyntax")**
 
 The time that the FSx for Windows File Server location was created.
 
 Type: Timestamp
+
+**[CustomSecretConfig](#API_DescribeLocationFsxWindows_ResponseSyntax "#API_DescribeLocationFsxWindows_ResponseSyntax")**
+
+Describes configuration information for a customer-managed secret, such as a
+`Password` that DataSync uses to access
+a specific storage location, with a customer-managed AWS Identity and Access Management
+(IAM) role that provides access to the secret.
+
+Type: [CustomSecretConfig](API_CustomSecretConfig.md "API_CustomSecretConfig.md") object
 
 **[Domain](#API_DescribeLocationFsxWindows_ResponseSyntax "#API_DescribeLocationFsxWindows_ResponseSyntax")**
 
@@ -83,6 +111,15 @@ Type: String
 Length Constraints: Maximum length of 4360.
 
 Pattern: `^(efs|nfs|s3|smb|hdfs|fsx[a-z0-9-]+)://[a-zA-Z0-9.:/\-]+$`
+
+**[ManagedSecretConfig](#API_DescribeLocationFsxWindows_ResponseSyntax "#API_DescribeLocationFsxWindows_ResponseSyntax")**
+
+Describes configuration information for a DataSync-managed secret, such as a
+`Password` that DataSync uses to access
+a specific storage location. DataSync uses the default AWS-managed
+KMS key to encrypt this secret in AWS Secrets Manager.
+
+Type: [ManagedSecretConfig](API_ManagedSecretConfig.md "API_ManagedSecretConfig.md") object
 
 **[SecurityGroupArns](#API_DescribeLocationFsxWindows_ResponseSyntax "#API_DescribeLocationFsxWindows_ResponseSyntax")**
 

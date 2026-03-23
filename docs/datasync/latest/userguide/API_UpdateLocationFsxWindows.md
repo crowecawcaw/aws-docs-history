@@ -10,6 +10,14 @@ transfers with FSx for Windows File Server](create-fsx-location.md "create-fsx-l
 
 ```
 {
+   "CmkSecretConfig": {
+      "KmsKeyArn": "`string`",
+      "SecretArn": "`string`"
+   },
+   "CustomSecretConfig": {
+      "SecretAccessRoleArn": "`string`",
+      "SecretArn": "`string`"
+   },
    "Domain": "`string`",
    "LocationArn": "`string`",
    "Password": "`string`",
@@ -23,6 +31,27 @@ transfers with FSx for Windows File Server](create-fsx-location.md "create-fsx-l
 For information about the parameters that are common to all actions, see [Common Parameters](CommonParameters.md "CommonParameters.md").
 
 The request accepts the following data in JSON format.
+
+**[CmkSecretConfig](#API_UpdateLocationFsxWindows_RequestSyntax "#API_UpdateLocationFsxWindows_RequestSyntax")**
+
+Specifies configuration information for a DataSync-managed secret, such as a
+`Password` or set of credentials that DataSync uses to access a specific
+transfer location, and a customer-managed AWS KMS key.
+
+Type: [CmkSecretConfig](API_CmkSecretConfig.md "API_CmkSecretConfig.md") object
+
+Required: No
+
+**[CustomSecretConfig](#API_UpdateLocationFsxWindows_RequestSyntax "#API_UpdateLocationFsxWindows_RequestSyntax")**
+
+Specifies configuration information for a customer-managed secret, such as a
+`Password` or set of credentials that DataSync uses to access a specific
+transfer location, and a customer-managed AWS Identity and Access Management (IAM) role
+that provides access to the secret.
+
+Type: [CustomSecretConfig](API_CustomSecretConfig.md "API_CustomSecretConfig.md") object
+
+Required: No
 
 **[Domain](#API_UpdateLocationFsxWindows_RequestSyntax "#API_UpdateLocationFsxWindows_RequestSyntax")**
 

@@ -36,11 +36,22 @@ Required: Yes
    "AgentArns": [ "***string***" ],
    "AuthenticationType": "***string***",
    "BlockSize": ***number***,
+   "CmkSecretConfig": {
+      "KmsKeyArn": "***string***",
+      "SecretArn": "***string***"
+   },
    "CreationTime": ***number***,
+   "CustomSecretConfig": {
+      "SecretAccessRoleArn": "***string***",
+      "SecretArn": "***string***"
+   },
    "KerberosPrincipal": "***string***",
    "KmsKeyProviderUri": "***string***",
    "LocationArn": "***string***",
    "LocationUri": "***string***",
+   "ManagedSecretConfig": {
+      "SecretArn": "***string***"
+   },
    "NameNodes": [
       {
          "Hostname": "***string***",
@@ -90,11 +101,28 @@ Type: Integer
 
 Valid Range: Minimum value of 1048576. Maximum value of 1073741824.
 
+**[CmkSecretConfig](#API_DescribeLocationHdfs_ResponseSyntax "#API_DescribeLocationHdfs_ResponseSyntax")**
+
+Describes configuration information for a DataSync-managed secret, such as a
+`KerberosKeytab` that DataSync uses to access
+a specific storage location, with a customer-managed AWS KMS key.
+
+Type: [CmkSecretConfig](API_CmkSecretConfig.md "API_CmkSecretConfig.md") object
+
 **[CreationTime](#API_DescribeLocationHdfs_ResponseSyntax "#API_DescribeLocationHdfs_ResponseSyntax")**
 
 The time that the HDFS location was created.
 
 Type: Timestamp
+
+**[CustomSecretConfig](#API_DescribeLocationHdfs_ResponseSyntax "#API_DescribeLocationHdfs_ResponseSyntax")**
+
+Describes configuration information for a customer-managed secret, such as a
+`KerberosKeytab` that DataSync uses to access
+a specific storage location, with a customer-managed AWS Identity and Access Management
+(IAM) role that provides access to the secret.
+
+Type: [CustomSecretConfig](API_CustomSecretConfig.md "API_CustomSecretConfig.md") object
 
 **[KerberosPrincipal](#API_DescribeLocationHdfs_ResponseSyntax "#API_DescribeLocationHdfs_ResponseSyntax")**
 
@@ -137,6 +165,15 @@ Type: String
 Length Constraints: Maximum length of 4360.
 
 Pattern: `^(efs|nfs|s3|smb|hdfs|fsx[a-z0-9-]+)://[a-zA-Z0-9.:/\-]+$`
+
+**[ManagedSecretConfig](#API_DescribeLocationHdfs_ResponseSyntax "#API_DescribeLocationHdfs_ResponseSyntax")**
+
+Describes configuration information for a DataSync-managed secret, such as a
+`KerberosKeytab` that DataSync uses to access
+a specific storage location. DataSync uses the default AWS-managed
+KMS key to encrypt this secret in AWS Secrets Manager.
+
+Type: [ManagedSecretConfig](API_ManagedSecretConfig.md "API_ManagedSecretConfig.md") object
 
 **[NameNodes](#API_DescribeLocationHdfs_ResponseSyntax "#API_DescribeLocationHdfs_ResponseSyntax")**
 

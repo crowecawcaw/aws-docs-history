@@ -3,12 +3,6 @@
 You can configure network bandwidth limits for your AWS DataSync task and each of its
 executions.
 
-###### Note
-
-Not applicable to
-[Enhanced mode
-tasks](choosing-task-mode.md "choosing-task-mode.md").
-
 ## Limiting bandwidth for a task
 
 Set a bandwidth limit when creating, editing, or starting a task.

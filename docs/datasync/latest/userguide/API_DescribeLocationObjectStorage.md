@@ -103,7 +103,8 @@ Type: Timestamp
 
 Describes configuration information for a customer-managed secret, such as an
 authentication token or set of credentials that DataSync uses to access a specific
-transfer location, and a customer-managed AWS KMS key.
+transfer location, and a customer-managed AWS Identity and Access Management (IAM) role
+that provides access to the secret.
 
 Type: [CustomSecretConfig](API_CustomSecretConfig.md "API_CustomSecretConfig.md") object
 

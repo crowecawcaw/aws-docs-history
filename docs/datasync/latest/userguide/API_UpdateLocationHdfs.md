@@ -13,6 +13,14 @@ transfers with an HDFS cluster](create-hdfs-location.md "create-hdfs-location.md
    "AgentArns": [ "`string`" ],
    "AuthenticationType": "`string`",
    "BlockSize": `number`,
+   "CmkSecretConfig": {
+      "KmsKeyArn": "`string`",
+      "SecretArn": "`string`"
+   },
+   "CustomSecretConfig": {
+      "SecretAccessRoleArn": "`string`",
+      "SecretArn": "`string`"
+   },
    "KerberosKeytab": `blob`,
    "KerberosKrb5Conf": `blob`,
    "KerberosPrincipal": "`string`",
@@ -72,6 +80,27 @@ The size of the data blocks to write into the HDFS cluster.
 Type: Integer
 
 Valid Range: Minimum value of 1048576. Maximum value of 1073741824.
+
+Required: No
+
+**[CmkSecretConfig](#API_UpdateLocationHdfs_RequestSyntax "#API_UpdateLocationHdfs_RequestSyntax")**
+
+Specifies configuration information for a DataSync-managed secret, such as a
+`KerberosKeytab` or set of credentials that DataSync uses to access a
+specific transfer location, and a customer-managed AWS KMS key.
+
+Type: [CmkSecretConfig](API_CmkSecretConfig.md "API_CmkSecretConfig.md") object
+
+Required: No
+
+**[CustomSecretConfig](#API_UpdateLocationHdfs_RequestSyntax "#API_UpdateLocationHdfs_RequestSyntax")**
+
+Specifies configuration information for a customer-managed secret, such as a
+`KerberosKeytab` or set of credentials that DataSync uses to
+access a specific transfer location, and a customer-managed
+AWS Identity and Access Management (IAM) role that provides access to the secret.
+
+Type: [CustomSecretConfig](API_CustomSecretConfig.md "API_CustomSecretConfig.md") object
 
 Required: No
 

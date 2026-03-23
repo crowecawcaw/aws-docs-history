@@ -15,6 +15,14 @@ clusters](create-hdfs-location.md#accessing-hdfs "create-hdfs-location.md#access
    "AgentArns": [ "`string`" ],
    "AuthenticationType": "`string`",
    "BlockSize": `number`,
+   "CmkSecretConfig": {
+      "KmsKeyArn": "`string`",
+      "SecretArn": "`string`"
+   },
+   "CustomSecretConfig": {
+      "SecretAccessRoleArn": "`string`",
+      "SecretArn": "`string`"
+   },
    "KerberosKeytab": `blob`,
    "KerberosKrb5Conf": `blob`,
    "KerberosPrincipal": "`string`",
@@ -80,6 +88,49 @@ of 512 bytes. The default block size is 128 mebibytes (MiB).
 Type: Integer
 
 Valid Range: Minimum value of 1048576. Maximum value of 1073741824.
+
+Required: No
+
+**[CmkSecretConfig](#API_CreateLocationHdfs_RequestSyntax "#API_CreateLocationHdfs_RequestSyntax")**
+
+Specifies configuration information for a DataSync-managed secret, which
+includes the Kerberos keytab that DataSync uses to access a specific Hadoop
+Distributed File System (HDFS) storage location, with a
+customer-managed AWS KMS key.
+
+When you include this parameter as part of a `CreateLocationHdfs` request,
+you provide only the KMS key ARN. DataSync uses this KMS key together with the `KerberosKeytab` you specify for
+to create a DataSync-managed secret to store the location access credentials.
+
+Make sure that DataSync has permission to access the KMS key that
+you specify. For more information, see [Using a service-managed secret encrypted with a custom AWS KMS key](location-credentials.md#service-secret-custom-key "location-credentials.md#service-secret-custom-key").
+
+###### Note
+
+You can use either `CmkSecretConfig` (with `KerberosKeytab`) or
+`CustomSecretConfig` (without `KerberosKeytab`) to provide
+credentials for a `CreateLocationHdfs` request. Do not provide both
+parameters for the same request.
+
+Type: [CmkSecretConfig](API_CmkSecretConfig.md "API_CmkSecretConfig.md") object
+
+Required: No
+
+**[CustomSecretConfig](#API_CreateLocationHdfs_RequestSyntax "#API_CreateLocationHdfs_RequestSyntax")**
+
+Specifies configuration information for a customer-managed Secrets Manager secret where
+the Kerberos keytab for the HDFS storage location is stored in binary, in Secrets
+Manager. This configuration includes the secret ARN, and the ARN for an IAM role
+that provides access to the secret. For more information, see [Using a secret that you manage](location-credentials.md#custom-secret-custom-key "location-credentials.md#custom-secret-custom-key").
+
+###### Note
+
+You can use either `CmkSecretConfig` (with `KerberosKeytab`) or
+`CustomSecretConfig` (without `KerberosKeytab`) to provide
+credentials for a `CreateLocationHdfs` request. Do not provide both
+parameters for the same request.
+
+Type: [CustomSecretConfig](API_CustomSecretConfig.md "API_CustomSecretConfig.md") object
 
 Required: No
 
