@@ -56,7 +56,7 @@ Once the cost allocation tags are activated...
 For more information about Cost Explorer, see [Analyzing your costs with AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md") in the _AWS Billing User Guide_.
 Elastic IP addresses are regional. For more information about using Global Accelerator to provision
 global IP addresses, see [Using
-global static IP addresses instead of regional static IP addresses](../../../global-accelerator/latest/dg/about-accelerators.md "../../../global-accelerator/latest/dg/about-accelerators.md") in the
+global static IP addresses instead of regional static IP addresses](../../../global-accelerator/latest/dg/about-accelerators.eip-accelerator.md "../../../global-accelerator/latest/dg/about-accelerators.eip-accelerator.md") in the
 _AWS Global Accelerator Developer Guide_.
 
 For more information about pricing for Elastic IP addresses, see _Public IPv4 address_ in [Amazon VPC Pricing](https://aws.amazon.com/vpc/pricing/ "https://aws.amazon.com/vpc/pricing/").

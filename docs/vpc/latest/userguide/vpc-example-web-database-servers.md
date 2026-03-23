@@ -101,7 +101,7 @@ write requests from the web servers.
 | 0.0.0.0/0   | TCP      | 443        | Allows outbound HTTPS access to the internet over IPv4 |
 
 For more information about security groups for Amazon RDS DB instances, see [Controlling access with
-security groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md") in the _Amazon RDS User Guide_.
+security groups](../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md") in the _Amazon RDS User Guide_.
 
 ## 1. Create the VPC
 

@@ -3,8 +3,8 @@
 The following AWS services support resources in shared VPC subnets. For more information,
 follow the links to the corresponding service documentation.
 
-- [Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_VPC.md#USER_VPC.Shared_subnets "../../../AmazonRDS/latest/AuroraUserGuide/USER_VPC.md#USER_VPC.Shared_subnets")
-- [AWS Database Migration Service](../../../dms/latest/userguide/CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioVPCShared "../../../dms/latest/userguide/CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioVPCShared")
+- [Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Shared_subnets "../../../AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Shared_subnets")
+- [AWS Database Migration Service](../../../dms/latest/userguide/CHAP_ReplicationInstance.VPC.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioVPCShared "../../../dms/latest/userguide/CHAP_ReplicationInstance.VPC.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioVPCShared")
 - [Amazon EC2](../../../AWSEC2/latest/UserGuide/using-vpc.md#ec2-shared-VPC-subnets "../../../AWSEC2/latest/UserGuide/using-vpc.md#ec2-shared-VPC-subnets")
 - [Amazon ECS](../../../AmazonECS/latest/developerguide/cluster-regions-zones.md "../../../AmazonECS/latest/developerguide/cluster-regions-zones.md")
 - Amazon ElastiCache (Redis OSS)
@@ -27,7 +27,7 @@ follow the links to the corresponding service documentation.
 
 - Amazon OpenSearch Service
 - [AWS PrivateLink](../privatelink/create-interface-endpoint.md#interface-endpoint-shared-subnets "../privatelink/create-interface-endpoint.md#interface-endpoint-shared-subnets")†
-- [Amazon Relational Database Service (RDS)](../../../AmazonRDS/latest/UserGuide/USER_VPC.md#USER_VPC.Shared_subnets "../../../AmazonRDS/latest/UserGuide/USER_VPC.md#USER_VPC.Shared_subnets")
+- [Amazon Relational Database Service (RDS)](../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Shared_subnets "../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Shared_subnets")
 - [Amazon Redshift](../../../redshift/latest/mgmt/rs-shared-subnet-vpc.md "../../../redshift/latest/mgmt/rs-shared-subnet-vpc.md")
 - [Amazon Route 53](../../../Route53/latest/DeveloperGuide/hosted-zone-private-associate-vpcs-different-accounts.md "../../../Route53/latest/DeveloperGuide/hosted-zone-private-associate-vpcs-different-accounts.md")
 - [Amazon SageMaker Unified Studio](../../../sagemaker-unified-studio/latest/adminguide/create-domain-sagemaker-unified-studio-quick.md "../../../sagemaker-unified-studio/latest/adminguide/create-domain-sagemaker-unified-studio-quick.md")
