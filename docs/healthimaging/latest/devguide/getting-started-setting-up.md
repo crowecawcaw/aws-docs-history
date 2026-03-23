@@ -217,7 +217,7 @@ JSON
 The `Condition` block in this trust policy helps prevent the
 confused deputy problem by ensuring that only your specific AWS HealthImaging data
 store can be accessed. For more information about this security measure, see
-[Cross-service confused deputy prevention in HealthImaging](security-iam-deputy.md "security-iam-deputy.md").
+[Cross-service confused deputy prevention in HealthImaging](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
 JSON
 

@@ -15,7 +15,7 @@ available to use with HealthImaging.
 | [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")                                                 | Yes         |
 | [Principal permissions](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")                                        | Yes         |
 | [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")                                                             | Yes         |
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                                           | No          |
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                                           | Yes         |
 
 To get a high-level view of how HealthImaging and other AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
@@ -26,6 +26,9 @@ _IAM User Guide_.
 **Supports identity-based policies:**
 
 Yes
+
+HealthImaging supports condition statements that specify DICOM Study and Series UIDs,
+enabling access control scoped to one or more DICOM Study or Series.
 
 Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an IAM user, group of users, or role. These
 policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based
@@ -76,15 +79,15 @@ _Service Authorization Reference_.
 Policy actions in HealthImaging use the following prefix before the action:
 
 ```
-AWS
+medical-imaging
 ```
 
 To specify multiple actions in a single statement, separate them with commas.
 
 ```
 "Action": [
-      "AWS:`action1`",
-      "AWS:`action2`"
+      "medical-imaging:action1",
+      "medical-imaging:action2"
          ]
 ```
 
@@ -224,14 +227,12 @@ service roles only when HealthImaging provides guidance to do so.
 
 **Supports service-linked roles:**
 
-No
+Yes
 
 A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf.
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-For details about creating or managing service-linked roles, see [AWS services
-that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md"). Find a service in the table that includes a
-`Yes` in the **Service-linked role** column. Choose the
-**Yes** link to view the service-linked role documentation for that
-service.
+HealthImaging uses service-linked roles to [publish CloudWatch metrics to your account](monitoring-cloudwatch.md#setup-metrics "monitoring-cloudwatch.md#setup-metrics"). For details
+about creating or managing service-linked roles, see [AWS services
+that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md").

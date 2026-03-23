@@ -13,7 +13,7 @@ use with no additional charge.
 - [How AWS HealthImaging works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
 - [Identity-based policy examples for AWS HealthImaging](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
 - [AWS managed policies for AWS HealthImaging](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [Cross-service confused deputy prevention in HealthImaging](security-iam-deputy.md "security-iam-deputy.md")
+- [Cross-service confused deputy prevention in HealthImaging](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Using service-linked roles for HealthImaging](security-iam-service-linked-roles.md "security-iam-service-linked-roles.md")
 - [Troubleshooting AWS HealthImaging identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 

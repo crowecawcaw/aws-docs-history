@@ -27,7 +27,7 @@ _in_ the cloud:
 - [Data protection in AWS HealthImaging](data-protection.md "data-protection.md")
 - [Identity and Access Management for AWS HealthImaging](security-iam.md "security-iam.md")
 - [Compliance validation for AWS HealthImaging](compliance-validation.md "compliance-validation.md")
-- [Infrastructure security in AWS HealthImaging](security-infrastructure.md "security-infrastructure.md")
+- [Infrastructure security in AWS HealthImaging](infrastructure-security.md "infrastructure-security.md")
 - [Creating AWS HealthImaging resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")
 - [AWS HealthImaging and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Cross-account import for AWS HealthImaging](cross-account-imports.md "cross-account-imports.md")

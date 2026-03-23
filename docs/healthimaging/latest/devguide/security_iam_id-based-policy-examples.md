@@ -15,6 +15,7 @@ For details about actions and resource types defined by Awesome, including the f
 - [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
 - [Using the HealthImaging console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
 - [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Granting permissions based on Study Instance UID and Series Instance UID](#security_iam_id-based-policy-examples-study-series-uid "#security_iam_id-based-policy-examples-study-series-uid")
 
 ## Policy best practices
 
@@ -102,6 +103,192 @@ identity. This policy includes permissions to complete this action on the consol
                 "iam:ListUsers"
             ],
             "Resource": "*"
+        }
+    ]
+}
+```
+
+## Granting permissions based on Study Instance UID and Series Instance UID
+
+HealthImaging DICOMWeb APIs support granting access to image sets based on the Study Instance
+UID and Series Instance UID. You can define IAM policies that limit access by adding
+condition statements with the `StudyInstanceUID` and
+`SeriesInstanceUID` condition context keys.
+
+HealthImaging DICOMWeb APIs that use `StudyInstanceUID` as a required parameter
+support IAM policies that limit access based on the `StudyInstanceUID` key.
+Similarly, HealthImaging DICOMWeb APIs that use `SeriesInstanceUID` as a required
+parameter support policies with the `SeriesInstanceUID` key.
+
+**HealthImaging APIs that support IAM policies using
+`StudyInstanceUID` and `SeriesInstanceUID` context
+keys**
+
+| Name                       | Support for `StudyInstanceUID` condition | Support for `SeriesInstanceUID` condition |
+| -------------------------- | ---------------------------------------- | ----------------------------------------- |
+| `GetDICOMInstance`         | Yes                                      | Yes                                       |
+| `GetDICOMInstanceFrames`   | Yes                                      | Yes                                       |
+| `GetDICOMInstanceMetadata` | Yes                                      | Yes                                       |
+| `GetDICOMSeriesMetadata`   | Yes                                      | Yes                                       |
+| `GetDICOMBulkdata`         | Yes                                      | Yes                                       |
+| `SearchDICOMSeries`        | Yes                                      | No                                        |
+| `SearchDICOMInstances`     | Yes                                      | Yes                                       |
+| `StoreDICOMStudy`          | Yes                                      | No                                        |
+
+###### Note
+
+A HealthImaging API that does not support this context key will function as if no context
+key was specified when invoked with a policy that contains a
+`StudyInstanceUID` or `SeriesInstanceUID` context
+key.
+
+### Example 1: Granting access based on a StudyInstanceUID
+
+To grant access only to specific DICOM studies, attach a policy to the role that
+specifies a condition on the `StudyInstanceUID`.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Action": [
+                "medical-imaging:SearchDICOMSeries"
+            ],
+            "Resource": [
+                "arn:aws:medical-imaging:us-west-2:`account-id`:datastore/`your-datastore-id`"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "medical-imaging:StudyInstanceUID": "`your study instance UID`"
+                }
+            }
+        }
+    ]
+}
+```
+
+When this role is assumed via `sts assume-role`, the caller will only be
+authorized to access image sets that match the condition specified in the role policy,
+otherwise the calls will be rejected throwing an `AccessDenied` error. In
+this case, the caller will be granted access to all image sets having the specified
+`StudyInstanceUID`.
+
+You can use all IAM string condition operators in your policies, including
+wildcard matching and multiple matches.
+
+An example policy for wildcard matching:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Action": [
+                "medical-imaging:SearchDICOMSeries"
+            ],
+            "Resource": [
+                "arn:aws:medical-imaging:us-west-2:`account-id`:datastore/`your-datastore-id`"
+            ],
+            "Condition": {
+                "StringLike": {
+                    "medical-imaging:StudyInstanceUID": "123.456.789*"
+                }
+            }
+        }
+    ]
+}
+```
+
+An example policy for multiple matches:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Action": [
+                "medical-imaging:SearchDICOMSeries"
+            ],
+            "Resource": [
+                "arn:aws:medical-imaging:us-west-2:`account-id`:datastore/`your-datastore-id`"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "medical-imaging:StudyInstanceUID": [
+                        "123.456.789",
+                        "1.2.3.4.5.6"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+### Example 2: Granting access based on a SeriesInstanceUID
+
+To grant access only to specific image sets corresponding to a DICOM Series,
+attach a policy to the role that specifies a condition on the
+`SeriesInstanceUID`.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Action": [
+                "medical-imaging:SearchDICOMInstances"
+            ],
+            "Resource": [
+                "arn:aws:medical-imaging:us-west-2:`account-id`:datastore/`your-datastore-id`"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "medical-imaging:SeriesInstanceUID": [
+                        "123.456.789",
+                        "1.2.3.4.5.6"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+### Example 3: Granting access based on StudyInstanceUIDs and SeriesInstanceUIDs
+
+To grant access only to image sets of a particular DICOM Study and Series, attach
+a policy to the role that specifies conditions on both the
+`StudyInstanceUID` and `SeriesInstanceUID`.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Action": [
+                "medical-imaging:SearchDICOMInstances"
+            ],
+            "Resource": [
+                "arn:aws:medical-imaging:us-west-2:`account-id`:datastore/`your-datastore-id`"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "medical-imaging:StudyInstanceUID": ["123.456.789"],
+                    "medical-imaging:SeriesInstanceUID": ["1.2.3.4.5.6"]
+                }
+            }
         }
     ]
 }
