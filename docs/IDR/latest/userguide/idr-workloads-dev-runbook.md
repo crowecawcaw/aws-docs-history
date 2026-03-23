@@ -13,7 +13,7 @@ AWS Systems Manager Incident Manager?](../../../incident-manager/latest/userguid
 - Completion of your workload definition on AWS Incident Detection and Response.
 - Completion of alarms, runbooks and response plan definition on
   AWS Incident Detection and Response.
-  You can also download an AWS Incident Detection and Response Runbook example: [aws-idr-runbook-example.zip](samples/aws-idr-runbook-example.md "samples/aws-idr-runbook-example.md").
+  You can also download an AWS Incident Detection and Response Runbook example: [aws-idr-runbook-example.zip](samples/aws-idr-runbook-example.zip.md "samples/aws-idr-runbook-example.zip.md").
 
 Example runbook:
 
