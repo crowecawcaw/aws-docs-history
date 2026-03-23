@@ -15,8 +15,8 @@ In this document, we will describe the process of setting up an AWS data lake us
 - [Solution overview](#mysql-s3datalake.solutionoverview "#mysql-s3datalake.solutionoverview")
 - [Use case](#mysql-s3datalake.usecase "#mysql-s3datalake.usecase")
 - [Limitations](#mysql-s3datalake.limitations "#mysql-s3datalake.limitations")
-- [Choosing an instance class and storage size](mysql-s3datalake.md "mysql-s3datalake.md")
-- [Step-By-Step Migration](mysql-s3datalake.md "mysql-s3datalake.md")
+- [Choosing an instance class and storage size](mysql-s3datalake.choosinginstanceandstorage.md "mysql-s3datalake.choosinginstanceandstorage.md")
+- [Step-By-Step Migration](mysql-s3datalake.stepbystep.md "mysql-s3datalake.stepbystep.md")
 
 ## Solution overview
 
@@ -46,7 +46,7 @@ depending on the type of source and target endpoints.
 
 There are some data types
 that are not supported as MySQL source. Before you start your migration, it’s a good idea to find out if there are any unsupported
-data types. Premigration assessments can help you find unsupported data in your source database. For information about datatypes supported in MySQL, see [Data types](../userguide/CHAP_Source.md#CHAP_Source.MySQL.DataTypes "../userguide/CHAP_Source.md#CHAP_Source.MySQL.DataTypes").
+data types. Premigration assessments can help you find unsupported data in your source database. For information about datatypes supported in MySQL, see [Data types](../userguide/CHAP_Source.MySQL.md#CHAP_Source.MySQL.DataTypes "../userguide/CHAP_Source.MySQL.md#CHAP_Source.MySQL.DataTypes").
 
 ```
 For other MySQL source or S3 target endpoint limitations, see the following documents:

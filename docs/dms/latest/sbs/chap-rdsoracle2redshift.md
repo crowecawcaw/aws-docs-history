@@ -20,7 +20,7 @@ To estimate what it will cost to run this walkthrough on AWS, you can use the AW
 
 ###### Topics
 
-- [Prerequisites for migrating from Amazon RDS for Oracle to Amazon Redshift](chap-rdsoracle2redshift.md "chap-rdsoracle2redshift.md")
-- [Migration architecture for migrating from Amazon RDS for Oracle to Amazon Redshift](chap-rdsoracle2redshift.md "chap-rdsoracle2redshift.md")
-- [Step-by-step Amazon RDS for Oracle to Amazon Redshift migration walkthrough](chap-rdsoracle2redshift.md "chap-rdsoracle2redshift.md")
-- [Migration from Amazon RDS for Oracle to Amazon Redshift next steps](chap-rdsoracle2redshift.md "chap-rdsoracle2redshift.md")
+- [Prerequisites for migrating from Amazon RDS for Oracle to Amazon Redshift](chap-rdsoracle2redshift.prerequisites.md "chap-rdsoracle2redshift.prerequisites.md")
+- [Migration architecture for migrating from Amazon RDS for Oracle to Amazon Redshift](chap-rdsoracle2redshift.architecture.md "chap-rdsoracle2redshift.architecture.md")
+- [Step-by-step Amazon RDS for Oracle to Amazon Redshift migration walkthrough](chap-rdsoracle2redshift.steps.md "chap-rdsoracle2redshift.steps.md")
+- [Migration from Amazon RDS for Oracle to Amazon Redshift next steps](chap-rdsoracle2redshift.nextsteps.md "chap-rdsoracle2redshift.nextsteps.md")

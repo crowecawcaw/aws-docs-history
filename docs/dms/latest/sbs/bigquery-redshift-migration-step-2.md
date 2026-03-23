@@ -2,7 +2,7 @@
 
 To store your data in the AWS cloud, you can use your existing Amazon Redshift cluster or create a new one. You don’t need to create any tables because AWS SCT automates this process.
 
-If you don’t plan to migrate data as part of this walkthrough, you can skip this step. To see how AWS SCT converts your database code objects, use a virtual Amazon Redshift target in your project. For more information, see [Using virtual targets](../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md "../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md").
+If you don’t plan to migrate data as part of this walkthrough, you can skip this step. To see how AWS SCT converts your database code objects, use a virtual Amazon Redshift target in your project. For more information, see [Using virtual targets](../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.VirtualTargets.md "../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.VirtualTargets.md").
 
 **To create an Amazon Redshift cluster**
 

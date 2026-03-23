@@ -1,21 +1,19 @@
-# Migrate MySQL database with AWS DMS ongoing replication
+# Migrating a MySQL Database to RDS for MySQL or Aurora MySQL
 
-To configure the ongoing replication in AWS DMS, enter the native start point for MySQL, which you have retrieved at the end of the full load process as described for each tool. The native start point will be similar to `mysql-bin-changelog.000024:373`.
+You can use these two main approaches for migrating a self-managed MySQL database to an Amazon RDS for MySQL or Amazon Aurora MySQL database.
 
-In the **Create database migration task** page, follow these three steps to create the migration task.
+- Use a native or third-party database migration tool such as mysqldump to perform the full load and MySQL replication to perform ongoing replication. Typically this is the simplest option.
+- Use a managed migration service such as the AWS Database Migration Service (AWS DMS). AWS DMS provides migration-specific services such as data validation that are not available in the native or third-party tools.
+  The following diagram displays these two approaches.
 
-1. For **Migration type**, choose **Replicate ongoing changes**.
-2. Under **CDC start mode for source transactions**, choose **Enable custom CDC start mode**.
-3. Under **Custom CDC start point**, paste the native start point you saved earlier.
-   For more information, see [Creating tasks for ongoing replication](../userguide/CHAP_Task.md "../userguide/CHAP_Task.md") and [Migrate from MySQL to Amazon RDS](https://aws.amazon.com/getting-started/hands-on/move-to-managed/migrate-my-sql-to-amazon-rds "https://aws.amazon.com/getting-started/hands-on/move-to-managed/migrate-my-sql-to-amazon-rds").
+![Different approaches to MySQL database migration to Amazon RDS for MySQL](images/sbs-mysql2rds-migration-approaches.png)
+You can use a hybrid strategy that combines native or third-party tools for full load and AWS DMS for ongoing replication. The following diagram displays the hybrid migration approach.
 
-###### Note
+![Hybrid migration approach to MySQL database migration to Amazon RDS for MySQL](images/sbs-mysql2rds-hybrid-migration-approach.png)
+The hybrid option delivers the simplicity of the native or third-party tools along with the additional services that AWS DMS provides. For example, in AWS DMS, you can automatically validate your migrated data, row by row and column by column, to ensure the data quality in the target database. Or, if you are only migrating a subset of the tables, it will be simpler to use AWS DMS to filter your tables than the equivalent configuration in the native or third-party tools.
 
-The AWS DMS CDC replication uses plain SQL statements from the binary log to apply data changes in the target database. Therefore, it is slower and more resource-intensive than the native Primary/Replica binary log replication in MySQL. For more information, see [Replication with a MySQL or MariaDB instance running external to Amazon RDS](../../../AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.External.md "../../../AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.External.md").
+###### Topics
 
-You should always remove triggers from the target during the AWS DMS CDC replication. For example, the following command generates the script to remove triggers.
-
-```
-# In case required to generate drop triggers script
-SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA not in ('sys','mysql');
-```
+- [Full load MySQL database migration](chap-manageddatabases.mysql2rds.fullload.md "chap-manageddatabases.mysql2rds.fullload.md")
+- [Full load MySQL database migration options performance comparison](chap-manageddatabases.mysql2rds.performance.md "chap-manageddatabases.mysql2rds.performance.md")
+- [Migrate MySQL database with AWS DMS ongoing replication](chap-manageddatabases.mysql2rds.replication.md "chap-manageddatabases.mysql2rds.replication.md")

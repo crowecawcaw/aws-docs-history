@@ -10,6 +10,6 @@ To avoid additional charges, delete all resources after you complete the walkthr
 
 ###### Topics
 
-- [Prerequisites for Migrating from a SQL Server database to Amazon Aurora MySQL](chap-sqlserver2aurora.md "chap-sqlserver2aurora.md")
-- [Step-by-step SQL Server database to Amazon Aurora MySQL migration walkthrough](chap-sqlserver2aurora.md "chap-sqlserver2aurora.md")
-- [SQL Server database migration to Amazon Aurora MySQL troubleshooting](chap-sqlserver2aurora.steps.md "chap-sqlserver2aurora.steps.md")
+- [Prerequisites for Migrating from a SQL Server database to Amazon Aurora MySQL](chap-sqlserver2aurora.prerequisites.md "chap-sqlserver2aurora.prerequisites.md")
+- [Step-by-step SQL Server database to Amazon Aurora MySQL migration walkthrough](chap-sqlserver2aurora.steps.md "chap-sqlserver2aurora.steps.md")
+- [SQL Server database migration to Amazon Aurora MySQL troubleshooting](chap-sqlserver2aurora.steps.troubleshooting.md "chap-sqlserver2aurora.steps.troubleshooting.md")

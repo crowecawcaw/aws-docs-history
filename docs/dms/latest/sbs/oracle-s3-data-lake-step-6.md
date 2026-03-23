@@ -8,7 +8,7 @@ Before you create the replication task, it is important to understand the worklo
 
 The volume of migrated records affects the full load completion time. It is difficult to predict the full load time upfront, but testing with a replica of a production instance should provide a baseline. Use this estimate to decide whether you should parallelize full load by using multiple tasks or by using the parallel load option.
 
-To speed up the full load of large tables such as sales table in our use case, we can increase the number of tables and partitions loaded in parallel up to 49. The default value for the number of tables and partitions loaded in parallel is eight. For more information about parallel load task settings, see [Full-load task settings](../userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.md "../userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+To speed up the full load of large tables such as sales table in our use case, we can increase the number of tables and partitions loaded in parallel up to 49. The default value for the number of tables and partitions loaded in parallel is eight. For more information about parallel load task settings, see [Full-load task settings](../userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.FullLoad.md "../userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.FullLoad.md").
 
 The `MaxFullLoadSubTasks` parameter controls number of tables or partitions loaded in parallel during full load.
 
@@ -16,7 +16,7 @@ The `MaxFullLoadSubTasks` parameter controls number of tables or partitions load
 
 While full load is affected by the number of records, the ongoing replication performance relies on the number of transactions on the source Oracle database. Performance issues during change data capture (CDC) generally stem from resource constraints on the source database, replication instance, target database, and network bandwidth or throughput. Knowing average and peak TPS on the source and recording CDC throughput and latency metrics helps baseline AWS DMS performance and identify an optimal task configuration. For more information, see [Replication task metrics](../userguide/CHAP_Monitoring.md#CHAP_Monitoring.Metrics.Task "../userguide/CHAP_Monitoring.md#CHAP_Monitoring.Metrics.Task").
 
-In this walkthrough, the source database is a data warehouse where transaction volume is not always high because the data is loaded on a periodic basis from the Online Transaction Processing (OLTP) layer. Also, we run a heterogeneous data migration using the AWS DMS parallel load to migrate large tables with improved performance. For more information, see [Using parallel load for selected tables, views, and collections](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad").
+In this walkthrough, the source database is a data warehouse where transaction volume is not always high because the data is loaded on a periodic basis from the Online Transaction Processing (OLTP) layer. Also, we run a heterogeneous data migration using the AWS DMS parallel load to migrate large tables with improved performance. For more information, see [Using parallel load for selected tables, views, and collections](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad").
 
 This approach requires a replication instance with higher compute capacity if the data volume is huge. We chose the compute intensive c5 class replication instance to speed up the process.
 
@@ -24,15 +24,15 @@ If you are not sure about your data volumes or performance expectations from the
 
 **Unsupported data types**
 
-Identify data types used in tables and check that AWS DMS supports these data types. For more information, see [Source data types for Oracle](../userguide/CHAP_Source.md#CHAP_Source.Oracle.DataTypes "../userguide/CHAP_Source.md#CHAP_Source.Oracle.DataTypes").
+Identify data types used in tables and check that AWS DMS supports these data types. For more information, see [Source data types for Oracle](../userguide/CHAP_Source.Oracle.md#CHAP_Source.Oracle.DataTypes "../userguide/CHAP_Source.Oracle.md#CHAP_Source.Oracle.DataTypes").
 
-Validate that the target Amazon S3 has the corresponding data types. For more information, see [Target data types for S3 Parquet](../userguide/CHAP_Target.md#CHAP_Target.S3.DataTypes "../userguide/CHAP_Target.md#CHAP_Target.S3.DataTypes").
+Validate that the target Amazon S3 has the corresponding data types. For more information, see [Target data types for S3 Parquet](../userguide/CHAP_Target.S3.md#CHAP_Target.S3.DataTypes "../userguide/CHAP_Target.S3.md#CHAP_Target.S3.DataTypes").
 
-After you run the initial load test, validate that AWS DMS converted data as you expected. You can also initiate a pre-migration assessment to identify any unsupported data types in the migration scope. For more information, see [Specifying individual assessments](../userguide/CHAP_Tasks.md#CHAP_Tasks.AssessmentReport1.Individual "../userguide/CHAP_Tasks.md#CHAP_Tasks.AssessmentReport1.Individual").
+After you run the initial load test, validate that AWS DMS converted data as you expected. You can also initiate a pre-migration assessment to identify any unsupported data types in the migration scope. For more information, see [Specifying individual assessments](../userguide/CHAP_Tasks.AssessmentReport1.md#CHAP_Tasks.AssessmentReport1.Individual "../userguide/CHAP_Tasks.AssessmentReport1.md#CHAP_Tasks.AssessmentReport1.Individual").
 
 **Source Database Workload**
 
-Running AWS DMS replication tasks for large tables can add to the workload on the source database especially during the full load phase when AWS DMS reads whole tables from source database without any filters to restrict rows. When you use filters in AWS DMS task table mapping, confirm that appropriate indexes exist on the source tables and indexes are actually being used during full load. Regularly monitor the source database to identify any workload related issues. For more information, see [Using table mapping to specify task settings](../userguide/CHAP_Tasks.CustomizingTasks.md "../userguide/CHAP_Tasks.CustomizingTasks.md").
+Running AWS DMS replication tasks for large tables can add to the workload on the source database especially during the full load phase when AWS DMS reads whole tables from source database without any filters to restrict rows. When you use filters in AWS DMS task table mapping, confirm that appropriate indexes exist on the source tables and indexes are actually being used during full load. Regularly monitor the source database to identify any workload related issues. For more information, see [Using table mapping to specify task settings](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.md "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.md").
 
 ###### Note
 
@@ -42,13 +42,13 @@ Combining the considerations from the previous list, we start with a single task
 
 ## Task Configuration
 
-In this walkthrough, we migrate the incremental changes to the fact tables to the data lake. To do so, we use the Full Load + CDC option. For more information about the AWS DMS task creation steps and available configuration options, see [Creating a task](../userguide/CHAP_Tasks.md "../userguide/CHAP_Tasks.md").
+In this walkthrough, we migrate the incremental changes to the fact tables to the data lake. To do so, we use the Full Load + CDC option. For more information about the AWS DMS task creation steps and available configuration options, see [Creating a task](../userguide/CHAP_Tasks.Creating.md "../userguide/CHAP_Tasks.Creating.md").
 
 We will first focus on the following settings.
 
 **Table mappings**
 
-Use selection rules to define the schemas and tables that the AWS DMS task migrates. For more information, see [Selection rules and actions](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
+Use selection rules to define the schemas and tables that the AWS DMS task migrates. For more information, see [Selection rules and actions](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.md "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.md").
 
 In this walkthrough, we are migrating all the tables (`%`) in the sales history `SH` schema. Another option is to include each table explicitly in the table mappings. However, that increases operational overhead by requiring repeated configurations. If we plan to add new tables to source database in future under the sales history schema, we should include all tables (`%`) in table mapping.
 
@@ -60,13 +60,13 @@ Mapping rules are applied at the task level. Make sure that you add a mapping ru
 
 AWS DMS handles large binary objects (LOBs) columns differently compared to other data types. For more information, see [Migrating large binary objects (LOBs)](../userguide/CHAP_BestPractices.md#CHAP_BestPractices.LOBS "../userguide/CHAP_BestPractices.md#CHAP_BestPractices.LOBS").
 
-A detailed explanation of LOB handling by AWS DMS is out of scope for this walkthrough. However, remember that increasing the `LOB Max Size` increases the task’s memory utilization. Because of that, we recommended that you don’t set `LOB Max Size` to a large value. For more information about LOB settings, see [Task Configuration](chap-rdssqlserver2s3datalake.steps.md#chap-rdssqlserver2s3datalake.steps.createtask.configuration "chap-rdssqlserver2s3datalake.steps.md#chap-rdssqlserver2s3datalake.steps.createtask.configuration").
+A detailed explanation of LOB handling by AWS DMS is out of scope for this walkthrough. However, remember that increasing the `LOB Max Size` increases the task’s memory utilization. Because of that, we recommended that you don’t set `LOB Max Size` to a large value. For more information about LOB settings, see [Task Configuration](chap-rdssqlserver2s3datalake.steps.createtask.md#chap-rdssqlserver2s3datalake.steps.createtask.configuration "chap-rdssqlserver2s3datalake.steps.createtask.md#chap-rdssqlserver2s3datalake.steps.createtask.configuration").
 
 The source data warehouse schema in this walkthrough doesn’t include LOB data. When you migrate LOB columns, make sure that you perform analysis on these columns. Because AWS DMS doesn’t support Full LOB mode for Amazon S3 endpoints, we need to identify a suitable `LOB Max Size`.
 
 **Parallel load**
 
-Though, we used significantly large instance class in previous run, overall improvement wasn’t significant because the data volume is relatively large. The sales fact table includes 5 billion records. To further optimize the performance, we used parallel-load ranges option. For more information, see [Using parallel load for selected tables, views, and collections](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad").
+Though, we used significantly large instance class in previous run, overall improvement wasn’t significant because the data volume is relatively large. The sales fact table includes 5 billion records. To further optimize the performance, we used parallel-load ranges option. For more information, see [Using parallel load for selected tables, views, and collections](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad").
 
 The following code example shows the mapping rule that we used. As you can see, we defined 16 boundaries to cover data from 1998 to 2026 in 16 ranges. With this option, full load finished in about 6.5 hours. As a result, we reduced the time taken to complete full load to almost one third as compared to initial load.
 

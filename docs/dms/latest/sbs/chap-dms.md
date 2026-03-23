@@ -24,7 +24,7 @@ It is important to understand that AWS DMS and AWS SCT are two different tools a
 - [Migrating an On-Premises Oracle Database to Amazon Aurora MySQL](chap-on-premoracle2aurora.md "chap-on-premoracle2aurora.md")
 - [Migrating an Amazon RDS for Oracle Database to Amazon Aurora MySQL](chap-rdsoracle2aurora.md "chap-rdsoracle2aurora.md")
 - [Migrating a SQL Server Database to Amazon Aurora MySQL](chap-sqlserver2aurora.md "chap-sqlserver2aurora.md")
-- [Migrating a SQL Server AlwaysOn Database on Primary Replica to Amazon Aurora PostgreSQL](chap-manageddatabases.md "chap-manageddatabases.md")
+- [Migrating a SQL Server AlwaysOn Database on Primary Replica to Amazon Aurora PostgreSQL](chap-manageddatabases.sqlserveralwayson2aurorapostgresql.md "chap-manageddatabases.sqlserveralwayson2aurorapostgresql.md")
 - [Migrating an Amazon RDS for Oracle Database to an Amazon S3 Data Lake](oracle-s3-data-lake.md "oracle-s3-data-lake.md")
 - [Migrating an Amazon RDS for SQL Server Database to an Amazon S3 Data Lake](chap-rdssqlserver2s3datalake.md "chap-rdssqlserver2s3datalake.md")
 - [Migrating an Oracle Database to PostgreSQL](chap-rdsoracle2postgresql.md "chap-rdsoracle2postgresql.md")

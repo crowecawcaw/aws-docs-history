@@ -52,4 +52,4 @@ ALTER TABLE table_name ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
 ALTER TABLE SH.SALES ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 ```
 
-For more information, see [Working with an Oracle database as a source](../userguide/CHAP_Source.md#CHAP_Source.Oracle.Amazon-Managed "../userguide/CHAP_Source.md#CHAP_Source.Oracle.Amazon-Managed").
+For more information, see [Working with an Oracle database as a source](../userguide/CHAP_Source.Oracle.md#CHAP_Source.Oracle.Amazon-Managed "../userguide/CHAP_Source.Oracle.md#CHAP_Source.Oracle.Amazon-Managed").

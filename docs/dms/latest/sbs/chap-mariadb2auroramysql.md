@@ -1,64 +1,30 @@
-# Set up Aurora MySQL as a target database
+# Migrating a MariaDB Database to Amazon RDS for MySQL or Amazon Aurora MySQL
 
-To provision Aurora MySQL as a target database, download the [AuroraMysql_CF.yaml template](https://aws-database-blog.s3.amazonaws.com/artifacts/mariadb-to-aurora-mysql-migration/AuroraMysql_CF.yaml "https://aws-database-blog.s3.amazonaws.com/artifacts/mariadb-to-aurora-mysql-migration/AuroraMysql_CF.yaml"). This template creates an Aurora MySQL database with required parameters.
+You can migrate data from existing on-premises MariaDB or [Amazon RDS for MariaDB](https://aws.amazon.com/rds/mariadb/?nc=sn&loc=3&dn=4 "https://aws.amazon.com/rds/mariadb/?nc=sn&loc=3&dn=4") to [Amazon Aurora](https://aws.amazon.com/rds/aurora/ "https://aws.amazon.com/rds/aurora/") MySQL using [Database Migration Service](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/"). Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built for the cloud. Amazon Aurora features a distributed, fault-tolerant, self-healing storage system that auto-scales up to 64 TB per database instance. It delivers high performance and availability with up to 15 low-latency read replicas, point-in-time recovery, and continuous backup to Amazon S3, and replication across three Availability Zones (AZs).
 
-1. On the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"), under **Services**, choose **CloudFormation**.
-2. Choose **Create stack**, and then choose **With new resources (standard)**.
-3. For **Specify template**, choose **Upload a template file**.
-4. Select **Choose file**.
-5. Choose the `AuroraMySQL.yaml` file.
-6. Choose **Next**.
-7. On the **Specify stack details** page, edit the predefined values as needed, and then choose **Next**:
-   - **Stack name** — Enter a name for the stack.
-   - **CIDR** — Enter the CIDR IP range to access the instance.
-   - **DBBackupRetentionPeriod** — The number of days for backup retention.
-   - **DBInstanceClass** — Enter the instance type of the database server.
-   - **DBMasterPassword** — Enter the master password for the DB instance.
-   - **DBMasterUsername** — Enter the master user name for the DB instance.
-   - **DBName** — Enter the name of the database.
-   - **DBSubnetGroup** — Enter the DB subnet group.
-   - **Engine** — Enter the Aurora engine version; the default is `5.7.mysql-aurora.2.03.4`.
-   - **PreferredBackupWindow** — Enter the daily time range in UTC during which you want to create automated backups.
-   - **PreferredMaintenanceWindow** — Enter the weekly time range in UTC during which system maintenance can occur.
-   - **VPCID** — Enter the ID for the VPC to launch your DB instance in.
+Some key features offered by Aurora MySQL are the following:
 
-8. On the **Configure stack options** page, for **Tags**, specify any optional tags, and then choose **Next**.
-9. On the **Review** page, choose **Next**.
-10. Choose **Create stack**.
-    After the Aurora MySQL database is created, log in to the Aurora MySQL instance:
+- High throughput with low latency
+- Push-button compute scaling
+- Storage autoscaling
+- Custom database endpoints
+- Parallel queries for faster analytics
+  In the following sections, we demonstrate migration from MariaDB as a source database to an Aurora MySQL database as a target using AWS DMS. At a high level, the steps involved in this migration are:
 
-```
-$ mysql -h mysqltrg-instance-1.xxxxxxxxx.us-east-1.rds.amazonaws.com -u master -p migration -P 3306
-MySQL [(none)]> show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| awsdms_control     |
-| mysql              |
-| performance_schema |
-| source             |
-| tmp                |
-| webdb              |
-+--------------------+
-7 rows in set (0.001 sec)
+- Provision MariaDB as a source DB instance and load the data
+- Provision Aurora Mysql as target DB instance
+- Provision DMS replication instance and create DMS endpoints
+- Create DMS task, migrate data and perform validation
+  For the purpose of this section, we are using the AWS CloudFormation templates for creating Amazon RDS for MariaDB, Aurora MySQL database and AWS DMS replication instance with their source and endpoints. We will be loading sample tables and data in MariaDB located on [GitHub](https://github.com/aws-samples/aws-database-migration-samples "https://github.com/aws-samples/aws-database-migration-samples").
 
-MySQL [(none)]> create database migration;
-Query OK, 1 row affected (0.016 sec)
+To estimate what it will cost to run this walkthrough on AWS, you can use the AWS Pricing Calculator. For more information, see [https://calculator.aws/](https://calculator.aws/ "https://calculator.aws/").
 
-MySQL [(none)]> use migration;
-Database changed
+###### Topics
 
-MySQL [migration]> show tables;
-Empty set (0.001 sec)
-```
-
-Use `mysql_tables_indexes.sql` to create table and index structures in Aurora MySQL.
-
-```
-$ mysql -h mysqltrg-instance-1.xxxxxxxxx.us-east-1.rds.amazonaws.com  -u master -p migration -P 3306 < mysql_tables_indexes.sql
-Enter password:
-$
-```
-
-After the tables and indexes are successfully created, the next step is to set up and use AWS DMS.
+- [Set up MariaDB as a source database](chap-mariadb2auroramysql.provisioningmariadb.md "chap-mariadb2auroramysql.provisioningmariadb.md")
+- [Set up Aurora MySQL as a target database](chap-mariadb2auroramysql.provisioningauroramysql.md "chap-mariadb2auroramysql.provisioningauroramysql.md")
+- [Set up an AWS DMS replication instance](chap-mariadb2auroramysql.provisioningdms.md "chap-mariadb2auroramysql.provisioningdms.md")
+- [Test the endpoints for MariaDB database migration](chap-mariadb2auroramysql.testendpoints.md "chap-mariadb2auroramysql.testendpoints.md")
+- [Create a migration task for a MariaDB database](chap-mariadb2auroramysql.createtask.md "chap-mariadb2auroramysql.createtask.md")
+- [Validate the MariaDB database migration](chap-mariadb2auroramysql.validate.md "chap-mariadb2auroramysql.validate.md")
+- [Cut over for the migration from a MariaDB database](chap-mariadb2auroramysql.cutover.md "chap-mariadb2auroramysql.cutover.md")

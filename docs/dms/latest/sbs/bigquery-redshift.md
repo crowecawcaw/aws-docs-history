@@ -47,7 +47,7 @@ This step defines the architecture of your new system in the target environment.
 
 You can use AWS SCT to automate the conversion of your source database to Amazon Redshift. For more information, see [Convert Database Schemas](bigquery-redshift-migration-step-6.md "bigquery-redshift-migration-step-6.md"). 3. **Application Conversion or Remediation**
 
-After you migrate your data storage, make sure that you update your applications. You can use AWS SCT to convert SQL queries in your application code. For more information, see [Converting SQL code in your applications](../../../SchemaConversionTool/latest/userguide/CHAP_Converting.App.md "../../../SchemaConversionTool/latest/userguide/CHAP_Converting.App.md"). 4. **Scripts, ETL, Reports Conversion**
+After you migrate your data storage, make sure that you update your applications. You can use AWS SCT to convert SQL queries in your application code. For more information, see [Converting SQL code in your applications](../../../SchemaConversionTool/latest/userguide/CHAP_Converting.App.Generic.md "../../../SchemaConversionTool/latest/userguide/CHAP_Converting.App.Generic.md"). 4. **Scripts, ETL, Reports Conversion**
 
 In addition to applications, make sure that you update all other components of your source system. These include business intelligence reports, extract, transform, and load (ETL) processes, and other scripts. 5. **Integration with Third-Party Applications**
 
@@ -102,4 +102,4 @@ Amazon Redshift supports all BigQuery data types. The following table shows the 
 
 You can use AWS SCT to automatically convert a majority of your BigQuery code and storage objects. These objects include datasets, tables, views, stored procedures, functions, data types, and so on. However, AWS SCT has some limitations when using BigQuery as a source.
 
-For example, AWS SCT can’t convert subqueries in analytic functions, as well as geography, statistical aggregate, or some of the string functions. You can find the full list of limitations in the AWS SCT user guide. For more information, see [Limitations on using BigQuery as a source](../../../SchemaConversionTool/latest/userguide/CHAP_Source.md#CHAP_Source.BigQuery.Limitations "../../../SchemaConversionTool/latest/userguide/CHAP_Source.md#CHAP_Source.BigQuery.Limitations").
+For example, AWS SCT can’t convert subqueries in analytic functions, as well as geography, statistical aggregate, or some of the string functions. You can find the full list of limitations in the AWS SCT user guide. For more information, see [Limitations on using BigQuery as a source](../../../SchemaConversionTool/latest/userguide/CHAP_Source.BigQuery.md#CHAP_Source.BigQuery.Limitations "../../../SchemaConversionTool/latest/userguide/CHAP_Source.BigQuery.md#CHAP_Source.BigQuery.Limitations").

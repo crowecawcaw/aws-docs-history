@@ -17,8 +17,8 @@ In addition to using AWS SCT, you must also examine the source code for possible
 
 At a high level, the application conversion process works like this:
 
-1. Perform the database conversion. This is necessary because the PL/SQL conversion needs to know the schema of the database. For more information, see [Database Schema Conversion](chap-oracle-postgresql.migration-process.md "chap-oracle-postgresql.migration-process.md").
-2. Run AWS SCT and automatically convert the application code. For more information, see [Converting application SQL](../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md "../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md").
+1. Perform the database conversion. This is necessary because the PL/SQL conversion needs to know the schema of the database. For more information, see [Database Schema Conversion](chap-oracle-postgresql.migration-process.database-schema-conversion.md "chap-oracle-postgresql.migration-process.database-schema-conversion.md").
+2. Run AWS SCT and automatically convert the application code. For more information, see [Converting application SQL](../../../SchemaConversionTool/latest/userguide/CHAP_Converting.App.md "../../../SchemaConversionTool/latest/userguide/CHAP_Converting.App.md").
 3. Fix any warnings and errors in the application code conversion.
 
 ## Exceptions

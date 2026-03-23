@@ -1,6 +1,6 @@
 # Step 4: Install AWS SCT on Your Local Computer
 
-In this step, you install and configure the AWS Schema Conversion Tool. In this walkthrough, we run AWS SCT and the data extraction agent on Windows. However, you can use AWS SCT and data extraction agents on other supported operating systems. For more information, see [Installing the schema conversion tool](../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md#CHAP_Installing.Procedure "../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md#CHAP_Installing.Procedure") and [Installing extraction agents](../../../SchemaConversionTool/latest/userguide/agents.md#agents.Installing "../../../SchemaConversionTool/latest/userguide/agents.md#agents.Installing").
+In this step, you install and configure the AWS Schema Conversion Tool. In this walkthrough, we run AWS SCT and the data extraction agent on Windows. However, you can use AWS SCT and data extraction agents on other supported operating systems. For more information, see [Installing the schema conversion tool](../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md#CHAP_Installing.Procedure "../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md#CHAP_Installing.Procedure") and [Installing extraction agents](../../../SchemaConversionTool/latest/userguide/agents.dw.md#agents.Installing "../../../SchemaConversionTool/latest/userguide/agents.dw.md#agents.Installing").
 
 **To install AWS SCT**
 

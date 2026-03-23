@@ -2,7 +2,7 @@
 
 In this section, we walk through the configuration for setting up target data lake AWS DMS endpoint. You will also select appropriate options to store files in data lake.
 
-To use Amazon S3 as an AWS Database Migration Service (AWS DMS) target endpoint, create an IAM role with write and delete access to the AWS DMS bucket. Then add `dms.amazonaws.com` as a trusted entity in this IAM role. For more information, see [Prerequisites for using Amazon S3 as a target](../userguide/CHAP_Target.md#CHAP_Target.S3.Prerequisites "../userguide/CHAP_Target.md#CHAP_Target.S3.Prerequisites").
+To use Amazon S3 as an AWS Database Migration Service (AWS DMS) target endpoint, create an IAM role with write and delete access to the AWS DMS bucket. Then add `dms.amazonaws.com` as a trusted entity in this IAM role. For more information, see [Prerequisites for using Amazon S3 as a target](../userguide/CHAP_Target.S3.md#CHAP_Target.S3.Prerequisites "../userguide/CHAP_Target.S3.md#CHAP_Target.S3.Prerequisites").
 
 When you use AWS DMS to migrate data to an Amazon Simple Storage Service (Amazon S3) data lake, you can change the default task behavior, such as file formats, partitioning, file sizing, and so on. This leads to minimizing post-migration processing and helps downstream applications consume data efficiently. You can customize task behavior using endpoint settings and extra connection attributes (ECA). Most of the AWS DMS endpoint settings and ECA settings overlap, except for a few parameters. In this section of walkthrough, we configure AWS DMS endpoint settings.
 

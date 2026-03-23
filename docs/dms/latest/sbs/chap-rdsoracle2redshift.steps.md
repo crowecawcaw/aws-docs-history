@@ -1,41 +1,17 @@
-# Step 9: Create and Run Your AWS DMS Migration Task
+# Step-by-step Amazon RDS for Oracle to Amazon Redshift migration walkthrough
 
-Using an AWS DMS task, you can specify what schema to migrate and the type of migration. You can migrate existing data, migrate existing data and replicate ongoing changes, or replicate data changes only. This walkthrough migrates existing data only.
+In the following sections, you can find step-by-step instructions for migrating an Amazon RDS for Oracle database to Amazon Redshift. These steps assume that you have already prepared your source database as described in preceding sections.
 
-1. On the **Create Task** page, specify the task options. The following table describes the settings.
+###### Topics
 
-| Parameter                | Action                                                                                   |
-| ------------------------ | ---------------------------------------------------------------------------------------- |
-| **Task name**            | Enter `migrateSHschema`.                                                                 |
-| **Replication instance** | Shows `DMSdemo-repserver` (the AWS DMS replication instance created in an earlier step). |
-| **Source endpoint**      | Shows `orasource` (the Amazon RDS for Oracle endpoint).                                  |
-| **Target endpoint**      | Shows `redshifttarget` (the Amazon Redshift endpoint).                                   |
-| **Migration type**       | Choose **Migrate existing data**.                                                        |
-| **Start task on create** | Choose this option.                                                                      |
-
-The page should look like the following.
-
-![Create task page](images/sbs-rdsor2redshift23.png) 2. On the **Task Settings** section, specify the settings as shown in the following table.
-
-| Parameter                              | Action                       |
-| -------------------------------------- | ---------------------------- |
-| **Target table preparation mode**      | Choose **Do nothing**.       |
-| **Include LOB columns in replication** | Choose **Limited LOB mode**. |
-| **Max LOB size (kb)**                  | Accept the default (32).     |
-
-The section should look like the following.
-
-![Create task page](images/sbs-rdsor2redshift23.5.png) 3. In the **Selection rules** section, specify the settings as shown in the following table.
-
-| Parameter               | Action                   |
-| ----------------------- | ------------------------ |
-| **Schema name is**      | Choose `Enter a schema`. |
-| **Schema name is like** | Enter `SH%`.             |
-| **Table name is like**  | Enter **%**.             |
-| **Action**              | Choose `Include`.        |
-
-The section should look like the following:
-
-![Add selection rule page](images/sbs-rdsor2redshift24.png) 4. Choose **Add selection rule**. 5. Choose **Create task**. The task begins immediately. The **Tasks** section shows you the status of the migration task.
-
-![Tasks page](images/sbs-rdsor2redshift25.5.png)
+- [Step 1: Launch the RDS Instances in a VPC by Using the AWS CloudFormation Template](chap-rdsoracle2redshift.steps.launchrdswcloudformation.md "chap-rdsoracle2redshift.steps.launchrdswcloudformation.md")
+- [Step 2: Install the SQL Tools and AWS Schema Conversion Tool on Your Local Computer](chap-rdsoracle2redshift.steps.installsct.md "chap-rdsoracle2redshift.steps.installsct.md")
+- [Step 3: Test Connectivity to the Oracle DB Instance and Create the Sample Schema](chap-rdsoracle2redshift.steps.connectoracle.md "chap-rdsoracle2redshift.steps.connectoracle.md")
+- [Step 4: Test the Connectivity to the Amazon Redshift Database](chap-rdsoracle2redshift.steps.connectredshift.md "chap-rdsoracle2redshift.steps.connectredshift.md")
+- [Step 5: Use AWS SCT to Convert the Oracle Schema to Amazon Redshift](chap-rdsoracle2redshift.steps.convertschema.md "chap-rdsoracle2redshift.steps.convertschema.md")
+- [Step 6: Validate the Schema Conversion](chap-rdsoracle2redshift.steps.validateschemaconversion.md "chap-rdsoracle2redshift.steps.validateschemaconversion.md")
+- [Step 7: Create an AWS DMS Replication Instance](chap-rdsoracle2redshift.steps.createreplicationinstance.md "chap-rdsoracle2redshift.steps.createreplicationinstance.md")
+- [Step 8: Create AWS DMS Source and Target Endpoints](chap-rdsoracle2redshift.steps.createsourcetargetendpoints.md "chap-rdsoracle2redshift.steps.createsourcetargetendpoints.md")
+- [Step 9: Create and Run Your AWS DMS Migration Task](chap-rdsoracle2redshift.steps.createmigrationtask.md "chap-rdsoracle2redshift.steps.createmigrationtask.md")
+- [Step 10: Verify That Your Data Migration Completed Successfully](chap-rdsoracle2redshift.steps.verifydatamigration.md "chap-rdsoracle2redshift.steps.verifydatamigration.md")
+- [Step 11: Delete Walkthrough Resources](chap-rdsoracle2redshift.steps.deleteresources.md "chap-rdsoracle2redshift.steps.deleteresources.md")
