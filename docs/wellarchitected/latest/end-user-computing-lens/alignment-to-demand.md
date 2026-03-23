@@ -47,7 +47,7 @@ low.
 
 ###### Best practices
 
-- [EUCSUS01-BP01 Choose the appropriate fleet type](eucsus01-bp01.md "eucsus01-bp01.md")
+- [EUCSUS01-BP01 Choose the appropriate fleet type](eucsus01-bp01.title.md "eucsus01-bp01.title.md")
 - [EUCSUS01-BP02 Choose the appropriate running mode for your Amazon WorkSpaces](eucsus01-bp02.md "eucsus01-bp02.md")
 - [EUCSUS02-BP01 Select the instance type or bundle to match software requirement and user personas](eucsus02-bp01.md "eucsus02-bp01.md")
 - [EUCSUS03-BP01 Adapt your WorkSpaces Applications fleet timeout](eucsus03-bp01.md "eucsus03-bp01.md")

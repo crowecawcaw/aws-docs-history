@@ -8,10 +8,10 @@
 - [AWS Training and Certification](https://aws.amazon.com/training/ "https://aws.amazon.com/training/")
 - [AWS Certification](https://aws.amazon.com/certification/ "https://aws.amazon.com/certification/")
 - [Amazon WorkSpaces – Getting Started](../../../workspaces/latest/adminguide/getting-started.md "../../../workspaces/latest/adminguide/getting-started.md")
-- [Best Practices for Deploying WorkSpaces](../../../pdfs/whitepapers/latest/best-practices-deploying-amazon-workspaces/best-practices-deploying-amazon-workspaces.md "../../../pdfs/whitepapers/latest/best-practices-deploying-amazon-workspaces/best-practices-deploying-amazon-workspaces.md")
+- [Best Practices for Deploying WorkSpaces](../../../pdfs/whitepapers/latest/best-practices-deploying-amazon-workspaces/best-practices-deploying-amazon-workspaces.pdf.md "../../../pdfs/whitepapers/latest/best-practices-deploying-amazon-workspaces/best-practices-deploying-amazon-workspaces.pdf.md")
 - [Amazon WorkSpaces Applications – Getting
   Started](https://aws.amazon.com/appstream2/getting-started/ "https://aws.amazon.com/appstream2/getting-started/")
-- [Best Practices for Deploying Amazon WorkSpaces Applications](../../../pdfs/whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/best-practices-for-deploying-amazon-appstream-2.md "../../../pdfs/whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/best-practices-for-deploying-amazon-appstream-2.md")
+- [Best Practices for Deploying Amazon WorkSpaces Applications](../../../pdfs/whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/best-practices-for-deploying-amazon-appstream-2.pdf.md "../../../pdfs/whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/best-practices-for-deploying-amazon-appstream-2.pdf.md")
 - [Using Kinesis Agent for Microsoft Windows to store WorkSpaces Applications Windows Event
   Logs](https://aws.amazon.com/blogs/desktop-and-application-streaming/using-kinesis-agent-for-microsoft-windows-to-store-appstream-2-0-windows-event-logs/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/using-kinesis-agent-for-microsoft-windows-to-store-appstream-2-0-windows-event-logs/")
 - [AWS Health Dashboard](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status")
