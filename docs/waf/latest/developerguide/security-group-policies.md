@@ -127,6 +127,9 @@ For the following edge cases, during resource cleanup, Firewall Manager can leav
 The following are miscellaneous caveats and limitations for Firewall Manager security group policies.
 
 - Firewall Manager security group policies do not support security groups shared through AWS RAM.
+- The use of AWS RAM to share prefix lists across an organization is not an officially supported feature of Firewall Manager.
+  While it may happen to work today, there is neither an obligation for AWS to offer support for that use case
+  nor any guarantee that it will continue to work.
 - Updating Amazon ECS ENIs is possible only for Amazon ECS services that use the
   rolling update (Amazon ECS) deployment controller. For other Amazon ECS deployment
   controllers such as CODE_DEPLOY or external controllers, Firewall Manager currently can't
