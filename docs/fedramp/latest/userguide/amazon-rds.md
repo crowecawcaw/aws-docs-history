@@ -1009,9 +1009,9 @@ For more information about AWS security best practices, see the following resour
 
 **Amazon RDS-Specific Resources:**
 
-- [Amazon RDS Security Best Practices](../../../AmazonRDS/latest/UserGuide/CHAP_BestPractices.md "../../../AmazonRDS/latest/UserGuide/CHAP_BestPractices.md") - Service-specific security recommendations
-- [IAM Database Authentication](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md") - Implementation guide for IAM-based database authentication
-- [Amazon RDS Encryption](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md") - Encryption at rest and in transit configuration guidance
+- [Amazon RDS Security Best Practices](../../../AmazonRDS/latest/UserGuide/CHAP_BestPractices.Security.md "../../../AmazonRDS/latest/UserGuide/CHAP_BestPractices.Security.md") - Service-specific security recommendations
+- [IAM Database Authentication](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md") - Implementation guide for IAM-based database authentication
+- [Amazon RDS Encryption](../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md "../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md") - Encryption at rest and in transit configuration guidance
 
 **Compliance and Governance:**
 

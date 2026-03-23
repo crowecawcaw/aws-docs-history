@@ -45,7 +45,7 @@ Amazon Aurora MySQL has an administrative account model.
 
 Amazon Aurora MySQL Administrative Account Security Configuration is applicable as there is a default administrator account created at cluster creation for Amazon Aurora MySQL clusters. This account has full access for what’s allowed in the Auror service. You can read more about these privileges in the AWS Documentation.
 
-[RDS Master account documentation](../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.md")
+[RDS Master account documentation](../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.MasterAccounts.md "../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.MasterAccounts.md")
 
 ### Overview
 

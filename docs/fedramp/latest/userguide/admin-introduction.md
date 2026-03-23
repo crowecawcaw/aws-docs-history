@@ -10,4 +10,4 @@ For the most up-to-date service features and security configurations, always rev
 
 Each page has a corresponding OSCAL document to align with the FRR-RSC-08 to provide guidances in machine readable format. Download the AWS FRR-RSC OSCAL files bundle to integrate with your compliance automation tools. This single file contains all administrative and service guidance documents.
 
-[Download Artifacts](samples/FRR-RSC.md "samples/FRR-RSC.md")
+[Download Artifacts](samples/FRR-RSC.zip.md "samples/FRR-RSC.zip.md")

@@ -271,7 +271,7 @@ This subsection covers organization-wide policy controls that can only be manage
 
 **Create Service Control Policy with security guardrails**:
 
-The example policy uses a sample IAM role of SecurityAdministratorRole to indicate you organizations security administrtor role that has far reaching access to your org. EmergencyAccessRole is a role your organization can adopt as a break-glass mechanism for access to AWS. AWS recommends implementing a break-glass mechanism to your AWS accounts in case of emergencies. Please read more in the [AWS DevOps Guidance docs](../../../wellarchitected/latest/devops-guidance/ag.sad.md "../../../wellarchitected/latest/devops-guidance/ag.sad.md")
+The example policy uses a sample IAM role of SecurityAdministratorRole to indicate you organizations security administrtor role that has far reaching access to your org. EmergencyAccessRole is a role your organization can adopt as a break-glass mechanism for access to AWS. AWS recommends implementing a break-glass mechanism to your AWS accounts in case of emergencies. Please read more in the [AWS DevOps Guidance docs](../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md "../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md")
 
 ```
 aws organizations create-policy \

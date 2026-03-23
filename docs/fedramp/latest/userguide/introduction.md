@@ -45,4 +45,4 @@ Explore security configuration guidance for administrative accounts and all avai
 
 Download OSCAL files to integrate with your compliance automation tools for continued usage
 
-[Download Artifacts](samples/FRR-RSC.md "samples/FRR-RSC.md")
+[Download Artifacts](samples/FRR-RSC.zip.md "samples/FRR-RSC.zip.md")
