@@ -9,7 +9,7 @@ When planning a database migration using the AMS AWS DMS, consider the following
   [Targets for Data Migration](../../../dms/latest/userguide/CHAP_Target.md "../../../dms/latest/userguide/CHAP_Target.md") for more information.
 - Schema/Code Migration: AMS AWS DMS doesn't perform schema or code conversion. You can use tools such as Oracle SQL Developer,
   MySQL Workbench, or pgAdmin III to convert your schema. If you want to convert an existing schema to a different database engine, you can use the
-  [AWS Schema Conversion Tool](../../../SchemaConversionTool/latest/userguide/CHAP_SchemaConversionTool.md "../../../SchemaConversionTool/latest/userguide/CHAP_SchemaConversionTool.md").
+  [AWS Schema Conversion Tool](../../../SchemaConversionTool/latest/userguide/CHAP_SchemaConversionTool.Installing.md "../../../SchemaConversionTool/latest/userguide/CHAP_SchemaConversionTool.Installing.md").
   It can create a target schema and also can generate and create an entire schema: tables, indexes,
   views, and so on. You can also use the tool to convert PL/SQL or TSQL to PgSQL and other formats.
 - Unsupported data types: Some source data types need to be converted into the equivalent data types for the target database.

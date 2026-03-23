@@ -19,7 +19,7 @@ To run the Windows pre-WIGs validation from a GUI and web browser, do the follow
     1. Download a ZIP file with the validation scripts:
 
 
-    [Windows WIGS Pre-ingestion Validation ZIP file](samples/windows-prewigs-validation.md "samples/windows-prewigs-validation.md").
+    [Windows WIGS Pre-ingestion Validation ZIP file](samples/windows-prewigs-validation.zip.md "samples/windows-prewigs-validation.zip.md").
     2. Unzip attached rules to a directory of your choice.
     3. Follow the instructions in the **README.md** file.
 
@@ -140,7 +140,7 @@ If you're running Windows Server 2012R2 or below, you must set TLS before you do
 
 ###### Note
 
-You can download and run the PowerShell scripts. To do this, download the [pre-wigs-validation-powershell-scripts.zip](samples/pre-wigs-validation-powershell-scripts.md "samples/pre-wigs-validation-powershell-scripts.md").
+You can download and run the PowerShell scripts. To do this, download the [pre-wigs-validation-powershell-scripts.zip](samples/pre-wigs-validation-powershell-scripts.zip.md "samples/pre-wigs-validation-powershell-scripts.zip.md").
 
 - **What validations are performed by the Windows WIGS Pre-Ingestion Validation?**
 

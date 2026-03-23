@@ -11,7 +11,7 @@ AWS SSM Parameter store, and AWS Secrets Manager. Allow 30-60 minutes to walk th
 - Create a secret containing a username and password with corresponding values using the AWS Secrets Manager.
   You can refer to this
 
-[sample JSON template (zip file)](samples/3-tier-cfn-ingest-2025.md "samples/3-tier-cfn-ingest-2025.md")
+[sample JSON template (zip file)](samples/3-tier-cfn-ingest-2025.zip.md "samples/3-tier-cfn-ingest-2025.zip.md")
 
 that contains the secret name
 `ams-shared/myapp/dev/dbsecrets`, and replace it with your secret name. For information about using AWS Secrets Manager with AMS, see
@@ -32,7 +32,7 @@ that contains the secret name
 
 1. Upload the attached sample CloudFormation JSON template as a zip file,
 
-[3-tier-cfn-ingest.zip](samples/3-tier-cfn-ingest-2025.md "samples/3-tier-cfn-ingest-2025.md") to an S3 bucket and generate a signed S3 URL to use in the CFN Ingest RFC.
+[3-tier-cfn-ingest.zip](samples/3-tier-cfn-ingest-2025.zip.md "samples/3-tier-cfn-ingest-2025.zip.md") to an S3 bucket and generate a signed S3 URL to use in the CFN Ingest RFC.
 
 For more information, see
 [presign](../../../cli/latest/reference/s3/presign.md "../../../cli/latest/reference/s3/presign.md"). The

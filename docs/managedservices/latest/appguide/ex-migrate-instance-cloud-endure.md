@@ -51,7 +51,7 @@ Preparation: You and AMS operator:
    statement should be: your <Customer Application Subnet(s) + Temp Migration Subnet>.
 
    To see an AMS pre-approved IAM CloudEndure policy: Unpack the
-   [WIGS Cloud Endure Landing Zone Example](samples/wigs-ce-lz-examples.md "samples/wigs-ce-lz-examples.md")
+   [WIGS Cloud Endure Landing Zone Example](samples/wigs-ce-lz-examples.zip.md "samples/wigs-ce-lz-examples.zip.md")
    file and open the `customer_cloud_endure_policy.json`.
 
    ###### Note

@@ -9,7 +9,7 @@ to plan and roll-out the changes to optimize your AWS spend.
 
 AMS is developing a video to help with cost optimization. The first step is providing you with a PDF and an Excel spreadsheet of
 cost optimization best practices. To access these resources, open the
-[Quick guide to cost optimization](samples/Resources_Quick_Guide_to_Cost_Optimization.md "samples/Resources_Quick_Guide_to_Cost_Optimization.md") ZIP file.
+[Quick guide to cost optimization](samples/Resources_Quick_Guide_to_Cost_Optimization.zip.md "samples/Resources_Quick_Guide_to_Cost_Optimization.zip.md") ZIP file.
 
 ## Cost optimization framework
 

@@ -3,7 +3,7 @@
 To import the database (DB), follow these steps.
 
 1. Back up your source on-premises database using MS SQL Native backup and restore (see
-   [Support for native backup and restore in SQL Server](../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.md "../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.md")). As the result of running that operation, you should have a .bak (backup) file.
+   [Support for native backup and restore in SQL Server](../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.BackupRestore.md "../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.BackupRestore.md")). As the result of running that operation, you should have a .bak (backup) file.
 2. Upload the .bak file to and existing transit S3 bucket using the AWS S3 CLI or AWS S3 console. For information on transit S3 buckets, see
    [Protecting data using encryption](../../../AmazonS3/latest/userguide/UsingEncryption.md "../../../AmazonS3/latest/userguide/UsingEncryption.md").
 3. Import the .bak file into a new DB on your target RDS for SQL Server MS SQL instance (for details on types, see

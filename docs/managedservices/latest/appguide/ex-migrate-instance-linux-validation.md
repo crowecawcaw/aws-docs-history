@@ -16,7 +16,7 @@ Follow these steps to download and use the AMS Linux WIGS pre-ingestion validati
     1. Download a ZIP file with the validation scripts
 
 
-    [Linux WIGS Pre-ingestion Validation zip file](samples/linux-prewigs-validation.md "samples/linux-prewigs-validation.md").
+    [Linux WIGS Pre-ingestion Validation zip file](samples/linux-prewigs-validation.zip.md "samples/linux-prewigs-validation.zip.md").
     2. Unzip attached rules to a directory of your choice.
     3. Follow the instructions in the **readme.md** file.
 

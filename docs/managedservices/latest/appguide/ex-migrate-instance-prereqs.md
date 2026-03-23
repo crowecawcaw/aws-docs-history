@@ -8,8 +8,8 @@ These are the prerequisites, including those that differ between Windows and Lin
 To simplify the process of determining if the instances are ready for ingestion, validation
 tools for both Windows and Linux have been created. These tools can be downloaded and run
 directly on your on-premises servers as well as EC2 instances in AWS.
-[Linux Pre-WIGS Validation.zip](samples/linux-prewigs-validation.md "samples/linux-prewigs-validation.md"),
-[Windows Pre-WIGS Validation.zip](samples/windows-prewigs-validation.md "samples/windows-prewigs-validation.md").
+[Linux Pre-WIGS Validation.zip](samples/linux-prewigs-validation.zip.md "samples/linux-prewigs-validation.zip.md"),
+[Windows Pre-WIGS Validation.zip](samples/windows-prewigs-validation.zip.md "samples/windows-prewigs-validation.zip.md").
 
 BEFORE YOU BEGIN, for Linux and Windows:
 

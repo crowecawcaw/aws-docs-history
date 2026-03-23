@@ -25,7 +25,7 @@ and
   with site-to-site VPN connection as an attachment to the Multi-Account Landing Zone TGW.
   AMS has identified the corresponding AMS HTTP and HTTPS dependencies, and develops and refines these dependencies on an
   ongoing basis. See
-  [egressMgmt.zip](samples/egressMgmt.md "samples/egressMgmt.md"). Along with the JSON file,
+  [egressMgmt.zip](samples/egressMgmt.zip.md "samples/egressMgmt.zip.md"). Along with the JSON file,
   the ZIP contains a README.
 
 ###### Note

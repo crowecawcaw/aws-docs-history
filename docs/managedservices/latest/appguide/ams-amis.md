@@ -22,7 +22,7 @@ AMS recommends always using the most recent AMI. You can find the most recent AM
 
 - Looking in the AMS console, on the **AMIs** page.
 - Viewing the latest AMS AMI CSV file, available from your CSDM or through this ZIP file:
-  [AMS 11.2024 AMI contents and CSV file in a ZIP](../userguide/samples/AMIs.csv-and-notes.11.2024.md "../userguide/samples/AMIs.csv-and-notes.11.2024.md").
+  [AMS 11.2024 AMI contents and CSV file in a ZIP](../userguide/samples/AMIs.csv-and-notes.11.2024.zip.md "../userguide/samples/AMIs.csv-and-notes.11.2024.zip.md").
 
 For past AMI ZIP files, see the
 [Doc History](../userguide/doc-history-ug.md "../userguide/doc-history-ug.md").

@@ -118,4 +118,4 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 - You can add up to 50 tags, but to do so you must enable the **Additional configuration** view.
 
 For more information about DMS replication instances and subnet groups, see
-[Setting Up a Network for a Replication Instance](../../../dms/latest/userguide/CHAP_ReplicationInstance.md "../../../dms/latest/userguide/CHAP_ReplicationInstance.md").
+[Setting Up a Network for a Replication Instance](../../../dms/latest/userguide/CHAP_ReplicationInstance.VPC.md "../../../dms/latest/userguide/CHAP_ReplicationInstance.VPC.md").
