@@ -31,7 +31,7 @@ For complete details on CloudFormation permissions, see [CloudFormation permissi
 
 ### To deploy the CloudFormation template using the console
 
-1. Download and extract the [AWS-IncidentManager-MigrationResources.zip](samples/AWS-IncidentManager-MigrationResources.md "samples/AWS-IncidentManager-MigrationResources.md") file that contains the `AWS-IncidentManager-MigrationResources.yaml` template.
+1. Download and extract the [AWS-IncidentManager-MigrationResources.zip](samples/AWS-IncidentManager-MigrationResources.zip.md "samples/AWS-IncidentManager-MigrationResources.zip.md") file that contains the `AWS-IncidentManager-MigrationResources.yaml` template.
 2. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
 3. Choose **Create stack**.
 4. In the **Specify template** section, choose **Upload a template file**.
