@@ -457,7 +457,7 @@ Europe (Zurich) Regions. To reference other available actions, see [Product and 
 Learn more:
 
 - [Getting started using
-  Elastic Beanstalk](../../../elasticbeanstalk/latest/dg/GettingStarted.md "../../../elasticbeanstalk/latest/dg/GettingStarted.md")
+  Elastic Beanstalk](../../../elasticbeanstalk/latest/dg/GettingStarted.Walkthrough.md "../../../elasticbeanstalk/latest/dg/GettingStarted.Walkthrough.md")
 - [Create a pipeline, stages, and actions](pipelines-create.md "pipelines-create.md")
 
 ### OpsWorks deploy actions

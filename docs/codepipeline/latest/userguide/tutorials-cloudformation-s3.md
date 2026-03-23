@@ -17,11 +17,11 @@ You must have the following resources to use with the AWS CloudFormation sample 
   and CodeDeploy resources you created in [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
 - Choose the following links to download the sample AWS CloudFormation template files for
   creating a pipeline with an Amazon S3 source:
-  - Download the sample template for your pipeline: [YAML](samples/codepipeline-s3-events-yaml.md "samples/codepipeline-s3-events-yaml.md") | [JSON](samples/codepipeline-s3-events-json.md "samples/codepipeline-s3-events-json.md")
-  - Download the sample template for your CloudTrail bucket and trail: [YAML](samples/codepipeline-s3-cloudtrail-yaml.md "samples/codepipeline-s3-cloudtrail-yaml.md") | [JSON](samples/codepipeline-s3-cloudtrail-json.md "samples/codepipeline-s3-cloudtrail-json.md")
+  - Download the sample template for your pipeline: [YAML](samples/codepipeline-s3-events-yaml.zip.md "samples/codepipeline-s3-events-yaml.zip.md") | [JSON](samples/codepipeline-s3-events-json.zip.md "samples/codepipeline-s3-events-json.zip.md")
+  - Download the sample template for your CloudTrail bucket and trail: [YAML](samples/codepipeline-s3-cloudtrail-yaml.zip.md "samples/codepipeline-s3-cloudtrail-yaml.zip.md") | [JSON](samples/codepipeline-s3-cloudtrail-json.zip.md "samples/codepipeline-s3-cloudtrail-json.zip.md")
   - Unzip the files and place them on your local computer.
 
-- Download the sample application from [SampleApp_Linux.zip](samples/SampleApp_Linux.md "samples/SampleApp_Linux.md").
+- Download the sample application from [SampleApp_Linux.zip](samples/SampleApp_Linux.zip.md "samples/SampleApp_Linux.zip.md").
 
 Save the .zip file on your local computer. You upload the .zip file after the stack is
 created.

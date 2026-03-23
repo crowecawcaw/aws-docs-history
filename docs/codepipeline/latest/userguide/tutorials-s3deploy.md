@@ -51,7 +51,7 @@ You must already have the following:
 
 - A CodeCommit repository. You can use the AWS CodeCommit repository you created in
   [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
-- Source files for your static website. Use this link to download a [sample static website](samples/sample-website.md "samples/sample-website.md"). The
+- Source files for your static website. Use this link to download a [sample static website](samples/sample-website.zip.md "samples/sample-website.zip.md"). The
   sample-website.zip download produces the following files:
   - An `index.html` file
   - A `main.css` file

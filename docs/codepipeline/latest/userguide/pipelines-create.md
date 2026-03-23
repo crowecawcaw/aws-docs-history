@@ -260,7 +260,7 @@ The object and file type must be compatible with the deployment system you
 plan to use (for example, Elastic Beanstalk or CodeDeploy). Supported file types might
 include .zip, .tar, and .tgz files. For more information about the supported
 container types for Elastic Beanstalk, see [Customizing and Configuring
-Elastic Beanstalk Environments](../../../elasticbeanstalk/latest/dg/customize-containers.md "../../../elasticbeanstalk/latest/dg/customize-containers.md") and [Supported Platforms](../../../elasticbeanstalk/latest/dg/concepts.md "../../../elasticbeanstalk/latest/dg/concepts.md").
+Elastic Beanstalk Environments](../../../elasticbeanstalk/latest/dg/customize-containers.md "../../../elasticbeanstalk/latest/dg/customize-containers.md") and [Supported Platforms](../../../elasticbeanstalk/latest/dg/concepts.platforms.md "../../../elasticbeanstalk/latest/dg/concepts.platforms.md").
 For more information about deploying revisions with CodeDeploy, see [Uploading Your Application Revision](../../../codedeploy/latest/userguide/deployment-steps.md#deployment-steps-uploading-your-app "../../../codedeploy/latest/userguide/deployment-steps.md#deployment-steps-uploading-your-app") and [Prepare a
 Revision](../../../codedeploy/latest/userguide/how-to-prepare-revision.md "../../../codedeploy/latest/userguide/how-to-prepare-revision.md"). 2. To configure the stage for automatic retry, choose **Enable automatic
 retry on stage failure**. For more information about automatic
@@ -984,7 +984,7 @@ The object and file type must be compatible with the deployment system you
 plan to use (for example, Elastic Beanstalk or CodeDeploy). Supported file types might
 include .zip, .tar, and .tgz files. For more information about the supported
 container types for Elastic Beanstalk, see [Customizing and Configuring
-Elastic Beanstalk Environments](../../../elasticbeanstalk/latest/dg/customize-containers.md "../../../elasticbeanstalk/latest/dg/customize-containers.md") and [Supported Platforms](../../../elasticbeanstalk/latest/dg/concepts.md "../../../elasticbeanstalk/latest/dg/concepts.md").
+Elastic Beanstalk Environments](../../../elasticbeanstalk/latest/dg/customize-containers.md "../../../elasticbeanstalk/latest/dg/customize-containers.md") and [Supported Platforms](../../../elasticbeanstalk/latest/dg/concepts.platforms.md "../../../elasticbeanstalk/latest/dg/concepts.platforms.md").
 For more information about deploying revisions with CodeDeploy, see [Uploading Your Application Revision](../../../codedeploy/latest/userguide/deployment-steps.md#deployment-steps-uploading-your-app "../../../codedeploy/latest/userguide/deployment-steps.md#deployment-steps-uploading-your-app") and [Prepare a
 Revision](../../../codedeploy/latest/userguide/how-to-prepare-revision.md "../../../codedeploy/latest/userguide/how-to-prepare-revision.md").
 

@@ -85,9 +85,9 @@ sample walkthrough, and add it to your CodeCommit repository.
         you want to follow the steps in this tutorial for Linux instances.
 
             * If you want to deploy to Amazon Linux instances using CodeDeploy, download the sample
-             application here: [SampleApp\_Linux.zip](samples/SampleApp_Linux.md "samples/SampleApp_Linux.md").
+             application here: [SampleApp\_Linux.zip](samples/SampleApp_Linux.zip.md "samples/SampleApp_Linux.zip.md").
             * If you want to deploy to Windows Server instances using CodeDeploy, download the
-             sample application here: [SampleApp\_Windows.zip](samples/SampleApp_Windows.md "samples/SampleApp_Windows.md").
+             sample application here: [SampleApp\_Windows.zip](samples/SampleApp_Windows.zip.md "samples/SampleApp_Windows.zip.md").
 
         The sample application contains the following files for deploying with CodeDeploy:
 
@@ -120,7 +120,7 @@ sample walkthrough, and add it to your CodeCommit repository.
 
     2.  Download the compressed (zipped) file.
 
-2.  Unzip the files from [SampleApp_Linux.zip](samples/SampleApp_Linux.md "samples/SampleApp_Linux.md") into the local directory you created earlier (for example,
+2.  Unzip the files from [SampleApp_Linux.zip](samples/SampleApp_Linux.zip.md "samples/SampleApp_Linux.zip.md") into the local directory you created earlier (for example,
     `/tmp/MyDemoRepo` or `c:\temp\MyDemoRepo`).
 
 Be sure to place the files directly into your local repository. Do not include a
