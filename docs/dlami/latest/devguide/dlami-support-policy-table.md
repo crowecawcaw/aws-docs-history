@@ -62,22 +62,22 @@ historical information for reference purposes.
 
 ###### Release Notes
 
-- [Base GPU AMI (Ubuntu 20.04)](aws-deep-learning-base-gpu-ami-ubuntu-20.md "aws-deep-learning-base-gpu-ami-ubuntu-20.md")
+- [Base GPU AMI (Ubuntu 20.04)](aws-deep-learning-base-gpu-ami-ubuntu-20.04.md "aws-deep-learning-base-gpu-ami-ubuntu-20.04.md")
 
 ### PyTorch DLAMIs
 
 ###### Release Notes
 
-- [GPU PyTorch 2.5 (Ubuntu 22.04)](aws-deep-learning-x86-gpu-pytorch-2.md "aws-deep-learning-x86-gpu-pytorch-2.md")
-- [GPU PyTorch 2.5 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.md "aws-deep-learning-x86-gpu-pytorch-2.md")
-- [ARM64 AMI GPU PyTorch 2.5 (Ubuntu 22.04)](aws-deep-learning-arm64-gpu-pytorch-2.md "aws-deep-learning-arm64-gpu-pytorch-2.md")
-- [GPU PyTorch 2.4 (Ubuntu 22.04)](aws-deep-learning-ami-gpu-pytorch-2.md "aws-deep-learning-ami-gpu-pytorch-2.md")
-- [ARM64 AMI GPU PyTorch 2.4 (Ubuntu 22.04)](aws-deep-learning-arm64-ami-gpu-pytorch-2.md "aws-deep-learning-arm64-ami-gpu-pytorch-2.md")
+- [GPU PyTorch 2.5 (Ubuntu 22.04)](aws-deep-learning-x86-gpu-pytorch-2.5-ubuntu-22-04.md "aws-deep-learning-x86-gpu-pytorch-2.5-ubuntu-22-04.md")
+- [GPU PyTorch 2.5 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.5-amazon-linux-2023.md "aws-deep-learning-x86-gpu-pytorch-2.5-amazon-linux-2023.md")
+- [ARM64 AMI GPU PyTorch 2.5 (Ubuntu 22.04)](aws-deep-learning-arm64-gpu-pytorch-2.5-ubuntu-22-04.md "aws-deep-learning-arm64-gpu-pytorch-2.5-ubuntu-22-04.md")
+- [GPU PyTorch 2.4 (Ubuntu 22.04)](aws-deep-learning-ami-gpu-pytorch-2.4-ubuntu-22-04.md "aws-deep-learning-ami-gpu-pytorch-2.4-ubuntu-22-04.md")
+- [ARM64 AMI GPU PyTorch 2.4 (Ubuntu 22.04)](aws-deep-learning-arm64-ami-gpu-pytorch-2.4-ubuntu-22-04.md "aws-deep-learning-arm64-ami-gpu-pytorch-2.4-ubuntu-22-04.md")
 
 ### TensorFlow DLAMIs
 
 ###### Release Notes
 
-- [GPU TensorFlow 2.17 (Ubuntu 22.04)](aws-deep-learning-x86-gpu-tensorflow-2.md "aws-deep-learning-x86-gpu-tensorflow-2.md")
-- [GPU TensorFlow 2.16 (Amazon Linux 2)](aws-deep-learning-ami-gpu-tensorflow-2.md "aws-deep-learning-ami-gpu-tensorflow-2.md")
-- [GPU TensorFlow 2.16 (Ubuntu 20.04)](aws-deep-learning-ami-gpu-tensorflow-2.md "aws-deep-learning-ami-gpu-tensorflow-2.md")
+- [GPU TensorFlow 2.17 (Ubuntu 22.04)](aws-deep-learning-x86-gpu-tensorflow-2.17-ubuntu-22-04.md "aws-deep-learning-x86-gpu-tensorflow-2.17-ubuntu-22-04.md")
+- [GPU TensorFlow 2.16 (Amazon Linux 2)](aws-deep-learning-ami-gpu-tensorflow-2.16-amazon-linux-2.md "aws-deep-learning-ami-gpu-tensorflow-2.16-amazon-linux-2.md")
+- [GPU TensorFlow 2.16 (Ubuntu 20.04)](aws-deep-learning-ami-gpu-tensorflow-2.16-ubuntu-20-04.md "aws-deep-learning-ami-gpu-tensorflow-2.16-ubuntu-20-04.md")
