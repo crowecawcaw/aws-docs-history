@@ -19,4 +19,4 @@ your Amazon SageMaker Unified Studio domain was created. When you use the SageMa
 prompts and generated responses remain in your domain's Region.
 
 With cross-region inference, your requests to the SageMaker Data Agent may be processed
-in a different Region where your content is stored. For more information, see [Cross-region processing in the SageMaker Data Agent for Notebook](data-agent-cross-region.md "data-agent-cross-region.md").
+in a different Region where your content is stored. For more information, see [Cross-region processing in the SageMaker Data Agent](data-agent-cross-region.md "data-agent-cross-region.md").

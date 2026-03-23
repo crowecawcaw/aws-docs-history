@@ -36,6 +36,15 @@ including comprehensive commit history, branching, and merging.
 When you choose Git-based storage, you'll need to specify a repository and branch during project creation. Once the project
 is created, you'll be able to see the files that were created during repository bootstrapping directly from the project's home page.
 
+###### Important
+
+When you connect a project to a third-party Git repository, all users who can sign
+in to any domain in the account have read and write access to all repositories on
+that connection. This access is not limited to the project or domain where the
+connection was created. To enforce isolation between repositories, use separate AWS
+accounts. Do not store sensitive information in connected repositories unless all
+users in the account are authorized to access it.
+
 With Git-based storage, you'll have access to full Git semantics regardless of whether you're using space-based tools
 like JupyterLab or web-based tools like SQL Query Editor. This provides a consistent experience for team members accustomed
 to working with Git.

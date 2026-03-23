@@ -71,7 +71,7 @@ as data processing and analysis, with the option to customize further by switchi
 visual to code. Leveraging Amazon Managed Workflows for Apache Airflow (MWAA) Serverless, it
 enables users to create, modify, schedule, and monitor workflows without writing code or
 managing infrastructure. This addition simplifies workflow management and enhances usability
-for data engineers and scientists. For more information, see [User Guide](workflows-iam-domains.md "workflows-iam-domains.md"), [Blog Post](https://aws.amazon.com/blogs/big-data/orchestrating-data-processing-tasks-with-a-serverless-visual-workflow-in-amazon-sagemaker-unified-studio/)) "https://aws.amazon.com/blogs/big-data/orchestrating-data-processing-tasks-with-a-serverless-visual-workflow-in-amazon-sagemaker-unified-studio/))"), and [IAM-based domains and projects](../adminguide/iam-based-domains.md "../adminguide/iam-based-domains.md").
+for data engineers and scientists. For more information, see [User Guide](workflows-iam-domains.html).md "workflows-iam-domains.html).md"), [Blog Post](https://aws.amazon.com/blogs/big-data/orchestrating-data-processing-tasks-with-a-serverless-visual-workflow-in-amazon-sagemaker-unified-studio/)) "https://aws.amazon.com/blogs/big-data/orchestrating-data-processing-tasks-with-a-serverless-visual-workflow-in-amazon-sagemaker-unified-studio/))"), and [IAM-based domains and projects](../adminguide/iam-based-domains.md "../adminguide/iam-based-domains.md").
 
 ### November 14, 2025
 
@@ -217,7 +217,7 @@ enterprises, this means more time focusing on insights, models, and innovation. 
 blueprints feature is designed to help teams move faster and stay consistent while
 maintaining their organization’s security controls and best practices. Sample templates can
 be found here([https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/custom-blueprints.html](../adminguide/custom-blueprints.md "../adminguide/custom-blueprints.md")).
-For more information, see [What’s New Post](https://aws.amazon.com/about-aws/whats-new/2025/09/amazon-sagemaker-unified-studio-custom-blueprints/ "https://aws.amazon.com/about-aws/whats-new/2025/09/amazon-sagemaker-unified-studio-custom-blueprints/"), [Admin Guide](../adminguide/custom-blueprint.md "../adminguide/custom-blueprint.md"), and [Blog Post](https://aws.amazon.com/blogs/big-data/tailor-amazon-sagemaker-unified-studio-project-environments-to-your-needs-using-custom-blueprints/ "https://aws.amazon.com/blogs/big-data/tailor-amazon-sagemaker-unified-studio-project-environments-to-your-needs-using-custom-blueprints/").
+For more information, see [What’s New Post](https://aws.amazon.com/about-aws/whats-new/2025/09/amazon-sagemaker-unified-studio-custom-blueprints/ "https://aws.amazon.com/about-aws/whats-new/2025/09/amazon-sagemaker-unified-studio-custom-blueprints/"), [Admin Guide](../adminguide/custom-blueprint.html).md "../adminguide/custom-blueprint.html).md"), and [Blog Post](https://aws.amazon.com/blogs/big-data/tailor-amazon-sagemaker-unified-studio-project-environments-to-your-needs-using-custom-blueprints/ "https://aws.amazon.com/blogs/big-data/tailor-amazon-sagemaker-unified-studio-project-environments-to-your-needs-using-custom-blueprints/").
 
 **Introducing restricted classification terms for governed
 classification in Amazon SageMaker Catalog**

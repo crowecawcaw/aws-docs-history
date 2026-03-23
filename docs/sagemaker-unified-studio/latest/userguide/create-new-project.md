@@ -64,6 +64,15 @@ you can choose a Git repository to connect to your project. You can choose to co
 project to an existing third-party Git repository or create a new Git repository to
 connect to.
 
+###### Important
+
+When you connect a project to a third-party Git repository, all users who can sign
+in to any domain in the account have read and write access to all repositories on
+that connection. This access is not limited to the project or domain where the
+connection was created. To enforce isolation between repositories, use separate AWS
+accounts. Do not store sensitive information in connected repositories unless all
+users in the account are authorized to access it.
+
 #### To connect to an existing 3P Git repository
 
 1. In the Git connection dropdown, select a connection from

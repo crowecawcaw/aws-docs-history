@@ -42,7 +42,7 @@ inventory assets. In this release of Amazon SageMaker Unified Studio, enabling d
 for custom types assets in Amazon SageMaker Unified Studio must be done using APIs.
 
 - You can also use the APIs to enable data quality for your new or existing
-  data sources. You can do this by invoking the [CreateDataSource](../../../datazone/datazone/latest/APIReference/API_CreateDataSource.md "../../../datazone/datazone/latest/APIReference/API_CreateDataSource.md") or [UpdateDataSource](../../../datazone/datazone/latest/APIReference/API_UpdateDataSource.md "../../../datazone/datazone/latest/APIReference/API_UpdateDataSource.md") APIs and setting the
+  data sources. You can do this by invoking the [CreateDataSource](../../../datazone/datazone/latest/APIReference/API_CreateDataSource.htmlAPI.md "../../../datazone/datazone/latest/APIReference/API_CreateDataSource.htmlAPI.md") or [UpdateDataSource](../../../datazone/datazone/latest/APIReference/API_UpdateDataSource.htmlAPI.md "../../../datazone/datazone/latest/APIReference/API_UpdateDataSource.htmlAPI.md") APIs and setting the
   `autoImportDataQualityResult` parameter to 'True'.
 
 After data quality is enabled, you can run the data source on demand or on

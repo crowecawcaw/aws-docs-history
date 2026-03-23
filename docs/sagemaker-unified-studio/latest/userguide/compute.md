@@ -27,10 +27,10 @@ clusters to your project. Amazon SageMaker Unified Studio supports different kin
   information about spaces, see [IDE spaces in Amazon SageMaker Unified Studio](ide-spaces.md "ide-spaces.md").
 - **MLflow tracking servers**: MLflow tracking servers make
   it possible to use MLflow in Amazon SageMaker Unified Studio to create, manage, analyze, and compare machine
-  learning experiments. For more information, see [Track experiments using MLflow](sagemaker-experiments.md "sagemaker-experiments.md").
+  learning experiments. For more information, see [Track experiments using MLflow](sagemaker-experiments.xml.md "sagemaker-experiments.xml.md").
 - **MLﬂow Apps**: MLﬂow Apps are the latest managed MLﬂow
   oﬀering that provides faster startup times, cross-account sharing, and integration with
-  SageMaker AI features. For more information, see [Track experiments using MLflow](sagemaker-experiments.md "sagemaker-experiments.md") in Identity Center-based domains
+  SageMaker AI features. For more information, see [Track experiments using MLflow](sagemaker-experiments.xml.md "sagemaker-experiments.xml.md") in Identity Center-based domains
   and [Track experiments using MLflow](use-mlflow-experiments.md "use-mlflow-experiments.md") in IAM-based domains.
 - **Workflow environments**: Use a workflow environment to
   share scheduled workflows with other project members. For more information, see [Create a workflow environment](create-workflow-environment.md "create-workflow-environment.md").

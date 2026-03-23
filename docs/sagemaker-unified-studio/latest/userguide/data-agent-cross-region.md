@@ -1,4 +1,4 @@
-# Cross-region processing in the SageMaker Data Agent for Notebook
+# Cross-region processing in the SageMaker Data Agent
 
 ## Cross-region inference
 
