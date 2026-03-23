@@ -112,7 +112,7 @@ Now configure your instance specifications.
      default value. Amazon RDS uses option groups to enable and
      configure additional features. For more information, see
      [Working
-     with Option Groups](../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.md "../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.md").
+     with Option Groups](../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.md "../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.md").
     * **Enable storage autoscaling:**
      If your workload is cyclical or unpredictable, you would
      enable storage autoscaling to enable Amazon RDS to
@@ -133,7 +133,7 @@ list for the example settings for your DB instance.
     * **Virtual Private Cloud
      (VPC):** Select **Default
      VPC**. For more information about VPC, see
-     [Amazon RDS and Amazon Virtual Private Cloud (VPC)](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md").
+     [Amazon RDS and Amazon Virtual Private Cloud (VPC)](../../../AmazonRDS/latest/UserGuide/Overview.RDSVPC.md "../../../AmazonRDS/latest/UserGuide/Overview.RDSVPC.md").
 
 **Additional connectivity
 configurations**
@@ -142,7 +142,7 @@ configurations**
      **default** subnet group. For
      more information about subnet groups, see
      [Working
-     with DB Subnet Groups](../../../AmazonRDS/latest/UserGuide/USER_VPC.md#USER_VPC.Subnets "../../../AmazonRDS/latest/UserGuide/USER_VPC.md#USER_VPC.Subnets").
+     with DB Subnet Groups](../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Subnets "../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Subnets").
     * **Public access:** Choose
      **Yes**. This will allocate an
      IP address for your database instance so that you can directly
@@ -166,7 +166,7 @@ configurations**
      ****No
      preference****. See
      [Regions
-     and Availability Zones](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md") for more details.
+     and Availability Zones](../../../AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.md "../../../AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.md") for more details.
     * **Port:** Leave the default
      value of 1433.
 
