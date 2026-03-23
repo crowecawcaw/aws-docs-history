@@ -8,7 +8,7 @@ To edit an existing user, do the following:
 
 On the **`MyBroker`** page, in the **Users** section, all the users for this broker are listed.
 
-![Table showing two users with their console access and group information.](/images/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-list-users.png) 3. Select your sign-in credentials and choose **Edit**.
+![Table showing two users with their console access and group information.](images/amazon-mq-tutorials-list-users.png) 3. Select your sign-in credentials and choose **Edit**.
 
 The **Edit user** dialog box is displayed. 4. (Optional) Type a new **Password**. 5. (Optional) Add or remove the names of groups to which the user belongs,
 separated by commas (for example: `Managers, Admins`). 6. (Optional) To enable the user to access the [ActiveMQ Web
