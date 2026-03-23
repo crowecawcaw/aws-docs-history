@@ -158,7 +158,7 @@ RCP:
 You cannot use "\*" in the Action element of a customer managed RCP and have to specify the abbreviation for the service (such as "s3", "sqs", or "sts") you want to restrict access to.
 
 For a list of the services that support RCPs, see [List of AWS services that support RCPs](orgs_manage_policies_rcps.md#rcp-supported-services "orgs_manage_policies_rcps.md#rcp-supported-services"). For a list of the actions an AWS service supports, see [Actions, Resources,
-and Condition Keys for AWS Services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") in the
+and Condition Keys for AWS Services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html.md") in the
 _Service Authorization Reference_.
 
 For more information, see [IAM JSON Policy
