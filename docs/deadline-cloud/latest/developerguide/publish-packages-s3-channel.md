@@ -1,0 +1,203 @@
+# Publish packages to an Amazon S3 conda channel
+
+You can publish conda packages to an Amazon Simple Storage Service (Amazon S3) bucket so that AWS Deadline Cloud (Deadline Cloud) workers can
+install them for running jobs. The `rattler-build publish` command works with
+Amazon S3 the same way as with a local filesystem channel. The command can build a recipe and
+publish the result, or publish a package file that you already built. In both cases, the command
+uploads the package to the bucket and indexes the channel in one step.
+
+The `rattler-build publish` command authenticates with AWS using the standard
+credential chain, so it uses your AWS configuration like any AWS tool. For more
+information about configuring credentials, see [Configuration and credential file
+settings](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md") in the _AWS Command Line Interface (AWS CLI) User Guide_.
+
+## Prerequisites
+
+Before you publish packages to Amazon S3, complete the following prerequisites:
+
+- **pixi and rattler-build** – Install pixi from
+  [pixi.sh](https://pixi.sh "https://pixi.sh"), then install
+  `rattler-build`.
+
+```
+pixi global install rattler-build
+```
+
+- **git** – Required to clone the samples
+  repository. On Windows, [git for
+  Windows](https://gitforwindows.org/ "https://gitforwindows.org/") also provides a `bash` shell, which some of the Windows sample recipes require.
+- **Amazon S3 bucket** – An Amazon S3 bucket to use as the
+  conda channel. You can use the job attachments bucket from your Deadline Cloud farm or create a
+  separate bucket.
+- **AWS credentials** – Configure credentials
+  on your workstation using the `aws configure` command or the `aws
+login` command. For more information, see [Setting up the
+  AWS CLI](../../../cli/latest/userguide/getting-started-quickstart.md "../../../cli/latest/userguide/getting-started-quickstart.md") in the _AWS Command Line Interface User Guide_.
+- **IAM permissions** – (Optional) To
+  reduce the scope of permissions your credentials have, you can use an AWS Identity and Access Management
+  (IAM) policy that only grants the following permissions on the Amazon S3 bucket and the
+  channel prefix you use (for example, `/Conda/*`):
+  - `s3:GetObject`
+  - `s3:PutObject`
+  - `s3:DeleteObject`
+  - `s3:ListBucket`
+  - `s3:GetBucketLocation`
+
+## Publishing a package to an Amazon S3 channel
+
+Use `rattler-build publish` with an `s3://` target to publish a
+package to your Amazon S3 conda channel. If the channel does not exist in the bucket,
+`rattler-build` initializes the channel automatically. Before you begin, make
+sure that you have completed the [prerequisites](#publish-s3-prereqs "#publish-s3-prereqs").
+
+The following example publishes the Blender 4.5 sample recipe from the
+[Deadline Cloud samples](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples")
+repository on GitHub. You can substitute a different recipe from the samples
+repository or use your own recipe.
+
+###### To publish a package to an Amazon S3 channel
+
+1. Clone the Deadline Cloud samples repository.
+
+```
+git clone https://github.com/aws-deadline/deadline-cloud-samples.git
+```
+
+2. Change to the `conda_recipes` directory.
+
+```
+cd deadline-cloud-samples/conda_recipes
+```
+
+3. Run the following command. Replace `amzn-s3-demo-bucket`
+   with your bucket name.
+
+On Linux and macOS, run the following command.
+
+```
+rattler-build publish blender-4.5/recipe/recipe.yaml \
+    --to s3://amzn-s3-demo-bucket/Conda/Default
+```
+
+On Windows (cmd), run the following command.
+
+```
+rattler-build publish blender-4.5/recipe/recipe.yaml ^
+    --to s3://amzn-s3-demo-bucket/Conda/Default
+```
+
+The `/Conda/Default` prefix organizes the channel within the bucket. You
+can use a different prefix, but the prefix must be consistent across all commands and
+queue configurations that reference the channel.
+
+To rebuild and publish an updated package, add `--build-number=+1` to
+automatically increment the build number.
+
+```
+rattler-build publish blender-4.5/recipe/recipe.yaml \
+    --to s3://amzn-s3-demo-bucket/Conda/Default \
+    --build-number=+1
+```
+
+If your package recipe depends on packages from a particular channel, such as
+[conda-forge](https://conda-forge.org/ "https://conda-forge.org/"), add `-c
+ conda-forge` to the command.
+
+You can also publish a package file that you already built, for example, a
+`.conda` file from a local build. Replace
+`amzn-s3-demo-bucket` with your bucket name.
+
+```
+rattler-build publish output/linux-64/blender-4.5.0-hb0f4dca_0.conda \
+    --to s3://amzn-s3-demo-bucket/Conda/Default
+```
+
+## Testing the package
+
+After you publish the package, create a temporary pixi project to verify that the
+package works correctly. The project installs the package from the Amazon S3 channel.
+
+###### To test the package
+
+1. Create a temporary test directory and initialize a pixi project with the Amazon S3
+   channel. Replace `amzn-s3-demo-bucket` with your bucket
+   name.
+
+```
+mkdir package-test-env
+cd package-test-env
+pixi init --channel s3://amzn-s3-demo-bucket/Conda/Default
+```
+
+2. Add the package to the project.
+
+```
+pixi add blender=4.5
+```
+
+3. Verify that the package works correctly.
+
+```
+pixi run blender --version
+```
+
+## Cleaning up
+
+After testing, remove the test project directory.
+
+###### To clean up test resources
+
+- Remove the test project directory.
+
+On Linux and macOS, run the following command.
+
+```
+rm -rf package-test-env
+```
+
+On Windows (cmd), run the following command.
+
+```
+rmdir /s /q package-test-env
+```
+
+## Debugging builds
+
+If a build fails, `rattler-build` preserves the build directory so you can
+investigate. Run the following command to open an interactive shell in the build environment
+with all environment variables set up as they were during the build.
+
+```
+rattler-build debug shell
+```
+
+From the debug shell, you can modify files, run individual build commands, and add
+dependencies to isolate the issue. For more information, see [Debugging builds](https://rattler-build.prefix.dev/latest/debugging_builds/ "https://rattler-build.prefix.dev/latest/debugging_builds/") in
+the rattler-build documentation.
+
+## Building packages for other platforms
+
+The `rattler-build publish` command builds packages for the operating system
+of the workstation where the command runs. If your Deadline Cloud fleet uses a different operating
+system than your workstation, or if your package has other host requirements, you have
+the following options:
+
+- Run `rattler-build publish` on a host that matches the target operating
+  system. For example, use an Amazon Elastic Compute Cloud (Amazon EC2) instance running Linux to build
+  packages for a Linux fleet.
+- Use a Deadline Cloud package building queue to automate builds on the target platform. See
+  [Create a package building queue](automate-package-builds.md#s3-channel-create-queue "automate-package-builds.md#s3-channel-create-queue").
+- (Advanced) Use cross-compilation to build packages for a different platform from your
+  workstation. For more information, see [Cross-compilation](https://rattler-build.prefix.dev/latest/compilers/#cross-compilation "https://rattler-build.prefix.dev/latest/compilers/#cross-compilation") in the rattler-build documentation.
+
+## Next steps
+
+After you publish packages to your Amazon S3 conda channel, configure your Deadline Cloud queues to
+use the channel:
+
+- [Configure production queue
+  permissions for custom conda packages](configure-jobs-s3-channel.md#s3-channel-configure-permissions "configure-jobs-s3-channel.md#s3-channel-configure-permissions") – Grant your production queues
+  read-only access to the Amazon S3 conda channel.
+- [Add a conda channel to a queue
+  environment](configure-jobs-s3-channel.md#s3-channel-add-channel "configure-jobs-s3-channel.md#s3-channel-add-channel") – Configure the queue environment to install packages from
+  the Amazon S3 conda channel.
