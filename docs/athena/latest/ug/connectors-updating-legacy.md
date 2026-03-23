@@ -36,7 +36,7 @@ information:
 2. If the console navigation pane is not visible, choose the expansion menu
    on the left.
 
-![Choose the expansion menu.](/images/athena/latest/ug/images/nav-pane-expansion.png) 3. In the navigation pane, choose **Data sources and catalogs**. 4. In the **Data source name** column, choose the link to the
+![Choose the expansion menu.](images/nav-pane-expansion.png) 3. In the navigation pane, choose **Data sources and catalogs**. 4. In the **Data source name** column, choose the link to the
 data source for your connector. 5. In the **Data source details** section, under **Lambda
 function**, choose the link to your Lambda function.
 
@@ -97,7 +97,7 @@ Follow these steps to deploy a new version of your connector.
 2. If the console navigation pane is not visible, choose the expansion menu
    on the left.
 
-![Choose the expansion menu.](/images/athena/latest/ug/images/nav-pane-expansion.png) 3. In the navigation pane, choose **Data sources and catalogs**. 4. On the **Data sources and catalogs** page, choose **Create data
+![Choose the expansion menu.](images/nav-pane-expansion.png) 3. In the navigation pane, choose **Data sources and catalogs**. 4. On the **Data sources and catalogs** page, choose **Create data
 source**. 5. Choose the data source that you want to upgrade, and then choose
 **Next**. 6. In the **Connection details** section, choose
 **Create Lambda function**. This opens the Lambda console
