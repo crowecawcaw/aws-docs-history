@@ -6,5 +6,5 @@ versions of XGBoost, when possible, to more current versions.
 
 ###### Topics
 
-- [Upgrade XGBoost Version 0.90 to Version 1.5](xgboost-version-0.md "xgboost-version-0.md")
+- [Upgrade XGBoost Version 0.90 to Version 1.5](xgboost-version-0.90.md "xgboost-version-0.90.md")
 - [XGBoost Version 0.72](xgboost-72.md "xgboost-72.md")

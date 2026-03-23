@@ -1162,7 +1162,7 @@ Your users might run into issues after you've set everything up. For information
 
 Use the following procedure to get the Domain URL.
 
-1. Navigate to the [Salesforce](login.salesforce.md "login.salesforce.md") login
+1. Navigate to the [Salesforce](login.salesforce.com.md "login.salesforce.com.md") login
    page.
 2. For **Quick find**, specify **My
    Domain**.

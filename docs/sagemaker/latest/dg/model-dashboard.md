@@ -22,7 +22,7 @@ using Amazon SageMaker AI or import models you've trained elsewhere. To create a
 the `CreateModel` API. For more information, see [CreateModel](../APIReference/API_CreateModel.md "../APIReference/API_CreateModel.md"). You can also use
 SageMaker AI-provided ML environments, such as Amazon SageMaker Studio Classic, which provides project templates that set up
 model training and deployment for you. For information about how to get started with
-Studio Classic, see [Amazon SageMaker Studio Classic](studio.md "studio.md").
+Studio Classic, see [Amazon SageMaker Studio Classic](studio.htm.md "studio.htm.md").
 
 While this is not a mandatory prerequisite, customers gain the most value out of the
 dashboard if they set up model monitoring jobs using SageMaker Model Monitor for models deployed to endpoints.

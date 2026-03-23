@@ -55,7 +55,7 @@ For Amazon EFS
 
 For FSx for Lustre
 
-    + For the steps to create a FSx for Lustre file system, see [Getting started with Amazon FSx for Lustre](../../../fsx/latest/LustreGuide/getting-started.md "../../../fsx/latest/LustreGuide/getting-started.md") in the *Amazon FSx for Lustre User Guide*. Ensure that the FSx for Lustre file system
+    + For the steps to create a FSx for Lustre file system, see [Getting started with Amazon FSx for Lustre](../../../fsx/latest/LustreGuide/getting-started.html.md "../../../fsx/latest/LustreGuide/getting-started.html.md") in the *Amazon FSx for Lustre User Guide*. Ensure that the FSx for Lustre file system
      exists in:
 
 

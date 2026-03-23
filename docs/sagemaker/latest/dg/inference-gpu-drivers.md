@@ -16,11 +16,11 @@ Amazon SageMaker AI Inference supports the following drivers and instance famili
 | Real-time              | NVIDIA    | 470                   | CUDA 11.4    | ml.p2.\*, ml.p3.\*, ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5.\* |
 | 535                    | CUDA 12.2 | ml.p5.\*, ml.g6.\*    |
 | 550                    | CUDA 12.4 | ml.p5e.\*, ml.p5en.\* |
-| 580                    | CUDA 13.0 | ml.g7e.\*             |
+| 580                    | CUDA 13.0 | ml.p6.\*, ml.g7e.\*   |
 | Asynchronous Inference | NVIDIA    | 470                   | CUDA 11.4    | ml.p2.\*, ml.p3.\*, ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5\*  |
 | 470                    | CUDA 12.2 | ml.p5.\*, ml.g6.\*    |
 | 550                    | CUDA 12.4 | ml.p5e.\*, ml.p5en.\* |
-| 580                    | CUDA 13.0 | ml.g7e.\*             |
+| 580                    | CUDA 13.0 | ml.p6.\*, ml.g7e.\*   |
 | Batch                  | NVIDIA    | 470                   | CUDA 11.4    | ml.p2.\*, ml.p3.\*, ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5\*  |
 
 ## Troubleshoot your model container with GPU capabilities

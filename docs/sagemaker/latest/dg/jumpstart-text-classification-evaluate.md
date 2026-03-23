@@ -36,7 +36,7 @@ Create a JupyterLab space in SageMaker Amazon SageMaker Studio to run the evalua
 
 ### Access the evaluation notebook
 
-Download the [zip file](samples/sagemaker-text-classification-evaluation-2.md "samples/sagemaker-text-classification-evaluation-2.md") and extract it to your local machine. Upload the entire extracted folder to your JupyterLab space to begin testing your models. The package contains the main evaluation notebook, sample datasets, supporting Python modules, and detailed instructions for the complete evaluation framework.
+Download the [zip file](samples/sagemaker-text-classification-evaluation-2.zip.md "samples/sagemaker-text-classification-evaluation-2.zip.md") and extract it to your local machine. Upload the entire extracted folder to your JupyterLab space to begin testing your models. The package contains the main evaluation notebook, sample datasets, supporting Python modules, and detailed instructions for the complete evaluation framework.
 
 ###### Note
 

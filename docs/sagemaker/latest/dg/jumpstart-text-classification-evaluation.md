@@ -9,7 +9,7 @@ In this guide, you:
 - Interpret advanced metrics including Matthews Correlation Coefficient (MCC) and Area Under the Curve Receiver Operating Characteristic scores.
 - Make data-driven model selection decisions using systematic comparison frameworks.
 - Set up production deployments with auto-scaling and CloudWatch monitoring.
-  Download the complete evaluation framework: [JumpStart Model Evaluation Package](samples/sagemaker-text-classification-evaluation-2.md "samples/sagemaker-text-classification-evaluation-2.md"). **The package includes pre-run results with sample outputs** so you can preview the evaluation process and metrics before deploying models yourself.
+  Download the complete evaluation framework: [JumpStart Model Evaluation Package](samples/sagemaker-text-classification-evaluation-2.zip.md "samples/sagemaker-text-classification-evaluation-2.zip.md"). **The package includes pre-run results with sample outputs** so you can preview the evaluation process and metrics before deploying models yourself.
 
 ## Prerequisites
 

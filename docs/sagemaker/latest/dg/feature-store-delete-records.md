@@ -124,7 +124,7 @@ offline store storage configuration using the Iceberg table format, with
 `DisableGlueTableCreation = False` (default). For more information on creating
 feature groups, see [Get started with Amazon SageMaker Feature Store](feature-store-getting-started.md "feature-store-getting-started.md").
 
-To obtain your `iceberg-table-name`, use the [`DescribeFeatureGroup`](../APIReference/API_DescribeFeatureGroup.html.md "../APIReference/API_DescribeFeatureGroup.html.md") API to obtain [`DataCatalogConfig`](../APIReference/API_DataCatalogConfig.md "../APIReference/API_DataCatalogConfig.md"). This contains the metadata of the Glue table which
+To obtain your `iceberg-table-name`, use the [`DescribeFeatureGroup`](../APIReference/API_DescribeFeatureGroup.html.title.md "../APIReference/API_DescribeFeatureGroup.html.title.md") API to obtain [`DataCatalogConfig`](../APIReference/API_DataCatalogConfig.md "../APIReference/API_DataCatalogConfig.md"). This contains the metadata of the Glue table which
 serves as data catalog for the `OfflineStore`. The `TableName` within the
 `DataCatalogConfig` is your
 `iceberg-table-name`.

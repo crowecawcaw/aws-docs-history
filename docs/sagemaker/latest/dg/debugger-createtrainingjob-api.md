@@ -8,5 +8,5 @@ this section covers how to configure the following low-level API operations.
 
 ###### Topics
 
-- [JSON (AWS CLI)](debugger-built-in-rules-api.md "debugger-built-in-rules-api.md")
-- [SDK for Python (Boto3)](debugger-built-in-rules-api.md "debugger-built-in-rules-api.md")
+- [JSON (AWS CLI)](debugger-built-in-rules-api.CLI.md "debugger-built-in-rules-api.CLI.md")
+- [SDK for Python (Boto3)](debugger-built-in-rules-api.Boto3.md "debugger-built-in-rules-api.Boto3.md")

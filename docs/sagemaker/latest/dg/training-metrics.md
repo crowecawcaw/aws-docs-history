@@ -29,7 +29,7 @@ resource utilization issues (such as CPU, GPU, and I/O bottlenecks) and non-conv
 model issues (such as overfit, vanishing gradients, and exploding tensors). SageMaker Debugger
 also provides visualizations through Studio Classic and its profiling report. To explore the
 Debugger visualizations, see [SageMaker Debugger
-Insights Dashboard Walkthrough](debugger-on-studio-insights-walkthrough.md "debugger-on-studio-insights-walkthrough.md"), [Debugger Profiling Report Walkthrough](debugger-profiling-report.md#debugger-profiling-report-walkthrough "debugger-profiling-report.md#debugger-profiling-report-walkthrough"), and [Analyze Data Using the SMDebug Client Library](debugger-analyze-data.md "debugger-analyze-data.md").
+Insights Dashboard Walkthrough](debugger-on-studio-insights-walkthrough.htm.md "debugger-on-studio-insights-walkthrough.htm.md"), [Debugger Profiling Report Walkthrough](debugger-profiling-report.md#debugger-profiling-report-walkthrough "debugger-profiling-report.md#debugger-profiling-report-walkthrough"), and [Analyze Data Using the SMDebug Client Library](debugger-analyze-data.md "debugger-analyze-data.md").
 
 ###### Topics
 
