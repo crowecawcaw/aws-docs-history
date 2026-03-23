@@ -1,9 +1,5 @@
 # Container products in AWS Marketplace
 
-###### Important
-
-On March 1, 2026, AWS Marketplace will discontinue Quick Launch for Helm chart deployments on Amazon EKS. Existing deployments will continue running normally. You can still deploy using standard Helm commands or container images on Amazon ECS.
-
 Container products are standalone products fulfilled as container images. Container products
 can either be free or must be paid for using a seller-provided pricing option. Container
 products can be used with multiple container runtimes and services, including [Amazon Elastic Container Service](../../../AmazonECS/latest/developerguide.md "../../../AmazonECS/latest/developerguide.md") (Amazon ECS), [Amazon Elastic Kubernetes Service](../../../eks/latest/userguide.md "../../../eks/latest/userguide.md")
@@ -15,10 +11,6 @@ the Amazon ECS console. You can deploy many products to Amazon ECS or Amazon EKS
 deployment templates, such as task definitions or Helm charts. Or, you can access container
 images directly from private [Amazon Elastic Container Registry](../../../AmazonECR/latest/userguide.md "../../../AmazonECR/latest/userguide.md") (Amazon ECR) repositories
 after you have subscribed to those products.
-
-If a product has enabled Quick Launch, you can use it to quickly test container products on an Amazon EKS
-cluster with just a few steps. Quick Launch uses AWS CloudFormation to create an Amazon EKS cluster and launch
-container software on it. For more information about launching with Quick Launch, see [Launching container products with Quick Launch](quick-launch.md#buyer-launch-container-quicklaunch "quick-launch.md#buyer-launch-container-quicklaunch").
 
 This section provides information about finding, subscribing to, and launching container
 products in AWS Marketplace.

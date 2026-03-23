@@ -1,11 +1,10 @@
-# Using Quick Launch with SaaS and container products
+# Using Quick Launch with SaaS products
 
-Quick Launch is a deployment option that the seller can choose when configuring SaaS and container products on AWS Marketplace. Quick Launch provides buyers with guided, step-by-step instructions and resource deployment using AWS CloudFormation templates. Buyers use the CloudFormation templates to configure and launch products.
+Quick Launch is a deployment option that the seller can choose when configuring SaaS products on AWS Marketplace. Quick Launch provides buyers with guided, step-by-step instructions and resource deployment using AWS CloudFormation templates. Buyers use the CloudFormation templates to configure and launch products.
 
 ###### Topics
 
 - [Launching SaaS products with Quick Launch](#saas-quick-launch "#saas-quick-launch")
-- [Launching container products with Quick Launch](#buyer-launch-container-quicklaunch "#buyer-launch-container-quicklaunch")
 
 ## Launching SaaS products with Quick Launch
 
@@ -64,22 +63,3 @@ permissions:
 
 7. For **Step 4: Launch your software**, choose the **Launch
    software** button to launch your software.
-
-## Launching container products with Quick Launch
-
-If the seller has enabled Quick Launch on a fulfillment option, you can use it to create an Amazon EKS
-cluster and deploy a container application to it. With Quick Launch, you will use CloudFormation to configure
-and create an Amazon EKS cluster and launch a container application on it. With Quick Launch, you can
-launch a container application for testing purposes. To use Quick Launch, follow the steps in [Launching with a Helm fulfillment option](buyer-launch-container-helm.md "buyer-launch-container-helm.md").
-
-To create an Amazon EKS cluster that the application can be deployed on, create a CloudFormation
-stack. A _stack_ is a collection of AWS resources that you
-can manage as a single unit. All the resources in a stack are defined by the stack's
-CloudFormation template. In Quick Launch, the stack's resources include the information required to create
-the Amazon EKS cluster and launch the application. For more information about stacks in CloudFormation, see
-[Working
-with stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md") in the _AWS CloudFormation User Guide_.
-
-After the cluster is created, Quick Launch launches the application on it by installing the
-seller-provided Helm chart onto the cluster. Quick Launch handles this for you as part of the stack
-creation that also creates the Amazon EKS cluster.

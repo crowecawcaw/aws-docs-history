@@ -38,7 +38,7 @@ The text on the [AWS Marketplace website](https://aws.amazon.com/marketplace "ht
 AWS Marketplace provides example standard contracts in the supported languages for reference only. The contracts are not legally binding.
 Select any of these links to download a zipped contract in the chosen language.
 
-- [French](samples/French.md "samples/French.md")
-- [Japanese](samples/Japanese.md "samples/Japanese.md")
-- [Korean](samples/Korean.md "samples/Korean.md")
-- [Spanish](samples/Spanish.md "samples/Spanish.md")
+- [French](samples/French.zip.md "samples/French.zip.md")
+- [Japanese](samples/Japanese.zip.md "samples/Japanese.zip.md")
+- [Korean](samples/Korean.zip.md "samples/Korean.zip.md")
+- [Spanish](samples/Spanish.zip.md "samples/Spanish.zip.md")
