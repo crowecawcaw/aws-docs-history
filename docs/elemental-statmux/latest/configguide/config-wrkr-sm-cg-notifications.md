@@ -17,7 +17,7 @@ can access them.
 | Visibility (web interface only) | You can toggle the visibility of active alerts on the web interface. Suppressing an<br>alert this way is similar to marking an email as read.<br>Alerts are available through the other access options, regardless of their visibility in<br>the web interface.                                |
 
 The following sections describe how to setup notifications. For information about viewing
-alerts and messages on the web interface or through the API, see the [AWS Elemental Statmux API and User Guide](../../../elemental-onprem/latest/pdf/statmux_2.20_api.md "../../../elemental-onprem/latest/pdf/statmux_2.20_api.md").
+alerts and messages on the web interface or through the API, see the [AWS Elemental Statmux API and User Guide](../../../elemental-onprem/latest/pdf/statmux_2.20_api.pdf.md "../../../elemental-onprem/latest/pdf/statmux_2.20_api.pdf.md").
 
 ###### Topics
 
