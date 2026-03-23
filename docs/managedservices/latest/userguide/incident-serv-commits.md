@@ -10,4 +10,4 @@
 
 ###### Note
 
-For a complete list of service commitments, download the [AMS Service Level Agreement](samples/ams_sla.md "samples/ams_sla.md").
+For a complete list of service commitments, download the [AMS Service Level Agreement](samples/ams_sla.zip.md "samples/ams_sla.zip.md").

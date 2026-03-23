@@ -1,7 +1,7 @@
 # AMS Automated IAM Provisioning permission boundary check
 
 AMS permission boundary checks help you adhere to the default permission boundary policy provided by AMS. This policy is a list of actions denied by AMS Automated IAM Provisioning. Provisioning policies that contain these restricted actions require additional explicit risk acceptance. Download the policy here:
-[boundary-policy.zip](samples/boundary-policy.md "samples/boundary-policy.md").
+[boundary-policy.zip](samples/boundary-policy.zip.md "samples/boundary-policy.zip.md").
 
 Use customer-defined permission boundary policy checks to customize deny actions beyond the AMS permission boundary policy defaults. When you onboard to AMS Automated IAM Provisioning using the following change type: Management | Managed account | AMS Automated IAM Provisioning with read-write permissions | [Enable (managed automation)](../ctref/management-managed-automated-iam-provisioning-with-read-write-permissions-enable-review-required.md "../ctref/management-managed-automated-iam-provisioning-with-read-write-permissions-enable-review-required.md") (ct-1706xvvk6j9hf), you can include a list of custom deny actions that specify additional restricted actions.
 

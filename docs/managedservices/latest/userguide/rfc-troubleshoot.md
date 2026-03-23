@@ -108,7 +108,7 @@ Common IAM resources requests:
 
 - If you are asking for a policy pertaining to a major cloud-compatible application,
   such as CloudEndure, see the AMS pre-approved IAM CloudEndure policy: Unpack the
-  [WIGs Cloud Endure Landing Zone Example](samples/wigs-ce-lz-examples.md "samples/wigs-ce-lz-examples.md")
+  [WIGs Cloud Endure Landing Zone Example](samples/wigs-ce-lz-examples.zip.md "samples/wigs-ce-lz-examples.zip.md")
   file and open the `customer_cloud_endure_policy.json`
 
 ###### Note

@@ -23,7 +23,7 @@ Managed Services. You must configure permissions to allow an IAM entity
 role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _AWS Identity and Access Management_ User Guide.
 
 You can download the JSON **AWSManagedServices_EventsServiceRolePolicy** in this ZIP:
-[EventsServiceRolePolicy.zip](../accelerate-guide/samples/EventsServiceRolePolicy.md "../accelerate-guide/samples/EventsServiceRolePolicy.md").
+[EventsServiceRolePolicy.zip](../accelerate-guide/samples/EventsServiceRolePolicy.zip.md "../accelerate-guide/samples/EventsServiceRolePolicy.zip.md").
 
 ## Creating an EventBridge SLR for AMS Advanced
 
