@@ -43,7 +43,7 @@ contents in a Secrets Manager secret before performing these steps.
    **Status** > **Edit** button in the RES
    web portal.
 
-###### Add certs to the VDIs
+###### Add certs to the VDIs or rotate certs
 
 1. Grant the RES application permission to perform a GetSecret operation on the
    secret by adding the following tags to the secrets:
@@ -94,4 +94,6 @@ contents in a Secrets Manager secret before performing these steps.
    ``<env-name>`-external-nlb`.
 5. Terminate the existing dcv-gateway instance:
    ``<env-name>`-vdc-gateway` and wait
-   for a new one to spin up.
+   for a new one to spin up. The dcv-gateway instance checks daily at 12:00 AM (midnight) UTC
+   for changes to the certificate and private key values stored in Secrets Manager,
+   and automatically retrieves and applies new values if updated.

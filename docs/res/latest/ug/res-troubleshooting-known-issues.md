@@ -287,7 +287,7 @@ _Create new EC2 Image Builder resources:_
 
 (Follow these steps if you have never prepared AMIs for RES instances)
 
-1. Download the updated [res-installation-scripts.tar.gz](samples/res-installation-scripts.md "samples/res-installation-scripts.md") file.
+1. Download the updated [res-installation-scripts.tar.gz](samples/res-installation-scripts.zip.md "samples/res-installation-scripts.zip.md") file.
 2. Follow the steps listed under _Prepare Amazon Machine Images (AMIs)_
    on the [Prerequisites](prerequisites.md#private-vpc "prerequisites.md#private-vpc") page.
 
@@ -295,7 +295,7 @@ _Reusing previous EC2 Image Builder resources:_
 
 (Follow these steps if you have prepared AMIs for RES instances)
 
-1. Download the updated [res-installation-scripts.tar.gz](samples/res-installation-scripts.md "samples/res-installation-scripts.md") file.
+1. Download the updated [res-installation-scripts.tar.gz](samples/res-installation-scripts.zip.md "samples/res-installation-scripts.zip.md") file.
 2. Navigate to EC2 Image Builder → Components → Click on the Component created
    for preparing RES AMIs.
 3. Note the S3 location listed under Content → DownloadRESInstallScripts step → inputs →

@@ -1,5 +1,9 @@
 # Create a demo environment
 
+###### Note
+
+This demo environment is not supported in AWS GovCloud (US).
+
 Follow the steps in this section to try out Research and Engineering Studio on AWS. This demo deploys a non-production
 environment with a minimal set of parameters using the [Research and Engineering Studio on AWS demo environment stack template](https://github.com/aws-samples/aws-hpc-recipes/blob/main/recipes/res/res_demo_env/assets/res-demo-stack.yaml "https://github.com/aws-samples/aws-hpc-recipes/blob/main/recipes/res/res_demo_env/assets/res-demo-stack.yaml"). It uses a
 Keycloak server for SSO.
