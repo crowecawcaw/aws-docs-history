@@ -2,7 +2,7 @@
 
 You can enable AWS Fault Injection Service (FIS) to generate reports for experiments, making it easier to produce evidence of resilience testing.
 The experiment report is a PDF document that summarizes experiment actions and optionally captures application response from a
-CloudWatch dashboard that you specify. To see an example experiment report, download the zip file [here](samples/FisExampleReport.pdf.md "samples/FisExampleReport.pdf.md").
+CloudWatch dashboard that you specify. To see an example experiment report, download the zip file [here](samples/FisExampleReport.pdf.zip.md "samples/FisExampleReport.pdf.zip.md").
 
 To enable and configure the contents of the report generated for the experiment, you define the experiment report configuration for the experiment template. When you specify a CloudWatch dashboard, AWS FIS includes a snapshot graph of all the widgets in the given dashboard annotated with
 experiment start and end time over a duration that you specify, as shown in the example below.

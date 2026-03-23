@@ -151,7 +151,7 @@ When you run the `aws:arc:start-zonal-autoshift` action, AWS FIS manages the zon
 
 Zonal shift managed resources are resource types including Amazon EKS clusters,
 Amazon EC2 Application and Network Load Balancers, and Amazon EC2 Auto Scaling groups that can be
-enabled for ARC zonal autoshift. For more information, see [supported resources](../../../r53recovery/latest/dg/arc-zonal-shift.md "../../../r53recovery/latest/dg/arc-zonal-shift.md") and [enabling zonal autoshift resources](../../../r53recovery/latest/dg/arc-zonal-autoshift.md "../../../r53recovery/latest/dg/arc-zonal-autoshift.md") in the _ARC Developer Guide_.
+enabled for ARC zonal autoshift. For more information, see [supported resources](../../../r53recovery/latest/dg/arc-zonal-shift.resource-types.md "../../../r53recovery/latest/dg/arc-zonal-shift.resource-types.md") and [enabling zonal autoshift resources](../../../r53recovery/latest/dg/arc-zonal-autoshift.start-cancel.md "../../../r53recovery/latest/dg/arc-zonal-autoshift.start-cancel.md") in the _ARC Developer Guide_.
 
 ###### Parameters
 
@@ -1610,7 +1610,7 @@ Pauses the replication between one regional cluster and all other regional clust
 The regional cluster targeted is the cluster in the Region where the FIS experiment is running. While the replication is paused,
 the multi-Region cluster cannot be updated. Once the action completes, it may take a few minutes for the multi-Region cluster to return to an available state.
 To learn more about Amazon MemoryDB Multi-Region, see the [Amazon MemoryDB Multi-Region Developer Guide](../../../memorydb/latest/devguide/multi-region.md "../../../memorydb/latest/devguide/multi-region.md"). For Region availability, see
-[MemoryDB Multi-Region Prerequisites and limitations](../../../memorydb/latest/devguide/multi-region.md "../../../memorydb/latest/devguide/multi-region.md").
+[MemoryDB Multi-Region Prerequisites and limitations](../../../memorydb/latest/devguide/multi-region.prereq.md "../../../memorydb/latest/devguide/multi-region.prereq.md").
 
 ###### Resource type
 
