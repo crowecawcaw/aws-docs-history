@@ -127,8 +127,8 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 You can add up to 50 tags, but to do so you must enable the **Additional configuration** view.
 
 AMS provides a separate change type for creating a target endpoint for S3. For more information, see
-[Using Amazon S3 as a Target for AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.md "../../../dms/latest/userguide/CHAP_Target.md") and
-[Extra Connection Attributes When Using Amazon S3 as a Target for AWS DMS](../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.S3.Configuring "../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.S3.Configuring").
+[Using Amazon S3 as a Target for AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.S3.md "../../../dms/latest/userguide/CHAP_Target.S3.md") and
+[Extra Connection Attributes When Using Amazon S3 as a Target for AWS DMS](../../../dms/latest/userguide/CHAP_Target.S3.md#CHAP_Target.S3.Configuring "../../../dms/latest/userguide/CHAP_Target.S3.md#CHAP_Target.S3.Configuring").
 
 ## Execution Input Parameters
 

@@ -116,7 +116,7 @@ aws amscm create-rfc --cli-input-json file://DeleteRDSSnapshots.json --execution
 
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 For more information about RDS snapshots, see
-[Backing up and restoring an Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.md "../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.md").
+[Backing up and restoring an Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.md "../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.md").
 
 ## Execution Input Parameters
 

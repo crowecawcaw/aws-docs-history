@@ -117,7 +117,7 @@ aws amscm create-rfc --cli-input-json file://StopRdsDbAuroraClusterRfc.json --ex
 
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 For more information see
-[Amazon Aurora DB clusters](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md").
+[Amazon Aurora DB clusters](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.md").
 
 ## Execution Input Parameters
 

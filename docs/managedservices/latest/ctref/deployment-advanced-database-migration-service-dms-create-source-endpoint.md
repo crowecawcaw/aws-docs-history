@@ -124,7 +124,7 @@ aws amscm create-rfc --cli-input-json file://CreateDmsSeRfc.json --execution-par
 ```
 
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
-Before you create the DMS endpoint, make sure that your password doesn't contain unsupported characters. For more information, see [Creating source and target endpoints](../../../dms/latest/userguide/CHAP_Endpoints.md "../../../dms/latest/userguide/CHAP_Endpoints.md") in the _AWS Database Migration Service User Guide_.
+Before you create the DMS endpoint, make sure that your password doesn't contain unsupported characters. For more information, see [Creating source and target endpoints](../../../dms/latest/userguide/CHAP_Endpoints.Creating.md "../../../dms/latest/userguide/CHAP_Endpoints.Creating.md") in the _AWS Database Migration Service User Guide_.
 
 To learn more, see [Sources for Data Migration](../../../dms/latest/userguide/CHAP_Source.md "../../../dms/latest/userguide/CHAP_Source.md").
 

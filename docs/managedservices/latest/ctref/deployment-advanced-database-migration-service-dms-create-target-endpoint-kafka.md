@@ -124,7 +124,7 @@ aws amscm create-rfc --cli-input-json file://CreateDmsTeKafkaRfc.json --executio
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
 - To learn more about AWS Database Migration Service (AWS DMS) Amazon MSK endpoints, see
-  [Using Apache Kafka as a target for AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.md "../../../dms/latest/userguide/CHAP_Target.md")
+  [Using Apache Kafka as a target for AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.Kafka.md "../../../dms/latest/userguide/CHAP_Target.Kafka.md")
 - To learn more about Amazon Managed Streaming for Apache Kafka see [What is Apache Kafka?](https://aws.amazon.com/what-is/apache-kafka/ "https://aws.amazon.com/what-is/apache-kafka/")
 - For more information on AWS DMS targets, see [Targets for Data Migration](../../../dms/latest/userguide/CHAP_Target.md "../../../dms/latest/userguide/CHAP_Target.md").
 - You can add up to 50 tags, but to do so you must enable the **Additional configuration** view.

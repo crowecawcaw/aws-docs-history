@@ -126,8 +126,8 @@ aws amscm create-rfc --cli-input-json file://CreateDmsRtRfc.json --execution-par
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 You can create a AWS DMS task that captures three different types of changes or data. For more information, see
 [Working with AWS DMS Tasks](../../../dms/latest/userguide/CHAP_Tasks.md "../../../dms/latest/userguide/CHAP_Tasks.md"),
-[Creating a Task](../../../dms/latest/userguide/CHAP_Tasks.md "../../../dms/latest/userguide/CHAP_Tasks.md"), and
-[Creating Tasks for Ongoing Replication Using AWS DMS](../../../dms/latest/userguide/CHAP_Task.md "../../../dms/latest/userguide/CHAP_Task.md").
+[Creating a Task](../../../dms/latest/userguide/CHAP_Tasks.Creating.md "../../../dms/latest/userguide/CHAP_Tasks.Creating.md"), and
+[Creating Tasks for Ongoing Replication Using AWS DMS](../../../dms/latest/userguide/CHAP_Task.CDC.md "../../../dms/latest/userguide/CHAP_Task.CDC.md").
 
 ## Execution Input Parameters
 

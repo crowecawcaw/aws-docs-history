@@ -130,7 +130,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 You can add up to 50 tags, but to do so you must enable the **Advanced** view.
 
 To learn more about Amazon RDS DB subnet groups, see
-[Working with an Amazon RDS DB Instance in a VPC](../../../AmazonRDS/latest/UserGuide/USER_VPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.md").
+[Working with an Amazon RDS DB Instance in a VPC](../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md").
 
 ## Execution Input Parameters
 

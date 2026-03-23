@@ -24,7 +24,7 @@ To learn more about using change types, see the following topics in the _AMS Use
   [Change Types by Classification](classifications.md "classifications.md").
 
 For a comma-separated value file of change types, open this ZIP file:
-[Change type CSV output file (output-12.2023.zip)](samples/output-12.2023.md "samples/output-12.2023.md").
+[Change type CSV output file (output-12.2023.zip)](samples/output-12.2023.zip.md "samples/output-12.2023.zip.md").
 
 ###### Note
 
