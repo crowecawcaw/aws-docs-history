@@ -172,7 +172,7 @@ of devices._
 ### Resources
 
 - [Device
-  Manufacturing and Provisioning with X.509 Certificates in AWS IoT Core](../../../pdfs/whitepapers/latest/device-manufacturing-provisioning/device-manufacturing-provisioning.md#device-manufacturing-provisioning "../../../pdfs/whitepapers/latest/device-manufacturing-provisioning/device-manufacturing-provisioning.md#device-manufacturing-provisioning")
+  Manufacturing and Provisioning with X.509 Certificates in AWS IoT Core](../../../pdfs/whitepapers/latest/device-manufacturing-provisioning/device-manufacturing-provisioning.pdf.md#device-manufacturing-provisioning "../../../pdfs/whitepapers/latest/device-manufacturing-provisioning/device-manufacturing-provisioning.pdf.md#device-manufacturing-provisioning")
 - [How
   to automate onboarding of IoT devices to AWS IoT Core at scale with Fleet Provisioning](https://aws.amazon.com/blogs/iot/how-to-automate-onboarding-of-iot-devices-to-aws-iot-core-at-scale-with-fleet-provisioning/ "https://aws.amazon.com/blogs/iot/how-to-automate-onboarding-of-iot-devices-to-aws-iot-core-at-scale-with-fleet-provisioning/")
 

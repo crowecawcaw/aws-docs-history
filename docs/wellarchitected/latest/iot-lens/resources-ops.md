@@ -16,4 +16,4 @@ practices for operations:
 - [MQTT
   design best practices](../../../whitepapers/latest/designing-mqtt-topics-aws-iot-core/mqtt-design-best-practices.md "../../../whitepapers/latest/designing-mqtt-topics-aws-iot-core/mqtt-design-best-practices.md")
 - [Device
-  Manufacturing and Provisioning with X.509 Certificates in AWS IoT Core](../../../pdfs/whitepapers/latest/device-manufacturing-provisioning/device-manufacturing-provisioning.md "../../../pdfs/whitepapers/latest/device-manufacturing-provisioning/device-manufacturing-provisioning.md")
+  Manufacturing and Provisioning with X.509 Certificates in AWS IoT Core](../../../pdfs/whitepapers/latest/device-manufacturing-provisioning/device-manufacturing-provisioning.pdf.md "../../../pdfs/whitepapers/latest/device-manufacturing-provisioning/device-manufacturing-provisioning.pdf.md")
