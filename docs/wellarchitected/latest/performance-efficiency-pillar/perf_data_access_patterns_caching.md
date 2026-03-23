@@ -101,7 +101,7 @@ remote caching for multi-level caching to improve the latency.
   values may indicate insufficient cache size or an access
   pattern that does not benefit from caching.
   - [Which
-    metrics should I monitor?](../../../AmazonElastiCache/latest/red-ug/CacheMetrics.md "../../../AmazonElastiCache/latest/red-ug/CacheMetrics.md")
+    metrics should I monitor?](../../../AmazonElastiCache/latest/red-ug/CacheMetrics.WhichShouldIMonitor.md "../../../AmazonElastiCache/latest/red-ug/CacheMetrics.WhichShouldIMonitor.md")
   - [Best
     practices for monitoring Redis workloads on Amazon ElastiCache](https://www.youtube.com/watch?v=c-hTMLN35BY "https://www.youtube.com/watch?v=c-hTMLN35BY")
   - [Monitoring
@@ -110,7 +110,7 @@ remote caching for multi-level caching to improve the latency.
 
 - Implement
   [data
-  replication](../../../AmazonElastiCache/latest/red-ug/Replication.Redis.md "../../../AmazonElastiCache/latest/red-ug/Replication.Redis.md") to offload reads to multiple instances
+  replication](../../../AmazonElastiCache/latest/red-ug/Replication.Redis.Groups.md "../../../AmazonElastiCache/latest/red-ug/Replication.Redis.Groups.md") to offload reads to multiple instances
   and improve data read performance and availability.
 
 ## Resources
@@ -122,7 +122,7 @@ remote caching for multi-level caching to improve the latency.
 - [Monitoring
   best practices with Amazon ElastiCache (Redis OSS) using Amazon CloudWatch](https://aws.amazon.com/blogs/database/monitoring-best-practices-with-amazon-elasticache-for-redis-using-amazon-cloudwatch/ "https://aws.amazon.com/blogs/database/monitoring-best-practices-with-amazon-elasticache-for-redis-using-amazon-cloudwatch/")
 - [Which
-  Metrics Should I Monitor?](../../../AmazonElastiCache/latest/red-ug/CacheMetrics.md "../../../AmazonElastiCache/latest/red-ug/CacheMetrics.md")
+  Metrics Should I Monitor?](../../../AmazonElastiCache/latest/red-ug/CacheMetrics.WhichShouldIMonitor.md "../../../AmazonElastiCache/latest/red-ug/CacheMetrics.WhichShouldIMonitor.md")
 - [Performance
   at Scale with Amazon ElastiCache whitepaper](../../../whitepapers/latest/scale-performance-elasticache/scale-performance-elasticache.md "../../../whitepapers/latest/scale-performance-elasticache/scale-performance-elasticache.md")
 - [Caching

@@ -27,7 +27,7 @@ Use edge services to reduce latency and to enable content caching. Configure cac
 
 - Capture information about the IP traffic going to and from network interfaces.
   - [Logging IP traffic using VPC Flow Logs](../../../vpc/latest/userguide/flow-logs.md "../../../vpc/latest/userguide/flow-logs.md")
-  - [How the client IP address is preserved in AWS Global Accelerator](../../../global-accelerator/latest/dg/preserve-client-ip-address.md "../../../global-accelerator/latest/dg/preserve-client-ip-address.md")
+  - [How the client IP address is preserved in AWS Global Accelerator](../../../global-accelerator/latest/dg/preserve-client-ip-address.headers.md "../../../global-accelerator/latest/dg/preserve-client-ip-address.headers.md")
 
 - Analyze network access patterns in your workload to identify how users use your application.
   - Use monitoring tools, such as [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/") and [AWS CloudTrail](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/"), to gather data on network activities.

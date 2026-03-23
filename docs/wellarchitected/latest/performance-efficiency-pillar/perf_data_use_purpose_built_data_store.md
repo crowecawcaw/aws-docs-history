@@ -111,7 +111,7 @@ one-size-fits-all approaches to focus on managing data appropriately.
   Caching](https://aws.amazon.com/caching/database-caching/?ref=wellarchitected "https://aws.amazon.com/caching/database-caching/?ref=wellarchitected")
 - [DynamoDB Accelerator](https://aws.amazon.com/dynamodb/dax/?ref=wellarchitected "https://aws.amazon.com/dynamodb/dax/?ref=wellarchitected")
 - [Amazon Aurora
-  best practices](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md")
+  best practices](../../../AmazonRDS/latest/UserGuide/Aurora.BestPractices.md "../../../AmazonRDS/latest/UserGuide/Aurora.BestPractices.md")
 - [Amazon Redshift performance](../../../redshift/latest/dg/c_challenges_achieving_high_performance_queries.md "../../../redshift/latest/dg/c_challenges_achieving_high_performance_queries.md")
 - [Amazon Athena top 10 performance tips](https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/?ref=wellarchitected "https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/?ref=wellarchitected")
 - [Amazon Redshift Spectrum best practices](https://aws.amazon.com/blogs/big-data/10-best-practices-for-amazon-redshift-spectrum/?ref=wellarchitected "https://aws.amazon.com/blogs/big-data/10-best-practices-for-amazon-redshift-spectrum/?ref=wellarchitected")
