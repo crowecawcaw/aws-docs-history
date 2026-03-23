@@ -72,7 +72,7 @@ Related resources:
   of using an item collection, a group of related items that share the same partition key
   value, as a way to model one-to-many relationships
 
-- [Characteristics of databases](../../../amazondynamodb/latest/developerguide/SQLtoNoSQL.md "../../../amazondynamodb/latest/developerguide/SQLtoNoSQL.md") - comparison of SQL and NoSQL qualities of DynamoDB
+- [Characteristics of databases](../../../amazondynamodb/latest/developerguide/SQLtoNoSQL.Accessing.md "../../../amazondynamodb/latest/developerguide/SQLtoNoSQL.Accessing.md") - comparison of SQL and NoSQL qualities of DynamoDB
 
 ### Reading data
 
@@ -111,7 +111,7 @@ DynamoDB supports many different data types for attributes within a table. They 
 
 Related resource:
 
-- [Supported data types and naming rules in Amazon DynamoDB](../../../amazondynamodb/latest/developerguide/HowItWorks.md "../../../amazondynamodb/latest/developerguide/HowItWorks.md")
+- [Supported data types and naming rules in Amazon DynamoDB](../../../amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.md "../../../amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.md")
 
 ### Operations on tables
 
@@ -148,7 +148,7 @@ You can also run a local instance of DynamoDB on your workstation. Combined with
 
 Related resources:
 
-- [NoSQL Workbench](../../../amazondynamodb/latest/developerguide/workbench.md "../../../amazondynamodb/latest/developerguide/workbench.md") & [Building data models with NoSQL Workbench](../../../amazondynamodb/latest/developerguide/workbench.md "../../../amazondynamodb/latest/developerguide/workbench.md") - model and query data with a desktop tool
+- [NoSQL Workbench](../../../amazondynamodb/latest/developerguide/workbench.md "../../../amazondynamodb/latest/developerguide/workbench.md") & [Building data models with NoSQL Workbench](../../../amazondynamodb/latest/developerguide/workbench.Modeler.md "../../../amazondynamodb/latest/developerguide/workbench.Modeler.md") - model and query data with a desktop tool
 - [Setting up DynamodDB local (downloadable version)](../../../amazondynamodb/latest/developerguide/DynamoDBLocal.md "../../../amazondynamodb/latest/developerguide/DynamoDBLocal.md")
 
 ### DynamoDB Streams
