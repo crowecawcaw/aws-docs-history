@@ -62,9 +62,13 @@ real-time inference, you can choose to set a price per inference.
 
 ###### Note
 
-Batch transform processes always use hourly pricing. Training jobs for
-algorithm products also always use hourly pricing. You can set these prices
-independently of the inference pricing, and of each other.
+The following ML product types always use hourly pricing:
+
+- Batch transform jobs
+- Asynchronous inference endpoints
+- Training jobs for algorithm products
+  You set the price for each type independently of the inference
+  pricing and of each other.
 
 By default, with inference pricing, AWS Marketplace charges your buyer for each invocation
 of your endpoint. However, in some cases, your software processes a batch of
@@ -81,7 +85,7 @@ X-Amzn-Inference-Metering: {"Dimension": "inference.count", "ConsumedUnits": 3}
 
 ###### Note
 
-For inference pricing, AWS Marketplace only charges buyer for requests where the HTTP
+For inference pricing, AWS Marketplace only charges the buyer for requests where the HTTP
 response code is `2XX`.
 
 ### Free trial

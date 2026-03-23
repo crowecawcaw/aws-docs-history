@@ -110,7 +110,7 @@ For list of hosting patterns that AWS considers deployed on AWS, see [Guidelines
 4. For **Request changes**, choose **Update architecture details**.
 5. Choose a hosting pattern. If you select a hosting pattern that AWS Marketplace considers deployed on AWS, complete the following two additional steps. For more information about patterns considered deployed on AWS, see [Guidelines](saas-guidelines.md#march-saas-guidelines "saas-guidelines.md#march-saas-guidelines"), previously in this guide.
    1. If prompted, in the **Architecture diagram** section, choose **Choose file** to upload your architecture diagram in PNG or JPG format. For more information about diagrams, see [Creating architecture diagrams](saas-guidelines.md#arch-diagram "saas-guidelines.md#arch-diagram").
-   2. If prompted, in the **Application plane**, choose where your application runs. For more information, see [Control plane vs. application plane](../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.md "../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.md").
+   2. If prompted, in the **Application plane**, choose where your application runs. For more information, see [Control plane vs. application plane](../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.-application-plane.md "../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.-application-plane.md").
 
 6. Choose **Update architecuture details**.
 

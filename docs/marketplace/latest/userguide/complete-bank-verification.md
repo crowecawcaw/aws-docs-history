@@ -1,6 +1,6 @@
 # Step 6: Complete bank account verification
 
-To receive disbursements from Amazon Payments Europe (APE), you must provide additional information to verify your disbursement bank account that is listed in the **Payment Information** tab in the AWS Marketplace Management Portal.
+To receive disbursements from the AWS EMEA and Korea invoicing entity, you must provide additional information to verify your disbursement bank account that is listed in the **Payment Information** tab in the AWS Marketplace Management Portal.
 
 ###### Sellers in India
 
@@ -29,7 +29,7 @@ After submitting your bank verification document, the review process typically t
 
 ###### Important
 
-You must complete the bank account verification process before you can receive disbursements through Amazon Payments Europe.
+You must complete the bank account verification process before you can receive disbursements through the AWS EMEA and Korea invoicing entity.
 
 ## Best practices for bank account verification
 
@@ -39,7 +39,20 @@ Consider these best practices when completing the bank account verification proc
 - Verify that the account holder name on the document exactly matches the name on your seller account.
 - Make sure the bank account number on the document matches what you provided for disbursements.
 - Upload a clear, legible copy of your document - avoid blurry or partially obscured images.
+- Submit official documents only. Screenshots of bank portals or mobile apps are not accepted.
 - If you encounter issues with verification, contact AWS Marketplace Seller Support for assistance.
+
+###### Additional accepted documents for sellers in Korea
+
+Korean sellers have additional flexibility in the types of bank documentation they can submit. The following Korean bank documents are acceptable, provided they meet the standard requirements (for example, issued within the required timeframe, clearly showing the bank logo, account number, and account holder's name, and submitted as an official document rather than a screenshot):
+
+- 잔액증명서 (Balance Certificate)
+- 거래내역서 (Transaction Statement)
+- 계좌개설확인서 (Account Opening Confirmation)
+- 계좌정보증명서 (Account Information Certificate)
+- 예금잔액증명서 (Deposit Balance Certificate)
+- 사업자통장 잔액증명서 (Business Account Balance Certificate)
+- 사업자통장 거래내역서 (Business Account Transaction Statement)
 
 ## Registration completion
 

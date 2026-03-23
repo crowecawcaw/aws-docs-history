@@ -234,17 +234,12 @@ four delivery options per version of the product.
           Kubernetes service account that will be used to connect to
           AWS Identity and Access Management (IAM). The Kubernetes service account calls AWS
           services such as licensing or metering.
-       9. Choose to enable **QuickLaunch** on this product version.
-          Quick Launch is a feature in AWS Marketplace. Buyers can use Quick Launch to create an Amazon EKS cluster
-          quickly and launch your software on it by using AWS CloudFormation. For more information,
-          see [Quick Launch in AWS Marketplace](../buyerguide/buyer-launch-container-quicklaunch.md "../buyerguide/buyer-launch-container-quicklaunch.md").
-       10. In **Override parameters**, enter parameters that will be
-           used in the Helm CLI commands that launch the software. These
-           parameters allow buyers to override the provided default values. If you have
-           enabled Quick Launch, also enter a parameter name and description for the CloudFormation
-           form. There is a limit of 15 parameters when using the AWS Marketplace Management
-           Console, but there is no limit when using the AWS Marketplace Catalog API. For more
-           information, see [Adding a new version to a container-based product](../../../marketplace-catalog/latest/api-reference/container-products.md#container-add-version "../../../marketplace-catalog/latest/api-reference/container-products.md#container-add-version").
+       9. In **Override parameters**, enter parameters that will be
+          used in the Helm CLI commands that launch the software. These
+          parameters allow buyers to override the provided default values.
+          There is a limit of 15 parameters when using the AWS Marketplace Management
+          Console, but there is no limit when using the AWS Marketplace Catalog API. For more
+          information, see [Adding a new version to a container-based product](../../../marketplace-catalog/latest/api-reference/container-products.md#container-add-version "../../../marketplace-catalog/latest/api-reference/container-products.md#container-add-version").
 
        ###### Note
 
@@ -253,7 +248,7 @@ four delivery options per version of the product.
        with a `DefaultValue` of `"${AWSMP_LICENSE_SECRET}"`.
        For paid products, you must provide one **Override
        parameter** for service account configuration with the
-       `DefaultValue` of `"${AWSMP_SERVICE_ACCOUNT}"`. 11. Choose **Hide passwords and secrets** to mask sensitive
+       `DefaultValue` of `"${AWSMP_SERVICE_ACCOUNT}"`. 10. Choose **Hide passwords and secrets** to mask sensitive
        information in consoles, command line tools, and APIs. For more information, see
        the `NoEcho` parameter documentation in [Parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") in the _AWS CloudFormation User Guide_.
 

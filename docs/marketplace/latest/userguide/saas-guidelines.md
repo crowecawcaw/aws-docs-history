@@ -105,7 +105,7 @@ The following guidelines are effective as of May 1, 2025.
 
 The _application plane_ can run in
 the seller's AWS account, the buyer's AWS account, or both. For more information, refer to the
-[Control plane vs. application plane](../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.md "../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.md") whitepaper.
+[Control plane vs. application plane](../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.-application-plane.md "../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.-application-plane.md") whitepaper.
 
 Third-party services used by the product to transmit, store, or process application data—except
 content delivery networks (CDNs), domain name systems (DNSs), and corporate identity
@@ -125,7 +125,7 @@ You must include an architecture diagram for review. You cannot make the diagram
 - Applications that require resources in the buyer's infrastructure must follow these
   guidelines:
   - To be considered a SaaS product and not a managed service, your control plane—as defined in the [SaaS Architecture Fundamentals](../../../whitepapers/latest/saas-architecture-fundamentals/saas-architecture-fundamentals.md "../../../whitepapers/latest/saas-architecture-fundamentals/saas-architecture-fundamentals.md") AWS whitepaper—must reside in infrastructure that you manage. For more
-    information, refer to the [SaaS vs. Managed Service Provider](../../../whitepapers/latest/saas-architecture-fundamentals/saas-vs.md "../../../whitepapers/latest/saas-architecture-fundamentals/saas-vs.md") whitepaper.
+    information, refer to the [SaaS vs. Managed Service Provider](../../../whitepapers/latest/saas-architecture-fundamentals/saas-vs.-managed-service-provider-msp.md "../../../whitepapers/latest/saas-architecture-fundamentals/saas-vs.-managed-service-provider-msp.md") whitepaper.
   - In the product description, you must notify customers that if they incur AWS
     infrastructure charges separate from their AWS Marketplace transaction, they must pay those
     charges.
@@ -185,7 +185,7 @@ considers deployed on AWS, see [Guidelines](#march-saas-guidelines "#march-saas-
 
 Use the following criteria when creating a diagram:
 
-- Group and label components as part of the [application plane or control plane](../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.md "../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.md").
+- Group and label components as part of the [application plane or control plane](../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.-application-plane.md "../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.-application-plane.md").
 - For any components outside of AWS that are part of the core business logic of your
   product, group them with the application plane.
 - Components can represent low-level details (for example, compute instances and

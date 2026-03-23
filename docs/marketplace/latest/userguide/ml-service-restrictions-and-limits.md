@@ -12,7 +12,6 @@ AWS Marketplace.
 - [Payload size for inference](#ml-payload-size-for-inference "#ml-payload-size-for-inference")
 - [Processing time for inference](#ml-processing-time-for-inference "#ml-processing-time-for-inference")
 - [Service quotas](#ml-service-quotas "#ml-service-quotas")
-- [Asynchronous inference](#asynchronous-inference "#asynchronous-inference")
 - [Serverless inference](#severless-inference "#severless-inference")
 - [Managed spot training](#ml-managed-spot-training "#ml-managed-spot-training")
 - [Docker images and AWS accounts](#ml-docker-images-and-aws-accounts "#ml-docker-images-and-aws-accounts")
@@ -72,14 +71,6 @@ can't be adjusted.
 
 For more information about quotas related to training and inference, see [Amazon SageMaker AI
 Service Quotas](../../../general/latest/gr/sagemaker.md#limits_sagemaker "../../../general/latest/gr/sagemaker.md#limits_sagemaker").
-
-## Asynchronous inference
-
-Model packages and algorithms published in AWS Marketplace can't be deployed to endpoints configured
-for [Amazon SageMaker AI
-Asynchronous Inference](../../../sagemaker/latest/dg/async-inference.md "../../../sagemaker/latest/dg/async-inference.md"). Endpoints configured for asynchronous inference requires
-models to have network connectivity. All AWS Marketplace models operate in network isolation. For more
-information, see [No network access](ml-security-and-intellectual-property.md#ml-no-network-access "ml-security-and-intellectual-property.md#ml-no-network-access").
 
 ## Serverless inference
 
