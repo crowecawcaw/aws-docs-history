@@ -71,6 +71,60 @@ would need to manually add these permissions to their IAM role.
 The Service Linked Role will get updated with the following permissions if the QinConnect intent gets added.
 A new policy will be added for QinConnect access:
 
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Sid": "QInConnectAssistantPolicy",
+            "Action": [
+                "wisdom:CreateSession",
+                "wisdom:GetAssistant"
+            ],
+            "Resource": [
+                "arn:aws:wisdom:*:`accountId`:assistant/`assistantId`",
+                "arn:aws:wisdom:*:`accountId`:assistant/`assistantId`/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Sid": "QInConnectSessionsPolicy",
+            "Action": [
+                "wisdom:SendMessage",
+                "wisdom:GetNextMessage"
+            ],
+            "Resource": [
+                "arn:aws:wisdom:*:`accountId`:session/`assistantId`/*"
+            ]
+        },
+        {
+            "Sid": "QInConnectKmsCMKPolicy",
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey"
+            ],
+            "Resource": [
+                "arn:aws:kms:`region`:`accountId`:key/`keyId`"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceAccount": "`accountId`",
+                    "kms:ViaService": "wisdom.`region`.amazonaws.com",
+                    "kms:EncryptionContext:aws:wisdom:assistant:arn": ["arn:aws:wisdom:`region`:`accountId`:assistant/`assistantId`"]
+                }
+            }
+        }
+    ]
+}
+```
+
+###### Note
+
+The `QInConnectKmsCMKPolicy` statement is only required if you are using a customer managed KMS key
+with the Amazon Q in Connect assistant.
+
 **Trust Policy**
 
 ```
@@ -83,10 +137,10 @@ A new policy will be added for QinConnect access:
     "Action": "sts:AssumeRole",
     "Condition": {
         "StringEquals": {
-            "aws:SourceAccount": "{`accountId`}"
+            "aws:SourceAccount": "`accountId`"
         },
         "ArnLike": {
-            "aws:SourceArn": "arn:aws:lex:*:{`accountId`}:bot-alias/{`botId`}/*"
+            "aws:SourceArn": "arn:aws:lex:*:`accountId`:bot-alias/`botId`/*"
         }
     }
 }

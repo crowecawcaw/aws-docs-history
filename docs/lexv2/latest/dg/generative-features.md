@@ -19,8 +19,7 @@ Powered by Amazon Bedrock: AWS implements automated abuse detection. Because the
 
 Before you can take advantage of the generative AI features, you must fulfill the following prerequisites
 
-1. Navigate to the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock") and sign up for access
-   to the Anthropic Claude model you intend to use (for more information, see [Model access](../../../bedrock/latest/userguide/model-access.md "../../../bedrock/latest/userguide/model-access.md")). For information
+1. For information
    about pricing for using Amazon Bedrock, see [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
 2. Turn on the
    generative AI capabilities for your bot locale. To do so, follow the steps at Optimize Lex V2 bot creation and performance by using generative AI.

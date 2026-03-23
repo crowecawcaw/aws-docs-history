@@ -4,8 +4,7 @@
 
 Before you can take advantage of the generative AI features, you must fulfill the following prerequisites
 
-1. Navigate to the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock") and sign up for access
-   to the Anthropic Claude model you intend to use (for more information, see [Model access](../../../bedrock/latest/userguide/model-access.md "../../../bedrock/latest/userguide/model-access.md")). For information
+1. For information
    about pricing for using Amazon Bedrock, see [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
 2. Turn on the
    generative AI capabilities for your bot locale. To do so, follow the steps at [Optimize Lex V2 bot creation and performance by using generative AI](generative-features.md "generative-features.md").
@@ -13,7 +12,7 @@ Before you can take advantage of the generative AI features, you must fulfill th
 
 To allow utterance generation, follow the steps at [Optimize Lex V2 bot creation and performance by using generative AI](generative-features.md "generative-features.md") to activate generative AI capabilities.
 
-To access this feature on Amazon Lex V2 console, ensure your console role has `bedrock:ListFoundationModels` and `bedrock:InvokeModel` permissions.
+To access this feature on Amazon Lex V2 console, ensure your console role has `bedrock:ListFoundationModels`, `bedrock:ListInferenceProfiles`, and `bedrock:InvokeModel` permissions.
 
 You can generate utterances with either the console or the API.
 

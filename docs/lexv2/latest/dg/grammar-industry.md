@@ -13,7 +13,7 @@ The grammars contain the rules to collect the information and the
 [ECMAScript
 tags](grammar-ecmascript-spec.md "grammar-ecmascript-spec.md") for semantic interpretation.
 
-## Grammars for financial services ([download](samples/financial-grammars.md "samples/financial-grammars.md"))
+## Grammars for financial services ([download](samples/financial-grammars.zip.md "samples/financial-grammars.zip.md"))
 
 The following grammars are supported for financial services:
 account and routing numbers, credit card and loan numbers,
@@ -1472,7 +1472,7 @@ Security number.
 
 ```
 
-## Grammars for insurance ([download](samples/insurance-grammars.md "samples/insurance-grammars.md"))
+## Grammars for insurance ([download](samples/insurance-grammars.zip.md "samples/insurance-grammars.zip.md"))
 
 The following grammars are supported for insurance domain:
 claim and policy numbers, driver's license and license plate
@@ -2931,7 +2931,7 @@ and policy amounts.
 
 ```
 
-## Grammars for telecom ([download](samples/telecom-grammars.md "samples/telecom-grammars.md"))
+## Grammars for telecom ([download](samples/telecom-grammars.zip.md "samples/telecom-grammars.zip.md"))
 
 The following grammars are supported for telecom: Phone
 number, serial number, SIM number, US Zip code, credit card
@@ -4343,7 +4343,7 @@ service start date, equipment quantity and bill amount.
 
 ```
 
-## Generic grammars ([download](samples/generic-grammars.md "samples/generic-grammars.md"))
+## Generic grammars ([download](samples/generic-grammars.zip.md "samples/generic-grammars.zip.md"))
 
 We provide the following generic grammars: alphanumeric,
 currency, date (mm/dd/yy), numbers, greeting, hesitation, and
