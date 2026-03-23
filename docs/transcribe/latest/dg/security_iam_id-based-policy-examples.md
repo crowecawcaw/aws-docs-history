@@ -103,7 +103,67 @@ must use 'Trust policy for real-time Call Analytics'.
 
 **Trust policy for Amazon Transcribe**
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": [
+ "transcribe.amazonaws.com"
+ ]
+ },
+ "Action": [
+ "sts:AssumeRole"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": "`111122223333`"
+ },
+ "ArnLike": {
+ "aws:SourceArn": "arn:aws:transcribe:`us-west-2`:`111122223333`:*"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
 **Trust policy for real-time Call Analytics**
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": [
+ "transcribe.streaming.amazonaws.com"
+ ]
+ },
+ "Action": [
+ "sts:AssumeRole"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": "`111122223333`"
+ },
+ "ArnLike": {
+ "aws:SourceArn": "arn:aws:transcribe:`us-west-2`:`111122223333`:*"
+ }
+ }
+ }
+ ]
+}`
+
+```
 
 ### Amazon S3 input bucket policy
 
@@ -231,11 +291,76 @@ requests with at least one encryption context pair, in this case
 "`color:indigoBlue`”. For more information on AWS KMS encryption context,
 see [AWS KMS encryption context](data-encryption.md#kms-context "data-encryption.md#kms-context").
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:role/`ExampleRole`"
+ },
+ "Action": [
+ "kms:Decrypt",
+ "kms:Encrypt",
+ "kms:GenerateDataKey*",
+ "kms:ReEncrypt*"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "kms:EncryptionContext:`color`": "`indigoBlue`"
+ }
+ }
+ },
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:role/`ExampleRole`"
+ },
+ "Action": "kms:DescribeKey",
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
 ## Confused deputy prevention policy
 
 Here's an example of an assume role policy that shows how you can use `aws:SourceArn`
 and `aws:SourceAccount` with Amazon Transcribe to prevent a confused deputy issue. For
 more information on confused deputy prevention, see [Cross-service confused deputy prevention](security-iam-confused-deputy.md "security-iam-confused-deputy.md").
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "transcribe.amazonaws.com"
+ },
+ "Action": [
+ "sts:AssumeRole"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": "`111122223333`"
+ },
+ "ArnLike": {
+ "aws:SourceArn": "arn:aws:transcribe:`us-west-2`:`111122223333`:*"
+ }
+ }
+ }
+ ]
+}`
+
+```
 
 ## Viewing transcription jobs based on tags
 
@@ -254,3 +379,29 @@ policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_ele
 Guide_.
 
 For more information on tagging in Amazon Transcribe, see [Tagging resources](tagging.md "tagging.md").
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ListTranscriptionJobsInConsole",
+ "Effect": "Allow",
+ "Action": "transcribe:ListTranscriptionJobs",
+ "Resource": "*"
+ },
+ {
+ "Sid": "ViewTranscriptionJobsIfOwner",
+ "Effect": "Allow",
+ "Action": "transcribe:GetTranscriptionJob",
+ "Resource": "arn:aws:transcribe:`us-west-2`:`111122223333`:transcription-job/*",
+ "Condition": {
+ "StringEquals": {"aws:ResourceTag/Owner": "${aws:username}"}
+ }
+ }
+ ]
+}`
+
+```

@@ -145,6 +145,27 @@ removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies
 
 Policies have the format:
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "`my-policy-name`",
+ "Effect": "Allow",
+ "Action": [
+ "`service`:`action`"
+ ],
+ "Resource": [
+ "`amazon-resource-name`"
+ ]
+ }
+ ]
+}`
+
+```
+
 Amazon Resource Names (ARNs) uniquely identify all AWS resources, such as an
 Amazon S3 bucket. You can use ARNs in your policy to grant permissions for specific actions to
 use specific resources. For example, if you want to grant read access to an Amazon S3 bucket

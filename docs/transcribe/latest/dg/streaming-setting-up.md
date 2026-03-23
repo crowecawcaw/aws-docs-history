@@ -29,6 +29,24 @@ streams, your transcription request fails.
 
 1. Attach the following policy to the IAM role that makes the request.
    See [Adding IAM policies](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policy-api "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policy-api") for more information.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "`myTranscribeHttp2Policy`",
+ "Effect": "Allow",
+ "Action": "transcribe:`StartStreamTranscription`",
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
 2. To start the session, send an HTTP/2 request to Amazon Transcribe.
 
 ```
@@ -256,6 +274,24 @@ use multiple streams, your transcription request fails.
 
 1. Attach the following policy to the IAM role that makes the request.
    See [Adding IAM policies](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policy-api "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policy-api") for more information.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "`myTranscribeWebsocketPolicy`",
+ "Effect": "Allow",
+ "Action": "transcribe:`StartStreamTranscriptionWebSocket`",
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
 2. To start the session, create a presigned URL in the following format. Line breaks
    have been added for readability.
 

@@ -119,6 +119,45 @@ You can use the encryption context in key policies and IAM policies as condition
 The following are example key policy statements to grant access to a customer managed key for a specific encryption context.
 The condition in this policy statement requires that the KMS key usages have an encryption context constraint that specifies the encryption context.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowAccessToResourceAccessRoleForMedicalScribe",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:role/`ResourceAccessRole`"
+ },
+ "Action": [
+ "kms:Encrypt",
+ "kms:Decrypt",
+ "kms:GenerateDataKey*"
+ ],
+ "Resource": "arn:aws:kms:`us-west-2`:`111122223333`:key/`KMS-Example-KeyId`",
+ "Condition": {
+ "StringEquals": {
+ "kms:EncryptionContext:aws:us-east-1:transcribe:medical-scribe:session-id": "`1234abcd-12ab-34cd-56ef-123456SAMPLE`",
+ "kms:EncryptionContext:`ECKey`": "`ECValue`"
+ }
+ }
+ },
+ {
+ "Sid": "AllowAccessToResourceAccessRoleForDescribeKey",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:role/`ResourceAccessRole`"
+ },
+ "Action": "kms:DescribeKey",
+ "Resource": "arn:aws:kms:`us-west-2`:`111122223333`:key/`KMS-Example-KeyId`"
+ }
+ ]
+}`
+
+```
+
 ## Monitoring your encryption keys for AWS HealthScribe
 
 When you use an AWS Key Management Service customer managed key with AWS HealthScribe, you can use AWS CloudTrail or CloudWatch logs to track requests that AWS HealthScribe sends to AWS KMS.

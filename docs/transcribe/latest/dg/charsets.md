@@ -535,12 +535,12 @@ You can also use the following Unicode characters in the `Phrase` field:
 For Chinese (Simplified) custom vocabularies, the `Phrase` field can use any of
 the characters listed in the following file:
 
-- [zh-cn-character-set](samples/zh-cn-character-set.md "samples/zh-cn-character-set.md")
+- [zh-cn-character-set](samples/zh-cn-character-set.zip.md "samples/zh-cn-character-set.zip.md")
 
 The `SoundsLike` field can contain the pinyin syllables listed in the following
 file:
 
-- [pinyin-character-set](samples/pinyin-character-set.md "samples/pinyin-character-set.md")
+- [pinyin-character-set](samples/pinyin-character-set.zip.md "samples/pinyin-character-set.zip.md")
 
 When you use pinyin syllables in the `SoundsLike` field, separate the syllables
 with a hyphen (-).
@@ -580,12 +580,12 @@ Phrase       SoundsLike               IPA     DisplayAs
 For Chinese (Traditional) custom vocabularies, the `Phrase` field can use any
 of the characters listed in the following file:
 
-- [zh-tw-character-set](samples/zh-tw-character-set.md "samples/zh-tw-character-set.md")
+- [zh-tw-character-set](samples/zh-tw-character-set.zip.md "samples/zh-tw-character-set.zip.md")
 
 The `SoundsLike` field can contain the zhuyin syllables listed in the following
 file:
 
-- [zhuyin-character-set](samples/zhuyin-character-set.md "samples/zhuyin-character-set.md")
+- [zhuyin-character-set](samples/zhuyin-character-set.zip.md "samples/zhuyin-character-set.zip.md")
 
 When you use zhuyin syllables in the `SoundsLike` field, separate the syllables
 with a hyphen (-).
@@ -621,7 +621,7 @@ Phrase        SoundsLike                     IPA        DisplayAs
 For Chinese (Cantonese) Hong Kong custom vocabularies, the `Phrase` field can use any of
 the characters listed in the following file:
 
-- [zh-hk-character-set](samples/zh-hk-character-set.md "samples/zh-hk-character-set.md")
+- [zh-hk-character-set](samples/zh-hk-character-set.zip.md "samples/zh-hk-character-set.zip.md")
 
 ## Croatian character set
 
@@ -1135,7 +1135,7 @@ katakana, and kanji characters, and fullwidth romaji capital letters.
 
 The `Phrase` field supports the characters listed in the following file:
 
-- [ja-jp-character-set](samples/ja-jp-character-set.md "samples/ja-jp-character-set.md")
+- [ja-jp-character-set](samples/ja-jp-character-set.zip.md "samples/ja-jp-character-set.zip.md")
 
 ## Kabyle character set
 

@@ -27,6 +27,55 @@ The following is an example key policy you can use to grant your ResourceAccessR
 to use your customer managed key for AWS HealthScribe streaming. To use this policy for
 transcription jobs, update the `Principal` to use the DataAccessRole ARN, and remove or modify the encryption context.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Sid": "AllowAccessForKeyAdministrators",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:root"
+ },
+ "Action": [
+ "kms:*"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "AllowAccessToResourceAccessRoleForMedicalScribe",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:role/`ResourceAccessRole`"
+ },
+ "Action": [
+ "kms:Encrypt",
+ "kms:Decrypt",
+ "kms:GenerateDataKey*"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "kms:EncryptionContext:aws:us-east-1:transcribe:medical-scribe:session-id": "`1234abcd-12ab-34cd-56ef-123456SAMPLE`"
+ }
+ }
+ },
+ {
+ "Sid": "AllowAccessToResourceAccessRoleForDescribeKey",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:role/`ResourceAccessRole`"
+ },
+ "Action": "kms:DescribeKey",
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
 ## IAM policy permissions for access roles
 
 The IAM policy attached to your DataAccessRole or ResourceAccessRole must grant permissions to perform the necessary AWS KMS actions,
@@ -37,8 +86,72 @@ The following IAM policy example shows how to grant a ResourceAccessRole permiss
 To use this policy for transcription jobs, replace `transcribe.streaming.amazonaws.com` with
 `transcribe.amazonaws.com` and remove or modify the encryption context.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kms:Encrypt",
+ "kms:Decrypt",
+ "kms:GenerateDataKey*"
+ ],
+ "Resource": "arn:aws:kms:`us-west-2`:`111122223333`:key/`KMS-Example-KeyId`",
+ "Condition": {
+ "StringEquals": {
+ "kms:ViaService": "transcribe.streaming.amazonaws.com",
+ "kms:EncryptionContext:aws:us-east-1:transcribe:medical-scribe:session-id": "`1234abcd-12ab-34cd-56ef-123456SAMPLE`"
+ }
+ }
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kms:DescribeKey"
+ ],
+ "Resource": "arn:aws:kms:`us-west-2`:`111122223333`:key/`KMS-Example-KeyId`",
+ "Condition": {
+ "StringEquals": {
+ "kms:ViaService": "transcribe.streaming.amazonaws.com"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
 The following is trust policy example for the ResourceAccessRole. For DataAccessRole, replace
 `transcribe.streaming.amazonaws.com` with `transcribe.amazonaws.com`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "transcribe.streaming.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole",
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": "`111122223333`"
+ },
+ "ArnLike": {
+ "aws:SourceArn": "arn:aws:transcribe:`us-west-2`:`111122223333`:*"
+ }
+ }
+ }
+ ]
+}`
+
+```
 
 For more information about [specifying permissions in a
 policy](../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements "../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements") or [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam"), see the AWS Key Management Service Developer Guide.
