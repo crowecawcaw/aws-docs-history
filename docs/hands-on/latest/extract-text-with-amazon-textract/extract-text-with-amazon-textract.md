@@ -286,7 +286,7 @@ an image in order to fully process the code.
 ![A coding interface showing a Python script for processing image files and extracting text using Amazon Textract, with a highlighted copy icon in the top-right corner.](images/coding-interface-processing-image-files.png) 9. Prepare your image file
 
 You can use your own image or download and save this
-[image](images/health_insurance_card_redacted.md "images/health_insurance_card_redacted.md").
+[image](images/health_insurance_card_redacted.png.md "images/health_insurance_card_redacted.png.md").
 Then, **find** the image you want
 to use on your local machine, and
 **drag** the file to the Jupyter
