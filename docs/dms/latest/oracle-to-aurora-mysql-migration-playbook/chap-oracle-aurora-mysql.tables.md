@@ -1,43 +1,25 @@
-# Oracle unused columns
+# Oracle and MySQL tables and indexes
 
-With AWS DMS, you can identify and manage unused columns in Oracle databases during database migration and replication tasks.
+This section provides reference pages for Oracle and MySQL tables and indexes.
 
-| Feature compatibility | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                       |
-| --------------------- | ---------------------------------- | ------------------------- | ------------------------------------- |
-| No compatibility      | No automation                      | N/A                       | MySQL doesn’t support unused columns. |
+###### Topics
 
-## Oracle usage
-
-Oracle provides a method to mark columns as _unused_. Unused columns aren’t physically dropped, but are treated as if they were dropped. Unused columns can’t be restored. Select statements don’t retrieve data from columns marked as unused and aren’t displayed when running a `DESCRIBE` table command.
-
-The main advantage of setting a column to `UNUSED` is to reduce possible high database load when dropping a column from a large table. To overcome this issue, a column can be marked as unused and then be physically dropped later.
-
-To set a column as unused, use the `SET UNUSED` clause.
-
-### Examples
-
-```
-ALTER TABLE EMPLOYEES SET UNUSED (COMMISSION_PCT);
-ALTER TABLE EMPLOYEES SET UNUSED (JOB_ID, COMMISSION_PCT);
-```
-
-Display unused columns.
-
-```
-SELECT * FROM USER_UNUSED_COL_TABS;
-
-TABLE_NAME  COUNT
-EMPLOYEES   3
-```
-
-Drop the column permanently (physically drop the column).
-
-```
-ALTER TABLE EMPLOYEES DROP UNUSED COLUMNS;
-```
-
-For more information, see [CREATE TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6") in the _Oracle documentation_.
-
-## MySQL usage
-
-Currently, Amazon Aurora MySQL doesn’t provide a comparable alternative for unused columns.
+- [Case sensitivity differences for Oracle and MySQL](chap-oracle-aurora-mysql.tables.case.md "chap-oracle-aurora-mysql.tables.case.md")
+- [Data types](chap-oracle-aurora-mysql.tables.common.md "chap-oracle-aurora-mysql.tables.common.md")
+- [Oracle Read-only tables and partitions and Amazon Aurora MySQL replicas](chap-oracle-aurora-mysql.tables.readonly.md "chap-oracle-aurora-mysql.tables.readonly.md")
+- [Oracle and MySQL table constraints](chap-oracle-aurora-mysql.tables.constraints.md "chap-oracle-aurora-mysql.tables.constraints.md")
+- [Oracle and MySQL temporary tables](chap-oracle-aurora-mysql.tables.temporary.md "chap-oracle-aurora-mysql.tables.temporary.md")
+- [Oracle and MySQL triggers](chap-oracle-aurora-mysql.tables.triggers.md "chap-oracle-aurora-mysql.tables.triggers.md")
+- [Oracle and MySQL tablespaces and data files](chap-oracle-aurora-mysql.tables.tablespaces.md "chap-oracle-aurora-mysql.tables.tablespaces.md")
+- [Oracle user-defined types](chap-oracle-aurora-mysql.tables.udt.md "chap-oracle-aurora-mysql.tables.udt.md")
+- [Oracle unused columns](chap-oracle-aurora-mysql.tables.alter.md "chap-oracle-aurora-mysql.tables.alter.md")
+- [Oracle virtual columns and MySQL generated columns](chap-oracle-aurora-mysql.tables.virtual.md "chap-oracle-aurora-mysql.tables.virtual.md")
+- [MySQL overall indexes summary](chap-oracle-aurora-mysql.tables.indexes.md "chap-oracle-aurora-mysql.tables.indexes.md")
+- [Oracle bitmap indexes](chap-oracle-aurora-mysql.tables.bitmap.md "chap-oracle-aurora-mysql.tables.bitmap.md")
+- [Oracle and MySQL B-tree indexes](chap-oracle-aurora-mysql.tables.btree.md "chap-oracle-aurora-mysql.tables.btree.md")
+- [Oracle composite indexes and MySQL multiple-column indexes](chap-oracle-aurora-mysql.tables.composite.md "chap-oracle-aurora-mysql.tables.composite.md")
+- [Oracle function-based indexes and MySQL indexing on generated columns](chap-oracle-aurora-mysql.tables.expression.md "chap-oracle-aurora-mysql.tables.expression.md")
+- [Oracle and MySQL invisible indexes](chap-oracle-aurora-mysql.tables.invisible.md "chap-oracle-aurora-mysql.tables.invisible.md")
+- [Oracle index-organized table and MySQL InnoDB clustered index](chap-oracle-aurora-mysql.tables.iot.md "chap-oracle-aurora-mysql.tables.iot.md")
+- [Oracle local and global partitioned indexes and MySQL partitioned indexes](chap-oracle-aurora-mysql.tables.partitioned.md "chap-oracle-aurora-mysql.tables.partitioned.md")
+- [Oracle automatic indexing](chap-oracle-aurora-mysql.tables.autoindex.md "chap-oracle-aurora-mysql.tables.autoindex.md")
