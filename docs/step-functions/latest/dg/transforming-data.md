@@ -2,6 +2,10 @@
 
 With JSONata, you gain a powerful open source query and expression language to **select** and **transform** data in your workflows. For a brief introduction and complete JSONata reference, see [JSONata.org documentation](https://docs.jsonata.org/overview.html "https://docs.jsonata.org/overview.html").
 
+###### Supported JSONata version
+
+Step Functions supports JSONata version 2.0.6.
+
 The following video describes variables and JSONata in Step Functions with a DynamoDB example:
 
 You must opt-in to use the JSONata query and transformation language for existing workflows. When creating a workflow in the console, we recommend choosing JSONata for the top-level state machine `QueryLanguage`. For existing or new workflows that use JSONPath, the console provides an option to convert individual states to JSONata.
@@ -10,7 +14,8 @@ After selecting JSONata, your workflow fields will be reduced from five JSONPath
 
 If you are new to Step Functions, you only need to know that JSONata expressions use the following syntax:
 
-**JSONata syntax:** `"{% <JSONata expression> %}"`
+**JSONata syntax:**
+`"{% <JSONata expression> %}"`
 
 The following code samples show a conversion from JSONPath to JSONata:
 
@@ -119,7 +124,8 @@ validation of the state machine.
 
 The `$states.context` object provides your workflows information about
 their specific execution, such as `StartTime`, task token, and initial
-workflow input. To learn more, see [Accessing execution data from the Context object in Step Functions](input-output-contextobject.md "input-output-contextobject.md").
+workflow input. To learn more, see [Accessing execution data from the Context object in Step Functions](input-output-contextobject.md "input-output-contextobject.md")
+.
 
 ## Handling expression errors
 

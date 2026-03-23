@@ -576,6 +576,6 @@ C#
 For more information about the AWS Construct Library modules used in this tutorial,
 see the following AWS CDK API Reference overviews:
 
-- [aws-lambda](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md")
-- [aws-stepfunctions](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md")
-- [aws-stepfunctions-tasks](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md")
+- [aws-lambda](../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md")
+- [aws-stepfunctions](../../../cdk/api/v2/docs/aws-cdk-lib.aws_stepfunctions-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_stepfunctions-readme.md")
+- [aws-stepfunctions-tasks](../../../cdk/api/v2/docs/aws-cdk-lib.aws_stepfunctions_tasks-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_stepfunctions_tasks-readme.md")
