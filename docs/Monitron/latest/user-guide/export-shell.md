@@ -38,7 +38,7 @@ blocking public access to your bucket.
 
 In the command above, the bucket is created in the US East (N.
 Virginia) Region. You can optionally specify a different Region in the
-request body. For more information, see [Regions, Availability Zones, and Local Zones](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md").
+request body. For more information, see [Regions, Availability Zones, and Local Zones](../../../AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.md "../../../AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.md").
 
 You should see output that looks something like this:
 
