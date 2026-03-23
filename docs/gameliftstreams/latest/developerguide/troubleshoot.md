@@ -158,12 +158,12 @@ with every new stream start.
 ###### Important
 
 Be sure to visit all the areas or levels of the environment to generate as many shaders as possible. 2. _Before_ closing the stream, enable the export feature in your active stream session. For details, see
-[Export stream session files](stream-sessions-export-files.md "stream-sessions-export-files.md"). 3. Download the stream session export .zip file from the Amazon S3 bucket you specified in the previous step. You can find a
-download link on the Amazon GameLift Streams console on the **Sessions** page. 4. Locate the shaders folder within the stream session export. It's usually saved to this location:
+[Export stream session files](stream-sessions-export-files.md "stream-sessions-export-files.md"). 3. Close your application gracefully by quitting from the application menu or by using the application's shutdown commands. This ensures that the shader cache is ready for export. 4. Download the stream session export .zip file from the Amazon S3 bucket you specified when you enabled the export feature. You can find a
+download link on the Amazon GameLift Streams console on the **Sessions** page. 5. Locate the shaders folder within the stream session export. It's usually saved to this location:
 `AppData\Local\NVIDIA\DXCache`. Upload the generated shader files (`*.nvph`) to your application's
-Amazon S3 bucket. 5. Create a `.bat` file that will copy the shader files into the NVIDIA caching folder at runtime. This folder is
+Amazon S3 bucket. 6. Create a `.bat` file that will copy the shader files into the NVIDIA caching folder at runtime. This folder is
 usually located at: `C:\Users\Administrator\AppData\Local\NVIDIA\DXCache`. Upload the `.bat` file to the
-Amazon S3 application bucket. 6. Create a new Amazon GameLift Streams application with the `.bat` file as the executable path.
+Amazon S3 application bucket. 7. Create a new Amazon GameLift Streams application with the `.bat` file as the executable path.
 
 When your application starts streaming, your `.bat` file will copy the pre-generated shaders to the shader cache before
 launching the application, improving the stream loading performance.
@@ -205,8 +205,8 @@ start %CURRENT_PATH%\`app.exe`
 ###### Important
 
 Be sure to visit all the areas or levels of the environment to generate as many shaders as possible. 3. _Before_ closing the stream, enable the export feature in your active stream session. For details, see
-[Export stream session files](stream-sessions-export-files.md "stream-sessions-export-files.md"). 4. Download the stream session export .zip file from the Amazon S3 bucket you specified in the previous step. You can find a
-download link on the Amazon GameLift Streams console on the **Sessions** page. 5. Locate the shaders folders and files within the stream session export:
+[Export stream session files](stream-sessions-export-files.md "stream-sessions-export-files.md"). 4. Close your application gracefully by quitting from the application menu or by using the application's shutdown commands. This ensures that the shader cache is ready for export. 5. Download the stream session export .zip file from the Amazon S3 bucket you specified when you enabled the export feature. You can find a
+download link on the Amazon GameLift Streams console on the **Sessions** page. 6. Locate the shaders folders and files within the stream session export:
 
     1. `application\GLCache` folder
     2. if application uses DX11: `application\`path-to-exe\exe-name`.dxvk-cache`
@@ -214,13 +214,13 @@ download link on the Amazon GameLift Streams console on the **Sessions** page. 5
     3. if application uses DX12: `application\`path-to-exe`\vkd3d-proton.cache.write`
      file
 
-6. Upload the generated shader files to your application's Amazon S3 bucket:
+7. Upload the generated shader files to your application's Amazon S3 bucket:
    1. Copy the `GLCache` folder into the root directory of your application.
    2. If available, copy the `.dxvk-cache` or `vkd3d-proton.cache.write` cache file to the folder
       containing the application executable.
 
-7. Create a new Amazon GameLift Streams application with the same Proton configuration.
-8. Run the application with the same environment variable override:
+8. Create a new Amazon GameLift Streams application with the same Proton configuration.
+9. Run the application with the same environment variable override:
 
 ```
 "__GL_SHADER_DISK_CACHE_PATH" : "/home/unpriv/games"
