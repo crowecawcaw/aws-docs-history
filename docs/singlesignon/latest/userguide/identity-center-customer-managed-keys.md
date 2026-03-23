@@ -292,7 +292,7 @@ policy can be corrected) or permanent (a deleted key cannot be restored) dependi
 the circumstances. We recommend you [restrict
 access](../../../kms/latest/developerguide/deleting-keys-adding-permission.md "../../../kms/latest/developerguide/deleting-keys-adding-permission.md") to critical operations, such as deleting or disabling the KMS key. Also,
 we recommend that your organization set up [AWS
-break-glass access procedures](../../../wellarchitected/latest/devops-guidance/ag.sad.md "../../../wellarchitected/latest/devops-guidance/ag.sad.md") to ensure your privileged users can access AWS
+break-glass access procedures](../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md "../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md") to ensure your privileged users can access AWS
 in the event that IAM Identity Center is inaccessible.
 
 ## Where to find the required identifiers

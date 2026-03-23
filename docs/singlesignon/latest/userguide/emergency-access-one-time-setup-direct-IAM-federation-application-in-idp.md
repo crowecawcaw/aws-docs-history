@@ -34,7 +34,7 @@ JSON
  {
  "Effect":"Allow",
  "Principal":{
- "Federated":"arn:aws:iam::123456789012:saml-provider/Okta"
+ "Federated":"arn:aws:iam::123456789012:saml-provider/[SAML PROVIDER NAME]"
  },
  "Action":[
  "sts:AssumeRoleWithSAML",
@@ -42,7 +42,12 @@ JSON
  ],
  "Condition":{
  "StringEquals":{
- "SAML:aud": "https://signin.aws.amazon.com/saml"
+ "SAML:aud": [
+ "https://signin.aws.amazon.com/saml",
+ "https://us-west-2.signin.aws.amazon.com/saml",
+ "https://us-west-1.signin.aws.amazon.com/saml",
+ "https://us-east-2.signin.aws.amazon.com/saml"
+ ]
  }
  }
  },

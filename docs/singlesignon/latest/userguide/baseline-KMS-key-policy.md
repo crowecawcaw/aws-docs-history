@@ -73,8 +73,8 @@ recreated permission sets. For an example implementation, see [Custom trust poli
           ]
         },
         "StringLike": {
-          "kms:EncryptionContext:aws:sso:instance-arn": "*",
-          "kms:ViaService": "sso.*.amazonaws.com"
+          "kms:ViaService": "sso.*.amazonaws.com",
+          "kms:EncryptionContext:aws:sso:instance-arn": "*"
         }
       }
     },
@@ -101,8 +101,8 @@ recreated permission sets. For an example implementation, see [Custom trust poli
           ]
         },
         "StringLike": {
-          "kms:EncryptionContext:aws:identitystore:identitystore-arn": "*",
-          "kms:ViaService": "identitystore.*.amazonaws.com"
+          "kms:ViaService": "identitystore.*.amazonaws.com",
+          "kms:EncryptionContext:aws:identitystore:identitystore-arn": "*"
         }
       }
     },
@@ -379,14 +379,14 @@ administrators to use the KMS key.
       "Sid": "AllowControlTowerAdminRoleToUseTheKMSKeyViaIdentityCenter",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::111122223333:role/AWSControlTowerExecution"
+        "AWS": "arn:aws:iam::111122223333:role/AWSControlTowerAdmin"
       },
       "Action": "kms:Decrypt",
       "Resource": "*",
       "Condition": {
         "StringLike": {
-          "kms:EncryptionContext:aws:sso:instance-arn": "*",
-          "kms:ViaService": "sso.*.amazonaws.com"
+          "kms:ViaService": "sso.*.amazonaws.com",
+          "kms:EncryptionContext:aws:sso:instance-arn": "*"
         }
       }
     },
@@ -394,7 +394,7 @@ administrators to use the KMS key.
       "Sid": "AllowControlTowerAdminRoleToUseTheKMSKeyViaIdentityStore",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::111122223333:role/AWSControlTowerExecution"
+        "AWS": "arn:aws:iam::111122223333:role/AWSControlTowerAdmin"
       },
       "Action": "kms:Decrypt",
       "Resource": "*",
@@ -411,6 +411,65 @@ administrators to use the KMS key.
 
 AWS Control Tower does not support delegated administration and, therefore, you don't need to
 configure an IAM policy for its administrators.
+
+###### Important
+
+The preceding policy statement covers AWS Control Tower service-managed operations, such as
+automatic enrollment of accounts, where AWS Control Tower assumes the
+`AWSControlTowerAdmin` role. However, for customer-initiated operations
+such as provisioning accounts through Account Factory or calling AWS Control Tower APIs
+directly, AWS Control Tower uses [forward access
+sessions (FAS)](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md") and operates under the customer's own IAM role. This means
+the IAM role you use to initiate these operations also needs
+`kms:Decrypt` permissions on the customer managed KMS key.
+
+Add the following KMS key policy statements alongside the
+`AWSControlTowerAdmin` statements above. Replace
+`MyControlTowerRole` with the ARN of the IAM role you use
+to interact with AWS Control Tower, such as an IAM Identity Center permission set role (for example,
+`AWSReservedSSO_`PermissionSetName`_*`), a
+custom IAM role for automation, or any other role used to call AWS Control Tower or AWS Service Catalog
+APIs.
+
+KMS key policy statement for customer-initiated AWS Control Tower operations:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowCustomerRoleToUseTheKMSKeyViaIdentityCenterForControlTower",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:role/`MyControlTowerRole`"
+      },
+      "Action": "kms:Decrypt",
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "kms:ViaService": "sso.*.amazonaws.com",
+          "kms:EncryptionContext:aws:sso:instance-arn": "*"
+        }
+      }
+    },
+    {
+      "Sid": "AllowCustomerRoleToUseTheKMSKeyViaIdentityStoreForControlTower",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:role/`MyControlTowerRole`"
+      },
+      "Action": "kms:Decrypt",
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "kms:ViaService": "identitystore.*.amazonaws.com",
+          "kms:EncryptionContext:aws:identitystore:identitystore-arn": "*"
+        }
+      }
+    }
+  ]
+}
+```
 
 Use the following KMS key policy statement template in [Step 2: Prepare KMS key policy statements](identity-center-customer-managed-keys.md#choose-kms-key-policy-statements "identity-center-customer-managed-keys.md#choose-kms-key-policy-statements") to allow users of single sign-on
 (SSO) to Amazon EC2 instances to use the KMS key across accounts.
@@ -439,8 +498,9 @@ Use the following KMS key policy statement template in [Step 2: Prepare KMS key 
       "Resource": "*",
       "Condition": {
         "StringLike": {
-          "kms:EncryptionContext:aws:sso:instance-arn": "*",
-          "kms:ViaService": "sso.*.amazonaws.com"
+          "kms:ViaService": "sso.*.amazonaws.com",
+          "kms:EncryptionContext:aws:sso:instance-arn": "*"
+
         }
       }
     },
@@ -526,8 +586,8 @@ managed applications does not require KMS key permissions.
       "Resource": "*",
       "Condition": {
         "StringLike": {
-          "kms:EncryptionContext:aws:sso:instance-arn": "*",
-          "kms:ViaService": "sso.*.amazonaws.com"
+          "kms:ViaService": "sso.*.amazonaws.com",
+          "kms:EncryptionContext:aws:sso:instance-arn": "*"
         }
       }
     },
@@ -639,8 +699,8 @@ a regular one such as `arn:aws:iam::`111122223333`:role/`idcadmin``.
           ]
         },
         "StringLike": {
-          "kms:EncryptionContext:aws:sso:instance-arn": "*",
-          "kms:ViaService": "sso.*.amazonaws.com"
+          "kms:ViaService": "sso.*.amazonaws.com",
+          "kms:EncryptionContext:aws:sso:instance-arn": "*"
         }
       }
     },
@@ -667,8 +727,8 @@ a regular one such as `arn:aws:iam::`111122223333`:role/`idcadmin``.
           ]
         },
         "StringLike": {
-          "kms:EncryptionContext:aws:identitystore:identitystore-arn": "*",
-          "kms:ViaService": "identitystore.*.amazonaws.com"
+          "kms:ViaService": "identitystore.*.amazonaws.com",
+          "kms:EncryptionContext:aws:identitystore:identitystore-arn": "*"
         }
       }
     },

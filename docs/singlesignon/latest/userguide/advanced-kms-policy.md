@@ -114,8 +114,8 @@ policy must enforce read-only access on IAM Identity Center service APIs.
       "Resource": "*",
       "Condition": {
         "StringLike": {
-          "kms:EncryptionContext:aws:sso:instance-arn": "arn:aws:sso:::instance/ssoins-1234567890abcdef",
-          "kms:ViaService": "sso.*.amazonaws.com"
+          "kms:ViaService": "sso.*.amazonaws.com",
+          "kms:EncryptionContext:aws:sso:instance-arn": "arn:aws:sso:::instance/ssoins-1234567890abcdef"
         }
       }
     },

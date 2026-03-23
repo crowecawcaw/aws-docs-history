@@ -18,7 +18,7 @@ IAM Identity Center Region where the application was created.
 
 ###### Note
 
-Even if your IAM Identity Center is replicated to additional Regions, we recommend that you set up [AWS break-glass access](../../../wellarchitected/latest/devops-guidance/ag.sad.md "../../../wellarchitected/latest/devops-guidance/ag.sad.md").
+Even if your IAM Identity Center is replicated to additional Regions, we recommend that you set up [AWS break-glass access](../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md "../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md").
 This helps you maintain AWS access for a small group of privileged users during events such as a service disruption in the external IdP.
 [Emergency access](emergency-access.md "emergency-access.md") is another option that uses identities from an external IdP instead of IAM users; however,
 it does not protect against a disruption in the external IdP.

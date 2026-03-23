@@ -17,7 +17,7 @@ AWS enables you to:
   external
   identity provider (IdP) are available
   . If you prefer to not depend on the external IdP, consider setting up
-  [AWS break-glass access](../../../wellarchitected/latest/devops-guidance/ag.sad.md "../../../wellarchitected/latest/devops-guidance/ag.sad.md")
+  [AWS break-glass access](../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md "../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md")
 
 ###### Important
 

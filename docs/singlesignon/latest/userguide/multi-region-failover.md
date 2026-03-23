@@ -23,7 +23,7 @@ Region.
 Continuity of access to AWS accounts also depends on the health of your external IdP
 and permissions such as permission set assignments and group memberships being provisioned
 and replicated before a service disruption. We recommend your organization also set up [AWS
-break-glass access](../../../wellarchitected/latest/devops-guidance/ag.sad.md "../../../wellarchitected/latest/devops-guidance/ag.sad.md") to maintain AWS access to a small group of privileged users
+break-glass access](../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md "../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md") to maintain AWS access to a small group of privileged users
 when the external IdP has a service disruption. [Emergency access](emergency-access.md "emergency-access.md") is a
 similar option that avoids using IAM users, but it too depends on the external IdP.
 
