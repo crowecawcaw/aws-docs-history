@@ -20,7 +20,7 @@ with volume initialization, you could use the following options:
 
 ###### Note
 
-volume initialization rate and fast snapshot restore are not supported for volume copies. For more
+Volume initialization rate and fast snapshot restore are not supported for volume copies. For more
 information, see [Volume copy initialization](ebs-copying-volume.md#copy-volume-initialization "ebs-copying-volume.md#copy-volume-initialization").
 
 ###### Topics
