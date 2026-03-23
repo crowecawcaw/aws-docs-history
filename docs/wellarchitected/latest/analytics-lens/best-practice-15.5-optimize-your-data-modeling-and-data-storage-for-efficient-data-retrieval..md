@@ -88,7 +88,7 @@ For more details, refer to the following information:
 - Amazon DynamoDB
   Compression:
   [Using
-  data compression](../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.CopyingData.md "../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.CopyingData.md")
+  data compression](../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.CopyingData.Compression.md "../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.CopyingData.Compression.md")
 - Amazon Athena Compression
   Support:
   [Amazon Athena compression support](../../../athena/latest/ug/compression-formats.md "../../../athena/latest/ug/compression-formats.md")

@@ -29,7 +29,7 @@ your compute solution:
   in Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/managing-indices.md "../../../opensearch-service/latest/developerguide/managing-indices.md")
 - Amazon Aurora User Guide:
   [Overview
-  of Aurora storage](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.md#Aurora.Overview.Storage "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.md#Aurora.Overview.Storage")
+  of Aurora storage](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.md#Aurora.Overview.Storage "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.md#Aurora.Overview.Storage")
 
 ## Suggestion 9.2.2 – Evaluate the performance of the selected storage option
 

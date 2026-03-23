@@ -44,7 +44,7 @@ For more details, refer to the following information:
   Standardized Logging](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/")
 - Amazon RDS Aurora -
   [Advanced
-  Auditing with an Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.md")
+  Auditing with an Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Auditing.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Auditing.md")
 - Amazon RDS Aurora -
   [Configuring
   an audit log to capture database activities for Amazon RDS](https://aws.amazon.com/blogs/database/configuring-an-audit-log-to-capture-database-activities-for-amazon-rds-for-mysql-and-amazon-aurora-with-mysql-compatibility/ "https://aws.amazon.com/blogs/database/configuring-an-audit-log-to-capture-database-activities-for-amazon-rds-for-mysql-and-amazon-aurora-with-mysql-compatibility/")
