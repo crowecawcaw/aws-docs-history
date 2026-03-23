@@ -16,7 +16,7 @@ This section assumes you are not setting a custom prefix, so the default `/rende
 
 The logs are always a good place to start when trying to debug issues with the RFDK. Logs in the RFDK are written into Amazon CloudWatch. After tearing down a render farm, the logs
 will be persisted so additional debugging can be performed. The same log groups will be continue to be used if another render farm is deployed. When creating RFDK constructs, a log
-prefix can be passed in using the [`LogGroupFactoryProps.logGroupPrefix`](../../api/latest/docs/aws-rfdk.md "../../api/latest/docs/aws-rfdk.md") field to allow you to use
+prefix can be passed in using the [`LogGroupFactoryProps.logGroupPrefix`](../../api/latest/docs/aws-rfdk.LogGroupFactoryProps.md "../../api/latest/docs/aws-rfdk.LogGroupFactoryProps.md") field to allow you to use
 a different log group. This is useful if you would like to run more than one render farm in a single AWS account.
 
 ### General
@@ -42,14 +42,14 @@ If audit logging is enabled for your Amazon DocumentDB instance, it will generat
 The log group for these will start with `/aws/docdb/` and end with `/audit`. It will also contain a unique string that is a part of
 the physical ID of the Amazon DocumentDB Cluster. To be sure you are looking at the correct logs, you can find this string by looking at your stack in AWS CloudFormation and finding
 and entry for `AWS::DocDB::DBInstance`. It’s important to realize that while the
-[Deadline Repository](../../api/latest/docs/aws-rfdk.deadline.md "../../api/latest/docs/aws-rfdk.deadline.md") has a flag to enable audit logging, this will only work if you let the
+[Deadline Repository](../../api/latest/docs/aws-rfdk.deadline.Repository.md "../../api/latest/docs/aws-rfdk.deadline.Repository.md") has a flag to enable audit logging, this will only work if you let the
 Deadline Repository create the database as well. If you are creating the database yourself and passing it into the Deadline Repository, you will need to ensure you are enabling the
 audit logging yourself.
 
 #### MongoDB logs
 
 If MongoDB is chosen as the backing database for your Deadline render farm, then there will be logs saved into a log group that is named based on the ID that is passed into the
-[`MongoDbInstance` constructor](../../api/latest/docs/aws-rfdk.md "../../api/latest/docs/aws-rfdk.md"). For instance, if the construct ID is `MongoDb`, then the log group
+[`MongoDbInstance` constructor](../../api/latest/docs/aws-rfdk.MongoDbInstance.md "../../api/latest/docs/aws-rfdk.MongoDbInstance.md"). For instance, if the construct ID is `MongoDb`, then the log group
 will be named `/renderfarm/MongoDb`. Inside this log group, you will find log streams for the initialization of the host, named
 `cloud-init-output-i-[instance-id]`, and for the logs written by the MongoDB daemon, named `MongoDB-i-[instance-id]`. The instance
 ID can be found by navigating to your Amazon EC2 instances panel and locating the ID of the instance that is named based on the ID that was given to the construct and the AWS
@@ -60,7 +60,7 @@ CloudFormation stack it’s in. It should appear as `[stack-name]/[construct-id]
 #### Usage Based Licensing logs
 
 The Deadline Usage Based Licensing logs will be in a log group based on the ID passed into the
-[Deadline `UsageBasedLicensing` constructor](../../api/latest/docs/aws-rfdk.deadline.md "../../api/latest/docs/aws-rfdk.deadline.md"). For example, if you pass in the ID `UBL`, then
+[Deadline `UsageBasedLicensing` constructor](../../api/latest/docs/aws-rfdk.deadline.UsageBasedLicensing.md "../../api/latest/docs/aws-rfdk.deadline.UsageBasedLicensing.md"). For example, if you pass in the ID `UBL`, then
 the logs will appear at `/renderfarm/UBL`. Inside this log group, you will find log streams for the server running the
 [Deadline License Forwarder](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/license-forwarder.html "https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/license-forwarder.html"). This server is run inside a container, so to find
 the correct log stream for your forwarder, you will need to find the task ID of the running service. To find this task ID, follow these instructions:
@@ -73,7 +73,7 @@ the correct log stream for your forwarder, you will need to find the task ID of 
 #### Render Queue logs
 
 The Deadline Render Queue logs will be in a log group based on the ID passed into the
-[Deadline `RenderQueue` constructor](../../api/latest/docs/aws-rfdk.deadline.md "../../api/latest/docs/aws-rfdk.deadline.md"). For example, if you pass in the ID `RenderQueue`, then the
+[Deadline `RenderQueue` constructor](../../api/latest/docs/aws-rfdk.deadline.RenderQueue.md "../../api/latest/docs/aws-rfdk.deadline.RenderQueue.md"). For example, if you pass in the ID `RenderQueue`, then the
 logs will appear at `/renderfarm/RenderQueue`. Inside this log group, you will find log streams for the
 [Deadline Remote Connection Server (RCS)](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/remote-connection-server.html "https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/remote-connection-server.html"). The RCS is run inside a
 container, so to find the correct log stream for your RCS, you will need to find the task ID of the running service. To find this task ID, follow these instructions:
@@ -86,7 +86,7 @@ container, so to find the correct log stream for your RCS, you will need to find
 #### Repository logs
 
 The Deadline Repository logs will be in a log group based on the ID passed to the
-[Deadline `Repository` constructor](../../api/latest/docs/aws-rfdk.deadline.md "../../api/latest/docs/aws-rfdk.deadline.md"). For example, if you pass in the ID `Repository`, then the logs
+[Deadline `Repository` constructor](../../api/latest/docs/aws-rfdk.deadline.Repository.md "../../api/latest/docs/aws-rfdk.deadline.Repository.md"). For example, if you pass in the ID `Repository`, then the logs
 will appear at `/renderfarm/Repository`. These logs can be used to debug issues either with initializing the repository host, or with the installation of the
 Deadline repository on that host. Inside this log group, you will find log streams from the initialization of the host, named
 `cloud-init-output-i-[instance-id]` as well as logs from the Deadline Repository installer, named
@@ -95,7 +95,7 @@ Deadline repository on that host. Inside this log group, you will find log strea
 #### Worker Fleet logs
 
 All Deadline Worker Fleet logs will be in a log group based on the ID passed into the constructor of the
-[Deadline Worker Fleet construct](../../api/latest/docs/aws-rfdk.deadline.md "../../api/latest/docs/aws-rfdk.deadline.md"). For example, if you pass in the ID `WorkerFleet`, then
+[Deadline Worker Fleet construct](../../api/latest/docs/aws-rfdk.deadline.WorkerInstanceFleet.md "../../api/latest/docs/aws-rfdk.deadline.WorkerInstanceFleet.md"). For example, if you pass in the ID `WorkerFleet`, then
 the logs will appear at `/renderfarm/WorkerFleet`. If your Deadline Worker Fleet fails to start a host or you are having fleet health issues, you can look
 into the logs for that host. First go into the Amazon EC2 Console and look up the instance ID for the terminated host, then navigate to
 **CloudWatch > log groups > /renderfarm/WorkerFleet**. There will be three log streams that get written here:
@@ -165,12 +165,12 @@ The target directory is not empty.
 
 Changing the Deadline version can be done in two ways:
 
-1. Use a different directory for staging by providing a different `STAGE_PATH` to the `--output` flag. Remember to update the stage property that gets passed into the [ThinkboxDockerRecipes constructor](../../api/latest/docs/aws-rfdk.deadline.md "../../api/latest/docs/aws-rfdk.deadline.md") to this new location.
+1. Use a different directory for staging by providing a different `STAGE_PATH` to the `--output` flag. Remember to update the stage property that gets passed into the [ThinkboxDockerRecipes constructor](../../api/latest/docs/aws-rfdk.deadline.ThinkboxDockerRecipes.md "../../api/latest/docs/aws-rfdk.deadline.ThinkboxDockerRecipes.md") to this new location.
 2. Rename the existing staging directory (or delete it if you don’t need it anymore) that was created when you first ran the staging script, and then rerun the script with the new Deadline version number. The staging directory will be the value sent to `--output` or `./stage` by default.
 
 ## Connecting to the bastion host
 
-The [BastionHostLinux construct](../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.md "../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.md") in the CDK does not allow an Amazon EC2 key pair to be set, so
+The [BastionHostLinux construct](../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.BastionHostLinux.md "../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.BastionHostLinux.md") in the CDK does not allow an Amazon EC2 key pair to be set, so
 attempting to SSH to it via the command line will not work out-of-the-box.
 
 **Action to Take**
@@ -220,9 +220,9 @@ The stack that you are moving the construct to and all the stacks that depend on
 
 Some constructs cannot be destroyed due to their default [removal policies](../../../cdk/latest/guide/resources.md#resources_removal "../../../cdk/latest/guide/resources.md#resources_removal"). This can then prevent the
 destruction of other constructs that those other constructs depend on. An example of this happening in the RFDK is the
-[Amazon DocumentDB Cluster](../../../cdk/api/latest/docs/@aws-cdk_aws-docdb.md "../../../cdk/api/latest/docs/@aws-cdk_aws-docdb.md") and
-[Amazon Elastic File System](../../../cdk/api/latest/docs/@aws-cdk_aws-efs.md "../../../cdk/api/latest/docs/@aws-cdk_aws-efs.md") constructs having default removal policies of `RemovalPolicy.RETAIN`
-and dependencies on the [VPC](../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.md "../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.md").
+[Amazon DocumentDB Cluster](../../../cdk/api/latest/docs/@aws-cdk_aws-docdb.DatabaseCluster.md "../../../cdk/api/latest/docs/@aws-cdk_aws-docdb.DatabaseCluster.md") and
+[Amazon Elastic File System](../../../cdk/api/latest/docs/@aws-cdk_aws-efs.FileSystem.md "../../../cdk/api/latest/docs/@aws-cdk_aws-efs.FileSystem.md") constructs having default removal policies of `RemovalPolicy.RETAIN`
+and dependencies on the [VPC](../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.Vpc.md "../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.Vpc.md").
 
 **Action to Take**
 

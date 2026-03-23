@@ -98,7 +98,7 @@ Alternatively, you can use `CloudFormation` service and select the stack deploye
 From there you can navigate directly to the deployed VPN Connection in the VPC console.
 
 You can modify the above code to best meet your specific needs.
-See [Vpc construct API](../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.md "../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.md") to learn how to configure your VPC.
+See [Vpc construct API](../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.Vpc.md "../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.Vpc.md") to learn how to configure your VPC.
 
 Also, you should [allow the connection from the machines in your network to the render queue](#allowing-connection-to-the-render-queue "#allowing-connection-to-the-render-queue").
 
@@ -389,7 +389,7 @@ TypeScript
 renderQueue.connections.allowDefaultPortFrom(securityGroup);
 ```
 
-See [Connections construct API](../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.md "../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.md") for more details.
+See [Connections construct API](../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.Connections.md "../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.Connections.md") for more details.
 
 ## Getting remote connection server address
 

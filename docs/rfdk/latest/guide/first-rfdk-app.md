@@ -142,7 +142,7 @@ new HelloRfdkStack(app, 'hello-rfdk', {
 
 ## Define a Deadline render farm
 
-Now you are ready to start building your render farm. The first thing you will need is a [`Vpc`](../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.md "../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.md") construct instance for your render farm. The `Vpc` provides the foundational
+Now you are ready to start building your render farm. The first thing you will need is a [`Vpc`](../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.Vpc.md "../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.Vpc.md") construct instance for your render farm. The `Vpc` provides the foundational
 networking that will be used by all other components in the farm.
 
 Python
@@ -181,7 +181,7 @@ export class HelloRfdkStack extends cdk.Stack {
 The next thing you will need to do is select a version of AWS Thinkbox Deadline to use for your Render Farm.
 For more details, see the full documentation about [Using AWS Thinkbox ECR Repositories](work-with-rfdk.md#using-aws-thinkbox-ecr-repositories "work-with-rfdk.md#using-aws-thinkbox-ecr-repositories").
 Once you have selected a Deadline version (`DEADLINE_VERSION`), create a
-[`VersionQuery`](../../api/latest/docs/aws-rfdk.deadline.md "../../api/latest/docs/aws-rfdk.deadline.md") construct in your
+[`VersionQuery`](../../api/latest/docs/aws-rfdk.deadline.VersionQuery.md "../../api/latest/docs/aws-rfdk.deadline.VersionQuery.md") construct in your
 CDK app.
 
 Python
@@ -222,7 +222,7 @@ export class HelloRfdkStack extends cdk.Stack {
 }
 ```
 
-Next, let’s add in a [`Repository`](../../api/latest/docs/aws-rfdk.deadline.md "../../api/latest/docs/aws-rfdk.deadline.md").
+Next, let’s add in a [`Repository`](../../api/latest/docs/aws-rfdk.deadline.Repository.md "../../api/latest/docs/aws-rfdk.deadline.Repository.md").
 This construct creates the database and file system that make up the back-end storage of your render farm.
 Then, it configures them with the [Deadline Repository](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/overview.html#components "https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/overview.html#components") installer.
 By default, an [Amazon DocumentDB](https://aws.amazon.com/documentdb/ "https://aws.amazon.com/documentdb/") and [Amazon Elastic File System (EFS)](https://aws.amazon.com/efs/ "https://aws.amazon.com/efs/") are created.
@@ -267,7 +267,7 @@ export class HelloRfdkStack extends cdk.Stack {
 ```
 
 AWS Thinkbox publishes Deadline container images into a publicly-available **Elastic Container Registry (ECR)** Repository.
-RFDK provides the [`ThinkboxDockerImages`](../../api/latest/docs/aws-rfdk.deadline.md "../../api/latest/docs/aws-rfdk.deadline.md") construct that can be used to deploy these container images using **AWS Elastic Container Service (ECS)**.
+RFDK provides the [`ThinkboxDockerImages`](../../api/latest/docs/aws-rfdk.deadline.ThinkboxDockerImages.md "../../api/latest/docs/aws-rfdk.deadline.ThinkboxDockerImages.md") construct that can be used to deploy these container images using **AWS Elastic Container Service (ECS)**.
 
 To use these images, add a `ThinkboxDockerImages` instance to your CDK app. For this, you will need to read and accept
 the terms of the [AWS Customer Agreement](https://aws.amazon.com/agreement/ "https://aws.amazon.com/agreement/") and [AWS Intellectual Property License](https://aws.amazon.com/legal/aws-ip-license-terms/ "https://aws.amazon.com/legal/aws-ip-license-terms/").
@@ -321,7 +321,7 @@ export class HelloRfdkStack extends cdk.Stack {
 }
 ```
 
-Now that you have Deadline container images and a Deadline Repository, you will need to add a [`RenderQueue`](../../api/latest/docs/aws-rfdk.deadline.md "../../api/latest/docs/aws-rfdk.deadline.md").
+Now that you have Deadline container images and a Deadline Repository, you will need to add a [`RenderQueue`](../../api/latest/docs/aws-rfdk.deadline.RenderQueue.md "../../api/latest/docs/aws-rfdk.deadline.RenderQueue.md").
 The `RenderQueue` acts as the central service of your render farm that clients and render nodes can connect to.
 This construct creates a fleet of [Deadline Remote Connection Servers](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/remote-connection-server.html "https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/remote-connection-server.html") running in [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/ "https://aws.amazon.com/ecs/").
 
@@ -371,7 +371,7 @@ export class HelloRfdkStack extends cdk.Stack {
 }
 ```
 
-The last thing you need to add is a fleet of render nodes with the [`WorkerInstanceFleet`](../../api/latest/docs/aws-rfdk.deadline.md "../../api/latest/docs/aws-rfdk.deadline.md") construct, which creates a fleet of instances running
+The last thing you need to add is a fleet of render nodes with the [`WorkerInstanceFleet`](../../api/latest/docs/aws-rfdk.deadline.WorkerInstanceFleet.md "../../api/latest/docs/aws-rfdk.deadline.WorkerInstanceFleet.md") construct, which creates a fleet of instances running
 [Deadline Worker](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/worker.html "https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/worker.html") in an
 [Amazon EC2 Auto Scaling Group](../../../autoscaling/ec2/userguide/AutoScalingGroup.md "../../../autoscaling/ec2/userguide/AutoScalingGroup.md").
 
@@ -464,7 +464,7 @@ By default, the RFDK will setup resources such that you cannot accidentally dest
 in the same state it was in previously). For more details, see [Managing resources](best-practices.md#managing-resources "best-practices.md#managing-resources").
 
 We don’t need to retain any render farm information for this tutorial, so let’s update the
-[removal policies](../../../cdk/api/latest/docs/@aws-cdk_core.md "../../../cdk/api/latest/docs/@aws-cdk_core.md") to set the
+[removal policies](../../../cdk/api/latest/docs/@aws-cdk_core.RemovalPolicy.md "../../../cdk/api/latest/docs/@aws-cdk_core.RemovalPolicy.md") to set the
 [Deletion Policy](../../../AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.md "../../../AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.md") in the CloudFormation template of the
 database and file system of your **Repository** so they are destroyed:
 

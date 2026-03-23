@@ -28,26 +28,26 @@ Deadline Clients to trust the certificate chain when connecting them to a Render
 **Deadline Render Queue’s Load Balancer and the Deadline Remote Connection Server**
 
 The Remote Connection Server (RCS) is encapsulated by the Render Queue construct. It is the service that sits behind the ALB that is set up by the Render Queue. During
-instantiation, the Render Queue generates a self-signed certificate using [X509CertificatePem](../../api/latest/docs/aws-rfdk.md "../../api/latest/docs/aws-rfdk.md")
-and [X509CertificatePkcs12](../../api/latest/docs/aws-rfdk.md "../../api/latest/docs/aws-rfdk.md") that the RCS is configured to use for communication between itself
+instantiation, the Render Queue generates a self-signed certificate using [X509CertificatePem](../../api/latest/docs/aws-rfdk.X509CertificatePem.md "../../api/latest/docs/aws-rfdk.X509CertificatePem.md")
+and [X509CertificatePkcs12](../../api/latest/docs/aws-rfdk.X509CertificatePkcs12.md "../../api/latest/docs/aws-rfdk.X509CertificatePkcs12.md") that the RCS is configured to use for communication between itself
 and the ALB.
 
 **Deadline Remote Connection Server and the database**
 
 The Deadline Remote Connection Server (RCS) communicates directly with a MongoDB-compatible database. These communications are encrypted by default when this database is
 an [Amazon DocumentDB](https://aws.amazon.com/documentdb/ "https://aws.amazon.com/documentdb/") or a MongoDB created by the RFDK’s
-[MongoDbInstance](../../api/latest/docs/aws-rfdk.md "../../api/latest/docs/aws-rfdk.md") construct.
+[MongoDbInstance](../../api/latest/docs/aws-rfdk.MongoDbInstance.md "../../api/latest/docs/aws-rfdk.MongoDbInstance.md") construct.
 
 **MongoDB**
 
 The MongoDB Construct requires that a certificate be provided as input to it, for it to use as its own proof of identity for the clients that need to connect to it. It requires
-that this certificate be in the [IX509CertificatePem](../../api/latest/docs/aws-rfdk.md "../../api/latest/docs/aws-rfdk.md") format.
+that this certificate be in the [IX509CertificatePem](../../api/latest/docs/aws-rfdk.IX509CertificatePem.md "../../api/latest/docs/aws-rfdk.IX509CertificatePem.md") format.
 
 ## RFDK’s built-in certificate management
 
 RFDK provides constructs that can be used to work with X509 certificates. This includes:
 
-- [X509CertificatePem](../../api/latest/docs/aws-rfdk.md "../../api/latest/docs/aws-rfdk.md") - A construct that generates and stores the following in AWS Secrets
+- [X509CertificatePem](../../api/latest/docs/aws-rfdk.X509CertificatePem.md "../../api/latest/docs/aws-rfdk.X509CertificatePem.md") - A construct that generates and stores the following in AWS Secrets
   Manager Secrets:
 
       + A X.509 certificate in the PEM format
@@ -55,10 +55,10 @@ RFDK provides constructs that can be used to work with X509 certificates. This i
       + A passphrase for the private key
       + An optional trust-chain in PEM format
 
-- [X509CertificatePkcs12](../../api/latest/docs/aws-rfdk.md "../../api/latest/docs/aws-rfdk.md") - A construct that converts the outputs of
-  [X509CertificatePem](../../api/latest/docs/aws-rfdk.md "../../api/latest/docs/aws-rfdk.md") into a single PKCS #12 archive.
-- [ImportedAcmCertificate](../../api/latest/docs/aws-rfdk.md "../../api/latest/docs/aws-rfdk.md") - A construct that imports a PEM certificate into
-  AWS Certificate Manager. This Construct implements CDK’s [ICertificate](../../../cdk/api/latest/docs/@aws-cdk_aws-certificatemanager.md "../../../cdk/api/latest/docs/@aws-cdk_aws-certificatemanager.md")
+- [X509CertificatePkcs12](../../api/latest/docs/aws-rfdk.X509CertificatePkcs12.md "../../api/latest/docs/aws-rfdk.X509CertificatePkcs12.md") - A construct that converts the outputs of
+  [X509CertificatePem](../../api/latest/docs/aws-rfdk.X509CertificatePem.md "../../api/latest/docs/aws-rfdk.X509CertificatePem.md") into a single PKCS #12 archive.
+- [ImportedAcmCertificate](../../api/latest/docs/aws-rfdk.ImportedAcmCertificate.md "../../api/latest/docs/aws-rfdk.ImportedAcmCertificate.md") - A construct that imports a PEM certificate into
+  AWS Certificate Manager. This Construct implements CDK’s [ICertificate](../../../cdk/api/latest/docs/@aws-cdk_aws-certificatemanager.ICertificate.md "../../../cdk/api/latest/docs/@aws-cdk_aws-certificatemanager.ICertificate.md")
   interface so that the certificates can be used by other CDK Constructs that require this interface, such as the Deadline Render Queue construct.
 
 If you are using the RFDK’s built-in certificate constructs, then it is recommended that a self-signed certificate be created by your RFDK application to act as a Certificate
@@ -71,9 +71,9 @@ The built-in certificate management does not currently support a method to rotat
 **expire after 1095 days (3 years)**. After this period, TLS connections between components using these certificates will no longer work and they will need to be
 redeployed with new certificates.
 
-Here is an example snippet from a CDK application that uses the [X509CertificatePem](../../api/latest/docs/aws-rfdk.md "../../api/latest/docs/aws-rfdk.md"),
-the [X509CertificatePkcs12](../../api/latest/docs/aws-rfdk.md "../../api/latest/docs/aws-rfdk.md"), and the
-[ImportedAcmCertificate](../../api/latest/docs/aws-rfdk.md "../../api/latest/docs/aws-rfdk.md"):
+Here is an example snippet from a CDK application that uses the [X509CertificatePem](../../api/latest/docs/aws-rfdk.X509CertificatePem.md "../../api/latest/docs/aws-rfdk.X509CertificatePem.md"),
+the [X509CertificatePkcs12](../../api/latest/docs/aws-rfdk.X509CertificatePkcs12.md "../../api/latest/docs/aws-rfdk.X509CertificatePkcs12.md"), and the
+[ImportedAcmCertificate](../../api/latest/docs/aws-rfdk.ImportedAcmCertificate.md "../../api/latest/docs/aws-rfdk.ImportedAcmCertificate.md"):
 
 Python
 
@@ -140,9 +140,9 @@ class CertStack extends cdk.Stack {
 ### Manual certificates
 
 An alternative method of creating and using certificates is similar to the method built into RFDK. Rather than using the
-[X509CertificatePem](../../api/latest/docs/aws-rfdk.md "../../api/latest/docs/aws-rfdk.md") Construct to generate certificates, they could
+[X509CertificatePem](../../api/latest/docs/aws-rfdk.X509CertificatePem.md "../../api/latest/docs/aws-rfdk.X509CertificatePem.md") Construct to generate certificates, they could
 be generated using any other public key infrastructure. Once a certificate is created, it can be imported into AWS Secrets Manager Secrets in the same
-format that the [ImportedAcmCertificate](../../api/latest/docs/aws-rfdk.md "../../api/latest/docs/aws-rfdk.md") Construct takes as input.
+format that the [ImportedAcmCertificate](../../api/latest/docs/aws-rfdk.ImportedAcmCertificate.md "../../api/latest/docs/aws-rfdk.ImportedAcmCertificate.md") Construct takes as input.
 
 ### Private Certificate Manager certificates
 
@@ -158,8 +158,8 @@ of your CDK application. The CDK does not currently support this workflow with A
 An ACM Certificate in CDK does not expose the certificate chain, so when using these private certificates from ACM, the certificate chain will need to be migrated
 to a Secret for RFDK to distribute to clients of the certificate holder. There are a few ways to do this, so instructions specific to each option can be found in
 the following sections. Once you have your ACM Certificate and your Secret containing the certificate chain created, they can be imported into CDK using
-[`Secret.fromSecretArn(scope, id, secretArn)`](../../../cdk/api/latest/docs/@aws-cdk_aws-secretsmanager.md#static-from-wbr-secret-wbr-arnscope-id-secretarn "../../../cdk/api/latest/docs/@aws-cdk_aws-secretsmanager.md#static-from-wbr-secret-wbr-arnscope-id-secretarn")
-and [`Certificate.fromCertificateArn(scope, id, certificateArn)`](../../../cdk/api/latest/docs/@aws-cdk_aws-certificatemanager.md#static-from-wbr-certificate-wbr-arnscope-id-certificatearn "../../../cdk/api/latest/docs/@aws-cdk_aws-certificatemanager.md#static-from-wbr-certificate-wbr-arnscope-id-certificatearn").
+[`Secret.fromSecretArn(scope, id, secretArn)`](../../../cdk/api/latest/docs/@aws-cdk_aws-secretsmanager.Secret.md#static-from-wbr-secret-wbr-arnscope-id-secretarn "../../../cdk/api/latest/docs/@aws-cdk_aws-secretsmanager.Secret.md#static-from-wbr-secret-wbr-arnscope-id-secretarn")
+and [`Certificate.fromCertificateArn(scope, id, certificateArn)`](../../../cdk/api/latest/docs/@aws-cdk_aws-certificatemanager.Certificate.md#static-from-wbr-certificate-wbr-arnscope-id-certificatearn "../../../cdk/api/latest/docs/@aws-cdk_aws-certificatemanager.Certificate.md#static-from-wbr-certificate-wbr-arnscope-id-certificatearn").
 The following example demonstrates how these methods can be used when setting the properties of your RenderQueue during its creation:
 
 Python

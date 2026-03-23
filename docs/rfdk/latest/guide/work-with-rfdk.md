@@ -123,8 +123,8 @@ Next, you will need to [Install peer dependencies](work-with-rfdk-typescript.md#
 
 RFDK deploys Deadline server components, such as:
 
-- The [`RenderQueue`](../../api/latest/docs/aws-rfdk.deadline.md "../../api/latest/docs/aws-rfdk.deadline.md") construct, and
-- The [`UsageBasedLicensing`](../../api/latest/docs/aws-rfdk.deadline.md "../../api/latest/docs/aws-rfdk.deadline.md") construct,
+- The [`RenderQueue`](../../api/latest/docs/aws-rfdk.deadline.RenderQueue.md "../../api/latest/docs/aws-rfdk.deadline.RenderQueue.md") construct, and
+- The [`UsageBasedLicensing`](../../api/latest/docs/aws-rfdk.deadline.UsageBasedLicensing.md "../../api/latest/docs/aws-rfdk.deadline.UsageBasedLicensing.md") construct,
 
 using **AWS Elastic Container Service (ECS)**. RFDK integrates with the Deadline container images and recipes published
 by [AWS Thinkbox](https://www.awsthinkbox.com/ "https://www.awsthinkbox.com/"). These images and recipes can be extended to customize the images deployed
@@ -146,7 +146,7 @@ hosted through ECR Public Repositories and VPC endpoints are currently unavailab
 ### Using AWS Thinkbox ECR Repositories
 
 RFDK provides a
-[`ThinkboxDockerImages`](../../api/latest/docs/aws-rfdk.deadline.md "../../api/latest/docs/aws-rfdk.deadline.md")
+[`ThinkboxDockerImages`](../../api/latest/docs/aws-rfdk.deadline.ThinkboxDockerImages.md "../../api/latest/docs/aws-rfdk.deadline.ThinkboxDockerImages.md")
 construct that can be used to provide Deadline container images from AWS Thinkbox’s public ECR Repositories to other
 RFDK constructs in your CDK app.
 
@@ -330,7 +330,7 @@ compatibility with Deadline.
 The default behavior of `stage-deadline` is to create a `stage` subdirectory under the current working directory and stage the files into it.
 The choice of destination directory can be changed by specifying a `--output `OUTPUT_DIR`` command-line argument.
 
-RFDK provides a [`ThinkboxDockerRecipes`](../../api/latest/docs/aws-rfdk.deadline.md "../../api/latest/docs/aws-rfdk.deadline.md") construct that interacts with the Deadline Docker recipes within a staging directory.
+RFDK provides a [`ThinkboxDockerRecipes`](../../api/latest/docs/aws-rfdk.deadline.ThinkboxDockerRecipes.md "../../api/latest/docs/aws-rfdk.deadline.ThinkboxDockerRecipes.md") construct that interacts with the Deadline Docker recipes within a staging directory.
 
 The following sample code demonstrates how to use `ThinkboxDockerRecipes`:
 
