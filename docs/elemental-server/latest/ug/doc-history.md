@@ -7,7 +7,7 @@ the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Element
 The following table describes the documentation for this release of AWS Elemental Server.
 
 - **API version:** 2.18
-- **Release notes:** [AWS Elemental Server Release Notes](../../../elemental-onprem/latest/pdf/elemental_server_conductor_file_release_notes_2.18.0.md "../../../elemental-onprem/latest/pdf/elemental_server_conductor_file_release_notes_2.18.0.md")
+- **Release notes:** [AWS Elemental Server Release Notes](../../../elemental-onprem/latest/pdf/elemental_server_conductor_file_release_notes_2.18.0.pdf.md "../../../elemental-onprem/latest/pdf/elemental_server_conductor_file_release_notes_2.18.0.pdf.md")
   The following table describes the documentation for this release of AWS Elemental Server. For notification about updates to this documentation, you can subscribe to an RSS feed.
 
 | Change                                                                                    | Description                                         | Date         |
