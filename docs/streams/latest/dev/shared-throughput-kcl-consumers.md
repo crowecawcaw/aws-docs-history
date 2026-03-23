@@ -262,7 +262,7 @@ this might not be sufficient for your application. For example, if your Amazon K
 frequent checkpointing or operates on a stream that is composed of many shards, you
 might need more throughput.
 
-For information about provisioned throughput in DynamoDB, see [Read/Write Capacity Mode](../../../amazondynamodb/latest/developerguide/HowItWorks.md "../../../amazondynamodb/latest/developerguide/HowItWorks.md") and [Working with Tables and Data](../../../amazondynamodb/latest/developerguide/WorkingWithDDTables.md "../../../amazondynamodb/latest/developerguide/WorkingWithDDTables.md")
+For information about provisioned throughput in DynamoDB, see [Read/Write Capacity Mode](../../../amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.md "../../../amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.md") and [Working with Tables and Data](../../../amazondynamodb/latest/developerguide/WorkingWithDDTables.md "../../../amazondynamodb/latest/developerguide/WorkingWithDDTables.md")
 in the _Amazon DynamoDB Developer Guide_.
 
 ### How a lease table is synchronized with the shards in a Kinesis data stream

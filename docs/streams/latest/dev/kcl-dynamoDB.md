@@ -141,7 +141,7 @@ of read capacity units (RCU) and write capacity units (WCU) when you first creat
 your consumer application, it might not be sufficient as your usage grows. For
 example, if your KCL consumer application does frequent checkpointing or
 operates on a stream with many shards, you might need more capacity units. For
-information about provisioned throughput in DynamoDB, see [DynamoDB throughput capacity](../../../amazondynamodb/latest/developerguide/capacity-mode.md "../../../amazondynamodb/latest/developerguide/capacity-mode.md") and [updating a table](../../../amazondynamodb/latest/developerguide/WorkingWithTables.md#WorkingWithTables.Basics.UpdateTable "../../../amazondynamodb/latest/developerguide/WorkingWithTables.md#WorkingWithTables.Basics.UpdateTable") in the Amazon DynamoDB Developer Guide.
+information about provisioned throughput in DynamoDB, see [DynamoDB throughput capacity](../../../amazondynamodb/latest/developerguide/capacity-mode.md "../../../amazondynamodb/latest/developerguide/capacity-mode.md") and [updating a table](../../../amazondynamodb/latest/developerguide/WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable "../../../amazondynamodb/latest/developerguide/WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable") in the Amazon DynamoDB Developer Guide.
 
 ## How KCL assigns leases to workers and balances the load
 
