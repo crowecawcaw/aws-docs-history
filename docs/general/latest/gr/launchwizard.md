@@ -28,6 +28,7 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Seoul)      | ap-northeast-2 | launchwizard.ap-northeast-2.amazonaws.com | HTTPS    |
 | Asia Pacific (Singapore)  | ap-southeast-1 | launchwizard.ap-southeast-1.amazonaws.com | HTTPS    |
 | Asia Pacific (Sydney)     | ap-southeast-2 | launchwizard.ap-southeast-2.amazonaws.com | HTTPS    |
+| Asia Pacific (Taipei)     | ap-east-2      | launchwizard.ap-east-2.amazonaws.com      | HTTPS    |
 | Asia Pacific (Thailand)   | ap-southeast-7 | launchwizard.ap-southeast-7.amazonaws.com | HTTPS    |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | launchwizard.ap-northeast-1.amazonaws.com | HTTPS    |
 | Canada (Central)          | ca-central-1   | launchwizard.ca-central-1.amazonaws.com   | HTTPS    |
@@ -41,6 +42,7 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Stockholm)        | eu-north-1     | launchwizard.eu-north-1.amazonaws.com     | HTTPS    |
 | Europe (Zurich)           | eu-central-2   | launchwizard.eu-central-2.amazonaws.com   | HTTPS    |
 | Israel (Tel Aviv)         | il-central-1   | launchwizard.il-central-1.amazonaws.com   | HTTPS    |
+| Mexico (Central)          | mx-central-1   | launchwizard.mx-central-1.amazonaws.com   | HTTPS    |
 | Middle East (Bahrain)     | me-south-1     | launchwizard.me-south-1.amazonaws.com     | HTTPS    |
 | Middle East (UAE)         | me-central-1   | launchwizard.me-central-1.amazonaws.com   | HTTPS    |
 | South America (São Paulo) | sa-east-1      | launchwizard.sa-east-1.amazonaws.com      | HTTPS    |

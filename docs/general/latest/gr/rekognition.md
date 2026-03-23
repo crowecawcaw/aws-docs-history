@@ -14,24 +14,25 @@ The following are the service endpoints and service quotas for this service.
 Amazon Rekognition API operations (excluding streaming API operations) are available at the
 following regions and endpoints:
 
-| Region Name              | Region         | Endpoint                                                                                                                                                               | Protocol                         |
-| ------------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| US East (Ohio)           | us-east-2      | rekognition.us-east-2.amazonaws.com<br>rekognition.us-east-2.api.aws<br>rekognition-fips.us-east-2.amazonaws.com<br>rekognition-fips.us-east-2.api.aws                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US East (N. Virginia)    | us-east-1      | rekognition.us-east-1.amazonaws.com<br>rekognition-fips.us-east-1.amazonaws.com<br>rekognition.us-east-1.api.aws<br>rekognition-fips.us-east-1.api.aws                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US West (N. California)  | us-west-1      | rekognition.us-west-1.amazonaws.com<br>rekognition.us-west-1.api.aws<br>rekognition-fips.us-west-1.api.aws<br>rekognition-fips.us-west-1.amazonaws.com                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US West (Oregon)         | us-west-2      | rekognition.us-west-2.amazonaws.com<br>rekognition-fips.us-west-2.amazonaws.com<br>rekognition.us-west-2.api.aws<br>rekognition-fips.us-west-2.api.aws                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| Asia Pacific (Mumbai)    | ap-south-1     | rekognition.ap-south-1.amazonaws.com<br>rekognition.ap-south-1.api.aws                                                                                                 | HTTPS<br>HTTPS                   |
-| Asia Pacific (Seoul)     | ap-northeast-2 | rekognition.ap-northeast-2.amazonaws.com<br>rekognition.ap-northeast-2.api.aws                                                                                         | HTTPS<br>HTTPS                   |
-| Asia Pacific (Singapore) | ap-southeast-1 | rekognition.ap-southeast-1.amazonaws.com<br>rekognition.ap-southeast-1.api.aws                                                                                         | HTTPS<br>HTTPS                   |
-| Asia Pacific (Sydney)    | ap-southeast-2 | rekognition.ap-southeast-2.amazonaws.com<br>rekognition.ap-southeast-2.api.aws                                                                                         | HTTPS<br>HTTPS                   |
-| Asia Pacific (Tokyo)     | ap-northeast-1 | rekognition.ap-northeast-1.amazonaws.com<br>rekognition.ap-northeast-1.api.aws                                                                                         | HTTPS<br>HTTPS                   |
-| Canada (Central)         | ca-central-1   | rekognition.ca-central-1.amazonaws.com<br>rekognition.ca-central-1.api.aws<br>rekognition-fips.ca-central-1.amazonaws.com<br>rekognition-fips.ca-central-1.api.aws     | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| Europe (Frankfurt)       | eu-central-1   | rekognition.eu-central-1.amazonaws.com<br>rekognition.eu-central-1.api.aws                                                                                             | HTTPS<br>HTTPS                   |
-| Europe (Ireland)         | eu-west-1      | rekognition.eu-west-1.amazonaws.com<br>rekognition.eu-west-1.api.aws                                                                                                   | HTTPS<br>HTTPS                   |
-| Europe (London)          | eu-west-2      | rekognition.eu-west-2.amazonaws.com<br>rekognition.eu-west-2.api.aws                                                                                                   | HTTPS<br>HTTPS                   |
-| Europe (Spain)           | eu-south-2     | rekognition.eu-south-2.amazonaws.com<br>rekognition.eu-south-2.api.aws                                                                                                 | HTTPS<br>HTTPS                   |
-| Israel (Tel Aviv)        | il-central-1   | rekognition.il-central-1.amazonaws.com<br>rekognition.il-central-1.api.aws                                                                                             | HTTPS<br>HTTPS                   |
-| AWS GovCloud (US-West)   | us-gov-west-1  | rekognition.us-gov-west-1.amazonaws.com<br>rekognition-fips.us-gov-west-1.api.aws<br>rekognition-fips.us-gov-west-1.amazonaws.com<br>rekognition.us-gov-west-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| Region Name               | Region         | Endpoint                                                                                                                                                               | Protocol                         |
+| ------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| US East (Ohio)            | us-east-2      | rekognition.us-east-2.amazonaws.com<br>rekognition.us-east-2.api.aws<br>rekognition-fips.us-east-2.amazonaws.com<br>rekognition-fips.us-east-2.api.aws                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| US East (N. Virginia)     | us-east-1      | rekognition.us-east-1.amazonaws.com<br>rekognition-fips.us-east-1.amazonaws.com<br>rekognition.us-east-1.api.aws<br>rekognition-fips.us-east-1.api.aws                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| US West (N. California)   | us-west-1      | rekognition.us-west-1.amazonaws.com<br>rekognition.us-west-1.api.aws<br>rekognition-fips.us-west-1.api.aws<br>rekognition-fips.us-west-1.amazonaws.com                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| US West (Oregon)          | us-west-2      | rekognition.us-west-2.amazonaws.com<br>rekognition-fips.us-west-2.amazonaws.com<br>rekognition.us-west-2.api.aws<br>rekognition-fips.us-west-2.api.aws                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| Asia Pacific (Mumbai)     | ap-south-1     | rekognition.ap-south-1.amazonaws.com<br>rekognition.ap-south-1.api.aws                                                                                                 | HTTPS<br>HTTPS                   |
+| Asia Pacific (Seoul)      | ap-northeast-2 | rekognition.ap-northeast-2.amazonaws.com<br>rekognition.ap-northeast-2.api.aws                                                                                         | HTTPS<br>HTTPS                   |
+| Asia Pacific (Singapore)  | ap-southeast-1 | rekognition.ap-southeast-1.amazonaws.com<br>rekognition.ap-southeast-1.api.aws                                                                                         | HTTPS<br>HTTPS                   |
+| Asia Pacific (Sydney)     | ap-southeast-2 | rekognition.ap-southeast-2.amazonaws.com<br>rekognition.ap-southeast-2.api.aws                                                                                         | HTTPS<br>HTTPS                   |
+| Asia Pacific (Tokyo)      | ap-northeast-1 | rekognition.ap-northeast-1.amazonaws.com<br>rekognition.ap-northeast-1.api.aws                                                                                         | HTTPS<br>HTTPS                   |
+| Canada (Central)          | ca-central-1   | rekognition.ca-central-1.amazonaws.com<br>rekognition.ca-central-1.api.aws<br>rekognition-fips.ca-central-1.amazonaws.com<br>rekognition-fips.ca-central-1.api.aws     | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| Europe (Frankfurt)        | eu-central-1   | rekognition.eu-central-1.amazonaws.com<br>rekognition.eu-central-1.api.aws                                                                                             | HTTPS<br>HTTPS                   |
+| Europe (Ireland)          | eu-west-1      | rekognition.eu-west-1.amazonaws.com<br>rekognition.eu-west-1.api.aws                                                                                                   | HTTPS<br>HTTPS                   |
+| Europe (London)           | eu-west-2      | rekognition.eu-west-2.amazonaws.com<br>rekognition.eu-west-2.api.aws                                                                                                   | HTTPS<br>HTTPS                   |
+| Europe (Spain)            | eu-south-2     | rekognition.eu-south-2.amazonaws.com<br>rekognition.eu-south-2.api.aws                                                                                                 | HTTPS<br>HTTPS                   |
+| Israel (Tel Aviv)         | il-central-1   | rekognition.il-central-1.amazonaws.com<br>rekognition.il-central-1.api.aws                                                                                             | HTTPS<br>HTTPS                   |
+| South America (São Paulo) | sa-east-1      | rekognition.sa-east-1.amazonaws.com                                                                                                                                    | HTTPS                            |
+| AWS GovCloud (US-West)    | us-gov-west-1  | rekognition.us-gov-west-1.amazonaws.com<br>rekognition-fips.us-gov-west-1.api.aws<br>rekognition-fips.us-gov-west-1.amazonaws.com<br>rekognition.us-gov-west-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
 
 ### Amazon Rekognition Streaming Endpoints
 
@@ -90,9 +91,9 @@ Amazon Rekognition Custom Labels is available in the following Regions only.
 - Asia Pacific (Tokyo)
 - Asia Pacific (Seoul)
 
-### Canada (Central) Region
+### Canada (Central) and South America (São Paulo) Regions
 
-The Canada (Central) Region supports the following operations only.
+The Canada (Central) and South America (São Paulo) regions support the following operations only.
 
 - [AssociateFaces](../../../rekognition/latest/APIReference/API_AssociateFaces.md "../../../rekognition/latest/APIReference/API_AssociateFaces.md")
 - [CompareFaces](../../../rekognition/latest/APIReference/API_CompareFaces.md "../../../rekognition/latest/APIReference/API_CompareFaces.md")
@@ -116,7 +117,7 @@ The Canada (Central) Region supports the following operations only.
 ###### Note
 
 These operations are only available through use of the AWS CLI or SDK, as
-the Canada (Central) Region doesn't currently provide a console experience
+both Canada (Central) and South America (São Paulo) regions don't currently provide a console experience
 for these operations.
 
 ### Israel (Tel Aviv) Region

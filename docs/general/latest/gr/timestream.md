@@ -41,7 +41,7 @@ Use the following endpoints to acquire the endpoints for the query API.
 | Europe (Ireland)       | eu-west-1      | query.timestream.eu-west-1.amazonaws.com<br>timestream-query.eu-west-1.api.aws                                                                                             | HTTPS<br>HTTPS                   |
 | AWS GovCloud (US-West) | us-gov-west-1  | query.timestream.us-gov-west-1.amazonaws.com<br>timestream-query.us-gov-west-1.api.aws                                                                                     | HTTPS<br>HTTPS                   |
 
-For more information, see [Using the API](../../../timestream/latest/developerguide/Using.md "../../../timestream/latest/developerguide/Using.md") in the _Amazon Timestream Developer Guide_.
+For more information, see [Using the API](../../../timestream/latest/developerguide/Using.API.md "../../../timestream/latest/developerguide/Using.API.md") in the _Amazon Timestream Developer Guide_.
 
 ### Timestream for InfluxDB endpoints
 

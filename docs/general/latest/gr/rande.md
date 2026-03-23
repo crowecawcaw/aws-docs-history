@@ -106,7 +106,7 @@ You can view the AWS service endpoints using the following options:
   the link to open the page for that service. To view the supported endpoints for all
   AWS services in the documentation without switching pages, view the information in
   the [Service Endpoints
-  and Quotas](aws-general.md#aws-service-information "aws-general.md#aws-service-information") page in the PDF instead.
+  and Quotas](aws-general.pdf.md#aws-service-information "aws-general.pdf.md#aws-service-information") page in the PDF instead.
 - To programmatically check for service availability using the SDK for Java, see [Check for service availability in an Region](../../../sdk-for-java/v2/developer-guide/java-dg-region-selection.md#region-selection-query-service "../../../sdk-for-java/v2/developer-guide/java-dg-region-selection.md#region-selection-query-service") in the
   _AWS SDK for Java Developer Guide_.
 - To programmatically view Region and service information using Systems Manager, see [Calling public parameters for AWS services, Regions, endpoints, and zones in parameter store](../../../systems-manager/latest/userguide/parameter-store-public-parameters-global-infrastructure.md "../../../systems-manager/latest/userguide/parameter-store-public-parameters-global-infrastructure.md")

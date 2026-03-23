@@ -12,7 +12,7 @@ You can view service quotas by using the following options:
   the service name, and then click the link to go to the page for that service. To
   view the service quotas for all AWS services in the documentation without
   switching pages, view the information in the PDF [Service
-  endpoints and quotas](aws-general.md#aws-service-information "aws-general.md#aws-service-information") page.
+  endpoints and quotas](aws-general.pdf.md#aws-service-information "aws-general.pdf.md#aws-service-information") page.
 - From the console: Open the [Service Quotas
   console](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home"). In the navigation pane, choose **AWS
   services**, and then select a service. For more information, see [Viewing service quotas](../../../servicequotas/latest/userguide/gs-request-quota.md "../../../servicequotas/latest/userguide/gs-request-quota.md") in the

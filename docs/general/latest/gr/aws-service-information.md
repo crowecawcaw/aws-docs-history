@@ -9,7 +9,7 @@ information, see [AWS service quotas](aws_service_limits.md "aws_service_limits.
 Choose one of the following links to go to the page for that service. To view the service
 quotas for all AWS services in the documentation without switching pages, view the
 information in the [Service endpoints and
-quotas](aws-general.md#aws-service-information "aws-general.md#aws-service-information") page in the PDF instead.
+quotas](aws-general.pdf.md#aws-service-information "aws-general.pdf.md#aws-service-information") page in the PDF instead.
 
 ###### Services
 
@@ -89,6 +89,7 @@ quotas](aws-general.md#aws-service-information "aws-general.md#aws-service-infor
 - [Compute Optimizer](compute-optimizer.md "compute-optimizer.md")
 - [AWS Config](awsconfig.md "awsconfig.md")
 - [Amazon Connect](connect_region.md "connect_region.md")
+- [Connect Health](connecthealth.md "connecthealth.md")
 - [AWS Control Tower](controltower.md "controltower.md")
 - [AWS Data Exchange](dataexchange.md "dataexchange.md")
 - [Amazon DataZone](datazone.md "datazone.md")

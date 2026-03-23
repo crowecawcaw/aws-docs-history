@@ -126,7 +126,7 @@ that hosts the routing controls that you want to get or update the state for.
 ARC creates endpoints for each cluster in the following five Regions: US East (N. Virginia) (us-east-1), Europe (Ireland)
 (eu-west-1), US West (Oregon) (us-west-2), Asia Pacific (Tokyo) (ap-northeast-1), and Asia Pacific (Sydney) (ap-southeast-2). Routing Controls provide five regional endpoints to ensure high availability, even in the face of failures. To achieve their full resilience, it's important to have retry logic that can use all five endpoints as necessary. To learn more, see
 [Get and update routing control
-states using the API](../../../r53recovery/latest/dg/routing-control.update.md "../../../r53recovery/latest/dg/routing-control.update.md") and [Best practices for Amazon Application Recovery Controller (ARC)](../../../r53recovery/latest/dg/route53-arc-best-practices.md "../../../r53recovery/latest/dg/route53-arc-best-practices.md") in the Amazon Route 53 Application Recovery Controller Developer Guide.
+states using the API](../../../r53recovery/latest/dg/routing-control.update.api.md "../../../r53recovery/latest/dg/routing-control.update.api.md") and [Best practices for Amazon Application Recovery Controller (ARC)](../../../r53recovery/latest/dg/route53-arc-best-practices.md "../../../r53recovery/latest/dg/route53-arc-best-practices.md") in the Amazon Route 53 Application Recovery Controller Developer Guide.
 
 The following are examples of the Regional cluster endpoints for routing control in ARC.
 

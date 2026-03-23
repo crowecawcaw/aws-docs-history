@@ -17,6 +17,7 @@ The following are the service endpoints and service quotas for this service.
 | US West (Oregon)      | us-west-2      | medical-imaging.us-west-2.amazonaws.com<br>medical-imaging-fips.us-west-2.amazonaws.com | HTTPS<br>HTTPS |
 | Asia Pacific (Sydney) | ap-southeast-2 | medical-imaging.ap-southeast-2.amazonaws.com                                            | HTTPS          |
 | Europe (Ireland)      | eu-west-1      | medical-imaging.eu-west-1.amazonaws.com                                                 | HTTPS          |
+| Europe (London)       | eu-west-2      | medical-imaging.eu-west-2.amazonaws.com                                                 | HTTPS          |
 
 If you are using HTTP requests to call AWS HealthImaging API actions, you must use two different endpoints depending
 on the actions being called. The following menu lists the available service endpoints for HTTP requests and the

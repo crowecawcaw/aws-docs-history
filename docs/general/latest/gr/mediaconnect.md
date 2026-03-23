@@ -20,6 +20,7 @@ The following are the service endpoints and service quotas for this service.
 | Africa (Cape Town)        | af-south-1     | mediaconnect.af-south-1.amazonaws.com     | HTTPS    |
 | Asia Pacific (Hong Kong)  | ap-east-1      | mediaconnect.ap-east-1.amazonaws.com      | HTTPS    |
 | Asia Pacific (Hyderabad)  | ap-south-2     | mediaconnect.ap-south-2.amazonaws.com     | HTTPS    |
+| Asia Pacific (Malaysia)   | ap-southeast-5 | mediaconnect.ap-southeast-5.amazonaws.com | HTTPS    |
 | Asia Pacific (Melbourne)  | ap-southeast-4 | mediaconnect.ap-southeast-4.amazonaws.com | HTTPS    |
 | Asia Pacific (Mumbai)     | ap-south-1     | mediaconnect.ap-south-1.amazonaws.com     | HTTPS    |
 | Asia Pacific (Osaka)      | ap-northeast-3 | mediaconnect.ap-northeast-3.amazonaws.com | HTTPS    |
