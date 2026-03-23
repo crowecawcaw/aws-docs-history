@@ -20,14 +20,14 @@ implementation details before we fully support these platforms. In addition, Ama
 on adding support for these features. Here's a list of features that aren't supported at this time.
 
 - [Worker environments](../dg/using-features-managing-env-tiers.md "../dg/using-features-managing-env-tiers.md")
-- [Log streaming to Amazon CloudWatch Logs](../dg/using-features.md#health-logs-cloudwatchlogs "../dg/using-features.md#health-logs-cloudwatchlogs")
-- Immutable deployments – see [Deployment Policies and Settings](../dg/using-features.md "../dg/using-features.md")
+- [Log streaming to Amazon CloudWatch Logs](../dg/using-features.logging.md#health-logs-cloudwatchlogs "../dg/using-features.logging.md#health-logs-cloudwatchlogs")
+- Immutable deployments – see [Deployment Policies and Settings](../dg/using-features.rolling-version-deploy.md "../dg/using-features.rolling-version-deploy.md")
 - [Serving static files](../dg/environment-cfg-staticfiles.md "../dg/environment-cfg-staticfiles.md")
 - [AWS X-Ray integration](../dg/environment-configuration-debugging.md "../dg/environment-configuration-debugging.md")
 
 For a list of beta program platform versions, see [Elastic Beanstalk Platform Versions in Public Beta](../platforms/platforms-beta.md "../platforms/platforms-beta.md").
 For considerations about migrating your existing Elastic Beanstalk application to Amazon Linux 2, see [Migrating Your
-Linux Application to Amazon Linux 2](../dg/using-features.md "../dg/using-features.md").
+Linux Application to Amazon Linux 2](../dg/using-features.migration-al.md "../dg/using-features.migration-al.md").
 
 ## New platform versions
 

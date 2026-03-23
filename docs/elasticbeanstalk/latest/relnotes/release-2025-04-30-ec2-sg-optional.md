@@ -20,4 +20,4 @@ the AWS CLI or configuration files to update this option and to attach custom se
 your environment's EC2 instances.
 
 For more information, see [Managing EC2
-security groups](../dg/using-features.managing.ec2.instances.md "../dg/using-features.managing.ec2.instances.md") in the _AWS Elastic Beanstalk Developer Guide_.
+security groups](../dg/using-features.managing.ec2.instances.sg.md "../dg/using-features.managing.ec2.instances.sg.md") in the _AWS Elastic Beanstalk Developer Guide_.

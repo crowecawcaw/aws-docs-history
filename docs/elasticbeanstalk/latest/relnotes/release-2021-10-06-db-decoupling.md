@@ -15,4 +15,4 @@ the decoupling operation, and you can keep the database operational as an extern
 also have the option to terminate an Elastic Beanstalk environment, while leaving the database operational.
 
 For more information, see [Adding a database to your
-Elastic Beanstalk environment](../dg/using-features.managing.md "../dg/using-features.managing.md") in the _AWS Elastic Beanstalk Developer Guide_.
+Elastic Beanstalk environment](../dg/using-features.managing.db.md "../dg/using-features.managing.db.md") in the _AWS Elastic Beanstalk Developer Guide_.

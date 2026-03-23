@@ -17,7 +17,7 @@ Today we're re-releasing the Elastic Beanstalk Amazon Linux 2 Docker beta platfo
 
 For a list of beta program platform versions, see [Elastic Beanstalk Platform Versions in Public Beta](../platforms/platforms-beta.md "../platforms/platforms-beta.md").
 For considerations about migrating your existing Elastic Beanstalk application to Amazon Linux 2, see [Migrating Your
-Linux Application to Amazon Linux 2](../dg/using-features.md "../dg/using-features.md").
+Linux Application to Amazon Linux 2](../dg/using-features.migration-al.md "../dg/using-features.migration-al.md").
 
 ###### Note
 

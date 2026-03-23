@@ -11,7 +11,7 @@ components.
 
 Elastic Beanstalk does not provide new maintenance updates for retired platform branches. If you currently use any of these retired platforms, we
 strongly recommend that you migrate from each one of them to a current, fully supported version. For more information,
-see [Updating your Elastic Beanstalk environment's platform version](../dg/using-features.platform.md "../dg/using-features.platform.md") in
+see [Updating your Elastic Beanstalk environment's platform version](../dg/using-features.platform.upgrade.md "../dg/using-features.platform.upgrade.md") in
 the _AWS Elastic Beanstalk Developer Guide_.
 
 _The following platform branches are now retired_. To reference this information along with other lists of retired components, see [Retired platform branch

@@ -19,7 +19,7 @@ based on these retired platform branches until March 4, 2024, which is 90 days a
 
 Elastic Beanstalk will make Beanstalk Windows 2012 AMIs private after March 4, 2024. This action will prevent the launching of instances in your Windows 2012
 environments that use the default Beanstalk AMI. In order to retain access to the AMIs, you may copy the AMIs into your accounts for use in your Beanstalk
-environments. For detailed instructions, see [Preserving access to an AMI for a retired platform](../dg/using-features.md "../dg/using-features.md") in the _AWS Elastic Beanstalk Developer Guide_.
+environments. For detailed instructions, see [Preserving access to an AMI for a retired platform](../dg/using-features.customenv-env-copy.md "../dg/using-features.customenv-env-copy.md") in the _AWS Elastic Beanstalk Developer Guide_.
 
 If you currently use these retired platform branches, we strongly recommend that you start planning your migration to one of the _Windows Server version 2_ platforms, which are current and fully supported:
 

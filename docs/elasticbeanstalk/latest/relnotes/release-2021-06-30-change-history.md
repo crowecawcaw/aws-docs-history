@@ -22,4 +22,4 @@ on the AWS News blog and the [Amazon EBS product overview page](https://aws.amaz
 You can configure your Amazon EC2 instances that are running on Elastic Beanstalk platforms to use gp3 storage volumes directly in the Elastic Beanstalk Console. You can also
 configure your Elastic Beanstalk environments to use gp3 storage volumes by using the EB CLI or the
 
-`aws:autoscaling:launchconfiguration` namespace configuration option. For more information, see [Configuring your environment's Amazon EC2 instances](../dg/using-features.managing.md#using-features.managing.ec2.console "../dg/using-features.managing.md#using-features.managing.ec2.console") in the _AWS Elastic Beanstalk Developer Guide_.
+`aws:autoscaling:launchconfiguration` namespace configuration option. For more information, see [Configuring your environment's Amazon EC2 instances](../dg/using-features.managing.ec2.md#using-features.managing.ec2.console "../dg/using-features.managing.ec2.md#using-features.managing.ec2.console") in the _AWS Elastic Beanstalk Developer Guide_.

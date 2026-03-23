@@ -18,5 +18,5 @@ The Change History panel displays a list of detailed configuration changes for a
 changes, what the configuration values were set to and when the changes were made. You can filter this information using the Change History panel's
 search bar.
 
-For more information, see [Change history](../dg/using-features.md "../dg/using-features.md") in the
+For more information, see [Change history](../dg/using-features.changehistory.md "../dg/using-features.changehistory.md") in the
 _AWS Elastic Beanstalk Developer Guide_.

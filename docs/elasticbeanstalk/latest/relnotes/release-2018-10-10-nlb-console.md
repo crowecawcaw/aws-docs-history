@@ -19,4 +19,4 @@ In addition, when you previously used the AWS Elastic Beanstalk console to enabl
 the previous-generation Elastic Load Balancing load balancer. Starting with today's release, Application Load Balancer is the default option.
 
 For more information about load balancing in Elastic Beanstalk, see [Load Balancer for Your AWS Elastic Beanstalk
-Environment](../dg/using-features.managing.md "../dg/using-features.managing.md") in the _AWS Elastic Beanstalk Developer Guide_.
+Environment](../dg/using-features.managing.elb.md "../dg/using-features.managing.elb.md") in the _AWS Elastic Beanstalk Developer Guide_.

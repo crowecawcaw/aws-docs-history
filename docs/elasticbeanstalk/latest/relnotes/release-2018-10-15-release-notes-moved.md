@@ -17,7 +17,7 @@ The new publishing system has a few advantages that we hope you'll like:
 - _More languages_ – Release notes will be localized into all languages supported by AWS documentation.
 - _Concise summary page_ – The release notes website has a table-based [summary page](relnotes.md "relnotes.md"), for a quick glance at our release history.
 - _RSS feed_ – You can subscribe to our [RSS
-  feed](aws-elasticbeanstalk-release-notes.md "aws-elasticbeanstalk-release-notes.md") and stay up to date on Elastic Beanstalk releases. All release notes pages have a link to the RSS feed on the top navigation bar.
+  feed](aws-elasticbeanstalk-release-notes.rss.md "aws-elasticbeanstalk-release-notes.rss.md") and stay up to date on Elastic Beanstalk releases. All release notes pages have a link to the RSS feed on the top navigation bar.
 - _Full, easy-to-navigate platform information_ – Platform update release notes now have complete information about all
   released platform configurations, consistent with the current and historical platform information found in the _AWS Elastic Beanstalk
   Developer Guide_. We also added links to individual language platform tables at the top of the _Updated Platform

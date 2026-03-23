@@ -15,4 +15,4 @@ environments, applications, application versions, saved configurations, and cust
 At this time, you can manage tags for the four added resources using the API or the AWS CLI.
 
 For more information about tagging Elastic Beanstalk resources, see [Tagging AWS Elastic Beanstalk Application
-Resources](../dg/applications-tagging-resources.md "../dg/applications-tagging-resources.md") in the _AWS Elastic Beanstalk Developer Guide_. For more information about tag-based access control, see [Controlling Access to Elastic Beanstalk Resources Using Tags](../dg/AWSHowTo.iam.policies.md "../dg/AWSHowTo.iam.policies.md") in the guide.
+Resources](../dg/applications-tagging-resources.md "../dg/applications-tagging-resources.md") in the _AWS Elastic Beanstalk Developer Guide_. For more information about tag-based access control, see [Controlling Access to Elastic Beanstalk Resources Using Tags](../dg/AWSHowTo.iam.policies.access-tags.md "../dg/AWSHowTo.iam.policies.access-tags.md") in the guide.

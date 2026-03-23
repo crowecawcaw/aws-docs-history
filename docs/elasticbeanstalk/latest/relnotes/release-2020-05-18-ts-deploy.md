@@ -17,5 +17,5 @@ then forwards a specified percentage of incoming client traffic to the new appli
 stay healthy, Elastic Beanstalk forwards all traffic to them and terminates the old ones. If the new instances don't pass health checks, or if you choose to abort the
 deployment, Elastic Beanstalk moves traffic back to the old instances and terminates the new ones. There's never any service interruption.
 
-For details, see [Deployment policies and settings](../dg/using-features.md "../dg/using-features.md") in the
+For details, see [Deployment policies and settings](../dg/using-features.rolling-version-deploy.md "../dg/using-features.rolling-version-deploy.md") in the
 _AWS Elastic Beanstalk Developer Guide_.

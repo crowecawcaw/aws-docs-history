@@ -14,5 +14,5 @@ Elastic Beanstalk has increased the number of different instance types that you 
 different instance types. Now you can specify up to forty different instance types.
 
 You provide the list of EC2 instance types for your environment in the `InstanceTypes` option of the `aws:ec2:instances`
-namespace. For more information, see the following sections in the _AWS Elastic Beanstalk Developer Guide_: [Configuring AWS EC2 instances](../dg/using-features.managing.md#using-features.managing.ec2.aws-cli "../dg/using-features.managing.md#using-features.managing.ec2.aws-cli") and [aws:ec2:instances
+namespace. For more information, see the following sections in the _AWS Elastic Beanstalk Developer Guide_: [Configuring AWS EC2 instances](../dg/using-features.managing.ec2.md#using-features.managing.ec2.aws-cli "../dg/using-features.managing.ec2.md#using-features.managing.ec2.aws-cli") and [aws:ec2:instances
 namespace](../dg/command-options-general.md#command-options-general-ec2instances "../dg/command-options-general.md#command-options-general-ec2instances").

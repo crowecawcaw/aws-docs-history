@@ -14,4 +14,4 @@ data natively with environment variables.
 This feature is available in all commercial AWS Regions where Elastic Beanstalk is available, including AWS GovCloud (US) Regions.
 
 For more information, see [Using Elastic Beanstalk with Secrets Manager and Systems Manager
-Parameter Store](../dg/AWSHowTo.md "../dg/AWSHowTo.md") in the _AWS Elastic Beanstalk Developer Guide_.
+Parameter Store](../dg/AWSHowTo.secrets.md "../dg/AWSHowTo.secrets.md") in the _AWS Elastic Beanstalk Developer Guide_.

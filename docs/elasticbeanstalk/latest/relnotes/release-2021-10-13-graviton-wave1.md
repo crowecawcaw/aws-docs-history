@@ -39,7 +39,7 @@ type, you must also provide the image ID for your platform branch and Region.
 
 For a list of Graviton image IDs for each supported platform branch and Region, see [Graviton image IDs for supporting platforms](#release-2021-10-13-graviton-wave1.graviton "#release-2021-10-13-graviton-wave1.graviton") on this page.
 
-For instructions on how to create and configure environments using Graviton instances, see [Amazon EC2 instance types](../dg/using-features.managing.md#using-features.managing.ec2.instance-types "../dg/using-features.managing.md#using-features.managing.ec2.instance-types") in the
+For instructions on how to create and configure environments using Graviton instances, see [Amazon EC2 instance types](../dg/using-features.managing.ec2.md#using-features.managing.ec2.instance-types "../dg/using-features.managing.ec2.md#using-features.managing.ec2.instance-types") in the
 _AWS Elastic Beanstalk Developer Guide_.
 
 ## Graviton image IDs for supporting platforms
@@ -51,7 +51,7 @@ Customers are no longer required to manually enter the listed custom AMIs to cre
 If you created environments with the custom AMIs provided in the first wave release, we recommend that you remove the custom AMIs and upgrade to the
 latest platform version. For specific instructions, see
 [Recommendations for Graviton arm64 first
-wave environments](../dg/using-features.managing.md#using-features.managing.ec2.graviton-wave-1 "../dg/using-features.managing.md#using-features.managing.ec2.graviton-wave-1") in the _AWS Elastic Beanstalk Developer Guide_.
+wave environments](../dg/using-features.managing.ec2.md#using-features.managing.ec2.graviton-wave-1 "../dg/using-features.managing.ec2.md#using-features.managing.ec2.graviton-wave-1") in the _AWS Elastic Beanstalk Developer Guide_.
 
 The
 following sections list the Graviton image IDs for each platform branch that supports Graviton instance types. The images are specific to each supporting

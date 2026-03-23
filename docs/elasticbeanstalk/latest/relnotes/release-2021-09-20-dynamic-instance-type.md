@@ -14,5 +14,5 @@ For example, if you’re running an application with a compute-intensive workloa
 instance types such as p3 or p4d.
 
 You can learn more about instance types supported by Elastic Beanstalk and configuring your Elastic Beanstalk environments with Amazon EC2 instances.
-For more information, see [Your Elastic Beanstalk environment's Amazon EC2 instances](../dg/using-features.managing.md "../dg/using-features.managing.md") in the
+For more information, see [Your Elastic Beanstalk environment's Amazon EC2 instances](../dg/using-features.managing.ec2.md "../dg/using-features.managing.ec2.md") in the
 _AWS Elastic Beanstalk Developer Guide_.

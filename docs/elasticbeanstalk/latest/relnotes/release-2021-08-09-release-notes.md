@@ -15,4 +15,4 @@ interrupted.
 
 You can enable Capacity Rebalancing on an existing EC2 Auto Scaling Group using the Elastic Beanstalk Console or the [aws:autoscaling:asg](../dg/command-options-general.md#command-options-general-autoscalingasg "../dg/command-options-general.md#command-options-general-autoscalingasg") namespace configuration
 option. For more information, see [Auto Scaling group for your Elastic Beanstalk
-environment](../dg/using-features.managing.md "../dg/using-features.managing.md") in the _AWS Elastic Beanstalk Developer Guide_.
+environment](../dg/using-features.managing.as.md "../dg/using-features.managing.as.md") in the _AWS Elastic Beanstalk Developer Guide_.

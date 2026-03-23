@@ -14,12 +14,12 @@ add defense in depth to the EC2 Instance Metadata Service](https://aws.amazon.co
 Today we're announcing the support of IMDSv2 on all Elastic Beanstalk platform versions based on Amazon Linux 2. These platform versions still support IMDSv1. However,
 IMDSv2 is more secure, so it's a good idea to enforce the use of IMDSv2 on your environment instances. To enforce IMDSv2, ensure that all components of
 your application support IMDSv2, and then disable IMDSv1. For more information, see [Configuring
-the instance metadata service on your environment's instances](../dg/environments-cfg-ec2-imds.md "../dg/environments-cfg-ec2-imds.md"). For Amazon Linux 2 migration information, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2](../dg/using-features.md "../dg/using-features.md").
+the instance metadata service on your environment's instances](../dg/environments-cfg-ec2-imds.md "../dg/environments-cfg-ec2-imds.md"). For Amazon Linux 2 migration information, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2](../dg/using-features.migration-al.md "../dg/using-features.migration-al.md").
 
 ###### Note
 
 Disabling IMDSv1 requires using Amazon EC2 launch templates. When you enable a feature that depends on Amazon EC2 launch templates during environment creation
 or updates, Elastic Beanstalk attempts to configure your environment to use Amazon EC2 launch templates (if the environment isn't using them already). In this case, if
 your user policy lacks the necessary permissions, environment creation or updates might fail. Therefore, we recommend that you use our managed user
-policy or add the required permissions to your custom policies. For details about the required permissions, see [Creating a Custom User Policy](../dg/AWSHowTo.iam.md#AWSHowTo.iam.policies "../dg/AWSHowTo.iam.md#AWSHowTo.iam.policies") in the
+policy or add the required permissions to your custom policies. For details about the required permissions, see [Creating a Custom User Policy](../dg/AWSHowTo.iam.managed-policies.md#AWSHowTo.iam.policies "../dg/AWSHowTo.iam.managed-policies.md#AWSHowTo.iam.policies") in the
 _AWS Elastic Beanstalk Developer Guide_.

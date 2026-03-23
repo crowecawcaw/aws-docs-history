@@ -24,6 +24,6 @@ The new console version uses a new API action, [ListPlatformBranches](../api/API
 functionality. Therefore, if your environment uses a custom user policy, be sure to add the `elasticbeanstalk:ListPlatformBranches`
 permission to your policy.
 
-For details about user policies, see [Managing Elastic Beanstalk user policies](../dg/AWSHowTo.iam.md "../dg/AWSHowTo.iam.md").
+For details about user policies, see [Managing Elastic Beanstalk user policies](../dg/AWSHowTo.iam.managed-policies.md "../dg/AWSHowTo.iam.managed-policies.md").
 
 To try out our new console design, open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk/home "https://console.aws.amazon.com/elasticbeanstalk/home").

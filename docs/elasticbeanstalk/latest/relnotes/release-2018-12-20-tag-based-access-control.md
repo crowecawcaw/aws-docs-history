@@ -14,4 +14,4 @@ an API request to act on an Elastic Beanstalk environment, tags in the request a
 allowed or denied.
 
 For more information about tag-based access control in Elastic Beanstalk, see [Controlling Access
-to Elastic Beanstalk Resources Using Tags](../dg/AWSHowTo.iam.policies.md "../dg/AWSHowTo.iam.policies.md") in the _AWS Elastic Beanstalk Developer Guide_.
+to Elastic Beanstalk Resources Using Tags](../dg/AWSHowTo.iam.policies.access-tags.md "../dg/AWSHowTo.iam.policies.access-tags.md") in the _AWS Elastic Beanstalk Developer Guide_.

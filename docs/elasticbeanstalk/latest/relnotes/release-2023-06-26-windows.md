@@ -20,7 +20,7 @@ released on [Dec 28,
   listed platform versions. Impacted actions include, but aren’t limited to, the following:
   configuration deployments, application deployments, auto scaling, new environment launch, log
   rotation, and enhanced health reports. For more information, see [Updating your Elastic
-  Beanstalk environment's platform version](../dg/using-features.platform.md "../dg/using-features.platform.md") in the
+  Beanstalk environment's platform version](../dg/using-features.platform.upgrade.md "../dg/using-features.platform.upgrade.md") in the
   _AWS Elastic Beanstalk Developer Guide_.
 
 ## Changes

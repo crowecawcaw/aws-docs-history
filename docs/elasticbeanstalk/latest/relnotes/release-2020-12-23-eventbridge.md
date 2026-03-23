@@ -16,5 +16,5 @@ This release introduces pre-defined event patterns for Elastic Beanstalk in the 
 you select Elastic Beanstalk event fields and values. The EventBridge console displays the event pattern as you build it, providing a built-in method to create rules that
 respond to Elastic Beanstalk events.
 
-For more information, see [Using Elastic Beanstalk with Amazon EventBridge](../dg/AWSHowTo.md "../dg/AWSHowTo.md") in
+For more information, see [Using Elastic Beanstalk with Amazon EventBridge](../dg/AWSHowTo.eventbridge.md "../dg/AWSHowTo.eventbridge.md") in
 the _AWS Elastic Beanstalk Developer Guide_.

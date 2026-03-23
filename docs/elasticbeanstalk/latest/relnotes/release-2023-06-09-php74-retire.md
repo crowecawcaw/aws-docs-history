@@ -10,7 +10,7 @@ Today Elastic Beanstalk is announcing the retirement of the PHP 7.4 platform bra
 components.
 
 Elastic Beanstalk does not provide new maintenance updates for retired platform branches. If you currently use this retired platform branch, we strongly
-recommend that you migrate to a current, fully supported version. For more information, see [Updating your Elastic Beanstalk environment's platform version](../dg/using-features.platform.md "../dg/using-features.platform.md") in the _AWS Elastic Beanstalk Developer Guide_.
+recommend that you migrate to a current, fully supported version. For more information, see [Updating your Elastic Beanstalk environment's platform version](../dg/using-features.platform.upgrade.md "../dg/using-features.platform.upgrade.md") in the _AWS Elastic Beanstalk Developer Guide_.
 
 _The PHP 7.4 platform branch is now retired_. To reference this information along with other lists of retired components, see
 [Retired platform branch

@@ -18,5 +18,5 @@ transitions to _Degraded_ or _Severe_, you might want to use a Lambda function t
 channel. With this release, you can use Amazon EventBridge to set up event-driven rules that monitor your Elastic Beanstalk resources and initiate target actions that use other
 AWS services.
 
-For more information, see [Using Elastic Beanstalk with Amazon EventBridge](../dg/AWSHowTo.md "../dg/AWSHowTo.md") in
+For more information, see [Using Elastic Beanstalk with Amazon EventBridge](../dg/AWSHowTo.eventbridge.md "../dg/AWSHowTo.eventbridge.md") in
 the _AWS Elastic Beanstalk Developer Guide_.

@@ -13,5 +13,5 @@ Today we released support for [Spot Instances](release-2019-11-25-spot.md "relea
 templates. In the future, additional features might depend on Amazon EC2 launch templates. When you enable such a feature during environment creation or
 updates, Elastic Beanstalk attempts to configure your environment to use Amazon EC2 launch templates (if the environment isn't using them already). In this case, if your
 user policy lacks the necessary permissions, environment creation or updates might fail. Therefore, we recommend that you use our managed user policy or
-add the required permissions to your custom policies. For details about the required permissions, see [Creating a Custom User Policy](../dg/AWSHowTo.iam.md#AWSHowTo.iam.policies "../dg/AWSHowTo.iam.md#AWSHowTo.iam.policies") in the
+add the required permissions to your custom policies. For details about the required permissions, see [Creating a Custom User Policy](../dg/AWSHowTo.iam.managed-policies.md#AWSHowTo.iam.policies "../dg/AWSHowTo.iam.managed-policies.md#AWSHowTo.iam.policies") in the
 _AWS Elastic Beanstalk Developer Guide_.
