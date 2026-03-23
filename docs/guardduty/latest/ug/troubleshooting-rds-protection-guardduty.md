@@ -19,7 +19,7 @@ To resolve the `storage-full` status, you can perform one of the following actio
 - **Enable storage autoscaling (recommended)** – Enable Amazon RDS
   storage autoscaling to automatically manage storage capacity and prevent future `storage-full`
   conditions. For more information, see
-  [Managing capacity automatically with Amazon RDS storage autoscaling](../../../AmazonRDS/latest/UserGuide/USER_PIOPS.md "../../../AmazonRDS/latest/UserGuide/USER_PIOPS.md")
+  [Managing capacity automatically with Amazon RDS storage autoscaling](../../../AmazonRDS/latest/UserGuide/USER_PIOPS.Autoscaling.md "../../../AmazonRDS/latest/UserGuide/USER_PIOPS.Autoscaling.md")
   in the _Amazon RDS User Guide_.
 - **Monitor your storage utilization** – Check your
   storage utilization using one of the following methods:
@@ -29,7 +29,7 @@ To resolve the `storage-full` status, you can perform one of the following actio
     metrics in an Amazon RDS instance](../../../AmazonRDS/latest/UserGuide/Viewing_Unifiedmetrics.md "../../../AmazonRDS/latest/UserGuide/Viewing_Unifiedmetrics.md") in the _Amazon RDS User Guide_.
 
 - **Modify storage capacity** – For information about increasing your instance's
-  storage capacity, see [Increasing DB instance storage capacity](../../../AmazonRDS/latest/UserGuide/USER_PIOPS.md "../../../AmazonRDS/latest/UserGuide/USER_PIOPS.md")
+  storage capacity, see [Increasing DB instance storage capacity](../../../AmazonRDS/latest/UserGuide/USER_PIOPS.ModifyingExisting.md "../../../AmazonRDS/latest/UserGuide/USER_PIOPS.ModifyingExisting.md")
   in the _Amazon RDS User Guide_.
 
 ## Unsupported versions on primary database for RDS for PostgreSQL
@@ -46,7 +46,7 @@ To resolve the unsupported version issue, do one of the following:
 - **Address potential replication issue** – Review and resolve any replication
   issues between primary and replica instances. For more information about doing this, see
   [Working with
-  read replicas for RDS for PostgreSQL](../../../AmazonRDS/latest/UserGuide/USER_PostgreSQL.Replication.md "../../../AmazonRDS/latest/UserGuide/USER_PostgreSQL.Replication.md") in the _Amazon RDS User Guide_.
+  read replicas for RDS for PostgreSQL](../../../AmazonRDS/latest/UserGuide/USER_PostgreSQL.Replication.ReadReplicas.md "../../../AmazonRDS/latest/UserGuide/USER_PostgreSQL.Replication.ReadReplicas.md") in the _Amazon RDS User Guide_.
 
 ## Additional security considerations
 

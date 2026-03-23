@@ -100,17 +100,17 @@ the findings JSON. These user details include user name, application used, datab
 version, and authentication method.
 
 - To revoke access or rotate passwords for specific users that are involved in the finding,
-  see [Security with Amazon Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.md"), or [Security with Amazon Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md") in the
+  see [Security with Amazon Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Security.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Security.md"), or [Security with Amazon Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Security.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Security.md") in the
   _Amazon Aurora User Guide_.
 - Use AWS Secrets Manager to securely store and automatically rotate the secrets for Amazon Relational Database Service(RDS)
   databases. For more information, see [AWS Secrets Manager tutorials](../../../secretsmanager/latest/userguide/tutorials.md "../../../secretsmanager/latest/userguide/tutorials.md") in the
   _AWS Secrets Manager User Guide_.
 - Use IAM database authentication to manage database users' access without the need for
   passwords. For more information, see [IAM database
-  authentication](../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.md") in the _Amazon Aurora User Guide_.
+  authentication](../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.md "../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.md") in the _Amazon Aurora User Guide_.
 
 For more information, see [Security best practices for
-Amazon Relational Database Service](../../../AmazonRDS/latest/UserGuide/CHAP_BestPractices.md "../../../AmazonRDS/latest/UserGuide/CHAP_BestPractices.md") in the _Amazon RDS User Guide_.
+Amazon Relational Database Service](../../../AmazonRDS/latest/UserGuide/CHAP_BestPractices.Security.md "../../../AmazonRDS/latest/UserGuide/CHAP_BestPractices.Security.md") in the _Amazon RDS User Guide_.
 
 ## Restrict network access
 
@@ -120,7 +120,7 @@ source, audit the security groups. A list of security groups attached to the dat
 available under **Security groups** in the [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/") console, or in the
 `resource.rdsDbInstanceDetails.dbSecurityGroups` of the findings JSON. For more
 information on configuring security groups, see [Controlling access with
-security groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md") in the _Amazon RDS User Guide_.
+security groups](../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md") in the _Amazon RDS User Guide_.
 
 If you're using a firewall, restrict network access to the database by reconfiguring the
 Network Access Control Lists (NACLs). For more information, see [Firewalls in AWS Network Firewall](../../../network-firewall/latest/developerguide/firewalls.md "../../../network-firewall/latest/developerguide/firewalls.md") in

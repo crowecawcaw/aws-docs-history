@@ -137,7 +137,7 @@ the next step is to configure Amazon Q Developer for Chime.
 
 Perform the steps under
 [Tutorial: Get started
-with Amazon Chime](../../../chatbot/latest/adminguide/chime-setup.md "../../../chatbot/latest/adminguide/chime-setup.md") in the _Amazon Q Developer in chat applications Administrator Guide_.
+with Amazon Chime](../../../chatbot/latest/adminguide/chime-setup.html.md "../../../chatbot/latest/adminguide/chime-setup.html.md") in the _Amazon Q Developer in chat applications Administrator Guide_.
 
 ## Using Amazon EventBridge for GuardDuty findings
 

@@ -28,7 +28,7 @@ in _Amazon RDS User Guide_.
 
 RDS Protection doesn't require additional infrastructure; it is designed so as not to affect the
 performance of your database instances. When RDS Protection detects a potentially suspicious or
-m anomalous login attempt, GuardDuty generates one or more [RDS Protection finding types](findings-rds-protection.md "findings-rds-protection.md") with details about the potentially compromised
+anomalous login attempt, GuardDuty generates one or more [RDS Protection finding types](findings-rds-protection.md "findings-rds-protection.md") with details about the potentially compromised
 database.
 
 **30-day free trial**
