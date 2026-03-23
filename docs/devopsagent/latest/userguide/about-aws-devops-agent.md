@@ -7,7 +7,7 @@ AWS DevOps Agent investigates incidents and identifies operational improvements 
 The agent works by:
 
 - Learning your resources and their relationships.
-- Working with your observability tools, runbooks, code repositories, and CI/CD pipelines.
+- Working with your observability tools, skills, code repositories, and CI/CD pipelines.
 - Correlating telemetry, code, and deployment data to understand relationships between your application resources.
 - Supporting applications in multicloud and hybrid environments.
 

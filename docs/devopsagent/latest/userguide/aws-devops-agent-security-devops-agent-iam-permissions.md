@@ -54,7 +54,7 @@ These actions control the ability to manage recommendations as backlog tasks:
 
 These actions control the ability to add and manage custom knowledge that the agent can use during investigations:
 
-- **aidevops:CreateKnowledgeItem** – Allows users to add custom knowledge items, such as runbooks, troubleshooting guides, or application-specific information that the agent should reference.
+- **aidevops:CreateKnowledgeItem** – Allows users to add custom knowledge items, such as skills, troubleshooting guides, or application-specific information that the agent should reference.
 - **aidevops:ListKnowledgeItems** – Allows users to view all knowledge items configured for an Agent Space.
 - **aidevops:GetKnowledgeItem** – Allows users to retrieve the details of a specific knowledge item.
 - **aidevops:UpdateKnowledgeItem** – Allows users to modify existing knowledge items to keep information current.
