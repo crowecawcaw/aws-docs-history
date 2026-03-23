@@ -71,7 +71,7 @@ is protected by Shield Standard, which minimizes application
 downtime and latency from DDoS attacks.
 
 For more information, see [Adding
-an accelerator when you create a load balancer](../../../global-accelerator/latest/dg/about-accelerators.md "../../../global-accelerator/latest/dg/about-accelerators.md") in the
+an accelerator when you create a load balancer](../../../global-accelerator/latest/dg/about-accelerators.alb-accelerator.md "../../../global-accelerator/latest/dg/about-accelerators.alb-accelerator.md") in the
 _AWS Global Accelerator Developer Guide_.
 
 ## AWS Config

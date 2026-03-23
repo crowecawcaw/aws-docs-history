@@ -18,7 +18,7 @@ resource to the affected Availability Zone. ARC creates the zonal shift
 immediately. However, it can take a short time for existing, in-progress connections
 in the Availability Zone to complete, depending on client behavior and connection reuse.
 Depending on your DNS settings and other factors, existing connections can complete
-in just a few minutes, or might take longer. For more information, see [Limit the time that clients stay connected to your endpoints](../../../r53recovery/latest/dg/route53-arc-best-practices.md#arc-zonal-shift.existing-connections "../../../r53recovery/latest/dg/route53-arc-best-practices.md#arc-zonal-shift.existing-connections") in the
+in just a few minutes, or might take longer. For more information, see [Limit the time that clients stay connected to your endpoints](../../../r53recovery/latest/dg/route53-arc-best-practices.zonal-shifts.md#arc-zonal-shift.existing-connections "../../../r53recovery/latest/dg/route53-arc-best-practices.zonal-shifts.md#arc-zonal-shift.existing-connections") in the
 _Amazon Application Recovery Controller (ARC) Developer Guide_.
 
 ###### Contents
@@ -44,7 +44,7 @@ _Amazon Application Recovery Controller (ARC) Developer Guide_.
   cross-zone load balancing turned off and you use a zonal shift to remove a zonal load balancer IP
   address, the Availability Zone affected by the zonal shift also loses target capacity.
 
-For more information, see [Best practices for zonal shifts in ARC](../../../r53recovery/latest/dg/route53-arc-best-practices.md "../../../r53recovery/latest/dg/route53-arc-best-practices.md") in the _Amazon Application Recovery Controller (ARC)
+For more information, see [Best practices for zonal shifts in ARC](../../../r53recovery/latest/dg/route53-arc-best-practices.zonal-shifts.md "../../../r53recovery/latest/dg/route53-arc-best-practices.zonal-shifts.md") in the _Amazon Application Recovery Controller (ARC)
 Developer Guide_.
 
 ## Cross-zone load balancing

@@ -111,7 +111,7 @@ Zone using zonal shift or zonal autoshift, clients with existing open connection
 make requests against the impaired location until the clients reconnect.
 To support faster recovery, consider setting
 a lower keepalive duration value, to limit the amount of time that clients stay connected
-to a load balancer. For more information, see [Limit the time that clients stay connected to your endpoints](../../../r53recovery/latest/dg/route53-arc-best-practices.md#arc-zonal-shift.existing-connections "../../../r53recovery/latest/dg/route53-arc-best-practices.md#arc-zonal-shift.existing-connections") in the
+to a load balancer. For more information, see [Limit the time that clients stay connected to your endpoints](../../../r53recovery/latest/dg/route53-arc-best-practices.zonal-shifts.md#arc-zonal-shift.existing-connections "../../../r53recovery/latest/dg/route53-arc-best-practices.zonal-shifts.md#arc-zonal-shift.existing-connections") in the
 _Amazon Application Recovery Controller (ARC) Developer Guide_.
 
 ###### Note

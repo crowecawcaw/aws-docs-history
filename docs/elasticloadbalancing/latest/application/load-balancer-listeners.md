@@ -51,7 +51,7 @@ between the client and the target through the load balancer. You can use WebSock
 both HTTP and HTTPS listeners. The options that you choose for your listener apply to
 WebSocket connections as well as to HTTP traffic. Websockets are not supported for
 requests routed to target groups that have enabled target optimizer. For more
-information, see [How the WebSocket Protocol Works](../../../AmazonCloudFront/latest/DeveloperGuide/distribution-working-with.md#distribution-working-with.websockets.how-it-works "../../../AmazonCloudFront/latest/DeveloperGuide/distribution-working-with.md#distribution-working-with.websockets.how-it-works") in the
+information, see [How the WebSocket Protocol Works](../../../AmazonCloudFront/latest/DeveloperGuide/distribution-working-with.websockets.md#distribution-working-with.websockets.how-it-works "../../../AmazonCloudFront/latest/DeveloperGuide/distribution-working-with.websockets.md#distribution-working-with.websockets.how-it-works") in the
 _Amazon CloudFront Developer Guide_.
 
 ###### HTTP/2
