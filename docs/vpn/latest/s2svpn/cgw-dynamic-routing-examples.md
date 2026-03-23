@@ -6,7 +6,7 @@ information, see [Step 6: Download the configuration file](SetUpVPNConnections.m
 
 You can also download generic example configuration files for dynamic
 routing that do not include values specific to your Site-to-Site VPN connection
-configuration: [dynamic-routing-examples.zip](samples/dynamic-routing-examples.md "samples/dynamic-routing-examples.md")
+configuration: [dynamic-routing-examples.zip](samples/dynamic-routing-examples.zip.md "samples/dynamic-routing-examples.zip.md")
 
 The files use placeholder values for some components. For example, they use:
 

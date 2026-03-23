@@ -111,7 +111,7 @@ placeholder for the VPN domain.
    file, for example, `54.84.169.196`. Save your settings
    and close the dialog box.
 
-![Check Point Interoperable Device dialog box](images/check-point-network-device.png) 6. In the SmartDashboard, open your gateway properties and in the
+![Check Point Interoperable Device dialog box](/images/vpn/latest/s2svpn/images/check-point-network-device.png) 6. In the SmartDashboard, open your gateway properties and in the
 category pane, choose **Topology**. 7. To retrieve the interface configuration, choose **Get
 Topology**. 8. In the **VPN Domain** section, choose
 **Manually defined**, and then browse to and

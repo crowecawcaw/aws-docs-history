@@ -6,7 +6,7 @@ information, see [Step 6: Download the configuration file](SetUpVPNConnections.m
 
 You can also download generic example configuration files for static
 routing that do not include values specific to your Site-to-Site VPN connection
-configuration: [static-routing-examples.zip](samples/static-routing-examples.md "samples/static-routing-examples.md")
+configuration: [static-routing-examples.zip](samples/static-routing-examples.zip.md "samples/static-routing-examples.zip.md")
 
 The files use placeholder values for some components. For example, they use:
 
