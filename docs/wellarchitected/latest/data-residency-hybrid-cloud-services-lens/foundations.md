@@ -11,7 +11,7 @@ to limit request rates on API operations to protect services from
 abuse. Both
 [AWS Local Zones](../../../local-zones/latest/ug/what-is-aws-local-zones.md "../../../local-zones/latest/ug/what-is-aws-local-zones.md") and
 [AWS Outposts](../../../outposts/latest/userguide/what-is-outposts.md "../../../outposts/latest/userguide/what-is-outposts.md") are homed to specific
-[AWS Regions](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md"). Regional
+[AWS Regions](../../../AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.md "../../../AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.md"). Regional
 [service
 quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md") apply to AWS resources (for example, Amazon EC2
 instances) running on Local Zones or Outposts.

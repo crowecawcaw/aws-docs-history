@@ -57,7 +57,7 @@ LGW and critical on-premises application resources. Use dynamic
 routing to automate traffic redirection around on-premises
 network failures. For more detail, see
 [Application/workload
-routing](../../../whitepapers/latest/aws-outposts-high-availability-design/applicationworkload-routing.md "../../../whitepapers/latest/aws-outposts-high-availability-design/applicationworkload-routing.md").
+routing](../../../whitepapers/latest/aws-outposts-high-availability-design/applicationworkload-routing.html%20.md "../../../whitepapers/latest/aws-outposts-high-availability-design/applicationworkload-routing.html%20.md").
 
 **Local Zones Network
 Connectivity**
