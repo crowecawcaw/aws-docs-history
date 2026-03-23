@@ -287,9 +287,174 @@ To learn how to grant Amazon Data Firehose access to an Amazon S3 destination in
 
 ## Grant Firehose access to Amazon S3 Tables
 
-You must have an IAM role before you create a Firehose stream. Use the following steps
-to create a policy and an IAM role. Firehose assumes this IAM role and performs the
-required actions.
+Firehose needs an IAM role with specific permissions to access AWS AWS Glue tables and
+write data to tables in an Amazon S3 table bucket. To write to tables in an Amazon S3 table
+bucket, you must also provide the IAM role with the required permissions. The
+permissions required for Amazon S3 Tables catalog depend on the access control mode you
+use:
+
+- **IAM access control** – The Firehose
+  delivery role needs IAM permissions directly on Amazon S3 Tables
+  resources.
+- **Lake Formation access control** – The Firehose
+  delivery role needs AWS AWS Lake Formation permissions for managing access to your
+  table resources. AWS Lake Formation uses its own permissions model that enables
+  fine-grained access control for Data Catalog resources.
+
+You configure this IAM role when you create a Firehose stream. Choose the tab that
+corresponds to your access control mode.
+
+### IAM access control
+
+If you are using IAM access control mode (without AWS Lake Formation), the Firehose delivery
+role needs IAM permissions directly on Amazon S3 Tables resources and AWS Glue Data
+Catalog objects.
+
+Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+
+Create a policy and choose **JSON** in the policy editor. Add the
+following inline policy that grants the required permissions.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "S3TablesAccessPermission",
+            "Effect": "Allow",
+            "Action": [
+                "s3tables:GetTable",
+                "s3tables:GetTableData",
+                "s3tables:GetTableMetadataLocation",
+                "s3tables:UpdateTableMetadataLocation"
+            ],
+            "Resource": [
+                "arn:aws:s3tables:`region`:`account-id`:bucket/*",
+                "arn:aws:s3tables:`region`:`account-id`:bucket/*/table/*"
+            ]
+        },
+        {
+            "Sid": "S3TableBucketAccessPermission",
+            "Effect": "Allow",
+            "Action": [
+                "s3tables:GetTableBucket"
+            ],
+            "Resource": "arn:aws:s3tables:`region`:`account-id`:bucket/*"
+        },
+        {
+            "Sid": "GlueCatalogAccessPermission",
+            "Effect": "Allow",
+            "Action": [
+                "glue:GetDatabase",
+                "glue:GetDatabases",
+                "glue:GetTable",
+                "glue:GetTables",
+                "glue:UpdateTable"
+            ],
+            "Resource": [
+                "arn:aws:glue:`region`:`account-id`:catalog",
+                "arn:aws:glue:`region`:`account-id`:catalog/s3tablescatalog",
+                "arn:aws:glue:`region`:`account-id`:catalog/s3tablescatalog/*",
+                "arn:aws:glue:`region`:`account-id`:database/*",
+                "arn:aws:glue:`region`:`account-id`:table/*/*"
+            ]
+        },
+        {
+            "Sid": "S3DeliveryErrorBucketPermission",
+            "Effect": "Allow",
+            "Action": [
+                "s3:AbortMultipartUpload",
+                "s3:GetBucketLocation",
+                "s3:GetObject",
+                "s3:ListBucket",
+                "s3:ListBucketMultipartUploads",
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::`error-delivery-bucket`",
+                "arn:aws:s3:::`error-delivery-bucket`/*"
+            ]
+        },
+        {
+            "Sid": "RequiredWhenUsingKinesisDataStreamsAsSource",
+            "Effect": "Allow",
+            "Action": [
+                "kinesis:DescribeStream",
+                "kinesis:GetShardIterator",
+                "kinesis:GetRecords",
+                "kinesis:ListShards"
+            ],
+            "Resource": "arn:aws:kinesis:`region`:`account-id`:stream/`stream-name`"
+        },
+        {
+            "Sid": "KMSPermissionForS3TablesEncryption",
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey"
+            ],
+            "Resource": [
+                "arn:aws:kms:`region`:`account-id`:key/`key-id`"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "kms:ViaService": "s3.amazonaws.com"
+                },
+                "StringLike": {
+                    "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3tables:`region`:`account-id`:bucket/*/table/*"
+                }
+            }
+        },
+        {
+            "Sid": "RequiredWhenUsingLambdaForDataTransformation",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:InvokeFunction",
+                "lambda:GetFunctionConfiguration"
+            ],
+            "Resource": "arn:aws:lambda:`region`:`account-id`:function:`function-name`:`function-version`"
+        },
+        {
+            "Sid": "CloudWatchLogsPermission",
+            "Effect": "Allow",
+            "Action": [
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:`region`:`account-id`:log-group:`log-group-name`:log-stream:`log-stream-name`"
+        }
+    ]
+}
+```
+
+The policy has statements that allow access to Amazon Kinesis Data Streams, invoking Lambda
+functions, and access to AWS KMS keys. If you don't use any of these resources, you
+can remove the respective statements. If error logging is enabled, Amazon Data Firehose also
+sends data delivery errors to your CloudWatch log group and streams. You must configure
+log group and log stream names to use this option. For log group and log stream
+names, see [Monitor Amazon Data Firehose Using CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
+
+In the inline policy, replace the placeholder values with your actual resource
+names, AWS account number, and Region.
+
+After you create the policy, open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") and
+create an IAM role with **AWS service** as the
+**Trusted entity type**.
+
+For **Service or use case**, choose **Kinesis**.
+For **Use case** , choose **Kinesis
+Firehose**.
+
+On the next page, choose the policy created in the previous step to attach to
+this role. On the review page, you will find trust policy already attached to this
+role giving permissions to the Firehose service to assume this role. When you create
+the role, Amazon Data Firehose can assume it to perform required operations on AWS Glue and Amazon S3
+Tables. Add the Firehose service principal to the trust policy of the role that is
+created. For more information, see [Allow Firehose to assume an IAM role](#firehose-assume-role "#firehose-assume-role").
+
+### Lake Formation access control
+
+If you are using AWS Lake Formation access control mode, the Firehose delivery role needs
+AWS Lake Formation permissions for credential vending in addition to the IAM policy.
 
 Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 
@@ -408,6 +573,9 @@ names to use this option. For log group and log stream names, see [Monitor Amazo
 In the inline policies, replace `<error delivery bucket>` with your Amazon S3
 bucket name, `aws-account-id` and Region with a valid AWS account number
 and Region of the resource.
+
+In addition to the IAM policy, you must also grant the Firehose delivery role the
+required permissions in AWS Lake Formation. For more information, see [Grant permissions on tables](../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md#grant-permissions-tables "../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md#grant-permissions-tables").
 
 After you create the policy, open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") and create
 an IAM role with **AWS service** as the **Trusted entity
