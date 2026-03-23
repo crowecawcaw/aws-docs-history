@@ -22,7 +22,7 @@ Here are some of the key considerations for configuring security groups for SAP 
 - CMS servers will communicate with the CMS and auditing databases.
 - The BusinessObjects BI Platform processing tier servers will communicate with the data sources. Data sources could be SAP or non-SAP systems in your landscape where SAP BusinessObjects BI Platform runs the reports.
 
-See [SAP Note 2276646](https://launchpad.support.sap.com/#/notes/2276646 "https://launchpad.support.sap.com/#/notes/2276646") to find out the ports used by different SAP BusinessObjects BI Platform components for communication. The SAP deployment and networking teams should work closely to understand what network traffic to allow in each tier and to configure the tiers accordingly. The following ideas should help provide some structure and guidance:
+See [SAP Note 2276646](https://me.sap.com/notes/2276646 "https://me.sap.com/notes/2276646") to find out the ports used by different SAP BusinessObjects BI Platform components for communication. The SAP deployment and networking teams should work closely to understand what network traffic to allow in each tier and to configure the tiers accordingly. The following ideas should help provide some structure and guidance:
 
 - Set up a virtual private gateway and one customer gateway. These provide VPN connectivity between the corporate data center and the VPC.
 - Set up route table configurations for all the traffic to and from the corporate data center over the VPN tunnel.

@@ -13,11 +13,11 @@ Before you follow the configuration instructions in this guide, we recommend tha
 
 ## SAP BusinessObjects BI Platform on AWS
 
-This guide assumes that you’re already familiar with implementing and operating SAP solutions on AWS. Please read the SAP notes listed in the following table before continuing. SAP BusinessObjects BI Platform is supported on AWS as described in [SAP Note 2438592](https://launchpad.support.sap.com/#/notes/2438592 "https://launchpad.support.sap.com/#/notes/2438592"). All AWS guides for SAP BusinessObjects BI Platform can be found on the [SAP on AWS website](https://aws.amazon.com/sap/whitepapers/ "https://aws.amazon.com/sap/whitepapers/").
+This guide assumes that you’re already familiar with implementing and operating SAP solutions on AWS. Please read the SAP notes listed in the following table before continuing. SAP BusinessObjects BI Platform is supported on AWS as described in [SAP Note 2438592](https://me.sap.com/notes/2438592 "https://me.sap.com/notes/2438592"). All AWS guides for SAP BusinessObjects BI Platform can be found on the [SAP on AWS website](https://aws.amazon.com/sap/whitepapers/ "https://aws.amazon.com/sap/whitepapers/").
 
-| SAP Note                                                                                                         | Description                                                                        |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| [1588667](https://launchpad.support.sap.com/#/notes/1588667 "https://launchpad.support.sap.com/#/notes/1588667") | SAP on AWS: Overview of related SAP notes and web links                            |
-| [1656099](https://launchpad.support.sap.com/#/notes/1656099 "https://launchpad.support.sap.com/#/notes/1656099") | SAP on AWS: Supported products, platforms, and landscapes                          |
-| [2442979](https://launchpad.support.sap.com/#/notes/2442979 "https://launchpad.support.sap.com/#/notes/2442979") | `Amazon S3` recommendations for SAP BusinessObjects Business Intelligence Platform |
-| [2438592](https://launchpad.support.sap.com/#/notes/2438592 "https://launchpad.support.sap.com/#/notes/2438592") | BI Platform 4.2 Cloud Support                                                      |
+| SAP Note                                                                       | Description                                                                        |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| [1588667](https://me.sap.com/notes/1588667 "https://me.sap.com/notes/1588667") | SAP on AWS: Overview of related SAP notes and web links                            |
+| [1656099](https://me.sap.com/notes/1656099 "https://me.sap.com/notes/1656099") | SAP on AWS: Supported products, platforms, and landscapes                          |
+| [2442979](https://me.sap.com/notes/2442979 "https://me.sap.com/notes/2442979") | `Amazon S3` recommendations for SAP BusinessObjects Business Intelligence Platform |
+| [2438592](https://me.sap.com/notes/2438592 "https://me.sap.com/notes/2438592") | BI Platform 4.2 Cloud Support                                                      |

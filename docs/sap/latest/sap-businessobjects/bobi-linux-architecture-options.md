@@ -16,7 +16,7 @@ The architecture choice depends on multiple factors like complexity, cost, sizin
 
 ## CMS and Audit Database Architecture Options
 
-You have the choice of deploying the SAP BOBI Platform application on a standard SAP supported database like SAP HANA, SAP ASE, IBM DB2, Microsoft SQL Server, or [Amazon Relational Database Service (Amazon RDS)](https://aws.amazon.com/rds/ "https://aws.amazon.com/rds/"). For supported [Amazon RDS](https://aws.amazon.com/rds/ "https://aws.amazon.com/rds/") database types, see [SAP Note 1656099 SAP on AWS: Supported SAP](https://launchpad.support.sap.com/#/notes/1656099 "https://launchpad.support.sap.com/#/notes/1656099").
+You have the choice of deploying the SAP BOBI Platform application on a standard SAP supported database like SAP HANA, SAP ASE, IBM DB2, Microsoft SQL Server, or [Amazon Relational Database Service (Amazon RDS)](https://aws.amazon.com/rds/ "https://aws.amazon.com/rds/"). For supported [Amazon RDS](https://aws.amazon.com/rds/ "https://aws.amazon.com/rds/") database types, see [SAP Note 1656099 SAP on AWS: Supported SAP](https://me.sap.com/notes/1656099 "https://me.sap.com/notes/1656099").
 
 [Amazon RDS](https://aws.amazon.com/rds/ "https://aws.amazon.com/rds/") is a service that makes it easier to set up, operate, and scale a relational database in the AWS Cloud. Amazon RDS takes over many of the difficult or tedious management tasks such as backups, software patching, automatic failure detection, and recovery. You can read more about this service in [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Welcome.md "../../../AmazonRDS/latest/UserGuide/Welcome.md").
 

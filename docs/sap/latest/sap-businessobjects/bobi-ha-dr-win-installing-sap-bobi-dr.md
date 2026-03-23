@@ -16,14 +16,14 @@ Create a snapshot of the Amazon RDS MySQL DB and copy the snapshot to the DR reg
 
 ## Installing a CMS Node
 
-The steps to install the SAP BusinessObjects BI Platform application in the DR region are described in [SAP Note 2603573](https://launchpad.support.sap.com/#/notes/2603573 "https://launchpad.support.sap.com/#/notes/2603573"). This procedure uses SQL Anywhere to temporarily create Server Intelligence Agents (SIAs) on all instances with a local CMS database. In the next section, we’ll reconfigure all nodes to form a single SAP BusinessObjects BI Platform cluster.
+The steps to install the SAP BusinessObjects BI Platform application in the DR region are described in [SAP Note 2603573](https://me.sap.com/notes/2603573 "https://me.sap.com/notes/2603573"). This procedure uses SQL Anywhere to temporarily create Server Intelligence Agents (SIAs) on all instances with a local CMS database. In the next section, we’ll reconfigure all nodes to form a single SAP BusinessObjects BI Platform cluster.
 
 1. Log in to all CMS servers for your SAP BusinessObjects BI Platform DR nodes, based on your design.
 2. Install the CMS servers by following the instructions in the SAP Note and using the same SIA names as in the production cluster.
 
 ## Starting SAP BusinessObjects BI Platform in the DR Region
 
-Create the SIA nodes for the CMS servers by following the procedure described in [SAP Note 2603573](https://launchpad.support.sap.com/#/notes/2603573 "https://launchpad.support.sap.com/#/notes/2603573"). When prompted for the CMS database details, use the connection information and credentials of the database created in the previous section. The CMS servers should now start correctly. You can now install the remaining tiers, such as the processing tier or web tier, as required by your design. The installation instructions for the primary region also apply to the DR region.
+Create the SIA nodes for the CMS servers by following the procedure described in [SAP Note 2603573](https://me.sap.com/notes/2603573 "https://me.sap.com/notes/2603573"). When prompted for the CMS database details, use the connection information and credentials of the database created in the previous section. The CMS servers should now start correctly. You can now install the remaining tiers, such as the processing tier or web tier, as required by your design. The installation instructions for the primary region also apply to the DR region.
 
 ## Creating an Amazon FSx Filestore for the DR Region
 

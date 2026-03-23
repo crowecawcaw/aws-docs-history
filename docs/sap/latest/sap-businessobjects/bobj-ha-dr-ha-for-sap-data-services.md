@@ -7,4 +7,4 @@ The HA architecture of SAP Data Services is very similar to the HA architecture 
 3. Configure the filestore shared file system as described in the [previous section](bobj-ha-dr-installing-for-ha.md#bobj-ha-dr-configure-efs-filestores "bobj-ha-dr-installing-for-ha.md#bobj-ha-dr-configure-efs-filestores").
 4. Install SAP Data Services on all SAP BusinessObjects BI Platform servers or IPS servers.
 5. Create an SAP Data Services central repository in the database created in step 1 by following the steps in the section _Repository management_ in the [SAP Data Services administrator guide](https://help.sap.com/viewer/p/SAP_DATA_SERVICES "https://help.sap.com/viewer/p/SAP_DATA_SERVICES").
-6. Configure HA for SAP Data Services batch jobs by following the instructions in [SAP Note 1938068](https://launchpad.support.sap.com/#/notes/1938068 "https://launchpad.support.sap.com/#/notes/1938068").
+6. Configure HA for SAP Data Services batch jobs by following the instructions in [SAP Note 1938068](https://me.sap.com/notes/1938068 "https://me.sap.com/notes/1938068").
