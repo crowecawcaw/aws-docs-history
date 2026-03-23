@@ -165,7 +165,7 @@ Concurrency = (5,000 requests/second) / (5 requests/second) = 1,000
 ## Understanding reserved concurrency and provisioned concurrency
 
 By default, your account has a concurrency limit of 1,000 concurrent executions across all functions in a
-Region. Your functions share this pool of 1,000 concurrency on an on-demand basis. Your functions experiences
+Region. Your functions share this pool of 1,000 concurrency on an on-demand basis. Your functions experience
 throttling (that is, they start to drop requests) if you run out of available concurrency.
 
 Some of your functions might be more critical than others. As a result, you might want to configure

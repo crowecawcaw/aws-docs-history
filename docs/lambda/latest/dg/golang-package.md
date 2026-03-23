@@ -26,7 +26,7 @@ package from GitHub. This module provides an implementation of the runtime inter
 ```
 
 If your function uses the AWS SDK for Go, download the standard set of SDK modules, along with any AWS service API clients required by your
-application. To learn how to install the SDK for Go, see [Getting Started with the AWS SDK for Go V2](https://aws.github.io/aws-sdk-go-v2/docs/getting-started/ "https://aws.github.io/aws-sdk-go-v2/docs/getting-started/").
+application. To learn how to install the SDK for Go, see [Getting Started with the AWS SDK for Go V2](https://github.com/aws/aws-sdk-go-v2?tab=readme-ov-file#getting-started "https://github.com/aws/aws-sdk-go-v2?tab=readme-ov-file#getting-started").
 
 ### Using the provided runtime family
 

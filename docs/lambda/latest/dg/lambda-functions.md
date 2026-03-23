@@ -66,3 +66,8 @@ streaming can benefit latency sensitive applications by improving time to first 
 performance. This is because you can send partial responses back to the client as they become
 available. Additionally, you can use response streaming to build functions that return larger
 payloads.
+
+**[Metadata endpoint](configuration-metadata-endpoint.md "configuration-metadata-endpoint.md")**
+
+Use the Lambda metadata endpoint to discover which Availability Zone your function is running in, enabling
+you to optimize latency by routing to same-AZ resources and to implement AZ-aware resilience patterns.

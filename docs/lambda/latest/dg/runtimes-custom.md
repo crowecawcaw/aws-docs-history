@@ -102,8 +102,7 @@ see the following:
 
 - `/runtime/invocation/AwsRequestId/response` – Propagates the
   `Content-Type` header from the runtime to send to the client. Lambda returns
-  the response payload in chunks via HTTP/1.1 chunked transfer encoding. The response stream can be a maximum
-  size of 20 MiB. To stream the response to Lambda, the runtime must:
+  the response payload in chunks via HTTP/1.1 chunked transfer encoding. To stream the response to Lambda, the runtime must:
   - Set the `Lambda-Runtime-Function-Response-Mode` HTTP header to
     `streaming`.
   - Set the `Transfer-Encoding` header to `chunked`.

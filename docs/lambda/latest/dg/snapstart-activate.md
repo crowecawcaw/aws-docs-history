@@ -210,7 +210,7 @@ When SnapStart is activated, the Lambda runtime automatically uses the container
 
 - **AWS CloudFormation:** Declare the [SnapStart](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstart.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstart.md") entity in your template.
 - **AWS Serverless Application Model (AWS SAM):** Declare the [SnapStart](../../../serverless-application-model/latest/developerguide/sam-resource-function.md#sam-function-snapstart "../../../serverless-application-model/latest/developerguide/sam-resource-function.md#sam-function-snapstart") property in your template.
-- **AWS Cloud Development Kit (AWS CDK):** Use the [SnapStartProperty](../../../cdk/api/v2/java/software/amazon/awscdk/services/lambda/CfnFunction.md "../../../cdk/api/v2/java/software/amazon/awscdk/services/lambda/CfnFunction.md") type.
+- **AWS Cloud Development Kit (AWS CDK):** Use the [SnapStartProperty](../../../cdk/api/v2/java/software/amazon/awscdk/services/lambda/CfnFunction.SnapStartProperty.md "../../../cdk/api/v2/java/software/amazon/awscdk/services/lambda/CfnFunction.SnapStartProperty.md") type.
 
 ## Deleting snapshots
 

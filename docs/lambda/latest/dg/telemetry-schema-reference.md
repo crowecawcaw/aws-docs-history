@@ -12,9 +12,9 @@ For the OpenAPI Specification (OAS) definition of the subscription responses ver
 `2025-01-29`, see the following:
 
 - **HTTP** –
-  [telemetry-api-http-schema.zip](samples/events_http_schema_v2025_01_29.md "samples/events_http_schema_v2025_01_29.md")
+  [telemetry-api-http-schema.zip](samples/events_http_schema_v2025_01_29.zip.md "samples/events_http_schema_v2025_01_29.zip.md")
 - **TCP** –
-  [telemetry-api-tcp-schema.zip](samples/events_tcp_schema_v2025_01_29.md "samples/events_tcp_schema_v2025_01_29.md")
+  [telemetry-api-tcp-schema.zip](samples/events_tcp_schema_v2025_01_29.zip.md "samples/events_tcp_schema_v2025_01_29.zip.md")
   The following table is a summary of all the types of `Event` objects that the Telemetry API
   supports.
 

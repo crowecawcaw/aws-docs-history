@@ -426,5 +426,5 @@ After deploying your durable function:
 For more information about deploying Lambda functions with IaC tools, see:
 
 - [CloudFormation AWS::Lambda::Function reference](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md")
-- [AWS CDK Lambda module documentation](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md")
+- [AWS CDK Lambda module documentation](../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md")
 - [AWS SAM Developer Guide](../../../serverless-application-model/latest/developerguide/what-is-sam.md "../../../serverless-application-model/latest/developerguide/what-is-sam.md")

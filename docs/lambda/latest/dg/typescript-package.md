@@ -122,7 +122,7 @@ export const handler = async (event: APIGatewayEvent, context: Context): Promise
 };
 ```
 
-6. Open **hello-world.ts** and add the following code to the file. This contains the [NodejsFunction construct](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md"), which creates the Lambda function, and the [LambdaRestApi construct](../../../cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.md"), which creates the REST API.
+6. Open **hello-world.ts** and add the following code to the file. This contains the [NodejsFunction construct](../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs-readme.md"), which creates the Lambda function, and the [LambdaRestApi construct](../../../cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.LambdaRestApi.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.LambdaRestApi.md"), which creates the REST API.
 
 ```
 import { Construct } from 'constructs';
@@ -151,7 +151,7 @@ The `NodejsFunction` construct assumes the following by default:
     const helloFunction = new NodejsFunction(this, `'my-function'`);
     ```
 
-You can change this behavior and configure other esbuild parameters. For more information, see [Configuring esbuild](../../../cdk/api/v2/docs/aws-cdk-lib.md#configuring-esbuild "../../../cdk/api/v2/docs/aws-cdk-lib.md#configuring-esbuild") in the AWS CDK API reference. 7. Open **hello-world-stack.ts**. This is the code that defines your [AWS CDK stack](../../../cdk/v2/guide/stacks.md "../../../cdk/v2/guide/stacks.md"). Replace the code with the following:
+You can change this behavior and configure other esbuild parameters. For more information, see [Configuring esbuild](../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs-readme.md#configuring-esbuild "../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs-readme.md#configuring-esbuild") in the AWS CDK API reference. 7. Open **hello-world-stack.ts**. This is the code that defines your [AWS CDK stack](../../../cdk/v2/guide/stacks.md "../../../cdk/v2/guide/stacks.md"). Replace the code with the following:
 
 ```
 import { Stack, StackProps } from 'aws-cdk-lib';

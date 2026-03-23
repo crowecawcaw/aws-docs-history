@@ -238,8 +238,8 @@ cd hello_world
 ```
 
 7. Open **hello_world_stack.py** and add the following code to the file. This contains the
-   [Lambda Constructor](../../../cdk/api/v1/python/aws_cdk.md "../../../cdk/api/v1/python/aws_cdk.md"), which creates the Lambda function, configures environment
-   variables for Powertools and sets log retention to one week, and the [ApiGatewayv1 Constructor](../../../cdk/api/v1/python/aws_cdk.md "../../../cdk/api/v1/python/aws_cdk.md"), which creates the REST API.
+   [Lambda Constructor](../../../cdk/api/v1/python/aws_cdk.aws_lambda.md "../../../cdk/api/v1/python/aws_cdk.aws_lambda.md"), which creates the Lambda function, configures environment
+   variables for Powertools and sets log retention to one week, and the [ApiGatewayv1 Constructor](../../../cdk/api/v1/python/aws_cdk.aws_apigateway.md "../../../cdk/api/v1/python/aws_cdk.aws_apigateway.md"), which creates the REST API.
 
 ```
 from aws_cdk import (
@@ -489,7 +489,7 @@ shows an application with two functions.
 The primary function processes events and sometimes returns errors. The second function at the top processes errors that appear
 in the first's log group and uses the AWS SDK to call X-Ray, Amazon Simple Storage Service (Amazon S3), and Amazon CloudWatch Logs.
 
-![A diagram that shows two separate applications and their respective service maps in X-Ray](images/sample-errorprocessor-servicemap.png)
+![A diagram that shows two separate applications and their respective service maps in X-Ray](/images/lambda/latest/dg/images/sample-errorprocessor-servicemap.png)
 
 X-Ray doesn't trace all requests to your application. X-Ray applies a sampling algorithm
 to ensure that tracing is efficient, while still providing a representative sample of all requests. The sampling rate is

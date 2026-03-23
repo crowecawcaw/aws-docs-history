@@ -91,7 +91,7 @@ on the AWS Developer Tools Blog.
 For Node.js runtime versions up to Node.js 18, Lambda automatically loads Amazon-specific CA (certificate
 authority) certificates to make it easier for you to create functions that interact with other AWS services.
 For example, Lambda includes the Amazon RDS certificates necessary for validating the
-[server identity certificate](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md")
+[server identity certificate](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md")
 installed on your Amazon RDS database. This behavior can have a performance impact during cold starts.
 
 Starting with Node.js 20, Lambda no longer loads additional CA certificates by default. The Node.js 20 runtime

@@ -21,9 +21,6 @@ install your own extensions. For more pricing information for extensions, see
 information for partner extensions, see those partners' websites. See [AWS Lambda extensions partners](extensions-api-partners.md "extensions-api-partners.md")
 for a list of official partner extensions.
 
-For a tutorial on extensions and how to use them with your Lambda functions, see the
-[AWS Lambda Extensions Workshop](https://catalog.workshops.aws/lambdaextensions/en-US "https://catalog.workshops.aws/lambdaextensions/en-US").
-
 ###### Topics
 
 - [Execution environment](#using-extensions-env "#using-extensions-env")

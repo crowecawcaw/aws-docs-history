@@ -288,7 +288,7 @@ signature has two arguments, as shown in the main example:
 public async Task<string> HandleRequest(Order order, ILambdaContext context)
 ```
 
-When providing two argumenhts, the first argument must be the event input, and the second
+When providing two arguments, the first argument must be the event input, and the second
 argument must be the Lambda context object. Both arguments are optional. For example, the following
 are also valid Lambda handler signatures in C#:
 

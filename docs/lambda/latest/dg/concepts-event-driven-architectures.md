@@ -117,7 +117,7 @@ Some workloads contain a combination of requirements that are eventually consist
 in the current hour) or strongly consistent (for example, current inventory). For workloads needing strong data
 consistency, there are architecture patterns to support this. For example:
 
-- DynamoDB can provide [strongly consistent reads](../../../amazondynamodb/latest/developerguide/HowItWorks.md "../../../amazondynamodb/latest/developerguide/HowItWorks.md"), sometimes at a higher latency, consuming a greater throughput
+- DynamoDB can provide [strongly consistent reads](../../../amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.md "../../../amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.md"), sometimes at a higher latency, consuming a greater throughput
   than the default mode. DynamoDB can also [support transactions](../../../amazondynamodb/latest/developerguide/transactions.md "../../../amazondynamodb/latest/developerguide/transactions.md") to help maintain data consistency.
 - You can use Amazon RDS for features needing [ACID properties](https://en.wikipedia.org/wiki/ACID "https://en.wikipedia.org/wiki/ACID"),
   though relational databases are generally less scalable than NoSQL databases like DynamoDB.

@@ -704,8 +704,8 @@ cd hello_world
 ```
 
 7. Open **hello_world_stack.py** and add the following code to the file. This contains the
-   [Lambda Constructor](../../../cdk/api/v1/python/aws_cdk.md "../../../cdk/api/v1/python/aws_cdk.md"), which creates the Lambda function, configures environment
-   variables for Powertools and sets log retention to one week, and the [ApiGatewayv1 Constructor](../../../cdk/api/v1/python/aws_cdk.md "../../../cdk/api/v1/python/aws_cdk.md"), which creates the REST API.
+   [Lambda Constructor](../../../cdk/api/v1/python/aws_cdk.aws_lambda.md "../../../cdk/api/v1/python/aws_cdk.aws_lambda.md"), which creates the Lambda function, configures environment
+   variables for Powertools and sets log retention to one week, and the [ApiGatewayv1 Constructor](../../../cdk/api/v1/python/aws_cdk.aws_apigateway.md "../../../cdk/api/v1/python/aws_cdk.aws_apigateway.md"), which creates the REST API.
 
 ```
 from aws_cdk import (

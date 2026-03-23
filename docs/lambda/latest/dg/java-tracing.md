@@ -393,8 +393,8 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
 ```
 
 8. Open `HelloWorldStack.java` from the `hello-world\src\main\java\com\myorg` directory and replace the existing code with the following code. This code uses
-   [Lambda Constructor](../../../cdk/api/v1/java/aws_cdk.md "../../../cdk/api/v1/java/aws_cdk.md")and the
-   [ApiGatewayv2 Constructor](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md")
+   [Lambda Constructor](../../../cdk/api/v1/java/aws_cdk.aws_lambda.md "../../../cdk/api/v1/java/aws_cdk.aws_lambda.md")and the
+   [ApiGatewayv2 Constructor](../../../cdk/api/v2/docs/aws-cdk-lib.aws_apigatewayv2-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_apigatewayv2-readme.md")
    to create a REST API and a Lambda function.
 
 ```

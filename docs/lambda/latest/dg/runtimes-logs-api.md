@@ -170,7 +170,7 @@ http://${AWS_LAMBDA_RUNTIME_API}/2020-08-15/logs
 ```
 
 The OpenAPI specification for the Logs API version **2020-08-15** is available
-here: [logs-api-request.zip](samples/logs-api-request.md "samples/logs-api-request.md")
+here: [logs-api-request.zip](samples/logs-api-request.zip.md "samples/logs-api-request.zip.md")
 
 ### Subscribe
 
@@ -200,8 +200,8 @@ messages.
 
 The OpenAPI specifications for the subscription responses version **2020-08-15** are available for the HTTP and TCP protocols:
 
-- HTTP: [logs-api-http-response.zip](samples/logs-api-http-response.md "samples/logs-api-http-response.md")
-- TCP: [logs-api-tcp-response.zip](samples/logs-api-tcp-response.md "samples/logs-api-tcp-response.md")
+- HTTP: [logs-api-http-response.zip](samples/logs-api-http-response.zip.md "samples/logs-api-http-response.zip.md")
+- TCP: [logs-api-tcp-response.zip](samples/logs-api-tcp-response.zip.md "samples/logs-api-tcp-response.zip.md")
 
 ###### **Response codes**
 
@@ -438,7 +438,7 @@ If you set the schema version to "2021-03-18" in the subscribe request, Lambda s
 with an error. The extension can use this message to stop all the telemetry collection for this function
 invocation.
 
-The OpenAPI specification for the Log event type in schema version **2021-03-18** is available here: [schema-2021-03-18.zip](samples/schema-2021-03-18.md "samples/schema-2021-03-18.md")
+The OpenAPI specification for the Log event type in schema version **2021-03-18** is available here: [schema-2021-03-18.zip](samples/schema-2021-03-18.zip.md "samples/schema-2021-03-18.zip.md")
 
 Lambda generates the `platform.runtimeDone` log message when the runtime sends a
 `Next` or `Error` runtime API request. The `platform.runtimeDone` log

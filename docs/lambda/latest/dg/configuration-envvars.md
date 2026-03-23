@@ -323,6 +323,10 @@ environment variables are _reserved_ and cannot be set in your function configur
 - `LAMBDA_TASK_ROOT` – The path to your Lambda function code.
 - `LAMBDA_RUNTIME_DIR` – The path to runtime libraries.
 - `AWS_LAMBDA_MAX_CONCURRENCY` – (Lambda Managed Instances only) The maximum number of concurrent invocations Lambda will send to one execution environment.
+- `AWS_LAMBDA_METADATA_API` – The [metadata endpoint](configuration-metadata-endpoint.md "configuration-metadata-endpoint.md") server address in the format
+  `{ipv4_address}:{port}` (for example, `169.254.100.1:9001`).
+- `AWS_LAMBDA_METADATA_TOKEN` – A unique authentication token for the current
+  execution environment used to authenticate requests to the [metadata endpoint](configuration-metadata-endpoint.md "configuration-metadata-endpoint.md"). Lambda generates this token automatically at initialization.
 
 The following additional environment variables aren't reserved and can be extended in your function
 configuration.

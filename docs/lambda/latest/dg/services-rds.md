@@ -132,7 +132,7 @@ To make secure SSL/TLS connections to an Amazon RDS database instance, your Lamb
 
   It might take up to 4 weeks for Amazon RDS certificates for new AWS Regions to be added to the Lambda managed runtimes.
 
-- [Container images](images-create.md "images-create.md"): AWS base images include only CA certificates. If your function connects to an Amazon RDS database instance, you must include the appropriate certificates in your container image. In your Dockerfile, download the [certificate bundle that corresponds with the AWS Region where you host your database.](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload") Example:
+- [Container images](images-create.md "images-create.md"): AWS base images include only CA certificates. If your function connects to an Amazon RDS database instance, you must include the appropriate certificates in your container image. In your Dockerfile, download the [certificate bundle that corresponds with the AWS Region where you host your database.](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesDownload "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesDownload") Example:
 
 ```
 RUN curl `https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.pem` -o `/us-east-1-bundle.pem`

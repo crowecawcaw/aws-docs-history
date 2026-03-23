@@ -14,7 +14,7 @@ simultaneously within a single execution environment. For more information about
 
 ![Architecture diagram of the execution environment.](images/telemetry-api-concept-diagram.png)
 The OpenAPI specification for the runtime API version **2018-06-01** is available
-in [runtime-api.zip](samples/runtime-api.md "samples/runtime-api.md")
+in [runtime-api.zip](samples/runtime-api.zip.md "samples/runtime-api.zip.md")
 
 To create an API request URL, runtimes get the API endpoint from the `AWS_LAMBDA_RUNTIME_API` environment variable, add the API version,
 and add the desired resource path.

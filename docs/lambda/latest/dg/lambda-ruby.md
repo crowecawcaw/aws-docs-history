@@ -69,9 +69,9 @@ end
 
 ## Enabling Yet Another Ruby JIT (YJIT)
 
-The Ruby 3.2 runtime supports [YJIT](https://github.com/ruby/ruby/blob/master/doc/yjit/yjit.md "https://github.com/ruby/ruby/blob/master/doc/yjit/yjit.md"), a lightweight, minimalistic Ruby JIT compiler. YJIT provides significantly higher performance, but also uses more memory than the Ruby interpreter. YJIT is recommended for Ruby on Rails workloads.
+The Ruby runtimes support [YJIT](https://docs.ruby-lang.org/en/master/jit/yjit_md.html "https://docs.ruby-lang.org/en/master/jit/yjit_md.html"), a lightweight, minimalistic Ruby JIT compiler. YJIT provides significantly higher performance, but also uses more memory than the Ruby interpreter. YJIT is recommended for Ruby on Rails workloads.
 
-YJIT is not enabled by default. To enable YJIT for a Ruby 3.2 function, set the `RUBY_YJIT_ENABLE` environment variable to `1`. To confirm that YJIT is enabled, print the result of the `RubyVM::YJIT.enabled?` method.
+YJIT is not enabled by default. To enable YJIT for a Ruby function, set the `RUBY_YJIT_ENABLE` environment variable to `1`. To confirm that YJIT is enabled, print the result of the `RubyVM::YJIT.enabled?` method.
 
 ###### Example— Confirm that YJIT is enabled
 

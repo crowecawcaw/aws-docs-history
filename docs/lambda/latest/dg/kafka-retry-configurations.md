@@ -6,7 +6,7 @@ You can configure how Lambda handles errors and retries for your Kafka event sou
 
 The following retry configurations are available for both Amazon MSK and self-managed Kafka event sources:
 
-- **Maximum retry attempts** – The maximum number of times Lambda retries when your function returns an error. This doesn't count the initial invocation attempt. The default is -1 (infinite).
+- **Maximum retry attempts** – The maximum number of times Lambda retries when your function returns an error. This doesn't count the initial invocation attempt. The default is -1 (infinite). When you configure both infinite retries and an [on-failure destination](kafka-on-failure-destination.md "kafka-on-failure-destination.md"), Lambda automatically applies a maximum of 10 retry attempts.
 - **Maximum record age** – The maximum age of a record that Lambda sends to your function. The default is -1 (infinite).
 - **Split batch on error** – When your function returns an error, split the batch into two smaller batches and retry each separately. This helps isolate problematic records.
 - **Partial batch response** – Allow your function to return information about which records in a batch failed processing, so Lambda can retry only the failed records.

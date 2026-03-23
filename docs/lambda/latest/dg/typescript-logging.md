@@ -187,7 +187,7 @@ export const handler = async (event: APIGatewayEvent, context: Context): Promise
 };
 ```
 
-7. Open **hello-world.ts** and add the following code to the file. This contains the [NodejsFunction construct](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md"), which creates the Lambda function, configures environment variables for Powertools, and sets log retention to one week. It also includes the [LambdaRestApi construct](../../../cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.md"), which creates the REST API.
+7. Open **hello-world.ts** and add the following code to the file. This contains the [NodejsFunction construct](../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs-readme.md"), which creates the Lambda function, configures environment variables for Powertools, and sets log retention to one week. It also includes the [LambdaRestApi construct](../../../cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.LambdaRestApi.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.LambdaRestApi.md"), which creates the REST API.
 
 ```
 import { Construct } from 'constructs';

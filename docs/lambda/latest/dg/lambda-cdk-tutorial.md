@@ -9,7 +9,7 @@ Lambda function that returns an event from an Amazon API Gateway endpoint.
 
 The AWS Construct Library, included with the CDK, provides modules that you can
 use to model the resources that AWS services provide. For popular services, the library
-provides curated constructs with smart defaults and best practices. You can use the [aws_lambda](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md") module to define your function and supporting resources with just a few lines of code.
+provides curated constructs with smart defaults and best practices. You can use the [aws_lambda](../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md") module to define your function and supporting resources with just a few lines of code.
 
 ## Prerequisites
 
@@ -92,7 +92,7 @@ Each CDK stack represents an CloudFormation stack in your CDK app.
 To define your CDK stack, follow the instructions for your preferred programming language. This stack defines the following:
 
 - The function's logical name: `MyFunction`
-- The location of the function code, specified in the `code` property. For more information, see [Handler code](../../../cdk/api/v2/docs/aws-cdk-lib.md#handler-code "../../../cdk/api/v2/docs/aws-cdk-lib.md#handler-code") in the _AWS Cloud Development Kit (AWS CDK) API Reference_.
+- The location of the function code, specified in the `code` property. For more information, see [Handler code](../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md#handler-code "../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md#handler-code") in the _AWS Cloud Development Kit (AWS CDK) API Reference_.
 - The REST API's logical name: `HelloApi`
 - The API Gateway endpoint's logical name: `ApiGwEndpoint`
 
