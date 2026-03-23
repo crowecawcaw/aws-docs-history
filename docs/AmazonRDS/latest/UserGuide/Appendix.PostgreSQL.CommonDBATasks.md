@@ -34,6 +34,7 @@ Following are some common DBA tasks for RDS for PostgreSQL.
 - [Using pgBadger for log analysis with PostgreSQL](#Appendix.PostgreSQL.CommonDBATasks.Badger "#Appendix.PostgreSQL.CommonDBATasks.Badger")
 - [Using PGSnapper for monitoring PostgreSQL](#Appendix.PostgreSQL.CommonDBATasks.Snapper "#Appendix.PostgreSQL.CommonDBATasks.Snapper")
 - [Managing custom casts in RDS for PostgreSQL](PostgreSQL.CustomCasts.md "PostgreSQL.CustomCasts.md")
+- [Best Practices for Parallel Queries in RDS for PostgreSQL](PostgreSQL.ParallelQueries.md "PostgreSQL.ParallelQueries.md")
 - [Working with parameters on your RDS for PostgreSQL DB instance](Appendix.PostgreSQL.CommonDBATasks.Parameters.md "Appendix.PostgreSQL.CommonDBATasks.Parameters.md")
 
 ## Working with logging mechanisms supported by RDS for PostgreSQL
