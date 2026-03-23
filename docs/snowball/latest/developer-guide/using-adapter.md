@@ -16,7 +16,7 @@ If your solution uses the AWS SDK for Java version 1.11.0 or newer, you must use
   not supported with the interface.
 - `setPathStyleAccess(true)` – Configures the interface to use
   path-style access for all requests.
-  For more information, see [Class S3ClientOptions.Builder](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/S3ClientOptions.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/S3ClientOptions.md") in the _Amazon AppStream SDK for Java_.
+  For more information, see [Class S3ClientOptions.Builder](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/S3ClientOptions.Builder.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/S3ClientOptions.Builder.md") in the _Amazon AppStream SDK for Java_.
 
 ###### Important
 
