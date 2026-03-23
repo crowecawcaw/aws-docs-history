@@ -113,5 +113,5 @@ you gain visibility into vCPU usage for your RDS for Oracle and RDS for Db2 DB i
 data to calculate the number of licenses consumed based on your licensing terms with the database management
 system vendors. For more information, see the following associated links in the _Amazon RDS User Guide_.
 
-- [RDS for Oracle licensing options](../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.md "../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.md")
+- [RDS for Oracle licensing options](../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.Licensing.md "../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.Licensing.md")
 - [RDS for Db2 licensing options](../../../AmazonRDS/latest/UserGuide/db2-licensing.md "../../../AmazonRDS/latest/UserGuide/db2-licensing.md")

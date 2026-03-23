@@ -49,7 +49,7 @@ included (for example, a license that is not for "SQL Server Web").
 | Engine Edition             | The database engine edition.                                          | `Equals`    | • `oracle-ee`<br>• `oracle-se`<br>• `oracle-se1`<br>• `oracle-se2`<br>• `db2-se`<br>• `db2-ae`                                                                 |
 | License Pack (Oracle only) | The management pack associated with an Amazon RDS for Oracle license. | `Equals`    | • `Spatial and Graph`<br>• `Active Data Guard`<br>• `Label Security`<br>• `Oracle On-Line Analytical Processing (OLAP)`<br>• `Diagnostic Pack and Tuning Pack` |
 
-For more information about Amazon RDS database product licenses, see [RDS for Oracle licensing options](../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.md "../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.md"), or
+For more information about Amazon RDS database product licenses, see [RDS for Oracle licensing options](../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.Licensing.md "../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.Licensing.md"), or
 [RDS for Db2 licensing options](../../../AmazonRDS/latest/UserGuide/db2-licensing.md "../../../AmazonRDS/latest/UserGuide/db2-licensing.md")
 in the _Amazon RDS User Guide_.
 
