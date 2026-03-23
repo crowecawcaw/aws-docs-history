@@ -53,7 +53,7 @@ the four static IP addresses for your dual-stack accelerator.
 Depending on the use
 case, you can use your accelerator's static IP addresses or DNS name to
 route traffic to your accelerator, or set up DNS records to route traffic using
-your own custom domain name. For more information, see [Support for DNS addressing in AWS Global Accelerator](dns-addressing-custom-domains.md "dns-addressing-custom-domains.md").
+your own custom domain name. For more information, see [Support for DNS addressing in AWS Global Accelerator](dns-addressing-custom-domains.dns-addressing.md "dns-addressing-custom-domains.dns-addressing.md").
 
 **Network zone**
 Similar to an AWS Availability Zone, a network zone is an isolated unit with its own set of

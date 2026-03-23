@@ -45,7 +45,7 @@ To set up custom routing accelerator, you do the following:
 ###### Topics
 
 - [How custom routing accelerators work](about-custom-routing-how-it-works.md "about-custom-routing-how-it-works.md")
-- [Custom routing example](about-custom-routing-how-it-works.md "about-custom-routing-how-it-works.md")
+- [Custom routing example](about-custom-routing-how-it-works.example.md "about-custom-routing-how-it-works.example.md")
 - [Custom routing guidelines](about-custom-routing-guidelines.md "about-custom-routing-guidelines.md")
 - [Custom routing accelerators](about-custom-routing-accelerators.md "about-custom-routing-accelerators.md")
 - [Listeners for custom routing accelerators](about-custom-routing-listeners.md "about-custom-routing-listeners.md")

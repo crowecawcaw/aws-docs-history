@@ -70,7 +70,7 @@ you must clean up the Global Accelerator resources in your account before you ca
 delete the roles.
 
 After you have disabled and deleted your accelerators, then you can delete the service-linked role.
-For more information about deleting accelerators, see [Create accelerator](about-accelerators.md "about-accelerators.md").
+For more information about deleting accelerators, see [Create accelerator](about-accelerators.creating-editing.md "about-accelerators.creating-editing.md").
 
 ###### Note
 

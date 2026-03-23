@@ -1,21 +1,19 @@
-# Route custom domain traffic to your accelerator
+# DNS addressing and custom domains in AWS Global Accelerator
 
-In most scenarios, you can configure DNS to use your custom domain name (such as
-`www.example.com`) with your accelerator, instead of using the assigned static IP
-addresses or the default DNS name. First, using Amazon Route 53 or another DNS provider, create a
-domain name, and then add or update DNS records with your Global Accelerator IP addresses. Or you can
-associate your custom domain name with the DNS name for your accelerator. Complete the DNS
-configuration and wait for the changes to propagate over the internet. Now when a client makes a
-request using your custom domain name, the DNS server resolves it to the IP addresses, in random
-order, or to the DNS name for your accelerator.
+This chapter explains how AWS Global Accelerator does DNS routing and includes information about using a
+custom domain with Global Accelerator. It also includes the steps for configuring bring your own IP (BYOIP) addresses
+to use with accelerators in Global Accelerator.
 
-To use your custom domain name with Global Accelerator when you use Route 53 as your DNS service, you create an alias record that
-points your custom domain name to the DNS name assigned to your accelerator. An alias
-record is a Route 53 extension to DNS. It's similar to a CNAME record, but you can create an alias record both
-for the root domain, such as `example.com`, and for subdomains, such as `www.example.com`.
-For more information, see [Choosing Between Alias and Non-Alias Records](../../../Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.md "../../../Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.md") in the Amazon Route 53 Developer Guide.
+- **DNS addressing**: When you create an accelerator, Global Accelerator
+  assigns a default Domain Name System (DNS) name to your accelerator.
+- **Custom domain name**: You can configure DNS to use your custom domain name (such as
+  `www.example.com`) with your accelerator, instead of using the assigned static IP
+  addresses or the default DNS name.
+- **BYOIP IP addresses**: You can bring your own IP addresses to AWS to add to an accelerator instead of,
+  or together with, the static IP addresses that Global Accelerator assigns to you.
 
-To set up Route 53 with an alias record for an accelerator, follow the guidance included in the
-_Value/route traffic to_ section in the
-[Values that are common for alias records for all routing policies](../../../Route53/latest/DeveloperGuide/resource-record-sets-values-alias-common.md#rrsets-values-alias-common-target "../../../Route53/latest/DeveloperGuide/resource-record-sets-values-alias-common.md#rrsets-values-alias-common-target") in the Amazon Route 53 Developer Guide. To see
-the information for Global Accelerator, scroll down to "AWS Global Accelerator accelerators".
+###### Contents
+
+- [Support for DNS addressing](dns-addressing-custom-domains.dns-addressing.md "dns-addressing-custom-domains.dns-addressing.md")
+- [Route custom domain traffic to your accelerator](dns-addressing-custom-domains.mapping-your-custom-domain.md "dns-addressing-custom-domains.mapping-your-custom-domain.md")
+- [Bring your own IP addresses](using-byoip.md "using-byoip.md")

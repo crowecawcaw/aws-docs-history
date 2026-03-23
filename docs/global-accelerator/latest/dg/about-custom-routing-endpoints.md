@@ -23,7 +23,7 @@ internet. To determine if a change has propagated, you can use the `DescribeCust
 API action to check the accelerator status. For more information, see [DescribeCustomRoutingAccelerator](../api/API_DescribeCustomRoutingAccelerator.md "../api/API_DescribeCustomRoutingAccelerator.md").
 
 - Because VPC subnets preserve the client IP address, you should review the relevant security and configuration information
-  when you add subnets as endpoints for custom routing accelerators. For more information, see [Requirements for endpoints with client IP address preservation](about-endpoints.md "about-endpoints.md").
+  when you add subnets as endpoints for custom routing accelerators. For more information, see [Requirements for endpoints with client IP address preservation](about-endpoints.sipp-caveats.md "about-endpoints.sipp-caveats.md").
 - When you configure resources as endpoints behind Global Accelerator, we recommend that you don't
   also send traffic directly to the same endpoints over the internet. Sending direct traffic can lead to connection
   collision issues.

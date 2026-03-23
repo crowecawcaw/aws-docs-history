@@ -35,10 +35,10 @@ provided in this topic.
 
 ###### Contents
 
-- [Requirements](using-byoip.md "using-byoip.md")
-- [Prepare to bring your IP address range to your AWS account: Authorization](using-byoip.md "using-byoip.md")
-- [Provision the address range for use with Global Accelerator](using-byoip.md "using-byoip.md")
-- [Advertise the address range through AWS](using-byoip.md "using-byoip.md")
-- [Deprovision the address range](using-byoip.md "using-byoip.md")
-- [Use your BYOIP address with an accelerator in Global Accelerator](using-byoip.md "using-byoip.md")
-- [Update an accelerator to change your IP addresses](using-byoip.md "using-byoip.md")
+- [Requirements](using-byoip.requirements.md "using-byoip.requirements.md")
+- [Prepare to bring your IP address range to your AWS account: Authorization](using-byoip.prepare.md "using-byoip.prepare.md")
+- [Provision the address range for use with Global Accelerator](using-byoip.provision.md "using-byoip.provision.md")
+- [Advertise the address range through AWS](using-byoip.advertise.md "using-byoip.advertise.md")
+- [Deprovision the address range](using-byoip.deprovision.md "using-byoip.deprovision.md")
+- [Use your BYOIP address with an accelerator in Global Accelerator](using-byoip.create-accelerator.md "using-byoip.create-accelerator.md")
+- [Update an accelerator to change your IP addresses](using-byoip.update-accelerator.md "using-byoip.update-accelerator.md")

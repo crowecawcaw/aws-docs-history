@@ -28,9 +28,9 @@ If you want to use API operations with Global Accelerator, see the [AWS Global A
 
 ###### Contents
 
-- [Add a standard endpoint group](about-endpoint-groups.md "about-endpoint-groups.md")
-- [Edit a standard endpoint group](about-endpoint-groups.md "about-endpoint-groups.md")
-- [Remove a standard endpoint group](about-endpoint-groups.md "about-endpoint-groups.md")
+- [Add a standard endpoint group](about-endpoint-groups.create-endpoint-group.md "about-endpoint-groups.create-endpoint-group.md")
+- [Edit a standard endpoint group](about-endpoint-groups.edit-endpoint-group.md "about-endpoint-groups.edit-endpoint-group.md")
+- [Remove a standard endpoint group](about-endpoint-groups.delete-endpoint-group.md "about-endpoint-groups.delete-endpoint-group.md")
 - [Use traffic dials to adjust traffic flow to Regions](about-endpoint-groups-traffic-dial.md "about-endpoint-groups-traffic-dial.md")
 - [Override listener ports for restricted ports or connection collisions](about-endpoint-groups-port-override.md "about-endpoint-groups-port-override.md")
 - [Ensure health check access for your accelerator](about-endpoint-groups-health-check-options.md "about-endpoint-groups-health-check-options.md")

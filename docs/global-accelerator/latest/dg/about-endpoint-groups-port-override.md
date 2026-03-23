@@ -15,7 +15,7 @@ cause intermittent connectivity issues in Global Accelerator, resulting in TCP c
 in certain scenarios. These collisions can occur when users (with the same source IP and
 source port) access resources in Global Accelerator. You can prevent the collisions, and thus
 avoid the delays, by configuring port overrides in your accelerators. For more information,
-see [How to avoid connection collisions that result in TCP connection time delays](about-endpoints.md "about-endpoints.md").
+see [How to avoid connection collisions that result in TCP connection time delays](about-endpoints.avoid-connection-collisions.md "about-endpoints.avoid-connection-collisions.md").
 
 Overriding a port can also help you avoid issues with listening on restricted ports. It's safer to run
 applications that don't require superuser (root) privileges on your endpoints. However, in Linux
@@ -27,7 +27,7 @@ For example, you can override a listener port 443 to an endpoint port 8443.
 
 For each port override, you specify a listener port that accepts traffic from users and
 the endpoint port that Global Accelerator will route that traffic to. For more information, see
-[Add a standard endpoint group](about-endpoint-groups.md "about-endpoint-groups.md").
+[Add a standard endpoint group](about-endpoint-groups.create-endpoint-group.md "about-endpoint-groups.create-endpoint-group.md").
 
 When you create a port override, keep the following in mind:
 

@@ -27,5 +27,5 @@ to route traffic to, it routes traffic to all endpoints in the AWS Region.
 - [Edit a standard endpoint](about-endpoints-adding-endpoints-edit.md "about-endpoints-adding-endpoints-edit.md")
 - [Remove a standard endpoint](about-endpoints-adding-endpoints-remove.md "about-endpoints-adding-endpoints-remove.md")
 - [How endpoint weights work to manage traffic volume](about-endpoints-endpoint-weights.md "about-endpoints-endpoint-weights.md")
-- [How failover works for unhealthy endpoints](about-endpoints-endpoint-weights.md "about-endpoints-endpoint-weights.md")
-- [How to avoid connection collisions that result in TCP connection time delays](about-endpoints.md "about-endpoints.md")
+- [How failover works for unhealthy endpoints](about-endpoints-endpoint-weights.unhealthy-endpoints.md "about-endpoints-endpoint-weights.unhealthy-endpoints.md")
+- [How to avoid connection collisions that result in TCP connection time delays](about-endpoints.avoid-connection-collisions.md "about-endpoints.avoid-connection-collisions.md")

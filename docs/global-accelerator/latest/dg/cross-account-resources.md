@@ -23,10 +23,10 @@ Cross-account support in Global Accelerator enables you to do the following:
 
 ###### Contents
 
-- [How cross-account works](cross-account-resources.md "cross-account-resources.md")
-- [Work with cross-account attachments](cross-account-resources.md "cross-account-resources.md")
-- [Work with cross-account resources](cross-account-resources.md "cross-account-resources.md")
-- [Identify cross-account resources](cross-account-resources.md "cross-account-resources.md")
-- [Responsibilities and permissions](cross-account-resources-endpoints.md "cross-account-resources-endpoints.md")
-- [Billing costs](cross-account-resources-endpoints.md "cross-account-resources-endpoints.md")
-- [Quotas](cross-account-resources-endpoints.md "cross-account-resources-endpoints.md")
+- [How cross-account works](cross-account-resources.how-it-works.md "cross-account-resources.how-it-works.md")
+- [Work with cross-account attachments](cross-account-resources.work-with-attachments.md "cross-account-resources.work-with-attachments.md")
+- [Work with cross-account resources](cross-account-resources.work-with-resources.md "cross-account-resources.work-with-resources.md")
+- [Identify cross-account resources](cross-account-resources.identify-cross-account.md "cross-account-resources.identify-cross-account.md")
+- [Responsibilities and permissions](cross-account-resources-endpoints.responsibilities-cross-account.md "cross-account-resources-endpoints.responsibilities-cross-account.md")
+- [Billing costs](cross-account-resources-endpoints.billing-cross-account.md "cross-account-resources-endpoints.billing-cross-account.md")
+- [Quotas](cross-account-resources-endpoints.quotas-cross-account.md "cross-account-resources-endpoints.quotas-cross-account.md")

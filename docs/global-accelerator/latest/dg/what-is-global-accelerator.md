@@ -52,7 +52,7 @@ services:
 ###### Contents
 
 - [Components](introduction-components.md "introduction-components.md")
-- [AWS Regions](preserve-client-ip-address.md "preserve-client-ip-address.md")
+- [AWS Regions](preserve-client-ip-address.regions.md "preserve-client-ip-address.regions.md")
 - [How it works](introduction-how-it-works.md "introduction-how-it-works.md")
 - [IP address ranges](introduction-ip-ranges.md "introduction-ip-ranges.md")
 - [Use cases](introduction-benefits-of-migrating.md "introduction-benefits-of-migrating.md")

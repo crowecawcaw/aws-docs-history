@@ -23,7 +23,7 @@ For more information, see [Using Amazon CloudWatch with AWS Global Accelerator](
 Server flow logs are logs that you set up in Global Accelerator that provide detailed
 records about traffic that flows through an accelerator to an
 endpoint. Server flow logs are useful for many applications, for example, for security and access audits. For more
-information, see [Configuring and using flow logs in AWS Global Accelerator](monitoring-global-accelerator.md "monitoring-global-accelerator.md").
+information, see [Configuring and using flow logs in AWS Global Accelerator](monitoring-global-accelerator.flow-logs.md "monitoring-global-accelerator.flow-logs.md").
 
 **AWS CloudTrail logs**
 CloudTrail provides a record of actions taken by a user, role, or an AWS service in Global Accelerator. CloudTrail

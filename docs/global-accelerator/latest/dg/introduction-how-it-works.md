@@ -150,7 +150,7 @@ Regions or to migrate applications between Regions. Using fixed IP addresses mea
 that users have a consistent way to connect to your application as you make changes.
 
 If you like, you can associate your own custom domain name with the static IP addresses for your
-accelerator. For more information, see [Route custom domain traffic to your accelerator](dns-addressing-custom-domains.md "dns-addressing-custom-domains.md").
+accelerator. For more information, see [Route custom domain traffic to your accelerator](dns-addressing-custom-domains.mapping-your-custom-domain.md "dns-addressing-custom-domains.mapping-your-custom-domain.md").
 
 The static IP addresses are anycast from the AWS edge network.
 
@@ -247,7 +247,7 @@ Traffic dials and weights affect how the standard accelerator serves traffic in 
   weights to do performance testing for specific endpoints in a Region.
 
 For more information about how traffic dials and weights affect failover, see
-[How failover works for unhealthy endpoints](about-endpoints-endpoint-weights.md "about-endpoints-endpoint-weights.md").
+[How failover works for unhealthy endpoints](about-endpoints-endpoint-weights.unhealthy-endpoints.md "about-endpoints-endpoint-weights.unhealthy-endpoints.md").
 
 ## ICMP response messages and AWS Global Accelerator
 

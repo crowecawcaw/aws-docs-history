@@ -25,5 +25,5 @@ for your command by including the following parameter: `--region us-west-2`.
 
 - [Using Amazon CloudWatch with AWS Global Accelerator](cloudwatch-monitoring.md "cloudwatch-monitoring.md")
 - [Troubleshooting Global Accelerator TCP reset issues](cloudwatch-metrics-globalaccelerator-tcp-resets.md "cloudwatch-metrics-globalaccelerator-tcp-resets.md")
-- [Configuring and using flow logs in AWS Global Accelerator](monitoring-global-accelerator.md "monitoring-global-accelerator.md")
+- [Configuring and using flow logs in AWS Global Accelerator](monitoring-global-accelerator.flow-logs.md "monitoring-global-accelerator.flow-logs.md")
 - [Using AWS CloudTrail to log AWS Global Accelerator API calls](logging-using-cloudtrail.md "logging-using-cloudtrail.md")

@@ -7,12 +7,12 @@ add.
 **All resource types**
 
 - Before you enable client IP address preservation for an endpoint, there are additional requirements to keep
-  in mind. For more information, see [Transition endpoints with client IP address preservation](about-endpoints.md "about-endpoints.md").
+  in mind. For more information, see [Transition endpoints with client IP address preservation](about-endpoints.sipp.md "about-endpoints.sipp.md").
 - To add an endpoint to a dual-stack accelerator, the endpoint must have client IP address preservation enabled.
 - When you add resources as endpoints behind Global Accelerator, we recommend that you don't
   also send traffic directly to the same endpoints over the internet. Sending direct traffic can lead to connection
   collision issues. For more information, see
-  [How to avoid connection collisions that result in TCP connection time delays](about-endpoints.md "about-endpoints.md").
+  [How to avoid connection collisions that result in TCP connection time delays](about-endpoints.avoid-connection-collisions.md "about-endpoints.avoid-connection-collisions.md").
 - The resources that you add as endpoints for an accelerator and the accelerator itself must be owned by the
   same account, unless you configure cross-account support. However, the target instances behind a load balancer endpoint can be owned by different accounts.
   In this scenario, the accounts that own the target instances must be given permission to access a subnet owned by the
@@ -43,7 +43,7 @@ add.
   as an endpoint in a Local Zone.
 - For Network Load Balancer endpoints, we recommend that you disable cross-zone traffic for the load balancers to
   avoid connection collisions, which can result in increased TCP connection time. For more information, see
-  [How to avoid connection collisions that result in TCP connection time delays](about-endpoints.md "about-endpoints.md").
+  [How to avoid connection collisions that result in TCP connection time delays](about-endpoints.avoid-connection-collisions.md "about-endpoints.avoid-connection-collisions.md").
 - Global Accelerator does not support using shared subnets to target Network Load Balancer endpoints with client
   IP address preservation.
 - Global Accelerator does not support upgrading to dual-stack an existing IPv4 accelerator
@@ -60,7 +60,7 @@ can resume.
 - An EC2 instance endpoint can't be one of the following types: C1, CC1, CC2, CG1,
   CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, or T1.
 - EC2 instances are supported as endpoints in specific AWS Regions. For more information,
-  see [AWS Region availability for AWS Global Accelerator](preserve-client-ip-address.md "preserve-client-ip-address.md").
+  see [AWS Region availability for AWS Global Accelerator](preserve-client-ip-address.regions.md "preserve-client-ip-address.regions.md").
 
 Global Accelerator only supports EC2 instances inside an AWS Region. Global Accelerator does not support routing to an Elastic
 IP address as an endpoint in a Local Zone.

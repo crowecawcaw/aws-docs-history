@@ -24,7 +24,7 @@ that arrives to your instances, including traffic from Global Accelerator and an
 is assigned to your instance ENI. Use private subnets to ensure that traffic is delivered only by
 Global Accelerator.
 
-To learn more about working with ENIs, security groups, and Global Accelerator, see [Requirements for endpoints with client IP address preservation](about-endpoints.md "about-endpoints.md").
+To learn more about working with ENIs, security groups, and Global Accelerator, see [Requirements for endpoints with client IP address preservation](about-endpoints.sipp-caveats.md "about-endpoints.sipp-caveats.md").
 
 Keep this information in mind when considering network perimeter issues and configuring
 IAM privileges related to internet access management. For more information about controlling internet

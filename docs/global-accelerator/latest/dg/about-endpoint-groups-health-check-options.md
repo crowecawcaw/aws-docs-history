@@ -8,7 +8,7 @@ listener closes the connection that was established for the health check.
 
 Note that if there aren't any healthy endpoints to route traffic to, Global Accelerator routes incoming
 client requests to _all_ endpoints in the endpoint group. For more information, see
-[How failover works for unhealthy endpoints](about-endpoints-endpoint-weights.md "about-endpoints-endpoint-weights.md").
+[How failover works for unhealthy endpoints](about-endpoints-endpoint-weights.unhealthy-endpoints.md "about-endpoints-endpoint-weights.unhealthy-endpoints.md").
 
 Details about how health checks work, and guidance about using health checks, depends
 on the type of endpoint resource.
