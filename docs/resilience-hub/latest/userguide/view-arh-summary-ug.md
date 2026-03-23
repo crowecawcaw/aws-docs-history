@@ -83,7 +83,7 @@ This widget lists up to 10 applications that have the maximum number of unimplem
 operational recommendations provided in the last successful assessment to improve their
 resiliency posture. To view all the applications you have created, choose **View
 applications**. For more information about operational recommendations, see
-[Reviewing operational recommendations](ops.md "ops.md").
+[Reviewing operational recommendations](ops.reqs.md "ops.reqs.md").
 
 You can identify the details using the following:
 
@@ -105,7 +105,7 @@ resilience posture over a selected time period. The different categories
 application. You can view the number of Amazon CloudWatch alarm recommendations for each category
 by hovering over them or by navigating to them. To view all the applications you have
 created, choose **View applications**. For more information about alarm
-recommendations, see [Reviewing operational recommendations](ops.md "ops.md").
+recommendations, see [Reviewing operational recommendations](ops.reqs.md "ops.reqs.md").
 
 ## SOP recommendations
 
@@ -116,7 +116,7 @@ categories (**Implemented**, **Not implemented**, and
 application. You can view the number of SOP recommendations for each category by
 hovering over them or by navigating to them. To view all the applications you have
 created, choose **View applications**. For more information about
-operational recommendations, see [Reviewing operational recommendations](ops.md "ops.md").
+operational recommendations, see [Reviewing operational recommendations](ops.reqs.md "ops.reqs.md").
 
 ## AWS FIS experiment recommendations
 

@@ -65,7 +65,7 @@ about the recommended SOPs using the following information:
     * **Type** – Indicates the type of SOP.
     * **AppComponent** – Indicates the Application Components
      (AppComponents) that are associated with this SOP. For more information about supported
-     AppComponents, see [Grouping resources in an AppComponent](AppComponent.md "AppComponent.md").
+     AppComponents, see [Grouping resources in an AppComponent](AppComponent.grouping.md "AppComponent.grouping.md").
     * **Reference ID** – Indicates the logical identifier of the
      AWS CloudFormation stack event in AWS CloudFormation.
     * **Recommendation ID** – Indicates the logical identifier of the

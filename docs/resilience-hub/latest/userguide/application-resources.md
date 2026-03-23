@@ -223,7 +223,7 @@ You can identify the resources by the following:
      the component resource for your application. For example,
      `AWS::EC2::Instance` declares an Amazon EC2
      instance.
-     For more information about grouping AppComponent resources, see [Grouping resources in an Application Component](AppComponent.md "AppComponent.md").
+     For more information about grouping AppComponent resources, see [Grouping resources in an Application Component](AppComponent.grouping.md "AppComponent.grouping.md").
     * **Source name** – The name of the input source.
      Choose a source name to view its details in the respective application. For
      manually added input sources, the link will not be available. For example,
@@ -315,7 +315,7 @@ You can identify the resources by the following:
 
 ###### Note
 
-For more information about grouping AppComponent resources, see [Grouping resources in an Application Component](AppComponent.md "AppComponent.md").
+For more information about grouping AppComponent resources, see [Grouping resources in an Application Component](AppComponent.grouping.md "AppComponent.grouping.md").
 
 The **AppComponents** section lists all the logical components
 that the resources are grouped into. You can identify the AppComponents by the

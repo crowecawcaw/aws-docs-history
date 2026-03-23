@@ -77,7 +77,7 @@ AWS Resilience Hub supports resources from the following AWS services:
   groups.
 - For AWS Resilience Hub to assess the cross-Region resources, group the resources under a single
   Application Component. For more information about the resources supported by each of the
-  AWS Resilience Hub Application Components and grouping resources, see [Grouping resources in an Application Component](AppComponent.md "AppComponent.md").
+  AWS Resilience Hub Application Components and grouping resources, see [Grouping resources in an Application Component](AppComponent.grouping.md "AppComponent.grouping.md").
 - Currently, AWS Resilience Hub does not support cross-Region assessments for Amazon EKS clusters if
   either the Amazon EKS cluster is located or if the application is created in an opt-in enabled
   AWS Region.
