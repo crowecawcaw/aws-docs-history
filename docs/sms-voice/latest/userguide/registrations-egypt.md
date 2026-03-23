@@ -22,7 +22,7 @@ Choose **Next**. 3. In the **Sender ID info** section, enter the following:
 
 Choose **Next**. 4. In the **Egypt specific info** section, enter the following:
 
-    * For **Letter of authorization**, download, complete, and attach the [letter of authorization](samples/Egypt_SenderId_LetterOfAuthorization.md "samples/Egypt_SenderId_LetterOfAuthorization.md"). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
+    * For **Letter of authorization**, download, complete, and attach the [letter of authorization](samples/Egypt_SenderId_LetterOfAuthorization.zip.md "samples/Egypt_SenderId_LetterOfAuthorization.zip.md"). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
     * For **Company registration documentation**, if your company is local to Egypt, you are required to provide a copy of your company registration document. Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
     * For **Tax card document**, if your company is local to Egypt, you are required to provide a copy of your tax card document.
     * For **Acknowledgement of transactional content**, choose Yes to acknowledge the the sender ID will only be used for sending transactional messages.

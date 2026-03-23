@@ -25,7 +25,7 @@ Choose **Next**. 3. In the **Sender ID info** section, enter the following:
 
 Choose **Next**. 4. In the **Saudi Arabia specific info** section, enter the following:
 
-    * For **Letter of authorization: Vodafone**, you are required to download, complete, and attach the [letter of authorization (LOA)](samples/SaudiArabia_SenderId_LetterOfAuthorization.md "samples/SaudiArabia_SenderId_LetterOfAuthorization.md"). This document is also referred to as a NOC (No Objection Certificate). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
+    * For **Letter of authorization: Vodafone**, you are required to download, complete, and attach the [letter of authorization (LOA)](samples/SaudiArabia_SenderId_LetterOfAuthorization.zip.md "samples/SaudiArabia_SenderId_LetterOfAuthorization.zip.md"). This document is also referred to as a NOC (No Objection Certificate). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
     * For **Proof of sender ID connection**, if the connection between your company name and this sender ID is not obvious, then you are required to provide evidence of your intellectual property rights to the brand.
     * For **Acknowledgement of transactional content**, promotional content is disallowed for Saudi Arabia sender IDs. Choose **Yes** to acknowledge that this sender ID will only be used for sending transactional messages.
 

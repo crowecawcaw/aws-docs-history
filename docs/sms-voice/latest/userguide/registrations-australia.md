@@ -22,7 +22,7 @@ Choose **Next**. 3. In the **Sender ID info** section, enter the following:
 
 Choose **Next**. 4. In the **Australia specific info** section, enter the following:
 
-    * For **Letter of authorization**, download, complete, and attach the [letter of authorization](samples/Australia_SenderId_LetterOfAuthorization.md "samples/Australia_SenderId_LetterOfAuthorization.md"). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
+    * For **Letter of authorization**, download, complete, and attach the [letter of authorization](samples/Australia_SenderId_LetterOfAuthorization.zip.md "samples/Australia_SenderId_LetterOfAuthorization.zip.md"). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
     * For **Company registration documentation**, if your company is not local to Australia, then you are required to provide a copy of your company's registration documentation. Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
 
 Choose **Next**. 5. In the **Company info** section, enter the following:

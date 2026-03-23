@@ -63,7 +63,7 @@ For more information, see [Registering for a Singapore Unique Entity Number (UEN
         * For **Letter of authorization image – optional**, if you checked the
          box as **Registering on behalf of another brand/entity?** , upload an image of the complete Letter of Authorization (LOA). The
          supported file type is PNG and the maximum file size is 400KB. A template for the LOA
-         can be [downloaded](samples/Singapore_Sender_ID_Registration_LOA_Template.md "samples/Singapore_Sender_ID_Registration_LOA_Template.md") for your convenience.
+         can be [downloaded](samples/Singapore_Sender_ID_Registration_LOA_Template.zip.md "samples/Singapore_Sender_ID_Registration_LOA_Template.zip.md") for your convenience.
         * For **Sender ID connection – optional** you can add more details about the connection between the requested sender ID and company name.
 
     Choose **Next**.

@@ -20,7 +20,23 @@ Choose **Next**. 3. In the **Sender ID info** section, enter the following:
     * For **Sender ID description – optional** you can add more details about the connection between the requested sender ID and company name.
     * For **Proof of sender ID connection – optional**, if the connection between your company name and this sender ID is not obvious, then you are required to provide evidence of your intellectual property rights to the brand. Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
 
-Choose **Next**. 4. In the **Company info** section, enter the following:
+Choose **Next**. 4. In the **Kazakhstan specific info** section, enter the following:
+
+###### Note
+
+The fields in this section are required only if your company is local to Kazakhstan (company address country is KZ). If your company is international, you can skip this section.
+
+    * For **Confirmation of operations in Kazakhstan**, if your company is local to Kazakhstan, you are required to provide confirmation that your company operates in Kazakhstan. This can be a screenshot of your company's website from a .kz domain, or a copy of your local certificate of registration. Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
+    * For **Number of countries where brand is present**, if your company is local to Kazakhstan, indicate the number of countries where your brand is present.
+    * For **Brand headquarters**, if your company is local to Kazakhstan, provide the location of your brand's headquarters (city and country).
+    * For **Date of establishment**, if your company is local to Kazakhstan, provide the date your company or brand was established.
+    * For **Country of origin**, if your company is local to Kazakhstan, provide the country where your brand or company was originally founded.
+    * For **Period of work in Kazakhstan**, if your company is local to Kazakhstan, indicate how long your company has been operating in the Kazakhstan market.
+    * For **Founding members**, if your company is local to Kazakhstan, provide the names of the founding members of your company.
+    * For **Financial sector license – optional**, if your company operates in the financial sector, you are encouraged to provide your financial sector license. This can be the license number or a screenshot of the license document. Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
+    * For **Server IP address**, if your company is local to Kazakhstan, provide the IP address of the server that will be used for sending messages. This should be your company's server IP address (IPv4 or IPv6).
+
+Choose **Next**. 5. In the **Company info** section, enter the following:
 
     * For **Company Name**, enter the name of your company.
     * For **Company identification number**, enter your tax ID, like EIN or VAT.
@@ -28,7 +44,7 @@ Choose **Next**. 4. In the **Company info** section, enter the following:
     * For **Company website**, enter the URL for your company's
      website.
 
-Choose **Next**. 5. In the **Company address** section, enter the following:
+Choose **Next**. 6. In the **Company address** section, enter the following:
 
     * For **Address 1**, enter the street address of your corporate
      headquarters.
@@ -40,14 +56,14 @@ Choose **Next**. 5. In the **Company address** section, enter the following:
      headquarters.
     * For **Country**, enter the two digit ISO country code.
 
-Choose **Next**. 6. In the **Contact info** section, enter the following:
+Choose **Next**. 7. In the **Contact info** section, enter the following:
 
     * For **Contact Email**, enter the email address of the
      person who will be your business's point of contact.
     * For **Contact Phone Number**, enter the phone number of
      the person who will be your business's point of contact.
 
-Choose **Next**. 7. In **Messaging Use Case**, do the following:
+Choose **Next**. 8. In **Messaging Use Case**, do the following:
 
     * For **Use case category**, choose one of the following use case types:
 
@@ -88,7 +104,7 @@ Choose **Next**. 7. In **Messaging Use Case**, do the following:
     	+ Clear and thorough information about how your end-users opt-in to
     	 your SMS service and any associated fees or charges
 
-Choose **Next**. 8. In **Message samples**, do the following:
+Choose **Next**. 9. In **Message samples**, do the following:
 
     * For **Message Sample 1**, enter an example message of an SMS message
      body that will be sent to your end users.
@@ -96,4 +112,4 @@ Choose **Next**. 8. In **Message samples**, do the following:
      3 – optional**, enter additional example messages, if needed, of the
      SMS message body that will be sent.
 
-Choose **Next**. 9. On the **Review and submit** page verify the information you are about to submit is correct. To make updates choose **Edit** next to the section. 10. Choose **Submit registration**.
+Choose **Next**. 10. On the **Review and submit** page verify the information you are about to submit is correct. To make updates choose **Edit** next to the section. 11. Choose **Submit registration**.

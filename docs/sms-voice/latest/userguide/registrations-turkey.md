@@ -22,8 +22,8 @@ Choose **Next**. 3. In the **Sender ID info** section, enter the following:
 
 Choose **Next**. 4. In the **Turkey specific info** section, enter the following:
 
-    * For **Letter of authorization**, you are required to download, complete, and attach the [letter of authorization (LOA)](samples/Turkey_SenderId_LetterOfAuthorization.md "samples/Turkey_SenderId_LetterOfAuthorization.md"). This document is also referred to as a NOC (No Objection Certificate). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
-    * For **Letter of authorization (vendor)**, you are required to download, complete, and attach the [vendor-specific letter of authorization (LOA)](samples/Turkey_SenderId_VendorLetterOfAuthorization.md "samples/Turkey_SenderId_VendorLetterOfAuthorization.md"). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
+    * For **Letter of authorization**, you are required to download, complete, and attach the [letter of authorization (LOA)](samples/Turkey_SenderId_LetterOfAuthorization.zip.md "samples/Turkey_SenderId_LetterOfAuthorization.zip.md"). This document is also referred to as a NOC (No Objection Certificate). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
+    * For **Letter of authorization (vendor)**, you are required to download, complete, and attach the [vendor-specific letter of authorization (LOA)](samples/Turkey_SenderId_VendorLetterOfAuthorization.zip.md "samples/Turkey_SenderId_VendorLetterOfAuthorization.zip.md"). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
     * For **Company registration documentation**, you are required to provide a copy of your company's registration documentation, regardless if your company is local to Turkey or international. Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
     * For **Acknowledgement of transactional content**, promotional content is disallowed for Turkey sender IDs. Choose **Yes** to acknowledge that this sender ID will only be used for sending transactional messages.
 

@@ -99,7 +99,7 @@ In this section, you provide additional details about your 10DLC campaign.
         	+ Opt-out information.
         	+ “Message and data rates may apply” disclosure.
 
-    6. For **Campaign opt-in screenshot - _optional_**, upload a
+    6. For **Campaign opt-in screenshot**, upload a
        file showing how users consent to receiving messages, as described in the
        **Campaign opt-in workflow** field. The supported file
        type are PNG, JPEG, and PDF and the maximum file size is 500KB. A screenshot or mockup is required unless you provide a publicly accessible URL to your opt-in location or call-to-action in the **Campaign opt-in workflow** field. If your opt-in process requires a login, is not yet public, is a verbal opt-in, or occurs on printed forms or fliers, you must provide a screenshot or mockup showing the complete opt-in process. Additional

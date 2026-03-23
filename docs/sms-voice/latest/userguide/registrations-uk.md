@@ -25,7 +25,7 @@ is required. The information provided must be of the end company. If you are reg
 
 ###### Register your MEF sender ID
 
-1. Download the template for the [LOA](samples/AWS_Protected_Sender_ID_Letter-of-Authorisation_UK.md "samples/AWS_Protected_Sender_ID_Letter-of-Authorisation_UK.md").
+1. Download the template for the [LOA](samples/AWS_Protected_Sender_ID_Letter-of-Authorisation_UK.zip.md "samples/AWS_Protected_Sender_ID_Letter-of-Authorisation_UK.zip.md").
 2. Clearly specify the sender ID requested and have other details such as website
    and sample message templates filled in correctly with no missing details. The
    casing of the Sender ID must match what is registered with MEF.

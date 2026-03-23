@@ -22,7 +22,7 @@ Choose **Next**. 3. In the **Sender ID info** section, enter the following:
 
 Choose **Next**. 4. In the **Thailand specific info** section, enter the following:
 
-    * For **Letter of authorization (LOA)**, you are required to download, complete, and attach the [letter of authorization (LOA)](samples/Thailand_SenderId_LetterOfAuthorization.md "samples/Thailand_SenderId_LetterOfAuthorization.md"). Your LOA must be signed by an authorized signatory of the company and stamped from the end brand with the company's letterhead. Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
+    * For **Letter of authorization (LOA)**, you are required to download, complete, and attach the [letter of authorization (LOA)](samples/Thailand_SenderId_LetterOfAuthorization.zip.md "samples/Thailand_SenderId_LetterOfAuthorization.zip.md"). Your LOA must be signed by an authorized signatory of the company and stamped from the end brand with the company's letterhead. Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
 
 Choose **Next**. 5. In the **Company info** section, enter the following:
 

@@ -22,7 +22,7 @@ Choose **Next**. 3. In the **Sender ID info** section, enter the following:
 
 Choose **Next**. 4. In the **Sri Lanka specific info** section, enter the following:
 
-    * For **Letter of authorization (LOA)**, you are required to download, complete, and attach the [letter of authorization](samples/SriLanka_SenderId_LetterOfAuthorization.md "samples/SriLanka_SenderId_LetterOfAuthorization.md"). This document is also referred to as a NOC (No Objection
+    * For **Letter of authorization (LOA)**, you are required to download, complete, and attach the [letter of authorization](samples/SriLanka_SenderId_LetterOfAuthorization.zip.md "samples/SriLanka_SenderId_LetterOfAuthorization.zip.md"). This document is also referred to as a NOC (No Objection
     Certificate), it requires a wet signature or a digital signature via Adobe or DocuSign, and must be printed on customers company letterhead. Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
     * For **Acknowledgement of a single use case**, transactional and promotional content is must be sent using seperate Sri Lanka sender IDs. Choose **Yes**, to acknowledge that the use case description you provided describes all messages to be sent by this sender ID.
 
