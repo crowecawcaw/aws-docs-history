@@ -2,7 +2,7 @@
 
 Within insights, you can view anomalies for Amazon RDS resources. Each proactive insight provides details about one proactive anomaly.
 On a proactive insight page, you can view an insight overview, detailed metrics about the anomaly, and recommendations to prevent future issues.
-To view a proactive anomaly, [go to the proactive insight page](working-with-rds.analyzing.md "working-with-rds.analyzing.md").
+To view a proactive anomaly, [go to the proactive insight page](working-with-rds.analyzing.insights.md "working-with-rds.analyzing.insights.md").
 
 ## Insight overview
 
@@ -20,4 +20,4 @@ as well as data of the metric reported from the time of the anomaly.
 This section suggests actions that you can take to mitigate the reported issues before they become a bigger problem.
 Actions that you can take are presented in the **Recommended custom change** column.
 The rationale behind the recommendations is presented in the **Why is DevOps Guru recommending this?** column.
-For more information about how to respond to recommendations, see [Responding to recommendations](working-with-rds.analyzing.md "working-with-rds.analyzing.md").
+For more information about how to respond to recommendations, see [Responding to recommendations](working-with-rds.analyzing.recommend.md "working-with-rds.analyzing.recommend.md").

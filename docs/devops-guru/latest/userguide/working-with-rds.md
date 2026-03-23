@@ -6,6 +6,6 @@ database-specific analyses of performance issues and recommends corrective actio
 
 ###### Topics
 
-- [Overview of DevOps Guru for RDS](working-with-rds.md "working-with-rds.md")
-- [Enabling DevOps Guru for RDS](working-with-rds.md "working-with-rds.md")
-- [Analyzing anomalies in Amazon RDS](working-with-rds.md "working-with-rds.md")
+- [Overview of DevOps Guru for RDS](working-with-rds.overview.md "working-with-rds.overview.md")
+- [Enabling DevOps Guru for RDS](working-with-rds.enabling.md "working-with-rds.enabling.md")
+- [Analyzing anomalies in Amazon RDS](working-with-rds.analyzing.md "working-with-rds.analyzing.md")
