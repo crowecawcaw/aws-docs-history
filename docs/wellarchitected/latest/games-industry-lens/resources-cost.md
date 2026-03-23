@@ -34,6 +34,6 @@ practices for cost optimization:
   customers](https://aws.amazon.com/blogs/containers/aws-and-kubecost-collaborate-to-deliver-cost-monitoring-for-eks-customers/ "https://aws.amazon.com/blogs/containers/aws-and-kubecost-collaborate-to-deliver-cost-monitoring-for-eks-customers/")
 - [Laying
   the Foundation: Setting Up Your Environment for Cost
-  Optimization](../../../pdfs/whitepapers/latest/cost-optimization-laying-the-foundation/cost-optimization-laying-the-foundation.md "../../../pdfs/whitepapers/latest/cost-optimization-laying-the-foundation/cost-optimization-laying-the-foundation.md")
+  Optimization](../../../pdfs/whitepapers/latest/cost-optimization-laying-the-foundation/cost-optimization-laying-the-foundation.pdf.md "../../../pdfs/whitepapers/latest/cost-optimization-laying-the-foundation/cost-optimization-laying-the-foundation.pdf.md")
 - [Overview
-  of Amazon EC2 Spot Instances](../../../pdfs/whitepapers/latest/cost-optimization-leveraging-ec2-spot-instances/cost-optimization-leveraging-ec2-spot-instances.md#cost-optimization-leveraging-ec2-spot-instances "../../../pdfs/whitepapers/latest/cost-optimization-leveraging-ec2-spot-instances/cost-optimization-leveraging-ec2-spot-instances.md#cost-optimization-leveraging-ec2-spot-instances")
+  of Amazon EC2 Spot Instances](../../../pdfs/whitepapers/latest/cost-optimization-leveraging-ec2-spot-instances/cost-optimization-leveraging-ec2-spot-instances.pdf.md#cost-optimization-leveraging-ec2-spot-instances "../../../pdfs/whitepapers/latest/cost-optimization-leveraging-ec2-spot-instances/cost-optimization-leveraging-ec2-spot-instances.pdf.md#cost-optimization-leveraging-ec2-spot-instances")

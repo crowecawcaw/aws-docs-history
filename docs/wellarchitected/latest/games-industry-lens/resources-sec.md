@@ -12,8 +12,8 @@ security.
   Chime SDK messaging](https://aws.amazon.com/blogs/business-productivity/use-channel-flows-to-remove-profanity-and-sensitive-content-from-messages-in-amazon-chime-sdk-messaging/ "https://aws.amazon.com/blogs/business-productivity/use-channel-flows-to-remove-profanity-and-sensitive-content-from-messages-in-amazon-chime-sdk-messaging/")
 - [Security in
   Amazon GameLift](../../../gamelift/latest/developerguide/security.md "../../../gamelift/latest/developerguide/security.md")
-- [Secure content delivery using Amazon CloudFront](../../../whitepapers/latest/secure-content-delivery-amazon-cloudfront/secure-content-delivery-amazon-cloudfront.md "../../../whitepapers/latest/secure-content-delivery-amazon-cloudfront/secure-content-delivery-amazon-cloudfront.md")
-- [Security Response Guide](../../../whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.md#welcome "../../../whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.md#welcome")
+- [Secure content delivery using Amazon CloudFront](../../../whitepapers/latest/secure-content-delivery-amazon-cloudfront/secure-content-delivery-amazon-cloudfront.pdf.md "../../../whitepapers/latest/secure-content-delivery-amazon-cloudfront/secure-content-delivery-amazon-cloudfront.pdf.md")
+- [Security Response Guide](../../../whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.pdf.md#welcome "../../../whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.pdf.md#welcome")
 - [AWS Best
   Practices for DDoS Resiliency](https://d0.awsstatic.com/whitepapers/Security/DDoS_White_Paper.pdf "https://d0.awsstatic.com/whitepapers/Security/DDoS_White_Paper.pdf")
 - [Securing your AWS Cloud environment from ransomware](https://d1.awsstatic.com/WWPS/pdf/AWSPS_ransomware_ebook_Apr-2020.pdf "https://d1.awsstatic.com/WWPS/pdf/AWSPS_ransomware_ebook_Apr-2020.pdf")

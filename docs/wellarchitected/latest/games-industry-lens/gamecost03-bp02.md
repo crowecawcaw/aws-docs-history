@@ -18,7 +18,7 @@ For game backends running on Amazon Aurora, there are several cost
 optimization strategies that can be employed. One key
 recommendation is to
 [auto
-scale your read replicas based on usage patterns](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Integrating.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Integrating.md"),
+scale your read replicas based on usage patterns](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Integrating.AutoScaling.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Integrating.AutoScaling.md"),
 dynamically scaling the number of replicas up or down to handle
 fluctuations in traffic. This means that you are paying for the
 resources you truly need. Another optimization tactic is to
@@ -65,7 +65,7 @@ Scan operations](../../../amazondynamodb/latest/developerguide/bp-query-scan.md 
 more targeted queries, purchasing
 [Amazon DynamoDB reserved capacity](https://aws.amazon.com/dynamodb/reserved-capacity/ "https://aws.amazon.com/dynamodb/reserved-capacity/"), and leveraging
 [DynamoDB
-Streams with AWS Lambda triggers](../../../amazondynamodb/latest/developerguide/Streams.md "../../../amazondynamodb/latest/developerguide/Streams.md") to process game backend
+Streams with AWS Lambda triggers](../../../amazondynamodb/latest/developerguide/Streams.Lambda.md "../../../amazondynamodb/latest/developerguide/Streams.Lambda.md") to process game backend
 events can further optimize your DynamoDB costs. For more
 information, see
 [Best

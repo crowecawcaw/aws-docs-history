@@ -74,7 +74,7 @@ write throughput.
   items from
   [Scan](../../../amazondynamodb/latest/developerguide/Scan.md#Scan.FilterExpression "../../../amazondynamodb/latest/developerguide/Scan.md#Scan.FilterExpression")
   and
-  [Query](../../../amazondynamodb/latest/developerguide/Query.md "../../../amazondynamodb/latest/developerguide/Query.md")
+  [Query](../../../amazondynamodb/latest/developerguide/Query.FilterExpression.md "../../../amazondynamodb/latest/developerguide/Query.FilterExpression.md")
   results.
 - Deleted items work similarly to those deleted through typical
   delete operations. Once deleted, items go into DynamoDB
