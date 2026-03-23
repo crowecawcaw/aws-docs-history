@@ -21,8 +21,6 @@ multiple users, groups, and roles in your AWS account. Managed policies include
 AWS managed policies and customer managed policies. To learn how to choose
 between a managed policy or an inline policy, see [Choosing Between Managed Policies and Inline Policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#choosing-managed-or-inline "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#choosing-managed-or-inline") in the IAM User Guide.
 
-###### Topics
-
 ## Resource-based policies
 
 Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.

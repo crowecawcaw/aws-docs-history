@@ -2,13 +2,23 @@
 
 ## Using the Failback Client
 
-Failback replication is performed by booting the Failback Client on the source
-server into which you want to replicate your data from AWS. In order to use the
-Failback Client you must meet the failback prerequisites and generate failback
-AWS credentials as described below. The AWS DRS Console allows you to track the
-progress of your failback replication on the **Recovery
-instances** page. [Learn
-more about the Recovery instances page](recovery-instances.md#managing-recovery-instances "recovery-instances.md#managing-recovery-instances").
+Failback replication allows you to replicate data from AWS back to your
+original source server. To initiate this process, the Failback Client is booted
+directly on the source server that will receive the replicated data.
+
+**Before you begin**
+
+Before starting failback replication, ensure you have completed the following:
+
+- Meet the [failback prerequisites](#failback-performing-prerequesites "#failback-performing-prerequesites").
+- [Generate failback AWS credentials](#failback-performing-credentials "#failback-performing-credentials").
+
+**Monitoring failback progress**
+
+Once failback replication is underway, you can track its progress in the
+AWS Elastic Disaster Recovery Console on the **Recovery instances**
+page. [Learn more about the Recovery
+instances page](recovery-instances.md#managing-recovery-instances "recovery-instances.md#managing-recovery-instances").
 
 ### Failback prerequisites
 
@@ -48,7 +58,7 @@ and these failback-specific requirements:
 In order to perform a failback with the Elastic Disaster Recovery Failback
 Client, you must first generate the required AWS credentials. You can
 create temporary credentials with AWS Security Token Service. These credentials are only used
-during Failback Client installation.
+during Failback Client initialization.
 
 You will need to enter your credentials into the Failback Client when
 prompted.
@@ -62,7 +72,28 @@ AWS Elastic Disaster Recovery Failback Client, take these steps:
    IAM Role](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") with the **AWSElasticDisasterRecoveryFailbackInstallationPolicy**
    policy.
 2. Request temporary security credentials [via AWS STS](../../../IAM/latest/UserGuide/id_credentials_temp_request.md "../../../IAM/latest/UserGuide/id_credentials_temp_request.md") using the [AssumeRole
-   API](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md").
+   API](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md"). For example:
+
+```
+aws sts assume-role \
+  --role-arn arn:aws:iam::<account-id>:role/<role-name> \
+  --role-session-name drs-failback-session
+```
+
+This command returns temporary credentials consisting of an
+**AccessKeyId**,
+**SecretAccessKey**, and
+**SessionToken**. 3. When prompted by the Failback Client, enter:
+
+    * **AWS Access Key ID** – the `AccessKeyId` value
+    * **AWS Secret Access Key** – the `SecretAccessKey` value
+    * **AWS Session Token** – the `SessionToken` value
+    * **AWS Region** – the Region where your Recovery Instance resides
+
+###### Note
+
+Temporary credentials expire after a default session duration of 1 hour.
+Ensure you complete the Failback Client initialization before they expire.
 
 Learn more about creating a role to delegate permissions to an AWS
 service [in the IAM documentation](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md"). Attach this policy to the role:

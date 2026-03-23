@@ -15,27 +15,6 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-###### Topics
-
-- [AWS managed policy: AWSElasticDisasterRecoveryAgentPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentPolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentPolicy.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryAgentInstallationPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryConversionServerPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryConversionServerPolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryConversionServerPolicy.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryFailbackPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryFailbackPolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryFailbackPolicy.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryFailbackInstallationPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryFailbackInstallationPolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryFailbackInstallationPolicy.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryConsoleFullAccess](security-iam-awsmanpol-AWSElasticDisasterRecoveryConsoleFullAccess.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryConsoleFullAccess.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryReadOnlyAccess](security-iam-awsmanpol-AWSElasticDisasterRecoveryReadOnlyAccess.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryReadOnlyAccess.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryReplicationServerPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryReplicationServerPolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryReplicationServerPolicy.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryRecoveryInstancePolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryRecoveryInstancePolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryRecoveryInstancePolicy.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryServiceRolePolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryServiceRolePolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryServiceRolePolicy.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryStagingAccountPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryStagingAccountPolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryStagingAccountPolicy.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryStagingAccountPolicy_v2](security-iam-awsmanpol-AWSElasticDisasterRecoveryStagingAccountPolicy_v2.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryStagingAccountPolicy_v2.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryEc2InstancePolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryEc2InstancePolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryEc2InstancePolicy.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryCrossAccountReplicationPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryCrossAccountReplicationPolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryCrossAccountReplicationPolicy.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryNetworkReplicationPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryNetworkReplicationPolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryNetworkReplicationPolicy.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryLaunchActionsPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryLaunchActionsPolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryLaunchActionsPolicy.md")
-- [AWS managed policy: AWSElasticDisasterRecoveryConsoleFullAccess_v2](security-iam-awsmanpol-AWSElasticDisasterRecoveryConsoleFullAccess_v2.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryConsoleFullAccess_v2.md")
-- [Elastic Disaster Recovery updates for AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
-
 ## Elastic Disaster Recovery updates for AWS managed policies
 
 View details about updates to AWS managed policies for AWS Elastic Disaster Recovery since March

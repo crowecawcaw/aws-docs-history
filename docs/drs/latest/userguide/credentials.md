@@ -3,6 +3,16 @@
 In order to install the AWS Replication Agent, you must first generate the required AWS
 credentials. You can create temporary credentials with AWS STS.
 
+###### Important
+
+Temporary credentials have many advantages. You do not need to rotate them or
+revoke them when they are no longer needed, and they cannot be reused after they
+expire. You can specify for how long the credentials are valid, up to a maximum
+limit. Because they provide enhanced security, using temporary credentials is
+considered best practice and the recommended option. For more information, see
+[IAM
+security best practices](../../../IAM/latest/UserGuide/best-practices.md#bp-workloads-use-roles "../../../IAM/latest/UserGuide/best-practices.md#bp-workloads-use-roles").
+
 ## Temporary credentials
 
 Before you install the AWS Replication Agent, you need to generate temporary AWS security credentials.

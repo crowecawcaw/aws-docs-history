@@ -82,7 +82,14 @@ your OS: /dev/xvda1 on /tmp type ext4 (rw,noexec)
 
 - The AWS Elastic Disaster Recovery user needs to be a user in the
   sudoers list - a user who can perform sudo.
-- Ensure that the dhclient package is installed. If not, please install the package, by running `yum install dhclient`.
+- Ensure that the dhclient package is installed. The DHCP client is required
+  because AWS Elastic Disaster Recovery configures recovered instances to use DHCP networking. If the
+  package is not installed, use the appropriate command for your distribution:
+  - On RHEL/CentOS/Oracle/Amazon Linux: `sudo yum install dhclient`
+    or `sudo yum install dhcp-client`
+  - On Debian/Ubuntu: `sudo apt install isc-dhcp-client`
+  - On SUSE: `sudo zypper install dhcp-client`
+
 - Verify that you have kernel-devel/linux-headers installed that are exactly the same
   version as the kernel you are running.
 

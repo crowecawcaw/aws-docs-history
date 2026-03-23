@@ -1,9 +1,45 @@
 # Using Elastic Disaster Recovery for recovery and failback
 
-In the event of a disaster, AWS Elastic Disaster Recovery can facilitate with the process of Failover from
-either an on-premise environment, Amazon EC2, or a third-party cloud provider. Once the disaster
-has been mitigated, you can also use AWS Elastic Disaster Recovery to perform failback to the original source
-infrastructure.
+In the event of a disaster, AWS Elastic Disaster Recovery facilitates the recovery of your workloads by
+launching recovery instances in AWS. Once the disaster has been mitigated, you can also
+use AWS Elastic Disaster Recovery to perform failback to the original source infrastructure.
+
+## Key terminology
+
+The following terms are used throughout the AWS Elastic Disaster Recovery documentation. Understanding
+the distinction between these terms is important for using the service
+effectively.
+
+Recovery
+The process of launching recovery instances on AWS using
+AWS Elastic Disaster Recovery. This is the action you perform within the Elastic Disaster Recovery Console or API
+(using `start-recovery` or **Initiate
+recovery job** in the Console). Recovery creates new Amazon EC2
+instances from your replicated data.
+
+Recovery drill
+A non-disruptive test that launches drill instances to validate
+your disaster recovery readiness. Drills use the same process as recovery
+but do not affect your source servers or ongoing replication.
+
+Failover
+The act of redirecting production traffic from your primary
+(source) environment to your recovery instances on AWS. Failover is
+performed outside of AWS Elastic Disaster Recovery, typically using a DNS routing service such
+as [Amazon
+Route 53](../../../Route53/latest/DeveloperGuide/Welcome.md "../../../Route53/latest/DeveloperGuide/Welcome.md") or your organization's traffic management
+solution.
+
+Failback
+The process of returning your workloads from the recovery
+environment on AWS back to your original source infrastructure after the
+disaster has been resolved. AWS Elastic Disaster Recovery assists with failback by replicating
+data from recovery instances back to your source servers.
+
+In summary: AWS Elastic Disaster Recovery handles **recovery** (launching
+instances) and **failback** (returning to source). The
+**failover** step (redirecting traffic) is performed by
+you, outside of AWS Elastic Disaster Recovery.
 
 ## Recovery and Failback overview
 

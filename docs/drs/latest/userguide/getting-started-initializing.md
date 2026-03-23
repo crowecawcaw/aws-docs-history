@@ -107,7 +107,7 @@ relationships via the CreateRole API:
 
 ```
 $ aws iam create-role --path "/service-role/" --role-name
-				AWSElasticDisasterRecoveryAgentRole --assume-role-policy-document file://agent-source-drs-trust-policy.json
+			AWSElasticDisasterRecoveryAgentRole --assume-role-policy-document file://agent-source-drs-trust-policy.json
 
 ```
 
@@ -121,7 +121,7 @@ AWSElasticDisasterRecoveryFailbackRole**
 
 ```
 $ aws iam create-role --path "/service-role/" --role-name
-				AWSElasticDisasterRecoveryFailbackRole --assume-role-policy-document file://failback-source-drs-trust-policy.json
+			AWSElasticDisasterRecoveryFailbackRole --assume-role-policy-document file://failback-source-drs-trust-policy.json
 
 ```
 
@@ -135,7 +135,7 @@ AWSElasticDisasterRecoveryConversionServerRole**
 
 ```
 $ aws iam create-role --path "/service-role/" --role-name
-				AWSElasticDisasterRecoveryConversionServerRole --assume-role-policy-document file://source-drs-trust-policy.json
+			AWSElasticDisasterRecoveryConversionServerRole --assume-role-policy-document file://source-drs-trust-policy.json
 
 ```
 
@@ -144,7 +144,7 @@ AWSElasticDisasterRecoveryRecoveryInstanceRole**
 
 ```
 $ aws iam create-role --path "/service-role/" --role-name
-				AWSElasticDisasterRecoveryRecoveryInstanceRole --assume-role-policy-document file://source-drs-trust-policy.json
+			AWSElasticDisasterRecoveryRecoveryInstanceRole --assume-role-policy-document file://source-drs-trust-policy.json
 
 ```
 
@@ -153,7 +153,7 @@ AWSElasticDisasterRecoveryReplicationServerRole**
 
 ```
 $ aws iam create-role --path "/service-role/" --role-name
-				AWSElasticDisasterRecoveryReplicationServerRole --assume-role-policy-document file://source-drs-trust-policy.json
+			AWSElasticDisasterRecoveryReplicationServerRole --assume-role-policy-document file://source-drs-trust-policy.json
 
 ```
 

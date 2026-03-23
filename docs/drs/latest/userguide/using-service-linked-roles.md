@@ -33,7 +33,8 @@ The AWSServiceRoleForElasticDisasterRecovery service-linked role trusts the
 following services to assume the role: `drs.amazonaws.com`
 
 The role permissions policy allows AWS Elastic Disaster Recovery to complete the
-following actions on the specified resources.
+following actions on the specified resources. For the full policy definition, see
+[AWSElasticDisasterRecoveryServiceRolePolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryServiceRolePolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryServiceRolePolicy.md").
 
 You must configure permissions to allow an IAM entity (such as a user, group, or
 role) to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
@@ -84,7 +85,9 @@ AWSServiceRoleForElasticDisasterRecovery**
 
 Resources can be cleaned up without stopping any AWS Elastic Disaster Recovery
 services. Cleaning up AWS Elastic Disaster Recovery resources will cause AWS Elastic Disaster Recovery to stop working.
-For more information, see [Cleaning up a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
+To clean up resources, you should disconnect all source servers, terminate all
+Recovery Instances, and delete all replication and launch configuration templates
+from AWS Elastic Disaster Recovery. For more information, see [Cleaning up a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
 **To manually delete the service-linked role using

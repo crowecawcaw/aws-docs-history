@@ -5,7 +5,7 @@ as well as permissions to read KMS key, License Manager,
 Resource Groups, Elastic Load Balancing, IAM, and EC2 information. It also includes
 EC2 actions that allow to launch, delete, or modify replication servers and recovery instances.
 These EC2 actions are limited only to resources which the service creates with a specific
-AWS-only tag.
+AWS-only tag. Attach this
 policy to your users or roles.
 
 AWSElasticDisasterRecoveryConsoleFullAccess includes access to your AWS

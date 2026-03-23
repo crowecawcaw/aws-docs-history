@@ -98,9 +98,9 @@ the role](../../../IAM/latest/UserGuide/id_roles_use.md "../../../IAM/latest/Use
 
 ## Recovery best practices
 
-1. **Overview:** DRS makes successful failover possible, by
+1. **Overview:** DRS makes successful recovery possible, by
    handling ongoing replication, and the on-demand launching of actual Recovery
-   instances. The re-routing of data is not done via DRS, and should be done
+   instances. The re-routing of traffic (failover) is not done via DRS, and should be done
    using your preferred DNS routing service, such as [Amazon Route 53](../../../Route53/latest/DeveloperGuide/Welcome.md "../../../Route53/latest/DeveloperGuide/Welcome.md"). Your recovery plan should include details of
    which service to use, who in your organization owns this service, and what
    conditions must be met to perform the re-routing (for example: launch
@@ -120,7 +120,7 @@ the role](../../../IAM/latest/UserGuide/id_roles_use.md "../../../IAM/latest/Use
    Recovery instances accrue EC2 and EBS charges as per AWS rates for your
    account in the target AWS Region. While you use the Recovery instances, you
    also continue paying for DRS, and the replication resources it created.
-4. **Failover dos and don’ts:** Do not use the **Disconnect from AWS** action in the DRS console for
+4. **Recovery dos and don’ts:** Do not use the **Disconnect from AWS** action in the DRS console for
    servers for which you launched Recovery instances, even in the case of a
    real recovery event. Performing a disconnect terminates all replication
    resources related to these source servers, including your Point-In-Time

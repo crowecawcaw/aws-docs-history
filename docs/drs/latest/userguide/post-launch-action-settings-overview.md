@@ -45,34 +45,34 @@ For example, if you have shared the SSM documents MyCommand (command) and MyAuto
 
 ```
 
-                {
-                    "Effect": "Allow",
-                    "Action": [
-                        "ssm:SendCommand",
-                    ],
-                    "Resource": "arn:aws:ssm:*:111111111111:document/MyAutomation",
-                    "Condition": {
-                        "ForAnyValue:StringEquals": {
-                            "aws:CalledVia": [
-                                "drs.amazonaws.com"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "Effect": "Allow",
-                    "Action": [
-                        "ssm:StartAutomationExecution"
-                    ],
-                    "Resource": "arn:aws:ssm:*:111111111111:automation-definition/MyAutomation",
-                    "Condition": {
-                        "ForAnyValue:StringEquals": {
-                            "aws:CalledVia": [
-                                "drs.amazonaws.com"
-                            ]
-                        }
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ssm:SendCommand",
+                ],
+                "Resource": "arn:aws:ssm:*:111111111111:document/MyAutomation",
+                "Condition": {
+                    "ForAnyValue:StringEquals": {
+                        "aws:CalledVia": [
+                            "drs.amazonaws.com"
+                        ]
                     }
                 }
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ssm:StartAutomationExecution"
+                ],
+                "Resource": "arn:aws:ssm:*:111111111111:automation-definition/MyAutomation",
+                "Condition": {
+                    "ForAnyValue:StringEquals": {
+                        "aws:CalledVia": [
+                            "drs.amazonaws.com"
+                        ]
+                    }
+                }
+            }
 
 ```
 

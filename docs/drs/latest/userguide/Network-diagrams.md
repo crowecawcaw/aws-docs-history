@@ -1,6 +1,29 @@
 # Elastic Disaster Recovery network diagrams
 
-The following are the network diagrams for AWS Elastic Disaster Recovery :
+AWS Elastic Disaster Recovery supports the following source infrastructure types:
+
+- **On-premises to AWS** – Protect physical
+  or virtual servers in your data center by replicating to an AWS Region.
+- **AWS to AWS (cross-Region)** – Protect
+  Amazon EC2 instances by replicating from one AWS Region to another. Cross-Region
+  replication is recommended for disaster recovery to help protect against
+  Region-level events.
+- **AWS to AWS (cross-Availability Zone)** –
+  Replicate Amazon EC2 instances to a different Availability Zone within the same
+  AWS Region. For comprehensive disaster recovery protection, we recommend
+  cross-Region replication.
+- **VMware to AWS** – Protect VMware vSphere
+  environments, including both on-premises vSphere and VMware Cloud on AWS. See
+  [Disaster
+  recovery for VMware Cloud on AWS using AWS Elastic Disaster Recovery](https://aws.amazon.com/blogs/storage/disaster-recovery-for-vmware-cloud-on-aws-using-aws-elastic-disaster-recovery/ "https://aws.amazon.com/blogs/storage/disaster-recovery-for-vmware-cloud-on-aws-using-aws-elastic-disaster-recovery/").
+- **Other clouds to AWS** – Protect workloads
+  running on other cloud providers such as Microsoft Azure or Google Cloud. See
+  [Building
+  a disaster recovery site on AWS for workloads on Microsoft Azure](https://aws.amazon.com/blogs/storage/building-a-disaster-recovery-site-on-aws-for-workloads-on-microsoft-azure/ "https://aws.amazon.com/blogs/storage/building-a-disaster-recovery-site-on-aws-for-workloads-on-microsoft-azure/").
+- **AWS to on-premises (failback)** – After
+  a disaster recovery event, fail back from AWS to your original source
+  environment.
+  The following are the network diagrams for AWS Elastic Disaster Recovery :
 
 ## General Architecture - On-Premises to AWS
 

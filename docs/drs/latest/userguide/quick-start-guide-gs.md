@@ -55,8 +55,7 @@ settings.](individual-replication-settings.md#replication-server-settings "indiv
 
 During this step you can review the service linked role and additional
 policies created during Elastic Disaster Recovery initialization. Choose **View
-details** to learn more. the service linked role and additional
-policies created during Elastic Disaster Recovery initialization
+details** to learn more.
 
 On the second page of the wizard you are asked to **Specify volumes and
 security groups**. For each disk on an added source server there is an
@@ -100,7 +99,7 @@ Additional configurable settings include:
 - Snapshot retention
 - Tags
 
-On the fourth page of the wizard you can**Set default DRS launch
+On the fourth page of the wizard you can **Set default DRS launch
 settings**.
 
 Default launch settings define how drill or recovery instances are launched in AWS. You
@@ -137,7 +136,7 @@ They include:
 - IAM instance profile
 - Tenancy
 
-The sixth page is where you**Review and initialize**.
+The sixth page is where you **Review and initialize**.
 
 Review the settings you configured. To change a specific setting select **Edit**, which redirects you to the page in the wizard on
 which the setting appears. Go through the remaining pages to return to the **Review and create** page.
@@ -249,7 +248,7 @@ to the Recovery instances that were launched during the test.
   replication.
 
 [Learn more about launching drill instances
-as part of the overall failover and failback framework.](preparing-failover.md#recovery-drill-overview "preparing-failover.md#recovery-drill-overview")
+as part of the overall recovery and failback framework.](preparing-failover.md#recovery-drill-overview "preparing-failover.md#recovery-drill-overview")
 
 ## Launching a recovery instance
 
@@ -267,7 +266,7 @@ is transferred to the Staging Area Subnet, and not to the recovery instances tha
 were launched during the recovery.
 
 [Learn more about launching Recovery
-instances as part of the overall failover and failback framework.](failback-preparing-failover.md#failback-launching-instances "failback-preparing-failover.md#failback-launching-instances")
+instances as part of the overall recovery and failback framework.](failback-preparing-failover.md#failback-launching-instances "failback-preparing-failover.md#failback-launching-instances")
 
 ## Performing a failback
 

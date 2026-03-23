@@ -41,3 +41,6 @@ replicating to, for example “us-east-1” .
 
 Drill and recovery instances are launched in a subnet you specify in the Amazon EC2 launch template
 associated with each source server. The Amazon EC2 launch template is created automatically when you add a source server to AWS Elastic Disaster Recovery.
+Learn more about launching [drill](quick-start-guide-gs.md#launching-test-gs "quick-start-guide-gs.md#launching-test-gs") and
+[recovery](quick-start-guide-gs.md#launch-recovery-gs "quick-start-guide-gs.md#launch-recovery-gs") instances. Learn more about
+[Amazon EC2 launch templates](../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md "../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md").

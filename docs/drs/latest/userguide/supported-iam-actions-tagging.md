@@ -5,19 +5,22 @@ create the resource. You can use resource tags to implement attribute-based cont
 (ABAC).
 
 To allow users to tag resources on creation, they must have permissions to use the
-action that creates the resource, such as `drs:CreateSourceServerForDrs`
-for source server or `drs:CreateRecoveryInstanceForDrs` for Recovery
-instances. If tags are specified in the resource-creating action, Amazon performs
-additional authorization on the `drs:TagResource` action to verify that
-users have permissions to create tags. Therefore, users must also have explicit
-permissions to use the `drs:TagResource` action.
+action that creates the resource, such as:
+
+- `drs:CreateSourceServerForDrs` – for creating a source server
+- `drs:CreateRecoveryInstanceForDrs` – for creating a Recovery instance
+- `drs:TagResource` – if tags are specified in the resource-creating action
+  If tags are specified in the resource-creating action, Amazon performs
+  additional authorization on the `drs:TagResource` action to verify that
+  users have permissions to create tags. Therefore, users must also have explicit
+  permissions to use the `drs:TagResource` action.
 
 In the IAM policy definition for the `drs:TagResource` action, use the Condition
 element with the `drs:CreateAction` condition key to give tagging permissions to the
 action that creates the resource.
 
 The following example demonstrates a policy that allows an agent installer to
-create a source server or recover instance and apply any tags to the resource on
+create a source server or recovery instance and apply any tags to the resource on
 creation. The installer is not permitted to tag any existing resources (it cannot
 call the `drs:TagResource` action directly).
 

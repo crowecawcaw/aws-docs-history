@@ -6,7 +6,7 @@ You cannot specify or assign static IP addresses for the replication server or c
 
 ## What do Lag and Backlog mean during replication?
 
-During replication you may see a server falls out of Continuous Data Protection (CDP) mode.
+During replication you may see a server fall out of Continuous Data Protection (CDP) mode.
 This may occur for various reasons, typically related to the network throughput or
 interruption.
 
@@ -24,8 +24,14 @@ Elastic Disaster Recovery encrypts all the data in transit.
 
 ## How is the replication server provisioned and managed in the Staging Area?
 
-Elastic Disaster Recovery provisions the replication server(s) and automatically manages
-the addition and removal of the servers as necessary.
+AWS Elastic Disaster Recovery automatically provisions replication servers in your staging area
+subnet when source servers are added. The service manages the full lifecycle of
+replication servers, including launching new servers when additional replication
+capacity is needed, removing servers that are no longer in use, and recycling
+servers every 14 days to ensure they run the latest AMI with up-to-date security
+patches. Each replication server can handle replication of volumes from multiple
+source servers. You can configure the replication server instance type and subnet
+in the [replication settings](individual-replication-settings.md#replication-server-settings "individual-replication-settings.md#replication-server-settings").
 
 ## What type of replication server is utilized in the Elastic Disaster Recovery Staging Area?
 
@@ -77,7 +83,7 @@ volumes will be a 1:1 match for the source machines provisioned size.
 
 AWS Elastic Disaster Recovery uses TCP Port 1500 for replication between the source
 agents and the replication server. The connection is open for all IPs and can be
-managed by ACLs or networks controls to limit inbound IPs.
+managed by ACLs or network controls to limit inbound IPs.
 
 ## What should I know about rescans?
 
@@ -94,6 +100,16 @@ Causes of rescans include:
 - The OS is not supported for the no-rescan feature. Learn more in [Supported Windows operating systems](Supported-Operating-Systems-Windows.md "Supported-Operating-Systems-Windows.md")
   and [Supported Linux operating systems](Supported-Operating-Systems-Linux.md "Supported-Operating-Systems-Linux.md").
 - Writing data to disks while the Replication Agent driver is unhooked.
+
+## How does AWS Elastic Disaster Recovery ensure that replication servers are patched and follow security best practices?
+
+AWS Elastic Disaster Recovery automatically recycles replication servers every 14 days. When a
+replication server reaches the end of its lifecycle, the service terminates it
+and launches a new replication server using the latest AMI, which includes the
+most recent security patches and updates. During the recycling process, you may
+observe temporary replication lag while the new replication server is launched
+and the AWS Replication Agent reconnects. Replication resumes automatically
+once the new server is ready.
 
 ## Is the Elastic Disaster Recovery replication crash consistent?
 

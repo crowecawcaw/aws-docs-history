@@ -3,7 +3,7 @@
 As a managed service, AWS Elastic Disaster Recovery is protected by the AWS global network security
 procedures that are described in the [Amazon Web Services: Overview of Security Processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf "https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf") whitepaper.
 
-You use AWS published API calls to access application recovery Service through the
+You use AWS published API calls to access AWS Elastic Disaster Recovery through the
 network. Clients must support Transport Layer Security (TLS) 1.2 or later. Clients must
 also support cipher suites with perfect forward secrecy (PFS) such as Ephemeral
 Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern

@@ -1,7 +1,7 @@
-# Preparing for failover
+# Preparing for recovery
 
 After installing the AWS Elastic Disaster Recovery Agent on your Source Servers, we recommend validating your
-Source Server settings and testing (drilling) frequently in preperation of a failover event. Configuration of
+Source Server settings and testing (drilling) frequently in preparation of a recovery event. Configuration of
 the recovery environment includes DRS Launch Settings, EC2 Launch Template, and Post-Launch Actions.
 
 Valid and up-to-date configuration and drilling facilitates lowering the [RTO](CloudEndure-Concepts.md#What-is-RTO "CloudEndure-Concepts.md#What-is-RTO").
@@ -20,7 +20,7 @@ phase.
 
 ## Recovery drill overview
 
-A Recovery Drill is a synthetic failover that performs all the same steps as an actual failover. Recovery Drills
+A Recovery Drill is a non-disruptive test that performs all the same steps as an actual recovery. Recovery Drills
 run with the same Source Server Launch Settings and Point in Time snapshots that a Recovery would. As a result, we recommend
 adjusting any Source Server Launch Settings to isolate Drill Instances when necessary to avoid production or business impact.
 You can use verification post-launch actions when performing a drill to ensure that Launch Settings are accurate.

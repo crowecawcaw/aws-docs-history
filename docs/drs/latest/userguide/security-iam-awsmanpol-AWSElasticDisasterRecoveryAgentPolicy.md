@@ -3,10 +3,12 @@
 This policy gives the AWS Replication Agent, which is used with
 AWS Elastic Disaster Recovery (AWS DRS) to replicate source servers to AWS,
 permissions to communicate with AWS DRS to receive instructions and
-to send logs and metrics. We do not recommend that
-you attach this policy to your users or roles.
+to send logs and metrics.
 
-**Permissions details**
+###### Important
+
+This policy is designed exclusively for the AWS Replication Agent. We do not
+recommend that you attach this policy to your IAM users or roles.
 
 **Permissions details**
 
