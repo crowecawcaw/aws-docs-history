@@ -30,7 +30,7 @@ To set up a Site-to-Site VPN:
 
 For information about setting up the VPCs, follow the instructions
 described in [AWS setup
-Site-to-Site VPN connection](samples/Setup_Site_to_Site_VPN.md "samples/Setup_Site_to_Site_VPN.md").
+Site-to-Site VPN connection](samples/Setup_Site_to_Site_VPN.zip.md "samples/Setup_Site_to_Site_VPN.zip.md").
 
 ###### Note
 
