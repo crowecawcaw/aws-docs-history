@@ -8,7 +8,7 @@ Amazon Bedrock Guardrails can help block inappropriate or harmful images while c
 - This capability is generally available in US East (N. Virginia), US West (Oregon), Europe (Frankfurt), and
   Asia Pacific (Tokyo) AWS Regions, where it is supported for Hate, Insults, Sexual, Violence, Misconduct, and
   Prompt Attack categories within content filters.
-- This capability is available in preview in US East (Ohio), Asia Pacific (Mumbai, Seoul, Singapore, Tokyo),
+- This capability is available in preview in US East (Ohio), Asia Pacific (Mumbai, Seoul, Singapore, Sydney),
   Europe (Ireland, London), and US GovCloud (US-West) AWS Regions, where it is supported for Hate, Insults, Sexual,
   and Violence categories within content filters.
 - Maximum image dimensions allowed for the feature are 8000x8000 (for both JPEG and PNG files).

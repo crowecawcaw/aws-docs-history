@@ -58,11 +58,11 @@ A: When member accounts have active Bedrock models and their payer account distr
 
 **Q: Can I temporarily revoke access without deleting the grant?**
 
-A: Yes. Deactivate the grant to move it to a Disabled state. This temporarily revokes access while preserving the grant configuration. You can reactivate it later without recreating the grant.
+A: Yes. You can deactivate the grant to move it to a Disabled state. However, deactivating a grant does not block model access — the member account can still invoke the model. What changes is the billing: while the grant is disabled, the member account will be billed at public rates instead of your negotiated private offer pricing. You can reactivate the grant later to restore private offer terms without needing to recreate it.
 
 **Q: What happens to model access if I delete or deactivate a grant?**
 
-A: Active inference requests continue to run and complete normally. However, new requests are denied immediately once the grant is deactivated or deleted. Charges for completed work still apply to the subscribing account.
+A: The member account will continue to have model access — deleting or deactivating a grant does not interrupt the ability to invoke the model. However, without an active grant, the member account will be billed at public rates instead of any negotiated private offer pricing.
 
 **Q: Can I see which accounts are actually using the licenses I distributed?**
 
@@ -70,11 +70,11 @@ A: In AWS License Manager, you can view which accounts have grants and their act
 
 **Q: If I delete a grant by mistake, can I restore it?**
 
-A: No. Deleting a grant is permanent and cannot be undone. However, you can create a new grant to the same account with the same configuration. The new grant will be independent of the deleted grant.
+A: No. Deleting a grant is permanent and cannot be undone. However, you can create a new grant to the same account with the same configuration. Model access will not be disrupted — the member account can continue invoking the model during the gap. The key impact is billing: for the duration between the grant deletion and the new grant activation, the member account will be billed at public rates rather than any negotiated private offer pricing.
 
 **Q: What happens to granted licenses in linked accounts when the parent subscription expires in the management account?**
 
-A: The linked accounts will lose access to the model when parent subscription expires in the management account.
+A: The linked accounts will continue to have model access when parent subscription expires in the management account. However, they will be billed at public rates rather than any negotiated private offer pricing.
 
 ## Special configurations
 

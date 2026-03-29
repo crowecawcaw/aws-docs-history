@@ -777,6 +777,27 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `ap-southeast-3` (Jakarta)                                                              | Yes    | No        | No  |
 | `sa-east-1` (São Paulo)                                                                 | Yes    | No        | No  |
 
+| [MiniMax M2.5](model-card-minimax-minimax-m2-5.md "model-card-minimax-minimax-m2-5.md") | Region | In-Region | Geo | Global |
+| --------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                               | Yes    | No        | No  |
+| `us-west-2` (Oregon)                                                                    | Yes    | No        | No  |
+
+| [MiniMax M2.5](model-card-minimax-minimax-m2-5.md "model-card-minimax-minimax-m2-5.md") | Region | In-Region | Geo | Global |
+| --------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                               | Yes    | No        | No  |
+| `us-east-2` (Ohio)                                                                      | Yes    | No        | No  |
+| `us-west-2` (Oregon)                                                                    | Yes    | No        | No  |
+| `eu-central-1` (Frankfurt)                                                              | Yes    | No        | No  |
+| `eu-north-1` (Stockholm)                                                                | Yes    | No        | No  |
+| `eu-south-1` (Milan)                                                                    | Yes    | No        | No  |
+| `eu-west-1` (Ireland)                                                                   | Yes    | No        | No  |
+| `eu-west-2` (London)                                                                    | Yes    | No        | No  |
+| `ap-northeast-1` (Tokyo)                                                                | Yes    | No        | No  |
+| `ap-south-1` (Mumbai)                                                                   | Yes    | No        | No  |
+| `ap-southeast-2` (Sydney)                                                               | Yes    | No        | No  |
+| `ap-southeast-3` (Jakarta)                                                              | Yes    | No        | No  |
+| `sa-east-1` (São Paulo)                                                                 | Yes    | No        | No  |
+
 ## Mistral AI
 
 | [Magistral Small 2509](model-card-mistral-ai-magistral-small-2509.md "model-card-mistral-ai-magistral-small-2509.md") | Region | In-Region | Geo | Global |
@@ -1007,6 +1028,27 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `ap-south-1` (Mumbai)                                                                                      | Yes    | No        | No  |
 | `ap-southeast-2` (Sydney)                                                                                  | Yes    | No        | No  |
 | `sa-east-1` (São Paulo)                                                                                    | Yes    | No        | No  |
+
+| [NVIDIA Nemotron 3 Super 120B](model-card-nvidia-nemotron-super-3-120b.md "model-card-nvidia-nemotron-super-3-120b.md") | Region | In-Region | Geo | Global |
+| ----------------------------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                                               | Yes    | No        | No  |
+| `us-west-2` (Oregon)                                                                                                    | Yes    | No        | No  |
+
+| [NVIDIA Nemotron 3 Super 120B](model-card-nvidia-nemotron-super-3-120b.md "model-card-nvidia-nemotron-super-3-120b.md") | Region | In-Region | Geo | Global |
+| ----------------------------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                                               | Yes    | No        | No  |
+| `us-east-2` (Ohio)                                                                                                      | Yes    | No        | No  |
+| `us-west-2` (Oregon)                                                                                                    | Yes    | No        | No  |
+| `eu-south-1` (Milan)                                                                                                    | Yes    | No        | No  |
+| `eu-west-1` (Ireland)                                                                                                   | Yes    | No        | No  |
+| `eu-west-2` (London)                                                                                                    | Yes    | No        | No  |
+| `ap-northeast-1` (Tokyo)                                                                                                | Yes    | No        | No  |
+| `ap-south-1` (Mumbai)                                                                                                   | Yes    | No        | No  |
+| `ap-southeast-2` (Sydney)                                                                                               | Yes    | No        | No  |
+| `sa-east-1` (São Paulo)                                                                                                 | Yes    | No        | No  |
+| `eu-central-1` (Frankfurt)                                                                                              | Yes    | No        | No  |
+| `eu-north-1` (Stockholm)                                                                                                | Yes    | No        | No  |
+| `ap-southeast-3` (Jakarta)                                                                                              | Yes    | No        | No  |
 
 ## OpenAI
 
@@ -1300,6 +1342,12 @@ Now, let us look at Regional availability across all the models supported by Ama
 
 ## Writer
 
+| [Palmyra Vision 7B](model-card-writer-palmyra-vision-7b.md "model-card-writer-palmyra-vision-7b.md") | Region | In-Region | Geo | Global |
+| ---------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                            | Yes    | No        | No  |
+| `us-east-2` (Ohio)                                                                                   | Yes    | No        | No  |
+| `us-west-2` (Oregon)                                                                                 | Yes    | No        | No  |
+
 | [Palmyra X5](model-card-writer-palmyra-x5.md "model-card-writer-palmyra-x5.md") | Region | In-Region | Geo | Global |
 | ------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
 | `us-east-1` (N. Virginia)                                                       | No     | Yes       | No  |
@@ -1344,3 +1392,21 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `ap-southeast-2` (Sydney)                                        | Yes    | No        | No  |
 | `ap-southeast-3` (Jakarta)                                       | Yes    | No        | No  |
 | `sa-east-1` (São Paulo)                                          | Yes    | No        | No  |
+
+| [GLM 5](model-card-zai-glm-5.md "model-card-zai-glm-5.md") | Region | In-Region | Geo | Global |
+| ---------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                  | Yes    | No        | No  |
+| `us-west-2` (Oregon)                                       | Yes    | No        | No  |
+
+| [GLM 5](model-card-zai-glm-5.md "model-card-zai-glm-5.md") | Region | In-Region | Geo | Global |
+| ---------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                  | Yes    | No        | No  |
+| `us-east-2` (Ohio)                                         | Yes    | No        | No  |
+| `us-west-2` (Oregon)                                       | Yes    | No        | No  |
+| `eu-north-1` (Stockholm)                                   | Yes    | No        | No  |
+| `eu-west-2` (London)                                       | Yes    | No        | No  |
+| `ap-northeast-1` (Tokyo)                                   | Yes    | No        | No  |
+| `ap-south-1` (Mumbai)                                      | Yes    | No        | No  |
+| `ap-southeast-2` (Sydney)                                  | Yes    | No        | No  |
+| `ap-southeast-3` (Jakarta)                                 | Yes    | No        | No  |
+| `sa-east-1` (São Paulo)                                    | Yes    | No        | No  |

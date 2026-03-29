@@ -101,6 +101,7 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 | ------------------------------------------------------------------------------------------- | ----------------- | ---------------- |
 | **[MiniMax M2](model-card-minimax-minimax-m2.md "model-card-minimax-minimax-m2.md")**       | Yes               | Yes              |
 | **[MiniMax M2.1](model-card-minimax-minimax-m2-1.md "model-card-minimax-minimax-m2-1.md")** | Yes               | Yes              |
+| **[MiniMax M2.5](model-card-minimax-minimax-m2-5.md "model-card-minimax-minimax-m2-5.md")** | Yes               | Yes              |
 
 ## Mistral AI
 
@@ -131,9 +132,10 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 
 | Model name                                                                                                                                                     | `bedrock-runtime` | `bedrock-mantle` |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ---------------- |
-| **[NVIDIA Nemotron Nano 12B v2 VL BF16](model-card-nvidia-nvidia-nemotron-nano-12b-v2-vl-bf16.md "model-card-nvidia-nvidia-nemotron-nano-12b-v2-vl-bf16.md")** | Yes               | Yes              |
 | **[NVIDIA Nemotron Nano 9B v2](model-card-nvidia-nvidia-nemotron-nano-9b-v2.md "model-card-nvidia-nvidia-nemotron-nano-9b-v2.md")**                            | Yes               | Yes              |
+| **[NVIDIA Nemotron Nano 12B v2 VL BF16](model-card-nvidia-nvidia-nemotron-nano-12b-v2-vl-bf16.md "model-card-nvidia-nvidia-nemotron-nano-12b-v2-vl-bf16.md")** | Yes               | Yes              |
 | **[Nemotron Nano 3 30B](model-card-nvidia-nemotron-nano-3-30b.md "model-card-nvidia-nemotron-nano-3-30b.md")**                                                 | Yes               | Yes              |
+| **[NVIDIA Nemotron 3 Super 120B](model-card-nvidia-nemotron-super-3-120b.md "model-card-nvidia-nemotron-super-3-120b.md")**                                    | Yes               | Yes              |
 
 ## OpenAI
 
@@ -184,10 +186,11 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 
 ## Writer
 
-| Model name                                                                          | `bedrock-runtime` | `bedrock-mantle` |
-| ----------------------------------------------------------------------------------- | ----------------- | ---------------- |
-| **[Palmyra X4](model-card-writer-palmyra-x4.md "model-card-writer-palmyra-x4.md")** | Yes               | No               |
-| **[Palmyra X5](model-card-writer-palmyra-x5.md "model-card-writer-palmyra-x5.md")** | Yes               | No               |
+| Model name                                                                                               | `bedrock-runtime` | `bedrock-mantle` |
+| -------------------------------------------------------------------------------------------------------- | ----------------- | ---------------- |
+| **[Palmyra Vision 7B](model-card-writer-palmyra-vision-7b.md "model-card-writer-palmyra-vision-7b.md")** | Yes               | Yes              |
+| **[Palmyra X4](model-card-writer-palmyra-x4.md "model-card-writer-palmyra-x4.md")**                      | Yes               | No               |
+| **[Palmyra X5](model-card-writer-palmyra-x5.md "model-card-writer-palmyra-x5.md")**                      | Yes               | No               |
 
 ## Z.AI
 
@@ -195,3 +198,4 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 | -------------------------------------------------------------------------------------- | ----------------- | ---------------- |
 | **[GLM 4.7](model-card-zai-glm-4-7.md "model-card-zai-glm-4-7.md")**                   | Yes               | Yes              |
 | **[GLM 4.7 Flash](model-card-zai-glm-4-7-flash.md "model-card-zai-glm-4-7-flash.md")** | Yes               | Yes              |
+| **[GLM 5](model-card-zai-glm-5.md "model-card-zai-glm-5.md")**                         | Yes               | Yes              |
