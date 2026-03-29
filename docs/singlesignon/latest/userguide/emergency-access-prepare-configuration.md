@@ -3,7 +3,9 @@
 To prepare your emergency access configuration, we recommend that you perform the
 following tasks before an emergency occurs.
 
-1. Set up a direct IAM federation application in your IdP. For more information, see [One-time setup of a direct IAM federation application in Okta](emergency-access-one-time-setup-direct-IAM-federation-application-in-idp.md "emergency-access-one-time-setup-direct-IAM-federation-application-in-idp.md").
+1. Set up a direct IAM federation application in your IdP. If you are using Okta or other
+   external IdPs as your identity source, see [One-time setup of a direct IAM federation application in Okta](emergency-access-one-time-setup-direct-IAM-federation-application-in-idp.md "emergency-access-one-time-setup-direct-IAM-federation-application-in-idp.md"). If you are using
+   Active Directory as your identity source, see [One-time setup of a direct IAM federation application with ADFS](emergency-access-one-time-setup-direct-IAM-federation-application-in-adfs.md "emergency-access-one-time-setup-direct-IAM-federation-application-in-adfs.md").
 2. Create an IdP connection in the emergency access account that can be accessed during the event.
 3. Create emergency access roles in the emergency access accounts as described in the mapping
    table above.

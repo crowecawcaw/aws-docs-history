@@ -1,4 +1,4 @@
-# How to d esign your critical operations roles
+# How to design your critical operations roles
 
 With this design, you configure a single AWS account in which you federate through IAM, so that users can assume critical operations roles.
 The critical operations roles have a trust policy that enables users to assume a corresponding role in your workload accounts.

@@ -5,7 +5,12 @@
    **Applications.**
 3. Choose **Browse App Catalog**. Search for and choose **AWS Account
    Federation**. Then choose **Add integration**.
-4. Set up direct IAM federation with AWS by following the steps in [How to Configure SAML 2.0 for AWS Account Federation](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Amazon-Web-Service.html "https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Amazon-Web-Service.html").
+4. Set up direct IAM federation with AWS by following the steps in [How to Configure SAML 2.0 for AWS Account Federation](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Amazon-Web-Service.html "https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Amazon-Web-Service.html"). To handle regional failure scenarios, when you configure the
+   sign-in endpoint, we recommend that you enable both the non-regional endpoint and multiple regional endpoints for all Regions
+   you operate in to improve federation resiliency. When configuring the ACS URL for this emergency access, we recommend that you
+   use the regional endpoint of a different Region than the one that your IAM Identity Center is deployed in. Refer to
+   [Sign-in endpoints](../../../general/latest/gr/signin-service.md "../../../general/latest/gr/signin-service.md") in the
+   _AWS General Reference_ for the list of regional endpoints.
 5. On the **Sign-On Options** tab, select SAML 2.0 and enter **Group Filter**
    and **Role Value Pattern** settings. The name of the group for the user directory depends on the filter that you configure.
 
@@ -23,7 +28,7 @@ group by using your existing provisioning mechanism. 7. In the emergency access 
 the emergency access role to be assumed during a disruption. Following is an example
 statement for a custom **trust policy** that is attached
 to the `EmergencyAccess_Role1_RO` role. For an illustration, see the
-emergency account in the diagram under [How to design e mergency role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md") .
+emergency account in the diagram under [How to design emergency role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md") . Replace the sample SAML provider ARN with the correct one you have created in the emergency access account. Replace the regional endpoints in the example with those regions of your choice.
 
 JSON
 
@@ -65,7 +70,7 @@ JSON
 
 8. The following is an example statement for a **permissions
    policy** that is attached to the `EmergencyAccess_Role1_RO`
-   role. For an illustration, see the emergency account in the diagram under [How to design e mergency role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md") .
+   role. For an illustration, see the emergency account in the diagram under [How to design emergency role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md") .
 
 JSON
 
@@ -87,7 +92,7 @@ JSON
 ```
 
 9. On the workload accounts, configure a custom trust policy. Following is an example statement for a **trust policy** that is attached to the `EmergencyAccess_RO` role. In this example, account `123456789012` is the emergency access account.
-   For an illustration, see workload account in the diagram under [How to design e mergency role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md") .
+   For an illustration, see workload account in the diagram under [How to design emergency role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md") .
 
 JSON
 

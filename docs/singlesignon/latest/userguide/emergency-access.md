@@ -29,11 +29,12 @@ understands what to do if IAM Identity Center is disrupted.
 ###### Topics
 
 - [Summary of emergency access configuration](emergency-access-implementation.md "emergency-access-implementation.md")
-- [How to d esign your critical operations roles](emergency-access-implementation-design.md "emergency-access-implementation-design.md")
+- [How to design your critical operations roles](emergency-access-implementation-design.md "emergency-access-implementation-design.md")
 - [How to plan your access model](emergency-access-planning.md "emergency-access-planning.md")
-- [How to design e mergency role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md")
+- [How to design emergency role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md")
 - [How to create your emergency access configuration](emergency-access-role-idp-group-creation-mapping-plan.md "emergency-access-role-idp-group-creation-mapping-plan.md")
 - [Emergency preparation tasks](emergency-access-prepare-configuration.md "emergency-access-prepare-configuration.md")
 - [Emergency failover process](emergency-access-failover-steps.md "emergency-access-failover-steps.md")
 - [Return to normal operations](emergency-access-return-to-normal-operations.md "emergency-access-return-to-normal-operations.md")
 - [One-time setup of a direct IAM federation application in Okta](emergency-access-one-time-setup-direct-IAM-federation-application-in-idp.md "emergency-access-one-time-setup-direct-IAM-federation-application-in-idp.md")
+- [One-time setup of a direct IAM federation application with ADFS](emergency-access-one-time-setup-direct-IAM-federation-application-in-adfs.md "emergency-access-one-time-setup-direct-IAM-federation-application-in-adfs.md")

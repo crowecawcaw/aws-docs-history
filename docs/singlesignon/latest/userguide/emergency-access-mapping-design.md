@@ -1,4 +1,4 @@
-# How to design e mergency role, account, and group mapping
+# How to design emergency role, account, and group mapping
 
 The following diagram shows how to map your emergency access groups to roles in your
 emergency access account. The diagram also shows the cross-account role trust
