@@ -58,10 +58,10 @@ are needed for a job to run, and Batch takes these resource dependencies into ac
 schedules a job. You can reduce the under-utilization of
 compute resources by allocating only the jobs that have all the required resources available. For more information, see [Resource-aware scheduling](resource-aware-scheduling.md "resource-aware-scheduling.md").
 
-## Service Environment
+## Service environment
 
-A Service Environment define how AWS Batch integrates with SageMaker for job execution.
-Service Environments enable AWS Batch to submit and manage jobs on SageMaker while providing
+A Service environment defines how AWS Batch integrates with SageMaker for job execution.
+Service environments enable AWS Batch to submit and manage jobs on SageMaker while providing
 the queuing, scheduling, and priority management capabilities of AWS Batch. Service
 Environments define capacity limits for specific service types such as SageMaker Training
 jobs. The capacity limits control the maximum resources that can be used by service jobs

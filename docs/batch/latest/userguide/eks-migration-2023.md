@@ -8,13 +8,12 @@ information about the differences between AL2 and AL2023 see [Upgrade from Amazo
 
 ###### Important
 
-AWS will end support for Amazon EKS AL2-optimized and AL2-accelerated AMIs, starting
-11/26/25. We recommend migrating AWS Batch Amazon EKS compute environments to Amazon Linux 2023 prior
-to 11/26/25 to maintain optimal performance and security. While you can continue using
-AWS Batch-provided Amazon EKS optimized Amazon Linux 2 AMIs on your Amazon EKS compute environments beyond
-the 11/26/25 end-of-support date, these compute environments will no longer receive any new
-software updates, security patches, or bug fixes from AWS. It is your [responsibility to maintain](eks-ce-shared-responsibility.md#eks-ce-shared-responsibility.title "eks-ce-shared-responsibility.md#eks-ce-shared-responsibility.title") these compute
-environments on the Amazon EKS optimized Amazon Linux 2 AMI after end-of-life.
+AWS ended support for Amazon EKS AL2-optimized and AL2-accelerated AMIs on November 26, 2025. AWS Batch Amazon EKS compute environments using Amazon Linux 2 no longer receive software
+updates, security patches, or bug fixes from AWS. We recommend migrating AWS Batch Amazon EKS
+compute environments to Amazon Linux 2023 to maintain optimal performance and security. It is
+your [responsibility to maintain](eks-ce-shared-responsibility.md#eks-ce-shared-responsibility.title "eks-ce-shared-responsibility.md#eks-ce-shared-responsibility.title")
+these compute environments on the Amazon EKS optimized Amazon Linux 2 AMI after
+end-of-life.
 
 Depending on how your compute environment is configured you can use one of the following
 upgrade paths from AL2 to AL2023.

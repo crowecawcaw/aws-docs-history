@@ -131,23 +131,29 @@ conditions are met:
 After the infrastructure update has completed `updateToLatestImageVersion` is set to `false`. To initiate another update `updateToLatestImageVersion` has to be set to `true`.
 
 - The compute environment uses the _AWSServiceRoleForBatch_
-  service-linked role
+  service-linked role.
 - The allocation strategy is set to `BEST_FIT_PROGRESSIVE`,
   `SPOT_CAPACITY_OPTIMIZED`, or
-  `SPOT_PRICE_CAPACITY_OPTIMIZED`
+  `SPOT_PRICE_CAPACITY_OPTIMIZED`.
 - No AMI ID is explicitly specified in `imageId`,
-  `imageIdOverride`, or launch template
-- The `updateToLatestImageVersion` is set to `true`
+  `imageIdOverride`, or launch template.
+- The `updateToLatestImageVersion` is set to `true`.
 
 ### AMI updates using blue/green deployment
 
 You must use blue/green deployment to update AMIs in these scenarios:
 
+- When using a specific version of the Amazon ECS-optimized AMI.
+- When the AMI ID is specified in any of:
+  - Launch template (must update the template or remove it).
+  - The `imageId` parameter.
+  - The `imageIdOverride` parameter in EC2 configuration.
+
 - When using the `BEST_FIT` allocation strategy (doesn't support infrastructure
-  updates)
+  updates).
 - When not using the _AWSServiceRoleForBatch_
   [service-linked
-  role](using-service-linked-roles-batch-general.md "using-service-linked-roles-batch-general.md")
+  role](using-service-linked-roles-batch-general.md "using-service-linked-roles-batch-general.md").
 
 ### AMI updates for a custom AMI
 

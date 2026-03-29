@@ -27,3 +27,4 @@ The topics in this section can help you start logging and monitoring AWS Batch.
 - [Using CloudWatch Logs with AWS Batch](using_cloudwatch_logs.md "using_cloudwatch_logs.md")
 - [AWS Batch CloudWatch Container Insights](cloudwatch-container-insights.md "cloudwatch-container-insights.md")
 - [Use CloudWatch Logs to monitor AWS Batch on Amazon EKS jobs](batch-eks-cloudwatch-logs.md "batch-eks-cloudwatch-logs.md")
+- [AWS Health Planned lifecycle events](batch-planned-lifecycle-events.md "batch-planned-lifecycle-events.md")

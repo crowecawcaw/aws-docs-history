@@ -22,14 +22,14 @@ original environment remains unchanged and operational until you choose to remov
 You must use blue/green updates in the following situations:
 
 - When your compute environment uses `BEST_FIT` allocation strategy
-  (doesn't support infrastructure updates)
+  (doesn't support infrastructure updates).
 - When your compute environment doesn't use the
-  _AWSServiceRoleForBatch_ service-linked role
-- When you need to transition between different service role types
+  _AWSServiceRoleForBatch_ service-linked role.
+- When you need to transition between different service role types.
 
 ### When blue/green updates are recommended
 
-Blue/green updates are particularly recommended for production environments where zero
+We recommend blue/green updates for production environments where zero
 downtime is critical for your workloads. This approach works well when you need to test new
 configurations before transitioning production workloads, ensuring that changes meet your
 performance and reliability requirements. Choose blue/green updates when quick rollback
@@ -42,17 +42,17 @@ your update process.
 
 Before performing a blue/green update, ensure you have:
 
-- Appropriate [IAM permissions](IAM_policies.md#IAM_policies.title "IAM_policies.md#IAM_policies.title") to create and manage compute environments
-- Access to view and modify job queue settings
+- Appropriate [IAM permissions](IAM_policies.md#IAM_policies.title "IAM_policies.md#IAM_policies.title") to create and manage compute environments.
+- Access to view and modify job queue settings.
 - Job retry strategies configured for your job definitions to handle potential failures during the transition. For more information, see [Automated job retries](job_retries.md "job_retries.md").
 - The AMI ID for the new compute environment. This can be either:
-  - A recent, approved version of the Amazon ECS optimized AMI (used by default)
+  - A recent, approved version of the Amazon ECS optimized AMI (used by default).
   - A custom AMI that meets the Amazon ECS container instance AMI specification. When
     using a custom AMI, you can specify it in one of these ways:
 
         - Using the **Image ID override** field in the EC2
-         configuration
-        - Specifying it in a launch template
+         configuration.
+        - Specifying it in a launch template.
 
     For more information about creating custom AMIs, see [Tutorial: Create a compute resource AMI](create-batch-ami.md "create-batch-ami.md").
 

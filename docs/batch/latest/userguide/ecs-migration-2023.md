@@ -5,11 +5,21 @@ secure, stable, and high-performance environment for your cloud applications. Fo
 information about the differences between AL2 and AL2023 see [Compare Amazon Linux 2023 and Amazon Linux
 2](../../../linux/al2023/ug/compare-with-al2.md "../../../linux/al2023/ug/compare-with-al2.md") in the _Amazon Linux 2023 User Guide_.
 
-Starting in January 2026, AWS Batch will change the default AMI for new Amazon ECS compute
-environments from Amazon Linux 2 to Amazon Linux 2023 because AWS will be [ending support for Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/faqs/ "https://aws.amazon.com/amazon-linux-2/faqs/").
+###### Important
+
+Effective June 30, 2026, AWS Batch will block creation of new Amazon ECS compute environments
+using Batch-provided Amazon Linux 2 AMIs. We strongly recommend migrating your existing AWS Batch
+Amazon ECS compute environments to Amazon Linux 2023 prior to this date. For more information, see
+[Amazon ECS Amazon Linux 2 AMI deprecation](ecs-al2-ami-deprecation.md "ecs-al2-ami-deprecation.md").
+
+On January 12, 2026, AWS Batch changed the default AMI for new Amazon ECS compute environments
+from Amazon Linux 2 to Amazon Linux 2023 because AWS is [ending support for Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/faqs/ "https://aws.amazon.com/amazon-linux-2/faqs/").
 The default AMI is used when you don't specify a value for the [imageType.Ec2Configuration](../APIReference/API_Ec2Configuration.md "../APIReference/API_Ec2Configuration.md")
 field when creating a new compute environment. We recommend migrating AWS Batch Amazon ECS compute
 environments to Amazon Linux 2023 to maintain optimal performance and security.
+
+You can track the migration status of your affected Amazon ECS compute environments using AWS
+Health planned lifecycle events. For more information, see [AWS Health Planned lifecycle events](batch-planned-lifecycle-events.md "batch-planned-lifecycle-events.md").
 
 Depending on how your compute environment is configured you can use one of the following
 upgrade paths from AL2 to AL2023.

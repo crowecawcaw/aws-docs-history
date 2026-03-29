@@ -82,8 +82,7 @@ a resource in your compute environment. To create a job queue:
 To create a job queue for a Fargate orchestration, do the following:
 
 1. In the **Job queue configuration** section for
-   **Name**, specify a unique name for your compute
-   environment. The name can be up to 128 characters in length. It can contain
+   **Name**, specify a unique name for your job queue. The name can be up to 128 characters in length. It can contain
    uppercase and lowercase letters, numbers, hyphens (-), and underscores
    (\_).
 2. For **Priority**, enter 900 for the job queue.
@@ -97,8 +96,7 @@ To create the job definition:
 
 1.  In the **General configuration** section:
     1. In the **General configuration** section for
-       **Name**, specify a unique name for your compute
-       environment. The name can be up to 128 characters in length. It can
+       **Name**, specify a unique name for your job definition. The name can be up to 128 characters in length. It can
        contain uppercase and lowercase letters, numbers, hyphens (-), and
        underscores (\_).
 

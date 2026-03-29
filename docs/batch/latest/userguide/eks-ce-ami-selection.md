@@ -3,7 +3,7 @@
 When you create an Amazon EKS compute environment, you don't need to specify an Amazon Machine
 Image (AMI). AWS Batch selects an Amazon EKS optimized AMI based on the Kubernetes version and instance
 types that are specified in your [CreateComputeEnvironment](../APIReference/API_CreateComputeEnvironment.md "../APIReference/API_CreateComputeEnvironment.md") request. In general, we recommend that you use the
-default AMI selection. For more information about Amazon EKS optimized AMIs, see [Amazon EKS optimized
+default AMI selection. For information about AMI selection precedence, see [AMI selection order](ami-selection-order.md "ami-selection-order.md"). For more information about Amazon EKS optimized AMIs, see [Amazon EKS optimized
 Amazon Linux AMIs](../../../eks/latest/userguide/eks-optimized-ami.md "../../../eks/latest/userguide/eks-optimized-ami.md") in the _Amazon EKS User Guide_.
 
 ###### Important

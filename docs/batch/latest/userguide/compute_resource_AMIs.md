@@ -5,9 +5,9 @@ optimized AMI for compute resources. However, you might want to create your own 
 your managed and unmanaged compute environments. If you require any of the following, we recommend
 you create your own AMI:
 
-- Increasing the storage size of your AMI root or data volumes
-- Adding instance storage volumes for supported Amazon EC2 instance types
-- Customizing the Amazon ECS container agent
+- Increasing the storage size of your AMI root or data volumes.
+- Adding instance storage volumes for supported Amazon EC2 instance types.
+- Customizing the Amazon ECS container agent.
 - Customizing Docker
 - Configuring a GPU workload AMI to allow containers to access GPU hardware on supported
   Amazon EC2 instance types
@@ -53,6 +53,8 @@ To use a new AMI for your AWS Batch jobs, do the following:
 ###### Topics
 
 - [Compute resource AMI specification](batch-ami-spec.md "batch-ami-spec.md")
+- [AMI selection order](ami-selection-order.md "ami-selection-order.md")
+- [Managing AMI versions in compute environments](managing-ami-versions.md "managing-ami-versions.md")
 - [Tutorial: Create a compute resource AMI](create-batch-ami.md "create-batch-ami.md")
 - [Use a GPU workload AMI](batch-gpu-ami.md "batch-gpu-ami.md")
 - [Amazon Linux deprecation](al1-ami-deprecation.md "al1-ami-deprecation.md")

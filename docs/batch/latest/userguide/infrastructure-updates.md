@@ -119,6 +119,10 @@ more information, see [Automated job retries](job_retries.md "job_retries.md").
 
 Performing infrastructure updates using the AWS Management Console
 
+###### Note
+
+To just update to the latest AMI version in the console, see [Updating AMI versions](managing-ami-versions.md#updating-ami-versions "managing-ami-versions.md#updating-ami-versions").
+
 1. Open the AWS Batch console at [https://console.aws.amazon.com/batch/](https://console.aws.amazon.com/batch/ "https://console.aws.amazon.com/batch/").
 2. In the navigation pane, choose **Environments** then the
    **Compute environments** tab.

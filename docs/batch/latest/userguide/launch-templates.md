@@ -3,6 +3,8 @@
 AWS Batch supports using Amazon EC2 launch templates with your EC2 compute environments. With launch templates, you can
 modify the default configuration of your AWS Batch compute resources without needing to create customized AMIs.
 
+Launch templates can specify AMIs that take precedence in the AMI selection order. For more information, see [AMI selection order](ami-selection-order.md "ami-selection-order.md").
+
 ###### Note
 
 Launch templates aren't supported on AWS Fargate resources.

@@ -1,6 +1,6 @@
 # AWS Batch IAM execution role
 
-The execution role grants the Amazon ECS container and AWS Fargate agents permission to make
+The execution role grants the Amazon ECS container agent and AWS Fargate agent permission to make
 AWS API calls on your behalf.
 
 ###### Note
