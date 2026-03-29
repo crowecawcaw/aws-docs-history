@@ -353,8 +353,8 @@ follows:
    compressed, signed, and encrypted.
 3. A transfer HTTP client performs an HTTP POST request to transmit the
    payload to the partner's AS2 server.
-4. The process returns the signed MDN response, inline with the HTTP response
-   (synchronous MDN).
+4. The process returns the signed MDN response, either inline with the HTTP
+   response (synchronous or asynchronous MDN).
 5. As the file moves between different stages of transmission, the process
    delivers the MDN response receipt and processing details to the customer.
 6. The remote AS2 server makes the decrypted and verified file available to

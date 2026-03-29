@@ -77,8 +77,8 @@ For MDN responses, certain types are supported, as follows:
 
 - **Inbound transfers** – Synchronous and
   asynchronous
-- **Outbound transfers** – Synchronous
-  only
+- **Outbound transfers** – Synchronous and
+  asynchronous
 - **Simple Mail Transfer Protocol (SMTP) (email
   MDN)** – Not supported
 
@@ -209,7 +209,7 @@ capabilities.
 | Non-TLS Transport (HTTP)                                                                                              | Yes                            | Yes 2                            |
 | Synchronous MDN                                                                                                       | Yes                            | Yes                              |
 | Message Compression                                                                                                   | Yes                            | Yes                              |
-| Asynchronous MDN                                                                                                      | Yes                            | No                               |
+| Asynchronous MDN                                                                                                      | Yes                            | Yes                              |
 | Static IP Address                                                                                                     | Yes                            | Yes                              |
 | Bring Your Own IP Address                                                                                             | Yes                            | No                               |
 | Multiple File Attachments                                                                                             | No                             | No                               |
