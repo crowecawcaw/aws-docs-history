@@ -18,7 +18,7 @@ Next, choose the parent node. For example, for tables, the parent node is
 the parent node in blue. Open the context (right-click) menu
 for the parent node, and choose **Convert schema**.
 
-![Convert schema](/images/SchemaConversionTool/latest/userguide/images/transform_schema.png) 3. When AWS SCT finishes converting the schema,
+![Convert schema](images/transform_schema.png) 3. When AWS SCT finishes converting the schema,
 you can view the proposed schema in the panel on the right of your project.
 
 At this point, no schema is applied to your target database instance. The
