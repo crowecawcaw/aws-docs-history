@@ -169,7 +169,15 @@ Dashboards are not updated with an update of the CloudFormation stack. There are
 When a new version of the dashboard template is released, update your dashboard by running:
 
 ```
+pip3 install --upgrade cid-cmd
 cid-cmd update --dashboard-id focus-dashboard
+```
+
+If using [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell"), replace the first line with:
+
+```
+sudo yum install python3.11-pip -y
+python3.11 -m pip install -U cid-cmd
 ```
 
 This updates the dashboard visuals to the latest template version.
@@ -179,7 +187,15 @@ This updates the dashboard visuals to the latest template version.
 To add new FOCUS tables from other cloud providers, include new tags, or update the consolidation view schema, run:
 
 ```
+pip3 install --upgrade cid-cmd
 cid-cmd update --recursive --force --dashboard-id focus-dashboard
+```
+
+If using [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell"), replace the first line with:
+
+```
+sudo yum install python3.11-pip -y
+python3.11 -m pip install -U cid-cmd
 ```
 
 This updates the dashboard, datasets and all dependent Athena views. You will be prompted to select which FOCUS tables to include in the consolidated view.

@@ -240,6 +240,13 @@ Alternative method to install dashboards is the
  pip3 install --upgrade cid-cmd
 ```
 
+If using [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell"), use the following instead:
+
+```
+sudo yum install python3.11-pip -y
+python3.11 -m pip install -U cid-cmd
+```
+
 4. Deploy CUDOS Dashboard:
 
 ```
