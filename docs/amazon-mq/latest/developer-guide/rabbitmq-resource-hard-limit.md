@@ -1,5 +1,7 @@
 # Amazon MQ for RabbitMQ maximum resource limit
 
+You can configure resource limits up to the maximum values shown in the following tables. To learn how to update resource limits for your broker, see [Resource Limit Configuration](configure-resource-limits.md "configure-resource-limits.md").
+
 ## Sizing guidelines for m7g with quorum queues for single instance deployment
 
 The following table shows the **maximum** limit values for each instance type for single instance brokers.

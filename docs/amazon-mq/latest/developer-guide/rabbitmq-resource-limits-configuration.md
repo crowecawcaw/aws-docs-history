@@ -19,6 +19,8 @@ Default values and supported ranges for these configurations vary by RabbitMQ ve
 
 _Note: Associating or creating a broker with configuration values outside the supported range will result in an error response._
 
+To learn how to customize these default resource limits for your broker, see [Resource Limit Configuration](configure-resource-limits.md "configure-resource-limits.md").
+
 The default resource limits applied for RabbitMQ 4.2 brokers are
 
 - [Default resource limits for m7g single-instance deployment](#default-values-single-instance "#default-values-single-instance")
