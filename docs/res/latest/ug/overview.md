@@ -2,12 +2,12 @@
 
 ###### Important
 
-This User Guide covers the current release (2025.12) of Research and Engineering Studio on AWS. For previous
+This User Guide covers the current release (2026.03) of Research and Engineering Studio on AWS. For previous
 versions, see the [Archive of Previous Versions](previous-versions.md "previous-versions.md").
 
 Research and Engineering Studio (RES) is an AWS supported, open source product that enables IT administrators
 to provide a web portal for scientists and engineers to run technical computing workloads on AWS.
-RES provides a single pane of glass for users to launch secure virtual desktops to conduct
+RES provides a unified portal for users to launch secure virtual desktops to conduct
 scientific research, product design, engineering simulations, or data analysis workloads. Users can
 connect to the RES portal using their existing corporate credentials and work on individual
 or collaborative projects.
@@ -16,11 +16,11 @@ Administrators can create virtual collaboration spaces called projects for a spe
 to access shared resources and collaborate. Administrators can build their own application software stacks
 (using [Amazon Machine Images](../../../AWSEC2/latest/UserGuide/AMIs.md "../../../AWSEC2/latest/UserGuide/AMIs.md")
 or AMIs) and allow RES users to launch Windows or Linux virtual desktops, and enable access
-to project data through shared file-systems. Administrators can assign software stacks and file-systems and
+to project data through shared file systems. Administrators can assign software stacks and file systems and
 restrict access to only those project users. Administrators can use built-in telemetry to monitor the environment
 usage and troubleshoot user issues. They can also set budgets for individual projects to prevent
-overconsumption of resources. As the product is open source, customers can also customize the
-user-experience of the RES portal to suit their own needs.
+overconsumption of resources. As the product is open source, you can also customize the
+user experience of the RES portal to suit your own needs.
 
 RES is available at no additional charge, and you pay only for the AWS resources
 needed to run your applications.

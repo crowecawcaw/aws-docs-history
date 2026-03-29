@@ -24,6 +24,18 @@ types.
 
 The default value for the allowed number of VDI sessions per user per project.
 
+**DCV Session Token Expiration**
+
+The duration for which a DCV session token remains valid.
+When a token expires, users must re-download the DCV connection file
+from the web portal to continue accessing their virtual desktop session. The available options are:
+
+- 1,440 minutes (1 day)
+- 10,080 minutes (7 days)
+- 43,200 minutes (30 days)
+
+![DCV session token expiration setting in Desktop Settings](images/dcv-settings-form.png)
+
 **Server**
 
 The **Server** tab provides access to settings such as:

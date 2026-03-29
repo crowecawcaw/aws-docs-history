@@ -2,7 +2,7 @@
 
 Research and Engineering Studio integrates with any SAML 2.0 identity provider to authenticate user access to the
 RES portal. These steps provide directions to integrate with your chosen SAML 2.0
-identity provider. If you intend to use IAM Identity Center, please see [Setting up single sign-on (SSO) with IAM Identity Center](sso-idc.md "sso-idc.md").
+identity provider. If you intend to use IAM Identity Center, see [Setting up single sign-on (SSO) with IAM Identity Center](sso-idc.md "sso-idc.md").
 
 ###### Note
 
@@ -103,7 +103,7 @@ Replace `user-pool-id` with the ID of your Amazon Cognito user
 
     ```
     <saml2p:Response
-      Destination="http://`user-pool-domain`/saml2/idpresponse"
+      Destination="https://`user-pool-domain`/saml2/idpresponse"
       ID="id123"
       InResponseTo="_dd0a3436-bc64-4679-a0c2-cb4454f04184"
       IssueInstant="Date-time stamp"
@@ -139,8 +139,6 @@ Replace `user-pool-id` with the ID of your Amazon Cognito user
 5.  If your SAML application has a logout URL field, set it to:
     ``<domain-url>`/saml2/logout`.
 
- 
-
 ###### To get the domain URL
 
     1. Sign in to RES as an **admin** or
@@ -151,8 +149,6 @@ Replace `user-pool-id` with the ID of your Amazon Cognito user
 
 6. If your IdP accepts a signing certificate to establish trust with Amazon Cognito, download
    the Amazon Cognito signing certificate and upload it in your IdP.
-
- 
 
 ###### To get the signing certificate
 

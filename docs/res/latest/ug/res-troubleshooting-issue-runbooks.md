@@ -63,6 +63,7 @@ on how to resolve the issue.
   - [Downloading logs from Linux EC2 instances](#res-troubleshooting-env-deletion-linux-ec2-logs "#res-troubleshooting-env-deletion-linux-ec2-logs")
   - [Downloading logs from Windows EC2 instances](#res-troubleshooting-env-deletion-windows-ec2-logs "#res-troubleshooting-env-deletion-windows-ec2-logs")
   - [Collecting ECS logs for the WaitCondition error](#res-troubleshooting-env-deletion-waitcondition "#res-troubleshooting-env-deletion-waitcondition")
+  - [Network interface deletion failure](#res-troubleshooting-env-deletion-eni-failure "#res-troubleshooting-env-deletion-eni-failure")
 
 - [Demo environment](#res-troubleshooting-demo-env "#res-troubleshooting-demo-env")
   - [Demo environment login error when handling authentication request to identity provider](#demo-environment-login-error "#demo-environment-login-error")
@@ -1228,6 +1229,7 @@ You can fix this by following the instructions at:
 - [Downloading logs from Linux EC2 instances](#res-troubleshooting-env-deletion-linux-ec2-logs "#res-troubleshooting-env-deletion-linux-ec2-logs")
 - [Downloading logs from Windows EC2 instances](#res-troubleshooting-env-deletion-windows-ec2-logs "#res-troubleshooting-env-deletion-windows-ec2-logs")
 - [Collecting ECS logs for the WaitCondition error](#res-troubleshooting-env-deletion-waitcondition "#res-troubleshooting-env-deletion-waitcondition")
+- [Network interface deletion failure](#res-troubleshooting-env-deletion-eni-failure "#res-troubleshooting-env-deletion-eni-failure")
 
 ........................
 
@@ -1439,6 +1441,20 @@ and download the previously uploaded `<module_name>_logs.zip` file.
 3. Grab the latest log from this log group.
 
 ........................
+
+### Network interface deletion failure
+
+If you notice a `detachvpcfromlambdacustomresource` deletion failure in the
+Events section of the RES finalizer stack deletion, this most likely means the Lambda service
+either failed to delete or did not delete in time the network interfaces attached to
+RES Lambdas.
+
+You can manually delete these stale network interfaces by navigating to the
+**Network Interfaces** page within the [Amazon EC2 console](https://console.aws.amazon.com/ec2 "https://console.aws.amazon.com/ec2") and filtering by descriptions containing
+`AWS Lambda VPC ENI-`{RES-Environment-Name}``.
+There should be up to 14 network interfaces, though it could be fewer depending on how
+many Lambda was able to successfully delete. Manually delete these network interfaces,
+then restart the RES stack deletion.
 
 ## Demo environment
 

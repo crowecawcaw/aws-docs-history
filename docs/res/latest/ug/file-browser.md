@@ -10,8 +10,8 @@ browser.
 
 ###### Topics
 
-- [Upload file(s)](upload-file.md "upload-file.md")
-- [Delete file(s)](delete-file.md "delete-file.md")
+- [Upload files](upload-file.md "upload-file.md")
+- [Delete files](delete-file.md "delete-file.md")
 - [Manage favorites](manage-favorites.md "manage-favorites.md")
 - [Edit files](edit-files.md "edit-files.md")
 - [Transfer files](transfer-files.md "transfer-files.md")

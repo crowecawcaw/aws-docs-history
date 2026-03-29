@@ -13,8 +13,8 @@ resources needed to run your applications. For more information, see
 
 You are responsible for the cost of the AWS services used while running this product.
 
-We recommend creating a [budget](../../../cost-management/latest/userguide/budgets-create.md "../../../cost-management/latest/userguide/budgets-create.md") through 
-[AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/") 
+As a best practice, create a [budget](../../../cost-management/latest/userguide/budgets-create.md "../../../cost-management/latest/userguide/budgets-create.md") through
+[AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/")
 to help manage costs. Prices are subject to change. For full details, see the pricing
 webpage for each AWS service used in this product.
 
@@ -73,49 +73,49 @@ end users access the RES user interface, RES authenticates with [Amazon Cognito]
 ### Security groups
 
 The security groups created in this product are designed to control and isolate network
-traffic between the Lambda functions, EC2 instances, file systems CSR instances, and remote
-VPN endpoints. We recommend that you review the security groups and further restrict access
-as needed once the product is deployed.
+traffic between the Lambda functions, Amazon EC2 instances, file systems, and remote
+VPN endpoints. Review the security groups and further restrict access
+as needed after the product is deployed.
 
 ### Data encryption
 
 By default, Research and Engineering Studio on AWS (RES) encrypts customer data at rest and in
-transit using an RES owned key. When you deploy RES, you may specify an AWS KMS key.
+transit using an RES-owned key. When you deploy RES, you may specify an AWS KMS key.
 RES uses your credentials to grant key access. If you supply a customer owned and managed
 AWS KMS key, customer data at rest will be encrypted using that key.
 
-RES encrypts customer data in transit using SSL/TLS. We require TLS 1.2,
-but recommend TLS 1.3.
+RES encrypts customer data in transit using SSL/TLS. TLS 1.2 is required,
+but TLS 1.3 is recommended.
 
 ### Security considerations for services in this product
 
 For more detailed information regarding security considerations for the services used by
 Research and Engineering Studio, follow the links in this table:
 
-| AWS service security info                                                                                                                                                        | Service type | How the service is used in RES                                                                                                                                        |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Amazon Elastic Compute Cloud](../../../AWSEC2/latest/UserGuide/ec2-security.md "../../../AWSEC2/latest/UserGuide/ec2-security.md")                                              | Core         | Provides the underlying compute services to create virtual desktops with<br>their chosen operating system and software stack.                                         |
-| [Elastic Load Balancing](../../../elasticloadbalancing/latest/userguide/security.md "../../../elasticloadbalancing/latest/userguide/security.md")                                | Core         | Bastion, cluster-manager, and VDI hosts are created in Auto Scaling groups<br>behind the load balancer. ELB balances traffic from the web portal across RES<br>hosts. |
-| [Amazon Virtual Private Cloud](../../../vpc/latest/userguide/security.md "../../../vpc/latest/userguide/security.md")                                                            | Core         | All core product components are created within your VPC.                                                                                                              |
-| [Amazon Cognito](../../../cognito/latest/developerguide/security.md "../../../cognito/latest/developerguide/security.md")                                                        | Core         | Manages user identities and authentication. Active Directory users are mapped<br>to Amazon Cognito users and groups to authenticate access levels.                    |
-| [Amazon Elastic File System](../../../efs/latest/ug/security-considerations.md "../../../efs/latest/ug/security-considerations.md")                                              | Core         | Provides the `/home` file system for the file browser and<br>VDI hosts, as well as shared external file systems.                                                      |
-| [Amazon DynamoDB](../../../amazondynamodb/latest/developerguide/security.md "../../../amazondynamodb/latest/developerguide/security.md")                                         | Core         | Stores configuration data such as users, groups, projects, file systems,<br>and component settings.                                                                   |
-| [AWS Systems Manager](../../../systems-manager/latest/userguide/security.md "../../../systems-manager/latest/userguide/security.md")                                             | Core         | Stores documents for performing commands for VDI session management.                                                                                                  |
-| [AWS Lambda](../../../lambda/latest/dg/lambda-security.md "../../../lambda/latest/dg/lambda-security.md")                                                                        | Core         | Supports product functionalities such as updating settings within the DynamoDB<br>table, starting Active Directory sync workflows, and updating the prefix list.      |
-| [Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/security.md "../../../AmazonCloudWatch/latest/monitoring/security.md")                                           | Supporting   | Provides metrics and activity logs for all Amazon EC2 hosts and Lambda functions.                                                                                     |
-| [Amazon Simple Storage Service](../../../AmazonS3/latest/userguide/security.md "../../../AmazonS3/latest/userguide/security.md")                                                 | Supporting   | Stores application binaries for host bootstrapping and configuration.                                                                                                 |
-| [AWS Key Management Service](../../../kms/latest/developerguide/kms-security.md "../../../kms/latest/developerguide/kms-security.md")                                            | Supporting   | Used for encryption at rest with Amazon SQS queues, DynamoDB tables, and Amazon SNS<br>topics.                                                                        |
-| [AWS Secrets Manager](../../../secretsmanager/latest/userguide/security.md "../../../secretsmanager/latest/userguide/security.md")                                               | Supporting   | Stores service account credentials in Active Directory and self-signed<br>certificates for VDIs.                                                                      |
-| [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/security.md "../../../AWSCloudFormation/latest/UserGuide/security.md")                                          | Supporting   | Provides a deployment mechanism for the product.                                                                                                                      |
-| [AWS Identity and Access Management](../../../IAM/latest/UserGuide/security.md "../../../IAM/latest/UserGuide/security.md")                                                      | Supporting   | Restricts the access level for hosts.                                                                                                                                 |
-| [Amazon Route 53](../../../Route53/latest/DeveloperGuide/security.md "../../../Route53/latest/DeveloperGuide/security.md")                                                       | Supporting   | Creates private hosted zone for resolving the internal load balancer and<br>the bastion host domain name.                                                             |
-| [Amazon Simple Queue Service](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-security.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-security.md") | Supporting   | Creates task queues to support asynchronous executions.                                                                                                               |
-| [Amazon Simple Notification Service](../../../sns/latest/dg/sns-security.md "../../../sns/latest/dg/sns-security.md")                                                            | Supporting   | Supports the publication-subscriber model between VDI components such<br>as the controller and hosts.                                                                 |
-| [AWS Fargate](../../../AmazonECS/latest/developerguide/security-fargate.md "../../../AmazonECS/latest/developerguide/security-fargate.md")                                       | Supporting   | Installs, updates, and deletes environments using Fargate tasks.                                                                                                      |
-| [Amazon FSx File Gateway](../../../filegateway/latest/filefsxw/security.md "../../../filegateway/latest/filefsxw/security.md")                                                   | Optional     | Provides external shared file system.                                                                                                                                 |
-| [Amazon FSx for NetApp ONTAP](../../../fsx/latest/ONTAPGuide/security.md "../../../fsx/latest/ONTAPGuide/security.md")                                                           | Optional     | Provides external shared file system.                                                                                                                                 |
-| [AWS Certificate Manager](../../../acm/latest/userguide/security.md "../../../acm/latest/userguide/security.md")                                                                 | Optional     | Generates a trusted certificate for your custom domain.                                                                                                               |
-| [AWS Backup](../../../aws-backup/latest/devguide/security-considerations.md "../../../aws-backup/latest/devguide/security-considerations.md")                                    | Optional     | Offers backup capabilities for Amazon EC2 hosts, file systems, and DynamoDB.                                                                                          |
+| AWS service security info                                                                                                                                                        | Service type | How the service is used in RES                                                                                                                                                           |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Amazon Elastic Compute Cloud](../../../AWSEC2/latest/UserGuide/ec2-security.md "../../../AWSEC2/latest/UserGuide/ec2-security.md")                                              | Core         | Provides the underlying compute services to create virtual desktops with<br>their chosen operating system and software stack.                                                            |
+| [Elastic Load Balancing](../../../elasticloadbalancing/latest/userguide/security.md "../../../elasticloadbalancing/latest/userguide/security.md")                                | Core         | Bastion, cluster-manager, and VDI hosts are created in Auto Scaling groups<br>behind the load balancer. Elastic Load Balancing balances traffic from the web portal across RES<br>hosts. |
+| [Amazon Virtual Private Cloud](../../../vpc/latest/userguide/security.md "../../../vpc/latest/userguide/security.md")                                                            | Core         | All core product components are created within your VPC.                                                                                                                                 |
+| [Amazon Cognito](../../../cognito/latest/developerguide/security.md "../../../cognito/latest/developerguide/security.md")                                                        | Core         | Manages user identities and authentication. Active Directory users are mapped<br>to Amazon Cognito users and groups to authenticate access levels.                                       |
+| [Amazon Elastic File System](../../../efs/latest/ug/security-considerations.md "../../../efs/latest/ug/security-considerations.md")                                              | Core         | Provides the `/home` file system for the file browser and<br>VDI hosts, as well as shared external file systems.                                                                         |
+| [Amazon DynamoDB](../../../amazondynamodb/latest/developerguide/security.md "../../../amazondynamodb/latest/developerguide/security.md")                                         | Core         | Stores configuration data such as users, groups, projects, file systems,<br>and component settings.                                                                                      |
+| [AWS Systems Manager](../../../systems-manager/latest/userguide/security.md "../../../systems-manager/latest/userguide/security.md")                                             | Core         | Stores documents for performing commands for VDI session management.                                                                                                                     |
+| [AWS Lambda](../../../lambda/latest/dg/lambda-security.md "../../../lambda/latest/dg/lambda-security.md")                                                                        | Core         | Supports product functionalities such as updating settings within the DynamoDB<br>table, starting Active Directory sync workflows, and updating the prefix list.                         |
+| [Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/security.md "../../../AmazonCloudWatch/latest/monitoring/security.md")                                           | Supporting   | Provides metrics and activity logs for all Amazon EC2 hosts and Lambda functions.                                                                                                        |
+| [Amazon Simple Storage Service](../../../AmazonS3/latest/userguide/security.md "../../../AmazonS3/latest/userguide/security.md")                                                 | Supporting   | Stores application binaries for host bootstrapping and configuration.                                                                                                                    |
+| [AWS Key Management Service](../../../kms/latest/developerguide/kms-security.md "../../../kms/latest/developerguide/kms-security.md")                                            | Supporting   | Used for encryption at rest with Amazon SQS queues, DynamoDB tables, and Amazon SNS<br>topics.                                                                                           |
+| [AWS Secrets Manager](../../../secretsmanager/latest/userguide/security.md "../../../secretsmanager/latest/userguide/security.md")                                               | Supporting   | Stores service account credentials in Active Directory and self-signed<br>certificates for VDIs.                                                                                         |
+| [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/security.md "../../../AWSCloudFormation/latest/UserGuide/security.md")                                          | Supporting   | Provides a deployment mechanism for the product.                                                                                                                                         |
+| [AWS Identity and Access Management](../../../IAM/latest/UserGuide/security.md "../../../IAM/latest/UserGuide/security.md")                                                      | Supporting   | Restricts the access level for hosts.                                                                                                                                                    |
+| [Amazon Route 53](../../../Route53/latest/DeveloperGuide/security.md "../../../Route53/latest/DeveloperGuide/security.md")                                                       | Supporting   | Creates private hosted zone for resolving the internal load balancer and<br>the bastion host domain name.                                                                                |
+| [Amazon Simple Queue Service](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-security.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-security.md") | Supporting   | Creates task queues to support asynchronous executions.                                                                                                                                  |
+| [Amazon Simple Notification Service](../../../sns/latest/dg/sns-security.md "../../../sns/latest/dg/sns-security.md")                                                            | Supporting   | Supports the publish-subscribe model between VDI components such<br>as the controller and hosts.                                                                                         |
+| [AWS Fargate](../../../AmazonECS/latest/developerguide/security-fargate.md "../../../AmazonECS/latest/developerguide/security-fargate.md")                                       | Supporting   | Installs, updates, and deletes environments using Fargate tasks.                                                                                                                         |
+| [Amazon FSx File Gateway](../../../filegateway/latest/filefsxw/security.md "../../../filegateway/latest/filefsxw/security.md")                                                   | Optional     | Provides external shared file system.                                                                                                                                                    |
+| [Amazon FSx for NetApp ONTAP](../../../fsx/latest/ONTAPGuide/security.md "../../../fsx/latest/ONTAPGuide/security.md")                                                           | Optional     | Provides external shared file system.                                                                                                                                                    |
+| [AWS Certificate Manager](../../../acm/latest/userguide/security.md "../../../acm/latest/userguide/security.md")                                                                 | Optional     | Generates a trusted certificate for your custom domain.                                                                                                                                  |
+| [AWS Backup](../../../aws-backup/latest/devguide/security-considerations.md "../../../aws-backup/latest/devguide/security-considerations.md")                                    | Optional     | Offers backup capabilities for Amazon EC2 hosts, file systems, and DynamoDB.                                                                                                             |
 
 ## Quotas
 
@@ -126,7 +126,7 @@ or operations for your AWS account.
 
 Make sure you have sufficient quota for each of the [services implemented in this product](architecture-overview.md#aws-services-in-this-product "architecture-overview.md#aws-services-in-this-product"). For more information, see [AWS service quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md").
 
-For this product, we recommend raising quotas for the following services:
+As a best practice, raise quotas for the following services:
 
 - Amazon Virtual Private Cloud
 - Amazon EC2
@@ -141,13 +141,13 @@ form](https://console.aws.amazon.com/support/home#/case/create?issueType=service
 Your AWS account has AWS CloudFormation quotas that you should be aware of when [launching the stack](launch-the-product.md "launch-the-product.md") in this product. By understanding
 these quotas, you can avoid limitation errors that would prevent you from deploying this
 product successfully. For more information, see [AWS CloudFormation quotas](../../../AWSCloudFormation/latest/UserGuide/cloudformation-limits.md "../../../AWSCloudFormation/latest/UserGuide/cloudformation-limits.md")
-in the in the _AWS CloudFormation User’s Guide_.
+in the _AWS CloudFormation User Guide_.
 
 ### Planning for resilience
 
 The product deploys a default infrastructure with the minimum number and size of Amazon EC2
 instances to operate the system. To improve resilience in large-scale production
-environments, we recommend increasing the default minimum capacity settings within the
+environments, as a best practice, increase the default minimum capacity settings within the
 infrastructure's Auto Scaling groups (ASG). Increasing the value from one instance to two instances
 provides the benefit of multiple Availability Zones (AZ) and reduces the time to restore
 system functionality in the event of unexpected data loss.

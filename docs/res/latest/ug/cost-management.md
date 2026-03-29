@@ -4,7 +4,7 @@
 
 Associating Research and Engineering Studio projects to AWS Budgets is not supported in AWS GovCloud (US).
 
-We recommend creating a [budget](../../../cost-management/latest/userguide/budgets-create.md "../../../cost-management/latest/userguide/budgets-create.md") through [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/") to
+Create a [budget](../../../cost-management/latest/userguide/budgets-create.md "../../../cost-management/latest/userguide/budgets-create.md") through [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/") to
 help manage costs. Prices are subject to change. For full details, see the pricing webpage for
 each of the [AWS services in this product](architecture-overview.md#aws-services-in-this-product "architecture-overview.md#aws-services-in-this-product").
 

@@ -19,8 +19,8 @@ for consistency and compliance. Monitor and manage spending on a per-project bas
 **Collaboration tools**
 
 Scientists and engineers can invite other members of their project to collaborate
-with them, setting the permissions levels they want those colleagues to have. Those
-individuals can sign in to RES to connect to those desktops.
+with them, setting the permissions levels they want those colleagues to have. Invited members
+can sign in to RES to connect to the shared desktops.
 
 **Integration with existing identity management
 infrastructure**

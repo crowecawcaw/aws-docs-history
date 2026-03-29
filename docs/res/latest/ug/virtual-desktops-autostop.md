@@ -1,6 +1,6 @@
-# Virtual desktop interface autostop
+# Virtual desktop infrastructure autostop
 
-Administrators can configure settings to allow idle VDIs to be Stopped or Terminated.
+Administrators can configure settings to allow idle VDIs to be stopped or terminated.
 There are 4 configurable settings:
 
 1. Idle Timeout: Sessions idle for this time with CPU utilization below the threshold
@@ -19,8 +19,8 @@ be resumed by its daily schedule.
 
 ![update session settings](images/res-update-session-settings.png)
 These settings are present on the **Desktop Settings** page under the
-**Server** tab. Once you update the settings according to your requirements,
-click on **Submit** to save the settings. New sessions will use the updated
+**Server** tab. After you update the settings according to your requirements,
+choose **Submit** to save the settings. New sessions will use the updated
 settings, but note that existing sessions will still use the settings which they had when
 they were launched.
 

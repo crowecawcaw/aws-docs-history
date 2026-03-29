@@ -2,7 +2,7 @@
 
 ## Runtime Configuration
 
-All the CFN parameters related to Active Directory (AD) are optional during installation.
+All the AWS CloudFormation parameters related to Active Directory (AD) are optional during installation.
 
 ![Active directory optional details](images/active-directory-details.png)
 
@@ -114,7 +114,7 @@ Directory Domain** container.
 ## How to manually run the sync (release 2024.12 and 2024.12.01)
 
 The Active Directory synchronization process has been moved from the Cluster Manager
-infra host to a one-off Amazon Elastic Container Service (ECS) task behind the scenes. The process is scheduled
+infra host to a one-off Amazon Elastic Container Service (ECS) task in the background. The process is scheduled
 to run every hour and you can find a running ECS task in the Amazon ECS console under the
 ``<res-environment-name>`-ad-sync-cluster`
 cluster while it is in progress.
@@ -144,14 +144,14 @@ cluster while it is in progress.
 - If you change the AD parameters or add AD filters, RES will add the new
   users given the newly specified parameters and remove users that were
   previously synced and are no longer included in the LDAP search space.
-- RES cannot remove a user/group that is actively assigned to a project.
+- RES cannot remove a user or group that is actively assigned to a project.
   You must remove users from projects in order to have RES remove them from
   the environment.
 
 ## SSO configuration
 
 After AD configuration is provided, users must set up Single Sign-On (SSO) to be
-able to login to the RES web portal as an AD user. SSO configuration has been moved
+able to log in to the RES web portal as an AD user. SSO configuration has been moved
 from the **General Settings** page to the new **Identity
 management** page. For more information about setting up SSO, see
 [Identity management](manage-users.md "manage-users.md").

@@ -1,4 +1,4 @@
-# Setting individual desktop schedules
+# Set individual desktop schedules
 
 1. Choose **Actions**.
 

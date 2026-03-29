@@ -5,5 +5,5 @@
 
 ![Virtual desktops](images/res-virtualdesktops.png) 3. Enter the details for your new desktop. 4. Choose **Submit**.
 A new card with your desktop information appears instantly, and your desktop will be
-ready to use within 10-15 minutes. Startup time depends on the selected image. RES
+ready to use within 10 to 15 minutes. Startup time depends on the selected image. RES
 detects GPU instances and installs the relevant drivers.

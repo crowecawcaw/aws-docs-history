@@ -6,7 +6,7 @@ If a bucket fails to mount on a VDI, there are a few locations where you can che
 errors. Follow the steps below.
 
 1.  Check the VDI Logs:
-    1. Log into the AWS Management Console.
+    1. Sign in to the AWS Management Console.
     2. Open the EC2 Console and navigate to **Instances**.
     3. Select the VDI instance you launched.
     4. Connect to the VDI via the Session Manager.
@@ -23,7 +23,7 @@ errors. Follow the steps below.
     Additionally, check the `/etc/message` log for more details.
 
 2.  Check Custom Credential Broker Lambda CloudWatch Logs:
-    1. Log into the AWS Management Console.
+    1. Sign in to the AWS Management Console.
     2. Open the CloudWatch Console and navigate to **Log groups**.
     3. Search for the log group
        `/aws/lambda/`<stack-name>`-vdc-custom-credential-broker-lambda`.
@@ -33,7 +33,7 @@ errors. Follow the steps below.
 
 3.  Check Custom Credential Broker API Gateway CloudWatch Logs:
 
-        1. Log into the AWS Management Console.
+        1. Sign in to the AWS Management Console.
         2. Open the CloudWatch Console and navigate to **Log groups**.
         3. Search for the log group
          ``<stack-name>`-vdc-custom-credential-broker-lambdavdccustomcredentialbrokerapigatewayaccesslogs<nonce>`.

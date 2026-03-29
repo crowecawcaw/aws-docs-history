@@ -27,3 +27,27 @@ have access to the filesystem through their VDIs. VDIs will mount the
 filesystem at the mount point selected during onboarding of a filesystem. 4. Choose **Submit**.
 
 ![Select file system](images/res-filesystemdetails.jpg)
+
+## Multiple volumes from a single ONTAP file system
+
+RES supports onboarding multiple volumes from a single for
+NetApp ONTAP file system. This allows administrators to organize data across
+separate volumes within the same ONTAP file system while making each volume
+independently available to projects.
+
+To onboard additional volumes from an ONTAP file system that is already
+onboarded:
+
+1. Choose **Onboard File System**.
+2. Select the same ONTAP file system from the drop down.
+3. In the **Volume** field, select a different volume
+   from the file system.
+4. Specify a unique **Mount Directory** for this
+   volume.
+5. Choose **Submit**.
+
+###### Note
+
+Each volume from the same ONTAP file system must be onboarded with a
+unique mount directory. Volumes can be independently assigned to different
+projects.

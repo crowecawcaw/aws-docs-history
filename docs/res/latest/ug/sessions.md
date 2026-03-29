@@ -11,10 +11,13 @@ From the Sessions page, you can filter and view session information or create a 
    1. Resume Session(s)
    2. Stop/Hibernate Session(s)
    3. Force Stop/Hibernate Session(s)
-   4. Terminate Session(s)
-   5. Force Terminate Session(s)
-   6. Session(s) Health
-   7. Create Software Stack
+   4. Reboot Session(s) – Restarts selected sessions. This action
+      is also available for sessions in ERROR state, allowing administrators
+      to recover errored VDIs.
+   5. Terminate Session(s)
+   6. Force Terminate Session(s)
+   7. Session(s) Health
+   8. Create Software Stack
 
 3. Choose **Create Session** to create a new session.
 4. Search for a session by name and filter by state and operating system.

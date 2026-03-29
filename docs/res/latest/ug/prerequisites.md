@@ -5,9 +5,9 @@
 - [Create an AWS account with an administrative user](#aws-account "#aws-account")
 - [Create an Amazon EC2 SSH key pair](#create-ssh-key-pair "#create-ssh-key-pair")
 - [Increase service quotas](#increase-service-quotas "#increase-service-quotas")
-- [Create a Cognito user pool (Optional)](#create-cognito-user-pool "#create-cognito-user-pool")
+- [Create a Cognito user pool (optional)](#create-cognito-user-pool "#create-cognito-user-pool")
 - [Create a custom domain (optional)](#create-public-domain "#create-public-domain")
-- [Create domain (GovCloud only)](#create-domain-govcloud "#create-domain-govcloud")
+- [Create a domain (GovCloud only)](#create-domain-govcloud "#create-domain-govcloud")
 - [Provide external resources](#external-resources "#external-resources")
 - [Configure LDAPS in your environment (optional)](#configure-ldaps "#configure-ldaps")
 - [Set up a Service Account for Microsoft Active Directory](#service-account-ms-ad "#service-account-ms-ad")
@@ -28,13 +28,13 @@ and resources in the account. As a security best practice, assign administrative
 
 ## Create an Amazon EC2 SSH key pair
 
-If you do not have Amazon EC2 SSH key pair, you will need to create one. For more information,
+If you do not have an Amazon EC2 SSH key pair, you must create one. For more information,
 see [Create a
 key pair using Amazon EC2](../../../AWSEC2/latest/UserGuide/create-key-pairs.md "../../../AWSEC2/latest/UserGuide/create-key-pairs.md") in the _Amazon EC2 User Guide_.
 
 ## Increase service quotas
 
-We recommend [increasing the service
+As a best practice, [increase the service
 quotas](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") for:
 
 - [Amazon VPC](../../../vpc/latest/userguide/amazon-vpc-limits.md "../../../vpc/latest/userguide/amazon-vpc-limits.md")
@@ -42,18 +42,18 @@ quotas](../../../servicequotas/latest/userguide/request-quota-increase.md "../..
   - Increase the NAT gateways per Availability Zone from five to ten.
 
 - [Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md")
-  - Increase the EC2-VPC Elastic IPs from five to ten
+  - Increase the EC2-VPC Elastic IPs from five to ten.
 
-Your AWS account has default quotas, formerly referred to as limits, for each AWS service.
+Your AWS account has default quotas for each AWS service.
 Unless otherwise noted, each quota is Region-specific. You can request increases for some
 quotas, and other quotas cannot be increased. For more information, see
 [Quotas for AWS services in this product](plan-your-deployment.md#quotas-for-aws-services-in-this-product "plan-your-deployment.md#quotas-for-aws-services-in-this-product").
 
-## Create a Cognito user pool (Optional)
+## Create a Cognito user pool (optional)
 
 You have the option to import an existing Cognito User Pool for user and client authentication
 when you install RES. Otherwise, RES will create a new Cognito User Pool automatically. The
-pre-existing User Pool needs to have the following sign-up custom attributes:
+pre-existing user pool must have the following sign-up custom attributes:
 
 | Name                     | Type   | Min value/length | Max value/length | Mutable |
 | ------------------------ | ------ | ---------------- | ---------------- | ------- |
@@ -65,8 +65,8 @@ pre-existing User Pool needs to have the following sign-up custom attributes:
 
 ## Create a custom domain (optional)
 
-We recommend using a custom domain for the product in order to have a user-friendly URL.
-You may provide a custom domain and _optionally_ provide a certificate
+As a best practice, use a custom domain for the product for a user-friendly URL.
+You can provide a custom domain and _optionally_ provide a certificate
 for it.
 
 There is a process in the External Resources stack to create a certificate for a custom
@@ -77,9 +77,9 @@ Or, follow these steps to register a domain using Amazon Route 53 and import a 
 the domain using AWS Certificate Manager.
 
 1. Follow the directions to [register
-   a domain](../../../Route53/latest/DeveloperGuide/domain-register.md#register_new_console "../../../Route53/latest/DeveloperGuide/domain-register.md#register_new_console") with Route53. You should receive a confirmation email.
-2. Retrieve the hosted zone for your domain. This is created automatically by Route53.
-   1. Open the Route53 console.
+   a domain](../../../Route53/latest/DeveloperGuide/domain-register.md#register_new_console "../../../Route53/latest/DeveloperGuide/domain-register.md#register_new_console") with Route 53. You should receive a confirmation email.
+2. Retrieve the hosted zone for your domain. Route 53 creates this automatically.
+   1. Open the Route 53 console.
    2. Choose **Hosted zones** from the left navigation.
    3. Open the hosted zone created for your domain name and copy the
       **Hosted zone ID**.
@@ -90,15 +90,15 @@ the domain using AWS Certificate Manager.
    find your certificate request. The request should be pending.
 5. Choose your **Certificate ID** to open the request.
 6. From the **Domains** section, choose **Create records
-   in Route53**. It will take approximately ten minutes for the request to
+   in Route 53**. It will take approximately ten minutes for the request to
    process.
 7. Once the certificate is issued, copy the **ARN** from the
    **Certificate status** section.
 
-## Create domain (GovCloud only)
+## Create a domain (GovCloud only)
 
 If you are deploying in an AWS GovCloud Region and you are using a custom domain for
-Research and Engineering Studio, you will need to complete these prerequisite steps.
+Research and Engineering Studio, you must complete these prerequisite steps.
 
 1. Deploy the [Certificate CloudFormation stack](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/security/public_certs/assets/main.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/security/public_certs/assets/main.yaml") in the commercial-partition AWS Account where the
    public hosted domain was created.
@@ -111,7 +111,7 @@ Research and Engineering Studio, you will need to complete these prerequisite st
    2. res:EnvironmentName = [environment name] (This could be res-demo.)
 
 4. In the GovCloud partition account, create a secret with the value of the
-   `PrivateKeySecretArn` output. Note the new secret ARN and add two tags to
+   `PrivateKeySecretARN` output. Note the new secret ARN and add two tags to
    the secret so `vdc-gateway` can access the secret value:
    1. res:ModuleName = virtual-desktop-controller
    2. res:EnvironmentName = [environment name] (This could be res-demo.)
@@ -151,8 +151,8 @@ If you are deploying a demo environment and do not have these external resources
 available, you can use AWS High Performance Compute recipes to generate the external
 resources. See the following section, [Create external resources](create-external-resources.md "create-external-resources.md"), to deploy resources in your account.
 
-For demo deployments in the an AWS GovCloud Region, you will need to complete the
-prerequisite steps in [Create domain (GovCloud only)](#create-domain-govcloud "#create-domain-govcloud").
+For demo deployments in an AWS GovCloud Region, you must complete the
+prerequisite steps in [Create a domain (GovCloud only)](#create-domain-govcloud "#create-domain-govcloud").
 
 ## Configure LDAPS in your environment (optional)
 

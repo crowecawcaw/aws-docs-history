@@ -1,4 +1,4 @@
-# Upload file(s)
+# Upload files
 
 1. Choose **Upload files**.
 

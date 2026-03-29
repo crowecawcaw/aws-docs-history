@@ -43,7 +43,7 @@ accounts as administrator](../../../cognito/latest/developerguide/how-to-create-
 
 ![Verification code entry page](images/user-sign-in.png)
 
-## Login page Options
+## Login page options
 
 If both SSO and Amazon Cognito are enabled, an option to **Sign in with organization
 SSO** will appear. When users click that option it will reroute them to their
@@ -55,7 +55,7 @@ SSO login page. By default, users will authenticate with Amazon Cognito if it is
 
 - Your Amazon Cognito **Group name** can have a maximum of six
   letters; only lower case letters are accepted.
-- Amazon Cognito signup will not allow two email address with the same user name
+- Amazon Cognito signup will not allow two email addresses with the same user name
   but a different domain address.
 - If both Active Directory and Amazon Cognito are enabled, and the system detects
   a duplicate user name, only Active Directory users will be allowed to authenticate.
@@ -100,6 +100,6 @@ You can also initiate the sync manually from the Lambda console.
 
 Prior to the 2024.12 release, [user activity
 logging](../../../cognito/latest/developerguide/feature-plans-features-plus.md "../../../cognito/latest/developerguide/feature-plans-features-plus.md"), which is part of the Amazon Cognito Plus plan feature was enabled by default.
-We removed this from our baseline deployment to save costs for customers who want to
+This feature was removed from the baseline deployment to save costs for customers who want to
 try RES. You may re-enable this feature as needed to align with your organization's
 cloud security settings.

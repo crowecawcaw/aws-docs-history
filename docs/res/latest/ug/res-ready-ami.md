@@ -200,6 +200,12 @@ RES supports the following image operating systems:
 - Windows Server 2019, 2022 (x86)
 - Windows 10, 11 (x86)
 
+###### Note
+
+Starting with release 2026.03, Amazon Linux 2 and RHEL 8 are no longer included
+as default software stacks. Custom software stacks with these operating systems
+can still be registered if required.
+
 Create a new recipe
 
 1. Open the EC2 Image Builder console at [https://console.aws.amazon.com/imagebuilder](https://console.aws.amazon.com/imagebuilder "https://console.aws.amazon.com/imagebuilder").

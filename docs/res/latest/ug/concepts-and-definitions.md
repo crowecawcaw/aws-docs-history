@@ -5,7 +5,7 @@ This section describes key concepts and defines terminology specific to Research
 **File browser**
 
 A file browser is a part of the RES user interface where
-users who are currently logged-in can view their file system.
+users who are currently logged in can view their file system.
 
 **File system**
 
@@ -24,14 +24,14 @@ depending on the size of the organization.
 **Project**
 
 A project is a logical partition within the application that serves as a distinct
-boundary for data and compute resources; this ensures governance over data flow and
+boundary for data and compute resources. This ensures governance over data flow and
 prevents sharing data and VDI hosts across projects.
 
 **Project-based permissions**
 
 Project-based permissions describes a logical partition of both data and VDI hosts
 in a system where multiple projects can exist. A user's access to data and VDI hosts
-within a project is determined by their associated role(s). A user must be assigned
+within a project is determined by their associated roles. A user must be assigned
 access (or project membership) for each project to which they require access. Otherwise,
 a user is unable to access project data and VDIs when they have not been granted
 membership.
@@ -44,7 +44,7 @@ to the projects they are assigned to. They cannot delegate or assign any permiss
 **Project owner**
 
 An administrative delegate with access to, and ownership over, a specific project. Scope
-and permissions are restricted to the project(s) they own. They can assign permissions
+and permissions are restricted to the projects they own. They can assign permissions
 to project members in the projects they own.
 
 **Software stack**

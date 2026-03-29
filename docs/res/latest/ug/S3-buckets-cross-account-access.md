@@ -74,7 +74,7 @@ mount an S3 bucket in Account B.
     {
     "Effect": "Allow",
     "Principal": {
-    "AWS": "arn:aws:iam::`111122223333`:role/`<ENVIRONMENT_NAME>`-custom-credential-broker-lambda-role-`us-east-1`"
+    "AWS": "arn:aws:iam::`111122223333`:role/`<ENVIRONMENT_NAME>`-vdc-custom-credential-broker-lambda-role"
     },
     "Action": "sts:AssumeRole"
     }
@@ -100,7 +100,7 @@ mount an S3 bucket in Account B.
 
 9. Use the IAM Role in RES:
    1. Copy the IAM role ARN that you created.
-   2. Log into the RES console.
+   2. Sign in to the RES console.
    3. In the left navigation pane, choose **S3 Bucket**.
    4. Choose **Add Bucket** and fill out the form with the
       cross-account S3 bucket ARN.
