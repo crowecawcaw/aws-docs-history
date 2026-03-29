@@ -12,7 +12,7 @@ The following headers are available to for creating cache behaviors:
 | CloudFront-Viewer-Cert-Present       | Either 1 (present) or 0 (not present) indicating whether the certificate is present. This value is always 1 in Required mode. | 1                                                                |
 | CloudFront-Viewer-Cert-Sha256        | The SHA256 hash of the client certificate                                                                                     | 01fbf94fef5569753420c349f49adbfd80af5275377816e3ab1fb371b29cb586 |
 
-For origin requests, two additional headers are supplied, in addition the headers above made available for cache behaviors:
+For origin requests, two additional headers are supplied, in addition to the headers above made available for cache behaviors. Due to potential header size, CloudFront-Viewer-Cert-Pem header is not exposed to edge functions (Lambda@Edge or CloudFront Functions) and is only forwarded to the origin.
 
 | Header name                     | Description                                       | Example value                                                                                                          |
 | ------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |

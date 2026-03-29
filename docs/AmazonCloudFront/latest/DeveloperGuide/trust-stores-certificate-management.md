@@ -91,7 +91,7 @@ The CA certificate bundle is only read once from S3 when creating a trust store.
 ```
 aws cloudfront create-trust-store \
   --name MyTrustStore \
-  --certificate-authority-bundle-s3-location Bucket=my-bucket,Key=ca-bundle.pem \
+  --ca-certificates-bundle-source '{"CaCertificatesBundleS3Location":{"Bucket":"my-bucket","Key":"ca-bundle.pem","Region":"`bucket-region`"}}' \
   --tags Items=[{Key=Environment,Value=Production}]
 ```
 
