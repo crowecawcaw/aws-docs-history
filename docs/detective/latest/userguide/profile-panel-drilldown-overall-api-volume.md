@@ -83,7 +83,7 @@ the calls. For S3 buckets, the service is always Amazon S3. If Detective cannot 
 that issued a call, the call is listed under **Unknown
 service**.
 
-![View of the Resource tab of the Overall API call volume panel, with an entry expanded to show the hierarchy of AKIDs, IP addresses, and API calls grouped by service.](images/screen_profile_panel_drilldown_api_resource.png)
+![View of the Resource tab of the Overall API call volume panel, with an entry expanded to show the hierarchy of AKIDs, IP addresses, and API calls grouped by service.](/images/detective/latest/userguide/images/screen_profile_panel_drilldown_api_resource.png)
 
 ## Content of the activity details (IP addresses)
 
