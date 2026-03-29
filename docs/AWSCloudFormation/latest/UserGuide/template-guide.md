@@ -27,7 +27,7 @@ You can create templates using the following methods:
 - [Template format](template-formats.md "template-formats.md")
 - [Template sections](template-anatomy.md "template-anatomy.md")
 - [Infrastructure Composer](infrastructure-composer-for-cloudformation.md "infrastructure-composer-for-cloudformation.md")
-- [AWS CloudFormation language server](ide-extension.md "ide-extension.md")
+- [AWS CloudFormation Language Server](ide-extension.md "ide-extension.md")
 - [IaC generator](generate-IaC.md "generate-IaC.md")
 - [Get values stored in other
   services](dynamic-references.md "dynamic-references.md")
