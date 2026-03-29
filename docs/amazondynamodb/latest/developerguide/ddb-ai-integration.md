@@ -1,4 +1,4 @@
-# Using generative AI with DynamoDB
+# Using agentic AI with DynamoDB
 
 Amazon DynamoDB is a serverless, fully managed, distributed NoSQL database with single-digit millisecond performance at any scale. DynamoDB is optimized for high-throughput workloads and you can extend its
 capabilities by integrating with generative AI models. Using generative AI models, you can
@@ -16,6 +16,7 @@ with generative AI](https://aws.amazon.com/ai/generative-ai/ "https://aws.amazon
 - [Generative AI use cases for DynamoDB](#gen-ai-use-case-ddb "#gen-ai-use-case-ddb")
 - [Generative AI blogs for DynamoDB](#gen-ai-blogs "#gen-ai-blogs")
 - [Leveraging DynamoDB Zero-ETL integration with OpenSearch Service](ddb-and-amazon-bedrock.md "ddb-and-amazon-bedrock.md")
+- [Using DynamoDB as a checkpoint store for LangGraph agents](ddb-langgraph-checkpoint.md "ddb-langgraph-checkpoint.md")
 
 ## Generative AI use cases for DynamoDB
 
@@ -58,3 +59,4 @@ applications.
 - [Amazon DynamoDB data models for generative AI chatbots](https://aws.amazon.com/blogs/database/amazon-dynamodb-data-models-for-generative-ai-chatbots/ "https://aws.amazon.com/blogs/database/amazon-dynamodb-data-models-for-generative-ai-chatbots/")
 - [Build a scalable, context-aware chatbot with Amazon DynamoDB, Amazon Bedrock, and
   LangChain](https://aws.amazon.com/blogs/database/build-a-scalable-context-aware-chatbot-with-amazon-dynamodb-amazon-bedrock-and-langchain/ "https://aws.amazon.com/blogs/database/build-a-scalable-context-aware-chatbot-with-amazon-dynamodb-amazon-bedrock-and-langchain/")
+- [Build durable AI agents with LangGraph and Amazon DynamoDB](https://aws.amazon.com/blogs/database/build-durable-ai-agents-with-langgraph-and-amazon-dynamodb/ "https://aws.amazon.com/blogs/database/build-durable-ai-agents-with-langgraph-and-amazon-dynamodb/")

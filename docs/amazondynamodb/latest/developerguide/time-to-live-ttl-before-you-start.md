@@ -8,10 +8,13 @@ recalculated to `updatedAt` + 90 days.
 
 The computed expiration time must be in epoch format, in seconds. To be considered for
 expiry and deletion, the TTL can't be more than five years in the past. If you use any other
-format, the TTL processes ignore the item. If you set the expiration date to sometime in the
-future when you want the item to expire, the item will be expired after that time. For
-example, say that you set the expiration date to 1724241326 (which is Monday, August 21st,
-2024 11:55:26 (GMT)). The item will be expired after the specified time.
+format, the TTL processes ignore the item. If you set the expiration time to sometime in the
+future when you want the item to expire, the item expires after that time. For
+example, say that you set the expiration time to 1724241326 (which is Monday, August 21,
+2024 11:55:26 (UTC)). The item expires after the specified time. There is no minimum
+TTL duration. You can set the expiration time to any future time, such as 5
+minutes from the current time. However, DynamoDB typically deletes expired items within
+48 hours after their expiration time, not immediately when the item expires.
 
 ###### Topics
 

@@ -16,41 +16,44 @@ Follow these steps to create a multi-account global table using the AWS Manageme
 
 6. Add the following resource policy to the table
 
+JSON
+
 ```
-{
-"Version": "2012-10-17",
+`{
+"Version":"2012-10-17",
 "Statement": [
-    {
-        "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
-        "Effect": "Allow",
-        "Action": [
-            "dynamodb:ReadDataForReplication",
-            "dynamodb:WriteDataForReplication",
-            "dynamodb:ReplicateSettings"
-        ],
-        "Resource": "arn:aws:dynamodb:us-east-2:`111122223333`:table/MusicTable",
-        "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
-        "Condition": {
-            "StringEquals": {
-                "aws:SourceAccount": ["`444455556666`","`111122223333`"],
-                "aws:SourceArn": [
-                    "arn:aws:dynamodb:us-east-1:`444455556666`:table/MusicTable",
-                    "arn:aws:dynamodb:us-east-2:`111122223333`:table/MusicTable"
-                ]
-            }
-        }
-    },
-    {
-        "Sid": "AllowTrustedAccountsToJoinThisGlobalTable",
-        "Effect": "Allow",
-        "Action": [
-            "dynamodb:AssociateTableReplica"
-        ],
-        "Resource": "arn:aws:dynamodb:us-east-2:`111122223333`:table/MusicTable",
-        "Principal": {"AWS": ["`444455556666`"]}
-    }
+ {
+ "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
+ "Effect": "Allow",
+ "Action": [
+ "dynamodb:ReadDataForReplication",
+ "dynamodb:WriteDataForReplication",
+ "dynamodb:ReplicateSettings"
+ ],
+ "Resource": "arn:aws:dynamodb:us-east-2:`111122223333`:table/MusicTable",
+ "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": ["`444455556666`","`111122223333`"],
+ "aws:SourceArn": [
+ "arn:aws:dynamodb:us-east-1:`444455556666`:table/MusicTable",
+ "arn:aws:dynamodb:us-east-2:`111122223333`:table/MusicTable"
+ ]
+ }
+ }
+ },
+ {
+ "Sid": "AllowTrustedAccountsToJoinThisGlobalTable",
+ "Effect": "Allow",
+ "Action": [
+ "dynamodb:AssociateTableReplica"
+ ],
+ "Resource": "arn:aws:dynamodb:us-east-2:`111122223333`:table/MusicTable",
+ "Principal": {"AWS": ["`444455556666`"]}
+ }
 ]
-}
+}`
+
 ```
 
 7.  This new table serves as the first replica table in a new global table. It is the prototype for other replica tables that you add later.

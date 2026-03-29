@@ -106,184 +106,195 @@ The setup of multi-account global tables follows a specific authorization flow t
 - The administrator of Account A must first attach the resource-based policy to ReplicaA. This policy explicitly grants the necessary permissions to Account B and the DynamoDB replication service.
 - Similarly, the administrator of Account B must attach a matching policy to ReplicaB, with account references reversed to grant corresponding permissions to Account A, in the create table call to create replica B referencing replica A as source table.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
-            "Effect": "Allow",
-            "Action": [
-                "dynamodb:ReadDataForReplication",
-                "dynamodb:WriteDataForReplication",
-                "dynamodb:ReplicateSettings"
-            ],
-            "Resource": "arn:aws:dynamodb:ap-east-1:A:table/ReplicaA",
-            "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
-            "Condition": {
-                "StringEquals": {
-                    "aws:SourceAccount": [ "A", "B" ],
-                    "aws:SourceArn": [
-                        "arn:aws:dynamodb:ap-east-1:A:table/ReplicaA",
-                        "arn:aws:dynamodb:eu-south-1:B:table/ReplicaB"
-                    ]
-                }
-            }
-        },
-        {
-            "Sid": "AllowTrustedAccountsToJoinThisGlobalTable",
-            "Effect": "Allow",
-            "Action": [
-                "dynamodb:AssociateTableReplica"
-            ],
-            "Resource": "arn:aws:dynamodb:ap-east-1:A:table/ReplicaA",
-            "Principal": {"AWS": ["B"]}
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
+ "Effect": "Allow",
+ "Action": [
+ "dynamodb:ReadDataForReplication",
+ "dynamodb:WriteDataForReplication",
+ "dynamodb:ReplicateSettings"
+ ],
+ "Resource": "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
+ "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": [ "`111122223333`", "`444455556666`" ],
+ "aws:SourceArn": [
+ "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
+ "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB"
+ ]
+ }
+ }
+ },
+ {
+ "Sid": "AllowTrustedAccountsToJoinThisGlobalTable",
+ "Effect": "Allow",
+ "Action": [
+ "dynamodb:AssociateTableReplica"
+ ],
+ "Resource": "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
+ "Principal": {"AWS": ["`444455556666`"]}
+ }
+ ]
+}`
 
 ```
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
-            "Effect": "Allow",
-            "Action": [
-                "dynamodb:ReadDataForReplication",
-                "dynamodb:WriteDataForReplication",
-                "dynamodb:ReplicateSettings"
-            ],
-            "Resource": "arn:aws:dynamodb:eu-south-1:B:table/ReplicaB",
-            "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
-            "Condition": {
-                "StringEquals": {
-                    "aws:SourceAccount": [ "A", "B" ],
-                    "aws:SourceArn": [
-                        "arn:aws:dynamodb:ap-east-1:A:table/ReplicaA",
-                        "arn:aws:dynamodb:eu-south-1:B:table/ReplicaB"
-                    ]
-                }
-            }
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
+ "Effect": "Allow",
+ "Action": [
+ "dynamodb:ReadDataForReplication",
+ "dynamodb:WriteDataForReplication",
+ "dynamodb:ReplicateSettings"
+ ],
+ "Resource": "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB",
+ "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": [ "`111122223333`", "`444455556666`" ],
+ "aws:SourceArn": [
+ "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
+ "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
 ```
 
 In this setup, we have 3 replicas ReplicaA, ReplicaB, and ReplicaC in Account A, Account B, and Account C, respectively. Replica A is the first replica, which starts as a regional table, and then ReplicaB and ReplicaC are added to it.
 
 - The administrator of Account A must first attach the resource-based policy to ReplicaA allowing replication with all members, and allowing the IAM principals of Account B and Account C to add replicas.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
-            "Effect": "Allow",
-            "Action": [
-                "dynamodb:ReadDataForReplication",
-                "dynamodb:WriteDataForReplication",
-                "dynamodb:ReplicateSettings"
-            ],
-            "Resource": "arn:aws:dynamodb:ap-east-1:A:table/ReplicaA",
-            "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
-            "Condition": {
-                "StringEquals": {
-                    "aws:SourceAccount": [ "A", "B", "C" ],
-                    "aws:SourceArn": [
-                        "arn:aws:dynamodb:ap-east-1:A:table/ReplicaA",
-                        "arn:aws:dynamodb:eu-south-1:B:table/ReplicaB",
-                        "arn:aws:dynamodb:us-east-1:C:table/ReplicaC"
-                    ]
-                }
-            }
-        },
-        {
-            "Sid": "AllowTrustedAccountsToJoinThisGlobalTable",
-            "Effect": "Allow",
-            "Action": [
-                "dynamodb:AssociateTableReplica"
-            ],
-            "Resource": "arn:aws:dynamodb:ap-east-1:A:table/ReplicaA",
-            "Principal": { "AWS": [ "B", "C" ] }
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
+ "Effect": "Allow",
+ "Action": [
+ "dynamodb:ReadDataForReplication",
+ "dynamodb:WriteDataForReplication",
+ "dynamodb:ReplicateSettings"
+ ],
+ "Resource": "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
+ "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": [ "`111122223333`", "`444455556666`", "`123456789012`" ],
+ "aws:SourceArn": [
+ "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
+ "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB",
+ "arn:aws:dynamodb:us-east-1:`123456789012`:table/ReplicaC"
+ ]
+ }
+ }
+ },
+ {
+ "Sid": "AllowTrustedAccountsToJoinThisGlobalTable",
+ "Effect": "Allow",
+ "Action": [
+ "dynamodb:AssociateTableReplica"
+ ],
+ "Resource": "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
+ "Principal": { "AWS": [ "`444455556666`", "`123456789012`" ] }
+ }
+ ]
+}`
 
 ```
 
 - The administrator of Account B must add a replica (Replica B) pointing to ReplicaA as a source. Replica B has the following policy allowing replication between all members, and allowing Account C to add a replica:
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
-            "Effect": "Allow",
-            "Action": [
-                "dynamodb:ReadDataForReplication",
-                "dynamodb:WriteDataForReplication",
-                "dynamodb:ReplicateSettings"
-            ],
-            "Resource": "arn:aws:dynamodb:eu-south-1:B:table/ReplicaB",
-            "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
-            "Condition": {
-                "StringEquals": {
-                    "aws:SourceAccount": [ "A", "B", "C" ],
-                    "aws:SourceArn": [
-                        "arn:aws:dynamodb:ap-east-1:A:table/ReplicaA",
-                        "arn:aws:dynamodb:eu-south-1:B:table/ReplicaB",
-                        "arn:aws:dynamodb:us-east-1:C:table/ReplicaC"
-                    ]
-                }
-            }
-        },
-        {
-            "Sid": "AllowTrustedAccountsToJoinThisGlobalTable",
-            "Effect": "Allow",
-            "Action": [
-                "dynamodb:AssociateTableReplica"
-            ],
-            "Resource": "arn:aws:dynamodb:eu-south-1:B:table/ReplicaB",
-            "Principal": { "AWS": [ "C" ] }
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
+ "Effect": "Allow",
+ "Action": [
+ "dynamodb:ReadDataForReplication",
+ "dynamodb:WriteDataForReplication",
+ "dynamodb:ReplicateSettings"
+ ],
+ "Resource": "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB",
+ "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": [ "`111122223333`", "`444455556666`", "`123456789012`" ],
+ "aws:SourceArn": [
+ "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
+ "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB",
+ "arn:aws:dynamodb:us-east-1:`123456789012`:table/ReplicaC"
+ ]
+ }
+ }
+ },
+ {
+ "Sid": "AllowTrustedAccountsToJoinThisGlobalTable",
+ "Effect": "Allow",
+ "Action": [
+ "dynamodb:AssociateTableReplica"
+ ],
+ "Resource": "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB",
+ "Principal": { "AWS": [ "`123456789012`" ] }
+ }
+ ]
+}`
 
 ```
 
 - Finally, the administrator of Account C create a replica with the following policy allowing replication permissions between all members. The policy doesn't allow any further replicas to be added.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
-            "Effect": "Allow",
-            "Action": [
-                "dynamodb:ReadDataForReplication",
-                "dynamodb:WriteDataForReplication",
-                "dynamodb:ReplicateSettings"
-            ],
-            "Resource": "arn:aws:dynamodb:us-east-1:C:table/ReplicaC",
-            "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
-            "Condition": {
-                "StringEquals": {
-                    "aws:SourceAccount": [ "A", "B" ],
-                    "aws:SourceArn": [
-                        "arn:aws:dynamodb:ap-east-1:A:table/ReplicaA",
-                        "arn:aws:dynamodb:eu-south-1:B:table/ReplicaB"
-                    ]
-                }
-            }
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
+ "Effect": "Allow",
+ "Action": [
+ "dynamodb:ReadDataForReplication",
+ "dynamodb:WriteDataForReplication",
+ "dynamodb:ReplicateSettings"
+ ],
+ "Resource": "arn:aws:dynamodb:us-east-1:`123456789012`:table/ReplicaC",
+ "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": [ "`111122223333`", "`444455556666`" ],
+ "aws:SourceArn": [
+ "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
+ "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB"
+ ]
+ }
+ }
+ }
+ ]
+}`
 
 ```
 
@@ -354,30 +365,33 @@ If you disable or revoke DynamoDB's access to a customer managed key used to enc
 The AWS KMS policy allows DynamoDB to access both AWS KMS keys for replication between replicas A an B.
 The AWS KMS keys attached to the DynamoDB replica in each account needs to be updated with the following policy:
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        "Effect": "Allow",
-        "Principal": { "Service": "replication.dynamodb.amazonaws.com" },
-        "Action": [
-            "kms:Decrypt",
-            "kms:ReEncrypt*",
-            "kms:GenerateDataKey*",
-            "kms:DescribeKey"
-        ],
-        "Condition": {
-            "StringEquals": {
-                "aws:SourceAccount": [ "A", "B" ],
-                "aws:SourceArn": [
-                    "arn:aws:dynamodb:ap-east-1:A:table/ReplicaA",
-                    "arn:aws:dynamodb:eu-south-1:B:table/ReplicaB"
-                ]
-            }
-        }
-      }
-   ]
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": { "Service": "replication.dynamodb.amazonaws.com" },
+ "Action": [
+ "kms:Decrypt",
+ "kms:ReEncrypt*",
+ "kms:GenerateDataKey*",
+ "kms:DescribeKey"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": [ "`111122223333`", "`444455556666`" ],
+ "aws:SourceArn": [
+ "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
+ "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB"
+ ]
  }
+ }
+ }
+ ]
+ }`
 
 ```

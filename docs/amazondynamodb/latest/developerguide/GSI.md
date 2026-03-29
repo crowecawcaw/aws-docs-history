@@ -139,7 +139,7 @@ In the previous diagram, `GameTitleIndex` has
 only one projected attribute: `UserId`. So while an application can
 efficiently determine the `UserId` of the top scorers for each game using
 `GameTitle` and `TopScore` in queries, it can't efficiently
-determine the highest ratio of wins vs. losses for the top scorers. To do so, it would
+determine the highest ratio of wins vs. losses for the top scorers. To do so, the application would
 have to perform an additional query on the base table to fetch the wins and losses for
 each of the top scorers. A more efficient way to support queries on this data would be
 to project these attributes from the base table into the global secondary index, as shown in this
