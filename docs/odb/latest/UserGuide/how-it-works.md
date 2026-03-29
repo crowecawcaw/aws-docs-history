@@ -100,15 +100,19 @@ You can use the AZs with the physical IDs `euc1-az1` and
 
 **Canada (Central)**
 
-You can use the AZs with the physical IDs `cac1-az4` and `cac1-az1`.
+You can use the AZs with the physical IDs `cac1-az1` and `cac1-az4`.
 
 **Asia Pacific (Sydney)**
 
-You can use the AZ with the physical ID `apse2-az4`.
+You can use the AZs with the physical IDs `apse2-az1` and `apse2-az4`.
 
 **Europe (Ireland)**
 
-You can use the AZ with the physical ID `euw1-az3`.
+You can use the AZs with the physical IDs `euw1-az1` and `euw1-az3`.
+
+**Europe (London)**
+
+You can use the AZ with the physical ID `euw2-az1`.
 
 To find the logical AZ names in your account that map to the preceding physical AZ IDs, run
 the following command.

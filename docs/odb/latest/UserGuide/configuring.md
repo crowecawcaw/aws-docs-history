@@ -6,11 +6,11 @@ make sure to update your VPC route tables and configure DNS resolution. For a co
 of ODB peering, see [ODB peering](how-it-works.md#how-it-works.peering "how-it-works.md#how-it-works.peering"). When creating the ODB peering connection, you can opt for implicit network route management to skip [Configuring VPC route tables for ODB peering](#configure-routes "#configure-routes").
 To enact this feature as part of the Peering Connection workflow, specify the VPC (or underlying subnet) Route Table to which a managed route should be added.
 
+## Creating an ODB peering connection in Oracle Database@AWS
+
 ###### Note
 
-Now, you can now have up to 45 ODB peering connections between your Amazon VPCs and ODB network, allowing you to establish low latency connectivity at scale between your Exadata databases in your ODB network and applications in your VPCs.
-
-## Creating an ODB peering connection in Oracle Database@AWS
+Now, you can have up to 45 ODB peering connections between your Amazon VPCs and ODB network, allowing you to establish low-latency connectivity at scale between your Exadata databases in your ODB network and applications in your VPCs.
 
 With ODB peering connections, you can establish private network connectivity between your Oracle Exadata infrastructure
 and the applications running in your Amazon VPCs. Each ODB peering connection is a separate resource that
