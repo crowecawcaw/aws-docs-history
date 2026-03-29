@@ -23,4 +23,3 @@ operations in the AWS Certificate Manager API.
 - [Removing tags from a certificate](sdk-tagremove.md "sdk-tagremove.md")
 - [Requesting a certificate](sdk-request.md "sdk-request.md")
 - [Resending validation email](sdk-validate.md "sdk-validate.md")
-- [Searching certificates](sdk-search.md "sdk-search.md")
