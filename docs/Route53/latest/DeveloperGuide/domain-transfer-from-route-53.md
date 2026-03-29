@@ -181,40 +181,41 @@ code that you got from the Route 53 console in step 6 of this procedure. 10. If
 that is provided by the new registrar to specify the names of the Route 53 name
 servers that you got in step 7. If you want to use another DNS service provider,
 specify the names of the name servers that the new provider gave you when you
-created a new hosted zone in step 8. 11. Respond to the confirmation email:
+created a new hosted zone in step 8. 11. Act on the confirmation email:
 
 **All domains except .jp domains**
 
-Route 53 sends a confirmation email to the email address for the
-registrant contact for the domain:
+Route 53 sends a confirmation email to the registrant contact for
+the domain:
 
-    * If you don't respond to the email, the transfer happens
+    * Depending on the TLD, the confirmation email includes
+     a link from one of the following domains. Use this link
+     to approve or reject the transfer.
+
+
+
+
+    	+ registrar.amazon
+    	+ approvemove.com
+    	+ domainnameverification.net
+    	+ emailverification.info
+    	+ key-systems.net
+    * If you don't take action, the transfer will proceed
      automatically on the specified date.
-    * If you want the transfer to happen sooner or you want to
-     cancel the transfer, choose the link in the email to go to
-     the Route 53 website, and choose the applicable option.
-    * Depending on the TLD, the confirmation email may contain a
-     link to https://approvemove.com where you can approve or
-     reject the transfer. When privacy protection is enabled for
-     the domain contacts, the email will be delivered from
-     identity-protect.org addresses for TLDs registered with
-     Amazon Registrar. To determine who the registrar is for your
-     TLD, see [Finding your registrar](find-your-registrar.md "find-your-registrar.md").
 
 **.jp domains**
 
-Route 53 sends a confirmation email to the email address for the
-registrant contact for the domain from address
-*noreply@domainnameverification.net* or *noreply@emailverification.info* with a
+Route 53 sends a confirmation email to the registrant contact for
+the domain from address
+*noreply@domainnameverification.net* or
+*noreply@emailverification.info* with a
 link to confirm the transfer:
 
-    * If you don't respond to the email, the transfer is
-     canceled on the specified date.
-    * If you want the transfer to happen sooner or you want to
-     cancel the transfer, choose the link in the email to go to
-     the Route 53 website, and choose the applicable option. You
-     will be required to provide the domain authorization code
+    * Use this link to approve or reject the transfer. You
+     will need to provide the domain authorization code
      that you obtained in step 7.
+    * If you don't take action, the transfer will be canceled
+     on the specified date.
 
 In addition you might receive an email from WIXI.jp. You can
 ignore this email. 12. If the registrar that you're transferring the domain to reports that the

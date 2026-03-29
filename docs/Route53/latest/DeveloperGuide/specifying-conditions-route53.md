@@ -17,6 +17,12 @@ can:
 - Grant permissions to allow users to list hosted zones associated to a particular VPC.
 - Grant permissions to allow users access to create a new private hosted zone and associate it to a particular VPC.
 - Grant permissions to allow users to create or delete a VPC association authorization.
+- Grant permissions to allow users to manage (associate/disassociate/update) only specific resource types with a Route 53 Profile.
+- Grant permissions to allow users to manage (associate/disassociate/update) only specific resource ARNs with a Route 53 Profile.
+- Grant permissions to allow users to manage (associate/disassociate/update) only specific hosted zone domains with a Route 53 Profile.
+- Grant permissions to allow users to manage (associate/disassociate/update) only specific Resolver Rule domains with a Route 53 Profile.
+- Grant permissions to allow users to manage (associate/disassociate/update) Firewall Rule Groups with a specific priority range in a Route 53 Profile.
+- Grant permissions to allow users to manage (associate/disassociate) a Route 53 Profile with specific VPCs.
   You can also create permissions that combine any of the granular permissions.
 
 ## Normalizing the Route 53 condition key values
@@ -61,6 +67,51 @@ follow these conventions. Only `VPCId` and `VPCRegion`
 elements are accepted by this condition key,
 any other AWS resources, such as AWS account, are not supported.
 
+**For `route53profiles:ResourceTypes`,
+the value can be any of the following and is case sensitive:**
+
+- HostedZone
+- FirewallRuleGroup
+- ResolverQueryLoggingConfig
+- ResolverRule
+- VPCEndpoint
+
+**For
+`route53profiles:ResourceArns`:**
+
+- The value must be a valid AWS resource ARN, such as
+  `arn:aws:route53:::hostedzone/Z12345`.
+- Use the `ArnEquals` or `ArnLike` condition operator
+  when comparing ARN values.
+
+**For
+`route53profiles:HostedZoneDomains`:**
+
+- The value must be a valid domain name, such as `example.com`.
+- The domain name must be without the trailing dot.
+- The values are case sensitive.
+
+**For
+`route53profiles:ResolverRuleDomains`:**
+
+- The value must be a valid domain name, such as `example.com`.
+- The domain name must be without the trailing dot.
+- The values are case sensitive.
+
+**For
+`route53profiles:FirewallRuleGroupPriority`:**
+
+- The value must be a numeric value representing the priority of the Firewall Rule Group.
+- Use numeric condition operators such as `NumericEquals`,
+  `NumericGreaterThanEquals`, or `NumericLessThanEquals`
+  to compare priority values or define a priority range.
+
+**For
+`route53profiles:ResourceIds`:**
+
+- The value must be a valid VPC ID, such as `vpc-1a2b3c4d5e6f`.
+- The values are case sensitive.
+
 You can use the
 [Access Analyzer](../../../IAM/latest/UserGuide/access-analyzer-policy-validation.md "../../../IAM/latest/UserGuide/access-analyzer-policy-validation.md")
 or [Policy Simulator](../../../IAM/latest/UserGuide/access-analyzer-reference-policy-checks.md "../../../IAM/latest/UserGuide/access-analyzer-reference-policy-checks.md")
@@ -90,6 +141,12 @@ Route 53.
 | `route53:ChangeResourceRecordSetsRecordTypes`           | [ChangeResourceRecordSets](../APIReference/API_ChangeResourceRecordSets.md "../APIReference/API_ChangeResourceRecordSets.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Multi-valued | Represents a list of DNS record types in the request of<br>`ChangeResourceRecordSets`.<br>`ChangeResourceRecordSetsRecordTypes` can be any of<br>the Route 53 supported DNS record types. For more information, see<br>[Supported DNS record types](ResourceRecordTypes.md "ResourceRecordTypes.md"). All must be entered<br>in uppercase in the policy.                                                                                                             |
 | `route53:ChangeResourceRecordSetsActions`               | [ChangeResourceRecordSets](../APIReference/API_ChangeResourceRecordSets.md "../APIReference/API_ChangeResourceRecordSets.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Multi-valued | Represents a list of actions in the request of<br>`ChangeResourceRecordSets`.<br>`ChangeResourceRecordSetsActions` can be any of the<br>following values (must be uppercase):<br>• CREATE<br>• UPSERT<br>• DELETE                                                                                                                                                                                                                                                    |
 | `route53:VPCs`                                          | [AssociateVPCWithHostedZone](../APIReference/API_AssociateVPCWithHostedZone.md "../APIReference/API_AssociateVPCWithHostedZone.md")<br>[DisassociateVPCFromHostedZone](../APIReference/API_DisassociateVPCFromHostedZone.md "../APIReference/API_DisassociateVPCFromHostedZone.md")<br>[ListHostedZonesByVPC](../APIReference/API_ListHostedZonesByVPC.md "../APIReference/API_ListHostedZonesByVPC.md")<br>[CreateHostedZone](../APIReference/API_CreateHostedZone.md "../APIReference/API_CreateHostedZone.md")<br>[CreateVPCAssociationAuthorization](../APIReference/API_CreateVPCAssociationAuthorization.md "../APIReference/API_CreateVPCAssociationAuthorization.md")<br>[DeleteVPCAssociationAuthorization](../APIReference/API_DeleteVPCAssociationAuthorization.md "../APIReference/API_DeleteVPCAssociationAuthorization.md") | Multi-valued | Represents a list of VPCs in the request of `AssociateVPCWithHostedZone`, `DisassociateVPCFromHostedZone`,<br>`ListHostedZonesByVPC`, `CreateHostedZone`,<br>`CreateVPCAssociationAuthorization`, and `DeleteVPCAssociationAuthorization`, in the format of<br>"VPCId=<vpc-id>,VPCRegion=<region>                                                                                                                                                                    |
+| `route53profiles:ResourceTypes`                         | [AssociateResourceToProfile](../APIReference/API_route53profiles_AssociateResourceToProfile.md "../APIReference/API_route53profiles_AssociateResourceToProfile.md")<br>[DisassociateResourceFromProfile](../APIReference/API_route53profiles_DisassociateResourceFromProfile.md "../APIReference/API_route53profiles_DisassociateResourceFromProfile.md")<br>[UpdateProfileResourceAssociation](../APIReference/API_route53profiles_UpdateProfileResourceAssociation.md "../APIReference/API_route53profiles_UpdateProfileResourceAssociation.md")                                                                                                                                                                                                                                                                                        | String       | Filters access by specific resource type.<br>`route53profiles:ResourceTypes` can be any of the<br>following values (case sensitive):<br>• HostedZone<br>• FirewallRuleGroup<br>• ResolverQueryLoggingConfig<br>• ResolverRule<br>• VPCEndpoint                                                                                                                                                                                                                       |
+| `route53profiles:ResourceArns`                          | [AssociateResourceToProfile](../APIReference/API_route53profiles_AssociateResourceToProfile.md "../APIReference/API_route53profiles_AssociateResourceToProfile.md")<br>[DisassociateResourceFromProfile](../APIReference/API_route53profiles_DisassociateResourceFromProfile.md "../APIReference/API_route53profiles_DisassociateResourceFromProfile.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | ARN          | Filters access by specific resource ARNs.                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `route53profiles:HostedZoneDomains`                     | [AssociateResourceToProfile](../APIReference/API_route53profiles_AssociateResourceToProfile.md "../APIReference/API_route53profiles_AssociateResourceToProfile.md")<br>[DisassociateResourceFromProfile](../APIReference/API_route53profiles_DisassociateResourceFromProfile.md "../APIReference/API_route53profiles_DisassociateResourceFromProfile.md")<br>[UpdateProfileResourceAssociation](../APIReference/API_route53profiles_UpdateProfileResourceAssociation.md "../APIReference/API_route53profiles_UpdateProfileResourceAssociation.md")                                                                                                                                                                                                                                                                                        | String       | Filters access by Hosted Zone domains. To get the expected<br>behavior, domain names in the IAM policy must be normalized as<br>follows:<br>• The domain name must be without the trailing dot.<br>• The values are case sensitive.                                                                                                                                                                                                                                  |
+| `route53profiles:ResolverRuleDomains`                   | [AssociateResourceToProfile](../APIReference/API_route53profiles_AssociateResourceToProfile.md "../APIReference/API_route53profiles_AssociateResourceToProfile.md")<br>[DisassociateResourceFromProfile](../APIReference/API_route53profiles_DisassociateResourceFromProfile.md "../APIReference/API_route53profiles_DisassociateResourceFromProfile.md")<br>[UpdateProfileResourceAssociation](../APIReference/API_route53profiles_UpdateProfileResourceAssociation.md "../APIReference/API_route53profiles_UpdateProfileResourceAssociation.md")                                                                                                                                                                                                                                                                                        | String       | Filters access by Resolver Rule domains. To get the expected<br>behavior, domain names in the IAM policy must be normalized as<br>follows:<br>• The domain name must be without the trailing dot.<br>• The values are case sensitive.                                                                                                                                                                                                                                |
+| `route53profiles:FirewallRuleGroupPriority`             | [AssociateResourceToProfile](../APIReference/API_route53profiles_AssociateResourceToProfile.md "../APIReference/API_route53profiles_AssociateResourceToProfile.md")<br>[DisassociateResourceFromProfile](../APIReference/API_route53profiles_DisassociateResourceFromProfile.md "../APIReference/API_route53profiles_DisassociateResourceFromProfile.md")<br>[UpdateProfileResourceAssociation](../APIReference/API_route53profiles_UpdateProfileResourceAssociation.md "../APIReference/API_route53profiles_UpdateProfileResourceAssociation.md")                                                                                                                                                                                                                                                                                        | Numeric      | Filters access by priority range of a Firewall Rule Group.                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `route53profiles:ResourceIds`                           | [AssociateProfile](../APIReference/API_route53profiles_AssociateProfile.md "../APIReference/API_route53profiles_AssociateProfile.md")<br>[DisassociateProfile](../APIReference/API_route53profiles_DisassociateProfile.md "../APIReference/API_route53profiles_DisassociateProfile.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | String       | Filters access by given VPCs.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 ## Example policies: Using conditions for fine-grained access
 
@@ -310,4 +367,163 @@ JSON
  ]
 }`
 
+```
+
+###### Important
+
+The `route53profiles` condition keys are available in all AWS Regions where Route 53 Route53Profiles is available, except for me-central-1 and me-south-1.
+
+###### Grant permissions that limit resource association to specific resource types in Route 53 Profiles
+
+The following permissions policy grants permissions that allow
+`AssociateResourceToProfile` and
+`DisassociateResourceFromProfile` actions only when the
+resource type is a hosted zone. It uses the
+`route53profiles:ResourceTypes` condition key to restrict
+the resource types that can be associated with a profile.
+
+```
+{
+    "Effect": "Allow",
+    "Action": [
+        "route53profiles:AssociateResourceToProfile",
+        "route53profiles:DisassociateResourceFromProfile"
+    ],
+    "Resource": "*",
+    "Condition": {
+        "StringEquals": {
+            "route53profiles:ResourceTypes": "HostedZone"
+        }
+    }
+}
+```
+
+###### Grant permissions that limit resource association to specific resource ARNs in Route 53 Profiles
+
+The following permissions policy grants permissions that allow
+`AssociateResourceToProfile` and
+`DisassociateResourceFromProfile` actions only for the
+specified resource ARN. It uses the
+`route53profiles:ResourceArns` condition key to restrict
+which resources can be associated with a profile.
+
+```
+{
+    "Effect": "Allow",
+    "Action": [
+        "route53profiles:AssociateResourceToProfile",
+        "route53profiles:DisassociateResourceFromProfile"
+    ],
+    "Resource": "*",
+    "Condition": {
+        "ArnEquals": {
+            "route53profiles:ResourceArns": "arn:aws:route53:::hostedzone/Z12345"
+        }
+    }
+}
+```
+
+###### Grant permissions that limit resource association to specific hosted zone domains in Route 53 Profiles
+
+The following permissions policy grants permissions that allow
+`AssociateResourceToProfile`,
+`DisassociateResourceFromProfile`, and
+`UpdateProfileResourceAssociation` actions only when the
+hosted zone domain matches the specified value. It uses the
+`route53profiles:HostedZoneDomains` condition key to restrict
+which hosted zone domains can be associated with a profile.
+
+```
+{
+    "Effect": "Allow",
+    "Action": [
+        "route53profiles:AssociateResourceToProfile",
+        "route53profiles:DisassociateResourceFromProfile",
+        "route53profiles:UpdateProfileResourceAssociation"
+    ],
+    "Resource": "*",
+    "Condition": {
+        "StringEquals": {
+            "route53profiles:HostedZoneDomains": "example.com"
+        }
+    }
+}
+```
+
+###### Grant permissions that limit resource association to specific Resolver Rule domains in Route 53 Profiles
+
+The following permissions policy grants permissions that allow
+`AssociateResourceToProfile`,
+`DisassociateResourceFromProfile`, and
+`UpdateProfileResourceAssociation` actions only when the
+Resolver Rule domain matches the specified value. It uses the
+`route53profiles:ResolverRuleDomains` condition key to restrict
+which Resolver Rule domains can be associated with a profile.
+
+```
+{
+    "Effect": "Allow",
+    "Action": [
+        "route53profiles:AssociateResourceToProfile",
+        "route53profiles:DisassociateResourceFromProfile",
+        "route53profiles:UpdateProfileResourceAssociation"
+    ],
+    "Resource": "*",
+    "Condition": {
+        "StringEquals": {
+            "route53profiles:ResolverRuleDomains": "example.com"
+        }
+    }
+}
+```
+
+###### Grant permissions that limit Firewall Rule Group association to a specific priority range in Route 53 Profiles
+
+The following permissions policy grants permissions that allow
+`AssociateResourceToProfile`,
+`DisassociateResourceFromProfile`, and
+`UpdateProfileResourceAssociation` actions only when the
+Firewall Rule Group priority is within the specified range. It uses the
+`route53profiles:FirewallRuleGroupPriority` condition key to restrict
+the priority values that can be used.
+
+```
+{
+    "Effect": "Allow",
+    "Action": [
+        "route53profiles:AssociateResourceToProfile",
+        "route53profiles:DisassociateResourceFromProfile",
+        "route53profiles:UpdateProfileResourceAssociation"
+    ],
+    "Resource": "*",
+    "Condition": {
+        "NumericGreaterThanEquals": {
+            "route53profiles:FirewallRuleGroupPriority": "100"
+        }
+    }
+}
+```
+
+###### Grant permissions that limit profile association to specific VPCs in Route 53 Profiles
+
+The following permissions policy grants permissions that allow
+`AssociateProfile` and
+`DisassociateProfile` actions only for the specified VPC. It uses the
+`route53profiles:ResourceIds` condition key to restrict
+which VPCs a profile can be associated with.
+
+```
+{
+    "Effect": "Allow",
+    "Action": [
+        "route53profiles:AssociateProfile",
+        "route53profiles:DisassociateProfile"
+    ],
+    "Resource": "*",
+    "Condition": {
+        "StringEquals": {
+            "route53profiles:ResourceIds": "vpc-1a2b3c4d5e6f"
+        }
+    }
+}
 ```

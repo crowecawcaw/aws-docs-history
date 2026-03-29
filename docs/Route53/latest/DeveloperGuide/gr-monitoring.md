@@ -9,15 +9,16 @@ investigate threats and optimize performance.
 AWS provides these monitoring tools to help you maintain secure, reliable DNS
 service:
 
-- _Amazon CloudWatch_ tracks DNS query volumes, response times, and security
-  events in real time. Create dashboards to monitor DNS performance across locations and set
-  up alarms to notify you when query volumes spike or response times increase that you
-  specify. For Route 53 Global Resolver, you can monitor query volumes, response times, and filtering
-  activity. For more information, see the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").
 - _Amazon CloudWatch Logs_ enables you to monitor, store, and access your log files
   from Amazon EC2 instances, CloudTrail, and other sources. Route 53 Global Resolver can deliver DNS query logs directly
   to CloudWatch Logs for real-time monitoring and analysis. You can also archive your log data in highly
   durable storage. For more information, see the [Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs.md "../../../AmazonCloudWatch/latest/logs.md").
+  - You can use metric filters to search and filter log data coming into CloudWatch Logs and
+    create CloudWatch metrics from the log events. Use these metrics to track DNS query volumes,
+    response times, and security events. You can also create dashboards to monitor DNS
+    performance across locations and set up alarms to notify you when query volumes spike
+    or response times increase. For more information, see the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").
+
 - _Amazon EventBridge_ can be used to automate your AWS services and respond
   automatically to system events, such as application availability issues or resource changes.
   Events from AWS services are delivered to EventBridge in near real time. You can write simple

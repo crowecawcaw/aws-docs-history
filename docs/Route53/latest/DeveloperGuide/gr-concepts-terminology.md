@@ -3,7 +3,7 @@
 Route 53 Global Resolver uses several key components that work together to provide split-traffic DNS
 resolution, high availability through global anycast architecture, and comprehensive DNS security
 for your organization. Understanding these Route 53 Global Resolver concepts helps you design and deploy solutions
-that enable seamless access to both private and public resources, ensure service continuity across
+that enable seamless access to both private and public resources, help ensure service continuity across
 multiple Regions, and protect against DNS-based threats.
 
 ## DNS resolver for clients at on-premises and remote locations
@@ -93,7 +93,7 @@ automatic failover capabilities.
 
 Multi-region deployment
 
-_Multi-region deployment_ distributes Route 53 Global Resolver instances across at least 2 AWS Regions to ensure high availability and allow failover during service outages. You can
+_Multi-region deployment_ distributes Route 53 Global Resolver instances across at least 2 AWS Regions to help ensure high availability and allow failover during service outages. You can
 select specific Regions based on your geographic requirements and compliance needs.
 
 Automatic geographic optimization
@@ -104,7 +104,7 @@ improves user experience for globally distributed organizations.
 
 Built-in redundancy
 
-_Built-in redundancy_ ensures service continuity through automatic
+_Built-in redundancy_ helps maintain service continuity through automatic
 failover to alternate regions when primary regions become unavailable. Clients continue to use
 the same anycast IP addresses while traffic is transparently rerouted.
 

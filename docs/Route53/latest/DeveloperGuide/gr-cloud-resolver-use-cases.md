@@ -13,8 +13,7 @@ public domains.
 
 Securing DNS traffic from DNS exfiltration attacks
 
-Protect remote locations and branch offices from DNS-based data exfiltration attacks by filtering queries to malicious domains. Improve privacy by encrypting DNS traffic in-transit using DNS-over-HTTPS (DoH) and DNS-over-TLS (DoT) to
-ensure only authorized clients can access your DNS services. Apply security policies to block
+Protect remote locations and branch offices from DNS-based data exfiltration attacks by filtering queries to malicious domains. Improve privacy by encrypting DNS traffic in-transit using DNS-over-HTTPS (DoH) and DNS-over-TLS (DoT) so that only authorized clients can access your DNS services. Apply security policies to block
 threats like DNS tunneling and Domain Generation Algorithms (DGAs). Validate DNS response
 authenticity using DNSSEC (Domain Name System Security Extensions) for DNSSEC-signed domains
 to protect against DNS spoofing and cache poisoning attacks.
@@ -27,7 +26,7 @@ the AWS Regions you choose, using anycast IP addresses that automatically route 
 nearest available Region for optimal performance and reliability. Global enterprises can
 configure and manage DNS policies centrally while providing clients with a single set of IP
 addresses that work globally with automatic geographic optimization. Built-in redundancy
-ensures service continuity even if individual Regions become unavailable.
+is designed to help maintain service continuity even if individual Regions become unavailable.
 
 Additional capabilities support these primary use cases:
 

@@ -17,8 +17,6 @@ and Route 53 to help secure your resources.
 
 - [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
 - [Access control](#access-control "#access-control")
-- [Overview of managing access permissions to your Amazon Route 53 resources](access-control-overview.md "access-control-overview.md")
-- [Using identity-based policies (IAM policies) for Amazon Route 53](access-control-managing-permissions.md "access-control-managing-permissions.md")
 - [Using Service-Linked Roles for Amazon Route 53 Resolver](using-service-linked-roles.md "using-service-linked-roles.md")
 - [AWS managed policies for Amazon Route 53](security-iam-awsmanpol-route53.md "security-iam-awsmanpol-route53.md")
 - [Using IAM policy conditions for fine-grained access control](specifying-conditions-route53.md "specifying-conditions-route53.md")
@@ -65,3 +63,6 @@ The following sections describe how to manage permissions for Route 53. We reco
 you read the overview first.
 
 ###### Topics
+
+- [Overview of managing access permissions to your Amazon Route 53 resources](access-control-overview.md "access-control-overview.md")
+- [Using identity-based policies (IAM policies) for Amazon Route 53](access-control-managing-permissions.md "access-control-managing-permissions.md")
