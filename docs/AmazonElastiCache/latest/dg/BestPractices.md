@@ -15,6 +15,7 @@ your cache's performance and reliability.
 - [TLS enabled dual stack ElastiCache clusters](#network-type-configuring-tls-enabled-dual-stack "#network-type-configuring-tls-enabled-dual-stack")
 - [Managing reserved memory for Valkey and Redis OSS](redis-memory-management.md "redis-memory-management.md")
 - [Best practices when working with Valkey and Redis OSS node-based clusters](BestPractices.SelfDesigned.md "BestPractices.SelfDesigned.md")
+- [Caching database query results](caching-database-query-results.md "caching-database-query-results.md")
 - [Caching strategies for Memcached](Strategies.md "Strategies.md")
 
 ## TLS enabled dual stack ElastiCache clusters
