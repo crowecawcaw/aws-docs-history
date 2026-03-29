@@ -26,7 +26,7 @@ automated sensitive data discovery. If you're the Macie administrator for an org
 accounts that automated sensitive data discovery is currently disabled for. To display this data, choose
 **X** in the **Is monitored by automated discovery** filter
 token below the filter box. 3. Choose table (
-![The table view button, which is a button that displays three black horizontal lines.](/images/macie/latest/user/images/btn-s3-table-view.png)
+![The table view button, which is a button that displays three black horizontal lines.](images/btn-s3-table-view.png)
 ) at the top of the page. Macie displays the number of
 buckets in your inventory and a table of the buckets. 4. To retrieve the latest bucket metadata from Amazon S3, choose refresh (
 ![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
@@ -97,7 +97,7 @@ formats](discovery-supported-storage.md "discovery-supported-storage.md"). 6. To
     ![The zoom in icon, which is a magnifying glass that has a plus sign in it.](images/icon-magnifying-glass-plus-sign.png)
      in the field. To show buckets that have other values for a field,
      choose
-    ![The zoom out icon, which is a magnifying glass that has a minus sign in it.](images/icon-magnifying-glass-minus-sign.png)
+    ![The zoom out icon, which is a magnifying glass that has a minus sign in it.](/images/macie/latest/user/images/icon-magnifying-glass-minus-sign.png)
      in the field.
 
 7. To export data from the table to a CSV file, select the checkbox for each row to export,
