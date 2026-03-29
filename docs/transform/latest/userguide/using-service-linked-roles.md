@@ -126,3 +126,90 @@ information, see [AWS Regions and endpoints](../../../general/latest/gr/rande.md
 | --------------------- | --------------- | ------------------------ |
 | US East (N. Virginia) | us-east-1       | Yes                      |
 | Europe (Frankfurt)    | eu-central-1    | Yes                      |
+
+## Using service-linked roles for AWS Transform Custom
+
+AWS Transform Custom uses the service-linked role named **AWSServiceRoleForAWSTransformCustom** to
+publish metrics to your account on your behalf. These metrics let you monitor
+transformation counts, latencies, and status codes directly in your
+dashboards.
+
+This [service-linked role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") is predefined by AWS Transform Custom and includes only the permissions the
+service needs. You don't have to manually add any permissions, and the role can only be assumed
+by AWS Transform Custom. For general information about service-linked roles, see [Using service-linked roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md")
+in the _IAM User Guide_.
+
+### Service-linked role permissions for AWS Transform Custom
+
+The AWSServiceRoleForAWSTransformCustom service-linked role trusts the following services to assume the
+role:
+
+- `transform-custom.amazonaws.com`
+
+The role permissions policy named AWSServiceRoleForAWSTransformCustom allows AWS Transform Custom to complete the
+following actions on the specified resources:
+
+- `cloudwatch:PutMetricData` on all AWS resources
+  - Publish operational metrics to under the
+    `AWS/TransformCustom` namespace
+  - Track transformation counts, latencies, and status codes
+  - Scoped to the `AWS/TransformCustom` namespace via the
+    `cloudwatch:namespace` condition key
+
+You must configure permissions to allow your users, groups, or roles to create, edit, or
+delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
+_IAM User Guide_.
+
+### Creating a service-linked role for AWS Transform Custom
+
+You don't need to manually create a service-linked role. When you run a transformation
+using the AWS Transform Custom CLI, AWS Transform Custom creates the service-linked role for you.
+
+If you delete this service-linked role, and then need to create it again, you can use
+the same process to recreate the role in your account. When you run a transformation using
+the AWS Transform Custom CLI, AWS Transform Custom creates the service-linked role for you again.
+
+You can also use the IAM console to create a service-linked role with the
+**AWSServiceRoleForAWSTransformCustom** use case. In the AWS CLI or the AWS API,
+create a service-linked role with the `transform-custom.amazonaws.com` service
+name. For more information, see [Creating a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role") in the _IAM User Guide_. If
+you delete this service-linked role, you can use this same process to create the role
+again.
+
+### Editing a service-linked role for AWS Transform Custom
+
+AWS Transform Custom does not allow you to edit the AWSServiceRoleForAWSTransformCustom service-linked role. After you
+create a service-linked role, you cannot change the name of the role because various
+entities might reference the role. However, you can edit the description of the role using
+IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
+_IAM User Guide_.
+
+### Deleting a service-linked role for AWS Transform Custom
+
+If you no longer need to use a feature or service that requires a service-linked role,
+we recommend that you delete that role. That way you don't have an unused entity that is not
+actively monitored or maintained.
+
+The AWSServiceRoleForAWSTransformCustom service-linked role does not create persistent resources in your
+account. You can delete it directly without any resource cleanup.
+
+If you delete this role and later run a transformation using the AWS Transform Custom CLI, the
+service-linked role is automatically recreated.
+
+**To manually delete the service-linked role using
+IAM**
+
+Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForAWSTransformCustom
+service-linked role. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
+_IAM User Guide_.
+
+### Supported Regions for AWS Transform Custom service-linked roles
+
+AWS Transform Custom does not support using service-linked roles in every Region where the
+service is available. You can use the AWSServiceRoleForAWSTransformCustom role in the following Regions. For
+more information, see [AWS Regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").
+
+| Region name           | Region identity | Support in AWS Transform Custom |
+| --------------------- | --------------- | ------------------------------- |
+| US East (N. Virginia) | us-east-1       | Yes                             |
+| Europe (Frankfurt)    | eu-central-1    | Yes                             |

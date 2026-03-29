@@ -27,17 +27,18 @@ The following commands can be typed at the input prompt during an interactive se
 
 Execute a transformation definition on a code repository.
 
-| Option | Long Form                  | Parameter   | Description                                                              |
-| ------ | -------------------------- | ----------- | ------------------------------------------------------------------------ |
-| `-p`   | `--code-repository-path`   | `<path>`    | Path to the code repository to transform. For current directory, use "." |
-| `-c`   | `--build-command`          | `<command>` | Command to run when building repository                                  |
-| `-n`   | `--transformation-name`    | `<name>`    | Name of the transformation definition in the registry                    |
-| `-x`   | `--non-interactive`        | -           | Runs the transformation with no user assistance                          |
-| `-t`   | `--trust-all-tools`        | -           | Trusts all tools (no tool prompts)                                       |
-| `-d`   | `--do-not-learn`           | -           | Opt out of allowing knowledge item extraction from this execution        |
-| `-g`   | `--configuration`          | `<config>`  | Path to config file (JSON or YAML) or key=value pairs                    |
-| `--tv` | `--transformation-version` | `<version>` | Version of the transformation definition to use                          |
-| `-h`   | `--help`                   | -           | Display help for command                                                 |
+| Option    | Long Form                  | Parameter   | Description                                                                                                                                                                                                    |
+| --------- | -------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-p`      | `--code-repository-path`   | `<path>`    | Path to the code repository to transform. For current directory, use "."                                                                                                                                       |
+| `-c`      | `--build-command`          | `<command>` | Command to run when building repository                                                                                                                                                                        |
+| `-n`      | `--transformation-name`    | `<name>`    | Name of the transformation definition in the registry                                                                                                                                                          |
+| `-x`      | `--non-interactive`        | -           | Runs the transformation with no user assistance                                                                                                                                                                |
+| `-t`      | `--trust-all-tools`        | -           | Trusts all tools (no tool prompts)                                                                                                                                                                             |
+| `-d`      | `--do-not-learn`           | -           | Opt out of allowing knowledge item extraction from this execution                                                                                                                                              |
+| `-g`      | `--configuration`          | `<config>`  | Path to config file (JSON or YAML) or key=value pairs                                                                                                                                                          |
+| `--tv`    | `--transformation-version` | `<version>` | Version of the transformation definition to use                                                                                                                                                                |
+| `--limit` | `--limit`                  | `<limit>`   | Set [Agent Minutes](https://aws.amazon.com/transform/pricing/ "https://aws.amazon.com/transform/pricing/") budget limit. Transformation exits when limit is reached and can be resumed with an increased limit |
+| `-h`      | `--help`                   | -           | Display help for command                                                                                                                                                                                       |
 
 **atx custom def list**
 

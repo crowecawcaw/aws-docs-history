@@ -27,3 +27,4 @@ _of_ the cloud and security _in_ the cloud:
 - [Compliance validation for AWS Transform](compliance-validation.md "compliance-validation.md")
 - [Resilience in AWS Transform](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [AWS Transform and interface endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Accessing the AWS Transform WebApp from a VPC](vpc-webapp-access.md "vpc-webapp-access.md")

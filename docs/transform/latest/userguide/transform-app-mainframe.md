@@ -90,7 +90,7 @@ The supported file types for Fujitsu GS21 include:
 - ADL (AIM Definition Language)
 - NDB (Network Data Base)
 
-For more information about Fujitsu GS21 see these topics in the _AWS Blu Insights_ migration guide:
+For more information about Fujitsu GS21 see these topics in the _AWS Transform for mainframe_ migration guide:
 
 - [GS21](https://bluinsights.aws/docs/codebase-dependencies-languages-gs21 "https://bluinsights.aws/docs/codebase-dependencies-languages-gs21")
 - [Capture & Replay - GS21 Terminals](https://bluinsights.aws/docs/terminals-gs21 "https://bluinsights.aws/docs/terminals-gs21")

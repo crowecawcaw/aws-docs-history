@@ -52,7 +52,6 @@ If you encounter connection errors, verify network access to required endpoints:
 
 - `transform-cli.awsstatic.com`
 - `transform-custom.<region>.api.aws`
-- `*.s3.amazonaws.com`
 
 If working in an internet-restricted environment, update firewall rules to allowlist these URLs.
 

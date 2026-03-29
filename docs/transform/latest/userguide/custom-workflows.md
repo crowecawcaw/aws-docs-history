@@ -132,9 +132,27 @@ Agent minutes used: 12.50
 
 Agent minutes persist across interruptions. If you interrupt a session with Ctrl+C and resume it later, the previously accumulated minutes carry over and continue accumulating in the resumed session.
 
-**To check agent minutes during an interactive session:**
+**To check Agent Minutes during an interactive session:**
 
-Type `/usage` at the input prompt to display the current accumulated agent minutes without ending the conversation.
+Type `/usage` at the input prompt to display the current accumulated Agent Minutes without ending the conversation.
+
+**To set an Agent Minutes budget limit:**
+
+```
+atx custom def exec -n my-transformation -p ./my-project --limit 30
+```
+
+The `--limit` option sets a maximum [Agent Minutes](https://aws.amazon.com/transform/pricing/ "https://aws.amazon.com/transform/pricing/") budget for the session. Agent Minutes reflect active agent work time, not wall clock time. When the limit is reached, the CLI displays a message and exits with instructions to resume:
+
+```
+⚠️ Budget limit reached: 30.00 / 30.00 Agent Minutes. Exiting.
+```
+
+You can resume the conversation later with an increased limit:
+
+```
+atx --conversation-id <conversation_id> -t --limit <increased_limit>
+```
 
 ## Continual Learning
 

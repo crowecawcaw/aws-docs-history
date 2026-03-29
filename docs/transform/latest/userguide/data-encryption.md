@@ -266,6 +266,55 @@ addition to your default key policy to allow ECS to use your key.
   ]
 ```
 
+### Encryption for database migration
+
+During the database migration process, AWS Transform uses AWS Database Migration Service
+(DMS) to migrate your database data. You can optionally provide a customer managed key
+to encrypt your database data during migration.
+
+The following policy contains three statements. The first statement grants root
+account permissions for the AWS KMS key. The second statement allows the connector role
+to validate the key during discovery. The third statement allows the connector role to
+use the key for DMS operations.
+
+```
+ "Statement": [
+    {
+      "Sid": "Enable IAM User Permissions",
+      "Effect": "Allow",
+      "Principal": { "AWS": "arn:aws:iam::`111122223333`:root" },
+      "Action": "kms:*",
+      "Resource": "*"
+    },
+    {
+      "Sid": "Allow connector role to validate key during discovery",
+      "Effect": "Allow",
+      "Principal": { "AWS": "`connector-role-arn`" },
+      "Action": "kms:DescribeKey",
+      "Resource": "*"
+    },
+    {
+      "Sid": "Allow connector role to use key via DMS",
+      "Effect": "Allow",
+      "Principal": { "AWS": "`connector-role-arn`" },
+      "Action": [
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:Encrypt",
+        "kms:GenerateDataKey*",
+        "kms:ReEncrypt*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "kms:ViaService": "dms.`us-east-1`.amazonaws.com"
+        }
+      }
+    }
+  ]
+```
+
 ## Using customer managed KMS keys
 
 After creating a customer managed KMS key, an AWS Transform administrator must provide the
