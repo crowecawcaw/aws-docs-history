@@ -1115,7 +1115,7 @@ following changes occur:
 ### Example 6: Specifying resources with the `tags` block
 
 The following example includes all resources with the `tag_key` =
-`“env”` and and `tag_value` = `"prod"` and
+`“env”` and `tag_value` = `"prod"` or
 `"gamma"`. This example excludes resources with the
 `tag_key` = `"backup"` and the `tag_value` =
 `"false"`.
