@@ -27,9 +27,9 @@ sample data, so you do not need to create your own data.
 11. Choose **Next**.
 12. Review your inputs, then choose **Start run**.
 
-## Example prompts for Amazon Q CLI
+## Example prompts for Kiro CLI
 
-Amazon Q CLI can run genomic workflows and analysis tasks in AWS HealthOmics using natural language commands.
+Kiro CLI can run genomic workflows and analysis tasks in AWS HealthOmics using natural language commands.
 The following example prompts allow you to create workflows, manage runs, and analyze genomic data. For
 more information and example prompts for HealthOmics, see the
 [HealthOmics Agentic
@@ -42,7 +42,7 @@ generative AI tutorial](https://github.com/aws-samples/aws-healthomics-tutorials
 - "Package the workflow and create it in HealthOmics"
 - "Update the inputs.json file to use real files from my Amazon S3 bucket
   `omics-my-bucket-with-genome-data`" (Provide a specific Amazon S3 bucket location, or let
-  Amazon Q explore)
+  Kiro explore)
 - "Find suitable containers in my Amazon ECR repositories and update inputs.json to use these"
 - "Find or create a suitable IAM role to use when running the workflow"
 - "Create a run cache for my workflow"
@@ -51,6 +51,6 @@ generative AI tutorial](https://github.com/aws-samples/aws-healthomics-tutorials
 
 ###### Warning
 
-When working with Amazon Q CLI, review all generated content and proposed actions before proceeding.
+When working with Kiro CLI, review all generated content and proposed actions before proceeding.
 Provide feedback to improve response quality and to match your workflow’s requirements. For more information, see
-[Security considerations and best practices](../../../amazonq/latest/qdeveloper-ug/command-line-chat-security.md "../../../amazonq/latest/qdeveloper-ug/command-line-chat-security.md") for Amazon Q.
+[Security considerations and best practices](../../../kiro/latest/userguide/command-line-chat-security.md "../../../kiro/latest/userguide/command-line-chat-security.md") for Kiro.

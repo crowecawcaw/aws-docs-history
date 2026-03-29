@@ -157,6 +157,13 @@ You can access AWS HealthOmics features using the management console, CLI, SDKs 
 - AWS API – You can use API operations to access and manage HealthOmics programmatically. For more
   information, see the [HealthOmics API
   Reference](../api/Welcome.md "../api/Welcome.md").
+- Kiro Power for HealthOmics – A curated and pre-packaged MCP server with steering files and agent hooks
+  that gives the Kiro agent expertise in HealthOmics workflow creation and optimization. Download the HealthOmics Kiro Power
+  from [Kiro Powers](https://kiro.dev/powers/ "https://kiro.dev/powers/").
+- Kiro IDE extension for HealthOmics – Provides syntax highlighting, code completion, and troubleshooting
+  guidance for HealthOmics workflows, along with engine compatibility checking, performance optimization recommendations,
+  automated run analysis with failure diagnostics, and workflow import/export capabilities. Download the extension
+  from [Open VSX Registry](https://open-vsx.org/ "https://open-vsx.org/").
 
 ## Regions and endpoints for AWS HealthOmics
 

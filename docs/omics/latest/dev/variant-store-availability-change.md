@@ -21,7 +21,7 @@ For any questions or concerns, create a support case at
 
 The following migration options provide an alternative to using variant stores and annotation stores:
 
-1. Use the HealthOmics-provided reference implementation of ETL logic.
+1. Use the HealthOmics-provided [reference implementation of ETL logic](https://github.com/aws-samples/aws-healthomics-tutorials/tree/main/glue-variant-etl "https://github.com/aws-samples/aws-healthomics-tutorials/tree/main/glue-variant-etl") on GitHub.
 
 Use S3 table buckets for storage and continue to use existing AWS analytics services. 2. Create a solution using a combination of existing AWS services.
 
@@ -35,12 +35,10 @@ variant and annotation store alternative.
 
 Consider the following migration options for ETL logic:
 
-1. HealthOmics provides the current variant store ETL logic as a reference HealthOmics workflow. You
-   can use this workflow's engine to power exactly the same variant data ETL process as the variant store, but
-   with full control over the ETL logic.
-
-This reference workflow is available by request. To request access, create a support case at
-[support.console.aws.amazon.com.](https://support.console.aws.amazon.com "https://support.console.aws.amazon.com") 2. To transform variant data, you can write custom Glue ETL jobs, or use open-source HAIL or GLOW code on EMR.
+1. HealthOmics provides the source code for the variant store ETL pipeline as a reference implementation
+   on GitHub. You can use this pipeline to power the same variant data ETL process as the variant store, but
+   with full control over the ETL logic. For more information, see [Glue Variant ETL](https://github.com/aws-samples/aws-healthomics-tutorials/tree/main/glue-variant-etl "https://github.com/aws-samples/aws-healthomics-tutorials/tree/main/glue-variant-etl") on GitHub.
+2. To transform variant data, you can write custom Glue ETL jobs, or use open-source HAIL or GLOW code on EMR.
 
 ## Migration options for storage
 

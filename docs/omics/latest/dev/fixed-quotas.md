@@ -10,6 +10,7 @@ Unless otherwise noted, each quota lists the maximum value per-Region.
 - [HealthOmics analytics fixed size quotas](#fixed-quotas-analytics "#fixed-quotas-analytics")
 - [HealthOmics storage fixed size quotas](#fixed-quotas-storage "#fixed-quotas-storage")
 - [HealthOmics workflow fixed size quotas](#fixed-quotas-workflows "#fixed-quotas-workflows")
+- [HealthOmics batch quotas](#fixed-quotas-batch "#fixed-quotas-batch")
 - [HealthOmics Ready2Run workflow fixed size quotas](#fixed-quotas-r2r-workflows "#fixed-quotas-r2r-workflows")
 
 ## HealthOmics analytics fixed size quotas
@@ -60,9 +61,28 @@ These values aren't adjustable.
 | Workflows<br>• Repository size                                                    | The maximum size of an external code repository.                                                                                                                                                            | 1 GiB                 | No                |
 | Workflows<br>• Repository individual file size                                    | The maximum size of an individual file from an external code repository.                                                                                                                                    | 100 MiB               | No                |
 | Workflows<br>• README file size                                                   | The maximum size of a README file.                                                                                                                                                                          | 500 KiB               | No                |
+| Workflows<br>• Maximum configurations per account                                 | The maximum number of VPC configurations per account.                                                                                                                                                       | 10                    | No                |
+| Workflows<br>• Maximum security groups per configuration                          | The maximum number of security groups per VPC configuration.                                                                                                                                                | 5                     | No                |
+| Workflows<br>• Maximum subnets per configuration                                  | The maximum number of subnets per VPC configuration.                                                                                                                                                        | 16                    | No                |
+| Workflows<br>• Maximum subnets per Availability Zone                              | The maximum number of subnets per Availability Zone in a VPC configuration.                                                                                                                                 | 1                     | No                |
+| Workflows<br>• Elastic network interfaces per VPC configuration                   | The maximum number of elastic network interfaces (ENIs) per VPC configuration.                                                                                                                              | 5,000                 | No                |
 
 For suggestions on how to reduce the size of your run parameter file, see
 [Managing run parameters size](workflows-run-inputs.md#run-input-file-options "workflows-run-inputs.md#run-input-file-options").
+
+## HealthOmics batch quotas
+
+The following quotas apply to batch operations. These values are not adjustable.
+
+| Quota                                         | Value   |
+| --------------------------------------------- | ------- |
+| Maximum runs per batch                        | 100,000 |
+| Maximum inline run configurations per request | 100     |
+| Maximum S3 configuration file size            | 6 GB    |
+| StartRunBatch API throughput                  | 1 TPS   |
+| GetBatch API throughput                       | 10 TPS  |
+| CancelRunBatch API throughput                 | 10 TPS  |
+| ListRunsInBatch API throughput                | 10 TPS  |
 
 ## HealthOmics Ready2Run workflow fixed size quotas
 

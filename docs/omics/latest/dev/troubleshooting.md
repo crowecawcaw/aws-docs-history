@@ -8,7 +8,7 @@ stores.
 - [Troubleshooting workflows](#error-workflows "#error-workflows")
 - [Troubleshooting call caching issues](#workflow-cache-troubleshooting "#workflow-cache-troubleshooting")
 - [Troubleshooting data stores](#error-datastores "#error-datastores")
-- [Troubleshooting with Amazon Q CLI](#q-cli-troubleshooting "#q-cli-troubleshooting")
+- [Troubleshooting with Kiro CLI](#kiro-cli-troubleshooting "#kiro-cli-troubleshooting")
 
 ## Troubleshooting workflows
 
@@ -131,9 +131,9 @@ saying that access is denied, check which query engine version you're using. Onl
 queries run using engine version 3 are supported. To read more about Athena query engine
 versions, see the [Amazon Athena documentation](../../../athena/latest/ug/engine-versions-changing.md "../../../athena/latest/ug/engine-versions-changing.md").
 
-## Troubleshooting with Amazon Q CLI
+## Troubleshooting with Kiro CLI
 
-[Amazon Q CLI](../../../amazonq/latest/qdeveloper-ug/what-is.md "../../../amazonq/latest/qdeveloper-ug/what-is.md")
+[Kiro CLI](../../../kiro/latest/userguide/what-is.md "../../../kiro/latest/userguide/what-is.md")
 can help streamline your troubleshooting process by:
 
 - Analyzing workflow runs and debug task failures
@@ -141,12 +141,12 @@ can help streamline your troubleshooting process by:
 - Creating AWS Support cases with all necessary debugging logs attached
 - Redacts personal identifiable information (PII) from information submitted to AWS Support
 
-For more information about using Amazon Q CLI with AWS HealthOmics for troubleshooting and creating support
+For more information about using Kiro CLI with AWS HealthOmics for troubleshooting and creating support
 cases, see the [HealthOmics Agentic generative AI tutorial](https://github.com/aws-samples/aws-healthomics-tutorials/tree/main/generative-ai "https://github.com/aws-samples/aws-healthomics-tutorials/tree/main/generative-ai")
 on GitHub.
 
 ###### Warning
 
-When working with Amazon Q CLI, review all generated content and proposed actions before proceeding.
+When working with Kiro CLI, review all generated content and proposed actions before proceeding.
 Provide feedback to improve response quality and to match your workflow’s requirements. For more information, see
-[Security considerations and best practices](../../../amazonq/latest/qdeveloper-ug/command-line-chat-security.md "../../../amazonq/latest/qdeveloper-ug/command-line-chat-security.md") for Amazon Q.
+[Security considerations and best practices](../../../kiro/latest/userguide/command-line-chat-security.md "../../../kiro/latest/userguide/command-line-chat-security.md") for Kiro.

@@ -23,9 +23,9 @@ For data provenance purposes, we recommend that you use the **run uuid** to uniq
 runs. The **run uuid** is also the best identifier to link to your internal lab information
 management system (LIMs) or sample tracking system.
 
-You can use [Amazon Q CLI](../../../amazonq/latest/qdeveloper-ug/what-is.md "../../../amazonq/latest/qdeveloper-ug/what-is.md")
+You can use [Kiro CLI](../../../kiro/latest/userguide/what-is.md "../../../kiro/latest/userguide/what-is.md")
 to optimize your runs and analyze run performance. For more information, see
-[Example prompts for Amazon Q CLI](getting-started.md#omics-q-prompts "getting-started.md#omics-q-prompts") and the
+[Example prompts for Kiro CLI](getting-started.md#omics-kiro-prompts "getting-started.md#omics-kiro-prompts") and the
 [HealthOmics Agentic generative AI tutorial](https://github.com/aws-samples/aws-healthomics-tutorials/tree/main/generative-ai "https://github.com/aws-samples/aws-healthomics-tutorials/tree/main/generative-ai")
 on GitHub.
 

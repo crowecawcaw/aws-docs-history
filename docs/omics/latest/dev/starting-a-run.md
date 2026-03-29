@@ -31,6 +31,7 @@ For more information, see [Service roles for AWS HealthOmics](permissions-servic
 - [Starting a run using the console](#starting-a-run-console "#starting-a-run-console")
 - [Starting a run using the API](#starting-a-run-api "#starting-a-run-api")
 - [Get information about a run](#getinfo-about-runs "#getinfo-about-runs")
+- [VPC networking](#start-run-vpc-networking "#start-run-vpc-networking")
 
 ## HealthOmics run parameters
 
@@ -303,3 +304,22 @@ The following is an example of the manifest.
 ```
 
 Run metadata isn't deleted if it's not present in the CloudWatch logs.
+
+## VPC networking
+
+You can configure a run to use VPC networking, which allows runs to access resources over the public
+internet or private networks. Specify the networking mode and a configuration name when you start the
+run:
+
+```
+aws omics start-run \
+  --workflow-id `workflow-id` \
+  --role-arn `role-arn` \
+  --output-uri s3://`bucket-name`/`prefix`/ \
+  --networking-mode VPC \
+  --configuration-name `configuration-name` \
+  --region `region`
+```
+
+For more information, see
+[Connecting HealthOmics workflows to a VPC](workflows-vpc-networking.md "workflows-vpc-networking.md").

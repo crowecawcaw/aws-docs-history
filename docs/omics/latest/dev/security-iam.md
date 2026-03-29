@@ -14,6 +14,7 @@ use with no additional charge.
 - [Identity-based policy examples for AWS HealthOmics](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
 - [AWS managed policies for AWS HealthOmics](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [Troubleshooting AWS HealthOmics identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [Using service-linked roles for AWS HealthOmics](using-service-linked-roles.md "using-service-linked-roles.md")
 
 ## Audience
 

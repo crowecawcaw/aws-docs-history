@@ -17,9 +17,9 @@ You provide an IAM service role when you start a run. To use call caching, the s
 to access the run cache Amazon S3 location.
 For more information, see [Service roles for AWS HealthOmics](permissions-service.md "permissions-service.md").
 
-You can use [Amazon Q CLI](../../../amazonq/latest/qdeveloper-ug/what-is.md "../../../amazonq/latest/qdeveloper-ug/what-is.md")
+You can use [Kiro CLI](../../../kiro/latest/userguide/what-is.md "../../../kiro/latest/userguide/what-is.md")
 to analyze and manage your run cache data. For more information, see
-[Example prompts for Amazon Q CLI](getting-started.md#omics-q-prompts "getting-started.md#omics-q-prompts") and the
+[Example prompts for Kiro CLI](getting-started.md#omics-kiro-prompts "getting-started.md#omics-kiro-prompts") and the
 [HealthOmics Agentic generative AI tutorial](https://github.com/aws-samples/aws-healthomics-tutorials/tree/main/generative-ai "https://github.com/aws-samples/aws-healthomics-tutorials/tree/main/generative-ai")
 on GitHub.
 
