@@ -6,7 +6,7 @@ for Node.js. This runtime does not have any browser or framework included.
 The naming convention for these runtime versions is `syn-`language`
  -`majorversion`.`minorversion``.
 
-## syn-nodejs-4.0
+## syn-nodejs-4.1
 
 ###### Important
 
@@ -16,14 +16,30 @@ namespace will be deprecated in a future release.
 
 - @amzn/synthetics-core → @aws/synthetics-core
 
-**Major dependencies** – AWS Lambda runtime
-Node.js 22.x
+**Major dependencies**:
+
+- AWS Lambda runtime Node.js 22.x
+
+**Changes in syn-nodejs-4.1**
+
+- Upgrade `fast-xml-parser` to 5.5.7 to address the following CVEs:
+  - CVE-2026-25128
+  - CVE-2026-25896
+  - CVE-2026-26278
+  - CVE-2026-27942
+  - CVE-2026-33036
+
+The following earlier runtime versions for Node.js are still supported.
+
+### syn-nodejs-4.0
+
+**Major dependencies**:
+
+- AWS Lambda runtime Node.js 22.x
 
 **Changes in syn-nodejs-4.0**
 
 - Applied security patches.
-
-The following earlier runtime versions for Node.js are still supported.
 
 ### syn-nodejs-3.1
 
@@ -35,8 +51,9 @@ Legacy namespace will be deprecated in a future release.
 
 - @amzn/synthetics-core → @aws/synthetics-core
 
-**Major dependencies** – AWS Lambda runtime
-Node.js 20.x
+**Major dependencies**:
+
+- AWS Lambda runtime Node.js 20.x
 
 **Changes in syn-nodejs-3.1**
 

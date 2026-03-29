@@ -152,8 +152,7 @@ your application journey separately. For each step, CloudWatch Synthetics does t
 
 - Automatically captures a screenshot before step starts and after a step is
   complete. You can also capture screenshots inside a step. Screenshots are captured
-  by default, but can be turned off by using Synthetics configurations `(Todo:
-Link)`.
+  by default, but can be turned off by using Synthetics configurations.
 - A report, including a summary, of step execution details like the duration of a
   step, `pass` or `fail` status, source and destination page
   URLs, associated screenshots, etc. is created for each canary run. When you choose a

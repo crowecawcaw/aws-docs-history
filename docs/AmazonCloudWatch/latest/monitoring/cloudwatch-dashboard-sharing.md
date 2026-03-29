@@ -213,6 +213,7 @@ to the IAM role for dashboard sharing.
                 "logs:StartQuery",
                 "logs:StopQuery",
                 "logs:GetLogRecord",
+                "logs:GetQueryResults",
                 "logs:DescribeLogGroups"
             ],
             "Resource": [

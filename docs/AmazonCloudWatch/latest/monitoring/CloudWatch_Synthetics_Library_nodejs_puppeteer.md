@@ -62,10 +62,10 @@ For more information, see the following:
 - Chromium version 145.0.7632.77
 - Firefox version 147.0.4
 
-**Changes in syn-nodejs-puppeteer-14.0**
+**Changes in syn-nodejs-puppeteer-15.0**
 
 - Applied security patches and updated Puppeteer and browser versions.
-- Fixed bug in continueOnHttpStepFailure.
+- Fixed bug where continueOnHttpStepFailure was not being honored, causing canary runs to be incorrectly marked as successful despite HTTP step failures occurring.
 
 The following earlier runtime versions for Node.js and Puppeteer are still
 supported.

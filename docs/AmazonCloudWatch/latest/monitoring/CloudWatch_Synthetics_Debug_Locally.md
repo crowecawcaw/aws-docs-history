@@ -1507,6 +1507,48 @@ where it is available.
 
 ### Node.js runtimes
 
+The following table lists the ARNs to use for version `syn-nodejs-4.1`
+of the CloudWatch Synthetics runtime in each AWS Region where it is available.
+
+| Region                     | ARN                                                                                 |
+| -------------------------- | ----------------------------------------------------------------------------------- |
+| US East (N. Virginia)      | `arn:aws:lambda:us-east-1:378653112637:layer:AWS-CW-SyntheticsNodeJs:12`            |
+| US East (Ohio)             | `arn:aws:lambda:us-east-2:772927465453:layer:AWS-CW-SyntheticsNodeJs:12`            |
+| US West (N. California)    | `arn:aws:lambda:us-west-1:332033056316:layer:AWS-CW-SyntheticsNodeJs:12`            |
+| US West (Oregon)           | `arn:aws:lambda:us-west-2:760325925879:layer:AWS-CW-SyntheticsNodeJs:12`            |
+| Africa (Cape Town)         | `arn:aws:lambda:af-south-1:461844272066:layer:AWS-CW-SyntheticsNodeJs:12`           |
+| Asia Pacific (Hong Kong)   | `arn:aws:lambda:ap-east-1:129828061636:layer:AWS-CW-SyntheticsNodeJs:12`            |
+| Asia Pacific (Hyderabad)   | `arn:aws:lambda:ap-south-2:280298676434:layer:AWS-CW-SyntheticsNodeJs:12`           |
+| Asia Pacific (Jakarta)     | `arn:aws:lambda:ap-southeast-3:246953257743:layer:AWS-CW-SyntheticsNodeJs:12`       |
+| Asia Pacific (Malaysia)    | `arn:aws:lambda:ap-southeast-5:035872523913:layer:AWS-CW-SyntheticsNodeJs:12`       |
+| Asia Pacific (Melbourne)   | `arn:aws:lambda:ap-southeast-4:200724813040:layer:AWS-CW-SyntheticsNodeJs:12`       |
+| Asia Pacific (Mumbai)      | `arn:aws:lambda:ap-south-1:724929286329:layer:AWS-CW-SyntheticsNodeJs:12`           |
+| Asia Pacific (New Zealand) | `arn:aws:lambda:ap-southeast-6:779414629109:layer:AWS-CW-SyntheticsNodeJs:12`       |
+| Asia Pacific (Osaka)       | `arn:aws:lambda:ap-northeast-3:608016332111:layer:AWS-CW-SyntheticsNodeJs:12`       |
+| Asia Pacific (Seoul)       | `arn:aws:lambda:ap-northeast-2:989515803484:layer:AWS-CW-SyntheticsNodeJs:12`       |
+| Asia Pacific (Singapore)   | `arn:aws:lambda:ap-southeast-1:068035103298:layer:AWS-CW-SyntheticsNodeJs:12`       |
+| Asia Pacific (Sydney)      | `arn:aws:lambda:ap-southeast-2:584677157514:layer:AWS-CW-SyntheticsNodeJs:12`       |
+| Asia Pacific (Taipei)      | `arn:aws:lambda:ap-east-2:471112897378:layer:AWS-CW-SyntheticsNodeJs:12`            |
+| Asia Pacific (Thailand)    | `arn:aws:lambda:ap-southeast-7:851725245975:layer:AWS-CW-SyntheticsNodeJs:12`       |
+| Asia Pacific (Tokyo)       | `arn:aws:lambda:ap-northeast-1:172291836251:layer:AWS-CW-SyntheticsNodeJs:12`       |
+| Canada (Central)           | `arn:aws:lambda:ca-central-1:236629016841:layer:AWS-CW-SyntheticsNodeJs:12`         |
+| Canada West (Calgary)      | `arn:aws:lambda:ca-west-1:944448206667:layer:AWS-CW-SyntheticsNodeJs:12`            |
+| China (Beijing)            | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:AWS-CW-SyntheticsNodeJs:12`        |
+| China (Ningxia)            | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:AWS-CW-SyntheticsNodeJs:12`    |
+| Europe (Frankfurt)         | `arn:aws:lambda:eu-central-1:122305336817:layer:AWS-CW-SyntheticsNodeJs:12`         |
+| Europe (Ireland)           | `arn:aws:lambda:eu-west-1:563204233543:layer:AWS-CW-SyntheticsNodeJs:12`            |
+| Europe (London)            | `arn:aws:lambda:eu-west-2:565831452869:layer:AWS-CW-SyntheticsNodeJs:12`            |
+| Europe (Milan)             | `arn:aws:lambda:eu-south-1:525618516618:layer:AWS-CW-SyntheticsNodeJs:12`           |
+| Europe (Paris)             | `arn:aws:lambda:eu-west-3:469466506258:layer:AWS-CW-SyntheticsNodeJs:12`            |
+| Europe (Spain)             | `arn:aws:lambda:eu-south-2:029793053121:layer:AWS-CW-SyntheticsNodeJs:12`           |
+| Europe (Stockholm)         | `arn:aws:lambda:eu-north-1:162938142733:layer:AWS-CW-SyntheticsNodeJs:12`           |
+| Europe (Zurich)            | `arn:aws:lambda:eu-central-2:224218992030:layer:AWS-CW-SyntheticsNodeJs:12`         |
+| Israel (Tel Aviv)          | `arn:aws:lambda:il-central-1:313249807427:layer:AWS-CW-SyntheticsNodeJs:12`         |
+| Mexico (Central)           | `arn:aws:lambda:mx-central-1:654654265476:layer:AWS-CW-SyntheticsNodeJs:12`         |
+| South America (São Paulo)  | `arn:aws:lambda:sa-east-1:783765544751:layer:AWS-CW-SyntheticsNodeJs:12`            |
+| AWS GovCloud (US-East)     | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:AWS-CW-SyntheticsNodeJs:12` |
+| AWS GovCloud (US-West)     | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:AWS-CW-SyntheticsNodeJs:12` |
+
 The following table lists the ARNs to use for version `syn-nodejs-4.0`
 of the CloudWatch Synthetics runtimein each AWS Region where it is available.
 

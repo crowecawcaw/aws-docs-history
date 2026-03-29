@@ -345,6 +345,8 @@ time periods.
 
 - [Create a period-based SLO](#CloudWatch-ServiceLevelObjectives-Create-Period "#CloudWatch-ServiceLevelObjectives-Create-Period")
 - [Create a request-based SLO](#CloudWatch-ServiceLevelObjectives-Create-Request "#CloudWatch-ServiceLevelObjectives-Create-Request")
+- [Create an SLO on an app monitor](#CloudWatch-ServiceLevelObjectives-Create-AppMonitor "#CloudWatch-ServiceLevelObjectives-Create-AppMonitor")
+- [Create an SLO on a canary](#CloudWatch-ServiceLevelObjectives-Create-Canary "#CloudWatch-ServiceLevelObjectives-Create-Canary")
 
 ### Create a period-based SLO
 
@@ -581,6 +583,55 @@ If the application this SLO is related to is registered in AWS Service Catalog A
 you can use the `awsApplication` tag to associate this SLO with that application in AppRegistry. For more information,
 see [What is AppRegistry?](../../../servicecatalog/latest/arguide/intro-app-registry.md "../../../servicecatalog/latest/arguide/intro-app-registry.md") 12. Choose **Create SLO**. If you also chose to create one or more alarms,
 the button name changes to reflect this.
+
+### Create an SLO on an app monitor
+
+You can create SLOs to monitor the performance of your CloudWatch RUM app monitors. This allows you to track real user experience metrics and ensure your web and mobile applications meet performance goals. SLOs on app monitors use request-based evaluation, which measures the ratio of good requests to total requests.
+
+###### To create an SLO on an app monitor
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Service Level Objectives (SLO)**.
+3. Choose **Create SLO**.
+4. Enter a name for the SLO. Including the app monitor name and appropriate keywords will help you quickly identify what the SLO status indicates during triage.
+5. For **Set Service Level Indicator (SLI)**, choose **RUM AppMonitor**.
+6. Select the app monitor that this SLO will monitor from the dropdown list. The list shows the app monitor name along with the supported platform (Web, iOS, or Android).
+7. (Optional) Select a specific page or screen to monitor. If you don't select a page, the SLO will monitor all pages for the app monitor.
+8. For **Select metric**, choose the metric to use for the SLI. The available metrics depend on the platform:
+   - For web applications: `PerformanceNavigationDuration`, `JSErrorCount`, `Http4xxCount`, and `Http5xxCount`
+   - For mobile applications (iOS and Android): `ScreenLoadTime`, `CrashCount`, `Http4xxCount`, and `Http5xxCount`
+
+9. For **Set condition**, select a comparison operator and threshold for the SLO to use as the indicator of success.
+10. Set the **interval** and **attainment goal** for the SLO. For more information, see [SLO concepts](#CloudWatch-ServiceLevelObjectives-concepts "#CloudWatch-ServiceLevelObjectives-concepts").
+11. (Optional) Configure burn rates and alarms as needed. For more information, see [Calculate burn rates and optionally set burn rate alarms](#CloudWatch-ServiceLevelObjectives-burn "#CloudWatch-ServiceLevelObjectives-burn").
+12. (Optional) Set time window exclusions if needed.
+13. (Optional) Add tags to help organize and identify this SLO.
+14. Choose **Create SLO**.
+
+### Create an SLO on a canary
+
+You can create SLOs to monitor the performance of your CloudWatch Synthetics canaries. This allows you to track synthetic monitoring results and ensure your endpoints and APIs meet availability and performance goals. SLOs on canaries use period-based evaluation, where each canary run is treated as a discrete evaluation period.
+
+###### To create an SLO on a canary
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Service Level Objectives (SLO)**.
+3. Choose **Create SLO**.
+4. Enter a name for the SLO. Including the canary name and appropriate keywords will help you quickly identify what the SLO status indicates during triage.
+5. For **Set Service Level Indicator (SLI)**, choose **Synthetics Canary**.
+6. Select the canary that this SLO will monitor from the dropdown list.
+7. For **Select metric**, choose either `SuccessPercent` or `Duration`:
+   - `SuccessPercent` measures the percentage of successful canary runs
+   - `Duration` measures how long each canary run takes to complete
+
+8. For **Set condition**, select a comparison operator and threshold for the SLO to use as the indicator of success.
+9. Set the **interval** and **attainment goal** for the SLO. For more information, see [SLO concepts](#CloudWatch-ServiceLevelObjectives-concepts "#CloudWatch-ServiceLevelObjectives-concepts").
+10. (Optional) Configure burn rates and alarms as needed. For more information, see [Calculate burn rates and optionally set burn rate alarms](#CloudWatch-ServiceLevelObjectives-burn "#CloudWatch-ServiceLevelObjectives-burn").
+11. (Optional) Set time window exclusions if needed.
+12. (Optional) Add tags to help organize and identify this SLO.
+13. Choose **Create SLO**.
 
 ## Use SLO recommendations
 
