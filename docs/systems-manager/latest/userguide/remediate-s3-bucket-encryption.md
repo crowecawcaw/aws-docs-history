@@ -110,7 +110,7 @@ process can add permissions for Systems Manager to accept your CMK.
 4. Select the **Customize encryption settings (advanced)**
    check box.
 5. In the search (
-   ![The search icon](images/search-icon.png)
+   ![The search icon](/images/systems-manager/latest/userguide/images/search-icon.png)
    ) box, choose the ID of an existing key, or paste the
    ARN of an existing key.
 6. Choose **Save**.

@@ -266,8 +266,12 @@ as follows:
 
 The `updateinfo.xml` file might not be
 available if the repo isn't one managed by Red Hat. If there is no
-`updateinfo.xml` found, no patch will be
-applied. 2. Each update notice in `updateinfo.xml` includes
+`updateinfo.xml` found, whether
+patches are installed depend on settings for **Include
+non-security updates** and
+**Auto-approval**. For example, if non-security
+updates are permitted, they're installed when the auto-approval time
+arrives. 2. Each update notice in `updateinfo.xml` includes
 several attributes that denote the properties of the packages in the
 notice, as described in the following table.
 
