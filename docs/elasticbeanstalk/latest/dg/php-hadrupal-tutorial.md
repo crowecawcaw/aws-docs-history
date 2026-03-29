@@ -199,7 +199,7 @@ match the ones that Elastic Beanstalk configures when you provision a database w
 | `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration\*<br>• tab on the Amazon RDS console: **Master username\*\*.    |
 | `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                                 |
 
-![Environment properties configuration section with RDS properties added](images/environment-cfg-envprops-rds.png) 6. To save the changes choose **Apply** at the bottom of the page.
+![Environment properties configuration section with RDS properties added](/images/elasticbeanstalk/latest/dg/images/environment-cfg-envprops-rds.png) 6. To save the changes choose **Apply** at the bottom of the page.
 
 After installing Drupal, you need to connect to the instance with SSH to retrieve some configuration details. Assign an SSH key to your environment's
 instances.

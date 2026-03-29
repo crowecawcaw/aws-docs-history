@@ -85,7 +85,7 @@ For the **Traffic splitting** deployment policy you can configure the following:
 - **Traffic splitting evaluation time** – The time period, in minutes, that Elastic Beanstalk waits after an initial healthy deployment
   before proceeding to shift all incoming client traffic to the new application version that you're deploying.
 
-![Elastic Beanstalk application deployment configuration page](/images/elasticbeanstalk/latest/dg/images/environment-cfg-rollingdeployments.png)
+![Elastic Beanstalk application deployment configuration page](images/environment-cfg-rollingdeployments.png)
 
 The **Deployment preferences** section contains options related to health checks.
 

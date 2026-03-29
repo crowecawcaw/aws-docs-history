@@ -60,7 +60,7 @@ instance served, and load and CPU utilization information. The **Overall** row d
 entire environment.
 
 The page displays many details in a very wide table. To hide some of the columns, choose
-![the cog icon.](/images/elasticbeanstalk/latest/dg/images/cog.png)
+![the cog icon.](images/cog.png)
 (**Preferences**). Select or clear column names, and then choose **Confirm**.
 
 ![Selecting columns to display on the environment health page](images/enhanced-health-console-preferences.png)

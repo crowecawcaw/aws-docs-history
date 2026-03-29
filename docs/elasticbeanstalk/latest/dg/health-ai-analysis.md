@@ -20,6 +20,13 @@ Before using AI analysis, ensure that your environment meets the following requi
 
 - Environment running a [supported platform version](#health-ai-analysis-supported-platforms "#health-ai-analysis-supported-platforms")
 - [Instance profile](iam-instanceprofile.md "iam-instanceprofile.md") with required permissions (see [Required permissions](#health-ai-analysis-permissions "#health-ai-analysis-permissions") below)
+- **Anthropic use case details** – AI analysis uses Anthropic Claude models through Amazon Bedrock. Anthropic
+  requires a one-time use case details form submission before you can invoke their models. Submit this form by selecting any Anthropic model from the
+  model catalog in the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock/ "https://console.aws.amazon.com/bedrock/"), or by calling the
+  [`PutUseCaseForModelAccess`](../../../bedrock/latest/APIReference/API_PutUseCaseForModelAccess.md "../../../bedrock/latest/APIReference/API_PutUseCaseForModelAccess.md")
+  API. This only needs to be done once per AWS account. If submitted from the AWS Organizations management account, it automatically applies to all
+  member accounts in the organization. For more information, see
+  [Access Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access.md "../../../bedrock/latest/userguide/model-access.md").
 - **GovCloud regions** – If you are using AWS GovCloud (US) regions, you must enable access to the latest
   Anthropic Claude Sonnet and/or Opus model in Amazon Bedrock before using AI analysis. For instructions on enabling model access in GovCloud regions, see
   [Manage access to Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access.md#model-access-govcloud "../../../bedrock/latest/userguide/model-access.md#model-access-govcloud").
