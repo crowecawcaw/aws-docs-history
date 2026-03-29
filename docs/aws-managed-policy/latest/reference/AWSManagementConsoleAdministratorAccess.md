@@ -12,13 +12,13 @@ You can attach `AWSManagementConsoleAdministratorAccess` to your users, groups, 
 
 - **Type**: Job function policy
 - **Creation time**: August 14, 2025, 21:19 UTC
-- **Edited time:** February 12, 2026, 18:01 UTC
+- **Edited time:** March 23, 2026, 16:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/job-function/AWSManagementConsoleAdministratorAccess`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -35,6 +35,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "uxc:GetAccountColor",
         "uxc:PutAccountColor",
         "uxc:DeleteAccountColor",
+        "uxc:GetAccountCustomizations",
+        "uxc:UpdateAccountCustomizations",
+        "uxc:ListServices",
         "ec2:DescribeRegions",
         "notifications:GetFeatureOptInStatus",
         "notifications:AssociateChannel",

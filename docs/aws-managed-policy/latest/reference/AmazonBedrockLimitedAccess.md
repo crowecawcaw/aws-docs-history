@@ -12,13 +12,13 @@ You can attach `AmazonBedrockLimitedAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: June 29, 2025, 22:22 UTC
-- **Edited time:** February 12, 2026, 17:58 UTC
+- **Edited time:** March 23, 2026, 19:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonBedrockLimitedAccess`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -37,6 +37,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "bedrock:List*",
         "bedrock:CallWithBearerToken",
         "bedrock:BatchDeleteEvaluationJob",
+        "bedrock:CancelAutomatedReasoningPolicyBuildWorkflow",
+        "bedrock:CreateAutomatedReasoningPolicy",
+        "bedrock:CreateAutomatedReasoningPolicyTestCase",
+        "bedrock:CreateAutomatedReasoningPolicyVersion",
         "bedrock:CreateEvaluationJob",
         "bedrock:CreateGuardrail",
         "bedrock:CreateGuardrailVersion",
@@ -47,20 +51,30 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "bedrock:CreateModelInvocationJob",
         "bedrock:CreatePromptRouter",
         "bedrock:CreateProvisionedModelThroughput",
+        "bedrock:DeleteAutomatedReasoningPolicy",
+        "bedrock:DeleteAutomatedReasoningPolicyBuildWorkflow",
+        "bedrock:DeleteAutomatedReasoningPolicyTestCase",
         "bedrock:DeleteCustomModel",
         "bedrock:DeleteGuardrail",
         "bedrock:DeleteImportedModel",
         "bedrock:DeleteInferenceProfile",
         "bedrock:DeletePromptRouter",
         "bedrock:DeleteProvisionedModelThroughput",
+        "bedrock:ExportAutomatedReasoningPolicyVersion",
+        "bedrock:StartAutomatedReasoningPolicyBuildWorkflow",
+        "bedrock:StartAutomatedReasoningPolicyTestWorkflow",
         "bedrock:StopEvaluationJob",
         "bedrock:StopModelCustomizationJob",
         "bedrock:StopModelInvocationJob",
         "bedrock:TagResource",
         "bedrock:UntagResource",
+        "bedrock:UpdateAutomatedReasoningPolicy",
+        "bedrock:UpdateAutomatedReasoningPolicyAnnotations",
+        "bedrock:UpdateAutomatedReasoningPolicyTestCase",
         "bedrock:UpdateGuardrail",
         "bedrock:UpdateProvisionedModelThroughput",
         "bedrock:ApplyGuardrail",
+        "bedrock:InvokeAutomatedReasoningPolicy",
         "bedrock:InvokeModel",
         "bedrock:InvokeModelWithResponseStream"
       ],
