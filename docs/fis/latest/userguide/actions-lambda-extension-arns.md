@@ -8,6 +8,7 @@ You can view AWS Region and ARN details below.
 
 - [AWS FIS Lambda extension release notes](#extension-release-notes "#extension-release-notes")
 - [Access Guide for Lambda Extension ARNs](#extension-arns-access-guide "#extension-arns-access-guide")
+- [Finding your Lambda extension version number](#extension-version-find "#extension-version-find")
 
 ## AWS FIS Lambda extension release notes
 
@@ -93,3 +94,17 @@ public parameters using common IaC platforms:
 - [Get public parameters using the AWS SDK](../../../systems-manager/latest/APIReference/API_GetParameter.md "../../../systems-manager/latest/APIReference/API_GetParameter.md")
 - [Get public parameters from AWS Systems Manager Parameter Store using the AWS CDK](../../../cdk/v2/guide/get-ssm-value.md "../../../cdk/v2/guide/get-ssm-value.md")
 - [Get public parameters using Terraform](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter")
+
+## Finding your Lambda extension version number
+
+Use the following procedure to locate the version number of your currently configured AWS FIS Lambda extension.
+
+1. Open the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
+2. Choose the Lambda function where you want to add the `AWS-FIS-Extension` layer.
+3. In the **Layers** section, choose **Edit**.
+4. In the **Edit layers** section, choose **Add a layer**.
+5. In the **Choose a layer** section, choose **Specify an ARN**.
+6. Enter the ARN for the AWS FIS extension layer that corresponds to your AWS Region and architecture. You can find the ARN using the console, AWS CLI, or programmatic access methods described in the preceding sections.
+7. Choose **Verify** to confirm the layer ARN is valid, then choose **Add**.
+8. Use the **Test** tab to test the function.
+9. After the test completes, view the log output. Locate the AWS FIS Lambda extension version in the **Details of the Execution** section.
