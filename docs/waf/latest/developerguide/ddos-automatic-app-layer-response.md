@@ -5,6 +5,16 @@ For more details, see [Working with the console](working-with-console.md "workin
 
 # Automating application layer DDoS mitigation with Shield Advanced
 
+###### Note
+
+Starting March 26, 2026, the Anti-DDoS Managed Rule Group (Anti-DDOS AMR) for AWS WAF becomes the
+default solution for protection against HTTP request flood attacks (see the [Anti-DDoS AMR launch blog](https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-the-aws-waf-application-layer-ddos-protection/ "https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-the-aws-waf-application-layer-ddos-protection/")). It supersedes the Layer 7 Auto Mitigation
+(L7AM) feature. If you're an existing Shield Advanced customer, you can continue to use the
+legacy solution with existing or new AWS accounts. However, we encourage you to adopt
+the Anti-DDoS Managed Rule Group. The Anti-DDoS Managed Rule Group detects and mitigates attacks
+within seconds rather than minutes. If you're a new Shield Advanced customer and require access
+to the legacy solution, contact AWS Support.
+
 This page introduces the topic of automatic application layer DDoS mitigation and lists associated caveats.
 
 You can configure Shield Advanced to respond automatically to mitigate application layer (layer 7)

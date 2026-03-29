@@ -26,7 +26,7 @@ can [request an increase](https://console.aws.amazon.com/servicequotas/home/serv
 | Maximum number of custom response headers per protection pack (web ACL) or rule group  | 100                                  |
 | Maximum number of custom response bodies per protection pack (web ACL) or rule group   | 50                                   |
 | Maximum number of token domains in a protection pack (web ACL) token domain list       | 10                                   |
-| Maximum number of regex sets                                                           | 10                                   |
+| Maximum number of regex pattern sets                                                   | 10                                   |
 | Maximum number of Application Load Balancer associations per protection pack (web ACL) | 100                                  |
 
 The maximum requests per second (RPS) allowed for AWS WAF on CloudFront is set by CloudFront and
@@ -48,7 +48,7 @@ quotas can't be changed.
 | Maximum number of unique IP addresses that can be rate limited per rate-based rule                                                                                                         | 10,000                       |
 | Maximum number of characters in a string match statement                                                                                                                                   | 200                          |
 | Maximum number of characters in each regex pattern                                                                                                                                         | 200                          |
-| Maximum number of unique regex patterns per regex set                                                                                                                                      | 10                           |
+| Maximum number of unique regex patterns per regex pattern set                                                                                                                              | 10                           |
 | Maximum size of a web request body that can be inspected for Application Load Balancer and AWS AppSync protections                                                                         | 8 KB                         |
 | Maximum size of a web request body that can be inspected for CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access<br>protections\*\*                                   | 64 KB                        |
 | Maximum number of text transformations per rule statement                                                                                                                                  | 10                           |
