@@ -26,6 +26,7 @@ When enabling catalog-level optimizers, consider the following:
   catalog-level change. However, tables without their own optimizer configurations will
   inherit the disabled state from the catalog level.
 - Since snapshot retention and orphan file deletion optimizers can be schedule-based, updates will introduce a random delay to the start of their schedule. This will cause each optimizer to start at slightly different times, spreading out the load and reducing the likelihood of exceeding service limits.
+- Catalog-level optimizer settings are not automatically inherited by tables when AWS Glue Data Catalog encryption is enabled. If your catalog has metadata encryption enabled, you must configure table optimizers individually for each table. To use catalog-level optimizer inheritance, metadata encryption must be disabled on the catalog.
 
 ###### Topics
 
