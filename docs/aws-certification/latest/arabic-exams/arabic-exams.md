@@ -4,7 +4,7 @@ AWS Certification exams are available in Arabic for candidates who prefer to tak
 
 ## AWS Certified Cloud Practitioner (Arabic)
 
-The [AWS Certified Cloud Practitioner (CLF-C02)](https://aws.amazon.com/ar/certification/ "https://aws.amazon.com/ar/certification/") exam is available in Arabic for candidates who prefer to take the exam in Arabic.
+The [AWS Certified Cloud Practitioner (CLF-C02)](https://aws.amazon.com/certification/certified-cloud-practitioner/ "https://aws.amazon.com/certification/certified-cloud-practitioner/") exam is available in Arabic for candidates who prefer to take the exam in Arabic.
 
 The complete exam guide in Arabic (PDF format) is available here:
 
@@ -22,7 +22,7 @@ For the English version of the exam guide, see [AWS Certified Cloud Practitioner
 
 ## AWS Certified AI Practitioner (Arabic)
 
-The [AWS Certified AI Practitioner (AIF-C01)](https://aws.amazon.com/ar/certification/ "https://aws.amazon.com/ar/certification/") exam is available in Arabic for candidates who prefer to take the exam in Arabic.
+The [AWS Certified AI Practitioner (AIF-C01)](https://aws.amazon.com/certification/certified-ai-practitioner/ "https://aws.amazon.com/certification/certified-ai-practitioner/") exam is available in Arabic for candidates who prefer to take the exam in Arabic.
 
 The complete exam guide in Arabic (PDF format) is available here:
 
