@@ -42,7 +42,7 @@ GitHub.
 Follow the instructions in [Create a queue](../userguide/create-queue.md "../userguide/create-queue.md") in the
 _Deadline Cloud User Guide_. Make the following changes:
 
-- In step 5, choose an existing S3 bucket. Specify a root folder name such as
+- In step 5, choose an existing Amazon S3 bucket. Specify a root folder name such as
   `DeadlineCloudPackageBuild` so that build artifacts stay
   separate from your normal Deadline Cloud attachments.
 - In step 6, you can associate the package building queue with an existing fleet,
@@ -54,7 +54,7 @@ _Deadline Cloud User Guide_. Make the following changes:
 ### Configure the package building queue permissions
 
 To allow the package building queue to access the `/Conda` prefix in
-the queue's S3 bucket, you must modify the queue's role to give it read/write access.
+the queue's Amazon S3 bucket, you must modify the queue's role to give it read/write access.
 The role needs the following permissions so that package build jobs can upload new
 packages and reindex the channel.
 

@@ -4,8 +4,8 @@ If your jobs need to run applications not available on the
 [`deadline-cloud`](../userguide/create-queue-environment.md#conda-queue-environment "../userguide/create-queue-environment.md#conda-queue-environment") or [`conda-forge`](https://conda-forge.org/ "https://conda-forge.org/") channels, you can
 host a custom conda channel to serve your own packages. When you create a
 queue in the AWS Deadline Cloud (Deadline Cloud) console, the console adds a
-conda queue environment by default. To enable your custom channel, add it to
-the channel list in the queue environment.
+conda queue environment by default. To make your packages available to jobs, add
+the custom channel to the queue environment.
 
 A conda channel is static hosted content that you can host in [a variety of ways](https://rattler-build.prefix.dev/latest/publish/ "https://rattler-build.prefix.dev/latest/publish/"), including on a filesystem or in an Amazon Simple Storage Service (Amazon S3) bucket. If
 your Deadline Cloud farm uses a shared filesystem for assets, you can use any path on it as a
@@ -86,7 +86,7 @@ To use the S3 conda channel, you need to add the
 provided with Deadline Cloud provide fields to specify custom conda channels and package.
 
 You can avoid modifying every job by editing the conda queue environment for your
-production queue. For a service-managed queue, use the following procedure:
+production queue. Use the following procedure:
 
 1. Open the Deadline Cloud console and navigate to the queue details page for the production
    queue.

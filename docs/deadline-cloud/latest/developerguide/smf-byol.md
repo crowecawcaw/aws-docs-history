@@ -134,10 +134,10 @@ environment:
  type: TEXT
  runnable: True
  data: |
- curl https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm -Ls | rpm2cpio - | cpio -iv --to-stdout ./usr/local/sessionmanagerplugin/bin/session-manager-plugin > {{Session.WorkingDirectory}}/session-manager-plugin
- chmod +x {{Session.WorkingDirectory}}/session-manager-plugin
+ curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/windows/SessionManagerPlugin.zip" -o "{{Session.WorkingDirectory}}/ssm-plugin.zip"
+ powershell -Command "Expand-Archive -Path '{{Session.WorkingDirectory}}/ssm-plugin.zip' -DestinationPath '{{Session.WorkingDirectory}}/ssm-plugin' -Force; Expand-Archive -Path '{{Session.WorkingDirectory}}/ssm-plugin/package.zip' -DestinationPath '{{Session.WorkingDirectory}}/ssm-plugin/package' -Force"
  conda activate
- python {{Env.File.StartSession}} {{Session.WorkingDirectory}}/session-manager-plugin
+ python "{{Env.File.StartSession}}" "{{Session.WorkingDirectory}}/ssm-plugin/package/bin/session-manager-plugin.exe"
  - name: Exit
  type: TEXT
  runnable: True

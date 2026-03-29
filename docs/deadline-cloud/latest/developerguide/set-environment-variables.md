@@ -1,185 +1,251 @@
 # Set environment variables in a queue environment
 
-[Open Job Description (OpenJD) environments](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment") can set environment variables that every
-task command within their scope uses. Many applications and frameworks check for environment
-variables to control feature settings, logging level, and more.
+Many applications and frameworks use environment variables to control feature settings,
+logging levels, and display configuration. You can use [Open Job Description (OpenJD) environments](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment") to set environment variables that every
+task command within their scope inherits.
 
-For example, the [Qt Framework](https://www.qt.io/product/framework "https://www.qt.io/product/framework")
-provides GUI functionality for many desktop applications. When you run these applications on a
-worker host without an interactive display, you may need to set the environment variable
-`QT_QPA_PLATFORM` to `offscreen` so the worker doesn’t look for a
-display.
+## Environment variable scope
 
-In this example, you'll use a sample job bundle from the Deadline Cloud samples directory to set
-and view the environment variables for a job.
+AWS Deadline Cloud applies environment variables from queue environments that you attach to a
+queue. Within a job template, you can also define environment variables at the job and step
+levels using [OpenJD environments](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment"). Variables defined at a narrower scope override variables
+with the same name from a broader scope.
 
-## Prerequisites
+- **Queue environment** – A template that you
+  attach to a queue in Deadline Cloud. Variables apply to all jobs submitted to the queue. You
+  can set variables with a `variables` map for fixed values, or use scripts
+  for dynamic values.
+- **Job environment** – Defined under
+  `jobEnvironments` in a job template. Variables apply to all steps and tasks
+  in the job. A job-level variable overrides a queue-level variable with the same
+  name.
+- **Step environment** – Defined under
+  `stepEnvironments` in a job template. Variables apply only to the tasks in
+  that step. A step-level variable overrides a job-level or queue-level variable with the
+  same name.
 
-Perform the following steps to run the [sample job bundle with environment variables](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml") from the Deadline Cloud samples github
-repository.
+## Setting variables in a queue environment
 
-1. If you do not have a Deadline Cloud farm with a queue and associated Linux fleet, follow the
-   guided onboarding experience in the [Deadline Cloud console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home") to
-   create one with default settings.
-2. If you do not have the Deadline Cloud CLI and Deadline Cloud monitor on your workstation, follow the
-   steps in [Set
-   up Deadline Cloud submitters](../userguide/submitter.md "../userguide/submitter.md") from the user guide.
+You can set environment variables in a queue environment using a
+`variables` map for fixed values, or using a `script` with an
+`onEnter` action for dynamic values.
+
+The following queue environment template uses a `variables` map to set the
+`QT_QPA_PLATFORM` variable to `offscreen`, which allows applications
+that use the [Qt Framework](https://www.qt.io/product/framework "https://www.qt.io/product/framework") to run
+on worker hosts without an interactive display.
+
+```
+specificationVersion: 'environment-2023-09'
+environment:
+  name: QtOffscreen
+  variables:
+    QT_QPA_PLATFORM: offscreen
+```
+
+For dynamic values, such as modifying `PATH` or activating virtual
+environments, use a script that prints lines in the format
+`openjd_env: `VAR`=`value`` to stdout. The`openjd_env:`prefix is required. Using`echo`,
+ `export`, or other shell mechanisms without the prefix does not propagate
+variables to jobs and tasks.
+
+The following queue environment template sets the `QT_QPA_PLATFORM`
+variable using a script.
+
+```
+specificationVersion: 'environment-2023-09'
+environment:
+  name: QtOffscreen
+  script:
+    actions:
+      onEnter:
+        command: bash
+        args:
+        - "{{Env.File.Enter}}"
+    embeddedFiles:
+    - name: Enter
+      type: TEXT
+      data: |
+        #!/bin/env bash
+        set -euo pipefail
+        echo "openjd_env: QT_QPA_PLATFORM=offscreen"
+```
+
+To attach a queue environment to your queue, use the Deadline Cloud console or the AWS CLI. For
+more information, see [Create a queue
+environment](../userguide/create-queue-environment.md "../userguide/create-queue-environment.md") in the AWS Deadline Cloud User Guide. The following AWS CLI command creates a
+queue environment from a template file.
+
+```
+aws deadline create-queue-environment \
+    --farm-id `FARM_ID` \
+    --queue-id `QUEUE_ID` \
+    --priority 1 \
+    --template-type YAML \
+    --template file://`my-queue-env.yaml`
+```
+
+For more complex examples, such as creating and activating conda virtual environments,
+see the [Deadline Cloud queue environment samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments") on GitHub.
+
+## Setting variables in a job template
+
+In a job template, add a `variables` map to a `jobEnvironments`
+or `stepEnvironments` entry. Each entry is a key-value pair where the key is the
+variable name and the value is the variable value.
+
+The following job template sets the `QT_QPA_PLATFORM` environment variable
+to `offscreen`, which allows applications that use the [Qt Framework](https://www.qt.io/product/framework "https://www.qt.io/product/framework") to run on worker hosts
+without an interactive display.
+
+```
+specificationVersion: 'jobtemplate-2023-09'
+name: MyJob
+jobEnvironments:
+- name: JobEnv
+  variables:
+    QT_QPA_PLATFORM: offscreen
+```
+
+You can set multiple variables in a single environment definition.
+
+```
+jobEnvironments:
+- name: JobEnv
+  variables:
+    JOB_VERBOSITY: MEDIUM
+    JOB_PROJECT_ID: `my-project-id`
+    JOB_ENDPOINT_URL: `https://my-host-name/my/path`
+    QT_QPA_PLATFORM: offscreen
+```
+
+You can reference job parameters in variable values by using the
+`{{Param.`ParameterName`}}` syntax.
+
+```
+jobEnvironments:
+- name: JobEnv
+  variables:
+    JOB_EXAMPLE_PARAM: "{{Param.ExampleParam}}"
+```
+
+To override a job-level variable for a specific step, define a
+`stepEnvironments` entry with the same variable name. The following example
+defines `JOB_PROJECT_ID` at the job level with the value
+`project-12`, and then overrides the value at the step level with
+`step-project-12`. Tasks in the step use the step-level value.
+
+```
+specificationVersion: 'jobtemplate-2023-09'
+name: MyJob
+jobEnvironments:
+- name: JobEnv
+  variables:
+    JOB_PROJECT_ID: project-12
+steps:
+- name: MyStep
+  stepEnvironments:
+  - name: StepEnv
+    variables:
+      JOB_PROJECT_ID: step-project-12
+```
+
+## Try it: Running the environment variable sample
+
+The Deadline Cloud samples repository includes a [job bundle that demonstrates setting and viewing environment variables](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml"). The
+sample job template defines variables at both the job and step levels, then runs a task
+that prints the merged result. Use the following procedure to run the sample and inspect
+the results.
+
+### Prerequisites
+
+1. If you do not have a Deadline Cloud farm with a queue and associated Linux fleet, follow
+   the guided onboarding experience in the [Deadline Cloud console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home") to create one with default
+   settings.
+2. If you do not have the Deadline Cloud CLI and AWS Deadline Cloud monitor on your workstation, follow the
+   steps in [Set up Deadline Cloud
+   submitters](../userguide/submitter.md "../userguide/submitter.md").
 3. Use `git` to clone the [Deadline Cloud samples GitHub
    repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples").
 
 ```
 git clone https://github.com/aws-deadline/deadline-cloud-samples.git
- `Cloning into 'deadline-cloud-samples'...
- ...`
 cd deadline-cloud-samples/job_bundles
 ```
 
-## Run the environment variable sample
+### Running the sample
 
 1. Use the Deadline Cloud CLI to submit the `job_env_vars` sample.
 
 ```
 deadline bundle submit job_env_vars
- `Submitting to Queue: MySampleQueue
- ...`
 ```
 
-2. In the Deadline Cloud monitor, you can see the new job and monitor its progress. After the
-   Linux fleet associated with the queue has a worker available to run the job’s task,
-   the job completes in a few seconds. Select the task, then choose the **View
-   logs** option in the top right menu of the tasks panel.
+2. In the Deadline Cloud monitor, select the new job to monitor its progress. After the Linux
+   fleet associated with the queue has a worker available, the job completes in a few
+   seconds. Select the task, then choose **View logs** in the top right
+   menu of the tasks panel.
 
-On the right are three session actions, **Launch JobEnv**,
-**Launch StepEnv**, and **Task run**. The log view
-in the center of the window corresponds to the selected session action on the right.
+### Comparing session actions with their definitions
 
-## Compare the session actions with their definitions
+The log view shows three session actions. Open the file [job_env_vars/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml") in a text editor to compare each action with its
+definition in the job template.
 
-In this section you use the Deadline Cloud monitor to compare the session actions with where they
-are defined in the job template. It continues from the previous section.
-
-Open the file [job_env_vars/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml") in a text editor. This is the job template that
-defines the session actions.
-
-1. Select the **Launch JobEnv** session action in Deadline Cloud monitor. You
-   will see the following log output.
+1. Select the **Launch JobEnv** session action. The log output
+   shows the job-level environment variables being set.
 
 ```
- 024/07/16 16:18:27-07:00
- 2024/07/16 16:18:27-07:00 ==============================================
- 2024/07/16 16:18:27-07:00 --------- Entering Environment: JobEnv
- 2024/07/16 16:18:27-07:00 ==============================================
- 2024/07/16 16:18:27-07:00 Setting: JOB_VERBOSITY=MEDIUM
- 2024/07/16 16:18:27-07:00 Setting: JOB_EXAMPLE_PARAM=An example parameter value
- 2024/07/16 16:18:27-07:00 Setting: JOB_PROJECT_ID=project-12
- 2024/07/16 16:18:27-07:00 Setting: JOB_ENDPOINT_URL=https://internal-host-name/some/path
- 2024/07/16 16:18:27-07:00 Setting: QT_QPA_PLATFORM=offscreen
+Setting: JOB_VERBOSITY=MEDIUM
+Setting: JOB_EXAMPLE_PARAM=An example parameter value
+Setting: JOB_PROJECT_ID=project-12
+Setting: JOB_ENDPOINT_URL=https://internal-host-name/some/path
+Setting: QT_QPA_PLATFORM=offscreen
 ```
 
-The following lines from the job template specified this action.
+The following lines from the job template define this environment.
 
 ```
 jobEnvironments:
- - name: JobEnv
-   description: Job environments apply to everything in the job.
-   variables:
-     # When applications have options as environment variables, you can set them here.
-     JOB_VERBOSITY: MEDIUM
-     # You can use the value of job parameters when setting environment variables.
-     JOB_EXAMPLE_PARAM: "{{Param.ExampleParam}}"
-     # Some more ideas.
-     JOB_PROJECT_ID: project-12
-     JOB_ENDPOINT_URL: https://internal-host-name/some/path
-     # This variable lets applications using the Qt Framework run without a display
-     QT_QPA_PLATFORM: offscreen
+- name: JobEnv
+  variables:
+    JOB_VERBOSITY: MEDIUM
+    JOB_EXAMPLE_PARAM: "{{Param.ExampleParam}}"
+    JOB_PROJECT_ID: project-12
+    JOB_ENDPOINT_URL: https://internal-host-name/some/path
+    QT_QPA_PLATFORM: offscreen
 ```
 
-2. Select the **Launch StepEnv** session action in Deadline Cloud monitor. You
-   will see the following log output.
+2. Select the **Launch StepEnv** session action. The log output
+   shows the step-level variables, including the overridden
+   `JOB_PROJECT_ID`.
 
 ```
- 2024/07/16 16:18:27-07:00
- 2024/07/16 16:18:27-07:00 ==============================================
- 2024/07/16 16:18:27-07:00 --------- Entering Environment: StepEnv
- 2024/07/16 16:18:27-07:00 ==============================================
- 2024/07/16 16:18:27-07:00 Setting: STEP_VERBOSITY=HIGH
- 2024/07/16 16:18:27-07:00 Setting: JOB_PROJECT_ID=step-project-12
+Setting: STEP_VERBOSITY=HIGH
+Setting: JOB_PROJECT_ID=step-project-12
 ```
 
-The following lines from the job template specified this action.
+The following lines from the job template define this environment.
 
 ```
-   stepEnvironments:
-   - name: StepEnv
-     description: Step environments apply to all the tasks in the step.
-     variables:
-       # These environment variables are only set within this step, not other steps.
-       STEP_VERBOSITY: HIGH
-       # Replace a variable value defined at the job level.
-       JOB_PROJECT_ID: step-project-12
+stepEnvironments:
+- name: StepEnv
+  variables:
+    STEP_VERBOSITY: HIGH
+    JOB_PROJECT_ID: step-project-12
 ```
 
-3. Select the **Task run** session action in Deadline Cloud monitor. You will
-   see the following output.
+3. Select the **Task run** session action. The log output shows
+   the merged environment variables available to the task. Notice that
+   `JOB_PROJECT_ID` uses the step-level value
+   `step-project-12`.
 
 ```
- 2024/07/16 16:18:27-07:00
- 2024/07/16 16:18:27-07:00 ==============================================
- 2024/07/16 16:18:27-07:00 --------- Running Task
- 2024/07/16 16:18:27-07:00 ==============================================
- 2024/07/16 16:18:27-07:00 ----------------------------------------------
- 2024/07/16 16:18:27-07:00 Phase: Setup
- 2024/07/16 16:18:27-07:00 ----------------------------------------------
- 2024/07/16 16:18:27-07:00 Writing embedded files for Task to disk.
- 2024/07/16 16:18:27-07:00 Mapping: Task.File.Run -> /sessions/session-b4bd451784674c0987be82c5f7d5642deupf6tk9/embedded_files08cdnuyt/tmpmdiajwvh
- 2024/07/16 16:18:27-07:00 Wrote: Run -> /sessions/session-b4bd451784674c0987be82c5f7d5642deupf6tk9/embedded_files08cdnuyt/tmpmdiajwvh
- 2024/07/16 16:18:27-07:00 ----------------------------------------------
- 2024/07/16 16:18:27-07:00 Phase: Running action
- 2024/07/16 16:18:27-07:00 ----------------------------------------------
- 2024/07/16 16:18:27-07:00 Running command sudo -u job-user -i setsid -w /sessions/session-b4bd451784674c0987be82c5f7d5642deupf6tk9/tmpiqbrsby4.sh
- 2024/07/16 16:18:27-07:00 Command started as pid: 2176
- 2024/07/16 16:18:27-07:00 Output:
- 2024/07/16 16:18:28-07:00 Running the task
- 2024/07/16 16:18:28-07:00
- 2024/07/16 16:18:28-07:00 Environment variables starting with JOB_*:
- 2024/07/16 16:18:28-07:00 JOB_ENDPOINT_URL=https://internal-host-name/some/path
- 2024/07/16 16:18:28-07:00 JOB_EXAMPLE_PARAM='An example parameter value'
- 2024/07/16 16:18:28-07:00 JOB_PROJECT_ID=step-project-12
- 2024/07/16 16:18:28-07:00 JOB_VERBOSITY=MEDIUM
- 2024/07/16 16:18:28-07:00
- 2024/07/16 16:18:28-07:00 Environment variables starting with STEP_*:
- 2024/07/16 16:18:28-07:00 STEP_VERBOSITY=HIGH
- 2024/07/16 16:18:28-07:00
- 2024/07/16 16:18:28-07:00 Done running the task
- 2024/07/16 16:18:28-07:00 ----------------------------------------------
- 2024/07/16 16:18:28-07:00 Uploading output files to Job Attachments
- 2024/07/16 16:18:28-07:00 ----------------------------------------------
-```
+Environment variables starting with JOB_*:
+JOB_ENDPOINT_URL=https://internal-host-name/some/path
+JOB_EXAMPLE_PARAM='An example parameter value'
+JOB_PROJECT_ID=step-project-12
+JOB_VERBOSITY=MEDIUM
 
-The following lines from the job template specified this action.
-
-```
-   script:
-     actions:
-       onRun:
-         command: bash
-         args:
-         - '{{Task.File.Run}}'
-     embeddedFiles:
-     - name: Run
-       type: TEXT
-       data: |
-         echo Running the task
-         echo ""
-
-         echo Environment variables starting with JOB_*:
-         set | grep ^JOB_
-         echo ""
-
-         echo Environment variables starting with STEP_*:
-         set | grep ^STEP_
-         echo ""
-
-         echo Done running the task
-
+Environment variables starting with STEP_*:
+STEP_VERBOSITY=HIGH
 ```
