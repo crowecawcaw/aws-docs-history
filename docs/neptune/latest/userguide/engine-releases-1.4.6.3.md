@@ -9,6 +9,7 @@ that it takes several days for a new release to become available in every region
 
 - Some exceptions that were erroneously classified as Internal Server Error are now correctly reported as Out of Memory Exceptions during the Data Flow Engine (DFE) execution.
 - Fixed an issue that could cause Neptune Database instances to fail during startup when inline edge ID validation encountered unexpected dictionary entry types. Inline edge ID validation now only runs for Gremlin query engine configurations and gracefully handles non-URI dictionary entries.
+- Fixed an issue where the Neptune bulk loader could fail to connect to S3 in certain regions due to incorrect endpoint resolution.
 
 ###### openCypher fixes
 
