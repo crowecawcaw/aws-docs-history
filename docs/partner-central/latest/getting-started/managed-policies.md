@@ -25,6 +25,9 @@ for AWS Marketplace sellers](../../../marketplace/latest/userguide/security-iam-
 - [AWS managed policy: AWSPartnerCentralChannelHandshakeApprovalManagement](#security-iam-awsmanpol-AWSPartnerCentralChannelHandshakeApprovalManagement "#security-iam-awsmanpol-AWSPartnerCentralChannelHandshakeApprovalManagement")
 - [AWS managed policy: AWSPartnerCentralMarketingManagement](#security-iam-awsmanpol-AWSPartnerCentralMarketingManagement "#security-iam-awsmanpol-AWSPartnerCentralMarketingManagement")
 - [AWS managed policy: PartnerCentralIncentiveBenefitManagement](#security-iam-awsmanpol-PartnerCentralIncentiveBenefitManagement "#security-iam-awsmanpol-PartnerCentralIncentiveBenefitManagement")
+- [AWS managed policy: AWSPartnerProServeToolsFullAccess](#security-iam-awsmanpol-AWSPartnerProServeToolsFullAccess "#security-iam-awsmanpol-AWSPartnerProServeToolsFullAccess")
+- [AWS managed policy: AWSPartnerProServeToolsOrganizationReaderIndividualContributor](#security-iam-awsmanpol-AWSPartnerProServeToolsOrganizationReaderIndividualContributor "#security-iam-awsmanpol-AWSPartnerProServeToolsOrganizationReaderIndividualContributor")
+- [AWS managed policy: AWSPartnerProServeToolsIndividualContributor](#security-iam-awsmanpol-AWSPartnerProServeToolsIndividualContributor "#security-iam-awsmanpol-AWSPartnerProServeToolsIndividualContributor")
 - [AWS Partner Central updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
 ## AWS managed policy: `AWSPartnerCentralFullAccess`
@@ -146,6 +149,70 @@ To view the permissions for this policy, see
 in the _AWS Managed Policy
 Reference_.
 
+## AWS managed policy: `AWSPartnerProServeToolsFullAccess`
+
+You can attach the `AWSPartnerProServeToolsFullAccess` policy to your
+IAM identities.
+
+This policy grants full access to AWS ProServe Tools (A2T and MPA) via AWS Partner Central Single Sign-On.
+It includes all assessment roles — individual contributor, organization reader, organization contributor, and
+organization admin — enabling complete access to create, read, update, and share assessments across the organization,
+as well as manage organization-level settings.
+
+**Roles granted:**
+
+- AssessmentIndividualContributor
+- AssessmentOrganizationReader
+- AssessmentOrganizationContributor
+- OrganizationAdmin
+
+To view the permissions for this policy, see
+[AWSPartnerProServeToolsFullAccess](../../../aws-managed-policy/latest/reference/AWSPartnerProServeToolsFullAccess.md "../../../aws-managed-policy/latest/reference/AWSPartnerProServeToolsFullAccess.md")
+in the _AWS Managed Policy
+Reference_.
+
+## AWS managed policy: `AWSPartnerProServeToolsOrganizationReaderIndividualContributor`
+
+You can attach the `AWSPartnerProServeToolsOrganizationReaderIndividualContributor` policy to your
+IAM identities.
+
+This policy grants read access to all organizational assessments in A2T, combined with the ability to create
+and manage the user's own assessments in both A2T and MPA. It is intended for users who need visibility into
+team assessments while retaining the ability to manage their own work.
+
+###### Note
+
+MPA does not support read-only mode. Users assigned this policy will retain read/write access to their
+own MPA assessments.
+
+**Roles granted:**
+
+- AssessmentIndividualContributor
+- AssessmentOrganizationReader
+
+To view the permissions for this policy, see
+[AWSPartnerProServeToolsOrganizationReaderIndividualContributor](../../../aws-managed-policy/latest/reference/AWSPartnerProServeToolsOrganizationReaderIndividualContributor.md "../../../aws-managed-policy/latest/reference/AWSPartnerProServeToolsOrganizationReaderIndividualContributor.md")
+in the _AWS Managed Policy
+Reference_.
+
+## AWS managed policy: `AWSPartnerProServeToolsIndividualContributor`
+
+You can attach the `AWSPartnerProServeToolsIndividualContributor` policy to your
+IAM identities.
+
+This policy grants the minimum permissions required to access AWS ProServe Tools via AWS Partner Central
+Single Sign-On. Users can create, read, update, and share their own assessments in both A2T and MPA. Access is
+scoped to assessments created by the user's own IAM identity (role or user ARN).
+
+**Roles granted:**
+
+- AssessmentIndividualContributor
+
+To view the permissions for this policy, see
+[AWSPartnerProServeToolsIndividualContributor](../../../aws-managed-policy/latest/reference/AWSPartnerProServeToolsIndividualContributor.md "../../../aws-managed-policy/latest/reference/AWSPartnerProServeToolsIndividualContributor.md")
+in the _AWS Managed Policy
+Reference_.
+
 ## AWS Partner Central updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Partner Central since this
@@ -154,6 +221,9 @@ subscribe to the RSS feed on the AWS Partner Central [Document history for the A
 
 | Change                                                                                                                                                                                                                                                            | Description                                                                                                                                                                                                                                                  | Date              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| [AWSPartnerProServeToolsFullAccess](#security-iam-awsmanpol-AWSPartnerProServeToolsFullAccess "#security-iam-awsmanpol-AWSPartnerProServeToolsFullAccess") —<br>New policy                                                                                        | AWS Partner Central added a new policy to grant full access to AWS ProServe Tools (A2T and MPA) via AWS Partner Central Single Sign-On with all assessment roles.                                                                                            | March 23, 2026    |
+| [AWSPartnerProServeToolsOrganizationReaderIndividualContributor](#security-iam-awsmanpol-AWSPartnerProServeToolsOrganizationReaderIndividualContributor "#security-iam-awsmanpol-AWSPartnerProServeToolsOrganizationReaderIndividualContributor") —<br>New policy | AWS Partner Central added a new policy to grant read access to organizational assessments in A2T and manage own assessments in both A2T and MPA.                                                                                                             | March 23, 2026    |
+| [AWSPartnerProServeToolsIndividualContributor](#security-iam-awsmanpol-AWSPartnerProServeToolsIndividualContributor "#security-iam-awsmanpol-AWSPartnerProServeToolsIndividualContributor") —<br>New policy                                                       | AWS Partner Central added a new policy to grant minimum permissions to access AWS ProServe Tools and manage own assessments.                                                                                                                                 | March 23, 2026    |
 | [PartnerCentralIncentiveBenefitManagement](#security-iam-awsmanpol-PartnerCentralIncentiveBenefitManagement "#security-iam-awsmanpol-PartnerCentralIncentiveBenefitManagement") —<br>Update to an existing policy                                                 | AWS Partner Central updated a policy to add Partner Central Agents session management capability through the Model Context Protocol.                                                                                                                         | March 13, 2026    |
 | [AWSPartnerCentralOpportunityManagement](#security-iam-awsmanpol-AWSPartnerCentralOpportunityManagement "#security-iam-awsmanpol-AWSPartnerCentralOpportunityManagement") —<br>Update to an existing policy                                                       | AWS Partner Central updated a policy to add Partner Central Agents session management capability through the Model Context Protocol.                                                                                                                         | March 13, 2026    |
 | [AWSPartnerCentralSandboxFullAccess](#security-iam-awsmanpol-AWSPartnerCentralSandboxFullAccess "#security-iam-awsmanpol-AWSPartnerCentralSandboxFullAccess") —<br>Update to an existing policy                                                                   | AWS Partner Central updated a policy to add Partner Central Agents session management capability through the Model Context Protocol.                                                                                                                         | March 13, 2026    |
