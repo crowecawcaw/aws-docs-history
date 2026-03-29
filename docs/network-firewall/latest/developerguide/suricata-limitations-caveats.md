@@ -21,6 +21,7 @@ The following Suricata features are not supported by Network Firewall:
 - Thresholding.
 - IKEv2 protocol.
 - IP-in-IP protocol.
+- HTTP/2 overloading.
 
 ## Suricata features that Network Firewall supports with caveats
 
@@ -45,7 +46,7 @@ The following Suricata features have caveats for use with Network Firewall:
 - In payload keywords, the `pcre` keyword is only allowed with `content`, `tls.sni`, `http.host`, and `dns.query` keywords.
 - The `priority` keyword is not supported for rule groups that evaluate
   rules using strict evaluation order.
-- When matching TLS based rules in a session holding configuration, alert logs will not contain the SNI that was accessed upon rule match.
+- When matching TLS based rules in a TLS inspection-enabled configuration, alert logs capture http host information and not the SNI upon rule match
 - When you use a stateful rule with a layer 3 or 4 protocol such as IP or TCP, and you don't include any flow state context, for example `"flow:not_established"`, then Suricata treats this rule as an IP-only rule. Suricata only evaluates IP-only rules for the first packet in each direction of the flow. For example, Suricata will process the following rule as an IP-only rule:
 
 ```
@@ -56,4 +57,17 @@ However, if the destination IP contains a `!`, then Suricata treats this as per 
 
 ```
 pass tcp $HOME_NET any -> [!10.0.0.0/16] $HTTPS_PORTS (sid: 44444; rev:2;)
+```
+
+- To match HTTP/2 application traffic under a TLS inspection-enabled configuration, add http2 protocol rules to your rule set in addition to your existing HTTP rules. For example, if you used this rule to match HTTP traffic:
+
+```
+drop http $HOME_NET any -> $EXTERNAL_NET any (msg:"example rule"; flow:to_server,established; http.host; content:"example.com"; sid:1; rev:1;)
+```
+
+You should add an http2 application rule to your ruleset:
+
+```
+drop http $HOME_NET any -> $EXTERNAL_NET any (msg:"example rule"; flow:to_server,established; http.host; content:"example.com"; sid:1; rev:1;)
+drop http2 $HOME_NET any -> $EXTERNAL_NET any (msg:"example rule"; flow:to_server,established; http.request_header; content:"authority|3a 20|example.com"; sid:2; rev:1;)
 ```
