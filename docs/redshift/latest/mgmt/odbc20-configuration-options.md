@@ -875,6 +875,30 @@ The user name that you use to access the Amazon Redshift server.
 
 This parameter is required if you use database authentication.
 
+## UseUnicode
+
+- Default Value – 0
+- Data Type – Boolean
+
+A boolean specifying whether the driver returns Redshift data as Unicode or
+regular SQL types.
+
+- 1 | TRUE: The Driver returns wide SQL type for character data
+  type.
+  - SQL_WCHAR is returned instead of SQL_CHAR.
+  - SQL_WVARCHAR is returned instead of SQL_VARCHAR.
+  - SQL_WLONGVARCHAR is returned instead of
+    SQL_LONGVARCHAR.
+
+- 0 | FALSE: The driver returns normal SQL type for character data
+  type.
+  - SQL_CHAR is returned instead of SQL_WCHAR.
+  - SQL_VARCHAR is returned instead of SQL_WVARCHAR.
+  - SQL_LONGVARCHAR is returned instead of
+    SQL_WLONGVARCHAR.
+
+This parameter is optional. It is available in driver versions 2.1.15 and later.
+
 ## web_identity_token
 
 - Default Value – None
