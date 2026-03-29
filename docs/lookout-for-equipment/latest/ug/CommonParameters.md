@@ -10,22 +10,6 @@ The following list contains the parameters that all actions use for signing Sign
 Version 4 requests with a query string. Any action-specific parameters are listed in the topic
 for that action. For more information about Signature Version 4, see [Signing AWS API requests](../../../IAM/latest/UserGuide/reference_aws-signing.md "../../../IAM/latest/UserGuide/reference_aws-signing.md") in the _IAM User Guide_.
 
-**Action**
-
-The action to be performed.
-
-Type: string
-
-Required: Yes
-
-**Version**
-
-The API version that the request is written for, expressed in the format YYYY-MM-DD.
-
-Type: string
-
-Required: Yes
-
 **X-Amz-Algorithm**
 
 The hash algorithm that you used to create the request signature.
