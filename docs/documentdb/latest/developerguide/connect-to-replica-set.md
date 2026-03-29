@@ -19,7 +19,7 @@ When using an SSH tunnel, we recommend that you connect to your cluster using th
 
 For more information about Amazon DocumentDB endpoints, see [Amazon DocumentDB endpoints](how-it-works.md#how-it-works.endpoints "how-it-works.md#how-it-works.endpoints").
 
-![Diagram showing Amazon DocumentDB endpoints including the cluster, reader, and instance endpoints.](/images/documentdb/latest/developerguide/images/docdb-endpoint-types.png)
+![Diagram showing Amazon DocumentDB endpoints including the cluster, reader, and instance endpoints.](images/docdb-endpoint-types.png)
 Using the cluster endpoint, you can connect to your cluster in replica set mode. You can
 then use the built-in read preference driver capabilities. In the following example,
 specifying `/?replicaSet=rs0` signifies to the SDK that you want to connect as a

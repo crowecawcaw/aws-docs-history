@@ -29,16 +29,13 @@ Amazon DocumentDB supports on-demand instances and the following instance types:
     `db.r6gd.12xlarge`, `db.r6gd.16xlarge`.
 
 - Memory optimized:
-  - **R8G instance types:**
-    `db.r8g.large`, `db.r8g.xlarge`, `db.r8g.2xlarge`,
-    `db.r8g.4xlarge`, `db.r8g.8xlarge`, `db.r8g.12xlarge`,
-    `db.r8g.16xlarge`.
   - **R6G instance types:**
-    `db.r6g.large`, `db.r6g.xlarge`, `db.r6g.2xlarge`,
+    `db.r6g.large`, `db.r6g.2xlarge`,
     `db.r6g.4xlarge`, `db.r6g.8xlarge`, `db.r6g.12xlarge`, `db.r6g.16xlarge`.
   - **R5 instance types:**
-    `db.r5.large`, `db.r5.xlarge`, `db.r5.2xlarge`,
-    `db.r5.4xlarge`, `db.r5.8xlarge`, `db.r5.12xlarge`, `db.r5.16xlarge`.
+    `db.r5.large`, `db.r5.2xlarge`,
+    `db.r5.4xlarge`, `db.r5.8xlarge`, `db.r5.12xlarge`, `db.r5.16xlarge`
+    `db.r5.24xlarge`.
   - **R4 instance types:**
     `db.r4.large`, `db.r4.2xlarge`,
     `db.r4.4xlarge`, `db.r4.8xlarge`,
@@ -108,8 +105,6 @@ The following limits apply to Amazon DocumentDB instance-based clusters and are 
 | -------------------------------- | ----------------- |
 | Clusters                         | 40                |
 | Cluster parameter groups         | 50                |
-| Clusters per parameter group     | 100               |
-| Instances per parameter group    | 300               |
 | Event subscriptions              | 20                |
 | Instances                        | 40                |
 | Manual cluster snapshots         | 100               |
@@ -169,31 +164,35 @@ The following table describes aggregation limits in Amazon DocumentDB.
 
 The following table describes Amazon DocumentDB instance-based cluster limits.
 
-| Resource                                                                                                 | Limit       |
-| -------------------------------------------------------------------------------------------------------- | ----------- |
-| Cluster size (sum of all collections and indexes)                                                        | 128 TiB     |
-| Collection size (sum of all collections can't exceed<br>cluster limit) – does not include the index size | 32 TiB      |
-| Collections per cluster                                                                                  | 100,000     |
-| Databases per cluster                                                                                    | 100,000     |
-| Database size (sum of all databases can't exceed cluster<br>limit)                                       | 128 TiB     |
-| Document nesting depth                                                                                   | 200 levels  |
-| Document size                                                                                            | 16 MiB      |
-| Index key size                                                                                           | 2,048 bytes |
-| Indexes per collection                                                                                   | 64          |
-| Keys in a compound index                                                                                 | 32          |
-| Maximum number of writes in a single batch command                                                       | 100,000     |
-| Number of users per cluster                                                                              | 1000        |
+| Resource                                                                                                  | Limit       |
+| --------------------------------------------------------------------------------------------------------- | ----------- |
+| Cluster size (sum of all collections and indexes)                                                         | 128 TiB     |
+| Collection size  (sum of all collections can't exceed<br>cluster limit) – does not include the index size | 32 TiB      |
+| Collections per cluster                                                                                   | 100,000     |
+| Databases per cluster                                                                                     | 100,000     |
+| Database size (sum of all databases can't exceed cluster<br>limit)                                        | 128 TiB     |
+| Document nesting depth                                                                                    | 200 levels  |
+| Document size                                                                                             | 16 MiB      |
+| Index key size                                                                                            | 2,048 bytes |
+| Indexes per collection                                                                                    | 64          |
+| Keys in a compound index                                                                                  | 32          |
+| Maximum number of writes in a single batch command                                                        | 100,000     |
+| Number of users per cluster                                                                               | 1000        |
 
 ## Instance limits
 
 The following table describes Amazon DocumentDB limits per instance.
 
-Amazon DocumentDB 8.0
-
 | Instance type  | Instance memory (GiB) | Connections (all) | Cursor limit | Open transactions | Connections (active) |
 | -------------- | --------------------- | ----------------- | ------------ | ----------------- | -------------------- |
 | T3.medium      | 4                     | 1000              | 30           | 50                | 102                  |
 | T4G.medium     | 4                     | 1000              | 30           | 50                | 102                  |
+| R4.large       | 15.25                 | 1700              | 450          | N/A               | 1100                 |
+| R4.xlarge      | 30.5                  | 3400              | 450          | N/A               | 2700                 |
+| R4.2xlarge     | 61                    | 6800              | 450          | N/A               | 4500                 |
+| R4.4xlarge     | 122                   | 13600             | 725          | N/A               | 4500                 |
+| R4.8xlarge     | 288                   | 27200             | 1450         | N/A               | 4500                 |
+| R4.16xlarge    | 488                   | 30000             | 2900         | N/A               | 4500                 |
 | R5.large       | 16                    | 3400              | 450          | 200               | 1100                 |
 | R5.xlarge      | 32                    | 7000              | 450          | 400               | 2700                 |
 | R5.2xlarge     | 64                    | 14200             | 450          | 800               | 4500                 |
@@ -201,66 +200,7 @@ Amazon DocumentDB 8.0
 | R5.8xlarge     | 256                   | 60000             | 1520         | 3200              | 4500                 |
 | R5.12xlarge    | 384                   | 60000             | 2280         | 4800              | 4500                 |
 | R5.16xlarge    | 512                   | 60000             | 3040         | 6400              | 4500                 |
-| R6G.large\*    | 16                    | 3400              | 450          | 200               | 1100                 |
-| R6G.xlarge\*   | 32                    | 7000              | 450          | 400               | 2700                 |
-| R6G.2xlarge\*  | 64                    | 14200             | 450          | 800               | 4500                 |
-| R6G.4xlarge\*  | 128                   | 28400             | 760          | 1600              | 4500                 |
-| R6G.8xlarge\*  | 256                   | 60000             | 1520         | 3200              | 4500                 |
-| R6G.12xlarge\* | 384                   | 60000             | 2280         | 4800              | 4500                 |
-| R6G.16xlarge\* | 512                   | 60000             | 3040         | 6400              | 4500                 |
-| R8G.large      | 16                    | 3400              | 450          | 200               | 1100                 |
-| R8G.xlarge     | 32                    | 7000              | 450          | 400               | 2700                 |
-| R8G.2xlarge    | 64                    | 14200             | 450          | 800               | 4500                 |
-| R8G.4xlarge    | 128                   | 28400             | 760          | 1600              | 4500                 |
-| R8G.8xlarge    | 256                   | 60000             | 1520         | 3200              | 4500                 |
-| R8G.12xlarge   | 384                   | 60000             | 2280         | 4800              | 4500                 |
-| R8G.16xlarge   | 512                   | 60000             | 3040         | 6400              | 4500                 |
-
-\* including R6GD
-
-Amazon DocumentDB 5.0
-
-| Instance type  | Instance memory (GiB) | Connections (all) | Cursor limit | Open transactions | Connections (active) |
-| -------------- | --------------------- | ----------------- | ------------ | ----------------- | -------------------- |
-| T3.medium      | 4                     | 1000              | 30           | 50                | 102                  |
-| T4G.medium     | 4                     | 1000              | 30           | 50                | 102                  |
-| R5.large       | 16                    | 3400              | 450          | 200               | 1100                 |
-| R5.xlarge      | 32                    | 7000              | 450          | 400               | 2700                 |
-| R5.2xlarge     | 64                    | 14200             | 450          | 800               | 4500                 |
-| R5.4xlarge     | 128                   | 28400             | 760          | 1600              | 4500                 |
-| R5.8xlarge     | 256                   | 60000             | 1520         | 3200              | 4500                 |
-| R5.12xlarge    | 384                   | 60000             | 2280         | 4800              | 4500                 |
-| R5.16xlarge    | 512                   | 60000             | 3040         | 6400              | 4500                 |
-| R6G.large\*    | 16                    | 3400              | 450          | 200               | 1100                 |
-| R6G.xlarge\*   | 32                    | 7000              | 450          | 400               | 2700                 |
-| R6G.2xlarge\*  | 64                    | 14200             | 450          | 800               | 4500                 |
-| R6G.4xlarge\*  | 128                   | 28400             | 760          | 1600              | 4500                 |
-| R6G.8xlarge\*  | 256                   | 60000             | 1520         | 3200              | 4500                 |
-| R6G.12xlarge\* | 384                   | 60000             | 2280         | 4800              | 4500                 |
-| R6G.16xlarge\* | 512                   | 60000             | 3040         | 6400              | 4500                 |
-| R8G.large      | 16                    | 3400              | 450          | 200               | 1100                 |
-| R8G.xlarge     | 32                    | 7000              | 450          | 400               | 2700                 |
-| R8G.2xlarge    | 64                    | 14200             | 450          | 800               | 4500                 |
-| R8G.4xlarge    | 128                   | 28400             | 760          | 1600              | 4500                 |
-| R8G.8xlarge    | 256                   | 60000             | 1520         | 3200              | 4500                 |
-| R8G.12xlarge   | 384                   | 60000             | 2280         | 4800              | 4500                 |
-| R8G.16xlarge   | 512                   | 60000             | 3040         | 6400              | 4500                 |
-
-\* including R6GD
-
-Amazon DocumentDB 4.0
-
-| Instance type  | Instance memory (GiB) | Connections (all) | Cursor limit | Open transactions | Connections (active) |
-| -------------- | --------------------- | ----------------- | ------------ | ----------------- | -------------------- |
-| T3.medium      | 4                     | 1000              | 30           | 50                | 102                  |
-| T4G.medium     | 4                     | 1000              | 30           | 50                | 102                  |
-| R5.large       | 16                    | 3400              | 450          | 200               | 1100                 |
-| R5.xlarge      | 32                    | 7000              | 450          | 400               | 2700                 |
-| R5.2xlarge     | 64                    | 14200             | 450          | 800               | 4500                 |
-| R5.4xlarge     | 128                   | 28400             | 760          | 1600              | 4500                 |
-| R5.8xlarge     | 256                   | 60000             | 1520         | 3200              | 4500                 |
-| R5.12xlarge    | 384                   | 60000             | 2280         | 4800              | 4500                 |
-| R5.16xlarge    | 512                   | 60000             | 3040         | 6400              | 4500                 |
+| R5.24xlarge    | 768                   | 60000             | 4560         | 9600              | 4500                 |
 | R6G.large\*    | 16                    | 3400              | 450          | 200               | 1100                 |
 | R6G.xlarge\*   | 32                    | 7000              | 450          | 400               | 2700                 |
 | R6G.2xlarge\*  | 64                    | 14200             | 450          | 800               | 4500                 |
@@ -270,25 +210,6 @@ Amazon DocumentDB 4.0
 | R6G.16xlarge\* | 512                   | 60000             | 3040         | 6400              | 4500                 |
 
 \* including R6GD
-
-Amazon DocumentDB 3.6
-
-| Instance type | Instance memory (GiB) | Connections (all) | Cursor limit | Open transactions | Connections (active) |
-| ------------- | --------------------- | ----------------- | ------------ | ----------------- | -------------------- |
-| T3.medium     | 4                     | 500               | 30           | N/A               | 102                  |
-| R4.large      | 15.25                 | 1700              | 450          | N/A               | 1100                 |
-| R4.xlarge     | 30.5                  | 3400              | 450          | N/A               | 2700                 |
-| R4.2xlarge    | 61                    | 6800              | 450          | N/A               | 4500                 |
-| R4.4xlarge    | 122                   | 13600             | 725          | N/A               | 4500                 |
-| R4.8xlarge    | 288                   | 27200             | 1450         | N/A               | 4500                 |
-| R4.16xlarge   | 488                   | 30000             | 2900         | N/A               | 4500                 |
-| R5.large      | 16                    | 1700              | 450          | N/A               | 1100                 |
-| R5.xlarge     | 32                    | 3500              | 450          | N/A               | 2700                 |
-| R5.2xlarge    | 64                    | 7100              | 450          | N/A               | 4500                 |
-| R5.4xlarge    | 128                   | 14200             | 760          | N/A               | 4500                 |
-| R5.8xlarge    | 256                   | 28400             | 1520         | N/A               | 4500                 |
-| R5.12xlarge   | 384                   | 30000             | 2280         | N/A               | 4500                 |
-| R5.16xlarge   | 512                   | 30000             | 3040         | N/A               | 4500                 |
 
 You can monitor and alarm on the per instance limits using the following CloudWatch metrics. For more on Amazon DocumentDB CloudWatch metrics, see [Monitoring Amazon DocumentDB with CloudWatch](cloud_watch.md "cloud_watch.md").
 

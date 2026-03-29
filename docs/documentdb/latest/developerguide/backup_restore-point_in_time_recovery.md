@@ -70,7 +70,7 @@ which specifies the date and time to restore to.
 
 ###### Note
 
-**Amazon DocumentDB I/O-Optimized** storage configuration is only available on the Amazon DocumentDB 5.0 and 8.0 engine versions. 7. Optional. To configure the network settings, cluster options,
+**Amazon DocumentDB I/O-Optimized** storage configuration is only available on the Amazon DocumentDB 5.0 engine version. 7. Optional. To configure the network settings, cluster options,
 and enable log exports, choose **Show advanced
 settings**, and then complete the following sections.
 Otherwise, continue with the next step.

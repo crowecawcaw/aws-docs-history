@@ -15,7 +15,7 @@ If you do not complete upgrades by the end of the engine version standard suppor
 - Bug fixes and patches for critical issues
 - The ability to open support cases and receive troubleshooting help within the standard Amazon DocumentDB service level agreement
   This paid offering gives you more time to upgrade to a supported engine version.
-  For example, Amazon DocumentDB end of standard support date for version 3.6 is March 30, 2026, however you aren't ready to upgrade to version 5.0 or 8.0 before that date.
+  For example, Amazon DocumentDB end of standard support date for version 3.6 is March 30, 2026, however you aren't ready to upgrade to version 5.0 before that date.
   In this case, Amazon DocumentDB enrolls your version 3.6 cluster in Extended Support so you can continue to use Amazon DocumentDB version 3.6.
   Starting March 31, 2026, AWS charges you an Extended Support premium for Amazon DocumentDB version 3.6 clusters.
 

@@ -28,10 +28,7 @@ Once your cluster has been upgraded, you cannot downgrade the cluster to previou
 ## MVU prerequisites and limitations
 
 The following are prerequisites and limitations to in-place major version upgrade that you may need to understand and act on before performing the upgrade:
-
-###### Important
-
-MVU is currently not supported for Amazon DocumentDB 8.0. To use engine version 8.0, create a new 8.0 cluster and migrate your data. MVU support for 8.0 is planned for a future release.
+(Note: MVU is currently not supported for Amazon DocumentDB 8.0.)
 
 - **Instance Type** — Amazon DocumentDB 4.0/5.0 does not support r4.\* instances.
   In order to proceed with an in-place major version upgrade, modify r4.\* instances to r5.\* instances.
@@ -49,6 +46,8 @@ See [Performing a patch update to a cluster's engine version](db-cluster-version
 
 - In-place major version upgrade is available in all regions where Amazon DocumentDB 5.0 is available.
 - In-place major version upgrade is not supported with Amazon DocumentDB 4.0 as the target version.
+- Starting in Amazon DocumentDB 4.0, "." in usernames is not supported.
+  If you are upgrading from Amazon DocumentDB 3.6 to 5.0 and have a username containing ".", please re-create your username without ".", before proceeding with in-place MVU.
 - In-place major version upgrade is not currently supported on Amazon DocumentDB global clusters and elastic clusters.
 
 ###### Note

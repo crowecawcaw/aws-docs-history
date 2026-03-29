@@ -254,7 +254,7 @@ Further, the sweeper that checks cursor execution time runs at a five (5) minute
 
 ### explain()
 
-Amazon DocumentDB emulates the MongoDB 3.6, 4.0, 5.0, and 8.0 APIs on a purpose-built database
+Amazon DocumentDB emulates the MongoDB 3.6, 4.0, and 5.0 APIs on a purpose-built database
 engine that utilizes a distributed, fault-tolerant, self-healing
 storage system. As a result, query plans and the output of
 `explain()` may differ between Amazon DocumentDB and MongoDB.
@@ -286,7 +286,7 @@ However in Amazon DocumentDB, only the first element within the array is read, b
 
 ### MongoDB APIs, operations, and data types
 
-Amazon DocumentDB is compatible with the MongoDB 3.6, 4.0, 5.0, and 8.0 APIs. For an up-to-date
+Amazon DocumentDB is compatible with the MongoDB 3.6, 4.0, and 5.0 APIs. For an up-to-date
 list of supported functionality, see [Supported MongoDB APIs, operations, and data types in Amazon DocumentDB](mongo-apis.md "mongo-apis.md").
 
 ### `mongodump` and `mongorestore` utilities

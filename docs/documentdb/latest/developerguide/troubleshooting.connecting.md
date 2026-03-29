@@ -1,4 +1,4 @@
-# Troubleshooting connection issues
+# Troubleshooting connectivity issues
 
 Having trouble connecting? Here are some common scenarios and how to resolve them.
 

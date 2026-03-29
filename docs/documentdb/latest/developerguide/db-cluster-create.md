@@ -99,7 +99,7 @@ in the upper-left corner of the page. 4. On the **Create Amazon DocumentDB clust
     	 hyphens.
     	* Must be unique for all clusters across Amazon RDS, Neptune,
     	 and Amazon DocumentDB per AWS account, per Region.
-    2. **Engine version**—Accept the default engine version of 5.0.0, or optionally choose 8.0.0, 4.0.0, or 3.6.0.
+    2. **Engine version**—Accept the default engine version of 5.0.0, or optionally choose 4.0.0 or 3.6.0.
     3. **Instance class**—Accept the default
      `db.r5.large`, or choose the instance class that you
      want from the list.
@@ -387,7 +387,7 @@ For additional parameters, see [CreateDBCluster](API_CreateDBCluster.md "API_Cre
 
 To create an Amazon DocumentDB cluster, call the `create-db-cluster` AWS CLI. The following AWS CLI command creates an Amazon DocumentDB cluster named `sample-cluster` with deletion protection enabled. For more information on deletion protection, see [Deleting an Amazon DocumentDB cluster](db-cluster-delete.md "db-cluster-delete.md").
 
-Also, `--engine-version` is an optional parameter that defaults to the latest major engine version. The current default engine version is 5.0.0 (note: Amazon DocumentDB 8.0 is available but must be explicitly specified). When new major engine versions are released, the default engine version for `--engine-version` will be updated to reflect the last major engine version. As a result, for production workloads, and especially those that are dependent on scripting, automation, or CloudFormation templates, we recommend that you explicitly specify the `--engine-version` to the intended major version.
+Also, `--engine-version` is an optional parameter that defaults to the latest major engine version. The current major engine version is 5.0.0. When new major engine versions are released, the default engine version for `--engine-version` will be updated to reflect the last major engine version. As a result, for production workloads, and especially those that are dependent on scripting, automation, or CloudFormation templates, we recommend that you explicitly specify the `--engine-version` to the intended major version.
 
 ###### Note
 

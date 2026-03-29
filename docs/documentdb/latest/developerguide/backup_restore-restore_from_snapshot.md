@@ -50,7 +50,7 @@ the **Configuration** section.
 
 ###### Note
 
-**Amazon DocumentDB I/O-Optimized** storage configuration is only available on the Amazon DocumentDB 5.0 and 8.0 engine versions. 6. If you are satisfied with the cluster configuration, choose
+**Amazon DocumentDB I/O-Optimized** storage configuration is only available on the Amazon DocumentDB 5.0 engine version. 6. If you are satisfied with the cluster configuration, choose
 **Restore cluster** and wait while your
 cluster is restored. 7. If you prefer to change some configurations, such as
 specifying a non-default Amazon VPC or security group, choose

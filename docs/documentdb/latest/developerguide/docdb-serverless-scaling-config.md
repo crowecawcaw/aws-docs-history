@@ -46,7 +46,6 @@ You might specify a somewhat lower value to let the instance scale down further 
 - If your provisioned workload has memory requirements that are too high for small instance classes such as T3 or T4g, choose a minimum DCU setting that provides memory comparable to an R5 or R6g instance.
 - In particular, we recommend the following minimum `MinCapacity` for use with the specified features (these recommendations are subject to change):
   - Performance Insights — 2 DCUs
-  - Global clusters — 8 DCUs (applies only to the primary AWS Region)
 
 - In Amazon DocumentDB, replication occurs at the storage layer, so reader capacity doesn't directly affect replication.
   However, for DocumentDB serverless reader instances that scale independently, make sure that the minimum capacity is sufficient to handle workloads during write-intensive periods to avoid query latency.
@@ -109,7 +108,7 @@ You might specify a somewhat higher value to let the instance scale up farther i
   If it's OK for the application to run with reduced throughput during very extreme spikes in activity, you can choose a slightly lower maximum capacity setting.
   Make sure that you choose a setting that still has enough memory and CPU resources to keep the application running.
 - If you turn on settings in your cluster that increase the memory usage for each instance, take that memory into account when deciding on the maximum DCU value.
-  Such settings include those for Performance Insights and global clusters.
+  Such settings include those for Performance Insights.
   Make sure that the maximum DCU value allows the serverless instances to scale up enough to handle the workload when those feature are being used.
   For information about troubleshooting problems caused by the combination of a low maximum DCU setting and Amazon DocumentDB features that impose memory overhead, see [Avoiding out-of-memory errors](#docdb-serverless-scaling-mem-errors "#docdb-serverless-scaling-mem-errors") (below).
 - In particular, we recommend the following minimum `MaxCapacity` for use with the specified features (these recommendations are subject to change):

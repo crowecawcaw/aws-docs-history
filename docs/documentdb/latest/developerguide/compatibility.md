@@ -45,7 +45,7 @@ When using the AWS SDK, AWS CLI, or CloudFormation, the engine version will defa
 You must explicitly specify the parameter `engineVersion = 8.0.0` to create a new Amazon DocumentDB 8.0 cluster or `engineVersion = 4.0.0` to create a new Amazon DocumentDB 4.0 cluster or `engineVersion = 3.6.0` to create a new Amazon DocumentDB 3.6 cluster.
 For a given Amazon DocumentDB cluster, you can determine the cluster version using the AWS CLI to call `describe-db-clusters` or use the Amazon DocumentDB management console to view the engine version number for a particular cluster.
 
-Amazon DocumentDB 5.0 and 8.0 supports the Amazon EC2 `r8g` Graviton4 processor and Graviton2 processors such as `r6g` and `t4.medium` instance types for your clusters and is available in all supported regions (see [Instances](what-is.md#what-is-db-instances "what-is.md#what-is-db-instances")).
+Amazon DocumentDB 5.0 supports the Amazon EC2 `r8g` Graviton4 processor and Graviton2 processors such as `r6g` and `t4.medium` instance types for your clusters and is available in all supported regions (see [Instances](what-is.md#what-is-db-instances "what-is.md#what-is-db-instances")).
 For more information on pricing, see [Amazon DocumentDB (with MongoDB compatibility) Pricing](https://aws.amazon.com/documentdb/pricing/ "https://aws.amazon.com/documentdb/pricing/").
 
 ### Upgrade or migrate to Amazon DocumentDB 5.0 or 8.0
@@ -62,7 +62,7 @@ With the release of Amazon DocumentDB 8.0, there are functional differences betw
 - Planner v1 is the default query planner in Amazon DocumentDB 5.0, whereas the more performant Planner v3 is the default in Amazon DocumentDB 8.0.
 - New features in Amazon DocumentDB 8.0 including Views, Collation and operators like $merge are compatible only with Planner v3.
 - Compression is turned ON by default in Amazon DocumentDB 8.0 and is set to use Zstandard algorithm. Furthermore, in Amazon DocumentDB 8.0 'enabled' is no longer a valid choice; you may select from Zstd, LZ4 and none.
-- Serverless are currently not available in Amazon DocumentDB 8.0.
+- Newer capabilities of Amazon DocumentDB 5.0 including Serverless and R8g instances are currently not available in Amazon DocumentDB 8.0.
 
 ## MongoDB 5.0 compatibility
 
@@ -106,7 +106,7 @@ When using the AWS SDK, AWS CLI, or CloudFormation, the engine version will defa
 You must explicitly specify the parameter `engineVersion = 4.0.0` to create a new Amazon DocumentDB 4.0 cluster or `engineVersion = 3.6.0` to create a new Amazon DocumentDB 3.6 cluster.
 For a given Amazon DocumentDB cluster, you can determine the cluster version using the AWS CLI to call `describe-db-clusters` or use the Amazon DocumentDB management console to view the engine version number for a particular cluster.
 
-Amazon DocumentDB 5.0 and 8.0 supports the Amazon EC2 `r8g` Graviton4 processor and Graviton2 processors such as `r6g` and `t4.medium` instance types for your clusters and is available in all supported regions (see [Instances](what-is.md#what-is-db-instances "what-is.md#what-is-db-instances")).
+Amazon DocumentDB 5.0 supports the Amazon EC2 `r8g` Graviton4 processor and Graviton2 processors such as `r6g` and `t4.medium` instance types for your clusters and is available in all supported regions (see [Instances](what-is.md#what-is-db-instances "what-is.md#what-is-db-instances")).
 For more information on pricing, see [Amazon DocumentDB (with MongoDB compatibility) Pricing](https://aws.amazon.com/documentdb/pricing/ "https://aws.amazon.com/documentdb/pricing/").
 
 ### Upgrade or migrate to Amazon DocumentDB 5.0

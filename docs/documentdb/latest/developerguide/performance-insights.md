@@ -7,7 +7,7 @@ statements, hosts, or application.
 
 ###### Note
 
-Performance Insights is only available for Amazon DocumentDB 3.6, 4.0, 5.0, and 8.0 instance-based clusters.
+Performance Insights is only available for Amazon DocumentDB 3.6, 4.0, and 5.0 instance-based clusters.
 
 **How is it useful?**
 

@@ -2,7 +2,7 @@
 
 Amazon DocumentDB (with MongoDB compatibility) is a fully managed, MongoDB-compatible database service.
 With Amazon DocumentDB, you can run the same application code and use the same drivers and tools that you use with MongoDB.
-Amazon DocumentDB is compatible with MongoDB 3.6, 4.0, 5.0, and 8.0.
+Amazon DocumentDB is compatible with MongoDB 3.6, 4.0, and 5.0.
 
 ###### Topics
 
