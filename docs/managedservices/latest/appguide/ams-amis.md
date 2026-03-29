@@ -40,7 +40,11 @@ aws amsskms list-amis --vpc-id `VPC_ID` --query "Amis.sort_by(@,&Name)[? starts_
   - [NTP](http://www.ntp.org/documentation.html "http://www.ntp.org/documentation.html")
   - [Trend Micro Endpoint Protection Service Agent](https://www.trendmicro.com/en_us/business.html "https://www.trendmicro.com/en_us/business.html")
   - [Code Deploy](https://github.com/aws/aws-codedeploy-agent "https://github.com/aws/aws-codedeploy-agent")
-  - [PBIS / Beyond Trust AD Bridge](https://www.beyondtrust.com/products/active-directory-bridge "https://www.beyondtrust.com/products/active-directory-bridge")
+  - [PBIS Enterprise / Beyond Trust AD Bridge](https://www.beyondtrust.com/products/active-directory-bridge "https://www.beyondtrust.com/products/active-directory-bridge")
+
+  ###### Note
+
+  As of June 2022, BeyondTrust no longer supports PBIS Open. You can't use PBIS Open on AMIs that AMS supports after June 2022. If AMS supported your AMI before June 2022, you can continue to use PBIS Open at your own discretion.
   - [SSM Agent](https://github.com/aws/amazon-ssm-agent "https://github.com/aws/amazon-ssm-agent")
   - Yum Upgrade for critical patches
   - AMS custom scripts / management software (controlling boot, AD join, monitoring, security, and logging)
@@ -63,25 +67,18 @@ aws amsskms list-amis --vpc-id `VPC_ID` --query "Amis.sort_by(@,&Name)[? starts_
 - Amazon Linux 2023 (Latest Minor Release) (Minimal AMI not supported)
 - Amazon Linux 2 (Latest Minor Release)
 - Amazon Linux 2 (ARM64)
-- Red Hat Enterprise 7 (Latest Minor Release)
 - Red Hat Enterprise 8 (Latest Minor Release)
 - Red Hat Enterprise 9 (Latest Minor Release)
 - SUSE Linux Enterprise Server 15 SP6
-- Ubuntu Linux 18.04
 - Ubuntu Linux 20.04
 - Ubuntu Linux 22.04
 - Ubuntu Linux 24.04
 - Amazon Linux: For product overview, pricing information, usage information, and support information, see
-  [Amazon Linux AMI (HVM / 64-bit)](https://aws.amazon.com/marketplace/pp/B00CIYTQTC "https://aws.amazon.com/marketplace/pp/B00CIYTQTC")
-  and [Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/ "https://aws.amazon.com/amazon-linux-2/").
+  [Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/ "https://aws.amazon.com/amazon-linux-2/").
 
 For more information, see
 [Amazon Linux 2 FAQs](https://aws.amazon.com/amazon-linux-2/faqs/ "https://aws.amazon.com/amazon-linux-2/faqs/").
 
-- RedHat Enterprise Linux (RHEL): For product overview, pricing information, usage information, and support information, see
-  [Red Hat Enterprise Linux (RHEL) 7 (HVM)](https://aws.amazon.com/marketplace/pp/B00KWBZVK6/ref=ptnr_catgtm_centos "https://aws.amazon.com/marketplace/pp/B00KWBZVK6/ref=ptnr_catgtm_centos").
-- Ubuntu Linux 18.04: For product overview, pricing information, usage information, and support information, see
-  [Ubuntu 18.04 LTS - Bionic](https://aws.amazon.com/marketplace/pp/prodview-pkjqrkcfgcaog "https://aws.amazon.com/marketplace/pp/prodview-pkjqrkcfgcaog").
 - SUSE Linux Enterprise Server for SAP applications 15 SP6:
 
       + Run the following steps once per account:
@@ -104,7 +101,7 @@ For more information, see
 
   **Windows-based AMIs**:
 
-Microsoft Windows Server (2016, 2019 and 2022), based on latest Windows AMIs.
+Microsoft Windows Server (2016, 2019, 2022, and 2025), based on latest Windows AMIs.
 
 For examples of creating AMIs, see
 [Create AMI](../ctref/ex-ami-create-col.md "../ctref/ex-ami-create-col.md").
