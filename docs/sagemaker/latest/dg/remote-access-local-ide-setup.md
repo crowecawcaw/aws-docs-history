@@ -1,23 +1,28 @@
-# Set up local Visual Studio Code
+# Set up Remote IDE
 
-After administrators complete the instructions in [Connect your local Visual Studio Code to SageMaker spaces with remote access](remote-access.md "remote-access.md"), you can connect your local Visual Studio Code to your
+After administrators complete the instructions in [Connect your Remote IDE to SageMaker spaces with remote access](remote-access.md "remote-access.md"), you can connect your Remote IDE to your
 remote SageMaker spaces.
 
 ###### Topics
 
 - [Set up your local environment](#remote-access-local-ide-setup-local-environment "#remote-access-local-ide-setup-local-environment")
-- [Connect to your local VS Code](#remote-access-local-ide-setup-local-vs-code "#remote-access-local-ide-setup-local-vs-code")
+- [Connect to your Remote IDE](#remote-access-local-ide-setup-local-vs-code "#remote-access-local-ide-setup-local-vs-code")
 - [Connect to VPC with subnets without internet access](remote-access-local-ide-setup-vpc-no-internet.md "remote-access-local-ide-setup-vpc-no-internet.md")
 - [Filter your Studio spaces](remote-access-local-ide-setup-filter.md "remote-access-local-ide-setup-filter.md")
 
 ## Set up your local environment
 
-Install [Visual Studio Code](https://code.visualstudio.com/ "https://code.visualstudio.com/") on your
-local machine. For information on the requirements, see [Connect your local Visual Studio Code to SageMaker spaces with remote access](remote-access.md "remote-access.md").
+Install your preferred Remote IDE on your local machine:
 
-## Connect to your local VS Code
+- [Visual Studio Code](https://code.visualstudio.com/ "https://code.visualstudio.com/")
+- [Kiro](https://kiro.dev/ "https://kiro.dev/")
+- [Cursor](https://cursor.com/home "https://cursor.com/home")
 
-Before you can establish a connection from your local Visual Studio Code to your remote
+For information on the version requirements, see [IDE version requirements](remote-access.md#remote-access-ide-version-requirements "remote-access.md#remote-access-ide-version-requirements").
+
+## Connect to your Remote IDE
+
+Before you can establish a connection from your Remote IDE to your remote
 SageMaker spaces, your administrator must [Set up remote access](remote-access-remote-setup.md "remote-access-remote-setup.md"). Your administrator sets up a
 specific method for you to establish a connection. Choose the method that was set up
 for you.
@@ -25,7 +30,7 @@ for you.
 ###### Topics
 
 - [Method 1: Deep link from Studio UI](#remote-access-local-ide-setup-local-vs-code-method-1-deep-link-from-studio-ui "#remote-access-local-ide-setup-local-vs-code-method-1-deep-link-from-studio-ui")
-- [Method 2: AWS Toolkit for Visual Studio Code](#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code "#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code")
+- [Method 2: AWS Toolkit in the Remote IDE](#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code "#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code")
 - [Method 3: Connect from the terminal via SSH CLI](#remote-access-local-ide-setup-local-vs-code-method-3-connect-from-the-terminal-via-ssh-cli "#remote-access-local-ide-setup-local-vs-code-method-3-connect-from-the-terminal-via-ssh-cli")
 
 ### Method 1: Deep link from Studio UI
@@ -34,22 +39,22 @@ Use the following procedure to establish a connection using deep link.
 
 1. [Launch Amazon SageMaker Studio](studio-updated-launch.md#studio-updated-launch-console "studio-updated-launch.md#studio-updated-launch-console").
 2. In the Studio UI, navigate to your space.
-3. Choose **Open space with**.
-4. Choose **VS Code**. When you do so you may be
-   prompted to **Open Visual Studio Code**. When you choose to
-   do so, your local VS Code opens with another pop-up to confirm. Once
-   completed, the remote connection established.
+3. Choose **Open in VS Code**, **Open in Kiro**,
+   or **Open in Cursor** button for your preferred IDE. Ensure that
+   your preferred IDE is already installed on your local computer.
+4. When prompted, confirm to open your IDE. Your IDE opens with another pop-up to confirm. Once
+   completed, the remote connection is established.
 
-### Method 2: AWS Toolkit for Visual Studio Code
+### Method 2: AWS Toolkit in the Remote IDE
 
 Use the following procedure to establish a connection using the
-AWS Toolkit for Visual Studio Code.
+AWS Toolkit for Visual Studio Code. This method is available for VS Code, Kiro, and Cursor.
 
-1. Open VS Code.
+1. Open your Remote IDE (VS Code, Kiro, or Cursor).
 2. Open the AWS Toolkit extension.
 3. [Connect to
    AWS](../../../toolkit-for-vscode/latest/userguide/connect.md "../../../toolkit-for-vscode/latest/userguide/connect.md").
-4. In the AWS Explorer, expand **SageMaker AI**.
+4. In the AWS Explorer, expand **SageMaker AI**, then expand **Studio**.
 5. Find your Studio space.
 6. Choose the **Connect** icon next to your space to
    start it.

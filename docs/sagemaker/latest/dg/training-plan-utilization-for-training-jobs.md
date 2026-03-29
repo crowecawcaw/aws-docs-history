@@ -55,8 +55,8 @@ def is_close_to_expiration(threshold_minutes=30):
     if expiration_time_str == '0':
         return False
 
-    # Convert the timestamp string to a datetime object
-    expiration_time = datetime.fromtimestamp(int(expiration_time_str))
+    # Convert the timestamp string (in milliseconds) to a datetime object
+    expiration_time = datetime(1970, 1, 1) + timedelta(milliseconds=int(expiration_time_str))
 
     # Calculate the time difference between now and the expiration time
     time_difference = expiration_time - datetime.now()

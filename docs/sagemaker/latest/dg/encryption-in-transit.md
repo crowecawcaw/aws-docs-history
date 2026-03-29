@@ -16,7 +16,7 @@ includes:
 - Communications between nodes in distributed training jobs (intranetwork).
   There are no inter-node communications for batch processing.
 
-You can choose to encrypt communication between nodes in a training cluster.
+You can choose to encrypt communication between nodes in a training job cluster and processing job cluster.
 
 ###### Note
 
