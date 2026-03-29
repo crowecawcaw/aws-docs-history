@@ -10,6 +10,11 @@ This page provides reference information for the AWS Serverless Application Mode
 
 ###### Note
 
+It's not recommended to use SAM CLI's local invoke capabilities in untrusted code. To have complete
+isolation from your local environment, execute the code in the Lambda service directly.
+
+###### Note
+
 For durable functions, `sam local invoke` supports stateful execution with automatic checkpointing and replay. The container remains running during durable function execution to handle state persistence and resumption.
 
 ## Usage
@@ -115,7 +120,7 @@ Name for the durable execution (for durable functions only)
 
 `--env-vars, -n `PATH``
 
-The JSON file that contains values for the Lambda function's environment variables. For more information about environment variable files, see
+The JSON or `.env` file that contains values for the Lambda function's environment variables. The file format is automatically detected. For more information about environment variable files, see
 [Environment variable file](serverless-sam-cli-using-invoke.md#serverless-sam-cli-using-invoke-environment-file "serverless-sam-cli-using-invoke.md#serverless-sam-cli-using-invoke-environment-file").
 
 `--event, -e `PATH``

@@ -116,7 +116,5 @@ names of these resources in the CloudFormation console.
 
 To continue learning about AWS SAM, see the following resources:
 
-- **[AWS SAM example applications](https://github.com/aws-samples/serverless-app-examples "https://github.com/aws-samples/serverless-app-examples")** –
-  The AWS SAM GitHub repository contains additional example applications for you to download and experiment with.
 - **[Serverless Land](https://serverlessland.com/patterns?framework=AWS+SAM "https://serverlessland.com/patterns?framework=AWS+SAM")** –
   Site that brings together serverless patterns, code examples, and learning resources specifically for AWS SAM applications.

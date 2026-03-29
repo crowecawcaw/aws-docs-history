@@ -11,6 +11,11 @@ one-time invocation of an AWS Lambda function locally.
 
 ###### Note
 
+It's not recommended to use SAM CLI's local invoke capabilities in untrusted code. To have complete
+isolation from your local environment, execute the code in the Lambda service directly.
+
+###### Note
+
 `sam local invoke` supports durable functions with automatic checkpointing and replay capabilities. When invoking durable functions locally, execution state is automatically managed.
 
 To use `sam local invoke`, install the AWS SAM CLI by completing the following:

@@ -98,8 +98,8 @@ Docker machine, and modify this value to match the remote machine.
 
 `--env-vars, -n `PATH``
 
-The JSON file that contains values for the Lambda function's environment
-variables.
+The JSON or `.env` file that contains values for the Lambda function's environment
+variables. The file format is automatically detected.
 
 `--force-image-build`
 

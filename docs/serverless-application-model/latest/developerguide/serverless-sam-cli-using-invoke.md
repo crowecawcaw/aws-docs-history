@@ -15,6 +15,11 @@ in the _AWS Lambda Developer Guide_.
 
 ###### Note
 
+It's not recommended to use SAM CLI's local invoke capabilities in untrusted code. To have complete
+isolation from your local environment, execute the code in the Lambda service directly.
+
+###### Note
+
 The **sam local invoke** command corresponds to the AWS Command Line Interface (AWS CLI)
 command [`aws lambda invoke`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/invoke.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/invoke.html"). You can use either command to invoke a
 Lambda function.
@@ -40,11 +45,14 @@ $ sam local invoke --help
 To declare environment variables locally that override values defined in your
 templates, do the following:
 
-1. Create a JSON file that contains the environment variables to override.
+1. Create a JSON or `.env` file that contains the environment variables to override.
 2. Use the `--env-vars` argument to override values defined in your
    templates.
 
-### Declaring environment variables
+The `--env-vars` option supports two file formats. The file format is
+automatically detected based on the file content.
+
+### Declaring environment variables with JSON
 
 To declare environment variables that apply globally to all resources, specify a
 `Parameters` object like the following:
@@ -90,14 +98,38 @@ for specific resources take precedence over global environment variables.
 Save your environment variables in a JSON file, such as
 `env.json`.
 
+### Declaring environment variables with .env files
+
+You can also use a `.env` file to declare environment variables.
+Variables declared in a `.env` file apply globally to all
+functions, equivalent to the `Parameters` object in JSON format.
+
+```
+TABLE_NAME=localtable
+BUCKET_NAME=amzn-s3-demo-bucket
+STAGE=dev
+```
+
+The `.env` format supports comments (lines starting with
+`#`) and quoted values.
+
+###### Note
+
+The `.env` format only supports global environment variables.
+To declare function-specific environment variables, use the JSON format.
+
 ### Overriding environment variable values
 
-To override environment variables with those defined in your JSON file, use the
+To override environment variables with those defined in your environment variable file, use the
 `--env-vars` argument with the **invoke** or
 **start-api** commands. For example:
 
 ```
+# Using a JSON file
 sam local invoke --env-vars env.json
+
+# Using a .env file
+sam local invoke --env-vars .env
 ```
 
 ## Layers
