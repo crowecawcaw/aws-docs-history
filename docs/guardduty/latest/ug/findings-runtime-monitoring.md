@@ -1037,6 +1037,13 @@ in the finding for further investigation.
 If this activity is unexpected, your resource might have been compromised. For more
 information, see [Remediating Runtime Monitoring findings](guardduty-remediate-runtime-monitoring.md "guardduty-remediate-runtime-monitoring.md").
 
+###### Note
+
+Process command line arguments may contain sensitive data. To protect sensitive data,
+GuardDuty runtime monitoring findings do not include full command line arguments. Instead,
+`Service.RuntimeDetails.Context.CommandLineExample` provides a representative
+example of the command line pattern that generated the finding.
+
 ## DefenseEvasion:Runtime/SuspiciousCommand
 
 ### A command has been executed on the listed Amazon EC2 instance or a container, it attempts to modify or disable a Linux defense mechanism, such as firewall or essential system services.
