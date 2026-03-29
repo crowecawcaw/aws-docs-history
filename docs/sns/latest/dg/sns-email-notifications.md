@@ -22,6 +22,10 @@ Amazon SNS topic using the AWS Management Console, AWS SDK for Java, or AWS SDK 
   will trigger an automatic suspension of the subscription, placing it in a pending confirmation status.
   The subscription remains in PendingConfirmation state for 30 days,
   after which it will be automatically deleted unless action is taken.
+- If a subscribed email address results in a bounce, the address is suppressed from further deliveries for 7 days.
+  Bounces can occur for various reasons, including invalid addresses or issues with the receiving email server.
+  To remove the address from the suppression list before the 7-day period expires,
+  resolve the underlying issue with the email address and then contact AWS using the Support Center.
 
 ## Subscribing an email address to an Amazon SNS topic using the AWS Management Console
 
