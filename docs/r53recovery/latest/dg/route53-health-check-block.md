@@ -94,3 +94,39 @@ and permissions. Region switch verifies that health checks are attached to the D
 specified in the execution block configuration. That is, Region switch
 verifies that the DNS records for a specific AWS Region
 are configured to use health checks for that Region.
+
+## Comparing ARC routing controls and Route 53 health check execution blocks
+
+The Amazon Route 53 health check execution block in Region switch provides a lower-cost alternative
+for DNS-based traffic management. However, this execution block depends on the AWS Region
+that you're activating, so that Region must be available. This meets the needs of most
+customers, because they are activating a healthy Region.
+
+ARC routing controls provide highly reliable DNS-based traffic management with a 100%
+availability SLA. With routing controls, your operations teams can shift traffic between
+Regions with safety guardrails. Routing controls provide a single-tenant solution with a
+100% SLA. A routing control cluster is spread across five Regions and can tolerate two
+Regions being offline. If you have highly critical applications, consider using routing
+controls.
+
+Routing controls are not required to use Region switch. You can use Region switch to manage traffic
+redirection by using Route 53 health check execution blocks without routing controls.
+
+Routing controls add value with Region switch in the following situations:
+
+- You require the 100% availability SLA for the traffic control mechanism itself.
+- Your organization requires manual operational controls with safety rules for critical applications.
+- You want defense-in-depth so that operations teams can manually override automated traffic routing if needed.
+
+Route 53 health check execution blocks do not depend on the control plane. Health check
+record changes use the data plane, so they do not require the activating Region to
+process configuration updates. Route 53 health check execution blocks are sufficient in
+the following situations:
+
+- Your application can depend on the AWS Region that you are activating.
+- Automated traffic redirection as part of the recovery workflow meets your requirements.
+- Cost optimization is a priority. Route 53 health check execution blocks have lower cost than routing controls.
+
+Most customers start with Route 53 health check execution blocks as the default traffic routing
+mechanism and add routing controls only for their most critical applications that require
+the highest reliability for the traffic management mechanism.
