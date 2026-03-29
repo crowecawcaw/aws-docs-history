@@ -43,6 +43,9 @@ This section describes individual premigration assessments for migration tasks t
 - [Validate CHAR/VARCHAR columns compatibility for migration to Oracle](#CHAP_Tasks.AssessmentReport.PG.varchar.columns "#CHAP_Tasks.AssessmentReport.PG.varchar.columns")
 - [Validate that idle_in_transaction_session_timeout setting is configured on the source database](#CHAP_Tasks.AssessmentReport.PG.transaction.session "#CHAP_Tasks.AssessmentReport.PG.transaction.session")
 - [Validate that AWS DMS user has required roles for AWS-managed PostgreSQL databases](#CHAP_Tasks.AssessmentReport.PG.rds.roles "#CHAP_Tasks.AssessmentReport.PG.rds.roles")
+- [Validate that the target endpoint is not a read replica](#CHAP_Tasks.AssessmentReport.PG.read.replica "#CHAP_Tasks.AssessmentReport.PG.read.replica")
+- [Verify source Aurora PostgreSQL read replica version](#CHAP_Tasks.AssessmentReport.PG.Aurorasource.replica.version "#CHAP_Tasks.AssessmentReport.PG.Aurorasource.replica.version")
+- [Verify source PostgreSQL read replica version](#CHAP_Tasks.AssessmentReport.PG.source.replica.version "#CHAP_Tasks.AssessmentReport.PG.source.replica.version")
 
 ## Validate if DDL event trigger is set to ENABLE ALWAYS
 
@@ -402,3 +405,28 @@ This premigration assessment verifies that the `idle_in_transaction_session_time
 `postgres-check-rds-roles`
 
 This premigration assessment verifies that the AWS DMS user has been configured with all required roles for AWS-managed PostgreSQL databases. Insufficient roles can cause migration task failures.
+
+## Validate that the target endpoint is not a read replica
+
+**API key**:
+`all-check-target-read-replica`
+
+This premigration assessment verifies that the target endpoint is not configured as a read replica. AWS DMS requires write access to the target database and cannot replicate to read-only replicas.
+
+## Verify source Aurora PostgreSQL read replica version
+
+**API key**:
+`postgres-aurora-check-source-replica-role-cdc`
+
+This premigration assessment verifies that the source endpoint uses an Aurora PostgreSQL read replica running version 16 or later. CDC operations require replication slots, which Aurora PostgreSQL does not support on read-only nodes in versions earlier than 16.
+
+For more information, see [Read replica as a source for PostgreSQL](CHAP_Source.PostgreSQL.md#CHAP_Source.PostgreSQL.ReadReplica "CHAP_Source.PostgreSQL.md#CHAP_Source.PostgreSQL.ReadReplica").
+
+## Verify source PostgreSQL read replica version
+
+**API key**:
+`postgres-check-source-replica-role-cdc`
+
+This premigration assessment verifies that the source endpoint uses a PostgreSQL read replica running version 16 or later. CDC operations require replication slots, which PostgreSQL does not support on read-only nodes in versions earlier than 16.
+
+For more information, see [Read replica as a source for PostgreSQL](CHAP_Source.PostgreSQL.md#CHAP_Source.PostgreSQL.ReadReplica "CHAP_Source.PostgreSQL.md#CHAP_Source.PostgreSQL.ReadReplica").

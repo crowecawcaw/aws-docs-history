@@ -1,8 +1,8 @@
 # Migrating your source schema to your target database using AWS SCT
 
-In this section, you use the AWS Schema Conversion Tool to migrate your source schema to your target database.
-Alternatively, you can use DMS Schema Conversion to convert your source database schemas. For more information,
-see [Getting started with DMS Schema Conversion](getting-started.md "getting-started.md").
+We recommend using DMS Schema Conversion to convert your source database schemas. For more information,
+see [Getting started with DMS Schema Conversion](getting-started.md "getting-started.md"). If you prefer to use
+the legacy AWS Schema Conversion Tool, follow the steps below.
 
 ###### To migrate your source schema to your target database with AWS SCT
 

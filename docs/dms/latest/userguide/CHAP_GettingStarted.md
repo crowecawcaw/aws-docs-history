@@ -10,8 +10,9 @@ To perform a database migration, take the following steps:
    to contain your tutorial resources. To create these resources, follow the steps in
    [Complete prerequisites to set up AWS Database Migration Service](CHAP_GettingStarted.Prerequisites.md "CHAP_GettingStarted.Prerequisites.md").
 3. Populate your source database using a [sample database creation script](https://github.com/aws-samples/aws-database-migration-samples "https://github.com/aws-samples/aws-database-migration-samples").
-4. Use DMS Schema Conversion or the AWS Schema Conversion Tool (AWS SCT) to convert the schema from the source database to
-   the target database. To use DMS Schema Conversion, follow the steps in [Getting started with DMS Schema Conversion](getting-started.md "getting-started.md"). To convert the schema with AWS SCT, follow the steps in
+4. Use DMS Schema Conversion to convert the schema from the source database to the target database.
+   Follow the steps in [Getting started with DMS Schema Conversion](getting-started.md "getting-started.md").
+   Alternatively, if you are using the legacy AWS Schema Conversion Tool (AWS SCT), follow the steps in
    [Migrate schema](CHAP_GettingStarted.SCT.md "CHAP_GettingStarted.SCT.md").
 5. Create a replication instance to perform all the processes for the migration. To
    do this and the following tasks, take the steps in [Replication](CHAP_GettingStarted.Replication.md "CHAP_GettingStarted.Replication.md").

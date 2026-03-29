@@ -6,10 +6,15 @@ For information about supported target databases, see [Target data providers for
 
 ## Privileges for PostgreSQL as a target
 
-To use PostgreSQL as a target, DMS Schema Conversion requires the `CREATE ON
- DATABASE` privilege. Create a user and grant this user with this
-privilege for each database that you want to use in migration project for
-DMS Schema Conversion.
+To use PostgreSQL as a target, DMS Schema Conversion requires the following minimum privileges.
+The target database must exist before you connect. For each database you want to
+use in your migration project, grant the following privileges to the user account
+used for the migration:
+
+```
+GRANT CONNECT ON DATABASE `<db_name>` TO `<user>`;
+GRANT CREATE ON DATABASE `<db_name>` TO `<user>`;
+```
 
 To use Amazon RDS for PostgreSQL as a target, DMS Schema Conversion requires the `rds_superuser`
 role.
