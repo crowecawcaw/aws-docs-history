@@ -568,9 +568,7 @@ For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations pla
 For SQL Server Standard edition, consider changing to an instance in
 the same instance family with 48 vCPUs. For SQL Server Web edition, consider
 changing to an instance in the same instance family with 32 vCPUs. If it is
-memory intensive, consider changing to memory optimized R5 instances. For
-more information, see [Best Practices for Deploying Microsoft SQL Server on
-Amazon EC2](../../../prescriptive-guidance/latest/sql-server-ec2-best-practices/welcome.md "../../../prescriptive-guidance/latest/sql-server-ec2-best-practices/welcome.md").
+memory intensive, consider changing to memory optimized R5 instances.
 
 **Additional resources**
 
