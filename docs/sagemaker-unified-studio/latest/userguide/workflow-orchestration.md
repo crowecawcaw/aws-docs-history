@@ -2,8 +2,11 @@
 
 Amazon SageMaker Unified Studio provides workflow capabilities that allow you to set up and run a series of tasks to orchestrate your data processing procedures. Workflows use Apache Airflow to model data processing procedures and orchestrate your Amazon SageMaker Unified Studio code artifacts.
 
-Amazon SageMaker Unified Studio supports workflows in two domain types:
+Amazon SageMaker Unified Studio supports [MWAA serverless](../../../mwaa/latest/mwaa-serverless-userguide/what-is-mwaa-serverless.md "../../../mwaa/latest/mwaa-serverless-userguide/what-is-mwaa-serverless.md") and [MWAA provisioned](../../../mwaa/latest/userguide/what-is-mwaa.md "../../../mwaa/latest/userguide/what-is-mwaa.md") workflows:
 
-- **IDC-based domains** - The original Amazon SageMaker Unified Studio interface that provides comprehensive workflow capabilities including visual workflows, code workflows, and workflow environments.
-- **IAM-based domains** - A new domain type that provides workflow capabilities through federated role access with existing IAM permissions.
-  The workflow experience and available features may differ between domain types. Choose the appropriate section below based on your domain type to access the relevant documentation.
+- **Serverless** - Eliminates the operational overhead of managing Apache Airflow environments while providing cost-effective serverless scaling.
+- **Provisioned** - A managed environment for Apache Airflow, to set up and run data pipelines in the cloud at scale.
+
+###### Note
+
+IAM domains supports only serverless workflows.

@@ -32,6 +32,10 @@ recommendations.
 
 SageMaker notebooks are only available in IAM-based domains.
 
+###### Note
+
+SageMaker Notebooks do not support VPC. For VPC support, you can use JupyterLab spaces.
+
 ## Key capabilities
 
 1. Execute Python, Spark, and SQL code in interactive cells

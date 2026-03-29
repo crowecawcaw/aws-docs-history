@@ -163,7 +163,10 @@ business glossary to assets and columns to classify or enhance the identificatio
 attributes during search. You can select glossary as the value type for a field in a metadata
 form that is associated with an asset. When you select a particular term as the value for an
 asset's metadata form field, users can search for the business glossary term and find the
-associated assets.
+associated assets. Glossaries are owned by the project that creates them, but they are
+visible to all users in the domain. Users in any project can attach glossary terms to their
+assets, while only members of the owning project can edit or delete the glossary and its
+terms.
 
 **Git connection**
 
@@ -171,10 +174,6 @@ Use git connections to check in and check out files and manage your code reposit
 you create an Amazon SageMaker unified domain, a default git connection to CodeCommit is
 provided for you to manage your code. You can also create and enable new 3P Git connections to
 GitHub, GitHub Enterprise Server, GitLab, and GitLab Self-Managed.
-When you enable a Git connection, all users who can sign in to any domain in the account
-have read and write access to all repositories on that connection. This access applies
-regardless of the user's project membership or permission level. To enforce isolation
-between repositories, use separate AWS accounts.
 
 **Data source**
 
@@ -359,9 +358,9 @@ analyze, and visualize data using Amazon Redshift or Amazon Athena as the query 
 in a Querybook contain SQL statements or markdown and can be run individually, like a
 traditional query editor, or sequentially. Query results appear in-line with each cell, where
 you can toggle between multiple results and create data visualizations. To accelerate query
-development, Querybooks integrate with SageMaker Data Agent to generate SQL queries from
-natural language input, and provide auto-complete suggestions for table names, column names,
-and SQL keywords as you type. Amazon SageMaker Unified Studio automatically saves your work as you progress. When ready, you can publish
+development, Querybooks integrate with SageMaker Data Agent to generate SQL queries from natural language
+input, and provide auto-complete suggestions for table names, column names, and SQL keywords as
+you type. Amazon SageMaker Unified Studio automatically saves your work as you progress. When ready, you can publish
 your Querybook to your project for collaboration with teammates.
 
 **Space**

@@ -9,6 +9,14 @@ vocabulary usage when analyzing data, while metadata forms are customizable form
 augment asset metadata with additional business context beyond the technical metadata automatically collected
 by the service.
 
+Glossaries and metadata forms are owned by the project that creates them. Only members of
+the owning project can edit or delete a glossary, its terms, or a metadata form. However,
+glossaries, their terms, and metadata forms are visible to all users in the domain. Users in
+any project within the domain can search for and view glossaries and terms, and can attach
+glossary terms and metadata forms to their assets to curate metadata. This allows a governance
+team to create and manage glossary terms and metadata forms in a dedicated project while users
+across the domain use them to describe and categorize their data assets.
+
 ###### Topics
 
 - [Create a business glossary in Amazon SageMaker Unified Studio](create-maintain-business-glossary.md "create-maintain-business-glossary.md")

@@ -1,4 +1,16 @@
-# Create a visual workflow in IAM-based domains
+# Using serverless visual workflows
+
+With Amazon SageMaker Unified Studio serverless visual workflows, you can create and orchestrate tasks
+using an intuitive drag-and-drop interface without writing code. Visual workflows supports over
+80 tasks to help interact with multiple AWS services and automate use-cases across analytics,
+compute, catalog and storage. For the full list of supported tasks, see [Supported operators](../../../mwaa/latest/mwaa-serverless-userguide/operators.md "../../../mwaa/latest/mwaa-serverless-userguide/operators.md").
+
+- [Create a serverless visual workflow](#serverless-create-visual-workflow "#serverless-create-visual-workflow")
+- [View visual workflows code](#serverless-view-visual-workflow-code "#serverless-view-visual-workflow-code")
+- [Monitor your workflow](#serverless-monitor-visual-workflow "#serverless-monitor-visual-workflow")
+- [Converting existing Airflow DAGs](#serverless-convert-airflow-dags "#serverless-convert-airflow-dags")
+
+## Create a serverless visual workflow
 
 Use visual workflows to orchestrate tasks in your project. With visual workflows, you can
 define a collection of tasks organized as a directed acyclic graph (DAG) that can run on a
@@ -7,7 +19,7 @@ user-defined schedule.
 ###### To create a visual workflow
 
 1. Log in to Amazon SageMaker Unified Studio.
-2. Navigate to the Workflows tool using the left menu, selecting
+2. In the left navigation pane, choose
    **Workflows**.
 3. Choose **Create new workflow** to open the Visual Workflows
    editor.
@@ -44,3 +56,25 @@ user-defined schedule.
     validation errors, the notifications symbol next to the settings gear will show a number
     next to it which indicates the number of errors. You must fix them before you can
     successfully run the workflow.
+
+## View visual workflows code
+
+To view a visual workflow code, navigate to the workflow details page by selecting a
+workflow from the Workflows page list. Then choose the Actions dropdown menu and choose
+**View code**.
+
+## Monitor your workflow
+
+###### To monitor your workflow
+
+1. From the Workflows view, choose the vertical dots to the far right of your workflow's
+   name and select **View runs**.
+2. In the subsequent Runs view you will see your workflow runs.
+3. Choose the run to show the tasks.
+4. Choose the task ID to show the task output and associated logs.
+
+## Converting existing Airflow DAGs
+
+You can convert existing Airflow workflows to YAML through a Python library. For more
+information, see [Introducing
+Amazon MWAA Serverless](https://aws.amazon.com/blogs/big-data/introducing-amazon-mwaa-serverless/ "https://aws.amazon.com/blogs/big-data/introducing-amazon-mwaa-serverless/") on the AWS Big Data Blog.

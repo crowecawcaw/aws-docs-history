@@ -33,7 +33,7 @@ clusters to your project. Amazon SageMaker Unified Studio supports different kin
   SageMaker AI features. For more information, see [Track experiments using MLflow](sagemaker-experiments.xml.md "sagemaker-experiments.xml.md") in Identity Center-based domains
   and [Track experiments using MLflow](use-mlflow-experiments.md "use-mlflow-experiments.md") in IAM-based domains.
 - **Workflow environments**: Use a workflow environment to
-  share scheduled workflows with other project members. For more information, see [Create a workflow environment](create-workflow-environment.md "create-workflow-environment.md").
+  share scheduled workflows with other project members. For more information, see [Create a workflow environment](workflow-environments.md#create-workflow-environment "workflow-environments.md#create-workflow-environment").
 
 ###### Note
 

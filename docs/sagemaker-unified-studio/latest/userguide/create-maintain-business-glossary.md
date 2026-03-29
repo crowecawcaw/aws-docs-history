@@ -29,16 +29,23 @@ To create a glossary, complete the following steps:
      domain units
 
 6. Enable the new glossary by choosing the **Enabled** toggle.
-   To disable or enable a business glossary, complete the following steps:
 
-7. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
+###### Note
+
+After you create and enable a glossary, it is visible to all users in the
+domain. Users in other projects can search for, view, and attach the glossary's terms
+to their assets. Only members of the project that owns the glossary can edit or
+delete it.
+To disable or enable a business glossary, complete the following steps:
+
+1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-8. Navigate to the **Discover** menu in the top navigation bar.
-9. Choose **Glossaries**.
-10. Select the
-    business glossary that you want to disable or enable.
-11. On the glossary details page, locate the **Enabled** toggle
-    and use it to enable or disable your selected glossary.
+2. Navigate to the **Discover** menu in the top navigation bar.
+3. Choose **Glossaries**.
+4. Select the
+   business glossary that you want to disable or enable.
+5. On the glossary details page, locate the **Enabled** toggle
+   and use it to enable or disable your selected glossary.
 
 ###### Note
 

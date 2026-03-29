@@ -158,3 +158,23 @@ For example, if you want to change the default Spark SQL catalog name for projec
 }
 
 ```
+
+## Local IDE troubleshooting
+
+The following table lists common issues with the local IDE extension, along with
+their categories and resolutions.
+
+| Issue                                                                                                   | Category                   | Resolution                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Invalid domain URL format                                                                               | Authentication             | Verify that the URL follows the format<br>`https://dzd-xxxxxxxxx.sagemaker.region.on.aws`.<br>Check for copy-paste errors.                                  |
+| SSO authentication fails or hangs in browser                                                            | Authentication             | Clear your browser cache and cookies, try an incognito or private<br>window, or restart your IDE.                                                           |
+| Connection expired or token issues                                                                      | Authentication             | If using SSO, sign out and sign back in through the AWS Toolkit<br>extension. If using IAM credentials, update your credentials<br>file.                    |
+| "Failed to get SSO instance info" or connection timeout                                                 | Authentication             | Verify that the domain URL is accessible from your<br>network.                                                                                              |
+| Timeouts connecting to the Space                                                                        | Non-public internet access | Add the required URLs to your allowlist for your extension. For<br>example, for VS Code, add the Microsoft extension marketplace URLs<br>to your allowlist. |
+| VPC-only domain without internet access                                                                 | Non-public internet access | Configure a NAT gateway or proxy for internet access. Completely<br>isolated domains require additional setup for remote<br>connections.                    |
+| "Failed to start SageMaker session"                                                                     | Session and connection     | Check the browser tab that opens for the specific error. Verify<br>your permissions, or reduce the number of active sessions.                               |
+| Remote SSH fails with "Invalid hostname format. Expected format:<br>`sm_<creds-type>_<AWSResourceARN>`" | Session and connection     | Remove previous SSH config entries from other IDEs by choosing<br>Open SSH Configuration File in the command palette, then reinstall<br>the extension.      |
+| Multiple browser windows open with error messages after a Space<br>shuts down                           | Session and connection     | In your user settings, set<br>`remote.SSH.serverShutdownTimeout` to a lower value,<br>such as 5.                                                            |
+| AccessDeniedException on project node                                                                   | Data Explorer              | Contact your administrator to verify or grant project<br>access.                                                                                            |
+| "Failed to obtain project credentials"                                                                  | Data Explorer              | Re-authenticate through the extension, or update your credentials<br>file.                                                                                  |
+| "No AWS account region found in tooling environment"                                                    | Data Explorer              | Verify that your project has a valid tooling environment<br>configured.                                                                                     |

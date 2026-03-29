@@ -21,3 +21,9 @@ To create a metadata form, complete the following steps:
 4. Choose **Create metadata form**.
 5. Specify the metadata form technical name, owning project, and optional display name and description.
 6. Choose **Create metadata form**.
+
+###### Note
+
+After you create a metadata form, it is visible to all users in the domain. Users in
+other projects can attach the metadata form to their assets to add business context. Only
+members of the project that owns the metadata form can edit or delete it.

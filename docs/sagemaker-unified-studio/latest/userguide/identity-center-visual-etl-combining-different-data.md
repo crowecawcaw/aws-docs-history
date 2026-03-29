@@ -75,9 +75,9 @@ configured for that data. There are two configuration options for permission mod
     **project.spark.compatibility** to verify correctness of the
     results.
 13. Orchestrate these two visual ETL jobs using Amazon SageMaker Unified Studio workflows. For more
-    information, see [Scheduling and running visual jobs in Identity Center-based domains](identity-center-schedule-visual-etl.md "identity-center-schedule-visual-etl.md") and [Create a code workflow](create-workflow.md#workflow-create "create-workflow.md#workflow-create").
+    information, see [Scheduling and running visual jobs in Identity Center-based domains](identity-center-schedule-visual-etl.md "identity-center-schedule-visual-etl.md") and [Create a code workflow](code-workflow.md#workflow-create "code-workflow.md#workflow-create").
 
 Make sure that the workflow is configured so that the first visual ETL job finishes
 running before the second visual ETL job runs. By default, they'll run in succession,
 one after the other. This can also be configured using the
-`wait_for_completion` param, as shown in [Sample code workflow](create-workflow.md#workflows-sample "create-workflow.md#workflows-sample").
+`wait_for_completion` param, as shown in [Sample code workflow](code-workflow.md#workflows-sample "code-workflow.md#workflows-sample").
