@@ -22,10 +22,10 @@ You can also configure lifecycle settings for an existing AgentCore Runtime with
 
 ## Configuration attributes
 
-| Lifecycle configuration attributes | Attribute | Type     | Range (seconds) | Required                                                                                                                                                                                                                                                | Description |
-| ---------------------------------- | --------- | -------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `idleRuntimeSessionTimeout`        | Integer   | 60-28800 | No              | Timeout in seconds for idle runtime sessions. When a session remains<br>idle for this duration, it will trigger termination. Termination can<br>last up to 15 seconds due to logging and other process completion.<br>Default: 900 seconds (15 minutes) |
-| `maxLifetime`                      | Integer   | 60-28800 | No              | Maximum lifetime for the instance in seconds. Once reached, instances<br>will initialize termination. Termination can last up to 15 seconds due<br>to logging and other process completion. Default: 28800 seconds (8<br>hours)                         |
+| Lifecycle configuration attributes | Attribute | Type     | Range (seconds) | Required                                                                                                                                                                                                                                                                                                        | Description |
+| ---------------------------------- | --------- | -------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `idleRuntimeSessionTimeout`        | Integer   | 60-28800 | No              | Timeout in seconds for idle runtime sessions. When a session remains<br>idle for this duration, it will trigger termination. Termination can<br>last up to 15 seconds due to logging and other process completion.<br>Default: 900 seconds (15 minutes)                                                         |
+| `maxLifetime`                      | Integer   | 60-28800 | No              | Maximum lifetime for the instance in seconds. Once reached, instances<br>will initialize termination. Termination can last up to 15 seconds due<br>to logging and other process completion. Default: 28800 seconds (8<br>hours). The session itself can persist beyond this with a new instance<br>provisioned. |
 
 ### Constraints
 
@@ -258,7 +258,7 @@ Key points about lifecycle settings and sessions:
 - **Per-session isolation**: Each `runtimeSessionId` gets its own microVM with independent lifecycle timers
 - **Idle timer reset**: The `idleRuntimeSessionTimeout` resets each time you invoke the same session
 - **Maximum lifetime enforcement**: The `maxLifetime` timer starts when the microVM is first created and cannot be reset
-- **Session termination**: When either timeout is reached, only that specific session's microVM is terminated
+- **Session termination**: When either timeout is reached, only that specific session's microVM is terminated. The session can be resumed with a new microVM provisioned.
 
 ###### Tip
 

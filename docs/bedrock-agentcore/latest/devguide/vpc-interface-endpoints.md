@@ -26,13 +26,15 @@ AgentCore provides three AWS PrivateLink endpoints:
 
 The following table shows AWS PrivateLink support status for each AgentCore primitive:
 
-| AWS PrivateLink support by primitive            | Primitive | Data plane        | Control plane |
-| ----------------------------------------------- | --------- | ----------------- | ------------- |
-| Runtime                                         | Supported | Supported         |
-| Memory                                          | Supported | Supported         |
-| Built-in Tools (Code Interpreter, Browser Tool) | Supported | Supported         |
-| Identity                                        | Supported | Not yet supported |
-| Gateway                                         | Supported | Not yet supported |
+| AWS PrivateLink support by primitive            | Primitive         | Data plane | Control plane |
+| ----------------------------------------------- | ----------------- | ---------- | ------------- |
+| Runtime                                         | Supported         | Supported  |
+| Memory                                          | Supported         | Supported  |
+| Built-in Tools (Code Interpreter, Browser Tool) | Supported         | Supported  |
+| Identity                                        | Supported         | Supported  |
+| Gateway                                         | Supported         | Supported  |
+| Evaluations                                     | Not yet supported | Supported  |
+| Policy                                          | Supported         | Supported  |
 
 For a list of AWS Regions in which AgentCore interface endpoints are available, see
 [Supported AWS Regions](agentcore-regions.md "agentcore-regions.md").

@@ -98,6 +98,18 @@ AgentCore Runtime:
 | Idle session timeout                  | 15 minutes of inactivity | Yes, through the `idleRuntimeSessionTimeout` API<br>parameter in the `LifecycleConfiguration` data<br>type | When this limit is reached, the execution environment is<br>terminated and a new one is created for the session |
 | Maximum session duration              | 8 hrs                    | Yes, through the `maxLifetime` API parameter in the<br>`LifecycleConfiguration` data type                  |                                                                                                                 |
 
+### Session storage limits
+
+The following table describes the limits for session storage:
+
+| Session storage limits        | Limit       | Value | Adjustable                              | Description |
+| ----------------------------- | ----------- | ----- | --------------------------------------- | ----------- |
+| Maximum storage size          | 1 GB        | No    | Maximum total storage size per session  |
+| Maximum filesystem metadata   | ~50 MB      | No    | Approximately 100,000–200,000 files     |
+| Maximum directory depth       | 200 levels  | No    | Maximum nested directory depth          |
+| Maximum filename length       | 255 bytes   | No    | Maximum length of a single filename     |
+| Maximum symlink target length | 4,095 bytes | No    | Maximum length of a symlink target path |
+
 ## AgentCore Memory Service Quotas
 
 The following table describes the lifetime session lifecycle parameters for

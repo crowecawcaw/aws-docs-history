@@ -190,6 +190,21 @@ page = context.pages[0]
 
 Cookie expiration times are set by websites and cannot be modified by browser profiles. Session cookies typically expire when the browser session ends, while persistent cookies expire based on their Max-Age or Expires attributes.
 
+## Troubleshooting Root Certificate Authority issues
+
+The following table describes common errors and their resolutions when configuring root CA certificates for Amazon Bedrock AgentCore Browser.
+
+| Certificate configuration errors                       | Error                                                                              | Cause                                                                                                                                                    | Resolution |
+| ------------------------------------------------------ | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| Certificate secret not found in Secrets Manager        | The secret ARN does not exist or the secret has been deleted.                      | Verify the secret ARN is correct and the secret exists in the specified Region.                                                                          |
+| Access denied to certificate secret in Secrets Manager | The caller does not have `secretsmanager:GetSecretValue` permission on the secret. | Add the `secretsmanager:GetSecretValue` permission to your IAM policy for the specified secret ARN.                                                      |
+| Certificate content is not valid PEM/X.509 format      | The secret value is not a valid PEM-encoded X.509 certificate.                     | Ensure the secret contains a properly formatted PEM certificate starting with `-----BEGIN CERTIFICATE-----` and ending with `-----END CERTIFICATE-----`. |
+| Certificate has expired                                | The certificate's `notAfter` date is in the past.                                  | Replace the expired certificate with a valid one in AWS Secrets Manager and retry.                                                                       |
+| Certificate is not yet valid                           | The certificate's `notBefore` date is in the future.                               | Wait until the certificate's validity period begins, or use a certificate that is currently valid.                                                       |
+| Number of certificates exceeds the maximum allowed     | More than 10 certificates were provided at the session level or tool level.        | Reduce the number of certificates to 10 or fewer per session and 10 or fewer per tool.                                                                   |
+| Certificate location is required                       | A certificate entry was provided without a location.                               | Ensure each certificate in the array includes a `location` with a `secretsManager` entry containing a valid `secretArn`.                                 |
+| Certificates configuration is not enabled              | The certificates feature is not enabled for your account.                          | Contact AWS Support to enable the certificates feature for your account.                                                                                 |
+
 ## Troubleshooting browser proxies
 
 ### Errors when starting a session with proxy
@@ -201,11 +216,11 @@ Cookie expiration times are set by websites and cannot be modified by browser pr
 **Solution:**
 
 - `Proxy credentials secret not found in Secrets Manager` – The secret ARN does not match any secret in the target account and Region. Verify the ARN is correct and that the secret has not been deleted or scheduled for deletion.
-- `Invalid proxy credentials secret configuration (check encryption key for cross-account access)` – The secret exists but cannot be accessed. Ensure the calling identity has `secretsmanager:GetSecretValue` permission. For cross-account secrets, see .
+- `Invalid proxy credentials secret configuration (check encryption key for cross-account access)` – The secret exists but cannot be accessed. Ensure the calling identity has `secretsmanager:GetSecretValue` permission. For cross-account secrets, see [Cross-account secret access](browser-proxies.md#browser-proxies-cross-account "browser-proxies.md#browser-proxies-cross-account").
 - `Proxy credentials secret must be a JSON object with username and password fields` – Update the secret value to a valid JSON object: `{"username": "...", "password": "..."}`.
 - `Failed to parse proxy credentials from secret` – The secret value could not be read as proxy credentials. Verify the secret contains a plain JSON string (not binary) with `username` and `password` fields.
 - `Field 'username' is missing or empty in secret` or `Field 'password' is missing or empty in secret` – Ensure both `username` and `password` are present and non-empty in the secret.
-- `Field 'username' contains invalid characters` or `Field 'password' contains invalid characters` – Use only the characters listed in the error message. See for allowed characters.
+- `Field 'username' contains invalid characters` or `Field 'password' contains invalid characters` – Use only the characters listed in the error message. See [Step 1: Create a credentials secret (if using authentication)](browser-proxies.md#browser-proxies-step1 "browser-proxies.md#browser-proxies-step1") for allowed characters.
 - `Field 'username' exceeds maximum length of 256 characters` or `Field 'password' exceeds maximum length of 256 characters` – Shorten the credential to 256 characters or fewer.
 
 ### Proxy connection errors in browser

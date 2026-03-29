@@ -1,8 +1,12 @@
 # Pre-installed libraries
 
-The AgentCore Code Interpreter comes with a comprehensive set of pre-installed Python libraries to support various data analysis, machine learning, and development tasks. These libraries are available immediately without requiring additional installation.
+The AgentCore Code Interpreter comes with pre-installed libraries for both Python and Node.js. These libraries are available immediately without requiring additional installation.
 
-## Data Analysis and Visualization
+## Python libraries
+
+The AgentCore Code Interpreter includes a comprehensive set of pre-installed Python libraries to support various data analysis, machine learning, and development tasks.
+
+### Data Analysis and Visualization
 
 | Data Analysis and Visualization libraries | Library                                          | Description |
 | ----------------------------------------- | ------------------------------------------------ | ----------- |
@@ -34,7 +38,7 @@ The AgentCore Code Interpreter comes with a comprehensive set of pre-installed P
 | `mpmath`                                  | Arbitrary-precision arithmetic                   |
 | `llvmlite`                                | LLVM binding for Numba                           |
 
-## Machine Learning and AI
+### Machine Learning and AI
 
 | Machine Learning and AI libraries | Library                                   | Description |
 | --------------------------------- | ----------------------------------------- | ----------- |
@@ -66,7 +70,7 @@ The AgentCore Code Interpreter comes with a comprehensive set of pre-installed P
 | `absl-py`                         | Abseil Python common libraries            |
 | `mcp`                             | Model Context Protocol                    |
 
-## Mathematical and Optimization
+### Mathematical and Optimization
 
 | Mathematical and Optimization libraries | Library                                  | Description |
 | --------------------------------------- | ---------------------------------------- | ----------- |
@@ -81,7 +85,7 @@ The AgentCore Code Interpreter comes with a comprehensive set of pre-installed P
 | `networkx`                              | Network analysis                         |
 | `igraph`                                | Graph analysis and visualization         |
 
-## Web and API Development
+### Web and API Development
 
 | Web and API Development libraries | Library                                 | Description |
 | --------------------------------- | --------------------------------------- | ----------- |
@@ -133,7 +137,7 @@ The AgentCore Code Interpreter comes with a comprehensive set of pre-installed P
 | `wsproto`                         | WebSocket protocol implementation       |
 | `yarl`                            | URL parsing library                     |
 
-## Cloud and Database
+### Cloud and Database
 
 | Cloud and Database libraries | Library                    | Description |
 | ---------------------------- | -------------------------- | ----------- |
@@ -144,7 +148,7 @@ The AgentCore Code Interpreter comes with a comprehensive set of pre-installed P
 | `redis`                      | Redis client               |
 | `psycopg2-binary`            | PostgreSQL adapter         |
 
-## File Processing and Documents
+### File Processing and Documents
 
 | File Processing and Documents libraries | Library                        | Description |
 | --------------------------------------- | ------------------------------ | ----------- |
@@ -171,7 +175,7 @@ The AgentCore Code Interpreter comes with a comprehensive set of pre-installed P
 | `proglog`                               | Progress logging               |
 | `lazy_loader`                           | Lazy module loading            |
 
-## Image and Media Processing
+### Image and Media Processing
 
 | Image and Media Processing libraries | Library                   | Description |
 | ------------------------------------ | ------------------------- | ----------- |
@@ -191,7 +195,7 @@ The AgentCore Code Interpreter comes with a comprehensive set of pre-installed P
 | `PyWavelets`                         | Wavelet transforms        |
 | `tifffile`                           | TIFF file processing      |
 
-## Development Tools and Utilities
+### Development Tools and Utilities
 
 | Development Tools and Utilities libraries | Library                                       | Description |
 | ----------------------------------------- | --------------------------------------------- | ----------- |
@@ -261,7 +265,7 @@ The AgentCore Code Interpreter comes with a comprehensive set of pre-installed P
 | `smart-open`                              | Utils for streaming large files               |
 | `zipp`                                    | Backport of pathlib-compatible object wrapper |
 
-## Text and Markup Processing
+### Text and Markup Processing
 
 | Text and Markup Processing libraries | Library                               | Description |
 | ------------------------------------ | ------------------------------------- | ----------- |
@@ -277,7 +281,7 @@ The AgentCore Code Interpreter comes with a comprehensive set of pre-installed P
 | `chardet`                            | Character encoding detection          |
 | `charset-normalizer`                 | Character encoding detection          |
 
-## Geospatial and Mapping
+### Geospatial and Mapping
 
 | Geospatial and Mapping libraries | Library                           | Description |
 | -------------------------------- | --------------------------------- | ----------- |
@@ -285,7 +289,7 @@ The AgentCore Code Interpreter comes with a comprehensive set of pre-installed P
 | `pyshp`                          | Shapefile library                 |
 | `branca`                         | HTML/JS template library for maps |
 
-## Document Processing Support
+### Document Processing Support
 
 | Document Processing Support libraries | Library                                                      | Description |
 | ------------------------------------- | ------------------------------------------------------------ | ----------- |
@@ -302,7 +306,7 @@ The AgentCore Code Interpreter comes with a comprehensive set of pre-installed P
 | `pypandoc`                            | Python wrapper for Pandoc document converter                 |
 | `pypdf`                               | Pure Python PDF library for splitting, merging, cropping     |
 
-For a complete list of all pre-installed libraries with their specific versions, you can run the following code in your Code Interpreter session:
+For a complete list of all pre-installed Python libraries with their specific versions, you can run the following code in your Code Interpreter session:
 
 ```
 import pkg_resources
@@ -310,3 +314,15 @@ installed_packages = [d for d in pkg_resources.working_set]
 for package in sorted(installed_packages, key=lambda x: x.project_name.lower()):
     print(f"{package.project_name}=={package.version}")
 ```
+
+## Node.js packages/libraries
+
+The following Node.js packages/libraries are pre-installed in the AgentCore Code Interpreter environment.
+
+| Node.js packages/libraries | Package/Library                              | Description |
+| -------------------------- | -------------------------------------------- | ----------- |
+| `axios`                    | Promise-based HTTP client                    |
+| `lodash`                   | Utility library for common programming tasks |
+| `uuid`                     | UUID generation                              |
+| `zod`                      | TypeScript-first schema validation           |
+| `cheerio`                  | HTML parsing and manipulation                |

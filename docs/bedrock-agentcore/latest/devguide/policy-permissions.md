@@ -146,6 +146,7 @@ Replace these placeholders:
         "bedrock-agentcore:GetGateway",
         "bedrock-agentcore:DeleteGateway",
         "bedrock-agentcore:ListGateways",
+        "bedrock-agentcore:InvokeGateway",
         "bedrock-agentcore:CreateGatewayTarget",
         "bedrock-agentcore:UpdateGatewayTarget",
         "bedrock-agentcore:GetGatewayTarget",
@@ -337,7 +338,7 @@ Both `AuthorizeAction` and `PartiallyAuthorizeActions` require access to BOTH th
 1. **Enable CloudWatch Logs** - Configure detailed logging for the Amazon Bedrock AgentCore Gateway to capture policy evaluation details
 2. **Review X-Ray Traces** - Check AWS X-Ray traces to identify where authorization checks are failing
 3. **Start with LOG_ONLY Mode** - Use LOG_ONLY mode initially to test Cedar policies without blocking requests
-4. **Verify All Three Permissions** - Ensure `AuthorizeAction`, `PartiallyAuthorizeActions`, AND `GetPolicyEngine` are all present
+4. **Verify All Four Permissions** - Ensure `AuthorizeAction`, `PartiallyAuthorizeActions`, AND `GetPolicyEngine` are all present
 5. **Switch to ENFORCED Mode** - Only after verifying all permissions work in LOG_ONLY mode, switch to ENFORCED mode
 
 ## Example: Creating Both IAM Roles

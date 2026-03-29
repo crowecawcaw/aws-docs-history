@@ -24,3 +24,7 @@ issues:
 - **Overly restrictive policies** — If
   created, the policy engine will deny all requests for the specified
   principal, action, and resource combination
+- **Ineffective policies** — If
+  created, the policy has no impact: a Permit policy does not allow
+  any requests, or a Forbid policy does not deny any requests. This
+  applies at the policy level during generation, not at the policy engine level

@@ -28,6 +28,46 @@ Your MCP server must implement these specific protocol requirements:
 
 Amazon Bedrock AgentCore also supports stateful MCP servers (`stateless_http=False`) that enable capabilities such as elicitation (multi-turn user interactions) and sampling (LLM-generated content). Stateful mode is required when your MCP server needs to maintain session context across multiple requests within the same tool invocation. For more information and examples, see [Stateful MCP server features](mcp-stateful-features.md "mcp-stateful-features.md").
 
+### MCP session management and microVM stickiness
+
+The Model Context Protocol (MCP) uses the `Mcp-Session-Id` header
+to manage session state and route requests. For the MCP specification, see
+[MCP Streamable HTTP Transport](https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#streamable-http "https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#streamable-http").
+
+**MicroVM Stickiness**: Amazon Bedrock AgentCore uses the
+`Mcp-Session-Id` header to route requests to the same microVM instance.
+Clients must capture the `Mcp-Session-Id` returned in the response
+and include it in all subsequent requests to ensure session affinity. Without
+a consistent session ID, each request may be routed to a new microVM, which may
+result in additional latency due to cold starts.
+
+**Stateless MCP** (`stateless_http=True`):
+
+- Platform generates the `Mcp-Session-Id` and includes it in
+  the request to your MCP server.
+- Your MCP server must accept the platform-provided session ID (do not
+  reject it).
+- Platform returns the same `Mcp-Session-Id` to the client
+  in the response.
+- Client must include this session ID in all subsequent requests for
+  microVM affinity.
+
+**Stateful MCP** (`stateless_http=False`):
+
+- Client sends the initialize request without an `Mcp-Session-Id`
+  header.
+- Platform returns `Mcp-Session-Id` in the response.
+- Client must include this `Mcp-Session-Id` in all subsequent
+  requests for both session state and microVM affinity.
+
+For more details on stateful MCP session management, see the
+[MCP session management specification](https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#session-management "https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#session-management").
+
+###### Note
+
+In both modes, Amazon Bedrock AgentCore always returns an `Mcp-Session-Id`
+header to clients. Always capture and reuse this header for optimal performance.
+
 ## Container requirements
 
 Your MCP server must be deployed as a containerized application meeting these

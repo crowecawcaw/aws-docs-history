@@ -38,6 +38,12 @@ to 8 hours, enabling complex agent reasoning and asynchronous workloads that
 may involve multi-agent collaboration or extended problem-solving
 sessions.
 
+Persistent filesystems
+
+Runtime supports persisting filesystem state across session stop/resume cycles. The agent's
+files, installed packages, and build artifacts can survive session stops without
+external storage.
+
 Consumption-based pricing model
 
 Runtime implements consumption-based pricing that charges only for
@@ -99,6 +105,7 @@ infrastructure from disparate components.
 - [Deploy A2A servers in AgentCore Runtime](runtime-a2a.md "runtime-a2a.md")
 - [Deploy AGUI servers in AgentCore Runtime](runtime-agui.md "runtime-agui.md")
 - [Use isolated sessions for agents](runtime-sessions.md "runtime-sessions.md")
+- [Persist session state across stop/resume with a filesystem configuration (Preview)](runtime-persistent-filesystems.md "runtime-persistent-filesystems.md")
 - [Handle asynchronous and long running agents with Amazon Bedrock AgentCore Runtime](runtime-long-run.md "runtime-long-run.md")
 - [Stream agent responses](response-streaming.md "response-streaming.md")
 - [Bidirectional streaming](runtime-bidirectional-streaming.md "runtime-bidirectional-streaming.md")

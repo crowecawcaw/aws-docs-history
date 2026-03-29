@@ -361,6 +361,10 @@ the following VPC endpoints to ensure proper functionality:
 
 Be sure to replace `region` with your specific region if different.
 
+###### Note
+
+If you are using [Persist session state across stop/resume with a filesystem configuration (Preview)](runtime-persistent-filesystems.md "runtime-persistent-filesystems.md"), ensure your VPC meets the [Networking requirements](runtime-persistent-filesystems.md#session-storage-networking "runtime-persistent-filesystems.md#session-storage-networking").
+
 ### Internet access considerations
 
 When you connect Amazon Bedrock AgentCore Runtime or a built-in tool to a Virtual Private Cloud (VPC), it does not have internet access by default. By default, these resources can communicate only with resources inside the same VPC. If your runtime or tool requires access to both VPC resources and the internet, you must configure your VPC accordingly.

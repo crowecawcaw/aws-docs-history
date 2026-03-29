@@ -37,13 +37,17 @@ lifecycle management like maximum number of sessions per user.
 
 ## Understanding ephemeral context
 
-While AgentCore provides strong session isolation, these sessions are
-ephemeral in nature. Any data stored in memory or written to disk persists only for the
-session duration. This includes conversation history, user preferences, intermediate
-calculation results, and any other state information your agent maintains.
+By default, the compute (microVM) associated with a session is ephemeral. Any data
+stored in memory or written to disk persists only for the compute lifecycle. This
+includes conversation history, user preferences, intermediate calculation results,
+and any other state information your agent maintains.
 
-For data that needs to be retained beyond the session lifetime (such as user
-conversation history, learned preferences, or important insights), you should use
+To persist filesystem data across session stop/resume cycles, configure
+**session storage** — a persistent directory that survives
+compute termination. See [Persist session state across stop/resume with a filesystem configuration (Preview)](runtime-persistent-filesystems.md "runtime-persistent-filesystems.md").
+
+For structured data that needs to be retained beyond the session lifetime (such as
+user conversation history, learned preferences, or important insights), use
 AgentCore Memory. This service provides purpose-built persistent storage designed
 specifically for agent workloads, with both short-term and long-term memory
 capabilities.
@@ -51,10 +55,10 @@ capabilities.
 ## Extended conversations and multi-step workflows
 
 Unlike traditional serverless functions that terminate after each request,
-AgentCore supports ephemeral, isolated compute sessions lasting up to 8 hours.
-This simplifies building multi-step agentic workflows as you can make multiple calls to
-the same environment, with each invocation building upon the context established by
-previous interactions. You can use both `InvokeAgentRuntime` for agent
+AgentCore supports isolated sessions backed by ephemeral computes lasting up to 8 hours
+per lifecycle. This simplifies building multi-step agentic workflows as you can make
+multiple calls to the same environment, with each invocation building upon the context
+established by previous interactions. You can use both `InvokeAgentRuntime` for agent
 reasoning and `InvokeAgentRuntimeCommand` for deterministic shell command
 execution within the same session.
 
@@ -71,7 +75,7 @@ sees the same container, filesystem, and environment as the agent.
 
 ###### Session states
 
-Sessions can be in one of the following states:
+Session state is determined by the compute lifecycle and can be one of the following:
 
 - **Active**: Either processing a sync request,
   executing a command, or doing background tasks. Sync invocation and command
@@ -81,11 +85,17 @@ Sessions can be in one of the following states:
 - **Idle**: When not processing any requests or
   background tasks. The session has completed processing but remains available for
   future invocations.
-- **Terminated**: Execution environment provisioned
-  for the session is terminated. This can be due to inactivity (of 15 minutes),
-  reaching max duration (8 hours) or if it's deemed unhealthy based on health
-  checks. Subsequent invokes to a terminated runtimeSessionId will provision a new
-  execution environment.
+- **Stopped**: The compute (microVM) provisioned
+  for the session has been terminated and the session is stopped. This can occur
+  due to inactivity (default 15 minutes), reaching max compute lifetime (default
+  8 hours), an explicit stop by invoking the [StopRuntimeSession](../APIReference/API_StopRuntimeSession.md "../APIReference/API_StopRuntimeSession.md") API, or if the
+  compute is deemed unhealthy based on health checks. The session transitions back
+  to Active on the next invocation and a new compute is provisioned, with the same
+  lifecycle configuration (i.e. idleRuntimeSessionTimeout and maxLifetime that can
+  be up to another 8 hours). The session itself remains valid until the AgentCore
+  Runtime ARN is deleted. If the runtime is configured with session storage,
+  filesystem data at the configured mount path persists across stop/resume cycles.
+  See [Persist session state across stop/resume with a filesystem configuration (Preview)](runtime-persistent-filesystems.md "runtime-persistent-filesystems.md").
 
 ## How to use sessions
 
@@ -120,3 +130,25 @@ response2 = agent_core_client.InvokeAgentRuntime(
 By using the same runtimeSessionId for related invocations, you ensure that context is
 maintained across the conversation, allowing your agent to provide coherent responses
 that build on previous interactions.
+
+## Session headers by protocol
+
+When invoking agents, include the appropriate session header to ensure requests
+are routed to the same microVM. The header depends on your agent's configured
+protocol:
+
+| Session headers by protocol | Protocol                                      | Session Header |
+| --------------------------- | --------------------------------------------- | -------------- |
+| MCP                         | `Mcp-Session-Id`                              |
+| HTTP                        | `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` |
+| A2A                         | `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` |
+| AGUI                        | `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` |
+
+**MicroVM stickiness**: Amazon Bedrock AgentCore uses the session
+header to route requests to the same microVM instance. Clients must capture the session
+ID returned in the response and include it in all subsequent requests to ensure session
+affinity. Without a consistent session ID, each request may be routed to a new microVM,
+which may result in additional latency due to cold starts.
+
+For MCP protocol specifics including stateless and stateful modes, see
+[MCP session management and microVM stickiness](runtime-mcp-protocol-contract.md#mcp-session-management "runtime-mcp-protocol-contract.md#mcp-session-management").
