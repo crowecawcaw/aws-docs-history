@@ -674,7 +674,11 @@ pkg:generic/mysql/mysql-server@8.0.43
 
 ## Microsoft applications ecosystem collection
 
-###### Supported Microsoft applications
+The following Microsoft applications are inventoried by the Amazon Inspector SBOM generator.
+Due to limitations in the Microsoft CVRF API, detections in the InspectorScan API are only supported for versions of these applications released in 2021 (or later).
+Findings will be mapped to Microsoft KBs or CVEs (where applicable).
+
+###### Supported Microsoft applications (2021+)
 
 - PowerShell
 - NuGet CLI
