@@ -40,246 +40,258 @@ that relies on tag data.
 
 ## Amazon AppStream
 
-| AWS Service                       | Resource Type Value           | Relationship | Related Resource |
-| --------------------------------- | ----------------------------- | ------------ | ---------------- |
-| Amazon AppStream                  | `AWS::AppStream::Application` | NA           | NA               |
-| `AWS::AppStream::AppBlockBuilder` | NA                            | NA           |
-| `AWS::AppStream::DirectoryConfig` | NA                            | NA           |
-| `AWS::AppStream::Fleet`           | NA                            | NA           |
-| `AWS::AppStream::Stack`           | NA                            | NA           |
+| AWS Service                       | Resource Type Value           | Relationship | Related Resource | Notes |
+| --------------------------------- | ----------------------------- | ------------ | ---------------- | ----- |
+| Amazon AppStream                  | `AWS::AppStream::Application` | NA           | NA               |       |
+| `AWS::AppStream::AppBlockBuilder` | NA                            | NA           |                  |
+| `AWS::AppStream::DirectoryConfig` | NA                            | NA           |                  |
+| `AWS::AppStream::Fleet`           | NA                            | NA           |                  |
+| `AWS::AppStream::Stack`           | NA                            | NA           |                  |
 
 ## Amazon AppFlow
 
-| AWS Service    | Resource Type Value  | Relationship | Related Resource |
-| -------------- | -------------------- | ------------ | ---------------- |
-| Amazon AppFlow | `AWS::AppFlow::Flow` | NA           | NA               |
+| AWS Service    | Resource Type Value  | Relationship | Related Resource | Notes |
+| -------------- | -------------------- | ------------ | ---------------- | ----- |
+| Amazon AppFlow | `AWS::AppFlow::Flow` | NA           | NA               |       |
 
 ## Amazon AppIntegrations
 
-| AWS Service                         | Resource Type Value                      | Relationship | Related Resource |
-| ----------------------------------- | ---------------------------------------- | ------------ | ---------------- |
-| Amazon AppIntegrations              | `AWS::AppIntegrations::EventIntegration` | NA           | NA               |
-| `AWS::AppIntegrations::Application` | NA                                       | NA           |
+| AWS Service                         | Resource Type Value                      | Relationship | Related Resource | Notes |
+| ----------------------------------- | ---------------------------------------- | ------------ | ---------------- | ----- |
+| Amazon AppIntegrations              | `AWS::AppIntegrations::EventIntegration` | NA           | NA               |       |
+| `AWS::AppIntegrations::Application` | NA                                       | NA           |                  |
 
 ## Amazon API Gateway
 
-| AWS Service                      | Resource Type Value           | Relationship        | Related Resource |
-| -------------------------------- | ----------------------------- | ------------------- | ---------------- |
-| API Gateway                      | `AWS::ApiGateway::DomainName` | NA                  | NA               |
-| `AWS::ApiGateway::Stage`         | is contained in               | ApiGateway Rest Api |
-| is associated with               | WAFRegional WebACL            |
-| `AWS::ApiGateway::Method`        | NA                            | NA Stage            |
-| `AWS::ApiGateway::RestApi`       | contains                      | ApiGateway Stage    |
-| `AWS::ApiGateway::UsagePlan`     | NA                            | NA                  |
-| API Gateway V2                   | `AWS::ApiGatewayV2::Stage`    | is contained in     | ApiGatewayV2 Api |
-| `AWS::ApiGatewayV2::Api`         | contains                      | ApiGatewayV2 Stage  |
-| `AWS::ApiGatewayV2::Integration` | NA                            | NA                  |
+| AWS Service                      | Resource Type Value           | Relationship        | Related Resource | Notes |
+| -------------------------------- | ----------------------------- | ------------------- | ---------------- | ----- |
+| API Gateway                      | `AWS::ApiGateway::DomainName` | NA                  | NA               |       |
+| `AWS::ApiGateway::Stage`         | is contained in               | ApiGateway Rest Api |                  |
+| is associated with               | WAFRegional WebACL            |                     |
+| `AWS::ApiGateway::Method`        | NA                            | NA Stage            |                  |
+| `AWS::ApiGateway::RestApi`       | contains                      | ApiGateway Stage    |                  |
+| `AWS::ApiGateway::UsagePlan`     | NA                            | NA                  |                  |
+| API Gateway V2                   | `AWS::ApiGatewayV2::Stage`    | is contained in     | ApiGatewayV2 Api |       |
+| `AWS::ApiGatewayV2::Api`         | contains                      | ApiGatewayV2 Stage  |                  |
+| `AWS::ApiGatewayV2::Integration` | NA                            | NA                  |                  |
 
 To learn more about how AWS Config integrates with Amazon API Gateway, see [Monitoring API Gateway API Configuration with
 AWS Config](../../../apigateway/latest/developerguide/apigateway-config.md "../../../apigateway/latest/developerguide/apigateway-config.md").
 
 ## Amazon Athena
 
-| AWS Service                      | Resource Type Value      | Relationship | Related Resource |
-| -------------------------------- | ------------------------ | ------------ | ---------------- |
-| Amazon Athena                    | `AWS::Athena::WorkGroup` | NA           | NA               |
-| `AWS::Athena::DataCatalog`       | NA                       | NA           |
-| `AWS::Athena::PreparedStatement` | NA                       | NA           |
+| AWS Service                      | Resource Type Value      | Relationship | Related Resource | Notes |
+| -------------------------------- | ------------------------ | ------------ | ---------------- | ----- |
+| Amazon Athena                    | `AWS::Athena::WorkGroup` | NA           | NA               |       |
+| `AWS::Athena::DataCatalog`       | NA                       | NA           |                  |
+| `AWS::Athena::PreparedStatement` | NA                       | NA           |                  |
 
 ## Amazon Bedrock
 
-| AWS Service                                    | Resource Type Value                         | Relationship | Related Resource |
-| ---------------------------------------------- | ------------------------------------------- | ------------ | ---------------- |
-| Amazon Bedrock                                 | `AWS::Bedrock::ApplicationInferenceProfile` | NA           | NA               |
-| `AWS::Bedrock::Guardrail`                      | NA                                          | NA           |
-| `AWS::Bedrock::KnowledgeBase`                  | NA                                          | NA           |
-| `AWS::Bedrock::Prompt`                         | NA                                          | NA           |
-| `AWS::BedrockAgentCore::BrowserCustom`         | NA                                          | NA           |
-| `AWS::BedrockAgentCore::CodeInterpreterCustom` | NA                                          | NA           |
-| `AWS::BedrockAgentCore::Runtime`               | NA                                          | NA           |
+| AWS Service                                    | Resource Type Value                         | Relationship | Related Resource                                                                            | Notes |
+| ---------------------------------------------- | ------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------- | ----- |
+| Amazon Bedrock                                 | `AWS::Bedrock::ApplicationInferenceProfile` | NA           | NA                                                                                          |       |
+| `AWS::Bedrock::DataSource`                     | NA                                          | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
+| `AWS::Bedrock::Guardrail`                      | NA                                          | NA           |                                                                                             |
+| `AWS::Bedrock::KnowledgeBase`                  | NA                                          | NA           |                                                                                             |
+| `AWS::Bedrock::Prompt`                         | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::BrowserCustom`         | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::CodeInterpreterCustom` | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::Gateway`               | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::Memory`                | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::Runtime`               | NA                                          | NA           |                                                                                             |
 
 ## Amazon CloudFront
 
-| AWS Service                              | Resource Type Value             | Relationship       | Related Resource |
-| ---------------------------------------- | ------------------------------- | ------------------ | ---------------- |
-| Amazon CloudFront                        | `AWS::CloudFront::Distribution` | is associated with | AWS WAF WebACL   |
-| ACM Certificate                          |
-| S3 Bucket                                |
-| IAM Server Certificate                   |
-| `AWS::CloudFront::KeyValueStore`         | NA                              | NA                 |
-| `AWS::CloudFront::PublicKey`             | NA                              | NA                 |
-| `AWS::CloudFront::StreamingDistribution` | is associated with              | AWS WAF WebACL     |
-| ACM Certificate                          |
-| S3 Bucket                                |
-| IAM Server Certificate                   |
-| `AWS::CloudFront::RealtimeLogConfig`     | NA                              | NA                 |
+| AWS Service                              | Resource Type Value             | Relationship       | Related Resource | Notes |
+| ---------------------------------------- | ------------------------------- | ------------------ | ---------------- | ----- |
+| Amazon CloudFront                        | `AWS::CloudFront::Distribution` | is associated with | AWS WAF WebACL   |       |
+| ACM Certificate                          |                                 |
+| S3 Bucket                                |                                 |
+| IAM Server Certificate                   |                                 |
+| `AWS::CloudFront::KeyValueStore`         | NA                              | NA                 |                  |
+| `AWS::CloudFront::PublicKey`             | NA                              | NA                 |                  |
+| `AWS::CloudFront::StreamingDistribution` | is associated with              | AWS WAF WebACL     |                  |
+| ACM Certificate                          |                                 |
+| S3 Bucket                                |                                 |
+| IAM Server Certificate                   |                                 |
+| `AWS::CloudFront::RealtimeLogConfig`     | NA                              | NA                 |                  |
 
 ## Amazon CloudWatch
 
-| AWS Service                     | Resource Type Value       | Relationship | Related Resource |
-| ------------------------------- | ------------------------- | ------------ | ---------------- |
-| Amazon CloudWatch               | `AWS::CloudWatch::Alarm`  | NA           | NA               |
-| `AWS::CloudWatch::MetricStream` | NA                        | NA           |
-| Amazon CloudWatch Logs          | `AWS::Logs::Destination`  | NA           | NA               |
-| Amazon CloudWatch RUM           | `AWS::RUM::AppMonitor`    | NA           | NA               |
-| Amazon CloudWatch Evidently     | `AWS::Evidently::Project` | NA           | NA               |
-| `AWS::Evidently::Launch`        | NA                        | NA           |
-| `AWS::Evidently::Segment`       | NA                        | NA           |
+| AWS Service                           | Resource Type Value                              | Relationship | Related Resource | Notes |
+| ------------------------------------- | ------------------------------------------------ | ------------ | ---------------- | ----- |
+| Amazon CloudWatch                     | `AWS::CloudWatch::Alarm`                         | NA           | NA               |       |
+| `AWS::CloudWatch::MetricStream`       | NA                                               | NA           |                  |
+| Amazon CloudWatch Application Signals | `AWS::ApplicationSignals::ServiceLevelObjective` | NA           | NA               |       |
+| Amazon CloudWatch Internet Monitor    | `AWS::InternetMonitor::Monitor`                  | NA           | NA               |       |
+| Amazon CloudWatch Logs                | `AWS::Logs::Destination`                         | NA           | NA               |       |
+| Amazon CloudWatch RUM                 | `AWS::RUM::AppMonitor`                           | NA           | NA               |       |
+| Amazon CloudWatch Evidently           | `AWS::Evidently::Project`                        | NA           | NA               |       |
+| `AWS::Evidently::Launch`              | NA                                               | NA           |                  |
+| `AWS::Evidently::Segment`             | NA                                               | NA           |                  |
 
 ## Amazon CodeGuru
 
-| AWS Service              | Resource Type Value                            | Relationship | Related Resource |
-| ------------------------ | ---------------------------------------------- | ------------ | ---------------- |
-| Amazon CodeGuru Reviewer | `AWS::CodeGuruReviewer::RepositoryAssociation` | NA           | NA               |
-| Amazon CodeGuru Profiler | `AWS::CodeGuruProfiler::ProfilingGroup`        | NA           | NA               |
+| AWS Service              | Resource Type Value                            | Relationship | Related Resource | Notes |
+| ------------------------ | ---------------------------------------------- | ------------ | ---------------- | ----- |
+| Amazon CodeGuru Reviewer | `AWS::CodeGuruReviewer::RepositoryAssociation` | NA           | NA               |       |
+| Amazon CodeGuru Profiler | `AWS::CodeGuruProfiler::ProfilingGroup`        | NA           | NA               |       |
 
 ## Amazon Cognito
 
-| AWS Service                    | Resource Type Value      | Relationship | Related Resource |
-| ------------------------------ | ------------------------ | ------------ | ---------------- |
-| Amazon Cognito                 | `AWS::Cognito::UserPool` | NA           | NA               |
-| `AWS::Cognito::UserPoolClient` | NA                       | NA           |
-| `AWS::Cognito::UserPoolGroup`  | NA                       | NA           |
-| `AWS::Cognito::IdentityPool`   | NA                       | NA           |
+| AWS Service                                       | Resource Type Value          | Relationship | Related Resource | Notes |
+| ------------------------------------------------- | ---------------------------- | ------------ | ---------------- | ----- |
+| Amazon Cognito                                    | `AWS::Cognito::IdentityPool` | NA           | NA               |       |
+| `AWS::Cognito::IdentityPoolRoleAttachment`        | NA                           | NA           |                  |
+| `AWS::Cognito::LogDeliveryConfiguration`          | NA                           | NA           |                  |
+| `AWS::Cognito::UserPool`                          | NA                           | NA           |                  |
+| `AWS::Cognito::UserPoolClient`                    | NA                           | NA           |                  |
+| `AWS::Cognito::UserPoolGroup`                     | NA                           | NA           |                  |
+| `AWS::Cognito::UserPoolUICustomizationAttachment` | NA                           | NA           |                  |
 
 ## Amazon Comprehend
 
-| AWS Service       | Resource Type Value         | Relationship | Related Resource |
-| ----------------- | --------------------------- | ------------ | ---------------- |
-| Amazon Comprehend | `AWS::Comprehend::Flywheel` | NA           | NA               |
+| AWS Service       | Resource Type Value         | Relationship | Related Resource | Notes |
+| ----------------- | --------------------------- | ------------ | ---------------- | ----- |
+| Amazon Comprehend | `AWS::Comprehend::Flywheel` | NA           | NA               |       |
 
 ## Amazon Connect
 
-| AWS Service                         | Resource Type Value             | Relationship | Related Resource |
-| ----------------------------------- | ------------------------------- | ------------ | ---------------- |
-| Amazon Connect                      | `AWS::Connect::PhoneNumber`     | NA           | NA               |
-| `AWS::Connect::QuickConnect`        | NA                              | NA           |
-| `AWS::Connect::Instance`            | NA                              | NA           |
-| `AWS::Connect::Rule`                | NA                              | NA           |
-| `AWS::Connect::SecurityProfile`     | NA                              | NA           |
-| `AWS::Connect::User`                | NA                              | NA           |
-| Amazon Connect Customer Profiles    | `AWS::CustomerProfiles::Domain` | NA           | NA               |
-| `AWS::CustomerProfiles::ObjectType` | NA                              | NA           |
+| AWS Service                         | Resource Type Value             | Relationship | Related Resource                                                                            | Notes |
+| ----------------------------------- | ------------------------------- | ------------ | ------------------------------------------------------------------------------------------- | ----- |
+| Amazon Connect                      | `AWS::Connect::Instance`        | NA           | NA                                                                                          |       |
+| `AWS::Connect::PhoneNumber`         | NA                              | NA           |                                                                                             |
+| `AWS::Connect::Prompt`              | NA                              | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
+| `AWS::Connect::QuickConnect`        | NA                              | NA           |                                                                                             |
+| `AWS::Connect::RoutingProfile`      | NA                              | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
+| `AWS::Connect::Rule`                | NA                              | NA           |                                                                                             |
+| `AWS::Connect::SecurityProfile`     | NA                              | NA           |                                                                                             |
+| `AWS::Connect::TaskTemplate`        | NA                              | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
+| `AWS::Connect::User`                | NA                              | NA           |                                                                                             |
+| Amazon Connect Customer Profiles    | `AWS::CustomerProfiles::Domain` | NA           | NA                                                                                          |       |
+| `AWS::CustomerProfiles::ObjectType` | NA                              | NA           |                                                                                             |
 
 ## Amazon Detective
 
-| AWS Service      | Resource Type Value     | Relationship | Related Resource |
-| ---------------- | ----------------------- | ------------ | ---------------- |
-| Amazon Detective | `AWS::Detective::Graph` | NA           | NA               |
+| AWS Service                         | Resource Type Value     | Relationship | Related Resource | Notes |
+| ----------------------------------- | ----------------------- | ------------ | ---------------- | ----- |
+| Amazon Detective                    | `AWS::Detective::Graph` | NA           | NA               |       |
+| `AWS::Detective::OrganizationAdmin` | NA                      | NA           |                  |
 
 ## Amazon DynamoDB
 
-| AWS Service     | Resource Type Value    | Relationship | Related Resource |
-| --------------- | ---------------------- | ------------ | ---------------- |
-| Amazon DynamoDB | `AWS::DynamoDB::Table` | NA           | NA               |
+| AWS Service     | Resource Type Value    | Relationship | Related Resource | Notes |
+| --------------- | ---------------------- | ------------ | ---------------- | ----- |
+| Amazon DynamoDB | `AWS::DynamoDB::Table` | NA           | NA               |       |
 
 ## Amazon Elastic Compute Cloud
 
-| AWS Service                                      | Resource Type Value                  | Relationship                        | Related Resource |
-| ------------------------------------------------ | ------------------------------------ | ----------------------------------- | ---------------- |
-| Amazon Elastic Compute Cloud                     | `AWS::EC2::Host`\*                   | contains                            | EC2 instance     |
-| `AWS::EC2::EIP`                                  | is attached to                       | EC2 instance                        |
-| Network interface                                |
-| `AWS::EC2::Instance`                             | contains                             | EC2 network interface               |
-| is associated with                               | EC2 security group                   |
-| is attached to                                   | Amazon EBS volume                    |
-| EC2 Elastic IP (EIP)                             |
-| is contained in                                  | EC2 Dedicated host                   |
-| Route table                                      |
-| Subnet                                           |
-| Virtual private cloud (VPC)                      |
-| `AWS::EC2::NetworkInterface`                     | is associated with                   | EC2 security group                  |
-| is attached to                                   | EC2 Elastic IP (EIP)                 |
-| EC2 instance                                     |
-| is contained in                                  | Route table                          |
-| Subnet                                           |
-| Virtual private cloud (VPC)                      |
-| `AWS::EC2::SecurityGroup`\*                      | is associated with                   | EC2 instance                        |
-| EC2 network interface                            |
-| Virtual private cloud (VPC)                      |
-| `AWS::EC2::NatGateway`                           | is contained in                      | Virtual private cloud (VPC)         |
-| is contained in                                  | Subnet                               |
-| `AWS::EC2::EgressOnlyInternetGateway`            | is attached to                       | Virtual private cloud (VPC)         |
-| `AWS::EC2::EC2Fleet`                             | NA                                   | NA                                  |
-| `AWS::EC2::SpotFleet`                            | NA                                   | NA                                  |
-| `AWS::EC2::SubnetNetworkAclAssociation`          | NA                                   | NA                                  |
-| `AWS::EC2::PrefixList`                           | NA                                   | NA                                  |
-| `AWS::EC2::FlowLog`                              | NA                                   | NA                                  |
-| `AWS::EC2::TransitGateway`                       | NA                                   | NA                                  |
-| `AWS::EC2::TransitGatewayAttachment`             | NA                                   | NA                                  |
-| `AWS::EC2::TransitGatewayRouteTable`             | NA                                   | NA                                  |
-| `AWS::EC2::VPCEndpoint`                          | is contained in                      | Virtual private cloud (VPC)         |
-| is attached to                                   | Network interface                    |
-| is contained in                                  | Subnet                               |
-| is contained in                                  | Route table                          |
-| `AWS::EC2::VPCEndpointService`                   | is associated with                   | ElasticLoadBalancingV2 LoadBalancer |
-| `AWS::EC2::VPCPeeringConnection`                 | is associated with                   | Virtual private cloud (VPC)         |
-| `AWS::EC2::RegisteredHAInstance`                 | is associated with                   | EC2 instance                        |
-| `AWS::EC2::SubnetRouteTableAssociation`          | NA                                   | NA                                  |
-| `AWS::EC2::LaunchTemplate`                       | NA                                   | NA                                  |
-| `AWS::EC2::NetworkInsightsAccessScopeAnalysis`   | NA                                   | NA                                  |
-| `AWS::EC2::TrafficMirrorTarget`                  | NA                                   | NA                                  |
-| `AWS::EC2::TrafficMirrorSession`                 | NA                                   | NA                                  |
-| `AWS::EC2::DHCPOptions`                          | NA                                   | NA                                  |
-| `AWS::EC2::IPAM`                                 | NA                                   | NA                                  |
-| `AWS::EC2::IPAMResourceDiscovery`                | NA                                   | NA                                  |
-| `AWS::EC2::IPAMResourceDiscoveryAssociation`     | NA                                   | NA                                  |
-| `AWS::EC2::NetworkInsightsPath`                  | NA                                   | NA                                  |
-| `AWS::EC2::TrafficMirrorFilter`                  | NA                                   | NA                                  |
-| `AWS::EC2::CapacityReservation`                  | NA                                   | NA                                  |
-| `AWS::EC2::ClientVpnEndpoint`                    | NA                                   | NA                                  |
-| `AWS::EC2::CustomerGateway`                      | is attached to                       | VPN connection                      |
-| `AWS::EC2::InternetGateway`                      | is attached to                       | Virtual private cloud (VPC)         |
-| `AWS::EC2::NetworkAcl`                           | NA                                   | NA                                  |
-| `AWS::EC2::RouteTable`                           | contains                             | EC2 instance                        |
-| EC2 network interface                            |
-| Subnet                                           |
-| VPN gateway                                      |
-| is contained in                                  | Virtual private cloud (VPC)          |
-| `AWS::EC2::Subnet`                               | contains                             | EC2 instance                        |
-| EC2 network interface                            |
-| is attached to                                   | Network ACL                          |
-| is contained in                                  | Route table                          |
-| Virtual private cloud (VPC)                      |
-| `AWS::EC2::VPC`                                  | contains                             | EC2 instance                        |
-| EC2 network interface                            |
-| Network ACL                                      |
-| Route table                                      |
-| Subnet                                           |
-| is associated with                               | Security group                       |
-| is attached to                                   | Internet gateway                     |
-| VPN gateway                                      |
-| `AWS::EC2::VPNConnection`                        | is attached to                       | Customer gateway                    |
-| VPN gateway                                      |
-| `AWS::EC2::VPNConnectionRoute`                   | NA                                   | NA                                  |
-| `AWS::EC2::VPNGateway`                           | is attached to                       | Virtual private cloud (VPC)         |
-| VPN connection                                   |
-| is contained in                                  | Route table                          |
-| `AWS::EC2::IPAMScope`                            | NA                                   | NA                                  |
-| `AWS::EC2::CarrierGateway`                       | NA                                   | NA                                  |
-| `AWS::EC2::TransitGatewayConnect`                | NA                                   | NA                                  |
-| `AWS::EC2::IPAMPool`                             | NA                                   | NA                                  |
-| `AWS::EC2::TransitGatewayMulticastDomain`        | NA                                   | NA                                  |
-| `AWS::EC2::NetworkInsightsAccessScope`           | NA                                   | NA                                  |
-| `AWS::EC2::NetworkInsightsAnalysis`              | NA                                   | NA                                  |
-| `AWS::EC2::VPCBlockPublicAccessOptions`          | NA                                   | NA                                  |
-| `AWS::EC2::VPCBlockPublicAccessExclusion`        | NA                                   | NA                                  |
-| `AWS::EC2::EIPAssociation`                       | NA                                   | NA                                  |
-| `AWS::EC2::InstanceConnectEndpoint`              | NA                                   | NA                                  |
-| `AWS::EC2::SnapshotBlockPublicAccess`            | NA                                   | NA                                  |
-| `AWS::EC2::VPCEndpointConnectionNotification`    | NA                                   | NA                                  |
-| `AWS::EC2::SecurityGroupVpcAssociation`          | NA                                   | NA                                  |
-| `AWS::EC2::VerifiedAccessInstance`               | NA                                   | NA                                  |
-| `AWS::EC2::IPAMPoolCidr`                         | NA                                   | NA                                  |
-| `AWS::EC2::SubnetCidrBlock`                      | NA                                   | NA                                  |
-| `AWS::EC2::VPCGatewayAttachment`                 | NA                                   | NA                                  |
-| Amazon Elastic Block Store                       | `AWS::EC2::Volume`                   | is attached to                      | EC2 instance     |
-| EC2 Image Builder                                | `AWS::ImageBuilder::ContainerRecipe` | NA                                  | NA               |
-| `AWS::ImageBuilder::DistributionConfiguration`   | NA                                   | NA                                  |
-| `AWS::ImageBuilder::ImagePipeline`               | NA                                   | NA                                  |
-| `AWS::ImageBuilder::ImageRecipe`                 | NA                                   | NA                                  |
-| `AWS::ImageBuilder::InfrastructureConfiguration` | NA                                   | NA                                  |
-| `AWS::ImageBuilder::LifecyclePolicy`             | NA                                   | NA                                  |
+| AWS Service                                      | Resource Type Value                  | Relationship                        | Related Resource | Notes |
+| ------------------------------------------------ | ------------------------------------ | ----------------------------------- | ---------------- | ----- |
+| Amazon Elastic Compute Cloud                     | `AWS::EC2::Host`\*                   | contains                            | EC2 instance     |       |
+| `AWS::EC2::EIP`                                  | is attached to                       | EC2 instance                        |                  |
+| Network interface                                |                                      |
+| `AWS::EC2::Instance`                             | contains                             | EC2 network interface               |                  |
+| is associated with                               | EC2 security group                   |                                     |
+| is attached to                                   | Amazon EBS volume                    |                                     |
+| EC2 Elastic IP (EIP)                             |                                      |
+| is contained in                                  | EC2 Dedicated host                   |                                     |
+| Route table                                      |                                      |
+| Subnet                                           |                                      |
+| Virtual private cloud (VPC)                      |                                      |
+| `AWS::EC2::NetworkInterface`                     | is associated with                   | EC2 security group                  |                  |
+| is attached to                                   | EC2 Elastic IP (EIP)                 |                                     |
+| EC2 instance                                     |                                      |
+| is contained in                                  | Route table                          |                                     |
+| Subnet                                           |                                      |
+| Virtual private cloud (VPC)                      |                                      |
+| `AWS::EC2::SecurityGroup`\*                      | is associated with                   | EC2 instance                        |                  |
+| EC2 network interface                            |                                      |
+| Virtual private cloud (VPC)                      |                                      |
+| `AWS::EC2::NatGateway`                           | is contained in                      | Virtual private cloud (VPC)         |                  |
+| is contained in                                  | Subnet                               |                                     |
+| `AWS::EC2::EgressOnlyInternetGateway`            | is attached to                       | Virtual private cloud (VPC)         |                  |
+| `AWS::EC2::EC2Fleet`                             | NA                                   | NA                                  |                  |
+| `AWS::EC2::SpotFleet`                            | NA                                   | NA                                  |                  |
+| `AWS::EC2::SubnetNetworkAclAssociation`          | NA                                   | NA                                  |                  |
+| `AWS::EC2::PrefixList`                           | NA                                   | NA                                  |                  |
+| `AWS::EC2::FlowLog`                              | NA                                   | NA                                  |                  |
+| `AWS::EC2::TransitGateway`                       | NA                                   | NA                                  |                  |
+| `AWS::EC2::TransitGatewayAttachment`             | NA                                   | NA                                  |                  |
+| `AWS::EC2::TransitGatewayRouteTable`             | NA                                   | NA                                  |                  |
+| `AWS::EC2::VPCEndpoint`                          | is contained in                      | Virtual private cloud (VPC)         |                  |
+| is attached to                                   | Network interface                    |                                     |
+| is contained in                                  | Subnet                               |                                     |
+| is contained in                                  | Route table                          |                                     |
+| `AWS::EC2::VPCEndpointService`                   | is associated with                   | ElasticLoadBalancingV2 LoadBalancer |                  |
+| `AWS::EC2::VPCPeeringConnection`                 | is associated with                   | Virtual private cloud (VPC)         |                  |
+| `AWS::EC2::RegisteredHAInstance`                 | is associated with                   | EC2 instance                        |                  |
+| `AWS::EC2::SubnetRouteTableAssociation`          | NA                                   | NA                                  |                  |
+| `AWS::EC2::LaunchTemplate`                       | NA                                   | NA                                  |                  |
+| `AWS::EC2::NetworkInsightsAccessScopeAnalysis`   | NA                                   | NA                                  |                  |
+| `AWS::EC2::TrafficMirrorTarget`                  | NA                                   | NA                                  |                  |
+| `AWS::EC2::TrafficMirrorSession`                 | NA                                   | NA                                  |                  |
+| `AWS::EC2::DHCPOptions`                          | NA                                   | NA                                  |                  |
+| `AWS::EC2::IPAM`                                 | NA                                   | NA                                  |                  |
+| `AWS::EC2::IPAMResourceDiscovery`                | NA                                   | NA                                  |                  |
+| `AWS::EC2::IPAMResourceDiscoveryAssociation`     | NA                                   | NA                                  |                  |
+| `AWS::EC2::NetworkInsightsPath`                  | NA                                   | NA                                  |                  |
+| `AWS::EC2::TrafficMirrorFilter`                  | NA                                   | NA                                  |                  |
+| `AWS::EC2::CapacityReservation`                  | NA                                   | NA                                  |                  |
+| `AWS::EC2::ClientVpnEndpoint`                    | NA                                   | NA                                  |                  |
+| `AWS::EC2::CustomerGateway`                      | is attached to                       | VPN connection                      |                  |
+| `AWS::EC2::InternetGateway`                      | is attached to                       | Virtual private cloud (VPC)         |                  |
+| `AWS::EC2::NetworkAcl`                           | NA                                   | NA                                  |                  |
+| `AWS::EC2::RouteTable`                           | contains                             | EC2 instance                        |                  |
+| EC2 network interface                            |                                      |
+| Subnet                                           |                                      |
+| VPN gateway                                      |                                      |
+| is contained in                                  | Virtual private cloud (VPC)          |                                     |
+| `AWS::EC2::Subnet`                               | contains                             | EC2 instance                        |                  |
+| EC2 network interface                            |                                      |
+| is attached to                                   | Network ACL                          |                                     |
+| is contained in                                  | Route table                          |                                     |
+| Virtual private cloud (VPC)                      |                                      |
+| `AWS::EC2::VPC`                                  | contains                             | EC2 instance                        |                  |
+| EC2 network interface                            |                                      |
+| Network ACL                                      |                                      |
+| Route table                                      |                                      |
+| Subnet                                           |                                      |
+| is associated with                               | Security group                       |                                     |
+| is attached to                                   | Internet gateway                     |                                     |
+| VPN gateway                                      |                                      |
+| `AWS::EC2::VPNConnection`                        | is attached to                       | Customer gateway                    |                  |
+| VPN gateway                                      |                                      |
+| `AWS::EC2::VPNConnectionRoute`                   | NA                                   | NA                                  |                  |
+| `AWS::EC2::VPNGateway`                           | is attached to                       | Virtual private cloud (VPC)         |                  |
+| VPN connection                                   |                                      |
+| is contained in                                  | Route table                          |                                     |
+| `AWS::EC2::IPAMScope`                            | NA                                   | NA                                  |                  |
+| `AWS::EC2::CarrierGateway`                       | NA                                   | NA                                  |                  |
+| `AWS::EC2::TransitGatewayConnect`                | NA                                   | NA                                  |                  |
+| `AWS::EC2::IPAMPool`                             | NA                                   | NA                                  |                  |
+| `AWS::EC2::TransitGatewayMulticastDomain`        | NA                                   | NA                                  |                  |
+| `AWS::EC2::NetworkInsightsAccessScope`           | NA                                   | NA                                  |                  |
+| `AWS::EC2::NetworkInsightsAnalysis`              | NA                                   | NA                                  |                  |
+| `AWS::EC2::VPCBlockPublicAccessOptions`          | NA                                   | NA                                  |                  |
+| `AWS::EC2::VPCBlockPublicAccessExclusion`        | NA                                   | NA                                  |                  |
+| `AWS::EC2::EIPAssociation`                       | NA                                   | NA                                  |                  |
+| `AWS::EC2::InstanceConnectEndpoint`              | NA                                   | NA                                  |                  |
+| `AWS::EC2::SnapshotBlockPublicAccess`            | NA                                   | NA                                  |                  |
+| `AWS::EC2::VPCEndpointConnectionNotification`    | NA                                   | NA                                  |                  |
+| `AWS::EC2::SecurityGroupVpcAssociation`          | NA                                   | NA                                  |                  |
+| `AWS::EC2::VerifiedAccessInstance`               | NA                                   | NA                                  |                  |
+| `AWS::EC2::IPAMPoolCidr`                         | NA                                   | NA                                  |                  |
+| `AWS::EC2::SubnetCidrBlock`                      | NA                                   | NA                                  |                  |
+| `AWS::EC2::VPCGatewayAttachment`                 | NA                                   | NA                                  |                  |
+| Amazon Elastic Block Store                       | `AWS::EC2::Volume`                   | is attached to                      | EC2 instance     |       |
+| EC2 Image Builder                                | `AWS::ImageBuilder::ContainerRecipe` | NA                                  | NA               |       |
+| `AWS::ImageBuilder::DistributionConfiguration`   | NA                                   | NA                                  |                  |
+| `AWS::ImageBuilder::ImagePipeline`               | NA                                   | NA                                  |                  |
+| `AWS::ImageBuilder::ImageRecipe`                 | NA                                   | NA                                  |                  |
+| `AWS::ImageBuilder::InfrastructureConfiguration` | NA                                   | NA                                  |                  |
+| `AWS::ImageBuilder::LifecyclePolicy`             | NA                                   | NA                                  |                  |
 
 \*AWS Config records the configuration details of Dedicated hosts and
 the instances that you launch on them. As a result, you can use AWS Config as a data source when you
@@ -297,24 +309,24 @@ Advanced Queries](querying-AWS-resources.md#query-limitations "querying-AWS-reso
 
 ## Amazon Elastic Container Registry
 
-| AWS Service                              | Resource Type Value                  | Relationship | Related Resource |
-| ---------------------------------------- | ------------------------------------ | ------------ | ---------------- |
-| Amazon Elastic Container Registry        | `AWS::ECR::ReplicationConfiguration` | NA           | NA               |
-| `AWS::ECR::Repository`                   | NA                                   | NA           |
-| `AWS::ECR::RepositoryCreationTemplate`   | NA                                   | NA           |
-| `AWS::ECR::RegistryPolicy`               | NA                                   | NA           |
-| `AWS::ECR::PullThroughCacheRule`         | NA                                   | NA           |
-| Amazon Elastic Container Registry Public | `AWS::ECR::PublicRepository`         | NA           | NA               |
+| AWS Service                              | Resource Type Value                  | Relationship | Related Resource | Notes |
+| ---------------------------------------- | ------------------------------------ | ------------ | ---------------- | ----- |
+| Amazon Elastic Container Registry        | `AWS::ECR::ReplicationConfiguration` | NA           | NA               |       |
+| `AWS::ECR::Repository`                   | NA                                   | NA           |                  |
+| `AWS::ECR::RepositoryCreationTemplate`   | NA                                   | NA           |                  |
+| `AWS::ECR::RegistryPolicy`               | NA                                   | NA           |                  |
+| `AWS::ECR::PullThroughCacheRule`         | NA                                   | NA           |                  |
+| Amazon Elastic Container Registry Public | `AWS::ECR::PublicRepository`         | NA           | NA               |       |
 
 ## Amazon Elastic Container Service
 
-| AWS Service                      | Resource Type Value | Relationship | Related Resource |
-| -------------------------------- | ------------------- | ------------ | ---------------- |
-| Amazon Elastic Container Service | `AWS::ECS::Cluster` | NA           | NA               |
-| `AWS::ECS::TaskDefinition`       | NA                  | NA           |
-| `AWS::ECS::Service\*`            | NA                  | NA           |
-| `AWS::ECS::TaskSet`              | NA                  | NA           |
-| `AWS::ECS::CapacityProvider`     | NA                  | NA           |
+| AWS Service                      | Resource Type Value | Relationship | Related Resource | Notes |
+| -------------------------------- | ------------------- | ------------ | ---------------- | ----- |
+| Amazon Elastic Container Service | `AWS::ECS::Cluster` | NA           | NA               |       |
+| `AWS::ECS::TaskDefinition`       | NA                  | NA           |                  |
+| `AWS::ECS::Service\*`            | NA                  | NA           |                  |
+| `AWS::ECS::TaskSet`              | NA                  | NA           |                  |
+| `AWS::ECS::CapacityProvider`     | NA                  | NA           |                  |
 
 \*This service currently only support the new Amazon Resource
 Name (ARN) format. For more information, see [Amazon Resource Names (ARNs) and IDs](../../../AmazonECS/latest/developerguide/ecs-account-settings.md#ecs-resource-ids "../../../AmazonECS/latest/developerguide/ecs-account-settings.md#ecs-resource-ids") in the ECS developer guide.
@@ -327,120 +339,127 @@ New (supported):
 
 ## Amazon Elastic File System
 
-| AWS Service                | Resource Type Value    | Relationship | Related Resource |
-| -------------------------- | ---------------------- | ------------ | ---------------- |
-| Amazon Elastic File System | `AWS::EFS::FileSystem` | NA           | NA               |
-| `AWS::EFS::AccessPoint`    | NA                     | NA           |
+| AWS Service                | Resource Type Value    | Relationship | Related Resource | Notes |
+| -------------------------- | ---------------------- | ------------ | ---------------- | ----- |
+| Amazon Elastic File System | `AWS::EFS::FileSystem` | NA           | NA               |       |
+| `AWS::EFS::AccessPoint`    | NA                     | NA           |                  |
 
 ## Amazon Elastic Kubernetes Service
 
-| AWS Service                        | Resource Type Value | Relationship | Related Resource |
-| ---------------------------------- | ------------------- | ------------ | ---------------- |
-| Amazon Elastic Kubernetes Service  | `AWS::EKS::Cluster` | NA           | NA               |
-| `AWS::EKS::FargateProfile`         | NA                  | NA           |
-| `AWS::EKS::IdentityProviderConfig` | NA                  | NA           |
-| `AWS::EKS::Addon`                  | NA                  | NA           |
+| AWS Service                        | Resource Type Value | Relationship | Related Resource | Notes |
+| ---------------------------------- | ------------------- | ------------ | ---------------- | ----- |
+| Amazon Elastic Kubernetes Service  | `AWS::EKS::Addon`   | NA           | NA               |       |
+| `AWS::EKS::Cluster`                | NA                  | NA           |                  |
+| `AWS::EKS::FargateProfile`         | NA                  | NA           |                  |
+| `AWS::EKS::IdentityProviderConfig` | NA                  | NA           |                  |
+| `AWS::EKS::Nodegroup`              | NA                  | NA           |                  |
 
 ## Amazon EMR
 
-| AWS Service                       | Resource Type Value                  | Relationship | Related Resource |
-| --------------------------------- | ------------------------------------ | ------------ | ---------------- |
-| Amazon EMR                        | `AWS::EMR::Studio`                   | NA           | NA               |
-| `AWS::EMR::SecurityConfiguration` | NA                                   | NA           |
-| Amazon EMR Containers             | `AWS::EMRContainers::VirtualCluster` | NA           | NA               |
+| AWS Service                       | Resource Type Value                  | Relationship | Related Resource | Notes |
+| --------------------------------- | ------------------------------------ | ------------ | ---------------- | ----- |
+| Amazon EMR                        | `AWS::EMR::Studio`                   | NA           | NA               |       |
+| `AWS::EMR::SecurityConfiguration` | NA                                   | NA           |                  |
+| Amazon EMR Containers             | `AWS::EMRContainers::VirtualCluster` | NA           | NA               |       |
 
 ## Amazon EMR Serverless
 
-| AWS Service           | Resource Type Value               | Relationship | Related Resource |
-| --------------------- | --------------------------------- | ------------ | ---------------- |
-| Amazon EMR Serverless | `AWS::EMRServerless::Application` | NA           | NA               |
+| AWS Service           | Resource Type Value               | Relationship | Related Resource | Notes |
+| --------------------- | --------------------------------- | ------------ | ---------------- | ----- |
+| Amazon EMR Serverless | `AWS::EMRServerless::Application` | NA           | NA               |       |
 
 ## Amazon EventBridge
 
-| AWS Service                     | Resource Type Value                 | Relationship | Related Resource |
-| ------------------------------- | ----------------------------------- | ------------ | ---------------- |
-| Amazon EventBridge              | `AWS::Events::EventBus`             | NA           | NA               |
-| `AWS::Events::ApiDestination`   | NA                                  | NA           |
-| `AWS::Events::Archive`          | NA                                  | NA           |
-| `AWS::Events::Endpoint`         | NA                                  | NA           |
-| `AWS::Events::Connection`       | NA                                  | NA           |
-| `AWS::Events::Rule`             | NA                                  | NA           |
-| Amazon EventBridge schemas      | `AWS::EventSchemas::RegistryPolicy` | NA           | NA               |
-| `AWS::EventSchemas::Discoverer` | NA                                  | NA           |
-| `AWS::EventSchemas::Schema`     | NA                                  | NA           |
-| `AWS::EventSchemas::Registry`   | NA                                  | NA           |
+| AWS Service                     | Resource Type Value                 | Relationship | Related Resource | Notes |
+| ------------------------------- | ----------------------------------- | ------------ | ---------------- | ----- |
+| Amazon EventBridge              | `AWS::Events::EventBus`             | NA           | NA               |       |
+| `AWS::Events::ApiDestination`   | NA                                  | NA           |                  |
+| `AWS::Events::Archive`          | NA                                  | NA           |                  |
+| `AWS::Events::Endpoint`         | NA                                  | NA           |                  |
+| `AWS::Events::Connection`       | NA                                  | NA           |                  |
+| `AWS::Events::Rule`             | NA                                  | NA           |                  |
+| Amazon EventBridge schemas      | `AWS::EventSchemas::RegistryPolicy` | NA           | NA               |       |
+| `AWS::EventSchemas::Discoverer` | NA                                  | NA           |                  |
+| `AWS::EventSchemas::Schema`     | NA                                  | NA           |                  |
+| `AWS::EventSchemas::Registry`   | NA                                  | NA           |                  |
 
 ## Amazon Forecast
 
-| AWS Service                   | Resource Type Value      | Relationship | Related Resource |
-| ----------------------------- | ------------------------ | ------------ | ---------------- |
-| Amazon Forecast               | `AWS::Forecast::Dataset` | NA           | NA               |
-| `AWS::Forecast::DatasetGroup` | NA                       | NA           |
+| AWS Service                   | Resource Type Value      | Relationship | Related Resource | Notes |
+| ----------------------------- | ------------------------ | ------------ | ---------------- | ----- |
+| Amazon Forecast               | `AWS::Forecast::Dataset` | NA           | NA               |       |
+| `AWS::Forecast::DatasetGroup` | NA                       | NA           |                  |
 
 ## Amazon Fraud Detector
 
-| AWS Service                      | Resource Type Value         | Relationship | Related Resource |
-| -------------------------------- | --------------------------- | ------------ | ---------------- |
-| Amazon Fraud Detector            | `AWS::FraudDetector::Label` | NA           | NA               |
-| `AWS::FraudDetector::EntityType` | NA                          | NA           |
-| `AWS::FraudDetector::Variable`   | NA                          | NA           |
-| `AWS::FraudDetector::Outcome`    | NA                          | NA           |
+| AWS Service                      | Resource Type Value         | Relationship | Related Resource | Notes |
+| -------------------------------- | --------------------------- | ------------ | ---------------- | ----- |
+| Amazon Fraud Detector            | `AWS::FraudDetector::Label` | NA           | NA               |       |
+| `AWS::FraudDetector::EntityType` | NA                          | NA           |                  |
+| `AWS::FraudDetector::Variable`   | NA                          | NA           |                  |
+| `AWS::FraudDetector::Outcome`    | NA                          | NA           |                  |
 
 ## Amazon GameLift
 
-| AWS Service     | Resource Type Value    | Relationship | Related Resource |
-| --------------- | ---------------------- | ------------ | ---------------- |
-| Amazon GameLift | `AWS::GameLift::Build` | NA           | NA               |
+| AWS Service                               | Resource Type Value    | Relationship | Related Resource | Notes |
+| ----------------------------------------- | ---------------------- | ------------ | ---------------- | ----- |
+| Amazon GameLift                           | `AWS::GameLift::Build` | NA           | NA               |       |
+| `AWS::GameLift::ContainerFleet`           | NA                     | NA           |                  |
+| `AWS::GameLift::ContainerGroupDefinition` | NA                     | NA           |                  |
+| `AWS::GameLift::GameServerGroup`          | NA                     | NA           |                  |
+| `AWS::GameLift::Location`                 | NA                     | NA           |                  |
+| `AWS::GameLift::MatchmakingRuleSet`       | NA                     | NA           |                  |
+| `AWS::GameLift::Script`                   | NA                     | NA           |                  |
 
 ## Amazon GuardDuty
 
-| AWS Service                             | Resource Type Value        | Relationship | Related Resource |
-| --------------------------------------- | -------------------------- | ------------ | ---------------- |
-| Amazon GuardDuty                        | `AWS::GuardDuty::Detector` | NA           | NA               |
-| `AWS::GuardDuty::Filter`                | NA                         | NA           |
-| `AWS::GuardDuty::IPSet`                 | NA                         | NA           |
-| `AWS::GuardDuty::MalwareProtectionPlan` | NA                         | NA           |
-| `AWS::GuardDuty::ThreatIntelSet`        | NA                         | NA           |
+| AWS Service                             | Resource Type Value        | Relationship | Related Resource | Notes |
+| --------------------------------------- | -------------------------- | ------------ | ---------------- | ----- |
+| Amazon GuardDuty                        | `AWS::GuardDuty::Detector` | NA           | NA               |       |
+| `AWS::GuardDuty::Filter`                | NA                         | NA           |                  |
+| `AWS::GuardDuty::IPSet`                 | NA                         | NA           |                  |
+| `AWS::GuardDuty::MalwareProtectionPlan` | NA                         | NA           |                  |
+| `AWS::GuardDuty::ThreatIntelSet`        | NA                         | NA           |                  |
 
 ## Amazon Inspector
 
-| AWS Service                    | Resource Type Value        | Relationship | Related Resource |
-| ------------------------------ | -------------------------- | ------------ | ---------------- |
-| Amazon Inspector               | `AWS::InspectorV2::Filter` | NA           | NA               |
-| `AWS::InspectorV2::Activation` | NA                         | NA           |
+| AWS Service                    | Resource Type Value        | Relationship | Related Resource | Notes |
+| ------------------------------ | -------------------------- | ------------ | ---------------- | ----- |
+| Amazon Inspector               | `AWS::InspectorV2::Filter` | NA           | NA               |       |
+| `AWS::InspectorV2::Activation` | NA                         | NA           |                  |
 
 ## Amazon Interactive Video Service
 
-| AWS Service                        | Resource Type Value | Relationship | Related Resource |
-| ---------------------------------- | ------------------- | ------------ | ---------------- |
-| Amazon Interactive Video Service   | `AWS::IVS::Channel` | NA           | NA               |
-| `AWS::IVS::RecordingConfiguration` | NA                  | NA           |
-| `AWS::IVS::PlaybackKeyPair`        | NA                  | NA           |
+| AWS Service                        | Resource Type Value | Relationship | Related Resource | Notes |
+| ---------------------------------- | ------------------- | ------------ | ---------------- | ----- |
+| Amazon Interactive Video Service   | `AWS::IVS::Channel` | NA           | NA               |       |
+| `AWS::IVS::RecordingConfiguration` | NA                  | NA           |                  |
+| `AWS::IVS::PlaybackKeyPair`        | NA                  | NA           |                  |
 
 ## Amazon Keyspaces (for Apache Cassandra)
 
-| AWS Service                             | Resource Type Value        | Relationship | Related Resource |
-| --------------------------------------- | -------------------------- | ------------ | ---------------- |
-| Amazon Keyspaces (for Apache Cassandra) | `AWS::Cassandra::Keyspace` | NA           | NA               |
+| AWS Service                             | Resource Type Value        | Relationship | Related Resource | Notes |
+| --------------------------------------- | -------------------------- | ------------ | ---------------- | ----- |
+| Amazon Keyspaces (for Apache Cassandra) | `AWS::Cassandra::Keyspace` | NA           | NA               |       |
 
 ## Amazon Location Service
 
-| AWS Service             | Resource Type Value     | Relationship | Related Resource |
-| ----------------------- | ----------------------- | ------------ | ---------------- |
-| Amazon Location Service | `AWS::Location::APIKey` | NA           | NA               |
+| AWS Service             | Resource Type Value     | Relationship | Related Resource | Notes |
+| ----------------------- | ----------------------- | ------------ | ---------------- | ----- |
+| Amazon Location Service | `AWS::Location::APIKey` | NA           | NA               |       |
 
 ## Amazon OpenSearch Service
 
-| AWS Service                                      | Resource Type Value                      | Relationship       | Related Resource |
-| ------------------------------------------------ | ---------------------------------------- | ------------------ | ---------------- |
-| Amazon OpenSearch Service (legacy Elasticsearch) | `AWS::Elasticsearch::Domain`             | is associated with | KMS Key          |
-| EC2 security group                               |
-| EC2 subnet                                       |
-| Virtual private cloud (VPC)                      |
-| Amazon OpenSearch Service                        | `AWS::OpenSearch::Domain`                | NA                 | NA               |
-| Amazon OpenSearch Serverless                     | `AWS::OpenSearchServerless::VpcEndpoint` | NA                 | NA               |
-| `AWS::OpenSearchServerless::Collection`          | NA                                       | NA                 |
-| `AWS::OpenSearchServerless::SecurityConfig`      | NA                                       | NA                 |
+| AWS Service                                      | Resource Type Value                      | Relationship       | Related Resource | Notes |
+| ------------------------------------------------ | ---------------------------------------- | ------------------ | ---------------- | ----- |
+| Amazon OpenSearch Service (legacy Elasticsearch) | `AWS::Elasticsearch::Domain`             | is associated with | KMS Key          |       |
+| EC2 security group                               |                                          |
+| EC2 subnet                                       |                                          |
+| Virtual private cloud (VPC)                      |                                          |
+| Amazon OpenSearch Service                        | `AWS::OpenSearch::Domain`                | NA                 | NA               |       |
+| Amazon OpenSearch Serverless                     | `AWS::OpenSearchServerless::VpcEndpoint` | NA                 | NA               |       |
+| `AWS::OpenSearchServerless::Collection`          | NA                                       | NA                 |                  |
+| `AWS::OpenSearchServerless::SecurityConfig`      | NA                                       | NA                 |                  |
 
 ###### Amazon OpenSearch Service rename
 
@@ -451,262 +470,273 @@ You might continue to see your data for `AWS::OpenSearch::Domain` under the exis
 
 ## Amazon Personalize
 
-| AWS Service                      | Resource Type Value         | Relationship | Related Resource |
-| -------------------------------- | --------------------------- | ------------ | ---------------- |
-| Amazon Personalize               | `AWS::Personalize::Dataset` | NA           | NA               |
-| `AWS::Personalize::Schema`       | NA                          | NA           |
-| `AWS::Personalize::Solution`     | NA                          | NA           |
-| `AWS::Personalize::DatasetGroup` | NA                          | NA           |
+| AWS Service                      | Resource Type Value         | Relationship | Related Resource | Notes |
+| -------------------------------- | --------------------------- | ------------ | ---------------- | ----- |
+| Amazon Personalize               | `AWS::Personalize::Dataset` | NA           | NA               |       |
+| `AWS::Personalize::Schema`       | NA                          | NA           |                  |
+| `AWS::Personalize::Solution`     | NA                          | NA           |                  |
+| `AWS::Personalize::DatasetGroup` | NA                          | NA           |                  |
 
 ## Amazon Pinpoint
 
-| AWS Service                    | Resource Type Value                  | Relationship | Related Resource |
-| ------------------------------ | ------------------------------------ | ------------ | ---------------- |
-| Amazon Pinpoint                | `AWS::Pinpoint::ApplicationSettings` | NA           | NA               |
-| `AWS::Pinpoint::Segment`       | NA                                   | NA           |
-| `AWS::Pinpoint::App`           | NA                                   | NA           |
-| `AWS::Pinpoint::Campaign`      | NA                                   | NA           |
-| `AWS::Pinpoint::InAppTemplate` | NA                                   | NA           |
-| `AWS::Pinpoint::EmailChannel`  | NA                                   | NA           |
-| `AWS::Pinpoint::EmailTemplate` | NA                                   | NA           |
-| `AWS::Pinpoint::EventStream`   | NA                                   | NA           |
+| AWS Service                    | Resource Type Value                  | Relationship | Related Resource | Notes |
+| ------------------------------ | ------------------------------------ | ------------ | ---------------- | ----- |
+| Amazon Pinpoint                | `AWS::Pinpoint::ApplicationSettings` | NA           | NA               |       |
+| `AWS::Pinpoint::Segment`       | NA                                   | NA           |                  |
+| `AWS::Pinpoint::App`           | NA                                   | NA           |                  |
+| `AWS::Pinpoint::Campaign`      | NA                                   | NA           |                  |
+| `AWS::Pinpoint::InAppTemplate` | NA                                   | NA           |                  |
+| `AWS::Pinpoint::EmailChannel`  | NA                                   | NA           |                  |
+| `AWS::Pinpoint::EmailTemplate` | NA                                   | NA           |                  |
+| `AWS::Pinpoint::EventStream`   | NA                                   | NA           |                  |
 
 ## Amazon Quantum Ledger Database (Amazon QLDB)
 
-| AWS Service | Resource Type Value | Relationship | Related Resource |
-| ----------- | ------------------- | ------------ | ---------------- |
-| Amazon QLDB | `AWS::QLDB::Ledger` | NA           | NA               |
+| AWS Service | Resource Type Value | Relationship | Related Resource | Notes |
+| ----------- | ------------------- | ------------ | ---------------- | ----- |
+| Amazon QLDB | `AWS::QLDB::Ledger` | NA           | NA               |       |
 
 ## Amazon Kendra
 
-| AWS Service   | Resource Type Value  | Relationship | Related Resource |
-| ------------- | -------------------- | ------------ | ---------------- |
-| Amazon Kendra | `AWS::Kendra::Index` | NA           | NA               |
+| AWS Service   | Resource Type Value  | Relationship | Related Resource | Notes |
+| ------------- | -------------------- | ------------ | ---------------- | ----- |
+| Amazon Kendra | `AWS::Kendra::Index` | NA           | NA               |       |
 
 ## Amazon Kinesis
 
-| AWS Service                    | Resource Type Value                    | Relationship | Related Resource |
-| ------------------------------ | -------------------------------------- | ------------ | ---------------- |
-| Amazon Kinesis                 | `AWS::Kinesis::Stream`                 | NA           | NA               |
-| `AWS::Kinesis::StreamConsumer` | NA                                     | NA           |
-| Amazon Kinesis Analytics V2    | `AWS::KinesisAnalyticsV2::Application` | NA           | NA               |
-| Amazon Data Firehose           | `AWS::KinesisFirehose::DeliveryStream` | NA           | NA               |
-| Kinesis video stream           | `AWS::KinesisVideo::SignalingChannel`  | NA           | NA               |
-| `AWS::KinesisVideo::Stream`    | NA                                     | NA           |
+| AWS Service                    | Resource Type Value                    | Relationship | Related Resource | Notes                                                                                       |
+| ------------------------------ | -------------------------------------- | ------------ | ---------------- | ------------------------------------------------------------------------------------------- |
+| Amazon Kinesis                 | `AWS::Kinesis::ResourcePolicy`         | NA           | NA               | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
+| `AWS::Kinesis::Stream`         | NA                                     | NA           |                  |
+| `AWS::Kinesis::StreamConsumer` | NA                                     | NA           |                  |
+| Amazon Kinesis Analytics V2    | `AWS::KinesisAnalyticsV2::Application` | NA           | NA               |                                                                                             |
+| Amazon Data Firehose           | `AWS::KinesisFirehose::DeliveryStream` | NA           | NA               |                                                                                             |
+| Kinesis video stream           | `AWS::KinesisVideo::SignalingChannel`  | NA           | NA               |                                                                                             |
+| `AWS::KinesisVideo::Stream`    | NA                                     | NA           |                  |
 
 ## Amazon Lex
 
-| AWS Service     | Resource Type Value  | Relationship | Related Resource |
-| --------------- | -------------------- | ------------ | ---------------- |
-| Amazon Lex      | `AWS::Lex::BotAlias` | NA           | NA               |
-| `AWS::Lex::Bot` | NA                   | NA           |
+| AWS Service     | Resource Type Value  | Relationship | Related Resource | Notes |
+| --------------- | -------------------- | ------------ | ---------------- | ----- |
+| Amazon Lex      | `AWS::Lex::BotAlias` | NA           | NA               |       |
+| `AWS::Lex::Bot` | NA                   | NA           |                  |
 
 ## Amazon Lightsail
 
-| AWS Service                   | Resource Type Value    | Relationship | Related Resource |
-| ----------------------------- | ---------------------- | ------------ | ---------------- |
-| Amazon Lightsail              | `AWS::Lightsail::Disk` | NA           | NA               |
-| `AWS::Lightsail::Certificate` | NA                     | NA           |
-| `AWS::Lightsail::Bucket`      | NA                     | NA           |
-| `AWS::Lightsail::StaticIp`    | NA                     | NA           |
+| AWS Service                   | Resource Type Value    | Relationship | Related Resource | Notes |
+| ----------------------------- | ---------------------- | ------------ | ---------------- | ----- |
+| Amazon Lightsail              | `AWS::Lightsail::Disk` | NA           | NA               |       |
+| `AWS::Lightsail::Certificate` | NA                     | NA           |                  |
+| `AWS::Lightsail::Bucket`      | NA                     | NA           |                  |
+| `AWS::Lightsail::StaticIp`    | NA                     | NA           |                  |
 
 ## Amazon Lookout for Metrics
 
-| AWS Service                | Resource Type Value          | Relationship | Related Resource |
-| -------------------------- | ---------------------------- | ------------ | ---------------- |
-| Amazon Lookout for Metrics | `AWS::LookoutMetrics::Alert` | NA           | NA               |
+| AWS Service                | Resource Type Value          | Relationship | Related Resource | Notes |
+| -------------------------- | ---------------------------- | ------------ | ---------------- | ----- |
+| Amazon Lookout for Metrics | `AWS::LookoutMetrics::Alert` | NA           | NA               |       |
 
 ## Amazon Lookout for Vision
 
-| AWS Service               | Resource Type Value           | Relationship | Related Resource |
-| ------------------------- | ----------------------------- | ------------ | ---------------- |
-| Amazon Lookout for Vision | `AWS::LookoutVision::Project` | NA           | NA               |
+| AWS Service               | Resource Type Value           | Relationship | Related Resource | Notes |
+| ------------------------- | ----------------------------- | ------------ | ---------------- | ----- |
+| Amazon Lookout for Vision | `AWS::LookoutVision::Project` | NA           | NA               |       |
 
 ## Amazon Macie
 
-| AWS Service  | Resource Type Value   | Relationship | Related Resource |
-| ------------ | --------------------- | ------------ | ---------------- |
-| Amazon Macie | `AWS::Macie::Session` | NA           | NA               |
+| AWS Service  | Resource Type Value   | Relationship | Related Resource | Notes |
+| ------------ | --------------------- | ------------ | ---------------- | ----- |
+| Amazon Macie | `AWS::Macie::Session` | NA           | NA               |       |
 
 ## Amazon Managed Grafana
 
-| AWS Service            | Resource Type Value       | Relationship | Related Resource |
-| ---------------------- | ------------------------- | ------------ | ---------------- |
-| Amazon Managed Grafana | `AWS::Grafana::Workspace` | NA           | NA               |
+| AWS Service            | Resource Type Value       | Relationship | Related Resource | Notes |
+| ---------------------- | ------------------------- | ------------ | ---------------- | ----- |
+| Amazon Managed Grafana | `AWS::Grafana::Workspace` | NA           | NA               |       |
 
 ## Amazon Managed Service for Prometheus
 
-| AWS Service                           | Resource Type Value             | Relationship | Related Resource |
-| ------------------------------------- | ------------------------------- | ------------ | ---------------- |
-| Amazon Managed Service for Prometheus | `AWS::APS::RuleGroupsNamespace` | NA           | NA               |
+| AWS Service                           | Resource Type Value             | Relationship | Related Resource | Notes |
+| ------------------------------------- | ------------------------------- | ------------ | ---------------- | ----- |
+| Amazon Managed Service for Prometheus | `AWS::APS::RuleGroupsNamespace` | NA           | NA               |       |
 
 ## Amazon MemoryDB
 
-| AWS Service     | Resource Type Value          | Relationship | Related Resource |
-| --------------- | ---------------------------- | ------------ | ---------------- |
-| Amazon MemoryDB | `AWS::MemoryDB::SubnetGroup` | NA           | NA               |
+| AWS Service     | Resource Type Value          | Relationship | Related Resource | Notes |
+| --------------- | ---------------------------- | ------------ | ---------------- | ----- |
+| Amazon MemoryDB | `AWS::MemoryDB::SubnetGroup` | NA           | NA               |       |
 
 ## Amazon MQ
 
-| AWS Service | Resource Type Value     | Relationship | Related Resource |
-| ----------- | ----------------------- | ------------ | ---------------- |
-| Amazon MQ   | `AWS::AmazonMQ::Broker` | NA           | NA               |
+| AWS Service | Resource Type Value     | Relationship | Related Resource | Notes |
+| ----------- | ----------------------- | ------------ | ---------------- | ----- |
+| Amazon MQ   | `AWS::AmazonMQ::Broker` | NA           | NA               |       |
 
 ## Amazon Managed Streaming for Apache Kafka
 
-| AWS Service                                       | Resource Type Value            | Relationship | Related Resource |
-| ------------------------------------------------- | ------------------------------ | ------------ | ---------------- |
-| Amazon Managed Streaming for Apache Kafka         | `AWS::MSK::Cluster`            | NA           | NA               |
-| `AWS::MSK::Configuration`                         | NA                             | NA           |
-| `AWS::MSK::BatchScramSecret`                      | NA                             | NA           |
-| `AWS::MSK::ClusterPolicy`                         | NA                             | NA           |
-| `AWS::MSK::ServerlessCluster`                     | NA                             | NA           |
-| `AWS::MSK::VpcConnection`                         | NA                             | NA           |
-| Amazon Managed Streaming for Apache Kafka Connect | `AWS::KafkaConnect::Connector` | NA           | NA               |
-| `AWS::KafkaConnect::CustomPlugin`                 | NA                             | NA           |
+| AWS Service                                       | Resource Type Value            | Relationship | Related Resource | Notes |
+| ------------------------------------------------- | ------------------------------ | ------------ | ---------------- | ----- |
+| Amazon Managed Streaming for Apache Kafka         | `AWS::MSK::Cluster`            | NA           | NA               |       |
+| `AWS::MSK::Configuration`                         | NA                             | NA           |                  |
+| `AWS::MSK::BatchScramSecret`                      | NA                             | NA           |                  |
+| `AWS::MSK::ClusterPolicy`                         | NA                             | NA           |                  |
+| `AWS::MSK::ServerlessCluster`                     | NA                             | NA           |                  |
+| `AWS::MSK::VpcConnection`                         | NA                             | NA           |                  |
+| Amazon Managed Streaming for Apache Kafka Connect | `AWS::KafkaConnect::Connector` | NA           | NA               |       |
+| `AWS::KafkaConnect::CustomPlugin`                 | NA                             | NA           |                  |
+
+## Amazon Lex
+
+| AWS Service       | Resource Type Value           | Relationship | Related Resource | Notes |
+| ----------------- | ----------------------------- | ------------ | ---------------- | ----- |
+| Amazon Q Business | `AWS::QBusiness::Application` | NA           | NA               |       |
 
 ## Amazon Quick
 
-| AWS Service                 | Resource Type Value           | Relationship | Related Resource |
-| --------------------------- | ----------------------------- | ------------ | ---------------- |
-| Amazon Quick                | `AWS::QuickSight::DataSource` | NA           | NA               |
-| `AWS::QuickSight::Template` | NA                            | NA           |
-| `AWS::QuickSight::Theme`    | NA                            | NA           |
+| AWS Service                   | Resource Type Value          | Relationship | Related Resource | Notes |
+| ----------------------------- | ---------------------------- | ------------ | ---------------- | ----- |
+| Amazon Quick                  | `AWS::QuickSight::Dashboard` | NA           | NA               |       |
+| `AWS::QuickSight::Dataset`    | NA                           | NA           |                  |
+| `AWS::QuickSight::DataSource` | NA                           | NA           |                  |
+| `AWS::QuickSight::Template`   | NA                           | NA           |                  |
+| `AWS::QuickSight::Theme`      | NA                           | NA           |                  |
 
 ## Amazon Redshift
 
-| AWS Service                            | Resource Type Value      | Relationship       | Related Resource        |
-| -------------------------------------- | ------------------------ | ------------------ | ----------------------- |
-| Amazon Redshift                        | `AWS::Redshift::Cluster` | is associated with | Cluster parameter group |
-| Cluster security group                 |
-| Cluster subnet group                   |
-| Security group                         |
-| Virtual private cloud (VPC)            |
-| `AWS::Redshift::ClusterParameterGroup` | NA                       | NA                 |
-| `AWS::Redshift::ClusterSecurityGroup`  | NA                       | NA                 |
-| `AWS::Redshift::ScheduledAction`       | NA                       | NA                 |
-| `AWS::Redshift::ClusterSnapshot`       | is associated with       | Cluster            |
-| Virtual private cloud (VPC)            |
-| `AWS::Redshift::ClusterSubnetGroup`    | is associated with       | Subnet             |
-| Virtual private cloud (VPC)            |
-| `AWS::Redshift::EventSubscription`     | NA                       | NA                 |
-| `AWS::Redshift::EndpointAccess`        | NA                       | NA                 |
-| `AWS::Redshift::EndpointAuthorization` | NA                       | NA                 |
-| `AWS::Redshift::Integration`           | NA                       | NA                 |
+| AWS Service                            | Resource Type Value      | Relationship       | Related Resource        | Notes |
+| -------------------------------------- | ------------------------ | ------------------ | ----------------------- | ----- |
+| Amazon Redshift                        | `AWS::Redshift::Cluster` | is associated with | Cluster parameter group |       |
+| Cluster security group                 |                          |
+| Cluster subnet group                   |                          |
+| Security group                         |                          |
+| Virtual private cloud (VPC)            |                          |
+| `AWS::Redshift::ClusterParameterGroup` | NA                       | NA                 |                         |
+| `AWS::Redshift::ClusterSecurityGroup`  | NA                       | NA                 |                         |
+| `AWS::Redshift::ScheduledAction`       | NA                       | NA                 |                         |
+| `AWS::Redshift::ClusterSnapshot`       | is associated with       | Cluster            |                         |
+| Virtual private cloud (VPC)            |                          |
+| `AWS::Redshift::ClusterSubnetGroup`    | is associated with       | Subnet             |                         |
+| Virtual private cloud (VPC)            |                          |
+| `AWS::Redshift::EventSubscription`     | NA                       | NA                 |                         |
+| `AWS::Redshift::EndpointAccess`        | NA                       | NA                 |                         |
+| `AWS::Redshift::EndpointAuthorization` | NA                       | NA                 |                         |
+| `AWS::Redshift::Integration`           | NA                       | NA                 |                         |
 
 ## Amazon Relational Database Service
 
-| AWS Service                        | Resource Type Value   | Relationship                | Related Resource |
-| ---------------------------------- | --------------------- | --------------------------- | ---------------- |
-| Amazon Relational Database Service | `AWS::RDS::DBCluster` | contains                    | RDS DB instance  |
-| is associated with                 | RDS DB subnet group   |
-| EC2 security group                 |
-| `AWS::RDS::DBClusterSnapshot`      | is associated with    | RDS DB cluster              |
-| Virtual private cloud (VPC)        |
-| `AWS::RDS::DBInstance`             | is associated with    | EC2 security group          |
-| RDS DB security group              |
-| RDS DB subnet group                |
-| `AWS::RDS::DBSecurityGroup`        | is associated with    | EC2 security group          |
-| Virtual private cloud (VPC)        |
-| `AWS::RDS::DBSnapshot`             | is associated with    | Virtual private cloud (VPC) |
-| `AWS::RDS::DBSubnetGroup`          | is associated with    | EC2 security group          |
-| Virtual private cloud (VPC)        |
-| `AWS::RDS::EventSubscription`      | NA                    | NA                          |
-| `AWS::RDS::GlobalCluster`          | NA                    | NA                          |
-| `AWS::RDS::Integration`            | NA                    | NA                          |
-| `AWS::RDS::OptionGroup`            | NA                    | NA                          |
+| AWS Service                        | Resource Type Value   | Relationship                | Related Resource | Notes |
+| ---------------------------------- | --------------------- | --------------------------- | ---------------- | ----- |
+| Amazon Relational Database Service | `AWS::RDS::DBCluster` | contains                    | RDS DB instance  |       |
+| is associated with                 | RDS DB subnet group   |                             |
+| EC2 security group                 |                       |
+| `AWS::RDS::DBClusterSnapshot`      | is associated with    | RDS DB cluster              |                  |
+| Virtual private cloud (VPC)        |                       |
+| `AWS::RDS::DBInstance`             | is associated with    | EC2 security group          |                  |
+| RDS DB security group              |                       |
+| RDS DB subnet group                |                       |
+| `AWS::RDS::DBSecurityGroup`        | is associated with    | EC2 security group          |                  |
+| Virtual private cloud (VPC)        |                       |
+| `AWS::RDS::DBSnapshot`             | is associated with    | Virtual private cloud (VPC) |                  |
+| `AWS::RDS::DBSubnetGroup`          | is associated with    | EC2 security group          |                  |
+| Virtual private cloud (VPC)        |                       |
+| `AWS::RDS::EventSubscription`      | NA                    | NA                          |                  |
+| `AWS::RDS::GlobalCluster`          | NA                    | NA                          |                  |
+| `AWS::RDS::Integration`            | NA                    | NA                          |                  |
+| `AWS::RDS::OptionGroup`            | NA                    | NA                          |                  |
 
 ## Amazon Route 53
 
-| AWS Service                                                   | Resource Type Value                      | Relationship | Related Resource |
-| ------------------------------------------------------------- | ---------------------------------------- | ------------ | ---------------- |
-| Amazon Route 53                                               | `AWS::Route53::DNSSEC`                   | NA           | NA               |
-| `AWS::Route53::HostedZone`                                    | NA                                       | NA           |
-| `AWS::Route53::HealthCheck`                                   | NA                                       | NA           |
-| Amazon Route 53 Profiles                                      | `AWS::Route53Profiles::Profile`          | NA           | NA               |
-| `AWS::Route53Profiles::ProfileAssociation`                    | NA                                       | NA           |
-| Amazon Route 53 Resolver                                      | `AWS::Route53Resolver::ResolverEndpoint` | NA           | NA               |
-| `AWS::Route53Resolver::ResolverRule`                          | NA                                       | NA           |
-| `AWS::Route53Resolver::ResolverRuleAssociation`               | NA                                       | NA           |
-| `AWS::Route53Resolver::FirewallDomainList`                    | NA                                       | NA           |
-| `AWS::Route53Resolver::FirewallRuleGroupAssociation`          | NA                                       | NA           |
-| `AWS::Route53Resolver::ResolverQueryLoggingConfig`            | NA                                       | NA           |
-| `AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation` | NA                                       | NA           |
-| `AWS::Route53Resolver::FirewallRuleGroup`                     | NA                                       | NA           |
-| Amazon Application Recovery Controller (ARC)                  | `AWS::Route53RecoveryReadiness::Cell`    | NA           | NA               |
-| `AWS::Route53RecoveryReadiness::ReadinessCheck`               | NA                                       | NA           |
-| `AWS::Route53RecoveryReadiness::RecoveryGroup`                | NA                                       | NA           |
-| `AWS::Route53RecoveryControl::Cluster`                        | NA                                       | NA           |
-| `AWS::Route53RecoveryControl::ControlPanel`                   | NA                                       | NA           |
-| `AWS::Route53RecoveryControl::RoutingControl`                 | NA                                       | NA           |
-| `AWS::Route53RecoveryControl::SafetyRule`                     | NA                                       | NA           |
-| `AWS::Route53RecoveryReadiness::ResourceSet`                  | NA                                       | NA           |
+| AWS Service                                                   | Resource Type Value                                       | Relationship | Related Resource | Notes |
+| ------------------------------------------------------------- | --------------------------------------------------------- | ------------ | ---------------- | ----- |
+| Amazon Route 53                                               | `AWS::Route53::DNSSEC`                                    | NA           | NA               |       |
+| `AWS::Route53::HostedZone`                                    | NA                                                        | NA           |                  |
+| `AWS::Route53::HealthCheck`                                   | NA                                                        | NA           |                  |
+| Amazon Route 53 Profiles                                      | `AWS::Route53Profiles::Profile`                           | NA           | NA               |       |
+| `AWS::Route53Profiles::ProfileAssociation`                    | NA                                                        | NA           |                  |
+| Amazon Route 53 Resolver                                      | `AWS::Route53Resolver::ResolverEndpoint`                  | NA           | NA               |       |
+| `AWS::Route53Resolver::ResolverRule`                          | NA                                                        | NA           |                  |
+| `AWS::Route53Resolver::ResolverRuleAssociation`               | NA                                                        | NA           |                  |
+| `AWS::Route53Resolver::FirewallDomainList`                    | NA                                                        | NA           |                  |
+| `AWS::Route53Resolver::FirewallRuleGroupAssociation`          | NA                                                        | NA           |                  |
+| `AWS::Route53Resolver::ResolverQueryLoggingConfig`            | NA                                                        | NA           |                  |
+| `AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation` | NA                                                        | NA           |                  |
+| `AWS::Route53Resolver::FirewallRuleGroup`                     | NA                                                        | NA           |                  |
+| Amazon Application Recovery Controller (ARC)                  | `AWS::ARCZonalShift::AutoshiftObserverNotificationStatus` | NA           | NA               |       |
+| `AWS::Route53RecoveryReadiness::Cell`                         | NA                                                        | NA           |                  |
+| `AWS::Route53RecoveryReadiness::ReadinessCheck`               | NA                                                        | NA           |                  |
+| `AWS::Route53RecoveryReadiness::RecoveryGroup`                | NA                                                        | NA           |                  |
+| `AWS::Route53RecoveryControl::Cluster`                        | NA                                                        | NA           |                  |
+| `AWS::Route53RecoveryControl::ControlPanel`                   | NA                                                        | NA           |                  |
+| `AWS::Route53RecoveryControl::RoutingControl`                 | NA                                                        | NA           |                  |
+| `AWS::Route53RecoveryControl::SafetyRule`                     | NA                                                        | NA           |                  |
+| `AWS::Route53RecoveryReadiness::ResourceSet`                  | NA                                                        | NA           |                  |
 
 ## Amazon SageMaker AI
 
-| AWS Service                                        | Resource Type Value              | Relationship | Related Resource |
-| -------------------------------------------------- | -------------------------------- | ------------ | ---------------- |
-| Amazon SageMaker AI                                | `AWS::SageMaker::AppImageConfig` | NA           | NA               |
-| `AWS::SageMaker::CodeRepository`                   | NA                               | NA           |
-| `AWS::SageMaker::DataQualityJobDefinition`         | NA                               | NA           |
-| `AWS::SageMaker::Domain`                           | NA                               | NA           |
-| `AWS::SageMaker::EndpointConfig`                   | NA                               | NA           |
-| `AWS::SageMaker::FeatureGroup`                     | NA                               | NA           |
-| `AWS::SageMaker::Image`                            | NA                               | NA           |
-| `AWS::SageMaker::InferenceExperiment`              | NA                               | NA           |
-| `AWS::SageMaker::MlflowTrackingServer`             | NA                               | NA           |
-| `AWS::SageMaker::Model`                            | NA                               | NA           |
-| `AWS::SageMaker::ModelBiasJobDefinition`           | NA                               | NA           |
-| `AWS::SageMaker::ModelExplainabilityJobDefinition` | NA                               | NA           |
-| `AWS::SageMaker::ModelQualityJobDefinition`        | NA                               | NA           |
-| `AWS::SageMaker::MonitoringSchedule`               | NA                               | NA           |
-| `AWS::SageMaker::NotebookInstance`                 | NA                               | NA           |
-| `AWS::SageMaker::NotebookInstanceLifecycleConfig`  | NA                               | NA           |
-| `AWS::SageMaker::StudioLifecycleConfig`            | NA                               | NA           |
-| `AWS::SageMaker::UserProfile`                      | NA                               | NA           |
-| `AWS::SageMaker::Workteam`                         | NA                               | NA           |
+| AWS Service                                        | Resource Type Value              | Relationship | Related Resource | Notes |
+| -------------------------------------------------- | -------------------------------- | ------------ | ---------------- | ----- |
+| Amazon SageMaker AI                                | `AWS::SageMaker::AppImageConfig` | NA           | NA               |       |
+| `AWS::SageMaker::CodeRepository`                   | NA                               | NA           |                  |
+| `AWS::SageMaker::DataQualityJobDefinition`         | NA                               | NA           |                  |
+| `AWS::SageMaker::Domain`                           | NA                               | NA           |                  |
+| `AWS::SageMaker::EndpointConfig`                   | NA                               | NA           |                  |
+| `AWS::SageMaker::FeatureGroup`                     | NA                               | NA           |                  |
+| `AWS::SageMaker::Image`                            | NA                               | NA           |                  |
+| `AWS::SageMaker::InferenceExperiment`              | NA                               | NA           |                  |
+| `AWS::SageMaker::MlflowTrackingServer`             | NA                               | NA           |                  |
+| `AWS::SageMaker::Model`                            | NA                               | NA           |                  |
+| `AWS::SageMaker::ModelBiasJobDefinition`           | NA                               | NA           |                  |
+| `AWS::SageMaker::ModelExplainabilityJobDefinition` | NA                               | NA           |                  |
+| `AWS::SageMaker::ModelQualityJobDefinition`        | NA                               | NA           |                  |
+| `AWS::SageMaker::MonitoringSchedule`               | NA                               | NA           |                  |
+| `AWS::SageMaker::NotebookInstance`                 | NA                               | NA           |                  |
+| `AWS::SageMaker::NotebookInstanceLifecycleConfig`  | NA                               | NA           |                  |
+| `AWS::SageMaker::StudioLifecycleConfig`            | NA                               | NA           |                  |
+| `AWS::SageMaker::UserProfile`                      | NA                               | NA           |                  |
+| `AWS::SageMaker::Workteam`                         | NA                               | NA           |                  |
 
 ## Amazon Simple Email Service
 
-| AWS Service                          | Resource Type Value          | Relationship | Related Resource |
-| ------------------------------------ | ---------------------------- | ------------ | ---------------- |
-| Amazon Simple Email Service          | `AWS::SES::ConfigurationSet` | NA           | NA               |
-| `AWS::SES::ContactList`              | NA                           | NA           |
-| `AWS::SES::DedicatedIpPool`          | NA                           | NA           |
-| `AWS::SES::MailManagerTrafficPolicy` | NA                           | NA           |
-| `AWS::SES::Template`                 | NA                           | NA           |
-| `AWS::SES::ReceiptFilter`            | NA                           | NA           |
-| `AWS::SES::ReceiptRuleSet`           | NA                           | NA           |
+| AWS Service                          | Resource Type Value          | Relationship | Related Resource | Notes |
+| ------------------------------------ | ---------------------------- | ------------ | ---------------- | ----- |
+| Amazon Simple Email Service          | `AWS::SES::ConfigurationSet` | NA           | NA               |       |
+| `AWS::SES::ContactList`              | NA                           | NA           |                  |
+| `AWS::SES::DedicatedIpPool`          | NA                           | NA           |                  |
+| `AWS::SES::MailManagerTrafficPolicy` | NA                           | NA           |                  |
+| `AWS::SES::Template`                 | NA                           | NA           |                  |
+| `AWS::SES::ReceiptFilter`            | NA                           | NA           |                  |
+| `AWS::SES::ReceiptRuleSet`           | NA                           | NA           |                  |
 
 ## Amazon Simple Notification Service
 
-| AWS Service                        | Resource Type Value | Relationship | Related Resource |
-| ---------------------------------- | ------------------- | ------------ | ---------------- |
-| Amazon Simple Notification Service | `AWS::SNS::Topic`   | NA           | NA               |
+| AWS Service                        | Resource Type Value | Relationship | Related Resource | Notes |
+| ---------------------------------- | ------------------- | ------------ | ---------------- | ----- |
+| Amazon Simple Notification Service | `AWS::SNS::Topic`   | NA           | NA               |       |
 
 ## Amazon Simple Queue Service
 
-| AWS Service                 | Resource Type Value | Relationship | Related Resource |
-| --------------------------- | ------------------- | ------------ | ---------------- |
-| Amazon Simple Queue Service | `AWS::SQS::Queue`   | NA           | NA               |
+| AWS Service                 | Resource Type Value | Relationship | Related Resource | Notes |
+| --------------------------- | ------------------- | ------------ | ---------------- | ----- |
+| Amazon Simple Queue Service | `AWS::SQS::Queue`   | NA           | NA               |       |
 
 ## Amazon Simple Storage Service
 
-| AWS Service                         | Resource Type Value               | Relationship | Related Resource |
-| ----------------------------------- | --------------------------------- | ------------ | ---------------- |
-| Amazon Simple Storage Service       | `AWS::S3::Bucket\*`               | NA           | NA               |
-| `AWS::S3::AccountPublicAccessBlock` | NA                                | NA           |
-| `AWS::S3::MultiRegionAccessPoint`   | NA                                | NA           |
-| `AWS::S3::StorageLens`              | NA                                | NA           |
-| `AWS::S3::AccessGrant`              | NA                                | NA           |
-| `AWS::S3::AccessGrantsInstance`     | NA                                | NA           |
-| `AWS::S3::AccessGrantsLocation`     | NA                                | NA           |
-| `AWS::S3::AccessPoint`              | NA                                | NA           |
-| `AWS::S3::StorageLensGroup`         | NA                                | NA           |
-| `AWS::S3Tables::TableBucket`        | NA                                | NA           |
-| `AWS::S3Tables::TableBucketPolicy`  | NA                                | NA           |
-| Amazon S3 Express One Zone          | `AWS::S3Express::DirectoryBucket` | NA           | NA               |
-| `AWS::S3Express::BucketPolicy`      | NA                                | NA           |
+| AWS Service                        | Resource Type Value                 | Relationship | Related Resource                                                   | Notes |
+| ---------------------------------- | ----------------------------------- | ------------ | ------------------------------------------------------------------ | ----- |
+| Amazon Simple Storage Service      | `AWS::S3::AccountPublicAccessBlock` | NA           | NA                                                                 |       |
+| `AWS::S3::MultiRegionAccessPoint`  | NA                                  | NA           |                                                                    |
+| `AWS::S3::StorageLens`             | NA                                  | NA           |                                                                    |
+| `AWS::S3::AccessGrant`             | NA                                  | NA           |                                                                    |
+| `AWS::S3::AccessGrantsInstance`    | NA                                  | NA           |                                                                    |
+| `AWS::S3::AccessGrantsLocation`    | NA                                  | NA           |                                                                    |
+| `AWS::S3::AccessPoint`             | NA                                  | NA           |                                                                    |
+| `AWS::S3::Bucket\*`                | NA                                  | NA           |                                                                    |
+| `AWS::S3::BucketPolicy\*`          | NA                                  | NA           | Resource metadata is included in the associated AWS::S3::Bucket CI |
+| `AWS::S3::StorageLensGroup`        | NA                                  | NA           |                                                                    |
+| `AWS::S3Tables::TableBucket`       | NA                                  | NA           |                                                                    |
+| `AWS::S3Tables::TableBucketPolicy` | NA                                  | NA           |                                                                    |
+| Amazon S3 Express One Zone         | `AWS::S3Express::DirectoryBucket`   | NA           | NA                                                                 |       |
+| `AWS::S3Express::BucketPolicy`     | NA                                  | NA           |                                                                    |
 
 \*If you configured AWS Config to record your S3 buckets, and are not
 receiving configuration change notifications, check that your S3 bucket policies have the
@@ -734,94 +764,102 @@ AWS Config also records the following attributes for the Amazon S3 bucket resour
 For more information about the attributes, see [Bucket Configuration
 Options](../../../AmazonS3/latest/userguide/UsingBucket.md#bucket-config-options-intro "../../../AmazonS3/latest/userguide/UsingBucket.md#bucket-config-options-intro") in the _Amazon Simple Storage Service User Guide_.
 
+## Amazon Verified Permissions
+
+| AWS Service                 | Resource Type Value                        | Relationship | Related Resource | Notes                                                                                       |
+| --------------------------- | ------------------------------------------ | ------------ | ---------------- | ------------------------------------------------------------------------------------------- |
+| Amazon Verified Permissions | `AWS::VerifiedPermissions::IdentitySource` | NA           | NA               | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
+
 ## Amazon WorkSpaces
 
-| AWS Service                  | Resource Type Value                | Relationship | Related Resource |
-| ---------------------------- | ---------------------------------- | ------------ | ---------------- |
-| Amazon WorkSpaces            | `AWS::WorkSpaces::ConnectionAlias` | NA           | NA               |
-| `AWS::WorkSpaces::Workspace` | NA                                 | NA           |
+| AWS Service                  | Resource Type Value                | Relationship | Related Resource | Notes |
+| ---------------------------- | ---------------------------------- | ------------ | ---------------- | ----- |
+| Amazon WorkSpaces            | `AWS::WorkSpaces::ConnectionAlias` | NA           | NA               |       |
+| `AWS::WorkSpaces::Workspace` | NA                                 | NA           |                  |
 
 ## AWS Amplify
 
-| AWS Service            | Resource Type Value | Relationship | Related Resource |
-| ---------------------- | ------------------- | ------------ | ---------------- |
-| AWS Amplify            | `AWS::Amplify::App` | NA           | NA               |
-| `AWS::Amplify::Branch` | NA                  | NA           |
+| AWS Service            | Resource Type Value | Relationship | Related Resource | Notes |
+| ---------------------- | ------------------- | ------------ | ---------------- | ----- |
+| AWS Amplify            | `AWS::Amplify::App` | NA           | NA               |       |
+| `AWS::Amplify::Branch` | NA                  | NA           |                  |
 
 ## AWS AppConfig
 
-| AWS Service                                  | Resource Type Value           | Relationship | Related Resource |
-| -------------------------------------------- | ----------------------------- | ------------ | ---------------- |
-| AWS AppConfig                                | `AWS::AppConfig::Application` | NA           | NA               |
-| `AWS::AppConfig::Environment`                | NA                            | NA           |
-| `AWS::AppConfig::ConfigurationProfile`       | NA                            | NA           |
-| `AWS::AppConfig::DeploymentStrategy`         | NA                            | NA           |
-| `AWS::AppConfig::HostedConfigurationVersion` | NA                            | NA           |
-| `AWS::AppConfig::Extension`                  | NA                            | NA           |
-| `AWS::AppConfig::ExtensionAssociation`       | NA                            | NA           |
+| AWS Service                                  | Resource Type Value           | Relationship | Related Resource | Notes |
+| -------------------------------------------- | ----------------------------- | ------------ | ---------------- | ----- |
+| AWS AppConfig                                | `AWS::AppConfig::Application` | NA           | NA               |       |
+| `AWS::AppConfig::Environment`                | NA                            | NA           |                  |
+| `AWS::AppConfig::ConfigurationProfile`       | NA                            | NA           |                  |
+| `AWS::AppConfig::DeploymentStrategy`         | NA                            | NA           |                  |
+| `AWS::AppConfig::HostedConfigurationVersion` | NA                            | NA           |                  |
+| `AWS::AppConfig::Extension`                  | NA                            | NA           |                  |
+| `AWS::AppConfig::ExtensionAssociation`       | NA                            | NA           |                  |
 
 ## AWS App Runner
 
-| AWS Service               | Resource Type Value            | Relationship | Related Resource |
-| ------------------------- | ------------------------------ | ------------ | ---------------- |
-| AWS App Runner            | `AWS::AppRunner::VpcConnector` | NA           | NA               |
-| `AWS::AppRunner::Service` | NA                             | NA           |
+| AWS Service               | Resource Type Value            | Relationship | Related Resource | Notes |
+| ------------------------- | ------------------------------ | ------------ | ---------------- | ----- |
+| AWS App Runner            | `AWS::AppRunner::VpcConnector` | NA           | NA               |       |
+| `AWS::AppRunner::Service` | NA                             | NA           |                  |
 
 ## AWS App Mesh
 
-| AWS Service                    | Resource Type Value         | Relationship | Related Resource |
-| ------------------------------ | --------------------------- | ------------ | ---------------- |
-| AWS App Mesh                   | `AWS::AppMesh::VirtualNode` | NA           | NA               |
-| `AWS::AppMesh::VirtualService` | NA                          | NA           |
-| `AWS::AppMesh::VirtualGateway` | NA                          | NA           |
-| `AWS::AppMesh::VirtualRouter`  | NA                          | NA           |
-| `AWS::AppMesh::Route`          | NA                          | NA           |
-| `AWS::AppMesh::GatewayRoute`   | NA                          | NA           |
-| `AWS::AppMesh::Mesh`           | NA                          | NA           |
+| AWS Service                    | Resource Type Value         | Relationship | Related Resource | Notes |
+| ------------------------------ | --------------------------- | ------------ | ---------------- | ----- |
+| AWS App Mesh                   | `AWS::AppMesh::VirtualNode` | NA           | NA               |       |
+| `AWS::AppMesh::VirtualService` | NA                          | NA           |                  |
+| `AWS::AppMesh::VirtualGateway` | NA                          | NA           |                  |
+| `AWS::AppMesh::VirtualRouter`  | NA                          | NA           |                  |
+| `AWS::AppMesh::Route`          | NA                          | NA           |                  |
+| `AWS::AppMesh::GatewayRoute`   | NA                          | NA           |                  |
+| `AWS::AppMesh::Mesh`           | NA                          | NA           |                  |
 
 ## AWS AppSync
 
-| AWS Service | Resource Type Value        | Relationship | Related Resource |
-| ----------- | -------------------------- | ------------ | ---------------- |
-| AWS AppSync | `AWS::AppSync::GraphQLApi` | NA           | NA               |
+| AWS Service                | Resource Type Value        | Relationship | Related Resource | Notes |
+| -------------------------- | -------------------------- | ------------ | ---------------- | ----- |
+| AWS AppSync                | `AWS::AppSync::DataSource` | NA           | NA               |       |
+| `AWS::AppSync::GraphQLApi` | NA                         | NA           |                  |
 
 ## AWS Audit Manager
 
-| AWS Service       | Resource Type Value             | Relationship | Related Resource |
-| ----------------- | ------------------------------- | ------------ | ---------------- |
-| AWS Audit Manager | `AWS::AuditManager::Assessment` | NA           | NA               |
+| AWS Service       | Resource Type Value             | Relationship | Related Resource | Notes |
+| ----------------- | ------------------------------- | ------------ | ---------------- | ----- |
+| AWS Audit Manager | `AWS::AuditManager::Assessment` | NA           | NA               |       |
 
 ## AWS Auto Scaling
 
-| AWS Service                             | Resource Type Value                  | Relationship              | Related Resource    |
-| --------------------------------------- | ------------------------------------ | ------------------------- | ------------------- |
-| AWS Auto Scaling                        | `AWS::AutoScaling::AutoScalingGroup` | contains                  | Amazon EC2 instance |
-| is associated with                      | Classic Load Balancer                |
-| Auto Scaling launch configuration       |
-| Subnet                                  |
-| `AWS::AutoScaling::LaunchConfiguration` | is associated with                   | Amazon EC2 security group |
-| `AWS::AutoScaling::ScalingPolicy`       | is associated with                   | Auto Scaling group        |
-| Alarm                                   |
-| `AWS::AutoScaling::ScheduledAction`     | is associated with                   | Auto Scaling group        |
-| `AWS::AutoScaling::WarmPool`            | NA                                   | NA                        |
+| AWS Service                             | Resource Type Value                  | Relationship              | Related Resource    | Notes |
+| --------------------------------------- | ------------------------------------ | ------------------------- | ------------------- | ----- |
+| AWS Auto Scaling                        | `AWS::AutoScaling::AutoScalingGroup` | contains                  | Amazon EC2 instance |       |
+| is associated with                      | Classic Load Balancer                |                           |
+| Auto Scaling launch configuration       |                                      |
+| Subnet                                  |                                      |
+| `AWS::AutoScaling::LaunchConfiguration` | is associated with                   | Amazon EC2 security group |                     |
+| `AWS::AutoScaling::ScalingPolicy`       | is associated with                   | Auto Scaling group        |                     |
+| Alarm                                   |                                      |
+| `AWS::AutoScaling::ScheduledAction`     | is associated with                   | Auto Scaling group        |                     |
+| `AWS::AutoScaling::WarmPool`            | NA                                   | NA                        |                     |
 
 ## AWS B2B Data Interchange
 
-| AWS Service              | Resource Type Value     | Relationship | Related Resource |
-| ------------------------ | ----------------------- | ------------ | ---------------- |
-| AWS B2B Data Interchange | `AWS::B2BI::Capability` | NA           | NA               |
+| AWS Service              | Resource Type Value     | Relationship | Related Resource | Notes |
+| ------------------------ | ----------------------- | ------------ | ---------------- | ----- |
+| AWS B2B Data Interchange | `AWS::B2BI::Capability` | NA           | NA               |       |
+| `AWS::B2BI::Transformer` | NA                      | NA           |                  |
 
 ## AWS Backup
 
-| AWS Service                       | Resource Type Value              | Relationship | Related Resource |
-| --------------------------------- | -------------------------------- | ------------ | ---------------- |
-| AWS Backup                        | `AWS::Backup::BackupPlan`        | NA           | NA\*             |
-| `AWS::Backup::BackupSelection`    | NA                               | NA           |
-| `AWS::Backup::BackupVault`        | NA                               | NA\*         |
-| `AWS::Backup::RecoveryPoint`      | NA                               | NA           |
-| `AWS::Backup::ReportPlan`         | NA                               | NA           |
-| `AWS::Backup::RestoreTestingPlan` | Na                               | NA           |
-| AWS Backup Gateway                | `AWS::BackupGateway::Hypervisor` | NA           | NA               |
+| AWS Service                       | Resource Type Value              | Relationship | Related Resource | Notes |
+| --------------------------------- | -------------------------------- | ------------ | ---------------- | ----- |
+| AWS Backup                        | `AWS::Backup::BackupPlan`        | NA           | NA\*             |       |
+| `AWS::Backup::BackupSelection`    | NA                               | NA           |                  |
+| `AWS::Backup::BackupVault`        | NA                               | NA\*         |                  |
+| `AWS::Backup::RecoveryPoint`      | NA                               | NA           |                  |
+| `AWS::Backup::ReportPlan`         | NA                               | NA           |                  |
+| `AWS::Backup::RestoreTestingPlan` | Na                               | NA           |                  |
+| AWS Backup Gateway                | `AWS::BackupGateway::Hypervisor` | NA           | NA               |       |
 
 Due to how AWS Backup works, some of these resource types relate to the other AWS Backup
 resource types in this table.
@@ -837,44 +875,47 @@ backup vaults](../../../aws-backup/latest/devguide/vaults.md "../../../aws-backu
 
 ## AWS Batch
 
-| AWS Service                      | Resource Type Value    | Relationship | Related Resource |
-| -------------------------------- | ---------------------- | ------------ | ---------------- |
-| AWS Batch                        | `AWS::Batch::JobQueue` | NA           | NA               |
-| `AWS::Batch::ComputeEnvironment` | NA                     | NA           |
-| `AWS::Batch::SchedulingPolicy`   | NA                     | NA           |
+| AWS Service                      | Resource Type Value              | Relationship | Related Resource | Notes |
+| -------------------------------- | -------------------------------- | ------------ | ---------------- | ----- |
+| AWS Batch                        | `AWS::Batch::ComputeEnvironment` | NA           | NA               |       |
+| `AWS::Batch::ConsumableResource` | NA                               | NA           |                  |
+| `AWS::Batch::JobQueue`           | NA                               | NA           |                  |
+| `AWS::Batch::SchedulingPolicy`   | NA                               | NA           |                  |
 
 ## AWS Billing and Cost Management
 
-| AWS Service                     | Resource Type Value           | Relationship | Related Resource |
-| ------------------------------- | ----------------------------- | ------------ | ---------------- |
-| AWS Billing and Cost Management | `AWS::BCMDataExports::Export` | NA           | NA               |
+| AWS Service                     | Resource Type Value           | Relationship | Related Resource | Notes |
+| ------------------------------- | ----------------------------- | ------------ | ---------------- | ----- |
+| AWS Billing and Cost Management | `AWS::BCMDataExports::Export` | NA           | NA               |       |
 
 ## AWS Budgets
 
-| AWS Service | Resource Type Value           | Relationship | Related Resource |
-| ----------- | ----------------------------- | ------------ | ---------------- |
-| AWS Budgets | `AWS::Budgets::BudgetsAction` | NA           | NA               |
+| AWS Service | Resource Type Value           | Relationship | Related Resource | Notes |
+| ----------- | ----------------------------- | ------------ | ---------------- | ----- |
+| AWS Budgets | `AWS::Budgets::BudgetsAction` | NA           | NA               |       |
 
 ## AWS Certificate Manager
 
-| AWS Service             | Resource Type Value     | Relationship | Related Resource |
-| ----------------------- | ----------------------- | ------------ | ---------------- |
-| AWS Certificate Manager | `AWS::ACM::Certificate` | NA           | NA               |
+| AWS Service             | Resource Type Value     | Relationship | Related Resource | Notes |
+| ----------------------- | ----------------------- | ------------ | ---------------- | ----- |
+| AWS Certificate Manager | `AWS::ACM::Certificate` | NA           | NA               |       |
 
 ## AWS Clean Rooms
 
-| AWS Service        | Resource Type Value                  | Relationship | Related Resource |
-| ------------------ | ------------------------------------ | ------------ | ---------------- |
-| AWS Clean Rooms ML | `AWS::CleanRoomsML::TrainingDataset` | NA           | NA               |
+| AWS Service                   | Resource Type Value                  | Relationship | Related Resource | Notes |
+| ----------------------------- | ------------------------------------ | ------------ | ---------------- | ----- |
+| AWS Clean Rooms               | `AWS::CleanRooms::ConfiguredTable`   | NA           | NA               |       |
+| `AWS::CleanRooms::Membership` | NA                                   | NA           |                  |
+| AWS Clean Rooms ML            | `AWS::CleanRoomsML::TrainingDataset` | NA           | NA               |       |
 
 ## AWS CloudFormation
 
-| AWS Service                       | Resource Type Value              | Relationship                 | Related Resource |
-| --------------------------------- | -------------------------------- | ---------------------------- | ---------------- |
-| CloudFormation                    | `AWS::CloudFormation::GuardHook` | NA                           | NA               |
-| `AWS::CloudFormation::LambdaHook` | NA                               | NA                           |
-| `AWS::CloudFormation::Stack`\*    | contains                         | Supported AWS resource types |
-| `AWS::CloudFormation::StackSet`   | NA                               | NA                           |
+| AWS Service                       | Resource Type Value              | Relationship                 | Related Resource | Notes |
+| --------------------------------- | -------------------------------- | ---------------------------- | ---------------- | ----- |
+| CloudFormation                    | `AWS::CloudFormation::GuardHook` | NA                           | NA               |       |
+| `AWS::CloudFormation::LambdaHook` | NA                               | NA                           |                  |
+| `AWS::CloudFormation::Stack`\*    | contains                         | Supported AWS resource types |                  |
+| `AWS::CloudFormation::StackSet`   | NA                               | NA                           |                  |
 
 \*AWS Config records configuration changes to CloudFormation stacks and
 supported resource types in the stacks. AWS Config does not record configuration changes for
@@ -883,16 +924,16 @@ the supplementary configuration section of the configuration item for the stack.
 
 ## AWS CloudTrail
 
-| AWS Service                       | Resource Type Value      | Relationship | Related Resource |
-| --------------------------------- | ------------------------ | ------------ | ---------------- |
-| AWS CloudTrail                    | `AWS::CloudTrail::Trail` | NA           | NA               |
-| `AWS::CloudTrail::EventDataStore` | NA                       | NA           |
+| AWS Service                       | Resource Type Value      | Relationship | Related Resource | Notes |
+| --------------------------------- | ------------------------ | ------------ | ---------------- | ----- |
+| AWS CloudTrail                    | `AWS::CloudTrail::Trail` | NA           | NA               |       |
+| `AWS::CloudTrail::EventDataStore` | NA                       | NA           |                  |
 
 ## AWS Cloud9
 
-| AWS Service | Resource Type Value           | Relationship | Related Resource |
-| ----------- | ----------------------------- | ------------ | ---------------- |
-| AWS Cloud9  | `AWS::Cloud9::EnvironmentEC2` | NA           | NA               |
+| AWS Service | Resource Type Value           | Relationship | Related Resource | Notes |
+| ----------- | ----------------------------- | ------------ | ---------------- | ----- |
+| AWS Cloud9  | `AWS::Cloud9::EnvironmentEC2` | NA           | NA               |       |
 
 ###### AWS Cloud9 access no longer available to new users
 
@@ -903,27 +944,28 @@ For more information, see [How to migrate from AWS Cloud9 to AWS IDE Toolkits or
 
 ## AWS Cloud Map
 
-| AWS Service                                 | Resource Type Value              | Relationship | Related Resource |
-| ------------------------------------------- | -------------------------------- | ------------ | ---------------- |
-| Service Discovery                           | `AWS::ServiceDiscovery::Service` | NA           | NA               |
-| `AWS::ServiceDiscovery::PublicDnsNamespace` | NA                               | NA           |
-| `AWS::ServiceDiscovery::HttpNamespace`      | NA                               | NA           |
-| `AWS::ServiceDiscovery::Instance`           | NA                               | NA           |
+| AWS Service                                 | Resource Type Value              | Relationship | Related Resource | Notes |
+| ------------------------------------------- | -------------------------------- | ------------ | ---------------- | ----- |
+| Service Discovery                           | `AWS::ServiceDiscovery::Service` | NA           | NA               |       |
+| `AWS::ServiceDiscovery::PublicDnsNamespace` | NA                               | NA           |                  |
+| `AWS::ServiceDiscovery::HttpNamespace`      | NA                               | NA           |                  |
+| `AWS::ServiceDiscovery::Instance`           | NA                               | NA           |                  |
 
 ## AWS CodeArtifact
 
-| AWS Service                 | Resource Type Value             | Relationship | Related Resource |
-| --------------------------- | ------------------------------- | ------------ | ---------------- |
-| AWS CodeArtifact            | `AWS::CodeArtifact::Repository` | NA           | NA               |
-| `AWS::CodeArtifact::Domain` | NA                              | NA           |
+| AWS Service                       | Resource Type Value         | Relationship | Related Resource                                                                            | Notes |
+| --------------------------------- | --------------------------- | ------------ | ------------------------------------------------------------------------------------------- | ----- |
+| AWS CodeArtifact                  | `AWS::CodeArtifact::Domain` | NA           | NA                                                                                          |       |
+| `AWS::CodeArtifact::PackageGroup` | NA                          | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
+| `AWS::CodeArtifact::Repository`   | NA                          | NA           |                                                                                             |
 
 ## AWS CodeBuild
 
-| AWS Service                   | Resource Type Value         | Relationship       | Related Resource |
-| ----------------------------- | --------------------------- | ------------------ | ---------------- |
-| AWS CodeBuild                 | `AWS::CodeBuild::Project`\* | is associated with | S3 bucket        |
-| IAM role                      |
-| `AWS::CodeBuild::ReportGroup` | NA                          | NA                 |
+| AWS Service                   | Resource Type Value         | Relationship       | Related Resource | Notes |
+| ----------------------------- | --------------------------- | ------------------ | ---------------- | ----- |
+| AWS CodeBuild                 | `AWS::CodeBuild::Project`\* | is associated with | S3 bucket        |       |
+| IAM role                      |                             |
+| `AWS::CodeBuild::ReportGroup` | NA                          | NA                 |                  |
 
 \*To learn more about how AWS Config integrates with AWS CodeBuild, see
 [Use AWS Config with AWS CodeBuild
@@ -931,22 +973,22 @@ Sample](../../../codebuild/latest/userguide/how-to-integrate-config.md "../../..
 
 ## AWS CodeDeploy
 
-| AWS Service                         | Resource Type Value            | Relationship | Related Resource |
-| ----------------------------------- | ------------------------------ | ------------ | ---------------- |
-| AWS CodeDeploy                      | `AWS::CodeDeploy::Application` | contains     | DeploymentGroup  |
-| `AWS::CodeDeploy::DeploymentConfig` | NA                             | NA           |
-| `AWS::CodeDeploy::DeploymentGroup`  | is contained in                | Application  |
+| AWS Service                         | Resource Type Value            | Relationship | Related Resource | Notes |
+| ----------------------------------- | ------------------------------ | ------------ | ---------------- | ----- |
+| AWS CodeDeploy                      | `AWS::CodeDeploy::Application` | contains     | DeploymentGroup  |       |
+| `AWS::CodeDeploy::DeploymentConfig` | NA                             | NA           |                  |
+| `AWS::CodeDeploy::DeploymentGroup`  | is contained in                | Application  |                  |
 
 ## AWS CodePipeline
 
-| AWS Service                  | Resource Type Value             | Relationship   | Related Resource |
-| ---------------------------- | ------------------------------- | -------------- | ---------------- |
-| AWS CodePipeline             | `AWS::CodePipeline::Pipeline`\* | is attached to | S3 bucket        |
-| is associated with           | IAM role                        |
-| Code project                 |
-| Lambda function              |
-| Cloudformation stack         |
-| ElasticBeanstalk application |
+| AWS Service                  | Resource Type Value             | Relationship   | Related Resource | Notes |
+| ---------------------------- | ------------------------------- | -------------- | ---------------- | ----- |
+| AWS CodePipeline             | `AWS::CodePipeline::Pipeline`\* | is attached to | S3 bucket        |       |
+| is associated with           | IAM role                        |                |
+| Code project                 |                                 |
+| Lambda function              |                                 |
+| Cloudformation stack         |                                 |
+| ElasticBeanstalk application |                                 |
 
 \*AWS Config records configuration changes to CodePipeline pipelines and
 supported resource types in the pipelines. AWS Config does not record configuration changes for
@@ -957,14 +999,14 @@ for the stack.
 
 ## AWS Config
 
-| AWS Service                              | Resource Type Value                     | Relationship    | Related Resource |
-| ---------------------------------------- | --------------------------------------- | --------------- | ---------------- |
-| AWS Config                               | `AWS::Config::AggregationAuthorization` | NA              | NA               |
-| `AWS::Config::ResourceCompliance`\*      | is associated with                      | All resources\* |
-| `AWS::Config::ConformancePackCompliance` | NA                                      | NA              |
-| `AWS::Config::ConfigurationRecorder`\*   | NA                                      | NA              |
-| `AWS::Config::ConformancePack`           | NA                                      | NA              |
-| `AWS::Config::StoredQuery`               | NA                                      | NA              |
+| AWS Service                              | Resource Type Value                     | Relationship    | Related Resource | Notes |
+| ---------------------------------------- | --------------------------------------- | --------------- | ---------------- | ----- |
+| AWS Config                               | `AWS::Config::AggregationAuthorization` | NA              | NA               |       |
+| `AWS::Config::ResourceCompliance`\*      | is associated with                      | All resources\* |                  |
+| `AWS::Config::ConformancePackCompliance` | NA                                      | NA              |                  |
+| `AWS::Config::ConfigurationRecorder`\*   | NA                                      | NA              |                  |
+| `AWS::Config::ConformancePack`           | NA                                      | NA              |                  |
+| `AWS::Config::StoredQuery`               | NA                                      | NA              |                  |
 
 \*The relationship between
 `AWS::Config::ResourceCompliance` and a related resource depends on how
@@ -977,129 +1019,152 @@ type.
 
 Recording for the `AWS::Config::ConformancePackCompliance` and `AWS::Config::ConfigurationRecorder` resource types come with no additional charge.
 
+## AWS Cost Explorer
+
+| AWS Service       | Resource Type Value     | Relationship | Related Resource | Notes |
+| ----------------- | ----------------------- | ------------ | ---------------- | ----- |
+| AWS Cost Explorer | `AWS::CE::CostCategory` | NA           | NA               |       |
+
 ## AWS Database Migration Service
 
-| AWS Service                        | Resource Type Value           | Relationship | Related Resource |
-| ---------------------------------- | ----------------------------- | ------------ | ---------------- |
-| AWS Database Migration Service     | `AWS::DMS::EventSubscription` | NA           | NA               |
-| `AWS::DMS::ReplicationSubnetGroup` | NA                            | NA           |
-| `AWS::DMS::ReplicationInstance`    | NA                            | NA           |
-| `AWS::DMS::ReplicationTask`        | NA                            | NA           |
-| `AWS::DMS::Certificate`            | NA                            | NA           |
-| `AWS::DMS::Endpoint`               | NA                            | NA           |
+| AWS Service                        | Resource Type Value           | Relationship | Related Resource | Notes |
+| ---------------------------------- | ----------------------------- | ------------ | ---------------- | ----- |
+| AWS Database Migration Service     | `AWS::DMS::EventSubscription` | NA           | NA               |       |
+| `AWS::DMS::ReplicationSubnetGroup` | NA                            | NA           |                  |
+| `AWS::DMS::ReplicationInstance`    | NA                            | NA           |                  |
+| `AWS::DMS::ReplicationTask`        | NA                            | NA           |                  |
+| `AWS::DMS::Certificate`            | NA                            | NA           |                  |
+| `AWS::DMS::Endpoint`               | NA                            | NA           |                  |
 
 ## AWS DataSync
 
-| AWS Service                            | Resource Type Value    | Relationship | Related Resource |
-| -------------------------------------- | ---------------------- | ------------ | ---------------- |
-| AWS DataSync                           | `AWS::DataSync::Agent` | NA           | NA               |
-| `AWS::DataSync::LocationSMB`           | NA                     | NA           |
-| `AWS::DataSync::LocationFSxLustre`     | NA                     | NA           |
-| `AWS::DataSync::LocationFSxWindows`    | NA                     | NA           |
-| `AWS::DataSync::LocationS3`            | NA                     | NA           |
-| `AWS::DataSync::LocationEFS`           | NA                     | NA           |
-| `AWS::DataSync::LocationNFS`           | NA                     | NA           |
-| `AWS::DataSync::LocationHDFS`          | NA                     | NA           |
-| `AWS::DataSync::LocationObjectStorage` | NA                     | NA           |
-| `AWS::DataSync::Task`                  | NA                     | NA           |
+| AWS Service                            | Resource Type Value    | Relationship | Related Resource | Notes |
+| -------------------------------------- | ---------------------- | ------------ | ---------------- | ----- |
+| AWS DataSync                           | `AWS::DataSync::Agent` | NA           | NA               |       |
+| `AWS::DataSync::LocationSMB`           | NA                     | NA           |                  |
+| `AWS::DataSync::LocationFSxLustre`     | NA                     | NA           |                  |
+| `AWS::DataSync::LocationFSxWindows`    | NA                     | NA           |                  |
+| `AWS::DataSync::LocationS3`            | NA                     | NA           |                  |
+| `AWS::DataSync::LocationEFS`           | NA                     | NA           |                  |
+| `AWS::DataSync::LocationNFS`           | NA                     | NA           |                  |
+| `AWS::DataSync::LocationHDFS`          | NA                     | NA           |                  |
+| `AWS::DataSync::LocationObjectStorage` | NA                     | NA           |                  |
+| `AWS::DataSync::Task`                  | NA                     | NA           |                  |
 
 ## AWS Deadline Cloud
 
-| AWS Service                            | Resource Type Value    | Relationship | Related Resource |
-| -------------------------------------- | ---------------------- | ------------ | ---------------- |
-| AWS Deadline Cloud                     | `AWS::Deadline::Fleet` | NA           | NA               |
-| `AWS::Deadline::Monitor`               | NA                     | NA           |
-| `AWS::Deadline::QueueFleetAssociation` | NA                     | NA           |
+| AWS Service                            | Resource Type Value    | Relationship | Related Resource                                                                            | Notes |
+| -------------------------------------- | ---------------------- | ------------ | ------------------------------------------------------------------------------------------- | ----- |
+| AWS Deadline Cloud                     | `AWS::Deadline::Fleet` | NA           | NA                                                                                          |       |
+| `AWS::Deadline::LicenseEndpoint`       | NA                     | NA           |                                                                                             |
+| `AWS::Deadline::Monitor`               | NA                     | NA           |                                                                                             |
+| `AWS::Deadline::QueueEnvironment`      | NA                     | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
+| `AWS::Deadline::QueueFleetAssociation` | NA                     | NA           |                                                                                             |
 
 ## AWS Device Farm
 
-| AWS Service                        | Resource Type Value                | Relationship | Related Resource |
-| ---------------------------------- | ---------------------------------- | ------------ | ---------------- |
-| AWS Device Farm                    | `AWS::DeviceFarm::TestGridProject` | NA           | NA               |
-| `AWS::DeviceFarm::InstanceProfile` | NA                                 | NA           |
-| `AWS::DeviceFarm::Project`         | NA                                 | NA           |
+| AWS Service                        | Resource Type Value                | Relationship | Related Resource | Notes |
+| ---------------------------------- | ---------------------------------- | ------------ | ---------------- | ----- |
+| AWS Device Farm                    | `AWS::DeviceFarm::TestGridProject` | NA           | NA               |       |
+| `AWS::DeviceFarm::InstanceProfile` | NA                                 | NA           |                  |
+| `AWS::DeviceFarm::Project`         | NA                                 | NA           |                  |
 
 ## AWS Elastic Beanstalk
 
-| AWS Service                                 | Resource Type Value                   | Relationship                  | Related Resource                      |
-| ------------------------------------------- | ------------------------------------- | ----------------------------- | ------------------------------------- |
-| AWS Elastic Beanstalk                       | `AWS::ElasticBeanstalk::Application`  | contains                      | Elastic Beanstalk Application Version |
-| Elastic Beanstalk Environment               |
-| is associated with                          | IAM role                              |
-| `AWS::ElasticBeanstalk::ApplicationVersion` | is contained in                       | Elastic Beanstalk Application |
-| is associated with                          | Elastic Beanstalk Environment         |
-| S3 bucket                                   |
-| `AWS::ElasticBeanstalk::Environment`        | is contained in                       | Elastic Beanstalk Application |
-| is associated with                          | Elastic Beanstalk Application Version |
-| IAM role                                    |
-| contains                                    | CloudFormation Stack                  |
+| AWS Service                                 | Resource Type Value                   | Relationship                  | Related Resource                      | Notes |
+| ------------------------------------------- | ------------------------------------- | ----------------------------- | ------------------------------------- | ----- |
+| AWS Elastic Beanstalk                       | `AWS::ElasticBeanstalk::Application`  | contains                      | Elastic Beanstalk Application Version |       |
+| Elastic Beanstalk Environment               |                                       |
+| is associated with                          | IAM role                              |                               |
+| `AWS::ElasticBeanstalk::ApplicationVersion` | is contained in                       | Elastic Beanstalk Application |                                       |
+| is associated with                          | Elastic Beanstalk Environment         |                               |
+| S3 bucket                                   |                                       |
+| `AWS::ElasticBeanstalk::Environment`        | is contained in                       | Elastic Beanstalk Application |                                       |
+| is associated with                          | Elastic Beanstalk Application Version |                               |
+| IAM role                                    |                                       |
+| contains                                    | CloudFormation Stack                  |                               |
 
 ## AWS Entity Resolution
 
-| AWS Service                               | Resource Type Value                        | Relationship | Related Resource |
-| ----------------------------------------- | ------------------------------------------ | ------------ | ---------------- |
-| AWS Entity Resolution                     | `AWS::EntityResolution::IdMappingWorkflow` | NA           | NA               |
-| `AWS::EntityResolution::MatchingWorkflow` | NA                                         | NA           |
-| `AWS::EntityResolution::SchemaMapping`    | NA                                         | NA           |
+| AWS Service                               | Resource Type Value                        | Relationship | Related Resource | Notes |
+| ----------------------------------------- | ------------------------------------------ | ------------ | ---------------- | ----- |
+| AWS Entity Resolution                     | `AWS::EntityResolution::IdMappingWorkflow` | NA           | NA               |       |
+| `AWS::EntityResolution::MatchingWorkflow` | NA                                         | NA           |                  |
+| `AWS::EntityResolution::SchemaMapping`    | NA                                         | NA           |                  |
 
 ## AWS Fault Injection Service
 
-| AWS Service                 | Resource Type Value            | Relationship | Related Resource |
-| --------------------------- | ------------------------------ | ------------ | ---------------- |
-| AWS Fault Injection Service | `AWS::FIS::ExperimentTemplate` | NA           | NA               |
+| AWS Service                 | Resource Type Value            | Relationship | Related Resource | Notes |
+| --------------------------- | ------------------------------ | ------------ | ---------------- | ----- |
+| AWS Fault Injection Service | `AWS::FIS::ExperimentTemplate` | NA           | NA               |       |
 
 ## AWS Global Accelerator
 
-| AWS Service                             | Resource Type Value                | Relationship | Related Resource |
-| --------------------------------------- | ---------------------------------- | ------------ | ---------------- |
-| AWS Global Accelerator                  | `AWS::GlobalAccelerator::Listener` | NA           | NA               |
-| `AWS::GlobalAccelerator::EndpointGroup` | NA                                 | NA           |
-| `AWS::GlobalAccelerator::Accelerator`   | NA                                 | NA           |
+| AWS Service                             | Resource Type Value                | Relationship | Related Resource | Notes |
+| --------------------------------------- | ---------------------------------- | ------------ | ---------------- | ----- |
+| AWS Global Accelerator                  | `AWS::GlobalAccelerator::Listener` | NA           | NA               |       |
+| `AWS::GlobalAccelerator::EndpointGroup` | NA                                 | NA           |                  |
+| `AWS::GlobalAccelerator::Accelerator`   | NA                                 | NA           |                  |
 
 ## AWS Glue
 
-| AWS Service              | Resource Type Value | Relationship | Related Resource |
-| ------------------------ | ------------------- | ------------ | ---------------- |
-| AWS Glue                 | `AWS::Glue::Job`    | NA           | NA               |
-| `AWS::Glue::Classifier`  | NA                  | NA           |
-| `AWS::Glue::MLTransform` | NA                  | NA           |
-| `AWS::Glue::Database`    | NA                  | NA           |
-| `AWS::Glue::Registry`    | NA                  | NA           |
+| AWS Service              | Resource Type Value     | Relationship | Related Resource | Notes |
+| ------------------------ | ----------------------- | ------------ | ---------------- | ----- |
+| AWS Glue                 | `AWS::Glue::Classifier` | NA           | NA               |       |
+| `AWS::Glue::Crawler`     | NA                      | NA           |                  |
+| `AWS::Glue::Database`    | NA                      | NA           |                  |
+| `AWS::Glue::Job`         | NA                      | NA           |                  |
+| `AWS::Glue::MLTransform` | NA                      | NA           |                  |
+| `AWS::Glue::Registry`    | NA                      | NA           |                  |
+
+## AWS Glue DataBrew
+
+| AWS Service               | Resource Type Value      | Relationship | Related Resource | Notes |
+| ------------------------- | ------------------------ | ------------ | ---------------- | ----- |
+| AWS Glue DataBrew         | `AWS::DataBrew::Dataset` | NA           | NA               |       |
+| `AWS::DataBrew::Job`      | NA                       | NA           |                  |
+| `AWS::DataBrew::Project`  | NA                       | NA           |                  |
+| `AWS::DataBrew::Recipe`   | NA                       | NA           |                  |
+| `AWS::DataBrew::Ruleset`  | NA                       | NA           |                  |
+| `AWS::DataBrew::Schedule` | NA                       | NA           |                  |
 
 ## AWS Ground Station
 
-| AWS Service                                 | Resource Type Value          | Relationship | Related Resource |
-| ------------------------------------------- | ---------------------------- | ------------ | ---------------- |
-| AWS Ground Station                          | `AWS::GroundStation::Config` | NA           | NA               |
-| `AWS::GroundStation::MissionProfile`        | NA                           | NA           |
-| `AWS::GroundStation::DataflowEndpointGroup` | NA                           | NA           |
+| AWS Service                                 | Resource Type Value          | Relationship | Related Resource | Notes |
+| ------------------------------------------- | ---------------------------- | ------------ | ---------------- | ----- |
+| AWS Ground Station                          | `AWS::GroundStation::Config` | NA           | NA               |       |
+| `AWS::GroundStation::MissionProfile`        | NA                           | NA           |                  |
+| `AWS::GroundStation::DataflowEndpointGroup` | NA                           | NA           |                  |
 
 ## AWS HealthLake
 
-| AWS Service    | Resource Type Value              | Relationship | Related Resource |
-| -------------- | -------------------------------- | ------------ | ---------------- |
-| AWS HealthLake | `AWS::HealthLake::FHIRDatastore` | NA           | NA               |
+| AWS Service    | Resource Type Value              | Relationship | Related Resource | Notes |
+| -------------- | -------------------------------- | ------------ | ---------------- | ----- |
+| AWS HealthLake | `AWS::HealthLake::FHIRDatastore` | NA           | NA               |       |
 
 ## AWS Identity and Access Management (IAM)
 
-| AWS Service                                        | Resource Type Value             | Relationship                | Related Resource |
-| -------------------------------------------------- | ------------------------------- | --------------------------- | ---------------- |
-| AWS Identity and Access Management                 | `AWS::IAM::User`                | is attached to              | IAM group        |
-| IAM customer managed policy                        |
-| `AWS::IAM::Group`                                  | contains                        | IAM user                    |
-| is attached to                                     | IAM customer managed policy     |
-| `AWS::IAM::Role`                                   | is attached to                  | IAM customer managed policy |
-| `AWS::IAM::Policy`                                 | is attached to                  | IAM user                    |
-| IAM group                                          |
-| IAM role                                           |
-| `AWS::IAM::SAMLProvider`                           | NA                              | NA                          |
-| `AWS::IAM::ServerCertificate`                      | NA                              | NA                          |
-| `AWS::IAM::InstanceProfile`                        | NA                              | NA                          |
-| `AWS::IAM::OIDCProvider`                           | NA                              | NA                          |
-| AWS Identity and Access Management Access Analyzer | `AWS::AccessAnalyzer::Analyzer` | NA                          | NA               |
-| AWS Identity and Access Management Roles Anywhere  | `AWS::RolesAnywhere::Profile`   | NA                          | NA               |
-| `AWS::RolesAnywhere::CRL`                          | NA                              | NA                          |
-| `AWS::RolesAnywhere::TrustAnchor`                  | NA                              | NA                          |
+| AWS Service                                        | Resource Type Value             | Relationship                | Related Resource                                                   | Notes |
+| -------------------------------------------------- | ------------------------------- | --------------------------- | ------------------------------------------------------------------ | ----- |
+| AWS Identity and Access Management                 | `AWS::IAM::User`                | is attached to              | IAM group                                                          |       |
+| IAM customer managed policy                        |                                 |
+| `AWS::IAM::UserPolicy`                             | NA                              | NA                          | Resource metadata is included in the associated AWS::IAM::User CI  |
+| `AWS::IAM::Group`                                  | contains                        | IAM user                    |                                                                    |
+| is attached to                                     | IAM customer managed policy     |                             |
+| `AWS::IAM::GroupPolicy`                            | NA                              | NA                          | Resource metadata is included in the associated AWS::IAM::Group CI |
+| `AWS::IAM::Role`                                   | is attached to                  | IAM customer managed policy |                                                                    |
+| `AWS::IAM::RolePolicy`                             | NA                              | NA                          | Resource metadata is included in the associated AWS::IAM::Role CI  |
+| `AWS::IAM::Policy`                                 | is attached to                  | IAM user                    |                                                                    |
+| IAM group                                          |                                 |
+| IAM role                                           |                                 |
+| `AWS::IAM::SAMLProvider`                           | NA                              | NA                          |                                                                    |
+| `AWS::IAM::ServerCertificate`                      | NA                              | NA                          |                                                                    |
+| `AWS::IAM::InstanceProfile`                        | NA                              | NA                          |                                                                    |
+| `AWS::IAM::OIDCProvider`                           | NA                              | NA                          |                                                                    |
+| AWS Identity and Access Management Access Analyzer | `AWS::AccessAnalyzer::Analyzer` | NA                          | NA                                                                 |       |
+| AWS Identity and Access Management Roles Anywhere  | `AWS::RolesAnywhere::Profile`   | NA                          | NA                                                                 |       |
+| `AWS::RolesAnywhere::CRL`                          | NA                              | NA                          |                                                                    |
+| `AWS::RolesAnywhere::TrustAnchor`                  | NA                              | NA                          |                                                                    |
 
 AWS Config includes inline policies with the configuration details that it records. For more
 information on inline policies, see [Managed policies
@@ -1107,167 +1172,192 @@ and inline policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-in
 
 ## AWS IoT
 
-| AWS Service                        | Resource Type Value                          | Relationship | Related Resource |
-| ---------------------------------- | -------------------------------------------- | ------------ | ---------------- |
-| AWS IoT                            | `AWS::IoT::AccountAuditConfiguration`        | NA           | NA               |
-| `AWS::IoT::Authorizer`             | NA                                           | NA           |
-| `AWS::IoT::CACertificate`          | NA                                           | NA           |
-| `AWS::IoT::CustomMetric`           | NA                                           | NA           |
-| `AWS::IoT::Dimension`              | NA                                           | NA           |
-| `AWS::IoT::DomainConfiguration`    | NA                                           | NA           |
-| `AWS::IoT::JobTemplate`            | NA                                           | NA           |
-| `AWS::IoT::MitigationAction`       | NA                                           | NA           |
-| `AWS::IoT::Policy`                 | NA                                           | NA           |
-| `AWS::IoT::ProvisioningTemplate`   | NA                                           | NA           |
-| `AWS::IoT::RoleAlias`              | NA                                           | NA           |
-| `AWS::IoT::ScheduledAudit`         | NA                                           | NA           |
-| `AWS::IoT::SecurityProfile`        | NA                                           | NA           |
-| `AWS::IoT::ThingGroup`             | NA                                           | NA           |
-| `AWS::IoTSiteWise::Gateway`        | NA                                           | NA           |
-| AWS IoT Wireless                   | `AWS::IoTWireless::ServiceProfile`           | NA           | NA               |
-| `AWS::IoTWireless::MulticastGroup` | NA                                           | NA           |
-| `AWS::IoTWireless::FuotaTask`      | NA                                           | NA           |
-| AWS IoT Core                       | `AWS::IoT::FleetMetric`                      | NA           | NA               |
-| AWS IoT Core Device Advisor        | `AWS::IoTCoreDeviceAdvisor::SuiteDefinition` | NA           | NA               |
-| AWS IoT Analytics                  | `AWS::IoTAnalytics::Datastore`               | NA           | NA               |
-| `AWS::IoTAnalytics::Dataset`       | NA                                           | NA           |
-| `AWS::IoTAnalytics::Pipeline`      | NA                                           | NA           |
-| `AWS::IoTAnalytics::Channel`       | NA                                           | NA           |
-| AWS IoT Events                     | `AWS::IoTEvents::Input`                      | NA           | NA               |
-| `AWS::IoTEvents::DetectorModel`    | NA                                           | NA           |
-| `AWS::IoTEvents::AlarmModel`       | NA                                           | NA           |
-| AWS IoT TwinMaker                  | `AWS::IoTTwinMaker::Workspace`               | NA           | NA               |
-| `AWS::IoTTwinMaker::Entity`        | NA                                           | NA           |
-| `AWS::IoTTwinMaker::Scene`         | NA                                           | NA           |
-| `AWS::IoTTwinMaker::SyncJob`       | NA                                           | NA           |
-| `AWS::IoTTwinMaker::ComponentType` | NA                                           | NA           |
-| AWS IoT SiteWise                   | `AWS::IoTSiteWise::Asset`                    | NA           | NA               |
-| `AWS::IoTSiteWise::AssetModel`     | NA                                           | NA           |
-| `AWS::IoTSiteWise::Dashboard`      | NA                                           | NA           |
-| `AWS::IoTSiteWise::Portal`         | NA                                           | NA           |
-| `AWS::IoTSiteWise::Project`        | NA                                           | NA           |
-| AWS IoT Greengrass Version 2       | `AWS::GreengrassV2::ComponentVersion`        | NA           | NA               |
+| AWS Service                                      | Resource Type Value                          | Relationship | Related Resource | Notes |
+| ------------------------------------------------ | -------------------------------------------- | ------------ | ---------------- | ----- |
+| AWS IoT                                          | `AWS::IoT::AccountAuditConfiguration`        | NA           | NA               |       |
+| `AWS::IoT::Authorizer`                           | NA                                           | NA           |                  |
+| `AWS::IoT::BillingGroup`                         | NA                                           | NA           |                  |
+| `AWS::IoT::CACertificate`                        | NA                                           | NA           |                  |
+| `AWS::IoT::CustomMetric`                         | NA                                           | NA           |                  |
+| `AWS::IoT::Dimension`                            | NA                                           | NA           |                  |
+| `AWS::IoT::DomainConfiguration`                  | NA                                           | NA           |                  |
+| `AWS::IoT::JobTemplate`                          | NA                                           | NA           |                  |
+| `AWS::IoT::MitigationAction`                     | NA                                           | NA           |                  |
+| `AWS::IoT::Policy`                               | NA                                           | NA           |                  |
+| `AWS::IoT::ProvisioningTemplate`                 | NA                                           | NA           |                  |
+| `AWS::IoT::RoleAlias`                            | NA                                           | NA           |                  |
+| `AWS::IoT::ResourceSpecificLogging`              | NA                                           | NA           |                  |
+| `AWS::IoT::ScheduledAudit`                       | NA                                           | NA           |                  |
+| `AWS::IoT::SecurityProfile`                      | NA                                           | NA           |                  |
+| `AWS::IoT::SoftwarePackage`                      | NA                                           | NA           |                  |
+| `AWS::IoT::ThingGroup`                           | NA                                           | NA           |                  |
+| `AWS::IoT::TopicRule`                            | NA                                           | NA           |                  |
+| AWS IoT Wireless                                 | `AWS::IoTWireless::Destination`              | NA           | NA               |       |
+| `AWS::IoTWireless::DeviceProfile`                | NA                                           | NA           |                  |
+| `AWS::IoTWireless::FuotaTask`                    | NA                                           | NA           |                  |
+| `AWS::IoTWireless::ServiceProfile`               | NA                                           | NA           |                  |
+| `AWS::IoTWireless::MulticastGroup`               | NA                                           | NA           |                  |
+| `AWS::IoTWireless::NetworkAnalyzerConfiguration` | NA                                           | NA           |                  |
+| `AWS::IoTWireless::TaskDefinition`               | NA                                           | NA           |                  |
+| `AWS::IoTWireless::WirelessGateway`              | NA                                           | NA           |                  |
+| AWS IoT Core                                     | `AWS::IoT::FleetMetric`                      | NA           | NA               |       |
+| AWS IoT Core Device Advisor                      | `AWS::IoTCoreDeviceAdvisor::SuiteDefinition` | NA           | NA               |       |
+| AWS IoT Analytics                                | `AWS::IoTAnalytics::Datastore`               | NA           | NA               |       |
+| `AWS::IoTAnalytics::Dataset`                     | NA                                           | NA           |                  |
+| `AWS::IoTAnalytics::Pipeline`                    | NA                                           | NA           |                  |
+| `AWS::IoTAnalytics::Channel`                     | NA                                           | NA           |                  |
+| AWS IoT Events                                   | `AWS::IoTEvents::Input`                      | NA           | NA               |       |
+| `AWS::IoTEvents::DetectorModel`                  | NA                                           | NA           |                  |
+| `AWS::IoTEvents::AlarmModel`                     | NA                                           | NA           |                  |
+| AWS IoT TwinMaker                                | `AWS::IoTTwinMaker::Workspace`               | NA           | NA               |       |
+| `AWS::IoTTwinMaker::Entity`                      | NA                                           | NA           |                  |
+| `AWS::IoTTwinMaker::Scene`                       | NA                                           | NA           |                  |
+| `AWS::IoTTwinMaker::SyncJob`                     | NA                                           | NA           |                  |
+| `AWS::IoTTwinMaker::ComponentType`               | NA                                           | NA           |                  |
+| AWS IoT SiteWise                                 | `AWS::IoTSiteWise::Asset`                    | NA           | NA               |       |
+| `AWS::IoTSiteWise::AssetModel`                   | NA                                           | NA           |                  |
+| `AWS::IoTSiteWise::Dashboard`                    | NA                                           | NA           |                  |
+| `AWS::IoTSiteWise::Gateway`                      | NA                                           | NA           |                  |
+| `AWS::IoTSiteWise::Portal`                       | NA                                           | NA           |                  |
+| `AWS::IoTSiteWise::Project`                      | NA                                           | NA           |                  |
+| AWS IoT Greengrass Version 2                     | `AWS::GreengrassV2::ComponentVersion`        | NA           | NA               |       |
 
 ## AWS Key Management Service
 
-| AWS Service                | Resource Type Value | Relationship | Related Resource |
-| -------------------------- | ------------------- | ------------ | ---------------- |
-| AWS Key Management Service | `AWS::KMS::Key`     | NA           | NA               |
-| `AWS::KMS::Alias`          | NA                  | NA           |
+| AWS Service                | Resource Type Value | Relationship | Related Resource | Notes |
+| -------------------------- | ------------------- | ------------ | ---------------- | ----- |
+| AWS Key Management Service | `AWS::KMS::Key`     | NA           | NA               |       |
+| `AWS::KMS::Alias`          | NA                  | NA           |                  |
 
 ## AWS Lambda
 
-| AWS Service                      | Resource Type Value     | Relationship       | Related Resource |
-| -------------------------------- | ----------------------- | ------------------ | ---------------- |
-| AWS Lambda                       | `AWS::Lambda::Function` | is associated with | IAM role         |
-| EC2 security group               |
-| is contained in                  | EC2 subnet              |
-| `AWS::Lambda::CodeSigningConfig` | NA                      | NA                 |
+| AWS Service                      | Resource Type Value     | Relationship       | Related Resource | Notes |
+| -------------------------------- | ----------------------- | ------------------ | ---------------- | ----- |
+| AWS Lambda                       | `AWS::Lambda::Function` | is associated with | IAM role         |       |
+| EC2 security group               |                         |
+| is contained in                  | EC2 subnet              |                    |
+| `AWS::Lambda::CodeSigningConfig` | NA                      | NA                 |                  |
 
 ## AWS Mainframe Modernization
 
-| AWS Service                 | Resource Type Value    | Relationship | Related Resource |
-| --------------------------- | ---------------------- | ------------ | ---------------- |
-| AWS Mainframe Modernization | `AWS::M2::Environment` | NA           | NA               |
+| AWS Service                 | Resource Type Value    | Relationship | Related Resource | Notes |
+| --------------------------- | ---------------------- | ------------ | ---------------- | ----- |
+| AWS Mainframe Modernization | `AWS::M2::Environment` | NA           | NA               |       |
 
 ## AWS Network Firewall
 
-| AWS Service                                        | Resource Type Value              | Relationship              | Related Resource |
-| -------------------------------------------------- | -------------------------------- | ------------------------- | ---------------- |
-| AWS Network Firewall                               | `AWS::NetworkFirewall::Firewall` | is attached to            | EC2 Subnet       |
-| is associated with                                 | NetworkFirewall FirewallPolicy   |
-| `AWS::NetworkFirewall::FirewallPolicy`             | is associated with               | NetworkFirewall RuleGroup |
-| `AWS::NetworkFirewall::RuleGroup`                  | NA                               | NA                        |
-| `AWS::NetworkFirewall::TLSInspectionConfiguration` | NA                               | NA                        |
-| `AWS::NetworkFirewall::VpcEndpointAssociation`     | NA                               | NA                        |
+| AWS Service                                        | Resource Type Value              | Relationship              | Related Resource | Notes |
+| -------------------------------------------------- | -------------------------------- | ------------------------- | ---------------- | ----- |
+| AWS Network Firewall                               | `AWS::NetworkFirewall::Firewall` | is attached to            | EC2 Subnet       |       |
+| is associated with                                 | NetworkFirewall FirewallPolicy   |                           |
+| `AWS::NetworkFirewall::FirewallPolicy`             | is associated with               | NetworkFirewall RuleGroup |                  |
+| `AWS::NetworkFirewall::RuleGroup`                  | NA                               | NA                        |                  |
+| `AWS::NetworkFirewall::TLSInspectionConfiguration` | NA                               | NA                        |                  |
+| `AWS::NetworkFirewall::VpcEndpointAssociation`     | NA                               | NA                        |                  |
 
 ## AWS Network Manager
 
-| AWS Service                                       | Resource Type Value                               | Relationship | Related Resource |
-| ------------------------------------------------- | ------------------------------------------------- | ------------ | ---------------- |
-| AWS Network Manager                               | `AWS::NetworkManager::TransitGatewayRegistration` | NA           | NA               |
-| `AWS::NetworkManager::Site`                       | NA                                                | NA           |
-| `AWS::NetworkManager::Device`                     | NA                                                | NA           |
-| `AWS::NetworkManager::Link`                       | NA                                                | NA           |
-| `AWS::NetworkManager::GlobalNetwork`              | NA                                                | NA           |
-| `AWS::NetworkManager::CustomerGatewayAssociation` | NA                                                | NA           |
-| `AWS::NetworkManager::LinkAssociation`            | NA                                                | NA           |
-| `AWS::NetworkManager::ConnectPeer`                | NA                                                | NA           |
-| `AWS::NetworkManager::TransitGatewayPeering`      | NA                                                | NA           |
+| AWS Service                                       | Resource Type Value                               | Relationship | Related Resource | Notes |
+| ------------------------------------------------- | ------------------------------------------------- | ------------ | ---------------- | ----- |
+| AWS Network Manager                               | `AWS::NetworkManager::TransitGatewayRegistration` | NA           | NA               |       |
+| `AWS::NetworkManager::Site`                       | NA                                                | NA           |                  |
+| `AWS::NetworkManager::Device`                     | NA                                                | NA           |                  |
+| `AWS::NetworkManager::Link`                       | NA                                                | NA           |                  |
+| `AWS::NetworkManager::GlobalNetwork`              | NA                                                | NA           |                  |
+| `AWS::NetworkManager::CustomerGatewayAssociation` | NA                                                | NA           |                  |
+| `AWS::NetworkManager::LinkAssociation`            | NA                                                | NA           |                  |
+| `AWS::NetworkManager::ConnectPeer`                | NA                                                | NA           |                  |
+| `AWS::NetworkManager::TransitGatewayPeering`      | NA                                                | NA           |                  |
 
 ## AWS Organizations
 
-| AWS Service       | Resource Type Value                      | Relationship | Related Resource |
-| ----------------- | ---------------------------------------- | ------------ | ---------------- |
-| AWS Organizations | `AWS::Organizations::OrganizationalUnit` | NA           | NA               |
+| AWS Service       | Resource Type Value                      | Relationship | Related Resource | Notes |
+| ----------------- | ---------------------------------------- | ------------ | ---------------- | ----- |
+| AWS Organizations | `AWS::Organizations::OrganizationalUnit` | NA           | NA               |       |
+
+## AWS HealthOmics
+
+| AWS Service     | Resource Type Value          | Relationship | Related Resource | Notes |
+| --------------- | ---------------------------- | ------------ | ---------------- | ----- |
+| AWS HealthOmics | `AWS::Omics::ReferenceStore` | NA           | NA               |       |
 
 ## AWS Panorama
 
-| AWS Service  | Resource Type Value      | Relationship | Related Resource |
-| ------------ | ------------------------ | ------------ | ---------------- |
-| AWS Panorama | `AWS::Panorama::Package` | NA           | NA               |
+| AWS Service  | Resource Type Value      | Relationship | Related Resource | Notes |
+| ------------ | ------------------------ | ------------ | ---------------- | ----- |
+| AWS Panorama | `AWS::Panorama::Package` | NA           | NA               |       |
 
 ## AWS Private Certificate Authority
 
-| AWS Service                                   | Resource Type Value                 | Relationship | Related Resource |
-| --------------------------------------------- | ----------------------------------- | ------------ | ---------------- |
-| AWS Private Certificate Authority             | `AWS::ACMPCA::CertificateAuthority` | NA           | NA               |
-| `AWS::ACMPCA::CertificateAuthorityActivation` | NA                                  | NA           |
-| AWS Private CA Connector for Active Directory | `AWS::PCAConnectorAD::Connector`    | NA           | NA               |
-| `AWS::PCAConnectorAD::DirectoryRegistration`  | NA                                  | NA           |
+| AWS Service                                   | Resource Type Value                 | Relationship | Related Resource                                                                            | Notes                                                                                       |
+| --------------------------------------------- | ----------------------------------- | ------------ | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| AWS Private Certificate Authority             | `AWS::ACMPCA::CertificateAuthority` | NA           | NA                                                                                          |                                                                                             |
+| `AWS::ACMPCA::CertificateAuthorityActivation` | NA                                  | NA           |                                                                                             |
+| AWS Private CA Connector for Active Directory | `AWS::PCAConnectorAD::Connector`    | NA           | NA                                                                                          |                                                                                             |
+| `AWS::PCAConnectorAD::DirectoryRegistration`  | NA                                  | NA           |                                                                                             |
+| `AWS::PCAConnectorAD::Template`               | NA                                  | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
+| AWS Private CA Connector for SCEP             | `AWS::PCAConnectorSCEP::Challenge`  | NA           | NA                                                                                          | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
+| `AWS::PCAConnectorSCEP::Connector`            | NA                                  | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
 
 ## AWS Resilience Hub
 
-| AWS Service               | Resource Type Value                    | Relationship | Related Resource |
-| ------------------------- | -------------------------------------- | ------------ | ---------------- |
-| AWS Resilience Hub        | `AWS::ResilienceHub::ResiliencyPolicy` | NA           | NA               |
-| `AWS::ResilienceHub::App` | NA                                     | NA           |
+| AWS Service               | Resource Type Value                    | Relationship | Related Resource | Notes |
+| ------------------------- | -------------------------------------- | ------------ | ---------------- | ----- |
+| AWS Resilience Hub        | `AWS::ResilienceHub::ResiliencyPolicy` | NA           | NA               |       |
+| `AWS::ResilienceHub::App` | NA                                     | NA           |                  |
 
 ## AWS Resource Explorer
 
-| AWS Service           | Resource Type Value             | Relationship | Related Resource |
-| --------------------- | ------------------------------- | ------------ | ---------------- |
-| AWS Resource Explorer | `AWS::ResourceExplorer2::Index` | NA           | NA               |
+| AWS Service                    | Resource Type Value             | Relationship | Related Resource | Notes |
+| ------------------------------ | ------------------------------- | ------------ | ---------------- | ----- |
+| AWS Resource Explorer          | `AWS::ResourceExplorer2::Index` | NA           | NA               |       |
+| `AWS::ResourceExplorer2::View` | NA                              | NA           |                  |
+
+## AWS Resource Groups
+
+| AWS Service         | Resource Type Value          | Relationship | Related Resource | Notes |
+| ------------------- | ---------------------------- | ------------ | ---------------- | ----- |
+| AWS Resource Groups | `AWS::ResourceGroups::Group` | NA           | NA               |       |
 
 ## AWS RoboMaker
 
-| AWS Service                             | Resource Type Value                       | Relationship | Related Resource |
-| --------------------------------------- | ----------------------------------------- | ------------ | ---------------- |
-| AWS RoboMaker                           | `AWS::RoboMaker::RobotApplicationVersion` | NA           | NA               |
-| `AWS::RoboMaker::RobotApplication`      | NA                                        | NA           |
-| `AWS::RoboMaker::SimulationApplication` | NA                                        | NA           |
+| AWS Service                             | Resource Type Value                       | Relationship | Related Resource | Notes |
+| --------------------------------------- | ----------------------------------------- | ------------ | ---------------- | ----- |
+| AWS RoboMaker                           | `AWS::RoboMaker::RobotApplicationVersion` | NA           | NA               |       |
+| `AWS::RoboMaker::RobotApplication`      | NA                                        | NA           |                  |
+| `AWS::RoboMaker::SimulationApplication` | NA                                        | NA           |                  |
 
 ## AWS Signer
 
-| AWS Service | Resource Type Value           | Relationship | Related Resource |
-| ----------- | ----------------------------- | ------------ | ---------------- |
-| AWS Signer  | `AWS::Signer::SigningProfile` | NA           | NA               |
+| AWS Service | Resource Type Value           | Relationship | Related Resource | Notes |
+| ----------- | ----------------------------- | ------------ | ---------------- | ----- |
+| AWS Signer  | `AWS::Signer::SigningProfile` | NA           | NA               |       |
 
 ## AWS Secrets Manager
 
-| AWS Service                             | Resource Type Value           | Relationship       | Related Resource |
-| --------------------------------------- | ----------------------------- | ------------------ | ---------------- |
-| AWS Secrets Manager                     | `AWS::SecretsManager::Secret` | is associated with | Lambda function  |
-| is associated with                      | KMS Key                       |
-| `AWS::SecretsManager::ResourcePolicy`   | NA                            | NA                 |
-| `AWS::SecretsManager::RotationSchedule` | NA                            | NA                 |
+| AWS Service                             | Resource Type Value           | Relationship       | Related Resource | Notes |
+| --------------------------------------- | ----------------------------- | ------------------ | ---------------- | ----- |
+| AWS Secrets Manager                     | `AWS::SecretsManager::Secret` | is associated with | Lambda function  |       |
+| is associated with                      | KMS Key                       |                    |
+| `AWS::SecretsManager::ResourcePolicy`   | NA                            | NA                 |                  |
+| `AWS::SecretsManager::RotationSchedule` | NA                            | NA                 |                  |
 
 ## AWS Security Hub CSPM
 
-| AWS Service           | Resource Type Value          | Relationship | Related Resource |
-| --------------------- | ---------------------------- | ------------ | ---------------- |
-| AWS Security Hub CSPM | `AWS::SecurityHub::Standard` | NA           | NA               |
+| AWS Service           | Resource Type Value          | Relationship | Related Resource | Notes |
+| --------------------- | ---------------------------- | ------------ | ---------------- | ----- |
+| AWS Security Hub CSPM | `AWS::SecurityHub::Standard` | NA           | NA               |       |
 
 ## AWS Service Catalog
 
-| AWS Service                                             | Resource Type Value                          | Relationship          | Related Resource |
-| ------------------------------------------------------- | -------------------------------------------- | --------------------- | ---------------- |
-| AWS Service Catalog                                     | `AWS::ServiceCatalog::CloudFormationProduct` | is contained in       | Portfolio        |
-| is associated with                                      | CloudFormationProvisionedProduct             |
-| `AWS::ServiceCatalog::CloudFormationProvisionedProduct` | is associated with                           | Portfolio             |
-| CloudFormationProduct                                   |
-| CloudFormationStack                                     |
-| `AWS::ServiceCatalog::Portfolio`                        | contains                                     | CloudFormationProduct |
+| AWS Service                                             | Resource Type Value                          | Relationship          | Related Resource | Notes |
+| ------------------------------------------------------- | -------------------------------------------- | --------------------- | ---------------- | ----- |
+| AWS Service Catalog                                     | `AWS::ServiceCatalog::CloudFormationProduct` | is contained in       | Portfolio        |       |
+| is associated with                                      | CloudFormationProvisionedProduct             |                       |
+| `AWS::ServiceCatalog::CloudFormationProvisionedProduct` | is associated with                           | Portfolio             |                  |
+| CloudFormationProduct                                   |                                              |
+| CloudFormationStack                                     |                                              |
+| `AWS::ServiceCatalog::Portfolio`                        | contains                                     | CloudFormationProduct |                  |
 
 ###### Note
 
@@ -1278,122 +1368,130 @@ remains trackable through the AWS Config interfaces.
 
 ## AWS Shield
 
-| AWS Service                       | Resource Type Value                 | Relationship       | Related Resource               |
-| --------------------------------- | ----------------------------------- | ------------------ | ------------------------------ |
-| AWS Shield                        | `AWS::Shield::Protection`           | is associated with | Amazon CloudFront distribution |
-| `AWS::ShieldRegional::Protection` | is associated with                  | EC2 EIP            |
-| is associated with                | ElasticLoadBalancing Balancer       |
-| is associated with                | ElasticLoadBalancingV2 LoadBalancer |
+| AWS Service                       | Resource Type Value                 | Relationship       | Related Resource               | Notes |
+| --------------------------------- | ----------------------------------- | ------------------ | ------------------------------ | ----- |
+| AWS Shield                        | `AWS::Shield::Protection`           | is associated with | Amazon CloudFront distribution |       |
+| `AWS::ShieldRegional::Protection` | is associated with                  | EC2 EIP            |                                |
+| is associated with                | ElasticLoadBalancing Balancer       |                    |
+| is associated with                | ElasticLoadBalancingV2 LoadBalancer |                    |
 
 ## AWS Step Functions
 
-| AWS Service                        | Resource Type Value            | Relationship | Related Resource |
-| ---------------------------------- | ------------------------------ | ------------ | ---------------- |
-| AWS Step Functions                 | `AWS::StepFunctions::Activity` | NA           | NA               |
-| `AWS::StepFunctions::StateMachine` | NA                             | NA           |
+| AWS Service                        | Resource Type Value            | Relationship | Related Resource | Notes |
+| ---------------------------------- | ------------------------------ | ------------ | ---------------- | ----- |
+| AWS Step Functions                 | `AWS::StepFunctions::Activity` | NA           | NA               |       |
+| `AWS::StepFunctions::StateMachine` | NA                             | NA           |                  |
+
+## Amazon EventBridge Scheduler
+
+| AWS Service                  | Resource Type Value             | Relationship | Related Resource | Notes |
+| ---------------------------- | ------------------------------- | ------------ | ---------------- | ----- |
+| Amazon EventBridge Scheduler | `AWS::Scheduler::ScheduleGroup` | NA           | NA               |       |
 
 ## AWS Systems Manager
 
-| AWS Service                                   | Resource Type Value                    | Relationship               | Related Resource |
-| --------------------------------------------- | -------------------------------------- | -------------------------- | ---------------- |
-| AWS Systems Manager                           | `AWS::SSM::ManagedInstanceInventory`\* | is associated with         | EC2 instance     |
-| `AWS::SSM::PatchCompliance`                   | is associated with                     | Managed Instance Inventory |
-| `AWS::SSM::AssociationCompliance`             | is associated with                     | Managed Instance Inventory |
-| `AWS::SSM::FileData`                          | is associated with                     | Managed Instance Inventory |
-| `AWS::SSM::Document`                          | NA                                     | NA                         |
-| `AWS::SSM::ResourceDataSync`                  | NA                                     | NA                         |
-| AWS Systems Manager Incident Manager          | `AWS::SSMIncidents::ResponsePlan`      | NA                         | NA               |
-| AWS Systems Manager Incident Manager Contacts | `AWS::SSMContacts::Contact`            | NA                         | NA               |
+| AWS Service                                   | Resource Type Value               | Relationship               | Related Resource           | Notes |
+| --------------------------------------------- | --------------------------------- | -------------------------- | -------------------------- | ----- |
+| AWS Systems Manager                           | `AWS::SSM::AssociationCompliance` | is associated with         | Managed Instance Inventory |       |
+| `AWS::SSM::Document`                          | NA                                | NA                         |                            |
+| `AWS::SSM::FileData`                          | is associated with                | Managed Instance Inventory |                            |
+| `AWS::SSM::ManagedInstanceInventory`\*        | is associated with                | EC2 instance               |                            |
+| `AWS::SSM::PatchBaseline`                     | is associated with                | Managed Instance Inventory |                            |
+| `AWS::SSM::PatchCompliance`                   | is associated with                | Managed Instance Inventory |                            |
+| `AWS::SSM::ResourceDataSync`                  | NA                                | NA                         |                            |
+| AWS Systems Manager Incident Manager          | `AWS::SSMIncidents::ResponsePlan` | NA                         | NA                         |       |
+| AWS Systems Manager Incident Manager Contacts | `AWS::SSMContacts::Contact`       | NA                         | NA                         |       |
 
 \*To learn more about managed instance inventory, see [Recording Software Configuration for Managed Instances](recording-managed-instance-inventory.md "recording-managed-instance-inventory.md").
 
 ## AWS Transfer Family
 
-| AWS Service                  | Resource Type Value        | Relationship | Related Resource |
-| ---------------------------- | -------------------------- | ------------ | ---------------- |
-| AWS Transfer Family          | `AWS::Transfer::Agreement` | NA           | NA               |
-| `AWS::Transfer::Connector`   | NA                         | NA           |
-| `AWS::Transfer::Workflow`    | NA                         | NA           |
-| `AWS::Transfer::Certificate` | NA                         | NA           |
-| `AWS::Transfer::Profile`     | NA                         | NA           |
-| `AWS::Transfer::Server`      | NA                         | NA           |
+| AWS Service                  | Resource Type Value        | Relationship | Related Resource | Notes |
+| ---------------------------- | -------------------------- | ------------ | ---------------- | ----- |
+| AWS Transfer Family          | `AWS::Transfer::Agreement` | NA           | NA               |       |
+| `AWS::Transfer::Certificate` | NA                         | NA           |                  |
+| `AWS::Transfer::Connector`   | NA                         | NA           |                  |
+| `AWS::Transfer::Profile`     | NA                         | NA           |                  |
+| `AWS::Transfer::Server`      | NA                         | NA           |                  |
+| `AWS::Transfer::User`        | NA                         | NA           |                  |
+| `AWS::Transfer::Workflow`    | NA                         | NA           |                  |
 
 ## AWS WAF
 
-| AWS Service                       | Resource Type Value       | Relationship                        | Related Resource                    |
-| --------------------------------- | ------------------------- | ----------------------------------- | ----------------------------------- |
-| AWS WAF                           | `AWS::WAF::RateBasedRule` | NA                                  | NA                                  |
-| `AWS::WAF::Rule`                  | NA                        | NA                                  |
-| `AWS::WAF::WebACL`                | is associated with        | WAF Rule                            |
-| WAF rate based rule               |
-| WAF Rulegroup                     |
-| `AWS::WAF::RuleGroup`             | is associated with        | WAF Rule                            |
-| `AWS::WAFRegional::RateBasedRule` | NA                        | NA                                  |
-| `AWS::WAFRegional::Rule`          | NA                        | NA                                  |
-| `AWS::WAFRegional::WebACL`        | is associated with        | ElasticLoadBalancingV2 LoadBalancer |
-| WAFRegional Rule                  |
-| WAFRegional rate based rule       |
-| WAFRegional Rulegroup             |
-| `AWS::WAFRegional::RuleGroup`     | is associated with        | WAFRegional Rule                    |
-| AWS WAF V2                        | `AWS::WAFv2::WebACL`      | is associated with                  | ElasticLoadBalancingV2 LoadBalancer |
-| ApiGateway Stage                  |
-| WAFv2 IPSet                       |
-| WAFv2 RegexPatternSet             |
-| WAFv2 RuleGroup                   |
-| WAFv2 ManagedRuleSet              |
-| `AWS::WAFv2::RuleGroup`           | is associated with        | WAFv2 IPSet                         |
-| WAFv2 RegexPatternSet             |
-| `AWS::WAFv2::ManagedRuleSet`      | is associated with        | WAFv2 RuleGroup                     |
-| `AWS::WAFv2::IPSet`               | NA                        | NA                                  |
-| `AWS::WAFv2::RegexPatternSet`     | NA                        | NA                                  |
+| AWS Service                       | Resource Type Value       | Relationship                        | Related Resource                    | Notes |
+| --------------------------------- | ------------------------- | ----------------------------------- | ----------------------------------- | ----- |
+| AWS WAF                           | `AWS::WAF::RateBasedRule` | NA                                  | NA                                  |       |
+| `AWS::WAF::Rule`                  | NA                        | NA                                  |                                     |
+| `AWS::WAF::WebACL`                | is associated with        | WAF Rule                            |                                     |
+| WAF rate based rule               |                           |
+| WAF Rulegroup                     |                           |
+| `AWS::WAF::RuleGroup`             | is associated with        | WAF Rule                            |                                     |
+| `AWS::WAFRegional::RateBasedRule` | NA                        | NA                                  |                                     |
+| `AWS::WAFRegional::Rule`          | NA                        | NA                                  |                                     |
+| `AWS::WAFRegional::WebACL`        | is associated with        | ElasticLoadBalancingV2 LoadBalancer |                                     |
+| WAFRegional Rule                  |                           |
+| WAFRegional rate based rule       |                           |
+| WAFRegional Rulegroup             |                           |
+| `AWS::WAFRegional::RuleGroup`     | is associated with        | WAFRegional Rule                    |                                     |
+| AWS WAF V2                        | `AWS::WAFv2::WebACL`      | is associated with                  | ElasticLoadBalancingV2 LoadBalancer |       |
+| ApiGateway Stage                  |                           |
+| WAFv2 IPSet                       |                           |
+| WAFv2 RegexPatternSet             |                           |
+| WAFv2 RuleGroup                   |                           |
+| WAFv2 ManagedRuleSet              |                           |
+| `AWS::WAFv2::RuleGroup`           | is associated with        | WAFv2 IPSet                         |                                     |
+| WAFv2 RegexPatternSet             |                           |
+| `AWS::WAFv2::ManagedRuleSet`      | is associated with        | WAFv2 RuleGroup                     |                                     |
+| `AWS::WAFv2::IPSet`               | NA                        | NA                                  |                                     |
+| `AWS::WAFv2::RegexPatternSet`     | NA                        | NA                                  |                                     |
 
 ## AWS X-Ray
 
-| AWS Service | Resource Type Value           | Relationship | Related Resource |
-| ----------- | ----------------------------- | ------------ | ---------------- |
-| AWS X-Ray   | `AWS::XRay::EncryptionConfig` | NA           | NA               |
+| AWS Service | Resource Type Value           | Relationship | Related Resource | Notes |
+| ----------- | ----------------------------- | ------------ | ---------------- | ----- |
+| AWS X-Ray   | `AWS::XRay::EncryptionConfig` | NA           | NA               |       |
 
 ## Elastic Load Balancing
 
-| AWS Service                                                                          | Resource Type Value                                                      | Relationship       | Related Resource   |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------ | ------------------ |
-| Elastic Load Balancing                                                               | Application Load Balancer<br>`AWS::ElasticLoadBalancingV2::LoadBalancer` | is associated with | EC2 security group |
-| is attached to                                                                       | Subnet                                                                   |
-| is contained in                                                                      | Virtual private cloud (VPC)                                              |
-| Application Load Balancer Listener<br>`AWS::ElasticLoadBalancingV2::Listener`        | NA                                                                       | NA                 |
-| Application Load Balancer Target Group<br>`AWS::ElasticLoadBalancingV2::TargetGroup` | NA                                                                       | NA                 |
-| Classic Load Balancer<br>`AWS::ElasticLoadBalancing::LoadBalancer`                   | is associated with                                                       | EC2 security group |
-| is attached to                                                                       | Subnet                                                                   |
-| is contained in                                                                      | Virtual private cloud (VPC)                                              |
-| Network Load Balancer<br>`AWS::ElasticLoadBalancingV2::LoadBalancer`                 | NA                                                                       | NA                 |
+| AWS Service                                                                          | Resource Type Value                                                      | Relationship       | Related Resource   | Notes |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------ | ------------------ | ----- |
+| Elastic Load Balancing                                                               | Application Load Balancer<br>`AWS::ElasticLoadBalancingV2::LoadBalancer` | is associated with | EC2 security group |       |
+| is attached to                                                                       | Subnet                                                                   |                    |
+| is contained in                                                                      | Virtual private cloud (VPC)                                              |                    |
+| Application Load Balancer Listener<br>`AWS::ElasticLoadBalancingV2::Listener`        | NA                                                                       | NA                 |                    |
+| Application Load Balancer Target Group<br>`AWS::ElasticLoadBalancingV2::TargetGroup` | NA                                                                       | NA                 |                    |
+| Classic Load Balancer<br>`AWS::ElasticLoadBalancing::LoadBalancer`                   | is associated with                                                       | EC2 security group |                    |
+| is attached to                                                                       | Subnet                                                                   |                    |
+| is contained in                                                                      | Virtual private cloud (VPC)                                              |                    |
+| Network Load Balancer<br>`AWS::ElasticLoadBalancingV2::LoadBalancer`                 | NA                                                                       | NA                 |                    |
 
 ## AWS Elemental MediaConnect
 
-| AWS Service                           | Resource Type Value                  | Relationship | Related Resource |
-| ------------------------------------- | ------------------------------------ | ------------ | ---------------- |
-| AWS Elemental MediaConnect            | `AWS::MediaConnect::FlowEntitlement` | NA           | NA               |
-| `AWS::MediaConnect::FlowVpcInterface` | NA                                   | NA           |
-| `AWS::MediaConnect::FlowSource`       | NA                                   | NA           |
-| `AWS::MediaConnect::Gateway`          | NA                                   | NA           |
+| AWS Service                           | Resource Type Value                  | Relationship | Related Resource | Notes |
+| ------------------------------------- | ------------------------------------ | ------------ | ---------------- | ----- |
+| AWS Elemental MediaConnect            | `AWS::MediaConnect::FlowEntitlement` | NA           | NA               |       |
+| `AWS::MediaConnect::FlowVpcInterface` | NA                                   | NA           |                  |
+| `AWS::MediaConnect::FlowSource`       | NA                                   | NA           |                  |
+| `AWS::MediaConnect::Gateway`          | NA                                   | NA           |                  |
 
 ## AWS Elemental MediaPackage
 
-| AWS Service                                 | Resource Type Value                 | Relationship | Related Resource |
-| ------------------------------------------- | ----------------------------------- | ------------ | ---------------- |
-| AWS Elemental MediaPackage                  | `AWS::MediaPackage::PackagingGroup` | NA           | NA               |
-| `AWS::MediaPackage::PackagingConfiguration` | NA                                  | NA           |
+| AWS Service                                 | Resource Type Value                 | Relationship | Related Resource | Notes |
+| ------------------------------------------- | ----------------------------------- | ------------ | ---------------- | ----- |
+| AWS Elemental MediaPackage                  | `AWS::MediaPackage::PackagingGroup` | NA           | NA               |       |
+| `AWS::MediaPackage::PackagingConfiguration` | NA                                  | NA           |                  |
 
 ## AWS Elemental MediaPackage V2
 
-| AWS Service                           | Resource Type Value            | Relationship | Related Resource |
-| ------------------------------------- | ------------------------------ | ------------ | ---------------- |
-| AWS Elemental MediaPackage V2         | `AWS::MediaPackageV2::Channel` | NA           | NA               |
-| `AWS::MediaPackageV2::ChannelGroup`   | NA                             | NA           |
-| `AWS::MediaPackageV2::OriginEndpoint` | NA                             | NA           |
+| AWS Service                           | Resource Type Value            | Relationship | Related Resource | Notes |
+| ------------------------------------- | ------------------------------ | ------------ | ---------------- | ----- |
+| AWS Elemental MediaPackage V2         | `AWS::MediaPackageV2::Channel` | NA           | NA               |       |
+| `AWS::MediaPackageV2::ChannelGroup`   | NA                             | NA           |                  |
+| `AWS::MediaPackageV2::OriginEndpoint` | NA                             | NA           |                  |
 
 ## AWS Elemental MediaTailor
 
-| AWS Service                               | Resource Type Value            | Relationship | Related Resource |
-| ----------------------------------------- | ------------------------------ | ------------ | ---------------- |
-| AWS Elemental MediaTailor                 | `AWS::MediaTailor::LiveSource` | NA           | NA               |
-| `AWS::MediaTailor::PlaybackConfiguration` | NA                             | NA           |
+| AWS Service                               | Resource Type Value            | Relationship | Related Resource | Notes |
+| ----------------------------------------- | ------------------------------ | ------------ | ---------------- | ----- |
+| AWS Elemental MediaTailor                 | `AWS::MediaTailor::LiveSource` | NA           | NA               |       |
+| `AWS::MediaTailor::PlaybackConfiguration` | NA                             | NA           |                  |

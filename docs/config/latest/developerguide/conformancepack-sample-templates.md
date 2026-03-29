@@ -24,6 +24,9 @@ and amend the template for rules not yet available in that region before deployi
 
 ###### Topics
 
+- [AI/ML Security & Governance Supporting Infrastructure Best Practices](AI-ML-security-governance-supporting-infrastructure-best-practices.md "AI-ML-security-governance-supporting-infrastructure-best-practices.md")
+- [Amazon Bedrock Security and Governance Best Practices](amazon-bedrock-security-and-governance-best-practices.md "amazon-bedrock-security-and-governance-best-practices.md")
+- [Amazon SageMaker AI Security and Governance Best Practices](amazon-sagemaker-ai-security-and-governance-best-practices.md "amazon-sagemaker-ai-security-and-governance-best-practices.md")
 - [AWS Control Tower Detective Guardrails Conformance Pack](aws-control-tower-detective-guardrails.md "aws-control-tower-detective-guardrails.md")
 - [Cyber Resilience Best Practices for Amazon S3, Amazon EBS, and Amazon DynamoDB](cyber-resilience-best-practices-for-s3-ebs-dynamoDB.md "cyber-resilience-best-practices-for-s3-ebs-dynamoDB.md")
 - [Operational Best Practices for ABS CCIG 2.0 Material Workloads](operational-best-practices-for-ABS-CCIGv2-Material.md "operational-best-practices-for-ABS-CCIGv2-Material.md")
@@ -31,7 +34,6 @@ and amend the template for rules not yet available in that region before deployi
 - [Operational Best Practices for ACSC Essential 8](operational-best-practices-for-acsc_essential_8.md "operational-best-practices-for-acsc_essential_8.md")
 - [Operational Best Practices for ACSC ISM - Part 1](operational-best-practices-for-acsc-ism.md "operational-best-practices-for-acsc-ism.md")
 - [Operational Best Practices for ACSC ISM - Part 2](operational-best-practices-for-acsc-ism-part-2.md "operational-best-practices-for-acsc-ism-part-2.md")
-- [Operational Best Practices for AI and ML](operational-best-practices-for-AI-and-ML.md "operational-best-practices-for-AI-and-ML.md")
 - [Operational Best Practices for Amazon API Gateway](operational-best-practices-for-amazon-API-gateway.md "operational-best-practices-for-amazon-API-gateway.md")
 - [Operational Best Practices for Amazon CloudWatch](operational-best-practices-for-amazon-cloudwatch.md "operational-best-practices-for-amazon-cloudwatch.md")
 - [Operational Best Practices for Amazon DynamoDB](operational-best-practices-for-amazon-dynamodb.md "operational-best-practices-for-amazon-dynamodb.md")
@@ -125,6 +127,7 @@ and amend the template for rules not yet available in that region before deployi
 - [Security Best Practices for Amazon SageMaker AI](security-best-practices-for-SageMaker.md "security-best-practices-for-SageMaker.md")
 - [Security Best Practices for AWS Secrets Manager](security-best-practices-for-Secrets-Manager.md "security-best-practices-for-Secrets-Manager.md")
 - [Security Best Practices for AWS WAF](security-best-practices-for-aws-waf.md "security-best-practices-for-aws-waf.md")
+- [Self-Hosted AI/ML Security & Governance Best Practices](self-hosted-AI-ML-security-governance-best-practices.md "self-hosted-AI-ML-security-governance-best-practices.md")
 - [Example Templates with Remediation Action](templateswithremediation.md "templateswithremediation.md")
   For more information about template structure, see [Template Anatomy](../../../AWSCloudFormation/latest/UserGuide/template-anatomy.md "../../../AWSCloudFormation/latest/UserGuide/template-anatomy.md") in the
   AWS CloudFormation User Guide.
