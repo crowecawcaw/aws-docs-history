@@ -11,53 +11,42 @@ runtime versions, see [Custom runtime versions](#custom-runtime "#custom-runtime
 
 | Ubuntu and Amazon Linux 2 platform runtime versions | Runtime name       | Version              | Specific version    | Specific major and latest minor version | Latest version |
 | --------------------------------------------------- | ------------------ | -------------------- | ------------------- | --------------------------------------- | -------------- |
-| android                                             | 28                 | `android: 28`        | `android: 28.x`     | `android: latest`                       |
-| 29                                                  | `android: 29`      | `android: 29.x`      |
-| dotnet                                              | 3.1                | `dotnet: 3.1`        | `dotnet: 3.x`       | `dotnet: latest`                        |
-| 5.0                                                 | `dotnet: 5.0`      | `dotnet: 5.x`        |
-| 6.0                                                 | `dotnet: 6.0`      | `dotnet: 6.x`        |
+| dotnet                                              | 6.0                | `dotnet: 6.0`        | `dotnet: 6.x`       | `dotnet: latest`                        |
 | 8.0                                                 | `dotnet: 8.0`      | `dotnet: 8.x`        |
-| golang                                              | 1.12               | `golang: 1.12`       | `golang: 1.x`       | `golang: latest`                        |
-| 1.13                                                | `golang: 1.13`     |
-| 1.14                                                | `golang: 1.14`     |
-| 1.15                                                | `golang: 1.15`     |
-| 1.16                                                | `golang: 1.16`     |
-| 1.18                                                | `golang: 1.18`     |
-| 1.20                                                | `golang: 1.20`     |
+| 10.0                                                | `dotnet: 10.0`     | `dotnet: 10.x`       |
+| golang                                              | 1.20               | `golang: 1.20`       | `golang: 1.x`       | `golang: latest`                        |
 | 1.21                                                | `golang: 1.21`     |
 | 1.22                                                | `golang: 1.22`     |
 | 1.23                                                | `golang: 1.23`     |
 | 1.24                                                | `golang: 1.24`     |
+| 1.25                                                | `golang: 1.25`     |
+| 1.26                                                | `golang: 1.26`     |
 | java                                                | corretto8          | `java: corretto8`    | `java: corretto8.x` | `java: latest`                          |
 | corretto11                                          | `java: corretto11` | `java: corretto11.x` |
 | corretto17                                          | `java: corretto17` | `java: corretto17.x` |
 | corretto21                                          | `java: corretto21` | `java: corretto21.x` |
-| nodejs                                              | 10                 | `nodejs: 10`         | `nodejs: 10.x`      | `nodejs: latest`                        |
-| 12                                                  | `nodejs: 12`       | `nodejs: 12.x`       |
-| 14                                                  | `nodejs: 14`       | `nodejs: 14.x`       |
-| 16                                                  | `nodejs: 16`       | `nodejs: 16.x`       |
-| 18                                                  | `nodejs: 18`       | `nodejs: 18.x`       |
+| corretto25                                          | `java: corretto25` | `java: corretto25.x` |
+| nodejs                                              | 18                 | `nodejs: 18`         | `nodejs: 18.x`      | `nodejs: latest`                        |
 | 20                                                  | `nodejs: 20`       | `nodejs: 20.x`       |
 | 22                                                  | `nodejs: 22`       | `nodejs: 22.x`       |
-| php                                                 | 7.3                | `php: 7.3`           | `php: 7.x`          | `php: latest`                           |
-| 7.4                                                 | `php: 7.4`         |
-| 8.0                                                 | `php: 8.0`         | `php: 8.x`           |
-| 8.1                                                 | `php: 8.1`         |
+| 24                                                  | `nodejs: 24`       | `nodejs: 24.x`       |
+| php                                                 | 8.1                | `php: 8.1`           | `php: 8.x`          | `php: latest`                           |
 | 8.2                                                 | `php: 8.2`         |
 | 8.3                                                 | `php: 8.3`         |
-| python                                              | 3.7                | `python: 3.7`        | `python: 3.x`       | `python: latest`                        |
-| 3.8                                                 | `python: 3.8`      |
-| 3.9                                                 | `python: 3.9`      |
+| 8.4                                                 | `php: 8.4`         |
+| 8.5                                                 | `php: 8.5`         |
+| python                                              | 3.9                | `python: 3.9`        | `python: 3.x`       | `python: latest`                        |
 | 3.10                                                | `python: 3.10`     |
 | 3.11                                                | `python: 3.11`     |
 | 3.12                                                | `python: 3.12`     |
 | 3.13                                                | `python: 3.13`     |
-| ruby                                                | 2.6                | `ruby: 2.6`          | `ruby: 2.x`         | `ruby: latest`                          |
-| 2.7                                                 | `ruby: 2.7`        |
-| 3.1                                                 | `ruby: 3.1`        | `ruby: 3.x`          |
+| 3.14                                                | `python: 3.14`     |
+| ruby                                                | 3.1                | `ruby: 3.1`          | `ruby: 3.x`         | `ruby: latest`                          |
 | 3.2                                                 | `ruby: 3.2`        |
 | 3.3                                                 | `ruby: 3.3`        |
 | 3.4                                                 | `ruby: 3.4`        |
+| 4.0                                                 | `ruby: 4.0`        | `ruby: 4.x`          |
+| rust                                                | 1.94               | `rust: 1.94`         | `rust: 1.x`         | `rust: latest`                          |
 
 You can use a build specification to install other components (for example, the AWS CLI,
 Apache Maven, Apache Ant, Mocha, RSpec, or similar) during the `install`

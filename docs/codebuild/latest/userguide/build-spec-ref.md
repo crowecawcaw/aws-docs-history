@@ -568,6 +568,13 @@ If you do not specify any runtimes in the buildspec file, CodeBuild chooses the 
 are available in the image you use. If you specify one or more runtimes, CodeBuild uses only those runtimes.
 If a dependent runtime is not specified, CodeBuild attempts to choose the dependent runtime for you.
 
+###### Note
+
+If a runtime version is not specified, CodeBuild uses the default version. The default
+version can change when a previously default version reaches end of life (EOL). To avoid unexpected
+changes to the build environment, we recommend specifying a runtime version in the
+buildspec file.
+
 If two specified runtimes conflict, the build fails. For
 example, `android: 29` and `java:
  openjdk11` conflict, so if both are specified, the
