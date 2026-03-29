@@ -95,14 +95,34 @@ The following release notes are in chronological order, with the latest updates 
 first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those
 listed here, see the release date links in [SDK versions](#release-notes-history "#release-notes-history").
 
-Amazon GameLift Servers now offers distributed-denial-of-service (DDoS) protection for
-Linux-based EC2 and Container Fleets on SDKv5. The player gateway proxy relay
-network is co-located with your game server instances, providing traffic validation,
-per-player rate limiting and game server IP address obfuscation all with negligible
-added latency and no additional cost. This feature is initially available in the
-following regions: US East (N. Virginia), US West (Oregon), Europe (Frankfurt),
-Europe (Ireland), Asia Pacific (Sydney), Asia Pacific (Tokyo), Asia Pacific (Seoul).
-For more information about service locations, see [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md").
+Amazon GameLift Servers now supports its existing selection of Amazon EC2 instances in additional
+AWS Regions, giving you more flexibility to host game servers closer to your
+players. This expansion covers instances across the following families:
+
+- [General purpose](https://aws.amazon.com/ec2/instance-types/#General_Purpose "https://aws.amazon.com/ec2/instance-types/#General_Purpose") (M-series)
+- [Compute optimized](https://aws.amazon.com/ec2/instance-types/#Compute_Optimized "https://aws.amazon.com/ec2/instance-types/#Compute_Optimized") (C-series)
+- [Memory optimized](https://aws.amazon.com/ec2/instance-types/#Memory_Optimized "https://aws.amazon.com/ec2/instance-types/#Memory_Optimized") (R-series)
+  These instance types are now available for use with Amazon GameLift Servers managed EC2 fleets
+  and managed container fleets. No changes to your fleet configuration are
+  required – simply deploy fleets in the newly supported Regions using the
+  same instance types and settings you use today. They are available in all
+  AWS Regions that are supported by Amazon GameLift Servers, with the exception of the AWS China
+  Regions.
+
+###### **Learn more:**
+
+- [Amazon GameLift Servers Instance Pricing](https://aws.amazon.com/gamelift/pricing/instance-pricing/ "https://aws.amazon.com/gamelift/pricing/instance-pricing/")
+- [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md"), _Amazon GameLift Servers Developer Guide_
+- [CreateFleet](../apireference/API_CreateFleet.md "../apireference/API_CreateFleet.md"), _Amazon GameLift Servers API Reference_
+- [CreateContainerFleet](../apireference/API_CreateContainerFleet.md "../apireference/API_CreateContainerFleet.md"), _Amazon GameLift Servers API Reference_
+  Amazon GameLift Servers now offers distributed-denial-of-service (DDoS) protection for
+  Linux-based EC2 and Container Fleets on SDKv5. The player gateway proxy relay
+  network is co-located with your game server instances, providing traffic validation,
+  per-player rate limiting and game server IP address obfuscation all with negligible
+  added latency and no additional cost. This feature is initially available in the
+  following regions: US East (N. Virginia), US West (Oregon), Europe (Frankfurt),
+  Europe (Ireland), Asia Pacific (Sydney), Asia Pacific (Tokyo), Asia Pacific (Seoul).
+  For more information about service locations, see [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md").
 
 ###### **Learn more:**
 

@@ -53,8 +53,9 @@ request failures.
 To retrieve ping beacon domain and port information for Amazon GameLift Servers locations, use the
 [ListLocations](../apireference/API_ListLocations.md "../apireference/API_ListLocations.md") API
 operation. The set of locations returned by this API depends on the AWS Region you
-specify when calling it (or your default Region if you don't specify one). When
-you call from:
+specify when calling it (or your default Region if you don't specify one).
+
+When you call from:
 
 - **A home Region of a fleet that supports
   multi-locations**: API returns information for
