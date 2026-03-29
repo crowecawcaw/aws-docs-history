@@ -81,3 +81,13 @@ navigation menu, as shown in the following image:
 To be able to generate a summary for a case in the agent application, agents need permission to view AI agents in the agent application, as shown in the following image.
 
 ![Screenshot showing AI agent permissions in security profile.](images/case-summary-ai-agent-permissions.png)
+
+## Required Cases and Agent Applications permissions to generate AI-powered case summarization
+
+To generate an AI-powered case summary, agents need View permissions on Cases and Audit History, and View permissions on Connect Assistant under Agent Applications.
+
+**To save an AI-powered case summary, agents additionally need Edit permission on Cases.**
+
+![Cases permissions.](images/cases-permissions.png)
+
+![Agent Applications permissions.](images/agent-applications-permissions.png)

@@ -155,7 +155,8 @@ Connect provides:
 - Tables — 100 total per instance
 - Attributes (columns) — 100 per table
 - Values (cells) — 1000 per table
-- Character count for text values — 5k for TEXT, 1k for TEXT_LIST items.
+- Lists — 100 items for text and number list values
+- Characters — 5k for non-primary text values, 1k for TEXT_LIST items and primary text values
   To learn more about service quotas and how to manage them, see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 
 ###### Track changes to Data tables

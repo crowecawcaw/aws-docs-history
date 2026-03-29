@@ -8,12 +8,12 @@ Support](https://aws.amazon.com/premiumsupport/?icmpid=docs_connect_browsers_pre
 Before you work with Amazon Connect, verify that your browser is supported using the following
 table.
 
-| Browser                 | Version                                                                                                                                                                                                                                                                                                                                                           | How to check your version                                                                                                                                                                                                                                      |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Google Chrome           | Latest three versions                                                                                                                                                                                                                                                                                                                                             | Open Chrome and type chrome://version in your address bar. The<br>version is in the Google Chrome field at the top of the<br>results.<br>Please see [Google Chrome update on third-party cookies](#chrome-issue "#chrome-issue").                              |
-| Microsoft Edge Chromium | Latest three versions                                                                                                                                                                                                                                                                                                                                             | Open Edge. On the menu, choose **Help and<br>feedback\*<br>• and then choose **About Microsoft<br>Edge**. The version number is listed in the<br>**About\*<br>• section.                                                                                       |
-| Mozilla Firefox         | Latest three versions                                                                                                                                                                                                                                                                                                                                             | Open Firefox. On the menu, choose the Help icon and then choose<br>**About Firefox**. The version number is listed<br>under the Firefox name.<br>Please see [Firefox Enhanced Tracking Protection updates](#browsers-firefox-issue "#browsers-firefox-issue"). |
-| Mozilla Firefox ESR     | Versions are supported until their Firefox [end-of-life date](https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle "https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle"). For details, see the [Firefox ESR release calendar](https://wiki.mozilla.org/Release_Management/Calendar "https://wiki.mozilla.org/Release_Management/Calendar"). | Open Firefox. On the menu, choose the Help icon and then choose<br>**About Firefox**. The version number is listed<br>under the Firefox name.                                                                                                                  |
+| Browser                 | Version                                                                                                                                                                                                                                                                                                                                                           | How to check your version                                                                                                                                                                                                                                                         |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Google Chrome           | Latest three versions                                                                                                                                                                                                                                                                                                                                             | Open Chrome and type chrome://version in your address bar. The<br>version is in the Google Chrome field at the top of the<br>results.<br>Please see [Google Chrome update on third-party cookies](#chrome-issue "#chrome-issue").                                                 |
+| Microsoft Edge Chromium | Latest three versions                                                                                                                                                                                                                                                                                                                                             | Open Edge. On the menu, choose **Help and<br>feedback\*<br>• and then choose **About Microsoft<br>Edge**. The version number is listed in the<br>**About\*<br>• section.<br>Please see [Microsoft Edge v146 autoplay policy change](#edge-autoplay-issue "#edge-autoplay-issue"). |
+| Mozilla Firefox         | Latest three versions                                                                                                                                                                                                                                                                                                                                             | Open Firefox. On the menu, choose the Help icon and then choose<br>**About Firefox**. The version number is listed<br>under the Firefox name.<br>Please see [Firefox Enhanced Tracking Protection updates](#browsers-firefox-issue "#browsers-firefox-issue").                    |
+| Mozilla Firefox ESR     | Versions are supported until their Firefox [end-of-life date](https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle "https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle"). For details, see the [Firefox ESR release calendar](https://wiki.mozilla.org/Release_Management/Calendar "https://wiki.mozilla.org/Release_Management/Calendar"). | Open Firefox. On the menu, choose the Help icon and then choose<br>**About Firefox**. The version number is listed<br>under the Firefox name.                                                                                                                                     |
 
 Safari is not supported.
 
@@ -98,6 +98,72 @@ focused on a different tab or application.
 
 - Agents must focus on the CCP or Agent Workspace Firefox browser tab when
   they accept and connect to a voice contact.
+
+## Microsoft Edge v146 autoplay policy change
+
+Microsoft Edge version 146, released on March 13, 2026, introduced a change to
+its autoplay policy behavior that affects Amazon Connect agents. In Edge v146, when the
+`AutoplayAllowed` enterprise policy is set to "Disabled", it now maps
+to "Block" — preventing websites from autoplaying media. In Edge versions 92 through
+144, this same setting mapped to "Limit" and permitted audio playback on active
+WebRTC streams.
+
+This change causes the following issues for agents:
+
+- Agents cannot hear ringtones or audio on incoming voice contacts (one-way
+  audio)
+- Agents cannot see or hear the end customer on video calls
+
+###### Note
+
+This issue only affects customers using Microsoft Edge version 146 or later
+who have configured the enterprise group policy
+**AutoplayAllowed** to "Disabled".
+
+**Recommended action for browser administrators**
+
+Configure the **AutoplayAllowlist** policy in
+Microsoft Edge to explicitly permit autoplay on your Amazon Connect instance URL.
+
+- **Group Policy path:**
+  `Administrative Templates/Microsoft Edge`
+- **Policy name:** Allow media autoplay on
+  specific sites
+- **Registry path:**
+  `SOFTWARE\Policies\Microsoft\Edge\AutoplayAllowlist`
+
+To configure:
+
+Add your Amazon Connect instance URL to the AutoplayAllowlist policy. The URL format
+is:
+
+```
+https://[your-instance-name].my.connect.aws
+```
+
+If you are in an AWS GovCloud region, use:
+
+```
+https://[your-instance-name].govcloud.connect.aws
+```
+
+If you use a custom CCP with [connect-rtc-js](https://github.com/aws/connect-rtc-js?tab=readme-ov-file#amazon-connect-streamjs-integration "https://github.com/aws/connect-rtc-js?tab=readme-ov-file#amazon-connect-streamjs-integration") where the audio element is loaded on your own page,
+also add your hosting domain:
+
+```
+https://[your-hosting-domain]
+```
+
+###### Note
+
+The wildcard value `*` is not accepted by this policy. Use the
+exact instance URL.
+
+You can configure this policy using Group Policy (via MSEdge.admx), Microsoft
+Intune, or directly via the Windows Registry at the path above.
+
+For complete configuration instructions and examples, see [AutoplayAllowlist policy](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-browser-policies/autoplayallowlist "https://learn.microsoft.com/en-us/deployedge/microsoft-edge-browser-policies/autoplayallowlist") in the Microsoft Edge documentation. For
+background on the AutoplayAllowed policy behavior change in Edge v146, see [AutoplayAllowed policy](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-browser-policies/autoplayallowed "https://learn.microsoft.com/en-us/deployedge/microsoft-edge-browser-policies/autoplayallowed") in the Microsoft Edge documentation.
 
 ## Optimize performance for Flow Designer for a multiple GPU system on Windows
 

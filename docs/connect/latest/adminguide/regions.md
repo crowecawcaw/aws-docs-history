@@ -185,7 +185,7 @@ available.
 | ------------------------ | -------------------------------------------- | -------------------------------------------- | -------------------- | ------------------- | ------------------- | ------------------------ | ----------------------- | --------------------------------------------- | ---------------- | --------------- | -------------- |
 | US East (N. Virginia)    | Yes                                          | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | Yes            |
 | US West (Oregon)         | Yes                                          | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | Yes            |
-| Africa (Cape Town)       | -                                            | -                                            | Yes                  | Yes                 | Yes                 | -                        | Yes                     | -                                             | Yes              | Yes             | -              |
+| Africa (Cape Town)       | -                                            | -                                            | Yes                  | Yes                 | Yes                 | -                        | Yes                     | -                                             | Yes              | -               | -              |
 | Asia Pacific (Seoul)     | Yes                                          | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | -                                             | Yes              | Yes             | -              |
 | Asia Pacific (Singapore) | -                                            | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | -              |
 | Asia Pacific (Sydney)    | Yes                                          | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | Yes            |
@@ -258,6 +258,10 @@ The calculated attributes API is available in the following AWS Regions:
 - US East (N. Virginia)
 - US West (Oregon)
 - Europe (Frankfurt)
+- Europe (London)
+- Asia Pacific (Sydney)
+- Asia Pacific (Seoul)
+- Asia Pacific (Singapore)
 
 ## Global Resiliency availability by Region
 

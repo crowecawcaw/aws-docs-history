@@ -11,6 +11,7 @@ stream.
 
 - [Run the agent activity audit report](#access-agent-activity-audit "#access-agent-activity-audit")
 - [Status definitions](#agent-activity-status-definitions "#agent-activity-status-definitions")
+- [Status changes](#agent-activity-status-changes "#agent-activity-status-changes")
 - [When is the status Agent Disconnected, Contact Missed, or Rejected?](#rejected-missed-disconnected "#rejected-missed-disconnected")
 - [Required
   permissions](#agent-activity-audit-permissions "#agent-activity-audit-permissions")
@@ -45,16 +46,19 @@ agent activity audit report.
 - **Custom status**: The agent has set their status in
   the Contact Control Panel (CCP) to a custom status. Contacts can not be
   routed to them.
-- **Joining Customer**: The state between an inbound
-  contact arriving in the flow and routing to the agent.
+- **Connecting**: The state between an inbound contact
+  arriving in the flow and routing to the agent.
 - **Connecting Agent**: The state between an inbound
   contact being routed to an agent and the agent receiving the
   contact.
-- **Connected**: When an inbound contact has been
-  established by the agent choosing **Accept** in their
+- **Call Connected**: When an inbound Voice contact has
+  been established by the agent choosing **Accept** in their CCP
+- **Connected**: When an inbound **Chat/Task/Email**
+  contact has been established by the agent choosing
+  **Accept** in their
   CCP.
 - **Busy**: The agent is interacting with a
-  customer.
+  **Voice/Task/Email** customer.
 - **Agent Disconnected**: When the agent doesn't choose
   **Accept** on the inbound voice contact in 20
   seconds, or they choose **Reject**.
@@ -70,12 +74,34 @@ agent activity audit report.
 - **Telecom issue**: When an outbound call is ended
   before the call is established. For example, there was an error with the
   agent's soft phone connection.
+- **On Hold**: When the agent pauses a contact.
 
 ###### Note
 
 If a status appears in your report but is not listed on this page, it is a
 custom status created by your organization. Contact your Amazon Connect
 admin to learn the definition.
+
+## Status changes
+
+Starting March 09, 2026, the following statuses have been updated for the
+corresponding contact types.
+
+- Chat
+  - **Joining Customer** →
+    **Connecting**
+  - **Busy** →
+    **Connected**
+
+- Voice
+  - **Connected** →
+    **Call Connected**
+
+Starting March 09, 2026, a new status has been added for the
+corresponding contact types.
+
+- Voice/Chat/Task/Email
+  - **On Hold**
 
 ## When is the status Agent Disconnected, Contact Missed, or Rejected?
 

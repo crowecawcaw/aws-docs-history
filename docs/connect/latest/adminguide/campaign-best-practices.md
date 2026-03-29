@@ -191,7 +191,7 @@ greetings.
   Do this before the [Disconnect / hang up](disconnect-hang-up.md "disconnect-hang-up.md") block in case the call recipient answered, but an
   error occurred in the processing.
 
-![Flow block with answered calls transferred to queue.](/images/connect/latest/adminguide/images/outbound-contact-attributes.png)
+![Flow block with answered calls transferred to queue.](images/outbound-contact-attributes.png)
 
 ### Whisper and queue flow best practices
 
@@ -204,7 +204,7 @@ greetings.
   calls by using **Loop prompts** and play a message for the customer. The
   following image shows a typical flow block with a Loop prompt.
 
-![The Default customer queue with a Loop prompt.](/images/connect/latest/adminguide/images/cmpgn-queue-with-loop-prompt.png)
+![The Default customer queue with a Loop prompt.](images/cmpgn-queue-with-loop-prompt.png)
 
 - Use the **Disable agent whisper** and **Disable customer
   whisper** options on the [Set whisper flow](set-whisper-flow.md "set-whisper-flow.md") block. This is so customers perceive less
