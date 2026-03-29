@@ -13,7 +13,7 @@ document. The following operations are supported:
 - Get WebRTC statistics for each peer connection
 - All operations from the IVS low-latency streaming iOS broadcast SDK
   **Latest version of iOS broadcast SDK:** 1.40.0 ([Release
-  Notes](release-notes.md#mar12-26-broadcast-ios-rt "release-notes.md#mar12-26-broadcast-ios-rt"))
+  Notes](release-notes.md#mar12-26-broadcast-mobile-rt "release-notes.md#mar12-26-broadcast-mobile-rt"))
 
 **Reference documentation:** For information on the most
 important methods available in the Amazon IVS iOS broadcast SDK, see the reference

@@ -12,7 +12,7 @@ this document. The SDK supports the following operations:
 - Manage and monitor video and audio published to the stage
 - Get WebRTC statistics for each peer connection
 - All operations from the IVS low-latency streaming Android broadcast SDK
-  **Latest version of Android broadcast SDK:** 1.40.0 ([Release Notes](release-notes.md#mar12-26-broadcast-android-rt "release-notes.md#mar12-26-broadcast-android-rt"))
+  **Latest version of Android broadcast SDK:** 1.40.0 ([Release Notes](release-notes.md#mar12-26-broadcast-mobile-rt "release-notes.md#mar12-26-broadcast-mobile-rt"))
 
 **Reference documentation:** For information on the most
 important methods available in the Amazon IVS Android broadcast SDK, see the reference
