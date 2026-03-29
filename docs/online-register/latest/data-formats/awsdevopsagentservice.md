@@ -8,6 +8,7 @@ AWS DevOps Agent Service provides the following APIs for data retrieval.
 | [GetAgentSpace](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                   | Get agentspace                                     | Read         |
 | [GetAssociation](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                  | Get association                                    | Read         |
 | [GetBacklogTask](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                  | Get a backlog task                                 | Read         |
+| [GetKnowledgeItem](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                | Get a knowledge item                               | Read         |
 | [GetOperatorApp](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                  | Get operator auth config for any enabled auth flow | Read         |
 | [GetRecommendation](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")               | Get a recommendation                               | Read         |
 | [GetService](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                      | Get services                                       | Read         |
@@ -18,6 +19,8 @@ AWS DevOps Agent Service provides the following APIs for data retrieval.
 | [ListExecutions](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                  | List executions                                    | List         |
 | [ListGoals](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                       | List goals                                         | List         |
 | [ListJournalRecords](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")              | List journal records                               | List         |
+| [ListKnowledgeItemVersions](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")       | List knowledge item versions                       | List         |
+| [ListKnowledgeItems](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")              | List knowledge items                               | List         |
 | [ListPendingMessages](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")             | List pending messages                              | List         |
 | [ListRecommendations](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")             | List recommendations                               | List         |
 | [ListServices](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                    | List services                                      | List         |
