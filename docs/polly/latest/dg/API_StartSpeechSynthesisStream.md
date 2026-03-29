@@ -6,7 +6,7 @@ and receive synthesized audio as it becomes available.
 
 This operation serves as a bidirectional counterpart to `SynthesizeSpeech`:
 
-- [SynthesizeSpeech](../API/API_SynthesizeSpeech.md "../API/API_SynthesizeSpeech.md")
+- [SynthesizeSpeech](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md")
 
 ## Request Syntax
 
@@ -78,7 +78,7 @@ The audio frequency, specified in Hz.
 
 **[VoiceId](#API_StartSpeechSynthesisStream_RequestSyntax "#API_StartSpeechSynthesisStream_RequestSyntax")**
 
-The voice to use in synthesis. To get a list of available voice IDs, use the [DescribeVoices](../API/API_DescribeVoices.md "../API/API_DescribeVoices.md") operation.
+The voice to use in synthesis. To get a list of available voice IDs, use the [DescribeVoices](API_DescribeVoices.md "API_DescribeVoices.md") operation.
 
 Valid Values: `Aditi | Amy | Astrid | Bianca | Brian | Camila | Carla | Carmen | Celine | Chantal | Conchita | Cristiano | Dora | Emma | Enrique | Ewa | Filiz | Gabrielle | Geraint | Giorgio | Gwyneth | Hans | Ines | Ivy | Jacek | Jan | Joanna | Joey | Justin | Karl | Kendra | Kevin | Kimberly | Lea | Liv | Lotte | Lucia | Lupe | Mads | Maja | Marlene | Mathieu | Matthew | Maxim | Mia | Miguel | Mizuki | Naja | Nicole | Olivia | Penelope | Raveena | Ricardo | Ruben | Russell | Salli | Seoyeon | Takumi | Tatyana | Vicki | Vitoria | Zeina | Zhiyu | Aria | Ayanda | Arlet | Hannah | Arthur | Daniel | Liam | Pedro | Kajal | Hiujin | Laura | Elin | Ida | Suvi | Ola | Hala | Andres | Sergio | Remi | Adriano | Thiago | Ruth | Stephen | Kazuha | Tomoko | Niamh | Sofie | Lisa | Isabelle | Zayd | Danielle | Gregory | Burcu | Jitka | Sabrina | Jasmine | Jihye | Ambre | Beatrice | Florian | Lennart | Lorenzo | Tiffany`
 
