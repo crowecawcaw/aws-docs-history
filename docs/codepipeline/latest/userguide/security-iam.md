@@ -14,7 +14,7 @@ use with no additional charge.
 - [AWS CodePipeline identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
 - [AWS CodePipeline resource-based policy examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md")
 - [Troubleshooting AWS CodePipeline identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
-- [CodePipeline permissions reference](permissions-reference.md "permissions-reference.md")
+- [permissions reference](permissions-reference.md "permissions-reference.md")
 - [Manage the CodePipeline service role](how-to-custom-role.md "how-to-custom-role.md")
 
 ## Audience

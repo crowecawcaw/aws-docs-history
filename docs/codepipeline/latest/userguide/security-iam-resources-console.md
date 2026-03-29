@@ -1,6 +1,6 @@
 # Viewing resources in the console
 
-The CodePipeline console requires the `ListRepositories` permission to
+The console requires the `ListRepositories` permission to
 display a list of repositories for your AWS account in the AWS Region where you
 are signed in. The console also includes a **Go to resource**
 function to quickly perform a case insensitive search for resources. This search is
@@ -14,7 +14,7 @@ following resources are displayed across the following services:
   To perform this search across resources in all services, you must have the
   following permissions:
 
-- CodeBuild: `ListProjects`
+- AWS CodeBuild: `ListProjects`
 - CodeCommit: `ListRepositories`
 - CodeDeploy: `ListApplications`
 - CodePipeline: `ListPipelines`

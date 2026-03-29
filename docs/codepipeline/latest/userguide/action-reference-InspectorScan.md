@@ -20,9 +20,9 @@ Running the action will incur separate charges in AWS CodeBuild.
 - [Configuration parameters](#action-reference-InspectorScan-parameters "#action-reference-InspectorScan-parameters")
 - [Input artifacts](#action-reference-InspectorScan-input "#action-reference-InspectorScan-input")
 - [Output artifacts](#action-reference-InspectorScan-output "#action-reference-InspectorScan-output")
-- [Output variables](#w2aac55c62c19 "#w2aac55c62c19")
+- [Output variables](#w2aac56c62c19 "#w2aac56c62c19")
 - [Service role permissions: InspectorScan action](#edit-role-InspectorScan "#edit-role-InspectorScan")
-- [Action declaration](#w2aac55c62c23 "#w2aac55c62c23")
+- [Action declaration](#w2aac56c62c23 "#w2aac56c62c23")
 - [See also](#action-reference-InspectorScan-links "#action-reference-InspectorScan-links")
 
 ## Action type ID

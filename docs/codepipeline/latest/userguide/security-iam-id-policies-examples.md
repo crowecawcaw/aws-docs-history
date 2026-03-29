@@ -5,7 +5,7 @@ following:
 
 - **Attach a permissions policy to a user or a group in
   your account** – To grant a user permissions to view
-  pipelines in the CodePipeline console, you can attach a permissions policy
+  pipelines in the console, you can attach a permissions policy
   to a user or group that the user belongs to.
 - **Attach a permissions policy to a role (grant cross-account
   permissions)** – You can attach an identity-based
@@ -56,11 +56,11 @@ JSON
 
 The following example shows a policy in the 111222333444 account that allows users
 to view, but not change, the pipeline named `MyFirstPipeline` in the
-CodePipeline console. This policy is based on the `AWSCodePipeline_ReadOnlyAccess` managed policy,
+console. This policy is based on the `AWSCodePipeline_ReadOnlyAccess` managed policy,
 but because it is specific to the `MyFirstPipeline` pipeline, it cannot
 use the managed policy directly. If you do not want to restrict the policy to a
 specific pipeline, consider using one of the managed policies created and maintained
-by CodePipeline. For more information, see [Working with Managed
+by . For more information, see [Working with Managed
 Policies](../../../IAM/latest/UserGuide/access_policies_managed-using.md "../../../IAM/latest/UserGuide/access_policies_managed-using.md"). You must attach this policy to an IAM role you create for
 access, for example, a role named `CrossAccountPipelineViewers`:
 
@@ -186,4 +186,4 @@ JSON
 You can create IAM policies to restrict the calls and resources that users in
 your account have access to, and then attach those policies to your administrative
 user. For more information about how to create IAM roles and to explore example
-IAM policy statements for CodePipeline, see [Customer managed policy examples](security_iam_id-based-policy-examples.md#customer-managed-policies "security_iam_id-based-policy-examples.md#customer-managed-policies").
+IAM policy statements for , see [Customer managed policy examples](security_iam_id-based-policy-examples.md#customer-managed-policies "security_iam_id-based-policy-examples.md#customer-managed-policies").

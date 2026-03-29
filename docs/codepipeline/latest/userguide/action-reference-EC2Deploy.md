@@ -252,7 +252,7 @@ service role.
 
 To view logs in the console using the action details dialog page, the permission
 to view logs must be added to the console role. For more information, see the
-console permissions policy example in [Permissions required to view compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
+console permissions policy example in [Permissions required to view compute logs in the console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
 
 ### Service role policy permissions for CloudWatch logs
 
@@ -266,7 +266,7 @@ using the pipeline name.
 
 To view logs in the console using the action details dialog page, the permission
 to view logs must be added to the console role. For more information, see the
-console permissions policy example in [Permissions required to view compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
+console permissions policy example in [Permissions required to view compute logs in the console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
 
 ## Deploy spec file reference
 

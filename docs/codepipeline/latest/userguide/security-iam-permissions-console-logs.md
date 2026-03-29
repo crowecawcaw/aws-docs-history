@@ -1,4 +1,4 @@
-# Permissions required to view compute logs in the CodePipeline console
+# Permissions required to view compute logs in the console
 
 To view the logs in the Commands action on the CodePipeline console, the console role
 must have permissions. To view logs in the console, add the

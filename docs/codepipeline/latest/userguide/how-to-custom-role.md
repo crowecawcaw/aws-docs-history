@@ -1,6 +1,6 @@
 # Manage the CodePipeline service role
 
-The CodePipeline service role is configured with one or more policies that control
+The service role is configured with one or more policies that control
 access to the AWS resources used by the pipeline. You might want to attach more
 policies to this role, edit the policy attached to the role, or configure policies for
 other service roles in AWS. You might also want to attach a policy to a role when you
@@ -10,7 +10,7 @@ configure cross-account access to your pipeline.
 
 Modifying a policy statement or attaching another policy to the role can prevent
 your pipelines from functioning. Be sure that you understand the implications before
-you modify the service role for CodePipeline in any way. Make sure you test your
+you modify the service role for in any way. Make sure you test your
 pipelines after you make any change to the service role.
 
 ###### Note
@@ -122,7 +122,7 @@ AWS service not already included in the default service role policy statement
 before you can use it in your pipelines.
 
 This is especially important if the service role you use for your pipelines was
-created before support was added to CodePipeline for an AWS service.
+created before support was added to for an AWS service.
 
 The following table shows when support was added for other AWS services.
 
@@ -136,7 +136,7 @@ The following table shows when support was added for other AWS services.
 | Commands action support added. See [Service role permissions: Commands action](action-reference-Commands.md#edit-role-Commands "action-reference-Commands.md#edit-role-Commands").                                                                                                                                                                                                                            | October 03, 2024                                                                    |
 | CloudFormation action support added. See [Service role permissions: CloudFormationStackSet action](action-reference-StackSets.md#edit-role-cfn-stackset "action-reference-StackSets.md#edit-role-cfn-stackset") and [Service role permissions: CloudFormationStackInstances action](action-reference-StackSets.md#edit-role-cfn-stackinstances "action-reference-StackSets.md#edit-role-cfn-stackinstances"). | December 30, 2020                                                                   |
 | CodeCommit full clone output artifact format action support added. See<br>[Service role permissions: CodeCommit action](action-reference-CodeCommit.md#edit-role-codecommit "action-reference-CodeCommit.md#edit-role-codecommit").                                                                                                                                                                           | November 11, 2020                                                                   |
-| CodeBuild batch builds action support added. See [Service role permissions: CodeCommit action](action-reference-CodeCommit.md#edit-role-codecommit "action-reference-CodeCommit.md#edit-role-codecommit").                                                                                                                                                                                                    | July 30, 2020                                                                       |
+| AWS CodeBuild batch builds action support added. See [Service role permissions: CodeCommit action](action-reference-CodeCommit.md#edit-role-codecommit "action-reference-CodeCommit.md#edit-role-codecommit").                                                                                                                                                                                                | July 30, 2020                                                                       |
 | AWS AppConfig action support added. See [Service role permissions: AppConfig action](action-reference-AppConfig.md#edit-role-appconfig "action-reference-AppConfig.md#edit-role-appconfig").                                                                                                                                                                                                                  | June 22, 2020                                                                       |
 | AWS Step Functions action support added. See [Service role permissions: StepFunctions action](action-reference-StepFunctions.md#edit-role-stepfunctions "action-reference-StepFunctions.md#edit-role-stepfunctions").                                                                                                                                                                                         | May 27, 2020                                                                        |
 | AWS CodeStar Connections action support added. See [Service role permissions: CodeConnections action](action-reference-CodestarConnectionSource.md#edit-role-connections "action-reference-CodestarConnectionSource.md#edit-role-connections").                                                                                                                                                               | December 18, 2019                                                                   |

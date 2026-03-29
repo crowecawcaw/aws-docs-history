@@ -21,18 +21,18 @@ the related example policies, see [Create a pipeline in CodePipeline that uses r
 - [Allow users to view their own permissions](security_iam_id-based-policy-examples-view-own-permissions.md "security_iam_id-based-policy-examples-view-own-permissions.md")
 - [Identity-based policies (IAM) examples](security-iam-id-policies-examples.md "security-iam-id-policies-examples.md")
 - [Using tags to control access to CodePipeline resources](tag-based-access-control.md "tag-based-access-control.md")
-- [Permissions required to use the CodePipeline console](security-iam-permissions-console.md "security-iam-permissions-console.md")
-- [Permissions required to view compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md")
+- [Permissions required to use the console](security-iam-permissions-console.md "security-iam-permissions-console.md")
+- [Permissions required to view compute logs in the console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md")
 - [AWS managed policies for AWS CodePipeline](managed-policies.md "managed-policies.md")
 - [Customer managed policy examples](#customer-managed-policies "#customer-managed-policies")
 
 ## Customer managed policy examples
 
 In this section, you can find example user policies that grant permissions for
-various CodePipeline actions. These policies work when you are using the
-CodePipeline API, AWS SDKs, or the AWS CLI. When you are using the console, you
+various actions. These policies work when you are using the
+API, AWS SDKs, or the AWS CLI. When you are using the console, you
 must grant additional permissions specific to the console. For more information, see
-[Permissions required to use the CodePipeline console](security-iam-permissions-console.md "security-iam-permissions-console.md").
+[Permissions required to use the console](security-iam-permissions-console.md "security-iam-permissions-console.md").
 
 ###### Note
 
@@ -188,7 +188,7 @@ JSON
 
 If you configure a pipeline to use Jenkins for build or test, create a
 separate identity for that integration and attach an IAM policy that has the
-minimum permissions required for integration between Jenkins and CodePipeline.
+minimum permissions required for integration between Jenkins and .
 This policy is the same as the `AWSCodePipelineCustomActionAccess` managed policy. The following
 example shows a policy for Jenkins integration:
 
@@ -225,12 +225,12 @@ Cross-Account Access Using Roles](../../../IAM/latest/UserGuide/walkthru_cross-a
 
 The following example shows a policy in the 80398EXAMPLE account that
 allows users to view, but not change, the pipeline named
-`MyFirstPipeline` in the CodePipeline console. This
+`MyFirstPipeline` in the console. This
 policy is based on the `AWSCodePipeline_ReadOnlyAccess` managed policy, but because it is
 specific to the `MyFirstPipeline` pipeline, it cannot use the
 managed policy directly. If you do not want to restrict the policy to a specific
 pipeline, consider using one of the managed policies created and maintained by
-CodePipeline. For more information, see [Working with Managed
+. For more information, see [Working with Managed
 Policies](../../../IAM/latest/UserGuide/access_policies_managed-using.md "../../../IAM/latest/UserGuide/access_policies_managed-using.md"). You must attach this policy to an IAM role you create
 for access, for example, a role named
 `CrossAccountPipelineViewers`:

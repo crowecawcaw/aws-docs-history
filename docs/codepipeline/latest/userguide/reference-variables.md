@@ -336,7 +336,7 @@ action in the pipeline.
 
 ###### Topics
 
-- [CodePipeline execution ID variable](#w2aac63c33b7b9 "#w2aac63c33b7b9")
+- [CodePipeline execution ID variable](#w2aac64c33b7b9 "#w2aac64c33b7b9")
 - [Amazon ECR action output variables](#reference-variables-output-ECR "#reference-variables-output-ECR")
 - [CloudFormation StackSets action output variables](#reference-variables-output-StackSets "#reference-variables-output-StackSets")
 - [CodeCommit action output variables](#reference-variables-output-CodeCommit "#reference-variables-output-CodeCommit")
@@ -415,9 +415,9 @@ user.
 
 ###### Topics
 
-- [CloudFormation action output variables](#w2aac63c33b9b7 "#w2aac63c33b9b7")
+- [CloudFormation action output variables](#w2aac64c33b9b7 "#w2aac64c33b9b7")
 - [CodeBuild action output variables](#reference-variables-list-configured-codebuild "#reference-variables-list-configured-codebuild")
-- [Lambda action output variables](#w2aac63c33b9c11 "#w2aac63c33b9c11")
+- [Lambda action output variables](#w2aac64c33b9c11 "#w2aac64c33b9c11")
 
 #### CloudFormation action output variables
 

@@ -63,7 +63,7 @@ instance might be reused for another pipeline execution.
   to allow access to resources at runtime. It is recommended to configure the
   service role so that the permissions are scoped down to the action level.
 - The permissions added to the CodePipeline service role are detailed in [Add permissions to the CodePipeline service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services") .
-- The permission needed to view logs in the console is detailed in [Permissions required to view compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md") .
+- The permission needed to view logs in the console is detailed in [Permissions required to view compute logs in the console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md") .
 - Unlike other actions in CodePipeline, you do not set fields in the action
   configuration; you set the action configuration fields outside of the action
   configuration.
@@ -105,7 +105,7 @@ as shown in the following example.
 
 To view logs in the console using the action details dialog page, the permission to
 view logs must be added to the console role. For more information, see the console
-permissions policy example in [Permissions required to view compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
+permissions policy example in [Permissions required to view compute logs in the console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
 
 ## Action type
 

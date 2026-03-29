@@ -142,12 +142,13 @@ filter types, such as two push filter types in the trigger configuration, and th
 and pull request filter types will use an OR operation between them, meaning any match
 will start the pipeline. Similarly, each filter type can include multiple filters such
 as filePaths and branches; these filters will use an AND operation, meaning only a full
-match will start the pipeline. Each filter type can contain includes and excludes, and
-these will use an AND operation between them, meaning only a full match will start the
-pipeline. Names inside of the include/exclude, such as branch names, use an OR
-operation. If there is a conflict such as between two Push filters such as where one
-includes the `main` branch and one excludes it, then the default is to
-exclude. The following list summarizes the operations for each part of the Git
+match will start the pipeline. Each filter type can contain includes and excludes, where
+excludes take precedence over includes. If a branch or file path matches an exclude
+pattern, it will not trigger the pipeline, even if it also matches an include pattern.
+When a commit changes multiple files, each file is evaluated independently against the
+filter; if any changed file passes (matches an include and does not match an exclude),
+the pipeline will start. Names inside of the include/exclude, such as branch names, use
+an OR operation. The following list summarizes the operations for each part of the Git
 configuration object.
 
 For a list of field definitions in the JSON structure and a detailed reference for
@@ -215,18 +216,16 @@ the file path is not.
 }
 ```
 
-###### Example 2: Includes and excludes use an AND operation between them
+###### Example 2: Excludes take precedence over includes
 
-Trigger filters, such as branch in a single pull request event type, use an AND
-operation between the includes and excludes. This allows you to configure multiple
-triggers to start the execution for the same pipeline. The following example shows a
-trigger configuration with a single filter type (`branches`) in the
-configuration object for a push event. The `Includes` and
-`Excludes` operations will be AND’ed, meaning that if a branch
-matches an exclude pattern (such as `feature-branch` in the example), the
-pipeline will not be triggered unless an include also matches. If the include
-pattern matches, such as for the `main` branch, then the pipeline will be
-triggered.
+Within a single filter, excludes take precedence over includes. The following
+example shows a Git configuration with a single filter (`branches`)
+within the configuration object. This means
+that if a branch matches an exclude pattern
+(`feature-branch` in the example), the pipeline will not be triggered,
+even if it also matches an include pattern. If the include pattern matches and
+no exclude pattern matches, such as for
+the `main` branch, then the pipeline will be triggered.
 
 For the following example JSON:
 
@@ -247,7 +246,7 @@ For the following example JSON:
    }
 ```
 
-###### Example 3: A trigger with push and pull request filter types (OR operation), filters for file paths and branches (AND operation), and includes/excludes (AND operation)
+###### Example 3: A trigger with push and pull request filter types (OR operation), filters for file paths and branches (AND operation), and includes/excludes (excludes take precedence)
 
 Trigger configuration objects, such as a trigger that contains a push event type
 and a pull request event type, use an OR operation between the two event types. The
@@ -259,11 +258,11 @@ included. For the second event type, a pull request that is either
 `Closed` or `Created` on the `feature-branch`
 branch (included) starts the pipeline, and the pipeline does not start when creating
 or closing a pull request on the `feature-branch-2` or `main`
-branches (excluded).The `Includes` and `Excludes` operations
-will be AND’d, with a conflict defaulting to the exclude. For example, for a pull
+branches (excluded). Within each event type, excludes take precedence over
+includes. For example, for a pull
 request event on the `feature-branch` branch (included for the pull
-request) while the `feature-branch` branch is excluded for the push event
-type, so the default will be to exclude.
+request), the push event type excludes the `feature-branch` branch,
+so the push will not trigger the pipeline.
 
 For the following example,
 
@@ -274,13 +273,13 @@ For the following example,
   will not trigger the pipeline.
 - On the included branch, editing the `README.MD` file path
   (included) triggers the pipeline.
-- On the included branch, editing the `LICENSE.TXT` file path
-  (excluded) does not trigger the pipeline.
-- On the `feature-branch` branch, closing a pull request for the
-  `README.MD` file path (included for the push event) will not
-  trigger the pipeline because the push event type specifies the
-  `feature-branch` branch as excluded and so the conflict
-  defaults to the exclude.
+- On the included branch, editing only the `LICENSE.TXT` file path
+  (excluded) does not trigger the pipeline. However, if the same commit also
+  changes `README.MD` (included), the pipeline will trigger because
+  each file is evaluated independently.
+- On the `feature-branch` branch, closing a pull request
+  will trigger the pipeline because `feature-branch` is included
+  for the pull request event type and the event type CLOSED matches.
   The following image shows the configuration.
 
 ![An example trigger configuration with a push filter type and a pull request filter type](images/example-trigger-filters-pushpluspullrequest.png)
@@ -348,8 +347,9 @@ For the following example:
 
 - Pushing a release from the tag `release-1` (included for the
   first push filter) on the `feature-branch` branch (excluded as
-  `feature*` for the second push filter) will not trigger the
-  pipeline because the two event types will be AND'd.
+  `feature*` for the second push filter) will trigger the
+  pipeline because the two push filter types use an OR operation between
+  them, and the first push filter (tag `release-1`) matches.
 - Pushing a release from the `main` branch (included for the
   second Push filter) will start the pipeline.
 

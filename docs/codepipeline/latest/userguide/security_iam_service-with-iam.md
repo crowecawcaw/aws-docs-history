@@ -68,11 +68,11 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-#### CodePipeline resources and operations
+#### resources and operations
 
-In CodePipeline, the primary resource is a pipeline. In a policy, you use
+In , the primary resource is a pipeline. In a policy, you use
 an Amazon Resource Name (ARN) to identify the resource that the policy
-applies to. CodePipeline supports other resources that can be used with the
+applies to. supports other resources that can be used with the
 primary resource, such as stages, actions, and custom actions. These are
 referred to as subresources. These resources and subresources have unique
 Amazon Resource Names (ARNs) associated with them. For more information
@@ -82,27 +82,27 @@ with your pipeline, you can find the pipeline ARN under
 **Settings** in the console. For more information, see
 [View the pipeline ARN and service role ARN (console)](pipelines-settings-console.md "pipelines-settings-console.md").
 
-| Resource Type                                                                        | ARN Format                                                                                 |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| Pipeline                                                                             | arn:aws:codepipeline:`region`:`account`:`pipeline-name`                                    |
-| Stage                                                                                | arn:aws:codepipeline:`region`:`account`:`pipeline-name`/`stage-name`                       |
-| Action                                                                               | arn:aws:codepipeline:`region`:`account`:`pipeline-name`/`stage-name`/`action-name`         |
-| Custom action                                                                        | arn:aws:codepipeline:`region`:`account`:actiontype:`owner`/`category`/`provider`/`version` |
-| All CodePipeline resources                                                           | arn:aws:codepipeline:\*                                                                    |
-| All CodePipeline resources owned by the specified<br>account in the specified Region | arn:aws:codepipeline:`region`:`account`:\*                                                 |
+| Resource Type                                                           | ARN Format                                                                                 |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Pipeline                                                                | arn:aws:codepipeline:`region`:`account`:`pipeline-name`                                    |
+| Stage                                                                   | arn:aws:codepipeline:`region`:`account`:`pipeline-name`/`stage-name`                       |
+| Action                                                                  | arn:aws:codepipeline:`region`:`account`:`pipeline-name`/`stage-name`/`action-name`         |
+| Custom action                                                           | arn:aws:codepipeline:`region`:`account`:actiontype:`owner`/`category`/`provider`/`version` |
+| All resources                                                           | arn:aws:codepipeline:\*                                                                    |
+| All resources owned by the specified<br>account in the specified Region | arn:aws:codepipeline:`region`:`account`:\*                                                 |
 
 ###### Note
 
 Most services in AWS treat a colon (:) or a forward slash (/) as the
-same character in ARNs. However, CodePipeline uses an exact match in
+same character in ARNs. However, uses an exact match in
 event patterns and rules. Be sure to use the correct ARN characters when
 creating event patterns so that they match the ARN syntax in the
 pipeline you want to match.
 
-In CodePipeline, there are API calls that support resource-level
+In , there are API calls that support resource-level
 permissions. Resource-level permissions indicate whether an API call can
 specify a resource ARN, or whether the API call can only specify all
-resources using the wildcard. See [CodePipeline permissions reference](permissions-reference.md "permissions-reference.md") for a detailed description of
+resources using the wildcard. See [permissions reference](permissions-reference.md "permissions-reference.md") for a detailed description of
 resource-level permissions and a listing of the CodePipeline API calls that support
 resource-level permissions.
 
@@ -137,7 +137,7 @@ to perform a task. If an API call supports ARNs, then it supports
 resource-level permissions, and you do not need to use the (\*) wildcard
 character.
 
-Some CodePipeline API calls accept multiple resources (for example,
+Some API calls accept multiple resources (for example,
 `GetPipeline`). To specify multiple resources in a single
 statement, separate their ARNs with commas, as follows:
 
@@ -145,8 +145,8 @@ statement, separate their ARNs with commas, as follows:
 "Resource": ["arn1", "arn2"]
 ```
 
-CodePipeline provides a set of operations to work with the CodePipeline
-resources. For a list of available operations, see [CodePipeline permissions reference](permissions-reference.md "permissions-reference.md").
+provides a set of operations to work with the
+resources. For a list of available operations, see [permissions reference](permissions-reference.md "permissions-reference.md").
 
 ### Condition keys
 

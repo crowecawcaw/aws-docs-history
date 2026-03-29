@@ -257,7 +257,7 @@ JSON
 
 To view logs in the console using the action details dialog page, the permission to
 view logs must be added to the console role. For more information, see the console
-permissions policy example in [Permissions required to view compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
+permissions policy example in [Permissions required to view compute logs in the console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
 
 ### Adding the service role as an access entry for your cluster
 
