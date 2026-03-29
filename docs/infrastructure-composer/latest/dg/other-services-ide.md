@@ -19,7 +19,7 @@ make locally are automatically synced to Infrastructure Composer.
 You can use local tools such as the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) to build,
 test, deploy your application, and more. The following example shows how you can drag and drop resources onto Infrastructure Composer's visual canvas which, in turn, creates markup in your AWS SAM template in your local IDE.
 
-![Using Infrastructure Composer with a local IDE to sync changes.](images/aac_other_ide_01.gif)
+![Using Infrastructure Composer with a local IDE to sync changes.](/images/infrastructure-composer/latest/dg/images/aac_other_ide_01.gif)
 
 ## Integrate Infrastructure Composer with your local IDE
 
