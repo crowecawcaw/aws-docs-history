@@ -201,7 +201,7 @@ var generateAuthResponse = function(effect,ACCOUNT_ID,REGION) {
     authResponse.principalId = 'principalId';
 
     var policyDocument = {};
-    policyDocument.Version = '2012-10-17		 	 	 ';
+    policyDocument.Version = '2012-10-17';
     policyDocument.Statement = [];
     var statement = {};
     statement.Action = 'iot:*';

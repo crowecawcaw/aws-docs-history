@@ -136,7 +136,7 @@ var generateAuthResponse = function(token, effect) {
     authResponse.principalId = 'TEST123';
 
     var policyDocument = {};
-    policyDocument.Version = '2012-10-17		 	 	 ';
+    policyDocument.Version = '2012-10-17';
     policyDocument.Statement = [];
     var publishStatement = {};
     var connectStatement = {};

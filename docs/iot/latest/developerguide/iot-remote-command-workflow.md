@@ -125,6 +125,8 @@ Topic for latest information. View additional details including last update time
 ## (Optional) Enable notifications for commands events
 
 Subscribe to Commands events for notifications when Execution status changes.
+For detailed information about command execution events, including the event message
+format and payload attributes, see [Command execution events](command-events.md "command-events.md").
 
 1. ###### Create a topic rule
 
