@@ -61,7 +61,7 @@ the AMS service knowledge management API (`amsskms)`, in a non-USA East Region, 
 ###### Note
 
 End of Support (EOS) operating systems are outside of the general support period of the operating system manufacturer and have increased security risk.
-EOS operating systems are considered supported configurations only if AMS-required agents support the operating system and...
+EOS operating systems are considered supported configurations only if AMS-required agents support the operating system and the following are true:
 
     1. you have extended support with the operating system vendor that allows you to receive updates, or
     2. any instances using an EOS operating system follow the [security controls](key-terms.md#CritRec "key-terms.md#CritRec") as specified by AMS in the Advanced User Guide, or
@@ -78,5 +78,3 @@ AMS-required agents may include but are not limited to: AWS Systems Manager, Ama
     + SUSE Linux Enterprise Server 12 SP5
     + SUSE Linux Enterprise Service for SAP 12 SP5
     + Microsoft Windows Server 2012/2012 R2
-    + Red Hat Enterprise Linux (RHEL):7.x
-    + Oracle Linux 7.5-7.9
