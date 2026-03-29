@@ -1,31 +1,42 @@
 # Getting started with AWS User Experience Customization
 
-Administrators can set colors for different AWS accounts. Account colors make it easy to differentiate
-between the accounts you're currently signed in to. Organizations can use account color to distinguish between different types of accounts, for example,
-you can use green for development accounts, yellow for test accounts, and red for production accounts.
+With UXC, account administrators can configure account customizations for the AWS Management Console.
 
-###### Note
+## Prerequisites
 
-Essential features for the AWS Management Console, such as AWS User Experience Customization, AWS CloudShell, and Amazon Q, require appropriate IAM permissions. AWS managed policies provide a convenient way to grant these permissions
-to users and roles used within the AWS Management Console. The following managed policies are available for use:
+Before you begin, you need the following:
 
-- `AWSManagementConsoleBasicUserAccess`
-  - For non-administrative users
-  - Provides access to basic console features
+- An AWS account
+- Appropriate AWS Identity and Access Management (IAM) permissions for UXC. For more information, see [How AWS User Experience Customization works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md") and [AWS managed policies for the AWS Management Console](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
-- `AWSManagementConsoleAdministratorAccess`
+## Accessing UXC settings in the AWS Management Console
 
-      + For administrative users
-      + Provides access to essential AWS Management Console features
-      + Allows administrators to configure and customize the AWS Management Console for other identities
+To access account color in the AWS Management Console, see [Accessing account information in the AWS Management Console](ainfo.md "ainfo.md"). To access service visibility and Region visibility in the AWS Management Console, see [Configuring the AWS Management Console using Unified Settings](unified-settings.md "unified-settings.md").
 
-  For more information,
-  see [AWS managed policies for the AWS Management Console](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
-
-###### To set an account color
+###### To set an account color in the console
 
 1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
 2. On the navigation bar, choose your account name.
 3. Choose **Account**.
 4. In **Account display settings**, choose a color.
 5. Choose **Update**.
+
+###### To set visible Regions in the console
+
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
+2. Open [Unified Settings](https://console.aws.amazon.com/settings/home "https://console.aws.amazon.com/settings/home").
+3. Choose **Edit** in the **Visible Regions** section.
+4. Set your visible Regions to **All available Regions** or **Select Regions** and configure your list.
+5. Choose **Save changes**.
+
+###### To set visible services in the console
+
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
+2. Open [Unified Settings](https://console.aws.amazon.com/settings/home "https://console.aws.amazon.com/settings/home").
+3. Choose **Edit** in the **Visible services** section.
+4. Set your visible services to **All services** or **Select services** and configure your list.
+5. Choose **Save changes**.
+
+## Accessing UXC settings programmatically
+
+You can also manage account customization settings programmatically or as infrastructure as code. For more information, see the [AWS User Experience Customization API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md") and the [AWS::UXC::AccountCustomization](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-uxc-accountcustomization.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-uxc-accountcustomization.md") CloudFormation template reference.

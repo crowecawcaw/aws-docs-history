@@ -24,7 +24,7 @@ Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscl
 
 AWS User Experience Customization logs all UXC control plane operations as management events. For a list
 of the AWS User Experience Customization control plane operations that UXC logs to CloudTrail, see the
-[AWS User Experience Customization API Reference](api-guide.md "api-guide.md").
+[AWS User Experience Customization API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
 ## UXC event examples
 
