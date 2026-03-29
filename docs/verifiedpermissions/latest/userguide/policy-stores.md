@@ -11,7 +11,8 @@ enabled on all new policy stores created through the AWS Management Console. By 
 for all policy stores created through an API or SDK call.
 
 We recommend creating one policy store per application, or one policy store per tenant for multi-tenant
-applications. You must specify a policy store when making an [authorization request](terminology.md#term-authorization-request "terminology.md#term-authorization-request").
+applications. You must specify a policy store when making an [authorization request](terminology.md#term-authorization-request "terminology.md#term-authorization-request"). You can also create
+policy store aliases to refer to your policy stores by friendly names. For more information, see [Amazon Verified Permissions policy store aliases](policy-store-aliases.md "policy-store-aliases.md").
 
 We recommend using _namespaces_ to Cedar entities in your policy stores to
 prevent ambiguity. A namespace is a string prefix for a type, separated by a pair of colons

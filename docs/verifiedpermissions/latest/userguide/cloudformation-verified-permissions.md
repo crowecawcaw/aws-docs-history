@@ -28,7 +28,7 @@ unfamiliar with JSON or YAML, you can use CloudFormation Designer to help you ge
 CloudFormation templates. For more information, see [What is CloudFormation Designer?](../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md") in the
 _AWS CloudFormation User Guide_.
 
-Verified Permissions supports creating identity sources, policies, policy stores, and policy templates in CloudFormation. For
+Verified Permissions supports creating identity sources, policies, policy stores, policy templates, and policy store aliases in CloudFormation. For
 more information, including examples of JSON and YAML templates for Verified Permissions resources, see
 the [Amazon Verified Permissions
 resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_VerifiedPermissions.md "../../../AWSCloudFormation/latest/UserGuide/AWS_VerifiedPermissions.md") in the _AWS CloudFormation User Guide_.

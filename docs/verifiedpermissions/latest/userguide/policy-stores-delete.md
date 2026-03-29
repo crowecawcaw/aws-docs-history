@@ -1,7 +1,8 @@
 # Deleting policy stores
 
 You can delete Amazon Verified Permissions policy stores using the AWS Management Console or the AWS CLI. Deleting a
-policy store permanently deletes the schema and any policies in the policy store.
+policy store permanently deletes the schema and any policies and policy templates in the policy store. Any policy store aliases
+associated with the deleted policy store will also be deleted.
 
 Deletion protection prevents accidental deletion of a policy store. Deletion protection is
 enabled on all new policy stores created through the AWS Management Console. By contrast, it is disabled

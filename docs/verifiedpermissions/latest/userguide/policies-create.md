@@ -88,3 +88,28 @@ operation. The following example creates a simple static policy.
  "policyType": "STATIC"
 }`
 ```
+
+###### To create a policy with a policy name
+
+You can optionally specify a policy name when creating a policy. The name must be unique for all policies within the policy store and prefixed with `name/`. You can use the name in place of the policy ID.
+
+```
+`$` `aws verifiedpermissions create-policy \
+ --definition "{ \"static\": { \"Statement\": \"permit(principal, action, resource in Album::\\\"public_folder\\\");\"}}" \
+ --policy-store-id PSEXAMPLEabcdefg111111 \
+ --name name/example-policy``{
+ "createdDate": "2023-06-12T20:33:37.382907+00:00",
+ "lastUpdatedDate": "2023-06-12T20:33:37.382907+00:00",
+ "policyId": "SPEXAMPLEabcdefg111111",
+ "policyStoreId": "PSEXAMPLEabcdefg111111",
+ "policyType": "STATIC",
+ "resource": {
+ "entityId": "public_folder",
+ "entityType": "Album"
+ }
+}`
+```
+
+###### Note
+
+If you specify a name that is already associated with another policy in the policy store, you receive a `ConflictException` error.

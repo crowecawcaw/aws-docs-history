@@ -14,6 +14,9 @@ You should understand the following concepts to use Amazon Verified Permissions.
 - [Permissions, authorization, and principals](#term-permissions-authorization-principals "#term-permissions-authorization-principals")
 - [Policy enforcement](#term-policy-enforcement "#term-policy-enforcement")
 - [Policy store](#term-policy-store "#term-policy-store")
+- [Policy store alias](#term-policy-store-alias "#term-policy-store-alias")
+- [Policy name](#term-policy-name "#term-policy-name")
+- [Policy template name](#term-policy-template-name "#term-policy-template-name")
 - [Satisfied policies](#term-satisfied-policies "#term-satisfied-policies")
 - [Differences between Amazon Verified Permissions and the Cedar policy language](terminology-differences-avp-cedar.md "terminology-differences-avp-cedar.md")
   **Cedar policy language concepts**
@@ -127,6 +130,30 @@ relevant to the request. Relevance is determined based on the _scope_
 of the policy. The scope identifies the specific principal and resource to which the
 policy applies, and the actions that the principal can perform on the resource. Defining
 the scope helps improve performance by narrowing the set of considered policies.
+
+## Policy store alias
+
+A _policy store alias_ is a friendly name for a policy store. You can use a policy store alias to
+identify a policy store in any Verified Permissions operation that accepts a `policyStoreId`
+parameter. Policy store aliases are independent AWS resources with their own ARNs. Each alias is
+associated with one policy store at a time, and multiple aliases can be associated with the same
+policy store. For more information, see [Amazon Verified Permissions policy store aliases](policy-store-aliases.md "policy-store-aliases.md").
+
+## Policy name
+
+A _policy name_ is an optional friendly name for a policy. Policy names must be
+unique for all policies within the policy store and prefixed with `name/`. You can use a policy name
+in place of the policy ID in control plane operations that accept a `policyId`
+parameter. Names can be set when creating or updating a policy. Only `GetPolicy`
+and `ListPolicies` return the name in the output.
+
+## Policy template name
+
+A _policy template name_ is an optional friendly name for a policy template. Policy template names must be
+unique for all policy templates within the policy store and prefixed with `name/`. You can use a policy template name
+in place of the policy template ID in control plane operations that accept a `policyTemplateId`
+parameter. Names can be set when creating or updating a policy template. Only `GetPolicyTemplate`
+and `ListPolicyTemplates` return the name in the output.
 
 ## Satisfied policies
 

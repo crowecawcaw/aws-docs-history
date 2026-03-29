@@ -79,3 +79,29 @@ The following command references that file.
  }
 }`
 ```
+
+###### To update the name of a policy
+
+You can set or update a policy name when updating a policy. The name must be unique for all policies within the policy store and prefixed with `name/`. If you don't include the name field in the update request, the existing name is unchanged. To remove a name, set it to an empty string.
+
+```
+`$` `aws verifiedpermissions update-policy \
+ --policy-id SPEXAMPLEabcdefg111111 \
+ --policy-store-id PSEXAMPLEabcdefg111111 \
+ --definition file://definition.txt \
+ --name name/example-policy``{
+ "createdDate": "2023-06-12T20:33:37.382907+00:00",
+ "lastUpdatedDate": "2023-06-12T20:47:42.804511+00:00",
+ "policyId": "SPEXAMPLEabcdefg111111",
+ "policyStoreId": "PSEXAMPLEabcdefg111111",
+ "policyType": "STATIC",
+ "principal": {
+ "entityId": "janeFriends",
+ "entityType": "UserGroup"
+ },
+ "resource": {
+ "entityId": "vacationFolder",
+ "entityType": "Album"
+ }
+}`
+```

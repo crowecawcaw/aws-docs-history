@@ -52,3 +52,24 @@ permit(
  "policyTemplateId": "PTEXAMPLEabcdefg111111"
 }`
 ```
+
+###### To create a policy template with a policy template name
+
+You can optionally specify a policy template name when creating a policy template. The name must be unique for all policy templates within the policy store and prefixed with `name/`. You can use the name in place of the policy template ID.
+
+```
+`$` `aws verifiedpermissions create-policy-template \
+ --description "Template for vacation picture access" \
+ --statement file://template1.txt \
+ --policy-store-id PSEXAMPLEabcdefg111111 \
+ --name name/example-policy-template``{
+ "createdDate": "2023-06-12T20:47:42.804511+00:00",
+ "lastUpdatedDate": "2023-06-12T20:47:42.804511+00:00",
+ "policyStoreId": "PSEXAMPLEabcdefg111111",
+ "policyTemplateId": "PTEXAMPLEabcdefg111111"
+}`
+```
+
+###### Note
+
+If you specify a name that is already associated with another policy template in the policy store, you receive a `ConflictException` error.

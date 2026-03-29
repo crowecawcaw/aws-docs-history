@@ -7,6 +7,17 @@ policy. For more information about how Cedar policies are structured and evaluat
 [Cedar policy validation against
 schema](https://docs.cedarpolicy.com/policies/validation.html "https://docs.cedarpolicy.com/policies/validation.html") in the Cedar policy language Reference Guide.
 
+You can optionally assign a policy name to a policy. Policy names must be unique for all policies within the policy store and
+prefixed with `name/`. You can use a policy name in place of the policy ID in
+control plane operations that accept a `policyId` parameter. The following example
+uses a policy name to retrieve a policy with `GetPolicy`.
+
+```
+`$` `aws verifiedpermissions get-policy \
+ --policy-id name/example-policy \
+ --policy-store-id PSEXAMPLEabcdefg111111`
+```
+
 ###### Important
 
 When you write Cedar policies that reference principals, resources and actions, you

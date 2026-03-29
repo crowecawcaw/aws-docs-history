@@ -8,6 +8,18 @@ multiple principals and resources. Updates to the policy template are reflected 
 that use the template. For more information, see [Cedar policy templates](https://docs.cedarpolicy.com/policies/templates.html "https://docs.cedarpolicy.com/policies/templates.html") in the
 Cedar policy language Reference Guide.
 
+You can optionally assign a policy template name to a policy template. Policy template names must be unique within the policy store and
+prefixed with `name/`. You can use a policy template name in place of the policy template ID in
+control plane operations that accept a `policyTemplateId` parameter. Only
+`GetPolicyTemplate` and `ListPolicyTemplates` return the name in the
+output. The following example uses a policy template name to retrieve a policy template with `GetPolicyTemplate`.
+
+```
+`$` `aws verifiedpermissions get-policy-template \
+ --policy-template-id name/example-policy-template \
+ --policy-store-id PSEXAMPLEabcdefg111111`
+```
+
 For example, the following policy template provides `Read`, `Edit`,
 and `Comment` permissions for the principal and resource that use the policy
 template.
