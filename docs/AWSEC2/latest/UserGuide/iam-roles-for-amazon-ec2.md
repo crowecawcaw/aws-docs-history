@@ -124,6 +124,9 @@ The following AWS services use the instance identity role:
 - **Amazon GuardDuty** – [GuardDuty Runtime
   Monitoring](../../../guardduty/latest/ug/runtime-monitoring.md "../../../guardduty/latest/ug/runtime-monitoring.md") uses the instance identity role to allow the runtime
   agent to send security telemetry to the GuardDuty VPC endpoint.
+- AWS Lambda – [Lambda Managed
+  Instances](../../../lambda/latest/dg/lambda-managed-instances.md "../../../lambda/latest/dg/lambda-managed-instances.md") uses the instance identity role for lifecycle hooks,
+  telemetry, and artifact distribution.
 - AWS Security Token Service (AWS STS) – Instance
   identity role credentials can be used with the AWS STS [`GetCallerIdentity`](../../../STS/latest/APIReference/API_GetCallerIdentity.md "../../../STS/latest/APIReference/API_GetCallerIdentity.md") action.
 - AWS Systems Manager – When using [Default Host Management Configuration](../../../systems-manager/latest/userguide/fleet-manager-default-host-management-configuration.md "../../../systems-manager/latest/userguide/fleet-manager-default-host-management-configuration.md"), AWS Systems Manager uses the

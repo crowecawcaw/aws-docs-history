@@ -543,6 +543,12 @@ instance as follows.
   The ENA driver for the Amazon Linux distribution disables byte queue
   limits by default.
 
+- To minimize ENA Express TCP traffic latency, you can disable the TCP autocorking feature. This might result in a minimal increase in packet overhead:
+
+```
+sudo bash -c 'echo 0 > /proc/sys/net/ipv4/tcp_autocorking'
+```
+
 ## Tune performance for ENA Express settings on Linux instances
 
 To check your Linux instance configuration for optimal ENA Express performance, you

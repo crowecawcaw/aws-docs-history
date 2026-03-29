@@ -54,10 +54,7 @@ If you're using the AWS CLI, the parameter name is
 The fleet identifies the pools with the highest capacity availability
 for the number of instances that are launching. This means that we will
 request Spot Instances from the pools that we believe have the lowest chance of
-interruption in the near term. You can optionally set a priority for
-each instance type in your fleet, where the fleet optimizes for capacity
-first, but honors instance type priorities on a best-effort
-basis.
+interruption in the near term.
 
 With Spot Instances, pricing changes slowly over time based on long-term trends
 in supply and demand, but capacity fluctuates in real time. The

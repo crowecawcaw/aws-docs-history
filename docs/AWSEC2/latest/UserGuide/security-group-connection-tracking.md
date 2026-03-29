@@ -103,9 +103,11 @@ we recommend the following configuration:
 - Instead of using security groups for filtering, use network ACLs.
 - If you must use security groups with connection tracking, configure the shortest idle connection tracking
   timeout possible. For more details on idle connection tracking timeout, see the following section.
+- With the shorter default timeouts on Nitrov6 instances, applications with long-lived connections (such as database connection pools,
+  persistent HTTP connections, or streaming workloads) should configure an appropriate `TcpEstablishedTimeout` value at instance launch.
 - For long-lived connections, configure TCP keep alives to be sent at intervals of less than 5 minutes to ensure connections stay open
   and maintain their tracked state. This helps prevent connections from being dropped due to idle timeout and reduces the overhead
-  of connection re-establishment, especially in cases where connection timeouts may be reduced due to minimal activity.
+  of connection re-establishment.
 
 For more information about performance tuning on the Nitro system, see
 [Nitro system considerations for performance tuning](ena-nitro-perf.md "ena-nitro-perf.md").
@@ -121,7 +123,7 @@ interface.
 
 ###### Note
 
-This feature is available only with [Nitro-based instances](instance-types.md#instance-hypervisor-type "instance-types.md#instance-hypervisor-type").
+This feature is available only with [Nitro-based instances](instance-types.md#instance-hypervisor-type "instance-types.md#instance-hypervisor-type"). You should test your applications on Nitrov6 generation instances with the reduced `350` second default connection tracking timeout before deploying to production.
 
 There are three configurable timeouts:
 
