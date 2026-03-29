@@ -11,7 +11,7 @@ This section shows how to view your pro forma data in the Billing and Cost Manag
 
 - [Analyzing Savings Plans, reservation coverage, and utilization reports](analyzing-abc-sp.md "analyzing-abc-sp.md")
   - [Understanding the effects of billing group configuration and Savings Plans sharing preferences](analyzing-abc-sp.md#analyzing-abc-sp-callout "analyzing-abc-sp.md#analyzing-abc-sp-callout")
-  - [View your reservation and Savings Plans inventory](view-ri-sp.md "view-ri-sp.md")
+  - [View your Savings Plans and Reservations inventory](view-ri-sp.md "view-ri-sp.md")
 
 - [Viewing your pro forma data in AWS Budgets](abc-budgets.md "abc-budgets.md")
 - [AWS services that support pro forma-based billing view costs](service-integrations-support-proforma.md "service-integrations-support-proforma.md")

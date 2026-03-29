@@ -61,10 +61,10 @@ This topic contains example policies that you can attach to your IAM user or gro
 - [Granting full access to the Billing Conductor console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
 - [Granting full access to the Billing Conductor API](#security_iam_id-based-policy-examples-fullAPI "#security_iam_id-based-policy-examples-fullAPI")
 - [Granting read-only access to the Billing Conductor console](#security_iam_id-based-policy-examples-readonly "#security_iam_id-based-policy-examples-readonly")
-- [Granting Billing Conductor access through the Billing console](#security_iam_id-based-policy-examples-ABCthroughbilling "#security_iam_id-based-policy-examples-ABCthroughbilling")
+- [Granting Billing Conductor access through the AWS Billing console](#security_iam_id-based-policy-examples-ABCthroughbilling "#security_iam_id-based-policy-examples-ABCthroughbilling")
 - [Granting Billing Conductor access through AWS Cost and Usage Reports](#security_iam_id-based-policy-examples-ABCthroughCUR "#security_iam_id-based-policy-examples-ABCthroughCUR")
 - [Granting Billing Conductor access to the import organizational unit feature](#security_iam_id-based-policy-examples-ABCaccessOU "#security_iam_id-based-policy-examples-ABCaccessOU")
-- [Denying Billing and Cost Explorer access to services and features that don't support pro forma costs](#deny-access-proforma-costs "#deny-access-proforma-costs")
+- [Denying AWS Billing and Cost Explorer access to services and features that don't support pro forma costs](#deny-access-proforma-costs "#deny-access-proforma-costs")
 - [Creating a pro forma CUR by billing group](#allow-legacy-cur "#allow-legacy-cur")
 
 ### Granting full access to the Billing Conductor console
@@ -170,10 +170,10 @@ JSON
 
 ```
 
-### Granting Billing Conductor access through the Billing console
+### Granting Billing Conductor access through the AWS Billing console
 
 In this example, IAM entities can toggle and view pro forma billing data through the bills
-page in their Billing console.
+page in their AWS Billing console.
 
 JSON
 
@@ -197,7 +197,7 @@ JSON
 ### Granting Billing Conductor access through AWS Cost and Usage Reports
 
 In this example, IAM entities can toggle and view pro forma billing data through the
-Cost and Usage Reports page in their Billing console.
+Cost and Usage Reports page in their AWS Billing console.
 
 JSON
 
@@ -245,7 +245,7 @@ JSON
 
 ```
 
-### Denying Billing and Cost Explorer access to services and features that don't support pro forma costs
+### Denying AWS Billing and Cost Explorer access to services and features that don't support pro forma costs
 
 In this example, IAM entities are denied access to services and features that
 don't support pro forma costs. This policy includes a list of actions that are

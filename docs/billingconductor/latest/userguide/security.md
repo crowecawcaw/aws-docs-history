@@ -1,7 +1,8 @@
 # Security in AWS Billing Conductor
 
-Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a data center and network architecture that is built to meet
-the requirements of the most security-sensitive organizations.
+Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data
+centers and network architectures that are built to meet the requirements of the most
+security-sensitive organizations.
 
 Security is a shared responsibility between AWS and you. The [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security
 _of_ the cloud and security _in_ the cloud:
@@ -24,6 +25,6 @@ _of_ the cloud and security _in_ the cloud:
 - [Data protection in AWS Billing Conductor](data-protection.md "data-protection.md")
 - [Identity and access management for AWS Billing Conductor](security-iam.md "security-iam.md")
 - [Logging and monitoring in AWS Billing Conductor](billing-security-logging.md "billing-security-logging.md")
-- [Compliance validation for AWS Billing Conductor](Billing-compliance.md "Billing-compliance.md")
+- [Compliance validation for AWS Billing Conductor](compliance-validation.md "compliance-validation.md")
 - [Resilience in AWS Billing Conductor](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in AWS Billing Conductor](infrastructure-security.md "infrastructure-security.md")
+- [Infrastructure Security in AWS Billing Conductor](infrastructure-security.md "infrastructure-security.md")
