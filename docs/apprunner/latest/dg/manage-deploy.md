@@ -84,7 +84,7 @@ App Runner console
 
 The console displays the service dashboard with a **Service overview**.
 
-![App Runner service dashboard page showing Activity list](images/console-dashboard.png) 3. Choose **Deploy**.
+![App Runner service dashboard page showing Activity list](/images/apprunner/latest/dg/images/console-dashboard.png) 3. Choose **Deploy**.
 
 Result: Deployment of the new version starts. On the service dashboard page, the service **Status** changes to
 **Operation in progress**. 4. Wait for the deployment to end. On the service dashboard page, the service **Status** should change back to
