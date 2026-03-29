@@ -15,7 +15,7 @@ roles:** Yes
 A service-linked role is a type of service role that is linked
 to an AWS service. The service can assume the role to perform an
 action on your behalf. Service-linked roles appear in your AWS
-account and are owned by the service. An IAM administrator can
+account and are owned by the service. An AWS Identity and Access Management administrator can
 view, but not edit the permissions for service-linked roles.
 
 A service-linked role makes setting up AWS Security Incident Response easier because
@@ -92,10 +92,12 @@ The service uses the role to perform actions on the following resources:
 - _Events:_ Allows the service to create an Amazon EventBridge managed rule.
   This rule is the infrastructure required in your AWS account to deliver events from your account to the service.
   This action is performed on any AWS resource managed by `triage.security-ir.amazonaws.com`.
-- _Amazon GuardDuty:_ Allows the service to tune security services to reduce alert noise and gather
-  information to investigate potential incidents. This action is performed on any AWS resource.
-- _AWS Security Hub CSPM:_ Allows the service to tune security services to reduce alert noise and gather
-  information to investigate potential incidents. This action is performed on any AWS resource.
+- _Amazon GuardDuty:_ Allows the service to tune security services to reduce alert noise, gather
+  information to investigate potential incidents, and initiate GuardDuty malware scans.
+- _AWS Security Hub CSPM:_ Allows the service to list enabled standards and product integrations, list organization members and admin accounts, and tune security services to reduce alert noise and gather
+  information to investigate potential incidents.
+- _AWS Identity and Access Management:_ Allows the service to retrieve role information for the `AWSServiceRoleForAmazonGuardDutyMalwareProtection` service-linked role to verify whether GuardDuty MalwareProtection is configured.
+- _AWS Security Incident Response:_ Allows the service to create and update cases and tag resources, restricted to resources tagged with `SecurityIncidentResponseManaged=true`. Allows the service to read membership information (GetMembership, ListMemberships).
 
 ### Managing the role
 

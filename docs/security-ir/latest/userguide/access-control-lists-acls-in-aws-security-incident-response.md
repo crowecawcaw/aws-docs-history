@@ -44,8 +44,7 @@ attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_at
 _IAM User Guide_.
 
 **Temporary
-credentials with Amazon AWS Security Incident
-Response**
+credentials with AWS Security Incident Response**
 
 **Supports temporary credentials:** Yes
 
@@ -65,8 +64,7 @@ For more information, see
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md").
 
 **Forward
-access sessions for AWS Security Incident
-Response**
+access sessions for AWS Security Incident Response**
 
 **Supports forward access sessions
 (FAS):** Yes

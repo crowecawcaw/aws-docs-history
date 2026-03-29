@@ -8,3 +8,15 @@ Providing your metadata upfront to our Security Incident Response engineers, can
 |                                          |                                               |         |                                  |                                        |                             |                             |                                    |                                       |                                                         |            |                                 |                            |
 |                                          |                                               |         |                                  |                                        |                             |                             |                                    |                                       |                                                         |            |                                 |                            |
 |                                          |                                               |         |                                  |                                        |                             |                             |                                    |                                       |                                                         |            |                                 |                            |
+
+To submit metadata information for your environment, create an [AWS Support case](https://repost.aws/knowledge-center/get-aws-technical-support "https://repost.aws/knowledge-center/get-aws-technical-support").
+
+###### To submit metadata
+
+1. Complete the metadata table with your environment information.
+2. Create an AWS Support case with the following details:
+   - **Case type:** Technical
+   - **Service:** Security Incident Response Service
+   - **Category:** Other
+
+3. Attach the completed metadata table to the case.

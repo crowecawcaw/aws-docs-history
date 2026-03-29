@@ -58,8 +58,7 @@ In this case, Mary's policies must be updated to allow her to perform the iam:Pa
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
 **I want to
-allow people outside of my AWS account to access my AWS Security
-Incident Response resources**
+allow people outside of my AWS account to access my AWS Security Incident Response resources**
 
 You can create a role that users in other accounts or people
 outside of your organization can use to access your resources.
