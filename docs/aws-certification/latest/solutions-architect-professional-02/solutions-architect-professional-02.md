@@ -12,6 +12,7 @@ The AWS Certified Solutions Architect - Professional (SAP-C02) exam is intended 
 - [Content Domain 2: Design for New Solutions](solutions-architect-professional-02-domain2.md "solutions-architect-professional-02-domain2.md")
 - [Content Domain 3: Continuous Improvement for Existing Solutions](solutions-architect-professional-02-domain3.md "solutions-architect-professional-02-domain3.md")
 - [Content Domain 4: Accelerate Workload Migration and Modernization](solutions-architect-professional-02-domain4.md "solutions-architect-professional-02-domain4.md")
+- [Emerging Topics](#sap-02-emerging-topics "#sap-02-emerging-topics")
 - [Service References](#sap-service-references "#sap-service-references")
 - [Survey](#sap-02-survey "#sap-02-survey")
 - [Technologies and Concepts](sap-technologies-concepts.md "sap-technologies-concepts.md")
@@ -77,6 +78,20 @@ The exam has the following content domains and weightings:
 - [Content Domain 2: Design for New Solutions (29% of scored content)](solutions-architect-professional-02-domain2.md "solutions-architect-professional-02-domain2.md")
 - [Content Domain 3: Continuous Improvement for Existing Solutions (25% of scored content)](solutions-architect-professional-02-domain3.md "solutions-architect-professional-02-domain3.md")
 - [Content Domain 4: Accelerate Workload Migration and Modernization (20% of scored content)](solutions-architect-professional-02-domain4.md "solutions-architect-professional-02-domain4.md")
+
+## Emerging Topics
+
+In addition to questions based on the content outline of this guide, you might also encounter questions about emerging technologies and practices that are becoming increasingly relevant to the Solutions Architect - Professional role. These topics represent evolving areas of cloud architecture and might appear as pretest questions on your exam.
+
+Questions on these emerging topics are included to evaluate new content and will not affect your exam score. These pretest questions help us ensure that our certifications remain current with evolving AWS technologies and architectural best practices.
+
+### Design security and responsible AI controls
+
+Skills in:
+
+- Implementing content filtering and regulatory compliance controls for generative AI services (for example, by using Amazon Bedrock Guardrails).
+- Implementing access controls for generative and agentic AI applications (for example, by using AgentCore Identity).
+- Designing human oversight workflows that include approval mechanisms for AI operations (for example, by using AWS Step Functions).
 
 ## Service References
 
