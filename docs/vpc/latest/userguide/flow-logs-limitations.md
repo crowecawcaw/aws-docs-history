@@ -30,11 +30,12 @@ To use flow logs, you need to be aware of the following limitations:
   resources in the same VPC and flows going through an Outpost local gateway.
 - Some flow log records may be skipped during the aggregation interval (see _log-status_ in [Available fields](flow-log-records.md#flow-logs-fields "flow-log-records.md#flow-logs-fields")). This may be caused by an internal AWS capacity constraint or internal error. If you are using AWS Cost Explorer to view VPC flow log charges and some flow logs are skipped during the flow log aggregation interval, the number of flow logs reported in AWS Cost Explorer will be higher than the number of flow logs published by Amazon VPC.
 - If you are using [VPC Block Public Access (BPA)](security-vpc-bpa-assess-impact-main.md#security-vpc-bpa-fl "security-vpc-bpa-assess-impact-main.md#security-vpc-bpa-fl"):
+  - Flow logs for VPC BPA do not include [skipped records](flow-logs-records-examples.md#flow-log-example-no-data "flow-logs-records-examples.md#flow-log-example-no-data").
+  - Flow logs for VPC BPA do not include [bytes](flow-log-records.md#flow-logs-fields "flow-log-records.md#flow-logs-fields") even if you include the
+    `bytes` field in your flow log.
 
-      + Flow logs for VPC BPA do not include [skipped records](flow-logs-records-examples.md#flow-log-example-no-data "flow-logs-records-examples.md#flow-log-example-no-data").
-      + Flow logs for VPC BPA do not include [bytes](flow-log-records.md#flow-logs-fields "flow-log-records.md#flow-logs-fields") even if you include the
-       `bytes` field in your flow log.
-
+- VPC Flow Logs supports a maximum of 250 subscriptions per resource per account.
+  To create additional subscriptions on a resource that has reached this limit, you must first delete existing subscriptions.
   Flow logs do not capture all IP traffic. The following types of traffic are not
   logged:
 
