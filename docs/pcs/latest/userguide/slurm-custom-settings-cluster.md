@@ -3,12 +3,6 @@
 The following custom Slurm settings are supported at the cluster level:
 
 - [AccountingStorageEnforce](https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStorageEnforce "https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStorageEnforce")
-
-###### Important
-
-AWS PCS supports a subset of the options for `AccountingStorageEnforce`.
-For more information, see [Slurm accounting in AWS PCS](slurm-accounting.md "slurm-accounting.md").
-
 - [AccountingStorageTRES](https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStorageTRES "https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStorageTRES")
 - [AccountingStoreFlags](https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStoreFlags "https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStoreFlags")
 - [DefMemPerCPU](https://slurm.schedmd.com/slurm.conf.html#OPT_DefMemPerCPU "https://slurm.schedmd.com/slurm.conf.html#OPT_DefMemPerCPU")
@@ -59,5 +53,6 @@ AWS PCS supports a minimum value of 5 seconds for `MinJobAge`.
 - [TaskEpilog](https://slurm.schedmd.com/slurm.conf.html#OPT_TaskEpilog "https://slurm.schedmd.com/slurm.conf.html#OPT_TaskEpilog")
 - [TaskPluginParam](https://slurm.schedmd.com/slurm.conf.html#OPT_TaskPluginParam "https://slurm.schedmd.com/slurm.conf.html#OPT_TaskPluginParam")
 - [TaskProlog](https://slurm.schedmd.com/slurm.conf.html#OPT_TaskProlog "https://slurm.schedmd.com/slurm.conf.html#OPT_TaskProlog")
+- [TrackWCKey](https://slurm.schedmd.com/slurm.conf.html#OPT_TrackWCKey "https://slurm.schedmd.com/slurm.conf.html#OPT_TrackWCKey")
 - [UnkillableStepProgram](https://slurm.schedmd.com/slurm.conf.html#OPT_UnkillableStepProgram "https://slurm.schedmd.com/slurm.conf.html#OPT_UnkillableStepProgram")
 - [UnkillableStepTimeout](https://slurm.schedmd.com/slurm.conf.html#OPT_UnkillableStepTimeout "https://slurm.schedmd.com/slurm.conf.html#OPT_UnkillableStepTimeout")
