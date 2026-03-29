@@ -60,6 +60,7 @@ EventBridge supports the following SaaS partner integrations:
 - [Payshield](https://console.aws.amazon.com/events/#/partners/payshield.com.au?page=overview "https://console.aws.amazon.com/events/#/partners/payshield.com.au?page=overview")
 - [Rhythm Software](https://console.aws.amazon.com/events/#/partners/rhythmsoftware.com?page=overview "https://console.aws.amazon.com/events/#/partners/rhythmsoftware.com?page=overview")
 - [Rightsline](https://console.aws.amazon.com/events/#/partners/rightsline.com?page=overview "https://console.aws.amazon.com/events/#/partners/rightsline.com?page=overview")
+- [Rootly](https://console.aws.amazon.com/events/#/partners/rootly.com?page=overview "https://console.aws.amazon.com/events/#/partners/rootly.com?page=overview")
 - [SaaSus
   Platform](https://console.aws.amazon.com/events/#/partners/saasus.io?page=overview "https://console.aws.amazon.com/events/#/partners/saasus.io?page=overview")
 - [SailPoint](https://console.aws.amazon.com/events/#/partners/sailpoint.com?page=overview "https://console.aws.amazon.com/events/#/partners/sailpoint.com?page=overview")

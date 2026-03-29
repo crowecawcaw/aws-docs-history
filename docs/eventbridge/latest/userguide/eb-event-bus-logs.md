@@ -113,7 +113,7 @@ JSON
 ```
 
 For more information, see
-[Service-specific permissions](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-V2-service-specific "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-V2-service-specific")
+[Service-specific permissions](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-vended-logs-permissions "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-vended-logs-permissions")
 in the _CloudWatch Logs User Guide_.
 
 ## Specifying event bus log level
