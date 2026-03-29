@@ -173,7 +173,7 @@ Add the following IAM permissions to your existing operator access role:
 
 - `aidevops:ListChats` – View chat conversation history
 - `aidevops:CreateChat` – Create new chat conversations
-- `aidevops:StreamMessage` – Send messages and receive responses
+- `aidevops:SendMessage` – Send messages and receive responses
 
 Navigate to the AWS IAM console, locate your DevOps Agent operator role, and add these permissions to the role policy. Chat becomes available immediately after the permissions are added.
 

@@ -25,7 +25,7 @@ Chat requires the following IAM permissions to function:
 
 - **aidevops:ListChats** – Allows users to list and access chat conversation history.
 - **aidevops:CreateChat** – Allows users to create new chat conversations.
-- **aidevops:StreamMessage** – Allows users to submit queries and receive streaming responses.
+- **aidevops:SendMessage** – Allows users to submit queries and receive streaming responses.
 
 ## Topology and discovery actions
 
@@ -121,7 +121,9 @@ This policy grants access to investigation and prevention features without admin
         "aidevops:GetKnowledgeItem",
         "aidevops:InitiateChatForCase",
         "aidevops:EndChatForCase",
-        "aidevops:SendChatMessage",
+        "aidevops:ListChats",
+        "aidevops:CreateChat",
+        "aidevops:SendMessage",
         "aidevops:ListGoals",
         "aidevops:CreateKnowledgeItem",
         "aidevops:UpdateKnowledgeItem",
