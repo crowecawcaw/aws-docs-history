@@ -28,7 +28,11 @@ JSON
  "Resource": "*",
  "Condition": {
  "ArnLike": {
- "kms:EncryptionContext:aws:logs:arn": "arn:aws:logs:us-east-1:111122223333:log-group:datazone-*"
+ "kms:EncryptionContext:aws:logs:arn": [
+ "arn:aws:logs:us-east-1:111122223333:log-group:datazone-*",
+ "arn:aws:logs:us-east-1:111122223333:log-group:airflow-*",
+ "arn:aws:logs:us-east-1:111122223333:log-group:aws/mwaa-serverless*"
+ ]
  }
  }
  },
@@ -94,6 +98,26 @@ JSON
  "kms:GenerateDataKey"
  ],
  "Resource": "*"
+ },
+ {
+ "Sid": "AirflowCreateGrantKmsPermissions",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:role/service-role/AmazonSageMakerProvisioning-111122223333"
+ },
+ "Action": "kms:CreateGrant",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ },
+ "StringLike": {
+ "kms:ViaService": [
+ "airflow.*.amazonaws.com",
+ "airflow-serverless.*.amazonaws.com"
+ ]
+ }
+ }
  },
  {
  "Sid": "AllowKmsKeyUsageForSageMakerDomain",
