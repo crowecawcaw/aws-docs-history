@@ -27,7 +27,7 @@ AWS Toolkits from working correctly in the browser. As a workaround to this issu
 _Cookies_ in the _Privacy & Security_ section of your browser settings, as displayed in the
 image below.
 
-![Displaying the cookie settings for Firefox](/images/cloud9/latest/user-guide/images/firefox-workaround.png)
+![Displaying the cookie settings for Firefox](images/firefox-workaround.png)
 
 At present, the following AWS services and resources can be accessed through the
 AWS Toolkit extension:
