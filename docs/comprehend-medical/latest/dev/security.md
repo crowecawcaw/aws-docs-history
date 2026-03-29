@@ -21,15 +21,15 @@ cloud and security _in_ the cloud:
   factors including the sensitivity of your data, your company’s requirements, and
   applicable laws and regulations.
   This documentation helps you understand how to apply the shared responsibility model when
-  using Comprehend Medical. The following topics show you how to configure Comprehend Medical to meet
+  using Amazon Comprehend Medical. The following topics show you how to configure Amazon Comprehend Medical to meet
   your security and compliance objectives. You also learn how to use other AWS services that
-  help you to monitor and secure your Comprehend Medical resources.
+  help you to monitor and secure your Amazon Comprehend Medical resources.
 
 ###### Topics
 
-- [Data protection in Amazon Comprehend Medical](security-dataprotection.md "security-dataprotection.md")
+- [Data protection in Amazon Comprehend Medical](data-protection.md "data-protection.md")
 - [Identity and access management in Amazon Comprehend Medical](security-iam.md "security-iam.md")
-- [Logging Amazon Comprehend Medical API calls by using AWS CloudTrail](security-cloudtrail.md "security-cloudtrail.md")
-- [Compliance validation for Amazon Comprehend Medical](security-compliance.md "security-compliance.md")
-- [Resilience in Amazon Comprehend Medical](security-resilience.md "security-resilience.md")
-- [Infrastructure security in Amazon Comprehend Medical](security-infrastructure.md "security-infrastructure.md")
+- [Logging Amazon Comprehend Medical API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Compliance validation for Amazon Comprehend Medical](compliance-validation.md "compliance-validation.md")
+- [Resilience in Amazon Comprehend Medical](resilience.md "resilience.md")
+- [Infrastructure security in Amazon Comprehend Medical](infrastructure-security.md "infrastructure-security.md")

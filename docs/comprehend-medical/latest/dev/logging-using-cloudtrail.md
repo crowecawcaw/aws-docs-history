@@ -1,4 +1,4 @@
-# Logging Amazon Comprehend Medical API calls by using AWS CloudTrail
+# Logging Amazon Comprehend Medical API calls using AWS CloudTrail
 
 Amazon Comprehend Medical is integrated with AWS CloudTrail. CloudTrail is a service that provides a
 record of actions taken by a user, role, or an AWS service from within

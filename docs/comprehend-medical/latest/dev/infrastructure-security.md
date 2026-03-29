@@ -3,7 +3,7 @@
 As a managed service, Amazon Comprehend Medical is protected by the AWS global network
 security procedures that are described in the [Amazon Web Services: Overview of Security Processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf "https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf") whitepaper.
 
-To access Comprehend Medical through the network, you use AWS published API calls.
+To access Amazon Comprehend Medical through the network, you use AWS published API calls.
 Clients must support Transport Layer Security (TLS) 1.0 or later. We recommend TLS 1.2
 or later. Clients must also support cipher suites with perfect forward secrecy (PFS),
 such as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman

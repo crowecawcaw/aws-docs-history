@@ -18,13 +18,13 @@ _IAM User Guide_.
 ###### Topics
 
 - [AWS managed policy: ComprehendMedicalFullAccess](#security-iam-awsmanpol-ComprehendMedicalFullAccess "#security-iam-awsmanpol-ComprehendMedicalFullAccess")
-- [Comprehend Medical updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [Amazon Comprehend Medical updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
 ## AWS managed policy: ComprehendMedicalFullAccess
 
 You can attach the `ComprehendMedicalFullAccess` policy to your IAM identities.
 
-This policy grants administrative permission to all Comprehend Medical actions.
+This policy grants administrative permission to all Amazon Comprehend Medical actions.
 
 JSON
 
@@ -44,12 +44,12 @@ JSON
 
 ```
 
-## Comprehend Medical updates to AWS managed policies
+## Amazon Comprehend Medical updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Comprehend Medical since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to
 the RSS feed on the [Document history](comprehendmedical-releases.md "comprehendmedical-releases.md") page.
 
-| Change                                      | Description                                                               | Date              |
-| ------------------------------------------- | ------------------------------------------------------------------------- | ----------------- |
-| Comprehend Medical started tracking changes | Comprehend Medical started tracking changes for its AWS managed policies. | November 27, 2018 |
+| Change                                             | Description                                                                      | Date              |
+| -------------------------------------------------- | -------------------------------------------------------------------------------- | ----------------- |
+| Amazon Comprehend Medical started tracking changes | Amazon Comprehend Medical started tracking changes for its AWS managed policies. | November 27, 2018 |

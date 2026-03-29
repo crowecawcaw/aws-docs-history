@@ -5,7 +5,7 @@ as part of multiple AWS compliance programs. These include PCI, FedRAMP, HIPAA, 
 others. You can download third-party audit reports using AWS Artifact. For more information,
 see [Downloading Reports in AWS Artifact](../../../artifact/latest/ug/downloading-documents.md "../../../artifact/latest/ug/downloading-documents.md").
 
-Your compliance responsibility when using Comprehend Medical is determined by the
+Your compliance responsibility when using Amazon Comprehend Medical is determined by the
 sensitivity of your data, your company's compliance objectives, and applicable laws and
 regulations. AWS provides the following resources to help with compliance:
 

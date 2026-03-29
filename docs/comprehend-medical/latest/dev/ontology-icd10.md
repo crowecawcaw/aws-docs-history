@@ -128,7 +128,7 @@ The `InferICD10CM` operation returns the following output in JSON format (abbrev
             ]
         }
 ...
-    "ModelVersion": "3.2.0.20251001"
+    "ModelVersion": "3.3.0.20251001"
 }
 
 ```
