@@ -173,7 +173,7 @@ in the _Amazon Elastic Compute Cloud User Guide_.
 ###### Note
 
 End of Support (EOS) operating systems are outside of the general support period of the operating system manufacturer and have increased security risk.
-EOS operating systems are considered supported configurations only if AMS-required agents support the operating system and...
+EOS operating systems are considered supported configurations only if AMS-required agents support the operating system and the following are true:
 
     1. you have extended support with the operating system vendor that allows you to receive updates, or
     2. any instances using an EOS OS follow the [security controls](key-terms.md#CritRec "key-terms.md#CritRec") as specified by AMS in the Accelerate User Guide, or
