@@ -31,11 +31,17 @@ jobs.
 
 ###### Amazon RDS
 
-AWS Backup does not pass the option group when you perform a cross-Region copy. Your target Region must have the same option group as the source Region for the cross-Region copy to succeed.
+AWS Backup does not pass the option group when performing a cross-Region copy. Instead,
+AWS Backup copies the default option group, even if you have configured a custom option
+group.
 
-You can [copy an option group](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy"). For more information, see the _Amazon Relational Database Service User Guide_.
+If your custom option group uses persistent options, the cross-Region copy job fails
+unless the destination Region has the same option group as the source Region. In this
+case, AWS Backup still copies the default option group.
 
-If you attempt a cross-Region copy without the same option group in your target Region, the copy job fails with an error message such as "The snapshot requires a target option group with the following options: ...."
+If you attempt a cross-Region copy without a matching option group in the target
+Region, the copy job fails with an error message such as "The snapshot requires a target
+option group with the following options: ...."
 
 ## Performing on-demand cross-Region backup
 

@@ -86,6 +86,15 @@ expired before completion.` If this occurs, configure a longer
 
   **REMEDY:** Add your IAM role to your KMS key.
 
+- For resources that support [full
+  AWS Backup management](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource") with recovery points in the format
+  `arn:aws:backup:`region`:`account-id`:recovery-point:*`
+  and all continuous backups, ensure your IAM role has permission to perform
+  `backup:TagResource` if your source resources contain tags or you
+  want to add additional tags to your recovery points. Apply the
+  `backup:TagResource` permission to `"Resource":
+"arn:aws:backup:*:*:recovery-point:*"`.
+
 ## Troubleshooting deleting resources
 
 Recovery points that are created by AWS Backup cannot be deleted in the console window of

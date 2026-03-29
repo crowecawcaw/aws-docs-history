@@ -136,7 +136,8 @@ Required: No
 
 **NumberOfRecoveryPoints**
 
-The number of recovery points that are stored in a backup vault.
+The number of recovery points that are stored in a backup vault. Recovery point count
+value displayed in the console can be an approximation.
 
 Type: Long
 

@@ -1,8 +1,9 @@
 # ListProtectedResources
 
-Returns an array of resources successfully backed up by AWS Backup, including
-the time the resource was saved, an Amazon Resource Name (ARN) of the resource, and a
-resource type.
+Returns an array of resources with recovery points created by AWS Backup
+(regardless of the recovery point's [status](API_DescribeRecoveryPoint.md#Backup-DescribeRecoveryPoint-response-Status "API_DescribeRecoveryPoint.md#Backup-DescribeRecoveryPoint-response-Status")),
+including the time the resource was saved, an Amazon Resource Name (ARN) of the resource,
+and a resource type.
 
 ## Request Syntax
 

@@ -51,6 +51,7 @@ resource types you can copy to a logically air-gapped vault.
 - [Delete a logically air-gapped vault](#lag-delete "#lag-delete")
 - [Additional programmatic options for logically air-gapped vaults](#lag-programmatic "#lag-programmatic")
 - [Understanding encryption key types for logically air-gapped vaults](#lag-encryption-key-types "#lag-encryption-key-types")
+- [Usage of service-owned key](#lag-service-owned-key "#lag-service-owned-key")
 - [Troubleshoot a logically air-gapped vault issue](#lag-troubleshoot "#lag-troubleshoot")
 - [Primary backups to logically air-gapped vaults](lag-vault-primary-backup.md "lag-vault-primary-backup.md")
 - [Multi-party approval for logically air-gapped vaults](multipartyapproval.md "multipartyapproval.md")
@@ -851,6 +852,26 @@ When working with logically air-gapped vaults and encryption key types, consider
 - **Compliance:** The encryption key type information supports
   compliance reporting and audit requirements by providing transparency into the
   encryption methods used for backup data.
+
+## Usage of service-owned key
+
+AWS Backup creates and manages encryption keys that are used to encrypt all the backup data
+stored in logically air-gapped vaults, to protect and prevent loss of access of the
+encryption key during a data loss event.
+
+- These keys are free of charge and do not count against the AWS KMS quotas for your
+  account.
+- A single key is only used for a specific vault and is not shared with any other
+  account or other purpose.
+- These keys are deleted once the assigned (empty) vault is also deleted.
+- These keys are created using the [SYMMETRIC_DEFAULT
+  key spec](../../../kms/latest/developerguide/symm-asymm-choose-key-spec.md#symmetric-cmks "../../../kms/latest/developerguide/symm-asymm-choose-key-spec.md#symmetric-cmks").
+- The default rotation policy is 90 days. You can request rotation (once every 6
+  months) of service-owned encryption keys for your logically air-gapped vaults through a
+  support ticket.
+
+Visit the [AWS KMS documentation](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") to learn
+more.
 
 ## Troubleshoot a logically air-gapped vault issue
 

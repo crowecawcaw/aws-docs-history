@@ -28,7 +28,12 @@ the lifecycle properties in a locked vault, AWS Backup will deny the operation.
 
 ###### Warning
 
-Once the grace time is expired, the vault and its lock are immutable. It cannot be changed or deleted by any user or by AWS. Backups within a locked vault cannot be deleted until their lifecycle completes, resulting in persistent costs if you are not careful.
+Once the grace time expires, the vault and its lock are immutable and cannot be changed
+or deleted by any user or by AWS. Backups within a locked vault cannot be deleted until
+their lifecycle completes, resulting in persistent costs if you are not careful. For example,
+ensure there are no recovery points with a retention period set to
+"Always"—once the grace time expires, these recovery points will be retained
+forever and cannot be altered or deleted.
 
 ## Vault lock modes
 
@@ -94,7 +99,7 @@ period (called **grace time**), though it must be _at least_
 
 ###### Important
 
-Once the grace time is expired, the vault and its lock are immutable. It cannot be
+Once the grace time expires, the vault and its lock are immutable and cannot be
 changed or deleted by any user or by AWS. 8. When you are satisfied with the configuration choices, click **Create vault lock**. 9. To confirm you wish to create this lock in the chosen mode, type `confirm`
 in the text box, then check the box acknowledging the configuration is as intended.
 
