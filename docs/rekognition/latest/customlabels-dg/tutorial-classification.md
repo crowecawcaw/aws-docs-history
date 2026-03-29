@@ -195,7 +195,7 @@ to complete.
 ![Rooms 19 model info showing status TRAINING_COMPLETED indicating the model is ready.](images/get-started-choose-model.jpg) 6. Choose the **Evaluate** button to see the evaluation results.
 For information about evaluating a model, see [Improving a trained Amazon Rekognition Custom Labels model](improving-model.md "improving-model.md"). 7. Choose **View test results** to see the results for individual test images. For more information, see [Metrics for evaluating your model](im-metrics-use.md "im-metrics-use.md").
 
-![Model evaluation results showing F1 score, average precision, and overall recall for 10 image labels with per label performance metrics.](/images/rekognition/latest/customlabels-dg/images/get-started-training-results.jpg) 8. After viewing the test results, choose the model name to return to the model page.
+![Model evaluation results showing F1 score, average precision, and overall recall for 10 image labels with per label performance metrics.](images/get-started-training-results.jpg) 8. After viewing the test results, choose the model name to return to the model page.
 
 ![Interface showing test results for a trained model on a dataset of backyard and front yard images, with predicted labels and confidence scores displayed.](images/get-started-image-test-results.jpg)
 
@@ -212,7 +212,7 @@ can restart your model at a later time. For more information, see [Running a tra
 2. In the **Start or stop model** section do the following:
    1. Choose **Start**.
 
-   ![User interface showing Start model button and options to start or stop a machine learning model for detecting custom labels. Select number of inference units to increase throughput.](images/get-started-start-model.jpg) 2. In the **Start model** dialog box, choose **Start**.
+   ![User interface showing Start model button and options to start or stop a machine learning model for detecting custom labels. Select number of inference units to increase throughput.](/images/rekognition/latest/customlabels-dg/images/get-started-start-model.jpg) 2. In the **Start model** dialog box, choose **Start**.
 
    ![Start model dialog box with Start button.](images/tutorial-start-model-dialog.jpg)
 
