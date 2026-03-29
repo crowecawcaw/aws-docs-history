@@ -36,7 +36,7 @@ want to view.
 **Open in dashboards** for the dashboard to view. You can also select
 the check box next to the dashboard, and then choose **Open**.
 
-![The "Dashboards" section of the projects page with "Wind Farm Dashboard" highlighted.](images/project-project-owner-view-dashboard-console.png) 4. You can browse the visualizations available in the dashboard.
+![The "Dashboards" section of the projects page with "Wind Farm Dashboard" highlighted.](/images/iot-sitewise/latest/appguide/images/project-project-owner-view-dashboard-console.png) 4. You can browse the visualizations available in the dashboard.
 
 ![An example dashboard with the time range dropdown highlighted.](images/dashboard-project-owner-view-dashboard-console.png) 5. You can [adjust the time range for your
 data](#adjust-dashboard-time-range "#adjust-dashboard-time-range"). If you're a project owner or portal administrator, you can modify the
