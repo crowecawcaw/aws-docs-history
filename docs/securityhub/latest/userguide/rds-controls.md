@@ -1818,7 +1818,7 @@ copy tags to DB snapshots, see [Tagging Amazon RDS
 resources](../../../AmazonRDS/latest/UserGuide/USER_Tagging.md "../../../AmazonRDS/latest/UserGuide/USER_Tagging.md") in the _Amazon Relational Database Service User
 Guide_.
 
-## [RDS.50] RDS for MySQL RDS DB clusters should have enough backup retention period set
+## [RDS.50] RDS DB clusters should have enough backup retention period set
 
 **Category:** Recover > Resilience > Backups enabled
 

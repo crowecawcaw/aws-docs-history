@@ -196,7 +196,7 @@ requirement.
 - [[ECS.2] ECS services should not have public IP addresses assigned to them automatically](ecs-controls.md#ecs-2 "ecs-controls.md#ecs-2")
 - [[ECS.3] ECS task definitions should not share the host's process namespace](ecs-controls.md#ecs-3 "ecs-controls.md#ecs-3")
 - [[ECS.4] ECS containers should run as non-privileged](ecs-controls.md#ecs-4 "ecs-controls.md#ecs-4")
-- [[ECS.5] ECS containers should be limited to read-only access to root filesystems](ecs-controls.md#ecs-5 "ecs-controls.md#ecs-5")
+- [[ECS.5] ECS task definitions should configure containers to be limited to read-only access to root filesystems](ecs-controls.md#ecs-5 "ecs-controls.md#ecs-5")
 - [[ECS.8] Secrets should not be passed as container environment variables](ecs-controls.md#ecs-8 "ecs-controls.md#ecs-8")
 - [[ECS.9] ECS task definitions should have a logging configuration](ecs-controls.md#ecs-9 "ecs-controls.md#ecs-9")
 - [[ECS.10] ECS Fargate services should run on the latest Fargate platform version](ecs-controls.md#ecs-10 "ecs-controls.md#ecs-10")

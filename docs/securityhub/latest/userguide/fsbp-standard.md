@@ -251,7 +251,7 @@ control, choose the control.
 
 [[ECS.4] ECS containers should run as non-privileged](ecs-controls.md#ecs-4 "ecs-controls.md#ecs-4")
 
-[[ECS.5] ECS containers should be limited to read-only access to root filesystems](ecs-controls.md#ecs-5 "ecs-controls.md#ecs-5")
+[[ECS.5] ECS task definitions should configure containers to be limited to read-only access to root filesystems](ecs-controls.md#ecs-5 "ecs-controls.md#ecs-5")
 
 [[ECS.8] Secrets should not be passed as container environment variables](ecs-controls.md#ecs-8 "ecs-controls.md#ecs-8")
 
@@ -597,7 +597,7 @@ control, choose the control.
 
 [[RDS.48] RDS for MySQL DB clusters should be configured to copy tags to DB snapshots](rds-controls.md#rds-48 "rds-controls.md#rds-48")
 
-[[RDS.50] RDS for MySQL RDS DB clusters should have enough backup retention period set](rds-controls.md#rds-50 "rds-controls.md#rds-50")
+[[RDS.50] RDS DB clusters should have enough backup retention period set](rds-controls.md#rds-50 "rds-controls.md#rds-50")
 
 [[Redshift.1] Amazon Redshift clusters should prohibit public access](redshift-controls.md#redshift-1 "redshift-controls.md#redshift-1")
 

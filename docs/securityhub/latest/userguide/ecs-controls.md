@@ -153,7 +153,7 @@ container is given elevated privileges on the host container instance (similar t
 
 To configure the `privileged` parameter on a task definition, see [Advanced container definition parameters](../../../AmazonECS/latest/developerguide/task_definition_parameters.md#container_definition_security "../../../AmazonECS/latest/developerguide/task_definition_parameters.md#container_definition_security") in the Amazon Elastic Container Service Developer Guide.
 
-## [ECS.5] ECS containers should be limited to read-only access to root filesystems
+## [ECS.5] ECS task definitions should configure containers to be limited to read-only access to root filesystems
 
 **Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6
 
@@ -171,8 +171,8 @@ To configure the `privileged` parameter on a task definition, see [Advanced cont
 
 **Parameters:** None
 
-This control checks whether an Amazon ECS container has read-only access to its root file
-system. The control fails if the `readonlyRootFilesystem` parameter is set to
+This control checks whether ECS task definitions configure containers to be limited to read-only access to mounted root file
+systems. The control fails if the `readonlyRootFilesystem` parameter in the container definitions of ECS task definition is set to
 `false`, or the parameter doesn't exist in the container definition
 within the task definition. This control evaluates only the latest active revision of an
 Amazon ECS task definition.
@@ -183,6 +183,12 @@ system. This reduces security attack vectors because the container instance's ro
 system can't be tampered with or written to without explicit volume mounts that have
 read-write permissions for file system folders and directories. Enabling this option
 also adheres to the principle of least privilege.
+
+###### Note
+
+The `readonlyRootFilesystem` parameter is not supported for Windows containers.
+Task definitions with `runtimePlatform` configured to specify a `WINDOWS_SERVER`
+OS family are marked as `NOT_APPLICABLE` and will not generate findings for this control.
 
 ### Remediation
 
