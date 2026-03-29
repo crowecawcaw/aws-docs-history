@@ -36,7 +36,7 @@ highlighted in red, it means that something went wrong with the racer's model su
   **COMING UP** on the **LIVE: <Your Race Name>** page. For more
   help see step three of [Run a LIVE AWS DeepRacer community race](deepracer-moderate-live-community-race.md "deepracer-moderate-live-community-race.md").
 
-![Choose the Launch simulator button.](images/live-race-toggle-off-model-entries.png)
+![Choose the Launch simulator button.](/images/deepracer/latest/developerguide/images/live-race-toggle-off-model-entries.png)
 
 ## I'm using a Chrome or Firefox browser but I'm still having issues seeing the LIVE race
 
