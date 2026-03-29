@@ -7,6 +7,9 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 - AWS Application Migration Service now supports storing EBS snapshots locally within AWS Local Zones
   that support this feature. For more information, see
   [Store snapshots in AWS Local Zone](replication-server-settings.md#local-zone-snapshots "replication-server-settings.md#local-zone-snapshots").
+- Added support for RHEL versions 9.7 and 10.1.
+- Added support for Rocky Linux versions 9.7, 10, and 10.1.
+- Added support for AlmaLinux versions 9.6, 9.7, 10, and 10.1.
 
 ## December 2025
 

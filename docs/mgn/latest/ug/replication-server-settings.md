@@ -343,12 +343,6 @@ residency requirements.
 This setting is available only when the staging area subnet is in a supported
 Local Zone.
 
-The following table lists the supported Local Zones:
-
-| Region name    | Availability zone names                                  |
-| -------------- | -------------------------------------------------------- |
-| ap-southeast-1 | ap-southeast-1-sggov-sin-2a, ap-southeast-1-sggov-sin-2b |
-
 For more information about local snapshots in Local Zones, see [Local snapshots in Local Zones](../../../ebs/latest/userguide/snapshots-localzones.md "../../../ebs/latest/userguide/snapshots-localzones.md") in the Amazon EBS User Guide.
 
 ## Always use Application Migration Service security group
