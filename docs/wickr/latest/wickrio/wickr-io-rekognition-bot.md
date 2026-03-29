@@ -37,7 +37,7 @@ docker run -v ~/WickrIO:/opt/WickrIO -v /home/ubuntu/
 
 3. Select your preference for the welcome message.
 
-![The Wickr IO welcome message prompt.](/images/wickr/latest/wickrio/images/wickrio-welcome-message-prompt.png) 4. At the **Enter command:** prompt, enter the command
+![The Wickr IO welcome message prompt.](images/wickrio-welcome-message-prompt.png) 4. At the **Enter command:** prompt, enter the command
 **add**.
 
 ![The Wickr IO rekognition bot add command.](images/wickrio-rekognition-add.png) 5. Over the next several prompts, enter the username and password created in the previous
