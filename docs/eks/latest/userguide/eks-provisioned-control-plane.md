@@ -58,6 +58,8 @@ you to scale your control plane capacity in advance. This proactive
 approach ensures your control plane is ready to handle the increased
 load without waiting for automatic scaling to respond to demand.
 
+**Mission-critical high availability** - For workloads that demand the highest levels of availability, Provisioned Control Plane offers a [99.99% Service Level Agreement (SLA)](https://aws.amazon.com/eks/sla/ "https://aws.amazon.com/eks/sla/"), measured in 1-minute intervals. This enhanced SLA provides a more stringent availability commitment compared to the 99.95% SLA of Standard control plane mode, measured in 5-minute intervals.
+
 **Environment consistency** – Provisioned Control Plane enables you to
 match control plane capacity and performance across staging and
 production environments, helping you identify potential issues early
@@ -77,8 +79,8 @@ from the moment it’s activated.
 ## Control Plane Scaling Tiers
 
 EKS Provisioned Control Plane offers scaling tiers named using t-shirt
-sizes (XL, 2XL, 4XL, and 8XL). Each tier defines its capacity through three key
-Kubernetes attributes that determine the performance characteristics of your
+sizes (XL, 2XL, 4XL, and 8XL). Each tier defines its capability through four key
+attributes that determine the performance characteristics of your
 cluster’s control plane. Understanding these attributes helps you select
 the appropriate tier for your workload requirements.
 
@@ -90,28 +92,21 @@ scheduler can schedule pods on nodes, measured in pods per second.
 
 **Cluster database size** indicates the storage space allocated to etcd, the database that holds the cluster state/metadata.
 
+**SLA (Service Level Agreement)** indicates the monthly uptime commitment of the Kubernetes endpoint of the EKS cluster
+
 When you provision your cluster’s control plane on a certain scaling tier using Provisioned Control Plane, EKS ensures your cluster’s control
 plane maintains the limits corresponding to that tier. The
 limits of control plane scaling tiers vary by Kubernetes version,
 as shown in the following tables.
 
-### EKS v1.28 and v1.29
-
-| Provisioned Control Plane Scaling Tier | API request concurrency (seats) | Pod scheduling rate (pods/sec) | Cluster database size (GB) |
-| -------------------------------------- | ------------------------------- | ------------------------------ | -------------------------- |
-| XL                                     | 1700                            | 100                            | 16                         |
-| 2XL                                    | 3400                            | 100                            | 16                         |
-| 4XL                                    | 6800                            | 100                            | 16                         |
-| 8XL                                    | 13600                           | 100                            | 16                         |
-
 ### EKS v1.30 and later
 
-| Provisioned Control Plane Scaling Tier | API request concurrency (seats) | Pod scheduling rate (pods/sec) | Cluster database size (GB) |
-| -------------------------------------- | ------------------------------- | ------------------------------ | -------------------------- |
-| XL                                     | 1700                            | 167                            | 16                         |
-| 2XL                                    | 3400                            | 283                            | 16                         |
-| 4XL                                    | 6800                            | 400                            | 16                         |
-| 8XL                                    | 13600                           | 400                            | 16                         |
+| Provisioned Control Plane Scaling Tier | API request concurrency (seats) | Pod scheduling rate (pods/sec) | Cluster database size (GB) | SLA (measured in 1-minute intervals) |
+| -------------------------------------- | ------------------------------- | ------------------------------ | -------------------------- | ------------------------------------ |
+| XL                                     | 1700                            | 167                            | 16                         | 99.99%                               |
+| 2XL                                    | 3400                            | 283                            | 16                         | 99.99%                               |
+| 4XL                                    | 6800                            | 400                            | 16                         | 99.99%                               |
+| 8XL                                    | 13600                           | 400                            | 16                         | 99.99%                               |
 
 ### Monitoring control plane scaling tier utilization
 
@@ -120,11 +115,11 @@ plane’s tier utilization. These metrics are published as [Amazon CloudWatch me
 accessible through the CloudWatch and EKS console. Additionally, these metrics
 are scrapable from your EKS cluster’s Prometheus endpoint (see [here](prometheus.md "prometheus.md")).
 
-|                             | **Prometheus Metric**                         | **CloudWatch Metric**                                                                                               |
-| --------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **API request concurrency** | apiserver_flowcontrol_current_executing_seats | apiserver_flowcontrol_current_executing_seats                                                                       |
-| **Pod scheduling rate**     | scheduler_schedule_attempts_total             | scheduler_schedule_attempts_total, scheduler_schedule_attempts_SCHEDULED, scheduler_schedule_attempts_UNSCHEDULABLE |
-| **Cluster database size**   | apiserver_storage_size_bytes                  | apiserver_storage_size_bytes                                                                                        |
+|                             | **Prometheus Metric**                                                                                                                                             | **CloudWatch Metric**                                                                                               |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **API request concurrency** | apiserver_flowcontrol_current_executing_seats                                                                                                                     | apiserver_flowcontrol_current_executing_seats                                                                       |
+| **Pod scheduling rate**     | scheduler_schedule_attempts_total                                                                                                                                 | scheduler_schedule_attempts_total, scheduler_schedule_attempts_SCHEDULED, scheduler_schedule_attempts_UNSCHEDULABLE |
+| **Cluster database size**   | apiserver_storage_size_bytes (NOTE: etcd_mvcc_db_total_size_in_use_in_bytes will be rolled out as a prometheus metric to all EKS clusters by second half of 2026) | etcd_mvcc_db_total_size_in_use_in_bytes                                                                             |
 
 You can view control plane utilization in the Amazon EKS console. From your cluster’s overview page, choose **Monitor cluster** to access the observability dashboard, then select the **Control plane monitoring** tab to view control plane utilization under the **Control plane scaling** section.
 
@@ -178,3 +173,4 @@ When you select a Provisioned Control Plane scaling tier, the tier attributes re
 - **Provisioned Control Plane pricing** – You will be billed at the hourly rate for the Provisioned Control Plane scaling tier your cluster is on. This is in addition to the standard or extended support hourly charges. See Amazon EKS Pricing [page](https://aws.amazon.com/eks/pricing/ "https://aws.amazon.com/eks/pricing/") for details.
 - **Larger scaling tier** – If you intend to run your cluster on scaling tier larger than 8XL, contact your Amazon Web Services account team for additional pricing information.
 - **Kubernetes version and region support** – EKS Provisioned Control Plane is supported in all Amazon Web Services commercial, GovCloud, and China regions. Provisioned Control Plane works on EKS v1.28 and higher.
+- **Higher SLA** - EKS Provisioned Control Plane offers higher EKS SLA than Standard Control Plane. Learn more in [EKS SLA page](https://aws.amazon.com/eks/sla/ "https://aws.amazon.com/eks/sla/").

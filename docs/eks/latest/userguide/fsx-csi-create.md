@@ -8,7 +8,7 @@ This topic shows you how to deploy the [FSx for Lustre CSI driver](fsx-csi.md "f
 
 ###### Note
 
-The driver isn’t supported on Fargate or Amazon EKS Hybrid Nodes.
+The driver isn’t supported on Fargate.
 
 For detailed descriptions of the available parameters and complete examples that demonstrate the driver’s features, see the [FSx for Lustre Container Storage Interface (CSI) driver](https://github.com/kubernetes-sigs/aws-fsx-csi-driver "https://github.com/kubernetes-sigs/aws-fsx-csi-driver") project on GitHub.
 

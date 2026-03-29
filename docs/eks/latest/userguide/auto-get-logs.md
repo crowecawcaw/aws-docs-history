@@ -118,7 +118,7 @@ kubectl delete nodediagnostics.eks.amazonaws.com/`<node-name>`
 
 ## NodeDiagnostic `node` Destination
 
-Starting with version `v1.6.0` of the Node Monitoring Agent, there is an option to set the log collection destination to `node`. Using this destination will lead to the collection and temporary persistence of logs on the node for later collection. In addition to this functionality, within the Node Monitoring Agent’s GitHub repository is a `kubectl` plugin you can install for easy interaction and log collection. For more information, see the [documentation for the `kubectl ekslogs` plugin](https://github.com/aws/eks-node-monitoring-agent/blob/main/tools/kubectl-ekslogs/README.md "https://github.com/aws/eks-node-monitoring-agent/blob/main/tools/kubectl-ekslogs/README.md").
+Starting with version `v1.6.1-eksbuild.1` of the Node Monitoring Agent, there is an option to set the log collection destination to `node`. Using this destination will lead to the collection and temporary persistence of logs on the node for later collection. In addition to this functionality, within the Node Monitoring Agent’s GitHub repository is a `kubectl` plugin you can install for easy interaction and log collection. For more information, see the [documentation for the `kubectl ekslogs` plugin](https://github.com/aws/eks-node-monitoring-agent/blob/main/tools/kubectl-ekslogs/README.md "https://github.com/aws/eks-node-monitoring-agent/blob/main/tools/kubectl-ekslogs/README.md").
 
 ## Example Usage
 
