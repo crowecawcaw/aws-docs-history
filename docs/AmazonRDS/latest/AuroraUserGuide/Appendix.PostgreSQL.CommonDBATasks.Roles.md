@@ -13,7 +13,7 @@ characters. For simplicity's sake, we refer to this main user account by its def
 
 If you use the `create-db-cluster` AWS CLI rather than the
 AWS Management Console, you create the user name by passing it with the `master-username`
-parameter. For more information, see [Step 2: Create an Aurora PostgreSQL DB cluster](CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster").
+parameter. For more information, see [Step 2: Create an Aurora PostgreSQL DB cluster](CHAP_GettingStartedAurora.AuroraPostgreSQL.FullConfig.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "CHAP_GettingStartedAurora.AuroraPostgreSQL.FullConfig.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster").
 
 Whether you use the AWS Management Console, the AWS CLI, or the Amazon RDS API, and whether you use the default
 `postgres` name or choose a different name, this first database user account is a

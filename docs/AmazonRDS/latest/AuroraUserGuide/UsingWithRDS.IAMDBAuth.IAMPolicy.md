@@ -22,26 +22,6 @@ JSON
  "rds-db:connect"
  ],
  "Resource": [
- "arn:aws:rds-db:us-east-2:`111122223333`:dbuser:db-ABCDEFGHIJKL01234/db_user"
- ]
- }
- ]
-}`
-
-```
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "rds-db:connect"
- ],
- "Resource": [
  "arn:aws:rds-db:us-east-2:`111122223333`:dbuser:cluster-ABCDEFGHIJKL01234/db_user"
  ]
  }
@@ -130,27 +110,6 @@ In this format, replace the following:
 
 You can construct other ARNs to support various access patterns. The following policy
 allows access to two different database accounts in a DB cluster.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "rds-db:connect"
- ],
- "Resource": [
- "arn:aws:rds-db:us-east-2:123456789012:dbuser:db-ABCDEFGHIJKL01234/jane_doe",
- "arn:aws:rds-db:us-east-2:123456789012:dbuser:db-ABCDEFGHIJKL01234/mary_roe"
- ]
- }
- ]
-}`
-
-```
 
 JSON
 

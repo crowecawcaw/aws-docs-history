@@ -27,8 +27,7 @@ Modify the values of the following variables as needed:
 
 ###### Note
 
-You cannot use a custom Route 53 DNS record or
-an Aurora custom endpoint instead of the DB cluster endpoint to generate the authentication
+You cannot use a custom Route 53 DNS record instead of the DB cluster endpoint to generate the authentication
 token.
 
 - `dbPort` – The port number used for connecting to your DB cluster

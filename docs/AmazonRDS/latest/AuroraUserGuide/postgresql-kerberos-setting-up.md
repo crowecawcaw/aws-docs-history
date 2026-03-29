@@ -187,7 +187,7 @@ following screenshot shows an example.
 For Amazon Aurora to call Directory Service for you, your AWS account needs an IAM role
 that uses the managed IAM policy `AmazonRDSDirectoryServiceAccess`.
 This role allows Amazon Aurora to make calls to Directory Service. (Note that this IAM role to access the Directory Service is different
-than the IAM role used for [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").)
+than the IAM role used for [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md") .)
 
 When you create a DB instance using the AWS Management Console and your console user account
 has the `iam:CreateRole` permission, the console creates the needed IAM
@@ -466,7 +466,7 @@ domain.
 
 Database users that have been granted the `rds_ad` role can't also
 have the `rds_iam` role. This also applies to nested memberships. For
-more information, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+more information, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md") .
 
 ### Configuring your Aurora PostgreSQL DB cluster for case-insensitive user names
 

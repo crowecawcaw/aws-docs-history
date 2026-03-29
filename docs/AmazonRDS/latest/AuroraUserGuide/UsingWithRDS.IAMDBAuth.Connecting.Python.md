@@ -44,8 +44,7 @@ For `ssl_ca`, specify an SSL certificate. To download an SSL certificate, see
 
 ###### Note
 
-You cannot use a custom Route 53 DNS record or an
-Aurora custom endpoint instead of the DB cluster endpoint to generate the authentication token.
+You cannot use a custom Route 53 DNS record instead of the DB cluster endpoint to generate the authentication token.
 
 This code connects to an Aurora MySQL DB cluster.
 

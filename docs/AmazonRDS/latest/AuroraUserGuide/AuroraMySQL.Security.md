@@ -51,7 +51,7 @@ _Amazon Elastic Compute Cloud User Guide_.
   _authentication token_ is a unique value that is
   generated using the Signature Version 4 signing process. By using IAM
   database authentication, you can use the same credentials to control access
-  to your AWS resources and your databases. For more information, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+  to your AWS resources and your databases. For more information, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md") .
 
 ###### Note
 

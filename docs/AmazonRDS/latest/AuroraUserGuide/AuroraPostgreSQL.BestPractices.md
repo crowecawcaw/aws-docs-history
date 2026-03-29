@@ -7,6 +7,7 @@ cluster. Be sure to also review basic maintenance tasks. For more information, s
 
 - [Avoiding slow performance, automatic restart, and failover for Aurora PostgreSQL DB instances](#AuroraPostgreSQL.BestPractices.Avoiding "#AuroraPostgreSQL.BestPractices.Avoiding")
 - [Diagnosing table and index bloat](AuroraPostgreSQL.diag-table-ind-bloat.md "AuroraPostgreSQL.diag-table-ind-bloat.md")
+- [Managing high object counts in Amazon Aurora PostgreSQL](PostgreSQL.HighObjectCount.md "PostgreSQL.HighObjectCount.md")
 - [Improved memory management in Aurora PostgreSQL](AuroraPostgreSQL.BestPractices.memory.management.md "AuroraPostgreSQL.BestPractices.memory.management.md")
 - [Fast failover with Amazon Aurora PostgreSQL](AuroraPostgreSQL.BestPractices.FastFailover.md "AuroraPostgreSQL.BestPractices.FastFailover.md")
 - [Fast recovery after failover with cluster cache management for Aurora PostgreSQL](AuroraPostgreSQL.cluster-cache-mgmt.md "AuroraPostgreSQL.cluster-cache-mgmt.md")

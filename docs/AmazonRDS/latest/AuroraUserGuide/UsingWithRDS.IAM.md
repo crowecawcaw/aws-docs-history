@@ -65,7 +65,7 @@ You can authenticate to your DB cluster using IAM database authentication.
 
 IAM database authentication works with Aurora. For more information
 about authenticating to your DB cluster
-using IAM, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+using IAM, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md") .
 
 ### IAM roles
 

@@ -53,7 +53,7 @@ rdsmysql.123456789012.us-west-2.rds.amazonaws.com:3306/?Action=connect&DBUser=ja
 
 ###### Note
 
-You cannot use a custom Route 53 DNS record or an Aurora custom endpoint instead of the DB cluster endpoint to generate the authentication token.
+You cannot use a custom Route 53 DNS record instead of the DB cluster endpoint to generate the authentication token.
 
 ## Connecting to a DB cluster
 

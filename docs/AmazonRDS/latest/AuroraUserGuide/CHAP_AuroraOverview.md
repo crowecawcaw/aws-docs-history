@@ -38,6 +38,7 @@ database for your organization on AWS](https://aws.amazon.com/getting-started/de
 - [High availability for Amazon Aurora](Concepts.AuroraHighAvailability.md "Concepts.AuroraHighAvailability.md")
 - [Replication with Amazon Aurora](Aurora.Replication.md "Aurora.Replication.md")
 - [DB instance billing for Aurora](User_DBInstanceBilling.md "User_DBInstanceBilling.md")
+- [Amazon Aurora on the AWS Free Tier](aurora-free-tier.md "aurora-free-tier.md")
 
 ## Amazon RDS shared responsibility model
 

@@ -26,7 +26,7 @@ A database can use Kerberos, AWS Identity and Access Management (IAM), or both K
 IAM authentication. However, because Kerberos and IAM authentication provide different
 authentication methods, a specific database user can log in to a database using only one or
 the other authentication method but not both. For more information about IAM
-authentication, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+authentication, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md") .
 
 ###### Note
 

@@ -34,8 +34,7 @@ access keys, see [Managing access keys for users](../../../IAM/latest/UserGuide/
 
 ###### Note
 
-You cannot use a custom Route 53 DNS record or an
-Aurora custom endpoint instead of the DB cluster endpoint to generate the authentication token.
+You cannot use a custom Route 53 DNS record instead of the DB cluster endpoint to generate the authentication token.
 
 After you create an instance of `RdsIamAuthTokenGenerator`, you can
 call the `getAuthToken` method to obtain a signed token. Provide the

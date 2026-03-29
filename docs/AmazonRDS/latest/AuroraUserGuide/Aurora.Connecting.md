@@ -90,7 +90,7 @@ To authenticate to your Aurora MySQL DB cluster, you can use either MySQL user n
 password authentication or AWS Identity and Access Management (IAM) database authentication. For more information on using
 MySQL user name and password authentication, see [Access control and account management](https://dev.mysql.com/doc/refman/5.7/en/access-control.html "https://dev.mysql.com/doc/refman/5.7/en/access-control.html") in the MySQL documentation.
 For more information on using IAM database authentication, see
-[IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+[IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md") .
 
 When you have a connection to your Amazon Aurora DB cluster with MySQL 8.0 compatibility,
 you can run SQL commands that are compatible with MySQL version 8.0. The minimum compatible
@@ -275,7 +275,7 @@ You can use SSL encryption on connections to an Aurora MySQL DB instance. For in
 
 To connect using SSL, use the MySQL utility as described in the following procedure.
 If you are using IAM database authentication, you must use an SSL connection. For
-information, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+information, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md") .
 
 ###### Note
 
@@ -416,7 +416,7 @@ Common causes of connection failures to a new Aurora DB cluster include the foll
 - **Port blocked by firewall rules** – Check the value of the port configured for your
   Aurora DB cluster. If a firewall rule blocks that port, you can re-create the instance using a different port.
 - **Incomplete or incorrect IAM configuration** – If you created your Aurora DB instance
-  to use IAM–based authentication, make sure that it's properly configured. For more information, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+  to use IAM–based authentication, make sure that it's properly configured. For more information, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md") .
 
 For more information about troubleshooting Aurora DB connection issues, see
 [Can't connect to Amazon RDS DB instance](CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting "CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting").

@@ -47,8 +47,7 @@ To download a certificate, see [Using SSL/TLS to encrypt a connection to a DB cl
 
 ###### Note
 
-You cannot use a custom Route 53 DNS record or an
-Aurora custom endpoint instead of the DB cluster endpoint to generate the authentication token.
+You cannot use a custom Route 53 DNS record instead of the DB cluster endpoint to generate the authentication token.
 
 ```
 using System;
@@ -110,8 +109,7 @@ To download a certificate, see [Using SSL/TLS to encrypt a connection to a DB cl
 
 ###### Note
 
-You cannot use a custom Route 53 DNS record or an
-Aurora custom endpoint instead of the DB cluster endpoint to generate the authentication token.
+You cannot use a custom Route 53 DNS record instead of the DB cluster endpoint to generate the authentication token.
 
 ```
 using System;
