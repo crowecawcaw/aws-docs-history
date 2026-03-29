@@ -108,7 +108,7 @@ of
         "ApplicationServerPublicKey": "`a123b45c6d78e9f012a34cd5e6a7890b12c3d45e6f78a1b234c56d7e890a1234`",
         "DAKCertificateMetadata": [
             {
-                "DeviceTypeId: "`fe98`",
+                "DeviceTypeId: `fe98`,
                 "CertificateId": `"43564A6D2D50524F544F54595045"`,
                 "FactorySupport": false,
                 "MaxAllowedSignature": 1000
@@ -195,7 +195,7 @@ information about the parameters in the API response, see [`GetWirelessDevice`](
         ],
         "DeviceProfileId":"`0ff5b0c6-f149-4498-af34-21993acd52a7`",
         "Positioning": {
-                        "DestinationName": `"SidewalkLocationDestination"`,
+                        "DestinationName": `SidewalkLocationDestination`,
                         },
         "PrivateKeys": [
             {

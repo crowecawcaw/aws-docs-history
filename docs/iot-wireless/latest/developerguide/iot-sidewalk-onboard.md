@@ -39,3 +39,4 @@ For more information, see [Describing your AWS IoT Wireless resources](getting-s
 - [Add your device to AWS IoT Core for Amazon Sidewalk](iot-sidewalk-create-device.md "iot-sidewalk-create-device.md")
 - [Add a destination for your Sidewalk end device](iot-sidewalk-qsg-destination.md "iot-sidewalk-qsg-destination.md")
 - [Connect your Sidewalk device and view uplink metadata format](iot-sidewalk-connect-uplink-metadata.md "iot-sidewalk-connect-uplink-metadata.md")
+- [Using AWS Location with Sidewalk Devices](iot-device-location-feature-sidewalk-device.md "iot-device-location-feature-sidewalk-device.md")

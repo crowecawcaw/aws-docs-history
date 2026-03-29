@@ -12,7 +12,7 @@ notification.
 
 For information about connecting your hardware platform and setting it up, see
 [Provisioning and
-registering your end device](https://docs.sidewalk.amazon/provisioning/ "https://docs.sidewalk.amazon/provisioning/") and [Setting up the hardware development kit (HDK)](https://docs.sidewalk.amazon/getting-started/sidewalk-onboard-prereq-hdk.html "https://docs.sidewalk.amazon/getting-started/sidewalk-onboard-prereq-hdk.html") in the _Amazon Sidewalk documentation_..
+registering your end device](https://docs.sidewalk.amazon/provisioning/ "https://docs.sidewalk.amazon/provisioning/") and [Setting up the hardware development kit (HDK)](https://docs.sidewalk.amazon/getting-started/sidewalk-onboard-prereq-hdk.html "https://docs.sidewalk.amazon/getting-started/sidewalk-onboard-prereq-hdk.html") in the _Amazon Sidewalk documentation_.
 
 ## Send downlink messages to your end device
 
