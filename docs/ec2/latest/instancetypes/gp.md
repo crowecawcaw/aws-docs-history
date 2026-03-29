@@ -60,6 +60,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | Mac2-m2pro      | `mac2-m2pro.metal`       |
 | Mac-m4          | `mac-m4.metal`           |
 | Mac-m4pro       | `mac-m4pro.metal`        |
+| Mac-m4max       | `mac-m4max.metal`        |
 | T2              | `t2.nano`                | `t2.micro`        | `t2.small`         | `t2.medium`        | `t2.large`         | `t2.xlarge`         | `t2.2xlarge`        |
 | T3              | `t3.nano`                | `t3.micro`        | `t3.small`         | `t3.medium`        | `t3.large`         | `t3.xlarge`         | `t3.2xlarge`        |
 | T3a             | `t3a.nano`               | `t3a.micro`       | `t3a.small`        | `t3a.medium`       | `t3a.large`        | `t3a.xlarge`        | `t3a.2xlarge`       |
@@ -104,6 +105,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | Mac2-m2pro      | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Apple (arm64_mac)             | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
 | Mac-m4          | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | Apple (arm64_mac)             | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
 | Mac-m4pro       | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | Apple (arm64_mac)             | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
+| Mac-m4max       | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Apple (arm64_mac)             | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
 | T2              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | T3              | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | T3a             | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✗ No                    | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
@@ -433,6 +435,8 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | mac-m4.metal       | 24.00        | Apple M4 with 10‑core CPU       | 10    | 10        | 1                | ✗ No         | ✗ No               |
 | **Mac-m4pro**      |
 | mac-m4pro.metal    | 48.00        | Apple M4 with 12‑core CPU       | 14    | 14        | 1                | ✗ No         | ✗ No               |
+| **Mac-m4max**      |
+| mac-m4max.metal    | 128.00       | Apple M4 Max with 16‑core CPU   | 16    | 16        | 1                | ✗ No         | ✗ No               |
 | **T2**             |
 | t2.nano 1          | 0.50         | Intel Xeon Family               | 1     | 1         | 1                | ✗ No         | ✗ No               |
 | t2.micro 1         | 1.00         | Intel Xeon Family               | 1     | 1         | 1                | ✗ No         | ✗ No               |
@@ -803,6 +807,8 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | mac-m4.metal        | 10 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | **Mac-m4pro**       |
 | mac-m4pro.metal     | 10 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| **Mac-m4max**       |
+| mac-m4max.metal     | 10 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | **T2**              |
 | t2.nano             | Low to Moderate                   | ✗ No  | ✗ No  | ✗ No        | 1             | 2                       | 2                          | ✓ Yes |
 | t2.micro            | Low to Moderate                   | ✗ No  | ✗ No  | ✗ No        | 1             | 2                       | 2                          | ✓ Yes |
@@ -1144,9 +1150,9 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8gn.12xlarge       | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8gn.16xlarge       | 40000.00                            | 5000.00                                           | 160000.00                            | ✓ Yes | ✗ No                                                                                                                 | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8gn.24xlarge       | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| m8gn.48xlarge       | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8gn.48xlarge       | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | m8gn.metal-24xl     | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 39 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| m8gn.metal-48xl     | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 39 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8gn.metal-48xl     | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 78 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **M8i**             |
 | m8i.large 1         | 650.00 / 10000.00                   | 81.25 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8i.xlarge 1        | 1250.00 / 10000.00                  | 156.25 / 1250.00                                  | 6000.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
@@ -1197,6 +1203,8 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | mac-m4.metal        | 8000.00                             | 1000.00                                           | 55000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 31 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | **Mac-m4pro**       |
 | mac-m4pro.metal     | 8000.00                             | 1000.00                                           | 55000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 31 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
+| **Mac-m4max**       |
+| mac-m4max.metal     | 10000.00                            | 1250.00                                           | 55000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 10 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | **T2**              |
 | **T3**              |
 | t3.nano 1           | 43.00 / 2085.00                     | 5.38 / 260.62                                     | 250.00 / 11800.00                    | ✓ Yes | ✗ No                                                                                                                 | Up to 27 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
@@ -1671,6 +1679,8 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | mac-m4.metal       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | **Mac-m4pro**      |
 | mac-m4pro.metal    | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| **Mac-m4max**      |
+| mac-m4max.metal    | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
 | **T2**             |
 | t2.nano            | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
 | t2.micro           | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
