@@ -63,7 +63,7 @@ creation to deletion.
 A producer (Component 1) sends message A to a queue, and the
 message is distributed across the Amazon SQS servers redundantly.
 
-![Section two description for the previous lifecycle diagram.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-2-red.png)
+![Section two description for the previous lifecycle diagram.](images/number-2-red.png)
 When a consumer (Component 2) is ready to process messages, it
 consumes messages from the queue, and message A is returned. While message A is being
 processed, it remains in the queue and isn't returned to subsequent receive requests for
