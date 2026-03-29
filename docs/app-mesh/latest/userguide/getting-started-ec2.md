@@ -730,7 +730,7 @@ After creating your mesh, you need to complete the following tasks:
 
    ```
    `sudo docker run --detach --env APPMESH_RESOURCE_ARN=`mesh/`apps`/virtualNode/`serviceB`` \
-   -u `1337` --network host 840364872350.dkr.ecr.`region-code`.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod`
+   -u `1337` --network host 840364872350.dkr.ecr.`region-code`.amazonaws.com/aws-appmesh-envoy:v1.34.13.0-prod`
    ```
 
    - `me-south-1` Region. You can replace
@@ -739,7 +739,7 @@ After creating your mesh, you need to complete the following tasks:
 
    ```
    `sudo docker run --detach --env APPMESH_RESOURCE_ARN=`mesh/`apps`/virtualNode/`serviceB`` \
-   -u `1337` --network host 772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod`
+   -u `1337` --network host 772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.13.0-prod`
    ```
 
    - `ap-east-1` Region. You can replace
@@ -748,7 +748,7 @@ After creating your mesh, you need to complete the following tasks:
 
    ```
    `sudo docker run --detach --env APPMESH_RESOURCE_ARN=`mesh/`apps`/virtualNode/`serviceB`` \
-   -u `1337` --network host 856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod`
+   -u `1337` --network host 856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.34.13.0-prod`
    ```
 
 ###### Note
