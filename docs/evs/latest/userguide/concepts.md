@@ -12,6 +12,13 @@ For more information, see [Amazon EVS architecture](architecture.md "architectur
 ## Amazon EVS host
 
 An Amazon EVS _host_ is a VMware ESX host that runs on Amazon EC2 bare metal instances.
+Amazon EVS hosts use local NVMe instance store volumes for vSAN datastores, which store your management and workload virtual machines.
+
+###### Warning
+
+Instance store volumes are ephemeral. Data stored on these volumes do not persist if the underlying EC2 instance is stopped or terminated. Stopping or terminating Amazon EC2 instances used by Amazon EVS without decomissioning within VCF can result in data loss.
+
+For more information about host maintenance, see [Amazon EVS host maintenance](evs-host-maintenance.md "evs-host-maintenance.md").
 
 ## Service access subnet
 
