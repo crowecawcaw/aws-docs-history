@@ -90,4 +90,4 @@ The following issues impact all AWS CloudHSM hsm2m.medium instances.
   and stagger client application deployments and restarts to limit the amount of client applications
   initializing HSM connections concurrently. We also recommend that you implement application level retries
   for client application initialization. In addition, bootstrap using configure tool with
-  `--cluster-id <cluster ID>` to add all HSM IP's to the client configuration file.
+  `--cluster-id <cluster ID>` to add all HSM IP's to the client configuration file. This behavior has been improved in AWS CloudHSM Client SDK version 5.17.1 and later. We recommend upgrading to the latest SDK version to benefit from this improvement.
