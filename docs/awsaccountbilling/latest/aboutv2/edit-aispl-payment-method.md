@@ -260,7 +260,7 @@ To approve UPI transactions, AWS India will display a QR code that you can scan 
 The **Payments due** table lists all of your remaining
 AWS bills. If there aren't any bills listed, you don't have to do
 anything. 3. Choose the bills that you're paying in the **Payments
-due** table. 4. Choose **Complete payment**. 5. Then, click the **Use UPI Scan and Pay**button 6. Choose **Verify and pay**.
+due** table. 4. Choose **Complete payment**. 5. Then, choose **Use UPI Scan and Pay**. 6. Choose **Verify and pay**.
 
 You will be redirected to an intermediate page that displays a QR code shown on the screen and payment approval instructions. Open your UPI app, scan the QR code, and approve the transaction. After your payment is verified, you will be redirected to the Payments page with a success message.
 

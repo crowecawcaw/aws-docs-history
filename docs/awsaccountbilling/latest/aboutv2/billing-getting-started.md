@@ -1,6 +1,6 @@
 # Getting set up with Billing
 
-This section provides information that you need to get started with using the AWS Billing and Cost Management console. Prerequisites include signing up for AWS and setting up IAM users, reviewing your AWS bills, and other pages in the console you can use to customize your Billing and Cost Management preferences.
+Use this section to get started with the AWS Billing and Cost Management console. Prerequisites include signing up for AWS, setting up IAM users, and reviewing your AWS bills.
 
 ###### Topics
 
@@ -122,7 +122,7 @@ account, even if you're unavailable. The alternate contact doesn't have to be a 
 person. You could instead add an email distribution list if you have a team that manages
 billing, operations and security related issues.
 
-#### Examples for alternate contacts
+**Examples for alternate contacts**
 
 AWS will reach out to each contact type in the following scenarios:
 

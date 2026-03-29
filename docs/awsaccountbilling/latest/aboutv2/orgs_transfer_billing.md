@@ -73,7 +73,7 @@ If a transfer is withdrawn, the end date is 23:59:59 UTC on the last day of the 
 **Setting up Billing Transfer using console requires the use of AWS Billing Conductor**
 
 AWS Billing Conductor enables the bill source accounts to view pro forma cost data configured by your account (bill transfer account). You will incur charges for the use of AWS Billing Conductor.
-If you don't use AWS Billing Conductor, you may configure Billing Transfer using API. We recommend you configure AWS Billing Conductor to ensure that the bill source accounts have access to the pro forma cost data. For more information, see [AWS Billing Conductor Pricing](https://aws.amazon.com/aws-cost-management/aws-billing-conductor/pricing/ "https://aws.amazon.com/aws-cost-management/aws-billing-conductor/pricing/").
+If you don't use AWS Billing Conductor, you might configure Billing Transfer using API. We recommend you configure AWS Billing Conductor to ensure that the bill source accounts have access to the pro forma cost data. For more information, see [AWS Billing Conductor Pricing](https://aws.amazon.com/aws-cost-management/aws-billing-conductor/pricing/ "https://aws.amazon.com/aws-cost-management/aws-billing-conductor/pricing/").
 
 ## Important impacts
 

@@ -30,7 +30,7 @@ There are three options to start using billing transfer:
 
 ### Option 1: Set up billing transfer for externally owned organizations
 
-This option involves taking over billing responsibility through billing transfer from AWS Organizations owned by external parties (such as end customers, affiliates, or subsidiaries). You may send a billing transfer invite from your existing organization or create a new organization dedicated to billing and financial management to send invites from.
+This option involves taking over billing responsibility through billing transfer from AWS Organizations owned by external parties (such as end customers, affiliates, or subsidiaries). You might send a billing transfer invite from your existing organization or create a new organization dedicated to billing and financial management to send invites from.
 
 **Prerequisites**
 
@@ -139,7 +139,7 @@ This step is required only for channel partners and their reselling end customer
 
 This option involves handing over account ownership by providing root credentials controls of an existing AWS Organizations to a new owner and then transferring billing responsibility through billing transfer.
 
-You may send a billing transfer invite from your existing organization or create a new organization dedicated to billing and financial management to send invites from.
+You might send a billing transfer invite from your existing organization or create a new organization dedicated to billing and financial management to send invites from.
 
 **Prerequisites**
 

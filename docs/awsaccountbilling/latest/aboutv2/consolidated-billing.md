@@ -14,7 +14,7 @@ Consolidated billing has the following benefits:
 - **Easy tracking** – You can track the charges
   across multiple accounts and download the combined cost and usage data.
 - **Combined usage** – You can combine the usage
-  across all accounts in the organization to share the volume pricing discounts,
+  across all accounts in the organization. This shares the volume pricing discounts,
   Reserved Instance discounts, and Savings Plans. This can result in a lower charge for your
   project, department, or company than with individual standalone accounts. For more
   information, see [Volume discounts](useconsolidatedbilling-effective.md#useconsolidatedbilling-discounts "useconsolidatedbilling-effective.md#useconsolidatedbilling-discounts").

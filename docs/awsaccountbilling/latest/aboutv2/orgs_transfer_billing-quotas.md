@@ -12,7 +12,7 @@ The following are terms and concepts for billing transfers:
 
 - **Inbound billing**: Billing transfers that allow you to manage and pay for another organization’s consolidated bill.
 - **Outbound billing**: Billing transfers that allow an account outside your organization to manage and pay your consolidated bill.
-- **Bill-transfer chain**: A collection of billing transfers that are interconnected (e.g., Organization A transfers to Organization B, and Organization B transfers to Organization C).
+- **Bill-transfer chain**: A collection of billing transfers that are interconnected (for example, Organization A transfers to Organization B, and Organization B transfers to Organization C).
 
 ###### Note
 

@@ -126,4 +126,4 @@ all accounts.
 
 - Deactivating Reserved Instance and Savings Plans discount sharing can result in higher monthly bills
 - The Savings Plans owner account must remain active in sharing preferences for discounts to apply to other accounts
-- Group-based sharing may result in some underutilized commitments in Restricted mode
+- Group-based sharing might result in some underutilized commitments in Restricted mode

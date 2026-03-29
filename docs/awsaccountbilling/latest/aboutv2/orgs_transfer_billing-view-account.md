@@ -35,7 +35,7 @@ For both Invoices and Payments, you don’t need to enable the Billing View mode
 ###### To view the Cost Management data for the bill transfer accounts
 
 1. From the home page of the **Billing and Cost Management** Console, enable Billing Views, using the toggle at the top of the side navigation menu
-2. When enabling billing view mode, you have the ability to select your desired billing view from a drop down menu. If you have more than 10 billing views, you will see the ‘Click all views’ option at the bottom of the drop down. This will open a modal to navigate across all your billing views.
+2. When enabling billing view mode, you have the ability to select your desired billing view from a drop down menu. If you have more than 10 billing views, you will see the **All views** option at the bottom of the drop down. Choose this option to open a modal to navigate across all your billing views.
 3. By enabling billing views mode, you will view tools that exclusively support billing views:
 
 Bill Page
@@ -48,4 +48,4 @@ Cost Explorer Saved Reports
 
 Data Exports
 
-Budgets 4. Select the desired ‘Billing Transfer view’ reflecting the costs of the bill source accounts. You can choose between ‘My view’ and the ‘Showback/Chargeback view’ 5. To configure resources (e.g., Cost Explorer Saved Reports, Cost and Usage Reports, Budgets) you need to select the specific billing view in scope for the resource you want to create. For more information, see [What is AWS Billing and Cost Management?](billing-what-is.md "billing-what-is.md").
+Budgets 4. Select the desired ‘Billing Transfer view’ reflecting the costs of the bill source accounts. You can choose between ‘My view’ and the ‘Showback/Chargeback view’ 5. To configure resources (for example, Cost Explorer Saved Reports, Cost and Usage Reports, Budgets) you need to select the specific billing view in scope for the resource you want to create. For more information, see [What is AWS Billing and Cost Management?](billing-what-is.md "billing-what-is.md").

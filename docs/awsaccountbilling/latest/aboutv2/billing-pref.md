@@ -258,17 +258,17 @@ Group sharing requires creating Cost Categories to define your sharing groups.
 
 ###### Step 2: Create Cost Categories for sharing groups
 
-1. Under **Cost Category**, select an existing category or click **Create Cost Categories**
+1. Under **Cost Category**, select an existing category or choose **Create Cost Categories**
 2. If creating a new Cost Category:
-   1. Enter a **Cost category name** (e.g., "Business Units", "Geographic Regions")
+   1. Enter a **Cost category name** (for example, "Business Units", "Geographic Regions")
    2. For each sharing group, add a rule:
       1. Select the **Linked accounts** for this group
-      2. Enter a **SP/RI group sharing name** (e.g., "Research and Development", "EMEA Operations") in the **Then group costs together as field**
-      3. Click **Create Rule**
+      2. Enter a **SP/RI group sharing name** (for example, "Research and Development", "EMEA Operations") in the **Then group costs together as field**
+      3. Choose **Create Rule**.
 
    3. Use **Add new rule** for additional groups
-   4. Click **Next** through the remaining steps without making changes
-   5. Click **Create cost category**
+   4. Choose **Next** through the remaining steps without making changes.
+   5. Choose **Create cost category**.
 
 3. Return to **Billing preferences** and select your Cost Category
 4. Review the impact warning and choose **Proceed**
@@ -288,7 +288,7 @@ Group sharing requires creating Cost Categories to define your sharing groups.
 
 ###### Billing Impact
 
-- **Optimization trade-off**: Group sharing may reduce overall discount optimization as it prioritizes group allocation over maximum savings
+- **Optimization trade-off**: Group sharing might reduce overall discount optimization as it prioritizes group allocation over maximum savings
 - **Timing**: You can change your preference at any time. Each estimated bill is computed by using the last set of preferences. The final bill for the month is calculated based on the preferences set at 23:59:59 UTC time on the last day of the month.
 - **Savings Plans requirement**: The Savings Plans owner account must be active in discount sharing preferences
 
@@ -303,8 +303,8 @@ Group sharing requires creating Cost Categories to define your sharing groups.
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, choose **Cost Categories**.
-3. Click on the Cost Category you want to modify
-4. Click **Edit**
+3. Select the Cost Category that you want to modify.
+4. Choose **Edit**.
 5. Update group membership or create new groups following the same process above
 
 ## Detailed billing reports (legacy)

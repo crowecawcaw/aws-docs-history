@@ -13,8 +13,7 @@ after this time.
 You can continue to use Always Free offers, even after your AWS Free Tier eligibility
 expires. To learn more about available Always Free offers, see [AWS Free Tier](http://aws.amazon.com/free/ "http://aws.amazon.com/free/").
 
-As the expiration date of your AWS Free Tier eligibility approaches, we recommend that
-you shut down or delete any resources that you don't need. After your eligibility
+As the expiration date of your AWS Free Tier eligibility approaches, shut down or delete any resources that you don't need. After your eligibility
 expires, you’re charged at the standard AWS billing rates for usage.
 
 For short-term trials, there are no expiration notification for these services. You

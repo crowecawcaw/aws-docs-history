@@ -40,7 +40,7 @@ As a best practice, do not use "accountTag" keyword in your tag keys, as this pr
 
 1. Navigate to AWS Organizations console
 2. Select the accounts you want to tag
-3. Apply tags that represent your organizational structure (e.g., business unit, cost center, project, environment)
+3. Apply tags that represent your organizational structure (for example, business unit, cost center, project, environment)
 
 ### Step 2: Activate Account Tags for Cost Allocation and Verify Setup
 

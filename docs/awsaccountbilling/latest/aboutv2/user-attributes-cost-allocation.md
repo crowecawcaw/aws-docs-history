@@ -42,7 +42,7 @@ By enabling User-Based Cost Allocation, user attributes stored in AWS IAM Identi
 2. In the left panel, under Preferences and Settings, select **Cost Management Preferences**
 3. In the Cost Management Preferences page, locate the **User attributes for cost allocation** section.
 4. Select up to four attributes from the available options: Cost center, Division, Organization, and Department.
-5. Click **Save changes**. These attributes are automatically activated as Cost Allocation Tags.
+5. Choose **Save changes**. These attributes are automatically activated as Cost Allocation Tags.
 
 ### Step 3: Verify Setup
 
