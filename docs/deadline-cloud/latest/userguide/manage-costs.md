@@ -12,6 +12,9 @@ To help you manage costs for Deadline Cloud, you can use the following features:
 - **Usage explorer** – With the Deadline Cloud usage
   explorer, you can view how many AWS resources are used and the estimated costs for
   those resources.
+- **Cost scale factor** – With the cost scale
+  factor, you can adjust how costs are displayed in the usage explorer and budget
+  manager to reflect discounts or premiums that apply to your organization.
 - **AWS cost allocation tags** – With cost
   allocation tags, you can track detailed costs for all of your AWS services. For
   more information, see [Organizing and
@@ -55,7 +58,8 @@ for a number of reasons. Common reasons include:
 - _Promotional credits, discounts, and custom pricing
   agreements_. The cost management tools don't account for
   promotional credits, private pricing agreements, or other discounts. You may be
-  eligible for other discounts that are not part of the estimate.
+  eligible for other discounts that are not part of the estimate. To adjust
+  displayed costs to reflect these factors, use the [Cost scale factor](#cost-scale-factor "#cost-scale-factor").
 - _Asset storage_. Asset storage is not included in the
   cost and usage estimates.
 - _Changes in price_. AWS offers pay-as-you-go pricing
@@ -73,3 +77,57 @@ for a number of reasons. Common reasons include:
 - _Outside licensing_. If you choose to use pre-purchased
   licences ([Software licensing for service-managed fleets](smf-licensing.md "smf-licensing.md")), Deadline Cloud
   cost management tools can't account for this cost.
+
+## Cost scale factor
+
+The cost scale factor is a farm-level setting that applies a multiplier to the
+calculated costs displayed in the usage explorer and budget manager. Use the cost
+scale factor to align cost estimates with your organization's actual pricing, such
+as private pricing agreements, promotional credits, or internal cost allocation
+markups.
+
+### Cost scale factor values
+
+The cost scale factor accepts values from 0 to 100:
+
+- **Values less than 1** represent
+  discounts. For example, a value of 0.75 applies a 25% discount to
+  displayed costs.
+- **Values greater than 1** represent
+  premiums or markups. For example, a value of 1.5 applies a 50% markup
+  to displayed costs.
+- **A value of 1** (the default) leaves
+  costs unchanged.
+
+### Configure the cost scale factor
+
+You can configure the cost scale factor when you create a farm or by editing
+an existing farm's settings.
+
+###### To configure the cost scale factor for an existing farm
+
+1. Open the [AWS Deadline Cloud (Deadline Cloud)
+   console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home"). In the navigation pane, choose
+   **Farms and other resources**.
+2. Select the farm you want to modify.
+3. Choose **Actions**, then choose
+   **Edit**.
+4. For **Cost scale factor**, enter a value between
+   0 and 100.
+5. Choose **Save changes**.
+
+### Effects of the cost scale factor on cost tools
+
+After you configure a cost scale factor, the value affects the usage explorer
+and budget manager in the following ways:
+
+- **Usage explorer** – All new
+  queries display cost data modified by the cost scale factor.
+- **New budgets** – Budgets created
+  after you configure the cost scale factor use the new value for all
+  cost calculations.
+- **Existing budgets** – Existing
+  budgets use the cost scale factor for new cost calculations,
+  but their accumulated cost history is not recalculated. To recalculate
+  accumulated costs with the new factor, delete and recreate the
+  budget.

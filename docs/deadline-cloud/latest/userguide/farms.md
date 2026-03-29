@@ -26,6 +26,10 @@ create a farm, you can create queues and fleets to meet your project's needs.
 
 If you choose to customize encryption settings using the checkbox, enter a
 AWS KMS ARN, or create a new AWS KMS by choosing **Create new KMS
-key**. 6. (Optional) Choose **Add new
-tag** to add one or more tags to your farm. 7. Choose **Create farm**. After creation, your farm
+key**. 6. (Optional) For **Cost scale factor**, enter a value
+to adjust how costs are displayed in the usage explorer and budget manager.
+Values less than 1 represent discounts, values greater than 1 represent
+premiums, and 1 (the default) leaves costs unchanged. For more information,
+see [Cost scale factor](manage-costs.md#cost-scale-factor "manage-costs.md#cost-scale-factor"). 7. (Optional) Choose **Add new
+tag** to add one or more tags to your farm. 8. Choose **Create farm**. After creation, your farm
 displays.
