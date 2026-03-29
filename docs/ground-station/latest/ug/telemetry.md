@@ -4,6 +4,14 @@ AWS Ground Station telemetry delivers near real-time metrics from AWS Ground Sta
 during your satellite contacts. You can use telemetry data to monitor contact
 performance, detect anomalies, and make informed decisions about your satellite communications.
 
+###### Topics
+
+- [How telemetry works](#telemetry.how-it-works "#telemetry.how-it-works")
+- [Available telemetry types](#telemetry.telemetry-types "#telemetry.telemetry-types")
+- [Regional availability](#telemetry.regional-availability "#telemetry.regional-availability")
+- [Set up telemetry](telemetry.setup.md "telemetry.setup.md")
+- [Understand telemetry data](telemetry.understanding-data.md "telemetry.understanding-data.md")
+
 ## How telemetry works
 
 To use telemetry, you configure a _TelemetrySinkConfig_ that
@@ -56,8 +64,3 @@ from, providing cross-region support.
 
 For a complete list of AWS Ground Station Regions and ground station locations, see
 [AWS Ground Station Locations](aws-ground-station-antenna-locations.md "aws-ground-station-antenna-locations.md").
-
-###### Topics
-
-- [Set up telemetry](telemetry.setup.md "telemetry.setup.md")
-- [Understand telemetry data](telemetry.understanding-data.md "telemetry.understanding-data.md")
