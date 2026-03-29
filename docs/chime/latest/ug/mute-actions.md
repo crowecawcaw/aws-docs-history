@@ -8,7 +8,7 @@ you turn off meeting notifications while this feature is on when you host a larg
 
 1. In the left control bar, open the **More options** menu (
 
-![An icon showing a horizontal ellipsis.](images/left-control-6.png)
+![An icon showing a horizontal ellipsis.](/images/chime/latest/ug/images/left-control-6.png)
 
 ). 2. Choose **Mute all others**.
 To unmute all attendees, repeat the previous steps.
