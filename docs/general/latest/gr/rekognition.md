@@ -31,7 +31,7 @@ following regions and endpoints:
 | Europe (London)           | eu-west-2      | rekognition.eu-west-2.amazonaws.com<br>rekognition.eu-west-2.api.aws                                                                                                   | HTTPS<br>HTTPS                   |
 | Europe (Spain)            | eu-south-2     | rekognition.eu-south-2.amazonaws.com<br>rekognition.eu-south-2.api.aws                                                                                                 | HTTPS<br>HTTPS                   |
 | Israel (Tel Aviv)         | il-central-1   | rekognition.il-central-1.amazonaws.com<br>rekognition.il-central-1.api.aws                                                                                             | HTTPS<br>HTTPS                   |
-| South America (São Paulo) | sa-east-1      | rekognition.sa-east-1.amazonaws.com                                                                                                                                    | HTTPS                            |
+| South America (São Paulo) | sa-east-1      | rekognition.sa-east-1.amazonaws.com<br>rekognition.sa-east-1.api.aws                                                                                                   | HTTPS<br>HTTPS                   |
 | AWS GovCloud (US-West)    | us-gov-west-1  | rekognition.us-gov-west-1.amazonaws.com<br>rekognition-fips.us-gov-west-1.api.aws<br>rekognition-fips.us-gov-west-1.amazonaws.com<br>rekognition.us-gov-west-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
 
 ### Amazon Rekognition Streaming Endpoints

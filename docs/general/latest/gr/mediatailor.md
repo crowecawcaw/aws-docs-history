@@ -29,6 +29,7 @@ The following are the service endpoints and service quotas for this service.
 | Canada (Central)          | ca-central-1   | api.mediatailor.ca-central-1.amazonaws.com<br>mediatailor.ca-central-1.api.aws     | HTTPS<br>HTTPS |
 | Europe (Frankfurt)        | eu-central-1   | api.mediatailor.eu-central-1.amazonaws.com<br>mediatailor.eu-central-1.api.aws     | HTTPS<br>HTTPS |
 | Europe (Ireland)          | eu-west-1      | api.mediatailor.eu-west-1.amazonaws.com<br>mediatailor.eu-west-1.api.aws           | HTTPS<br>HTTPS |
+| Europe (London)           | eu-west-2      | api.mediatailor.eu-west-2.amazonaws.com<br>mediatailor.eu-west-2.api.aws           | HTTPS<br>HTTPS |
 | Europe (Paris)            | eu-west-3      | api.mediatailor.eu-west-3.amazonaws.com<br>mediatailor.eu-west-3.api.aws           | HTTPS<br>HTTPS |
 | Europe (Stockholm)        | eu-north-1     | api.mediatailor.eu-north-1.amazonaws.com<br>mediatailor.eu-north-1.api.aws         | HTTPS<br>HTTPS |
 | Middle East (UAE)         | me-central-1   | api.mediatailor.me-central-1.amazonaws.com<br>mediatailor.me-central-1.api.aws     | HTTPS<br>HTTPS |

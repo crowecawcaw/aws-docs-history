@@ -13,44 +13,44 @@ The following are the service endpoints and service quotas for this service.
 
 ### IAM Identity Center
 
-| Region Name                | Region         | Endpoint                                                       | Protocol       |
-| -------------------------- | -------------- | -------------------------------------------------------------- | -------------- |
-| US East (Ohio)             | us-east-2      | sso.us-east-2.amazonaws.com<br>sso.us-east-2.api.aws           | HTTPS<br>HTTPS |
-| US East (N. Virginia)      | us-east-1      | sso.us-east-1.amazonaws.com<br>sso.us-east-1.api.aws           | HTTPS<br>HTTPS |
-| US West (N. California)    | us-west-1      | sso.us-west-1.amazonaws.com<br>sso.us-west-1.api.aws           | HTTPS<br>HTTPS |
-| US West (Oregon)           | us-west-2      | sso.us-west-2.amazonaws.com<br>sso.us-west-2.api.aws           | HTTPS<br>HTTPS |
-| Africa (Cape Town)         | af-south-1     | sso.af-south-1.amazonaws.com<br>sso.af-south-1.api.aws         | HTTPS<br>HTTPS |
-| Asia Pacific (Hong Kong)   | ap-east-1      | sso.ap-east-1.amazonaws.com<br>sso.ap-east-1.api.aws           | HTTPS<br>HTTPS |
-| Asia Pacific (Hyderabad)   | ap-south-2     | sso.ap-south-2.amazonaws.com<br>sso.ap-south-2.api.aws         | HTTPS<br>HTTPS |
-| Asia Pacific (Jakarta)     | ap-southeast-3 | sso.ap-southeast-3.amazonaws.com<br>sso.ap-southeast-3.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Malaysia)    | ap-southeast-5 | sso.ap-southeast-5.amazonaws.com<br>sso.ap-southeast-5.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Melbourne)   | ap-southeast-4 | sso.ap-southeast-4.amazonaws.com<br>sso.ap-southeast-4.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Mumbai)      | ap-south-1     | sso.ap-south-1.amazonaws.com<br>sso.ap-south-1.api.aws         | HTTPS<br>HTTPS |
-| Asia Pacific (New Zealand) | ap-southeast-6 | sso.ap-southeast-6.amazonaws.com<br>sso.ap-southeast-6.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Osaka)       | ap-northeast-3 | sso.ap-northeast-3.amazonaws.com<br>sso.ap-northeast-3.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Seoul)       | ap-northeast-2 | sso.ap-northeast-2.amazonaws.com<br>sso.ap-northeast-2.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Singapore)   | ap-southeast-1 | sso.ap-southeast-1.amazonaws.com<br>sso.ap-southeast-1.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Sydney)      | ap-southeast-2 | sso.ap-southeast-2.amazonaws.com<br>sso.ap-southeast-2.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Taipei)      | ap-east-2      | sso.ap-east-2.amazonaws.com<br>sso.ap-east-2.api.aws           | HTTPS<br>HTTPS |
-| Asia Pacific (Thailand)    | ap-southeast-7 | sso.ap-southeast-7.amazonaws.com<br>sso.ap-southeast-7.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Tokyo)       | ap-northeast-1 | sso.ap-northeast-1.amazonaws.com<br>sso.ap-northeast-1.api.aws | HTTPS<br>HTTPS |
-| Canada (Central)           | ca-central-1   | sso.ca-central-1.amazonaws.com<br>sso.ca-central-1.api.aws     | HTTPS<br>HTTPS |
-| Canada West (Calgary)      | ca-west-1      | sso.ca-west-1.amazonaws.com<br>sso.ca-west-1.api.aws           | HTTPS<br>HTTPS |
-| Europe (Frankfurt)         | eu-central-1   | sso.eu-central-1.amazonaws.com<br>sso.eu-central-1.api.aws     | HTTPS<br>HTTPS |
-| Europe (Ireland)           | eu-west-1      | sso.eu-west-1.amazonaws.com<br>sso.eu-west-1.api.aws           | HTTPS<br>HTTPS |
-| Europe (London)            | eu-west-2      | sso.eu-west-2.amazonaws.com<br>sso.eu-west-2.api.aws           | HTTPS<br>HTTPS |
-| Europe (Milan)             | eu-south-1     | sso.eu-south-1.amazonaws.com<br>sso.eu-south-1.api.aws         | HTTPS<br>HTTPS |
-| Europe (Paris)             | eu-west-3      | sso.eu-west-3.amazonaws.com<br>sso.eu-west-3.api.aws           | HTTPS<br>HTTPS |
-| Europe (Spain)             | eu-south-2     | sso.eu-south-2.amazonaws.com<br>sso.eu-south-2.api.aws         | HTTPS<br>HTTPS |
-| Europe (Stockholm)         | eu-north-1     | sso.eu-north-1.amazonaws.com<br>sso.eu-north-1.api.aws         | HTTPS<br>HTTPS |
-| Europe (Zurich)            | eu-central-2   | sso.eu-central-2.amazonaws.com<br>sso.eu-central-2.api.aws     | HTTPS<br>HTTPS |
-| Israel (Tel Aviv)          | il-central-1   | sso.il-central-1.amazonaws.com<br>sso.il-central-1.api.aws     | HTTPS<br>HTTPS |
-| Mexico (Central)           | mx-central-1   | sso.mx-central-1.amazonaws.com<br>sso.mx-central-1.api.aws     | HTTPS<br>HTTPS |
-| Middle East (Bahrain)      | me-south-1     | sso.me-south-1.amazonaws.com<br>sso.me-south-1.api.aws         | HTTPS<br>HTTPS |
-| Middle East (UAE)          | me-central-1   | sso.me-central-1.amazonaws.com<br>sso.me-central-1.api.aws     | HTTPS<br>HTTPS |
-| South America (São Paulo)  | sa-east-1      | sso.sa-east-1.amazonaws.com<br>sso.sa-east-1.api.aws           | HTTPS<br>HTTPS |
-| AWS GovCloud (US-East)     | us-gov-east-1  | sso.us-gov-east-1.amazonaws.com<br>sso.us-gov-east-1.api.aws   | HTTPS<br>HTTPS |
-| AWS GovCloud (US-West)     | us-gov-west-1  | sso.us-gov-west-1.amazonaws.com<br>sso.us-gov-west-1.api.aws   | HTTPS<br>HTTPS |
+| Region Name                | Region         | Endpoint                                                                                    | Protocol                |
+| -------------------------- | -------------- | ------------------------------------------------------------------------------------------- | ----------------------- |
+| US East (Ohio)             | us-east-2      | sso.us-east-2.amazonaws.com<br>sso-fips.us-east-2.api.aws<br>sso.us-east-2.api.aws          | HTTPS<br>HTTPS<br>HTTPS |
+| US East (N. Virginia)      | us-east-1      | sso.us-east-1.amazonaws.com<br>sso-fips.us-east-1.api.aws<br>sso.us-east-1.api.aws          | HTTPS<br>HTTPS<br>HTTPS |
+| US West (N. California)    | us-west-1      | sso.us-west-1.amazonaws.com<br>sso-fips.us-west-1.api.aws<br>sso.us-west-1.api.aws          | HTTPS<br>HTTPS<br>HTTPS |
+| US West (Oregon)           | us-west-2      | sso.us-west-2.amazonaws.com<br>sso-fips.us-west-2.api.aws<br>sso.us-west-2.api.aws          | HTTPS<br>HTTPS<br>HTTPS |
+| Africa (Cape Town)         | af-south-1     | sso.af-south-1.amazonaws.com<br>sso.af-south-1.api.aws                                      | HTTPS<br>HTTPS          |
+| Asia Pacific (Hong Kong)   | ap-east-1      | sso.ap-east-1.amazonaws.com<br>sso.ap-east-1.api.aws                                        | HTTPS<br>HTTPS          |
+| Asia Pacific (Hyderabad)   | ap-south-2     | sso.ap-south-2.amazonaws.com<br>sso.ap-south-2.api.aws                                      | HTTPS<br>HTTPS          |
+| Asia Pacific (Jakarta)     | ap-southeast-3 | sso.ap-southeast-3.amazonaws.com<br>sso.ap-southeast-3.api.aws                              | HTTPS<br>HTTPS          |
+| Asia Pacific (Malaysia)    | ap-southeast-5 | sso.ap-southeast-5.amazonaws.com<br>sso.ap-southeast-5.api.aws                              | HTTPS<br>HTTPS          |
+| Asia Pacific (Melbourne)   | ap-southeast-4 | sso.ap-southeast-4.amazonaws.com<br>sso.ap-southeast-4.api.aws                              | HTTPS<br>HTTPS          |
+| Asia Pacific (Mumbai)      | ap-south-1     | sso.ap-south-1.amazonaws.com<br>sso.ap-south-1.api.aws                                      | HTTPS<br>HTTPS          |
+| Asia Pacific (New Zealand) | ap-southeast-6 | sso.ap-southeast-6.amazonaws.com<br>sso.ap-southeast-6.api.aws                              | HTTPS<br>HTTPS          |
+| Asia Pacific (Osaka)       | ap-northeast-3 | sso.ap-northeast-3.amazonaws.com<br>sso.ap-northeast-3.api.aws                              | HTTPS<br>HTTPS          |
+| Asia Pacific (Seoul)       | ap-northeast-2 | sso.ap-northeast-2.amazonaws.com<br>sso.ap-northeast-2.api.aws                              | HTTPS<br>HTTPS          |
+| Asia Pacific (Singapore)   | ap-southeast-1 | sso.ap-southeast-1.amazonaws.com<br>sso.ap-southeast-1.api.aws                              | HTTPS<br>HTTPS          |
+| Asia Pacific (Sydney)      | ap-southeast-2 | sso.ap-southeast-2.amazonaws.com<br>sso.ap-southeast-2.api.aws                              | HTTPS<br>HTTPS          |
+| Asia Pacific (Taipei)      | ap-east-2      | sso.ap-east-2.amazonaws.com<br>sso.ap-east-2.api.aws                                        | HTTPS<br>HTTPS          |
+| Asia Pacific (Thailand)    | ap-southeast-7 | sso.ap-southeast-7.amazonaws.com<br>sso.ap-southeast-7.api.aws                              | HTTPS<br>HTTPS          |
+| Asia Pacific (Tokyo)       | ap-northeast-1 | sso.ap-northeast-1.amazonaws.com<br>sso.ap-northeast-1.api.aws                              | HTTPS<br>HTTPS          |
+| Canada (Central)           | ca-central-1   | sso.ca-central-1.amazonaws.com<br>sso-fips.ca-central-1.api.aws<br>sso.ca-central-1.api.aws | HTTPS<br>HTTPS<br>HTTPS |
+| Canada West (Calgary)      | ca-west-1      | sso.ca-west-1.amazonaws.com<br>sso-fips.ca-west-1.api.aws<br>sso.ca-west-1.api.aws          | HTTPS<br>HTTPS<br>HTTPS |
+| Europe (Frankfurt)         | eu-central-1   | sso.eu-central-1.amazonaws.com<br>sso.eu-central-1.api.aws                                  | HTTPS<br>HTTPS          |
+| Europe (Ireland)           | eu-west-1      | sso.eu-west-1.amazonaws.com<br>sso.eu-west-1.api.aws                                        | HTTPS<br>HTTPS          |
+| Europe (London)            | eu-west-2      | sso.eu-west-2.amazonaws.com<br>sso.eu-west-2.api.aws                                        | HTTPS<br>HTTPS          |
+| Europe (Milan)             | eu-south-1     | sso.eu-south-1.amazonaws.com<br>sso.eu-south-1.api.aws                                      | HTTPS<br>HTTPS          |
+| Europe (Paris)             | eu-west-3      | sso.eu-west-3.amazonaws.com<br>sso.eu-west-3.api.aws                                        | HTTPS<br>HTTPS          |
+| Europe (Spain)             | eu-south-2     | sso.eu-south-2.amazonaws.com<br>sso.eu-south-2.api.aws                                      | HTTPS<br>HTTPS          |
+| Europe (Stockholm)         | eu-north-1     | sso.eu-north-1.amazonaws.com<br>sso.eu-north-1.api.aws                                      | HTTPS<br>HTTPS          |
+| Europe (Zurich)            | eu-central-2   | sso.eu-central-2.amazonaws.com<br>sso.eu-central-2.api.aws                                  | HTTPS<br>HTTPS          |
+| Israel (Tel Aviv)          | il-central-1   | sso.il-central-1.amazonaws.com<br>sso.il-central-1.api.aws                                  | HTTPS<br>HTTPS          |
+| Mexico (Central)           | mx-central-1   | sso.mx-central-1.amazonaws.com<br>sso.mx-central-1.api.aws                                  | HTTPS<br>HTTPS          |
+| Middle East (Bahrain)      | me-south-1     | sso.me-south-1.amazonaws.com<br>sso.me-south-1.api.aws                                      | HTTPS<br>HTTPS          |
+| Middle East (UAE)          | me-central-1   | sso.me-central-1.amazonaws.com<br>sso.me-central-1.api.aws                                  | HTTPS<br>HTTPS          |
+| South America (São Paulo)  | sa-east-1      | sso.sa-east-1.amazonaws.com<br>sso.sa-east-1.api.aws                                        | HTTPS<br>HTTPS          |
+| AWS GovCloud (US-East)     | us-gov-east-1  | sso.us-gov-east-1.amazonaws.com<br>sso.us-gov-east-1.api.aws                                | HTTPS<br>HTTPS          |
+| AWS GovCloud (US-West)     | us-gov-west-1  | sso.us-gov-west-1.amazonaws.com<br>sso.us-gov-west-1.api.aws                                | HTTPS<br>HTTPS          |
 
 ### Identity Store
 

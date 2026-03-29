@@ -54,6 +54,7 @@ Use the following endpoints to acquire the endpoints for the Timestream for Infl
 | US West (Oregon)          | us-west-2      | timestream-influxdb.us-west-2.amazonaws.com<br>timestream-influxdb-fips.us-west-2.api.aws<br>timestream-influxdb-fips.us-west-2.amazonaws.com          | HTTPS<br>HTTPS<br>HTTPS |
 | Asia Pacific (Jakarta)    | ap-southeast-3 | timestream-influxdb.ap-southeast-3.amazonaws.com                                                                                                       | HTTPS                   |
 | Asia Pacific (Mumbai)     | ap-south-1     | timestream-influxdb.ap-south-1.amazonaws.com                                                                                                           | HTTPS                   |
+| Asia Pacific (Osaka)      | ap-northeast-3 | timestream-influxdb.ap-northeast-3.amazonaws.com                                                                                                       | HTTPS                   |
 | Asia Pacific (Singapore)  | ap-southeast-1 | timestream-influxdb.ap-southeast-1.amazonaws.com                                                                                                       | HTTPS                   |
 | Asia Pacific (Sydney)     | ap-southeast-2 | timestream-influxdb.ap-southeast-2.amazonaws.com                                                                                                       | HTTPS                   |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | timestream-influxdb.ap-northeast-1.amazonaws.com                                                                                                       | HTTPS                   |
@@ -65,6 +66,7 @@ Use the following endpoints to acquire the endpoints for the Timestream for Infl
 | Europe (Paris)            | eu-west-3      | timestream-influxdb.eu-west-3.amazonaws.com                                                                                                            | HTTPS                   |
 | Europe (Spain)            | eu-south-2     | timestream-influxdb.eu-south-2.amazonaws.com                                                                                                           | HTTPS                   |
 | Europe (Stockholm)        | eu-north-1     | timestream-influxdb.eu-north-1.amazonaws.com                                                                                                           | HTTPS                   |
+| Mexico (Central)          | mx-central-1   | timestream-influxdb.mx-central-1.amazonaws.com                                                                                                         | HTTPS                   |
 | Middle East (UAE)         | me-central-1   | timestream-influxdb.me-central-1.amazonaws.com                                                                                                         | HTTPS                   |
 | South America (São Paulo) | sa-east-1      | timestream-influxdb.sa-east-1.amazonaws.com                                                                                                            | HTTPS                   |
 

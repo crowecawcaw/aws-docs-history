@@ -91,40 +91,42 @@ The following are the service endpoints and service quotas for this service.
 
 ## AWS Private CA Connector for SCEP endpoints
 
-| Region Name               | Region         | Endpoint                                                                                     | Protocol       |
-| ------------------------- | -------------- | -------------------------------------------------------------------------------------------- | -------------- |
-| US East (Ohio)            | us-east-2      | pca-connector-scep.us-east-2.amazonaws.com<br>pca-connector-scep.us-east-2.api.aws           | HTTPS<br>HTTPS |
-| US East (N. Virginia)     | us-east-1      | pca-connector-scep.us-east-1.amazonaws.com<br>pca-connector-scep.us-east-1.api.aws           | HTTPS<br>HTTPS |
-| US West (N. California)   | us-west-1      | pca-connector-scep.us-west-1.amazonaws.com<br>pca-connector-scep.us-west-1.api.aws           | HTTPS<br>HTTPS |
-| US West (Oregon)          | us-west-2      | pca-connector-scep.us-west-2.amazonaws.com<br>pca-connector-scep.us-west-2.api.aws           | HTTPS<br>HTTPS |
-| Africa (Cape Town)        | af-south-1     | pca-connector-scep.af-south-1.amazonaws.com<br>pca-connector-scep.af-south-1.api.aws         | HTTPS<br>HTTPS |
-| Asia Pacific (Hong Kong)  | ap-east-1      | pca-connector-scep.ap-east-1.amazonaws.com<br>pca-connector-scep.ap-east-1.api.aws           | HTTPS<br>HTTPS |
-| Asia Pacific (Hyderabad)  | ap-south-2     | pca-connector-scep.ap-south-2.amazonaws.com<br>pca-connector-scep.ap-south-2.api.aws         | HTTPS<br>HTTPS |
-| Asia Pacific (Jakarta)    | ap-southeast-3 | pca-connector-scep.ap-southeast-3.amazonaws.com<br>pca-connector-scep.ap-southeast-3.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Malaysia)   | ap-southeast-5 | pca-connector-scep.ap-southeast-5.amazonaws.com<br>pca-connector-scep.ap-southeast-5.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Melbourne)  | ap-southeast-4 | pca-connector-scep.ap-southeast-4.amazonaws.com<br>pca-connector-scep.ap-southeast-4.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Mumbai)     | ap-south-1     | pca-connector-scep.ap-south-1.amazonaws.com<br>pca-connector-scep.ap-south-1.api.aws         | HTTPS<br>HTTPS |
-| Asia Pacific (Osaka)      | ap-northeast-3 | pca-connector-scep.ap-northeast-3.amazonaws.com<br>pca-connector-scep.ap-northeast-3.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Seoul)      | ap-northeast-2 | pca-connector-scep.ap-northeast-2.amazonaws.com<br>pca-connector-scep.ap-northeast-2.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Singapore)  | ap-southeast-1 | pca-connector-scep.ap-southeast-1.amazonaws.com<br>pca-connector-scep.ap-southeast-1.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Sydney)     | ap-southeast-2 | pca-connector-scep.ap-southeast-2.amazonaws.com<br>pca-connector-scep.ap-southeast-2.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Thailand)   | ap-southeast-7 | pca-connector-scep.ap-southeast-7.amazonaws.com<br>pca-connector-scep.ap-southeast-7.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Tokyo)      | ap-northeast-1 | pca-connector-scep.ap-northeast-1.amazonaws.com<br>pca-connector-scep.ap-northeast-1.api.aws | HTTPS<br>HTTPS |
-| Canada (Central)          | ca-central-1   | pca-connector-scep.ca-central-1.amazonaws.com<br>pca-connector-scep.ca-central-1.api.aws     | HTTPS<br>HTTPS |
-| Canada West (Calgary)     | ca-west-1      | pca-connector-scep.ca-west-1.amazonaws.com<br>pca-connector-scep.ca-west-1.api.aws           | HTTPS<br>HTTPS |
-| Europe (Frankfurt)        | eu-central-1   | pca-connector-scep.eu-central-1.amazonaws.com<br>pca-connector-scep.eu-central-1.api.aws     | HTTPS<br>HTTPS |
-| Europe (Ireland)          | eu-west-1      | pca-connector-scep.eu-west-1.amazonaws.com<br>pca-connector-scep.eu-west-1.api.aws           | HTTPS<br>HTTPS |
-| Europe (London)           | eu-west-2      | pca-connector-scep.eu-west-2.amazonaws.com<br>pca-connector-scep.eu-west-2.api.aws           | HTTPS<br>HTTPS |
-| Europe (Milan)            | eu-south-1     | pca-connector-scep.eu-south-1.amazonaws.com<br>pca-connector-scep.eu-south-1.api.aws         | HTTPS<br>HTTPS |
-| Europe (Paris)            | eu-west-3      | pca-connector-scep.eu-west-3.amazonaws.com<br>pca-connector-scep.eu-west-3.api.aws           | HTTPS<br>HTTPS |
-| Europe (Spain)            | eu-south-2     | pca-connector-scep.eu-south-2.amazonaws.com<br>pca-connector-scep.eu-south-2.api.aws         | HTTPS<br>HTTPS |
-| Europe (Stockholm)        | eu-north-1     | pca-connector-scep.eu-north-1.amazonaws.com<br>pca-connector-scep.eu-north-1.api.aws         | HTTPS<br>HTTPS |
-| Europe (Zurich)           | eu-central-2   | pca-connector-scep.eu-central-2.amazonaws.com<br>pca-connector-scep.eu-central-2.api.aws     | HTTPS<br>HTTPS |
-| Israel (Tel Aviv)         | il-central-1   | pca-connector-scep.il-central-1.amazonaws.com<br>pca-connector-scep.il-central-1.api.aws     | HTTPS<br>HTTPS |
-| Mexico (Central)          | mx-central-1   | pca-connector-scep.mx-central-1.amazonaws.com<br>pca-connector-scep.mx-central-1.api.aws     | HTTPS<br>HTTPS |
-| Middle East (Bahrain)     | me-south-1     | pca-connector-scep.me-south-1.amazonaws.com<br>pca-connector-scep.me-south-1.api.aws         | HTTPS<br>HTTPS |
-| Middle East (UAE)         | me-central-1   | pca-connector-scep.me-central-1.amazonaws.com<br>pca-connector-scep.me-central-1.api.aws     | HTTPS<br>HTTPS |
-| South America (São Paulo) | sa-east-1      | pca-connector-scep.sa-east-1.amazonaws.com<br>pca-connector-scep.sa-east-1.api.aws           | HTTPS<br>HTTPS |
+| Region Name                | Region         | Endpoint                                                                                     | Protocol       |
+| -------------------------- | -------------- | -------------------------------------------------------------------------------------------- | -------------- |
+| US East (Ohio)             | us-east-2      | pca-connector-scep.us-east-2.amazonaws.com<br>pca-connector-scep.us-east-2.api.aws           | HTTPS<br>HTTPS |
+| US East (N. Virginia)      | us-east-1      | pca-connector-scep.us-east-1.amazonaws.com<br>pca-connector-scep.us-east-1.api.aws           | HTTPS<br>HTTPS |
+| US West (N. California)    | us-west-1      | pca-connector-scep.us-west-1.amazonaws.com<br>pca-connector-scep.us-west-1.api.aws           | HTTPS<br>HTTPS |
+| US West (Oregon)           | us-west-2      | pca-connector-scep.us-west-2.amazonaws.com<br>pca-connector-scep.us-west-2.api.aws           | HTTPS<br>HTTPS |
+| Africa (Cape Town)         | af-south-1     | pca-connector-scep.af-south-1.amazonaws.com<br>pca-connector-scep.af-south-1.api.aws         | HTTPS<br>HTTPS |
+| Asia Pacific (Hong Kong)   | ap-east-1      | pca-connector-scep.ap-east-1.amazonaws.com<br>pca-connector-scep.ap-east-1.api.aws           | HTTPS<br>HTTPS |
+| Asia Pacific (Hyderabad)   | ap-south-2     | pca-connector-scep.ap-south-2.amazonaws.com<br>pca-connector-scep.ap-south-2.api.aws         | HTTPS<br>HTTPS |
+| Asia Pacific (Jakarta)     | ap-southeast-3 | pca-connector-scep.ap-southeast-3.amazonaws.com<br>pca-connector-scep.ap-southeast-3.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Malaysia)    | ap-southeast-5 | pca-connector-scep.ap-southeast-5.amazonaws.com<br>pca-connector-scep.ap-southeast-5.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Melbourne)   | ap-southeast-4 | pca-connector-scep.ap-southeast-4.amazonaws.com<br>pca-connector-scep.ap-southeast-4.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Mumbai)      | ap-south-1     | pca-connector-scep.ap-south-1.amazonaws.com<br>pca-connector-scep.ap-south-1.api.aws         | HTTPS<br>HTTPS |
+| Asia Pacific (New Zealand) | ap-southeast-6 | pca-connector-scep.ap-southeast-6.amazonaws.com<br>pca-connector-scep.ap-southeast-6.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Osaka)       | ap-northeast-3 | pca-connector-scep.ap-northeast-3.amazonaws.com<br>pca-connector-scep.ap-northeast-3.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Seoul)       | ap-northeast-2 | pca-connector-scep.ap-northeast-2.amazonaws.com<br>pca-connector-scep.ap-northeast-2.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Singapore)   | ap-southeast-1 | pca-connector-scep.ap-southeast-1.amazonaws.com<br>pca-connector-scep.ap-southeast-1.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Sydney)      | ap-southeast-2 | pca-connector-scep.ap-southeast-2.amazonaws.com<br>pca-connector-scep.ap-southeast-2.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Taipei)      | ap-east-2      | pca-connector-scep.ap-east-2.amazonaws.com<br>pca-connector-scep.ap-east-2.api.aws           | HTTPS<br>HTTPS |
+| Asia Pacific (Thailand)    | ap-southeast-7 | pca-connector-scep.ap-southeast-7.amazonaws.com<br>pca-connector-scep.ap-southeast-7.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Tokyo)       | ap-northeast-1 | pca-connector-scep.ap-northeast-1.amazonaws.com<br>pca-connector-scep.ap-northeast-1.api.aws | HTTPS<br>HTTPS |
+| Canada (Central)           | ca-central-1   | pca-connector-scep.ca-central-1.amazonaws.com<br>pca-connector-scep.ca-central-1.api.aws     | HTTPS<br>HTTPS |
+| Canada West (Calgary)      | ca-west-1      | pca-connector-scep.ca-west-1.amazonaws.com<br>pca-connector-scep.ca-west-1.api.aws           | HTTPS<br>HTTPS |
+| Europe (Frankfurt)         | eu-central-1   | pca-connector-scep.eu-central-1.amazonaws.com<br>pca-connector-scep.eu-central-1.api.aws     | HTTPS<br>HTTPS |
+| Europe (Ireland)           | eu-west-1      | pca-connector-scep.eu-west-1.amazonaws.com<br>pca-connector-scep.eu-west-1.api.aws           | HTTPS<br>HTTPS |
+| Europe (London)            | eu-west-2      | pca-connector-scep.eu-west-2.amazonaws.com<br>pca-connector-scep.eu-west-2.api.aws           | HTTPS<br>HTTPS |
+| Europe (Milan)             | eu-south-1     | pca-connector-scep.eu-south-1.amazonaws.com<br>pca-connector-scep.eu-south-1.api.aws         | HTTPS<br>HTTPS |
+| Europe (Paris)             | eu-west-3      | pca-connector-scep.eu-west-3.amazonaws.com<br>pca-connector-scep.eu-west-3.api.aws           | HTTPS<br>HTTPS |
+| Europe (Spain)             | eu-south-2     | pca-connector-scep.eu-south-2.amazonaws.com<br>pca-connector-scep.eu-south-2.api.aws         | HTTPS<br>HTTPS |
+| Europe (Stockholm)         | eu-north-1     | pca-connector-scep.eu-north-1.amazonaws.com<br>pca-connector-scep.eu-north-1.api.aws         | HTTPS<br>HTTPS |
+| Europe (Zurich)            | eu-central-2   | pca-connector-scep.eu-central-2.amazonaws.com<br>pca-connector-scep.eu-central-2.api.aws     | HTTPS<br>HTTPS |
+| Israel (Tel Aviv)          | il-central-1   | pca-connector-scep.il-central-1.amazonaws.com<br>pca-connector-scep.il-central-1.api.aws     | HTTPS<br>HTTPS |
+| Mexico (Central)           | mx-central-1   | pca-connector-scep.mx-central-1.amazonaws.com<br>pca-connector-scep.mx-central-1.api.aws     | HTTPS<br>HTTPS |
+| Middle East (Bahrain)      | me-south-1     | pca-connector-scep.me-south-1.amazonaws.com<br>pca-connector-scep.me-south-1.api.aws         | HTTPS<br>HTTPS |
+| Middle East (UAE)          | me-central-1   | pca-connector-scep.me-central-1.amazonaws.com<br>pca-connector-scep.me-central-1.api.aws     | HTTPS<br>HTTPS |
+| South America (São Paulo)  | sa-east-1      | pca-connector-scep.sa-east-1.amazonaws.com<br>pca-connector-scep.sa-east-1.api.aws           | HTTPS<br>HTTPS |
 
 ## AWS Private CA quotas
 
