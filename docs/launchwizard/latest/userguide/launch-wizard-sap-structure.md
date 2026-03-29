@@ -69,3 +69,12 @@ bucket. Do not place multiple SAP HANA versions in the same folder. SAP provides
 software as a single .zip file or as multiple files depending on the SAP HANA
 version (one .exe file and multiple .rar files). Upload them to the version-specific
 folder that you created.
+
+###### Important
+
+If you're using a SAP HANA SAR file as SAP HANA installer, the following files
+are required to be in the same S3 location:
+
+- `IMDB_SERVERXX_XXX_X-XXXXXXXX.SAR`
+- `IMDB_CLIENTXX_XXX_XX-XXXXXXXX.SAR`
+- `SAPCAR_XXXX-XXXXXXXX.EXE`

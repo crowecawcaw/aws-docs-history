@@ -184,6 +184,58 @@ available on SAP Software Center.
 | hana-20-sp06                    | `51056431`   | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW<br>version>`/HANA_DB_Software` |
 | hana-20-sp07                    | `51057071`   | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW<br>version>`/HANA_DB_Software` |
 
+S/4HANA 2025
+
+| CD name              | Versions                | CD number                                                                                                                                            | Amazon S3 file path                                                                                |
+| -------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `SWPM`               | SWPM 2.0 latest version | `SWPM20SP22_6-80003424.SAR`                                                                                                                          | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW version>`/SWPM`                    |
+| `SAPCAR`             | Latest                  | N/A                                                                                                                                                  | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW version>`/SAPCAR`                  |
+| `Exports`            | S4Core 109              | `S4CORE109_INST_EXPORT_1.zip` through<br>`S4CORE109_INST_EXPORT_34.zip`                                                                              | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW version>`/Exports`                 |
+| `Kernel components`  | 916 or later            | `igsexe_0-70008564.sar`<br>`igshelper_17-10010245.sar`<br>`SAPEXE_81-70008102.SAR`<br>`SAPEXEDB_81-70008101.SAR`<br>`SAPHOSTAGENT69_69-80004822.SAR` | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW version>`/Kernel`                  |
+| `SAP HANA Client`    | 2.24                    | `IMDB_CLIENT20_024_21-80002082.SAR`                                                                                                                  | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW<br>version>`/HANA_Client_Software` |
+| `SAP Web Dispatcher` | 7.93                    | See [Note 908097](https://me.sap.com/notes/908097/E "https://me.sap.com/notes/908097/E") in the SAP documentation.                                   | `S3://`Your SAP software bucket<`/webdisp/`                                                        |
+
+The following HANA DB version is supported.
+
+###### Note
+
+\*The CD versions are for reference only. Use the latest versions
+available on SAP Software Center.
+
+###### Note
+
+\* SAP HANA installation can also be performed using SAR files.
+
+| CD name                      | Versions           | CD number | Amazon S3 file path                                                                            |
+| ---------------------------- | ------------------ | --------- | ---------------------------------------------------------------------------------------------- |
+| `SAP HANA database software` | hana-20-sp08-rev89 | `N/A`     | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW<br>version>`/HANA_DB_Software` |
+
+S/4HANA Foundations 2025
+
+| CD name              | Versions                | CD number                                                                                                                                            | Amazon S3 file path                                                                                |
+| -------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `SWPM`               | SWPM 2.0 latest version | `SWPM20SP22_6-80003424.SAR`                                                                                                                          | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW version>`/SWPM`                    |
+| `SAPCAR`             | Latest                  | N/A                                                                                                                                                  | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW version>`/SAPCAR`                  |
+| `Exports`            | S4Core 109              | `S4FND109_INST_EXPORT_1.zip` through<br>`S4FND109_INST_EXPORT_10.zip`                                                                                | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW version>`/Exports`                 |
+| `Kernel components`  | 916 or later            | `igsexe_0-70008564.sar`<br>`igshelper_17-10010245.sar`<br>`SAPEXE_81-70008102.SAR`<br>`SAPEXEDB_81-70008101.SAR`<br>`SAPHOSTAGENT69_69-80004822.SAR` | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW version>`/Kernel`                  |
+| `SAP HANA Client`    | 2.24                    | `IMDB_CLIENT20_024_21-80002082.SAR`                                                                                                                  | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW<br>version>`/HANA_Client_Software` |
+| `SAP Web Dispatcher` | 7.93                    | See [Note 908097](https://me.sap.com/notes/908097/E "https://me.sap.com/notes/908097/E") in the SAP documentation.                                   | `S3://`Your SAP software bucket<`/webdisp/`                                                        |
+
+The following HANA DB version is supported.
+
+###### Note
+
+\*The CD versions are for reference only. Use the latest versions
+available on SAP Software Center.
+
+###### Note
+
+\* SAP HANA installation can also be performed using SAR files.
+
+| CD name                      | Versions           | CD number | Amazon S3 file path                                                                            |
+| ---------------------------- | ------------------ | --------- | ---------------------------------------------------------------------------------------------- |
+| `SAP HANA database software` | hana-20-sp08-rev89 | `N/A`     | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW<br>version>`/HANA_DB_Software` |
+
 S/4HANA 2023
 
 | CD name              | Versions                | CD number                                                                                                                                            | Amazon S3 file path                                                                                |
