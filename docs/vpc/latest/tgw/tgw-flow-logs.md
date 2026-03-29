@@ -57,6 +57,8 @@ The following limitations apply to Transit Gateway Flow Logs:
 - Connect attachments are not supported. All Connect flow logs appear under the
   transport attachment and must therefore be enabled on the transit gateway or the Connect
   transport attachment.
+- Transit Gateway Flow Logs supports a maximum of 250 subscriptions per resource per account.
+  To create additional subscriptions on a resource that has reached this limit, you must first delete existing subscriptions.
 
 ## Transit Gateway Flow Log records
 
