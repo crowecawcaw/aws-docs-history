@@ -44,6 +44,71 @@ After reviewing the security findings posted by AWS Security Agent, you can take
 
 Each finding includes specific remediation guidance tailored to the security issue identified. Review this guidance carefully to understand the security risk and how to address it effectively.
 
+## Filtering code review findings
+
+You can customize how AWS Security Agent analyzes your code by adding a `filtering.md` file to your repository. This file allows you to reduce false positives by providing context about your codebase and excluding files or folders from analysis.
+
+### Creating the filtering file
+
+Create a file named `filtering.md` in the `.awssecurityagent` directory at the root of your repository:
+
+```
+.awssecurityagent/filtering.md
+```
+
+AWS Security Agent reads this file from the main branch of your repository (for example, `main` or `mainline`) when analyzing pull requests.
+
+### File structure
+
+The `filtering.md` file uses standard Markdown formatting with specific sections that AWS Security Agent recognizes. The file must include a `Code Review` heading followed by one or both of the following sections: `IgnorePatterns` and `ContextHints` (no space).
+
+The following example shows the complete structure of a `filtering.md` file:
+
+```
+# filtering.md
+
+## Code Review
+
+### IgnorePatterns
+
+**/*.md
+
+/myapp/src/**/*.snap
+
+/myapp/config/README
+
+### ContextHints
+
+- The backend is a trusted system and won't return non-standard protocols.
+- URL is generated from server with presigned token, so no SSRF security vulnerabilities.
+- AppSec has verified that we are allowed to use cache with an eviction policy.
+```
+
+### Ignore patterns
+
+The `IgnorePatterns` section specifies files and folders that AWS Security Agent should skip during code review. Use `glob patterns` to define which paths to exclude from analysis.
+
+Format requirements:
+
+- Each pattern must be on its own line.
+- Separate each pattern with an empty line between them. This ensures the file renders correctly when viewed in GitHub or code review tools.
+- Patterns follow the standard glob format. For example, `**/*.md` matches all markdown files, and `/myapp/src/**/*.snap` matches all `.snap` files inside the `/myapp/src/` folder at the root.
+- We support upto 1000 ignore patterns in this section.
+
+### Context hints
+
+The `ContextHints` section provides additional context about your codebase that helps AWS Security Agent make more accurate assessments. Use context hints to explain architectural decisions, security exceptions,
+or other information that might affect how findings are interpreted.
+
+Format requirements:
+
+- Each hint must start with a dash (`-`) followed by a space.
+- Write each hint as a single line of free-form text limited to 500 characters.
+- Each hint should describe one specific piece of context about your codebase.
+- We support upto 20 context hints in this section.
+
+Context hints are applied after AWS Security Agent completes its initial analysis, helping to filter findings that don’t apply to your specific use case.
+
 ## Next steps
 
 After reviewing code security findings:

@@ -7,9 +7,9 @@ If the application you want to run a penetration test on is not available on the
 When testing endpoints in a private VPC, only endpoints resolving to IPs in known private IP ranges are allowed (see [VPC CIDR blocks](../../../vpc/latest/userguide/vpc-cidr-blocks.md "../../../vpc/latest/userguide/vpc-cidr-blocks.md") for more information). The following IPv4 and IPv6 ranges are allowed:
 
 ```
-10.0.0.0/16
-172.31.0.0/16
-192.168.0.0/20
+10.0.0.0/8
+172.16.0.0/12
+192.168.0.0/16
 fd00::/8
 ```
 
