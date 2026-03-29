@@ -16,7 +16,8 @@ cycle. You'll be charged for the full month; the fee won't be prorated.
 ###### Warning
 
 Deleting your Builder ID does not unsubscribe you. To stop being billed, you must actively
-unsubscribe yourself using the instructions in this section.
+unsubscribe yourself using the instructions in this section. Similarly, deleting your
+Amazon Q Developer Profile or Kiro Profile does not cancel your Builder ID subscription.
 
 You can unsubscribe starting from one of the following interfaces:
 
@@ -76,10 +77,17 @@ AWS Management Console
 1. Sign in to the AWS Management Console using the AWS account that's linked to your
    personal account (Builder ID). You specified this AWS account when you
    upgraded your Builder ID to the Pro tier. For more information, see [Upgrading a personal account (Builder ID)](upgrade-to-pro.md#upgrade-builder-id "upgrade-to-pro.md#upgrade-builder-id").
-2. Switch to the Amazon Q Developer console in the US East (N. Virginia) Region (IAD).
-3. Choose **Subscriptions**.
-4. In the **Builder ID users** section, choose
-   **Unsubscribe**.
+2. If you don't have a Kiro Profile, create one in the US East (N. Virginia) Region (IAD) by following the
+   [Kiro
+   onboarding quickstart](https://kiro.dev/docs/enterprise/getting-started/ "https://kiro.dev/docs/enterprise/getting-started/"). If you have a Kiro Profile but
+   not a Amazon Q Developer Profile, choose
+   **Settings**, then under
+   **Other applications**, choose
+   **Enable**.
+3. Switch to the Amazon Q Developer console in the US East (N. Virginia) Region (IAD).
+4. Choose **Subscriptions**.
+5. In the **Builder ID users** section, select the
+   subscription and choose **Unsubscribe**.
 
 ## Unsubscribing IAM Identity Center workforce users
 

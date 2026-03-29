@@ -248,7 +248,9 @@ schema to validate any registry files that you create.
           "items": {
             "$ref": "#/definitions/Package"
           },
-          "type": "array"
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 1
         },
         "remotes": {
           "items": {
@@ -261,7 +263,9 @@ schema to validate any registry files that you create.
               }
             ]
           },
-          "type": "array"
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 1
         }
       },
       "required": [
@@ -462,4 +466,5 @@ schema to validate any registry files that you create.
   ],
   "type": "object"
 }
+
 ```
