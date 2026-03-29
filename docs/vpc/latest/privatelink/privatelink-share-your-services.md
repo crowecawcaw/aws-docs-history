@@ -28,7 +28,7 @@ creates an interface VPC endpoint, which establishes connections between the sub
 they select from their VPC and your endpoint service. The load balancer receives requests
 from the service consumer and routes them to the targets hosting your service.
 
-![Service consumers connect to endpoint services hosted by service providers.](images/endpoint-services.png)
+![Service consumers connect to endpoint services hosted by service providers.](/images/vpc/latest/privatelink/images/endpoint-services.png)
 
 For low latency and high availability, we recommend that you make your service available
 in at least two Availability Zones.
