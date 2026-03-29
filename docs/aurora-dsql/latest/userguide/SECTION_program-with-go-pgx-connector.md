@@ -11,7 +11,7 @@ Aurora DSQL requires IAM-based authentication with time-limited tokens that exis
 In Aurora DSQL, **authentication** involves:
 
 - **IAM Authentication**: All connections use IAM-based authentication with time-limited tokens
-- **Token Generation**: Authentication tokens are generated using AWS credentials and have configurable lifetimes
+- **Token Generation**: The connector generates authentication tokens using AWS credentials, and these tokens have configurable lifetimes
 
 The Aurora DSQL Connector for Go is designed to understand these requirements and automatically generate IAM authentication tokens when establishing connections.
 
@@ -19,8 +19,8 @@ The Aurora DSQL Connector for Go is designed to understand these requirements an
 
 The Aurora DSQL Connector for Go allows you to continue using your existing pgx workflows while enabling IAM authentication through:
 
-- **Automatic Token Generation**: IAM tokens are generated automatically with smart caching (refreshes at 80% of token lifetime)
-- **Connection Pooling**: Built-in support for pgxpool with token caching for efficient connection creation
+- **Automatic Token Generation**: The connector generates IAM tokens automatically for each connection
+- **Connection Pooling**: Built-in support for `pgxpool` with automatic token generation per connection
 - **Flexible Configuration**: Support for full endpoints or cluster IDs with region auto-detection
 - **AWS Credentials Support**: Supports AWS profiles and custom credentials providers
 
@@ -28,11 +28,11 @@ The Aurora DSQL Connector for Go allows you to continue using your existing pgx 
 
 Automatic Token Management
 
-IAM tokens are generated and cached automatically. Tokens are refreshed at 80% of their lifetime to ensure they remain valid.
+The connector generates IAM tokens automatically for each new connection using pre-resolved credentials.
 
 Connection Pooling
 
-Connection pooling via pgxpool with token caching for efficient connection creation.
+Connection pooling via `pgxpool` with automatic token generation per connection.
 
 Flexible Host Configuration
 
@@ -213,15 +213,39 @@ pool, err := dsql.NewPool(ctx, dsql.Config{
 })
 ```
 
-## Token generation and caching
+## OCC retry
 
-The connector automatically generates and caches IAM authentication tokens for optimal performance:
+Aurora DSQL uses optimistic concurrency control (OCC). When two transactions modify the same data, the first to commit wins and the second receives an OCC error.
 
-- **Connection pools**: Tokens are cached and reused across connections. The BeforeConnect hook retrieves tokens from the cache, generating new ones only when the cached token has used 80% of its lifetime.
-- **Single connections**: A token is generated at connection time using pre-resolved credentials.
-- **Credentials resolution**: AWS credentials are resolved once when the pool/connection is created and reused for all token generations.
+The `occretry` package provides helpers for automatic retry with exponential backoff and jitter. Install it with:
 
-Token duration defaults to 900 seconds (15 minutes).
+```
+go get github.com/awslabs/aurora-dsql-connectors/go/pgx/occretry
+```
+
+Use `WithRetry` for transactional writes:
+
+```
+err := occretry.WithRetry(ctx, pool, occretry.DefaultConfig(), func(tx pgx.Tx) error {
+    _, err := tx.Exec(ctx, "UPDATE accounts SET balance = balance - $1 WHERE id = $2", 100, fromID)
+    if err != nil {
+        return err
+    }
+    _, err = tx.Exec(ctx, "UPDATE accounts SET balance = balance + $1 WHERE id = $2", 100, toID)
+    return err
+})
+```
+
+For DDL or single statements, use `ExecWithRetry`:
+
+```
+err := occretry.ExecWithRetry(ctx, pool, occretry.DefaultConfig(),
+    "CREATE TABLE IF NOT EXISTS users (id UUID PRIMARY KEY, name TEXT)")
+```
+
+###### Important
+
+`WithRetry` manages `BEGIN`/`COMMIT`/`ROLLBACK` internally. Your callback receives a transaction and should contain only database operations and be safe to retry.
 
 ## Examples
 

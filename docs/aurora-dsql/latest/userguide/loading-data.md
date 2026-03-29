@@ -9,7 +9,7 @@ Aurora DSQL supports standard PostgreSQL data loading commands, but loading data
 | Approach                                                                                                         | Best for                                                            | Considerations                                                                                                                              |
 | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | \*_Aurora DSQL Loader_<br>• Open source utility that makes it easy to parallelize inserts when using Aurora DSQL | Most data loading scenarios, especially migrations and bulk imports | Handles parallelization, connection pooling, conflict resolution, and IAM authentication automatically. Available as source code or binary. |
-| \*_PostgreSQL `COPY`_<br>• Standard PostgreSQL feature                                                           | Simple loads when you are already connected via a compatible client | Requires your client to handle IAM authentication; you manage parallelization yourself                                                      |
+| \*_PostgreSQL `\copy`_<br>• Client-side `psql` meta-command                                                      | Simple loads when you are already connected via `psql`              | Reads files on the client and streams data over the connection; you manage parallelization yourself                                         |
 | \*_`INSERT` transactions_<br>• Standard `SQL DML`                                                                | Small datasets or application-driven inserts                        | Simplest approach but slowest for bulk data                                                                                                 |
 
 For most data loading tasks, use the Aurora DSQL Loader. It handles the operational complexity of loading data into a distributed database, including parallel execution across multiple connections and automatic retry of failed operations.
@@ -178,6 +178,7 @@ aurora-dsql-loader load --help
 - **Define unique constraints for resumption** – If you need to resume interrupted loads, define unique constraints on your target tables and use the `--on-conflict` option to handle already-loaded records.
 - **Use Parquet for large datasets** – Parquet's columnar format typically provides better compression and faster loading for large datasets compared to CSV or TSV.
 - **Preserve manifest directories** – Keep the manifest directory for load jobs until you confirm the load completed successfully, enabling resumption if needed.
+- **Pre-create tables when possible** – Define the target table with explicit column data types and primary keys before loading data. Pre-created schemas give you control over type precision and indexing, which typically results in better query performance compared to auto-inferred schemas.
 
 ### Troubleshooting
 
@@ -268,21 +269,31 @@ aurora-dsql-loader load \
 
 Ensure your IAM identity has `s3:GetObject` permission on the source objects.
 
-## Using PostgreSQL COPY
+## Using PostgreSQL \copy
 
-If you are already connected to Aurora DSQL through a client that handles IAM authentication, you can use the standard PostgreSQL `COPY` command to load data. This approach works well for simple, single-threaded loads.
+If you are already connected to Aurora DSQL through a `psql` session that handles IAM authentication, you can use the client-side `\copy` meta-command to load data from your local file system. Unlike the server-side `COPY` statement, `\copy` reads the file on the client machine and streams the data over the existing connection, so no server-side file access is required. This approach works well for simple, single-threaded loads.
 
-###### Example Loading a CSV file with COPY
+###### Example Loading a CSV file with \copy
 
 ```
-COPY `my_table` FROM '`/path/to/data.csv`' WITH (FORMAT csv, HEADER true);
+\copy `my_table` FROM '`/path/to/data.csv`' WITH (FORMAT csv, HEADER true);
 ```
 
-When using `COPY` directly, you are responsible for:
+When using `\copy` directly, you are responsible for:
 
 - Managing parallelization if loading multiple files or large datasets
 - Handling connection management and authentication token refresh
 - Implementing retry logic for failed operations
+
+### Best practices for INSERT transactions
+
+When using `INSERT` statements to load data into Aurora DSQL, follow these practices to improve throughput and reliability:
+
+- **Batch rows into multi-row INSERTs** – Group multiple rows into a single `INSERT` statement to reduce round trips. For example, `INSERT INTO my_table VALUES (1, 'a'), (2, 'b'), (3, 'c')` is more efficient than three separate statements.
+- **Use parameterized queries** – Use prepared statements with parameter binding instead of string concatenation. This avoids SQL injection risks and allows the database to reuse query plans.
+- **Keep transactions small** – Aurora DSQL uses optimistic concurrency control, so large transactions that touch many rows are more likely to encounter conflicts. Aim for transactions of a few hundred rows rather than thousands.
+- **Implement retry logic** – Transient errors such as optimistic concurrency control (OCC) conflicts are expected in a distributed system. Implement exponential backoff with retry for failed transactions.
+- **Parallelize across connections** – Open multiple connections and distribute inserts across them. Each connection can process a different subset of data concurrently.
 
 For most use cases, the Aurora DSQL Loader provides a simpler and more robust approach to data loading.
 

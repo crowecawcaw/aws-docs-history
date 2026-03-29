@@ -184,12 +184,19 @@ end
 | profile              | String           | nil             | AWS profile name for credentials                                          |
 | token_duration       | Integer          | 900 (15 min)    | Token validity duration in seconds (max allowed: 1 week, default: 15 min) |
 | credentials_provider | Aws::Credentials | nil             | Custom credentials provider                                               |
-| pool_size            | Integer          | 5               | Connection pool size                                                      |
-| checkout_timeout     | Integer          | 5               | Seconds to wait for a pool connection                                     |
 | max_lifetime         | Integer          | 3300 (55 min)   | Maximum connection lifetime in seconds                                    |
 | application_name     | String           | nil             | ORM prefix for application_name                                           |
 | logger               | Logger           | nil             | Logger for OCC retry warnings                                             |
 | occ_max_retries      | Integer          | nil (disabled)  | Max OCC retries on `pool.with`; enables retry when set                    |
+
+`create_pool` also accepts a `pool:` keyword with a hash of options that you pass directly to `ConnectionPool.new`. If you omit `pool:`, the connector defaults to `{size: 5, timeout: 5}`. Keys you provide override only those specific defaults.
+
+```
+pool = AuroraDsql::Pg.create_pool(
+  host: "your-cluster.dsql.us-east-1.on.aws",
+  pool: { size: 10, timeout: 10 }
+)
+```
 
 ## Authentication
 

@@ -400,6 +400,10 @@ function generateToken(string $yourClusterEndpoint, string $region): string {
 
 .NET
 
+###### Tip
+
+AWS recommends using the [Connecting to Aurora DSQL clusters with a .NET connector](SECTION_program-with-dsql-connector-for-dotnet-npgsql.md "SECTION_program-with-dsql-connector-for-dotnet-npgsql.md"), which handles token generation automatically.
+
 ###### Note
 
 The official SDK for .NET doesn't include a built-in API call to
