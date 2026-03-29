@@ -24,8 +24,12 @@ In order to manage the login nodes pool the cluster administrator must have the 
                 aws:TagKeys: [ "parallelcluster:cluster-name" ]
             - Action:
               - autoscaling:CreateAutoScalingGroup
+              - autoscaling:DeleteTags
+              - autoscaling:CreateOrUpdateTags
               - elasticloadbalancing:AddTags
               - elasticloadbalancing:CreateLoadBalancer
+              - elasticloadbalancing:RemoveTags
+              - elasticloadbalancing:ModifyTargetGroup
             Resource: '*'
             Effect: Allow
 ```

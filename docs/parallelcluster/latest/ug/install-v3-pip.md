@@ -39,7 +39,7 @@ see the [Node.js release schedule](https://github.com/nodejs/release#release-sch
 ```
 `$` `pcluster version`
 `{
- "version": "3.14.2"
+ "version": "3.15.0"
 }`
 ```
 

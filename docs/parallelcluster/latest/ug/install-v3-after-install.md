@@ -9,7 +9,7 @@ You can verify that AWS ParallelCluster was installed correctly by running [pclu
 ```
 `$` `pcluster version`
 `{
-"version": "3.14.2"
+"version": "3.15.0"
 }`
 ```
 

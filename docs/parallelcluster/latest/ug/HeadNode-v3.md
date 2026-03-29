@@ -271,8 +271,8 @@ LocalStorage:
     MountDir: `string`
 ```
 
-[Update policy: This
-setting can be changed during an update.](using-pcluster-update-cluster-v3.md#update-policy-setting-supported-v3 "using-pcluster-update-cluster-v3.md#update-policy-setting-supported-v3")
+[Update policy: If this setting is
+changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")
 
 ### `LocalStorage` properties
 
@@ -291,8 +291,8 @@ RootVolume:
   DeleteOnTermination: `boolean`
 ```
 
-[Update policy: This
-setting can be changed during an update.](using-pcluster-update-cluster-v3.md#update-policy-setting-supported-v3 "using-pcluster-update-cluster-v3.md#update-policy-setting-supported-v3")
+[Update policy: If this setting is
+changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")
 
 `Size`
 (**Optional**, `Integer`)

@@ -8,12 +8,36 @@ Check the `~/.parallelcluster/pcluster-cli.log` in your local file system for fa
 
 ## Seeing `clusterStatus` is `UPDATE_FAILED` with `pcluster describe-cluster` command
 
-If the cluster stack update rolled back, check the `/var/log/chef-client.log` file for error details.
+### Root causing
+
+To identify the root cause of the failure, the starting point is to look at cluster stack events and `/var/log/chef-client.log` in the head node.
+
+A possible cause is that at least one cluster node did not apply the update. You can retrieve the list of nodes that failed to update in `/var/log/chef-client.log` in the head node by looking for `Check cluster readiness` in the log.
 
 Check to see if your issue is mentioned in [GitHub Known Issues](https://github.com/aws/aws-parallelcluster/wiki "https://github.com/aws/aws-parallelcluster/wiki") at AWS ParallelCluster on GitHub.
 
-If the rollback failed according to logs `/var/log/chef-client.log`, it may be that `clustermgtd` was stopped to prevent the amplification of failures.
-In this case, you need to manually restart it by executing the following command on the Head Node:
+### Preventing
+
+A cluster update can fail if at least one node in the cluster did not successfully apply the update.
+To reduce the risk of cluster update failure, we recommend terminating broken nodes before initiating the update.
+An example of nodes that could be broken are compute nodes stuck in `COMPLETING` state for longer than the expected epilog duration.
+To detect those nodes, you can run the following command, adapting the `threshold` value to your needs (the value must be greater than the maximum duration expected for your epilogs).
+
+```
+`$` `scontrol show nodes --json | jq -r --argjson threshold 60 '
+ .nodes[] | select(.state | index("COMPLETING")) |
+ select((now - .last_busy.number) > $threshold) |
+ .name
+'`
+```
+
+### Recovering
+
+If the update failed, the rollback is the mechanism expected to recover the state of the cluster.
+
+If the rollback failed, the cluster state is not deterministic.
+In this case, it may be that `clustermgtd` was stopped to prevent the amplification of failures.
+We recommend starting it by running the following command on the head node. Adapt the Python version to the one shipped with your AWS ParallelCluster version:
 
 ```
 `$` `/opt/parallelcluster/pyenv/versions/`3.12.11`/envs/cookbook_virtualenv/bin/supervisorctl start clustermgtd`

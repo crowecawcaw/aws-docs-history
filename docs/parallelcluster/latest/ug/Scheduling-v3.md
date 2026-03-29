@@ -102,6 +102,9 @@ Scheduling:
           Tags:
             - Key: `string`
               Value: `string`
+          LaunchTemplateOverrides:
+            LaunchTemplateId: `string`
+            Version: `string`
       CustomActions:
         OnNodeStart:
           Sequence:
@@ -477,6 +480,9 @@ SlurmQueues:
         Tags:
           - Key: `string`
             Value: `string`
+        LaunchTemplateOverrides:
+          LaunchTemplateId: `string`
+          Version: `string`
     CustomActions:
       OnNodeStart:
         Sequence:
@@ -1269,6 +1275,9 @@ ComputeResources:
     Tags:
       - Key: `string`
         Value: `string`
+    LaunchTemplateOverrides:
+      LaunchTemplateId: `string`
+      Version: `string`
 ```
 
 [Update policy: For this list
@@ -1852,6 +1861,43 @@ The tag key.
 `String`)**
 
 The tag value.
+
+[Update policy: The
+compute fleet must be stopped or QueueUpdateStrategy must be set for this setting to be changed
+for an update.](using-pcluster-update-cluster-v3.md#update-policy-queue-update-strategy-v3 "using-pcluster-update-cluster-v3.md#update-policy-queue-update-strategy-v3")
+
+**`LaunchTemplateOverrides` (**Optional**)**
+
+###### Note
+
+`LaunchTemplateOverrides` is added with AWS ParallelCluster
+version 3.15.0.
+
+Specifies a launch template to override the default launch template that
+AWS ParallelCluster creates for the compute resource. The launch template should
+only contain network interfaces overrides. AWS ParallelCluster validates the
+launch template and prevents overriding other parameters. For more information
+on how to use this override, see [Customize compute node network interfaces with launch template overrides](tutorial-network-customization-v3.md "tutorial-network-customization-v3.md").
+
+```
+LaunchTemplateOverrides:
+  LaunchTemplateId: `string`
+  Version: `string`
+```
+
+**`LaunchTemplateId` (**Required**,
+`String`)**
+
+The ID of the launch template.
+
+[Update policy: The
+compute fleet must be stopped or QueueUpdateStrategy must be set for this setting to be changed
+for an update.](using-pcluster-update-cluster-v3.md#update-policy-queue-update-strategy-v3 "using-pcluster-update-cluster-v3.md#update-policy-queue-update-strategy-v3")
+
+**`Version` (**Required**,
+`String`)**
+
+The version number of the launch template.
 
 [Update policy: The
 compute fleet must be stopped or QueueUpdateStrategy must be set for this setting to be changed

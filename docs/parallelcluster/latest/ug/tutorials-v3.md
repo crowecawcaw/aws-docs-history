@@ -27,3 +27,4 @@ see [AWS services used by AWS ParallelCluster](aws-services-v3.md "aws-services-
   jobs with Pyxis](tutorials_11_running-containerized-jobs-with-pyxis.md "tutorials_11_running-containerized-jobs-with-pyxis.md")
 - [Creating a cluster with an EFA-enabled FSx Lustre](tutorial-efa-enabled-fsx-lustre.md "tutorial-efa-enabled-fsx-lustre.md")
 - [Support NVIDIA-Imex with p6e-gb200 instance](support-nvidia-imex-p6e-gb200-instance.md "support-nvidia-imex-p6e-gb200-instance.md")
+- [Customize compute node network interfaces with launch template overrides](tutorial-network-customization-v3.md "tutorial-network-customization-v3.md")

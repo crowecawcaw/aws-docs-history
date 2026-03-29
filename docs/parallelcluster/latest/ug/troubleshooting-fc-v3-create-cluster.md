@@ -226,8 +226,15 @@ You might discover the following in these logs.
     + Can't find the logs, or the head node wasn't created successfully
 
 
-    It's possible that the head node wasn't created successfully and the logs can't be found. In the CloudFormation console, view the cluster stack details
-     to check for additional failure details.
+    It's possible that the head node wasn't created successfully and the logs can't be found.
+     In this case, you can get additional failure details by checking the CloudFormation stack events and the head node console log.
+     You can retrieve the head node console log through the Amazon EC2 console or by running the following Amazon EC2 CLI command:
+
+
+
+    ```
+    aws ec2 get-console-output --instance-id `HEAD_NODE_INSTANCE_ID` --output text
+    ```
 
 ## `failureCode` is `HeadNodeBootstrapFailure` with `failureReason` Failed to bootstrap the head node.
 

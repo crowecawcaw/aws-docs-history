@@ -12,10 +12,6 @@ We recommend that you run your EFA-enabled instances in a placement group. This 
 low-latency group in a single Availability Zone. For more information on how to configure placement groups with
 AWS ParallelCluster, see [SlurmQueues](Scheduling-v3.md#Scheduling-v3-SlurmQueues "Scheduling-v3.md#Scheduling-v3-SlurmQueues") / [Networking](Scheduling-v3.md#Scheduling-v3-SlurmQueues-Networking "Scheduling-v3.md#Scheduling-v3-SlurmQueues-Networking") / [PlacementGroup](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Networking-PlacementGroup "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Networking-PlacementGroup").
 
-For more information, see [Elastic Fabric
-Adapter](../../../AWSEC2/latest/UserGuide/efa.md "../../../AWSEC2/latest/UserGuide/efa.md") in the _Amazon EC2 User Guide_ and [Scale HPC workloads with elastic fabric adapter and AWS ParallelCluster](https://aws.amazon.com/blogs/opensource/scale-hpc-workloads-elastic-fabric-adapter-and-aws-parallelcluster/ "https://aws.amazon.com/blogs/opensource/scale-hpc-workloads-elastic-fabric-adapter-and-aws-parallelcluster/") in the _AWS Open Source
-Blog_.
-
 ###### Note
 
 Elastic Fabric Adapter (EFA) isn't supported over different availability zones. For more information, see
@@ -27,3 +23,31 @@ Elastic Fabric Adapter (EFA) isn't supported over different availability zones. 
 By default, Ubuntu distributions enable ptrace (process trace) protection. ptrace protection is disabled so that Libfabric works properly. For more
 information, see [Disable
 ptrace protection](../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-ptrace "../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-ptrace") in the _Amazon EC2 User Guide_.
+
+## Default EFA network configuration
+
+Starting in AWS ParallelCluster 3.15.0, when EFA is enabled, AWS ParallelCluster automatically configures EFA-only
+network interfaces to separate EFA traffic from IP traffic. This maximizes EFA bandwidth while minimizing IP address
+consumption. AWS ParallelCluster determines the optimal configuration based on the capabilities of the instance type.
+
+This default configuration is recommended for most workloads, including tightly-coupled HPC and distributed
+AI/ML training.
+
+## Customizing EFA network interfaces
+
+If your workload requires a different network configuration, such as maximizing ENA bandwidth on secondary
+network cards or configuring a subset of available network cards, you can override the default settings using
+the [SlurmQueues](Scheduling-v3.md#Scheduling-v3-SlurmQueues "Scheduling-v3.md#Scheduling-v3-SlurmQueues") / [ComputeResources](Scheduling-v3.md#Scheduling-v3-SlurmQueues-ComputeResources "Scheduling-v3.md#Scheduling-v3-SlurmQueues-ComputeResources") / [LaunchTemplateOverrides](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-LaunchTemplateOverrides "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-LaunchTemplateOverrides") parameter. This replaces the entire network interface configuration of the
+compute nodes with the configuration defined in your launch template.
+
+For a step-by-step walkthrough, see [Customize compute node network interfaces with launch template overrides](tutorial-network-customization-v3.md "tutorial-network-customization-v3.md").
+
+###### Warning
+
+If you configure network interfaces in a way that is not supported by the instance type, instances will fail to
+launch. To verify the supported network configurations for your instance type, see [DescribeInstanceTypes](../../../AWSEC2/latest/APIReference/API_DescribeInstanceTypes.md "../../../AWSEC2/latest/APIReference/API_DescribeInstanceTypes.md") in the
+_Amazon EC2 API Reference_.
+
+For more information, see [Elastic Fabric
+Adapter](../../../AWSEC2/latest/UserGuide/efa.md "../../../AWSEC2/latest/UserGuide/efa.md") in the _Amazon EC2 User Guide_ and [Scale HPC workloads with elastic fabric adapter and AWS ParallelCluster](https://aws.amazon.com/blogs/opensource/scale-hpc-workloads-elastic-fabric-adapter-and-aws-parallelcluster/ "https://aws.amazon.com/blogs/opensource/scale-hpc-workloads-elastic-fabric-adapter-and-aws-parallelcluster/") in the _AWS Open Source
+Blog_.

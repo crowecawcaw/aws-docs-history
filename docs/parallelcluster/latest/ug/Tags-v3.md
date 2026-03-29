@@ -10,8 +10,8 @@ Tags:
     Value: `string`
 ```
 
-[Update policy: If this setting is
-changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")
+[Update policy: This
+setting can be changed during an update.](using-pcluster-update-cluster-v3.md#update-policy-setting-supported-v3 "using-pcluster-update-cluster-v3.md#update-policy-setting-supported-v3")
 
 ## `Tags` properties
 
@@ -20,13 +20,21 @@ changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-
 
 Defines the name of the tag.
 
-[Update policy: If this setting is
-changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")
+[Update policy: This
+setting can be changed during an update.](using-pcluster-update-cluster-v3.md#update-policy-setting-supported-v3 "using-pcluster-update-cluster-v3.md#update-policy-setting-supported-v3")
 
 `Value` (**Required**,
 `String`)
 
 Defines the value of the tag.
 
-[Update policy: If this setting is
-changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")
+[Update policy: This
+setting can be changed during an update.](using-pcluster-update-cluster-v3.md#update-policy-setting-supported-v3 "using-pcluster-update-cluster-v3.md#update-policy-setting-supported-v3")
+
+###### Note
+
+Starting with AWS ParallelCluster 3.15.0, Tag updates are supported with the following limitations:
+
+- EBS Volume on HeadNode - Will only retain the tags from when the cluster was created;
+  updating tags on this EBS volume is not supported.
+- Running Nodes - Tag updates will not be applied to running compute or login nodes.
