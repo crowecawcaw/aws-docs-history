@@ -223,21 +223,44 @@ data from source accounts to your destination account.
           all log groups in the source accounts.
         - **Filter log group**: Centralize logs
           from a subset of log groups in the source accounts, matching
-          a log group selection criteria. You can provide the
+          selection criteria. You can provide the
           selection criteria in two modes:
 
               + **Builder**: A click-based
-               experience to generate the log group selection
+               experience to generate the selection
                criteria
               + **Editor**: A free-form text box
-               to provide the log group selection criteria
+               to provide the selection criteria
 
-          Supported syntax for log group selection criteria:
+          There are two selection criteria that you can use to filter
+          logs:
 
-              + *Supported Keys:* LogGroupName
-               | \*
-              + *Supported Operators:* = | != |
-               IN | NOT IN | AND | OR | LIKE | NOT LIKE
+              + **Log group selection criteria**:
+               The selection criteria that specifies which
+               source log groups to centralize.
+
+
+
+
+              	- *Supported Keys:* LogGroupName
+              	 | \*
+              	- *Supported Operators:* = | != |
+              	 IN | NOT IN | AND | OR | LIKE | NOT LIKE
+              + **Data source selection criteria**:
+               The selection criteria that specifies which
+               data sources to centralize.
+
+
+
+
+              	- *Supported Keys:* DataSourceName
+              	 | DataSourceType
+              	- *Supported Operators:* = | != |
+              	 IN | NOT IN | AND | OR | LIKE | NOT LIKE
+
+          When both log group selection criteria and data source
+          selection criteria are specified, a log event must match
+          both criteria to be centralized.
 
     2.  **KMS Encrypted Log Group**
 

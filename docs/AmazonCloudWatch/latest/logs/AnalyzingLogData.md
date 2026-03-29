@@ -57,9 +57,9 @@ QL.
   you can choose the **Patterns** tab to see the patterns that CloudWatch Logs
   found based on a sample of your results.
 - [Saving
-  queries](CWL_Insights-Saving-Queries.md "CWL_Insights-Saving-Queries.md"), seeing your query history, and re-running saved
-  queries. This can help you run complex queries when you need, without having to
-  re-create them each time that you want to run them.
+  queries](CWL_Insights-Saving-Queries.md "CWL_Insights-Saving-Queries.md"), seeing your query history, re-running saved
+  queries, and [using
+  saved queries with parameters](CWL_Insights-Saving-Queries.md#CWL_Insights-Parameterized-Queries "CWL_Insights-Saving-Queries.md#CWL_Insights-Parameterized-Queries").
 - [Adding queries to
   dashboards](CWL_ExportQueryResults.md "CWL_ExportQueryResults.md").
 - [Encrypting query

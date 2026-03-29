@@ -500,6 +500,7 @@ from the log events into columns.
 | delimiter      | The character used to separate each column in the original<br>comma-separated value log event | No        | `,`                        | Maximum length: 1 unless the value is `\t`<br>or `\s`                          |
 | quoteCharacter | Character used as a text qualifier for a single column of<br>data                             | No        | `"`                        | Maximum length: 1                                                              |
 | columns        | List of names to use for the columns in the transformed log<br>event.                         | No        | `[column_1, column_2 ...]` | Maximum CSV columns: 100<br>Maximum length: 128<br>Maximum nested key depth: 3 |
+| destination    | The parent field to put transformed key value pairs under                                     | No        | `Root node`                | Maximum length: 128<br>Maximum nested key depth: 3                             |
 
 Setting `delimiter` to `\t` will separate each column on
 a tab character, and `\t` will separate each column on a single space
@@ -533,6 +534,52 @@ The transformed log event would be the following.
   "column_1": "Akua Mansa",
   "column_2": "28",
   "column_3": "New York: USA"
+}
+```
+
+**Example 2**
+
+Suppose an ingested log event looks like this:
+
+```
+{
+    "timestamp": "2024-11-23T16:03:12Z",
+    "type": "user_data",
+    "logMsg": "'Akua Mansa':28:'New York: USA'"
+}
+```
+
+Suppose we parse the event as JSON, they parse a JSON field with the **csv** processor, specifying column names and destination:
+
+```
+[
+    {
+        "parseJSON": {}
+    },
+    {
+        "csv": {
+            "source": "logMsg",
+            "delimiter": ":",
+            "quoteCharacter": "'",
+            "columns":["name","age","location"],
+            "destination": "msg"
+        }
+    }
+]
+```
+
+The transformed log event would be the following.
+
+```
+{
+    "timestamp": "2024-11-23T16:03:12Z",
+    "logMsg": "'Akua Mansa':28:'New York: USA'",
+    "type": "user_data",
+    "msg": {
+        "name": "Akua Mansa",
+        "age": "28",
+        "location": "New York: USA"
+    }
 }
 ```
 

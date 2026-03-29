@@ -7,11 +7,15 @@ Before you can send logs using bearer token authentication with any of the HTTP 
 - Create a log group and log stream
 - Enable bearer token authentication on the log group
 
+###### Important
+
+We recommend using SigV4 authentication with short-term credentials for all workloads where this is possible. SigV4 provides the strongest security posture. Restrict the use of API keys (bearer tokens) to scenarios where short-term credential-based authentication is not feasible. When you are ready to incorporate CloudWatch Logs into applications with greater security requirements, you should switch to short-term credentials. For more information, see [Alternatives to long-term access keys](../../../IAM/latest/UserGuide/best-practices.md#bp-workloads-use-roles "../../../IAM/latest/UserGuide/best-practices.md#bp-workloads-use-roles") in the _IAM User Guide_.
+
 ###### Note
 
 API key (bearer token) for HTTP endpoint access is currently in preview and available in the following AWS Regions: `us-east-1`, `us-west-1`, `us-west-2`, and `us-east-2`. Please check this documentation for updates in future.
 
-## Option 1: Simplified setup using the AWS console (recommended)
+## Option 1: Quick start using the AWS console
 
 The AWS Management Console provides a streamlined workflow to generate API keys for HTTP endpoint access.
 
@@ -275,21 +279,26 @@ This policy will prevent the creation of credentials for all AWS services that s
 }
 ```
 
-## Handle compromised CloudWatch Logs API keys
+## Rotating API keys
 
-If your API key becomes compromised, you should revoke permissions to use it. You can use the following IAM API operations to manage compromised keys:
+Regularly rotating your API keys reduces the risk of unauthorized access. We recommend establishing a rotation schedule that aligns with your organization's security policies.
 
-- [UpdateServiceSpecificCredential](../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.md "../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.md") – Set the status of the key to inactive. You can reactivate the key later.
-- [ResetServiceSpecificCredential](../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.md "../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.md") – Reset the key. This generates a new password for the key.
-- [DeleteServiceSpecificCredential](../../../IAM/latest/APIReference/API_DeleteServiceSpecificCredential.md "../../../IAM/latest/APIReference/API_DeleteServiceSpecificCredential.md") – Delete the key permanently.
+### Rotation process
 
-###### Note
+To rotate an API key without interrupting log delivery, follow this procedure:
 
-To carry out these actions through the API, you must authenticate with AWS credentials and not with a CloudWatch Logs API key.
+1. Create a new (secondary) credential for the IAM user:
 
-### Change the status of a CloudWatch Logs API key
+```
+aws iam create-service-specific-credential \
+    --user-name cloudwatch-logs-hlc-user \
+    --service-name logs.amazonaws.com \
+    --credential-age-days 90
+```
 
-To deactivate a key, use the [update-service-specific-credential](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-service-specific-credential.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-service-specific-credential.html") command:
+2. (Optional) Store the new credential in AWS Secrets Manager for secure retrieval and automated rotation.
+3. Import the new credential into your vendor's portal or update your application configuration to use the new API key.
+4. Set the original credential to inactive:
 
 ```
 aws iam update-service-specific-credential \
@@ -298,29 +307,49 @@ aws iam update-service-specific-credential \
     --status Inactive
 ```
 
-To reactivate the key, change the status to `Active`.
-
-### Reset a CloudWatch Logs API key
-
-If the value of your key has been compromised or you no longer have it, reset it using the [reset-service-specific-credential](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/reset-service-specific-credential.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/reset-service-specific-credential.html") command. The key must not have expired yet. If it's already expired, delete the key and create a new one.
-
-```
-aws iam reset-service-specific-credential \
-    --service-specific-credential-id ACCA1234EXAMPLE1234
-```
-
-### Delete a CloudWatch Logs API key
-
-If you no longer need a key or it has expired, delete it using the [delete-service-specific-credential](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-service-specific-credential.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-service-specific-credential.html") command:
+5. Verify that log delivery is not impacted by monitoring the `IncomingBytes` metric for your log group in CloudWatch. For more information, see [Monitoring with CloudWatch metrics](CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md "CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md").
+6. After confirming successful delivery with the new key, delete the previous credential:
 
 ```
 aws iam delete-service-specific-credential \
     --service-specific-credential-id ACCA1234EXAMPLE1234
 ```
 
-### Attach IAM policies to remove permissions for using a CloudWatch Logs API key
+### Monitoring key expiration
 
-To prevent an identity from making calls with a CloudWatch Logs API key, attach the following policy to the IAM user associated with the key:
+To check the creation date and status of your existing API keys, use the [list-service-specific-credentials](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-service-specific-credentials.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-service-specific-credentials.html") command:
+
+```
+aws iam list-service-specific-credentials \
+    --user-name cloudwatch-logs-hlc-user \
+    --service-name logs.amazonaws.com
+```
+
+The response includes `CreateDate` and `Status` for each credential. Use this information to identify keys that are approaching expiration or have been active longer than your rotation policy allows.
+
+## Responding to a compromised API key
+
+If you suspect that an API key has been compromised, take the following steps immediately:
+
+1. **Deactivate the key immediately** to prevent further unauthorized use:
+
+```
+aws iam update-service-specific-credential \
+    --user-name cloudwatch-logs-hlc-user \
+    --service-specific-credential-id ACCA1234EXAMPLE1234 \
+    --status Inactive
+```
+
+2. **Review CloudTrail logs** to determine the scope of unauthorized access. See [Logging API key usage with CloudTrail](#CWL_HTTP_Endpoints_CloudTrail_Logging "#CWL_HTTP_Endpoints_CloudTrail_Logging") for how to enable auditing of API key usage.
+3. **Create a replacement key** following the rotation process described in [Rotation process](#CWL_HTTP_Endpoints_Rotation_Process "#CWL_HTTP_Endpoints_Rotation_Process").
+4. **Delete the compromised key** after the replacement is in place:
+
+```
+aws iam delete-service-specific-credential \
+    --service-specific-credential-id ACCA1234EXAMPLE1234
+```
+
+5. **Attach a deny policy** if you need to immediately block all bearer token access for the IAM user while you investigate:
 
 ```
 {
@@ -332,6 +361,26 @@ To prevent an identity from making calls with a CloudWatch Logs API key, attach 
     }
 }
 ```
+
+###### Note
+
+To carry out these actions through the API, you must authenticate with AWS credentials and not with a CloudWatch Logs API key.
+
+You can also use the following IAM API operations to manage compromised keys:
+
+- [ResetServiceSpecificCredential](../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.md "../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.md") – Reset the key to generate a new password without deleting the credential. The key must not have expired.
+
+## Security best practices for API keys
+
+Follow these best practices to protect your CloudWatch Logs API keys:
+
+- **Never embed API keys in source code.** Do not hard-code API keys in application code or commit them to version control systems. If a key is accidentally committed to a public repository, AWS automated scanning may flag it and you should rotate the key immediately.
+- **Use a secrets manager.** Store API keys in [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") or an equivalent secrets management solution. This enables centralized access control, audit logging, and automated rotation.
+- **Set an expiration on all keys.** Always specify a `--credential-age-days` value when creating API keys. To enforce a maximum key lifetime across your organization, use the `iam:ServiceSpecificCredentialAgeDays` IAM condition key. For an example, see [Allow the creation of CloudWatch Logs keys only if they expire within 90 days](#CWL_HTTP_Endpoints_Allow_Expire_90 "#CWL_HTTP_Endpoints_Allow_Expire_90").
+- **Apply least-privilege permissions.** Scope the IAM user's permissions to only the log groups and actions required. Use the managed [CloudWatchLogsAPIKeyAccess](../../../aws-managed-policy/latest/reference/CloudWatchLogsAPIKeyAccess.md "../../../aws-managed-policy/latest/reference/CloudWatchLogsAPIKeyAccess.md") policy as a starting point and restrict further as needed.
+- **Enable CloudTrail logging.** Audit API key usage by enabling CloudTrail data events for `AWS::Logs::LogGroupAuthorization`. See [Logging API key usage with CloudTrail](#CWL_HTTP_Endpoints_CloudTrail_Logging "#CWL_HTTP_Endpoints_CloudTrail_Logging").
+- **Monitor with IAM Access Analyzer.** Use [IAM Access Analyzer](../../../IAM/latest/UserGuide/what-is-access-analyzer.md "../../../IAM/latest/UserGuide/what-is-access-analyzer.md") to identify unused credentials and overly permissive policies associated with your API key IAM users.
+- **Rotate keys regularly.** Establish a rotation schedule and follow the process described in [Rotating API keys](#CWL_HTTP_Endpoints_Rotating_Keys "#CWL_HTTP_Endpoints_Rotating_Keys").
 
 ## Logging API key usage with CloudTrail
 

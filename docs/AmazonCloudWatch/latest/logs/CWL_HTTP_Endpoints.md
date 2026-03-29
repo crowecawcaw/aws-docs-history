@@ -1,9 +1,12 @@
 # Log ingestion through HTTP endpoints
 
 Amazon CloudWatch Logs provides HTTP endpoints that allow you to send logs directly to CloudWatch Logs using
-simple HTTP POST requests. These endpoints support both bearer token and SigV4
-authentication, making it easy to ingest logs from any application or service without
-requiring AWS SDK integration.
+simple HTTP POST requests. These endpoints support both SigV4 and bearer token
+authentication.
+
+###### Important
+
+We recommend using SigV4 authentication for all production workloads where AWS SDK integration is possible. SigV4 uses short-term credentials and provides the strongest security posture. Bearer token (API key) authentication is intended for scenarios where SigV4 is not feasible, such as third-party log forwarders that do not support AWS SDK integration. For more information, see [Alternatives to long-term access keys](../../../IAM/latest/UserGuide/best-practices.md#bp-workloads-use-roles "../../../IAM/latest/UserGuide/best-practices.md#bp-workloads-use-roles") in the _IAM User Guide_.
 
 CloudWatch Logs supports the following HTTP ingestion endpoints:
 
@@ -22,7 +25,7 @@ All HTTP ingestion endpoints share the following behavior:
 
 All endpoints support both SigV4 and bearer token authentication:
 
-- **SigV4** – Standard AWS Signature Version 4 signing.
+- **SigV4 (recommended)** – Standard AWS Signature Version 4 signing. Use SigV4 whenever your application or infrastructure supports the AWS SDK or can sign requests. SigV4 uses short-term credentials and is the most secure authentication method.
 - **Bearer token** – Use the `Authorization: Bearer <ACWL token>` header.
   - Token must be a valid ACWL bearer token. For setup instructions, see
     [Setting up bearer token authentication](CWL_HTTP_Endpoints_BearerTokenAuth.md "CWL_HTTP_Endpoints_BearerTokenAuth.md").

@@ -40,7 +40,15 @@ policy, and the user setting up the logging has the
 `logs:PutResourcePolicy`, `logs:DescribeResourcePolicies`,
 and `logs:DescribeLogGroups` permissions for the log group, then AWS
 automatically creates the following policy for it when you begin sending the logs to
-CloudWatch Logs.
+CloudWatch Logs. For newly created
+subscriptions, resource policies are configured at the log group level and have
+a maximum size of 51,200 bytes. If an existing account-level resource policy
+already grants permissions through wildcards, a separate log group level policy
+would not be created. To check the logGroup-level resource policy for a specific log
+group, use the
+`describe-resource-policies` command with the `--resource-arn`
+parameter set to the log group ARN and the `--policy-scope` parameter
+set to `RESOURCE`.
 
 JSON
 

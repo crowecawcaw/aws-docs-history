@@ -13,7 +13,17 @@ To save a query, you must be logged into a role that has the permission
 be logged into a role that has the
 permission`logs:DescribeQueryDefinitions`.
 
-###### To save a query
+###### Note
+
+You can create and save queries with parameters — reusable templates with
+named placeholders. Instead of saving multiple variations of the same query with
+different values, create one template and provide different parameter values when
+you run it. This functionality is currently supported for queries using Logs
+Insights query language only. For more information, see [Using saved queries with
+parameters](#CWL_Insights-Parameterized-Queries "#CWL_Insights-Parameterized-Queries").
+
+Console
+**To save a query**
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -21,15 +31,6 @@ permission`logs:DescribeQueryDefinitions`.
    **Logs Insights**.
 3. In the query editor, create a query.
 4. Choose **Save**.
-
-If you don't see a **Save** button, you need to change to the
-new design for the CloudWatch Logs console. To do so:
-
-    1. In the navigation pane, choose **Log groups**.
-    2. Choose **Try the new design**.
-    3. In the navigation pane, choose **Insights** and
-     return to step 3 of this procedure.
-
 5. Enter a name for the query.
 6. (Optional) Choose a folder where you want to save the query. Select
    **Create new** to create a folder. If you create a new
@@ -40,7 +41,120 @@ new design for the CloudWatch Logs console. To do so:
    `folder-level-2` inside that folder. The query is saved
    in `folder-level-2`.
 7. (Optional) Change the query's log groups or query text.
-8. Choose **Save**.
+8. (Optional) To use parameters in your query, follow these additional steps:
+   1. **Add parameters to
+      your query.** Replace static values with
+      placeholders using the `{{parameter}}` syntax
+      (double braces before and after the parameter name).
+
+   Example: Original query with static values:
+
+   ```
+   fields @timestamp, @message
+   | filter level = "Error"
+   | filter applicationName = "OrderService"
+   ```
+
+   Updated query with parameters:
+
+   ```
+   fields @timestamp, @message
+   | filter level = {{logLevel}}
+   | filter applicationName = {{applicationName}}
+   ```
+
+   2. **Define the parameters used in
+      your query.** For each placeholder parameter,
+      specify:
+      - **Name**:
+        Must exactly match the placeholder name (for example,
+        `logLevel`,
+        `applicationName`).
+      - **Default value**
+        (optional): The value to use if no parameter value is
+        provided.
+      - **Description**
+        (optional): Explains the parameter's
+        purpose.
+
+   3. Queries with parameters can be run by using the query
+      name with a `$` prefix and passing the
+      parameter names as key-value pairs. See
+      **To run a saved query**
+      for details.
+
+9. Choose **Save**.
+
+AWS CLI
+**To save a query**, use `put-query-definition`:
+
+```
+aws logs put-query-definition \
+  --name "ErrorsByLevel" \
+  --query-string "fields @timestamp, @message | filter level = \"ERROR\"" \
+  --log-group-names "/aws/lambda/my-function" \
+  --region us-east-1
+```
+
+(Optional) To save a query with parameters, add the
+`--parameters` option and use `{{parameterName}}`
+placeholders in the query string:
+
+```
+aws logs put-query-definition \
+  --name "ErrorsByLevel" \
+  --query-string "fields @timestamp, @message | filter level = {{logLevel}} | filter applicationName = {{applicationName}}" \
+  --parameters '[{"name":"logLevel","defaultValue":"ERROR","description":"Log level to filter"},{"name":"applicationName","defaultValue":"OrderService","description":"Application name to filter"}]' \
+  --log-group-names "/aws/lambda/my-function" \
+  --region us-east-1
+```
+
+To save a query in a folder, prefix the query name with the folder
+path:
+
+```
+aws logs put-query-definition \
+  --name "my-folder/ErrorsByLevel" \
+  --query-string "fields @timestamp, @message | filter level = {{logLevel}}" \
+  --parameters '[{"name":"logLevel","defaultValue":"ERROR","description":"Log level to filter"}]' \
+  --log-group-names "/aws/lambda/my-function" \
+  --region us-east-1
+```
+
+API
+**To save a query**, call [PutQueryDefinition](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutQueryDefinition.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutQueryDefinition.md"):
+
+```
+{
+  "name": "ErrorsByLevel",
+  "queryString": "fields @timestamp, @message | filter level = \"ERROR\"",
+  "logGroupNames": ["/aws/lambda/my-function"]
+}
+```
+
+(Optional) To save a query with parameters, include the
+`parameters` field and use `{{parameterName}}`
+placeholders in the query string:
+
+```
+{
+  "name": "ErrorsByLevel",
+  "queryString": "fields @timestamp, @message | filter level = {{logLevel}} | filter applicationName = {{applicationName}}",
+  "logGroupNames": ["/aws/lambda/my-function"],
+  "parameters": [
+    {
+      "name": "logLevel",
+      "defaultValue": "ERROR",
+      "description": "Log level to filter"
+    },
+    {
+      "name": "applicationName",
+      "defaultValue": "OrderService",
+      "description": "Application name to filter"
+    }
+  ]
+}
+```
 
 ###### Tip
 
@@ -50,6 +164,8 @@ desired query name with your desired folder name:
 `<`folder-name`>/<`query-name`>`.
 For more information about this action, see [PutQueryDefinition](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutQueryDefinition.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutQueryDefinition.md").
 
+Console
+
 ###### To run a saved query
 
 1. Open the CloudWatch console at
@@ -57,9 +173,49 @@ For more information about this action, see [PutQueryDefinition](../../../Amazon
 2. In the navigation pane, choose **Logs**, and then choose
    **Logs Insights**.
 3. On the right, choose **Queries**.
-4. Select your query from **Saved queries** list. It appears in
-   the query editor.
-5. Choose **Run**.
+4. Select your query from the **Saved queries** list. The
+   query text appears in the query editor.
+5. (Optional) To use a query with parameters:
+   1. Choose the **+** icon next to the query name in
+      the **Saved queries** side panel.
+   2. The query with parameters appears in the query editor. For
+      example, if you choose the **+** icon next to
+      `ErrorsByLevel`, the query editor is populated with:
+      `$ErrorsByLevel(level=, applicationName=)`
+   3. Provide the values for the parameters (level, applicationName) and run the query. For
+      example:
+      `$ErrorsByLevel(level= "ERROR", applicationName= "OrderService")`
+
+6. Choose **Run**.
+
+AWS CLI
+**To run a saved query with parameters**
+
+Use `start-query` with the `$QueryName()`
+syntax:
+
+```
+aws logs start-query \
+  --log-group-names "/aws/lambda/my-function" \
+  --start-time 1707566400 --end-time 1707570000 \
+  --query-string '$ErrorsByLevel(level= "ERROR", applicationName= "OrderService")' \
+  --region us-east-1
+```
+
+API
+**To run a saved query with parameters**
+
+Call [StartQuery](../../../AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.md") with the `$QueryName()`
+syntax in the `queryString` field:
+
+```
+{
+  "logGroupNames": ["/aws/lambda/my-function"],
+  "startTime": 1707566400,
+  "endTime": 1707570000,
+  "queryString": "$ErrorsByLevel(level=\"ERROR\", applicationName= \"OrderService\")"
+}
+```
 
 ###### To save a new version of a saved query
 
@@ -99,3 +255,110 @@ For more information about this action, see [PutQueryDefinition](../../../Amazon
    the query editor.
 5. Choose **Actions**, **Edit** or
    **Actions**, **Delete**.
+
+## Using saved queries with parameters
+
+Saved queries with parameters are reusable query templates with named
+placeholders. Instead of maintaining multiple copies of nearly identical queries,
+you can save a template and supply different parameter values when running the query.
+Parameters are only supported in the CloudWatch Logs Insights query language.
+
+**How it works**
+
+When saving a query, placeholders identify the values which you can provide
+at query execution time. Placeholders use the `{{parameterName}}`
+syntax. The following is an example of a saved query named
+`ErrorsByLevel` with two parameters `logLevel` and
+`applicationName`.
+
+```
+fields @timestamp, @message
+| filter level = {{logLevel}}
+| filter applicationName = {{applicationName}}
+```
+
+To run a saved query, you can invoke it using the query name prefixed
+with `$` and passing the parameter values. The CloudWatch Logs Insights query
+engine replaces each placeholder. If a parameter contains default values, then those values are used if
+no other values are provided.
+
+```
+# Run query by using query name and passing parameter values explicitly
+$ErrorsByLevel(logLevel = "WARN", applicationName = "OrderService")
+
+# Run query without specifying parameter values - default values are used in this case.
+$ErrorsByLevel()
+```
+
+Saved query names containing spaces or special characters need to be enclosed
+with backticks:
+
+```
+$`Errors By Level`(logLevel = "WARN")
+```
+
+### Sample saved queries with parameters
+
+**Adding a result limit as a parameter**
+
+Query name: `ErrorsByLevel` with parameters
+`logLevel` (default: `"ERROR"`),
+`applicationName` (default: `"OrderService"`), and
+`maxResults` (default: `50`)
+
+```
+fields @timestamp, @message, @logStream
+| filter level = {{logLevel}}
+| filter applicationName = {{applicationName}}
+| sort @timestamp desc
+| limit {{maxResults}}
+```
+
+```
+# Run the query using the query name and passing parameter values
+$ErrorsByLevel(logLevel = "WARN", applicationName = "OrderService", maxResults = 100)
+```
+
+**Using multiple saved queries with parameters**
+
+The example below uses `ErrorsByLevel` and a
+second saved query `RecentN` which is defined as
+`sort @timestamp desc | limit {{count}}` (with parameter
+`count`, default `20`). The CloudWatch Logs Insights query engine expands each query before running it.
+
+```
+# Using multiple queries with parameters in sequence
+$ErrorsByLevel(logLevel = "WARN", applicationName = "OrderService")
+| $RecentN(count = 10)
+
+# Each of the queries is expanded, resulting in the following query when it is run.
+fields @timestamp, @message
+| filter level = "WARN"
+| filter applicationName = "OrderService"
+| sort @timestamp desc
+| limit 10
+```
+
+### Quotas and error handling
+
+###### Note
+
+Each saved query can have a maximum of 20 parameters.
+
+The expanded query string cannot exceed 10,000 characters. Parameter names
+must start with a letter or underscore. A saved query cannot reference another
+saved query (nested invocations are not supported).
+
+| Common errors                                            | Error                                                                                                    | Cause |
+| -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ----- |
+| Parameters are only supported for CWLI query<br>language | Parameters are only supported in the CloudWatch Logs<br>Insights query language.                         |
+| Required parameters not found in<br>queryString          | A parameter name in `--parameters` does<br>not have a matching `{{placeholder}}` in the<br>query string. |
+| Parameter count exceeds the maximum of<br>20             | Saved queries currently only support 20<br>parameters.                                                   |
+| Duplicate parameter name                                 | The query definition has duplicate parameters in<br>`parameters`.                                        |
+
+###### Note
+
+To create or update a saved query with parameters, you need the
+`logs:PutQueryDefinition` permission. To run one, you need
+`logs:StartQuery` and
+`logs:DescribeQueryDefinitions`.
