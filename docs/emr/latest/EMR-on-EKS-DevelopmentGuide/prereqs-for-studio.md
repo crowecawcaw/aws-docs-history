@@ -38,8 +38,6 @@ your Amazon EKS cluster:
 
 - Amazon EKS optimized ARM Amazon Linux AMIs are not supported for Amazon EMR on EKS interactive
   endpoints.
-- Interactive endpoints work with Amazon EKS clusters that use Kubernetes versions up to
-  1.30.
 - Only [Amazon EKS managed node groups](../../../eks/latest/userguide/managed-node-groups.md "../../../eks/latest/userguide/managed-node-groups.md") and Karpenter provisioned nodes are supported.
 
 ## Grant Cluster access for Amazon EMR on EKS
