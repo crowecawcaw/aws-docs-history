@@ -11,7 +11,12 @@ for development, testing, or similar activities that don't require continuous av
 While your pipeline is stopped, you aren't charged for any Ingestion OCU hours. You can
 still update stopped pipelines, and they receive automatic minor version updates and
 security patches.
+
 Stopping and starting a pipeline will result in reprocessing all the data from the beginning for pull based pipelines (DDB, S3, DocDB, etc).
+When you stop a pipeline, any service-managed VPC endpoints created by the pipeline
+are removed. For pipelines with self-managed VPC endpoints, you must recreate the
+VPC endpoint in your account when you restart the pipeline. For more information,
+see [Self-managed VPC endpoints](pipeline-security.md#pipeline-vpc-self-managed "pipeline-security.md#pipeline-vpc-self-managed").
 
 ###### Note
 

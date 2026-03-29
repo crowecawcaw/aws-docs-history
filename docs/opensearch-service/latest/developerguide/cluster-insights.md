@@ -17,7 +17,15 @@ Additionally, domains with OpenSearch versions 2.17 and 2.19 also need to be on 
 
 With Cluster Insights, you can maintain optimal cluster performance, reduce operational overhead, and ensure consistent best practices across your OpenSearch clusters
 
-## Create and configure an OpenSearch application to view Cluster Insights
+## Access Cluster Insights through Console
+
+Review performance and resilience recommendations and make necessary configuration changes, all within the same Console. In the Console, under the **Cluster health** tab, you can access Cluster Insights that lists all the active Insights. Click on any Insight to view the recommendations.
+
+Screen-1: Cluster Insights under the Cluster Health tab
+
+![](images/ci_console_cluster_health.png)
+
+## Access Cluster Insights and detailed metrics through OpenSearch UI
 
 You can view insights for a specific OpenSearch Service cluster through the **OpenSearch UI (Dashboards)**.
 In OpenSearch UI, an application is simply an organizational construct like a folder. Each application can connect to and display insights for multiple OpenSearch Service clusters. Accessing Cluster Insights requires an administrative role in the OpenSearch UI application.
@@ -36,11 +44,11 @@ Accessing Cluster Insights requires an administrative role in the OpenSearch UI 
 
 4. After you complete the above two steps, you can view Cluster Insights in OpenSearch UI dashboard under the Settings > Data administrator > Cluster Insights section. The Settings icon is located at the bottom left of the OpenSearch UI screen.
 
-Screen-1: Access Data Administrator from OpenSearch UI
+Screen-2: Access Data Administrator from OpenSearch UI
 
 ![](images/ci_data_admin.png)
 
-Screen-2: Cluster Insights under the Manage data section
+Screen-3: Cluster Insights under the Manage data section
 
 ![](images/ci_manage_data.png)
 
@@ -52,7 +60,7 @@ This section describes the various insights available in Cluster Insights.
 
 The **Cluster Insights Overview** page, as shown in the following screenshot, provides a high-level view of your cluster health at the application level and comprises the following sections:
 
-Screen-3: Cluster Insights landing page in OpenSearch UI application.
+Screen-4: Cluster Insights landing page in OpenSearch UI application.
 
 ![](images/ci_overview.png)
 
@@ -107,13 +115,13 @@ Donut charts show compliance with recommended settings for resilience, and secur
 
 A table lists recent insights generated for the cluster, with the same detailed breakdown and remediation guidance available from the overview page.
 
-Screen-4: Cluster Health overview provides key metrics, best practices, and Insights
+Screen-5: Cluster Health overview provides key metrics, best practices, and Insights
 
 ![](images/ci_cluster_health.png)
 
 When you click on any insights, you can see details and impacted resources, recommendations. In addition, you can also see history of fixed resources.
 
-Screen-5: Insight details. Provides you details, recommendations, and historical timeline.
+Screen-6: Insight details. Provides you details, recommendations, and historical timeline.
 
 ![](images/ci_large_shard_size.png)
 
@@ -135,7 +143,7 @@ The **Node**, **Index**, and **Shard views** use OpenSearch stats to provide det
 - Granular node-level diagnostics
 - Top shard heap allocated
 
-Screen-6: Node, Index, and Shard level metrics
+Screen-7: Node, Index, and Shard level metrics
 
 ![](images/ci_shard_view.png)
 
@@ -181,6 +189,10 @@ Double-click any query to see:
 - Latency breakdown for each phase (expand, query, fetch)
 - Optimization recommendations
 
-Screen-7: In-flight live view. You can also view Top-N queries
+Screen-8: In-flight live view. You can also view Top-N queries
 
 ![](images/ci_query_view.png)
+
+### Access Insights through Amazon EventBridge events
+
+You can monitor insights through Amazon EventBridge events. For additional details check [notifications](managedomains-notifications.md "managedomains-notifications.md").

@@ -34,9 +34,15 @@ To create an OpenSearch Serverless collection with GPU-acceleration enabled, see
 
 Edit existing collection
 
-###### Note
-
-Updating the GPU-acceleration status on an OpenSearch Serverless collection is not currently supported through the console. However, you can specify the index setting to enable GPU-acceleration for a specific index even if the collection-level status cannot be updated. See [Creating GPU-accelerated vector indexes](gpu-acceleration-creating-indexes.md "gpu-acceleration-creating-indexes.md") for index-level configuration. If enabling GPU-acceleration for an index fails, contact AWS Support.
+1. Open the [OpenSearch Service](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home ") management console.
+2. In the navigation pane, choose
+   **Collections**.
+3. Choose your collection name to open the collection details
+   page.
+4. In the **Deployment options** section,
+   **Edit** Vector GPU acceleration.
+5. Disable or enable GPU acceleration.
+6. Choose **Save changes**.
 
 ### AWS CLI
 
@@ -106,18 +112,13 @@ aws opensearchserverless create-collection \
 ```
 
 Edit existing collection
-
-###### Note
-
-Updating the GPU-acceleration status on an OpenSearch Serverless collection is not currently supported through the console. However, you can specify the index setting to enable GPU-acceleration for a specific index even if the collection-level status cannot be updated. See [Creating GPU-accelerated vector indexes](gpu-acceleration-creating-indexes.md "gpu-acceleration-creating-indexes.md") for index-level configuration. If enabling GPU-acceleration for an index fails, contact AWS Support.
-
 The following AWS CLI example enables GPU-acceleration for an existing OpenSearch Serverless
 collection. Replace the `text` with that of
 your own configuration.
 
 ```
 aws opensearchserverless update-collection \
-    --id `collection-id` \
-    --type VECTORSEARCH \
-    --description "`Collection with GPU acceleration enabled`"
+    --id `07tjusf2h91cunochc` \
+    --vector-options '{"ServerlessVectorAcceleration": "`ENABLED`"}' \
+    --region `us-east-1`
 ```

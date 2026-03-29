@@ -57,6 +57,9 @@ Cross-cluster replication has the following limitations:
   be in hot storage.
 - When you delete an index from the leader domain, the corresponding index on
   the follower domain isn't automatically deleted.
+- Cross-cluster replication is not supported between default and
+  [opt-in](../../../general/latest/gr/rande-manage.md "../../../general/latest/gr/rande-manage.md") . Both domains must be either in default Regions or in
+  opt-in Regions.
 
 ## Prerequisites
 

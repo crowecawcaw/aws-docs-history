@@ -234,8 +234,6 @@ Console
      notified when the restore completes or encounters errors.
 
 7. Choose **Save** to start the restore operation.
-8. Monitor the restore progress in the **Restore activity** tab,
-   which shows the status, start time, completion time, and affected indexes.
 
 AWS CLI
 

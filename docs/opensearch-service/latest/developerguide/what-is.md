@@ -86,7 +86,7 @@ self-managed OpenSearch is the correct choice for you.
 
 OpenSearch Service supports the following versions of **OpenSearch**:
 
-- 3.1, 2.19, 2.17, 2.15, 2.13, 2.11, 2.9, 2.7, 2.5, 2.3, 1.3, 1.2, 1.1, and
+- 3.5, 3.3, 3.1, 2.19, 2.17, 2.15, 2.13, 2.11, 2.9, 2.7, 2.5, 2.3, 1.3, 1.2, 1.1, and
   1.0
 
 OpenSearch Service supports the following versions of legacy **Elasticsearch**:
