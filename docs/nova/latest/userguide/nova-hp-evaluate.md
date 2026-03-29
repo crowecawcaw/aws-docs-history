@@ -11,6 +11,14 @@ with predefined answers. They are not assessed in real-time or against live user
 For real-time evaluations, you can evaluate the model after it is deployed to Amazon Bedrock by calling
 the Amazon Bedrock runtime APIs.
 
+###### Important
+
+The evaluation container only supports checkpoints produced by the same training
+platform. Checkpoints created with SageMaker HyperPod can only be evaluated using the
+SageMaker HyperPod evaluation workflow, and checkpoints created with SageMaker training jobs
+can only be evaluated using the SageMaker training jobs evaluation workflow. Attempting
+to evaluate a checkpoint from a different platform will result in failure.
+
 ###### Topics
 
 - [Available benchmark tasks](customize-fine-tune-evaluate-available-tasks.md "customize-fine-tune-evaluate-available-tasks.md")
