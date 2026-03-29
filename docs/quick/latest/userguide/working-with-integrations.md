@@ -42,4 +42,3 @@ Not all applications support all integration types. Available options depend on 
 - [Action connectors](action-integrations.md "action-integrations.md")
 - [Integration-specific guides](integration-guides.md "integration-guides.md")
 - [Bring Your Own Amazon Q Business Index (BYOI)](quick-byoa.md "quick-byoa.md")
-- [Cross-region inference in Amazon Quick integrations](integrations-cris.md "integrations-cris.md")

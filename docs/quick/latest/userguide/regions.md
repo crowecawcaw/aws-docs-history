@@ -16,7 +16,7 @@ connections to AWS data sources](../../../quicksight/latest/user/enabling-access
 
 - [Supported AWS Regions for Amazon Quick](#regions-qs "#regions-qs")
 - [Supported AWS Regions for Amazon Q in Quick](#regions-aqs "#regions-aqs")
-- [Cross-Region inference with Amazon Q in Quick](#q-cross-region-inferencing "#q-cross-region-inferencing")
+- [Cross-Region inference for Australia, Japan, Europe, and the United States](#cross-region-inference "#cross-region-inference")
 - [Cross-Region calls for web search](#web-search-cross-region "#web-search-cross-region")
 
 ## Supported AWS Regions for Amazon Quick
@@ -41,12 +41,12 @@ AWS Region.
 | Asia Pacific (Seoul)\*      | ap-northeast-2 | `https://ap-northeast-2.quicksight.aws.amazon.com` | `quicksight.ap-northeast-2.amazonaws.com` | 13.124.145.32/27                              |
 | Asia Pacific (Singapore)\*  | ap-southeast-1 | `https://ap-southeast-1.quicksight.aws.amazon.com` | `quicksight.ap-southeast-1.amazonaws.com` | 13.229.254.0/27                               |
 | Asia Pacific (Sydney)       | ap-southeast-2 | `https://ap-southeast-2.quicksight.aws.amazon.com` | `quicksight.ap-southeast-2.amazonaws.com` | 54.153.249.96/27                              |
-| Asia Pacific (Tokyo)\*      | ap-northeast-1 | `https://ap-northeast-1.quicksight.aws.amazon.com` | `quicksight.ap-northeast-1.amazonaws.com` | 13.113.244.32/27                              |
+| Asia Pacific (Tokyo)        | ap-northeast-1 | `https://ap-northeast-1.quicksight.aws.amazon.com` | `quicksight.ap-northeast-1.amazonaws.com` | 13.113.244.32/27                              |
 | Canada (Central)\*          | ca-central-1   | `https://ca-central-1.quicksight.aws.amazon.com`   | `quicksight.ca-central-1.amazonaws.com`   | 15.223.73.0/27                                |
 | China (Beijing)\*           | cn-north-1     | `https://cn-north-1.quicksight.amazonaws.cn`       | `quicksight.cn-north-1.amazonaws.com.cn`  | 71.136.65.64/27                               |
-| Europe (Frankfurt)\*        | eu-central-1   | `https://eu-central-1.quicksight.aws.amazon.com`   | `quicksight.eu-central-1.amazonaws.com`   | 35.158.127.192/27                             |
+| Europe (Frankfurt)          | eu-central-1   | `https://eu-central-1.quicksight.aws.amazon.com`   | `quicksight.eu-central-1.amazonaws.com`   | 35.158.127.192/27                             |
 | Europe (Ireland)            | eu-west-1      | `https://eu-west-1.quicksight.aws.amazon.com`      | `quicksight.eu-west-1.amazonaws.com`      | 52.210.255.224/27                             |
-| Europe (London)\*           | eu-west-2      | `https://eu-west-2.quicksight.aws.amazon.com`      | `quicksight.eu-west-2.amazonaws.com`      | 35.177.218.0/27                               |
+| Europe (London)             | eu-west-2      | `https://eu-west-2.quicksight.aws.amazon.com`      | `quicksight.eu-west-2.amazonaws.com`      | 35.177.218.0/27                               |
 | Europe (Milan)\*            | eu-south-1     | `https://eu-south-1.quicksight.aws.amazon.com`     | `quicksight.eu-south-1.amazonaws.com`     | 18.102.150.128/27                             |
 | Europe (Paris)\*            | eu-west-3      | `https://eu-west-3.quicksight.aws.amazon.com`      | `quicksight.eu-west-3.amazonaws.com`      | 13.38.202.0/27                                |
 | Europe (Spain)\*            | eu-south-2     | `https://eu-south-2.quicksight.aws.amazon.com`     | `quicksight.eu-south-2.amazonaws.com`     | 18.101.99.160/27                              |
@@ -85,7 +85,7 @@ following AWS Regions:
 For a list of region codes and endpoints for Quick and Q in Quick features,
 see [Supported AWS Regions for Amazon Quick](#regions-qs "#regions-qs").
 
-## Cross-Region inference with Amazon Q in Quick
+## Cross-Region inference for Australia, Japan, Europe, and the United States
 
 With cross-Region inference, Amazon Q in Quick will automatically select the optimal Region within
 your geography (as described in more detail below) to process your inference request,
@@ -110,10 +110,21 @@ There's no additional cost for using cross-Region inference.
 Amazon CloudWatch and AWS CloudTrail logs won't specify the AWS
 Region in which data inference occurs.
 
-### Supported regions for Amazon Q in Quick cross-Region inference
+### Supported regions for cross-Region inference
 
 For a list of Region codes and endpoints supported in Amazon Q in Quick, see [Supported
 AWS regions for Amazon Quick](../../../quicksight/latest/user/regions-aqs.md "../../../quicksight/latest/user/regions-aqs.md").
+
+The following table summarizes the supported geographies and their inference regions for Amazon Quick cross-Region inference.
+
+| Supported Amazon Quick cross-Region inference geographies | Supported Amazon Quick geography                                                                 | Inference regions |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------- |
+| United States                                             | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)  |
+| Europe                                                    | Europe (Frankfurt) (eu-central-1)<br>Europe (Ireland) (eu-west-1)<br>Europe (London) (eu-west-2) |
+| Australia                                                 | Asia Pacific (Sydney) (ap-southeast-2)<br>Asia Pacific (Melbourne) (ap-southeast-4)              |
+| Japan                                                     | Asia Pacific (Tokyo) (ap-northeast-1)<br>Asia Pacific (Osaka) (ap-northeast-3)                   |
+
+The following table shows the detailed per-Region inference routing.
 
 | Supported Amazon Q in Quick geography     | Inferenced regions                                                                                                                                                                                                                                                                                              |
 | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -123,12 +134,13 @@ AWS regions for Amazon Quick](../../../quicksight/latest/user/regions-aqs.md "..
 | Asia Pacific (Mumbai) (ap-south-1)        | • Asia Pacific (Tokyo) (ap-northeast-1)<br>• Asia Pacific (Seoul) (ap-northeast-2)<br>• Asia Pacific (Mumbai) (ap-south-1)<br>• Asia Pacific (Singapore) (ap-southeast-1)<br>• Asia Pacific (Sydney) (ap-southeast-2)<br>• Asia Pacific (Osaka) (ap-northeast-3)\*<br>• Asia Pacific (Hyderabad) (ap-south-2)\* |
 | Asia Pacific (Seoul) (ap-northeast-2)     | • Asia Pacific (Tokyo) (ap-northeast-1)<br>• Asia Pacific (Seoul) (ap-northeast-2)<br>• Asia Pacific (Mumbai) (ap-south-1)<br>• Asia Pacific (Singapore) (ap-southeast-1)<br>• Asia Pacific (Sydney) (ap-southeast-2)<br>• Asia Pacific (Osaka) (ap-northeast-3)\*<br>• Asia Pacific (Hyderabad) (ap-south-2)\* |
 | Asia Pacific (Singapore) (ap-southeast-1) | • Asia Pacific (Tokyo) (ap-northeast-1)<br>• Asia Pacific (Seoul) (ap-northeast-2)<br>• Asia Pacific (Mumbai) (ap-south-1)<br>• Asia Pacific (Singapore) (ap-southeast-1)<br>• Asia Pacific (Sydney) (ap-southeast-2)<br>• Asia Pacific (Osaka) (ap-northeast-3)\*<br>• Asia Pacific (Hyderabad) (ap-south-2)\* |
-| Asia Pacific (Tokyo) (ap-northeast-1)     | • Asia Pacific (Tokyo) (ap-northeast-1)<br>• Asia Pacific (Seoul) (ap-northeast-2)<br>• Asia Pacific (Mumbai) (ap-south-1)<br>• Asia Pacific (Singapore) (ap-southeast-1)<br>• Asia Pacific (Sydney) (ap-southeast-2)<br>• Asia Pacific (Osaka) (ap-northeast-3)\*<br>• Asia Pacific (Hyderabad) (ap-south-2)\* |
-| Asia Pacific (Sydney) (ap-southeast-2)    | • Asia Pacific (Tokyo) (ap-northeast-1)<br>• Asia Pacific (Seoul) (ap-northeast-2)<br>• Asia Pacific (Mumbai) (ap-south-1)<br>• Asia Pacific (Singapore) (ap-southeast-1)<br>• Asia Pacific (Sydney) (ap-southeast-2)<br>• Asia Pacific (Osaka) (ap-northeast-3)\*<br>• Asia Pacific (Hyderabad) (ap-south-2)\* |
-| Europe (Frankfurt) (eu-central-1)         | • Europe (Frankfurt) (eu-central-1)<br>• Europe (Stockholm) (eu-north-1)<br>• Europe (Ireland) (eu-west-1)<br>• Europe (Paris) (eu-west-3)                                                                                                                                                                      |
-| Europe (Ireland) (eu-west-1)              | • Europe (Frankfurt) (eu-central-1)<br>• Europe (Stockholm) (eu-north-1)<br>• Europe (Ireland) (eu-west-1)<br>• Europe (Paris) (eu-west-3)                                                                                                                                                                      |
-| Europe (Paris) (eu-west-3)                | • Europe (Frankfurt) (eu-central-1)<br>• Europe (Stockholm) (eu-north-1)<br>• Europe (Ireland) (eu-west-1)<br>• Europe (Paris) (eu-west-3)                                                                                                                                                                      |
-| Europe (Stockholm) (eu-north-1)           | • Europe (Frankfurt) (eu-central-1)<br>• Europe (Stockholm) (eu-north-1)<br>• Europe (Ireland) (eu-west-1)<br>• Europe (Paris) (eu-west-3)                                                                                                                                                                      |
+| Asia Pacific (Tokyo) (ap-northeast-1)     | • Asia Pacific (Tokyo) (ap-northeast-1)<br>• Asia Pacific (Osaka) (ap-northeast-3)                                                                                                                                                                                                                              |
+| Asia Pacific (Sydney) (ap-southeast-2)    | • Asia Pacific (Sydney) (ap-southeast-2)<br>• Asia Pacific (Melbourne) (ap-southeast-4)                                                                                                                                                                                                                         |
+| Europe (Frankfurt) (eu-central-1)         | • Europe (Frankfurt) (eu-central-1)<br>• Europe (Stockholm) (eu-north-1)<br>• Europe (Ireland) (eu-west-1)<br>• Europe (London) (eu-west-2)<br>• Europe (Paris) (eu-west-3)                                                                                                                                     |
+| Europe (Ireland) (eu-west-1)              | • Europe (Frankfurt) (eu-central-1)<br>• Europe (Stockholm) (eu-north-1)<br>• Europe (Ireland) (eu-west-1)<br>• Europe (London) (eu-west-2)<br>• Europe (Paris) (eu-west-3)                                                                                                                                     |
+| Europe (London) (eu-west-2)               | • Europe (Frankfurt) (eu-central-1)<br>• Europe (Stockholm) (eu-north-1)<br>• Europe (Ireland) (eu-west-1)<br>• Europe (London) (eu-west-2)<br>• Europe (Paris) (eu-west-3)                                                                                                                                     |
+| Europe (Paris) (eu-west-3)                | • Europe (Frankfurt) (eu-central-1)<br>• Europe (Stockholm) (eu-north-1)<br>• Europe (Ireland) (eu-west-1)<br>• Europe (London) (eu-west-2)<br>• Europe (Paris) (eu-west-3)                                                                                                                                     |
+| Europe (Stockholm) (eu-north-1)           | • Europe (Frankfurt) (eu-central-1)<br>• Europe (Stockholm) (eu-north-1)<br>• Europe (Ireland) (eu-west-1)<br>• Europe (London) (eu-west-2)<br>• Europe (Paris) (eu-west-3)                                                                                                                                     |
 
 ###### Note
 
@@ -137,11 +149,7 @@ still occur.
 
 ## Cross-Region calls for web search
 
-Amazon Quick makes cross-Region calls for web search functionality in Chat, Agents, and Research features. Cross-Region calls are API calls made by Amazon Quick from one AWS Region to another AWS Region.
-
-###### Note
-
-Cross-Region calls for web search apply to Chat, Agents, and Research features that include web search capabilities.
+Amazon Quick makes cross-Region calls for web search functionality in Chat, Agents, and Research features. When using web search, requests are processed in the US East (N. Virginia) Region, even for requests originating outside the US East (N. Virginia) Region and the US geography. For customers in EMEA Regions, web search queries are processed in the Europe (Ireland) Region. Users in Asia Pacific (Sydney) and Asia Pacific (Tokyo) will receive an explicit notification that web search queries are processed in the US and must acknowledge this before proceeding.
 
 ### Web search regional availability
 
@@ -150,4 +158,7 @@ Cross-Region calls for web search apply to Chat, Agents, and Research features t
 | US East (N. Virginia) (us-east-1)      | US East (N. Virginia) (us-east-1) |
 | US West (Oregon) (us-west-2)           | US East (N. Virginia) (us-east-1) |
 | Europe (Ireland) (eu-west-1)           | Europe (Ireland) (eu-west-1)      |
+| Europe (Frankfurt) (eu-central-1)      | Europe (Ireland) (eu-west-1)      |
+| Europe (London) (eu-west-2)            | Europe (Ireland) (eu-west-1)      |
 | Asia Pacific (Sydney) (ap-southeast-2) | US East (N. Virginia) (us-east-1) |
+| Asia Pacific (Tokyo) (ap-northeast-1)  | US East (N. Virginia) (us-east-1) |

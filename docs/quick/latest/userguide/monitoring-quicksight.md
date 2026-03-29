@@ -104,17 +104,19 @@ unstructured datasets. You can find these metrics under the
 `AWS/QuickSight/QuickInstanceId` group in
 CloudWatch.
 
-| Metric                      | Description                                                                                     | Dimension                              | Unit  |
-| --------------------------- | ----------------------------------------------------------------------------------------------- | -------------------------------------- | ----- |
-| QuickIndexDocumentCount     | The number of documents in the unstructured Quick index.                                        | • KnowledgeBaseId<br>• QuickInstanceId | Count |
-| QuickIndexExtractedTextSize | The extracted text size of the unstructured Quick index.                                        | • KnowledgeBaseId<br>• QuickInstanceId | Bytes |
-| QuickIndexPurchasedInMB     | The amount of storage that has been purchased for the<br>unstructured Quick index.              | • KnowledgeBaseId<br>• QuickInstanceId | MB    |
-| DocumentsCrawled            | The number of uploaded documents crawled in the unstructured Quick index.                       | • KnowledgeBaseId<br>• QuickInstanceId | Count |
-| DocumentsIndexed            | The number of documents indexed in the unstructured Quick index.                                | • KnowledgeBaseId<br>• QuickInstanceId | Count |
-| DocumentsDeleted            | The number of documents deleted from the unstructured Quick index.                              | • KnowledgeBaseId<br>• QuickInstanceId | Count |
-| DocumentsModified           | The number of documents modified in the unstructured Quick index.                               | • KnowledgeBaseId<br>• QuickInstanceId | Count |
-| DocumentsFailedToIndex      | The number of documents that failed to index in the unstructured Quick index.                   | • KnowledgeBaseId<br>• QuickInstanceId | Count |
-| ExtractedTextSize           | The total text size extracted during a connector level sync in the<br>unstructured Quick index. | • KnowledgeBaseId<br>• QuickInstanceId | MB    |
+| Metric                                    | Description                                                                                     | Dimension                              | Unit  |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------- | -------------------------------------- | ----- |
+| QuickIndexDocumentCount                   | The number of documents in the unstructured Quick index.                                        | • KnowledgeBaseId<br>• QuickInstanceId | Count |
+| QuickIndexExtractedTextSize               | The extracted text size of the unstructured Quick index.                                        | • KnowledgeBaseId<br>• QuickInstanceId | Bytes |
+| QuickIndexPurchasedInMB                   | The amount of storage that has been purchased for the<br>unstructured Quick index.              | • KnowledgeBaseId<br>• QuickInstanceId | MB    |
+| QuickIndexCapacityConsumedRawFileSizeInGB | The raw file size consumed by the unstructured Quick index.                                     | • QuickInstanceId                      | GB    |
+| QuickIndexCapacityRawFileSizeLimitInGB    | The raw file size limit of the unstructured Quick index.                                        | • QuickInstanceId                      | GB    |
+| DocumentsCrawled                          | The number of uploaded documents crawled in the unstructured Quick index.                       | • KnowledgeBaseId<br>• QuickInstanceId | Count |
+| DocumentsIndexed                          | The number of documents indexed in the unstructured Quick index.                                | • KnowledgeBaseId<br>• QuickInstanceId | Count |
+| DocumentsDeleted                          | The number of documents deleted from the unstructured Quick index.                              | • KnowledgeBaseId<br>• QuickInstanceId | Count |
+| DocumentsModified                         | The number of documents modified in the unstructured Quick index.                               | • KnowledgeBaseId<br>• QuickInstanceId | Count |
+| DocumentsFailedToIndex                    | The number of documents that failed to index in the unstructured Quick index.                   | • KnowledgeBaseId<br>• QuickInstanceId | Count |
+| ExtractedTextSize                         | The total text size extracted during a connector level sync in the<br>unstructured Quick index. | • KnowledgeBaseId<br>• QuickInstanceId | MB    |
 
 #### Per-action connector metrics
 
@@ -183,17 +185,19 @@ a Amazon Quick account in a Region. You can find these
 metrics under the `AWS/QuickSight/Aggregate Metrics`
 group for CloudWatch.
 
-| Metric                      | Description                                                                                                                                                                                                                                        | Unit  |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| QuickIndexDocumentCount     | The number of documents in the unstructured Quick<br>index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total<br>number of documents added to your index during a<br>set period of time.                        | Count |
-| QuickIndexExtractedTextSize | The extracted text size of the unstructured Quick<br>index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total size<br>of all text across all documents in your index.                                           | Bytes |
-| QuickIndexPurchasedInMB     | The amount of storage that has been purchased for the<br>unstructured Quick index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total size<br>of purchased storage in MB across your index.                      | MB    |
-| DocumentsCrawled            | The number of uploaded documents crawled in the unstructured<br>Quick index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total number<br>of documents crawled in your index.                                    | Count |
-| DocumentsIndexed            | The number of documents indexed in the unstructured<br>Quick index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total number<br>of documents indexed.                                                           | Count |
-| DocumentsDeleted            | The number of documents deleted from the unstructured<br>Quick index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total number<br>of documents deleted from your index.                                         | Count |
-| DocumentsModified           | The number of documents modified in the unstructured<br>Quick index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total number<br>of documents modified in your index.                                           | Count |
-| DocumentsFailedToIndex      | The number of documents that failed to index in the unstructured<br>Quick index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total number<br>of documents that failed to index.                                 | Count |
-| ExtractedTextSize           | The total text size extracted during a connector<br>level sync in the unstructured Quick index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total size<br>of documents extracted during a connector level sync. | MB    |
+| Metric                                    | Description                                                                                                                                                                                                                                        | Unit  |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| QuickIndexDocumentCount                   | The number of documents in the unstructured Quick<br>index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total<br>number of documents added to your index during a<br>set period of time.                        | Count |
+| QuickIndexExtractedTextSize               | The extracted text size of the unstructured Quick<br>index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total size<br>of all text across all documents in your index.                                           | Bytes |
+| QuickIndexPurchasedInMB                   | The amount of storage that has been purchased for the<br>unstructured Quick index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total size<br>of purchased storage in MB across your index.                      | MB    |
+| QuickIndexCapacityConsumedRawFileSizeInGB | The raw file size consumed by the unstructured Quick<br>index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total raw file<br>size consumed across your index in GB.                                             | GB    |
+| QuickIndexCapacityRawFileSizeLimitInGB    | The raw file size limit of the unstructured Quick<br>index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total raw file<br>size limit across your index in GB.                                                   | GB    |
+| DocumentsCrawled                          | The number of uploaded documents crawled in the unstructured<br>Quick index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total number<br>of documents crawled in your index.                                    | Count |
+| DocumentsIndexed                          | The number of documents indexed in the unstructured<br>Quick index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total number<br>of documents indexed.                                                           | Count |
+| DocumentsDeleted                          | The number of documents deleted from the unstructured<br>Quick index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total number<br>of documents deleted from your index.                                         | Count |
+| DocumentsModified                         | The number of documents modified in the unstructured<br>Quick index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total number<br>of documents modified in your index.                                           | Count |
+| DocumentsFailedToIndex                    | The number of documents that failed to index in the unstructured<br>Quick index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total number<br>of documents that failed to index.                                 | Count |
+| ExtractedTextSize                         | The total text size extracted during a connector<br>level sync in the unstructured Quick index.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total size<br>of documents extracted during a connector level sync. | MB    |
 
 #### Aggregate action connector metrics
 
