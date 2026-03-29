@@ -30,7 +30,7 @@ migrating to CodeCommit, see [Migrate to CodeCommit](how-to-migrate-repository.m
 - [Configuring notifications for events in an AWS CodeCommit repository](how-to-repository-email.md "how-to-repository-email.md")
 - [Tagging repositories in AWS CodeCommit](how-to-tag-repository.md "how-to-tag-repository.md")
 - [Manage triggers for an AWS CodeCommit repository](how-to-notify.md "how-to-notify.md")
-- [Associate or disassociate an AWS CodeCommit repository with Amazon CodeGuru Reviewer](how-to-amazon-codeguru-reviewer.md "how-to-amazon-codeguru-reviewer.md")
+- [Amazon CodeGuru Reviewer and AWS CodeCommit](how-to-amazon-codeguru-reviewer.md "how-to-amazon-codeguru-reviewer.md")
 - [View CodeCommit repository details](how-to-view-repository-details.md "how-to-view-repository-details.md")
 - [Change AWS CodeCommit repository settings](how-to-change-repository.md "how-to-change-repository.md")
 - [Synchronize changes between a local repo and an AWS CodeCommit repository](how-to-sync-changes.md "how-to-sync-changes.md")
