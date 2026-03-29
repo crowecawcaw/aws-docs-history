@@ -41,8 +41,10 @@ Common use cases for stopping an instance include the following:
 While your DB instance is stopped, you are charged for provisioned storage
 (including Provisioned IOPS). You're also charged for backup storage,
 including manual snapshots and automated backups within your specified
-retention window. However, you're not charged for DB instance hours. For
-more information, see [Billing FAQs](http://aws.amazon.com/rds/faqs/#billing "http://aws.amazon.com/rds/faqs/#billing").
+retention window. Additionally, if your DB instance is publicly accessible, you
+will continue to be charged for the public IPv4 address. However, you're not
+charged for DB instance hours. For more information, see [Billing
+FAQs](http://aws.amazon.com/rds/faqs/#billing "http://aws.amazon.com/rds/faqs/#billing").
 
 - **Daily development** – If you maintain a DB instance for
   development purposes, you can start the instance when it's needed and then shut
@@ -188,8 +190,8 @@ you start the DB instance.
 ## Public IP address considerations
 
 When you stop a DB instance, it retains its DNS endpoint. If you stop a DB instance that
-has a public IP address, Amazon RDS releases its public IP address. When the DB instance is restarted,
-it has a different public IP address.
+has a public IP address, Amazon RDS retains the public IP address. When the DB instance is restarted,
+it has the same public IP address.
 
 ###### Note
 

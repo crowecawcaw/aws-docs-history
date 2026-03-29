@@ -237,6 +237,26 @@ and resources on the internet, such
 as a SQL client. You control whether your DB instance
 receives a public IP address.
 
+Amazon RDS uses Public Elastic IPv4 addresses from EC2's public IPv4 address
+pool for publicly accessible database instances. These IP addresses are visible
+in your AWS account when using the `describe-addresses` CLI, API or
+viewing the Elastic IPs (EIP) section in the AWS Management Console. Each RDS-managed IP
+address is marked with a `service_managed` attribute set to
+`"rds"`.
+
+While these IPs are visible in your account, they remain fully managed by
+Amazon RDS and cannot be modified or released. Amazon RDS releases IPs back into the
+public IPv4 address pool when no longer in use.
+
+CloudTrail logs API calls related to RDS's EIP, such as the
+`AllocateAddress`. These API calls are invoked by the Service
+Principal `rds.amazonaws.com`.
+
+###### Note
+
+IPs allocated by Amazon RDS do not count against your account's EIP
+limits.
+
 For a tutorial that shows you how to create a VPC with only private IPv4
 addresses that you can use for a common Amazon RDS scenario, see
 [Tutorial: Create a VPC for use with a DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.CreateVPC.md "CHAP_Tutorials.WebServerDB.CreateVPC.md").

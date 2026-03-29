@@ -2,7 +2,7 @@
 
 By using IAM database authentication in Amazon RDS, you can authenticate without a password
 when you connect to a DB instance. Instead, you use an authentication token. For more
-information, see [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+information, see [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 
 IAM database authentication isn't available with the following engines:
 

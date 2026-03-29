@@ -272,7 +272,7 @@ version 10.6 or higher:
 - **AWS Identity and Access Management (IAM) DB authentication** –
   You can use IAM DB authentication for better security and central management of connections to
   your MariaDB DB instances. For more information, see
-  [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+  [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 - **Upgrade options** – You can now
   upgrade to RDS for MariaDB version 10.6 from any prior major release (10.3, 10.4,
   10.5). You can also restore a snapshot of an existing MySQL 5.6 or 5.7 DB

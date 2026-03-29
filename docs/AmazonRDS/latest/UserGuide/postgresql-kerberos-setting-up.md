@@ -449,7 +449,7 @@ domain.
 
 Database users that have been granted the `rds_ad` role can't also
 have the `rds_iam` role. This also applies to nested memberships. For
-more information, see [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+more information, see [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 
 ## Step 8: Configure a PostgreSQL client
 

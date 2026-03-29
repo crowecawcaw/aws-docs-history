@@ -13,7 +13,7 @@ MySQL and AWS Identity and Access Management (IAM) database authentication:
 - To learn how to authenticate to MySQL using one of the authentication methods for MySQL,
   see [Authentication method](https://dev.mysql.com/doc/internals/en/authentication-method.html "https://dev.mysql.com/doc/internals/en/authentication-method.html") in the MySQL documentation.
 - To learn how to authenticate to MySQL using IAM database authentication, see
-  [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+  [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
   You can connect to a MySQL DB instance by using tools like the MySQL command-line client.
   For more information on using the MySQL command-line client, see [mysql - the MySQL command-line
   client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html "https://dev.mysql.com/doc/refman/8.0/en/mysql.html") in the MySQL documentation. One GUI-based application you can use to
@@ -27,7 +27,7 @@ see [Can't connect to Amazon RDS DB instance](CHAP_Troubleshooting.md#CHAP_Troub
 
 You can use Secure Sockets Layer (SSL) or Transport Layer Security (TLS) encryption on connections to a MySQL DB instance.
 For information, see [SSL/TLS support for MySQL DB instances on Amazon RDS](MySQL.Concepts.SSLSupport.md "MySQL.Concepts.SSLSupport.md"). If you are using AWS Identity and Access Management (IAM) database
-authentication, make sure to use an SSL/TLS connection. For information, see [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+authentication, make sure to use an SSL/TLS connection. For information, see [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 
 You can also connect to a DB instance from a web server. For more information, see [Tutorial: Create a web server and an Amazon RDS DB instance](TUT_WebAppWithRDS.md "TUT_WebAppWithRDS.md").
 

@@ -28,6 +28,7 @@ Following are some common DBA tasks for RDS for PostgreSQL.
 - [Understanding PostgreSQL roles and permissions](Appendix.PostgreSQL.CommonDBATasks.Roles.md "Appendix.PostgreSQL.CommonDBATasks.Roles.md")
 - [Dead connection handling in PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.md "Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.md")
 - [Working with PostgreSQL autovacuum on Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
+- [Managing high object counts in Amazon RDS for PostgreSQL](PostgreSQL.HighObjectCount.md "PostgreSQL.HighObjectCount.md")
 - [Managing TOAST OID contention in Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.TOAST_OID.md "Appendix.PostgreSQL.CommonDBATasks.TOAST_OID.md")
 - [Working with logging mechanisms supported by RDS for PostgreSQL](#Appendix.PostgreSQL.CommonDBATasks.Auditing "#Appendix.PostgreSQL.CommonDBATasks.Auditing")
 - [Managing temporary files with PostgreSQL](PostgreSQL.ManagingTempFiles.md "PostgreSQL.ManagingTempFiles.md")

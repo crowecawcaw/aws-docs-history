@@ -15,7 +15,7 @@ use with no additional charge.
 - [AWS managed policies for Amazon RDS](rds-security-iam-awsmanpol.md "rds-security-iam-awsmanpol.md")
 - [Amazon RDS updates to AWS managed policies](rds-manpol-updates.md "rds-manpol-updates.md")
 - [Preventing cross-service confused deputy problems](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
-- [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
+- [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
 - [Troubleshooting Amazon RDS identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience
@@ -71,7 +71,7 @@ IAM database authentication works with the following DB engines:
 
 For more information
 about authenticating to your DB instance
-using IAM, see [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+using IAM, see [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 
 ### IAM roles
 

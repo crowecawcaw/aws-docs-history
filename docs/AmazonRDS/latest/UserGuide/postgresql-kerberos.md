@@ -24,7 +24,7 @@ experience as when they access workloads in your on-premises network.
 
 A database can use password authentication or password
 authentication with either Kerberos or AWS Identity and Access Management (IAM) authentication. For more
-information about IAM authentication, see [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+information about IAM authentication, see [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 
 ###### Note
 

@@ -92,9 +92,9 @@ Graviton4 processors**
 | Instance class   | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
 | ---------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
 | db.m8g.48xlarge  | 192  | —   | 768          | EBS-optimized only     | 40,000                    | 50                       |
-| db.m8g.24xlarge  | 96   | —   | 512          | EBS-optimized only     | 30,000                    | 40                       |
-| db.m8g.16xlarge  | 64   | —   | 384          | EBS-optimized only     | 20,000                    | 30                       |
-| db.m8g.12xlarge  | 48   | —   | 256          | EBS-optimized only     | 15,000                    | 22.5                     |
+| db.m8g.24xlarge  | 96   | —   | 384          | EBS-optimized only     | 30,000                    | 40                       |
+| db.m8g.16xlarge  | 64   | —   | 256          | EBS-optimized only     | 20,000                    | 30                       |
+| db.m8g.12xlarge  | 48   | —   | 192          | EBS-optimized only     | 15,000                    | 22.5                     |
 | db.m8g.8xlarge   | 32   | —   | 128          | EBS-optimized only     | 10,000                    | 15                       |
 | db.m8g.4xlarge\* | 16   | —   | 64           | EBS-optimized only     | Up to 10,000              | Up to 15                 |
 | db.m8g.2xlarge\* | 8    | —   | 32           | EBS-optimized only     | Up to 10,000              | Up to 15                 |
@@ -137,8 +137,8 @@ Graviton2 processors**
 | Instance class   | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
 | ---------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
 | db.m6g.16xlarge  | 64   | —   | 256          | EBS-optimized only     | 19,000                    | 25                       |
-| db.m6g.12xlarge  | 48   | —   | 192          | EBS-optimized only     | 13,500                    | 20                       |
-| db.m6g.8xlarge   | 32   | —   | 128          | EBS-optimized only     | 9,000                     | 12                       |
+| db.m6g.12xlarge  | 48   | —   | 192          | EBS-optimized only     | 14,250                    | 20                       |
+| db.m6g.8xlarge   | 32   | —   | 128          | EBS-optimized only     | 9,500                     | 12                       |
 | db.m6g.4xlarge   | 16   | —   | 64           | EBS-optimized only     | 4,750                     | Up to 10                 |
 | db.m6g.2xlarge\* | 8    | —   | 32           | EBS-optimized only     | Up to 4,750               | Up to 10                 |
 | db.m6g.xlarge\*  | 4    | —   | 16           | EBS-optimized only     | Up to 4,750               | Up to 10                 |
@@ -150,8 +150,8 @@ Graviton2 processors and SSD storage**
 | Instance class    | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
 | ----------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
 | db.m6gd.16xlarge  | 64   | —   | 256          | 2 x 1900 NVMe SSD      | 19,000                    | 25                       |
-| db.m6gd.12xlarge  | 48   | —   | 192          | 2 x 1425 NVMe SSD      | 13,500                    | 20                       |
-| db.m6gd.8xlarge   | 32   | —   | 128          | 1 x 1900 NVMe SSD      | 9,000                     | 12                       |
+| db.m6gd.12xlarge  | 48   | —   | 192          | 2 x 1425 NVMe SSD      | 14,250                    | 20                       |
+| db.m6gd.8xlarge   | 32   | —   | 128          | 1 x 1900 NVMe SSD      | 9,500                     | 12                       |
 | db.m6gd.4xlarge\* | 16   | —   | 64           | 1 x 950 NVMe SSD       | 4,750                     | Up to 10                 |
 | db.m6gd.2xlarge\* | 8    | —   | 32           | 1 x 474 NVMe SSD       | Up to 4,750               | Up to 10                 |
 | db.m6gd.xlarge\*  | 4    | —   | 16           | 1 x 237 NVMe SSD       | Up to 4,750               | Up to 10                 |
@@ -179,15 +179,15 @@ optimization**
 
 | Instance class     | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
 | ------------------ | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.m6idn.32xlarge  | 128  | —   | 512          | 4 x 1900 NVMe SSD      | 80,000                    | 200                      |
-| db.m6idn.24xlarge  | 96   | —   | 384          | 4 x 1425 NVMe SSD      | 60,000                    | 150                      |
-| db.m6idn.16xlarge  | 64   | —   | 256          | 2 x 1900 NVMe SSD      | 40,000                    | 100                      |
-| db.m6idn.12xlarge  | 48   | —   | 192          | 2 x 1425 NVMe SSD      | 30,000                    | 75                       |
-| db.m6idn.8xlarge   | 32   | —   | 128          | 1 x 1900 NVMe SSD      | 20,000                    | 50                       |
-| db.m6idn.4xlarge\* | 16   | —   | 64           | 1 x 950 NVMe SSD       | Up to 20,000              | Up to 50                 |
-| db.m6idn.2xlarge\* | 8    | —   | 32           | 1 x 474 NVMe SSD       | Up to 20,000              | Up to 40                 |
-| db.m6idn.xlarge\*  | 4    | —   | 16           | 1 x 237 NVMe SSD       | Up to 20,000              | Up to 30                 |
-| db.m6idn.large\*   | 2    | —   | 8            | 1 x 118 NVMe SSD       | Up to 20,000              | Up to 25                 |
+| db.m6idn.32xlarge  | 128  | —   | 512          | 4 x 1900 NVMe SSD      | 100,000                   | 200                      |
+| db.m6idn.24xlarge  | 96   | —   | 384          | 4 x 1425 NVMe SSD      | 75,000                    | 150                      |
+| db.m6idn.16xlarge  | 64   | —   | 256          | 2 x 1900 NVMe SSD      | 50,000                    | 100                      |
+| db.m6idn.12xlarge  | 48   | —   | 192          | 2 x 1425 NVMe SSD      | 37,500                    | 75                       |
+| db.m6idn.8xlarge   | 32   | —   | 128          | 1 x 1900 NVMe SSD      | 25,000                    | 50                       |
+| db.m6idn.4xlarge\* | 16   | —   | 64           | 1 x 950 NVMe SSD       | Up to 25,000              | Up to 50                 |
+| db.m6idn.2xlarge\* | 8    | —   | 32           | 1 x 474 NVMe SSD       | Up to 25,000              | Up to 40                 |
+| db.m6idn.xlarge\*  | 4    | —   | 16           | 1 x 237 NVMe SSD       | Up to 25,000              | Up to 30                 |
+| db.m6idn.large\*   | 2    | —   | 8            | 1 x 118 NVMe SSD       | Up to 25,000              | Up to 25                 |
 
 **db.m6in – general-purpose instance classes powered by 3rd
 generation Intel Xeon Scalable processors and network optimization**
@@ -195,15 +195,15 @@ generation Intel Xeon Scalable processors and network optimization**
 | Instance class    | vCPU | Processor cores | Sockets | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
 | ----------------- | ---- | --------------- | ------- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
 | db.m6in.metal     | 128  | 64              | 2       | —   | 512          | EBS-optimized only     | 100,000                   | 200                      |
-| db.m6in.32xlarge  | 128  |                 |         | —   | 512          | EBS-optimized only     | 80,000                    | 200                      |
-| db.m6in.24xlarge  | 96   |                 |         | —   | 384          | EBS-optimized only     | 60,000                    | 150                      |
-| db.m6in.16xlarge  | 64   |                 |         | —   | 256          | EBS-optimized only     | 40,000                    | 100                      |
-| db.m6in.12xlarge  | 48   |                 |         | —   | 192          | EBS-optimized only     | 30,000                    | 75                       |
-| db.m6in.8xlarge   | 32   |                 |         | —   | 128          | EBS-optimized only     | 20,000                    | 50                       |
-| db.m6in.4xlarge\* | 16   |                 |         | —   | 64           | EBS-optimized only     | Up to 20,000              | Up to 50                 |
-| db.m6in.2xlarge\* | 8    |                 |         | —   | 32           | EBS-optimized only     | Up to 20,000              | Up to 40                 |
-| db.m6in.xlarge\*  | 4    |                 |         | —   | 16           | EBS-optimized only     | Up to 20,000              | Up to 30                 |
-| db.m6in.large\*   | 2    |                 |         | —   | 8            | EBS-optimized only     | Up to 20,000              | Up to 25                 |
+| db.m6in.32xlarge  | 128  |                 |         | —   | 512          | EBS-optimized only     | 100,000                   | 200                      |
+| db.m6in.24xlarge  | 96   |                 |         | —   | 384          | EBS-optimized only     | 75,000                    | 150                      |
+| db.m6in.16xlarge  | 64   |                 |         | —   | 256          | EBS-optimized only     | 50,000                    | 100                      |
+| db.m6in.12xlarge  | 48   |                 |         | —   | 192          | EBS-optimized only     | 37,500                    | 75                       |
+| db.m6in.8xlarge   | 32   |                 |         | —   | 128          | EBS-optimized only     | 25,000                    | 50                       |
+| db.m6in.4xlarge\* | 16   |                 |         | —   | 64           | EBS-optimized only     | Up to 25,000              | Up to 50                 |
+| db.m6in.2xlarge\* | 8    |                 |         | —   | 32           | EBS-optimized only     | Up to 25,000              | Up to 40                 |
+| db.m6in.xlarge\*  | 4    |                 |         | —   | 16           | EBS-optimized only     | Up to 25,000              | Up to 30                 |
+| db.m6in.large\*   | 2    |                 |         | —   | 8            | EBS-optimized only     | Up to 25,000              | Up to 25                 |
 
 **db.m6i – general-purpose instance classes powered by 3rd
 generation Intel Xeon Scalable processors**
@@ -228,7 +228,7 @@ Xeon Platinum processors and SSD storage**
 | ---------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
 | db.m5d.24xlarge  | 96   | 345 | 384          | 4 x 900 NVMe SSD       | 19,000                    | 25                       |
 | db.m5d.16xlarge  | 64   | 262 | 256          | 4 x 600 NVMe SSD       | 13,600                    | 20                       |
-| db.m5d.12xlarge  | 48   | 173 | 192          | 2 x 900 NVMe SSD       | 9,500                     | 10                       |
+| db.m5d.12xlarge  | 48   | 173 | 192          | 2 x 900 NVMe SSD       | 9,500                     | 12                       |
 | db.m5d.8xlarge   | 32   | 131 | 128          | 2 x 600 NVMe SSD       | 6,800                     | 10                       |
 | db.m5d.4xlarge   | 16   | 61  | 64           | 2 x 300 NVMe SSD       | 4,750                     | Up to 10                 |
 | db.m5d.2xlarge\* | 8    | 31  | 32           | 1 x 300 NVMe SSD       | Up to 4,750               | Up to 10                 |
@@ -242,7 +242,7 @@ Platinum processors**
 | --------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
 | db.m5.24xlarge  | 96   | 345 | 384          | EBS-optimized only     | 19,000                    | 25                       |
 | db.m5.16xlarge  | 64   | 262 | 256          | EBS-optimized only     | 13,600                    | 20                       |
-| db.m5.12xlarge  | 48   | 173 | 192          | EBS-optimized only     | 9,500                     | 10                       |
+| db.m5.12xlarge  | 48   | 173 | 192          | EBS-optimized only     | 9,500                     | 12                       |
 | db.m5.8xlarge   | 32   | 131 | 128          | EBS-optimized only     | 6,800                     | 10                       |
 | db.m5.4xlarge   | 16   | 61  | 64           | EBS-optimized only     | 4,750                     | Up to 10                 |
 | db.m5.2xlarge\* | 8    | 31  | 32           | EBS-optimized only     | Up to 4,750               | Up to 10                 |
@@ -285,12 +285,12 @@ classes**
 
 | Instance class  | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
 | --------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.z1d.12xlarge | 48   | 271 | 384          | 2 x 900 NVMe SSD       | 14,000                    | 25                       |
-| db.z1d.6xlarge  | 24   | 134 | 192          | 1 x 900 NVMe SSD       | 7,000                     | 10                       |
-| db.z1d.3xlarge  | 12   | 75  | 96           | 1 x 450 NVMe SSD       | 3,500                     | Up to 10                 |
-| db.z1d.2xlarge  | 8    | 53  | 64           | 1 x 300 NVMe SSD       | 2,333                     | Up to 10                 |
-| db.z1d.xlarge\* | 4    | 28  | 32           | 1 x 150 NVMe SSD       | Up to 2,333               | Up to 10                 |
-| db.z1d.large\*  | 2    | 15  | 16           | 1 x 75 NVMe SSD        | Up to 2,333               | Up to 10                 |
+| db.z1d.12xlarge | 48   | 271 | 384          | 2 x 900 NVMe SSD       | 19,000                    | 25                       |
+| db.z1d.6xlarge  | 24   | 134 | 192          | 1 x 900 NVMe SSD       | 9,500                     | 12                       |
+| db.z1d.3xlarge  | 12   | 75  | 96           | 1 x 450 NVMe SSD       | 4,750                     | Up to 10                 |
+| db.z1d.2xlarge  | 8    | 53  | 64           | 1 x 300 NVMe SSD       | 3,170                     | Up to 10                 |
+| db.z1d.xlarge\* | 4    | 28  | 32           | 1 x 150 NVMe SSD       | Up to 3,170               | Up to 10                 |
+| db.z1d.large\*  | 2    | 15  | 16           | 1 x 75 NVMe SSD        | Up to 3,170               | Up to 10                 |
 
 **db.x2g – memory-optimized instance classes with AWS
 Graviton2 processors**
@@ -368,9 +368,9 @@ Graviton4 processors and SSD storage**
 | Instance class   | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
 | ---------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
 | db.m8gd.48xlarge | 192  | —   | 768          | 6 x 1900 NVMe SSD      | 40,000                    | 50                       |
-| db.m8gd.24xlarge | 96   | —   | 512          | 3 x 1900 NVMe SSD      | 30,000                    | 40                       |
-| db.m8gd.16xlarge | 64   | —   | 384          | 2 x 1900 NVMe SSD      | 20,000                    | 30                       |
-| db.m8gd.12xlarge | 48   | —   | 256          | 3 x 950 NVMe SSD       | 15,000                    | 22.5                     |
+| db.m8gd.24xlarge | 96   | —   | 384          | 3 x 1900 NVMe SSD      | 30,000                    | 40                       |
+| db.m8gd.16xlarge | 64   | —   | 256          | 2 x 1900 NVMe SSD      | 20,000                    | 30                       |
+| db.m8gd.12xlarge | 48   | —   | 192          | 3 x 950 NVMe SSD       | 15,000                    | 22.5                     |
 | db.m8gd.8xlarge  | 32   | —   | 128          | 1 x 1900 NVMe SSD      | 10,000                    | 15                       |
 | db.m8gd.4xlarge  | 16   | —   | 64           | 1 x 950 NVMe SSD       | Up to 10,000              | Up to 15                 |
 | db.m8gd.2xlarge  | 8    | —   | 32           | 1 x 474 NVMe SSD       | Up to 10,000              | Up to 15                 |
@@ -455,8 +455,8 @@ Graviton2 processors**
 | Instance class   | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
 | ---------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
 | db.r6g.16xlarge  | 64   | —   | 512          | EBS-optimized only     | 19,000                    | 25                       |
-| db.r6g.12xlarge  | 48   | —   | 384          | EBS-optimized only     | 13,500                    | 20                       |
-| db.r6g.8xlarge   | 32   | —   | 256          | EBS-optimized only     | 9,000                     | 12                       |
+| db.r6g.12xlarge  | 48   | —   | 384          | EBS-optimized only     | 14,250                    | 20                       |
+| db.r6g.8xlarge   | 32   | —   | 256          | EBS-optimized only     | 9,500                     | 12                       |
 | db.r6g.4xlarge   | 16   | —   | 128          | EBS-optimized only     | 4,750                     | Up to 10                 |
 | db.r6g.2xlarge\* | 8    | —   | 64           | EBS-optimized only     | Up to 4,750               | Up to 10                 |
 | db.r6g.xlarge\*  | 4    | —   | 32           | EBS-optimized only     | Up to 4,750               | Up to 10                 |
@@ -468,8 +468,8 @@ Graviton2 processors and SSD storage**
 | Instance class   | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
 | ---------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
 | db.r6gd.16xlarge | 64   | —   | 512          | 2 x 1900 NVMe SSD      | 19,000                    | 25                       |
-| db.r6gd.12xlarge | 48   | —   | 384          | 2 x 1425 NVMe SSD      | 13,500                    | 20                       |
-| db.r6gd.8xlarge  | 32   | —   | 256          | 1 x 1900 NVMe SSD      | 9,000                     | 12                       |
+| db.r6gd.12xlarge | 48   | —   | 384          | 2 x 1425 NVMe SSD      | 14,250                    | 20                       |
+| db.r6gd.8xlarge  | 32   | —   | 256          | 1 x 1900 NVMe SSD      | 9,500                     | 12                       |
 | db.r6gd.4xlarge  | 16   | —   | 128          | 1 x 950 NVMe SSD       | 4,750                     | Up to 10                 |
 | db.r6gd.2xlarge  | 8    | —   | 64           | 1 x 474 NVMe SSD       | Up to 4,750               | Up to 10                 |
 | db.r6gd.xlarge   | 4    | —   | 32           | 1 x 237 NVMe SSD       | Up to 4,750               | Up to 10                 |
@@ -497,15 +497,15 @@ optimization**
 
 | Instance class     | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
 | ------------------ | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.r6idn.32xlarge  | 128  | —   | 1,024        | 4x1900 NVMe SSD        | 80,000                    | 200                      |
-| db.r6idn.24xlarge  | 96   | —   | 768          | 4x1425 NVMe SSD        | 60,000                    | 150                      |
-| db.r6idn.16xlarge  | 64   | —   | 512          | 2x1900 NVMe SSD        | 40,000                    | 100                      |
-| db.r6idn.12xlarge  | 48   | —   | 384          | 2x1425 NVMe SSD        | 30,000                    | 75                       |
-| db.r6idn.8xlarge   | 32   | —   | 256          | 1x1900 NVMe SSD        | 20,000                    | 50                       |
-| db.r6idn.4xlarge\* | 16   | —   | 128          | 1x950 NVMe SSD         | Up to 20,000              | Up to 50                 |
-| db.r6idn.2xlarge\* | 8    | —   | 64           | 1x474 NVMe SSD         | Up to 20,000              | Up to 40                 |
-| db.r6idn.xlarge\*  | 4    | —   | 32           | 1x237 NVMe SSD         | Up to 20,000              | Up to 30                 |
-| db.r6idn.large\*   | 2    | —   | 16           | 1x118 NVMe SSD         | Up to 20,000              | Up to 25                 |
+| db.r6idn.32xlarge  | 128  | —   | 1,024        | 4x1900 NVMe SSD        | 100,000                   | 200                      |
+| db.r6idn.24xlarge  | 96   | —   | 768          | 4x1425 NVMe SSD        | 75,000                    | 150                      |
+| db.r6idn.16xlarge  | 64   | —   | 512          | 2x1900 NVMe SSD        | 50,000                    | 100                      |
+| db.r6idn.12xlarge  | 48   | —   | 384          | 2x1425 NVMe SSD        | 37,500                    | 75                       |
+| db.r6idn.8xlarge   | 32   | —   | 256          | 1x1900 NVMe SSD        | 25,000                    | 50                       |
+| db.r6idn.4xlarge\* | 16   | —   | 128          | 1x950 NVMe SSD         | Up to 25,000              | Up to 50                 |
+| db.r6idn.2xlarge\* | 8    | —   | 64           | 1x474 NVMe SSD         | Up to 25,000              | Up to 40                 |
+| db.r6idn.xlarge\*  | 4    | —   | 32           | 1x237 NVMe SSD         | Up to 25,000              | Up to 30                 |
+| db.r6idn.large\*   | 2    | —   | 16           | 1x118 NVMe SSD         | Up to 25,000              | Up to 25                 |
 
 **db.r6in – memory-optimized instance classes with 3rd
 generation Intel Xeon Scalable processors and network
@@ -514,15 +514,15 @@ optimization**
 | Instance class    | vCPU | Processor cores | Sockets | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
 | ----------------- | ---- | --------------- | ------- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
 | db.r6in.metal     | 128  | 64              | 2       | —   | 1,024        | EBS-optimized only     | 100,000                   | 200                      |
-| db.r6in.32xlarge  | 128  | —               | —       | —   | 1,024        | EBS-optimized only     | 80,000                    | 200                      |
-| db.r6in.24xlarge  | 96   | —               | —       | —   | 768          | EBS-optimized only     | 60,000                    | 150                      |
-| db.r6in.16xlarge  | 64   | —               | —       | —   | 512          | EBS-optimized only     | 40,000                    | 100                      |
-| db.r6in.12xlarge  | 48   | —               | —       | —   | 384          | EBS-optimized only     | 30,000                    | 75                       |
-| db.r6in.8xlarge   | 32   | —               | —       | —   | 256          | EBS-optimized only     | 20,000                    | 50                       |
-| db.r6in.4xlarge\* | 16   | —               | —       | —   | 128          | EBS-optimized only     | Up to 20,000              | Up to 50                 |
-| db.r6in.2xlarge\* | 8    | —               | —       | —   | 64           | EBS-optimized only     | Up to 20,000              | Up to 40                 |
-| db.r6in.xlarge\*  | 4    | —               | —       | —   | 32           | EBS-optimized only     | Up to 20,000              | Up to 30                 |
-| db.r6in.large\*   | 2    | —               | —       | —   | 16           | EBS-optimized only     | Up to 20,000              | Up to 25                 |
+| db.r6in.32xlarge  | 128  | —               | —       | —   | 1,024        | EBS-optimized only     | 100,000                   | 200                      |
+| db.r6in.24xlarge  | 96   | —               | —       | —   | 768          | EBS-optimized only     | 75,000                    | 150                      |
+| db.r6in.16xlarge  | 64   | —               | —       | —   | 512          | EBS-optimized only     | 50,000                    | 100                      |
+| db.r6in.12xlarge  | 48   | —               | —       | —   | 384          | EBS-optimized only     | 37,500                    | 75                       |
+| db.r6in.8xlarge   | 32   | —               | —       | —   | 256          | EBS-optimized only     | 25,000                    | 50                       |
+| db.r6in.4xlarge\* | 16   | —               | —       | —   | 128          | EBS-optimized only     | Up to 25,000              | Up to 50                 |
+| db.r6in.2xlarge\* | 8    | —               | —       | —   | 64           | EBS-optimized only     | Up to 25,000              | Up to 40                 |
+| db.r6in.xlarge\*  | 4    | —               | —       | —   | 32           | EBS-optimized only     | Up to 25,000              | Up to 30                 |
+| db.r6in.large\*   | 2    | —               | —       | —   | 16           | EBS-optimized only     | Up to 25,000              | Up to 25                 |
 
 **db.r6i – Oracle memory-optimized instance classes
 preconfigured for high memory, storage, and I/O**
@@ -535,7 +535,7 @@ preconfigured for high memory, storage, and I/O**
 | db.r6i.4xlarge.tpc2.mem4x | 16   | —   | 512          | EBS-optimized only     | 20,000                    | 25                       |
 | db.r6i.4xlarge.tpc2.mem3x | 16   | —   | 384          | EBS-optimized only     | 15,000                    | 18.75                    |
 | db.r6i.4xlarge.tpc2.mem2x | 16   | —   | 256          | EBS-optimized only     | 10,000                    | 12.5                     |
-| db.r6i.2xlarge.tpc2.mem8x | 8    | —   | 512          | EBS-optimized only     | 20,000                    | 12.5                     |
+| db.r6i.2xlarge.tpc2.mem8x | 8    | —   | 512          | EBS-optimized only     | 20,000                    | 25                       |
 | db.r6i.2xlarge.tpc2.mem4x | 8    | —   | 256          | EBS-optimized only     | 10,000                    | 12.5                     |
 | db.r6i.2xlarge.tpc1.mem2x | 8    | —   | 128          | EBS-optimized only     | Up to 10,000              | 12.5                     |
 | db.r6i.xlarge.tpc2.mem4x  | 4    | —   | 128          | EBS-optimized only     | Up to 10,000              | 12.5                     |
@@ -565,7 +565,7 @@ Xeon Platinum processors and SSD storage**
 | ---------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
 | db.r5d.24xlarge  | 96   | 347 | 768          | 4 x 900 NVMe SSD       | 19,000                    | 25                       |
 | db.r5d.16xlarge  | 64   | 264 | 512          | 4 x 600 NVMe SSD       | 13,600                    | 20                       |
-| db.r5d.12xlarge  | 48   | 173 | 384          | 2 x 900 NVMe SSD       | 9,500                     | 10                       |
+| db.r5d.12xlarge  | 48   | 173 | 384          | 2 x 900 NVMe SSD       | 9,500                     | 12                       |
 | db.r5d.8xlarge   | 32   | 132 | 256          | 2 x 600 NVMe SSD       | 6,800                     | 10                       |
 | db.r5d.4xlarge   | 16   | 71  | 128          | 2 x 300 NVMe SSD       | 4,750                     | Up to 10                 |
 | db.r5d.2xlarge\* | 8    | 38  | 64           | 1 x 300 NVMe SSD       | Up to 4,750               | Up to 10                 |
@@ -580,7 +580,7 @@ preconfigured for high memory, storage, and I/O**
 | db.r5b.8xlarge.tpc2.mem3x | 32   | —   | 768          | EBS-optimized only     | 60,000                    | 25                       |
 | db.r5b.6xlarge.tpc2.mem4x | 24   | —   | 768          | EBS-optimized only     | 60,000                    | 25                       |
 | db.r5b.4xlarge.tpc2.mem4x | 16   | —   | 512          | EBS-optimized only     | 40,000                    | 20                       |
-| db.r5b.4xlarge.tpc2.mem3x | 16   | —   | 384          | EBS-optimized only     | 30,000                    | 10                       |
+| db.r5b.4xlarge.tpc2.mem3x | 16   | —   | 384          | EBS-optimized only     | 30,000                    | 12                       |
 | db.r5b.4xlarge.tpc2.mem2x | 16   | —   | 256          | EBS-optimized only     | 20,000                    | 10                       |
 | db.r5b.2xlarge.tpc2.mem8x | 8    | —   | 512          | EBS-optimized only     | 40,000                    | 20                       |
 | db.r5b.2xlarge.tpc2.mem4x | 8    | —   | 256          | EBS-optimized only     | 20,000                    | 10                       |
@@ -596,7 +596,7 @@ Xeon Platinum processors and EBS optimization**
 | ---------------- | ---- | --- | ------------ | ---------------- | ---------------------- | ------------------------- | ------------------------ |
 | db.r5b.24xlarge  | 96   | 347 | 768          | 192              | EBS-optimized only     | 60,000                    | 25                       |
 | db.r5b.16xlarge  | 64   | 264 | 512          | 128              | EBS-optimized only     | 40,000                    | 20                       |
-| db.r5b.12xlarge  | 48   | 173 | 384          | 96               | EBS-optimized only     | 30,000                    | 10                       |
+| db.r5b.12xlarge  | 48   | 173 | 384          | 96               | EBS-optimized only     | 30,000                    | 12                       |
 | db.r5b.8xlarge   | 32   | 132 | 256          | 64               | EBS-optimized only     | 20,000                    | 10                       |
 | db.r5b.4xlarge   | 16   | 71  | 128          | 32               | EBS-optimized only     | 10,000                    | Up to 10                 |
 | db.r5b.2xlarge\* | 8    | 38  | 64           | 16               | EBS-optimized only     | Up to 10,000              | Up to 10                 |
@@ -612,7 +612,7 @@ preconfigured for high memory, storage, and I/O**
 | db.r5.8xlarge.tpc2.mem3x  | 32   | —   | 768          | EBS-optimized only     | 19,000                    | 25                       |
 | db.r5.6xlarge.tpc2.mem4x  | 24   | —   | 768          | EBS-optimized only     | 19,000                    | 25                       |
 | db.r5.4xlarge.tpc2.mem4x  | 16   | —   | 512          | EBS-optimized only     | 13,600                    | 20                       |
-| db.r5.4xlarge.tpc2.mem3x  | 16   | —   | 384          | EBS-optimized only     | 9,500                     | 10                       |
+| db.r5.4xlarge.tpc2.mem3x  | 16   | —   | 384          | EBS-optimized only     | 9,500                     | 12                       |
 | db.r5.4xlarge.tpc2.mem2x  | 16   | —   | 256          | EBS-optimized only     | 6,800                     | 10                       |
 | db.r5.2xlarge.tpc2.mem8x  | 8    | —   | 512          | EBS-optimized only     | 13,600                    | 20                       |
 | db.r5.2xlarge.tpc2.mem4x  | 8    | —   | 256          | EBS-optimized only     | 6,800                     | 10                       |
@@ -679,8 +679,8 @@ deployments only)**
 | Instance class   | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
 | ---------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
 | db.c6gd.16xlarge | 64   | —   | 128          | 2 x 1900 NVMe SSD      | 19,000                    | 25                       |
-| db.c6gd.12xlarge | 48   | —   | 96           | 2 x 1425 NVMe SSD      | 13,500                    | 20                       |
-| db.c6gd.8xlarge  | 32   | —   | 64           | 1 x 1900 NVMe SSD      | 9,000                     | 12                       |
+| db.c6gd.12xlarge | 48   | —   | 96           | 2 x 1425 NVMe SSD      | 14,250                    | 20                       |
+| db.c6gd.8xlarge  | 32   | —   | 64           | 1 x 1900 NVMe SSD      | 9,500                     | 12                       |
 | db.c6gd.4xlarge  | 16   | —   | 32           | 1 x 950 NVMe SSD       | 4,750                     | Up to 10                 |
 | db.c6gd.2xlarge  | 8    | —   | 16           | 1 x 474 NVMe SSD       | Up to 4,750               | Up to 10                 |
 | db.c6gd.xlarge   | 4    | —   | 8            | 1 x 237 NVMe SSD       | Up to 4,750               | Up to 10                 |
@@ -709,12 +709,12 @@ classes**
 
 | Instance class  | vCPU | ECU      | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
 | --------------- | ---- | -------- | ------------ | ---------------------- | ------------------------- | ------------------------ |
-| db.t3.2xlarge\* | 8    | Variable | 32           | EBS-optimized only     | Up to 2,048               | Up to 5                  |
-| db.t3.xlarge\*  | 4    | Variable | 16           | EBS-optimized only     | Up to 2,048               | Up to 5                  |
-| db.t3.large\*   | 2    | Variable | 8            | EBS-optimized only     | Up to 2,048               | Up to 5                  |
-| db.t3.medium\*  | 2    | Variable | 4            | EBS-optimized only     | Up to 1,536               | Up to 5                  |
-| db.t3.small\*   | 2    | Variable | 2            | EBS-optimized only     | Up to 1,536               | Up to 5                  |
-| db.t3.micro\*   | 2    | Variable | 1            | EBS-optimized only     | Up to 1,536               | Up to 5                  |
+| db.t3.2xlarge\* | 8    | Variable | 32           | EBS-optimized only     | Up to 2,780               | Up to 5                  |
+| db.t3.xlarge\*  | 4    | Variable | 16           | EBS-optimized only     | Up to 2,780               | Up to 5                  |
+| db.t3.large\*   | 2    | Variable | 8            | EBS-optimized only     | Up to 2,780               | Up to 5                  |
+| db.t3.medium\*  | 2    | Variable | 4            | EBS-optimized only     | Up to 2,085               | Up to 5                  |
+| db.t3.small\*   | 2    | Variable | 2            | EBS-optimized only     | Up to 2,085               | Up to 5                  |
+| db.t3.micro\*   | 2    | Variable | 1            | EBS-optimized only     | Up to 2,085               | Up to 5                  |
 
 **db.t2 – burstable-performance instance
 classes**

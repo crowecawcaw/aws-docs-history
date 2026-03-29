@@ -1,4 +1,4 @@
-# IAM database authenticationfor MariaDB, MySQL, and PostgreSQL
+# IAM database authentication for MariaDB, MySQL, and PostgreSQL
 
 You can authenticate to your DB
 instance
@@ -92,7 +92,6 @@ _IAM User Guide_.
 If you are using a burstable class instance, avoid running out of memory by reducing
 the memory used by other parameters like buffers and cache by the same amount.
 
--
 - IAM DB authentication is not supported for RDS on Outposts for any engine.
 
 ## Recommendations for IAM database authentication

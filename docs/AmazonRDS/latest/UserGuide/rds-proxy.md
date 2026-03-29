@@ -60,7 +60,10 @@ The following quotas and limitations apply to RDS Proxy:
   Support.
 - Each proxy can have up to 200 associated Secrets Manager secrets, thus limiting connections
   to up to 200 different user accounts when using secrets.
-- Each proxy has a default endpoint. You can also add up to 20 proxy endpoints for each proxy.
+- Each proxy has a default endpoint which is provisioned across only two Availability Zones selected from the proxy's configured subnets.
+  If subnets in more than two AZs are configured, any two will be selected.
+- You can add up to 20 additional proxy endpoints for each proxy.
+  These additional endpoints are provisioned across all the Availability Zones specified during their creation.
   You can create, view, modify, and delete these endpoints.
 - For RDS DB instances in replication configurations, you can associate a proxy only
   with the writer DB instance, not a read replica.
