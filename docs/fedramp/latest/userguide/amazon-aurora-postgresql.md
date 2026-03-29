@@ -6,8 +6,8 @@ This guide provides security configuration requirements and implementation examp
 
 |                   |                                                                                           |
 | ----------------- | ----------------------------------------------------------------------------------------- |
-| Version           | 1.0.0                                                                                     |
-| Last Updated      | 2026-01-09                                                                                |
+| Version           | 1.0.2                                                                                     |
+| Last Updated      | 2026-03-26                                                                                |
 | Documentation URL | https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.html |
 
 ## Overview
@@ -22,13 +22,11 @@ Amazon Aurora PostgreSQL security configuration involves implementing comprehens
 
 Amazon Aurora PostgreSQL must comply with the following FedRAMP requirements:
 
-- FRR-RSC-01
-- FRR-RSC-02
-- FRR-RSC-03
-- FRR-RSC-04
-- FRR-RSC-05
-- FRR-RSC-06
-- FRR-RSC-07
+- SCG-CSO-RSC
+- SCG-CSO-SDF
+- SCG-ENH-CMP
+- SCG-ENH-EXP
+- SCG-ENH-API
 
 ## Administrative Account Model
 
@@ -39,7 +37,17 @@ Amazon Aurora PostgreSQL has an administrative account model.
 | Administrative Accounts | Yes                          |
 | Account Type            | Database Master User Account |
 
-## FRR-RSC-01: Administrative Accounts
+## SCG-CSO-RSC: Recommended Secure Configuration
+
+**Applicable:** Yes
+
+This requirement consolidates guidance for:
+
+1. Instructions on how to securely access, configure, operate, and decommission top-level administrative accounts
+2. Explanations of security-related settings that can be operated only by top-level administrative accounts
+3. Explanations of security-related settings that can be operated only by privileged accounts
+
+### Part 1: Administrative Accounts
 
 **Applicable:** Yes
 
@@ -148,7 +156,7 @@ Amazon Aurora PostgreSQL administrative access is managed through the Master dat
    - Regular testing of snapshot restoration procedures
    - Document recovery time objectives (RTO) and recovery point objectives (RPO)
 
-## FRR-RSC-02: Administrative Settings
+### Part 2: Administrative Settings
 
 **Applicable:** Yes
 
@@ -307,7 +315,7 @@ The master user account in Amazon Aurora PostgreSQL has the `rds_superuser` role
    - Conduct quarterly access reviews
    - Implement change management for security settings
 
-## FRR-RSC-03: Privileged Settings
+### Part 3: Privileged Settings
 
 **Applicable:** Yes
 
@@ -578,7 +586,7 @@ aws logs create-log-group --log-group-name /aws/service/privileged-access
 
 **Control:** AC-6
 
-## FRR-RSC-04: Secure Defaults
+## SCG-CSO-SDF: Secure Defaults
 
 **Applicable:** Yes
 
@@ -601,19 +609,19 @@ Ensure Aurora PostgreSQL clusters are created with security-first configurations
 - Configure parameter groups with security-hardened settings
 - Use row-level security (RLS) for fine-grained access control
 
-## FRR-RSC-05: Configuration Comparison
+## SCG-ENH-CMP: Configuration Comparison
 
 **Applicable:** Yes
 
 Use AWS Config rules and custom scripts to compare current Aurora PostgreSQL configuration against security baselines.
 
-## FRR-RSC-06: Configuration Export
+## SCG-ENH-EXP: Configuration Export
 
 **Applicable:** Yes
 
 Export Aurora PostgreSQL configuration using AWS CLI describe commands in JSON format.
 
-## FRR-RSC-07: API Configuration
+## SCG-ENH-API: API Configuration
 
 **Applicable:** Yes
 

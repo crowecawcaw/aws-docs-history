@@ -10,20 +10,26 @@ This topic discusses top level admin guidance.
 
 |              |            |
 | ------------ | ---------- |
-| Version      | 1.0.0      |
-| Last Updated | 2026-01-09 |
+| Version      | 1.0.2      |
+| Last Updated | 2026-03-26 |
 
-## FRR-RSC-01: Top-Level Administrative Accounts Guidance
+## SCG-CSO-RSC: Recommended Secure Configuration - Part 1
 
 ✓ MUST - Required for all FedRAMP services
 
-**OSCAL Control ID: FRR-RSC-01**
+**OSCAL Control ID: SCG-CSO-RSC**
 
-**UUID: frr-rsc-01-control**
+**UUID: scg-cso-rsc-control**
 
 ## Requirement
 
-Providers MUST create and maintain guidance that includes instructions on how to securely access, configure, operate, and decommission top-level administrative accounts that control enterprise access to the entire cloud service offering.
+This guidance addresses Part 1 of SCG-CSO-RSC: Instructions on how to securely access, configure, operate, and decommission top-level administrative accounts that control enterprise access to the entire cloud service offering.
+
+Providers MUST create, maintain, and make available recommendations for securely configuring their cloud services (the Secure Configuration Guide) that includes at least the following information:
+
+1. **Required**: Instructions on how to securely access, configure, operate, and decommission top-level administrative accounts that control enterprise access to the entire cloud service offering.
+2. **Required**: Explanations of security-related settings that can be operated only by top-level administrative accounts and their security implications.
+3. **Recommended**: Explanations of security-related settings that can be operated only by privileged accounts and their security implications.
 
 Note: This guidance should explain how top-level administrative accounts are named and referred to in the cloud service offering.
 
@@ -282,7 +288,7 @@ Configure external identity provider integration (SAML 2.0/OIDC)
 
 **Purpose**: Automated governance and compliance for multi-account environments
 
-**Security Guardrails**:
+**Security Guardrails**: IAM implemented limits customers can enable
 
 **Mandatory guardrails**: CloudTrail enabled, access logging configured
 
@@ -295,8 +301,6 @@ Configure external identity provider integration (SAML 2.0/OIDC)
 **Database Administrative Accounts**:
 
 **Applicable Services**: Amazon RDS, Amazon Aurora, Amazon ElastiCache, Amazon DocumentDB, Amazon Neptune
-
-**Security Requirements**:
 
 **Primary User Credentials**: Store in AWS Secrets Manager with automatic rotation
 

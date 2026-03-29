@@ -10,21 +10,27 @@ This guide provides security configuration for privileged account access.
 
 |              |            |
 | ------------ | ---------- |
-| Version      | 1.0.0      |
-| Last Updated | 2026-01-09 |
+| Version      | 1.0.2      |
+| Last Updated | 2026-03-26 |
 
 ## FedRAMP Requirements
 
-## FRR-RSC-03: Privileged Accounts Guidance
+## SCG-CSO-RSC: Recommended Secure Configuration - Part 3
 
-✓ SHOULD - Recommended for all FedRAMP services
+✓ RECOMMENDED - Recommended for all FedRAMP services
 
-**OSCAL Control ID: FRR-RSC-03**
-**UUID: frr-rsc-03-control**
+**OSCAL Control ID: SCG-CSO-RSC**
+**UUID: scg-cso-rsc-control**
 
-### Requirement
+## Requirement
 
-Providers SHOULD create and maintain guidance that explains security-related settings that can be operated only by privileged accounts and their security implications.
+This guidance addresses Part 3 of SCG-CSO-RSC: Explanations of security-related settings that can be operated only by privileged accounts and their security implications.
+
+Providers MUST create, maintain, and make available recommendations for securely configuring their cloud services (the Secure Configuration Guide) that includes at least the following information:
+
+1. **Required**: Instructions on how to securely access, configure, operate, and decommission top-level administrative accounts that control enterprise access to the entire cloud service offering.
+2. **Required**: Explanations of security-related settings that can be operated only by top-level administrative accounts and their security implications.
+3. **Recommended**: Explanations of security-related settings that can be operated only by privileged accounts and their security implications.
 
 ### Component Implementation (OSCAL)
 

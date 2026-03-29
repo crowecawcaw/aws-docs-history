@@ -6,8 +6,8 @@ This guide provides security configuration requirements and implementation examp
 
 |                   |                              |
 | ----------------- | ---------------------------- |
-| Version           | 1.0.0                        |
-| Last Updated      | 2025-12-23                   |
+| Version           | 1.0.2                        |
+| Last Updated      | 2026-03-26                   |
 | Documentation URL | https://docs.aws.amazon.com/ |
 
 ## Overview
@@ -22,13 +22,11 @@ Amazon DocumentDB security configuration involves implementing comprehensive sec
 
 Amazon DocumentDB must comply with the following FedRAMP requirements:
 
-- FRR-RSC-01
-- FRR-RSC-02
-- FRR-RSC-03
-- FRR-RSC-04
-- FRR-RSC-05
-- FRR-RSC-06
-- FRR-RSC-07
+- SCG-CSO-RSC
+- SCG-CSO-SDF
+- SCG-ENH-CMP
+- SCG-ENH-EXP
+- SCG-ENH-API
 
 ## Administrative Account Model
 
@@ -39,7 +37,17 @@ Amazon DocumentDB has an administrative account model through master user accoun
 | Administrative Accounts | Yes                                                                   |
 | Account Type            | Master user account with MongoDB-compatible administrative privileges |
 
-## FRR-RSC-01: Administrative Accounts
+## SCG-CSO-RSC: Recommended Secure Configuration
+
+**Applicable:** Yes
+
+This requirement consolidates guidance for:
+
+1. Instructions on how to securely access, configure, operate, and decommission top-level administrative accounts
+2. Explanations of security-related settings that can be operated only by top-level administrative accounts
+3. Explanations of security-related settings that can be operated only by privileged accounts
+
+### Part 1: Administrative Accounts
 
 **Applicable:** Yes
 
@@ -183,7 +191,7 @@ Amazon DocumentDB administrative access is managed through the master user accou
 
 This comprehensive guidance ensures that Amazon DocumentDB administrative accounts are configured according to security best practices and FedRAMP requirements.
 
-## FRR-RSC-02: Administrative Settings
+### Part 2: Administrative Settings
 
 **Applicable:** Yes
 
@@ -352,7 +360,7 @@ The master user account (primary user) in Amazon DocumentDB has the MongoDB-comp
    - Conduct quarterly access reviews
    - Implement change management for security settings
 
-## FRR-RSC-03: Privileged Settings
+### Part 3: Privileged Settings
 
 **Applicable:** Yes
 
@@ -725,7 +733,7 @@ aws logs put-metric-filter \
 
 **Control:** AC-6
 
-## FRR-RSC-04: Secure Defaults
+## SCG-CSO-SDF: Secure Defaults
 
 **Applicable:** Yes
 
@@ -748,19 +756,19 @@ Ensure DocumentDB clusters are created with security-first configurations includ
 - Configure parameter groups with security-hardened settings
 - Use MongoDB-compatible role-based access control for fine-grained permissions
 
-## FRR-RSC-05: Configuration Comparison
+## SCG-ENH-CMP: Configuration Comparison
 
 **Applicable:** Yes
 
 Use AWS Config rules or custom scripts to compare current Amazon Documentdb With Mongodb Compatibility configuration against baselines.
 
-## FRR-RSC-06: Configuration Export
+## SCG-ENH-EXP: Configuration Export
 
 **Applicable:** Yes
 
 Export Amazon Documentdb With Mongodb Compatibility configuration using AWS CLI describe/get commands in JSON format.
 
-## FRR-RSC-07: API Configuration
+## SCG-ENH-API: API Configuration
 
 **Applicable:** Yes
 

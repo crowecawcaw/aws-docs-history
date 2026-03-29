@@ -10,20 +10,26 @@ This topic discusses root security guidance.
 
 |              |            |
 | ------------ | ---------- |
-| Version      | 1.0.0      |
-| Last Updated | 2026-01-09 |
+| Version      | 1.0.2      |
+| Last Updated | 2026-03-26 |
 
-## FRR-RSC-02: Root Security Settings Guidance
+## SCG-CSO-RSC: Recommended Secure Configuration - Part 2
 
 ✓ MUST - Required for all FedRAMP services
 
-**OSCAL Control ID: FRR-RSC-02**
+**OSCAL Control ID: SCG-CSO-RSC**
 
-**UUID: frr-rsc-02-control**
+**UUID: scg-cso-rsc-control**
 
 ## Requirement
 
-Providers MUST create and maintain guidance that explains security-related settings that can be operated only by top-level administrative accounts and their security implications.
+This guidance addresses Part 2 of SCG-CSO-RSC: Explanations of security-related settings that can be operated only by top-level administrative accounts and their security implications.
+
+Providers MUST create, maintain, and make available recommendations for securely configuring their cloud services (the Secure Configuration Guide) that includes at least the following information:
+
+1. **Required**: Instructions on how to securely access, configure, operate, and decommission top-level administrative accounts that control enterprise access to the entire cloud service offering.
+2. **Required**: Explanations of security-related settings that can be operated only by top-level administrative accounts and their security implications.
+3. **Recommended**: Explanations of security-related settings that can be operated only by privileged accounts and their security implications.
 
 ## Component Implementation (OSCAL)
 

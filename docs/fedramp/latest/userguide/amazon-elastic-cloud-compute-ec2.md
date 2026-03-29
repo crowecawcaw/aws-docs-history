@@ -6,8 +6,8 @@ This guide provides security configuration requirements and implementation examp
 
 |                   |                                                                          |
 | ----------------- | ------------------------------------------------------------------------ |
-| Version           | 1.0.0                                                                    |
-| Last Updated      | 2025-12-09                                                               |
+| Version           | 1.0.2                                                                    |
+| Last Updated      | 2026-03-26                                                               |
 | Documentation URL | https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2\_GetStarted.html |
 
 ## Overview
@@ -22,11 +22,11 @@ Amazon Elastic Cloud Compute (EC2) security configuration involves implementing 
 
 Amazon Elastic Compute Cloud (EC2) must comply with the following FedRAMP requirements:
 
-- FRR-RSC-03
-- FRR-RSC-04
-- FRR-RSC-05
-- FRR-RSC-06
-- FRR-RSC-07
+- SCG-CSO-RSC
+- SCG-CSO-SDF
+- SCG-ENH-CMP
+- SCG-ENH-EXP
+- SCG-ENH-API
 
 ## Administrative Account Model
 
@@ -37,13 +37,23 @@ Amazon Elastic Compute Cloud (EC2) does not have an administrative account model
 | Administrative Accounts | No  |
 | Account Type            | N/A |
 
-## FRR-RSC-01: Administrative Accounts
+## SCG-CSO-RSC: Recommended Secure Configuration
+
+**Applicable:** Yes
+
+This requirement consolidates guidance for:
+
+1. Instructions on how to securely access, configure, operate, and decommission top-level administrative accounts
+2. Explanations of security-related settings that can be operated only by top-level administrative accounts
+3. Explanations of security-related settings that can be operated only by privileged accounts
+
+### Part 1: Administrative Accounts
 
 **Applicable:** No
 
 Not applicable - no administrative account model
 
-## FRR-RSC-02: Administrative Settings
+### Part 2: Administrative Settings
 
 **Applicable:** Yes (OS-Level Administrative Accounts)
 
@@ -403,11 +413,11 @@ Amazon EC2 instances run customer-managed operating systems. Unlike database ser
 
 This comprehensive guidance ensures that EC2 instance administrative accounts are configured according to security best practices and FedRAMP requirements across different operating systems.
 
-## FRR-RSC-03: Privileged Settings
+### Part 3: Privileged Settings
 
 **Applicable:** Yes
 
-Within EC2 you have two layers of privileged access. One layer is at the IAM layer, where you can limit what permissions a user has to operate within EC@. This section covers the priviliged settings for using the service itself and provides example IAM Policies that would allow for varying levels of access to the service. The second layer of privileged access is at the OS layer itself which is covered in the other sections of this document.
+Within EC2 you have two layers of privileged access. One layer is at the IAM layer, where you can limit what permissions a user has to operate within EC2. This section covers the privileged settings for using the service itself and provides example IAM Policies that would allow for varying levels of access to the service. The second layer of privileged access is at the OS layer itself which is covered in the other sections of this document.
 
 ## IAM Least Privilege Policies
 
@@ -657,7 +667,7 @@ aws logs create-log-group --log-group-name /aws/service/privileged-access
 
 **Control:** AC-6
 
-## FRR-RSC-04: Secure Defaults
+## SCG-CSO-SDF: Secure Defaults
 
 **Applicable:** Yes
 
@@ -680,7 +690,7 @@ Ensure Amazon Elastic Compute Cloud (EC2) resources are created with security-fi
 - Implement proper key pair management and rotate access credentials regularly
 - Use dedicated tenancy or Nitro-based instances for enhanced security isolation
 
-## FRR-RSC-05: Configuration Comparison
+## SCG-ENH-CMP: Configuration Comparison
 
 **Applicable:** Yes
 
@@ -712,7 +722,7 @@ aws ec2 describe-subnets --output json
 
 Use AWS Config conformance packs or custom Lambda functions for automated comparison
 
-## FRR-RSC-06: Configuration Export
+## SCG-ENH-EXP: Configuration Export
 
 **Applicable:** Yes
 
@@ -748,7 +758,7 @@ aws ec2 describe-vpcs --output json > amazon_ec2_vpcs.json
 - Audit and compliance reporting
 - Infrastructure as Code generation
 
-## FRR-RSC-07: API Configuration
+## SCG-ENH-API: API Configuration
 
 **Applicable:** Yes
 

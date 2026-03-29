@@ -6,8 +6,8 @@ This guide provides security configuration requirements and implementation examp
 
 |                   |                                                                       |
 | ----------------- | --------------------------------------------------------------------- |
-| Version           | 1.0.0                                                                 |
-| Last Updated      | 2026-01-09                                                            |
+| Version           | 1.0.2                                                                 |
+| Last Updated      | 2026-03-26                                                            |
 | Documentation URL | https://docs.aws.amazon.com/neptune/latest/userguide/get-started.html |
 
 ## Overview
@@ -22,13 +22,11 @@ Amazon Neptune security configuration involves implementing comprehensive securi
 
 Amazon Neptune must comply with the following FedRAMP requirements:
 
-- FRR-RSC-01
-- FRR-RSC-02
-- FRR-RSC-03
-- FRR-RSC-04
-- FRR-RSC-05
-- FRR-RSC-06
-- FRR-RSC-07
+- SCG-CSO-RSC
+- SCG-CSO-SDF
+- SCG-ENH-CMP
+- SCG-ENH-EXP
+- SCG-ENH-API
 
 ## Administrative Account Model
 
@@ -39,7 +37,17 @@ Amazon Neptune has an administrative account model through master user accounts 
 | Administrative Accounts | Yes                                                               |
 | Account Type            | Master user account with graph database administrative privileges |
 
-## FRR-RSC-01: Administrative Accounts
+## SCG-CSO-RSC: Recommended Secure Configuration
+
+**Applicable:** Yes
+
+This requirement consolidates guidance for:
+
+1. Instructions on how to securely access, configure, operate, and decommission top-level administrative accounts
+2. Explanations of security-related settings that can be operated only by top-level administrative accounts
+3. Explanations of security-related settings that can be operated only by privileged accounts
+
+### Part 1: Administrative Accounts
 
 **Applicable:** Yes
 
@@ -115,7 +123,7 @@ Amazon Neptune administrative access is managed through the master user account 
    - Configure VPC security groups for network-level access control
    - Enable CloudWatch monitoring for performance insights
 
-## FRR-RSC-02: Administrative Settings
+### Part 2: Administrative Settings
 
 **Applicable:** Yes
 
@@ -342,7 +350,7 @@ Amazon Neptune uses a dual-layer security model: AWS IAM for cluster management 
 - Some operations require cluster reboot
 - Plan maintenance windows for configuration changes
 
-## FRR-RSC-03: Privileged Settings
+### Part 3: Privileged Settings
 
 **Applicable:** Yes
 
@@ -750,7 +758,7 @@ aws logs put-metric-filter \
 
 **Control:** AC-6
 
-## FRR-RSC-04: Secure Defaults
+## SCG-CSO-SDF: Secure Defaults
 
 **Applicable:** Yes
 
@@ -773,7 +781,7 @@ Ensure Neptune clusters are created with security-first configurations including
 - Configure comprehensive audit logging for graph operations
 - Use least privilege IAM policies for both cluster and database access
 
-## FRR-RSC-05: Configuration Comparison
+## SCG-ENH-CMP: Configuration Comparison
 
 **Applicable:** Yes
 
@@ -803,7 +811,7 @@ aws neptune describe-db-subnet-groups --output json
 
 Use AWS Config conformance packs or custom Lambda functions for automated comparison
 
-## FRR-RSC-06: Configuration Export
+## SCG-ENH-EXP: Configuration Export
 
 **Applicable:** Yes
 
@@ -837,7 +845,7 @@ aws neptune describe-event-subscriptions --output json > amazon_neptune_event_su
 - Audit and compliance reporting
 - Infrastructure as Code generation
 
-## FRR-RSC-07: API Configuration
+## SCG-ENH-API: API Configuration
 
 **Applicable:** Yes
 
