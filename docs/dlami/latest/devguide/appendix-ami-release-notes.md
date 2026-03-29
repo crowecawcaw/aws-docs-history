@@ -97,23 +97,6 @@ GPU
 
 - Refer to the [Neuron DLAMI User Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/dlami/index.html#neuron-multi-framework-dlami "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/dlami/index.html#neuron-multi-framework-dlami")
 
-### TensorFlow DLAMIs
-
-#### X86 TensorFlow DLAMI Release Notes
-
-Below are the release notes for X86 TensorFlow DLAMI:
-
-######
-
-GPU
-
-- [GPU TensorFlow 2.18 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-tensorflow-2.18-amazon-linux-2023.md "aws-deep-learning-x86-gpu-tensorflow-2.18-amazon-linux-2023.md")
-- [GPU TensorFlow 2.18 (Ubuntu 22.04)](aws-deep-learning-x86-gpu-tensorflow-2.18-ubuntu-22-04.md "aws-deep-learning-x86-gpu-tensorflow-2.18-ubuntu-22-04.md")
-
-**AWS Neuron**
-
-- Refer to [Neuron DLAMI Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/dlami/index.html#neuron-single-framework-dlami "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/dlami/index.html#neuron-single-framework-dlami").
-
 ## Release Notes for Multi-Framework DLAMIs
 
 ###### Tip

@@ -5,13 +5,12 @@ Policy](support-policy.md "support-policy.md").
 
 ## Supported Framework Versions
 
-| Framework  | Current version | CUDA version | GitHub GA  | End of patch |
-| ---------- | --------------- | ------------ | ---------- | ------------ |
-| PyTorch    | 2.9.0           | 13.0         | 2025-10-15 | 2026-10-15   |
-| PyTorch    | 2.8.0           | 12.9         | 2025-08-06 | 2026-08-06   |
-| PyTorch    | 2.7.0           | 12.8         | 2025-04-23 | 2026-04-23   |
-| PyTorch    | 2.6.0           | 12.6         | 2025-01-29 | 2026-01-29   |
-| TensorFlow | 2.18.0          | 12.5         | 2024-10-24 | 2026-10-24   |
+| Framework | Current version | CUDA version | GitHub GA  | End of patch |
+| --------- | --------------- | ------------ | ---------- | ------------ |
+| PyTorch   | 2.9.0           | 13.0         | 2025-10-15 | 2026-10-15   |
+| PyTorch   | 2.8.0           | 12.9         | 2025-08-06 | 2026-08-06   |
+| PyTorch   | 2.7.0           | 12.8         | 2025-04-23 | 2026-04-23   |
+| PyTorch   | 2.6.0           | 12.6         | 2025-01-29 | 2026-01-29   |
 
 ## Supported Operating System Versions
 
@@ -37,6 +36,7 @@ Versions listed in this table will appear for 2 years past their support date.
 | PyTorch    | 2.0.0           | 12.1         | 2023-03-15 | 2024-03-15   |
 | PyTorch    | 1.12.1          | 11.6         | 2022-07-01 | 2023-07-01   |
 | PyTorch    | 1.11.0          | 11.5         | 2022-03-10 | 2023-03-10   |
+| TensorFlow | 2.18.0          | 12.5         | 2024-10-24 | 2026-01-31   |
 | TensorFlow | 2.17.0          | 12.3         | 2024-11-07 | 2025-11-07   |
 | TensorFlow | 2.16.0          | 12.3         | 2024-03-07 | 2025-03-07   |
 | TensorFlow | 2.15.0          | 12.2         | 2023-11-14 | 2024-11-14   |
@@ -78,6 +78,8 @@ historical information for reference purposes.
 
 ###### Release Notes
 
+- [GPU TensorFlow 2.18 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-tensorflow-2.18-amazon-linux-2023.md "aws-deep-learning-x86-gpu-tensorflow-2.18-amazon-linux-2023.md")
+- [GPU TensorFlow 2.18 (Ubuntu 22.04)](aws-deep-learning-x86-gpu-tensorflow-2.18-ubuntu-22-04.md "aws-deep-learning-x86-gpu-tensorflow-2.18-ubuntu-22-04.md")
 - [GPU TensorFlow 2.17 (Ubuntu 22.04)](aws-deep-learning-x86-gpu-tensorflow-2.17-ubuntu-22-04.md "aws-deep-learning-x86-gpu-tensorflow-2.17-ubuntu-22-04.md")
 - [GPU TensorFlow 2.16 (Amazon Linux 2)](aws-deep-learning-ami-gpu-tensorflow-2.16-amazon-linux-2.md "aws-deep-learning-ami-gpu-tensorflow-2.16-amazon-linux-2.md")
 - [GPU TensorFlow 2.16 (Ubuntu 20.04)](aws-deep-learning-ami-gpu-tensorflow-2.16-ubuntu-20-04.md "aws-deep-learning-ami-gpu-tensorflow-2.16-ubuntu-20-04.md")

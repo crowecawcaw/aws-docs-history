@@ -26,7 +26,7 @@ For more information, see [Security in Amazon EC2](../../../AWSEC2/latest/UserGu
 
 - [Data protection in AWS Deep Learning AMIs](data-protection.md "data-protection.md")
 - [Identity and access management for AWS Deep Learning AMIs](security-iam.md "security-iam.md")
-- [Compliance validation for AWS Deep Learning AMIs](dlami-compliance.md "dlami-compliance.md")
+- [Compliance validation for AWS Deep Learning AMIs](compliance-validation.md "compliance-validation.md")
 - [Resilience in AWS Deep Learning AMIs](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS Deep Learning AMIs](infrastructure-security.md "infrastructure-security.md")
 - [Monitoring AWS Deep Learning AMIs instances](monitoring.md "monitoring.md")
