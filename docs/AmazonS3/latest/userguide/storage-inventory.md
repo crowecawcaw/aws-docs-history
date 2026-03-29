@@ -29,6 +29,12 @@ inventory list, you can specify the following:
 
 It might take up to 48 hours for Amazon S3 to deliver the first inventory report.
 
+###### Note
+
+After deleting an inventory configuration, Amazon S3 might still deliver one additional
+inventory report during a brief transition period while the system processes the
+deletion.
+
 ## Source and destination buckets
 
 The bucket that the inventory lists objects for is called the _source

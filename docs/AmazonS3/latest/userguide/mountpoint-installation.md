@@ -253,10 +253,11 @@ gpg --import KEYS
 gpg --fingerprint mountpoint-s3@amazon.com
 ```
 
-Confirm that the displayed fingerprint string matches the following:
+Confirm that the displayed fingerprint string matches one of the following:
 
 ```
-673F E406 1506 BB46 9A0E  F857 BE39 7A52 B086 DA5A
+8AEF E705 EBE3 29C0 948C  75A6 6F1C 3B3A EF4B 030B
+673F E406 1506 BB46 9A0E  F857 BE39 7A52 B086 DA5A (older key)
 ```
 
 If the fingerprint string doesn't match, do not finish installing
