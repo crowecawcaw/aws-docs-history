@@ -2,7 +2,7 @@
 
 The durable execution SDK is the foundation for building durable functions. It provides the primitives you need to checkpoint progress, handle retries, and manage execution flow. The SDK abstracts the complexity of checkpoint management and replay, letting you write sequential code that automatically becomes fault-tolerant.
 
-The SDK is available for JavaScript, TypeScript, Python and Java (Preview). For complete API documentation and examples, see the [JavaScript/TypeScript SDK](https://github.com/aws/aws-durable-execution-sdk-js "https://github.com/aws/aws-durable-execution-sdk-js"), [Python SDK](https://github.com/aws/aws-durable-execution-sdk-python "https://github.com/aws/aws-durable-execution-sdk-python") and [Java SDK](https://github.com/aws/aws-durable-execution-sdk-java "https://github.com/aws/aws-durable-execution-sdk-java") on GitHub.
+The SDK is available for JavaScript, TypeScript, Python and Java. For complete API documentation and examples, see the [JavaScript/TypeScript SDK](https://github.com/aws/aws-durable-execution-sdk-js "https://github.com/aws/aws-durable-execution-sdk-js"), [Python SDK](https://github.com/aws/aws-durable-execution-sdk-python "https://github.com/aws/aws-durable-execution-sdk-python") and [Java SDK](https://github.com/aws/aws-durable-execution-sdk-java "https://github.com/aws/aws-durable-execution-sdk-java") on GitHub.
 
 ## DurableContext
 
@@ -40,7 +40,7 @@ def handler(event: dict, context: DurableContext):
 
 ```
 
-Java (Preview)
+Java
 
 ```
 
@@ -125,7 +125,7 @@ result = context.step(
 
 ```
 
-Java (Preview)
+Java
 
 ```
 
@@ -159,7 +159,7 @@ context.wait(3600)
 
 ```
 
-Java (Preview)
+Java
 
 ```
 
@@ -207,7 +207,7 @@ approval = callback.result()
 
 ```
 
-Java (Preview)
+Java
 
 ```
 
@@ -253,8 +253,23 @@ result = context.wait_for_callback(
 
 ```
 
-Java (Preview)
-waitForCallback is still in development for Java.
+Java
+
+```
+
+var result = context.waitForCallback(
+    "external-api",
+    String.class,
+    (callbackId, ctx) -> {
+        submitToExternalAPI(callbackId, requestData);
+    },
+    WaitForCallbackConfig.builder()
+        .callbackConfig(CallbackConfig.builder()
+            .timeout(Duration.ofMinutes(30))
+            .build())
+        .build());
+
+```
 
 Configure timeouts to prevent functions from waiting indefinitely. If a callback times out, the SDK throws a `CallbackError` and your function can handle the timeout case. Use heartbeat timeouts for long-running callbacks to detect when external systems stop responding.
 
@@ -288,8 +303,23 @@ results = context.parallel(
 
 ```
 
-Java (Preview)
-Parallel is still in development for Java.
+Java
+
+```
+
+DurableFuture<String> f1;
+DurableFuture<Integer> f2;
+DurableFuture<Boolean> f3;
+try (var parallel = context.parallel("tasks")) {
+    f1 = parallel.branch("string-task",  String.class,  ctx -> ctx.step("string-task",  String.class,  s -> processString()));
+    f2 = parallel.branch("integer-task", Integer.class, ctx -> ctx.step("integer-task", Integer.class, s -> processInteger()));
+    f3 = parallel.branch("boolean-task", Boolean.class, ctx -> ctx.step("boolean-task", Boolean.class, s -> processBoolean()));
+}
+String stringResult = f1.get();
+int integerResult = f2.get();
+boolean booleanResult = f3.get();
+
+```
 
 Use `parallel` to execute independent operations concurrently.
 
@@ -321,8 +351,17 @@ results = context.map(
 
 ```
 
-Java (Preview)
-Map is still in development for Java.
+Java
+
+```
+
+var results = context.map(
+    "process-items",
+    itemArray,
+    String.class,
+    (item, index, ctx) -> ctx.step("task", String.class, s -> processItem(item, index)));
+
+```
 
 Use `map` to process arrays with concurrency control.
 
@@ -356,7 +395,7 @@ result = context.run_in_child_context(
 
 ```
 
-Java (Preview)
+Java
 
 ```
 
@@ -412,8 +451,29 @@ result = context.wait_for_condition(
 
 ```
 
-Java (Preview)
-waitForCondition is still in development for Java.
+Java
+
+```
+
+record JobState(String jobId, String status) {}
+
+var result = context.waitForCondition(
+    "check-job",
+    JobState.class,
+    (state, ctx) -> {
+        var status = checkJobStatus(state.jobId());
+        var updatedState = new JobState(state.jobId(), status);
+        if ("completed".equals(status)) {
+            return WaitForConditionResult.stopPolling(updatedState);
+        }
+        return WaitForConditionResult.continuePolling(updatedState);
+    },
+    WaitForConditionConfig.<JobState>builder()
+        .initialState(new JobState("job-123", "pending"))
+        .waitStrategy((state, attempt) -> Duration.ofSeconds(30))
+        .build());
+
+```
 
 Use `waitForCondition` for polling external systems, waiting for resources to be ready, or implementing retry with backoff.
 
@@ -445,7 +505,7 @@ result = context.invoke(
 
 ```
 
-Java (Preview)
+Java
 
 ```
 

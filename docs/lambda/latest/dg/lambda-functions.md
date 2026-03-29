@@ -24,12 +24,6 @@ Learn how and when to increase your function's temporary storage capacity.
 
 Learn how and when to increase your function's timeout value.
 
-**[Durable configuration](durable-configuration.md "durable-configuration.md")**
-
-Enable your Lambda functions to run for extended periods—up to one year—while maintaining state between invocations.
-Configure execution timeouts, state retention, and versioning behavior for long-running, stateful workflows.
-Durable functions allow you to build complex, multi-step processes that can pause, resume, and automatically handle interruptions.
-
 **[Environment variables](configuration-envvars.md "configuration-envvars.md")**
 
 You can make your function code portable and keep secrets out of your code by storing them in your function's configuration by using environment variables.

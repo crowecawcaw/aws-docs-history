@@ -9,7 +9,7 @@ create checkpoints with steps, and pause execution with waits. You'll also learn
 To keep things simple, this tutorial shows you how to create your function using either the Python or Node.js runtime. With these interpreted languages, you can edit
 function code directly in the console's built-in code editor.
 
-Durable functions in Java (Preview) currently can only be deployed through container images. For more information on creating durable functions from container images, see [Supported runtimes for durable functions](durable-supported-runtimes.md "durable-supported-runtimes.md") or [Deploy Lambda durable functions with Infrastructure as Code](durable-getting-started-iac.md "durable-getting-started-iac.md").
+Durable functions in Java currently can only be deployed through container images. For more information on creating durable functions from container images, see [Supported runtimes for durable functions](durable-supported-runtimes.md "durable-supported-runtimes.md") or [Deploy Lambda durable functions with Infrastructure as Code](durable-getting-started-iac.md "durable-getting-started-iac.md").
 
 ###### Note
 

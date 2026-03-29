@@ -1,22 +1,22 @@
 # Configure Lambda durable functions
 
-To enable durable execution for your Lambda function, you need to configure specific settings that control how long your function can run, how long state data is retained, and what permissions are required.
+Durable execution settings control how long your Lambda function can run and how long the service retains execution history. Configure these settings to enable durable execution for your function.
 
 ## Enable durable execution
 
-To enable durable execution for your Lambda function, configure the `DurableConfig` in your function configuration. This setting controls execution timeout, state retention, and versioning behavior.
+Configure the `DurableConfig` object when creating your function to set execution timeout and history retention. You can only enable durable execution when creating a function. You cannot enable it on existing functions.
 
 AWS CLI
 
 ```
 
-aws lambda update-function-configuration \
+aws lambda create-function \
   --function-name my-durable-function \
-  --durable-config '{
-    "ExecutionTimeout": 3600,
-    "RetentionPeriodInDays": 30,
-    "AllowInvokeLatest": true
-  }'
+  --runtime nodejs24.x \
+  --role arn:aws:iam::123456789012:role/my-durable-role \
+  --handler index.handler \
+  --zip-file fileb://function.zip \
+  --durable-config '{"ExecutionTimeout": 3600, "RetentionPeriodInDays": 30}'
 
 ```
 
@@ -29,7 +29,7 @@ Resources:
     Type: AWS::Lambda::Function
     Properties:
       FunctionName: my-durable-function
-      Runtime: nodejs18.x
+      Runtime: nodejs24.x
       Handler: index.handler
       Code:
         ZipFile: |
@@ -37,91 +37,24 @@ Resources:
       DurableConfig:
         ExecutionTimeout: 3600
         RetentionPeriodInDays: 30
-        AllowInvokeLatest: true
 
 ```
 
 **Configuration parameters:**
 
-- `ExecutionTimeout` - Maximum execution time in seconds (up to 31,536,000 for one year)
-- `RetentionPeriodInDays` - How long to retain execution state and history (1-365 days)
-- `AllowInvokeLatest` - Whether to allow invoking the $LATEST version for durable execution
+- `ExecutionTimeout` – The maximum time in seconds that a durable execution can run before Lambda stops the execution. This timeout applies to the entire durable execution, not individual function invocations. Valid range: 1–31622400.
+- `RetentionPeriodInDays` – The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the `GetDurableExecutionHistory` API. Valid range: 1–90.
 
-## IAM permissions for durable functions
-
-Durable functions require additional IAM permissions beyond standard Lambda execution roles. Your function's execution role must include permissions for state management and durable execution APIs.
-
-**Minimum required permissions:**
-
-```
-
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "lambda:InvokeFunction",
-        "lambda:GetFunction",
-        "lambda:ManageDurableState",
-        "lambda:GetDurableExecution",
-        "lambda:ListDurableExecutions"
-      ],
-      "Resource": "arn:aws:lambda:*:*:function:*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "logs:CreateLogGroup",
-        "logs:CreateLogStream",
-        "logs:PutLogEvents"
-      ],
-      "Resource": "arn:aws:logs:*:*:*"
-    }
-  ]
-}
-
-```
-
-**CloudFormation execution role example:**
-
-```
-
-DurableFunctionRole:
-  Type: AWS::IAM::Role
-  Properties:
-    AssumeRolePolicyDocument:
-      Version: '2012-10-17'
-      Statement:
-        - Effect: Allow
-          Principal:
-            Service: lambda.amazonaws.com
-          Action: sts:AssumeRole
-    ManagedPolicyArns:
-      - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
-    Policies:
-      - PolicyName: DurableFunctionPolicy
-        PolicyDocument:
-          Version: '2012-10-17'
-          Statement:
-            - Effect: Allow
-              Action:
-                - lambda:ManageDurableState
-                - lambda:GetDurableExecution
-                - lambda:ListDurableExecutions
-              Resource: '*'
-
-```
+For the full API reference, see [DurableConfig](../api/API_DurableConfig.md "../api/API_DurableConfig.md") in the Lambda API Reference.
 
 ## Configuration best practices
 
 Follow these best practices when configuring durable functions for production use:
 
-- **Set appropriate execution timeouts** - Configure `ExecutionTimeout` based on your workflow's maximum expected duration. Don't set unnecessarily long timeouts as they affect cost and resource allocation.
-- **Balance retention with storage costs** - Set `RetentionPeriodInDays` based on your debugging and audit requirements. Longer retention periods increase storage costs.
-- **Use versioning in production** - Set `AllowInvokeLatest` to `false` in production environments and use specific function versions or aliases for durable executions.
-- **Monitor state size** - Large state objects increase storage costs and can impact performance. Keep state minimal and use external storage for large data.
-- **Configure appropriate logging** - Enable detailed logging for troubleshooting long-running workflows, but be mindful of log volume and costs.
+- **Set appropriate execution timeouts** – Configure `ExecutionTimeout` based on your workflow's maximum expected duration. Do not set unnecessarily long timeouts as they affect cost and resource allocation.
+- **Balance retention with storage costs** – Set `RetentionPeriodInDays` based on your debugging and audit requirements. Longer retention periods increase storage costs.
+- **Monitor state size** – Large state objects increase storage costs and can impact performance. Keep state minimal and use external storage for large data.
+- **Configure appropriate logging** – Enable detailed logging for troubleshooting long-running workflows, but consider the impact on log volume and costs.
 
 **Production configuration example:**
 
@@ -129,8 +62,9 @@ Follow these best practices when configuring durable functions for production us
 
 {
   "ExecutionTimeout": 86400,
-  "RetentionPeriodInDays": 7,
-  "AllowInvokeLatest": false
+  "RetentionPeriodInDays": 7
 }
 
 ```
+
+This example sets a 24-hour (86,400 seconds) execution timeout with a 7-day retention period, which balances debugging visibility with storage costs for most production workloads.

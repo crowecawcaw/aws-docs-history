@@ -1,6 +1,6 @@
 # Supported runtimes for durable functions
 
-Durable functions are available for selected managed runtimes and OCI container images for additional runtime version flexibility. You can create durable functions for Node.js and Python using managed runtimes directly in the console or programmatically through infrastructure-as-code. Durable functions in Java (Preview) currently can only be deployed through container images.
+Durable functions are available for selected managed runtimes and OCI container images for additional runtime version flexibility. You can create durable functions for Node.js and Python using managed runtimes directly in the console or programmatically through infrastructure-as-code. Durable functions in Java currently can only be deployed through container images.
 
 ## Lambda managed runtimes
 
@@ -41,7 +41,7 @@ pip install aws-durable-execution-sdk-python
 
 The Python SDK uses synchronous methods and doesn't require `async/await`.
 
-### Java (Preview)
+### Java
 
 Add a dependency to `pom.xml`:
 
@@ -63,7 +63,7 @@ mvn install
 
 ```
 
-A preview version of the Java SDK is available. The waitForCondition, waitForCallback, parallel and map operations are still in development.
+The Java SDK provides both synchronous and asynchronous versions of each method.
 
 ## Container images
 
@@ -109,7 +109,7 @@ aws-durable-execution-sdk-python
 
 ```
 
-Java (Preview)
+Java
 Create a Dockerfile for Java 25:
 
 ```
