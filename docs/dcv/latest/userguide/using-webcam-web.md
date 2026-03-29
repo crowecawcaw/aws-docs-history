@@ -10,7 +10,7 @@ The steps for selecting the camera to use are the same across all supported web 
 1. Launch the client and connect to the Amazon DCV session.
 2. In the client, choose **Session**, **Preferences**.
 
-![Webcam menu option](/images/dcv/latest/userguide/images/web-preferences-menu.png) 3. Under the **Camera** tab, select the camera to use.
+![Webcam menu option](images/web-preferences-menu.png) 3. Under the **Camera** tab, select the camera to use.
 
 ![Webcam menu option](images/web-camera-select.png) 4. Close the **Preferences** modal.
 
