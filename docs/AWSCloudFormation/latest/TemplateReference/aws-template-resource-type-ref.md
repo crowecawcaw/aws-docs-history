@@ -267,6 +267,7 @@ Resource type identifiers always take the following form:
 - [AWS Systems Manager for SAP](AWS_SystemsManagerSAP.md "AWS_SystemsManagerSAP.md")
 - [Amazon Timestream](AWS_Timestream.md "AWS_Timestream.md")
 - [AWS Transfer Family](AWS_Transfer.md "AWS_Transfer.md")
+- [AWS User Experience Customization](AWS_UXC.md "AWS_UXC.md")
 - [Amazon Verified Permissions](AWS_VerifiedPermissions.md "AWS_VerifiedPermissions.md")
 - [Amazon Connect Voice ID](AWS_VoiceID.md "AWS_VoiceID.md")
 - [Amazon VPC Lattice](AWS_VpcLattice.md "AWS_VpcLattice.md")
