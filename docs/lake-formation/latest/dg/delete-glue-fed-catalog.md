@@ -11,7 +11,7 @@ You can delete the federated catalogs that you created in the AWS Glue Data Cata
 4. Choose **Delete** from **Actions**.
 5. Choose **Drop** to confirm and the federated catalog will be deleted from the Data Catalog.
 
-![The delete catalog confirmation.](/images/lake-formation/latest/dg/images/delete-fed-catalog.png)
+![The delete catalog confirmation.](images/delete-fed-catalog.png)
 
 ###### To delete a federated catalog (CLI)
 
