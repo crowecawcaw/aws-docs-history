@@ -86,13 +86,8 @@ When implementing EDI splitting, consider the following:
   attempt to process such documents, recording a relevant error message into your
   CloudWatch logs and emitting a relevant error event to EventBridge.
 
-If you have an EDI file that contains more than 100 transactions, you have two
-options:
-
-- Pre-process the file and break it down into multiple EDI files, each
-  containing no more than 100 transactions (recommended approach).
-- Request an increase in the quota of the volume of transactions an EDI document
-  could be split by. For more information on how to request a quota increase, see
-  [Quotas for AWS B2B Data Interchange](b2bi-quotas.md "b2bi-quotas.md").
+If you have an EDI file that contains more than 100 transactions, we recommend that
+you pre-process the file and break it down into multiple EDI files, each containing no
+more than 100 transactions.
 
 For more information about service quotas, see [Quotas for AWS B2B Data Interchange](b2bi-quotas.md "b2bi-quotas.md").
