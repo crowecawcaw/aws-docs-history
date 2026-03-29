@@ -295,6 +295,7 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | mac2-m2pro.metal   | 7                               | 12                           |
 | mac-m4.metal       | 7                               | 12                           |
 | mac-m4pro.metal    | 7                               | 12                           |
+| mac-m4max.metal    | 7                               | 12                           |
 
 ## Compute optimized
 
