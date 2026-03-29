@@ -26,14 +26,14 @@ The following list contains AWS services and features that are in scope for the 
 
 ### Application Integration
 
-- Amazon Simple Notification Service (Amazon SNS)
+- Amazon SNS
 - AWS Step Functions
 
 ### Compute
 
 - Amazon API Gateway
 - Amazon EC2 (including EC2 Image Builder, EC2 Instance Connect)
-- Amazon Elastic Kubernetes Service (Amazon EKS)
+- Amazon EKS
 - Amazon EMR
 - AWS Lambda
 - Amazon Data Lifecycle Manager
@@ -106,19 +106,19 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Firewall Manager
 - Automated Forensics Orchestrator for Amazon EC2
 - Amazon GuardDuty
+- IAM
 - AWS IAM Identity Center
-- AWS Identity and Access Management (IAM)
 - Amazon Inspector
-- AWS Key Management Service (AWS KMS)
+- AWS KMS
 - Amazon Macie
 - AWS Network Firewall
 - AWS Private Certificate Authority
 - AWS Secrets Manager
 - AWS Security Hub
 - Amazon Security Lake
-- AWS Security Token Service (AWS STS)
 - AWS Shield
 - AWS Shield Advanced
+- AWS STS
 - AWS WAF
 
 ### Storage and Data Management
@@ -126,5 +126,5 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon S3
 - AWS Backup
 - AWS DataSync
-- Amazon Elastic File System (Amazon EFS) (including EFS Lifecycle policies)
+- Amazon EFS (including EFS Lifecycle policies)
 - Amazon FSx for Lustre

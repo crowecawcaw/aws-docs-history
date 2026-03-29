@@ -10,7 +10,7 @@
 Skills in:
 
 - Skill 4.1.1: Design and establish identity solutions for human, application, and system authentication (for example, AWS IAM Identity Center, Amazon Cognito, multi-factor authentication [MFA], identity provider [IdP] integration).
-- Skill 4.1.2: Configure mechanisms to issue temporary credentials (for example, AWS Security Token Service [AWS STS], Amazon S3 presigned URLs).
+- Skill 4.1.2: Configure mechanisms to issue temporary credentials (for example, AWS STS, Amazon S3 presigned URLs).
 - Skill 4.1.3: Troubleshooting authentication issues (for example, CloudTrail, Amazon Cognito, IAM Identity Center permission sets, AWS Directory Service).
 
 ## Task 4.2: Design, implement, and troubleshoot authorization strategies

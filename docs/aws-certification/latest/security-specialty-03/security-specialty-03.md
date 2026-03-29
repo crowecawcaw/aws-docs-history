@@ -19,6 +19,7 @@ The AWS Certified Security - Specialty exam is intended for individuals who have
 - [Out-of-scope AWS services and features](scs-02-out-of-scope-services.md "scs-02-out-of-scope-services.md")
 - [Technologies and Concepts](scs-technologies-concepts.md "scs-technologies-concepts.md")
 - [Appendix: Comparison of SCS-C02 and SCS-C03](security-specialty-03-appendix-b.md "security-specialty-03-appendix-b.md")
+- [Revisions](scs03-revisions.md "scs03-revisions.md")
 - [Survey](#security-specialty-03-survey "#security-specialty-03-survey")
 
 ## Introduction
