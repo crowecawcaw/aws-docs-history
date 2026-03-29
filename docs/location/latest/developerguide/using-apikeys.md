@@ -33,10 +33,10 @@ use API keys.
 For more information about working with keys using the Amazon Location Service API, see the following
 topics in the _Amazon Location Service API Reference_:
 
-- [CreateKey](../APIReference/API_WaypointMetadata_CreateKey.md "../APIReference/API_WaypointMetadata_CreateKey.md")
-- [DeleteKey](../APIReference/API_WaypointMetadata_DeleteKey.md "../APIReference/API_WaypointMetadata_DeleteKey.md")
-- [DescribeKey](../APIReference/API_WaypointMetadata_DescribeKey.md "../APIReference/API_WaypointMetadata_DescribeKey.md")
-- [ListKeys](../APIReference/API_WaypointMetadata_ListKeys.md "../APIReference/API_WaypointMetadata_ListKeys.md")
+- [CreateKey](../APIReference/API_geotags_CreateKey.md "../APIReference/API_geotags_CreateKey.md")
+- [DeleteKey](../APIReference/API_geotags_DeleteKey.md "../APIReference/API_geotags_DeleteKey.md")
+- [DescribeKey](../APIReference/API_geotags_DescribeKey.md "../APIReference/API_geotags_DescribeKey.md")
+- [ListKeys](../APIReference/API_geotags_ListKeys.md "../APIReference/API_geotags_ListKeys.md")
 
 ## Create an API key for Amazon Location Service
 
@@ -129,7 +129,7 @@ aws location describe-key \
 ```
 
 Amazon Location API
-Use the [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md") operation from the Amazon Location APIs. The following
+Use the [CreateKey](../APIReference/API_geotags_CreateKey.md "../APIReference/API_geotags_CreateKey.md") operation from the Amazon Location APIs. The following
 example is an API request to create an API key called
 `ExampleKey` with no expiration date and access to a
 single map resource.
@@ -159,7 +159,7 @@ The response includes the API key value to use when accessing
 resources in your applications. The key value will havethe format
 `v1.public.a1b2c3d4...`.
 
-You can also use the [DescribeKey](../APIReference/API_DescribeKey.md "../APIReference/API_DescribeKey.md") API to find the key value for a key at a later
+You can also use the [DescribeKey](../APIReference/API_geotags_DescribeKey.md "../APIReference/API_geotags_DescribeKey.md") API to find the key value for a key at a later
 time.
 
 ## Use an API key to call an Amazon Location API
@@ -170,7 +170,7 @@ APIs in your application.
 API
 The APIs that support API keys have an additional parameter that takes
 the API key value. For example, if you call the `GetPlace`
-API, you can fill in the [key](../APIReference/API_GetPlace.md#API_GetPlace_RequestSyntax "../APIReference/API_GetPlace.md#API_GetPlace_RequestSyntax") parameter, as follows
+API, you can fill in the [key](../APIReference/API_geoplaces_GetPlace.md "../APIReference/API_geoplaces_GetPlace.md") parameter, as follows
 
 ```
 curl --request GET —url 'https://places.geo.eu-central-1.amazonaws.com/v2/place/{`PLACEID`}?key={`APIKEY`}&language=jp'

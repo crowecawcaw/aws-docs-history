@@ -15,9 +15,9 @@ To provision and configure resources for Amazon Location and related services, y
 must understand [CloudFormation
 templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md"). Templates are formatted text files in JSON or YAML. These
 templates describe the resources that you want to provision in your CloudFormation
-stacks. If you're unfamiliar with JSON or YAML, you can use CloudFormation Designer
+stacks. If you're unfamiliar with JSON or YAML, you can use Infrastructure Composer
 to help you get started with CloudFormation templates. For more information, see
-[What is CloudFormation Designer?](../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md") in the _CloudFormation
+[Infrastructure Composer](../../../AWSCloudFormation/latest/UserGuide/infrastructure-composer-for-cloudformation.md "../../../AWSCloudFormation/latest/UserGuide/infrastructure-composer-for-cloudformation.md") in the _CloudFormation
 User Guide_.
 
 Amazon Location supports creating the following resource types in CloudFormation:
@@ -26,7 +26,7 @@ Amazon Location supports creating the following resource types in CloudFormation
 - [AWS::Location::TrackerConsumer](../../../AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.md")
 - [AWS::Location::GeofenceCollection](../../../AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.md")
 
-For more information, including examples of JSON and YAML templates for Amazon Location resources, see the [Amazon Location Service resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_Location.md "../../../AWSCloudFormation/latest/UserGuide/AWS_Location.md") in the _CloudFormation User Guide_.
+For more information, including examples of JSON and YAML templates for Amazon Location resources, see the [Amazon Location Service resource type reference](../../../AWSCloudFormation/latest/TemplateReference/AWS_Location.md "../../../AWSCloudFormation/latest/TemplateReference/AWS_Location.md") in the _CloudFormation Template Reference_.
 
 ## Learn more about CloudFormation
 

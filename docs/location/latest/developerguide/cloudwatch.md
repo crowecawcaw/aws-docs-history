@@ -76,7 +76,7 @@ You can use CloudWatch to set alarms on your Amazon Location Service metrics. Fo
 alarm in CloudWatch to send an email whenever an error count spike occurs.
 
 The following topics give you a high-level overview of how to set alarms using CloudWatch. For
-detailed instructions, see [Using Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") in the _Amazon CloudWatch User
+detailed instructions, see [Using Alarms](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Alarms.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Alarms.md") in the _Amazon CloudWatch User
 Guide_.
 
 **To set alarms using the CloudWatch console**
@@ -118,7 +118,7 @@ When creating a new Amazon SNS topic, you must verify the email address before a
 notification can be sent. If the email is not verified, the notification will not be
 received when an alarm is initiated by a state change.
 
-For more information about how to set alarms using the CloudWatch console, see [Create an Alarm that Sends Email](../../../AmazonCloudWatch/latest/DeveloperGuide/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/DeveloperGuide/AlarmThatSendsEmail.md") in the _Amazon CloudWatch
+For more information about how to set alarms using the CloudWatch console, see [Create an Alarm that Sends Email](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Alarms.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Alarms.md") in the _Amazon CloudWatch
 User Guide_.
 
 ## Use CloudWatch to monitor usage against quotas

@@ -58,8 +58,8 @@ with details such as distance and duration. Errors and boundaries for the routes
 also provided, if applicable. Refer to the API Reference for additional details on the
 Calculate Route Matrix API.
 
-- `RouteMatrix`: Matrix containing travel distances and durations
-  between origins and destinations.
+- `RouteMatrix`: Matrix containing travel distances (in meters) and durations
+  (in seconds) between origins and destinations.
 - `ErrorCount`: Number of errors encountered during route
   calculations.
 - `RoutingBoundary`: Boundary within which the matrix is

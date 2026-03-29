@@ -79,7 +79,7 @@ Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/clou
 
 You can choose which Amazon Location resource types log data events by using the CloudTrail
 console, AWS CLI, or CloudTrail API operations. For instructions on how to enable and manage
-data events, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-console.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-console.md") and [Logging data events with the AWS Command Line Interface](../../../awscloudtrail/latest/userguide/logging-data-events-with-cli.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cli.md") .
+data events, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") and [Logging data events with the AWS Command Line Interface](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") .
 
 The following table lists the Amazon Location resource types for which you can log data
 events:

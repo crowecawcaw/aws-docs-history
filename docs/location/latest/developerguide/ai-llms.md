@@ -68,29 +68,23 @@ in your prompts.
 ## For Claude Code and Cursor users
 
 For Claude Code and Cursor users, install the **amazon-location-service**
-plugin from the [Agent Plugins for AWS](https://github.com/awslabs/agent-plugins "https://github.com/awslabs/agent-plugins")
-marketplace. The plugin includes MCP configuration automatically.
+plugin from the respective official marketplaces. The plugin includes MCP configuration automatically.
 
 Claude Code
 
-Run the following commands to add the marketplace and install the plugin:
+You can install the **amazon-location-service** plugin
+from the official [Claude Plugins Marketplace](https://github.com/anthropics/claude-plugins-official "https://github.com/anthropics/claude-plugins-official").
 
-Add the marketplace:
-
-```
-/plugin marketplace add awslabs/agent-plugins
-```
-
-Install the plugin:
+Run the following command to install the plugin:
 
 ```
-/plugin install amazon-location-service@agent-plugins-for-aws
+/plugin install amazon-location-service@claude-plugins-official
 ```
 
 Cursor
 
 You can install the **amazon-location-service** plugin
-from the [Cursor Marketplace](https://cursor.com/marketplace/aws "https://cursor.com/marketplace/aws").
+from the official [Cursor Marketplace](https://cursor.com/marketplace/aws "https://cursor.com/marketplace/aws").
 For additional information, see the
 [Cursor plugin documentation](https://docs.cursor.com/plugins "https://docs.cursor.com/plugins").
 You can also install within the Cursor application:

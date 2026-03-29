@@ -87,6 +87,6 @@ Use the following conventions for device IDs.
 
 **Do not include PII in device position properties**
 
-When sending device updates (for example, using [DevicePositionUpdate](../APIReference/API_DevicePositionUpdate.md "../APIReference/API_DevicePositionUpdate.md")), do not include personally-identifiable
+When sending device updates (for example, using [DevicePositionUpdate](../APIReference/API_WaypointTracking_DevicePositionUpdate.md "../APIReference/API_WaypointTracking_DevicePositionUpdate.md")), do not include personally-identifiable
 information (PII) such as phone number or email address in the
 `PositionProperties`.

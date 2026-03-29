@@ -4,4 +4,4 @@ Amazon Location protects data in transit, as it travels to and from the service,
 automatically encrypting all inter-network data using the Transport Layer Security (TLS)
 1.2 encryption protocol. Direct HTTPS requests sent to the Amazon Location Service APIs are signed by
 using the [AWS
-Signature Version 4 Algorithm](../../../general/latest/gr/sigv4_signing.md "../../../general/latest/gr/sigv4_signing.md") to establish a secure connection.
+Signature Version 4 Algorithm](../../../IAM/latest/UserGuide/reference_sigv-create-signed-request.md "../../../IAM/latest/UserGuide/reference_sigv-create-signed-request.md") to establish a secure connection.
