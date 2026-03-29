@@ -20,6 +20,8 @@ public void retrieveConfigFromAgent() throws Exception {
         URL url = new URL("http://localhost:2772/applications/MyDemoApp/environments/Beta/configurations/MyConfigProfile");
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
+        // To enable entity-based deployments, add the Entity-Id header to the request:
+        // con.setRequestProperty("Entity-Id", entityId);
         StringBuilder content;
         try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
             content = new StringBuilder();
@@ -50,6 +52,9 @@ application_name = 'MyDemoApp'
 environment_name = 'MyEnvironment'
 config_profile_name = 'MyConfigProfile'
 
+# To enable entity-based deployments, add the Entity-Id header to the request:
+# response = requests.get(f"http://localhost:2772/applications/{application_name}/environments/{environment_name}/configurations/{config_profile_name}",
+#                         headers={"Entity-Id": entity_id})
 # the agent runs a local HTTP server that serves configuration data
 # make a GET request to the agent's local server to retrieve the configuration data
 response = requests.get(f"http://localhost:2772/applications/{application_name}/environments/{environment_name}/configurations/{config_profile_name}")
@@ -73,6 +78,8 @@ const config_profile_name = "MyConfigProfile";
 // the agent runs a local HTTP server that serves configuration data
 // make a GET request to the agent's local server to retrieve the configuration data
 const url = `http://localhost:2772/applications/${application_name}/environments/${environment_name}/configurations/${config_profile_name}`;
+// To enable entity-based deployments, add the Entity-Id header to the request:
+// const response = await fetch(url, { headers: { "Entity-Id": entityId } });
 const response = await fetch(url);
 const config = await response.text(); // (use `await response.json()` if your config is json)
 ```

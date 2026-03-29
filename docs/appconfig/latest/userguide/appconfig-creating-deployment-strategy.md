@@ -1,7 +1,12 @@
 # Working with deployment strategies
 
-A deployment strategy enables you to slowly release changes to production environments
-over minutes or hours. An AWS AppConfig deployment strategy defines the following important aspects
+A deployment strategy enables you to slowly release changes to all targets or specific segments over minutes or hours—either session based or along your own target dimension by leveraging entity-based deployments.
+
+###### Note
+
+AWS AppConfig Agent (version 2.0.136060 or later) supports deploying feature flag or free-form configuration data to specific segments or individual users during a gradual rollout. Entity-based gradual deployments ensure that once a user or segment receives a configuration version, they continue to receive that same version throughout the deployment period, regardless of which compute resource serves their requests. For more information, see [Using AWS AppConfig Agent for user- or entity-based gradual deployments](appconfig-agent-how-to-use.md#appconfig-entity-based-gradual-deployments "appconfig-agent-how-to-use.md#appconfig-entity-based-gradual-deployments").
+
+An AWS AppConfig deployment strategy defines the following important aspects
 of a configuration deployment.
 
 | Setting                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -12,6 +17,10 @@ of a configuration deployment.
 | Bake time                       | This setting specifies the amount of time AWS AppConfig monitors for Amazon CloudWatch alarms<br>after the configuration has been deployed to 100% of its targets, before considering<br>the deployment to be complete. If an alarm is triggered during this time, AWS AppConfig<br>rolls back the deployment. You must configure permissions for AWS AppConfig to roll back<br>based on CloudWatch alarms. For more information, see [Configure permissions for automatic rollback](setting-up-appconfig.md#getting-started-with-appconfig-cloudwatch-alarms-permissions "setting-up-appconfig.md#getting-started-with-appconfig-cloudwatch-alarms-permissions"). |
 
 You can choose a predefined strategy included with AWS AppConfig or create your own.
+
+###### Note
+
+AWS AppConfig Agent (version 2.0.136060 or later) supports deploying feature flag or free-form configuration data to specific segments or individual users during a gradual rollout. Entity-based gradual deployments ensure that once a user or segment receives a configuration version, they continue to receive that same version throughout the deployment period, regardless of which compute resource serves their requests. For more information, see [Using AWS AppConfig Agent for user- or entity-based gradual deployments](appconfig-agent-how-to-use.md#appconfig-entity-based-gradual-deployments "appconfig-agent-how-to-use.md#appconfig-entity-based-gradual-deployments").
 
 ###### Topics
 

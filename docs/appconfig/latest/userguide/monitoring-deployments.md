@@ -33,17 +33,14 @@ AWS AppConfig environment. For more information, see [Creating environments for 
 
 ###### Note
 
-If you use a third-party monitoring solution (for example, Datadog or New Relic), you can create an
+If you use a third-party monitoring solution (for example, Datadog), you can create an
 AWS AppConfig extension that checks for alarms at the `AT_DEPLOYMENT_TICK` action point
-and, as a safety guardrail, rolls back the deployment if it triggered an alarm. For more information, see the following Datadog and New Relic integration examples on GitHub:
-
-- [Datadog](https://github.com/aws-samples/aws-appconfig-tick-extn-for-datadog "https://github.com/aws-samples/aws-appconfig-tick-extn-for-datadog")
-- [New Relic](https://github.com/aws-samples/sample-aws-appconfig-tick-extn-for-newrelic "https://github.com/aws-samples/sample-aws-appconfig-tick-extn-for-newrelic")
-  For more
-  information about AWS AppConfig extensions, see the following topics:
-
-- [Extending AWS AppConfig workflows using extensions](working-with-appconfig-extensions.md "working-with-appconfig-extensions.md")
-- [Walkthrough: Creating custom AWS AppConfig extensions](working-with-appconfig-extensions-creating-custom.md "working-with-appconfig-extensions-creating-custom.md")
+and, as a safety guardrail, rolls back the deployment if it triggered an alarm. For more
+information about AWS AppConfig extensions, see [Extending AWS AppConfig workflows using extensions](working-with-appconfig-extensions.md "working-with-appconfig-extensions.md"). For more information about custom
+extensions, see [Walkthrough: Creating custom AWS AppConfig extensions](working-with-appconfig-extensions-creating-custom.md "working-with-appconfig-extensions-creating-custom.md"). To view a code sample
+of an AWS AppConfig extension that uses the `AT_DEPLOYMENT_TICK` action point to
+integrate with Datadog, see [aws-samples /
+aws-appconfig-tick-extn-for-datadog](https://github.com/aws-samples/aws-appconfig-tick-extn-for-datadog "https://github.com/aws-samples/aws-appconfig-tick-extn-for-datadog") on GitHub.
 
 ## Recommended metrics to monitor for automatic rollback
 

@@ -40,5 +40,3 @@ Retrieving configuration data from a separate AWS account isn't supported.
 
 - [What is AWS AppConfig Agent?](appconfig-agent.md "appconfig-agent.md")
 - [How to use AWS AppConfig Agent to retrieve configuration data](appconfig-agent-how-to-use.md "appconfig-agent-how-to-use.md")
-- [AWS AppConfig browser and mobile use considerations](appconfig-retrieving-mobile.md "appconfig-retrieving-mobile.md")
-- [Retrieving configuration data without AWS AppConfig Agent](about-data-plane.md "about-data-plane.md")

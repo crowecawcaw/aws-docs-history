@@ -11,15 +11,50 @@ fewer API calls to retrieve configurations.
 
 Retrieving configuration data from a separate AWS account isn't supported.
 
-**Topics**
+## Using AWS AppConfig Agent for user- or entity-based gradual deployments
 
-- [Using AWS AppConfig Agent with AWS Lambda](appconfig-integration-lambda-extensions.md "appconfig-integration-lambda-extensions.md")
-- [Using AWS AppConfig Agent with Amazon EC2 and on-premises machines](appconfig-integration-ec2.md "appconfig-integration-ec2.md")
-- [Using AWS AppConfig Agent with Amazon ECS and Amazon EKS](appconfig-integration-containers-agent.md "appconfig-integration-containers-agent.md")
-- [Retrieving basic and multi-variant feature flags](appconfig-integration-retrieving-feature-flags.md "appconfig-integration-retrieving-feature-flags.md")
-- [Using a manifest to enable additional retrieval features](appconfig-agent-how-to-use-additional-features.md "appconfig-agent-how-to-use-additional-features.md")
-  - [Configuring AWS AppConfig Agent to retrieve configurations from multiple accounts](appconfig-agent-how-to-use-additional-features-multi-account.md "appconfig-agent-how-to-use-additional-features-multi-account.md")
-  - [Configuring AWS AppConfig Agent to write configuration copies to disk](appconfig-agent-how-to-use-additional-features-write-to-disk.md "appconfig-agent-how-to-use-additional-features-write-to-disk.md")
+AWS AppConfig Agent supports deploying feature flag or free-form configuration data to specific segments or individual users during a gradual rollout. Entity-based gradual deployments ensure that once a user or segment receives a configuration version, they continue to receive that same version throughout the deployment period, regardless of which compute resource serves their requests.
 
-- [Generating a client using the OpenAPI specification](appconfig-integration-OpenAPI.md "appconfig-integration-OpenAPI.md")
-- [Working with AWS AppConfig Agent local development mode](appconfig-agent-how-to-use-local-development.md "appconfig-agent-how-to-use-local-development.md")
+With entity-based gradual deployments, AWS AppConfig Agent evaluates a unique identifier (`Entity-Id`) supplied with each HTTP request. Based on this identifier, the agent consistently serves either the new or previous configuration version throughout the deployment period. This process ensures that once a user receives the updated configuration, they continue to receive it. It also ensures that rollback alarms have sufficient time and data to detect issues.
+
+Consider entity-based gradual deployments if a configuration directly changes user-facing behavior and if the change in blast radius (impacting specific users fully rather than all users partially) is acceptable for your application.
+
+###### Important
+
+Note the following important information about entity-based gradual deployments:
+
+- Entity-based gradual deployments require AWS AppConfig Agent version 2.0.136060 or later.
+- `Entity-Id` accepts a maximum string size of 2 KB.
+- Unique identifiers must not be hard-coded or low cardinality.
+- Identifiers aren't sent to the AWS AppConfig service. AWS AppConfig Agent evaluates unique identifiers client-side.
+- During a deployment, AWS AppConfig Agent keeps track of entities and deployed configurations. This tracking is maintained only during a deployment period. The tracking ends when the deployment completes.
+- Each instance of AWS AppConfig polls for deployment state independently, so agents may briefly serve different versions of the same entity as the deployment percentage changes. This window is determined by the poll interval and a short synchronization period. You can reduce it by setting `RequiredMinimumPollIntervalInSeconds` in the [StartConfigurationSession](../../2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md "../../2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md") API action. However, shorter intervals increase API call rates, which can raise costs and risk throttling. Choose a poll interval that meets your requirements. For more information, see [StartConfigurationSession](../../../cli/latest/reference/appconfigdata/start-configuration-session.md "../../../cli/latest/reference/appconfigdata/start-configuration-session.md") in the AWS CLI Reference.
+
+### Enabling entity-based gradual deployments
+
+To enable entity-based gradual deployments:
+
+1. Update to AWS AppConfig Agent version 2.0.136060 or later.
+2. Provide a unique identifier in the `Entity-Id` HTTP header when retrieving configuration data.
+
+The following example request uses an email address for `Entity-Id`
+
+```
+GET /applications/myapp/environments/prod/configurations/featureflags HTTP/1.1
+Host: localhost:2772
+Entity-Id: example@AWS-example-email.com
+```
+
+You can include the `Entity-Id` header in requests to:
+
+/applications/{Application}/environments/{Environment}/configurations/{Configuration}
+
+To view code samples with `Entity-Id`, see [Using AWS AppConfig Agent to read a freeform configuration profile](appconfig-code-samples-agent-read-configuration.md "appconfig-code-samples-agent-read-configuration.md").
+
+The `Entity-Id` value can be any string that uniquely identifies an entity in your system, such as:
+
+- Customer ID
+- Email address
+- Account ID
+- Backend job ID
+- Session-scoped identifier (if appropriate)
