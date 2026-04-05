@@ -20,7 +20,7 @@ performs the following validations.
 2. The `client_id` or `aud` claim, in your access or identity token
    respectively, matches a user pool app client ID that you provided to Verified Permissions. To verify this
    claim, you must [configure client
-   ID validation](../../../verifiedpermissions/latest/userguide/identity-sources_create.md "../../../verifiedpermissions/latest/userguide/identity-sources_create.md") in your Verified Permissions identity source.
+   ID validation](../../../verifiedpermissions/latest/userguide/cognito-validation.md "../../../verifiedpermissions/latest/userguide/cognito-validation.md") in your Verified Permissions identity source.
 3. Your token isn't expired.
 4. The value of the `token_use` claim in your token matches the parameters
    that you passed to `IsAuthorizedWithToken`. The `token_use` claim

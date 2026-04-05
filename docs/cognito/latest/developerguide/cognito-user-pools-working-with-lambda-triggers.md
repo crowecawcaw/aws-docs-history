@@ -87,8 +87,8 @@ following:
   and update your Lambda trigger configuration to use event version 2.
 - Except for [Custom sender Lambda triggers](user-pool-lambda-custom-sender-triggers.md "user-pool-lambda-custom-sender-triggers.md"), Amazon Cognito invokes Lambda
   functions synchronously. When Amazon Cognito calls your Lambda function, it must respond
-  within 5 seconds. If it doesn't and if the call can be retried, Amazon Cognito retries
-  the call. After three unsuccessful attempts, the function times out. You can't
+  within 5 seconds. If it doesn't and if the call can be retried, Amazon Cognito may retry
+  the call. If all retry attempts fail, the function times out. You can't
   change this five-second timeout value. For more information, see [Lambda programming model](../../../lambda/latest/dg/foundation-progmodel.md "../../../lambda/latest/dg/foundation-progmodel.md")
   in the AWS Lambda Developer Guide.
 

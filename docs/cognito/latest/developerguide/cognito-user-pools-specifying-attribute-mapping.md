@@ -80,9 +80,8 @@ user pool.
 - Amazon Cognito must be able to update your mapped user pool attributes when users
   sign in to your application. When a user signs in through an IdP, Amazon Cognito
   updates the mapped attributes with the latest information from the IdP.
-  Amazon Cognito updates each mapped attribute, even if its current value already
-  matches the latest information. To ensure that Amazon Cognito can update the
-  attributes, check the following requirements:
+  Amazon Cognito only updates mapped attributes when their values change. To ensure that
+  Amazon Cognito can update the attributes, check the following requirements:
   - All of the user pool custom attributes that you map from your IdP
     must be _mutable_. You can update
     mutable custom attributes at any time. By contrast, you can only set
