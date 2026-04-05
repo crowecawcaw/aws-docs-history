@@ -95,8 +95,7 @@ The max height for tall geometries is 0.000128 m (128 um).
 
 **Limitations:**
 
-When this experimental capability is enabled for
-your account, the capabilities shown on the device properties page and the `GetDevice`
+The capabilities shown on the device properties page and the `GetDevice`
 call will continue to reflect the regular, lower limit on the height. When an AHS program uses atom
 arrangements that go beyond the regular capabilities, the filling error is expected to increase.
 You will find an elevated number of unexpected 0s in the `pre_sequence` part of the task
@@ -135,9 +134,8 @@ The minimal row spacing for tight geometries is 0.000002 m (2 um).
 
 **Limitations:**
 
-When this experimental capability is enabled
-for your account, the capabilities shown on the device properties page and the `GetDevice` call
-will continue to reflect the regular, lower limit on the height. When an AHS program uses atom
+The capabilities shown on the device properties page and the `GetDevice` call
+will continue to reflect the regular, higher limit on the spacing. When an AHS program uses atom
 arrangements that go beyond the regular capabilities, the filling error is expected to increase.
 Customers will find an elevated number of unexpected 0s in the `pre_sequence` part of the task
 result, in turn, lowering the chance to get a perfectly initialized arrangement. This effect

@@ -100,7 +100,7 @@ region. In addition, if you do not see an instance in the table, it is not avail
 
 ## Additional quotas and limits
 
-- The Amazon Braket quantum task action is limited to 3MB in size.
+- The Amazon Braket quantum task action is limited to 5MB in size.
 - For SV1, the maximum running duration is 3 hours for circuits up to 31 qubits, and 11 hours for circuits over 31 qubits.
 - The maximum number of shots per task allowed for SV1,
   DM1, and Rigetti devices is 50,000.

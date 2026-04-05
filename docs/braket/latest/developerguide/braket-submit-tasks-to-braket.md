@@ -78,7 +78,7 @@ required for all devices except the local simulator.
 
 ###### Note
 
-The Braket quantum task action is limited to 3MB in size.
+The Braket quantum task action is limited to 5MB in size.
 
 ## Submit a parametrized task
 
