@@ -15,5 +15,34 @@ What does this rebrand mean for you?
   functionality. Have your users upgrade their Amazon Q IDE extensions and CLI installations to
   Kiro to access the rebranded interface and receive additional features. After upgrading,
   all Amazon Q components will automatically update to their Kiro equivalents.
-  To learn about Kiro in the IDE and at the command line, and how to administer Kiro subscriptions
-  in your enterprise, see the [Kiro Docs](https://kiro.dev/docs/ "https://kiro.dev/docs/").
+
+## Canceling Amazon Q Developer
+
+After you upgrade to Kiro, the Amazon Q Developer console is no longer visible in the
+left navigation pane by default. To cancel your Amazon Q Developer subscription, you must
+first enable the Amazon Q Developer console, and then follow the unsubscribe
+instructions.
+
+###### Note
+
+The **Users & Groups** page under
+**Kiro** in the left navigation pane is only for managing
+Kiro subscriptions. To manage Amazon Q Developer subscriptions, you must enable the
+Amazon Q Developer console as described in the following procedure.
+
+###### To cancel Amazon Q Developer
+
+1. Open the Kiro console.
+2. In the left navigation pane, choose **Settings**.
+3. In the **Other applications** section, choose
+   **Enable** to make Amazon Q Developer visible in the left
+   navigation pane. An **Amazon Q Developer** section appears in the
+   left navigation pane with links to the Dashboard, Subscriptions,
+   Customizations, and Plugins pages.
+4. In the left navigation pane, under **Amazon Q Developer**, choose
+   **Subscriptions**, and then follow the instructions in
+   [Unsubscribing from Amazon Q Developer Pro](q-admin-setup-unsubscribe.md "q-admin-setup-unsubscribe.md") to cancel your
+   subscription.
+
+To learn about Kiro in the IDE and at the command line, and how to administer Kiro subscriptions
+in your enterprise, see the [Kiro Docs](https://kiro.dev/docs/ "https://kiro.dev/docs/").
