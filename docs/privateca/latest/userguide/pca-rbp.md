@@ -20,17 +20,20 @@ library](https://console.aws.amazon.com/ram/home#Permissions: "https://console.a
 it, we recommend applying the policy in a test environment to ensure that it meets
 your requirements.
 
-AWS Certificate Manager (ACM) users with cross-account shared access to a private CA can issue
-managed certificates that are signed by the CA. Cross-account issuers are constrained
-by a resource-based policy and have access only to the
-following end-entity certificate templates:
+AWS Private CA also supports RAM customer managed permissions, which allow you to
+define a custom combination of actions from the following set:
+`DescribeCertificateAuthority`, `GetCertificate`,
+`GetCertificateAuthorityCertificate`,
+`ListPermissions`, `ListTags`,
+`IssueCertificate`, and `RevokeCertificate`. Customer
+managed permissions give you the flexibility to grant least-privilege access –
+for example, granting read-only access to some accounts while allowing others to
+issue and revoke certificates. For more information, see [Customer managed permissions in RAM](pca-cmp.md "pca-cmp.md").
 
-- [EndEntityCertificate/V1](template-definitions.md#EndEntityCertificate-V1 "template-definitions.md#EndEntityCertificate-V1")
-- [EndEntityClientAuthCertificate/V1](template-definitions.md#EndEntityClientAuthCertificate-V1 "template-definitions.md#EndEntityClientAuthCertificate-V1")
-- [EndEntityServerAuthCertificate/V1](template-definitions.md#EndEntityServerAuthCertificate-V1 "template-definitions.md#EndEntityServerAuthCertificate-V1")
-- [BlankEndEntityCertificate_APIPassthrough/V1](template-definitions.md#BlankEndEntityCertificate_APIPassthrough "template-definitions.md#BlankEndEntityCertificate_APIPassthrough")
-- [BlankEndEntityCertificate_APICSRPassthrough/V1](template-definitions.md#BlankEndEntityCertificate_APICSRPassthrough "template-definitions.md#BlankEndEntityCertificate_APICSRPassthrough")
-- [SubordinateCACertificate_PathLen0/V1](template-definitions.md#SubordinateCACertificate_PathLen0-V1 "template-definitions.md#SubordinateCACertificate_PathLen0-V1")
+AWS Certificate Manager (ACM) users with cross-account shared access to a private CA can issue
+managed certificates that are signed by the CA. When you grant permission to the `IssueCertificate` action,
+you can restrict the certificate templates used for certificate issuance by adding a `acm-pca:TemplateArn` Condition
+to the policy.
 
 ## Policy examples
 

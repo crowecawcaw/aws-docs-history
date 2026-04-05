@@ -12,17 +12,11 @@ information, see the [IssueCertificate](../APIReference/API_IssueCertificate.md 
 ###### Note
 
 AWS Certificate Manager (ACM) users with cross-account shared access to a private CA can issue
-managed certificates that are signed by the CA. Cross-account issuers are constrained
-by a resource-based policy and have access only to the
-following end-entity certificate templates:
+managed certificates that are signed by the CA. When you grant permission to the `IssueCertificate` action,
+you can restrict the certificate templates used for certificate issuance by adding a `acm-pca:TemplateArn` Condition
+to the policy.
 
-- [EndEntityCertificate/V1](template-definitions.md#EndEntityCertificate-V1 "template-definitions.md#EndEntityCertificate-V1")
-- [EndEntityClientAuthCertificate/V1](template-definitions.md#EndEntityClientAuthCertificate-V1 "template-definitions.md#EndEntityClientAuthCertificate-V1")
-- [EndEntityServerAuthCertificate/V1](template-definitions.md#EndEntityServerAuthCertificate-V1 "template-definitions.md#EndEntityServerAuthCertificate-V1")
-- [BlankEndEntityCertificate_APIPassthrough/V1](template-definitions.md#BlankEndEntityCertificate_APIPassthrough "template-definitions.md#BlankEndEntityCertificate_APIPassthrough")
-- [BlankEndEntityCertificate_APICSRPassthrough/V1](template-definitions.md#BlankEndEntityCertificate_APICSRPassthrough "template-definitions.md#BlankEndEntityCertificate_APICSRPassthrough")
-- [SubordinateCACertificate_PathLen0/V1](template-definitions.md#SubordinateCACertificate_PathLen0-V1 "template-definitions.md#SubordinateCACertificate_PathLen0-V1")
-  For more information, see [Resource-based policies](pca-rbp.md "pca-rbp.md").
+For more information, see [Resource-based policies](pca-rbp.md "pca-rbp.md").
 
 ###### Topics
 

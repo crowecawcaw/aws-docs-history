@@ -23,13 +23,19 @@ Revoked certificates are always recorded in AWS Private CA audit reports.
 
 ###### Note
 
-For cross-account callers, a share with the `AWSRAMRevokeCertificateCertificateAuthority` permission is required. Revocation permissions are not included in `AWSRAMDefaultPermissionCertificateAuthority`. To enable revocation by cross-account issuers, the CA
-administrator must create two RAM shares, both pointing at the same CA:
+For cross-account callers, revocation permissions are not included in `AWSRAMDefaultPermissionCertificateAuthority`. To enable revocation by cross-account issuers, the CA
+administrator can use either of the following approaches:
 
-1. A share with the `AWSRAMRevokeCertificateCertificateAuthority`
-   permission.
-2. A share with the `AWSRAMDefaultPermissionCertificateAuthority`
-   permission.
+- **Customer managed permission (recommended)**
+  – Create a RAM customer managed permission that includes the
+  `acm-pca:RevokeCertificate` action along with other required actions
+  in a single resource share. For more information, see [Customer managed permissions in RAM](pca-cmp.md "pca-cmp.md").
+- **AWS managed permissions** – Create two
+  RAM shares, both pointing at the same CA:
+  1.  A share with the `AWSRAMRevokeCertificateCertificateAuthority`
+      permission.
+  2.  A share with the `AWSRAMDefaultPermissionCertificateAuthority`
+      permission.
 
 ###### To revoke a certificate
 
