@@ -38,151 +38,20 @@ Executing the `AWSEC2-RestoreSqlServerDatabaseWithVss` automation runbook to res
 databases needs permissions to perform necessary Amazon EC2 and Systems Manager operations. Follow these steps to grant
 the appropriate permissions.
 
-1. [Create an IAM policy to restore a SQL Server database from AWS VSS solution based snapshots](#ms-ssdb-ec2-vss-restore-iam-policy "#ms-ssdb-ec2-vss-restore-iam-policy").
-2. [Attach the IAM policy to the role that's used for the automation execution](#ms-ssdb-ec2-vss-restore-iam-policy-attach "#ms-ssdb-ec2-vss-restore-iam-policy-attach").
-3. [Grant IAM permissions to the invoker role for starting and managing automation executions](#ms-ssdb-ec2-vss-restore-iam-policy-add "#ms-ssdb-ec2-vss-restore-iam-policy-add").
+1. [Attach the AWSEC2VssRestorePolicy managed policy to the role that's used for the automation execution](#ms-ssdb-ec2-vss-restore-iam-policy-attach "#ms-ssdb-ec2-vss-restore-iam-policy-attach").
+2. [Grant IAM permissions to the invoker role for starting and managing automation executions](#ms-ssdb-ec2-vss-restore-iam-policy-add "#ms-ssdb-ec2-vss-restore-iam-policy-add").
 
-### Create an IAM policy to restore a SQL Server database from AWS VSS solution based snapshots
+### Attach the AWSEC2VssRestorePolicy managed policy to the role that's used for the automation execution
 
-To create the IAM policy that grants the permissions needed to restore a Microsoft SQL Server
-database from VSS based snapshots in the AWS Management Console, follow these steps.
+You can choose from the following options to attach the **AWSEC2VssRestorePolicy** AWS managed policy to the role that
+Systems Manager uses for interacting with Amazon EC2 and Systems Manager when executing the `AWSEC2-RestoreSqlServerDatabaseWithVss` automation
+runbook. For more information about this managed policy, see [AWSEC2VssRestorePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSEC2VssRestorePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSEC2VssRestorePolicy").
 
-1. Open the IAM console at
-   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, choose **Policies**, and then
-   choose **Create policy**.
-3. Choose **JSON** in the policy editor panel.
-4. Copy the following policy content into the editor. This policy grants permissions
-   to create volumes from VSS snapshots, attach them to instances, and invoke the SSM
-   `SendDocument` and `GetDocument` API operations to run the
-   automation document for database restoration.
-
-###### Note
-
-(Optional) To enhance security, you can further customize the policy by implementing
-custom conditions or specifying exact resource ARNs.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "CreateVolumeAccessVolume",
- "Effect": "Allow",
- "Action": "ec2:CreateVolume",
- "Resource": "arn:aws:ec2:*:*:volume/*",
- "Condition": {
- "StringLike": {
- "aws:RequestTag/AwsVssConfig": "*"
- },
- "ArnLike": {
- "ec2:ParentSnapshot": "arn:aws:ec2:*:*:snapshot/*"
- }
- }
- },
- {
- "Sid": "CreateVolumeAccessSnapshot",
- "Effect": "Allow",
- "Action": "ec2:CreateVolume",
- "Resource": "arn:aws:ec2:*:*:snapshot/*",
- "Condition": {
- "StringLike": {
- "ec2:ResourceTag/AwsVssConfig": "*"
- }
- }
- },
- {
- "Sid": "CreateVolumeWithTagging",
- "Effect": "Allow",
- "Action": "ec2:CreateTags",
- "Resource": "arn:aws:ec2:*:*:volume/*",
- "Condition": {
- "StringEquals": {
- "ec2:CreateAction": "CreateVolume"
- }
- }
- },
- {
- "Sid": "AttachVolumeAccessVolume",
- "Effect": "Allow",
- "Action": "ec2:AttachVolume",
- "Resource": "*",
- "Condition": {
- "StringLike": {
- "ec2:ResourceTag/AwsVssConfig": "*"
- }
- }
- },
- {
- "Sid": "AttachVolumeAccessInstance",
- "Effect": "Allow",
- "Action": "ec2:AttachVolume",
- "Resource": "arn:aws:ec2:*:*:instance/*"
- },
- {
- "Sid": "DescribeVolumes",
- "Effect": "Allow",
- "Action": "ec2:DescribeVolumes",
- "Resource": "*"
- },
- {
- "Sid": "DescribeSnapshots",
- "Effect": "Allow",
- "Action": "ec2:DescribeSnapshots",
- "Resource": "*"
- },
- {
- "Sid": "DescribeInstanceAttribute",
- "Effect": "Allow",
- "Action": "ec2:DescribeInstanceAttribute",
- "Resource": "arn:aws:ec2:*:*:instance/*"
- },
- {
- "Sid": "SsmAutomationRead",
- "Effect": "Allow",
- "Action": [
- "ssm:DescribeInstanceInformation",
- "ssm:ListCommandInvocations",
- "ssm:ListCommands"
- ],
- "Resource": "*"
- },
- {
- "Sid": "SsmRunCommand",
- "Effect": "Allow",
- "Action": [
- "ssm:SendCommand",
- "ssm:GetDocument"
- ],
- "Resource": [
- "arn:aws:ec2:*:*:instance/*",
- "arn:aws:ssm:*:*:document/AWS-ConfigureAWSPackage",
- "arn:aws:ssm:*:*:document/AWSEC2-PrepareVssRestore",
- "arn:aws:ssm:*:*:document/AWSEC2-RunVssRestoreForSqlDatabase"
- ]
- }
- ]
-}`
-
-```
-
-5. Choose **Next**.
-6. Enter a unique name and optional description for your policy, then
-   choose **Create policy**.
-
-### Attach the IAM policy to the role that's used for the automation execution
-
-You can choose from the following options to attach your policy to the role that
-Systems Manager uses for interacting with the Amazon EC2 and Systems Manager when executing the `AWSEC2-RestoreSqlServerDatabaseWithVss` automation
-runbook.
-
-- Create a role, attach your policy, and add a PassRole policy to restrict access.
+- Create a role, attach the **AWSEC2VssRestorePolicy** managed policy, and add a PassRole policy to restrict access.
   Use the ARN of this role for the `AutomationAssumeRole` parameter when invoking the
   automation, and the automation execution will assume this role. Expand the `Invoke automation 
 with an assumed role (recommended)` section to see detailed steps.
-- Attach the policy to the invoker role that initiates the automation execution,
+- Attach the **AWSEC2VssRestorePolicy** managed policy to the invoker role that initiates the automation execution,
   without specifying the `AutomationAssumeRole` parameter. For example,
   if you start the automation execution from the AWS console, the console role acts as the
   invoker role. Expand the `Invoke automation without an assumed role` section
@@ -200,8 +69,7 @@ with an assumed role (recommended)` section to see detailed steps.
 4. In the **Use case** panel, select **Systems Manager**
    from the list, and then choose **Next**. This opens the
    **Add permissions** page.
-5. Search for the name of the policy that you created for the database restore
-   runbook. Select the check box next to the name and then choose
+5. Search for **AWSEC2VssRestorePolicy**. Select the check box next to the name and then choose
    **Next**. This takes you to the **Name, review, and
    create** page.
 6. In the **Role details** panel, enter **Role name**
@@ -258,8 +126,7 @@ for your role.
    policies** from the **Add permissions** menu. This
    opens the **Attach policy to <selected role>** page.
 4. Use the search bar in the **Other permissions policies** panel
-   to search for the name of the policy that you created for the database restore
-   runbook. Select the check box next to the name and then choose **Add
+   to search for **AWSEC2VssRestorePolicy**. Select the check box next to the name and then choose **Add
    permissions**.
 
 ### Grant IAM permissions to the invoker role for starting and managing automation executions

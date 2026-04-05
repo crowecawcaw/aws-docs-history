@@ -40,6 +40,26 @@ to allow Amazon EC2 High Availability for SQL Server on EC2 to detect whether an
 
 To view the permissions for this policy, see [AWSEC2SqlHaServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSEC2SqlHaServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSEC2SqlHaServiceRolePolicy.md") in the _AWS Managed Policy Reference_.
 
+## AWS managed policy: AWSEC2VssRestorePolicy
+
+You can attach this managed policy to the IAM role that's used to execute the
+`AWSEC2-RestoreSqlServerDatabaseWithVss` automation runbook. The policy grants
+permissions to create volumes from VSS snapshots, attach them to instances, and invoke AWS Systems Manager
+Run Command documents required for database restoration.
+
+###### Permissions details
+
+This policy includes the following permissions:
+
+- **ec2** – Allows principals to create volumes from
+  snapshots tagged with `AwsVssConfig`, attach volumes to instances, tag volumes
+  during creation, and describe volumes, snapshots, and instance attributes.
+- **ssm** – Allows principals to describe SSM
+  managed instances, retrieve SSM Run Command documents required for VSS restore
+  operations, send commands to instances, and list command invocations and executions.
+
+To view the permissions for this policy, see [AWSEC2VssRestorePolicy](../../../aws-managed-policy/latest/reference/AWSEC2VssRestorePolicy.md "../../../aws-managed-policy/latest/reference/AWSEC2VssRestorePolicy.md") in the _AWS Managed Policy Reference_.
+
 ## SQL Server on EC2 updates to AWS managed policies
 
 View details about updates to AWS managed policies for SQL Server on EC2 since this service
@@ -47,6 +67,7 @@ began tracking these changes.
 
 | Change                                                                                                                                                      | Description                                                                                                                                                                                                                                                                                       | Date              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [AWSEC2VssRestorePolicy](#security-iam-awsmanpol-AWSEC2VssRestorePolicy "#security-iam-awsmanpol-AWSEC2VssRestorePolicy") –<br>New policy                   | Added the \*_AWSEC2VssRestorePolicy_<br>• policy that can be attached<br>to the IAM role assumed by the `AWSEC2-RestoreSqlServerDatabaseWithVss` automation<br>runbook for restoring Microsoft SQL Server databases from VSS snapshots.                                                           | March 25, 2026    |
 | [AWSEC2SqlHaInstancePolicy](#security-iam-awsmanpol-AWSEC2SqlHaInstancePolicy "#security-iam-awsmanpol-AWSEC2SqlHaInstancePolicy") –<br>New policy          | Added the \*_AWSEC2SqlHaInstancePolicy_<br>• policy that can be attached<br>to IAM role that's attached to the Windows and SQL HA instance to facilitate metadata collection for<br>the purpose of keeping track of the current state of the database as it applies to active or passive<br>mode. | November 17, 2025 |
 | [AWSEC2SqlHaServiceRolePolicy](#security-iam-awsmanpol-AWSEC2SqlHaServiceRolePolicy "#security-iam-awsmanpol-AWSEC2SqlHaServiceRolePolicy") –<br>New policy | Added the policy that's attached to the **AWSServiceRoleForEC2SqlHa**<br>service-linked role to detect whether an EC2 instance that's tagged with the EC2 SQL High Availability<br>identifier is running in standby or passive mode.                                                              | November 17, 2025 |
 | SQL Server on EC2 started tracking changes                                                                                                                  | SQL Server on EC2 started tracking changes to its AWS managed policies                                                                                                                                                                                                                            | November 17, 2025 |
