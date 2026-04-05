@@ -1,11 +1,11 @@
 # Security in VM Import/Export
 
-Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a
-data center and network architecture that is built to meet the requirements of the most
+Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data
+centers and network architectures that are built to meet the requirements of the most
 security-sensitive organizations.
 
-Security is a shared responsibility between AWS and you. The [shared responsibility
-model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security of the cloud and security in the cloud:
+Security is a shared responsibility between AWS and you. The [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security
+_of_ the cloud and security _in_ the cloud:
 
 - **Security of the cloud** – AWS is responsible for
   protecting the infrastructure that runs AWS services in the AWS Cloud. AWS also

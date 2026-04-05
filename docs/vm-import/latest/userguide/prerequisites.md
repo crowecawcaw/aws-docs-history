@@ -38,22 +38,34 @@ VMs using `ARM64` architecture are not currently supported.
 
 ###### Important
 
+Starting from April 1, 2026, VM Import Export will stop supporting i386 architecture. Import and Export tasks will stop working for i386 OS versions.
+These OS versions include Windows Server 2003 (32-bit), Windows Server 2003 R2 (32-bit), Windows Server 2008 (32-bit),
+Windows 7 (32-bit), Windows 8 (32-bit),
+CentOS 5 (32-bit), CentOS 6 (32-bit),
+Debian 6 (32-bit), Debian 7 (32-bit), Debian 10 (32-bit), Debian 11 (32-bit), Debian 12 (32-bit),
+Fedora 18 (32-bit), Fedora 19 (32-bit), Fedora 20 (32-bit),
+Oracle Linux 5 (32-bit), Oracle Linux 6 (32-bit),
+SUSE Linux Enterprise Server 11 (32-bit),
+Red Hat Enterprise Linux 5 (32-bit), Red Hat Enterprise Linux 6 (32-bit),
+Ubuntu 12.04 (32-bit), Ubuntu 12.10 (32-bit), Ubuntu 13.04 (32-bit), Ubuntu 13.10 (32-bit), Ubuntu 14.04 (32-bit), Ubuntu 14.10 (32-bit), Ubuntu 15.04 (32-bit), Ubuntu 16.04 (32-bit), Ubuntu 16.10 (32-bit), and Ubuntu 17.04 (32-bit).
+
+###### Important
+
 We strongly recommend that you avoid using OS versions that have reached End-of-Life (EOL).
 OS vendors typically don't provide security patches or other updates for versions that have reached EOL.
 Continuing to use an EOL system greatly increases the risk of not being able to apply upgrades, including security fixes, and other operational problems.
 VM Import Export functionalities are not tested on OS versions that have reached EOL.
-
-###### Important
-
-Starting from February 1, 2026, VM Import Export will begin deprecating support for i386 architecture and End-of-Life OS versions.
-This deprecation will start with Windows Server 2003 (all versions), Windows Server 2003 R2 (all versions), Windows Server 2008 (all versions),
+EOL OS versions include Windows Server 2003 (all versions), Windows Server 2003 R2 (all versions), Windows Server 2008 (all versions), Windows Server 2008 R2 (all versions),
+Windows Server 1709 (all versions), Windows Server 1803 (all versions),
 Windows 7 (all versions), Windows 8 (all versions), Windows 8.1 (all versions),
 CentOS 5 (all versions), CentOS 6 (all versions), CentOS 7 (all versions), CentOS 8 (all versions),
 Debian 6 (all versions), Debian 7 (all versions), Debian 10 (all versions),
-Fedora 18 (all versions), Fedora 19 (all versions), Fedora 20 (all versions), Fedora 37 (all versions), Fedora 38 (all versions), Fedora 39 (all versions),
+Fedora 18 (all versions), Fedora 19 (all versions), Fedora 20 (all versions), Fedora 37 (all versions), Fedora 38 (all versions), Fedora 39 (all versions), Fedora 40 (all versions),
 Oracle Linux 5 (all versions), Oracle Linux 6 (all versions),
-Red Hat Enterprise Linux 5 (all versions), Red Hat Enterprise Linux 6 (all versions), SUSE Linux Enterprise Server 11 (all versions),
-Ubuntu 12.04 (all versions), Ubuntu 12.10(all versions), Ubuntu 13.04 (all versions), Ubuntu 13.10 (all versions), Ubuntu 14.04 (all versions), Ubuntu 14.10 (all versions), and Ubuntu 15.04 (all versions).
+Red Hat Enterprise Linux 5 (all versions), Red Hat Enterprise Linux 6 (all versions),
+SUSE Linux Enterprise Server 11 (all versions), SUSE Linux Enterprise Server 12 (all versions),
+Ubuntu 12.04 (all versions), Ubuntu 12.10 (all versions), Ubuntu 13.04 (all versions), Ubuntu 13.10 (all versions), Ubuntu 14.04 (all versions), Ubuntu 14.10 (all versions), Ubuntu 15.04 (all versions),
+Ubuntu 16.04 (all versions), Ubuntu 16.10 (all versions), and Ubuntu 17.04 (all versions).
 
 The following Linux/Unix operating systems are support by VM Import/Export.
 
@@ -72,27 +84,32 @@ The following Linux/Unix operating systems are support by VM Import/Export.
 | 11                                  | 5.10.0                                                                                                            | -                                                          |
 | 12.2                                | 6.1.0                                                                                                             | -                                                          |
 | 12.4                                | 6.1.0                                                                                                             | -                                                          |
+| 12.7                                | 6.1.0                                                                                                             | -                                                          |
 | Fedora                              | 18                                                                                                                | 3.2.5                                                      | -            |
 | 19                                  | 3.9.5                                                                                                             | -                                                          |
 | 20                                  | 3.11.10                                                                                                           | -                                                          |
 | 37                                  | 6.0.7                                                                                                             | -                                                          |
 | 38                                  | 6.2.9                                                                                                             | -                                                          |
 | 39                                  | 6.5.6                                                                                                             | -                                                          |
+| 40                                  | 6.8.5                                                                                                             | -                                                          |
+| 41                                  | 6.11.4                                                                                                            | -                                                          |
+| 42                                  | 6.14.0                                                                                                            | -                                                          |
+| 43                                  | 6.17.1                                                                                                            | -                                                          |
 | Oracle Linux                        | 5.10–5.11                                                                                                         | Unbreakable Enterprise Kernel (UEK) el5uek kernel suffixes | -            |
 | 6.1–6.10                            | Red Hat Compatible Kernel (RHCK) 2.6.32, 2.6.39<br>Unbreakable Enterprise Kernel (UEK)<br>3.8.13, 4.1.12          | -                                                          |
 | 7.0–7.6                             | Red Hat Compatible Kernel (RHCK) 3.10.0<br>Unbreakable Enterprise Kernel (UEK)<br>3.8.13, 4.1.12, 4.14.35, 5.4.17 | -                                                          |
 | 8.0–8.9                             | Red Hat Compatible Kernel (RHCK) 4.18.0<br>Unbreakable Enterprise Kernel (UEK)<br>5.15.0 (el8uek)                 | -                                                          |
 | 9.0–9.5                             | Red Hat Compatible Kernel (RHCK) 5.14.0, 5.15.0<br>Unbreakable Enterprise Kernel (UEK)<br>5.15.0 (el9uek)         | -                                                          |
-| 9.6                                 | Red Hat Compatible Kernel (RHCK)<br>6.12.0<br>Unbreakable Enterprise Kernel (UEK)<br>6.12.0 (el9uek)              | -                                                          |
-| 10.0                                | Red Hat Compatible Kernel (RHCK)<br>6.12.0<br>Unbreakable Enterprise Kernel (UEK)<br>6.12.0 (el10uek)             | -                                                          |
+| 9.6–9.7                             | Red Hat Compatible Kernel (RHCK)<br>5.14.0<br>Unbreakable Enterprise Kernel (UEK)<br>6.12.0 (el9uek)              | -                                                          |
+| 10.0–10.1                           | Red Hat Compatible Kernel (RHCK)<br>6.12.0<br>Unbreakable Enterprise Kernel (UEK)<br>6.12.0 (el10uek)             | -                                                          |
 | Red Hat Enterprise Linux (RHEL)     | 5                                                                                                                 | 2.6.18                                                     | -            |
 | 6                                   | 2.6.32 (except 2.6.32-71)                                                                                         | -                                                          |
 | 7                                   | 3.10.0                                                                                                            | -                                                          |
 | 8.0–8.9                             | 4.18.0                                                                                                            | -                                                          |
-| 9.0–9.6                             | 5.14.0                                                                                                            | -                                                          |
-| 10                                  | 6.12.0                                                                                                            | -                                                          |
-| Rocky Linux                         | 9.0–9.6                                                                                                           | 5.14.0                                                     | -            |
-| 10                                  | 6.12.0                                                                                                            | -                                                          |
+| 9.0–9.7                             | 5.14.0                                                                                                            | -                                                          |
+| 10.0–10.1                           | 6.12.0                                                                                                            | -                                                          |
+| Rocky Linux                         | 9.0–9.7                                                                                                           | 5.14.0                                                     | -            |
+| 10.0–10.1                           | 6.12.0                                                                                                            | -                                                          |
 | SUSE Linux Enterprise Server (SLES) | 11                                                                                                                | 2.6.32.12                                                  | 1            |
 | 3.0.13                              | 2                                                                                                                 |
 | 3.0.76, 3.0.101                     | 3                                                                                                                 |
