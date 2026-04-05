@@ -1266,9 +1266,18 @@ You can also use the following Unicode characters in the `Phrase` field:
 
 ## Korean character set
 
-For Korean custom vocabularies, you can use any of the Hangul syllables in the
-`Phrase` field. For more information, see [Hangul Syllables](https://en.wikipedia.org/wiki/Hangul_Syllables "https://en.wikipedia.org/wiki/Hangul_Syllables") on
-Wikipedia.
+For Korean custom vocabularies, you can use the following in the
+`Phrase` field:
+
+- a - z
+- A - Z
+- - (hyphen)
+- . (period)
+
+The `Phrase` field can use any of the Hangul syllables
+listed in the following link:
+
+- [Hangul Syllables](https://en.wikipedia.org/wiki/Hangul_Syllables "https://en.wikipedia.org/wiki/Hangul_Syllables") on Wikipedia.
 
 ## Kyrgyz character set
 

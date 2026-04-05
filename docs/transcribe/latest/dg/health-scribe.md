@@ -1,5 +1,9 @@
 # AWS HealthScribe
 
+###### Introducing Amazon Connect Health Ambient agent
+
+You can now use the ambient agent to power your healthcare workflow. For more details, see [Amazon Connect Health Ambient](../../../connecthealth/latest/userguide/ambient-documentation.md "../../../connecthealth/latest/userguide/ambient-documentation.md") documentation.
+
 AWS HealthScribe is a HIPAA-eligible machine learning (ML) capability that combines speech recognition and
 generative AI to transcribe patient-clinician conversations and generate easy-to-review clinical notes. AWS HealthScribe helps healthcare software vendors build clinical applications that reduce the documentation burden and improve
 consultation experience. The service automatically provides rich conversation transcripts, identifies speaker roles,
