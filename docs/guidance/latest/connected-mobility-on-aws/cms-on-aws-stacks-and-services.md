@@ -54,7 +54,7 @@ The CommandsStack enables bidirectional communication with vehicles through remo
 
 The SimulationStack deploys cloud-based simulation infrastructure.
 
-**Amazon ECS on AWS Fargate** – An ECS cluster with Fargate capacity runs simulation worker tasks on demand. A Lambda function serves as the API orchestrator, receiving simulation requests through API Gateway and launching Fargate tasks that run the telemetry simulator container. Each worker task generates realistic vehicle telemetry for the configured number of vehicles and trips. In FleetWise Edge mode, the task runs a sidecar FWE agent container alongside the simulator. Worker logs stream to CloudWatch for monitoring. Simulation state is tracked in a DynamoDB table. For more details, see [AWS Fargate](https://aws.amazon.com/fargate/ "https://aws.amazon.com/fargate/").
+**Amazon ECS (Fargate + EC2)** – An ECS cluster runs simulation tasks on demand using two launch types. In MQTT Direct mode, a single Fargate task runs the Python simulator container. In FleetWise Edge mode, EC2-backed ECS (t4g.small ARM64, Amazon Linux 2023 ECS-optimized AMI) runs two separate tasks on the same host using HOST network mode: the FWE agent task (long-lived, runs the FleetWise Edge Agent binary) and the simulator task (per-trip, runs the Python telemetry simulator). Both tasks share virtual CAN interfaces (vcan0, vcan1, vcan2…​) on the host kernel for per-vehicle isolation. An Auto Scaling Group (min=0, max=3) with an ECS Capacity Provider manages EC2 instances. A Lambda function serves as the API orchestrator, receiving simulation requests through API Gateway and launching ECS tasks. Worker logs stream to CloudWatch for monitoring. Simulation state is tracked in a DynamoDB table.
 
 ## FleetWise Edge integration
 

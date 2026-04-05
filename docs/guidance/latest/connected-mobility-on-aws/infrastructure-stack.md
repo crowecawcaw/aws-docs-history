@@ -47,10 +47,11 @@ The alternative — querying DynamoDB with `LIMIT 1` sorted by timestamp — wou
 ### Cluster configuration
 
 - Engine: Redis 7.0
-- Node type: cache.t3.micro (development) or cache.t3.small (production)
-- Deployment: Single node (development) or cluster mode (production)
-- Subnet group: Private subnets only
-- Encryption: At rest and in transit
+- Node type: cache.t3.micro (development) or cache.r6g.large (production)
+- Deployment: Multi-AZ replication group with automatic failover (primary + replica across 2 AZs)
+- Subnet group: Private subnets only (same subnet group as MSK)
+- Encryption: At rest enabled, in transit disabled (Flink Jedis client compatibility)
+- Failover: Automatic — if the primary node fails, the replica is promoted within seconds. The primary endpoint DNS record updates transparently, so no client configuration changes are needed.
 
 ### Data model
 

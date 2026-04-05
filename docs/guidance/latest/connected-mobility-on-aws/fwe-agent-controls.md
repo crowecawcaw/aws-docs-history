@@ -21,9 +21,10 @@ From the simulation panel in the Fleet Manager UI, operators can:
 
 ## Cloud simulation with FWE
 
-In cloud simulation mode (ECS Fargate), the FWE agent runs as a sidecar container alongside the simulator container in the same Fargate task:
+In cloud simulation mode, the FWE agent and simulator run as separate EC2-backed ECS tasks on the same host:
 
-- The `fwe-simulator` container generates CAN frames and writes them to a virtual CAN bus
-- The `fwe-agent` container reads from the CAN bus, collects signals per campaign, and uploads protobuf to IoT Core
-- The simulation Lambda passes the vehicle’s IoT certificate and endpoint to the FWE agent container as environment variables
-- GPS coordinates are injected into the FWE agent through a shared Unix domain socket
+- The `fwe-simulator` task generates CAN frames and writes them to the assigned virtual CAN interface (e.g., `vcan0`)
+- The `fwe-agent` task reads from the same vcan interface, collects signals per campaign, and uploads protobuf to IoT Core
+- Each vehicle gets a unique vcan interface to prevent cross-contamination between simultaneous simulations
+- The simulation Lambda assigns vcan interfaces using `_next_vcan_index()` and passes the interface name to both tasks
+- The FWE agent health check uses `pgrep aws-iot-fleetwise-edge` — once healthy, the simulator task starts

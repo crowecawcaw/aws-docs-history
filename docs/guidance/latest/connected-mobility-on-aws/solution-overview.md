@@ -1,6 +1,6 @@
 # Accelerate development and deployment of connected vehicle assets
 
-Publication date: _October 2023 ([last update](revisions.md "revisions.md"): March 2026)_
+Publication date: _October 2023 ([last update](revisions.md "revisions.md"): April 2026)_
 
 Amazon Web Services (AWS) automotive customers have asked for ways to manage fleets with increased efficiency and reduced vehicle downtime through preventative maintenance, location tracking, improved fleet safety and security, and new software driven vehicle experiences.
 
@@ -41,6 +41,10 @@ Provided features allow you to:
 - Manage fleets through a modern React-based web application built with Cloudscape Design System
 - Generate maintenance alerts and safety event notifications automatically
 - Simulate connected vehicle data using MQTT Direct or FleetWise Edge Agent mode, locally or in the cloud
+- Manage fleet-level campaigns that automatically fan out to all vehicles in a fleet, with vehicle-level campaign locking
+- Assign drivers to vehicles with automatic trip attribution for safety event tracking
+- Track warranty claims, eligible failures, and OEM recovery through the Warranty management page
+- Switch between light and dark mode themes with persistent preference
 - Deploy infrastructure using AWS CDK with a streamlined phase-based approach
 - Securely authenticate and authorize users through Amazon Cognito
 

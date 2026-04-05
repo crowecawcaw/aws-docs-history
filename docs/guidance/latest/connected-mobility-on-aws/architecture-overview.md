@@ -24,7 +24,7 @@ The solution architecture consists of six integrated stacks deployed in phases:
 6. **FlinkStack** – Deploys Amazon Kinesis Data Analytics for Apache Flink applications that process streaming telemetry data in real-time. Ten applications handle telemetry preprocessing, trip detection, safety events, maintenance alerts, FleetWise protobuf decoding, campaign synchronization, geofence evaluation, and OEM telemetry transformation. CloudWatch alarms monitor processor health and idle processing.
 7. **UIStack** – Provides the Fleet Manager web application through Amazon CloudFront and Amazon S3, with backend APIs via Amazon API Gateway and AWS Lambda. Includes Amazon Cognito for user authentication and Amazon Location Service for real-time vehicle tracking and mapping capabilities.
 8. **CommandsStack** – Enables bidirectional communication with vehicles through remote commands sent via IoT Core MQTT. Includes command catalog derived from the signal catalog, command status tracking with latency measurement, and geofence management APIs.
-9. **SimulationStack** – Deploys cloud-based simulation infrastructure including Lambda functions for running fleet simulations without a local environment. Supports both MQTT Direct and FleetWise Edge simulation modes.
+9. **SimulationStack** – Deploys cloud-based simulation infrastructure including an EC2-backed ECS cluster with separate task definitions for the FWE agent and Python simulator, plus a Lambda orchestrator. Supports both MQTT Direct (Fargate) and FleetWise Edge (EC2 with HOST network mode and per-vehicle vcan isolation) simulation modes.
 10. **FleetWiseStack** – Deploys AWS IoT FleetWise resources including signal catalogs, decoder manifests, and campaign management infrastructure for FleetWise Edge Agent integration.
 
 ### Deployment flow
@@ -47,7 +47,7 @@ The solution uses a phase-based deployment approach to manage dependencies betwe
 
 **Phase 7: Pipeline Configuration** – Configures MSK bootstrap servers and IAM authentication for Flink applications. Duration: 3-5 minutes.
 
-**Phase 8: Cloud Simulation** – Deploys the ECS Fargate simulation infrastructure (cluster, task definitions, Lambda orchestrator). Duration: 3-5 minutes.
+**Phase 8: Cloud Simulation** – Deploys the ECS simulation infrastructure (Fargate for MQTT Direct, EC2-backed with ASG and capacity provider for FleetWise Edge, task definitions, Lambda orchestrator). Duration: 3-5 minutes.
 
 **Phase 9: Remote Commands** – Deploys the Commands Lambda, Command Response Handler, and IoT Rules for bidirectional vehicle communication. Duration: 2-3 minutes.
 

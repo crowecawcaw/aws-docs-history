@@ -26,6 +26,7 @@ The wizard walks operators through campaign creation in four steps:
 - Browse registered vehicles from DynamoDB
 - Multi-select vehicles to target with this campaign
 - If launched from a vehicle detail page, the vehicle is pre-selected and locked
+- Assign to an entire fleet — all vehicles in the fleet receive the campaign with `sourceFleetId` set. Fleet-assigned campaigns cannot be modified at the vehicle level.
 
 **Step 4 — Review and create:**
 

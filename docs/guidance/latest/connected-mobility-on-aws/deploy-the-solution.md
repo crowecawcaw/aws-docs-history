@@ -18,7 +18,7 @@ The guidance deploys in multiple phases with clear dependencies between stacks. 
 - Phase 4: Flink Processing (5-7 minutes)
 - Seeding: Decoder Manifest + Campaign + Event Catalog (2-3 minutes)
 - Phase 5: Pipeline Configuration (3-5 minutes)
-- Simulation: ECS Fargate Cloud Simulation (3-5 minutes)
+- Simulation: ECS Cloud Simulation — Fargate for MQTT Direct, EC2 for FleetWise Edge (3-5 minutes)
 - Commands: Remote Commands + Geofences (2-3 minutes)
 
 Before you launch, review the [cost](plan-your-deployment.md#cost "plan-your-deployment.md#cost"), [architecture](architecture-overview.md "architecture-overview.md"), [security](security.md "security.md"), and other considerations discussed earlier in this guide.
@@ -215,11 +215,13 @@ make phase4
 # Seed decoder manifest, default campaign, and event catalog (2-3 minutes)
 make seed-fleetwise
 make seed-event-catalog
+make seed-all-demo-data    # Runs all seeders (drivers, vehicles, trips, service, warranty, recalls)
+make upload-decoder-manifest  # Uploads DecoderManifest.bin to Flink S3 bucket
 
 # Phase 5: Pipeline Configuration — MSK bootstrap + IAM auth (3-5 minutes)
 make phase5
 
-# Cloud Simulation — ECS Fargate cluster + Lambda orchestrator (3-5 minutes)
+# Cloud Simulation — ECS cluster (Fargate + EC2) + Lambda orchestrator (3-5 minutes)
 make deploy-simulation
 
 # Remote Commands — Commands Lambda + Response Handler + IoT Rules (2-3 minutes)
@@ -312,6 +314,7 @@ Phases must be deployed in order due to dependencies. `phase3b` depends on `phas
 - IoT Rule for MQTT Direct telemetry (`cms/telemetry/+` → `cms-telemetry-raw`)
 - VPC Destination for IoT Core to MSK connectivity
 - IAM roles for IoT Rules
+- IAM role for VPC Destination includes Secrets Manager access (to retrieve MSK SCRAM credentials)
 - S3 backup for raw telemetry
 
 **Duration:** 10-15 minutes
@@ -363,6 +366,7 @@ Phases must be deployed in order due to dependencies. `phase3b` depends on `phas
 - Decoder manifest in DynamoDB — maps 260 CAN signal IDs to VSS signal names
 - Default campaign — collects all 260 signals from all vehicles
 - Event catalog — safety event rules (10 types) and maintenance alert rules (10+ types) with thresholds
+- DecoderManifest.bin uploaded to S3 — the Flink CampaignSyncProcessor reads the protobuf decoder manifest from `s3://{flink-jar-bucket}/fwe-config/DecoderManifest.bin` and delivers it to FWE agents on checkin
 
 **Duration:** 2-3 minutes
 
@@ -386,12 +390,12 @@ Phases must be deployed in order due to dependencies. `phase3b` depends on `phas
 
 **Stacks deployed:**
 
-- `cms-{stage}-simulation` — ECS Fargate simulation infrastructure
+- `cms-{stage}-simulation` — ECS simulation infrastructure (Fargate + EC2-backed)
 
 **Resources created:**
 
 - ECS cluster for simulation workers
-- Fargate task definitions (MQTT Direct and FleetWise Edge modes)
+- Task definitions: `sim-worker` (Fargate, MQTT Direct), `fwe-agent` (EC2, FleetWise agent), `fwe-simulator` (EC2, Python simulator)
 - Docker image built from `services/simulation/` and pushed to ECR
 - Lambda function for simulation API orchestration
 - API Gateway routes for `/api/simulation/*`

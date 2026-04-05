@@ -8,7 +8,7 @@ You must manually clean up the following resources:
 - KMS keys
   Locate leftover resources using the following command, which first requires you to export the `DEPLOYMENT_UUID` variable using each of the values previously acquired from AWS Systems Manager.
 
-If you tore down the ACDP stack without capturing the UUID, you can run the following command by removing the `Solutions:DeploymentUUID` Key filter, however the results will include other CMS on AWS stacks if they exist, so use this method with caution.
+If you tore down the stack without capturing the UUID, you can run the following command by removing the `Solutions:DeploymentUUID` Key filter, however the results will include other CMS on AWS stacks if they exist, so use this method with caution.
 
 ```
 export DEPLOYMENT_UUID=<DEPLOYMENT_UUID_VALUE_FROM_SSM>

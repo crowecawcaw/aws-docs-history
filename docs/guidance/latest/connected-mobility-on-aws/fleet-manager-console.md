@@ -12,7 +12,7 @@ The dashboard is the landing page after sign-in. It displays configurable widget
 
 ![Fleet Management](images/fm-fleet-management.png)
 
-The fleet management page lists all fleets with their vehicle counts and status. Operators can create new fleets, edit fleet details, associate or disassociate vehicles, and delete fleets. Clicking a fleet opens the fleet detail page showing the fleet’s vehicles, active campaigns, and performance summary.
+The fleet management page lists all fleets with their vehicle counts and status. Operators can create new fleets, edit fleet details, associate vehicles (via a selection modal), disassociate vehicles, and delete fleets. Clicking a fleet opens the fleet detail page showing the fleet’s vehicles, active campaigns, and performance summary.
 
 ![Fleet Detail](images/fm-fleet-detail.png)
 
@@ -114,4 +114,21 @@ The analytics section provides four views:
 
 ![Settings](images/fm-settings.png)
 
-The settings page allows operators to configure application preferences including API endpoint, simulation service endpoint, theme, and display options.
+The settings page allows operators to configure application preferences including API endpoint, simulation service endpoint, and display options. Dark mode can be toggled from the user dropdown menu (Switch Theme) or the settings page. The theme preference persists across sessions via localStorage.
+
+## Profile
+
+The profile page displays the current user’s account details including email, username, role, and account status. Access it from the user dropdown menu in the top navigation bar.
+
+## Warranty
+
+The warranty page provides warranty claims management with two views:
+
+- **Warranty-Eligible Failures** — Agent-detected component failures that match warranty coverage rules, with confidence scores, estimated claim amounts, and days remaining on coverage.
+- **Claim Tracking** — Filed claims with status tracking (Submitted, Approved, Paid, Denied), OEM information, and escalation actions for denied claims.
+
+KPIs show total claims, recovered amount year-to-date, open claims, and pending amount. A separate tab tracks recall-related warranty claims.
+
+## Driver Assignment
+
+Each vehicle has a default assigned driver shown on the vehicle detail page. Drivers are assigned round-robin from the active driver pool during fleet setup. Fleet managers can reassign drivers from the vehicle detail page. When a trip is detected, it is attributed to the vehicle’s current driver for safety event tracking and driver scoring.

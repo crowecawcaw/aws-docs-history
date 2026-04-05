@@ -2,6 +2,10 @@
 
 The solution supports two telemetry ingestion modes. In **MQTT Direct** mode, the simulator (or a real vehicle application) publishes JSON telemetry directly to IoT Core. In **FleetWise Edge (FWE)** mode, the AWS IoT FleetWise Edge Agent runs on the vehicle (or in a Docker container for simulation), collects raw CAN bus signals based on campaign instructions, encodes them as protobuf, and uploads them to the cloud. Both modes converge on the same `cms-telemetry-preprocessed` Kafka topic, so all downstream processors work identically regardless of the telemetry source.
 
+###### Important
+
+As of April 30, 2026, AWS IoT FleetWise is no longer open to new customers. The [Reference Implementation for AWS IoT FleetWise](https://github.com/aws/aws-iot-fleetwise-edge "https://github.com/aws/aws-iot-fleetwise-edge") (FWE) remains available for developing your own Edge Agent. The Connected Mobility on AWS guidance supports both paths: new customers can develop and deploy their own Edge Agent based on FWE and use MQTT Direct mode without depending on AWS IoT FleetWise APIs, while existing AWS IoT FleetWise customers can continue using the service for full cloud integration — the solution’s Flink applications support FleetWise campaign management and telemetry processing as described on this page. Regardless of which path you choose, the core telemetry pipeline — normalization, routing, storage, and real-time distribution — operates independently of the FleetWise cloud service.
+
 ## Agent lifecycle
 
 The FWE agent follows a checkin-based lifecycle:

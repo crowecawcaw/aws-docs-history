@@ -241,6 +241,7 @@ Each campaign record in the `cms-{stage}-campaigns` DynamoDB table contains:
 - **Campaign name** — Human-readable name (for example, "Full Fleet Telemetry")
 - **Status** — `RUNNING`, `SUSPENDED`, or `COMPLETED`
 - **Target vehicles** — List of VINs or a target ARN pattern
+- **Source fleet ID** — If assigned via fleet-level campaign, the `sourceFleetId` links to the parent fleet campaign. Fleet-assigned campaigns are locked at the vehicle level.
 - **Signals to collect** — List of signal IDs from the decoder manifest (for example, all 66 signals, or a subset like only tire and engine signals)
 - **Collection interval** — How frequently the agent samples signals (for example, every 1000ms)
 - **Condition** — Optional trigger condition (for example, collect only when speed > 0)

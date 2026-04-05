@@ -60,7 +60,7 @@ Fleet managers define geographic boundaries (geofences) through the web applicat
 
 **Cloud Simulation**
 
-In addition to the local simulation service, the guidance supports cloud-based simulation through AWS Lambda. This enables fleet simulation without a local development environment, making it suitable for automated testing, demonstrations, and CI/CD pipelines. Cloud simulations support both MQTT Direct and FleetWise Edge modes.
+Cloud-based simulation runs on Amazon ECS, with Fargate for MQTT Direct mode and EC2-backed ECS (ARM64 t4g.small) for FleetWise Edge mode. A Lambda orchestrator manages simulation lifecycle through API Gateway. In FleetWise Edge mode, separate ECS tasks for the FWE agent and Python simulator share virtual CAN interfaces on the same EC2 host, enabling realistic CAN bus telemetry generation without deploying to actual vehicles.
 
 **OEM Telemetry Integration**
 
@@ -69,6 +69,18 @@ The OEMTelemetryProcessor enables integration with third-party OEM APIs without 
 **Signal Catalog and Decoder Manifest**
 
 The guidance includes a comprehensive signal catalog with 271 signals organized into 15 CAN messages. The catalog follows the [COVESA Vehicle Signal Specification (VSS)](https://covesa.global/ "https://covesa.global/") naming convention and maps between DBC signal names, JSON field names, and VSS paths. The signal catalog serves as the single source of truth for the entire platform — it drives decoder manifest generation for FleetWise Edge Agents, defines the command catalog for remote vehicle commands, and provides the field mapping for OEM telemetry transformation. The catalog is extensible through the UI or API without code changes.
+
+**Fleet Campaign Management**
+
+Campaigns can be assigned at the fleet level, automatically fanning out to all vehicles in the fleet. Fleet-assigned campaigns are locked at the vehicle level — operators manage them from the fleet detail page. When a fleet campaign is suspended or resumed, the change cascades to all child vehicle records. Individual vehicles can also have directly-assigned campaigns that are independently managed.
+
+**Warranty Claims Management**
+
+The Warranty page tracks warranty-eligible failures detected by the telemetry pipeline, filed claims, and OEM recovery. Claims are stored in DynamoDB with status tracking (Submitted, Approved, Paid, Denied). KPIs show total claims, recovered amount, open claims, and pending amount. Recall-related warranty claims are tracked separately.
+
+**Driver Assignment and Trip Attribution**
+
+Each vehicle has a default assigned driver (`currentDriverId`). When the Flink trip processor detects a new trip, it attributes the trip to the vehicle’s current driver. Fleet managers can reassign drivers through the vehicle detail page. Safety events during a trip are attributed to the assigned driver for safety scoring.
 
 **Observability and Monitoring**
 

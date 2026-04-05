@@ -103,18 +103,18 @@ The loader checks a version key in Redis and only refreshes the catalog when the
 
 **ADAS_Safety_1 (CAN ID 0x140, 100ms cycle):**
 
-| DBC Signal        | JSON Field        | VSS Path                              | Unit  | Range  |
-| ----------------- | ----------------- | ------------------------------------- | ----- | ------ |
-| HarshBraking      | harsh_brk         | Vehicle.ADAS.Safety.HarshBraking      | g     | 0–1.02 |
-| HarshAcceleration | harsh_acc         | Vehicle.ADAS.Safety.HarshAcceleration | g     | 0–1.02 |
-| HarshTurn         | harsh_turn        | Vehicle.ADAS.Safety.HarshTurn         | deg/s | 0–102  |
-| SpeedViolation    | speed_viol        | Vehicle.ADAS.Safety.SpeedViolation    | bool  | 0/1    |
-| AEBActivation     | aeb_act           | Vehicle.ADAS.AEB.Active               | bool  | 0/1    |
-| ABSActivation     | abs_act           | Vehicle.ADAS.ABS.Active               | bool  | 0/1    |
-| ESCActivation     | esc_act           | Vehicle.ADAS.ESC.Active               | bool  | 0/1    |
-| AirbagWarning     | airbag_warn       | Vehicle.Safety.Airbag.Warning         | bool  | 0/1    |
-| TractionControl   | traction_control  | Vehicle.ADAS.TractionControl.Active   | bool  | 0/1    |
-| StabilityControl  | stability_control | Vehicle.ADAS.StabilityControl.Active  | bool  | 0/1    |
+| DBC Signal               | JSON Field               | VSS Path                                      | Unit  | Range  |
+| ------------------------ | ------------------------ | --------------------------------------------- | ----- | ------ |
+| LongitudinalAcceleration | deceleration             | Vehicle.Acceleration.Longitudinal             | m/s²  | -10–10 |
+| LongitudinalAcceleration | acceleration             | Vehicle.Acceleration.Longitudinal             | m/s²  | -10–10 |
+| LateralAcceleration      | lateralAcceleration      | Vehicle.Acceleration.Lateral                  | m/s²  | -10–10 |
+| LaneDepartureWarning     | laneDepartureWarning     | Vehicle.ADAS.LaneDepartureDetection.IsWarning | bool  | 0/1    |
+| ForwardCollisionDistance | forwardCollisionDistance | Vehicle.ADAS.ForwardCollisionWarning.Distance | m     | 0–100  |
+| DriverDrowsinessLevel    | driverDrowsinessLevel    | Vehicle.Driver.DrowsinessLevel                | level | 0–3    |
+| AEBActivation            | aeb_act                  | Vehicle.ADAS.AEB.IsActive                     | bool  | 0/1    |
+| ABSActivation            | abs_act                  | Vehicle.ADAS.ABS.IsActive                     | bool  | 0/1    |
+| ESCActivation            | esc_act                  | Vehicle.ADAS.ESC.IsActive                     | bool  | 0/1    |
+| AirbagWarning            | airbag_warn              | Vehicle.Safety.Airbag.IsWarning               | bool  | 0/1    |
 
 **ADAS_Safety_2 (CAN ID 0x141, 100ms cycle):**
 
@@ -186,20 +186,25 @@ GPS coordinates are not transmitted on the CAN bus. In MQTT Direct mode, the sim
 
 ## Safety event detection thresholds
 
-The SafetyProcessor uses the following thresholds to generate safety events:
+The SafetyProcessor evaluates every telemetry message against the event catalog rules stored in the `cms-{stage}-event-catalog` DynamoDB table. Detection uses real CAN bus signals — not synthetic derived values — so the same rules work for both simulated and production vehicles.
 
-| Event Type         | Trigger Signal    | Threshold         |
-| ------------------ | ----------------- | ----------------- |
-| SPEEDING           | VehicleSpeed      | > 65 mph          |
-| HARD_BRAKING       | HarshBraking      | > 0.3g            |
-| RAPID_ACCELERATION | HarshAcceleration | > 0.3g            |
-| HARSH_CORNERING    | HarshTurn         | > 40 deg/s        |
-| SEATBELT_VIOLATION | SeatbeltViolation | = 0 while driving |
-| PHONE_USAGE        | PhoneUsage        | = 1 while driving |
-| LANE_DEPARTURE     | LateralG          | > 0.5g            |
-| TAILGATING         | FollowingDistance | < 2.0m            |
-| AEB_ACTIVATION     | AEBActivation     | = 1               |
-| ESC_ACTIVATION     | ESCActivation     | = 1               |
+| Event Type          | Trigger Signal               | Threshold             | Detection     |
+| ------------------- | ---------------------------- | --------------------- | ------------- |
+| HARSH_BRAKING       | deceleration (m/s²)          | < -3.9 (0.4g)         | Cloud         |
+| HARSH_ACCELERATION  | acceleration (m/s²)          | > 3.5 (0.35g)         | Cloud         |
+| HARSH_CORNERING     | lateralAcceleration (m/s²)   | > 4.4 (0.45g)         | Cloud         |
+| SPEEDING            | speed (mph)                  | > 80                  | Cloud         |
+| SEATBELT_UNFASTENED | seatbeltStatus               | = false while driving | Cloud         |
+| PHONE_USAGE         | phone_use                    | = 1 while driving     | Cloud         |
+| LANE_DEPARTURE      | laneDepartureWarning         | = 1                   | Cloud or Edge |
+| TAILGATING          | forwardCollisionDistance (m) | < 2.0                 | Cloud         |
+| DROWSY_DRIVING      | driverDrowsinessLevel        | >= 1                  | Cloud         |
+| AEB_ACTIVATION      | aeb_act                      | = 1                   | Edge          |
+| ESC_ACTIVATION      | esc_act                      | = 1                   | Edge          |
+
+Cloud detection evaluates rules in the SafetyProcessor Flink application against every telemetry message on the `cms-telemetry-safety` Kafka topic. Edge detection uses FleetWise condition-based campaigns where the FWE agent detects the event on the vehicle and reports it directly. Both detection methods write to the same `cms-{stage}-storage-safety-events` DynamoDB table.
+
+The event catalog is seeded by `make seed-event-catalog` and can be modified at runtime — the SafetyProcessor reloads the catalog every 5 minutes without requiring a restart.
 
 ## Maintenance alert detection thresholds
 
