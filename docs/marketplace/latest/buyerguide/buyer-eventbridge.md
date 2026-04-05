@@ -18,6 +18,9 @@ AWS Marketplace sends the following types of EventBridge events:
 - [Agreement events](agreement-eventbridge.md "agreement-eventbridge.md") – AWS Marketplace sends notifications
   to Amazon EventBridge when certain events occur during the lifecycle of your agreements (i.e. offers you have purchased).
   The events contain details like the Agreement ID, Offer ID, and the state of your Agreement.
+- [Cancellation and billing adjustment events](cancellation-adjustment-eventbridge.md "cancellation-adjustment-eventbridge.md") – AWS Marketplace sends
+  notifications to Amazon EventBridge when a seller initiates a cancellation request or billing adjustment
+  (refund) for one of your agreements.
 
 ###### Note
 

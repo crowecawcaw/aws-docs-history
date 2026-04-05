@@ -10,6 +10,9 @@ As a buyer in AWS Marketplace, you automatically receive email notifications whe
   accepted previously
 - A seller publishes an update to a previously accepted offer
 - An agreement is expiring in the next 30, 60, or 90 days (contract model)
+- A seller submits an agreement cancellation request for your review
+- An agreement cancellation request is approved (or auto-approved), denied, or withdrawn
+- A billing adjustment (refund) is processed for one of your agreements
   These notifications are sent by default to the email address associated with your AWS account ID. No setup is required.
 
 ###### Note

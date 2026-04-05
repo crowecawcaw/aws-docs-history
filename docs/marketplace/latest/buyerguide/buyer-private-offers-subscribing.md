@@ -128,8 +128,20 @@ we recommend that you launch the product manually rather than selecting the one-
 
 ###### Note
 
-Do not refresh your browser while the system processes your contract request. 4. After you accept the offer, an alert indicates that you successfully
-subscribed to the product and provides your next steps. 5. Complete product configuration:
+Do not refresh your browser while the system processes your contract request. 4. After you accept the offer, a confirmation page appears with a summary of
+your agreement. The confirmation page includes the following details:
+
+    * Agreement summary, including the product name, vendor, pricing model,
+     and total costs
+    * Estimated tax details, including the tax rate, tax type, and invoicing
+     entity
+    * Payment schedule details, if the offer includes a flexible payment
+     schedule
+    * Purchase order numbers, if you provided them during the subscription
+     process
+
+Review the confirmation details to verify that they match your negotiated
+terms. 5. Complete product configuration:
 
 Machine learning
 

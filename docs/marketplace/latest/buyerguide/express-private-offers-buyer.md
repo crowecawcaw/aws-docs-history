@@ -21,7 +21,7 @@ Before initiating an express private offer request, ensure you have an AWS accou
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [{
             "Sid": "AWSMarketplaceChangeSetReadAccess",
             "Effect": "Allow",

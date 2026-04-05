@@ -1,7 +1,27 @@
 # Canceling product subscriptions
 
-The steps in the following sections explain how to cancel Amazon Machine Image (AMI),
-container product, machine learning, and software as a service (SaaS) products.
+There are two ways to cancel an AWS Marketplace subscription, depending on the type of agreement
+and how the cancellation is initiated:
+
+- **Buyer self-service cancellation** — For
+  subscriptions with usage-based pricing (pay-as-you-go) and public contracts within 48
+  hours of purchase, you can cancel directly from the AWS Marketplace console.
+- **Seller-initiated cancellation** — For all other
+  agreement types, the seller must initiate the cancellation request. You then approve or
+  deny the request in the AWS Marketplace console. See
+  [Responding to a cancellation request](buyer-refunds.md#buyer-responding-cancellation "buyer-refunds.md#buyer-responding-cancellation").
+
+###### Note
+
+Cancellation only stops future charges from being generated. It doesn't automatically
+refund charges on invoices that have already been issued. If you also need a refund for past
+charges, contact the seller and ask them to submit a billing adjustment (refund) request.
+For more information, see
+[Refunds and cancellations in AWS Marketplace](buyer-refunds.md "buyer-refunds.md").
+
+The following sections explain how to cancel Amazon Machine Image (AMI), Container
+product, Machine Learning, and Software as a Service (SaaS) subscriptions directly from the
+AWS Marketplace console.
 
 ###### Topics
 

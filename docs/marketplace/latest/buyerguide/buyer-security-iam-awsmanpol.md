@@ -88,7 +88,17 @@ You can attach the `AWSMarketplaceManageSubscriptions` policy to your IAM
 identities.
 
 This policy grants contributor permissions that allow subscribing and unsubscribing to
-AWS Marketplace products. It also allows buys to access Express Private Offers.
+AWS Marketplace products. It also allows buyers to access Express Private Offers and manage agreement cancellation requests.
+
+The permissions are organized into the following groups:
+
+- `aws-marketplace` – Allows principals to view, subscribe to, and unsubscribe from AWS Marketplace products.
+- `aws-marketplace` – Allows principals to create and manage private marketplace requests and view private product listings.
+- `aws-marketplace` – Allows principals to manage purchase orders and handle payment requests for purchase agreements, including accepting or rejecting payment requests and viewing agreement charges. These permissions are restricted to agreements of type PurchaseAgreement.
+- `aws-marketplace` – Allows principals to view and describe changesets in the AWS Marketplace catalog.
+- `aws-marketplace` – Allows principals to create and manage agent token containers and express private offers through the changeset mechanism. These permissions are limited to specific change types: CreateAgentTokenContainer, RequestExpressPrivateOffer, and ExpireToken.
+- `aws-marketplace` – Allows principals to list and describe entities in the AWS Marketplace catalog, such as products, offers, and agreements.
+- `aws-marketplace` – Allows principals to manage agreement cancellation requests as the accepting party, including listing, retrieving, accepting, rejecting cancellation requests, and directly canceling agreements. These permissions are restricted to PurchaseAgreement type and Acceptor party type.
 
 To view the permissions for this policy, see [AWSMarketplaceManageSubscriptions](../../../aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.md") in the _AWS Managed Policy
 Reference_.
@@ -113,6 +123,16 @@ identities.
 This policy grants read-only permissions that allows viewing products, private offers,
 and subscriptions for your account on AWS Marketplace, as well as viewing the Amazon EC2, AWS Identity and Access Management,
 and Amazon SNS resources in the account.
+
+The permissions are organized into the following groups:
+
+- `aws-marketplace` – Allows principals to view subscriptions and list agreement charges.
+- `ec2` – Allows principals to describe account attributes, addresses, images, instances, key pairs, security groups, subnets, and VPCs.
+- `iam` – Allows principals to list roles and instance profiles.
+- `sns` – Allows principals to get topic attributes and list topics.
+- `aws-marketplace` – Allows principals to list and describe private marketplace requests, and view agreement payment requests.
+- `aws-marketplace` – Allows principals to list private product listings.
+- `aws-marketplace` – Allows principals to list and view agreement cancellation requests.
 
 To view the permissions for this policy, see [AWSMarketplaceRead-only](../../../aws-managed-policy/latest/reference/AWSMarketplaceRead-only.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceRead-only.md") in the _AWS Managed
 Policy Reference_.
@@ -240,6 +260,8 @@ equal to a seller for the purposes of this guide.
 
 | Change                                                                                                                                                                                                                                                                                                                        | Description                                                                                                                                                                                                                         | Date              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [AWSMarketplaceRead-only](#security-iam-awsmanpol-awsmarketplaceread-only "#security-iam-awsmanpol-awsmarketplaceread-only") — updates to<br>existing policy                                                                                                                                                                  | AWS Marketplace added permissions for listing and viewing agreement cancellation requests.                                                                                                                                          | March 31, 2026    |
+| [AWSMarketplaceManageSubscriptions](#security-iam-awsmanpol-awsmarketplacemanagesubscriptions "#security-iam-awsmanpol-awsmarketplacemanagesubscriptions") — updates to<br>existing policy                                                                                                                                    | AWS Marketplace added permissions for managing agreement cancellation requests, including listing, retrieving, accepting, rejecting cancellation requests, and directly canceling agreements.                                       | March 31, 2026    |
 | [AWSMarketplaceManageSubscriptions](#security-iam-awsmanpol-awsmarketplacemanagesubscriptions "#security-iam-awsmanpol-awsmarketplacemanagesubscriptions") — updates to<br>existing policy                                                                                                                                    | AWS Marketplace added permissions for buyers to access Express Private Offers.                                                                                                                                                      | November 30, 2025 |
 | [AWSPrivateMarketplaceRequests](#security-iam-awsmanpol-awsprivatemarketplacerequests "#security-iam-awsmanpol-awsprivatemarketplacerequests") — updates to<br>existing policy                                                                                                                                                | AWS Marketplace added permissions to create and cancel product approval requests, list and get details of the product approval requests, and allow users to tag the requests.                                                       | November 17, 2025 |
 | [AWSPrivateMarketplaceAdminFullAccess](#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess "#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess") — updates to<br>existing policy                                                                                                                           | AWS Marketplace added service-linked role and Organizations integration permissions for Private Marketplace administrators.                                                                                                         | June 5, 2025      |
