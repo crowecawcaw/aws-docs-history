@@ -5,7 +5,7 @@ add FlexMatch matchmaking to your game, complete the following tasks.
 
 - **Set up a matchmaker.** A matchmaker receives
   matchmaking requests from players and processes them. It groups players based on a
-  set of defined rules and, for each successful match, creates a new game sessions and
+  set of defined rules and, for each successful match, creates a new game session and
   player sessions. Follow these steps to set up a matchmaker:
   - **Create a rule set.** A rule set tells the
     matchmaker how to construct a valid match. It specifies team structure and

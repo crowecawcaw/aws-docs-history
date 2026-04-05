@@ -20,7 +20,7 @@ groups and placing them into games. See more details about custom matchmaking in
 
 After forming a match, FlexMatch provides the match data for game session placement.
 For games that use Amazon GameLift Servers for hosting, FlexMatch sends a game session placement request with matched
-players to the a game session queue. The queue searches for available hosting resources on
+players to a game session queue. The queue searches for available hosting resources on
 your Amazon GameLift Servers fleets and starts a new game session for the match. For games that use another hosting
 solution, FlexMatch provides the match data for you to provide to your own game session placement component.
 

@@ -51,6 +51,8 @@ Matchmaking has successfully completed and a game session has been created.
       "ipAddress": "192.168.1.1",
       "port": 10777,
       "playerGatewayStatus": "ENABLED",
+      "computeName": "i-1234567890abcdef0",
+      "gameSessionLocation": "us-west-2",
       "players": [
         {
           "playerId": "player-1",
