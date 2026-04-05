@@ -1,55 +1,155 @@
 # FHIR R4 `$davinci-data-export` operation for HealthLake
 
-The `$davinci-data-export` operation is an asynchronous FHIR operation that enables the export of Member Attribution List data from AWS HealthLake. This operation is a specialized version of the standard FHIR `$export` operation, designed specifically to meet the requirements of the DaVinci Member Attribution (ATR) List Implementation Guide.
+The `$davinci-data-export` operation is an asynchronous FHIR operation that you can use to export healthcare data from AWS HealthLake. This operation supports multiple export types, including Member Attribution (ATR), PDex Provider Access, Payer-to-Payer, and Member Access APIs. It is a specialized version of the standard FHIR `$export` operation, designed to meet the requirements of the DaVinci implementation guides.
 
 ## Key Features
 
 - _Asynchronous Processing_: Follows the standard FHIR asynchronous request pattern
-- _Group-Level Export_: Exports data for members within a specific attribution list (Group)
-- _Specialized Resource Handling_: Focuses on attribution-related resources
+- _Group-Level Export_: Exports data for members within a specific Group resource
+- _Multiple Export Types_: Supports ATR (Member Attribution), PDex Provider Access, Payer-to-Payer, and Member Access APIs
+- _Comprehensive Profile Support_: Includes US Core, CARIN Blue Button, and PDex profiles
 - _Flexible Filtering_: Supports filtering by patients, resource types, and time ranges
 - _NDJSON Output_: Provides data in newline-delimited JSON format
 
 ## Operation Endpoint
 
 ```
-GET  [base]/Group/[id]/$davinci-data-export
+GET [base]/Group/[id]/$davinci-data-export
 POST [base]/Group/[id]/$davinci-data-export
 ```
 
 ## Request Parameters
 
-| Parameter  | Cardinality | Description                                                                                         |
-| ---------- | ----------- | --------------------------------------------------------------------------------------------------- |
-| patient    | 0..\*       | Specific members whose data should be exported. When omitted, all members in the Group are exported |
-| \_type     | 0..1        | Comma-delimited list of FHIR resource types to export                                               |
-| \_since    | 0..1        | Only include resources updated after this date/time                                                 |
-| \_until    | 0..1        | Only include resources updated until this date/time                                                 |
-| exportType | 0..1        | Type of export to perform (default: hl7.fhir.us.davinci-atr)                                        |
+| Parameter                  | Cardinality | Description                                                                                                                                                                                            |
+| -------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `patient`                  | 0..\*       | Specific members whose data to export. When omitted, all members in the Group are exported.                                                                                                            |
+| `_type`                    | 0..1        | Comma-delimited list of FHIR resource types to export.                                                                                                                                                 |
+| `_since`                   | 0..1        | Only include resources updated after this date and time.                                                                                                                                               |
+| `_until`                   | 0..1        | Only include resources updated before this date and time.                                                                                                                                              |
+| `exportType`               | 0..1        | Type of export to perform. Valid values: `hl7.fhir.us.davinci-atr`, `hl7.fhir.us.davinci-pdex`, `hl7.fhir.us.davinci-pdex.p2p`, `hl7.fhir.us.davinci-pdex.member`. Default: `hl7.fhir.us.davinci-atr`. |
+| `_includeEOB2xWoFinancial` | 0..1        | Specifies whether to include CARIN BB 2.x ExplanationOfBenefit resources with financial data removed. Default: `false`.                                                                                |
 
 ### Supported Resource Types
 
-When using the `_type` parameter, only the following resource types are supported:
+The supported resource types depend on the export type you specify. For ATR exports, the following resource types are supported:
 
-- Group
-- Patient
-- Coverage
-- RelatedPerson
-- Practitioner
-- PractitionerRole
-- Organization
-- Location
+- `Group`
+- `Patient`
+- `Coverage`
+- `RelatedPerson`
+- `Practitioner`
+- `PractitionerRole`
+- `Organization`
+- `Location`
 
-## Sample Request
+For PDex exports (Provider Access, Payer-to-Payer, and Member Access), all clinical and claims resource types are supported in addition to the preceding types. For a complete list of supported resource types, see the [US Core Implementation Guide (STU 6.1)](https://hl7.org/fhir/us/core/STU6.1/ "https://hl7.org/fhir/us/core/STU6.1/"), the [CARIN Blue Button Implementation Guide](https://hl7.org/fhir/us/carin-bb/ "https://hl7.org/fhir/us/carin-bb/"), and the [Da Vinci Prior Authorization Support Implementation Guide](https://hl7.org/fhir/us/davinci-pas/ "https://hl7.org/fhir/us/davinci-pas/").
 
-### Starting an Export Job
+## Export Types
+
+The `$davinci-data-export` operation supports the following export types. You specify the export type by using the `exportType` parameter.
+
+| Export Type                       | Purpose                 | Data Scope                                       | Temporal Limit |
+| --------------------------------- | ----------------------- | ------------------------------------------------ | -------------- |
+| `hl7.fhir.us.davinci-atr`         | Member Attribution List | Attribution-related resources                    | None           |
+| `hl7.fhir.us.davinci-pdex`        | Provider Access API     | Clinical and claims data for attributed patients | 5 years        |
+| `hl7.fhir.us.davinci-pdex.p2p`    | Payer-to-Payer Exchange | Historical member data for insurance transitions | 5 years        |
+| `hl7.fhir.us.davinci-pdex.member` | Member Access API       | Member's own health data                         | 5 years        |
+
+###### Note
+
+For PDex exports, the 5-year temporal limit does not apply to ATR resource types (`Group`, `Patient`, `Coverage`, `RelatedPerson`, `Practitioner`, `PractitionerRole`, `Organization`, `Location`). These resources are always included regardless of age.
+
+### ATR (hl7.fhir.us.davinci-atr)
+
+With the ATR export type, you can export Member Attribution List data. Use this export type to retrieve attribution-related resources for members within a Group. For more information, see the [Da Vinci ATR Export Operation](https://build.fhir.org/ig/HL7/davinci-atr/OperationDefinition-davinci-data-export.html "https://build.fhir.org/ig/HL7/davinci-atr/OperationDefinition-davinci-data-export.html").
+
+Supported Resource Types
+`Group`, `Patient`, `Coverage`, `RelatedPerson`, `Practitioner`, `PractitionerRole`, `Organization`, `Location`
+
+Temporal Filtering
+No temporal filtering is applied. All matching resources are exported regardless of date.
+
+### PDex Export Types
+
+All PDex export types share the same supported profiles and filtering logic. For more information, see the [Da Vinci PDex Provider Access API](https://build.fhir.org/ig/HL7/davinci-epdx/provider-access-api.html "https://build.fhir.org/ig/HL7/davinci-epdx/provider-access-api.html"). The following profiles are supported:
+
+- US Core 3.1.1, 6.1.0, and 7.0.0
+- PDex Prior Authorization (not supported for Member Access)
+- CARIN BB 2.x Basis profiles: Inpatient Institutional, Outpatient Institutional, Professional NonClinician, Oral, Pharmacy
+
+Provider Access (`hl7.fhir.us.davinci-pdex`)
+Enables in-network providers to retrieve patient data for attributed patients.
+
+Payer-to-Payer (`hl7.fhir.us.davinci-pdex.p2p`)
+Enables data exchange between payers when a patient changes insurance.
+
+Member Access (`hl7.fhir.us.davinci-pdex.member`)
+Enables members to access their own health data. This export type may include financial data in claims resources.
+
+## Profile Support and Inclusion Logic
+
+For PDex exports, the `$davinci-data-export` operation uses profile declarations in the `meta.profile` element to determine which resources to include in the export.
+
+### ExplanationOfBenefit Resource Handling
+
+`ExplanationOfBenefit` (EOB) resources are included or excluded from PDex exports based on their `meta.profile` declarations:
+
+- ExplanationOfBenefit resources with a CARIN BB 1.x profile are excluded from the export.
+- ExplanationOfBenefit resources with no `meta.profile` set are excluded from the export.
+- ExplanationOfBenefit resources with a CARIN BB 2.x Basis profile are always included.
+- ExplanationOfBenefit resources with a CARIN BB 2.x profile that contains financial data are excluded by default. When `_includeEOB2xWoFinancial=true` is set, they are included with financial data stripped and the resource is transformed to the corresponding Basis profile.
+- ExplanationOfBenefit resources with a PDex Prior Authorization profile are always included.
+
+### Financial Data Transformation
+
+When you set `_includeEOB2xWoFinancial=true`, the operation transforms [CARIN BB 2.x](https://hl7.org/fhir/us/carin-bb/ "https://hl7.org/fhir/us/carin-bb/") ExplanationOfBenefit resources to their corresponding Basis profiles by removing financial data. For example, a `C4BB ExplanationOfBenefit Oral` resource is transformed to `C4BB ExplanationOfBenefit Oral Basis`, which strips financial data from the record per the FHIR specification.
+
+The following financial data elements are removed during transformation:
+
+- All slicing on `total` elements
+- All `adjudication` elements with `amounttype` slice
+- All `item.adjudication` elements with amount information
+
+The operation also updates profile metadata during transformation:
+
+- `meta.profile` is updated to the Basis profile canonical URL
+- Version is updated to the CARIN BB 2.x Basis version
+- Existing resources in the data store are not modified
+- Exported resources are not persisted back to the data store
+
+### Profile Detection Rules
+
+The operation uses the following rules to detect and validate profiles:
+
+- Version detection is based on the `meta.profile` canonical URLs
+- A resource is included if ANY of its declared profiles match the export criteria
+- Profile validation occurs during export processing
+
+## Five-Year Temporal Filtering for PDex Exports
+
+For all PDex export types, HealthLake applies a 5-year temporal filter based on when the resource was last updated. The temporal filter applies to all resources except the following core attribution resource types, which are always exported regardless of age:
+
+- `Patient`
+- `Coverage`
+- `Organization`
+- `Practitioner`
+- `PractitionerRole`
+- `RelatedPerson`
+- `Location`
+- `Group`
+
+These administrative and demographic resources are exempt because they provide essential context for the exported data. ATR exports are not subject to any temporal filtering.
+
+## Sample Requests
+
+The following examples show how to start export jobs for different export types.
+
+_ATR export_
 
 ```
-GET https://healthlake.region.amazonaws.com/datastore/datastoreId/r4/Group/example-group/$davinci-data-export?_type=Group,Patient,Coverage&exportType=hl7.fhir.us.davinci-atr
+GET https://healthlake.{region}.amazonaws.com/datastore/{datastoreId}/r4/Group/example-group/$davinci-data-export?_type=Group,Patient,Coverage,Practitioner,Organization&exportType=hl7.fhir.us.davinci-atr
 
-or
-
-POST https://healthlake.region.amazonaws.com/datastore/datastoreId/r4/Group/example-group/$davinci-data-export?_type=Group,Patient,Coverage&exportType=hl7.fhir.us.davinci-atr
+POST https://healthlake.{region}.amazonaws.com/datastore/{datastoreId}/r4/Group/example-group/$davinci-data-export?_type=Group,Patient,Coverage,Practitioner,Organization&exportType=hl7.fhir.us.davinci-atr
 Content-Type: application/json
 
 {
@@ -64,7 +164,25 @@ Content-Type: application/json
 }
 ```
 
-### Sample Response
+_Provider Access export with ExplanationOfBenefit financial data removal_
+
+```
+GET https://healthlake.{region}.amazonaws.com/datastore/{datastoreId}/r4/Group/example-group/$davinci-data-export?_type=Patient,Observation,Condition,MedicationRequest,ExplanationOfBenefit&exportType=hl7.fhir.us.davinci-pdex&_includeEOB2xWoFinancial=true
+```
+
+_Payer-to-Payer export_
+
+```
+GET https://healthlake.{region}.amazonaws.com/datastore/{datastoreId}/r4/Group/example-group/$davinci-data-export?_type=Patient,Coverage,ExplanationOfBenefit,Condition,Procedure&exportType=hl7.fhir.us.davinci-pdex.p2p&_includeEOB2xWoFinancial=true
+```
+
+_Member Access export for a specific patient_
+
+```
+GET https://healthlake.{region}.amazonaws.com/datastore/{datastoreId}/r4/Group/example-group/$davinci-data-export?_type=Patient,Observation,Condition,ExplanationOfBenefit,MedicationRequest&exportType=hl7.fhir.us.davinci-pdex.member&patient=Patient/example-patient-id
+```
+
+## Sample Response
 
 ```
 {
@@ -89,16 +207,16 @@ Group (Attribution List)
 
 ### Resource Sources
 
-| Resource         | Source Location                           | Description                                          |
-| ---------------- | ----------------------------------------- | ---------------------------------------------------- |
-| Patient          | Group.member.entity                       | The patients who are members of the attribution list |
-| Coverage         | Group.member.extension:coverageReference  | Coverage that resulted in patient membership         |
-| Organization     | Group.member.extension:attributedProvider | Organizations patients are attributed to             |
-| Practitioner     | Group.member.extension:attributedProvider | Individual practitioners patients are attributed to  |
-| PractitionerRole | Group.member.extension:attributedProvider | Practitioner roles patients are attributed to        |
-| RelatedPerson    | Coverage.subscriber                       | Subscribers of the coverage                          |
-| Location         | PractitionerRole.location                 | Locations associated with practitioner roles         |
-| Group            | Input endpoint                            | The attribution list itself                          |
+| Resource           | Source Location                             | Description                                              |
+| ------------------ | ------------------------------------------- | -------------------------------------------------------- |
+| `Patient`          | `Group.member.entity`                       | The patients who are members of the attribution list     |
+| `Coverage`         | `Group.member.extension:coverageReference`  | Coverage that resulted in patient membership             |
+| `Organization`     | `Group.member.extension:attributedProvider` | Organizations that patients are attributed to            |
+| `Practitioner`     | `Group.member.extension:attributedProvider` | Individual practitioners that patients are attributed to |
+| `PractitionerRole` | `Group.member.extension:attributedProvider` | Practitioner roles that patients are attributed to       |
+| `RelatedPerson`    | `Coverage.subscriber`                       | Subscribers of the coverage                              |
+| `Location`         | `PractitionerRole.location`                 | Locations associated with practitioner roles             |
+| `Group`            | Input endpoint                              | The attribution list itself                              |
 
 ## Job Management
 
@@ -128,42 +246,52 @@ The operation returns HTTP 400 Bad Request with an OperationOutcome for the foll
 
 Authorization Errors
 
-- Invalid or insufficient permissions for data access
-- S3 bucket access issues
-- KMS key access problems
+The IAM role specified in `DataAccessRoleArn` does not have sufficient permissions to perform the export operation. For the complete list of required S3 and KMS permissions, see [Setting up permissions for export jobs](getting-started-setting-up.md#setting-up-export-permissions "getting-started-setting-up.md#setting-up-export-permissions").
 
 Parameter Validation Errors
 
-- `patient` parameter not formatted as "Patient/id,Patient/id,..."
-- Invalid patient references or patients not part of the Group
-- `exportType` value other than hl7.fhir.us.davinci-atr
-- `_type` parameter containing unsupported resource types
-- `_type` parameter missing required minimum types (Group, Patient, Coverage) for the exportType of hl7.fhir.us.davinci-atr
+- The `patient` parameter is not formatted as `Patient/id,Patient/id,...`
+- One or more patient references are invalid or do not belong to the specified Group
+- The `exportType` parameter value is not a supported export type
+- The `_type` parameter contains resource types that are not supported for the specified export type
+- The `_type` parameter is missing required resource types (`Group`, `Patient`, `Coverage`) for the `hl7.fhir.us.davinci-atr` export type
+- The `_includeEOB2xWoFinancial` parameter value is not a valid boolean
 
 Resource Validation Errors
 
-- Requested Group resource does not exist
-- Group has empty member list
-- Group members don't reference valid Patient resources
+- The specified Group resource does not exist in the data store
+- The specified Group resource has no members
+- One or more Group members reference Patient resources that do not exist in the data store
 
 ## Security and Authorization
 
 - Standard FHIR authorization mechanisms apply
-- Clients must have appropriate read permissions for the Group and related resources
-- S3 bucket write permissions required for output location
-- KMS key permissions required if encryption is specified
+- The data access role must have the required IAM permissions for S3 and KMS operations. For the complete list of required permissions, see [Setting up permissions for export jobs](getting-started-setting-up.md#setting-up-export-permissions "getting-started-setting-up.md#setting-up-export-permissions").
 
 ## Best Practices
 
 - _Resource Type Selection_: Only request the resource types you need to minimize export size and processing time
-- _Time-based Filtering_: Use `_since` parameter for incremental exports
-- _Patient Filtering_: Use `patient` parameter when you only need data for specific members
+- _Time-Based Filtering_: Use the `_since` parameter for incremental exports
+- _Patient Filtering_: Use the `patient` parameter when you only need data for specific members
 - _Job Monitoring_: Regularly check job status for large exports
 - _Error Handling_: Implement proper retry logic for failed jobs
+- _Temporal Filter Awareness_: For PDex exports, consider the 5-year temporal filter when you select resource types
+- _Financial Data Removal_: Use `_includeEOB2xWoFinancial=true` when you need claims data without financial information
+- _Profile Management_: Ensure resources have appropriate profile declarations, validate against target profiles before ingestion, and use profile versioning to control export behavior
 
 ## Limitations
 
-- Maximum of 512 patients can be specified in the `patient` parameter
+- Maximum of 500 patients can be specified in the `patient` parameter
 - Export is limited to Group-level operations only
-- Only supports the predefined set of attribution-related resource types
+- Only supports the predefined set of resource types for each export type
 - Output is always in NDJSON format
+- PDex exports are limited to 5 years of clinical and claims data
+- Financial data transformation only applies to CARIN BB 2.x ExplanationOfBenefit profiles
+
+## Additional Resources
+
+- [Da Vinci Member Attribution List IG](https://build.fhir.org/ig/HL7/davinci-atr/ "https://build.fhir.org/ig/HL7/davinci-atr/")
+- [Da Vinci Payer Data Exchange IG](https://hl7.org/fhir/us/davinci-pdex/ "https://hl7.org/fhir/us/davinci-pdex/")
+- [CARIN Consumer Directed Payer Data Exchange IG](https://build.fhir.org/ig/HL7/carin-bb/ "https://build.fhir.org/ig/HL7/carin-bb/")
+- [US Core Implementation Guide](https://www.hl7.org/fhir/us/core/ "https://www.hl7.org/fhir/us/core/")
+- [FHIR Bulk Data Access Specification](https://hl7.org/fhir/uv/bulkdata/ "https://hl7.org/fhir/uv/bulkdata/")

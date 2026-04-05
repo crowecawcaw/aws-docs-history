@@ -37,7 +37,7 @@ about FHIR _resource types_ supported by HealthLake, see [Resource types](refere
 - [Reading a FHIR resource](managing-fhir-resources-read.md "managing-fhir-resources-read.md")
 - [Reading FHIR resource history](managing-fhir-resources-read-history.md "managing-fhir-resources-read-history.md")
 - [Updating a FHIR resource](managing-fhir-resources-update.md "managing-fhir-resources-update.md")
-- [Modifying Resources with PATCH operation](managing-fhir-resources-patch.md "managing-fhir-resources-patch.md")
+- [Modifying Resources with PATCH Operation](managing-fhir-resources-patch.md "managing-fhir-resources-patch.md")
 - [Bundling FHIR resources](managing-fhir-resources-bundle.md "managing-fhir-resources-bundle.md")
 - [Deleting a FHIR resource](managing-fhir-resources-delete.md "managing-fhir-resources-delete.md")
 - [Idempotency and Concurrency](managing-fhir-resources-idempotency.md "managing-fhir-resources-idempotency.md")

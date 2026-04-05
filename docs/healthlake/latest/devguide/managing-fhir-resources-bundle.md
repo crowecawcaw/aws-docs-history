@@ -1,40 +1,54 @@
 # Bundling FHIR resources
 
 A FHIR `Bundle` is a container for a collection of FHIR resources in
-AWS HealthLake. AWS HealthLake supports two types of bundles with different behaviors: [`batch`](https://hl7.org/fhir/R4/http.html#transaction "https://hl7.org/fhir/R4/http.html#transaction") or [`transaction`](https://hl7.org/fhir/R4/http.html#transaction "https://hl7.org/fhir/R4/http.html#transaction").
+AWS HealthLake. AWS HealthLake supports two types of bundles with different processing
+behaviors.
 
-- For a 'batch' bundle, each FHIR resource contained in the bundle is processed and logged individually. Each resource operation is treated independently from the other resources.
-- For a ‘transaction’ bundle, all FHIR resources contained in the bundle are processed as an atomic operation. All of the resources in the operation must succeed, or no resource updates in the bundle are committed and stored.
-  You can bundle FHIR resources of the same or different types, and they can include a mix
-  of other FHIR interactions defined in this chapter (e.g. `create`,
-  `read`, `update`, `delete`, and `search`).
-  For additional information, see [Resource
-  Bundle](https://hl7.org/fhir/R4/Bundle "https://hl7.org/fhir/R4/Bundle") in the **FHIR R4 documentation**.
+[`Batch`](https://hl7.org/fhir/R4/http.html#transaction "https://hl7.org/fhir/R4/http.html#transaction")
+bundles process each resource independently. If one resource fails, the remaining resources
+can still succeed. Each operation is processed individually, and processing continues even when
+some operations fail. Use batch bundles for bulk operations where partial success is
+acceptable, such as uploading multiple unrelated patient records.
 
-Key differences between Batch and Transaction type Bundles:
+[`Transaction`](https://hl7.org/fhir/R4/http.html#transaction "https://hl7.org/fhir/R4/http.html#transaction")
+bundles process all resources atomically as a single unit. Either all resource operations succeed,
+or AWS HealthLake commits none of them. Use transaction bundles when you need guaranteed
+referential integrity across related resources, such as creating a patient with related
+observations and conditions where all data must be recorded together.
 
-Batch
+| Differences between batch and transaction bundles | Feature                                                  | Batch                                                        | Transaction |
+| ------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------ | ----------- |
+| Processing model                                  | Each operation succeeds or fails independently.          | All operations succeed or fail as a single atomic unit.      |
+| Failure handling                                  | Processing continues even if individual operations fail. | The entire bundle fails if any single operation fails.       |
+| Execution order                                   | Execution order is not guaranteed.                       | Operations are processed in the order specified.             |
+| Referential integrity                             | Not enforced across operations.                          | Enforced for locally referenced resources within the bundle. |
+| Best used for                                     | Bulk operations where partial success is acceptable.     | Related resources that must be created or updated together.  |
 
-- Independent operations that can succeed or fail individually
-- Processing continues even if some operations fail
-- Order of execution not guaranteed
-- Ideal for bulk operations where partial success is acceptable
+You can bundle FHIR resources of the same or different types, and they can include a mix
+of FHIR operations, such as `create`,
+`read`, `update`, `delete`, and `patch`.
+For additional information, see [Resource
+Bundle](https://hl7.org/fhir/R4/Bundle "https://hl7.org/fhir/R4/Bundle") in the **FHIR R4 documentation**.
 
-Transaction
+The following are example use cases for each bundle type.
 
-- Atomicity guaranteed - either all succeed or all fail
-- Maintains referential integrity for locally referenced (within Bundle) resources
-- Operations processed in the order specified
-- Fails completely if any operation fails
+Batch bundles
 
-Example Use Cases:
+- Upload multiple unrelated patient records from different facilities during nightly data synchronization.
+- Bulk upload historical medication records where some records might have validation issues.
+- Load reference data, such as organizations and practitioners, where individual failures don't affect other entries.
 
-- Batch: Uploading multiple unrelated patient records
-- Transaction: Creating a patient with related observations and conditions where all must succeed together
+Transaction bundles
 
-###### Note
+- Create a patient with related observations and conditions during an emergency department admission where all data must be recorded together.
+- Update a patient's medication list and related allergy information that must remain consistent.
+- Record a complete encounter with the patient, observations, procedures, and billing information as a single atomic unit.
 
-Both use Bundle resource type but differ in 'type' field:
+###### Important
+
+Both batch and transaction bundles use the same `Bundle` resource structure. The only difference is the value of the `type` field.
+
+The following example shows a transaction bundle with multiple resource types and operations.
 
 ```
 {
@@ -333,9 +347,9 @@ The server returns a response showing the `Patient` and
 `Medication` resources created as a result of the
 `Bundle` batch type request.
 
-## Conditional PUTs in Bundles
+## Conditional PUTs in bundles
 
-AWS HealthLake supports conditional updates within Bundles using the following query parameters:
+AWS HealthLake supports conditional updates within bundles using the following query parameters:
 
 - `_id` (standalone)
 - `_id` in combination with one of the following:
@@ -343,16 +357,18 @@ AWS HealthLake supports conditional updates within Bundles using the following q
   - `_createdAt`
   - `_lastUpdated`
 
-Based on the results of matching the conditions provided to the existing resource, the following will occur with the associated result codes indicating the action taken:
+When you use conditional PUTs in bundles, AWS HealthLake evaluates the query parameters against existing resources and takes action based on the match results.
 
-When creating or updating FHIR resources, the system handles different scenarios based on resource ID provision and existing matches:
+| Conditional update behavior                   | Scenario                | HTTP status                                   | Action taken |
+| --------------------------------------------- | ----------------------- | --------------------------------------------- | ------------ |
+| Resource without ID provided                  | 201 Created             | Always creates a new resource.                |
+| Resource with new ID (no match)               | 201 Created             | Creates a new resource with the specified ID. |
+| Resource with existing ID (single match)      | 200 OK                  | Updates the matching resource.                |
+| Resource with existing ID (conflict detected) | 409 Conflict            | Returns an error. No changes are made.        |
+| Resource with existing ID (ID mismatch)       | 400 Bad Request         | Returns an error. No changes are made.        |
+| Multiple resources match conditions           | 412 Precondition Failed | Returns an error. No changes are made.        |
 
-- Resources without IDs are always created (201).
-- Resources with new IDs are created (201).
-- Resources with existing IDs either update the matching resource (200) or return errors if there's a conflict (409) or ID mismatch (400).
-- Multiple matching resources trigger a precondition failure (419).
-
-In the example Bundle with conditional update, the Patient resource with FHIR ID `456` will only update if the condition `_lastUpdated=lt2025-04-20` is met.
+In the following example bundle with a conditional update, the `Patient` resource with FHIR ID `476` updates only if the condition `_lastUpdated=lt2025-04-20` is met.
 
 ```
 {
@@ -641,7 +657,11 @@ searchable as expected if these errors are present.
 
 ## Limited support for Bundle type "message"
 
-HealthLake provides limited support for FHIR Bundle type `message` through an internal conversion process. This support is designed for scenarios where message Bundles cannot be reformatted at the source.
+HealthLake provides limited support for FHIR Bundle type `message` through an internal conversion process. This support is designed for scenarios where message bundles cannot be reformatted at the source, such as ingesting ADT (Admission, Discharge, Transfer) feeds from legacy hospital systems.
+
+###### Warning
+
+This feature requires explicit AWS account allowlisting and does not enforce FHIR R4 message semantics or referential integrity. Contact AWS Support to request enablement for your account before using message bundles.
 
 ### Key differences from standard message processing
 
@@ -655,37 +675,372 @@ HealthLake provides limited support for FHIR Bundle type `message` through an in
 - Inter-resource references are not validated
 - Requires explicit account allowlisting
 
-### Typical use case
-
-Ingesting ADT (Admission, Discharge, Transfer) feeds from hospital systems that send Bundle type `message` containing related Patient, Encounter, Organization, and Provenance resources.
-
 ### Example message Bundle structure
 
 ```
 {
-  "resourceType": "Bundle",
-  "type": "message",
-  "entry": [
-    {
-      "resource": {
-        "resourceType": "MessageHeader",
-        "eventCoding": {
-          "system": "http://hl7.org/fhir/us/davinci-alerts/CodeSystem/notification-event",
-          "code": "notification-admit"
-        },
-        "focus": [{"reference": "Encounter/example-id"}]
-      }
-    },
-    {
-      "resource": {"resourceType": "Patient", "id": "example-id"}
-    },
-    {
-      "resource": {"resourceType": "Encounter", "id": "example-id"}
-    }
-  ]
-}
+              "resourceType": "Bundle",
+              "type": "message",
+              "entry": [
+                {
+                  "resource": {
+                    "resourceType": "MessageHeader",
+                    "eventCoding": {
+                      "system": "http://hl7.org/fhir/us/davinci-alerts/CodeSystem/notification-event",
+                      "code": "notification-admit"
+                    },
+                    "focus": [{"reference": "Encounter/example-id"}]
+                  }
+                },
+                {
+                  "resource": {"resourceType": "Patient", "id": "example-id"}
+                },
+                {
+                  "resource": {"resourceType": "Encounter", "id": "example-id"}
+                }
+              ]
+            }
+
 ```
 
 ###### Note
 
 Each resource is stored independently as if submitted via individual PUT operations. If full FHIR messaging semantics or referential integrity validation are required, pre-process message Bundles or implement application-level validation before submission.
+
+## Asynchronous bundle transactions
+
+AWS HealthLake supports asynchronous `Bundle` type `transaction` that allows you to submit
+transactions with up to 500 resources. When you submit an
+asynchronous transaction, HealthLake queues it for processing and immediately returns a
+polling URL. You can use this URL to check the status and retrieve the response. This follows the [FHIR async
+bundle pattern](https://hl7.org/fhir/async-bundle.html "https://hl7.org/fhir/async-bundle.html").
+
+###### When to use asynchronous transactions
+
+- You need to submit more than 100 resources (synchronous limit) in a single transaction.
+- You want to avoid blocking your application while waiting for transaction processing to complete.
+- You need to process high volumes of related resources with better throughput.
+
+###### Important
+
+Polling results are available for 90 days after the transaction is completed. After this 90-day period, the polling URL no longer returns results. Design your integration to retrieve and store results within this window.
+
+###### Note
+
+Synchronous `Bundle` type `transaction` continues to support up to 100 resources and is the default processing mode. If you submit a `Bundle` type `transaction` with more than 100 resources without the `Prefer: respond-async` header, HealthLake returns a `422 Unprocessable Entity` error. Bundles with type `batch` are not supported for asynchronous processing—only `Bundle` type `transaction` can be submitted asynchronously (with up to 500 operations).
+
+### Submitting an asynchronous transaction
+
+To submit an asynchronous transaction, send a `POST` request to the
+data store endpoint with the `Prefer: respond-async` header. The bundle
+must have type `transaction`. Bundles with type `batch`
+are not supported for asynchronous bundle processing.
+
+HealthLake does initial validations for the bundle at submission time.
+If validation succeeds, HealthLake returns HTTP 202 Accepted with a
+`content-location` response header that contains the polling URL.
+
+###### To submit an asynchronous `Bundle` type `transaction`
+
+1. Send a `POST` request to the HealthLake data store endpoint.
+
+```
+POST https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/
+```
+
+2. Construct a JSON body for the request with bundle type
+   `transaction`. For the purpose of this procedure, save the file
+   as `async-transaction.json`.
+
+```
+{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "active": true,
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Smith",
+                        "given": ["Jane"]
+                    }
+                ],
+                "gender": "female",
+                "birthDate": "1990-01-15"
+            },
+            "request": {
+                "method": "POST",
+                "url": "Patient"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Observation",
+                "status": "final",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "85354-9",
+                            "display": "Blood pressure panel"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "urn:uuid:example-patient-id"
+                }
+            },
+            "request": {
+                "method": "POST",
+                "url": "Observation"
+            }
+        }
+    ]
+}
+```
+
+3. Send the request with the `Prefer: respond-async` header. The
+   FHIR `Bundle` transaction type uses a `POST`
+   request with either [AWS Signature Version
+   4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") or SMART on FHIR authorization. The following code example
+   uses the `curl` command line tool for demonstration
+   purposes.
+
+SigV4
+SigV4 authorization
+
+```
+curl --request POST \
+  'https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/' \
+  --aws-sigv4 'aws:amz:`region`:healthlake' \
+  --user "`$AWS_ACCESS_KEY_ID`:`$AWS_SECRET_ACCESS_KEY`" \
+  --header "x-amz-security-token:`$AWS_SESSION_TOKEN`" \
+  --header 'Accept: application/json' \
+  --header 'Prefer: respond-async' \
+  --data @async-transaction.json
+
+```
+
+SMART on FHIR
+SMART on FHIR authorization example for the [`IdentityProviderConfiguration`](../APIReference/API_IdentityProviderConfiguration.md "../APIReference/API_IdentityProviderConfiguration.md") data type.
+
+```
+{
+    "AuthorizationStrategy": "SMART_ON_FHIR",
+    "FineGrainedAuthorizationEnabled": true,
+    "IdpLambdaArn": "arn:aws:lambda:your-region:your-account-id:function:your-lambda-name",
+    "Metadata": "{\"issuer\":\"https://ehr.example.com\", \"jwks_uri\":\"https://ehr.example.com/.well-known/jwks.json\",\"authorization_endpoint\":\"https://ehr.example.com/auth/authorize\",\"token_endpoint\":\"https://ehr.token.com/auth/token\",\"token_endpoint_auth_methods_supported\":[\"client_secret_basic\",\"foo\"],\"grant_types_supported\":[\"client_credential\",\"foo\"],\"registration_endpoint\":\"https://ehr.example.com/auth/register\",\"scopes_supported\":[\"openId\",\"profile\",\"launch\"],\"response_types_supported\":[\"code\"],\"management_endpoint\":\"https://ehr.example.com/user/manage\",\"introspection_endpoint\":\"https://ehr.example.com/user/introspect\",\"revocation_endpoint\":\"https://ehr.example.com/user/revoke\",\"code_challenge_methods_supported\":[\"S256\"],\"capabilities\":[\"launch-ehr\",\"sso-openid-connect\",\"client-public\",\"permission-v2\"]}"
+}
+
+```
+
+The caller can assign permissions in the authorization lambda. For more
+information, see [OAuth 2.0
+scopes](reference-smart-on-fhir-oauth-scopes.md "reference-smart-on-fhir-oauth-scopes.md"). 4. On successful submission, the server returns HTTP 202 Accepted. The
+`content-location` response header contains the polling URL.
+The response body is an `OperationOutcome` resource.
+
+```
+HTTP/1.1 202 Accepted
+content-location: https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/Transaction/`transactionId`
+```
+
+```
+{
+    "resourceType": "OperationOutcome",
+    "issue": [
+        {
+            "severity": "information",
+            "code": "informational",
+            "diagnostics": "Submitted Asynchronous Bundle Transaction",
+            "location": [
+                "https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/Transaction/`transactionId`"
+            ]
+        }
+    ]
+}
+```
+
+### Polling for transaction status
+
+After you submit an asynchronous transaction, use the polling URL from the
+`content-location` response header to check the transaction status.
+Send a `GET` request to the polling URL.
+
+###### Note
+
+For SMART on FHIR enabled data stores, the authorization token must include
+`read` permissions on the `Transaction` resource type
+to poll for transaction status. For more information about SMART on FHIR
+scopes, see [SMART on FHIR OAuth 2.0 scopes supported by HealthLake](reference-smart-on-fhir-oauth-scopes.md "reference-smart-on-fhir-oauth-scopes.md").
+
+Send a `GET` request to the polling URL. The following example uses
+the `curl` command line tool.
+
+SigV4
+SigV4 authorization
+
+```
+curl --request GET \
+  'https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/Transaction/`transactionId`' \
+  --aws-sigv4 'aws:amz:`region`:healthlake' \
+  --user "`$AWS_ACCESS_KEY_ID`:`$AWS_SECRET_ACCESS_KEY`" \
+  --header "x-amz-security-token:`$AWS_SESSION_TOKEN`" \
+  --header 'Accept: application/json'
+```
+
+SMART on FHIR
+SMART on FHIR authorization. The authorization token must include
+`read` permissions on the `Transaction`
+resource type.
+
+```
+curl --request GET \
+  'https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/Transaction/`transactionId`' \
+  --header 'Authorization: Bearer `$SMART_ACCESS_TOKEN`' \
+  --header 'Accept: application/json'
+```
+
+The following table describes the possible responses.
+
+| Polling response codes | HTTP status                        | Meaning                                              | Response body |
+| ---------------------- | ---------------------------------- | ---------------------------------------------------- | ------------- |
+| 202 Accepted           | Transaction is queued              | `OperationOutcome` with diagnostics<br>"SUBMITTED"   |
+| 202 Accepted           | Transaction is being processed     | `OperationOutcome` with diagnostics<br>"IN_PROGRESS" |
+| 200 OK                 | Transaction completed successfully | `Bundle` with type<br>`transaction-response`         |
+| 4xx/5xx                | Transaction failed                 | `OperationOutcome` with error details                |
+
+The following examples show each response type.
+
+###### Transaction queued (202)
+
+```
+{
+    "resourceType": "OperationOutcome",
+    "id": "`transactionId`",
+    "issue": [
+        {
+            "severity": "information",
+            "code": "informational",
+            "diagnostics": "SUBMITTED"
+        }
+    ]
+}
+```
+
+###### Transaction processing (202)
+
+```
+{
+    "resourceType": "OperationOutcome",
+    "id": "`transactionId`",
+    "issue": [
+        {
+            "severity": "information",
+            "code": "informational",
+            "diagnostics": "IN_PROGRESS"
+        }
+    ]
+}
+```
+
+###### Transaction completed (200)
+
+```
+{
+    "resourceType": "Bundle",
+    "type": "transaction-response",
+    "entry": [
+        {
+            "response": {
+                "status": "201",
+                "location": "Patient/example-id/_history/1",
+                "etag": "W/\"1\"",
+                "lastModified": "2024-01-15T10:30:00.000Z"
+            }
+        },
+        {
+            "response": {
+                "status": "201",
+                "location": "Observation/example-id/_history/1",
+                "etag": "W/\"1\"",
+                "lastModified": "2024-01-15T10:30:00.000Z"
+            }
+        }
+    ]
+}
+```
+
+###### Transaction failed (4xx/5xx)
+
+```
+{
+    "resourceType": "OperationOutcome",
+    "issue": [
+        {
+            "severity": "error",
+            "code": "exception",
+            "diagnostics": "Transaction failed: conflict detected on resource Patient/example-id"
+        }
+    ]
+}
+```
+
+### Processing order
+
+Asynchronous bundles of type `transaction` are queued but are not processed in strict submission order. HealthLake optimizes processing based on available capacity and system load.
+
+###### Important
+
+Do not depend on transactions being processed in the order they were submitted. For example, if you submit Transaction A at 10:00 AM and Transaction B at 10:01 AM, Transaction B might complete before Transaction A. Design your application to:
+
+- Handle out-of-order completion.
+- Use the polling URL to track each transaction independently.
+- Implement application-level sequencing if order matters for your use case.
+
+### Quotas and throttling
+
+The following quotas and rate limits apply to asynchronous transactions.
+
+| Asynchronous transaction quotas                 | Quota | Value | Adjustable |
+| ----------------------------------------------- | ----- | ----- | ---------- |
+| Maximum operations per asynchronous transaction | 500   | No    |
+| Maximum pending transactions per data store     | 500   | Yes   |
+
+- Asynchronous transactions share the same API rate limits defined under
+  [Service quotas](reference-healthlake-endpoints-quotas.md#reference-healthlake-quotas "reference-healthlake-endpoints-quotas.md#reference-healthlake-quotas").
+- Polling for transaction status shares the same API rate limits as read
+  (`GET`) operations on FHIR resources.
+- If the pending transaction limit is reached, subsequent submissions
+  return an error until existing transactions complete.
+
+### Error handling
+
+For a 'transaction' bundle, all FHIR resources contained in the bundle are
+processed as an atomic operation. All the resources in the operation must
+succeed, or no operations in the bundle are processed.
+
+Errors fall into two categories: submission errors that HealthLake returns
+synchronously, and processing errors that you retrieve through polling.
+
+###### Submission errors
+
+HealthLake validates the bundle at submission time and returns errors synchronously
+before the transaction is queued. Submission errors include invalid FHIR resource
+validation errors, unsupported resource types, exceeding the 500 operations limit,
+and using the `Prefer: respond-async` header with batch bundles. If the
+pending transaction limit for the data store has been reached, HealthLake returns a
+`ThrottlingException`. When a submission error occurs, the
+transaction will not be queued.
+
+###### Processing errors
+
+Processing errors occur after the transaction has been queued and are returned
+through the polling URL. These include transaction conflicts, where another
+operation modified a resource that is part of the transaction, and server errors
+during processing. When a processing error occurs, no resource mutations are done
+for resources in the transaction. The polling URL will return an
+`OperationOutcome` with the error details.

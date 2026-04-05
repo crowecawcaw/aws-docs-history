@@ -1,45 +1,73 @@
-# Modifying Resources with PATCH operation
+# Modifying Resources with PATCH Operation
 
-AWS HealthLake now supports the PATCH operation for FHIR resources, enabling you to modify resources by targeting specific elements to add, replace, or delete without updating the entire resource. This operation is particularly useful for remote clients or those with limited bandwidth looking to reduce network usage. This operation is particularly useful when you need to:
+AWS HealthLake supports the PATCH operation for FHIR resources, enabling you to modify resources by targeting specific elements to add, replace, or delete without updating the entire resource. This operation is particularly useful when you need to:
 
 - Make targeted updates to large resources
 - Reduce network bandwidth usage
 - Perform atomic modifications on specific resource elements
 - Minimize the risk of overwriting concurrent changes
+- Update resources as part of batch and transaction workflows
+
+## Supported PATCH Formats
+
+AWS HealthLake supports two standard PATCH formats:
+
+### JSON Patch (RFC 6902)
+
+Uses JSON Pointer syntax to target elements by their position in the resource structure.
+
+**Content-Type:** `application/json-patch+json`
+
+### FHIRPath Patch (FHIR R4 Specification)
+
+Uses FHIRPath expressions to target elements by their content and relationships, providing a FHIR-native approach to patching.
+
+**Content-Type:** `application/fhir+json`
 
 ## Usage
 
-The PATCH operation can be invoked on FHIR resources using the PATCH HTTP method:
+### Direct PATCH Operations
 
-###### Supported Operations
+The PATCH operation can be invoked directly on FHIR resources using the PATCH HTTP method:
 
 ```
 PATCH [base]/[resource-type]/[id]{?_format=[mime-type]}
 ```
 
-## Supported PATCH Operations
+### PATCH in Bundles
 
-HealthLake supports the following [JSON Patch](https://datatracker.ietf.org/doc/html/rfc6902#section-4 "https://datatracker.ietf.org/doc/html/rfc6902#section-4") operations according to RFC 6902:
+PATCH operations can be included as entries within FHIR Bundles of type `batch` or `transaction`, enabling you to combine patch operations with other FHIR interactions (create, read, update, delete) in a single request.
 
-| Operation | Description                                                                                                                                                                   |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `add`     | Add a new value to the resource                                                                                                                                               |
-| `remove`  | Remove a value from the resource                                                                                                                                              |
-| `replace` | Replace an existing value in the resource                                                                                                                                     |
-| `move`    | Functionally identical to a "remove" operation on the "from" location, followed immediately by an "add" operation at the target location with the value that was just removed |
-| `copy`    | Copy the value at a specified location to the target location                                                                                                                 |
-| `test`    | Test that a value at the target location is equal to a specified value                                                                                                        |
+- **Transaction bundles**: All entries succeed or fail atomically
+- **Batch bundles**: Each entry is processed independently
 
-## Request Headers
+## JSON Patch Format
 
-| Header         | Required | Description                                    |
-| -------------- | -------- | ---------------------------------------------- |
-| `Content-Type` | Yes      | Must be `application/json-patch+json`          |
-| `If-Match`     | No       | Version-specific conditional update using ETag |
+### Supported Operations
 
-## Examples
+| Operation | Description                                                       |
+| --------- | ----------------------------------------------------------------- |
+| `add`     | Add a new value to the resource                                   |
+| `remove`  | Remove a value from the resource                                  |
+| `replace` | Replace an existing value in the resource                         |
+| `move`    | Remove a value from one location and add it to another            |
+| `copy`    | Copy a value from one location to another                         |
+| `test`    | Test that a value at the target location equals a specified value |
 
-###### PATCH Request with Multiple Operations
+### Path Syntax
+
+JSON Patch uses JSON Pointer syntax (RFC 6901):
+
+| Path Example        | Description                  |
+| ------------------- | ---------------------------- |
+| `/name/0/family`    | First name's family element  |
+| `/telecom/-`        | Append to telecom array      |
+| `/active`           | Root-level active element    |
+| `/address/0/line/1` | Second line of first address |
+
+### Examples
+
+###### Direct JSON Patch Request with Multiple Operations
 
 ```
 PATCH [base]/Patient/example
@@ -57,7 +85,7 @@ If-Match: W/"1"
     "path": "/telecom/-",
     "value": {
       "system": "phone",
-      "value": "************",
+      "value": "555-555-5555",
       "use": "home"
     }
   },
@@ -83,7 +111,7 @@ If-Match: W/"1"
 ]
 ```
 
-###### PATCH Request with Single Operation
+###### Direct JSON Patch Request with Single Operation
 
 ```
 PATCH [base]/Patient/example
@@ -98,7 +126,111 @@ Content-Type: application/json-patch+json
 ]
 ```
 
-###### Sample Response
+###### JSON Patch in Bundle
+
+Use a Binary resource containing the base64-encoded JSON Patch payload:
+
+```
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [{
+    "resource": {
+      "resourceType": "Binary",
+      "contentType": "application/json-patch+json",
+      "data": "W3sib3AiOiJhZGQiLCJwYXRoIjoiL2JpcnRoRGF0ZSIsInZhbHVlIjoiMTk5MC0wMS0wMSJ9XQ=="
+    },
+    "request": {
+      "method": "PATCH",
+      "url": "Patient/123"
+    }
+  }]
+}
+```
+
+## FHIRPath Patch Format
+
+### Supported Operations
+
+| Operation | Description                                        |
+| --------- | -------------------------------------------------- |
+| `add`     | Add a new element to a resource                    |
+| `insert`  | Insert an element at a specific position in a list |
+| `delete`  | Remove an element from a resource                  |
+| `replace` | Replace the value of an existing element           |
+| `move`    | Reorder elements within a list                     |
+
+### Path Syntax
+
+FHIRPath Patch uses FHIRPath expressions, supporting:
+
+- **Index-based access**: `Patient.name[0]`
+- **Filtering with `where()`**: `Patient.name.where(use = 'official')`
+- **Boolean logic**: `Patient.telecom.where(system = 'phone' and use = 'work')`
+- **Subsetting functions**: `first()`, `last()`
+- **Existence checks**: `exists()`, `count()`
+- **Polymorphic navigation**: `Observation.value`
+
+### Examples
+
+###### Direct FHIRPath Patch Request
+
+```
+PATCH [base]/Patient/123
+Content-Type: application/fhir+json
+Authorization: ...
+
+{
+  "resourceType": "Parameters",
+  "parameter": [{
+    "name": "operation",
+    "part": [
+      { "name": "type", "valueCode": "add" },
+      { "name": "path", "valueString": "Patient" },
+      { "name": "name", "valueString": "birthDate" },
+      { "name": "value", "valueDate": "1990-01-01" }
+    ]
+  }]
+}
+```
+
+###### FHIRPath Patch in Bundle
+
+Use a Parameters resource as the entry resource with `method: PATCH`:
+
+```
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [{
+    "resource": {
+      "resourceType": "Parameters",
+      "parameter": [{
+        "name": "operation",
+        "part": [
+          { "name": "type", "valueCode": "add" },
+          { "name": "path", "valueString": "Patient" },
+          { "name": "name", "valueString": "birthDate" },
+          { "name": "value", "valueDate": "1990-01-01" }
+        ]
+      }]
+    },
+    "request": {
+      "method": "PATCH",
+      "url": "Patient/123"
+    }
+  }]
+}
+```
+
+## Request Headers
+
+| Header         | Required | Description                                                                                |
+| -------------- | -------- | ------------------------------------------------------------------------------------------ |
+| `Content-Type` | Yes      | `application/json-patch+json` for JSON Patch or `application/fhir+json` for FHIRPath Patch |
+| `If-Match`     | No       | Version-specific conditional update using ETag                                             |
+
+## Sample Response
 
 The operation returns the updated resource with new version information:
 
@@ -121,7 +253,7 @@ Last-Modified: Mon, 05 May 2025 10:10:10 GMT
   "telecom": [
     {
       "system": "phone",
-      "value": "************",
+      "value": "555-555-5555",
       "use": "home"
     }
   ],
@@ -132,40 +264,48 @@ Last-Modified: Mon, 05 May 2025 10:10:10 GMT
 }
 ```
 
-## JSON Patch Path Syntax
-
-The path parameter uses JSON Pointer syntax (RFC 6901):
-
-| Path Example        | Description                  |
-| ------------------- | ---------------------------- |
-| `/name/0/family`    | First name's family element  |
-| `/telecom/-`        | Append to telecom array      |
-| `/active`           | Root-level active element    |
-| `/address/0/line/1` | Second line of first address |
-
 ## Behavior
 
 The PATCH operation:
 
-1. Validates the JSON Patch syntax according to RFC 6902 and RFC 6901
-2. Applies operations atomically - all operations succeed or all fail
-3. Updates the resource version ID and creates a new history entry
-4. Preserves the original resource in history before applying changes
-5. Validates FHIR resource constraints after applying patches
-6. Supports conditional updates using If-Match header with ETag
+- Validates the patch syntax according to the appropriate specification (RFC 6902 for JSON Patch, FHIR R4 for FHIRPath Patch)
+- Applies operations atomically - all operations succeed or all fail
+- Updates the resource version ID and creates a new history entry
+- Preserves the original resource in history before applying changes
+- Validates FHIR resource constraints after applying patches
+- Supports conditional updates using If-Match header with ETag
 
 ## Error Handling
 
 The operation handles the following error conditions:
 
-- 400 Bad Request: Invalid patch syntax (non-conformant request or malformed JSON Patch)
-- 404 Not Found: Resource not found (specified ID does not exist)
-- 409 Conflict: Version conflict (concurrent updates or non-current version ID provided)
-- 422 Unprocessable Entity: Patch operations cannot be applied to the specified resource elements
+- **400 Bad Request**: Invalid patch syntax (non-conformant request or malformed patch document)
+- **404 Not Found**: Resource not found (specified ID does not exist)
+- **409 Conflict**: Version conflict (concurrent updates or non-current version ID provided)
+- **422 Unprocessable Entity**: Patch operations cannot be applied to the specified resource elements
 
-## Caveats
+## Summary of Capabilities
 
-- Only `application/json-patch+json` content type is supported
+| Capability             | JSON Patch                             | FHIRPath Patch                     |
+| ---------------------- | -------------------------------------- | ---------------------------------- |
+| **Content Type**       | `application/json-patch+json`          | `application/fhir+json`            |
+| **Path Format**        | JSON Pointer (RFC 6901)                | FHIRPath expressions               |
+| **Direct PATCH API**   | Supported                              | Supported                          |
+| **Bundle Batch**       | Supported (via Binary)                 | Supported (via Parameters)         |
+| **Bundle Transaction** | Supported (via Binary)                 | Supported (via Parameters)         |
+| **Operations**         | add, remove, replace, move, copy, test | add, insert, delete, replace, move |
+
+## Limitations
+
 - Conditional PATCH operations using search conditions are not supported
+- JSON Patch in bundles must use Binary resources with base64-encoded content
+- FHIRPath Patch in bundles must use Parameters resources
 
-For more information about PATCH operations, see the [FHIR R4 PATCH](https://hl7.org/fhir/http.html#patch "https://hl7.org/fhir/http.html#patch") documentation.
+## Additional Resources
+
+For more information about PATCH operations, see:
+
+- [FHIR R4 PATCH Documentation](https://hl7.org/fhir/http.html#patch "https://hl7.org/fhir/http.html#patch")
+- [FHIR R4 FHIRPath Patch Specification](https://hl7.org/fhir/fhirpatch.html "https://hl7.org/fhir/fhirpatch.html")
+- [RFC 6902 - JSON Patch](https://datatracker.ietf.org/doc/html/rfc6902#section-4 "https://datatracker.ietf.org/doc/html/rfc6902#section-4")
+- [RFC 6901 - JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901 "https://datatracker.ietf.org/doc/html/rfc6901")
