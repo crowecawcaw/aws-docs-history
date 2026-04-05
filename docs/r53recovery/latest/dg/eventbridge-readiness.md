@@ -1,5 +1,11 @@
 # Using readiness check in ARC with Amazon EventBridge
 
+###### Note
+
+The readiness check feature in Amazon Application Recovery Controller (ARC) will no longer be open to new customers
+starting on April 30, 2026. Existing customers can continue to use the service as normal. For more information, see
+[Amazon Application Recovery Controller (ARC) readiness check availability change](arc-readiness-availability-change.md "arc-readiness-availability-change.md").
+
 Using Amazon EventBridge, you can set up event-driven rules that monitor your readiness check resources in Amazon Application Recovery Controller (ARC),
 and then initiate target actions that use other AWS services. For
 example, you can set a rule for sending out email notifications by signaling an Amazon SNS topic when a readiness check status

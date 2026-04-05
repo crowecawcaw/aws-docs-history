@@ -1,5 +1,11 @@
 # Resource types and ARN formats in ARC
 
+###### Note
+
+The readiness check feature in Amazon Application Recovery Controller (ARC) will no longer be open to new customers
+starting on April 30, 2026. Existing customers can continue to use the service as normal. For more information, see
+[Amazon Application Recovery Controller (ARC) readiness check availability change](arc-readiness-availability-change.md "arc-readiness-availability-change.md").
+
 When you create a resource set in Amazon Application Recovery Controller (ARC), you specify the type of resource to include in the set and Amazon
 Resource Names (ARNs) for each of the resources to include. ARC expects a specific ARN format for each resource type.
 This section lists the resource types supported by ARC and the associated ARN formats for each one.

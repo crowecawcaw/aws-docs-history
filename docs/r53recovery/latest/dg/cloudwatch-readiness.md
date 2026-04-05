@@ -1,5 +1,11 @@
 # Using Amazon CloudWatch with readiness check in ARC
 
+###### Note
+
+The readiness check feature in Amazon Application Recovery Controller (ARC) will no longer be open to new customers
+starting on April 30, 2026. Existing customers can continue to use the service as normal. For more information, see
+[Amazon Application Recovery Controller (ARC) readiness check availability change](arc-readiness-availability-change.md "arc-readiness-availability-change.md").
+
 Amazon Application Recovery Controller (ARC) publishes data points to Amazon CloudWatch for your readiness checks.
 CloudWatch enables you to retrieve statistics about those data points as an ordered set of
 time-series data, known as _metrics_. Think of a metric as a variable

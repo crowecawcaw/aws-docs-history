@@ -1,5 +1,11 @@
 # How readiness checks, resource sets, and readiness scopes work together
 
+###### Note
+
+The readiness check feature in Amazon Application Recovery Controller (ARC) will no longer be open to new customers
+starting on April 30, 2026. Existing customers can continue to use the service as normal. For more information, see
+[Amazon Application Recovery Controller (ARC) readiness check availability change](arc-readiness-availability-change.md "arc-readiness-availability-change.md").
+
 Readiness checks always audit groups of resources in _resource sets_. You create resource sets (separately, or while you're creating
 a readiness check) to group the resources that are in the cells (Availability Zones or AWS Regions) in your ARC recovery group, so that you can
 define readiness checks. A resource set is typically a group of same type of resources (like Network Load Balancers) but can also be DNS target resources, for

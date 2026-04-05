@@ -1,5 +1,11 @@
 # Creating cross-account authorizations in ARC
 
+###### Note
+
+The readiness check feature in Amazon Application Recovery Controller (ARC) will no longer be open to new customers
+starting on April 30, 2026. Existing customers can continue to use the service as normal. For more information, see
+[Amazon Application Recovery Controller (ARC) readiness check availability change](arc-readiness-availability-change.md "arc-readiness-availability-change.md").
+
 You might have your resources distributed across multiple AWS accounts, which can make it challenging to get a comprehensive
 view of your application’s health. It can also make it hard to get the information required to make quick decisions. To help
 streamline this for readiness check in Amazon Application Recovery Controller (ARC), you can use _cross-account authorization_.

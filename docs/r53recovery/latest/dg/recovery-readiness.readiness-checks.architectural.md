@@ -1,5 +1,11 @@
 # DNS target resource readiness checks: Auditing resiliency readiness
 
+###### Note
+
+The readiness check feature in Amazon Application Recovery Controller (ARC) will no longer be open to new customers
+starting on April 30, 2026. Existing customers can continue to use the service as normal. For more information, see
+[Amazon Application Recovery Controller (ARC) readiness check availability change](arc-readiness-availability-change.md "arc-readiness-availability-change.md").
+
 With DNS target resource readiness checks in ARC, you can audit the architectural and
 resiliency readiness of your application. This type of readiness check continually scans
 your application's architecture and Amazon Route 53 routing policies to audit for cross-zone and cross-Region

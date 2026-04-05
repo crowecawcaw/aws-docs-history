@@ -1,5 +1,11 @@
 # Tagging for readiness check in Amazon Application Recovery Controller (ARC)
 
+###### Note
+
+The readiness check feature in Amazon Application Recovery Controller (ARC) will no longer be open to new customers
+starting on April 30, 2026. Existing customers can continue to use the service as normal. For more information, see
+[Amazon Application Recovery Controller (ARC) readiness check availability change](arc-readiness-availability-change.md "arc-readiness-availability-change.md").
+
 Tags are words or phrases (meta data) that you use to identify and organize your AWS resources. You can add multiple
 tags to each resource, and each tag includes a key and a value that you define. For example, the key might be environment
 and the value might be production. You can search and filter your resources based on the tags you add.

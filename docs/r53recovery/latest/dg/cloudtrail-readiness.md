@@ -1,5 +1,11 @@
 # Logging readiness check API calls using AWS CloudTrail
 
+###### Note
+
+The readiness check feature in Amazon Application Recovery Controller (ARC) will no longer be open to new customers
+starting on April 30, 2026. Existing customers can continue to use the service as normal. For more information, see
+[Amazon Application Recovery Controller (ARC) readiness check availability change](arc-readiness-availability-change.md "arc-readiness-availability-change.md").
+
 is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by a user, role, or an AWS service in ARC. CloudTrail captures all API calls for
 ARC as events. The calls captured include calls from the ARC console and

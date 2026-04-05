@@ -1,5 +1,11 @@
 # Examples of using ARC readiness check API operations with the AWS CLI
 
+###### Note
+
+The readiness check feature in Amazon Application Recovery Controller (ARC) will no longer be open to new customers
+starting on April 30, 2026. Existing customers can continue to use the service as normal. For more information, see
+[Amazon Application Recovery Controller (ARC) readiness check availability change](arc-readiness-availability-change.md "arc-readiness-availability-change.md").
+
 This section walks through simple application examples, using the AWS Command Line Interface to work with readiness check
 features in Amazon Application Recovery Controller (ARC) using API operations. The examples are intended to help you develop a basic
 understanding of how to work with readiness check capabilities using the CLI.

@@ -1,5 +1,11 @@
 # How readiness rules determine readiness status
 
+###### Note
+
+The readiness check feature in Amazon Application Recovery Controller (ARC) will no longer be open to new customers
+starting on April 30, 2026. Existing customers can continue to use the service as normal. For more information, see
+[Amazon Application Recovery Controller (ARC) readiness check availability change](arc-readiness-availability-change.md "arc-readiness-availability-change.md").
+
 ARC readiness checks determine readiness status based on the predefined rules for each resource type and the way those rules are defined.
 ARC includes one group of rules for each type of resource that it supports. For example, ARC has groups of readiness rules for Amazon Aurora clusters,
 Auto Scaling groups, and so on. Some readiness rules compare resources in a set to each other, and some look at specific information about each resource

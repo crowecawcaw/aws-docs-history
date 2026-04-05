@@ -1,5 +1,11 @@
 # Readiness rules descriptions in ARC
 
+###### Note
+
+The readiness check feature in Amazon Application Recovery Controller (ARC) will no longer be open to new customers
+starting on April 30, 2026. Existing customers can continue to use the service as normal. For more information, see
+[Amazon Application Recovery Controller (ARC) readiness check availability change](arc-readiness-availability-change.md "arc-readiness-availability-change.md").
+
 This section lists the readiness rules descriptions for all the types of resources supported by Amazon Application Recovery Controller (ARC). To see a list of the resource types
 supported by ARC, see [Resource types and ARN formats in ARC](recovery-readiness.resource-types-arns.md "recovery-readiness.resource-types-arns.md").
 

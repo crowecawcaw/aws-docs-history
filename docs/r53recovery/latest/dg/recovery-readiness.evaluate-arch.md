@@ -1,5 +1,11 @@
 # Getting architecture recommendations in ARC
 
+###### Note
+
+The readiness check feature in Amazon Application Recovery Controller (ARC) will no longer be open to new customers
+starting on April 30, 2026. Existing customers can continue to use the service as normal. For more information, see
+[Amazon Application Recovery Controller (ARC) readiness check availability change](arc-readiness-availability-change.md "arc-readiness-availability-change.md").
+
 If you have an existing application, Amazon Application Recovery Controller (ARC) can evaluate the architecture of
 your application and routing policies to provide recommendations
 for modifying the design to improve your application's recovery resiliency. After you create

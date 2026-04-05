@@ -1,5 +1,11 @@
 # Readiness check components
 
+###### Note
+
+The readiness check feature in Amazon Application Recovery Controller (ARC) will no longer be open to new customers
+starting on April 30, 2026. Existing customers can continue to use the service as normal. For more information, see
+[Amazon Application Recovery Controller (ARC) readiness check availability change](arc-readiness-availability-change.md "arc-readiness-availability-change.md").
+
 The following diagram illustrates a sample recovery group that is configured to
 support the readiness check feature. Resources in this example are grouped into cells (by
 AWS Region) and nested cells (by Availability Zones) in a recovery group. There is an
