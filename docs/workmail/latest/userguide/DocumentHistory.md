@@ -1,3 +1,8 @@
+End of support notice: On March 31, 2027, AWS
+will end support for Amazon WorkMail. After March 31, 2027, you will
+no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources.
+For more information, see [Amazon WorkMail end of support](../adminguide/workmail-end-of-support.md "../adminguide/workmail-end-of-support.md").
+
 # Document history
 
 The following table describes important changes in each release of the _Amazon WorkMail User Guide_.
@@ -5,6 +10,7 @@ For notification about updates to this documentation, you can subscribe to an RS
 
 | Change                                        | Description                                                                                                                                                                                                                                                                                                                                                           | Date               |
 | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| End of support notice                         | End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027,<br>you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see<br>[Amazon WorkMail end of support](../adminguide/workmail-end-of-support.md "../adminguide/workmail-end-of-support.md").       | March 31, 2026     |
 | Transport Layer Security (TLS) support        | Amazon WorkMail discontinued support for Transport Layer Security (TLS) 1.0 and 1.1. If you are using TLS 1.0 or 1.1, you must upgrade the TLS version to 1.2.                                                                                                                                                                                                        | November 2, 2023   |
 | Support for Windows 11 Mail app               | You can now setup Windows 11 Mail app with Amazon WorkMail. For more information, see [Setting up the Windows 11 Mail app](connect_win11_mail.md "connect_win11_mail.md") in<br>the _Amazon WorkMail User Guide_.                                                                                                                                                     | October 4, 2022    |
 | Support for subaddresses                      | Amazon WorkMail supports sending emails to subaddresses. For more information, see [Sending email to a subaddress](email-messages.md#email-sub-address "email-messages.md#email-sub-address") in<br>the _Amazon WorkMail User Guide_.                                                                                                                                 | August 17, 2020    |
