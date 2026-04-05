@@ -58,7 +58,7 @@ revision ID of the desired project policy.
 aws rekognition put-project-policy \
   --project-arn `project-arn` \
   --policy-name `policy-name` \
-  --policy-document '{ "Version": "2012-10-17",		 	 	  "Statement":[{ "Effect":"`ALLOW or DENY`", "Principal":{ "AWS":"`principal`" }, "Action":"rekognition:CopyProjectVersion", "Resource":"`project-version-arn`" }]}' \
+  --policy-document '{ "Version": "2012-10-17", "Statement":[{ "Effect":"`ALLOW or DENY`", "Principal":{ "AWS":"`principal`" }, "Action":"rekognition:CopyProjectVersion", "Resource":"`project-version-arn`" }]}' \
   --profile custom-labels-access
 ```
 

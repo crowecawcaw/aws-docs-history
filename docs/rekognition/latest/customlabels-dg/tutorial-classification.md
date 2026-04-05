@@ -212,7 +212,7 @@ can restart your model at a later time. For more information, see [Running a tra
 2. In the **Start or stop model** section do the following:
    1. Choose **Start**.
 
-   ![User interface showing Start model button and options to start or stop a machine learning model for detecting custom labels. Select number of inference units to increase throughput.](/images/rekognition/latest/customlabels-dg/images/get-started-start-model.jpg) 2. In the **Start model** dialog box, choose **Start**.
+   ![User interface showing Start model button and options to start or stop a machine learning model for detecting custom labels. Select number of inference units to increase throughput.](images/get-started-start-model.jpg) 2. In the **Start model** dialog box, choose **Start**.
 
    ![Start model dialog box with Start button.](images/tutorial-start-model-dialog.jpg)
 
