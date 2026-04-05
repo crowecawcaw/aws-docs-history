@@ -63,7 +63,7 @@ This example policy document specifies the permissions that Amazon SNS needs to 
 Use the CLI to create a resource-based policy that gives Amazon SNS permissions to send trace data to X-Ray:
 
 ```
-aws xray put-resource-policy --policy-name MyResourcePolicy --policy-document '{ "Version": "2012-10-17",		 	 	  "Statement": [ { "Sid": "SNSAccess", "Effect": "Allow", "Principal": { "Service": "sns.amazonaws.com" }, "Action": [ "xray:PutTraceSegments", "xray:GetSamplingRules", "xray:GetSamplingTargets" ], "Resource": "*", "Condition": { "StringEquals": { "aws:SourceAccount": "`account-id`" }, "StringLike": { "aws:SourceArn": "arn:`partition`:sns:`region`:`account-id`:`topic-name`" } } } ] }'
+aws xray put-resource-policy --policy-name MyResourcePolicy --policy-document '{ "Version": "2012-10-17", "Statement": [ { "Sid": "SNSAccess", "Effect": "Allow", "Principal": { "Service": "sns.amazonaws.com" }, "Action": [ "xray:PutTraceSegments", "xray:GetSamplingRules", "xray:GetSamplingTargets" ], "Resource": "*", "Condition": { "StringEquals": { "aws:SourceAccount": "`account-id`" }, "StringLike": { "aws:SourceArn": "arn:`partition`:sns:`region`:`account-id`:`topic-name`" } } } ] }'
 ```
 
 To use these examples, replace `partition`,
