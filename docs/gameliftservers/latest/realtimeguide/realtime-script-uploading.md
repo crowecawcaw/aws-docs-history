@@ -5,8 +5,8 @@ files to Amazon GameLift Servers. Do this by creating an Amazon GameLift Servers
 your script files. You can also update server script files that are already deployed by
 uploading new files for an existing script resource.
 
-When creating a script, you can choose the Node.js runtime version. Node.js 24.x runs on Amazon Linux 2023,
-while Node.js 10.x uses Amazon Linux 2. Amazon GameLift Servers automatically manages Node.js minor and patch version updates for
+When creating a script, you can choose the Node.js runtime version. Node.js 24 runs on Amazon Linux 2023,
+while Node.js 10 uses Amazon Linux 2. Amazon GameLift Servers automatically manages Node.js minor and patch version updates for
 new fleets. The runtime will remain unchanged for a fleet once it is created. If you would like to pick a
 specific minor and patch version of Node.js you can install it using an install script. See
 [Add an install script (optional)](#realtime-script-uploading-install-script "#realtime-script-uploading-install-script").
@@ -34,7 +34,7 @@ Amazon Simple Storage Service (Amazon S3) bucket.
 
 Similar to [Add a build install script](../developerguide/gamelift-build-cli-uploading-install.md "../developerguide/gamelift-build-cli-uploading-install.md") for an Amazon GameLift Servers build, you can optionally add an install script to
 customize the runtime environment for your Realtime script. This feature is only available for
-scripts using Node.js version 24.x and later.
+scripts using Node.js version 24 and later.
 
 To add an install script, include a file named
 `install.sh` in the root directory of your script .zip file. Amazon GameLift Servers will automatically
@@ -50,7 +50,7 @@ changes, you must create a new fleet with the updated script.
 ###### Example Install script example
 
 This example `install.sh` file installs Node.js 24.10.0 to replace the default
-Node.js 24.x runtime:
+Node.js 24 runtime:
 
 ```
 #!/bin/bash
