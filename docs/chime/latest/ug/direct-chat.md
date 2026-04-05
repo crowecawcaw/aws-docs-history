@@ -25,7 +25,7 @@ section.
 ) to attach a file to the message. You can attach files of
 up to 50 MB. 5. (Optional) Choose **Pick an emoji** (
 
-![An icon showing a smiley face.](images/icon-add-emoji.png)
+![An icon showing a smiley face.](/images/chime/latest/ug/images/icon-add-emoji.png)
 
 ) to add an emoji.
 
