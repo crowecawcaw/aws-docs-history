@@ -191,6 +191,21 @@ JSON
  }
  },
  {
+ "Sid": "SSMMessages",
+ "Effect": "Allow",
+ "Action": [
+ "ssmmessages:OpenDataChannel"
+ ],
+ "Resource": [
+ "arn:aws:ssm:*:`111122223333`:session/*"
+ ],
+ "Condition": {
+ "ForAnyValue:StringEquals": {
+ "aws:CalledVia": "ssm-guiconnect.amazonaws.com"
+ }
+ }
+ },
+ {
  "Sid": "GuiConnect",
  "Effect": "Allow",
  "Action": [
@@ -275,6 +290,21 @@ JSON
  "ssm:resourceTag/`tag key`": [
  "`tag value`"
  ]
+ }
+ }
+ },
+ {
+ "Sid": "SSMMessages",
+ "Effect": "Allow",
+ "Action": [
+ "ssmmessages:OpenDataChannel"
+ ],
+ "Resource": [
+ "arn:aws:ssm:*:`111122223333`:session/*"
+ ],
+ "Condition": {
+ "ForAnyValue:StringEquals": {
+ "aws:CalledVia": "ssm-guiconnect.amazonaws.com"
  }
  }
  },
@@ -371,6 +401,21 @@ JSON
  "arn:aws:ssm:*:*:managed-instance/*",
  "arn:aws:ssm:*:*:document/AWSSSO-CreateSSOUser"
  ]
+ },
+ {
+ "Sid": "SSMMessages",
+ "Effect": "Allow",
+ "Action": [
+ "ssmmessages:OpenDataChannel"
+ ],
+ "Resource": [
+ "arn:aws:ssm:*:`111122223333`:session/*"
+ ],
+ "Condition": {
+ "ForAnyValue:StringEquals": {
+ "aws:CalledVia": "ssm-guiconnect.amazonaws.com"
+ }
+ }
  },
  {
  "Sid": "GuiConnect",

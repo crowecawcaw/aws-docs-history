@@ -114,7 +114,7 @@ Fleet Manager, a tool in AWS Systems Manager.
      **Patches**.
 
 2. (Optional) In the Search box (
-   ![The Search icon](/images/systems-manager/latest/userguide/images/search-icon.png)
+   ![The Search icon](images/search-icon.png)
    ), choose from the available filters.
 
 For example, for Red Hat Enterprise Linux (RHEL), choose from the

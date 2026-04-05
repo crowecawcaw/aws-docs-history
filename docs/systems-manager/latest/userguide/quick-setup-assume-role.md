@@ -31,7 +31,7 @@ The following policy defines the permissions for Systems Manager Quick Setup:
 
 ```
 {
-    "Version": "2012-10-17" 		 	 	 ,
+    "Version": "2012-10-17" ,
     "Statement": [
         {
             "Effect": "Allow",
@@ -79,7 +79,7 @@ _This is added automatically via the above steps_
 
 ```
 {
-    "Version": "2012-10-17" 		 	 	 ,
+    "Version": "2012-10-17" ,
     "Statement": [
         {
             "Effect": "Allow",

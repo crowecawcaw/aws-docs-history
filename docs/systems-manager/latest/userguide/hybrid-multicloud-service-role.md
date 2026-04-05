@@ -46,7 +46,7 @@ Amazon Simple Storage Service (Amazon S3) buckets, Patch Manager patching operat
      the check box next to its name, as shown in the following
      illustration.
 
-   ![The check box is selected in the AmazonSSMManagedInstanceCore row.](/images/systems-manager/latest/userguide/images/setup-instance-profile-2.png)
+   ![The check box is selected in the AmazonSSMManagedInstanceCore row.](images/setup-instance-profile-2.png)
 
    ###### Note
 
