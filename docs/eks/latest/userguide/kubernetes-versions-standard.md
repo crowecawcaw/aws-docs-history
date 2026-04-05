@@ -49,7 +49,7 @@ Kubernetes `1.34` is now available in Amazon EKS. For more information about Kub
 
 - AWS is not releasing an EKS-optimized Amazon Linux 2 AMI for Kubernetes 1.34.
   - AWS encourages you to migrate to Amazon Linux 2023. Learn how to [Upgrade from Amazon Linux 2 to Amazon Linux 2023](al2023.md "al2023.md").
-  - For more information, see [Amazon Linux 2 AMI deprecation](#al2-ami-deprecation "#al2-ami-deprecation").
+  - For more information, see [Amazon Linux 2 AMI deprecation](kubernetes-versions-extended.md#al2-ami-deprecation "kubernetes-versions-extended.md#al2-ami-deprecation").
 
 - AppArmor is deprecated in Kubernetes 1.34.
   - We recommend migrating to alternative container security solutions like [seccomp](https://kubernetes.io/docs/tutorials/security/seccomp/ "https://kubernetes.io/docs/tutorials/security/seccomp/") or [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/ "https://kubernetes.io/docs/concepts/security/pod-security-standards/").
@@ -88,7 +88,7 @@ Kubernetes `1.33` is now available in Amazon EKS. For more information about Kub
 
 - AWS is not releasing an EKS-optimized Amazon Linux 2 AMI for Kubernetes 1.33.
   - AWS encourages you to migrate to Amazon Linux 2023. Learn how to [Upgrade from Amazon Linux 2 to Amazon Linux 2023](al2023.md "al2023.md").
-  - For more information, see [Amazon Linux 2 AMI deprecation](#al2-ami-deprecation "#al2-ami-deprecation").
+  - For more information, see [Amazon Linux 2 AMI deprecation](kubernetes-versions-extended.md#al2-ami-deprecation "kubernetes-versions-extended.md#al2-ami-deprecation").
 
 - **In-Place Pod Resource Resize (Beta):** In-place resource resize has been promoted to beta, allowing dynamic updates to CPU and memory resources for existing Pods without restarts - enabling vertical scaling of stateful workloads with zero downtime and seamless resource adjustments based on traffic patterns.
 - **Sidecar Containers Now Stable:** Sidecar containers have graduated to stable, implementing sidecars as special init containers with `restartPolicy: Always` that start before application containers, run throughout the pod lifecycle, and support probes for operational state signaling.
@@ -101,37 +101,3 @@ Kubernetes `1.33` is now available in Amazon EKS. For more information about Kub
   - For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](../../../AWSEC2/latest/UserGuide/efa.md "../../../AWSEC2/latest/UserGuide/efa.md") in the Amazon Elastic Compute Cloud User Guide.
 
 For the complete Kubernetes `1.33` changelog, see https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md
-
-## Kubernetes 1.32
-
-Kubernetes `1.32` is now available in Amazon EKS. For more information about Kubernetes `1.32`, see the [official release announcement](https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/ "https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/").
-
-###### Important
-
-- The `flowcontrol.apiserver.k8s.io/v1beta3` API version of FlowSchema and PriorityLevelConfiguration has been removed in version `1.32`. If you are using these APIs, you must update your configurations to use the latest supported version before upgrading.
-- ServiceAccount `metadata.annotations[kubernetes.io/enforce-mountable-secrets]` has been deprecated in version `1.32` and will be removed in a future Kubernetes minor version release. It is recommended to use separate namespaces to isolate access to mounted secrets.
-- Kubernetes version `1.32` is the last version for which Amazon EKS will release Amazon Linux 2 (AL2) AMIs. From version `1.33` onwards, Amazon EKS will continue to release Amazon Linux 2023 (AL2023) and Bottlerocket based AMIs.
-
-- The Memory Manager feature has graduated to Generally Available (GA) status in Kubernetes version `1.32`. This enhancement provides more efficient and predictable memory allocation for containerized applications, particularly beneficial for workloads with specific memory requirements.
-- PersistentVolumeClaims (PVCs) created by StatefulSets now include automatic cleanup functionality. When PVCs are no longer needed, they will be automatically deleted while maintaining data persistence during StatefulSet updates and node maintenance operations. This feature simplifies storage management and helps prevent orphaned PVCs in your cluster.
-- Custom Resource Field Selector functionality has been introduced, allowing developers to add field selectors to custom resources. This feature provides the same filtering capabilities available for built-in Kubernetes objects to custom resources, enabling more precise and efficient resource filtering and promoting better API design practices.
-
-For the complete Kubernetes `1.32` changelog, see https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md
-
-### Anonymous authentication changes
-
-Starting with Amazon EKS `1.32`, anonymous authentication is restricted to the following API server health check endpoints:
-
-- `/healthz`
-- `/livez`
-- `/readyz`
-
-Requests to any other endpoint using the `system:unauthenticated` user will receive a `401 Unauthorized` HTTP response. This security enhancement helps prevent unintended cluster access that could occur due to misconfigured RBAC policies.
-
-###### Note
-
-The `public-info-viewer` RBAC role continues to apply for the health check endpoints listed above.
-
-### Amazon Linux 2 AMI deprecation
-
-Kubernetes version `1.32` is the last version for which Amazon EKS released AL2 AMIs. From version `1.33` onwards, Amazon EKS will continue to release AL2023 and Bottlerocket based AMIs. For more information, see [Guide to EKS AL2 & AL2-Accelerated AMIs transition features](eks-ami-deprecation-faqs.md "eks-ami-deprecation-faqs.md").

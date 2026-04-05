@@ -103,3 +103,16 @@ aws iam attach-role-policy \
     --role-name AmazonEKSAutoNodeRole \
     --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
 ```
+
+**Attach Optional Policy**
+
+If you will pull container images from Public ECR, you should attach the following AWS managed policy to the Node IAM Role to ensure your nodes can authenticate
+to Public ECR and pull images without throttling.
+
+To attach AmazonElasticContainerRegistryPublicReadOnly:
+
+```
+aws iam attach-role-policy \
+    --role-name AmazonEKSAutoNodeRole \
+    --policy-arn arn:aws:iam::aws:policy/AmazonElasticContainerRegistryPublicReadOnly
+```

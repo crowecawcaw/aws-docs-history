@@ -22,6 +22,10 @@ You do not need to install the EKS Pod Identity Agent on EKS Auto Mode Clusters.
 
 ### Agent prerequisites
 
+###### Important
+
+The nodes where the EKS Pod Identity Agent runs must be able to access the EKS Auth API. If you are using private subnets for your nodes, you must set up an AWS PrivateLink interface endpoint for the EKS Auth API. For more information, see [Access Amazon EKS using AWS PrivateLink](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
+
 - An existing Amazon EKS cluster. To deploy one, see [Get started with Amazon EKS](getting-started.md "getting-started.md"). The cluster version and platform version must be the same or later than the versions listed in [EKS Pod Identity cluster versions](pod-identities.md#pod-id-cluster-versions "pod-identities.md#pod-id-cluster-versions").
 - The node role has permissions for the agent to do the `AssumeRoleForPodIdentity` action in the EKS Auth API. You can use the [AWS managed policy: AmazonEKSWorkerNodePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-amazoneksworkernodepolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-amazoneksworkernodepolicy") or add a custom policy similar to the following:
 
@@ -45,8 +49,6 @@ This action can be limited by tags to restrict which roles can be assumed by pod
 - The nodes can reach and download images from Amazon ECR. The container image for the add-on is in the registries listed in [View Amazon container image registries for Amazon EKS add-ons](add-ons-images.md "add-ons-images.md").
 
 Note that you can change the image location and provide `imagePullSecrets` for EKS add-ons in the **Optional configuration settings** in the AWS Management Console, and in the `--configuration-values` in the AWS CLI.
-
-- The nodes can reach the Amazon EKS Auth API. For private clusters, the `eks-auth` endpoint in AWS PrivateLink is required.
 
 ### Setup agent with AWS console
 

@@ -13,3 +13,4 @@ The following are considerations for security in the cloud, as they affect Kuber
 - [Encrypt Kubernetes secrets with KMS on existing clusters](enable-kms.md "enable-kms.md")
 - [Use AWS Secrets Manager secrets with Amazon EKS Pods](manage-secrets.md "manage-secrets.md")
 - [Default envelope encryption for all Kubernetes API Data](envelope-encryption.md "envelope-encryption.md")
+- [Harden Kubernetes RBAC in Amazon EKS](rbac-hardening.md "rbac-hardening.md")

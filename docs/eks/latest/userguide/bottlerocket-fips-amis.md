@@ -6,7 +6,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 The Federal Information Processing Standard (FIPS) Publication 140-3 is a United States and Canadian government standard that specifies the security requirements for cryptographic modules that protect sensitive information. Bottlerocket makes it easier to adhere to FIPS by offering AMIs with a FIPS kernel.
 
-These AMIs are preconfigured to use FIPS 140-3 validated cryptographic modules. This includes the Amazon Linux 2023 Kernel Crypto API Cryptographic Module and the AWS-LC Cryptographic Module.
+These AMIs are preconfigured to use FIPS 140-3 validated cryptographic modules. This includes the Amazon Linux 2023 Kernel Crypto API Cryptographic Module and the Go Cryptographic Module.
 
 Using Bottlerocket FIPS AMIs makes your worker nodes "FIPS ready" but not automatically "FIPS-compliant". For more information, see [Federal Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
 
