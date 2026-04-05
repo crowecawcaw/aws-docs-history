@@ -1,0 +1,100 @@
+# Query metrics with PromQL
+
+###### Topics
+
+- [What is Prometheus Query Language (PromQL)?](#CloudWatch-PromQL-WhatIs "#CloudWatch-PromQL-WhatIs")
+- [PromQL limits and restrictions](#CloudWatch-PromQL-Limits "#CloudWatch-PromQL-Limits")
+- [Supported AWS Regions](#CloudWatch-PromQL-Regions "#CloudWatch-PromQL-Regions")
+- [IAM permissions for PromQL](#CloudWatch-PromQL-IAM "#CloudWatch-PromQL-IAM")
+- [PromQL querying](CloudWatch-PromQL-Querying.md "CloudWatch-PromQL-Querying.md")
+- [Running PromQL queries in Query Studio (Preview)](CloudWatch-PromQL-QueryStudio.md "CloudWatch-PromQL-QueryStudio.md")
+- [Using PromQL in alarms](CloudWatch-PromQL-Alarms.md "CloudWatch-PromQL-Alarms.md")
+
+###### Note
+
+OTLP metrics ingestion, PromQL querying, OTel enrichment of vended AWS metrics, and Query Studio are in public preview release, are free of charge, and subject to change.
+
+## What is Prometheus Query Language (PromQL)?
+
+Prometheus Query Language (PromQL) is a functional query language that lets you select,
+aggregate, and transform time series data in real time. PromQL was originally designed for
+Prometheus and has become a popular query language for metrics.
+
+Amazon CloudWatch supports PromQL for querying metrics including metrics ingested via OpenTelemetry
+Line Protocol (OTLP) and [AWS enriched vended metrics](aws-services-cloudwatch-metrics.md "aws-services-cloudwatch-metrics.md"). When you ingest OTLP metrics, CloudWatch preserves the
+full semantic structure of your telemetry, including resource attributes, instrumentation scope,
+datapoint attributes, and AWS-specific metadata, and exposes them as queryable PromQL labels.
+
+With PromQL you can do the following:
+
+- Select time series by metric name and label matchers.
+- Apply mathematical functions and operators across time series.
+- Aggregate metrics across dimensions such as service, region, or account.
+- Compute rates, histograms, quantiles, and moving averages.
+
+You can use PromQL queries interactively in [Running PromQL queries in Query Studio (Preview)](CloudWatch-PromQL-QueryStudio.md "CloudWatch-PromQL-QueryStudio.md") and also to create CloudWatch Alarms. For more
+information, see [PromQL querying](CloudWatch-PromQL-Querying.md "CloudWatch-PromQL-Querying.md") and [Using PromQL in alarms](CloudWatch-PromQL-Alarms.md "CloudWatch-PromQL-Alarms.md").
+
+###### Note
+
+CloudWatch uses PromQL based on the Prometheus 3.0 specification. This includes support for
+UTF-8 metric names and label names.
+
+The following concepts are fundamental to working with PromQL in CloudWatch.
+
+| Concept                  | Description                                                                                                                                                                                                                                           |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Time series**          | A stream of timestamped values identified by a metric name and a set of key-value pairs called _labels_. Each unique combination of metric name and labels forms a distinct time series.                                                              |
+| **Instant vector**       | A set of time series containing a single sample for each series, all sharing the same timestamp. Returned by queries like `{"http.server.active_requests", "@resource.service.name"="myservice"}`.                                                    |
+| **Range vector**         | A set of time series containing a range of data points over time for each series. Created by appending a time duration selector in brackets, for example, `avg_over_time({"http.server.active_requests", "@resource.service.name"="myservice"}[5m])`. |
+| **Label**                | A key-value pair attached to a time series. In OTLP-ingested metrics, labels are derived from resource attributes, instrumentation scope, datapoint attributes, and AWS-specific metadata.                                                            |
+| **Label matcher**        | An expression in curly braces that filters time series by label value. Supports exact match (`=`), not equal (`!=`), regex match (`=~`), and negative regex match (`!~`).                                                                             |
+| **Aggregation operator** | A function that combines multiple time series into fewer series. Common operators include `sum`, `avg`, `min`, `max`, `count`, and `topk`.                                                                                                            |
+
+## PromQL limits and restrictions
+
+The following table lists the limits and restrictions for PromQL:
+
+| Limit                                         | Value         | Additional information                                                                                                          | Error code                  |
+| --------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
+| Max TPS for query requests per account        | 300           | Maximum number of query requests (/query, /query_range) per second allowed per account.                                         | 422                         |
+| Max TPS for discovery requests per account    | 10            | Maximum number of discovery requests (/series, /label, /label_values) per second allowed per account.                           | 422                         |
+| Max concurrent query requests per account     | 30            | Maximum number of queries (/query, /query_range) an account can have actively executing at the same time.                       | 429                         |
+| Max concurrent discovery requests per account | 30            | Maximum number of discovery requests (/series, /labels, /label_values) an account can have actively executing at the same time. | 429                         |
+| Max series returned per query request         | 500           | Maximum number of unique time series a query request (/query, /query_range) can return.                                         | 200<br>• truncated response |
+| Max labels returned per discovery request     | 10,000        | Maximum number of unique labels a discovery request (/series, /labels, /label_values) can return.                               | 200<br>• truncated response |
+| Max range per request                         | 7 days        | Maximum time range a query can span, including range parameters and lookback periods.                                           | 422                         |
+| Max series scanned per 24h window             | 100,000       | Maximum number of unique time series that can be scanned per 24-hour window of query execution.                                 | 422                         |
+| Max samples scanned per 24h window            | 300,000,000   | Maximum number of samples that can be scanned per 24-hour window of query execution.                                            | 422                         |
+| Max samples processed per 24h window          | 3,000,000,000 | Maximum number of samples that can be processed per 24-hour window of query execution.                                          | 422                         |
+| Execution timeout                             | 20 seconds    | Maximum time the engine can spend evaluating a query, excluding time spent in queue and fetching data from storage.             | 422                         |
+
+## Supported AWS Regions
+
+The following table lists the AWS Regions where OTLP metrics ingestion, PromQL querying, and Query Studio are available.
+
+| Region name              | Region code    | OTLP metrics ingest | PromQL query | Query Studio |
+| ------------------------ | -------------- | ------------------- | ------------ | ------------ |
+| US East (N. Virginia)    | us-east-1      | ✓                   | ✓            | ✓            |
+| US West (Oregon)         | us-west-2      | ✓                   | ✓            | ✓            |
+| Europe (Ireland)         | eu-west-1      | ✓                   | ✓            | ✓            |
+| Asia Pacific (Singapore) | ap-southeast-1 | ✓                   | ✓            | ✓            |
+| Asia Pacific (Sydney)    | ap-southeast-2 | ✓                   | ✓            | ✓            |
+
+## IAM permissions for PromQL
+
+To execute PromQL queries, you need both `cloudwatch:GetMetricData` and
+`cloudwatch:ListMetrics` permissions. The following table lists the new PromQL
+API operations and their required IAM actions:
+
+| API operation               | Required actions                                     |
+| --------------------------- | ---------------------------------------------------- |
+| ExecuteMetricQueryPost      | `cloudwatch:GetMetricData`, `cloudwatch:ListMetrics` |
+| ExecuteMetricQueryGet       | `cloudwatch:GetMetricData`, `cloudwatch:ListMetrics` |
+| ExecuteMetricRangeQuery     | `cloudwatch:GetMetricData`, `cloudwatch:ListMetrics` |
+| ExecuteMetricRangeQueryGet  | `cloudwatch:GetMetricData`, `cloudwatch:ListMetrics` |
+| ExecuteMetricSeriesPost     | `cloudwatch:ListMetrics`                             |
+| ExecuteMetricSeriesGet      | `cloudwatch:ListMetrics`                             |
+| ExecuteMetricLabelsPost     | `cloudwatch:ListMetrics`                             |
+| ExecuteMetricLabelsGet      | `cloudwatch:ListMetrics`                             |
+| ExecuteMetricLabelValuesGet | `cloudwatch:ListMetrics`                             |

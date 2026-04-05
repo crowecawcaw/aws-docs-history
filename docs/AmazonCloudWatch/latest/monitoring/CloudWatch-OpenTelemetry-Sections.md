@@ -1,27 +1,28 @@
 # OpenTelemetry
 
-OpenTelemetry is an open-source observability framework that provides IT teams with
-standardized protocols and tools for collecting and routing telemetry data. It delivers a
-unified format for instrumenting, generating, gathering, and exporting application telemetry
-data, such as metrics, logs, and traces to monitoring platforms for analysis and insights.
-By using OpenTelemetry, you can avoid vendor lock-in, ensuring flexibility in the
-observability solutions.
+OpenTelemetry is an open-source observability framework that provides vendor-agnostic
+instrumentation for collecting metrics, logs, and traces from your applications. Amazon CloudWatch
+supports OpenTelemetry natively across all three signal types: metrics queryable with PromQL
+for flexible and scalable analytics, logs searchable with Logs Insights, and traces
+explorable with [Transaction Search](CloudWatch-Transaction-Search.md "CloudWatch-Transaction-Search.md"). Because all three signals share a common data model with
+consistent attributes, you can correlate across metrics, logs, and traces to move from
+detection to root cause faster. OpenTelemetry metrics carry rich semantic labels and support
+higher granularity than traditional CloudWatch metrics, enabling precise filtering, aggregation,
+and analysis across your applications and infrastructure.
 
-You can use OpenTelemetry to directly send logs and traces to an OpenTelemetry Protocol
-(OTLP) endpoint, and get out-of-the box features like Logs Insights, LiveTail, and
-application performance monitoring experiences in [CloudWatch Application Signals](CloudWatch-Application-Monitoring-Intro.md "CloudWatch-Application-Monitoring-Intro.md").
+CloudWatch supports OpenTelemetry metrics, allowing you to send custom OTel metrics directly to
+CloudWatch and query them using PromQL alongside AWS vended metrics from over 70 services. You
+can use PromQL to build dashboards, set CloudWatch Alarms, and explore metrics in Query Studio,
+the native PromQL console experience. OTel logs sent to CloudWatch are available in Logs Insights
+for interactive querying and in LiveTail for real-time streaming.
 
-Application Signals provides you with a unified, application-centric view of your
-applications, services, and dependencies, and helps you monitor and triage application
-health. You can also explore OTLP spans using the interactive search and analytics
-experience in CloudWatch to answer any questions related to application performance or end-user
-impact with [Transaction
-Search](WhatIsCloudWatch.md "WhatIsCloudWatch.md"). You can also detect the impact on end users, find transactions in
-context of those issues using relevant attributes such as customer name or order number,
-correlate transactions to business events such as failed payments, and dive into
-interactions between application components to establish a root cause. Using CloudWatch, you can
-get complete application transaction coverage with correlated insights, helping you to
-accelerate mean time to resolution.
+For application performance monitoring, CloudWatch [Application Signals](CloudWatch-Application-Monitoring-Intro.md "CloudWatch-Application-Monitoring-Intro.md") provides a unified, application-centric view of your
+services and dependencies. Application Signals uses OTLP traces to help you monitor
+application health, triage issues, and identify the impact on end users. With Transaction
+Search, you can explore OTLP spans interactively, find transactions using attributes such as
+customer identifiers or order numbers, correlate transactions to business events such as
+failed payments, and trace interactions between application components to establish root
+cause.
 
 ![OpenTelemetry overview](images/OpenTelemetry.png)
 

@@ -153,7 +153,7 @@ role.
 
 ```
 aws iam create-role --role-name CWAgentECSTaskRole \
-    --assume-role-policy-document "{\"Version\": \"2012-10-17\",		 	 	 \"Statement\": [{\"Sid\": \"\",\"Effect\": \"Allow\",\"Principal\": {\"Service\": \"ecs-tasks.amazonaws.com\"},\"Action\": \"sts:AssumeRole\"}]}"
+    --assume-role-policy-document "{\"Version\": \"2012-10-17\",\"Statement\": [{\"Sid\": \"\",\"Effect\": \"Allow\",\"Principal\": {\"Service\": \"ecs-tasks.amazonaws.com\"},\"Action\": \"sts:AssumeRole\"}]}"
 ```
 
 After you enter the previous command, note the value of
@@ -170,7 +170,7 @@ This next command creates the ECS task execution role.
 
 ```
 aws iam create-role --role-name CWAgentECSExecutionRole \
-    --assume-role-policy-document "{\"Version\": \"2012-10-17\",		 	 	 \"Statement\": [{\"Sid\": \"\",\"Effect\": \"Allow\",\"Principal\": {\"Service\": \"ecs-tasks.amazonaws.com\"},\"Action\": \"sts:AssumeRole\"}]}"
+    --assume-role-policy-document "{\"Version\": \"2012-10-17\",\"Statement\": [{\"Sid\": \"\",\"Effect\": \"Allow\",\"Principal\": {\"Service\": \"ecs-tasks.amazonaws.com\"},\"Action\": \"sts:AssumeRole\"}]}"
 ```
 
 After you enter the previous command, note the value of

@@ -95,6 +95,15 @@ using filters](../logs/MonitoringLogData.md "../logs/MonitoringLogData.md") in t
 
 For more information on how to create an alarm based on log group-metric filter, see [Alarming on logs](Alarm-On-Logs.md "Alarm-On-Logs.md").
 
+## PromQL
+
+You can create an alarm that uses a Prometheus Query Language (PromQL) instant query to
+monitor metrics ingested through the CloudWatch OTLP endpoint.
+
+For more information about how PromQL alarms work, see [PromQL alarms](alarm-promql.md "alarm-promql.md").
+
+For more information on how to create a PromQL alarm, see [Create an alarm using a PromQL query](Create_PromQL_Alarm.md "Create_PromQL_Alarm.md").
+
 ## External data source
 
 You can create alarms that watch metrics from data sources that aren't in CloudWatch. For more

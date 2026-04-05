@@ -4,6 +4,13 @@ Parser processors convert raw or semi-structured log data into structured format
 Each pipeline can have at most one parser processor, which must be the first processor
 in the pipeline.
 
+###### Conditional processing not supported
+
+Parser processors (except Grok) do not support conditional processing with
+the `when` parameter. This includes OCSF, CSV, JSON, KeyValue, VPC, Route53, WAF,
+Postgres, and CloudFront parsers. For more information, see
+[Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
 ## OCSF processor
 
 Parses and transforms log data according to Open Cybersecurity Schema Framework
@@ -141,6 +148,19 @@ allowed.
 
 Array with single Grok pattern. Maximum 512 characters per
 pattern.
+
+`when` (optional)
+
+Conditional expression that determines whether this processor executes.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+###### Important
+
+If the Grok processor is used as the parser (first processor) in a
+pipeline and its `when` condition evaluates to false, the
+entire pipeline does not execute for that log event. Parsers must run
+for downstream processors to receive structured data.
 
 ## VPC processor
 

@@ -61,6 +61,6 @@ replaces:
 
 Note the following:
 
-- After the collector is built, deploy and configure the custom collector in a host or kubernetes environment by following the procedure under [OpenTelemetry Collector Contrib](CloudWatch-OTLPSimplesetup.md "CloudWatch-OTLPSimplesetup.md").
+- After the collector is built, deploy and configure the custom collector in a host or kubernetes environment by following the procedure under [OpenTelemetry Collector](CloudWatch-OTLPSimplesetup.md "CloudWatch-OTLPSimplesetup.md").
 - For information on setting up custom OpenTelemetry collector with Application Signals Processor, see an [Application Signals custom configuration](https://github.com/aws-observability/application-signals-demo/blob/main/scripts/opentelemetry/appsignals_custom_otel_setup/custom-opentelemetry.yaml "https://github.com/aws-observability/application-signals-demo/blob/main/scripts/opentelemetry/appsignals_custom_otel_setup/custom-opentelemetry.yaml")example.
   Application Signals Processor only supports the latest versions of the OpenTelemetry Collectors for custom builds. For information on the supported versions, see [opentelemetry-collector-contrib repository.](https://github.com/amazon-contributing/opentelemetry-collector-contrib/tags "https://github.com/amazon-contributing/opentelemetry-collector-contrib/tags")

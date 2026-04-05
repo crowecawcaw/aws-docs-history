@@ -41,6 +41,28 @@ The static value to assign to the key.
 Boolean flag that determines behavior when the key already exists.
 Defaults to false.
 
+`when` (optional)
+
+Processor-level conditional expression. When specified, the
+entire processor is skipped if the expression evaluates to false.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+`entries[].when` (optional)
+
+Entry-level conditional expression. When specified, only this
+entry is skipped if the expression evaluates to false.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+`entries[].when_else` (optional)
+
+Fallback entry that executes only when none of the other
+`when` conditions in the same processor matched.
+The expression value identifies which `when`
+conditions to consider. Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
 ## copy_values processor
 
 Copies values from one field to another. At most 1 `copy_values`
@@ -80,6 +102,28 @@ using dot notation.
 Boolean flag controlling behavior when target field already exists.
 Defaults to false.
 
+`when` (optional)
+
+Processor-level conditional expression. When specified, the
+entire processor is skipped if the expression evaluates to false.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+`entries[].when` (optional)
+
+Entry-level conditional expression. When specified, only this
+entry is skipped if the expression evaluates to false.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+`entries[].when_else` (optional)
+
+Fallback entry that executes only when none of the other
+`when` conditions in the same processor matched.
+The expression value identifies which `when`
+conditions to consider. Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
 ## delete_entries processor
 
 Removes specified fields from log events.
@@ -100,6 +144,12 @@ processor:
 
 Array of field names to remove from each log event. Supports nested
 field deletion using dot notation.
+
+`when` (optional)
+
+Conditional expression that determines whether this processor executes.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
 ## move_keys processor
 
@@ -136,6 +186,28 @@ Target field name. Maximum 128 characters.
 
 Whether to overwrite existing target field.
 
+`when` (optional)
+
+Processor-level conditional expression. When specified, the
+entire processor is skipped if the expression evaluates to false.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+`entries[].when` (optional)
+
+Entry-level conditional expression. When specified, only this
+entry is skipped if the expression evaluates to false.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+`entries[].when_else` (optional)
+
+Fallback entry that executes only when none of the other
+`when` conditions in the same processor matched.
+The expression value identifies which `when`
+conditions to consider. Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
 ## flatten processor
 
 Flattens nested object structures.
@@ -171,3 +243,9 @@ Whether to remove the original nested field after flattening.
 
 Array of keys to exclude from flattening. Maximum 20 keys, each up to
 128 characters.
+
+`when` (optional)
+
+Conditional expression that determines whether this processor executes.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").

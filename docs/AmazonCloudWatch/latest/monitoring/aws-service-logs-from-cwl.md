@@ -6,7 +6,11 @@ configuration.
 ###### Important
 
 Pipelines with processors mutate the log events in the original CloudWatch log
-group they are intercepted from for logs from AWS services.
+group they are intercepted from for logs from AWS services. To preserve
+unmodified copies of your log data, enable the `include_original`
+option in the `cloudwatch_logs` sink configuration, or use the
+**Keep original log** toggle in the console. For more
+information, see [Sinks](pipeline-sinks.md "pipeline-sinks.md").
 
 ###### Configuration
 

@@ -6,6 +6,7 @@ CloudWatch alarms monitor metrics and trigger actions when thresholds are breach
 
 - [Alarm data queries](alarm-data-queries.md "alarm-data-queries.md")
 - [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md")
+- [PromQL alarms](alarm-promql.md "alarm-promql.md")
 - [Composite alarms](alarm-combining.md "alarm-combining.md")
 - [Alarm actions](alarm-actions.md "alarm-actions.md")
 - [Alarm Mute Rules](alarm-mute-rules.md "alarm-mute-rules.md")

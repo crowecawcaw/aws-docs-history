@@ -184,6 +184,7 @@ When creating WAF logs:
 When enabling resolver query logging:
 
 - Uses default CloudWatch log group pattern /aws/route53resolver if none specified
+- You can use <account-id> macros to split log groups.
 - CloudWatch does not create resolver query logs for VPCs that already are ingesting logs to
   CloudWatch Logs
 - Enablement rules configure Route 53 query logging for the your VPCs based on rule
@@ -230,3 +231,33 @@ When enabling CloudTrail logs using the SLC path:
 When enabling detailed monitoring:
 
 - Instance state changes may affect metric collection
+
+**AWS Security Hub Telemetry**
+
+When enabling Security Hub logging:
+
+- Uses managed CloudWatch log group pattern /aws/securityhub_cspm/findings
+- CloudWatch does not enable log deliveries for Security Hub that already are ingesting logs to manged CloudWatch Logs
+
+**Amazon Bedrock Agentcore Gateway Telemetry**
+
+When enabling Bedrock Agentcore Gateway logging:
+
+- Uses default CloudWatch log group pattern /aws/bedrock/agentcore if none specified
+- CloudWatch does not enable log deliveries for Bedrock Agentcore Gateway that already are ingesting logs to
+  CloudWatch Logs
+
+**Amazon Bedrock Agentcore Memory Telemetry**
+
+When enabling Bedrock Agentcore Memory logging:
+
+- Uses default CloudWatch log group pattern /aws/bedrock/agentcore if none specified
+- CloudWatch does not enable log deliveries for Bedrock Agentcore Memory that already are ingesting logs to
+  CloudWatch Logs
+
+**Amazon CloudFront Distribution Telemetry**
+
+When enabling CloudFront Distribution logging:
+
+- CloudWatch does not enable log deliveries for CloudFront distributions that already are ingesting logs to
+  CloudWatch Logs

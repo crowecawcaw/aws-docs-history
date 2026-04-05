@@ -36,6 +36,12 @@ Third-party data can be collected using two methods:
 | SentinelOne                                 | S3 Delivery         | Yes                | Yes                | No                             | [Source-specific IAM<br>policies](pipeline-iam-reference.md#source-specific-iam-policies "pipeline-iam-reference.md#source-specific-iam-policies") |
 | GitHub                                      | API                 | No                 | No                 | Yes (optional)                 | [API caller<br>permissions](pipeline-iam-reference.md#api-caller-permissions "pipeline-iam-reference.md#api-caller-permissions")                   |
 | ServiceNow CMDB                             | API                 | No                 | No                 | Yes                            | [API caller<br>permissions](pipeline-iam-reference.md#api-caller-permissions "pipeline-iam-reference.md#api-caller-permissions")                   |
+| Cisco Umbrella                              | S3 Delivery         | Yes                | Yes                | No                             | [Source-specific IAM<br>policies](pipeline-iam-reference.md#source-specific-iam-policies "pipeline-iam-reference.md#source-specific-iam-policies") |
+
+Third-party integration sent through Security Hub CSPM is also supported. For
+comprehensive information about Security Hub's third-party integrations, including
+supported partners and integration configurations with "Sends findings" direction,
+refer to the [Security Hub Third-Party Integration documentation](../../../securityhub/latest/userguide/securityhub-partner-providers.md "../../../securityhub/latest/userguide/securityhub-partner-providers.md").
 
 **Data transformation and standardization**
 

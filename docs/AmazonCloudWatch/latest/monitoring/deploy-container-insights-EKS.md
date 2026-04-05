@@ -26,6 +26,10 @@ Container Insights now supports Windows worker nodes in an Amazon EKS cluster.
 Container Insights with enhanced observability for Amazon EKS is also supported on Windows.
 For information about enabling Container Insights on Windows, see [Using the CloudWatch agent with Container Insights enhanced observability enabled](Container-Insights-EKS-agent.md "Container-Insights-EKS-agent.md").
 
+To use Container Insights with OpenTelemetry metrics, install the Amazon CloudWatch
+Observability EKS add-on version `v6.0.1-eksbuild.1` or later. For more
+information, see [Container Insights with OpenTelemetry metrics for Amazon EKS](container-insights-otel-metrics.md "container-insights-otel-metrics.md").
+
 Set up Fluent Bit or Fluentd to send logs to CloudWatch Logs. (This is enabled by default if
 you install the Amazon CloudWatch Observability EKS add-on.)
 

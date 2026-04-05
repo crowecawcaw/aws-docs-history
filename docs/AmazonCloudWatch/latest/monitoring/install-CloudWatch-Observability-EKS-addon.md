@@ -9,6 +9,10 @@ Using either method on an Amazon EKS cluster enables both [Container Insights](C
 default. Both features help you to collect infrastructure metrics, application performance
 telemetry, and container logs from the cluster.
 
+With version `v6.0.1-eksbuild.1` or later of the add-on, Container Insights
+with OpenTelemetry metrics is enabled, which collects metrics using the OpenTelemetry
+Protocol (OTLP) and supports PromQL queries. For more information, see [Container Insights with OpenTelemetry metrics for Amazon EKS](container-insights-otel-metrics.md "container-insights-otel-metrics.md").
+
 With Container Insights with enhanced observability for Amazon EKS, Container Insights
 metrics are charged per observation instead of being charged per metric stored or log
 ingested. For Application Signals, billing is based on inbound requests to your
@@ -1025,7 +1029,7 @@ JSON
 ```
 
 `{
- "Version":"2012-10-17", 
+ "Version":"2012-10-17",
  "Statement": [
  {
  "Action": [

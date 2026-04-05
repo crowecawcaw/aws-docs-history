@@ -13,21 +13,14 @@ limits:
 - Only the latest 3 hours of data can be used for evaluating the alarm's conditions.
   However, you can visualize up to two weeks of data on the alarm's detail page
   graph
-- Alarms evaluating multiple time series will limit the rate of concurrent transitions
-  to 100
+- Alarms evaluating multiple time series will limit the number of contributors in ALARM to 100
   - Assuming the query retrieves 150 time series:
     - If there are fewer than 100 contributors in ALARM (for example 95), the `StateReason`
       will be "95 out of 150 time series evaluated to ALARM"
-    - If there are more than 100 contributors in ALARM, for example 105, the `StateReason`
+    - If there are more than 100 contributors in ALARM (for example 105), the `StateReason`
       will be "100+ time series evaluated to ALARM"
 
-  - Furthermore, based on the size of the Alarm contributor data, the `StateReason` can be
-    truncated to display fewer time series data. Assuming we truncate to 85 contributors,
-    the `StateReason` will be:
-    - If there are fewer than 100 contributors in ALARM (for example 95) - truncated to 85,
-      the `StateReason` will be "85+ out of 150 time series evaluated to ALARM".
-    - If there are more than 100 contributors in ALARM (for example 105) - truncated to 85,
-      the `StateReason` will be "85+ time series evaluated to ALARM".
+  - Furthermore, if the volume of attributes is too large, the number of contributors in ALARM can be limited to less than 100.
 
 - Metrics Insights limits on the maximum number of time series analyzed or returned
   apply
@@ -38,6 +31,23 @@ limits:
 
 For more information on CloudWatch service quotas and limits, see [CloudWatch Metrics Insights service
 quotas](cloudwatch-metrics-insights-limits.md "cloudwatch-metrics-insights-limits.md").
+
+## Limits that apply to alarms based on PromQL queries
+
+When working with CloudWatch PromQL alarms, be aware of these functional
+limits:
+
+- Alarms evaluating multiple time series will limit the number of contributors in ALARM to 100
+  - If there are fewer than 100 contributors in ALARM (for example 95), the `StateReason`
+    will be "95 time series evaluated to ALARM"
+  - If there are more than 100 contributors in ALARM (for example 105), the `StateReason`
+    will be "100+ time series evaluated to ALARM"
+  - Furthermore, if the volume of attributes is too large, the number of contributors in ALARM can be limited to less than 100.
+
+- PromQL query limits on the maximum number of time series analyzed or returned
+  apply
+- During alarm evaluation, the `EvaluationState` will be set to
+  `PARTIAL_DATA` if the PromQL query returns more than 500 time series.
 
 ## Limits that apply to alarms based on connected data sources
 

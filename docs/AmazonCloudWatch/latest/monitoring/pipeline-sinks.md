@@ -38,6 +38,24 @@ pipelines with non-`cloudwatch_logs` sources, this must be an
 existing log group name. For pipelines using the `cloudwatch_logs`
 source, the ONLY allowed value is `@original`.
 
+`include_original` (optional)
+
+When present, stores a copy of each raw log event before any
+transformation takes place. This preserves the original data for audit
+or compliance purposes. Specify as an empty object
+(`{}`). Available only for pipelines with
+`cloudwatch_logs` sources. At least one processor must be
+configured when this option is enabled.
+
+###### Example CloudWatch Logs sink with original log preservation
+
+```
+sink:
+  - cloudwatch_logs:
+      log_group: "@original"
+      include_original: {}
+```
+
 ## Requirements and limitations
 
 Log group existence
@@ -79,7 +97,7 @@ For pipelines using the `cloudwatch_logs` source type:
 - Events are always sent back to their original log group.
 - The original log group must exist throughout the pipeline's
   lifecycle.
-- Pipelines with processors mutate the log events in the original CloudWatch log group they are intercepted from for logs from AWS services.
+- Pipelines with processors mutate the log events in the original CloudWatch log group they are intercepted from for logs from AWS services. To preserve the original data, enable `include_original` in the sink configuration.
 
 ###### Note
 

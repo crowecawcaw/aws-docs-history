@@ -11,6 +11,7 @@ Metrics are not visible until the container tasks have been running for some tim
 - [Amazon ECS Container Insights with enhanced observability metrics](Container-Insights-enhanced-observability-metrics-ECS.md "Container-Insights-enhanced-observability-metrics-ECS.md")
 - [Amazon ECS Container Insights metrics](Container-Insights-metrics-ECS.md "Container-Insights-metrics-ECS.md")
 - [Amazon EKS and Kubernetes Container Insights with enhanced observability metrics](Container-Insights-metrics-enhanced-EKS.md "Container-Insights-metrics-enhanced-EKS.md")
+- [Amazon EKS and Kubernetes Container Insights metrics](Container-Insights-metrics-EKS.md "Container-Insights-metrics-EKS.md")
 - [Container Insights performance log reference](Container-Insights-reference.md "Container-Insights-reference.md")
 - [Container Insights Prometheus metrics monitoring](ContainerInsights-Prometheus.md "ContainerInsights-Prometheus.md")
 - [Integration with Application Insights](container-insights-appinsights.md "container-insights-appinsights.md")

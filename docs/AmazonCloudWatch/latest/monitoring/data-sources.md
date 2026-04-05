@@ -24,6 +24,11 @@ of data from third-party platforms through either direct API integration or an S
 bucket integration. For more details, see [Third-party data sources integration](third-party-integration-setup.md "third-party-integration-setup.md"). For a list of data source names
 and types, see [Supported third-party sources for data sources](../logs/supported-third-party-sources-data-sources.md "../logs/supported-third-party-sources-data-sources.md").
 
+Third-party integration sent through Security Hub CSPM is also supported. For
+comprehensive information about Security Hub's third-party integrations, including
+supported partners and integration configurations with "Sends findings" direction,
+refer to the [Security Hub Third-Party Integration documentation](../../../securityhub/latest/userguide/securityhub-partner-providers.md "../../../securityhub/latest/userguide/securityhub-partner-providers.md").
+
 - **Custom logs through CloudWatch Logs or S3 buckets**
 
 CloudWatch pipelines can process custom Logs stored in CloudWatch Logs or S3 buckets. Custom

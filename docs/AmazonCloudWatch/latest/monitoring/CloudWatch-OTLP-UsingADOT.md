@@ -1,6 +1,6 @@
 # Exporting collector-less telemetry using AWS Distro for OpenTelemetry (ADOT) SDK
 
-You can use the ADOT SDKs to go collector-less and to send traces and logs directly to the OTLP endpoints.
+You can use the ADOT SDKs to go collector-less and to send metrics, traces and logs directly to the OTLP endpoints.
 
 ###### Note
 
@@ -15,7 +15,7 @@ Application Signals includes Transaction Search capabilities. To avoid duplicate
 
 ## Prerequisite
 
-Make sure Transaction Search is enabled to send spans to the X-Ray OTLP endpoint. For more information, see [Getting started with Transaction Search](CloudWatch-Transaction-Search-getting-started.md "CloudWatch-Transaction-Search-getting-started.md").
+If you are using traces, make sure Transaction Search is enabled to send spans to the X-Ray OTLP endpoint. For more information, see [Getting started with Transaction Search](CloudWatch-Transaction-Search-getting-started.md "CloudWatch-Transaction-Search-getting-started.md").
 
 ## Set up IAM permissions for your role
 

@@ -204,6 +204,86 @@ Keys as shown in the following examples:
 }
 ```
 
+## Pipeline condition keys
+
+CloudWatch pipelines supports IAM condition keys that let you restrict who can create pipelines
+based on the log source name and type. Use these condition keys to enforce governance
+policies across your organization.
+
+###### Available condition keys
+
+`observabilityadmin:SourceName`
+
+Restricts pipeline creation to specific log source names.
+
+`observabilityadmin:SourceType`
+
+Restricts pipeline creation to specific log source types.
+
+###### Example IAM policy restricting pipeline creation by source type
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowPipelineCreationForSpecificSourceType",
+            "Effect": "Allow",
+            "Action": "observabilityadmin:CreateTelemetryPipeline",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "observabilityadmin:SourceType": "cloudwatch_logs"
+                }
+            }
+        }
+    ]
+}
+```
+
+###### Example IAM policy restricting pipeline creation by source name
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowPipelineCreationForSpecificSource",
+            "Effect": "Allow",
+            "Action": "observabilityadmin:CreateTelemetryPipeline",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "observabilityadmin:SourceName": "`your-source-name`"
+                }
+            }
+        }
+    ]
+}
+```
+
+## AI-assisted processor configuration permissions
+
+To use AI-assisted processor configuration in the CloudWatch pipelines console, the IAM principal
+must have the `logs:GeneratePipeline` permission. This permission authorizes
+the generation of processor configurations from natural language descriptions.
+
+###### Example IAM policy for AI-assisted processor configuration
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowGeneratePipeline",
+            "Effect": "Allow",
+            "Action": "logs:GeneratePipeline",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
 ## Source-specific IAM policies
 
 Different source types require specific IAM permissions to access their respective

@@ -3,6 +3,7 @@
 The following terminology and concepts are central to your understanding and use of
 Amazon CloudWatch:
 
+- [OpenTelemetry metrics](#OpenTelemetry_metrics "#OpenTelemetry_metrics")
 - [Namespaces](#Namespace "#Namespace")
 - [Metrics](#Metric "#Metric")
 - [Dimensions](#Dimension "#Dimension")
@@ -12,6 +13,34 @@ Amazon CloudWatch:
 - [Alarms](#CloudWatchAlarms "#CloudWatchAlarms")
   For information about the service quotas for CloudWatch metrics, alarms, API requests, and
   alarm email notifications, see [CloudWatch service quotas](cloudwatch_limits.md "cloudwatch_limits.md").
+
+## OpenTelemetry metrics
+
+CloudWatch also supports metrics sent using the OpenTelemetry Protocol (OTLP). OpenTelemetry
+metrics use a different data model from traditional CloudWatch metrics. Instead of namespaces and
+dimensions, OpenTelemetry metrics use metric names with descriptive labels (key-value pairs)
+that follow OpenTelemetry semantic conventions. OpenTelemetry metrics support up to 150
+labels per metric and support metric types including gauge, sum, histogram, and exponential
+histogram.
+
+OpenTelemetry metrics are queried using the Prometheus Query Language (PromQL) in CloudWatch
+Query Studio or through the Prometheus-compatible query API. You can set PromQL-based CloudWatch
+Alarms on OpenTelemetry metrics.
+
+The following table summarizes the key differences between OpenTelemetry metrics and
+traditional CloudWatch metrics.
+
+| Concept            | Traditional CloudWatch metrics              | OpenTelemetry metrics                        |
+| ------------------ | ------------------------------------------- | -------------------------------------------- |
+| Identity           | Namespace, metric name, up to 30 dimensions | Metric name, up to 150 labels                |
+| Metric types       | Single values, statistic sets               | Gauge, sum, histogram, exponential histogram |
+| Ingestion          | PutMetricData API or AWS CLI                | OpenTelemetry Protocol (OTLP)                |
+| Query language     | GetMetricStatistics, Metrics Insights       | Prometheus Query Language (PromQL)           |
+| Alarms             | Standard CloudWatch Alarms                  | PromQL-based CloudWatch Alarms               |
+| Console experience | CloudWatch Metrics console                  | CloudWatch Query Studio                      |
+| Retention          | Up to 15 months with automatic rollup       | 30 days (public preview)                     |
+
+For more information, see [Send metrics using OpenTelemetry](CloudWatch-OpenTelemetry-Sections.md "CloudWatch-OpenTelemetry-Sections.md").
 
 ## Namespaces
 
@@ -160,6 +189,12 @@ function, which can retrieve statistics for multiple metrics. For more informati
 - `Domain=Frankfurt`
 - `Domain=Rio`
 
+###### Note
+
+OpenTelemetry metrics use labels instead of dimensions. Labels serve a similar purpose
+but follow OpenTelemetry semantic conventions and support up to 150 labels per metric. For
+more information, see [OpenTelemetry metrics](#OpenTelemetry_metrics "#OpenTelemetry_metrics").
+
 ## Resolution
 
 Each metric is one of the following:
@@ -182,6 +217,12 @@ If you set an alarm on a high-resolution metric, you can specify a high-resoluti
 with a period of 10 seconds or 30 seconds, or you can set a regular alarm with a period of
 any multiple of 60 seconds. There is a higher charge for high-resolution alarms with a
 period of 10 or 30 seconds.
+
+###### Note
+
+OpenTelemetry metrics are ingested at the resolution they are sent, with no minimum
+granularity restriction. Resolution and rollup behavior for OpenTelemetry metrics differs
+from traditional CloudWatch metrics.
 
 ## Statistics
 
@@ -350,3 +391,7 @@ period of any multiple of 60 seconds. There is a higher charge for high-resoluti
 For more information about high-resolution metrics, see [Publish custom metrics](publishingMetrics.md "publishingMetrics.md").
 
 For more information, see [Using Amazon CloudWatch alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md") and [Create an alarm from a metric on a graph](create_alarm_metric_graph.md "create_alarm_metric_graph.md").
+
+For OpenTelemetry metrics, you can create PromQL-based CloudWatch Alarms. These alarms use
+PromQL queries to define alarm conditions, using the same query language available in CloudWatch
+Query Studio.

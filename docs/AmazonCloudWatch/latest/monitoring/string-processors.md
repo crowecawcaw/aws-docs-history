@@ -24,6 +24,12 @@ processor:
 Array of field names to convert to lowercase. Only processes string
 values.
 
+`when` (optional)
+
+Conditional expression that determines whether this processor executes.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
 ## uppercase_string processor
 
 Converts specified fields to uppercase.
@@ -45,6 +51,12 @@ processor:
 Array of field names to convert to uppercase. Only processes string
 values.
 
+`when` (optional)
+
+Conditional expression that determines whether this processor executes.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
 ## trim_string processor
 
 Removes leading and trailing whitespace from specified fields.
@@ -65,6 +77,12 @@ processor:
 
 Array of field names to trim whitespace from. Only processes string
 values.
+
+`when` (optional)
+
+Conditional expression that determines whether this processor executes.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
 ## substitute_string processor
 
@@ -102,6 +120,28 @@ The regular expression pattern to match and replace.
 
 The replacement string for matched patterns.
 
+`when` (optional)
+
+Processor-level conditional expression. When specified, the
+entire processor is skipped if the expression evaluates to false.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+`entries[].when` (optional)
+
+Entry-level conditional expression. When specified, only this
+entry is skipped if the expression evaluates to false.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+`entries[].when_else` (optional)
+
+Fallback entry that executes only when none of the other
+`when` conditions in the same processor matched.
+The expression value identifies which `when`
+conditions to consider. Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
 ## truncate processor
 
 Truncates field values to specified length.
@@ -132,6 +172,12 @@ Maximum length after truncation. Range: 1-8192.
 `start_at` (optional)
 
 Starting position for truncation. Range: 0-8192. Defaults to 0.
+
+`when` (optional)
+
+Conditional expression that determines whether this processor executes.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
 ## extract_value processor
 
@@ -179,6 +225,28 @@ characters.
 
 Target data type ("integer", "double", "string", "boolean").
 
+`when` (optional)
+
+Processor-level conditional expression. When specified, the
+entire processor is skipped if the expression evaluates to false.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+`entries[].when` (optional)
+
+Entry-level conditional expression. When specified, only this
+entry is skipped if the expression evaluates to false.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+`entries[].when_else` (optional)
+
+Fallback entry that executes only when none of the other
+`when` conditions in the same processor matched.
+The expression value identifies which `when`
+conditions to consider. Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
 ## convert_entry_type processor
 
 Converts field values between different data types.
@@ -205,6 +273,12 @@ Single field name to convert.
 
 Target data type. Options: "integer", "double", "string",
 "boolean".
+
+`when` (optional)
+
+Conditional expression that determines whether this processor executes.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
 ## date processor
 
@@ -261,6 +335,12 @@ Output date format. Maximum 64 characters.
 
 Output type - "timestampz", "long", or "string".
 
+`when` (optional)
+
+Conditional expression that determines whether this processor executes.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
 ## dissect processor
 
 Extracts structured data using pattern matching.
@@ -281,6 +361,12 @@ processor:
 `map` (required)
 
 Field mapping with dissect patterns.
+
+`when` (optional)
+
+Conditional expression that determines whether this processor executes.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
 ## list_to_map processor
 
@@ -325,6 +411,12 @@ Whether to flatten the resulting map.
 
 Which element to use when flattening ("first" or "last").
 
+`when` (optional)
+
+Conditional expression that determines whether this processor executes.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
 ## rename_keys processor
 
 Renames fields in log events.
@@ -360,6 +452,28 @@ New field name. Maximum 128 characters.
 
 Whether to overwrite existing target field.
 
+`when` (optional)
+
+Processor-level conditional expression. When specified, the
+entire processor is skipped if the expression evaluates to false.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+`entries[].when` (optional)
+
+Entry-level conditional expression. When specified, only this
+entry is skipped if the expression evaluates to false.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+`entries[].when_else` (optional)
+
+Fallback entry that executes only when none of the other
+`when` conditions in the same processor matched.
+The expression value identifies which `when`
+conditions to consider. Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
 ## select_entries processor
 
 Selects only specified fields from events.
@@ -380,6 +494,12 @@ processor:
 
 Array of field names to keep. Maximum 50 keys, each up to 128
 characters.
+
+`when` (optional)
+
+Conditional expression that determines whether this processor executes.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
 ## translate processor
 
@@ -423,3 +543,9 @@ Target field name. Maximum 128 characters.
 
 Translation mapping. Maximum 100 entries, each value up to 512
 characters.
+
+`when` (optional)
+
+Conditional expression that determines whether this processor executes.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").

@@ -23,6 +23,10 @@ tagged with specific applications or environments.
   action can be sending a notification to an Amazon SNS topic, performing an Amazon EC2 action or an
   Amazon EC2 Auto Scaling action, starting an investigation in CloudWatch investigations operational investigations, or
   creating an OpsItem or incident in Systems Manager.
+- A _PromQL alarm_ monitors metrics using a Prometheus Query Language
+  (PromQL) instant query on metrics ingested through the CloudWatch OTLP endpoint. The alarm
+  tracks individual breaching time series as contributors and uses duration-based pending
+  and recovery periods to control state transitions. For more information, see [PromQL alarms](alarm-promql.md "alarm-promql.md").
 - A _composite alarm_ includes a rule expression that takes into
   account the alarm states of other alarms that you have created. The composite alarm goes
   into ALARM state only if all conditions of the rule are met. The alarms specified in a

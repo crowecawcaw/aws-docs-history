@@ -5,18 +5,6 @@ designed for the OpenTelemetry. CloudWatch OpenTelemetry endpoints are HTTP 1.1 
 need to configure your OpenTelemetry collector to start sending open telemetry data to
 CloudWatch. For more information, see [Getting started](CloudWatch-OTLPGettingStarted.md "CloudWatch-OTLPGettingStarted.md").
 
-## Traces endpoint
-
-The traces endpoint follows the pattern `https://xray.`AWS
-Region`.amazonaws.com/v1/traces`. For example, for the
-US West (Oregon) (us-west-2) Region, the endpoint will be
-`https://xray.us-west-2.amazonaws.com/v1/traces`.
-
-You need to configure your OpenTelemetry collector to start sending traces to
-CloudWatch. The endpoint authenticates callers using Signature 4 authentication. For more
-information, see [AWS Signature Version 4 for API
-requests](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md").
-
 ## Logs endpoint
 
 The logs endpoint follows the pattern
@@ -47,6 +35,30 @@ is available in US East (N. Virginia) US West (Oregon), Europe (Frankfurt),
 Asia Pacific (Sydney), Asia Pacific (Mumbai), US East (Ohio),
 Europe (Ireland), Asia Pacific (Tokyo), and Asia Pacific (Singapore).
 
+## Metrics endpoint
+
+The metrics endpoint follows the pattern `https://monitoring.`AWS
+Region`.amazonaws.com/v1/metrics`. For example, for the
+US West (Oregon) (us-west-2) Region, the endpoint will be
+`https://monitoring.us-west-2.amazonaws.com/v1/metrics`.
+
+You need to configure your OpenTelemetry collector to start sending metrics to
+CloudWatch. The endpoint authenticates callers using Signature 4 authentication. For more
+information, see [AWS Signature Version 4 for API
+requests](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md").
+
+## Traces endpoint
+
+The traces endpoint follows the pattern `https://xray.`AWS
+Region`.amazonaws.com/v1/traces`. For example, for the
+US West (Oregon) (us-west-2) Region, the endpoint will be
+`https://xray.us-west-2.amazonaws.com/v1/traces`.
+
+You need to configure your OpenTelemetry collector to start sending traces to
+CloudWatch. The endpoint authenticates callers using Signature 4 authentication. For more
+information, see [AWS Signature Version 4 for API
+requests](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md").
+
 ## RUM endpoint
 
 The RUM endpoint follows the pattern `https://dataplane.rum.{AWS
@@ -75,16 +87,16 @@ SDKs, see the following:
 
 ## Endpoint limits and restrictions
 
-The table lists the common endpoint limits and restrictions for traces and
+The table lists the common endpoint limits and restrictions for metrics, traces, and
 logs.
 
-| Limit                        | Endpoint                                                                                                                                                                                                                                  | Additional information                                             |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Required collector extension | [sigv4authextension](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension/sigv4authextension "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension/sigv4authextension") | To send traces to OTLP endpoint you must use<br>sigv4authextension |
-| Supported protocol           | HTTP                                                                                                                                                                                                                                      | The endpoint supports only HTTP and doesn't support<br>gRPC        |
-| Supported OTLP versions      | OTLP 1.x                                                                                                                                                                                                                                  |                                                                    |
-| Payload format               | binary, json                                                                                                                                                                                                                              | The endpoint accepts requests using binary and json<br>formats     |
-| Compression methods          | gzip, none                                                                                                                                                                                                                                | The endpoint only supports gzip and none compression<br>methods    |
+| Limit                        | Endpoint                                                                                                                                                                                                                                  | Additional information                                                        |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Required collector extension | [sigv4authextension](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension/sigv4authextension "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension/sigv4authextension") | To send metrics or traces to OTLP endpoint you must use<br>sigv4authextension |
+| Supported protocol           | HTTP                                                                                                                                                                                                                                      | The endpoint supports only HTTP and doesn't support<br>gRPC                   |
+| Supported OTLP versions      | OTLP 1.x                                                                                                                                                                                                                                  |                                                                               |
+| Payload format               | binary, json                                                                                                                                                                                                                              | The endpoint accepts requests using binary and json<br>formats                |
+| Compression methods          | gzip, none                                                                                                                                                                                                                                | The endpoint only supports gzip and none compression<br>methods               |
 
 The table lists the endpoint limits and restrictions for traces.
 
@@ -96,6 +108,17 @@ The table lists the endpoint limits and restrictions for traces.
 | Single span maximum size             | 200 KB                                        | Spans more than 200KB will be rejected by the endpoint.                                                                                                                |
 | Span created timestamps              | 2 hours in the future and 14 days in the past | None of the spans in the batch can be more than two hours in<br>the future or more than 14 days in the past.                                                           |
 | Maximum time gap in events / request | 24 hours                                      |                                                                                                                                                                        |
+
+The table lists the endpoint limits and restrictions for metrics.
+
+| Limit                            | Metrics endpoint | Additional information                                                                                                                                                           | Error code                                                                                                   |
+| -------------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Maximum TPS                      | 500              | The maximum number of requests per second allowed per account.                                                                                                                   | 429                                                                                                          |
+| Maximum new series creation rate | 1,000,000        | Maximum number of new series that can be created in a 10-minute window. This limit applies only to creating new metric names, not to ingesting data points for existing metrics. | 429<br>• all metrics in the requests are throttled; 200<br>• metrics in the requests are partially throttled |
+| Maximum request size             | 1 MB             | The maximum uncompressed size of the request.                                                                                                                                    | 400                                                                                                          |
+| Maximum datapoint count          | 1,000            | The maximum number of datapoints sent in a single request. This number is a sum across ResourceMetrics, ScopeMetrics and Metrics.                                                | 400                                                                                                          |
+| Maximum metadata size            | 40 KB            | The maximum combined size of all labels and label values accepted for a series per datapoint.                                                                                    | 400<br>• all metrics in the requests are invalid; 200<br>• metrics in the requests are partially invalid     |
+| Maximum label count              | 150              | Maximum number of labels across Resource/Scope/Datapoint attributes per datapoint.                                                                                               | 400<br>• all metrics in the requests are invalid; 200<br>• metrics in the requests are partially invalid     |
 
 The table lists the endpoint limits and restrictions for logs.
 

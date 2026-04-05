@@ -13,7 +13,11 @@ Amazon Route 53 Resolver Query Logs (Auditing and Configuration Available), Amaz
 Amazon EKS Control Plane Logs (Auditing and Configuration Available),
 AWS CloudTrail Data Events and Management Events (Configuration Available),
 Amazon Bedrock AgentCore Logs (Configuration Available),
-and Amazon EC2 Instance Detailed Metrics (Auditing and Configuration Available).
+Amazon EC2 Instance Detailed Metrics (Auditing and Configuration Available),
+AWS Security Hub (Configuration Available),
+Amazon Bedrock Agentcore Gateway (Configuration Available),
+Amazon Bedrock Agentcore Memory (Configuration Available),
+and Amazon CloudFront Distribution (Configuration Available).
 
 To begin auditing and configuring your telemetry, you must enable trusted access for CloudWatch for
 your AWS organization and then enable the telemetry configuration experience feature for your

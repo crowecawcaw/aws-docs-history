@@ -31,6 +31,12 @@ charged as custom metrics. With Container Insights with enhanced observability f
 Container Insights metrics and logs are charged per observation instead of being charged per
 metric stored or log ingested. For more information about CloudWatch pricing, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
+**[Preview]** For Amazon EKS, Container Insights with OpenTelemetry
+provides an additional metric mode that collects metrics using the OpenTelemetry Protocol (OTLP)
+and supports PromQL queries. Each metric is enriched with up to 150 labels, including
+OpenTelemetry semantic convention attributes and Kubernetes pod and node labels. For more
+information, see [Container Insights with OpenTelemetry metrics for Amazon EKS](container-insights-otel-metrics.md "container-insights-otel-metrics.md").
+
 In Amazon EKS, RedHatOpenshift on AWS, and Kubernetes, Container Insights uses a containerized
 version of the CloudWatch agent to discover all of the running containers in a cluster. It then
 collects performance data at every layer of the performance stack.
@@ -56,6 +62,8 @@ Kubernetes platforms on Amazon EC2 instances.
   not available for containers that use `host` network mode.
 - For Amazon Elastic Kubernetes Service, and Kubernetes platforms on Amazon EC2 instances, Container Insights is
   supported on both Linux and Windows instances.
+- **[Preview]** Container Insights with OpenTelemetry
+  metrics is available for Amazon EKS. For more information, see [Container Insights with OpenTelemetry metrics for Amazon EKS](container-insights-otel-metrics.md "container-insights-otel-metrics.md").
 
 ## CloudWatch agent container image
 

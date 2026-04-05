@@ -59,3 +59,72 @@ JSON
 }`
 
 ```
+
+**Controlling OTLP ingest**
+
+The following policy allows the user to publish metrics using the OTLP API:
+
+JSON
+
+```
+{
+    "Version":"2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Resource": "*",
+            "Action": "cloudwatch:PutMetricData"
+        }
+    ]
+}
+```
+
+For disabling dual ingest, that is, only using PutMetricData and deny any OTLP ingest,
+you can use the following policy. It limits the user to publishing metrics using PutMetricData
+in the namespace `MyCustomNamespace` and at the same time implicitly denies any
+OTLP ingest due to the `StringEquals` condition:
+
+JSON
+
+```
+{
+    "Version":"2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "cloudwatch:PutMetricData",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                     "cloudwatch:namespace": "MyCustomNamespace"
+                }
+            }
+         }
+    ]
+}
+```
+
+For enabling dual ingest, that is, to allow both PutMetricData and OTLP ingest,
+you can use the following policy. It limits the user to publishing metrics using PutMetricData
+in the namespace named `MyCustomNamespace` and at the same time allows OTLP ingest
+due to the `StringEqualsIfExists` condition:
+
+JSON
+
+```
+{
+    "Version":"2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "cloudwatch:PutMetricData",
+            "Resource": "*",
+            "Condition": {
+                "StringEqualsIfExists": {
+                     "cloudwatch:namespace": "MyCustomNamespace"
+                }
+            }
+         }
+    ]
+}
+```

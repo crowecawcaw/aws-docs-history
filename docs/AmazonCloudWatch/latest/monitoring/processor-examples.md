@@ -59,3 +59,43 @@ processor:
         - from_key: "browser"
           to_key: "user_data.browser"
 ```
+
+###### Example Conditional processing with entry-level conditions
+
+Add different metadata based on log severity using entry-level
+`when` conditions:
+
+```
+processor:
+  - add_entries:
+      entries:
+        - key: "alert_level"
+          value: "critical"
+          when: "log.level == 'ERROR'"
+        - key: "alert_level"
+          value: "info"
+          when_else: "log.level == 'ERROR'"
+```
+
+###### Example Drop unwanted log entries
+
+Filter out debug and trace log entries from a third-party source to
+reduce noise and storage costs:
+
+```
+processor:
+  - drop_events:
+      when: "log.level in {'DEBUG', 'TRACE'}"
+      handle_expression_failure: "skip"
+```
+
+###### Example Processor-level conditional with delete_entries
+
+Remove sensitive fields only when the environment is production:
+
+```
+processor:
+  - delete_entries:
+      with_keys: ["password", "api_key", "ssn"]
+      when: "environment in {'prod', 'staging'}"
+```
