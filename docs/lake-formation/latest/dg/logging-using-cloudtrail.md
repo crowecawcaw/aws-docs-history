@@ -129,6 +129,81 @@ in a data lake location that is registered with Lake Formation.
 
 ```
 
+### Tracing data access in CloudTrail with Lake Formation
+
+Lake Formation issues temporary, scoped-down credentials to query engines—such as , Amazon EMR, and AWS Glue—for accessing table data locations in Amazon S3. Lake Formation uses the IAM role that you specify when you [register a data location](register-location.md "register-location.md") with Lake Formation for vending these credentials.
+
+#### Change in CloudTrail logging behavior (February 2026)
+
+**Before February 2026**, when a query engine made an `s3:GetObject` call to fetch query data, CloudTrail logs displayed the Lake Formation registration IAM role as the principal.
+
+**Starting in February 2026**, CloudTrail logs for `s3:GetObject` calls also include the [IAM unique identifier](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-prefixes "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-prefixes") (beginning with `AROA`) of the IAM role that initiated the query. This identifier corresponds to the IAM role that initiated the query, Amazon EMR job, or AWS Glue ETL job.
+
+#### Tracing data access from query initiation to Amazon S3
+
+Each `s3:GetObject` call in CloudTrail corresponds to a `lakeformation:GetDataAccess` call. You can use the IAM role identifier that is present in both log entries to trace the caller's IAM role from query initiation through to data access in Amazon S3.
+
+To enable the information of source identity in the Amazon S3 data events CloudTrail logs, follow the below steps. For enabling Amazon S3 data events in CloudTrail, refer [Enabling CloudTrail event logging for Amazon S3 buckets and objects](../../../AmazonS3/latest/userguide/enable-cloudtrail-logging-for-s3.md "../../../AmazonS3/latest/userguide/enable-cloudtrail-logging-for-s3.md").
+
+###### Important
+
+Enabling Amazon S3 data events in CloudTrail incurs additional charges.
+
+###### To enable source identity tracking in CloudTrail logs
+
+1. Using , run the `get-data-lake-settings` command. In the response, edit the `Parameters` field to add `"SET_SOURCE_IDENTITY": "TRUE"`.
+
+Run the `put-data-lake-settings` command.
+
+```
+"Parameters": {
+    "CROSS_ACCOUNT_VERSION": "4",
+    "SET_SOURCE_IDENTITY": "TRUE"
+},
+```
+
+2. In the trust policy of the IAM role used to register your Amazon S3 data location with Lake Formation, add `sts:SetSourceIdentity`:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "lakeformation.amazonaws.com"
+                ]
+            },
+            "Action": [
+                "sts:AssumeRole",
+                "sts:SetSourceIdentity"
+            ]
+        }
+    ]
+}
+```
+
+The following log shows the source identity information in an example `s3:GetObject` CloudTrail log.
+
+```
+"sessionContext": {
+    "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROA2EXAMPLEXYZ3AB6CDKLM",
+        "arn": "arn:aws:iam::111122223333:role/LFRegistrationRole",
+        "accountId": "111122223333",
+        "userName": "LFRegistrationRole"
+    },
+    "sourceIdentity": "V2.111122223333.AROA3EXAMPLEPQR7ST9UVWXY"
+},
+"invokedBy": "glue.amazonaws.com"
+```
+
+###### See Also
+
+- For information about tracking IAM Identity Center user context in CloudTrail logs, see [Integrating IAM Identity Center](identity-center-integration.md "identity-center-integration.md").
+
 ###### Amazon Redshift federated catalog access monitoring
 
 Amazon Redshift federated catalogs in the AWS Glue Data Catalog do not generate `GetDataAccess`
