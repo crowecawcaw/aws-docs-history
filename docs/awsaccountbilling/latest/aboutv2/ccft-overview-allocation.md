@@ -1,5 +1,9 @@
 # Allocation approach
 
+###### CCFT deprecation notice
+
+The CCFT will be deprecated on June 30th 2026 in favor of the new AWS Sustainability service which offers additional functionalities and does not require Billing console permissions. [AWS Sustainability user guide](../../../sustainability/latest/userguide.md "../../../sustainability/latest/userguide.md")
+
 The carbon allocation model uses a top-down approach to calculate customers' carbon
 footprint associated with the AWS cloud service usage. AWS prioritizes
 `physical allocation` (also known as usage-based allocation) and

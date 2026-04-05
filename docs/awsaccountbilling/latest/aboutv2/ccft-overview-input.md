@@ -1,5 +1,9 @@
 # Input data
 
+###### CCFT deprecation notice
+
+The CCFT will be deprecated on June 30th 2026 in favor of the new AWS Sustainability service which offers additional functionalities and does not require Billing console permissions. [AWS Sustainability user guide](../../../sustainability/latest/userguide.md "../../../sustainability/latest/userguide.md")
+
 This section outlines the sources of data and transformations that occur upstream of the
 Customer Carbon Footprint Tool to define Scope 1, Scope 2, and Scope 3 carbon emissions for each AWS
 cluster. To understand the full methodology, see the [CCFT Methodology Document](http://sustainability.aboutamazon.com/aws-customer-carbon-footprint-tool-methodology.pdf "http://sustainability.aboutamazon.com/aws-customer-carbon-footprint-tool-methodology.pdf").

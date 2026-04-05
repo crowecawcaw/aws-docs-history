@@ -1,5 +1,9 @@
 # System boundary
 
+###### CCFT deprecation notice
+
+The CCFT will be deprecated on June 30th 2026 in favor of the new AWS Sustainability service which offers additional functionalities and does not require Billing console permissions. [AWS Sustainability user guide](../../../sustainability/latest/userguide.md "../../../sustainability/latest/userguide.md")
+
 The system boundary defines what activities and related emissions are accounted for in the CCFT calculations. The CCFT is informed by the GHG Protocol’s classification of emissions, which breaks down a company’s emissions into three `scopes`.
 
 - **Scope 1**: Emissions are direct emissions from owned or controlled sources.

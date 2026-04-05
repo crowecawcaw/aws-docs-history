@@ -1,5 +1,9 @@
 # Calculating your energy usage
 
+###### CCFT deprecation notice
+
+The CCFT will be deprecated on June 30th 2026 in favor of the new AWS Sustainability service which offers additional functionalities and does not require Billing console permissions. [AWS Sustainability user guide](../../../sustainability/latest/userguide.md "../../../sustainability/latest/userguide.md")
+
 ###### Note
 
 - The energy data calculated using this method is for informational purposes only. Do not use this information for optimization.

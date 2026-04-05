@@ -1,5 +1,9 @@
 # Understanding your carbon emission estimations
 
+###### CCFT deprecation notice
+
+The CCFT will be deprecated on June 30th 2026 in favor of the new AWS Sustainability service which offers additional functionalities and does not require Billing console permissions. [AWS Sustainability user guide](../../../sustainability/latest/userguide.md "../../../sustainability/latest/userguide.md")
+
 The Customer Carbon Footprint Tool quantifies customer-specific greenhouse gas (GHG) emissions associated with the use of AWS cloud services. The tool covers the full range of cloud products.
 
 The methodology adopted in the Customer Carbon Footprint Tool is based on the data sources and allocation methods outlined in the following standards:

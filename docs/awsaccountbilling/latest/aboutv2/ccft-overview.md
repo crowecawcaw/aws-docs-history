@@ -1,5 +1,9 @@
 # Understanding the Customer Carbon Footprint Tool (CCFT)
 
+###### CCFT deprecation notice
+
+The CCFT will be deprecated on June 30th 2026 in favor of the new AWS Sustainability service which offers additional functionalities and does not require Billing console permissions. [AWS Sustainability user guide](../../../sustainability/latest/userguide.md "../../../sustainability/latest/userguide.md")
+
 This page defines each console section, so you can understand the information provided in
 depth.
 
