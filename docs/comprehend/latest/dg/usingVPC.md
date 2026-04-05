@@ -97,7 +97,7 @@ If you're using CloudFormation to create the VPC endpoint, follow the [CloudForm
     Type: AWS::EC2::VPCEndpoint
     Properties:
       PolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
           - Action:
               - s3:GetObject

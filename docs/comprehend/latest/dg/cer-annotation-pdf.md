@@ -21,7 +21,7 @@ installation.
 - [Setting up your environment](#cer-annotation-pdf-set-up "#cer-annotation-pdf-set-up")
 - [Uploading a PDF to an S3 bucket](#cer-annotation-pdf-upload "#cer-annotation-pdf-upload")
 - [Creating an annotation job](#cer-annotation-pdf-job "#cer-annotation-pdf-job")
-- [Annotating with SageMaker AI Ground Truth](#w2aac33c23c21c19c15 "#w2aac33c23c21c19c15")
+- [Annotating with SageMaker AI Ground Truth](#w2aac35c23c21c19c15 "#w2aac35c23c21c19c15")
 
 ## Setting up your environment
 
