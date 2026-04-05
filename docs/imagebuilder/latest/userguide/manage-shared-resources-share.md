@@ -43,7 +43,7 @@ Run the **[put-image-policy](../../../cli/latest/reference/imagebuilder/put-imag
 Image Builder command in the AWS CLI, to identify the AWS principals to share the image with.
 
 ```
-aws imagebuilder put-image-policy --image-arn arn:aws:imagebuilder:us-west-2:123456789012:image/my-example-image/2019.12.03/1 --policy '{ "Version": "2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "123456789012" ] }, "Action": ["imagebuilder:GetImage", "imagebuilder:ListImages"], "Resource": [ "arn:aws:imagebuilder:us-west-2:123456789012:image/my-example-image/2019.12.03/1" ] } ] }'
+aws imagebuilder put-image-policy --image-arn arn:aws:imagebuilder:us-west-2:123456789012:image/my-example-image/2019.12.03/1 --policy '{ "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "123456789012" ] }, "Action": ["imagebuilder:GetImage", "imagebuilder:ListImages"], "Resource": [ "arn:aws:imagebuilder:us-west-2:123456789012:image/my-example-image/2019.12.03/1" ] } ] }'
 ```
 
 Component
@@ -57,7 +57,7 @@ Run the **[put-component-policy](../../../cli/latest/reference/imagebuilder/put-
 Image Builder command in the AWS CLI, to identify the AWS principals to share the component with.
 
 ```
-aws imagebuilder put-component-policy --component-arn arn:aws:imagebuilder:us-west-`2:123456789012`:component/`my-example-component`/2019.12.03/1 --policy '{ "Version": "2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "123456789012" ] }, "Action": [ "imagebuilder:GetComponent", "imagebuilder:ListComponents" ], "Resource": [ "arn:aws:imagebuilder:us-west-`2:123456789012`:component/`my-example-component`/2019.12.03/1" ] } ] }'
+aws imagebuilder put-component-policy --component-arn arn:aws:imagebuilder:us-west-`2:123456789012`:component/`my-example-component`/2019.12.03/1 --policy '{ "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "123456789012" ] }, "Action": [ "imagebuilder:GetComponent", "imagebuilder:ListComponents" ], "Resource": [ "arn:aws:imagebuilder:us-west-`2:123456789012`:component/`my-example-component`/2019.12.03/1" ] } ] }'
 ```
 
 Image recipe
@@ -71,7 +71,7 @@ Run the **[put-image-recipe-policy](../../../cli/latest/reference/imagebuilder/p
 Image Builder command in the AWS CLI, to identify the AWS principals to share the image with.
 
 ```
-aws imagebuilder put-image-recipe-policy --image-recipe-arn arn:aws:imagebuilder:us-west-`2:123456789012`:image-recipe/`my-example-image-recipe`/2019.12.03 --policy '{ "Version": "2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "123456789012" ] }, "Action": [ "imagebuilder:GetImageRecipe", "imagebuilder:ListImageRecipes" ], "Resource": [ "arn:aws:imagebuilder:us-west-`2:123456789012`:image-recipe/`my-example-image-recipe`/2019.12.03" ] } ] }'
+aws imagebuilder put-image-recipe-policy --image-recipe-arn arn:aws:imagebuilder:us-west-`2:123456789012`:image-recipe/`my-example-image-recipe`/2019.12.03 --policy '{ "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "123456789012" ] }, "Action": [ "imagebuilder:GetImageRecipe", "imagebuilder:ListImageRecipes" ], "Resource": [ "arn:aws:imagebuilder:us-west-`2:123456789012`:image-recipe/`my-example-image-recipe`/2019.12.03" ] } ] }'
 ```
 
 Container recipe
@@ -85,7 +85,7 @@ Run the **[put-container-recipe-policy](../../../cli/latest/reference/imagebuild
 Image Builder command in the AWS CLI, to identify the AWS principals to share the image with.
 
 ```
-aws imagebuilder put-container-recipe-policy --container-recipe-arn arn:aws:imagebuilder:us-west-`2:123456789012`:container-recipe/`my-example-container-recipe`/2021.12.03 --policy '{ "Version": "2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "123456789012" ] }, "Action": [ "imagebuilder:GetContainerRecipe", "imagebuilder:ListContainerRecipes" ], "Resource": [ "arn:aws:imagebuilder:us-west-`2:123456789012`:container-recipe/`my-example-container-recipe`/2021.12.03" ] } ] }'
+aws imagebuilder put-container-recipe-policy --container-recipe-arn arn:aws:imagebuilder:us-west-`2:123456789012`:container-recipe/`my-example-container-recipe`/2021.12.03 --policy '{ "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "123456789012" ] }, "Action": [ "imagebuilder:GetContainerRecipe", "imagebuilder:ListContainerRecipes" ], "Resource": [ "arn:aws:imagebuilder:us-west-`2:123456789012`:container-recipe/`my-example-container-recipe`/2021.12.03" ] } ] }'
 ```
 
 ###### Note
