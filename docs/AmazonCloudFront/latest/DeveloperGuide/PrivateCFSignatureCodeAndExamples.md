@@ -6,6 +6,8 @@ use any of the examples to create signed URLs. The Perl script runs on Linux and
 platforms. The PHP example will work on any server that runs PHP. The C# example uses
 the .NET Framework.
 
+The examples in this section use SHA-1 to hash and sign the policy statement. You can also use SHA-256. To use SHA-256, update the hash algorithm in the signing function (for example, replace `sha1` with `sha256` in OpenSSL calls, or use the equivalent SHA-256 constant in your language's cryptographic library). When you use SHA-256, include the `Hash-Algorithm=SHA256` query parameter in the signed URL.
+
 For example code in JavaScript (Node.js), see [Creating Amazon CloudFront Signed URLs in Node.js](https://aws.amazon.com/blogs/developer/creating-amazon-cloudfront-signed-urls-in-node-js/ "https://aws.amazon.com/blogs/developer/creating-amazon-cloudfront-signed-urls-in-node-js/") on the AWS Developer Blog.
 
 For example code in Python, see [Generate a signed URL for Amazon CloudFront](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront.html#examples "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront.html#examples") in the _AWS SDK for Python (Boto3) API Reference_ and [this

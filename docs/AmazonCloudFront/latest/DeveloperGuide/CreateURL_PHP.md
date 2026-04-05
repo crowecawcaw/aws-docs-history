@@ -13,6 +13,7 @@ streaming. You can download the full example from the [demo-php.zip](samples/dem
 - You can also create signed URLs by using the `UrlSigner`
   class in the AWS SDK for PHP. For more information, see [Class UrlSigner](../../../aws-sdk-php/v3/api/class-Aws.CloudFront.UrlSigner.md "../../../aws-sdk-php/v3/api/class-Aws.CloudFront.UrlSigner.md") in the
   _AWS SDK for PHP API Reference_.
+- In the `openssl_sign` call, note that passing `OPENSSL_ALGO_SHA256` as the fourth argument switches to SHA-256. (See also the [Create signed cookies using PHP](signed-cookies-PHP.md "signed-cookies-PHP.md") for a full example.)
 
 ###### Topics
 

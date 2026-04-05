@@ -11,7 +11,7 @@ To create a signed URL using a custom policy, complete the following procedure.
    signed URL.
 
 ```
-`https://d111111abcdef8.cloudfront.net/image.jpg`?`color=red&size=medium&`Policy=`eyANCiAgICEXAMPLEW1lbnQiOiBbeyANCiAgICAgICJSZXNvdXJjZSI6Imh0dHA6Ly9kemJlc3FtN3VuMW0wLmNsb3VkZnJvbnQubmV0L2RlbW8ucGhwIiwgDQogICAgICAiQ29uZGl0aW9uIjp7IA0KICAgICAgICAgIklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIyMDcuMTcxLjE4MC4xMDEvMzIifSwNCiAgICAgICAgICJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTI5Njg2MDE3Nn0sDQogICAgICAgICAiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjEyOTY4NjAyMjZ9DQogICAgICB9IA0KICAgfV0gDQp9DQo`&Signature=`nitfHRCrtziwO2HwPfWw~yYDhUF5EwRunQA-j19DzZrvDh6hQ73lDx~-ar3UocvvRQVw6EkC~GdpGQyyOSKQim-TxAnW7d8F5Kkai9HVx0FIu-5jcQb0UEmatEXAMPLE3ReXySpLSMj0yCd3ZAB4UcBCAqEijkytL6f3fVYNGQI6`&Key-Pair-Id=`K2JCJMDEHXQW5F`
+`https://d111111abcdef8.cloudfront.net/image.jpg`?`color=red&size=medium&`Policy=`eyANCiAgICEXAMPLEW1lbnQiOiBbeyANCiAgICAgICJSZXNvdXJjZSI6Imh0dHA6Ly9kemJlc3FtN3VuMW0wLmNsb3VkZnJvbnQubmV0L2RlbW8ucGhwIiwgDQogICAgICAiQ29uZGl0aW9uIjp7IA0KICAgICAgICAgIklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIyMDcuMTcxLjE4MC4xMDEvMzIifSwNCiAgICAgICAgICJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTI5Njg2MDE3Nn0sDQogICAgICAgICAiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjEyOTY4NjAyMjZ9DQogICAgICB9IA0KICAgfV0gDQp9DQo`&Signature=`nitfHRCrtziwO2HwPfWw~yYDhUF5EwRunQA-j19DzZrvDh6hQ73lDx~-ar3UocvvRQVw6EkC~GdpGQyyOSKQim-TxAnW7d8F5Kkai9HVx0FIu-5jcQb0UEmatEXAMPLE3ReXySpLSMj0yCd3ZAB4UcBCAqEijkytL6f3fVYNGQI6`&Key-Pair-Id=`K2JCJMDEHXQW5F`&Hash-Algorithm=`SHA256`
 ```
 
 Remove all empty spaces (including tabs and newline characters). You might
@@ -82,8 +82,9 @@ query string parameters in any order within the URL.
 ###### Important
 
 Your query string parameters can't be named
-`Policy`, `Signature`, or
-`Key-Pair-Id`.
+`Policy`, `Signature`,
+`Key-Pair-Id`, or
+`Hash-Algorithm`.
 
 If you add your own parameters, append an `&`
 after each one, including the last one.
@@ -119,6 +120,12 @@ tampered with.
 
 This public key must belong to a key group that is a trusted
 signer in the distribution. For more information, see [Specify signers that can create signed URLs and signed cookies](private-content-trusted-signers.md "private-content-trusted-signers.md").
+
+**7. `&Hash-Algorithm=``SHA1 or SHA256`**
+
+(Optional) The hash algorithm used to create the signature. Supported values are
+`SHA1` and `SHA256`. If you don't specify this parameter,
+CloudFront defaults to `SHA1`.
 
 ## Create a policy statement for a signed URL that uses a custom policy
 
@@ -194,7 +201,8 @@ When you create a policy statement for a custom policy, you specify the followin
 **Resource**
 
 The URL, including any query strings, but excluding the CloudFront `Policy`,
-`Signature`, and `Key-Pair-Id` parameters.
+`Signature`, `Key-Pair-Id`,
+and `Hash-Algorithm` parameters.
 For example:
 
 `https://d111111abcdef8.cloudfront.net/images/horizon.jpg\?size=large&license=yes`
@@ -470,11 +478,17 @@ For additional information and examples of how to hash, sign, and encode the pol
 - [Linux commands and OpenSSL for base64 encoding and encryption](private-content-linux-openssl.md "private-content-linux-openssl.md")
 - [Code examples for creating a signature for a signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md")
 
+###### Note
+
+The linked examples use SHA-1 by default. To use SHA-256 instead, replace `sha1` with `sha256` in the OpenSSL commands and include the `Hash-Algorithm=SHA256` query parameter in the signed URL.
+
 ###### Option 1: To create a signature by using a custom policy
 
-1. Use the SHA-1 hash function and the generated RSA or ECDSA private key to hash and sign the JSON policy statement that you
+1. Use the SHA-1 or SHA-256 hash function and the generated RSA or ECDSA private key to hash and sign the JSON policy statement that you
    created in the procedure [To create the policy statement for a signed URL that uses a custom policy](#private-content-custom-policy-creating-policy-procedure "#private-content-custom-policy-creating-policy-procedure"). Use the version of the policy statement that no longer includes
    empty spaces but that has not yet been base64-encoded.
+
+If you use SHA-256, you must include `&Hash-Algorithm=SHA256` in the signed URL.
 
 For the private key that is required by the hash function, use a private key whose
 public key is in an active trusted key group for the

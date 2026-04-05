@@ -17,7 +17,7 @@ lists.
 
 ## What is BYOIP for Anycast Static IPs?
 
-CloudFront supports bringing your own IPv4 addresses through IPAM's BYOIP for global services.
+CloudFront supports bringing your own IPv4 and IPv6 addresses through IPAM's BYOIP for global services.
 Through IPAM's unified interface, customers can create dedicated IP address pools using
 their own IP addresses (BYOIP) and assign them to CloudFront distributions while leveraging
 the AWS worldwide content delivery network to deliver their applications and content.
@@ -48,7 +48,7 @@ To use Anycast static IP lists with your CloudFront distribution, you must selec
 all edge locations** for the price class for the distribution. For more
 information about pricing, see [CloudFront
 pricing](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/cloudfront/pricing/"). For Bring Your Own IP (BYOIP), you also need to disable IPv6 for
-the distribution or connection group.
+the distribution or connection group when using IPv4-only BYOIP. For dual-stack BYOIP, associate a dual-stack Anycast static IP List and enable IPv6 for the distribution or connection group.
 
 Complete these steps before starting:
 
@@ -56,14 +56,15 @@ Complete these steps before starting:
   accounts](../../../vpc/latest/ipam/enable-integ-ipam.md "../../../vpc/latest/ipam/enable-integ-ipam.md") and [Create an IPAM](../../../vpc/latest/ipam/create-ipam.md "../../../vpc/latest/ipam/create-ipam.md").
 - Domain verification: [Verify domain control](../../../vpc/latest/ipam/tutorials-byoip-ipam-domain-verification-methods.md "../../../vpc/latest/ipam/tutorials-byoip-ipam-domain-verification-methods.md").
 - Create a top-level pool: Follow steps 1 to 2 in [Bring your own
-  IPv4 CIDR to IPAM](../../../vpc/latest/ipam/tutorials-byoip-ipam-console-ipv4.md "../../../vpc/latest/ipam/tutorials-byoip-ipam-console-ipv4.md").
+  IPv4 CIDR to IPAM](../../../vpc/latest/ipam/tutorials-byoip-ipam-console-ipv4.md "../../../vpc/latest/ipam/tutorials-byoip-ipam-console-ipv4.md") and/or [Bring your own
+  IPv6 CIDR to IPAM](../../../vpc/latest/ipam/tutorials-byoip-ipam-console-ipv6.md "../../../vpc/latest/ipam/tutorials-byoip-ipam-console-ipv6.md").
 - Create an IPAM pool with locale as global to use with CloudFront. For more information, see
   [Bring your own IP to
   CloudFront using IPAM](../../../vpc/latest/ipam/tutorials-byoip-cloudfront.md "../../../vpc/latest/ipam/tutorials-byoip-cloudfront.md").
 
 ###### Note
 
-Requires **three /24** IPv4 CIDR blocks.
+Requires **three /24 and/or /48** IPv4 CIDR blocks.
 
 ## Step 1: Request an Anycast static IP list
 
@@ -91,6 +92,8 @@ Before you begin, request an Anycast static IP list as explained in the precedin
 3. Choose **Create Anycast IP list**.
 4. For **Name**, enter a name.
 5. For **Static IP use cases**, select **BYOIP** as your use case.
+6. For **IP address type**, pick **IPv4** or **Dualstack**.
+7. For **IPAM pool**, pick the IPAM pool(s) you provisioned through IPAM and CIDR group(s) from them.
 
 The following steps differ from the standard regional BYOIP process and establish the pattern for global services:
 
@@ -101,8 +104,11 @@ see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide/ge
 
 1. Retrieve the IpamPoolArn of the IPAM pool where your CIDR blocks were provisioned.
    For more information, see [Bring your own public IPv4 CIDR to IPAM using only
-   the AWS CLI](../../../vpc/latest/ipam/tutorials-byoip-ipam-ipv4.md "../../../vpc/latest/ipam/tutorials-byoip-ipam-ipv4.md").
+   the AWS CLI](../../../vpc/latest/ipam/tutorials-byoip-ipam-ipv4.md "../../../vpc/latest/ipam/tutorials-byoip-ipam-ipv4.md") or [Bring your own public IPv6 CIDR to IPAM using only
+   the AWS CLI](../../../vpc/latest/ipam/tutorials-byoip-ipam-ipv6.md "../../../vpc/latest/ipam/tutorials-byoip-ipam-ipv6.md").
 2. Create an Anycast IP list with your CIDR blocks and IPAM configuration:
+
+For IPv4:
 
 ```
 aws cloudfront create-anycast-ip-list \
@@ -111,6 +117,17 @@ aws cloudfront create-anycast-ip-list \
     --region us-east-1 \
     --ip-address-type ipv4 \
     --ipam-cidr-configs '[{"Cidr":"1.1.1.0/24","IpamPoolArn":"arn:aws:ec2::123456789012:ipam-pool/ipam-pool-005d58a8aa8147abc"},{"Cidr":"2.2.2.0/24","IpamPoolArn":"arn:aws:ec2::123456789012:ipam-pool/ipam-pool-005d58a8aa8147abc"},{"Cidr":"3.3.3.0/24","IpamPoolArn":"arn:aws:ec2::123456789012:ipam-pool/ipam-pool-005d58a8aa8147abc"}]'
+```
+
+For IPv6:
+
+```
+aws cloudfront create-anycast-ip-list \
+    --name byoip-aip-dualstack \
+    --ip-count 3 \
+    --region us-east-1 \
+    --ip-address-type dualstack \
+    --ipam-cidr-configs '[{"Cidr":"1.1.1.0/24","IpamPoolArn":"arn:aws:ec2::123456789012:ipam-pool/ipam-pool-005d58a8aa8147abc"},{"Cidr":"2.2.2.0/24","IpamPoolArn":"arn:aws:ec2::123456789012:ipam-pool/ipam-pool-005d58a8aa8147abc"},{"Cidr":"3.3.3.0/24","IpamPoolArn":"arn:aws:ec2::123456789012:ipam-pool/ipam-pool-005d58a8aa8147abc"},{"Cidr":"2600:9000:a100::/48","IpamPoolArn":"arn:aws:ec2::123456789012:ipam-pool/ipam-pool-0a3b7c9e2f41d6789"},{"Cidr":"2600:9000:a200::/48","IpamPoolArn":"arn:aws:ec2::123456789012:ipam-pool/ipam-pool-0a3b7c9e2f41d6789"},{"Cidr":"2600:9000:a300::/48","IpamPoolArn":"arn:aws:ec2::123456789012:ipam-pool/ipam-pool-0a3b7c9e2f41d6789"}]'
 ```
 
 ###### Note

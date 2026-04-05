@@ -20,6 +20,7 @@ You can also create signed URLs and signed cookies by using the SDK for .NET. In
 - Creating a URL signature is just one part of the process of serving
   private content using a signed URL. For more information, see [Use signed URLs](private-content-signed-urls.md "private-content-signed-urls.md"). For more information
   about using signed cookies, see [Use signed cookies](private-content-signed-cookies.md "private-content-signed-cookies.md").
+- In the RSA signing call, note that `SHA1` can be replaced with `SHA256` in the hash algorithm parameter.
 
 ## Use an RSA key in the .NET Framework
 

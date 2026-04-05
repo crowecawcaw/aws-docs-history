@@ -5,10 +5,11 @@ content. To create the signature, run the script with command line arguments tha
 to the private key of the signer, the key ID, and an expiration date for the URL. The tool can also decode signed
 URLs.
 
-###### Note
+###### Notes
 
-Creating a URL signature is just one part of the process of serving private content using a signed URL. For
-more information about the end-to-end process, see [Use signed URLs](private-content-signed-urls.md "private-content-signed-urls.md").
+- Creating a URL signature is just one part of the process of serving private content using a signed URL. For
+  more information about the end-to-end process, see [Use signed URLs](private-content-signed-urls.md "private-content-signed-urls.md").
+- In the signing command, note that `sha1` can be replaced with `sha256` in the `openssl dgst` call.
 
 ###### Topics
 

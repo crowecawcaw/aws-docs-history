@@ -198,7 +198,7 @@ workload.
 Your plan covers costs for:
 
 - Your CloudFront distribution
-- The AWS WAF web ACL associated with your distribution
+- The AWS WAF web ACL, custom rules, AWS Managed Rules, and request fees for the web ACL associated with your distribution
 - CloudWatch Logs ingestion for your distribution's CloudFront access logs and
   associated WAF logs
 - The Route 53 hosted zone, DNS records, and DNS queries when attached to your

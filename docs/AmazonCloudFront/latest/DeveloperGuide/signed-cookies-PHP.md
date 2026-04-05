@@ -19,19 +19,19 @@ a new signed URL for each segment.
 
 ###### Topics
 
-- [Create the RSA SHA-1 signature](#create-rsa-sha-1signature-cookies "#create-rsa-sha-1signature-cookies")
+- [Create the RSA SHA-1 or SHA-256 signature](#create-rsa-sha-1signature-cookies "#create-rsa-sha-1signature-cookies")
 - [Create the signed cookies](#create-the-signed-cookie "#create-the-signed-cookie")
 - [Full code](#full-code-signed-cookies "#full-code-signed-cookies")
   The following sections breaks down the code example into individual parts. You can
   find the complete [code sample](#full-code-signed-cookies "#full-code-signed-cookies")
   below.
 
-## Create the RSA SHA-1 signature
+## Create the RSA SHA-1 or SHA-256 signature
 
 This code example does the following:
 
 1. The function `rsa_sha1_sign` hashes and signs the policy
-   statement. The arguments required are a policy statement and the private
+   statement using SHA-1. To use SHA-256 instead, use the rsa_sha256_sign function shown below. The arguments required are a policy statement and the private
    key that corresponds with a public key that’s in a trusted key group for
    your distribution.
 2. Next, the `url_safe_base64_encode` function creates a
@@ -58,15 +58,33 @@ function url_safe_base64_encode($value) {
 }
 ```
 
+The following function uses SHA-256 instead of SHA-1:
+
+```
+function rsa_sha256_sign($policy, $private_key_filename) {
+    $signature = "";
+    $fp = fopen($private_key_filename, "r");
+    $priv_key = fread($fp, 8192);
+    fclose($fp);
+    $pkeyid = openssl_get_privatekey($priv_key);
+    openssl_sign($policy, $signature, $pkeyid, OPENSSL_ALGO_SHA256);
+    openssl_free_key($pkeyid);
+    return $signature;
+}
+```
+
+The `rsa_sha256_sign` function is the same as `rsa_sha1_sign`, except that it passes `OPENSSL_ALGO_SHA256` to `openssl_sign`. When you use SHA-256, include the `CloudFront-Hash-Algorithm` cookie with a value of `SHA256`.
+
 ## Create the signed cookies
 
 The following code constructs a creates the signed cookies, using the
 following cookie attributes: `CloudFront-Expires`,
-`CloudFront-Signature`, and `CloudFront-Key-Pair-Id`.
+`CloudFront-Signature`, `CloudFront-Key-Pair-Id` and
+`CloudFront-Hash-Algorithm`.
 The code uses a custom policy.
 
 ```
-function create_signed_cookies($resource, $private_key_filename, $key_pair_id, $expires, $client_ip = null) {
+function create_signed_cookies($resource, $private_key_filename, $key_pair_id, $expires, $client_ip = null, $hash_algorithm = 'SHA1') {
     $policy = array(
         'Statement' => array(
             array(
@@ -84,14 +102,24 @@ function create_signed_cookies($resource, $private_key_filename, $key_pair_id, $
 
     $policy = json_encode($policy);
     $encoded_policy = url_safe_base64_encode($policy);
-    $signature = rsa_sha1_sign($policy, $private_key_filename);
+    if ($hash_algorithm === 'SHA256') {
+        $signature = rsa_sha256_sign($policy, $private_key_filename);
+    } else {
+        $signature = rsa_sha1_sign($policy, $private_key_filename);
+    }
     $encoded_signature = url_safe_base64_encode($signature);
 
-    return array(
+    $cookies = array(
         'CloudFront-Policy' => $encoded_policy,
         'CloudFront-Signature' => $encoded_signature,
         'CloudFront-Key-Pair-Id' => $key_pair_id
     );
+
+    if ($hash_algorithm === 'SHA256') {
+        $cookies['CloudFront-Hash-Algorithm'] = 'SHA256';
+    }
+
+    return $cookies;
 }
 ```
 
@@ -130,7 +158,18 @@ function url_safe_base64_encode($value) {
         $encoded);
 }
 
-function create_signed_cookies($resource, $private_key_filename, $key_pair_id, $expires, $client_ip = null) {
+function rsa_sha256_sign($policy, $private_key_filename) {
+    $signature = "";
+    $fp = fopen($private_key_filename, "r");
+    $priv_key = fread($fp, 8192);
+    fclose($fp);
+    $pkeyid = openssl_get_privatekey($priv_key);
+    openssl_sign($policy, $signature, $pkeyid, OPENSSL_ALGO_SHA256);
+    openssl_free_key($pkeyid);
+    return $signature;
+}
+
+function create_signed_cookies($resource, $private_key_filename, $key_pair_id, $expires, $client_ip = null, $hash_algorithm = 'SHA1') {
     $policy = array(
         'Statement' => array(
             array(
@@ -148,14 +187,24 @@ function create_signed_cookies($resource, $private_key_filename, $key_pair_id, $
 
     $policy = json_encode($policy);
     $encoded_policy = url_safe_base64_encode($policy);
-    $signature = rsa_sha1_sign($policy, $private_key_filename);
+    if ($hash_algorithm === 'SHA256') {
+        $signature = rsa_sha256_sign($policy, $private_key_filename);
+    } else {
+        $signature = rsa_sha1_sign($policy, $private_key_filename);
+    }
     $encoded_signature = url_safe_base64_encode($signature);
 
-    return array(
+    $cookies = array(
         'CloudFront-Policy' => $encoded_policy,
         'CloudFront-Signature' => $encoded_signature,
         'CloudFront-Key-Pair-Id' => $key_pair_id
     );
+
+    if ($hash_algorithm === 'SHA256') {
+        $cookies['CloudFront-Hash-Algorithm'] = 'SHA256';
+    }
+
+    return $cookies;
 }
 
 
@@ -172,7 +221,7 @@ $client_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 
 // For HLS manifest and segments (using wildcard)
 $hls_resource = $base_url . '/sign/*';
-$signed_cookies = create_signed_cookies($hls_resource, $private_key_filename, $key_pair_id, $expires, $client_ip);
+$signed_cookies = create_signed_cookies($hls_resource, $private_key_filename, $key_pair_id, $expires, $client_ip, 'SHA256');
 
 // Set the cookies
 $cookie_domain = parse_url($base_url, PHP_URL_HOST);

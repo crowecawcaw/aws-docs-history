@@ -106,6 +106,7 @@ returns HTTP status code 502 (Bad Gateway) to the viewer.
 
 The following headers are read-only in viewer request events.
 
+- `CDN-Loop`
 - `Content-Length`
 - `Host`
 - `Transfer-Encoding`
@@ -117,6 +118,7 @@ The following headers are read-only in origin request events, which exist
 only in Lambda@Edge.
 
 - `Accept-Encoding`
+- `CDN-Loop`
 - `Content-Length`
 - `If-Modified-Since`
 - `If-None-Match`

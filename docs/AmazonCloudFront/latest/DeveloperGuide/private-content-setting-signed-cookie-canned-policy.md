@@ -9,11 +9,13 @@ the signature, see [Create a signature for a signed cookie that uses a canned po
    for your key pair from the default .pem format to a format compatible with .NET or with Java, do so now.
    For more information, see [Reformat the private key (.NET and Java only)](private-content-trusted-signers.md#private-content-reformatting-private-key "private-content-trusted-signers.md#private-content-reformatting-private-key").
 2. Program your application to send three `Set-Cookie` headers to approved
-   viewers. You need three `Set-Cookie` headers because each
+   viewers (or four, if you want to specify a hash algorithm). You need three `Set-Cookie` headers because each
    `Set-Cookie` header can contain only one name-value pair, and a
    CloudFront signed cookie requires three name-value pairs. The name-value pairs
    are: `CloudFront-Expires`, `CloudFront-Signature`, and
-   `CloudFront-Key-Pair-Id`. The values must be present on the
+   `CloudFront-Key-Pair-Id`. You can optionally include a fourth
+   name-value pair, `CloudFront-Hash-Algorithm`, to specify the hash
+   algorithm used for the signature. The values must be present on the
    viewer before a user makes the first request for a file that you want to
    control access to.
 
@@ -45,6 +47,13 @@ HttpOnly
 
 Set-Cookie:
 CloudFront-Key-Pair-Id=`public key ID for the CloudFront public key whose corresponding private key you're using to generate the signature`;
+Domain=`optional domain name`;
+Path=/`optional directory path`;
+Secure;
+HttpOnly
+
+Set-Cookie:
+CloudFront-Hash-Algorithm=`SHA1 or SHA256`;
 Domain=`optional domain name`;
 Path=/`optional directory path`;
 Secure;
@@ -118,6 +127,12 @@ with.
 
 This public key must belong to a key group that is a trusted
 signer in the distribution. For more information, see [Specify signers that can create signed URLs and signed cookies](private-content-trusted-signers.md "private-content-trusted-signers.md").
+
+**`CloudFront-Hash-Algorithm`**
+
+(Optional) The hash algorithm used to create the signature. Supported values are
+`SHA1` and `SHA256`. If you don't include this cookie,
+CloudFront defaults to `SHA1`.
 The following example shows `Set-Cookie` headers for one signed cookie when you're using the domain
 name that is associated with your distribution in the URLs for your files:
 
@@ -125,6 +140,7 @@ name that is associated with your distribution in the URLs for your files:
 Set-Cookie: CloudFront-Expires=1426500000; Domain=d111111abcdef8.cloudfront.net; Path=/images/*; Secure; HttpOnly
 Set-Cookie: CloudFront-Signature=yXrSIgyQoeE4FBI4eMKF6ho~CA8_; Domain=d111111abcdef8.cloudfront.net; Path=/images/*; Secure; HttpOnly
 Set-Cookie: CloudFront-Key-Pair-Id=K2JCJMDEHXQW5F; Domain=d111111abcdef8.cloudfront.net; Path=/images/*; Secure; HttpOnly
+Set-Cookie: CloudFront-Hash-Algorithm=SHA256; Domain=d111111abcdef8.cloudfront.net; Path=/images/*; Secure; HttpOnly
 ```
 
 The following example shows `Set-Cookie` headers for one signed cookie when you're using the
@@ -134,6 +150,7 @@ alternate domain name example.org in the URLs for your files:
 Set-Cookie: CloudFront-Expires=1426500000; Domain=example.org; Path=/images/*; Secure; HttpOnly
 Set-Cookie: CloudFront-Signature=yXrSIgyQoeE4FBI4eMKF6ho~CA8_; Domain=example.org; Path=/images/*; Secure; HttpOnly
 Set-Cookie: CloudFront-Key-Pair-Id=K2JCJMDEHXQW5F; Domain=example.org; Path=/images/*; Secure; HttpOnly
+Set-Cookie: CloudFront-Hash-Algorithm=SHA256; Domain=example.org; Path=/images/*; Secure; HttpOnly
 ```
 
 If you want to use an alternate domain name such as example.com in URLs, you must add the alternate domain name
@@ -252,11 +269,17 @@ following topics:
 - [Linux commands and OpenSSL for base64 encoding and encryption](private-content-linux-openssl.md "private-content-linux-openssl.md")
 - [Code examples for creating a signature for a signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md")
 
+###### Note
+
+The linked examples use SHA-1 by default. To use SHA-256 instead, replace `sha1` with `sha256` in the OpenSSL commands and include the `CloudFront-Hash-Algorithm` cookie with a value of `SHA256`.
+
 ###### To create a signature for a signed cookie using a canned policy
 
-1. Use the SHA-1 hash function and RSA to hash and sign the policy statement that you
+1. Use the SHA-1 or SHA-256 hash function and RSA to hash and sign the policy statement that you
    created in the procedure [To create a policy statement for a signed cookie that uses a canned policy](#private-content-canned-policy-statement-cookies-procedure "#private-content-canned-policy-statement-cookies-procedure"). Use the version of the policy statement that no longer includes
    empty spaces.
+
+If you use SHA-256, you must include the `CloudFront-Hash-Algorithm` cookie with a value of `SHA256`.
 
 For the private key that is required by the hash function, use a
 private key whose public key is in an active trusted key group for

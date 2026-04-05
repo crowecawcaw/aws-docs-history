@@ -21,6 +21,7 @@ Use signed URLs in the following cases:
 - `Policy`
 - `Signature`
 - `Key-Pair-Id`
+- `Hash-Algorithm`
   CloudFront assumes that URLs that contain any of those query string parameters are signed URLs, and therefore won't look at
   signed cookies.
 

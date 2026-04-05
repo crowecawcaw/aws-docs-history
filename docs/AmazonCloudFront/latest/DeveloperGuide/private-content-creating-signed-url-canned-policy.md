@@ -10,7 +10,7 @@ To create a signed URL using a canned policy, complete the following steps.
 2. Concatenate the following values. You can use the format in this example signed URL.
 
 ```
-`https://d111111abcdef8.cloudfront.net/image.jpg`?`color=red&size=medium&`Expires=`1767290400`&Signature=`nitfHRCrtziwO2HwPfWw~yYDhUF5EwRunQA-j19DzZrvDh6hQ73lDx~-ar3UocvvRQVw6EkC~GdpGQyyOSKQim-TxAnW7d8F5Kkai9HVx0FIu-5jcQb0UEmatEXAMPLE3ReXySpLSMj0yCd3ZAB4UcBCAqEijkytL6f3fVYNGQI6`&Key-Pair-Id=`K2JCJMDEHXQW5F`
+`https://d111111abcdef8.cloudfront.net/image.jpg`?`color=red&size=medium&`Expires=`1767290400`&Signature=`nitfHRCrtziwO2HwPfWw~yYDhUF5EwRunQA-j19DzZrvDh6hQ73lDx~-ar3UocvvRQVw6EkC~GdpGQyyOSKQim-TxAnW7d8F5Kkai9HVx0FIu-5jcQb0UEmatEXAMPLE3ReXySpLSMj0yCd3ZAB4UcBCAqEijkytL6f3fVYNGQI6`&Key-Pair-Id=`K2JCJMDEHXQW5F`&Hash-Algorithm=`SHA256`
 ```
 
 Remove all empty spaces (including tabs and newline characters). You might have to
@@ -73,8 +73,9 @@ query string parameters in any order within the URL.
 ###### Important
 
 Your query string parameters can't be named `Expires`,
-`Signature`, or
-`Key-Pair-Id`.
+`Signature`,
+`Key-Pair-Id`, or
+`Hash-Algorithm`.
 
 **4. `Expires=``date and time in Unix time format (in seconds) and Coordinated
  Universal Time (UTC)`**
@@ -113,6 +114,12 @@ not been tampered with.
 
 This public key must belong to a key group that is a trusted signer in the
 distribution. For more information, see [Specify signers that can create signed URLs and signed cookies](private-content-trusted-signers.md "private-content-trusted-signers.md").
+
+**7. `&Hash-Algorithm=``SHA1 or SHA256`**
+
+(Optional) The hash algorithm used to create the signature. Supported values are
+`SHA1` and `SHA256`. If you don't specify this parameter,
+CloudFront defaults to `SHA1`.
 
 ## Create a signature for a signed URL that uses a canned policy
 
@@ -167,7 +174,8 @@ You can specify only one value for `Resource`.
 
 The base URL including your query strings, if any, but
 excluding the CloudFront `Expires`,
-`Signature`, and `Key-Pair-Id`
+`Signature`, `Key-Pair-Id`,
+and `Hash-Algorithm`
 parameters, for example:
 
 `https://d111111abcdef8.cloudfront.net/images/horizon.jpg?size=large&license=yes`
@@ -230,11 +238,17 @@ see:
 - [Linux commands and OpenSSL for base64 encoding and encryption](private-content-linux-openssl.md "private-content-linux-openssl.md")
 - [Code examples for creating a signature for a signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md")
 
+###### Note
+
+The linked examples use SHA-1 by default. To use SHA-256 instead, replace `sha1` with `sha256` in the OpenSSL commands and include the `Hash-Algorithm=SHA256` query parameter in the signed URL.
+
 ###### Option 1: To create a signature by using a canned policy
 
-1. Use the SHA-1 hash function and the generated RSA or ECDSA private key to hash and sign the policy statement that you
+1. Use the SHA-1 or SHA-256 hash function and the generated RSA or ECDSA private key to hash and sign the policy statement that you
    created in the procedure [To create the policy statement for a signed URL that uses a canned policy](#private-content-canned-policy-creating-policy-statement-procedure "#private-content-canned-policy-creating-policy-statement-procedure"). Use the version of the policy statement that no longer includes
    empty spaces.
+
+If you use SHA-256, you must include `&Hash-Algorithm=SHA256` in the signed URL.
 
 For the private key that is required by the hash function, use a private key whose
 public key is in an active trusted key group for the

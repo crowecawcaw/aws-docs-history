@@ -10,12 +10,14 @@ steps.
    to a format compatible with .NET or with Java, do so now. For more
    information, see [Reformat the private key (.NET and Java only)](private-content-trusted-signers.md#private-content-reformatting-private-key "private-content-trusted-signers.md#private-content-reformatting-private-key").
 2. Program your application to send three `Set-Cookie` headers to
-   approved viewers. You need three `Set-Cookie` headers because
+   approved viewers (or four, if you want to specify a hash algorithm). You need three `Set-Cookie` headers because
    each `Set-Cookie` header can contain only one name-value pair,
    and a CloudFront signed cookie requires three name-value pairs. The name-value
    pairs are: `CloudFront-Policy`,
    `CloudFront-Signature`, and `CloudFront-Key-Pair-Id`.
-   The values must be present on the viewer before a user makes the first
+   You can optionally include a fourth name-value pair,
+   `CloudFront-Hash-Algorithm`, to specify the hash algorithm used
+   for the signature. The values must be present on the viewer before a user makes the first
    request for a file that you want to control access to.
 
 ###### Note
@@ -49,6 +51,13 @@ HttpOnly
 
 Set-Cookie:
 CloudFront-Key-Pair-Id=`public key ID for the CloudFront public key whose corresponding private key you're using to generate the signature`;
+Domain=`optional domain name`;
+Path=/`optional directory path`;
+Secure;
+HttpOnly
+
+Set-Cookie:
+CloudFront-Hash-Algorithm=`SHA1 or SHA256`;
 Domain=`optional domain name`;
 Path=/`optional directory path`;
 Secure;
@@ -124,6 +133,12 @@ tampered with.
 This public key must belong to a key group that is a trusted
 signer in the distribution. For more information, see [Specify signers that can create signed URLs and signed cookies](private-content-trusted-signers.md "private-content-trusted-signers.md").
 
+**`CloudFront-Hash-Algorithm`**
+
+(Optional) The hash algorithm used to create the signature. Supported values are
+`SHA1` and `SHA256`. If you don't include this cookie,
+CloudFront defaults to `SHA1`.
+
 ## Example `Set-Cookie` headers for custom policies
 
 See the following examples of `Set-Cookie` header pairs.
@@ -143,6 +158,7 @@ the URLs for your files.
 Set-Cookie: CloudFront-Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cDovL2QxMTExMTFhYmNkZWY4LmNsb3VkZnJvbnQubmV0L2dhbWVfZG93bmxvYWQuemlwIiwiQ29uZGl0aW9uIjp7IklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIxOTIuMC4yLjAvMjQifSwiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE0MjY1MDAwMDB9fX1dfQ__; Domain=d111111abcdef8.cloudfront.net; Path=/; Secure; HttpOnly
 Set-Cookie: CloudFront-Signature=dtKhpJ3aUYxqDIwepczPiDb9NXQ_; Domain=d111111abcdef8.cloudfront.net; Path=/; Secure; HttpOnly
 Set-Cookie: CloudFront-Key-Pair-Id=K2JCJMDEHXQW5F; Domain=d111111abcdef8.cloudfront.net; Path=/; Secure; HttpOnly
+Set-Cookie: CloudFront-Hash-Algorithm=SHA256; Domain=d111111abcdef8.cloudfront.net; Path=/; Secure; HttpOnly
 ```
 
 ###### Example 2
@@ -155,6 +171,7 @@ files.
 Set-Cookie: CloudFront-Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cDovL2QxMTExMTFhYmNkZWY4LmNsb3VkZnJvbnQubmV0L2dhbWVfZG93bmxvYWQuemlwIiwiQ29uZGl0aW9uIjp7IklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIxOTIuMC4yLjAvMjQifSwiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE0MjY1MDAwMDB9fX1dfQ__; Domain=example.org; Path=/; Secure; HttpOnly
 Set-Cookie: CloudFront-Signature=dtKhpJ3aUYxqDIwepczPiDb9NXQ_; Domain=example.org; Path=/; Secure; HttpOnly
 Set-Cookie: CloudFront-Key-Pair-Id=K2JCJMDEHXQW5F; Domain=example.org; Path=/; Secure; HttpOnly
+Set-Cookie: CloudFront-Hash-Algorithm=SHA256; Domain=example.org; Path=/; Secure; HttpOnly
 ```
 
 ###### Example 3
@@ -167,6 +184,7 @@ in the URLs for your files.
 Set-Cookie: CloudFront-Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cDovL2QxMTExMTFhYmNkZWY4LmNsb3VkZnJvbnQubmV0L2dhbWVfZG93bmxvYWQuemlwIiwiQ29uZGl0aW9uIjp7IklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIxOTIuMC4yLjAvMjQifSwiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE0MjY1MDAwMDB9fX1dfQ__; Domain=d111111abcdef8.cloudfront.net; Path=/; Secure; HttpOnly
 Set-Cookie: CloudFront-Signature=dtKhpJ3aUYxqDIwepczPiDb9NXQ_; Domain=d111111abcdef8.cloudfront.net; Path=/; Secure; HttpOnly
 Set-Cookie: CloudFront-Key-Pair-Id=K2JCJMDEHXQW5F; Domain=dd111111abcdef8.cloudfront.net; Path=/; Secure; HttpOnly
+Set-Cookie: CloudFront-Hash-Algorithm=SHA256; Domain=d111111abcdef8.cloudfront.net; Path=/; Secure; HttpOnly
 ```
 
 ###### Example 4
@@ -179,6 +197,7 @@ associated with your distribution in the URLs for your files.
 Set-Cookie: CloudFront-Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cDovL2QxMTExMTFhYmNkZWY4LmNsb3VkZnJvbnQubmV0L2dhbWVfZG93bmxvYWQuemlwIiwiQ29uZGl0aW9uIjp7IklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIxOTIuMC4yLjAvMjQifSwiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE0MjY1MDAwMDB9fX1dfQ__; Domain=example.org; Path=/; Secure; HttpOnly
 Set-Cookie: CloudFront-Signature=dtKhpJ3aUYxqDIwepczPiDb9NXQ_; Domain=example.org; Path=/; Secure; HttpOnly
 Set-Cookie: CloudFront-Key-Pair-Id=K2JCJMDEHXQW5F; Domain=example.org; Path=/; Secure; HttpOnly
+Set-Cookie: CloudFront-Hash-Algorithm=SHA256; Domain=example.org; Path=/; Secure; HttpOnly
 ```
 
 ## Create a policy statement for a signed cookie that uses a custom policy
@@ -484,11 +503,17 @@ policy statement, see:
 - [Linux commands and OpenSSL for base64 encoding and encryption](private-content-linux-openssl.md "private-content-linux-openssl.md")
 - [Code examples for creating a signature for a signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md")
 
+###### Note
+
+The linked examples use SHA-1 by default. To use SHA-256 instead, replace `sha1` with `sha256` in the OpenSSL commands and include the `CloudFront-Hash-Algorithm` cookie with a value of `SHA256`.
+
 ###### To create a signature for a signed cookie by using a custom policy
 
-1. Use the SHA-1 hash function and RSA to hash and sign the JSON policy
+1. Use the SHA-1 or SHA-256 hash function and RSA to hash and sign the JSON policy
    statement that you created in the procedure [To create the policy statement for a signed URL that uses a custom policy](private-content-creating-signed-url-custom-policy.md#private-content-custom-policy-creating-policy-procedure "private-content-creating-signed-url-custom-policy.md#private-content-custom-policy-creating-policy-procedure"). Use the version of the policy statement that no longer includes
    empty spaces but that has not yet been base64-encoded.
+
+If you use SHA-256, you must include the `CloudFront-Hash-Algorithm` cookie with a value of `SHA256`.
 
 For the private key that is required by the hash function, use a
 private key whose public key is in an active trusted key group for the
