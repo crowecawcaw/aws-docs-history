@@ -246,7 +246,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -305,7 +305,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -661,7 +661,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -752,7 +752,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:

@@ -215,7 +215,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -225,7 +225,7 @@ Resources:
       Policies:
       - PolicyName: DynamoAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17		 	 	 '
+          Version: '2012-10-17'
           Statement:
           - Effect: Allow
             Action:
@@ -263,7 +263,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -273,7 +273,7 @@ Resources:
       Policies:
       - PolicyName: DynamoAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17		 	 	 '
+          Version: '2012-10-17'
           Statement:
           - Effect: Allow
             Action:
@@ -562,7 +562,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -572,7 +572,7 @@ Resources:
       Policies:
       - PolicyName: DynamoAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17		 	 	 '
+          Version: '2012-10-17'
           Statement:
           - Effect: Allow
             Action:
@@ -620,7 +620,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -630,7 +630,7 @@ Resources:
       Policies:
       - PolicyName: DynamoAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17		 	 	 '
+          Version: '2012-10-17'
           Statement:
           - Effect: Allow
             Action:
@@ -862,7 +862,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -872,7 +872,7 @@ Resources:
       Policies:
       - PolicyName: DynamoAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17		 	 	 '
+          Version: '2012-10-17'
           Statement:
           - Effect: Allow
             Action:
@@ -911,7 +911,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -921,7 +921,7 @@ Resources:
       Policies:
       - PolicyName: DynamoAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17		 	 	 '
+          Version: '2012-10-17'
           Statement:
           - Effect: Allow
             Action:

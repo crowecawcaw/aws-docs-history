@@ -95,7 +95,7 @@ IAMPolicy:
     Roles:
       - !Ref 'IAMRole'
     PolicyDocument:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Allow
           Action:
@@ -169,7 +169,7 @@ IAMRole:
   Type: AWS::IAM::Role
   Properties:
     AssumeRolePolicyDocument:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Allow
           Principal:
@@ -179,7 +179,7 @@ IAMRole:
     Policies:
       - PolicyName: sample-inline-policy
         PolicyDocument:
-          Version: '2012-10-17		 	 	 '
+          Version: '2012-10-17'
           Statement:
             - Effect: Allow
               Action:
@@ -451,7 +451,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -467,7 +467,7 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Action:
@@ -487,7 +487,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -503,7 +503,7 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Action: '*'
@@ -598,7 +598,7 @@ IAMManagedPolicy:
     Roles:
       - !Ref 'IAMRole'
     PolicyDocument:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Allow
           Action:
@@ -784,7 +784,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -798,7 +798,7 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Action:
@@ -818,7 +818,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -832,7 +832,7 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Action: '*'
@@ -923,7 +923,7 @@ IAMManagedPolicy:
     Roles:
       - !Ref 'IAMRole'
     PolicyDocument:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Allow
           Action:
@@ -1116,7 +1116,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -1130,7 +1130,7 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Action:
@@ -1150,7 +1150,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -1164,7 +1164,7 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Action: s3:*
@@ -1275,7 +1275,7 @@ IAMPolicy:
   Type: AWS::IAM::Policy
   Properties:
     PolicyDocument:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Allow
           Action:
@@ -1328,7 +1328,7 @@ IAMManagedPolicy:
   Type: AWS::IAM::ManagedPolicy
   Properties:
     PolicyDocument:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Allow
           Action:
@@ -1629,7 +1629,7 @@ IAMRole:
   Type: AWS::IAM::Role
   Properties:
     AssumeRolePolicyDocument:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Allow
           Principal:
@@ -1638,7 +1638,7 @@ IAMRole:
             - sts:AssumeRole
     Policies:
       - PolicyDocument:
-          Version: '2012-10-17		 	 	 '
+          Version: '2012-10-17'
           Statement:
             - Effect: Allow
               Action:
@@ -1698,7 +1698,7 @@ IAMUser:
   Properties:
     Policies:
       - PolicyDocument:
-          Version: '2012-10-17		 	 	 '
+          Version: '2012-10-17'
           Statement:
             - Effect: Allow
               Action:
@@ -1758,7 +1758,7 @@ IAMGroup:
   Properties:
     Policies:
       - PolicyDocument:
-          Version: '2012-10-17		 	 	 '
+          Version: '2012-10-17'
           Statement:
             - Effect: Allow
               Action:
@@ -1821,7 +1821,7 @@ IAMPolicy:
     Roles:
       - !Ref 'IAMRole'
     PolicyDocument:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Allow
           Action:
@@ -2108,7 +2108,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -2124,7 +2124,7 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Action:
@@ -2144,7 +2144,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -2160,7 +2160,7 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Action: s3:*

@@ -2628,7 +2628,7 @@ S3AccessPoint:
     Bucket: sample-bucket
     Name: sample-access-point
     Policy:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Action:
             - s3:GetObject
@@ -2799,7 +2799,7 @@ Resources:
       Bucket:
         Ref: S3Bucket
       PolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Action: '*'
           Effect: Allow
@@ -2823,7 +2823,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -2834,7 +2834,7 @@ Resources:
       Policies:
       - PolicyName: GetObjectPermissions
         PolicyDocument:
-          Version: '2012-10-17		 	 	 '
+          Version: '2012-10-17'
           Statement:
           - Effect: Allow
             Action:
@@ -2848,7 +2848,7 @@ Resources:
         Ref: S3Bucket
       Name: example-access-point
       Policy:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Action:
           - s3:GetObject
@@ -2883,7 +2883,7 @@ Resources:
       Bucket:
         Ref: S3Bucket
       PolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Action: '*'
           Effect: Allow
@@ -2907,7 +2907,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -2918,7 +2918,7 @@ Resources:
       Policies:
       - PolicyName: GetObjectPermissions
         PolicyDocument:
-          Version: '2012-10-17		 	 	 '
+          Version: '2012-10-17'
           Statement:
           - Effect: Allow
             Action:
@@ -2932,7 +2932,7 @@ Resources:
         Ref: S3Bucket
       Name: example-access-point
       Policy:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Action:
           - s3:GetObject

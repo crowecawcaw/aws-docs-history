@@ -987,7 +987,7 @@ Resources:
     Type: "AWS::IAM::Role"
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Sid: AssumeRole
           Effect: Allow
@@ -997,7 +997,7 @@ Resources:
       Policies:
       - PolicyName: 'cloudtrail-policy'
         PolicyDocument:
-          Version: '2012-10-17		 	 	 '
+          Version: '2012-10-17'
           Statement:
           - Effect: Allow
             Action:

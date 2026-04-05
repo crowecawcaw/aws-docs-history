@@ -112,7 +112,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -259,7 +259,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -290,7 +290,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -399,7 +399,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -562,7 +562,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -594,7 +594,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -701,7 +701,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -849,7 +849,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -880,7 +880,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -992,7 +992,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -1210,7 +1210,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -1233,7 +1233,7 @@ Resources:
         Fn::Sub: ${AWS::StackName}-AllowES
       PolicyDocument:
         Fn::Sub:
-        - '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{ "aws:SourceAccount": "${AWS::AccountId}"}}}]}'
+        - '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{ "aws:SourceAccount": "${AWS::AccountId}"}}}]}'
         - LogGroupArn:
             Fn::GetAtt: [ LogGroup, Arn ]
 
@@ -1259,7 +1259,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -1288,7 +1288,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -1428,7 +1428,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -1647,7 +1647,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -1668,7 +1668,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -1704,7 +1704,7 @@ Resources:
       PolicyName: AllowES
       PolicyDocument:
         Fn::Sub:
-        - '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{ "aws:SourceAccount": "${AWS::AccountId}"}}}]}'
+        - '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{ "aws:SourceAccount": "${AWS::AccountId}"}}}]}'
         - LogGroupArn:
             Fn::GetAtt: [ LogGroup, Arn ]
 
@@ -1720,7 +1720,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -1740,7 +1740,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -1774,7 +1774,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -1794,7 +1794,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -1912,7 +1912,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -2086,7 +2086,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -2118,7 +2118,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -2220,7 +2220,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -2293,7 +2293,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -2475,7 +2475,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -2505,7 +2505,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -2534,7 +2534,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -2638,7 +2638,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -2811,7 +2811,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -2843,7 +2843,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -2949,7 +2949,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -3096,7 +3096,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -3127,7 +3127,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -3238,7 +3238,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -3401,7 +3401,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -3433,7 +3433,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -3540,7 +3540,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -3688,7 +3688,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -3719,7 +3719,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -3831,7 +3831,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -4049,7 +4049,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -4072,7 +4072,7 @@ Resources:
         Fn::Sub: ${AWS::StackName}-AllowOS
       PolicyDocument:
         Fn::Sub:
-        - '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{"aws:SourceAccount": "${AWS::AccountId}"}}}]}'
+        - '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{"aws:SourceAccount": "${AWS::AccountId}"}}}]}'
         - LogGroupArn:
             Fn::GetAtt: [LogGroup, Arn]
 
@@ -4097,7 +4097,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -4126,7 +4126,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -4268,7 +4268,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -4487,7 +4487,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -4508,7 +4508,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -4544,7 +4544,7 @@ Resources:
       PolicyName: AllowES
       PolicyDocument:
         Fn::Sub:
-        - '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{ "aws:SourceAccount": "${AWS::AccountId}"}}}]}'
+        - '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{ "aws:SourceAccount": "${AWS::AccountId}"}}}]}'
         - LogGroupArn:
             Fn::GetAtt: [ LogGroup, Arn ]
 
@@ -4560,7 +4560,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -4580,7 +4580,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -4614,7 +4614,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -4634,7 +4634,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -4752,7 +4752,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -4926,7 +4926,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -4962,7 +4962,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -5088,7 +5088,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -5277,7 +5277,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -5298,7 +5298,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -5339,7 +5339,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -5451,7 +5451,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Statement:
         - Effect: Deny
           Principal:
@@ -5624,7 +5624,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:
@@ -5656,7 +5656,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Deny
           Principal:

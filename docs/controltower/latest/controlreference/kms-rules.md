@@ -357,7 +357,7 @@ Key:
   Type: AWS::KMS::Key
   Properties:
     KeyPolicy:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Id: example-policy
       Statement:
         - Sid: Enable IAM User Permissions
@@ -515,7 +515,7 @@ Resources:
     Type: AWS::KMS::Key
     Properties:
       KeyPolicy:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Id: example-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -540,7 +540,7 @@ Resources:
     Type: AWS::KMS::Key
     Properties:
       KeyPolicy:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Id: example-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -654,7 +654,7 @@ Key:
     KeyUsage: ENCRYPT_DECRYPT
     KeySpec: SYMMETRIC_DEFAULT
     KeyPolicy:
-      Version: '2012-10-17		 	 	 '
+      Version: '2012-10-17'
       Id: sample-policy
       Statement:
         - Sid: Enable IAM User Permissions
@@ -868,7 +868,7 @@ Resources:
       KeyUsage: ENCRYPT_DECRYPT
       KeySpec: SYMMETRIC_DEFAULT
       KeyPolicy:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Id: example-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -901,7 +901,7 @@ Resources:
       KeyUsage: ENCRYPT_DECRYPT
       KeySpec: SYMMETRIC_DEFAULT
       KeyPolicy:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Id: example-policy
         Statement:
         - Sid: Enable IAM User Permissions

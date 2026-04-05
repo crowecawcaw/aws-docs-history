@@ -3,7 +3,7 @@
 ###### Note
 
 AWS Control Tower will no longer be sending drift notifications to SNS topic for all customers on
-LZ4.0+.
+LZ4.0+. For customers on LZ4.0+ follow the [EventBridge Notification setup](../userguide/governance-drift.md#eventbridge-creation "../userguide/governance-drift.md#eventbridge-creation").
 
 To receive compliance change notifications in email sent to your audit account,
 subscribe to this Amazon SNS topic:
