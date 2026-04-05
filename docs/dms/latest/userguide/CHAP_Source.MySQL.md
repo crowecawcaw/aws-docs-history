@@ -235,7 +235,9 @@ TABLE`, `RENAME TABLE`, and updates made to other
 - Using an `ALTER TABLE `table_name`ADD
 COLUMN`column_name`` statement to add
   columns to the beginning (FIRST) or the middle of a table (AFTER) isn't
-  supported. Columns are always added to the end of the table.
+  supported for relational targets. Columns are always added to
+  the end of the table. When the target is Amazon S3 or Amazon Kinesis Data
+  Streams, adding columns using FIRST or AFTER is supported.
 - CDC isn't supported when a table name contains uppercase and
   lowercase characters, and the source engine is hosted on an operating system
   with case-insensitive file names. An example is Microsoft Windows or OS X

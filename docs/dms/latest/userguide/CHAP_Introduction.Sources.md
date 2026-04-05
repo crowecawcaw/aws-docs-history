@@ -40,8 +40,8 @@ You can use the following data stores as source endpoints for data migration usi
 | 8.4                         | 3.5.4 and above | No          |
 
 - MariaDB (supported as a MySQL-compatible data source) versions 10.0 (only
-  versions 10.0.24 and higher), 10.2, 10.3, 10.4, 10.5, 10.6, and 11.4.3 to
-  11.4.5.
+  versions 10.0.24 and higher), 10.2, 10.3, 10.4, 10.5, 10.6, 10.11, and 11.4.3 to
+  11.4.7.
 
 ###### Note
 
@@ -105,7 +105,7 @@ supported for full-load only replication.
 | 8.4                         | 3.5.4 and above | No          |
 
 - MariaDB (supported as a MySQL-compatible data source) versions 10.0.24 to
-  10.0.28, 10.2, 10.3, 10.4, 10.5, 10.6, and 11.4.3 to 11.4.5.
+  10.0.28, 10.2, 10.3, 10.4, 10.5, 10.6, 10.11, and 11.4.3 to 11.4.7.
 
 ###### Note
 
@@ -156,6 +156,7 @@ projects.
 - Oracle version 10.2 and higher, 11g and up to 12.2, 18c, and 19c, and Oracle Data Warehouse
 - PostgreSQL version 9.2 and higher
 - MySQL version 5.5, 5.6, 5.7, and 8.0.
+- IBM Db2 for Linux, UNIX and Windows version 9.1, 9.5, 9.7, 10.1, 10.5, 11.1, and 11.5
 - IBM Db2 for z/OS version 12
 - SAP ASE (Sybase ASE) version 16
 

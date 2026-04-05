@@ -5,6 +5,8 @@ You can use an IBM Db2 for z/OS databases as a migration source in DMS Schema Co
 You can use DMS Schema Conversion to convert database code objects from Db2 for z/OS Database to the following targets:
 
 - Amazon RDS for Db2
+- Amazon RDS for PostgreSQL
+- Aurora PostgreSQL
   For more information regarding the supported IBM Db2 for z/OS database versions, see
   [Source data providers for DMS Schema Conversion](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion").
 
