@@ -267,7 +267,7 @@ it. It uses that file to create a new service control policy.
  "Type": "SERVICE_CONTROL_POLICY",
  "AwsManaged": false
  },
- "Content": "{\"Version\":\"2012-10-17\", \"Statement\":[{\"Sid\":\"Statement1\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
+ "Content": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Statement1\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
  }
 }`
 ```
@@ -499,7 +499,7 @@ policy.
  "Type": "RESOURCE_CONTROL_POLICY",
  "AwsManaged": false
  },
- "Content": "{\"Version\":\"2012-10-17\", \"Statement\":[{\"Sid\":\"Statement1\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
+ "Content": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Statement1\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
  }
 }`
 ```

@@ -9,9 +9,6 @@ in a JSON format. You can attach any policy into the required element of your or
 the root, organizational units (OUs), and individual accounts. AWS Organizations applies inheritance rules to
 combine the policies, which results in an effective policy for each account that dictates how safeguards are enforced for your generative AI application.
 
-This capability is currently
-available in preview.
-
 ## How it works
 
 Amazon Bedrock policies give you control over automatic enforcement of safeguards within guardrails across

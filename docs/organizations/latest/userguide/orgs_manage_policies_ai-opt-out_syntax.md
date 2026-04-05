@@ -93,6 +93,7 @@ elements:
     	 available AI services and implicitly and automatically includes
     	 any AI services that might be added in the future.
     	- `aiops`
+    	- `aidevops`
     	- `awssupplychain`
     	- `chimesdkvoiceanalytics`
     	- `cloudwatch`

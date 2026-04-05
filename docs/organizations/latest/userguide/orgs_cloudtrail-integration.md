@@ -321,7 +321,8 @@ The following example shows a CloudTrail log entry for a sample
         "organizationalUnit": {
             "arn": "arn:aws:organizations::111111111111:ou/o-aa111bb222/ou-examplerootid111-exampleouid111",
             "id": "ou-examplerootid111-exampleouid111",
-            "name": "test-cloud-trail"
+            "name": "test-cloud-trail",
+            "path": "o-aa111bb222/r-a1b2/ou-examplerootid111-exampleouid111/"
         }
     },
     "requestID": "EXAMPLE8-90ab-cdef-fedc-ba987EXAMPLE",

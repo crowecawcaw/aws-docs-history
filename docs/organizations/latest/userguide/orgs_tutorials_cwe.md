@@ -257,7 +257,8 @@ the output.
             "organizationalUnit": {
                 "name": "TestCWEOU",
                 "id": "ou-exampleRootId-exampleOUId",
-                "arn": "arn:aws:organizations::1234567789012:ou/o-exampleOrgId/ou-exampleRootId-exampeOUId"
+                "arn": "arn:aws:organizations::1234567789012:ou/o-exampleOrgId/ou-exampleRootId-exampeOUId",
+                "path": "o-exampleOrgId/r-exampleRootId/ou-exampleRootId-exampleOUId/"
             }
         },
         "requestID": "123456-EXAMPLE-GUID-123456",

@@ -52,7 +52,8 @@ The following example shows how to rename an OU.
  "OrganizationalUnit": {
  "Id": "ou-a1b2-f6g7h222",
  "Arn": "arn:aws:organizations::123456789012:ou/o-aa111bb222/ou-a1b2-f6g7h222",
- "Name": "Renamed-OU"
+ "Name": "Renamed-OU",
+ "Path": "o-aa111bb222/r-a1b2/ou-a1b2-f6g7h222/"
  }
 }`
 ```

@@ -98,7 +98,10 @@ specified account including its `State` value.
  "State": "CLOSED",
  "Status": "SUSPENDED",
  "JoinedMethod": "INVITED",
- "JoinedTimestamp": "2020-11-20T09:04:20.346000-08:00"
+ "JoinedTimestamp": "2020-11-20T09:04:20.346000-08:00",
+ "Paths": [
+ "o-aa111bb222/r-a1b2/123456789012/"
+ ]
  }
 }`
 ```

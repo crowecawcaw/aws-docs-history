@@ -13,15 +13,20 @@ The following Amazon Bedrock policy example shows the basic Amazon Bedrock polic
                     "identifier": {
                         "@@assign": "arn:aws:bedrock:us-east-1:123456789012:guardrail/hu1dlsv9wy1d:1"
                     },
-                    "input_tags": {
-                        "@@assign": "honor"
+                    "selective_content_guarding": {
+                        "system": {
+                            "@@assign": "selective"
+                        },
+                        "messages": {
+                            "@@assign": "comprehensive"
+                        }
                     },
-                    "model_enforcement": { // new
+                    "model_enforcement": {
                         "included_models": {
                             "@@assign": ["ALL"]
                         },
                         "excluded_models": {
-                            "@@assign: ["amazon.titan-embed-text-v2:0", "cohere.embed-english-v3"]
+                            "@@assign": ["amazon.titan-embed-text-v2:0", "cohere.embed-english-v3"]
                         }
                     }
                 }
@@ -58,12 +63,23 @@ Guardrail ARN, followed by `:version`, the Guardrail version.
 - The Guardrail must have a Resource Based Policy that allows organization members to call `ApplyGuardrail`.
 - The Guardrail must be created and used in the specified region.
 
-`"input_tags"` (Required)
+`"selective_content_guarding"` (Optional)
 
-Specifies how guardrails handle tagged content:
+Amazon Bedrock APIs allow marking specific content within the input that the caller wants guardrails to process. These settings let enforcers control whether or not to respect content tagging decisions made by the caller. When specified, one of `"system"` or `"messages"` is required.
 
-- `"honor"`: If a request contains guardrails-tagged content (see [Apply tags to user input to filter content](../../../bedrock/latest/userguide/guardrails-tagging.md "../../../bedrock/latest/userguide/guardrails-tagging.md") in the Amazon Bedrock user guide), only guard against content within the input tags.
-- `"ignore"`: Guard against all content in the request, even if there are guardrail input tags.
+`"system"` (Optional)
+
+Choose how system prompts will be processed by guardrails. Defaults to `comprehensive` when not specified.
+
+- `"comprehensive"`: Evaluate all content regardless of guard content tags.
+- `"selective"`: Only evaluate content within guard content tags. Does not evaluate any content when no tags are specified.
+
+`"messages"` (Optional)
+
+Choose how message content with user and assistant conversation will be processed by guardrails. Defaults to `comprehensive` when not specified.
+
+- `"comprehensive"`: Evaluate all content regardless of guard content tags.
+- `"selective"`: Only evaluate content within guard content tags. Evaluates all content within messages when no tags are specified.
 
 `"model_enforcement"` (Optional)
 

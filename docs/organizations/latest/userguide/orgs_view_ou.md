@@ -76,7 +76,8 @@ retrieve the details about the OU.
  "OrganizationalUnit": {
  "Id": "ou-a1b2-f6g7h111",
  "Arn": "arn:aws:organizations::123456789012:ou/o-aa111bb222/ou-a1b2-f6g7h111",
- "Name": "Production-Apps"
+ "Name": "Production-Apps",
+ "Path": "o-aa111bb222/r-a1b2/ou-a1b2-f6g7h111/"
  }
 }`
 ```

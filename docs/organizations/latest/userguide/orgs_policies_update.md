@@ -82,7 +82,7 @@ The following example renames a policy.
  "Type": "SERVICE_CONTROL_POLICY",
  "AwsManaged": false
  },
- "Content": "{\"Version\":\"2012-10-17\", \"Statement\":[{\"Sid\":\"Statement1\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
+ "Content": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Statement1\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
  }
 }`
 ```
@@ -103,7 +103,7 @@ service control policy.
  "Type": "SERVICE_CONTROL_POLICY",
  "AwsManaged": false
  },
- "Content": "{\"Version\":\"2012-10-17\", \"Statement\":[{\"Sid\":\"Statement1\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
+ "Content": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Statement1\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
  }
 }`
 ```
@@ -124,7 +124,7 @@ specifying a file that contains the new JSON policy text.
  "Type": "SERVICE_CONTROL_POLICY",
  "AwsManaged": false
  },
- "Content": "{\"Version\":\"2012-10-17\", \"Statement\":[{\"Sid\":\"AModifiedPolicy\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
+ "Content": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"AModifiedPolicy\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
  }
 }`
 ```
@@ -197,7 +197,7 @@ The following example renames a policy.
  "Type": "SERVICE_CONTROL_POLICY",
  "AwsManaged": false
  },
- "Content": "{\"Version\":\"2012-10-17\", \"Statement\":[{\"Sid\":\"Statement1\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
+ "Content": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Statement1\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
  }
 }`
 ```
@@ -218,7 +218,7 @@ resource control policy.
  "Type": "SERVICE_CONTROL_POLICY",
  "AwsManaged": false
  },
- "Content": "{\"Version\":\"2012-10-17\", \"Statement\":[{\"Sid\":\"Statement1\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
+ "Content": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Statement1\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
  }
 }`
 ```
@@ -239,7 +239,7 @@ specifying a file that contains the new JSON policy text.
  "Type": "SERVICE_CONTROL_POLICY",
  "AwsManaged": false
  },
- "Content": "{\"Version\":\"2012-10-17\", \"Statement\":[{\"Sid\":\"AModifiedPolicy\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
+ "Content": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"AModifiedPolicy\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
  }
 }`
 ```
