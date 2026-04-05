@@ -26,7 +26,7 @@ Create an RDB cluster with a single-AZ mode by following the steps in [this](cre
 Use the following command to create an EC2 instance with a name _customerEc2Instance_ instance to which an RDB would connect to.
 
 ```
-echo '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"Service":"ec2.amazonaws.com"},"Action":"sts:AssumeRole"}]}' > policy.json
+echo '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":"ec2.amazonaws.com"},"Action":"sts:AssumeRole"}]}' > policy.json
 aws iam create-role --role-name ssmrole --assume-role-policy-document file://policy.json
 aws iam attach-role-policy --role-name ssmrole --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess
 aws iam attach-role-policy --role-name ssmrole --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
