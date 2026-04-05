@@ -145,7 +145,7 @@ Pattern: `arn:aws([a-z0-9\-]+)?:([a-zA-Z0-9\-]+):([a-z0-9\-]+)?:([0-9]{12})?:(.+
 
 ## Errors
 
-For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
 
 **AccessDeniedException**
 
