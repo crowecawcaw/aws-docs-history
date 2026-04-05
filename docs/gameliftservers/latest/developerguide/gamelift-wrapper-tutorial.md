@@ -45,7 +45,7 @@ In this tutorial you will:
 
 ## Step 1: Get and build the game server wrapper
 
-Use the following commands to get the game server wrapper source and build the wrapper. These commands use SSH, but you can also go to the Github repository directly.
+Use the following commands to get the game server wrapper source and build the wrapper. These commands use SSH, but you can also go to the GitHub repository directly.
 
 ### Windows
 
@@ -180,7 +180,7 @@ When your fleet status shows **Active**, this means that game servers are ready 
 
 ###### Note
 
-Keep in mind that creating a game session using the AWS CLI is useful for testing and becoming familiar with the process. At some point, you'll add programmatic AWS SDK calls to to your game backend service as part of your game's matchmaking or game session placement system.
+Keep in mind that creating a game session using the AWS CLI is useful for testing and becoming familiar with the process. At some point, you'll add programmatic AWS SDK calls to your game backend service as part of your game's matchmaking or game session placement system.
 
 Use the following to create a game session:
 

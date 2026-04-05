@@ -15,7 +15,7 @@ version). You can monitor a fleet's status in the console or using the AWS Comma
 fleet is ready to host game sessions, the status changes to `ACTIVE`. For help with
 fleet creation issues, see [Debug Amazon GameLift Servers fleet issues](fleets-creating-debug.md "fleets-creating-debug.md").
 
-You can opt to create an empty container fleet and and then add or update the fleet's
+You can opt to create an empty container fleet and then add or update the fleet's
 container group definitions later. If you create a fleet without a container group definition,
 the fleet will not reach active status.
 

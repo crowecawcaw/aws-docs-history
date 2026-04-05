@@ -16,7 +16,7 @@ wrong, and take automatic actions when appropriate:
   You can define and track your own game-specific metrics alongside built-in performance, network, memory, and timing data.
   All metrics can be published to
   [Amazon Managed Service for Prometheus](../../../prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.md "../../../prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.md") and monitored in Amazon Grafana using fully customizable dashboards. You can also publish to Amazon CloudWatch for integration with other AWS services.
-  The telemetry system is fully customizable - you can create custom Prometheus queries to derive additional metrics in addition to the built in ones.
+  The telemetry system is fully customizable - you can create custom Prometheus queries to derive additional metrics in addition to the built-in ones.
   For implementation guides specific to your technology stack, see
   [Monitor with server telemetry metrics](monitoring-gamelift-servers-metrics.md "monitoring-gamelift-servers-metrics.md").
 - **Amazon CloudWatch** – You can monitor Amazon GameLift Servers

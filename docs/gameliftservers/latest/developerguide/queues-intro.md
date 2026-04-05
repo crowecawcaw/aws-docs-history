@@ -89,7 +89,7 @@ Consider the following guidelines and best practices:
 - **Create fleets in at least two locations.** By
   having game servers hosted in at least one other location, you mitigate the
   impact of Regional outages on your players. You can keep your backup fleets
-  scaled down, and use auto scaling to increase capacity if usage
+  scaled down, and use autoscaling to increase capacity if usage
   increases.
 - **Prioritize your game session placement.** A
   queue prioritizes placement choices based on several elements, including

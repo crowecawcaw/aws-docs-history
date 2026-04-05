@@ -53,7 +53,7 @@ identifier for each player. For more information, see [Generate player IDs](play
     	 For more information, see [Switching to an IAM role (AWS API)](../../../IAM/latest/UserGuide/id_roles_use_switch-role-api.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-api.md") in the
     	 *IAM User Guide*.
     	+ If you have long-term security credentials, configure your
-    	 code to locate and use stored credentials. See [Authenticate using long-term credentials](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md") in in the
+    	 code to locate and use stored credentials. See [Authenticate using long-term credentials](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md") in the
     	 *AWS SDKs and Tools Reference Guide*.
     	 For information on storing credentials, see theAWS API
     	 references for [(C++)](https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-core/html/class_aws_1_1_auth_1_1_a_w_s_credentials.html "https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-core/html/class_aws_1_1_auth_1_1_a_w_s_credentials.html") and [(.NET)](../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md "../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md").

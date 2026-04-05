@@ -9,7 +9,7 @@ For SDK version 4.0.2 specifically, you can download it from the [official GitHu
 
 1. Get the latest server SDK for Amazon GameLift Servers package for your development environment
    **[[Download site](https://aws.amazon.com/gamelift/servers/getting-started-sdks/ "https://aws.amazon.com/gamelift/servers/getting-started-sdks/")]**.
-   Follow the install instructions in the `Readme` file for your
+   Follow the installation instructions in the `Readme` file for your
    downloaded package and version. See these instructions for using the server SDKs
    with your game project.
    - [For development environments using C++, C#, or
@@ -66,4 +66,4 @@ aws gamelift upload-build \
 ```
 
 6. If you use scripts to remotely connect to managed fleets, update the scripts
-   to use the new process, as described in [Remotely connect to Amazon GameLift Servers fleet instances](fleets-remote-access.md "fleets-remote-access.md").
+   to use the new process, as described in [Connect to fleet instances](fleets-remote-access.md "fleets-remote-access.md").

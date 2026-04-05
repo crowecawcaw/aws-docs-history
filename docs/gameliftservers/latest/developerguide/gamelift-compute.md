@@ -181,6 +181,6 @@ AWS account using the following tools:
   the number of active instances that you have in your default Region (or in
   another Region that you specify).
 
-As you prepare to launch you game, fill out a launch questionnaire in the
+As you prepare to launch your game, fill out a launch questionnaire in the
 [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift/ "https://console.aws.amazon.com/gamelift/"). The Amazon GameLift Servers team uses the launch questionnaire to determine the correct
 quotas and limits for your game.

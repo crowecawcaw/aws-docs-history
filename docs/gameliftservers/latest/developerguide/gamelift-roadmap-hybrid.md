@@ -195,7 +195,7 @@ such as minimum latency, cost, and availability.
 - **Get the Amazon GameLift Servers Agent and add it
   to your game server install package.**
   Get and build the Agent source code, available in
-  the [Amazon GameLift Servers Agent Github repository](https://github.com/aws/amazon-gamelift-agent "https://github.com/aws/amazon-gamelift-agent"). Place the
+  the [Amazon GameLift Servers Agent GitHub repository](https://github.com/aws/amazon-gamelift-agent "https://github.com/aws/amazon-gamelift-agent"). Place the
   resulting JAR file executable into the same
   directory as your game build executable.
 - **Modify your startup script for

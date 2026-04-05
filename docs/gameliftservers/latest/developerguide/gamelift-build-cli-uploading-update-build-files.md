@@ -3,8 +3,9 @@
 When you deploy your game server build for Amazon GameLift Servers managed EC2 hosting, you upload your
 game server software and create an Amazon GameLift Servers build resource. After you've created an Amazon GameLift Servers
 build, you can update the build's metadata, but you can't update the build files
-themselves. To deploy updates to your game server builde, you must upload a new set of files and create a
-new Amazon GameLift Servers build using the AWS CLI command[`upload-build`](../../../cli/latest/reference/gamelift/upload-build.md "../../../cli/latest/reference/gamelift/upload-build.md") command. Alternatively, you can use the [`create-build`](../../../cli/latest/reference/gamelift/create-build.md "../../../cli/latest/reference/gamelift/create-build.md") command to upload a new build from an Amazon S3
+themselves. To deploy updates to your game server build, you must upload a new set of files and create a
+new Amazon GameLift Servers build using the AWS CLI
+[`upload-build`](../../../cli/latest/reference/gamelift/upload-build.md "../../../cli/latest/reference/gamelift/upload-build.md") command. Alternatively, you can use the [`create-build`](../../../cli/latest/reference/gamelift/create-build.md "../../../cli/latest/reference/gamelift/create-build.md") command to upload a new build from an Amazon S3
 bucket that you control. Then deploy the new build by creating a new fleet for
 it.
 
@@ -29,7 +30,7 @@ server builds for Amazon GameLift Servers managed fleets:
   that supports rapid iterative development. See [Set up for iterative development with Amazon GameLift Servers Anywhere](integration-dev-iteration.md "integration-dev-iteration.md").
 
 Try out these resources from the [Amazon GameLift Servers Toolkit](https://github.com/aws/amazon-gamelift-toolkit "https://github.com/aws/amazon-gamelift-toolkit") on
-Github:
+GitHub:
 
 **Fast build update tool (for development only)**
 
@@ -40,7 +41,7 @@ entire game build or change specific files, and you can manage how to
 restart game server processes after the updates. You can also use it to
 update all computes in a fleet or target individual computes.
 
-Visit the Amazon GameLift Servers Toolkit repo in Github to get the [fast build update tool](https://github.com/aws/amazon-gamelift-toolkit/tree/main/fast-build-update-tool "https://github.com/aws/amazon-gamelift-toolkit/tree/main/fast-build-update-tool") in Github and learn more about how
+Visit the Amazon GameLift Servers Toolkit repo in GitHub to get the [fast build update tool](https://github.com/aws/amazon-gamelift-toolkit/tree/main/fast-build-update-tool "https://github.com/aws/amazon-gamelift-toolkit/tree/main/fast-build-update-tool") in GitHub and learn more about how
 to use it.
 
 **Production deployment sample script**
@@ -54,5 +55,5 @@ build and deploy to a new fleet, redirect player traffic from an
 existing fleet to the new fleet, and delete the old fleet. Customize the
 sample script to meet your specific deployment requirements.
 
-Visit the Amazon GameLift Servers Toolkit repo in Github to get the [production deployment sample script](https://github.com/aws/amazon-gamelift-toolkit/tree/main/production-deployment-sample-script "https://github.com/aws/amazon-gamelift-toolkit/tree/main/production-deployment-sample-script") in Github and learn
+Visit the Amazon GameLift Servers Toolkit repo in GitHub to get the [production deployment sample script](https://github.com/aws/amazon-gamelift-toolkit/tree/main/production-deployment-sample-script "https://github.com/aws/amazon-gamelift-toolkit/tree/main/production-deployment-sample-script") in GitHub and learn
 more about how to use it.

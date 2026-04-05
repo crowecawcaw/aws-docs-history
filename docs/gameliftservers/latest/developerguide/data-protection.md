@@ -112,4 +112,4 @@ provides a secure communications channel for remote access. For instances that a
 Windows, use a remote desktop protocol (RDP) client. With Amazon GameLift Servers FleetIQ, remote access to your
 instances using AWS Systems Manager Session Manager and Run Command is encrypted using TLS
 1.2, and requests to create a connection are signed using SigV4. For help with connecting to
-a managed Amazon GameLift Servers instance, see [Remotely connect to Amazon GameLift Servers fleet instances](fleets-remote-access.md "fleets-remote-access.md").
+a managed Amazon GameLift Servers instance, see [Connect to fleet instances](fleets-remote-access.md "fleets-remote-access.md").

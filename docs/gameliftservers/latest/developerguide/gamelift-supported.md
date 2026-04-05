@@ -243,16 +243,18 @@ systems and game engines:
   Android, iOS
 - **Game engines** – Unity, engines that
   support C# libraries
+- **Node.js runtimes** – 10.x, 24.x
+
+###### Note
+
+Node.js 10 will reach end of support on September 30, 2026. See more details
+in the [Node.js 10 FAQs](https://aws.amazon.com/gamelift/faq/nodejs10/ "https://aws.amazon.com/gamelift/faq/nodejs10/"). For migration guidance,
+see [Migrating from Node.js 10 to 24](../../../gamelift/latest/realtimeguide/realtime-script.md#realtime-script-nodejs-migration "../../../gamelift/latest/realtimeguide/realtime-script.md#realtime-script-nodejs-migration").
 
 **Game server operating systems**
 
 You can deploy Realtime servers onto hosting resources that run on the following
 platforms:
 
-- [Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/ "https://aws.amazon.com/amazon-linux-2/")
-
-###### Note
-
-AL2 is nearing end of support. See more details in the [Amazon Linux 2 FAQs](https://aws.amazon.com/amazon-linux-2/faqs/ "https://aws.amazon.com/amazon-linux-2/faqs/").
-
 - [Amazon Linux 2023](https://aws.amazon.com/linux/amazon-linux-2023/ "https://aws.amazon.com/linux/amazon-linux-2023/")
+- [Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/ "https://aws.amazon.com/amazon-linux-2/")

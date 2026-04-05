@@ -74,4 +74,4 @@ Amazon GameLift Servers server SDK version 5.0.0 and above includes these update
     `ActiveInstances`.
 
 - Amazon EC2 Systems Manager (SSM )for remote access – For added security, use SSM instead of SSH when
-  connecting to instances in Amazon GameLift Servers managed fleets. See [Remotely connect to Amazon GameLift Servers fleet instances](fleets-remote-access.md "fleets-remote-access.md").
+  connecting to instances in Amazon GameLift Servers managed fleets. See [Connect to fleet instances](fleets-remote-access.md "fleets-remote-access.md").

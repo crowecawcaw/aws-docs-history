@@ -56,7 +56,7 @@ Each fleet instance can have the following types of container groups:
   instance.
 - A **per-instance container group**, which is optional, gives you
   the ability to run additional software on each fleet instance. They are useful for
-  running background services or utility programs, such as for monitoring. You game
+  running background services or utility programs, such as for monitoring. Your game
   server software doesn't directly depend on processes in a per-instance group. Only
   one copy of a per-instance container group is deployed to each fleet instance.
 
@@ -224,7 +224,7 @@ of ports, one for each process that takes a connection. This includes:
 When you set the internal-facing container port settings, Amazon GameLift Servers uses them to calculate
 the external-facing inbound permissions that game clients and other applications can connect
 to. Amazon GameLift Servers also manages the mapping between inbound permissions and individual container
-ports that gives players access to an game session in a container. This internal mapping
+ports that gives players access to a game session in a container. This internal mapping
 provides a layer of security by protecting your game servers from direct access to the
 container ports. You have the option to customize a fleet's external-facing port settings as
 needed. For more information about manually setting container fleet ports, see

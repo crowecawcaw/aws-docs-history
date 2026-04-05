@@ -104,7 +104,7 @@ development language. The server parameters are:
      `GameLiftServiceSdkEndpoint` value that is returned when
      you register a compute with the fleet.
     * `hostId` – Set this parameter to the compute name
-     that you specifiy when you register a compute with the Anywhere
+     that you specify when you register a compute with the Anywhere
      fleet.
     * `fleetId` – Set this parameter to the ID of the
      Anywhere fleet.

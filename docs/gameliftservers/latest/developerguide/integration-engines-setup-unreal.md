@@ -359,7 +359,7 @@ void AGameLiftUnrealAppGameMode::InitGameLift()
 
     //OnProcessTerminate callback. Amazon GameLift Servers will invoke this callback before shutting down an instance hosting this game server.
     //It gives this game server a chance to save its state, communicate with services, etc., before being shut down.
-    //In this case, we simply tell Amazon GameLift Servers we are indeed going to shutdown.
+    //In this case, we simply tell Amazon GameLift Servers we are indeed going to shut down.
     ProcessParameters->OnTerminate.BindLambda([=]()
         {
             UE_LOG(GameServerLog, Log, TEXT("Game Server Process is terminating"));

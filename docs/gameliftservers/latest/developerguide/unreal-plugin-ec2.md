@@ -199,7 +199,7 @@ EC2 instance. At least one server process is running and ready to start a game s
 ## Step 6: Launch client
 
 At this point, you've completed all of the tasks needed to launch and play your
-multiplayer game hosted with Amazon GameLift Servers. To play the game, launch an instance of you game
+multiplayer game hosted with Amazon GameLift Servers. To play the game, launch an instance of your game
 client.
 
 If you deployed the single fleet scenario, you can open a single client instance with

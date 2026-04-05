@@ -49,7 +49,7 @@ SDK.
 ###### Note
 
 In this phase, you can remotely access a fleet instance to further
-investigate issues. See [Remotely connect to Amazon GameLift Servers fleet instances](fleets-remote-access.md "fleets-remote-access.md").
+investigate issues. See [Connect to fleet instances](fleets-remote-access.md "fleets-remote-access.md").
 
 Possible issues include:
 

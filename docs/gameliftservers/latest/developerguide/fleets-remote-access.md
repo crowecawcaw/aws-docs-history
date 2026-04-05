@@ -1,29 +1,12 @@
-# Remotely connect to Amazon GameLift Servers fleet instances
+# Connect to fleet instances
 
-You can connect to any instance in your active Amazon GameLift Servers managed EC2 or container fleets. Common reasons to
-remotely access an instance include:
-
-- Troubleshoot issues with your game server integration.
-- Fine-tune your runtime configuration and other fleet-specific settings.
-- Get real-time game server activity, such as log tracking.
-- Run benchmarking tools using actual player traffic.
-- Investigate specific issues with a game session or server process.
-  When connecting to an instance, consider these potential issues:
-
-- You can connect to any instance in an active fleet. Generally, you can't connect
-  to non-active fleets, such as fleets that are in the process of activating or are in
-  an error state. (These fleets might have limited availability for a short period of
-  time.) For help with fleet activation issues, see [Debug Amazon GameLift Servers fleet issues](fleets-creating-debug.md "fleets-creating-debug.md").
-- Connecting to an active instance doesn't affect the instance's hosting activity.
-  The instance continues to start and stop server processes based on the runtime
-  configuration. It activates and runs game sessions. The instance might shut down in
-  response to a scale down event or other event.
-- Any changes you make to files or settings on the instance might impact the
-  instance's active game sessions and connected players.
+You can remotely connect to any active Amazon GameLift Servers managed EC2 or managed container fleet instance to
+troubleshoot game server issues, inspect logs, and debug runtime behavior. Connect using the
+Amazon GameLift Servers console or the AWS CLI.
 
 ## Remote access through the console
 
-You can connect to fleet instances directly from the Amazon GameLift Servers console using Amazon EC2 Systems Manager (SSM). This method provides secure access without requiring additional setup or credential management.
+You can connect to fleet instances directly from the Amazon GameLift Servers console using Amazon EC2 Systems Manager (SSM). This method provides secure access without requiring additional setup or credential management. For container fleets, after connecting to the instance, you can access individual containers running on it. For more information, see [Connect to containers](containers-remote-access.md "containers-remote-access.md").
 
 1. In the Amazon GameLift Servers console, choose **Managed EC2** or **Managed containers** from the navigation pane, and then **Fleets**.
 2. Choose the fleet ID that contains the instance you want to access.
@@ -65,8 +48,8 @@ You must know the fleet ID for the instance you want to connect to.
 
 ```
 aws gamelift list-compute \
-  --fleet-id  "fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa" \
-  --location ""sa-east-1"
+  --fleet-id  fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa \
+  --location sa-east-1
 ```
 
 **Response**
@@ -103,8 +86,8 @@ aws gamelift list-compute \
    **Request**
 
 ```
-aws gamelift describe-fleet-attributes /
-  --fleet-ids  "fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa"
+aws gamelift describe-fleet-attributes \
+  --fleet-ids  fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa
 ```
 
 **Response**
@@ -125,8 +108,8 @@ aws gamelift describe-fleet-attributes /
 **Request**
 
 ```
-aws gamelift describe-build /
-  --build-id "build-3333cccc-44dd-55ee-66ff-00001111aa22"
+aws gamelift describe-build \
+  --build-id build-3333cccc-44dd-55ee-66ff-00001111aa22
 ```
 
 **Response**
@@ -145,7 +128,7 @@ aws gamelift describe-build /
 
 If the instance you want to connect to is running a game build with server SDK version
 5.x, connect to the instance using Amazon EC2 Systems Manager (SSM). You can access remote instances
-that are running either Windows or Linux.
+that are running either Windows or Linux. For container fleets, after connecting to the instance, you can access individual containers running on it. For more information, see [Connect to containers](containers-remote-access.md "containers-remote-access.md").
 
 ###### Before you start:
 
@@ -171,14 +154,14 @@ aws gamelift get-compute-access \
 
 ```
 {
-  "ComputeName": " i-11111111a222b333c ",
+  "ComputeName": "i-11111111a222b333c",
   "Credentials": {
-    "AccessKeyId": " ASIAIOSFODNN7EXAMPLE ",
-    "SecretAccessKey": " wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY ",
-    "SessionToken": " AQoDYXdzEJr...<remainder of session token>"
+    "AccessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+    "SessionToken": "AQoDYXdzEJr...<remainder of session token>"
   },
-  "FleetArn": " arn:aws:gamelift:us-west-2::fleet/fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa ",
-  "FleetId": " fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa "
+  "FleetArn": "arn:aws:gamelift:us-west-2::fleet/fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa",
+  "FleetId": "fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa"
 }
 ```
 
@@ -310,11 +293,13 @@ ssh -i MyPrivateKey.pem gl-user-remote@192.0.2.0
 
 ## View files on remote instances
 
-Regardless of whether you have connected to an instance remotely through the console or the AWS CLI, you have full user and administrative access to it.
+Once connected to a fleet instance, you have full user and administrative access.
 This means you also have the ability to cause errors or failures with game hosting. If
-the instance is hosting games with active players, you may run the risk of crashing game
+the instance is hosting games with active players, you might run the risk of crashing game
 sessions and dropping players, or disrupting game shutdown processes which could cause errors
 in saved game data and logs.
+
+For container fleets, after accessing the container (see [Connect to containers](containers-remote-access.md "containers-remote-access.md")), the following file locations apply within the container filesystem. For EC2 fleets, these file locations apply directly on the instance.
 
 Look for these resources on a hosting instance:
 

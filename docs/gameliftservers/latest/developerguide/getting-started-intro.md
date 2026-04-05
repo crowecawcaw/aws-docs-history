@@ -19,7 +19,7 @@ multiplayer games.
 
 Best for: learning, creating a proof of concept, rapid prototyping
 
-Quick qtart options:
+Quick start options:
 
 - [Game server
   wrapper for Amazon GameLift Servers](https://github.com/amazon-gamelift/amazon-gamelift-servers-game-server-wrapper/ "https://github.com/amazon-gamelift/amazon-gamelift-servers-game-server-wrapper/") – See [Tutorial: Quick onboarding with the Amazon GameLift Servers wrapper](gamelift-wrapper-tutorial.md "gamelift-wrapper-tutorial.md").

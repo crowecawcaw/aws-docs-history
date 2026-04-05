@@ -97,8 +97,12 @@ Time stamp indicating when this request was fulfilled.
 
 gameSessionRegion
 
-AWS Region of the fleet that is hosting the game session.
-This corresponds to the region token in the `GameSessionArn`.
+AWS Home region of the fleet that is hosting the game session.
+
+gameSessionLocation
+
+The fleet location where the game session is running. This value might specify the
+fleet's home region or a remote location.
 
 playerGatewayStatus
 
@@ -108,6 +112,13 @@ Possible values include:
 
 - `ENABLED` – Player gateway is available for routing player connections for this game session.
 - `DISABLED` – Player gateway is not available for this game session.
+
+computeName
+
+A descriptive label for the compute resource that is hosting the game session.
+For EC2 fleets, this is the EC2 instance ID. For Container fleets, each game server
+container group on a fleet instance is assigned a compute name. For Anywhere fleets,
+this is the custom compute name.
 
 placedPlayerSessions
 
@@ -132,13 +143,15 @@ session placement request.
     "type": "PlacementFulfilled",
     "placementId": "9999ffff-88ee-77dd-66cc-5555bb44aa",
     "port": "6262",
-    "gameSessionArn": "arn:aws:gamelift:us-west-2::gamesession/fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa/4444dddd-55ee-66ff-77aa-8888bbbb99cc",
+    "gameSessionArn": "arn:aws:gamelift:us-west-2::gamesession/fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa/us-east-1/4444dddd-55ee-66ff-77aa-8888bbbb99cc",
     "ipAddress": "98.987.98.987",
     "dnsName": "ec2-12-345-67-890.us-west-2.compute.amazonaws.com",
     "startTime": "2021-03-01T15:50:49.741Z",
     "endTime": "2021-03-01T15:50:52.084Z",
     "gameSessionRegion": "us-west-2",
     "playerGatewayStatus": "ENABLED",
+    "gameSessionLocation": "us-east-1",
+    "computeName": "i-1234567890abcdef0",
     "placedPlayerSessions": [
       {
         "playerId": "player-1"

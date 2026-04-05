@@ -2,7 +2,7 @@
 
 Your game's player population might have groups of players who shouldn't play
 together. For example, if you publish your game in two languages each language should
-have it's own game servers.
+have its own game servers.
 
 To set up game session placement for your player population, create a separate queue
 for each player segment. Scope each queue to place players into the correct game

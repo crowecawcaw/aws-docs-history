@@ -23,7 +23,7 @@ Create an install script for the operating system (OS) of your game build:
 - On Linux, Amazon GameLift Servers supports common shell interpreter languages such as bash. Add
   a shebang (such as `#!/bin/bash`) to the top of your install script.
   To verify support for your preferred shell commands, remotely access an active
-  Linux instance and open a shell prompt. For more information, see [Remotely connect to Amazon GameLift Servers fleet instances](fleets-remote-access.md "fleets-remote-access.md").
+  Linux instance and open a shell prompt. For more information, see [Connect to fleet instances](fleets-remote-access.md "fleets-remote-access.md").
 - The install script can't rely on a VPC peering connection. A VPC peering
   connection isn't available until after Amazon GameLift Servers installs the build on fleet
   instances.

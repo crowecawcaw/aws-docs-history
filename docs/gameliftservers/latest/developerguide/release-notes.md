@@ -95,9 +95,60 @@ The following release notes are in chronological order, with the latest updates 
 first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those
 listed here, see the release date links in [SDK versions](#release-notes-history "#release-notes-history").
 
-Amazon GameLift Servers now supports its existing selection of Amazon EC2 instances in additional
-AWS Regions, giving you more flexibility to host game servers closer to your
-players. This expansion covers instances across the following families:
+This release makes it simpler to onboard games and integrate with Amazon GameLift Servers, based on customer
+feedback. These updates help customers get started and manage game sessions within fleets more easily.
+
+Amazon GameLift Servers now returns a `ComputeName` field in game session API
+responses. You can use this field to identify which compute is hosting a game
+session, without cross-referencing IP addresses. This field is available
+for managed EC2 fleets, managed container fleets,
+and Anywhere fleets. The `ComputeName` and
+`GameSessionLocation` fields are also now included in [PlacementFulfilled](queue-events.md#queue-events-placementfulfilled "queue-events.md#queue-events-placementfulfilled") and [MatchmakingSucceeded](../flexmatchguide/match-events-matchmakingsucceeded.md "../flexmatchguide/match-events-matchmakingsucceeded.md") events.
+
+Amazon GameLift Servers API Reference links:
+
+- [GameSession](../apireference/API_GameSession.md "../apireference/API_GameSession.md")
+  This release also includes several Amazon GameLift Servers console improvements. With
+  these updates, you can now:
+
+- **Upload builds directly**
+  – In addition to the Amazon S3 import method, you can select a build
+  file and upload it directly to Amazon GameLift Servers from the
+  console.
+- **Clone fleet configurations**
+  – Clone an existing managed EC2 fleet configuration to create a
+  new fleet.
+- **Connect to instances and
+  containers** – Use SSM to connect directly from game
+  session, player session, and compute details pages, including new access
+  commands for containers.
+- **View compute and instance
+  data** – Game session tables now display
+  `ComputeName` and `InstanceId` columns for
+  managed EC2 and container fleets.
+- **View container fleet compute
+  details** – Container fleets now include compute tables
+  and compute detail views.
+- **View game session log
+  locations** – The game session details page now displays
+  Amazon S3 URIs and Amazon CloudWatch log group ARNs for container
+  fleets.
+- **Refresh data** – Refresh
+  buttons are now available on all list pages and detail
+  views.
+
+###### **Learn more:**
+
+- [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift "https://console.aws.amazon.com/gamelift")
+- [PlacementFulfilled](queue-events.md#queue-events-placementfulfilled "queue-events.md#queue-events-placementfulfilled"),
+  _Amazon GameLift Servers Developer Guide_
+- [MatchmakingSucceeded](../flexmatchguide/match-events-matchmakingsucceeded.md "../flexmatchguide/match-events-matchmakingsucceeded.md"),
+  _Amazon GameLift Servers FlexMatch Developer Guide_
+- [Connecting to a container fleet instance](containers-remote-access.md "containers-remote-access.md"),
+  _Amazon GameLift Servers Developer Guide_
+  Amazon GameLift Servers now supports its existing selection of Amazon EC2 instances in additional
+  AWS Regions, giving you more flexibility to host game servers closer to your
+  players. This expansion covers instances across the following families:
 
 - [General purpose](https://aws.amazon.com/ec2/instance-types/#General_Purpose "https://aws.amazon.com/ec2/instance-types/#General_Purpose") (M-series)
 - [Compute optimized](https://aws.amazon.com/ec2/instance-types/#Compute_Optimized "https://aws.amazon.com/ec2/instance-types/#Compute_Optimized") (C-series)
@@ -228,7 +279,7 @@ To remotely connect to a fleet instance, open the Amazon GameLift Servers consol
 
 ###### **Learn more:**
 
-- [Remotely connect to Amazon GameLift Servers fleet instances](fleets-remote-access.md "fleets-remote-access.md"), _Amazon GameLift Servers Developer Guide_
+- [Connect to fleet instances](fleets-remote-access.md "fleets-remote-access.md"), _Amazon GameLift Servers Developer Guide_
   With Amazon GameLift Servers managed hosting, you can now deploy game server resources in a new
   Dallas, TX, Local Zone (`us-east-1-dfw-2`). Local Zones give you the ability to
   place your game servers geographically closer to your players to reduce latency
@@ -657,7 +708,7 @@ Amazon GameLift Servers plugin for Unreal Engine, version 1.1.2
   recognize the likely cause of issues. In addition, you can now remotely
   connect to fleets when they're in the Activating phase.
 - Two new fleet creation events communicate the success or failure of
-  game server install scripts. If you're game server build includes an
+  game server install scripts. If your game server build includes an
   install script, Amazon GameLift Servers attempts to run the script and emits one of the
   following new events:
   - `FLEET_CREATION_COMPLETED_INSTALLER`

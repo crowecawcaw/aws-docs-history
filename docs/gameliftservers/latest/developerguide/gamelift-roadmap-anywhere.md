@@ -161,7 +161,7 @@ service when it's deployed for hosting.
 - **Get the Amazon GameLift Servers Agent and add it to your game server
   install package.** Get and build the Agent source code, available
   in the [Amazon GameLift Servers Agent
-  Github repository](https://github.com/aws/amazon-gamelift-agent "https://github.com/aws/amazon-gamelift-agent"). Place the resulting JAR file executable into the
+  GitHub repository](https://github.com/aws/amazon-gamelift-agent "https://github.com/aws/amazon-gamelift-agent"). Place the resulting JAR file executable into the
   same directory as your game build executable.
 - **Modify your startup script for the Agent as
   needed.** Ensure that Agent executable launches as soon as a

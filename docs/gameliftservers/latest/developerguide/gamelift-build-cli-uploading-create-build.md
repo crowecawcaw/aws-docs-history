@@ -1,7 +1,7 @@
 # Create a build with files in Amazon S3
 
 You can store your build files in Amazon S3 and upload them to Amazon GameLift Servers from there. When
-you create you build, you specify the S3 bucket location, and Amazon GameLift Servers retrieves the
+you create your build, you specify the S3 bucket location, and Amazon GameLift Servers retrieves the
 build files directly from Amazon S3.
 
 ###### To create a build resource
