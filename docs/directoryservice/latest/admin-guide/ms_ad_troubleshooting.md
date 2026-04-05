@@ -72,3 +72,4 @@ The following resources can help you troubleshoot common Active Directory issues
 - [AWS Managed Microsoft AD low available storage space](ms_ad_troubleshooting_low_storage_space.md "ms_ad_troubleshooting_low_storage_space.md")
 - [Schema extension errors](ms_ad_troubleshooting_schema.md "ms_ad_troubleshooting_schema.md")
 - [Trust creation status reasons](ms_ad_troubleshooting_trusts.md "ms_ad_troubleshooting_trusts.md")
+- [Troubleshooting AWS Managed Microsoft AD high CPU utilization](ms_ad_troubleshooting_high_cpu.md "ms_ad_troubleshooting_high_cpu.md")

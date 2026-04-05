@@ -11,27 +11,21 @@ of AWS Managed Microsoft AD.
 You can use automated multi-Region replication in most Regions where AWS Managed Microsoft AD is
 available.
 
-###### Important
+###### Note
 
-Multi-Region replication is unavailable in opt-in Regions. The following are opt-in Regions:
+Multi-Region replication is unavailable in the following opt-in Regions:
 
-- Africa (Cape Town) af-south-1
-- Asia Pacific (Hong Kong) ap-east-1
-- Asia Pacific (Hyderabad) ap-south-2
-- Asia Pacific (Jakarta) ap-southeast-3
-- Asia Pacific (Melbourne) ap-southeast-4
-- Asia Pacific (Thailand) ap-southeast-7
-- Canada West (Calgary) ca-west-1
-- Europe (Milan) eu-south-1
-- Europe (Spain) eu-south-2
-- Europe (Zurich) eu-central-2
-- Israel (Tel Aviv) il-central-1
 - Middle East (Bahrain) me-south-1
 - Middle East (UAE) me-central-1
-- Mexico (Central) mx-central-1
   For more information about opt-in Regions and how to enable them, see [Specify which
   AWS Regions your account can use](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md") in the _AWS Account Management
   Guide_.
+
+###### Important
+
+You can only extend Multi-Region replication to additional Regions if your primary Region is an AWS default Region.
+If your primary Region is an opt-in Region, you cannot add additional Regions to your Multi-Region replication.
+Ensure that your directory was originally created in an AWS default Region before attempting to extend replication.
 
 ## How Multi-Region replication works
 

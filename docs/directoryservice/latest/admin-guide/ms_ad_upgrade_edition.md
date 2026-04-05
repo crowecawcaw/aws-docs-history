@@ -52,36 +52,7 @@ Update-DSDirectorySetup `
     -DirectorySizeUpdateSettings_DirectorySize Large
 ```
 
-###### Note
-
-Multi-region replication is only available in AWS Managed Microsoft AD Enterprise edition for
-the following regions:
-
-- US East (Ohio)
-- US East (N. Virginia)
-- US West (N. California)
-- US West (Oregon)
-- Asia Pacific (Mumbai)
-- Asia Pacific (Osaka)
-- Asia Pacific (Seoul)
-- Asia Pacific (Singapore)
-- Asia Pacific (Sydney)
-- Asia Pacific (Thailand)
-- Asia Pacific (Tokyo)
-- Canada (Central)
-- China (Beijing)
-- China (Ningxia)
-- Mexico (Central)
-- Europe (Frankfurt)
-- Europe (Ireland)
-- Europe (London)
-- Europe (Paris)
-- Europe (Stockholm)
-- South America (São Paulo)
-- AWS GovCloud (US-West)
-- AWS GovCloud (US-East)
-
-[Show moreShow less](# "#")There are a few limitations to be aware of when upgrading your AWS Managed Microsoft AD. They
+There are a few limitations to be aware of when upgrading your AWS Managed Microsoft AD. They
 are:
 
 - The upgrade will incur additional cost. See [Directory Service Pricing](https://aws.amazon.com/directoryservice/pricing/ "https://aws.amazon.com/directoryservice/pricing/") for more
@@ -90,8 +61,6 @@ are:
   edition.
 - Previous snapshots can't be used to restore the Active Directory after it has been
   upgraded.
-- Upgrades occur at a scheduled date and time agreed upon with Support. Upgrades occur
-  between Monday through Friday, 9 AM - 5 PM Pacific Standard Time.
 - The upgrade process requires four to five hours.
 - During the upgrade process, the domain controllers of your AWS Managed Microsoft AD are
   upgraded one at a time. This can negatively impact your performance and can cause
