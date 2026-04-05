@@ -1,4 +1,4 @@
-# Connecting to Aurora DSQL clusters with a Ruby connector
+# Aurora DSQL Connector for Ruby pg
 
 The [Aurora DSQL Connector for Ruby](https://github.com/awslabs/aurora-dsql-connectors/tree/main/ruby/pg "https://github.com/awslabs/aurora-dsql-connectors/tree/main/ruby/pg") is a Ruby connector built on [pg](https://github.com/ged/ruby-pg "https://github.com/ged/ruby-pg") that integrates IAM authentication for connecting Ruby applications to Amazon Aurora DSQL clusters.
 

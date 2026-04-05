@@ -278,7 +278,7 @@ Java SDK
 
 ###### Tip
 
-AWS recommends using the [Connecting to Aurora DSQL clusters with a JDBC connector](SECTION_program-with-jdbc-connector.md "SECTION_program-with-jdbc-connector.md"), which handles token generation automatically.
+AWS recommends using the [Aurora DSQL Connector for Java JDBC](SECTION_program-with-jdbc-connector.md "SECTION_program-with-jdbc-connector.md"), which handles token generation automatically.
 
 You can generate the token in the following ways:
 
@@ -312,6 +312,11 @@ public class GenerateAuthToken {
 ```
 
 Rust SDK
+
+###### Tip
+
+AWS recommends using the [Aurora DSQL Connector for Rust SQLx](SECTION_program-with-dsql-connector-for-rust-sqlx.md "SECTION_program-with-dsql-connector-for-rust-sqlx.md"), which handles token generation automatically.
+
 You can generate the token in the following ways:
 
 - If you are connecting with the `admin` role, use
@@ -344,7 +349,7 @@ Ruby SDK
 
 ###### Tip
 
-AWS recommends using the [Connecting to Aurora DSQL clusters with a Ruby connector](SECTION_program-with-dsql-connector-for-ruby-pg.md "SECTION_program-with-dsql-connector-for-ruby-pg.md"), which handles token generation automatically.
+AWS recommends using the [Aurora DSQL Connector for Ruby pg](SECTION_program-with-dsql-connector-for-ruby-pg.md "SECTION_program-with-dsql-connector-for-ruby-pg.md"), which handles token generation automatically.
 
 You can generate the token in the following ways:
 
@@ -402,7 +407,7 @@ function generateToken(string $yourClusterEndpoint, string $region): string {
 
 ###### Tip
 
-AWS recommends using the [Connecting to Aurora DSQL clusters with a .NET connector](SECTION_program-with-dsql-connector-for-dotnet-npgsql.md "SECTION_program-with-dsql-connector-for-dotnet-npgsql.md"), which handles token generation automatically.
+AWS recommends using the [Aurora DSQL Connector for .NET Npgsql](SECTION_program-with-dsql-connector-for-dotnet-npgsql.md "SECTION_program-with-dsql-connector-for-dotnet-npgsql.md"), which handles token generation automatically.
 
 ###### Note
 
@@ -441,7 +446,7 @@ Go
 
 ###### Tip
 
-AWS recommends using the [Connecting to Aurora DSQL clusters with a Go connector](SECTION_program-with-go-pgx-connector.md "SECTION_program-with-go-pgx-connector.md"), which handles token generation automatically.
+AWS recommends using the [Aurora DSQL Connector for Go pgx](SECTION_program-with-go-pgx-connector.md "SECTION_program-with-go-pgx-connector.md"), which handles token generation automatically.
 
 The AWS SDK for Go v2 provides a built-in method for generating
 authentication tokens in the
