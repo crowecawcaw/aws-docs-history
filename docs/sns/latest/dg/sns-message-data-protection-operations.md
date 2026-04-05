@@ -1,5 +1,11 @@
 # Data protection policy operations in Amazon SNS
 
+###### Important
+
+Amazon SNS message data protection will no longer be available to new customers starting April 30, 2026.
+For more information and guidance on alternatives, see
+[Amazon SNS message data protection availability change](sns-message-data-protection-availability-change.md "sns-message-data-protection-availability-change.md").
+
 The following are examples of data protection policies that you can use to audit and deny
 sensitive data. For a complete tutorial that includes an example application, see the [Introducing message data protection for Amazon SNS](https://aws.amazon.com/blogs/compute/introducing-message-data-protection-for-amazon-sns/ "https://aws.amazon.com/blogs/compute/introducing-message-data-protection-for-amazon-sns/") blog post.
 

@@ -1,5 +1,11 @@
 # Creating data protection policies in Amazon SNS using the CLI
 
+###### Important
+
+Amazon SNS message data protection will no longer be available to new customers starting April 30, 2026.
+For more information and guidance on alternatives, see
+[Amazon SNS message data protection availability change](sns-message-data-protection-availability-change.md "sns-message-data-protection-availability-change.md").
+
 The number and size of Amazon SNS resources in an AWS account are limited. For more
 information, see [Amazon Simple Notification Service
 endpoints and quotas](../../../general/latest/gr/sns.md "../../../general/latest/gr/sns.md").

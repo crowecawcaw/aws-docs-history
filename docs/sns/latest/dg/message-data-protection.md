@@ -1,5 +1,11 @@
 # Message data protection in Amazon SNS
 
+###### Important
+
+Amazon SNS message data protection will no longer be available to new customers starting April 30, 2026.
+For more information and guidance on alternatives, see
+[Amazon SNS message data protection availability change](sns-message-data-protection-availability-change.md "sns-message-data-protection-availability-change.md").
+
 ## What is message data protection?
 
 **Message data protection** safeguards the data that's

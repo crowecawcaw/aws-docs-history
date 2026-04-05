@@ -69,7 +69,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Sid: ''
           Effect: Allow
@@ -81,7 +81,7 @@ Resources:
     Properties:
       PolicyName: FirehoseticketUploadStreamRolePolicy
       PolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Action:
@@ -100,7 +100,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
         - Effect: Allow
           Principal:
@@ -111,7 +111,7 @@ Resources:
       Policies:
       - PolicyName: SNSKinesisFirehoseAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17		 	 	 '
+          Version: '2012-10-17'
           Statement:
           - Action:
             - firehose:DescribeDeliveryStream
