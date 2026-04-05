@@ -65,7 +65,7 @@ US East (N. Virginia). AWS Wickr is available in the following regions: [AWS Wic
 
 1. In the top right corner of the navigation panel, select the new message button.
 
-![The Wickr IO new message image.](images/wickrio-new-message.png) 2. In the pop up menu, choose **New Direct Message**. 3. Search for your bot by display name.
+![The Wickr IO new message image.](/images/wickr/latest/wickrio/images/wickrio-new-message.png) 2. In the pop up menu, choose **New Direct Message**. 3. Search for your bot by display name.
 
 ![The Wickr IO lex bot search.](images/wickrio-lex-search.png) 4. Select your bot for a direct message, and send a message.
 
