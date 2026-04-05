@@ -46,13 +46,12 @@ The following is an example of the **Reply** button and the **Additional contact
 ![Additional contacts - optional section example](images/workload-change-request3.png)
 
 ![Additional contacts - option section example](images/workload-change-request4.png)
-After you create a support case for the subscription request, keep the following two documents ready to proceed with the workload onboarding process:
+After you create a support case for the subscription request, prepare the following document to proceed with the workload onboarding process:
 
-- AWS workload architecture diagram.
 - [Workload onboarding and alarm ingestion questionnaires in Incident Detection and Response](idr-gs-questionnaire.md "idr-gs-questionnaire.md"): Complete all information in the questionnaire that's related to the workload that you're onboarding. If you have multiple workloads to be onboarded, then create a new onboarding questionnaire for each workload. If you have questions about completing the onboarding questionnaire, then contact your Technical Account Manager (TAM).
 
 ###### Note
 
-DO NOT attach these two documents to the case using the **Attach files** option. The AWS Incident Detection and Response team will reply to the case with an Amazon Simple Storage Service uploader link for you to upload the documents.
+DO NOT attach questionnaire documents to the case using the **Attach files** option. The AWS Incident Detection and Response team will reply to the case with an Amazon Simple Storage Service uploader link for you to upload the documents.
 
 For information on how to create a case with AWS Incident Detection and Response to request changes to an existing onboarded workload, see [Request changes to an onboarded workload in Incident Detection and Response](idr-workloads-change-request.md "idr-workloads-change-request.md"). For information on how to offboard a workload, see [Offboard a workload from Incident Detection and Response](idr-workloads-offboard.md "idr-workloads-offboard.md").

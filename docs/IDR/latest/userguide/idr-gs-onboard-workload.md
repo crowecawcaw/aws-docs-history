@@ -18,7 +18,7 @@ information about your workload that assists with impact mitigation.
 **Key outputs:**
 
 - General workload information
-- Architecture details including diagrams
+- Architecture details
 - Runbook Information
 - Customer-initiated incidents
 

@@ -6,8 +6,6 @@ practice to register your workloads on AppRegistry. For more information, see th
 
 **Key outputs:**
 
-- Workload information, such as the workload’s description, architecture
-  diagrams, contact, and escalation details.
-- Details of how the workload employs AWS services in each AWS
-  Region.
+- Workload information, such as the workload description, contact, and escalation details.
+- Details of how the workload employs AWS services in each AWS Region.
 - Alarms used by your team that detect critical workload impact.

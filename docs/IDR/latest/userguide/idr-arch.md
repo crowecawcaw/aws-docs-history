@@ -14,7 +14,7 @@ AWS Incident Detection and Response integrates with your existing environment as
   To learn more about AWS Health, see
   [What is AWS Health](../../../health/latest/ug/what-is-aws-health.md "../../../health/latest/ug/what-is-aws-health.md").
 - AWS Systems Manager: Systems Manager provides a unified user interface for automation and task management across your AWS resources. AWS Incident Detection and Response hosts
-  information about your workloads including workload architecture diagrams, alarm details and their corresponding incident management runbooks in
+  information about your workloads including workload architecture details, alarm details and their corresponding incident management runbooks in
   AWS Systems Manager documents (for details, see
   [AWS Systems Manager Documents](../../../systems-manager/latest/userguide/sysman-ssm-docs.md "../../../systems-manager/latest/userguide/sysman-ssm-docs.md")).
   To learn more about AWS Systems Manager, see
