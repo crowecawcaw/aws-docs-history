@@ -77,7 +77,7 @@ Type: Array of [EventTopic](API_EventTopic.md "API_EventTopic.md") objects
 
 ## Errors
 
-For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
 
 **ClientException**
 
