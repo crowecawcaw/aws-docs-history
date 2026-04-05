@@ -1,3 +1,8 @@
+AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use
+App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+[AWS App Runner availability
+change](../dg/apprunner-availability-change.md "../dg/apprunner-availability-change.md").
+
 # Release: App Runner launches built-in X-Ray support on April 12, 2022
 
 Your AWS App Runner service can now stream request traces to AWS X-Ray.

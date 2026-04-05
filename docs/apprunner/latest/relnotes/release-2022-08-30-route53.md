@@ -1,3 +1,8 @@
+AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use
+App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+[AWS App Runner availability
+change](../dg/apprunner-availability-change.md "../dg/apprunner-availability-change.md").
+
 # Release: App Runner adds support for Amazon Route 53 alias record for root domain on August 30, 2022
 
 Your AWS App Runner service now supports using Amazon Route 53 alias record for creating root domain name.
