@@ -273,7 +273,7 @@ Length Constraints: Minimum length of 1. Maximum length of 240.
 
 ## Errors
 
-For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
 
 **AccessDeniedException**
 

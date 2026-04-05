@@ -153,7 +153,7 @@ Length Constraints: Minimum length of 20. Maximum length of 2048.
 
 ## Errors
 
-For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
 
 **ResourceNotFoundException**
 
