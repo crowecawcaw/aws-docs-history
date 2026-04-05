@@ -17,8 +17,11 @@ You can monitor your Amazon WorkSpaces Applications fleet usage using the WorkSp
      `ActiveUserSessionCapacity`,
      `AvailableUserSessionCapacity`,
      `DesiredUserSessionCapacity`,
-     `PendingUserSessionCapacity`, and
-     `CapacityUtilization` for multi-session fleets.
+     `PendingUserSessionCapacity`,
+     `CapacityUtilization`,
+     `DrainingCapacity`,
+     `DrainModeActiveUserSessionCapacity`, and
+     `DrainModeUnusedUserSessionCapacity` for multi-session fleets.
 
 ###### To view fleet usage in the CloudWatch console
 

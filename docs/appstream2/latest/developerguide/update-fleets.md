@@ -38,3 +38,14 @@ update the fleet with your new image. 5. In the left navigation pane, choose **F
 **Edit**. 8. In the **Edit Fleet** dialog box, the list of available
 images displays in the **Name** list. Select the new image from
 the list. 9. Choose **Update**.
+
+###### Note
+
+All existing instances and user sessions will continue to run with the old image,
+but all new instance launches will spin up from the new image. For multi-session
+fleets, it is possible that instances keep running with the older image for a longer
+duration of time because the service will not terminate an instance if there is an
+active session on the instance, and if user sessions keep getting provisioned on
+these instances, it is possible the instance will continue to run with the old image.
+To get rid of long-running instances on multi-session fleets, evaluate the option of
+putting them in drain mode. To learn more, refer to [Manage Multi-Session Fleet Instances](manage-multi-session-instances.md "manage-multi-session-instances.md").
