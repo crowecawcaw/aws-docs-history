@@ -1,3 +1,8 @@
+AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use
+App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+[AWS App Runner availability
+change](apprunner-availability-change.md "apprunner-availability-change.md").
+
 # Deploying a new application version to App Runner
 
 When you [create a service](manage-create.md "manage-create.md") in AWS App Runner, you configure an application source—a container image or a source
@@ -84,7 +89,7 @@ App Runner console
 
 The console displays the service dashboard with a **Service overview**.
 
-![App Runner service dashboard page showing Activity list](/images/apprunner/latest/dg/images/console-dashboard.png) 3. Choose **Deploy**.
+![App Runner service dashboard page showing Activity list](images/console-dashboard.png) 3. Choose **Deploy**.
 
 Result: Deployment of the new version starts. On the service dashboard page, the service **Status** changes to
 **Operation in progress**. 4. Wait for the deployment to end. On the service dashboard page, the service **Status** should change back to

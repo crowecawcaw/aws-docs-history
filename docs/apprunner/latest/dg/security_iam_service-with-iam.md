@@ -1,3 +1,8 @@
+AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use
+App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+[AWS App Runner availability
+change](apprunner-availability-change.md "apprunner-availability-change.md").
+
 # How App Runner works with IAM
 
 Before you use IAM to manage access to AWS App Runner, you should understand what IAM features are available to use with App Runner. To

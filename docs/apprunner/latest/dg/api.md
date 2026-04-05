@@ -1,3 +1,8 @@
+AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use
+App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+[AWS App Runner availability
+change](apprunner-availability-change.md "apprunner-availability-change.md").
+
 # The App Runner API
 
 The AWS App Runner application programming interface (API) is a RESTful API for making requests to the App Runner service. You can use the API to create, list,

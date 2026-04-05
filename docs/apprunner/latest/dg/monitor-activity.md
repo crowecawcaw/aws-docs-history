@@ -1,3 +1,8 @@
+AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use
+App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+[AWS App Runner availability
+change](apprunner-availability-change.md "apprunner-availability-change.md").
+
 # Tracking App Runner service activity
 
 AWS App Runner uses a list of operations to keep track of activity in your App Runner service. An operation represents an asynchronous call to an API action, such
@@ -18,7 +23,7 @@ The App Runner console displays your App Runner service activity and provides mo
 
 The console displays the service dashboard with a **Service overview**.
 
-![App Runner service dashboard page showing Activity list](/images/apprunner/latest/dg/images/console-dashboard.png) 3. On the service dashboard page, choose the **Activity** tab, if it isn't already chosen.
+![App Runner service dashboard page showing Activity list](images/console-dashboard.png) 3. On the service dashboard page, choose the **Activity** tab, if it isn't already chosen.
 
 The console displays a list of operations. 4. To find specific operations, scope down the list by entering a search term. You can search for any value that appears in the table. 5. Choose any listed operation to see or download the related log.
 

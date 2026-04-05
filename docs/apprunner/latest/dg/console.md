@@ -1,3 +1,8 @@
+AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use
+App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+[AWS App Runner availability
+change](apprunner-availability-change.md "apprunner-availability-change.md").
+
 # Using the App Runner console
 
 Use the AWS App Runner console to create, manage, and monitor your App Runner services and related resources, such as connected accounts. You can view existing
@@ -63,7 +68,7 @@ down by using the filter text box. For more information about connected accounts
 1. Open the [App Runner console](https://console.aws.amazon.com/apprunner "https://console.aws.amazon.com/apprunner"), and in the **Regions** list, select your AWS Region.
 2. In the navigation pane, choose **Connected accounts**.
 
-![App Runner Connected accounts page](/images/apprunner/latest/dg/images/console-connections-github.png)
+![App Runner Connected accounts page](images/console-connections-github.png)
 
 Things you can do here:
 

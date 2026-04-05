@@ -1,3 +1,8 @@
+AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use
+App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+[AWS App Runner availability
+change](apprunner-availability-change.md "apprunner-availability-change.md").
+
 # Viewing App Runner logs streamed to CloudWatch Logs
 
 You can use Amazon CloudWatch Logs to monitor, store, and access log files that your resources in various AWS services generate. For more information, see

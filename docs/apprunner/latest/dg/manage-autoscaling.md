@@ -1,3 +1,8 @@
+AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use
+App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+[AWS App Runner availability
+change](apprunner-availability-change.md "apprunner-availability-change.md").
+
 # Managing App Runner automatic scaling
 
 AWS App Runner automatically scales compute resources, specifically instances, up or down for your App Runner application. Automatic scaling provides adequate
@@ -96,7 +101,7 @@ Manage the App Runner auto scaling configurations and revisions for your account
 
 App Runner console
 
-### Manage auto scaling configurations
+###### Manage auto scaling configurations
 
 The **Auto scaling configurations** page lists the auto scaling configurations that you have set up in your account. You
 can create and manage your auto scaling configurations on this page and then later assign them to one or more App Runner services.
@@ -176,7 +181,7 @@ You can now do any of the following.
     		+ If the designated default auto scaling configuration has revisions, App Runner assigns its latest revision as the
     		 default.
 
-### Manage revisions
+###### Manage revisions
 
 The console also has a page for creating and managing your existing auto scaling revisions called **Auto scaling
 revisions**. Access this page by selecting the name of a configuration on the **Auto scaling configurations**
@@ -198,7 +203,7 @@ You can do any of the following from the **Auto scaling revisions** page:
 
 1.  Open the [App Runner console](https://console.aws.amazon.com/apprunner "https://console.aws.amazon.com/apprunner"), and in the **Regions** list, select your AWS Region.
 2.  In the navigation pane, choose **Auto scaling configurations**. The console displays a list of auto scaling
-    configurations in your account. The prior set of procedures in the [Manage auto scaling configurations](#manage-autoscaling.manage-asc-asc "#manage-autoscaling.manage-asc-asc") section includes a screen image of this page.
+    configurations in your account. The prior set of procedures in the section includes a screen image of this page.
 3.  Now you can drill down into a specific auto scaling configuration to view and manage all of its revisions. In the **Auto scaling
     configurations** pane, under the **Configuration name** column, choose an auto scaling configurations name.
     Select the actual name, rather than the radio button. This will navigate you to a list of all the revisions for that configuration on the
