@@ -31,6 +31,7 @@ following means:
 - [Actions for directory buckets](#s3-express-security-iam-actions "#s3-express-security-iam-actions")
 - [IAM identity-based policies for directory buckets](s3-express-security-iam-identity-policies.md "s3-express-security-iam-identity-policies.md")
 - [Example bucket policies for directory buckets](s3-express-security-iam-example-bucket-policies.md "s3-express-security-iam-example-bucket-policies.md")
+- [AWS managed policies for Amazon S3 Express One Zone](s3-express-one-zone-security-iam-awsmanpol.md "s3-express-one-zone-security-iam-awsmanpol.md")
 
 ## Principals
 

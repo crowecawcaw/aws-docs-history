@@ -49,10 +49,6 @@ The `AWS/S3` namespace includes the following request metrics. These
 metrics include non-billable requests (in the case of `GET` requests from
 `CopyObject` and Replication).
 
-###### Note
-
-Amazon S3 request metrics in CloudWatch aren't supported for directory buckets.
-
 | Metric                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `AllRequests`         | The total number of HTTP requests made to an Amazon S3 bucket,<br>regardless of type. If you're using a metrics configuration<br>with a filter, then this metric returns only the HTTP requests<br>that meet the filter's requirements.<br>Units: Count<br>Valid statistics: Sum                                                                                                                                                                                                                                                                                                                    |

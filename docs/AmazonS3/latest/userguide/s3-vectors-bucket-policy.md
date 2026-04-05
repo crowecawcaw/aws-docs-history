@@ -29,7 +29,7 @@ information.
 ```
 aws s3vectors put-vector-bucket-policy \
   --vector-bucket-name "`amzn-s3-demo-vector-bucket`" \
-  --policy '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::`111122223333`:root"},"Action":"s3vectors:*","Resource":"arn:aws:s3vectors:``aws-region``:`111122223333`:bucket/`amzn-s3-demo-vector-bucket`"}]}'
+  --policy '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::`111122223333`:root"},"Action":"s3vectors:*","Resource":"arn:aws:s3vectors:``aws-region``:`111122223333`:bucket/`amzn-s3-demo-vector-bucket`"}]}'
 ```
 
 ## Viewing a vector bucket policy

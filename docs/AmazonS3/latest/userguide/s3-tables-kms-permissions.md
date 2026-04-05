@@ -83,7 +83,7 @@ Attach this inline policy to the IAM role you use for querying to allow KMS key 
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",,
     "Statement": [
         {
             "Sid": "AllowKMSKeyUsage",

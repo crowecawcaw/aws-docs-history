@@ -331,7 +331,7 @@ Response:
 
 ```
 GetAccessGrantsInstanceResourcePolicyResponse(
-	Policy={"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::`444455556666`:root"},"Action":["s3:ListAccessGrants","s3:ListAccessGrantsLocations","s3:GetDataAccess","s3:GetAccessGrantsInstanceForPrefix","s3:ListCallerAccessGrants"],"Resource":"arn:aws:s3:`us-east-2`:`111122223333`:access-grants/default"}]},
+	Policy={"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::`444455556666`:root"},"Action":["s3:ListAccessGrants","s3:ListAccessGrantsLocations","s3:GetDataAccess","s3:GetAccessGrantsInstanceForPrefix","s3:ListCallerAccessGrants"],"Resource":"arn:aws:s3:`us-east-2`:`111122223333`:access-grants/default"}]},
 	CreatedAt=2023-06-15T22:54:44.319Z
 	)
 ```

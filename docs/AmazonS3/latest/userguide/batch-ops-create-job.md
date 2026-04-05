@@ -477,7 +477,7 @@ existing manifest file.
     aws iam create-role \
      --role-name `S3BatchJobRole` \
      --assume-role-policy-document '{
-       "Version": "2012-10-17"		 	 	 ,
+       "Version": "2012-10-17",
        "Statement":[
           {
              "Effect":"Allow",
@@ -527,7 +527,7 @@ existing manifest file.
       --role-name `S3BatchJobRole` \
       --policy-name `PutObjectTaggingBatchJobPolicy` \
       --policy-document '{
-      "Version": "2012-10-17"		 	 	 ,		 	 	 TCX5-2025-waiver;,
+      "Version": "2012-10-17",TCX5-2025-waiver;,
       "Statement":[
         {
           "Effect":"Allow",
@@ -619,7 +619,7 @@ name, size, storage class, and tags.
     aws iam create-role \
      --role-name `S3BatchJobRole` \
      --assume-role-policy-document '{
-       "Version": "2012-10-17"		 	 	 ,		 	 	 TCX5-2025-waiver;,
+       "Version": "2012-10-17",TCX5-2025-waiver;,
        "Statement":[
           {
              "Effect":"Allow",
@@ -670,7 +670,7 @@ name, size, storage class, and tags.
       --role-name ``S3BatchJobRole`` \
       --policy-name ``DeleteObjectTaggingBatchJobPolicy`` \
       --policy-document '{
-      "Version": "2012-10-17"		 	 	 ,		 	 	 TCX5-2025-waiver;,
+      "Version": "2012-10-17",TCX5-2025-waiver;,
       "Statement":[
         {
           "Effect":"Allow",
