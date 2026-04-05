@@ -56,7 +56,7 @@ For information about Amazon EC2 instance tags, see [Working
 with tags using the console](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console"). For information about on-premises instances, see [Working with On-Premises Instances](instances-on-premises.md "instances-on-premises.md"). For information
 about Amazon EC2 Auto Scaling, see [Integrating CodeDeploy with Amazon EC2 Auto Scaling](integrations-aws-auto-scaling.md "integrations-aws-auto-scaling.md").
 
-**Topics**
+## Topics
 
 - [Create a deployment group with CodeDeploy](deployment-groups-create.md "deployment-groups-create.md")
 - [View deployment group details with CodeDeploy](deployment-groups-view-details.md "deployment-groups-view-details.md")

@@ -109,7 +109,7 @@ deployments.
 | CodeDeployDefault.LambdaLinear10PercentEvery10Minutes | Shifts 10 percent of traffic every 10 minutes until all traffic is<br>shifted.                                   |
 | CodeDeployDefault.LambdaAllAtOnce                     | Shifts all traffic to the updated Lambda functions at once.                                                      |
 
-**Topics**
+## Topics
 
 - [Create a Deployment Configuration](deployment-configurations-create.md "deployment-configurations-create.md")
 - [View Deployment Configuration Details](deployment-configurations-view-details.md "deployment-configurations-view-details.md")
