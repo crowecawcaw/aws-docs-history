@@ -294,7 +294,7 @@ Region that enables Amazon Cognito authentication for Dashboards using the
 `Cognito_Auth_Role`:
 
 ```
-aws opensearch create-domain --domain-name `my-domain` --region `us-east-1` --access-policies '{ "Version": "2012-10-17",		 	 	  "Statement":[{"Effect":"Allow","Principal":{"AWS": ["arn:aws:iam::`123456789012`:role/`Cognito_Auth_Role`"]},"Action":"es:ESHttp*","Resource":"arn:aws:es:`us-east-1:123456789012`:domain/*" }]}' --engine-version "OpenSearch_1.0" --cluster-config InstanceType=m4.xlarge.search,InstanceCount=1 --ebs-options EBSEnabled=true,VolumeSize=10 --cognito-options Enabled=true,UserPoolId="`us-east-1_123456789`",IdentityPoolId="`us-east-1:12345678-1234-1234-1234-123456789012`",RoleArn="arn:aws:iam::`123456789012`:role/`CognitoAccessForAmazonOpenSearch`"
+aws opensearch create-domain --domain-name `my-domain` --region `us-east-1` --access-policies '{ "Version": "2012-10-17", "Statement":[{"Effect":"Allow","Principal":{"AWS": ["arn:aws:iam::`123456789012`:role/`Cognito_Auth_Role`"]},"Action":"es:ESHttp*","Resource":"arn:aws:es:`us-east-1:123456789012`:domain/*" }]}' --engine-version "OpenSearch_1.0" --cluster-config InstanceType=m4.xlarge.search,InstanceCount=1 --ebs-options EBSEnabled=true,VolumeSize=10 --cognito-options Enabled=true,UserPoolId="`us-east-1_123456789`",IdentityPoolId="`us-east-1:12345678-1234-1234-1234-123456789012`",RoleArn="arn:aws:iam::`123456789012`:role/`CognitoAccessForAmazonOpenSearch`"
 ```
 
 After your domain finishes processing, see [Allowing the authenticated role](#cognito-auth-config-ac "#cognito-auth-config-ac") and [Configuring identity providers](#cognito-auth-identity-providers "#cognito-auth-identity-providers") for additional

@@ -122,7 +122,7 @@ OpenSearch Serverless collection by using the [Dev
 Tools](https://opensearch.org/docs/latest/dashboards/dev-tools/index-dev/ "https://opensearch.org/docs/latest/dashboards/dev-tools/index-dev/") console in OpenSearch Dashboards, or an HTTP tool such as [Postman](https://www.postman.com/downloads/ "https://www.postman.com/downloads/") or [awscurl](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl"). This tutorial uses Dev
 Tools.
 
-###### To index and search data in the movies collection
+###### To index and search data in the housing collection
 
 1. To create a single index for your new collection, send the following
    request in the [Dev Tools](https://opensearch.org/docs/latest/dashboards/dev-tools/index-dev/ "https://opensearch.org/docs/latest/dashboards/dev-tools/index-dev/") console. By default, this creates an index with an
@@ -213,7 +213,7 @@ tutorial with the following instructions. The other steps remain the same. For m
 information about filters, see [k-NN
 search with filters](https://opensearch.org/docs/latest/search-plugins/knn/filter-search-knn/ "https://opensearch.org/docs/latest/search-plugins/knn/filter-search-knn/").
 
-###### To index and search data in the movies collection
+###### To index and search data in the housing collection
 
 1. To create a single index for your collection, send the following request in
    the [Dev

@@ -235,7 +235,7 @@ Console
 
 7. Choose **Save** to start the restore operation.
 
-AWS CLI
+OpenSearch API
 
 1. Run the following command to identify the appropriate snapshot.
 
@@ -269,7 +269,7 @@ example.
 ```
 POST /_snapshot/aoss-automated/`snapshot-ExampleSnapshotID1-5e01-4423-9833Example`/_restore
 {
-  "indexes": "opensearch-dashboards*,my-index*",
+  "indices": "opensearch-dashboards*,my-index*",
   "ignore_unavailable": true,
   "include_global_state": false,
   "include_aliases": false,
@@ -287,8 +287,8 @@ GET /_cat/recovery
 ###### Note
 
 When restoring a snapshot with a command that includes a request body, you can use
-several parameters to control the restore behavior. The `indexes` parameter
-specifies which indexes to restore and supports wildcard patterns. Set
+several parameters to control the restore behavior. The `indices` parameter
+specifies which indices to restore and supports wildcard patterns. Set
 `ignore_unavailable` to continue the restore operation even if an index in the
 snapshot is missing. Use `include_global_state` to determine whether to restore
 the cluster state, and `include_aliases` to control whether to restore associated

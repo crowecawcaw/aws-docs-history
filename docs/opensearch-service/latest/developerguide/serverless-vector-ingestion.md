@@ -34,7 +34,7 @@ For full pricing details, see [Amazon OpenSearch Service Pricing](https://aws.am
 
 Before using vector ingestion, ensure you have the following resources:
 
-- Amazon S3 bucket containing your OpenSearch JSON documents in parquet format
+- Amazon S3 bucket containing your OpenSearch JSON documents in Parquet or JSONL format
 - OpenSearch resource - either a domain or collection
 - OpenSearch version `2.19` or later (required for auto-optimize
   integration)
@@ -50,7 +50,7 @@ The procedural content in this section is subject to change as the user interfac
 is finalized. The workflow may be updated in future releases to reflect the latest
 console experience.
 
-###### To create a vector injection job
+###### To create a vector ingestion job
 
 1. In the **Vector ingestion job details** section,
    for **Name**, enter a name for your ingestion

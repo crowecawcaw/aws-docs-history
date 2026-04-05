@@ -77,7 +77,7 @@ term "sales":
       }
    ],
    "AWSOwnedKey":false,
-   "KmsARN":"arn:aws:encryption:`us-east-1`:`123456789012`:key/`93fd6da4-a317-4c17-bfe9-382b5d988b36`"
+   "KmsARN":"arn:aws:kms:`us-east-1`:`123456789012`:key/`93fd6da4-a317-4c17-bfe9-382b5d988b36`"
 }
 ```
 
@@ -348,7 +348,7 @@ with `sales`.
       }
    ],
    "AWSOwnedKey":false,
-   "KmsARN":"arn:aws:encryption:`us-east-1`:`123456789012`:key/`93fd6da4-a317-4c17-bfe9-382b5d988b36`"
+   "KmsARN":"arn:aws:kms:`us-east-1`:`123456789012`:key/`93fd6da4-a317-4c17-bfe9-382b5d988b36`"
 }
 ```
 

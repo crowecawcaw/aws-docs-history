@@ -216,7 +216,7 @@ necessary for a user to manage indexes with automatic semantic enrichment:
                 "es:ESHttpPost",
                 "es:ESHttpDelete"
             ],
-            "Resource": "arn:aws:es:`aws-region`:`111122223333`:domain/`domain-name`/*"
+            "Resource": "arn:aws:es:`aws-region`:`111122223333`:domain/`domain-name`"
         }
     ]
 }

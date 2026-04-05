@@ -18,7 +18,7 @@ metrics to your account.
 The `AWSServiceRoleForAmazonOpenSearchIngestionService` service-linked
 role trusts the following services to assume the role:
 
-- `osis.amazon.com`
+- `osis.amazonaws.com`
 
 The role permissions policy named
 `AmazonOpenSearchIngestionServiceRolePolicy` allows OpenSearch Ingestion
@@ -38,7 +38,7 @@ to complete the following actions on the specified resources:
 The `AWSServiceRoleForOpensearchIngestionSelfManagedVpce`
 service-linked role trusts the following services to assume the role:
 
-- `self-managed-vpce.osis.amazon.com`
+- `self-managed-vpce.osis.amazonaws.com`
 
 The role permissions policy named
 `OpenSearchIngestionSelfManagedVpcePolicy` allows OpenSearch Ingestion to

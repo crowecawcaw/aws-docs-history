@@ -89,7 +89,7 @@ aws opensearch create-domain \
   --encryption-at-rest-options Enabled=true \
   --domain-endpoint-options EnforceHTTPS=true,TLSSecurityPolicy=Policy-Min-TLS-1-2-2019-07 \
   --advanced-security-options Enabled=true,InternalUserDatabaseEnabled=true,MasterUserOptions='{MasterUserName=`master-user`,MasterUserPassword=`master-user-password`}' \
-  --access-policies '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal": {"AWS": "arn:aws:iam::`aws-region`:user/`UserName`"},"Action":["es:ESHttp*"],"Resource":"arn:aws:es:`aws-region`:`111122223333`:domain/`migration-domain`/*"}]}' \
+  --access-policies '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal": {"AWS": "arn:aws:iam::`aws-region`:user/`UserName`"},"Action":["es:ESHttp*"],"Resource":"arn:aws:es:`aws-region`:`111122223333`:domain/`migration-domain`/*"}]}' \
   --region `aws-region`
 ```
 

@@ -34,7 +34,7 @@ To get more detailed information about one or more collections, including the
 OpenSearch endpoint and the OpenSearch Dashboards endpoint, send a [BatchGetCollection](../ServerlessAPIReference/API_BatchGetCollection.md "../ServerlessAPIReference/API_BatchGetCollection.md") request:
 
 ```
-&aws opensearchserverless batch-get-collection --ids ["`07tjusf2h91cunochc`", "`1iu5usc4rame`"]
+&aws opensearchserverless batch-get-collection --ids "`07tjusf2h91cunochc`" "`1iu5usc4rame`"
 ```
 
 ###### Note

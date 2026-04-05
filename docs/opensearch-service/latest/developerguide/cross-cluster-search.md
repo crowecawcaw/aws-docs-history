@@ -61,6 +61,7 @@ requirements:
 - Two OpenSearch domains, or Elasticsearch domains on version 6.7 or later
 - Fine-grained access control enabled
 - Node-to-node encryption enabled
+- If either domain is in a VPC, the domains must be connected via VPC Peering or Transit Gateway, and the security groups must allow traffic between them.
 
 ## Cross-cluster search pricing
 

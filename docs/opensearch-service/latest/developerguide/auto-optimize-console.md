@@ -32,8 +32,11 @@ A vector ingestion job analyzes your vector data and provides optimization recom
 3. Choose **Create vector ingestion job**.
 4. Under **Job details**, enter a name for your vector ingestion job. This name helps you identify the job in the console.
 5. Under **Data source**, configure the following:
-   1. For **Amazon S3 URI**, enter the Amazon S3 URI of the folder containing your Parquet files. The URI must point to the enclosing folder, not individual files. For example, if your Parquet file is at `s3://my-bucket/my-folder/file1.parquet`, enter `s3://my-bucket/my-folder/`.
-   2. For **Region**, select the AWS Region where your Amazon S3 bucket is located. The Region must match the bucket location.
+   1. For **Amazon S3 URI**, enter the Amazon S3 URI of the folder containing your data files (Parquet or JSONL). The URI must point to the enclosing folder, not individual files. For example, if your file is at `s3://my-bucket/my-folder/file1.parquet` or `s3://my-bucket/my-folder/data.jsonl`, enter `s3://my-bucket/my-folder/`.
+
+   ###### Note
+
+   The folder must contain files of a single format. Do not mix Parquet and JSONL files in the same folder. 2. For **Region**, select the AWS Region where your Amazon S3 bucket is located. The Region must match the bucket location.
 
 6. Under **OpenSearch domain**, select an existing domain or collection, or choose **Create new** to create one.
 
@@ -47,7 +50,7 @@ You can specify either an OpenSearch Managed domain or an OpenSearch Serverless 
 
 8. Choose **Next**.
 9. Under **Configure index**, specify the following:
-   1. For **Field name**, enter the column name from your Parquet dataset that contains the vector data.
+   1. For **Field name**, enter the field name from your dataset that contains the vector data.
    2. For **Space type**, select the distance metric used to calculate the distance between vectors:
       - **l2** - Euclidean distance
       - **cosinesimil** - Cosine similarity
@@ -157,7 +160,7 @@ After reviewing the optimization recommendations, you can either manually create
 3. In the **Vector Ingestion Jobs** table, choose a job with **Completed** status.
 4. Review the recommendations and select the one you want to use.
 5. Choose **Build index**.
-6. The system automatically creates an index in your cluster using the selected recommendation and ingests the vector data from your Parquet dataset.
+6. The system automatically creates an index in your cluster using the selected recommendation and ingests the vector data from your dataset.
 
 ###### To build an index manually
 

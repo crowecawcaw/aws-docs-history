@@ -168,7 +168,7 @@ Console
 3. Select the domain you want to make a configuration change for. This opens the
    domain details page. Select the **Actions** dropdown menu and
    then choose **Edit cluster configuration**.
-4. Make changes to the domain, such as changin the instance type or the number of
+4. Make changes to the domain, such as changing the instance type or the number of
    nodes.
 5. Under **Dry run analysis**, choose **Run**.
    The dry run validates your configuration change for errors and determines whether

@@ -244,7 +244,7 @@ aws opensearch create-domain \
     --engine-version OpenSearch_1.2 \
     --cluster-config  InstanceType=r6g.large.search,InstanceCount=2 \
     --ebs-options EBSEnabled=true,VolumeType=gp3,VolumeSize=100,Iops=3500,Throughput=125 \
-    --access-policies '{"Version": "2012-10-17",		 	 	  "Statement": [{"Action": "es:*", "Principal":"*","Effect": "Allow", "Condition": {"IpAddress":{"aws:SourceIp":["192.0.2.0/32"]}}}]}'
+    --access-policies '{"Version": "2012-10-17", "Statement": [{"Action": "es:*", "Principal":"*","Effect": "Allow", "Condition": {"IpAddress":{"aws:SourceIp":["192.0.2.0/32"]}}}]}'
 ```
 
 The next example demonstrates the following OpenSearch Service domain configuration:
@@ -265,7 +265,7 @@ aws opensearch create-domain \
     --engine-version Elasticsearch_7.10 \
     --cluster-config  InstanceType=r6g.large.search,InstanceCount=6,ZoneAwarenessEnabled=true,ZoneAwarenessConfig={AvailabilityZoneCount=3} \
     --ebs-options EBSEnabled=true,VolumeType=gp2,VolumeSize=100 \
-    --access-policies '{"Version": "2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Principal": {"AWS": "arn:aws:iam::`555555555555`:root" }, "Action":"es:*", "Resource": "arn:aws:es:us-east-1:`555555555555`:domain/mylogs/*" } ] }'
+    --access-policies '{"Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": {"AWS": "arn:aws:iam::`555555555555`:root" }, "Action":"es:*", "Resource": "arn:aws:es:us-east-1:`555555555555`:domain/mylogs/*" } ] }'
 ```
 
 The next example demonstrates the following OpenSearch Service domain configuration:
@@ -288,7 +288,7 @@ aws opensearch create-domain \
     --engine-version OpenSearch_1.0 \
     --cluster-config  InstanceType=r6g.xlarge.search,InstanceCount=10,DedicatedMasterEnabled=true,DedicatedMasterType=r6g.large.search,DedicatedMasterCount=3 \
     --ebs-options EBSEnabled=true,VolumeType=io1,VolumeSize=100,Iops=1000 \
-    --access-policies '{"Version": "2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::`555555555555`:root" }, "Action": "es:*", "Resource": "arn:aws:es:us-east-1:`555555555555`:domain/mylogs/_search" } ] }'
+    --access-policies '{"Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::`555555555555`:root" }, "Action": "es:*", "Resource": "arn:aws:es:us-east-1:`555555555555`:domain/mylogs/_search" } ] }'
 ```
 
 ###### Note

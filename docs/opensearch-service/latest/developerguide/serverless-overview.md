@@ -153,7 +153,8 @@ search. AWS also bills you on a monthly basis for data stored in Amazon S3. It d
 charge you for using OpenSearch Dashboards.
 
 When you create a collection with redundant active replicas, you're billed for a
-minimum of 2 OCUs:
+minimum of 1 OCU (0.5 OCU × 2) for ingestion, including both primary and standby,
+and 1 OCU (0.5 OCU × 2) for search:
 
 - 1 OCU (0.5 OCU × 2) for ingestion, including both primary and
   standby
@@ -198,7 +199,7 @@ OpenSearch Serverless has the following limitations:
   collections from other accounts in your encryption or data access
   policies.
 - Custom OpenSearch plugins aren't supported.
-- You can't take or restore snapshots of OpenSearch Serverless collections.
+- Automated snapshots are supported for OpenSearch Serverless collections. Manual snapshots are not supported. For more information, see [Backing up collections using snapshots](serverless-snapshots.md "serverless-snapshots.md").
 - Cross-Region search and replication aren't
   supported.
 - There are limits on the number of serverless resources that you can have

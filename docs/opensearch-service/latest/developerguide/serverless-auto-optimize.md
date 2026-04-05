@@ -19,16 +19,22 @@ Auto-optimize works alongside other OpenSearch features such as [GPU-acceleratio
 
 Auto-optimize operates through a job-based architecture that analyzes your vector data and provides optimization recommendations. Key points:
 
-- Users share their datasets as OpenSearch JSON documents in parquet format in an Amazon S3 bucket.
+- Users share their datasets in Parquet or JSONL format in an Amazon S3 bucket.
 - They configure serverless auto-optimize jobs by configuring their acceptable recall and latency thresholds. More relaxed thresholds allow the service to discover more significant cost optimizations.
 - Auto-optimize jobs run on infrastructure fully-managed by Amazon OpenSearch Service. Jobs don't consume resources on your domain or collections. Workers run in parallel to evaluate index configurations, and use sampling on large datasets to deliver results typically within 30-60 minutes.
 - Each job is billed on a predictable flat rate. For pricing information, see [Amazon OpenSearch Service Pricing](https://aws.amazon.com/opensearch-service/pricing/ "https://aws.amazon.com/opensearch-service/pricing/").
 
 ## Prerequisites
 
-- **Dataset format and permissions** - You must have dataset available as a set (one or many) parquet files in an Amazon S3 bucket folder. For instance, if the dataset is split into two files called `s3://dataset-bucket-us-east-1/dataset_folder/first_half.parquet` and `s3://dataset-bucket-us-east-1/dataset_folder/second_half.parquet`, then you should place `s3://dataset-bucket-us-east-1/dataset_folder/` here. This dataset will be used to generate the recommendations. Ensure that your federated role has the following Amazon S3 permissions on that resource: `"s3:Get*", "s3:List*", "s3:Describe*"`.
-- **Specify correct dataset metadata** - The provided parquet dataset must contain rows of float values. The name of each column and dimensionality of each vector must match the options provided in the console. For example, if the dataset contains vectors that are named `train_data` which are each `768` dimension, these values must match the auto-optimize console.
-- **(If using vector ingestion feature)** - If you plan to utilize the ingestion feature (taking auto-optimize recommendations to automatically create index and ingest data), you must configure your OpenSearch cluster to give auto-optimize permission to ingest your parquet dataset into the OpenSearch cluster. For OpenSearch domains with a domain access policy, grant the newly created role access through that policy. For OpenSearch domains with fine-grained access control, add the pipeline role as a backend role. For OpenSearch Serverless collections, add the pipeline role to the data access policy.
+- **Dataset format and permissions** - You must have your dataset available as one or more Parquet or JSONL files in an Amazon S3 bucket folder. For example:
+
+      + Parquet: `s3://dataset-bucket-us-east-1/dataset_folder/first_half.parquet` and `s3://dataset-bucket-us-east-1/dataset_folder/second_half.parquet`
+      + JSONL: `s3://dataset-bucket-us-east-1/dataset_folder/data.jsonl`
+
+  Provide the enclosing folder URI (for example, `s3://dataset-bucket-us-east-1/dataset_folder/`). The folder must contain files of a single format — do not mix Parquet and JSONL files in the same folder. This dataset will be used to generate the recommendations. Ensure that your federated role has the following Amazon S3 permissions on that resource: `"s3:Get*", "s3:List*", "s3:Describe*"`.
+
+- **Specify correct dataset metadata** - The provided dataset must contain rows of float values. The name of each column and dimensionality of each vector must match the options provided in the console. For example, if the dataset contains vectors that are named `train_data` which are each `768` dimension, these values must match the auto-optimize console.
+- **(If using vector ingestion feature)** - If you plan to utilize the ingestion feature (taking auto-optimize recommendations to automatically create index and ingest data), you must configure your OpenSearch cluster to give auto-optimize permission to ingest your dataset into the OpenSearch cluster. For OpenSearch domains with a domain access policy, grant the newly created role access through that policy. For OpenSearch domains with fine-grained access control, add the pipeline role as a backend role. For OpenSearch Serverless collections, add the pipeline role to the data access policy.
 - **IAM permissions** - You need the following IAM permissions to use auto-optimize:
   - `opensearch:SubmitAutoOptimizeJob`
   - `opensearch:GetAutoOptimizeJob`
@@ -93,7 +99,7 @@ When experiencing slow query performance or high latency in vector search operat
 - **Job duration** - Optimization jobs can take from 15 minutes to several hours depending on dataset size, dimension, and required performance metrics.
 - **Recommendations** - Auto-optimize suggests only up to 3 recommendations.
 - **Dataset**
-  - Supported formats: parquet
+  - Supported formats: Parquet, JSONL
   - Data store: Amazon S3
 
 ## Billing and costs
@@ -106,9 +112,42 @@ Auto-optimize costs are billed separately from standard OpenSearch Serverless or
 
 For pricing information, see [Amazon OpenSearch Service Pricing](https://aws.amazon.com/opensearch-service/pricing/ "https://aws.amazon.com/opensearch-service/pricing/").
 
-## Convert JSONL to Parquet
+## Supported data formats
 
-If your data is in JSONL format, you can use the following Python script to convert it to Parquet format for use with auto-optimize:
+Auto-optimize supports the following data formats for vector datasets stored in Amazon S3:
+
+### Parquet format
+
+Parquet is a columnar storage format optimized for analytical workloads. Each Parquet file should contain a column of float arrays representing your vector data.
+
+Example Parquet file structure (viewed as a table):
+
+```
+
+| id  | train_data                     |
+|-----|--------------------------------|
+| 1   | [0.12, 0.45, 0.78, ..., 0.33] |
+| 2   | [0.56, 0.89, 0.12, ..., 0.67] |
+| 3   | [0.34, 0.67, 0.90, ..., 0.11] |
+```
+
+### JSONL format
+
+JSONL (JSON Lines) is a text format where each line is a valid JSON object. Each line should contain a field with a float array representing your vector data.
+
+Example JSONL file:
+
+```
+{"id": 1, "train_data": [0.12, 0.45, 0.78, 0.33]}
+{"id": 2, "train_data": [0.56, 0.89, 0.12, 0.67]}
+{"id": 3, "train_data": [0.34, 0.67, 0.90, 0.11]}
+```
+
+### Converting between formats
+
+If your data is in a different format, you can use the following Python scripts to convert it.
+
+###### Convert JSON or JSONL to Parquet
 
 ```
 #!/usr/bin/env python3
@@ -161,28 +200,37 @@ def json_to_parquet(json_path: str, parquet_path: str, compression: str = "snapp
     records = load_json_any(Path(json_path))
     table = pa.Table.from_pylist(records)
     pq.write_table(table, parquet_path, compression=compression)
-    print(f"✔ Wrote {len(records)} rows to {parquet_path}")
-
-
-def print_parquet_rows(parquet_path: str, limit: int = 5):
-    """Print first N rows from the parquet file."""
-    table = pq.read_table(parquet_path)
-    df = table.to_pandas()
-
-    print(f"\n=== Showing first {min(limit, len(df))} rows from {parquet_path} ===")
-    print(df.head(limit).to_string())
-    print("===========================================================\n")
+    print(f"Wrote {len(records)} rows to {parquet_path}")
 
 
 if __name__ == "__main__":
-    INPUT_JSON = "movies_10k.json"
-    OUTPUT_PARQUET = "movies.parquet"
-
-    # Convert JSON → Parquet
+    INPUT_JSON = "vectors.jsonl"
+    OUTPUT_PARQUET = "vectors.parquet"
     json_to_parquet(INPUT_JSON, OUTPUT_PARQUET)
+```
 
-    # Print some rows from Parquet
-    print_parquet_rows(OUTPUT_PARQUET, limit=3)
+###### Convert Parquet to JSONL
+
+```
+#!/usr/bin/env python3
+import json
+import pyarrow.parquet as pq
+
+
+def parquet_to_jsonl(parquet_path: str, jsonl_path: str):
+    """Convert a Parquet file to JSONL format."""
+    table = pq.read_table(parquet_path)
+    rows = table.to_pylist()
+    with open(jsonl_path, "w") as f:
+        for row in rows:
+            f.write(json.dumps(row) + "\n")
+    print(f"Wrote {len(rows)} rows to {jsonl_path}")
+
+
+if __name__ == "__main__":
+    INPUT_PARQUET = "vectors.parquet"
+    OUTPUT_JSONL = "vectors.jsonl"
+    parquet_to_jsonl(INPUT_PARQUET, OUTPUT_JSONL)
 ```
 
 ## Related features

@@ -516,7 +516,7 @@ aws opensearch create-domain \
 --domain-name testDomain \
 --engine-version OpenSearch_1.3 \
 --cluster-config InstanceType=r5.xlarge.search,InstanceCount=1,DedicatedMasterEnabled=false,ZoneAwarenessEnabled=false,WarmEnabled=false \
---access-policies '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"AWS":"*"},"Action":"es:*","Resource":"arn:aws:es:us-east-1:12345678901:domain/neosaml10/*"}]}' \
+--access-policies '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"*"},"Action":"es:*","Resource":"arn:aws:es:us-east-1:12345678901:domain/neosaml10/*"}]}' \
 --domain-endpoint-options '{"EnforceHTTPS":true,"TLSSecurityPolicy":"Policy-Min-TLS-1-2-2019-07"}' \
 --node-to-node-encryption-options '{"Enabled":true}' \
 --encryption-at-rest-options '{"Enabled":true}' \

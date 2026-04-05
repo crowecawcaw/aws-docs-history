@@ -109,7 +109,7 @@ collections, the default maximum OCU capacity is 10 OCUs for indexing and 10 OCU
 search. The minimum OCU capacity allowed for an account is 1 OCU [0.5 OCU x 2] for
 indexing and 1 OCU [0.5 OCU x 2] for search. For all collections, the maximum allowed
 capacity is 1,700 OCUs for indexing and 1,700 OCUs for search. You can configure the OCU
-count to be any number from 1 to the maximum allowed capacity, in multiples of 2.
+count to be any number from 2 to the maximum allowed capacity, in multiples of 2.
 
 Each OCU includes enough hot ephemeral storage for 120 GiB of index data. OpenSearch Serverless
 supports up to 1 TiB of data per index in _search_ and

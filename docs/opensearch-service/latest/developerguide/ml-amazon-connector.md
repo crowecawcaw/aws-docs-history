@@ -58,8 +58,8 @@ JSON
 
 2. Follow the instructions in [Modifying a role trust policy](../../../IAM/latest/UserGuide/roles-managingrole-editing-console.md#roles-managingrole_edit-trust-policy "../../../IAM/latest/UserGuide/roles-managingrole-editing-console.md#roles-managingrole_edit-trust-policy") to edit the trust
    relationship of the role. In the following policy, replace
-   `service-principle` with one of the
-   following service principles for OpenSearch Service or OpenSearch Serverless:
+   `service-principal` with one of the
+   following service principals for OpenSearch Service or OpenSearch Serverless:
 
 **For OpenSearch Service**
 

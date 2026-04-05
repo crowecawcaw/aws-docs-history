@@ -75,7 +75,7 @@ aws s3 mb s3://my-transcribe-test --region us-west-2
 ```
 
 ```
-aws opensearch create-domain --domain-name my-transcribe-test --engine-version OpenSearch_1.0 --cluster-config  InstanceType=t2.medium.search,InstanceCount=1 --ebs-options EBSEnabled=true,VolumeType=standard,VolumeSize=10 --access-policies '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::`123456789012`:root"},"Action":"es:*","Resource":"arn:aws:es:us-west-2:`123456789012`:domain/my-transcribe-test/*"}]}' --region us-west-2
+aws opensearch create-domain --domain-name my-transcribe-test --engine-version OpenSearch_1.0 --cluster-config  InstanceType=t2.medium.search,InstanceCount=1 --ebs-options EBSEnabled=true,VolumeType=standard,VolumeSize=10 --access-policies '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::`123456789012`:root"},"Action":"es:*","Resource":"arn:aws:es:us-west-2:`123456789012`:domain/my-transcribe-test/*"}]}' --region us-west-2
 ```
 
 ###### Note

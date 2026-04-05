@@ -60,7 +60,7 @@ The following table lists the total node limit by instance family.
 | T2                                                                                                                  | 10                                  | 10                        | 10            |
 | T3                                                                                                                  | 10                                  | 10                        | 10            |
 | M3, C4, M4, R4, C5, M5, R5, I2, I3                                                                                  | 10                                  | 200                       | 80            |
-| Graviton 2, Gravtion 3, Gravtion 4                                                                                  | 200                                 | 400                       | 80            |
+| Graviton 2, Graviton 3, Graviton 4                                                                                  | 200                                 | 400                       | 80            |
 | C7i, R7i, M7i, i4i, i4g, i8g, i7i                                                                                   | 200                                 | 400                       | 80            |
 | OR1.medium.searchOR1.large.search<br>OR2.medium.search<br>OR2.large.search<br>OM2.large.search<br>OI2.large.search  | 200                                 | 400                       | 80            |
 | OR1.xlarge.search and aboveOR2.xlarge.search and<br>aboveOM2.xlarge.search and above<br>OI2.xlarge.search and above | 200                                 | 1002                      | 80            |
@@ -431,28 +431,28 @@ The following table shows the maximum size of HTTP request payloads.
 | im4gn.4xlarge.search  | 100 MiB                               |
 | im4gn.8xlarge.search  | 100 MiB                               |
 | im4gn.16xlarge.search | 100 MiB                               |
-| i4i.large.search      | 100 MiB                               |
-| i4i.xlarge.search     | 100 MiB                               |
-| i4i.2xlarge.search    | 100 MiB                               |
-| i4i.4xlarge.search    | 100 MiB                               |
-| i4i.8xlarge.search    | 100 MiB                               |
-| i4i.12xlarge.search   | 100 MiB                               |
-| i4i.16xlarge.search   | 100 MiB                               |
-| i4i.24xlarge.search   | 100 MiB                               |
-| i4i.32xlarge.search   | 100 MiB                               |
-| i4g.large.search      | 100 MiB                               |
-| i4g.xlarge.search     | 100 MiB                               |
-| i4g.2xlarge.search    | 100 MiB                               |
-| i4g.4xlarge.search    | 100 MiB                               |
-| i4g.8xlarge.search    | 100 MiB                               |
-| i4g.16xlarge.search   | 100 MiB                               |
-| i8g.large.search      | 100 MiB                               |
-| i8g.xlarge.search     | 100 MiB                               |
-| i8g.2xlarge.search    | 100 MiB                               |
-| i8g.4xlarge.search    | 100 MiB                               |
-| i8g.8xlarge.search    | 100 MiB                               |
-| i8g.12xlarge.search   | 100 MiB                               |
-| i8g.16xlarge.search   | 100 MiB                               |
+| i4i.large.search      | N/A                                   |
+| i4i.xlarge.search     | N/A                                   |
+| i4i.2xlarge.search    | N/A                                   |
+| i4i.4xlarge.search    | N/A                                   |
+| i4i.8xlarge.search    | N/A                                   |
+| i4i.12xlarge.search   | N/A                                   |
+| i4i.16xlarge.search   | N/A                                   |
+| i4i.24xlarge.search   | N/A                                   |
+| i4i.32xlarge.search   | N/A                                   |
+| i4g.large.search      | N/A                                   |
+| i4g.xlarge.search     | N/A                                   |
+| i4g.2xlarge.search    | N/A                                   |
+| i4g.4xlarge.search    | N/A                                   |
+| i4g.8xlarge.search    | N/A                                   |
+| i4g.16xlarge.search   | N/A                                   |
+| i8g.large.search      | N/A                                   |
+| i8g.xlarge.search     | N/A                                   |
+| i8g.2xlarge.search    | N/A                                   |
+| i8g.4xlarge.search    | N/A                                   |
+| i8g.8xlarge.search    | N/A                                   |
+| i8g.12xlarge.search   | N/A                                   |
+| i8g.16xlarge.search   | N/A                                   |
 | i7i.large.search      | 100 MiB                               |
 | i7i.xlarge.search     | 100 MiB                               |
 | i7i.2xlarge.search    | 100 MiB                               |

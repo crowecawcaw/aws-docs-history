@@ -156,7 +156,7 @@ group's ARN near the end of the command:
 ```
 aws logs put-resource-policy \
   --policy-name my-policy \
-  --policy-document '{ "Version": "2012-10-17",		 	 	  "Statement": [{ "Sid": "", "Effect": "Allow", "Principal": { "Service": "es.amazonaws.com"}, "Action":[ "logs:PutLogEvents","logs:CreateLogStream"],"Resource": "`cw_log_group_arn`:*"}]}'
+  --policy-document '{ "Version": "2012-10-17", "Statement": [{ "Sid": "", "Effect": "Allow", "Principal": { "Service": "es.amazonaws.com"}, "Action":[ "logs:PutLogEvents","logs:CreateLogStream"],"Resource": "`cw_log_group_arn`:*"}]}'
 ```
 
 ###### Important
@@ -323,6 +323,21 @@ PUT `domain-endpoint`/_cluster/settings
     "cluster.search.request.slowlog.threshold.warn": "5s",
     "cluster.search.request.slowlog.threshold.info": "2s"
   }
+}
+```
+
+###### Note
+
+The `PUT /_cluster/settings` endpoint is restricted in Amazon OpenSearch Service. Sending
+this request will return the error: `Your request: '/_cluster/settings' payload is not
+ allowed.` To configure shard slow log thresholds, use index-level settings instead.
+For example:
+
+```
+PUT `domain-endpoint`/`index`/_settings
+{
+  "index.search.slowlog.threshold.query.warn": "5s",
+  "index.search.slowlog.threshold.query.info": "2s"
 }
 ```
 

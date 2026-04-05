@@ -36,7 +36,7 @@ exporters:
         traces_endpoint: "https://pipeline-endpoint.us-east-1.osis.amazonaws.com/v1/traces"
         auth:
             authenticator: sigv4auth
-            compression: none
+        compression: none
 
 service:
     extensions: [sigv4auth]

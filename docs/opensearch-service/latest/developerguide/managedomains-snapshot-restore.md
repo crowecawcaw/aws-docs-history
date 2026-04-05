@@ -95,6 +95,15 @@ curl -XPOST '`domain-endpoint`/_snapshot/cs-automated/2020-snapshot/_restore' \
 -H 'Content-Type: application/json'
 ```
 
+###### Note
+
+Depending on your OpenSearch version, additional system indexes may also
+need to be excluded, such as `-.opensearch-observability*` and
+`-.plugins-ml-config*`. The restore operation may fail if
+these indexes already exist on the target domain. To exclude them, add them
+to the `indices` exclusion list. For example:
+`"indices": "-.kibana*,-.opendistro*,-.opensearch-observability*,-.plugins-ml-config*"`.
+
 You can restore a snapshot without deleting its data by using the
 `rename_pattern` and `rename_replacement` parameters.
 For more information on these parameters, see the Restore Snapshot API [request fields](https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/#request-fields "https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/#request-fields") and [example request](https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/#example-request "https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/#example-request") in the OpenSearch documentation.

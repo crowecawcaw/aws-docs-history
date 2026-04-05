@@ -2562,7 +2562,7 @@ rare [N] <field-list> [by-clause] rare_approx [N] <field-list> [by-clause]
 ###### rare_approx
 
 - The approximate count of the rare (n) fields by using estimated
-  [cardinality by HyperLogLog++ algorithm](https://spark.apache.org/docs/3.5.2/sql-ref-functions-builtin.html "https://spark.apache.org/docs/3.5.2/sql-ref-functions-builtin.html").
+  [cardinality by HyperLogLog++ algorithm](https://spark.apache.org/docs/latest/sql-ref-functions-builtin.html "https://spark.apache.org/docs/latest/sql-ref-functions-builtin.html").
 
 ###### Example 1: Find the least common values in a field
 
@@ -3722,7 +3722,7 @@ top [N] <field-list> [by-clause] top_approx [N] <field-list> [by-clause]
 ###### top_approx
 
 - An approximate count of the (n) top fields by using the estimated
-  [cardinality by HyperLogLog++ algorithm](https://spark.apache.org/docs/3.5.2/sql-ref-functions-builtin.html "https://spark.apache.org/docs/3.5.2/sql-ref-functions-builtin.html").
+  [cardinality by HyperLogLog++ algorithm](https://spark.apache.org/docs/latest/sql-ref-functions-builtin.html "https://spark.apache.org/docs/latest/sql-ref-functions-builtin.html").
 
 ###### Example 1: Find the most common values in a field
 

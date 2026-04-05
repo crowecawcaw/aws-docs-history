@@ -45,6 +45,7 @@ For information about the latest features released for OpenSearch UI, see [Amazo
 
 - [Amazon OpenSearch Service user interface release history](application-release-history.md "application-release-history.md")
 - [Getting started with the OpenSearch user interface in Amazon OpenSearch Service](application-getting-started.md "application-getting-started.md")
+- [Agentic AI in Amazon OpenSearch Service](application-ai-assistant.md "application-ai-assistant.md")
 - [Encrypting OpenSearch UI application metadata with customer managed keys](application-encryption-cmk.md "application-encryption-cmk.md")
 - [Enabling SAML federation with AWS Identity and Access Management](application-enable-SAML-identity-federation.md "application-enable-SAML-identity-federation.md")
 - [Managing data source associations and Virtual Private Cloud access permissions](application-data-sources-and-vpc.md "application-data-sources-and-vpc.md")

@@ -128,7 +128,7 @@ aws opensearch create-domain \
   --advanced-security-options "Enabled=true,InternalUserDatabaseEnabled=true,MasterUserOptions={MasterUserName=`test-user`,MasterUserPassword=`test-password`}" \
   --node-to-node-encryption-options Enabled=true \
   --domain-endpoint-options EnforceHTTPS=true \
-  --access-policies '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"AWS":"*"},"Action":"es:*","Resource":"arn:aws:es:`us-east-1`:`account-id`:domain/`test-domain`/*"}]}'
+  --access-policies '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"*"},"Action":"es:*","Resource":"arn:aws:es:`us-east-1`:`account-id`:domain/`test-domain`/*"}]}'
 ```
 
 The following example creates a domain with OI2 instances of size
@@ -143,5 +143,5 @@ aws opensearch create-domain \
   --advanced-security-options "Enabled=true,InternalUserDatabaseEnabled=true,MasterUserOptions={MasterUserName=`test-user`,MasterUserPassword=`test-password`}" \
   --node-to-node-encryption-options Enabled=true \
   --domain-endpoint-options EnforceHTTPS=true \
-  --access-policies '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"AWS":"*"},"Action":"es:*","Resource":"arn:aws:es:`us-east-1`:`account-id`:domain/`test-domain-oi2`/*"}]}'
+  --access-policies '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"*"},"Action":"es:*","Resource":"arn:aws:es:`us-east-1`:`account-id`:domain/`test-domain-oi2`/*"}]}'
 ```

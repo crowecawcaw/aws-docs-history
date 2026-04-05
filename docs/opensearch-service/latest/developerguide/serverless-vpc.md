@@ -35,15 +35,16 @@ _AWS PrivateLink Guide_.
 When you create a data plane VPC endpoint through the OpenSearch Serverless console, the service
 creates a new Amazon Route 53 [private hosted zone](../../../Route53/latest/DeveloperGuide/hosted-zones-private.md "../../../Route53/latest/DeveloperGuide/hosted-zones-private.md") and attaches it to the VPC. This private hosted zone
 consists of a record to resolve the wildcard DNS record for OpenSearch Serverless collections
-(`*.aoss.us-east-1.amazonaws.com`) to the interface addresses used for
+(`*.us-east-1.aoss.amazonaws.com`) to the interface addresses used for
 the endpoint. You only need one OpenSearch Serverless VPC endpoint in a VPC to access any and all
 collections and Dashboards in each AWS Region. Every VPC with an endpoint for OpenSearch Serverless
 has its own private hosted zone attached.
 
-OpenSearch Serverless also creates a public Route 53 wildcard DNS record for all collections in the
-Region. The DNS name resolves to the OpenSearch Serverless public IP addresses. Clients
-in VPCs that don't have an OpenSearch Serverless VPC endpoint or clients in public networks can use the
-public Route 53 resolver and access the collections and Dashboards with those IP addresses.
+The OpenSearch Serverless interface endpoint also creates a public Route 53 wildcard DNS record for all
+collections in the Region. The DNS name resolves to the OpenSearch Serverless public
+IP addresses. Clients in VPCs that don't have an OpenSearch Serverless VPC endpoint or clients in
+public networks can use the public Route 53 resolver and access the collections and
+Dashboards with those IP addresses.
 The IP address type (IPv4, IPv6, or Dualstack) of VPC endpoint is determined based on
 the subnets provided when you [create an interface
 endpoint for OpenSearch Serverless](#serverless-vpc-create "#serverless-vpc-create").

@@ -6,6 +6,11 @@ periodic snapshot creation and deletion. SM can snapshot of a group of indices, 
 take one snapshot per index. To use SM in OpenSearch Service, you need to register your own Amazon S3
 repository. For instructions to register your repository, see [Registering a manual snapshot repository](managedomains-snapshots.md#managedomains-snapshot-registerdirectory "managedomains-snapshots.md#managedomains-snapshot-registerdirectory").
 
+###### Note
+
+Snapshot Management is supported starting with OpenSearch version 2.5. Domains
+running earlier versions do not support this feature.
+
 Prior to SM, OpenSearch Service offered a free, automated snapshot feature that's still turned on by
 default. This feature sends snapshots into the service-maintained `cs-*`
 repository. To deactivate the feature, reach out to Support.

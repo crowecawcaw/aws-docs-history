@@ -6,6 +6,12 @@ You can use IAM Identity Center principals (users and groups) to access Amazon O
 Amazon OpenSearch Applications. In order to enable IAM Identity Center support for Amazon OpenSearch Serverless, you will
 need to enable use of IAM Identity Center. To learn more on how to do this, see [What is IAM Identity Center?](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md")
 
+###### Note
+
+To access Amazon OpenSearch Serverless collections using IAM Identity Center users or groups, you must use the
+OpenSearch UI (Applications) feature. Direct access to OpenSearch Serverless Dashboards using
+IAM Identity Center credentials is not supported. For more information, see [Getting started with the OpenSearch user interface](application.md "application.md").
+
 After the IAM Identity Center instance is created, the customer account administrator needs to
 create an IAM Identity Center application for the Amazon OpenSearch Serverless service. This can be done by calling the
 [CreateSecurityConfig:](../ServerlessAPIReference/API_CreateSecurityConfig.md "../ServerlessAPIReference/API_CreateSecurityConfig.md"). The customer account administrator can specify what
@@ -13,7 +19,7 @@ attributes will be used for authorizing the request. The default attributes used
 `UserId` and `GroupId.`
 
 The IAM Identity Center integration for Amazon OpenSearch Serverless uses the following AWS IAM Identity Center (IAM)
-permsions:
+permissions:
 
 - `aoss:CreateSecurityConfig` – Create an IAM Identity Center provider
 - `aoss:ListSecurityConfig` – List all IAM Identity Center providers in the current
@@ -23,7 +29,7 @@ permsions:
   configuration
 - `aoss:DeleteSecurityConfig` – Delete an IAM Identity Centerprovider.
 
-The following idenity-based access policy can be used to manage all IAM Identity Center
+The following identity-based access policy can be used to manage all IAM Identity Center
 configurations:
 
 JSON
@@ -158,15 +164,3 @@ You can grant access to collections, indexes, or both. If you want different use
 to have different permssions, you will need to create multiple rules. For a list of
 available permissions, see [Identity and Access Management in Amazon OpenSearch Service](ac.md "ac.md"). For information about how
 to format an access policy, see [Granting SAML identities access to collection data](serverless-saml.md#serverless-saml-policies "serverless-saml.md#serverless-saml-policies") .
-
-IAM Identity Center offers two instances of providers, one for your organization account and one for
-your member accout. If you need to change your IAM Identity Center instance, you need to delete your
-security configuration through the `DeleteSecurityConfig` API and create a
-new security configuration using the new IAM Identity Center instance. The following command can be
-used to delete an IAM Identity Center provider:
-
-```
-aws opensearchserverless delete-security-config \
---region us-east-1 \
---id <id_from_list_security_configs>
-```

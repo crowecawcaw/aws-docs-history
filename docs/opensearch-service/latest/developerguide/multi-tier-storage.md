@@ -84,7 +84,7 @@ aws opensearch create-domain \
       --encryption-at-rest-options Enabled=true \
       --domain-endpoint-options EnforceHTTPS=true,TLSSecurityPolicy=Policy-Min-TLS-1-2-2019-07 \
       --advanced-security-options '{"Enabled":true,"InternalUserDatabaseEnabled":true,"MasterUserOptions":{"MasterUserName":"user_name","MasterUserPassword":"your_pass"}}' \
-      --access-policies '{"Version": "2012-10-17",		 	 	  "Statement":[{"Effect":"Allow","Principal":"*","Action":"es:*","Resource":"*"}]}' \
+      --access-policies '{"Version": "2012-10-17", "Statement":[{"Effect":"Allow","Principal":"*","Action":"es:*","Resource":"*"}]}' \
       --region us-east-1
 ```
 

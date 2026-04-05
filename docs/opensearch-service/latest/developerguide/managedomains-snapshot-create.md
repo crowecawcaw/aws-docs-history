@@ -8,6 +8,12 @@ includes primary shards as they existed when OpenSearch initiated the snapshot. 
 on the size of your snapshot thread pool, different shards might be included in the
 snapshot at slightly different times. For snapshot best practices, see [Improve snapshot performance](bp.md#bp-stability-snapshots "bp.md#bp-stability-snapshots").
 
+###### Warning
+
+Manual snapshots do not include data stored in UltraWarm or cold storage tiers.
+If your domain uses UltraWarm or cold storage, migrate those indexes to hot storage
+before taking a manual snapshot if you need to retain that data.
+
 ## Snapshot storage and performance
 
 OpenSearch snapshots are incremental, meaning they only store data that changed

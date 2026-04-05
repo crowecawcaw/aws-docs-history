@@ -275,6 +275,12 @@ can upload with the [CreatePackage](../APIReference/API_CreatePackage.md "../API
 and process for compiling user dictionaries, see the [Sudachi
 documentation](https://github.com/WorksApplications/elasticsearch-sudachi "https://github.com/WorksApplications/elasticsearch-sudachi").
 
+###### Note
+
+When uploading binary dictionary files to Amazon S3, you must set the S3 object's
+Content-Type to `binary/octet-stream`. Using
+`application/octet-stream` will cause the package import to fail.
+
 The following example demonstrates how to use system and user dictionaries with the
 Sudachi tokenizer. You must upload these dictionaries as custom packages with type
 `TXT-DICTIONARY` and provide their package IDs in the additional

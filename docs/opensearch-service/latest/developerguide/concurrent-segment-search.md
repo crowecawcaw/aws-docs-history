@@ -18,6 +18,5 @@ control concurrent search behavior.
 There are a few additional limitations that apply when you use current segment search with
 Amazon OpenSearch Service:
 
-- You can't enable concurrent segment search at an index level in OpenSearch Service.
 - By default, OpenSearch Service uses a count of 2 slices with the max slice count
   mechanism.
