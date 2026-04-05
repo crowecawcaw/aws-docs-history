@@ -37,9 +37,9 @@ The following example shows an EventBridge event pattern that matches CloudTrail
 ```
 {
     "source": ["aws.secretsmanager"],
-    "$or": [
-        { "detail-type": ["AWS API Call via CloudTrail"] },
-        { "detail-type": ["AWS Service Event via CloudTrail"] }
+    "detail-type": [
+        "AWS API Call via CloudTrail",
+        "AWS Service Event via CloudTrail"
     ],
     "detail": {
         "eventSource": ["secretsmanager.amazonaws.com"],

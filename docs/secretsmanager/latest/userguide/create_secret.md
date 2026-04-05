@@ -82,7 +82,8 @@ Secrets Manager generates a CloudTrail log entry when you create a secret. For m
         this key.
       - If you need to access the secret from another AWS account, or if
         you want to use your own KMS key so that you can rotate it or
-        apply a key policy to it, choose a customer managed key from the list or
+        apply a key policy to it, choose a customer managed key from the list,
+        enter the key ARN or alias ARN of a customer managed key, or
         choose **Add new key** to create one. For
         information about the costs of using a customer managed key, see [Pricing](intro.md#asm_pricing "intro.md#asm_pricing").
 
