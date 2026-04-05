@@ -171,24 +171,20 @@ increase any other quota in the replica instance, submit a request.
 - Agent status
 - Predefined attributes
 - Saved reports
-
-###### Important
-
-While saved reports are replicated, the schedules associated with saved reports are _not_ replicated.
-
 - Views
 - Data tables
-
-###### Important
-
-Data Table values that contain literal ARN references will automatically adjust the region code to the local region when replicated. ARNs constructed using expressions may not automatically adjust the region code.
-
 - Workspaces
 - Flow Module Versions
 - Flow Module Aliases
 - Custom Metrics
 - Test Cases
 - Notifications
+
+###### Important notes about specific resources
+
+- **Saved reports**: While saved reports are replicated, the schedules associated with saved reports are _not_ replicated.
+- **Views**: Only Views in a _published_ state are replicated. Views in a draft state are _not_ replicated.
+- **Data tables**: Data Table values that contain literal ARN references will automatically adjust the region code to the local region when replicated. ARNs constructed using expressions may not automatically adjust the region code.
 
 [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") also replicates the following associations across
 AWS Regions:

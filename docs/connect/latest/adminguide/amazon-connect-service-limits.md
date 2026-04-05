@@ -23,7 +23,7 @@ increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../
 - [Amazon Connect quotas](#connect-quotas "#connect-quotas")
 - [AppIntegrations
   quotas](#app-integration-quotas "#app-integration-quotas")
-- [Connect AI agents quotas](#q-in-connect-quotas "#q-in-connect-quotas")
+- [Connect AI agents quotas](#connect-ai-agents-quotas "#connect-ai-agents-quotas")
 - [Cases quotas](#cases-quotas "#cases-quotas")
 - [Contact Lens
   quotas](#contactlens-quotas "#contactlens-quotas")
@@ -140,15 +140,19 @@ All AppIntegrations quotas are at the Account level.
 
 All Amazon Q quotas are at the Account level.
 
+###### Note
+
+To request a quota adjustment, please contact [AWS Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").
+
 | Item                                                                     | Default quotas                                                                                                                                                   | Adjustable |
 | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | Assistants                                                               | 5                                                                                                                                                                | No         |
-| Knowledge bases                                                          | 10                                                                                                                                                               | No         |
-| Assistant associations                                                   | 1                                                                                                                                                                | No         |
-| Maximum size of a knowledge base                                         | 5GB per knowledge base                                                                                                                                           | No         |
-| Quick responses per knowledge base                                       | 1,000                                                                                                                                                            | No         |
-| Content per knowledge base                                               | 5,000<br>Examples of content are frequently asked questions (FAQs), wikis,<br>articles, and step-by-step instructions for handling different<br>customer issues. | No         |
-| Maximum size per document                                                | 5MB                                                                                                                                                              | No         |
+| Knowledge bases                                                          | 10                                                                                                                                                               | Yes        |
+| Assistant associations                                                   | 20                                                                                                                                                               | No         |
+| Maximum size of a knowledge base                                         | 5GB per knowledge base                                                                                                                                           | Yes        |
+| Quick responses per knowledge base                                       | 1,000                                                                                                                                                            | Yes        |
+| Content per knowledge base                                               | 5,000<br>Examples of content are frequently asked questions (FAQs), wikis,<br>articles, and step-by-step instructions for handling different<br>customer issues. | Yes        |
+| Maximum size per document                                                | 5MB                                                                                                                                                              | Yes        |
 | Number of message (email, SMS, WhatsApp) templates per knowledge base    | 200                                                                                                                                                              | Yes        |
 | Number of versions per message (email, SMS, WhatsApp) template           | 20                                                                                                                                                               | No         |
 | Number of attachments per email message template                         | 10                                                                                                                                                               | No         |
@@ -156,7 +160,7 @@ All Amazon Q quotas are at the Account level.
 | Maximum number of characters in an email message template                | 5,000,000                                                                                                                                                        | No         |
 | Maximum number of characters in an SMS message template                  | 800                                                                                                                                                              | No         |
 | Number of assigned routing profiles per quick response or email template | 40                                                                                                                                                               | No         |
-| RateLimit for all APIs                                                   | 10 TPS except,<br>• DeleteQuickResponse 20 TPS<br>• SearchQuickResponses 20 TPS<br>• SendMessage 1-2 TPS, depending on region                                    | No         |
+| RateLimit for all APIs                                                   | 10 TPS except,<br>• DeleteQuickResponse 20 TPS<br>• SearchQuickResponses 20 TPS<br>• SendMessage 1-2 TPS, depending on region                                    | Yes        |
 
 ## Amazon Connect Cases service quotas
 

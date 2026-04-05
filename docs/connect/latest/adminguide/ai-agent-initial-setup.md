@@ -39,7 +39,7 @@ the following:
 - Actions and scripts embedded into PDF files are not supported.
 
 For a list of adjustable quotas, such as the number of quick responses per
-knowledge base, see [Connect AI agents service quotas](amazon-connect-service-limits.md#q-in-connect-quotas "amazon-connect-service-limits.md#q-in-connect-quotas").
+knowledge base, see [Connect AI agents service quotas](amazon-connect-service-limits.md#connect-ai-agents-quotas "amazon-connect-service-limits.md#connect-ai-agents-quotas").
 
 ## Integration overview
 
@@ -452,7 +452,7 @@ these steps:
    - active
    - text
    - sys_updated_on
-   - wiki
+   - latest
    - sys_id
 
 5. Choose **Next**.
@@ -526,10 +526,15 @@ these steps:
 You must have the following item to connect to SharePoint:
 
 - In SharePoint, a Redirect URL configured with `https://[AWS
- REGION].console.aws.amazon.com/connect/v2/oauth`. For
+REGION].console.aws.amazon.com/connect/v2/oauth`. For
   example,
   `https://ap-southeast-2.console.aws.amazon.com/connect/v2/oauth`.
-  After you have this item, follow these steps:
+
+###### Note
+
+Only AUTHORIZATION_CODE is supported for SharePoint Online connections. CLIENT_CREDENTIALS is not supported.
+
+After you have this item, follow these steps:
 
 1. Under **Integration setup**, select the checkbox
    and enter a name for the integration.

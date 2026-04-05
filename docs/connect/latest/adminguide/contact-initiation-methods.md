@@ -14,6 +14,7 @@ Every contact in your Amazon Connect contact center is initiated by one of the f
 - MONITOR
 - AGENT_REPLY
 - FLOW
+- CAMPAIGN_PREVIEW
   The initiation method is stored in the `InitiationMethod` field of the contact
   record.
 
@@ -265,6 +266,11 @@ played.
 
 An email was initiated by the [Send message](send-message.md "send-message.md") block. For this initiation method the
 **Outbound whisper flow** type is played.
+
+## CAMPAIGN_PREVIEW
+
+The contact was initiated by an outbound campaign using preview dialing mode. The agent
+previews customer information before the call is placed.
 
 ## Override the default contact flows
 

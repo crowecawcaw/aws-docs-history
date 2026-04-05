@@ -12,7 +12,7 @@ annotation that is attached to a block.
 The following GIF shows how to move notes around the flow designer and attach them to
 a block.
 
-![Notes on the flow designer.](images/flow-annotationsGIF.gif)
+![Notes on the flow designer.](/images/connect/latest/adminguide/images/flow-annotationsGIF.gif)
 The following image shows the dropdown menu that allows you to view a list of all the
 notes in a flow. Choose a note to navigate to it. Use the search box to search notes
 across the flow.

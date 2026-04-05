@@ -932,6 +932,8 @@ DISCONNECT.
 
 - `AGENT_REPLY`: An agent has replied to an inbound email contact to create an outbound email reply.
 - `FLOW`: An email intiated by the [Send message](send-message.md "send-message.md") block.
+- `CAMPAIGN_PREVIEW`: The contact was initiated by an outbound campaign using preview dialing mode.
+  The agent previews customer information before the call is placed.
 
 **InitiationTimestamp**
 
@@ -1212,6 +1214,13 @@ Type: [Endpoint](#ctr-endpoint "#ctr-endpoint")
 This contains both AWS generated and user-defined tags.
 
 Type: String to string map
+
+**GlobalResiliencyMetadata**
+
+Information about the global resiliency configuration for the contact,
+including traffic distribution details.
+
+Type: [GlobalResiliencyMetadata](#ctr-GlobalResiliencyMetadata "#ctr-GlobalResiliencyMetadata")
 
 ## ContactLens
 
@@ -1564,6 +1573,38 @@ Type: Integer
 
 Min value: 0
 
+## GlobalResiliencyMetadata
+
+Information about the global resiliency configuration for the contact, including
+traffic distribution details.
+
+**ActiveRegion**
+
+The current AWS region in which the contact is active. This indicates
+where the contact is being processed in real-time.
+
+Type: String
+
+Length Constraints: Minimum length of 0. Maximum length of 1024.
+
+**OriginRegion**
+
+The AWS region where the contact was originally created and initiated.
+This may differ from the `ActiveRegion` if the contact has been
+transferred across regions.
+
+Type: String
+
+Length Constraints: Minimum length of 0. Maximum length of 1024.
+
+**TrafficDistributionGroupId**
+
+The identifier of the traffic distribution group.
+
+Type: String
+
+Pattern: `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$`
+
 ## ContactEvaluations
 
 Information about the contact evaluation.
@@ -1834,6 +1875,7 @@ or contact. Following are the participant types:
 - Customer
 - Thirdparty
 - Supervisor
+- IVR
 
 Type: String
 

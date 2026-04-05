@@ -118,6 +118,17 @@ Add the following new domains to your allowlist:
 - `your-instance-alias`.my.connect.aws
 - \*.static.connect.aws
 
+If you are testing or using the new sign-in experience, also add the following
+domains to your allowlist. For more information, see [Testing the new Amazon Connect sign-in experience](new-signin-experience.md "new-signin-experience.md").
+
+- \*.apps.signin.aws
+- \*.signin.aws
+- \*.signin-fips.amazonaws-us-gov.com
+- \*.apps.signin-fips.aws-us-gov.com
+- \*.apps.signin.aws-us-gov.com
+- \*.threat-mitigation.aws.amazon.com
+- \*.s3.dualstack.\*.amazonaws.com
+
 ###### Important
 
 Do not remove the domains already in your allowlist, such as the following

@@ -306,6 +306,13 @@ If a new contact is created while running a disconnect flow,
 then the initiation method for that new contact is
 DISCONNECT.
 
+- `EXTERNAL_OUTBOUND`: An agent initiated voice (phone) contact with an external participant
+  to your contact center using either quick connect in the CCP or a flow block.
+- `AGENT_REPLY`: An agent has replied to an inbound email contact to create an outbound email reply.
+- `FLOW`: An email initiated by a flow block.
+- `CAMPAIGN_PREVIEW`: The contact was initiated by an outbound campaign using preview dialing mode.
+  The agent previews customer information before the call is placed.
+
 **State**
 
 The state of the contact.

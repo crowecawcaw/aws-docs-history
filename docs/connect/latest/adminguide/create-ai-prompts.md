@@ -193,7 +193,7 @@ the `MESSAGES` format.
 
   The following JSON schema objects are supported:
 
-      - **type** – (Optional)  The
+      - **type** – (Required)  The
        only supported value is "string".
       - **enum** – (Optional)  A
        list of allowed values for this parameter. Use this to

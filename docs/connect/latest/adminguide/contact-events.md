@@ -118,6 +118,7 @@ A disconnect event is when:
 - [CustomerVoiceActivity](#CustomerVoiceActivity "#CustomerVoiceActivity")
 - [Expiry](#Expiry "#Expiry")
 - [Expression](#Expression "#Expression")
+- [GlobalResiliencyMetadata](#GlobalResiliencyMetadata "#GlobalResiliencyMetadata")
 - [QueueInfo](#QueueInfo "#QueueInfo")
 - [RoutingCriteria](#RoutingCriteria "#RoutingCriteria")
 - [Steps](#Steps "#Steps")
@@ -364,6 +365,9 @@ is DISCONNECT.
   agent.
 - FLOW: Represents an automated (flow-initiated) email
   contact.
+- CAMPAIGN_PREVIEW: The contact was initiated by an outbound
+  campaign using preview dialing mode. The agent previews customer
+  information before the call is placed.
 
 **DisconnectReason code**
 
@@ -442,7 +446,7 @@ Type: String
 
 Valid values: ScheduledTimestamp, UserDefinedAttributes,
 ContactLens.ConversationalAnalytics.Configuration, Segment Attributes,
-Tags
+Tags, GlobalResiliencyMetadata
 
 **AgentInfo**
 
@@ -520,6 +524,13 @@ Information about agent interactions in a contact.
 
 Type: [ParticipantMetrics](#participantmetrics "#participantmetrics") object
 
+**GlobalResiliencyMetadata**
+
+Information about the global resiliency configuration for the contact,
+including traffic distribution details.
+
+Type: [GlobalResiliencyMetadata](#GlobalResiliencyMetadata "#GlobalResiliencyMetadata") object
+
 ### CustomerVoiceActivity
 
 The `CustomerVoiceActivity` object includes the following
@@ -587,6 +598,38 @@ An object to specify the predefined attribute condition to exclude
 agents with certain proficiencies.
 
 Type: AttributeCondition
+
+### GlobalResiliencyMetadata
+
+Information about the global resiliency configuration for the contact, including
+traffic distribution details.
+
+**ActiveRegion**
+
+The current AWS region in which the contact is active. This indicates
+where the contact is being processed in real-time.
+
+Type: String
+
+Length Constraints: Minimum length of 0. Maximum length of 1024.
+
+**OriginRegion**
+
+The AWS region where the contact was originally created and initiated.
+This may differ from the `ActiveRegion` if the contact has
+been transferred across regions.
+
+Type: String
+
+Length Constraints: Minimum length of 0. Maximum length of 1024.
+
+**TrafficDistributionGroupId**
+
+The identifier of the traffic distribution group.
+
+Type: String
+
+Pattern: `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$`
 
 ### QueueInfo
 

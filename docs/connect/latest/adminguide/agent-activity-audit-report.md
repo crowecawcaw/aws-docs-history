@@ -103,6 +103,10 @@ corresponding contact types.
 - Voice/Chat/Task/Email
   - **On Hold**
 
+###### Note
+
+Reports generated before March 09, 2026, will reflect the previous status values.
+
 ## When is the status Agent Disconnected, Contact Missed, or Rejected?
 
 Following is a summary of when the **Status** column can be
