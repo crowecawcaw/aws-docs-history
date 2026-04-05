@@ -828,8 +828,7 @@ We also recommend that you perform decomposition and wave migration planning bef
 
 ###### Note
 
-Along with the refactored code, your S3 bucket will also have the AWS Blu
-Age Runtime to be compiled.
+Along with the refactored code, your S3 bucket will also have the AWS Transform for mainframe Runtime to be compiled.
 
 You might also see certain domains that have a `Done with issues`
 status. Expand those to see files showing a `Warning` status or an
@@ -890,7 +889,7 @@ improve the results of transformation.
    the **Refactor engine version** (e.g.
    `4.6.0`) which will be used to compile and run the
    generated application. For more information on available engine
-   versions, see [AWS Blu Age release notes](../../../m2/latest/userguide/ba-release-notes.md "../../../m2/latest/userguide/ba-release-notes.md").
+   versions, see [AWS Transform for mainframe Runtime release notes](../../../m2/latest/userguide/ba-release-notes.md "../../../m2/latest/userguide/ba-release-notes.md").
 3. Add your project name, root package, and target database. The target
    database is target RDMS for the project.
 4. Under **Legacy encoding**, define the
@@ -1316,6 +1315,6 @@ deployment environment.
 
 To retrieve the IaC templates, ask in the AWS Transform chat for the
 Infrastructure-as-Code templates clarifying your preferred modernization pattern
-(such as AWS Blu Age Refactor), your preferred topology (standalone vs high
+(such as AWS Transform for mainframe refactor), your preferred topology (standalone vs high
 availability), and your preferred format (CloudFormation vs Cloud Development Kit vs
 Terraform).

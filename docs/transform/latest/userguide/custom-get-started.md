@@ -29,6 +29,7 @@ An internet connection with access to the following endpoints is required:
 
 - `transform-cli.awsstatic.com`
 - `transform-custom.<region>.api.aws`
+- `*.s3.amazonaws.com`
 
 If you are working in an internet-restricted environment, update firewall rules to allowlist these URLs.
 
@@ -90,7 +91,7 @@ The following IAM policy provides full access to AWS Transform custom:
 
 ```
 {
-  "Version": "2012-10-17"		 	 	 ,
+  "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",

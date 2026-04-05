@@ -40,6 +40,7 @@ The following AWS-managed transformations are currently available:
   documentation, and business intelligence extraction to create a comprehensive knowledge base organized for maximum usability and navigation.
   The transformation places special emphasis on technical debt analysis, providing prominent, actionable insights on outdated components and
   maintenance concerns at the root level.
+- `AWS/java-performance-optimization` - Optimize Java application performance by analyzing JFR profiling data to detect CPU/memory hotspots and anti-patterns, then applying targeted code fixes to reduce resource usage and improve efficiency. For instructions on collecting JFR data, see [https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/run.htm](https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/run.htm "https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/run.htm").
 
 **Early Access Transformations**
 
@@ -59,7 +60,9 @@ feedback.
 Many modern Java applications are already Arm64-compatible.
 
 - `AWS/early-access-angular-to-react-migration` - [Early Access] Transform an Angular application to React.
-- `AWS/early-access-java-performance-optimization` - [Early Access] Optimize Java application performance by analyzing JFR profiling data to detect CPU/memory hotspots and anti-patterns, then applying targeted code fixes to reduce resource usage and improve efficiency. For instructions on collecting JFR data, see [https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/run.htm](https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/run.htm "https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/run.htm").
+- `AWS/vue.js-version-upgrade` - [Early Access] An early-access transformation for major version upgrades from Vue.js 2 to Vue.js 3 to modernize components, state management, routing, and global APIs to Vue.js 3 patterns. Minor or patch updates are outside the scope.
+- `AWS/angular-version-upgrade` - [Early Access] This is an early-access transformation to transform an older Angular application to a target Angular version by upgrading components, services, templates, and routing to modern Angular patterns.
+- `AWS/early-access-log4j-to-slf4j-migration` - [Early Access] This transformation migrates Java applications from Log4j (1.x/2.x) to SLF4J with Logback backend. Handles source code, dependency management (Maven/Gradle), and logging configuration files. Validates via compile, test, and residual import scan.
 
 ## Customizing AWS-Managed Transformations
 

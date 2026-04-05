@@ -31,7 +31,7 @@ Before you begin, make sure you have:
 - Installed and configured build software tool stack on your development
   machine, such as [Apache
   Maven](https://maven.apache.org/index.html "https://maven.apache.org/index.html") or [Apache
-  Tomcat](https://tomcat.apache.org/ "https://tomcat.apache.org/"). For more information on Runtime versioning, see [AWS Blu Age release notes](../../../m2/latest/userguide/ba-release-notes.md "../../../m2/latest/userguide/ba-release-notes.md").
+  Tomcat](https://tomcat.apache.org/ "https://tomcat.apache.org/"). For more information on Runtime versioning, see [AWS Transform for mainframe Runtime release notes](../../../m2/latest/userguide/ba-release-notes.md "../../../m2/latest/userguide/ba-release-notes.md").
 - Installed and configured Amazon Corretto or a version of Java runtime. For more
   information on installing Amazon Corretto, see [Amazon Corretto 24](../../../corretto/latest/corretto-24-ug/what-is-corretto-24.md "../../../corretto/latest/corretto-24-ug/what-is-corretto-24.md").
 - Access to create and configure Amazon Aurora PostgreSQL databases for Runtime
@@ -39,7 +39,7 @@ Before you begin, make sure you have:
   database, see [Working with Amazon Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.md").
 - Administrative access to deploy applications to your runtime
   environment.
-- Reviewed the [AWS Blu Age Runtime
+- Reviewed the [AWS Transform for mainframe Runtime
   concepts](../../../m2/latest/userguide/ba-shared-concept.md "../../../m2/latest/userguide/ba-shared-concept.md") for fundamental concepts on applications modernized
   with AWS automated refactoring solution.
 

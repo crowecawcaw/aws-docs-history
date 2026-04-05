@@ -18,7 +18,7 @@ questions to AWS Transform and the responses and code that AWS Transform generat
 The way you opt out of AWS Transform using content for service improvement depends on the
 environment where you use AWS Transform.
 
-For the AWS Transform web console experience, configure an AI services opt-out policy in
+For AWS Transform configure an AI services opt-out policy in
 AWS Organizations. For more information, see [AI services
 opt-out policies](../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out.md "../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out.md") in the _AWS Organizations User Guide_.
 

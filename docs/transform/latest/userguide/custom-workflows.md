@@ -323,6 +323,15 @@ List available tools offered by a specific MCP server:
 atx mcp tools --server <server-name>
 ```
 
+**Usage tracking:**
+
+The CLI automatically tracks MCP tool usage during transformation executions. Usage statistics are persisted as `mcp_usage.json` in the conversation directory alongside `metadata.json`. The file records per-tool metrics for each execution, including:
+
+- Number of invocations per tool
+- Number of errors per tool
+- Total execution time per tool
+- Last error details (if any)
+
 ### Tags and Organization
 
 You can organize transformations with tags for access control and categorization.
