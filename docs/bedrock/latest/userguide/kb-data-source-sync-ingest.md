@@ -33,6 +33,41 @@ Before you begin ingestion, check that your data source fulfills the following c
 
   Each time you add, modify, or remove files from your data source, you must sync the data source so that it is re-indexed to the knowledge base. Syncing is incremental, so Amazon Bedrock only processes added, modified, or deleted documents since the last sync.
 
+## How a knowledge base handles resyncs
+
+Each time you add, modify, or remove files from your data source, you must sync the data source so
+that it is re-indexed in the knowledge base. Syncing is incremental, so Amazon Bedrock processes only the
+documents that were added, modified, or deleted since the last sync. When you sync a data source,
+Amazon Bedrock re-ingests documents to ensure accuracy and consistency. Re-ingestion includes parsing,
+chunking, generating embeddings, and indexing into the vector store.
+
+| Sync scenarios              | Scenario                                                                          | What happens |
+| --------------------------- | --------------------------------------------------------------------------------- | ------------ |
+| No changes detected         | The document is skipped.                                                          |
+| Content or metadata changed | The document is re-ingested (re-parsed, re-chunked, re-embedded, and re-indexed). |
+| New document added          | Only the new document is ingested.                                                |
+| Document deleted            | The document is removed from the vector store.                                    |
+
+### Metadata-only optimization
+
+In certain cases, Amazon Bedrock can update metadata without re-ingesting the document associated
+with that metadata file. This optimization retrieves existing vector embeddings from the vector
+store, merges the new metadata, and writes the updated embeddings back, which avoids calls to
+the embedding model.
+
+This optimization applies only when all of the following conditions are met:
+
+- Only `metadata.json` files are modified. No content files are changed.
+- The associated content files are not CSV files.
+- The data source does not use a custom transformation Lambda function.
+
+### Re-ingestion behavior for CSV files
+
+CSV files use the `documentStructureConfiguration` field in metadata to control which
+columns are indexed. Because Amazon Bedrock cannot determine whether this structural configuration
+changed without re-processing the file, CSV files are always re-ingested when their metadata
+files are updated.
+
 To learn how to ingest your data into your knowledge base and sync with your latest data, choose the tab for your preferred method, and then follow the steps:
 
 Console

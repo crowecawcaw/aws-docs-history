@@ -44,7 +44,7 @@ are `us-east-1`, `us-east-2`, and
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "GrantGeoCrisInferenceProfileAccess",

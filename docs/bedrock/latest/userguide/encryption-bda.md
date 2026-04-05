@@ -1,7 +1,7 @@
 # Encryption in Amazon Bedrock Data Automation
 
 Amazon Bedrock Data Automation (BDA) uses encryption to protect your data at rest.
-This includes the blueprints, projects, and extracted insights stored by the service.
+This includes the blueprints, projects, libraries, and extracted insights stored by the service.
 BDA offers two options for encrypting your data:
 
 1. AWS owned keys – By default, BDA encrypts your data with AWS owned keys. You can't view,
@@ -19,18 +19,19 @@ BDA offers two options for encrypting your data:
 ## How Amazon Bedrock uses grants in AWS KMS
 
 If you specify a customer managed key for encryption of your BDA when calling
-invokeDataAutomationAsync, the service creates a grant associated with your resources on
+invokeDataAutomationAsync or CreateDataAutomationLibrary, the service creates a grant associated with your resources on
 your behalf by sending a CreateGrant request to AWS KMS. This grant allows BDA to access
-and use your customer managed key.
+and use your customer managed key. The grant created by CreateDataAutomationLibrary is not utilized if the customer ingests vocabulary entities into the library.
 
 BDA uses the grant for your customer managed key for the following internal operations:
 
 - DescribeKey — Send requests to AWS KMS to verify that the symmetric customer managed AWS KMS key ID
   you provided is valid.
-- GenerateDataKey and Decrypt — Send requests to AWS KMSto generate data keys encrypted by your customer managed key and decrypt
+- GenerateDataKey and Decrypt — Send requests to AWS KMS to generate data keys encrypted by your customer managed key and decrypt
   the encrypted data keys so that they can be used to encrypt your resources.
-- CreateGrant — Send requests to AWS KMS to create scoped down grants with a subset of the above operations (DescribeKey, GenerateDataKey, Decrypt),
-  for the asynchronous execution of operations.
+- CreateGrant — Send requests to AWS KMS to create scoped down grants for the asynchronous execution of operations. The grant operations vary by API:
+  - InvokeDataAutomationAsync: DescribeKey, GenerateDataKey, Decrypt
+  - CreateDataAutomationLibrary: DescribeKey, GenerateDataKey, Decrypt, CreateGrant
 
 You have full access to your customer managed AWS KMS key. You can revoke access to the grant by following the steps at
 Retiring and revoking grants in the
@@ -38,7 +39,10 @@ AWS KMS Developer Guide or remove the service's access to your customer managed 
 modifying the key policy. If you do so, BDA won't be able to access the resources encrypted by your key.
 
 If you initiate a new invokeDataAutomationAsync call after revoking a grant, BDA will recreate the grant.
-The grants are retired by BDA after 30 hours.
+
+The grants created by invokeDataAutomationAsync are retired by BDA after 30 hours.
+
+The grants created by CreateDataAutomationLibrary are retired by BDA when the library is deleted.
 
 ## Creating a customer managed key and attaching a key policy
 
@@ -68,7 +72,7 @@ actions are used for keys that encrypt BDA resources:
 
 1. kms:CreateGrant – Creates a grant for a customer managed key by
    allowing the BDA service access to the specified AWS KMS key through grant operations, needed
-   for InvokeDataAutomationAsync.
+   for InvokeDataAutomationAsync and CreateDataAutomationLibrary.
 2. kms:DescribeKey – Provides the customer managed key details to
    allow BDA to validate the key.
 3. kms:GenerateDataKey – Provides the customer managed key details to
@@ -85,37 +89,53 @@ statements in your key policy and replace `${account-id}`,
 `${region}`, and `${key-id}` with your specific
 values:
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Id": "KMS key policy for a key to encrypt data for BDA resource",
- "Statement": [
- {
- "Sid": "Permissions for encryption of data for BDA resources",
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`111122223333`:role/`Role`"
- },
- "Action": [
- "kms:Decrypt",
- "kms:GenerateDataKey",
- "kms:DescribeKey",
- "kms:CreateGrant"
- ],
- "Resource": "*",
- "Condition": {
- "StringLike": {
- "kms:ViaService": [
- "bedrock.us-east-1.amazonaws.com"
- ]
- }
- }
- }
- ]
-}`
-
+{
+  "Version": "2012-10-17",
+  "Id": "KMS key policy for a key to encrypt data for BDA resource",
+  "Statement": [
+    {
+      "Sid": "Enable DescribeKey, Decrypt, GenerateDataKey",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:role/Role"
+      },
+      "Action": [
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "kms:ViaService": "bedrock.us-east-1.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid": "Enable CreateGrant",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:role/Role"
+      },
+      "Action": "kms:CreateGrant",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "kms:ViaService": "bedrock.us-east-1.amazonaws.com"
+        },
+        "ForAllValues:StringEquals": {
+          "kms:GrantOperations": [
+            "CreateGrant",
+            "GenerateDataKey",
+            "Decrypt",
+            "DescribeKey"
+          ]
+        }
+      }
+    }
+  ]
+}
 ```
 
 **IAM role permissions**
@@ -152,19 +172,38 @@ JSON
 
 ```
 
-## Amazon Bedrock Automation encryption context
+## Amazon Bedrock Data Automation encryption context
 
-BDA uses the same encryption context in all AWS KMS cryptographic operations, where the key is
-`aws:bedrock:data-automation-customer-account-id` and the value is your AWS account ID.
-An example of the encryption context is below.
+For all DataAutomationLibrary operations including InvokeDataAutomationLibraryIngestionJob, BDA uses below encryption context in all AWS KMS cryptographic operations, where the key is `aws:bedrock:data-automation-library-arn` and the value is the `libraryArn`.
 
 ```
-
 "encryptionContext": {
-     "bedrock:data-automation-customer-account-id": "`account id`"
+     "aws:bedrock:data-automation-library-arn": "<LibraryArn>"
 }
+```
 
+For DataAutomationProject operations, BDA uses below encryption context:
 
+```
+"encryptionContext": {
+     "DataAutomationProjectArn": "<DataAutomationProjectArn>"
+}
+```
+
+For Blueprint operations, BDA uses below encryption context:
+
+```
+"encryptionContext": {
+     "BlueprintArn": "<BlueprintArn>"
+}
+```
+
+For all other operations, BDA uses below encryption context:
+
+```
+"encryptionContext": {
+     "aws:bedrock:data-automation-customer-account-id": "111122223333"
+}
 ```
 
 ###### Using encryption context for monitoring
@@ -183,16 +222,42 @@ encryption context. The condition in this policy statement requires that the gra
 context constraint that specifies the encryption context.
 
 ```
-
 [
     {
-        "Sid": "Enable DescribeKey, Decrypt, GenerateDataKey",
+        "Sid": "Enable DescribeKey",
         "Effect": "Allow",
         "Principal": {
             "AWS": "arn:aws:iam::111122223333:role/ExampleRole"
         },
-        "Action": ["kms:DescribeKey", "kms:Decrypt", "kms:GenerateDataKey"],
-        "Resource": "*"
+        "Action": ["kms:DescribeKey"],
+        "Resource": "*",
+        "Condition": {
+            "StringLike": {
+                "kms:ViaService": [
+                    "bedrock.${region}.amazonaws.com"
+                ]
+            }
+        }
+    },
+    {
+        "Sid": "Enable Decrypt, GenerateDataKey",
+        "Effect": "Allow",
+        "Principal": {
+            "AWS": "arn:aws:iam::111122223333:role/ExampleRole"
+        },
+        "Action": [
+            "kms:GenerateDataKey",
+            "kms:Decrypt"
+        ],
+        "Resource": "*",
+        "Condition": {
+            "StringLike": {
+                "kms:ViaService": [
+                    "bedrock.${region}.amazonaws.com"
+                ],
+                "kms:EncryptionContext:aws:bedrock:data-automation-customer-account-id": "111122223333"
+            }
+        }
     },
     {
         "Sid": "Enable CreateGrant",
@@ -204,6 +269,9 @@ context constraint that specifies the encryption context.
         "Resource": "*",
         "Condition": {
             "StringLike": {
+                "kms:ViaService": [
+                    "bedrock.${region}.amazonaws.com"
+                ],
                 "kms:EncryptionContext:aws:bedrock:data-automation-customer-account-id": "111122223333"
             },
             "StringEquals": {
@@ -212,7 +280,32 @@ context constraint that specifies the encryption context.
         }
     }
 ]
+```
 
+When calling `CreateDataAutomationLibrary`, attach the following policy to grant BDA the necessary permission for accessing your customer managed key.
+
+```
+[
+    {
+        "Sid": "Enable CreateGrant for CreateDataAutomationLibrary",
+        "Effect": "Allow",
+        "Principal": {
+            "AWS": "arn:aws:iam::111122223333:role/ExampleRole"
+        },
+        "Action": "kms:CreateGrant",
+        "Resource": "*",
+        "Condition": {
+            "StringLike": {
+                "kms:ViaService": [
+                    "bedrock.${region}.amazonaws.com"
+                ]
+            },
+            "StringEquals": {
+                "kms:GrantOperations": ["Decrypt", "DescribeKey", "GenerateDataKey", "CreateGrant"]
+            }
+        }
+    }
+]
 ```
 
 ## Monitoring your encryption keys for Amazon Bedrock Data Automation

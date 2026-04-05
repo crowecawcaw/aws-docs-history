@@ -1,10 +1,6 @@
 # Using resource-based policies for guardrails
 
-###### Note
-
-Using resource-based policies for Amazon Bedrock Guardrails is in preview and subject to change.
-
-Guardrails supports resource-based policies for guardrails and guardrails inference profiles. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+Amazon Bedrock Guardrails supports resource-based policies for guardrails and guardrails inference profiles. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 
 You can attach a resource-based policy (RBP) to Guardrails resources (guardrail or guardrail inference profile). In this policy, you specify permissions for Identity and Access Management (IAM) [principals](../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal "../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal") that can perform specific actions on these resources. For example, the policy attached to a guardrail will contain permissions to apply the guardrail or read the guardrail configuration.
 

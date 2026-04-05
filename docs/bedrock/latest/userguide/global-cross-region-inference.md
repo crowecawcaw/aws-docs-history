@@ -73,7 +73,7 @@ the example policy with the AWS Region you are operating in.
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "GrantGlobalCrisInferenceProfileRegionAccess",
@@ -188,7 +188,7 @@ while allowing Amazon Bedrock Global cross-Region inference calls that use
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "DenyAllOutsideApprovedRegions",

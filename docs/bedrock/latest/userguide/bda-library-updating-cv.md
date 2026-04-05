@@ -1,0 +1,40 @@
+# Updating Vocabulary Entities
+
+Use the [InvokeDataAutomationLibraryIngestionJob](../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "../APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") with "UPSERT" operation type to update existing vocabulary entities for the same entityId. This will replace the entire entity with the new content.
+
+###### Important
+
+UPSERT operations are clobber-style at the entity level. The entire entity is replaced, not merged.
+
+## AWS CLI Example:
+
+_Note that this operation is same as [Adding New Vocabulary Entities](bda-library-adding-cv.md "bda-library-adding-cv.md")._
+
+**Request**
+
+```
+aws bedrock-data-automation-data-automation invoke-data-automation-library-ingestion-job \
+    --library-arn "arn:aws:bedrock:us-east-1:123456789012:data-automation-library/healthcare-vocabulary" \
+    --entity-type "VOCABULARY" \
+    --operation-type "UPSERT" \
+    --input-configuration '{"s3Object":{"s3Uri":"s3://my-bucket/manifests/vocabulary-manifest.json"}}' \
+    --output-configuration '{"s3Uri":"s3://my-bucket/outputs/"}'
+```
+
+## AWS Console Example:
+
+1. Navigate to the "Library details" page for your library
+2. Click into the desired entity from the "Custom vocabulary lists"
+3. Make the desired modifications:
+   1. Update:
+      1. Click into desired phrase
+      2. Update the phrase
+      3. Click the check mark to the right of the phrase
+
+   2. Delete
+      1. Click the checkbox to the left of the desired phrase(s)
+      2. Click "Delete phrases"
+
+4. Click "Save updates"
+
+![](images/bda/library-update-cv-console.png)

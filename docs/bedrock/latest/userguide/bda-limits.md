@@ -109,3 +109,10 @@ Tips to speed up sync API processing:
 | Maximum Audio Blueprints per Project                 | 1                                                                                                                                                                |
 | Maximum Audio Blueprints per Start Inference request | 1                                                                                                                                                                |
 | Maximum Audio Channels for Audio files               | 2                                                                                                                                                                |
+
+| Data automation library requirements                                                           | Resource | Limit |
+| ---------------------------------------------------------------------------------------------- | -------- | ----- |
+| Maximum number of data automation libraries per account                                        | 10       |
+| Maximum number of custom vocabulary phrases that can be configured per library (all languages) | 500      |
+| Maximum total number of characters across all vocabulary phrases per library                   | 30000    |
+| Maximum number of concurrent vocabulary ingestion jobs that can run per library                | 1        |

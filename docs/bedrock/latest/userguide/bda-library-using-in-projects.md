@@ -1,0 +1,3 @@
+# Using Libraries in Projects
+
+This section describes how to associate Data Automation Libraries with your BDA projects to enable library functionality for content processing. When you associate a library with a project, all audio and video processing jobs executed through that project leverage the entities defined in the library to improve extraction accuracy.
