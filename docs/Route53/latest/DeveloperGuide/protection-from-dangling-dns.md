@@ -20,7 +20,7 @@ hosted zone are still present in the parent domain. If they are, Route 53 will 
 any overlapping name servers from being assigned. This is scenario 1 in the
 following examples.
 
-However, there are other dangling delegation record risks, which Route 53 can't protect against, as detailed in scenarios 2 through 6 in the following examples.
+However, there are other dangling delegation record risks, which Route 53 can't protect against, as detailed in scenarios 2 through 5 in the following examples.
 To protect yourself against this broader set of risks, make sure the parent NS records match the delegation set
 for the Route 53 hosted zone.
 You can find the delegation set of a hosted zone through the Route 53 console or AWS CLI.
@@ -66,17 +66,6 @@ Here, <ns1>, <ns2>, <ns3>, and <ns4> are dangling delegation records. To mitigat
 create the hosted zone using the reusable delegation set with name servers <ns1>, <ns2>, <ns3>, and <ns4>.
 
 **Scenario 4:**
-You have a hosted zone `child.example.com` with four name servers: <ns1>, <ns2>, <ns3>, and <ns4>.
-You add a delegation to <ns1>, <ns2>, <ns3>, and <ns4> in parent. You then delete the zone, but don't remove the
-<ns1>, <ns2>, <ns3>, and <ns4> delegation. Subsequently, you create a new `child.example.com` zone with nameservers
-<ns5>, <ns6>, <ns7>, <ns8>, and add delegation to <ns5>, <ns6>, <ns7>, and <ns8>. You now have a parent zone with
-delegations to both <ns1>, <ns2>, <ns3>, and <ns4> and <ns5>, <ns6>, <ns7>, and <ns8>. This creates a dangling
-delegation risk for <ns1>, <ns2>, <ns3>, and <ns4>. To mitigate this risk, remove the inactive nameservers
-<ns1>, <ns2>, <ns3>, <ns4> from the delegation records, leaving only the active nameservers <ns5>, <ns6>, <ns7>, <ns8>.
-In general, always ensure there is only one sub-domain delegation for `child.example.com` and that the NS records
-in `example.com` exactly match the four nameservers in the current child zone's delegation set.
-
-**Scenario 5:**
 You create hosted zones for both `child.example.com` with name servers <ns1>, <ns2>, <ns3>, and <ns4>,
 and `grandchild.child.example.com` with name servers <ns5>, <ns6>, <ns7>, and <ns8>.
 However, you delegate both directly in the `example.com` zone, which creates a dangling delegation risk.
@@ -85,7 +74,7 @@ For example, if you want to delegate `grandchild.child.example.com`: first deleg
 then delegate `grandchild.child.example.com` with name servers <ns5>, <ns6>, <ns7>, and <ns8> in the `child.example.com` zone,
 and remove any direct delegations for `grandchild.child.example.com` from the `example.com` zone.
 
-**Scenario 6:**
+**Scenario 5:**
 You delegate a domain or subdomain to Route 53 name servers before creating a corresponding hosted zone, this creates dangling delegation records.
 This is similar to the case in Scenario 3, but the risk also applies when no reusable delegation set is created.
 For example, you delegate the domain `example.com` to name servers <ns1>, <ns2>, <ns3>, and <ns4> in the parent domain `.com`,
