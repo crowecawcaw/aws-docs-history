@@ -114,6 +114,7 @@ https://aws-mgn-internal-hashes-<REGION>.s3.<REGION>.amazonaws.com/
 https://aws-application-migration-service-<REGION>.s3.<REGION>.amazonaws.com/
 https://aws-application-migration-service-hashes-<REGION>.s3.<REGION>.amazonaws.com/
 https://amazon-ssm-<REGION>.s3.<REGION>.amazonaws.com/
+https://al2023-repos-<REGION>-de612dc2.s3.<REGION>.amazonaws.com/
 
 ```
 
@@ -122,6 +123,12 @@ https://amazon-ssm-<REGION>.s3.<REGION>.amazonaws.com/
 Learn more about S3 dual-stack endpoints in [Amazon S3 dual-stack endpoints](../../../AmazonS3/latest/API/dual-stack-endpoints.md#dual-stack-endpoints-description "../../../AmazonS3/latest/API/dual-stack-endpoints.md#dual-stack-endpoints-description").
 
 Agent installation and replication server components require Amazon S3 bucket for service functionality.
+
+###### Important
+
+If your staging area subnet does not have outbound internet access, ensure that
+your Amazon S3 VPC gateway endpoint policy allows access to the Amazon Linux 2023 package repository
+bucket (`al2023-repos-<REGION>-de612dc2`).
 
 If you use an Amazon S3 VPC Endpoint, you must provide sufficient permissions for service
 functionality, as shown in this example policy for replicating to us-east-1:
@@ -148,7 +155,8 @@ JSON
  "arn:aws:s3:::aws-mgn-internal-hashes-us-east-1/*",
  "arn:aws:s3:::aws-application-migration-service-us-east-1/*",
  "arn:aws:s3:::aws-application-migration-service-hashes-us-east-1/*",
- "arn:aws:s3:::amazon-ssm-us-east-1/*"
+ "arn:aws:s3:::amazon-ssm-us-east-1/*",
+ "arn:aws:s3:::al2023-repos-us-east-1-de612dc2/*"
  ]
  }
  ]

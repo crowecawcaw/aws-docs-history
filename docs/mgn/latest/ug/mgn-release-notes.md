@@ -4,12 +4,17 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 ## March 2026
 
+- Updated network requirements for environments without outbound internet access.
+  If you use an Amazon S3 VPC gateway endpoint, you must now allow access to the Amazon
+  Linux 2023 package repository bucket. For more information, see
+  [Communication over TCP port 443](preparing-environments.md#TCP-443 "preparing-environments.md#TCP-443").
 - AWS Application Migration Service now supports storing EBS snapshots locally within AWS Local Zones
   that support this feature. For more information, see
   [Store snapshots in AWS Local Zone](replication-server-settings.md#local-zone-snapshots "replication-server-settings.md#local-zone-snapshots").
 - Added support for RHEL versions 9.7 and 10.1.
 - Added support for Rocky Linux versions 9.7, 10, and 10.1.
 - Added support for AlmaLinux versions 9.6, 9.7, 10, and 10.1.
+- Added support for SUSE Linux Enterprise Server (SLES) 15 service packs 6 and 7.
 
 ## December 2025
 
