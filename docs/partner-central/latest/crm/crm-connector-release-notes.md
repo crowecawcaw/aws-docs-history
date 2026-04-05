@@ -4,6 +4,7 @@ This section contains the release history for the AWS Partner Customer Relations
 
 ###### Topics
 
+- [Version 3.17 (March 31, 2026)](#3.17 "#3.17")
 - [Version 3.16 (February 26, 2026)](#3.16 "#3.16")
 - [Version 3.15 (February 6, 2026)](#3.15 "#3.15")
 - [Version 3.14 (December 17, 2025)](#3.14 "#3.14")
@@ -23,6 +24,33 @@ This section contains the release history for the AWS Partner Customer Relations
 - [Version 1.6 (January 13, 2023)](#1.6 "#1.6")
 - [Version 1.5 (January 13, 2023)](#1.5 "#1.5")
 - [Version 1.4 (December 7, 2022)](#1.4 "#1.4")
+
+## Version 3.17 (March 31, 2026)
+
+AWS Partner CRM Connector version 3.17 contains the following features and
+improvements.
+
+### New features
+
+**EUR currency support for European Sovereign Cloud opportunities**
+
+- Partners can now create and manage opportunities using EUR currency for the European Sovereign Cloud (ESC) region
+- New **AWS Partition** field on the **ACE Opportunity** page to designate ESC opportunities
+- Currency fields automatically default to USD when no currency is specified
+- When the currency code is set to EUR, the AWS partition field value must be set to `aws-eusc`. EUR currency is only valid for the `aws-eusc` partition and cannot be used with any other partition
+
+**Backfill tool — targeted backfill for S3-to-API migration**
+
+- New sync mode option: `Only refresh opportunities missing Last Modified Date`
+- Partners migrating from S3-based to API-based integrations can selectively backfill legacy opportunities without refreshing their entire pipeline. Deactivate all S3-based scheduled jobs before running the backfill (**Setup** → **Scheduled Jobs** → Delete jobs with `APN` prefix)
+- Added confirmation step to ensure S3-based scheduled jobs are deactivated before running backfill
+
+### Bug fixes
+
+- Fixed an issue where adding a solution or AWS product value using the field (instead of the **Associate** button) and then submitting the opportunity would fail validation, and the solution value would disappear on page refresh
+- Fixed an issue where certain picklist values containing special dash characters in **Closed Lost Reason** and **Sub Use Case** fields caused API errors when submitting opportunities. Existing data is automatically corrected on upgrade
+- Updated the `Unified Standard-ACE Sync Flow` template defaults: changed `Partner_Primary_Need_From_AWS` from "Do Not Need Support from AWS Sales Rep" to "Co-Sell - Architectural Validation", and added `solutionOffered` and `otherSolutionOffered` fields with default value "Other" to support solution tracking on ACE Opportunities
+- Relaxed the validation rule that prevented updates to ACE Opportunity records when ownership is Partner Referral and the opportunity status is Submitted. This was incorrectly blocking the connector from updating records during the sync process
 
 ## Version 3.16 (February 26, 2026)
 
