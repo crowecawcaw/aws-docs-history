@@ -102,7 +102,7 @@ Type: Array of [OrderableDBInstanceOption](API_OrderableDBInstanceOption.md "API
 
 ## Errors
 
-For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
 
 ## See Also
 

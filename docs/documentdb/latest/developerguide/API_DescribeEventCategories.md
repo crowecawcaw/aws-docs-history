@@ -37,7 +37,7 @@ Type: Array of [EventCategoriesMap](API_EventCategoriesMap.md "API_EventCategori
 
 ## Errors
 
-For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
 
 ## See Also
 

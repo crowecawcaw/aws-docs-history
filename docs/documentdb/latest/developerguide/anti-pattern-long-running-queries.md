@@ -64,7 +64,7 @@ db.adminCommand({
 
 ###### Note
 
-Lower MVCCIDs and extended garbage collection duration are not exclusively attributed to long-running queries. Write-intensive workloads on resource-constrained instances can also result in reduced MVCCID availability and prolonged garbage collection cycles.
+Lower MVCC IDs and extended garbage collection duration are not exclusively attributed to long-running queries. Write-intensive workloads on resource-constrained instances can also result in reduced MVCC ID availability and prolonged garbage collection cycles.
 
 ## Remediation Strategies
 

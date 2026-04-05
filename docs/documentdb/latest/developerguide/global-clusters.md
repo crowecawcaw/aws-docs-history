@@ -30,7 +30,7 @@ dedicated infrastructure. Latency is typically under a second.
 ## What are the current limitations of global clusters?
 
 - Global clusters are not supported on Amazon DocumentDB v3.6.
-- Global clusters are not supported on t3, t4g, and r4 instance types.
+- Global clusters are supported on all instance types except db.t3, db.t4g, and db.r4.
 - Global clusters are not available in the following Regions: South America (São Paulo), Europe (Milan), China (Beijing), and China (Ningxia).
 - Switchover and global failover are not supported when regions are on different engine versions.
   Manual failover is supported when there's an engine version mismatch.

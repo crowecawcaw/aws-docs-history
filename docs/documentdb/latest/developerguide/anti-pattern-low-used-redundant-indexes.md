@@ -38,7 +38,7 @@ The index review tool analyzes all collections and indexes to provide a listing 
 
 cd performance/index-review/
 
-python3 index-review.py -—server-alias <server-alias> —uri <mongodb-uri>
+python3 index-review.py --server-alias <server-alias> --uri <mongodb-uri>
 
 ```
 

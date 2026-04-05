@@ -2,8 +2,8 @@
 
 ###### Topics
 
-- [Migrating existing DocumentDB clusters to serverless](#w2aac41c19b5 "#w2aac41c19b5")
-- [Migrating from MongoDB to DocumentDB serverless](#w2aac41c19b7 "#w2aac41c19b7")
+- [Migrating existing DocumentDB clusters to serverless](#w2aac43c19b5 "#w2aac43c19b5")
+- [Migrating from MongoDB to DocumentDB serverless](#w2aac43c19b7 "#w2aac43c19b7")
 
 ## Migrating existing DocumentDB clusters to serverless
 

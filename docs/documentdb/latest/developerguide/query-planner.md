@@ -26,6 +26,7 @@ The following prerequisites apply to planner version 2.0:
 - To opt for using version 2.0 as the default query planner, your cluster needs to be on engine patch version 3.0.15902 or later of Amazon DocumentDB version 5.0.
   For steps to update to the latest engine version patch, see [Performing a patch update to a cluster's engine version](db-cluster-version-upgrade.md "db-cluster-version-upgrade.md").
 - To set planner version 2.0 as the default query planner, you need IAM permissions to update cluster parameter groups.
+- For Amazon DocumentDB 8.0, planner version 3.0 is the default query planner. See [Query planner v3](query-planner-v3.md "query-planner-v3.md") for details.
 
 ## Selecting planner version 2.0 as the default query planner
 

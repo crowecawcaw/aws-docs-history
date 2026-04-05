@@ -59,7 +59,7 @@ Type: [DBClusterSnapshot](API_DBClusterSnapshot.md "API_DBClusterSnapshot.md") o
 
 ## Errors
 
-For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
 
 **DBClusterNotFoundFault**
 

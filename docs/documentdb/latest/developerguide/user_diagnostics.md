@@ -780,7 +780,7 @@ Output from this operation looks something like the following (JSON format).
 
 ###### Note
 
-The engine version for Amazon DocumentDB 3.6 is 1.x.x and the engine version for Amazon DocumentDB 4.0 is 2.x.x.
+The engine version for Amazon DocumentDB 3.6 is 1.x.x, the engine version for Amazon DocumentDB 4.0 is 2.x.x, the engine version for Amazon DocumentDB 5.0 is 3.x.x, and the engine version for Amazon DocumentDB 8.0 is 4.x.x.
 
 ## How do I analyze index usage and identify unused indexes?
 

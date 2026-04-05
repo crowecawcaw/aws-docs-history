@@ -24,6 +24,7 @@ It is generally advised to choose maintenance windows that minimize the impact o
 - [User-initiated updates](#user-initiated-updates "#user-initiated-updates")
 - [Managing your Amazon DocumentDB maintenance windows](#maintenance-window "#maintenance-window")
 - [Amazon DocumentDB operating system updates](#os-system-updates "#os-system-updates")
+- [Global clusters patching](#global-clusters-patching "#global-clusters-patching")
 
 ## Notifications for Amazon DocumentDB engine patches
 
@@ -430,3 +431,33 @@ It can also be viewed by running the AWS CLI `describe-pending-maintenance-actio
 
 If you are not running the latest cluster patch release of your Amazon DocumentDB engine, you may not see operating system update listed as available maintenance.
 In order to view and manage the operating system update, you should first upgrade to the latest engine patch version.
+
+## Global clusters patching
+
+Engine patch version of primary and secondary clusters are upgraded during each cluster's maintenance window.
+You will get a notification once a new engine patch version is available in all regions.
+The notification is sent out through Health Dashboard and email.
+
+Once you receive the notification, you can choose to self-apply these engine patches to your secondary and primary clusters.
+Always patch secondary clusters first, then the primary cluster.
+This order ensures that FailOver and SwitchOver remain available throughout the patching process.
+
+###### Important
+
+If you have already patched the primary cluster before the secondary clusters, update all secondary clusters to the same version as soon as possible.
+FailOver and SwitchOver will not work until all secondary and primary clusters are on the same version.
+
+If you do not choose to self-apply, the patch will be applied automatically during each cluster's next maintenance window.
+It will be applied on secondary clusters first.
+Once all secondary clusters are patched, the patch will be applied on the primary cluster during the primary cluster's next maintenance window.
+
+We recommend that you upgrade the primary and secondary DB clusters to the same version.
+You can only perform a managed cross-Region database failover on an Amazon DocumentDB global database if the primary and secondary DB clusters have the same engine version and patch level.
+
+When primary and secondary clusters are on different engine patch versions, FailOver and SwitchOver requests will be rejected to avoid engine version compatibility issues.
+This can also occur when you add a new secondary cluster to a global database using a newer engine version than the primary cluster.
+To avoid this, ensure that any new secondary cluster is created with the same engine version as the primary cluster before adding it to the global database.
+
+Once you receive the patch notification, we recommend upgrading your primary and secondary clusters to the latest version at your earliest opportunity to ensure SwitchOver and FailOver continue to work as expected.
+If your FailOver or SwitchOver request is rejected, check the engine patch version on your primary and secondary clusters.
+If they don't match, check and apply the available patch on your secondary and primary clusters.

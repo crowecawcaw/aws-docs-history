@@ -4,9 +4,9 @@
 
 | Option       | 3.6 | 4.0 | 5.0 | 8.0 | Elastic Cluster |
 | ------------ | --- | --- | --- | --- | --------------- |
-| single field | No  | No  | Yes | Yes | Yes             |
-| compound     | No  | No  | Yes | Yes | Yes             |
-| multi-key    | No  | No  | Yes | Yes | Yes             |
+| single field | No  | No  | Yes | Yes | No              |
+| compound     | No  | No  | Yes | Yes | No              |
+| multi-key    | No  | No  | Yes | Yes | No              |
 | geospatial   | No  | No  | No  | No  | No              |
 
 Use the partialFilterExpression option to create a partial index that only includes documents that meet a specified filter condition. This allows you to create more efficient indexes by indexing only a subset of documents in a collection, rather than indexing all documents, reducing the index size and saving space in memory. Because the index size is smaller, the queries that use it are more efficient. Amazon DocumentDB will use the partial index in the following scenarios:
@@ -144,44 +144,4 @@ db.collection.find({
     $eq: "The Manufacturer"
   }
 })
-```
-
-geospatial
-
-Create a partial geospatial index on supplier.location for products that have a manufacturer of The Manufacturer:
-
-```
-db.collection.createIndex(
-  {
-    "supplier.location": "2dsphere"
-  },
-  {
-    "name": "location_the_manufacturer",
-    "partialFilterExpression": {
-      "manufacturer": {
-        $eq: "The Manufacturer"
-      }
-    }
-  }
-)
-```
-
-This index will be used when finding products near a specified location that have a manufacturer of The Manufacturer:
-
-```
-db.collection.find({
-  "supplier.location": {
-    $nearSphere: {
-      $geometry: {
-        "type": "Point",
-        "coordinates": [-71.0589, 42.3601]
-      },
-      $minDistance: 0,
-      $maxDistance: 1000000
-    }
-  },
-  "manufacturer": {
-    $eq: "The Manufacturer"
-  }
- })
 ```

@@ -223,7 +223,7 @@ The command above returns the following results:
 
 ```
 { "_id" : 1, "star_rating" : 4, "comments" : "apple is red" }
-{ "_id" : 3, "star_rating" : 3, "comments" : "apple - a healthy fruit" }
+{ "_id" : 3, "star_rating" : 3, "comments" : "apples, oranges - healthy fruit" }
 { "_id" : 4, "star_rating" : 2, "comments" : "bake the apple pie in the oven" }
 { "_id" : 2, "star_rating" : 5, "comments" : "pie is delicious" }
 ```
@@ -305,6 +305,7 @@ Amazon DocumentDB 8.0 introduces a new version of text index (V2) that changes u
 In addition to the functionalities provided by the V1 text indexes, V2 text indexes also provide the following support:
 
 - The planner moves $match stages earlier in the pipeline when possible, reducing the number of documents processed by subsequent stages.
+- Improved tokenization of special characters in text fields, such as emails, URLs, and file paths. V2 can parse and match individual tokens within these strings, whereas V1 could not.
 
 ```
 
@@ -317,18 +318,15 @@ rs0:PRIMARY> db.coll.find()
 { "_id" : 5, "a" : "http://www.company.com/path" }
 { "_id" : 6, "a" : "https://company.com/path/../home" }
 
-//Sample queries
+// Sample query
 rs0:PRIMARY> db.coll.find({ $text: { $search: "jane" } });
-rs0:PRIMARY> db.coll.find({ $text: { $search: "doe_1234" } });
-rs0:PRIMARY> db.coll.find({ $text: { $search: "http" } });
 
-// Text Index V1 results
+// V1 text index — no results
 None
 
-// Text Index V2 results
+// V2 text index — matches tokens within emails and file paths
 { "_id" : 1, "a" : "jane.doe_1234@company.com" }
 { "_id" : 4, "a" : "/home/user/path/jane.pdf" }
-{ "_id" : 5, "a" : "http://www.company.com/path" }
 
 ```
 

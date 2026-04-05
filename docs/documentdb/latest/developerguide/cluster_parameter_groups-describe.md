@@ -7,6 +7,7 @@ Subsequent clusters, which are created in the same region and have the same engi
 
 - [Describing the details of a cluster parameter group](#cluster_parameter_groups-describe_details "#cluster_parameter_groups-describe_details")
 - [Determining a cluster's parameter group](#cluster_parameter_groups-determine "#cluster_parameter_groups-determine")
+- [Determining clusters and instances associated with a cluster parameter group](#cluster_parameter_groups-count "#cluster_parameter_groups-count")
 
 ## Describing the details of an Amazon DocumentDB cluster parameter group
 
@@ -204,4 +205,48 @@ Output from this operation looks something like the following (JSON format).
            **"sample-parameter-group"**
        ]
 ]
+```
+
+## Determining clusters and instances associated with a Amazon DocumentDB cluster parameter group
+
+To determine how many clusters and instances are associated with each parameter group, complete
+the following steps using the AWS CLI.
+
+Using the AWS CLI
+The following AWS CLI code determines how many clusters and instances are associated with `sample-parameter-group`.
+
+For Linux, macOS, or Unix:
+
+```
+aws docdb describe-db-clusters \
+      --query 'DBClusters[*].[DBClusterParameterGroup,DBClusterIdentifier,DBClusterMembers[*].DBInstanceIdentifier]' \
+      --output json | \
+      jq -r 'group_by(.[0]) | map({
+         parameter_group_name: .[0][0],
+         total_clusters: length,
+         total_instances: map(.[2] | length) | add // 0
+      }) | .[]'
+```
+
+For Windows:
+
+```
+aws docdb describe-db-clusters ^
+      --query 'DBClusters[*].[DBClusterParameterGroup,DBClusterIdentifier,DBClusterMembers[*].DBInstanceIdentifier]' ^
+      --output json | ^
+      jq -r 'group_by(.[0]) | map({
+         parameter_group_name: .[0][0],
+         total_clusters: length,
+         total_instances: map(.[2] | length) | add // 0
+      }) | .[]'
+```
+
+Output from this operation looks something like the following (JSON format).
+
+```
+{
+   "parameter_group_name": "`sample-parameter-group`",
+   "total_clusters": 50,
+   "total_instances": 150
+}
 ```

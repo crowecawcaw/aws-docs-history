@@ -63,7 +63,7 @@ Ensure your queries always utilize indexes for optimal performance. Amazon Docum
 - Compound indexes offer the most flexibility by supporting various query shapes with a single index
 - Design indexes to support sorting and filtering operations together
 
-**Understanding Index Prefixes:** Compound indexes work through index prefixes - Amazon DocumentDB can use any left-to-right subset of the index fields. The index above `{ category: 1, price: -1, inStock: 1 }` creates these usable prefixes:
+**Understanding Index Prefixes:** Compound indexes work through index prefixes - Amazon DocumentDB can use any left-to-right subset of the index fields. For example, the index `{ category: 1, price: -1, inStock: 1 }` creates these usable prefixes:
 
 - `{ category: 1 }` - supports queries filtering by category only
 - `{ category: 1, price: -1 }` - supports queries filtering by category and sorting/filtering by price

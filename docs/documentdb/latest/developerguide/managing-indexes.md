@@ -11,16 +11,16 @@ Building indexes in Amazon DocumentDB requires a number of decisions to be made:
 
 - How quickly does it need to be completed?
 - Can the collection be inaccessible while the build is occurring?
-- How much of an instances compute power can be allocated to the build?
+- How much of an instance's compute power can be allocated to the build?
 - What type of index should be created?
 
-This section helps you answer these questions and provides the commands and monitoring examples to create and Amazon DocumentDB index on your instance-based cluster collection.
+This section helps you answer these questions and provides the commands and monitoring examples to create an Amazon DocumentDB index on your instance-based cluster collection.
 
 ### Guidelines
 
 The following guidelines include basic limits and configuration tradeoffs when creating new indexes:
 
-- **Amazon DocumentDB version support** - While single worker indexing is supported on all Amazon DocumentDB versions, multiple worker indexing is supported only on Amazon DocumentDB versions 4.0 and 5.0.
+- **Amazon DocumentDB version support** - While single worker indexing is supported on all Amazon DocumentDB versions, multiple worker indexing is supported only on Amazon DocumentDB versions 4.0, 5.0, and 8.0.
 - **Performance trade-off** - Increasing the number of workers in the index creation process increases CPU utilization and read IO on the primary instance of your Amazon DocumentDB database.
   The resources needed to create a new index will not be available to your running workload.
 - **Elastic clusters** - Parallel indexing is not supported on Amazon DocumentDB elastic clusters.

@@ -20,7 +20,7 @@ The following is an example operation:
 
 ```
 
-db.collection.find({ companyname: { '$eq': 'ANYCOMPANY' } }, { isDeleted: { '$eq': false } }).sort({"createdAt":1}).limit(2).explain("executionStats");
+db.collection.find({ companyname: { '$eq': 'ANYCOMPANY' }, isDeleted: { '$eq': false } }).sort({"createdAt":1}).limit(2).explain("executionStats");
 
 ```
 

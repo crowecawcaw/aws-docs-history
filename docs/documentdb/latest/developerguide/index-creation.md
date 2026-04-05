@@ -1,7 +1,5 @@
 # Index creation
 
-For vector index creation, see [Vector indexes](indexes-vector.md "indexes-vector.md").
-
 Building indexes in Amazon DocumentDB requires a number of decisions to be made:
 
 - How quickly does it need to be completed?
