@@ -119,7 +119,7 @@ string may vary based on your shell version.
 
 ```
 aws iam create-role --role-name AWSResilienceHubAssessmentRole --assume-role-policy-document '{
-  "Version": "2012-10-17",		 	 	 "Statement":
+  "Version": "2012-10-17","Statement":
   [
     {
       "Effect": "Allow",

@@ -90,7 +90,7 @@ JSON string may vary based on your shell version.
 `create-role`**
 
 ```
-aws iam create-role --role-name AWSResilienceHubAssessmentRole --assume-role-policy-document '{"Version": "2012-10-17",		 	 	 "Statement": [{"Effect": "Allow","Principal": {"AWS": ["arn:aws:iam::primary_account_id:role/InvokerRoleName"]},"Action": "sts:AssumeRole"}]}'
+aws iam create-role --role-name AWSResilienceHubAssessmentRole --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{"Effect": "Allow","Principal": {"AWS": ["arn:aws:iam::primary_account_id:role/InvokerRoleName"]},"Action": "sts:AssumeRole"}]}'
 ```
 
 You can also define the trust policy for the role using a separate
