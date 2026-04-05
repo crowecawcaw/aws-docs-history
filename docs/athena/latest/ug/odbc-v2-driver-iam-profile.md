@@ -1,10 +1,19 @@
 # IAM profile
 
-You can configure a named profile to connect to Amazon Athena using the ODBC driver. To
-use the credentials available in your hosting Amazon EC2 instance profile, set the
-`credential_source` parameter to `Ec2InstanceMetadata`. If you
-want to use a custom credentials provider in a named profile, specify a value for the
-`plugin_name` parameter in your profile configuration.
+You can configure a named profile to connect to Amazon Athena using the ODBC driver. You
+can use a named profile with one of the following credential sources:
+
+- `Ec2InstanceMetadata` – Retrieves credentials from the Amazon EC2
+  Instance Metadata Service (IMDS). Use this when running on an Amazon EC2 instance.
+- `EcsContainer` – Retrieves credentials from the Amazon ECS Task
+  Role endpoint. Use this when running in an Amazon ECS container.
+- `Environment` – Retrieves credentials from environment
+  variables (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`,
+  `AWS_SESSION_TOKEN`).
+  Set the `credential_source` parameter in your AWS profile configuration
+  to the appropriate value for your environment. If you want to use a custom credentials
+  provider in a named profile, specify a value for the `plugin_name` parameter
+  in your profile configuration.
 
 ## Authentication type
 

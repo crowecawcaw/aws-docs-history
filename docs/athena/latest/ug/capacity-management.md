@@ -72,18 +72,11 @@ For information about estimating your capacity requirements, see [Determine capa
 - To delete a workgroup that has been assigned to a reservation, remove the
   workgroup from the reservation first.
 - Workgroups configured to use Apache Spark are not supported.
-- Capacity reservations is available in the following AWS Regions:
-  - US East (N. Virginia)
-  - US East (Ohio)
-  - US West (Oregon)
-  - Asia Pacific (Mumbai)
-  - Asia Pacific (Singapore)
-  - Asia Pacific (Sydney)
-  - Asia Pacific (Tokyo)
-  - Europe (Ireland)
-  - Europe (Spain)
-  - Europe (Stockholm)
-  - South America (São Paulo)
+- Capacity reservations is not available in the following commercial AWS Regions:
+  - Israel (Tel Aviv)
+  - Middle East (UAE)
+  - Middle East (Bahrain)
+  - Asia Pacific (New Zealand)
 
 ###### Topics
 

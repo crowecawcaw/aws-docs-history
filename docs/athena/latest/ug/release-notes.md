@@ -17,6 +17,31 @@ Describes Amazon Athena features, improvements, and bug fixes by release date.
 
 ## Athena release notes for 2026
 
+### March 27, 2026
+
+Published on 2026-03-27
+
+Amazon Athena now supports Capacity Reservations in the following commercial AWS Regions:
+US West (N. California), Africa (Cape Town), Asia Pacific (Hong Kong), Asia Pacific (Hyderabad),
+Asia Pacific (Jakarta), Asia Pacific (Malaysia), Asia Pacific (Melbourne),
+Asia Pacific (Osaka), Asia Pacific (Seoul), Asia Pacific (Thailand),
+Asia Pacific (Taipei), Canada (Central), Canada West (Calgary),
+Europe (Frankfurt), Europe (London), Europe (Milan),
+Europe (Paris), Europe (Zurich), and Mexico (Central).
+
+To learn more, see [Manage query processing capacity](capacity-management.md "capacity-management.md") and
+[Amazon Athena pricing](https://aws.amazon.com/athena/pricing/ "https://aws.amazon.com/athena/pricing/").
+
+### March 20, 2026
+
+Published on 2026-03-20
+
+Athena releases ODBC driver version 2.1.0.0. This release includes security
+improvements to authentication flows, query processing, and transport security.
+We recommend upgrading to this version as soon as possible. For more information about this version of
+the driver, see [Amazon Athena ODBC 2.x release notes](odbc-v2-driver-release-notes.md "odbc-v2-driver-release-notes.md"). To download the ODBC 2.x driver, see
+[ODBC 2.x driver download](odbc-v2-driver.md#odbc-v2-driver-download "odbc-v2-driver.md#odbc-v2-driver-download").
+
 ### February 10, 2026
 
 Published on 2026-02-10

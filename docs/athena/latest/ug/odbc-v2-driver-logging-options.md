@@ -1,5 +1,13 @@
 # Logging options
 
+###### Warning
+
+Security: When logging is enabled at verbose levels
+(DEBUG or TRACE), the AWS SDK used by the driver may log sensitive information such
+as authentication tokens and credentials in plaintext. Use verbose logging only for
+troubleshooting, and ensure log files are stored securely and deleted after use. Do
+not enable verbose logging in production environments.
+
 Administrator rights are required to modify the settings described here. To make the
 changes, you can use the ODBC Data Source Administrator **Logging Options**
 dialog box or modify the Windows registry directly.

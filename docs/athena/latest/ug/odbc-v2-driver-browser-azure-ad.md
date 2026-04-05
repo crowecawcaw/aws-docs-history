@@ -5,6 +5,13 @@ provider and supports multi-factor authentication. Unlike the standard Azure AD 
 plugin does not require a user name, password, or client secret in the connection
 parameters.
 
+###### Note
+
+v2.1.0.0 security update: Starting in v2.1.0.0,
+the BrowserAzureAD plugin includes PKCE (Proof Key for Code Exchange) in the OAuth 2.0
+authorization flow. This prevents authorization code interception attacks on shared
+systems. No configuration changes are required.
+
 ## Authentication Type
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**        |
@@ -63,6 +70,13 @@ Enables a temporary credentials cache. This connection parameter enables tempora
 credentials to be cached and reused between multiple processes. Use this option to
 reduce the number of opened browser windows when you use BI tools such as Microsoft
 Power BI.
+
+###### Note
+
+Starting in v2.1.0.0, cached credentials are stored as plaintext JSON in the
+`user-profile/.athena-odbc/` directory with file permissions
+restricted to the owning user, consistent with how the AWS CLI
+protects locally stored credentials.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |

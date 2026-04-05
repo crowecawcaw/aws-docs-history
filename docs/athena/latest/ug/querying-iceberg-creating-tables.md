@@ -131,6 +131,14 @@ _vacuum_max_metadata_files_to_keep_
 | **Allowed property<br>values** | A positive number.                                                                     |
 | **Default value**              | 100                                                                                    |
 
+_write_data_path_enabled_
+
+|                                |                                                                                                                                                                                                                                                                                                |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Description**                | When set to `true`, the Iceberg table is<br>created with the `write.data.path` property<br>instead of the deprecated<br>`write.object-storage.path` property. Use<br>this option to ensure compatibility with Iceberg 1.9.0 and<br>later, which no longer supports the deprecated<br>property. |
+| **Allowed property<br>values** | `true`, `false`                                                                                                                                                                                                                                                                                |
+| **Default value**              | false                                                                                                                                                                                                                                                                                          |
+
 ### Example CREATE TABLE statement
 
 The following example creates an Iceberg table that has three columns.

@@ -38,6 +38,16 @@ plugins.
 Disables SSL when communicating with the IdP. This option is available for the
 Azure AD, Browser Azure AD, Okta, Ping, and AD FS authentication plugins.
 
+###### Important
+
+Breaking change in v2.1.0.0: The default behavior
+for SSL certificate validation when connecting to identity providers has changed.
+In versions before 2.1.0.0, SSL validation was disabled by default. Starting in
+v2.1.0.0, SSL validation is enabled by default for all IdP connections. The driver
+also enforces TLS 1.2 as the minimum TLS version. If you use a local identity
+provider without a valid SSL certificate (for testing purposes only), set
+`SSL_Insecure=1` in your connection string.
+
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
 | SSL_Insecure               | Optional           | `0`               | `SSL_Insecure=1;`             |

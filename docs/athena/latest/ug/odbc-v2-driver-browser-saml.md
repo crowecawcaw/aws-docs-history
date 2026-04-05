@@ -4,6 +4,13 @@ Browser SAML is a generic authentication plugin that can work with SAML based id
 providers and support multi-factor authentication. For detailed configuration
 information, see [Configure single sign-on using ODBC, SAML 2.0, and the Okta Identity Provider](okta-saml-sso.md "okta-saml-sso.md").
 
+###### Note
+
+v2.1.0.0 security update: Starting in v2.1.0.0,
+the BrowserSAML plugin includes CSRF protection via RelayState validation. The driver
+generates a random state token, includes it as a RelayState parameter in the login URL,
+and validates it against the received response before accepting SAML assertions.
+
 ## Authentication type
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**     |
@@ -33,6 +40,12 @@ The duration, in seconds, of the role session. For more information, see [Assume
 ## Login URL
 
 The single sign-on URL that is displayed for your application.
+
+###### Important
+
+Starting in v2.1.0.0, the login URL must use HTTP or HTTPS protocol with a
+valid authority. The driver validates the URL format before initiating the
+authentication flow.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                                                                 |
 | -------------------------- | ------------------ | ----------------- | ------------------------------------------------------------------------------------------------------------- |

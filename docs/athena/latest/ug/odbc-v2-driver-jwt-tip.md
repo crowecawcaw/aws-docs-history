@@ -92,6 +92,13 @@ default, the driver uses `%USERPROFILE%` in Windows and `HOME`
 path to write the file caches. Ensure that you provide read and write access for the
 path present in these two environment variables, for a better experience.
 
+###### Note
+
+Starting in v2.1.0.0, cached credentials are stored as plaintext JSON in the
+`user-profile/.athena-odbc/` directory with file permissions
+restricted to the owning user, consistent with how the AWS CLI
+protects locally stored credentials.
+
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
 | JwtTipFileCache            | Optional           | `0`               | `JwtTipFileCache=1;`          |
