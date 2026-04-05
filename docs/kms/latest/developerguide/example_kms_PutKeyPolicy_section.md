@@ -231,7 +231,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
 ```
     TRY.
         " iv_key_id = 'arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab'
-        " iv_policy = '{"Version":"2012-10-17",		 	 	  "Statement": [...]}'
+        " iv_policy = '{"Version":"2012-10-17", "Statement": [...]}'
         lo_kms->putkeypolicy(
           iv_keyid = iv_key_id
           iv_policyname = 'default'
