@@ -1,5 +1,12 @@
 # Supported CloudWatch metrics
 
+###### Note
+
+AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026.
+If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md "cloudtrail-lake-service-availability-change.md").
+
 CloudTrail Lake supports Amazon CloudWatch metrics. CloudWatch is a monitoring service for AWS resources. You can use CloudWatch to collect and track metrics, set alarms, and automatically react to changes in your AWS resources.
 
 The `AWS/CloudTrail` namespace includes the following metrics for CloudTrail Lake.

@@ -1,5 +1,12 @@
 # Create an event data store for Insights events with the console
 
+###### Note
+
+AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026.
+If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md "cloudtrail-lake-service-availability-change.md").
+
 AWS CloudTrail Insights help AWS users identify and respond to unusual activity associated with API call rates and API error rates by continuously analyzing CloudTrail management events. CloudTrail Insights analyze your normal patterns of API call rates and
 API error rates, also called the _baseline_, and generate Insights events
 when the call volume or error rates are outside normal patterns. Insights events on API call

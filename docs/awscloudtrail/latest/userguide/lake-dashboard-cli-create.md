@@ -142,7 +142,7 @@ Replace `account-id` with your account ID and `dashboard-arn` with the ARN of th
 ```
 aws cloudtrail put-resource-policy \
 --resource-arn `dashboard-arn` \
---resource-policy '{"Version": "2012-10-17",		 	 	  "Statement": [{"Sid": "DashboardPolicy", "Effect": "Allow", "Principal": { "Service": "cloudtrail.amazonaws.com" }, "Action": "cloudtrail:StartDashboardRefresh", "Condition": { "StringEquals": { "AWS:SourceArn": "`dashboard-arn`", "AWS:SourceAccount": "`account-id`"}}}]}'
+--resource-policy '{"Version": "2012-10-17", "Statement": [{"Sid": "DashboardPolicy", "Effect": "Allow", "Principal": { "Service": "cloudtrail.amazonaws.com" }, "Action": "cloudtrail:StartDashboardRefresh", "Condition": { "StringEquals": { "AWS:SourceArn": "`dashboard-arn`", "AWS:SourceAccount": "`account-id`"}}}]}'
 ```
 
 5. Run the `update-dashboard` command to set and enable a refresh schedule by configuring the `--refresh-schedule` parameter.
@@ -196,7 +196,7 @@ dashboard.
 ```
 aws cloudtrail put-resource-policy \
 --resource-arn `eds-arn` \
---resource-policy '{"Version": "2012-10-17",		 	 	  "Statement": [{"Sid": "EDSPolicy", "Effect": "Allow", "Principal": { "Service": "cloudtrail.amazonaws.com" }, "Action": "cloudtrail:StartQuery", "Condition": { "StringEquals": { "AWS:SourceArn": "`dashboard-arn`", "AWS:SourceAccount": "`account-id`"}}} ]}'
+--resource-policy '{"Version": "2012-10-17", "Statement": [{"Sid": "EDSPolicy", "Effect": "Allow", "Principal": { "Service": "cloudtrail.amazonaws.com" }, "Action": "cloudtrail:StartQuery", "Condition": { "StringEquals": { "AWS:SourceArn": "`dashboard-arn`", "AWS:SourceAccount": "`account-id`"}}} ]}'
 ```
 
 3. Run the `put-resource-policy` command to attach a resource-based policy to the dashboard. For an example policy, see [Resource-based policy example for a dashboard](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-dashboards "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-dashboards").
@@ -207,7 +207,7 @@ Replace `account-id` with your account ID and `dashboard-arn` with the ARN of th
 ```
 aws cloudtrail put-resource-policy \
 --resource-arn `dashboard-arn` \
---resource-policy '{"Version": "2012-10-17",		 	 	  "Statement": [{"Sid": "DashboardPolicy", "Effect": "Allow", "Principal": { "Service": "cloudtrail.amazonaws.com" }, "Action": "cloudtrail:StartDashboardRefresh", "Condition": { "StringEquals": { "AWS:SourceArn": "`dashboard-arn`", "AWS:SourceAccount": "`account-id`"}}}]}'
+--resource-policy '{"Version": "2012-10-17", "Statement": [{"Sid": "DashboardPolicy", "Effect": "Allow", "Principal": { "Service": "cloudtrail.amazonaws.com" }, "Action": "cloudtrail:StartDashboardRefresh", "Condition": { "StringEquals": { "AWS:SourceArn": "`dashboard-arn`", "AWS:SourceAccount": "`account-id`"}}}]}'
 ```
 
 4. Run the `update-dashboard` command to set and enable a refresh schedule by configuring the `--refresh-schedule` parameter. For the Highlights dashboard,

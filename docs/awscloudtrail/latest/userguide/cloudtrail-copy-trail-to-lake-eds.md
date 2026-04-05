@@ -1,5 +1,12 @@
 # Copy trail events to an event data store
 
+###### Note
+
+AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026.
+If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md "cloudtrail-lake-service-availability-change.md").
+
 You can copy trail events to a CloudTrail Lake event data store to create a point-in-time snapshot of events logged to the trail. Copying a trail's events does not interfere with the trail's ability to log events and does not modify
 the trail in any way.
 

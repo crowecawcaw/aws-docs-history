@@ -1,5 +1,12 @@
 # CloudTrail Lake event data stores
 
+###### Note
+
+AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026.
+If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md "cloudtrail-lake-service-availability-change.md").
+
 When you create an event data store in CloudTrail Lake, you choose the type of events to
 include in your event data store. You can create an event data store to include CloudTrail
 events (management events, data events, or network activity events), CloudTrail Insights events, AWS Config

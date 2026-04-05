@@ -1,5 +1,12 @@
 # Disable Lake query federation
 
+###### Note
+
+AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026.
+If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md "cloudtrail-lake-service-availability-change.md").
+
 You can disable federation by using the CloudTrail console, AWS CLI, or
 [DisableFederation](../APIReference/API_DisableFederation.md "../APIReference/API_DisableFederation.md") API operation.
 When you disable federation, CloudTrail disables the integration with AWS Glue, AWS Lake Formation, and Amazon Athena.

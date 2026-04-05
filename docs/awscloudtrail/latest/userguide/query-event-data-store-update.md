@@ -1,5 +1,12 @@
 # Update an event data store with the console
 
+###### Note
+
+AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026.
+If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md "cloudtrail-lake-service-availability-change.md").
+
 This section describes how to update an event data store's settings using the
 AWS Management Console. For information about how to update an event data store using the AWS CLI,
 see [Update an event data store with the AWS CLI](lake-cli-update-eds.md "lake-cli-update-eds.md").

@@ -76,7 +76,7 @@ dashboard.
 ```
 aws cloudtrail put-resource-policy \
 --resource-arn `eds-arn` \
---resource-policy '{"Version": "2012-10-17",		 	 	  "Statement": [{"Sid": "EDSPolicy", "Effect": "Allow", "Principal": { "Service": "cloudtrail.amazonaws.com" }, "Action": "cloudtrail:StartQuery", "Condition": { "StringEquals": { "AWS:SourceArn": "`dashboard-arn`", "AWS:SourceAccount": "`account-id`"}}} ]}'
+--resource-policy '{"Version": "2012-10-17", "Statement": [{"Sid": "EDSPolicy", "Effect": "Allow", "Principal": { "Service": "cloudtrail.amazonaws.com" }, "Action": "cloudtrail:StartQuery", "Condition": { "StringEquals": { "AWS:SourceArn": "`dashboard-arn`", "AWS:SourceAccount": "`account-id`"}}} ]}'
 ```
 
 ### Attach a resource-based policy to a dashboard
@@ -90,7 +90,7 @@ Replace `account-id` with your account ID and `dashboard-arn` with the ARN of th
 ```
 aws cloudtrail put-resource-policy \
 --resource-arn `dashboard-arn` \
---resource-policy '{"Version": "2012-10-17",		 	 	  "Statement": [{"Sid": "DashboardPolicy", "Effect": "Allow", "Principal": { "Service": "cloudtrail.amazonaws.com" }, "Action": "cloudtrail:StartDashboardRefresh", "Condition": { "StringEquals": { "AWS:SourceArn": "`dashboard-arn`", "AWS:SourceAccount": "`account-id`"}}}]}'
+--resource-policy '{"Version": "2012-10-17", "Statement": [{"Sid": "DashboardPolicy", "Effect": "Allow", "Principal": { "Service": "cloudtrail.amazonaws.com" }, "Action": "cloudtrail:StartDashboardRefresh", "Condition": { "StringEquals": { "AWS:SourceArn": "`dashboard-arn`", "AWS:SourceAccount": "`account-id`"}}}]}'
 ```
 
 ## Manually refresh a dashboard with the AWS CLI

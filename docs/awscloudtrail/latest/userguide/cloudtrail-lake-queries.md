@@ -1,5 +1,12 @@
 # CloudTrail Lake queries
 
+###### Note
+
+AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026.
+If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md "cloudtrail-lake-service-availability-change.md").
+
 Queries in CloudTrail Lake are authored in SQL. You can build a query
 on the CloudTrail Lake **Editor** tab by writing the query in SQL from
 scratch, by opening a saved or sample query and editing it, or by using the query generator

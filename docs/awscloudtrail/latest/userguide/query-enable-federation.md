@@ -1,5 +1,12 @@
 # Enable Lake query federation
 
+###### Note
+
+AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026.
+If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md "cloudtrail-lake-service-availability-change.md").
+
 You can enable Lake query federation by using the CloudTrail console, AWS CLI, or
 [EnableFederation](../APIReference/API_EnableFederation.md "../APIReference/API_EnableFederation.md")
 API operation. When you enable Lake query federation, CloudTrail creates a managed database named `aws:cloudtrail` (if the database doesn't already exist) and a managed federated table in

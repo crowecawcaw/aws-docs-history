@@ -1,5 +1,12 @@
 # Create an event data store for CloudTrail events with the console
 
+###### Note
+
+AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026.
+If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md "cloudtrail-lake-service-availability-change.md").
+
 Event data stores for CloudTrail events can include CloudTrail management events, data events, and
 network activity events. You can keep the event data in an event data store for up to 3,653 days (about 10 years) if you choose the **One-year extendable retention pricing** option,
 or up to 2,557 days (about 7 years) if you choose the **Seven-year retention pricing** option..

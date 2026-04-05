@@ -1,5 +1,12 @@
 # Federate an event data store
 
+###### Note
+
+AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026.
+If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md "cloudtrail-lake-service-availability-change.md").
+
 Federating an event data store lets you view the metadata associated with the event data store in the AWS Glue
 [Data Catalog](../../../glue/latest/dg/components-overview.md#data-catalog-intro "../../../glue/latest/dg/components-overview.md#data-catalog-intro"),
 registers the Data Catalog with AWS Lake Formation, and lets you run SQL queries against your event data using Amazon Athena. The table metadata stored in the AWS Glue Data Catalog

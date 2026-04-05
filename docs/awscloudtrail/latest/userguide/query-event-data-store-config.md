@@ -1,5 +1,12 @@
 # Create an event data store for configuration items with the console
 
+###### Note
+
+AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026.
+If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md "cloudtrail-lake-service-availability-change.md").
+
 You can create an event data store to include [AWS Config configuration items](../../../config/latest/developerguide/config-concepts.md#config-items "../../../config/latest/developerguide/config-concepts.md#config-items"), and use
 the event data store to investigate non-compliant changes to your production
 environments. With an event data store, you can relate non-compliant rules to the users

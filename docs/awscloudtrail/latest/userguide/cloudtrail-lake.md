@@ -1,5 +1,12 @@
 # Working with AWS CloudTrail Lake
 
+###### Note
+
+AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026.
+If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md "cloudtrail-lake-service-availability-change.md").
+
 AWS CloudTrail Lake lets you run SQL-based queries on your events. CloudTrail Lake converts existing
 events in row-based JSON format to [Apache ORC](https://orc.apache.org/ "https://orc.apache.org/")
 format. ORC is a columnar storage format that is optimized for fast retrieval of data.

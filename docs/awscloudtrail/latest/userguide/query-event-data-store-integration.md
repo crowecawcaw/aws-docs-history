@@ -1,5 +1,12 @@
 # Create an integration with an event source outside of AWS
 
+###### Note
+
+AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026.
+If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md "cloudtrail-lake-service-availability-change.md").
+
 You can use CloudTrail to log and store user activity data from any source in your hybrid
 environments, such as in-house or SaaS applications hosted on-premises or in the cloud,
 virtual machines, or containers. You can store, access, analyze, troubleshoot and take

@@ -437,7 +437,7 @@ the [`CreateRole`](../../../IAM/latest/APIReference/API_CreateRole.md "../../../
     "requestParameters": {
         "roleName": "TestRole",
         "description": "Allows EC2 instances to call AWS services on your behalf.",
-        "assumeRolePolicyDocument": "{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"sts:AssumeRole\"],\"Principal\":{\"Service\":[\"ec2.amazonaws.com\"]}}]}"
+        "assumeRolePolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"sts:AssumeRole\"],\"Principal\":{\"Service\":[\"ec2.amazonaws.com\"]}}]}"
     },
     "responseElements": {
         "role": {

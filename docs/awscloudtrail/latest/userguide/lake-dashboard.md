@@ -1,5 +1,12 @@
 # CloudTrail Lake dashboards
 
+###### Note
+
+AWS CloudTrail Lake will no longer be open to new customers starting May 31, 2026.
+If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[CloudTrail Lake availability change](cloudtrail-lake-service-availability-change.md "cloudtrail-lake-service-availability-change.md").
+
 You can use CloudTrail Lake dashboards to see event trends for the event data stores in your account. CloudTrail Lake
 offers the following types of dashboards:
 
