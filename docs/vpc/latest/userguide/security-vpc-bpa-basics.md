@@ -32,7 +32,7 @@ and resources is impacted by VPC BPA:
 - **Egress-only internet gateway**: All outbound traffic is
   blocked. Egress-only internet gateways do not allow inbound traffic.
 - **Gateway Load Balancer (GWLB)**: All inbound
-  and outbound traffic is blocked even if the subnet containing GWLB endpoints
+  and outbound traffic is blocked unless the subnet containing GWLB endpoints
   is excluded.
 - **NAT gateway**: All inbound and outbound traffic is blocked. NAT
   gateways require an internet gateway for internet connectivity.
@@ -81,6 +81,12 @@ services and resources, is not blocked or impacted by VPC BPA:
   example, in order to resolve a DNS query, and may expose information
   about the activity of resources within your VPC if not mitigated through
   other security controls.
+- If you have an internet-facing load balancer and
+  you create a VPC BPA exclusion for only one of its subnets, the load
+  balancer can still receive public traffic in the excluded subnet and
+  route it privately to targets in subnets that are not excluded. To
+  ensure VPC BPA fully blocks public access to your targets, make sure
+  none of the load balancer subnets are excluded.
 
 ## VPC BPA limitations
 
