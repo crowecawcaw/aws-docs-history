@@ -58,7 +58,7 @@ Get-LMPolicy -FunctionName test -Select Policy
 **Output:**
 
 ```
-{"Version":"2012-10-17",		 	 	 "Id":"default","Statement":[{"Sid":"xxxx","Effect":"Allow","Principal":{"Service":"sns.amazonaws.com"},"Action":"lambda:InvokeFunction","Resource":"arn:aws:lambda:us-east-1:123456789102:function:test"}]}
+{"Version":"2012-10-17","Id":"default","Statement":[{"Sid":"xxxx","Effect":"Allow","Principal":{"Service":"sns.amazonaws.com"},"Action":"lambda:InvokeFunction","Resource":"arn:aws:lambda:us-east-1:123456789102:function:test"}]}
 ```
 
 - For API details, see
@@ -77,7 +77,7 @@ Get-LMPolicy -FunctionName test -Select Policy
 **Output:**
 
 ```
-{"Version":"2012-10-17",		 	 	 "Id":"default","Statement":[{"Sid":"xxxx","Effect":"Allow","Principal":{"Service":"sns.amazonaws.com"},"Action":"lambda:InvokeFunction","Resource":"arn:aws:lambda:us-east-1:123456789102:function:test"}]}
+{"Version":"2012-10-17","Id":"default","Statement":[{"Sid":"xxxx","Effect":"Allow","Principal":{"Service":"sns.amazonaws.com"},"Action":"lambda:InvokeFunction","Resource":"arn:aws:lambda:us-east-1:123456789102:function:test"}]}
 ```
 
 - For API details, see

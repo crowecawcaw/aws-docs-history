@@ -155,7 +155,7 @@ Python
 ```
 
 # Wait 1 hour without charges
-context.wait(3600)
+context.wait(Duration.from_seconds(3600))
 
 ```
 
@@ -295,11 +295,11 @@ Python
 
 ```
 
-results = context.parallel(
+results = context.parallel([
     lambda ctx: ctx.step(lambda _: process_task1(), name='task1'),
     lambda ctx: ctx.step(lambda _: process_task2(), name='task2'),
     lambda ctx: ctx.step(lambda _: process_task3(), name='task3')
-)
+])
 
 ```
 

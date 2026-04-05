@@ -103,7 +103,7 @@ Python
 
 ```
 # Wait for 1 hour without consuming resources
-context.wait(3600)
+context.wait(Duration.from_seconds(3600))
 
 # Wait for external callback
 approval = context.wait_for_callback(

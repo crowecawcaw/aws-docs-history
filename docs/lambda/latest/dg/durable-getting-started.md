@@ -93,7 +93,7 @@ Your function also demonstrates a wait operation, pausing execution for a short 
 6. Select **Enable durable execution**.
 
 Lambda creates your durable function with an [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") that includes permissions for
-checkpoint operations (`lambda:CheckpointDurableExecutions` and `lambda:GetDurableExecutionState`).
+checkpoint operations (`lambda:CheckpointDurableExecution` and `lambda:GetDurableExecutionState`).
 
 ###### Note
 
@@ -115,7 +115,6 @@ file explorer as shown on the following diagram.
 
 ```
 import {
-  DurableContext,
   withDurableExecution,
 } from "@aws/durable-execution-sdk-js";
 

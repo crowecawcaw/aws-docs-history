@@ -404,7 +404,7 @@ Set the `DurableConfig` property on your function to enable durable execution. T
 
 ###### Grant checkpoint permissions
 
-Attach the `AWSLambdaBasicDurableExecutionRolePolicy` managed policy to the execution role. This policy includes the required `lambda:CheckpointDurableExecutions` and `lambda:GetDurableExecutionState` permissions.
+Attach the `AWSLambdaBasicDurableExecutionRolePolicy` managed policy to the execution role. This policy includes the required `lambda:CheckpointDurableExecution` and `lambda:GetDurableExecutionState` permissions.
 
 ###### Use qualified ARNs
 

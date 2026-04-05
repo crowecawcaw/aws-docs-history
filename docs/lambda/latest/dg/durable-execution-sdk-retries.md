@@ -50,10 +50,10 @@ Python
 
 def retry_strategy(error, attempt_count):
     if attempt_count >= 5:
-        return {'should_retry': False}
+        return RetryDecision(should_retry=False)
     # Exponential backoff: 2s, 4s, 8s, 16s, 32s (capped at 300s)
     delay = min(2 * (2 ** (attempt_count - 1)), 300)
-    return {'should_retry': True, 'delay': delay}
+    return RetryDecision(should_retry=True, delay=delay)
 
 result = context.step(
     lambda _: call_external_api(),
@@ -88,8 +88,8 @@ Python
 
 def retry_strategy(error, attempt_count):
     if attempt_count >= 3:
-        return {'should_retry': False}
-    return {'should_retry': True, 'delay': 5}
+        return RetryDecision(should_retry=False)
+    return RetryDecision(should_retry=True, delay=5)
 
 orders = context.step(
     lambda _: query_database(event['userId']),
@@ -139,11 +139,11 @@ def retry_strategy(error, attempt_count):
     is_retryable = str(error) in ['RATE_LIMIT', 'TIMEOUT']
 
     if not is_retryable or attempt_count >= 3:
-        return {'should_retry': False}
+        return RetryDecision(should_retry=False)
 
     # Exponential backoff: 1s, 2s, 4s (capped at 30s)
     delay = min(2 ** (attempt_count - 1), 30)
-    return {'should_retry': True, 'delay': delay}
+    return RetryDecision(should_retry=True, delay=delay)
 
 result = context.step(
     lambda _: call_rate_limited_api(),

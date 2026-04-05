@@ -427,7 +427,7 @@ def lambda_handler(event, context: DurableContext):
     extracted = context.step(extract_data, name='extract-data')
 
     # Wait 5 minutes to respect source system rate limits
-    context.wait(300)
+    context.wait(Duration.from_seconds(300))
 
     # Stage 2: Transform data in batches
     def transform_data(_):

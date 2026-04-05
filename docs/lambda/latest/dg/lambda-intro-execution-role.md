@@ -62,7 +62,7 @@ requirements for escaping quotes in the JSON string may vary depending on your s
 ```
 `aws iam create-role \
  --role-name lambda-ex \
- --assume-role-policy-document '{"Version": "2012-10-17", "Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}'`
+ --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}'`
 ```
 
 You can also define the trust policy for the role using a separate JSON file. In the following example,

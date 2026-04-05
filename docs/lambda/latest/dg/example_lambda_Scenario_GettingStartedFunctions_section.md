@@ -4441,7 +4441,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
     TRY.
         "Create an AWS Identity and Access Management (IAM) role that grants AWS Lambda permission to write to logs."
         DATA(lv_policy_document) = `{` &&
-            `"Version":"2012-10-17",		 	 	 ` &&
+            `"Version":"2012-10-17",` &&
                   `"Statement": [` &&
                     `{` &&
                       `"Effect": "Allow",` &&

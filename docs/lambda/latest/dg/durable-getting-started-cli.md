@@ -47,7 +47,7 @@ aws iam attach-role-policy \
   --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicDurableExecutionRolePolicy
 ```
 
-The `AWSLambdaBasicDurableExecutionRolePolicy` managed policy includes the required permissions for checkpoint operations (`lambda:CheckpointDurableExecutions` and `lambda:GetDurableExecutionState`) and basic Lambda execution.
+The `AWSLambdaBasicDurableExecutionRolePolicy` managed policy includes the required permissions for checkpoint operations (`lambda:CheckpointDurableExecution` and `lambda:GetDurableExecutionState`) and basic Lambda execution.
 
 ## Create the durable function
 
@@ -274,7 +274,7 @@ aws iam delete-role --role-name `durable-function-role`
 
 After deploying your durable function with the AWS CLI:
 
-- Monitor executions using the `list-durable-executions` and `get-durable-execution` commands
+- Monitor executions using the `list-durable-executions-by-function` and `get-durable-execution` commands
 - View checkpoint operations in AWS CloudTrail data events
 - Set up CloudWatch alarms for execution failures or long-running executions
 - Automate deployments using shell scripts or CI/CD pipelines

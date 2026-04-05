@@ -6,7 +6,7 @@ TypeScript
 
 ```
 
-npm install --save-dev @aws/aws-durable-execution-sdk-js-testing
+npm install --save-dev @aws/durable-execution-sdk-js-testing
 
 ```
 
@@ -36,8 +36,8 @@ TypeScript
 
 ```
 
-import { withDurableExecution } from '@aws/aws-durable-execution-sdk-js';
-import { DurableFunctionTestRunner } from '@aws/aws-durable-execution-sdk-js-testing';
+import { withDurableExecution } from '@aws/durable-execution-sdk-js';
+import { DurableFunctionTestRunner } from '@aws/durable-execution-sdk-js-testing';
 
 const handler = withDurableExecution(async (event, context) => {
   const result = await context.step('calculate', async () => {
@@ -145,7 +145,7 @@ TypeScript
 
 ```
 
-import { DurableFunctionCloudTestRunner } from '@aws/aws-durable-execution-sdk-js-testing';
+import { DurableFunctionCloudTestRunner } from '@aws/durable-execution-sdk-js-testing';
 
 test('deployed function processes orders', async () => {
   const runner = new DurableFunctionCloudTestRunner({
