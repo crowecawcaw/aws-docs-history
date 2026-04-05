@@ -242,8 +242,9 @@ task DataProcessTask {
     }
 
     command <<<
+        set -eu
         # Download file from NCBI Datasets API with API key
-        wget "~{ncbi_api_url}" -O gene_data.json
+        curl -fsSL "~{ncbi_api_url}" -o gene_data.json
 
         # Add data processing task here
         cat gene_data.json > processed_data.json

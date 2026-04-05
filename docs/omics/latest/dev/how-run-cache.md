@@ -19,7 +19,7 @@ digests.
 HealthOmics supports call caching for these workflow language versions:
 
 - WDL versions 1.0, 1.1, and the development version
-- Nextflow version 23.10 and 24.10
+- Nextflow version 23.10 and later
 - All CWL versions
 
 ###### Note

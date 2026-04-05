@@ -23,6 +23,7 @@ Summary of HealthOmics support for plugins:
 - v22.04 – no support for plugins
 - v23.10 – supports `nf-schema` and `nf-validation`
 - v24.10 – supports `nf-schema`
+- v25.10 – supports `nf-schema`, `nf-core-utils`, and `nf-fgbio`
 
 HealthOmics provides the following support for Nextflow plugins:
 
@@ -132,7 +133,7 @@ process {
 
 ### Opt out of task retry using `omicsRetryOn5xx`
 
-For Nextflow v23 and v24, HealthOmics supports task retries if the task failed because of service errors (5XX HTTP
+For Nextflow v23 and later, HealthOmics supports task retries if the task failed because of service errors (5XX HTTP
 status codes). By default, HealthOmics attempts up to two retries of a failed task.
 
 You can configure `omicsRetryOn5xx` to opt out of task retry for service errors. For more
@@ -180,7 +181,7 @@ process {
 ### Task duration using the `time` directive
 
 HealthOmics provides an adjustable quota (see [HealthOmics service quotas](service-quotas.md "service-quotas.md")) to
-specify the maximum duration for a run. For Nextflow v23 and v24 workflows, you can also specify maximum task
+specify the maximum duration for a run. For Nextflow v23 and later workflows, you can also specify maximum task
 durations using the Nextflow `time` directive.
 
 During new workflow development, setting maximum task duration helps you catch runaway tasks and

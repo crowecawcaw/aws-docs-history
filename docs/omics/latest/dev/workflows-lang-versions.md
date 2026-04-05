@@ -34,7 +34,7 @@ see the [CWL user guide](https://github.com/common-workflow-language/user_guide 
 
 ## Nextflow version support
 
-HealthOmics supports three Nextflow stable versions. Nextflow typically releases a stable version every six months.
+HealthOmics supports four Nextflow stable versions. Nextflow typically releases a stable version every six months.
 HealthOmics doesn't support the monthly “edge” releases.
 
 HealthOmics supports released features in each version, but not preview features.
@@ -46,14 +46,15 @@ HealthOmics supports the following Nextflow versions:
 - Nextflow v22.04.01 DSL 1 and DSL 2
 - Nextflow v23.10.0 DSL 2 (default)
 - Nextflow v24.10.8 DSL 2
+- Nextflow v25.10.0 DSL 2
 
-To migrate your workflow to the latest supported version (v24.10.8), follow the [Nextflow upgrade guide](https://nextflow.io/docs/latest/migrations/24-10.html "https://nextflow.io/docs/latest/migrations/24-10.html").
+###### Note
 
-There are some breaking changes when migrating from Nextflow v23 to v24, as described in the following
-sections of the Nextflow migration guide:
+HealthOmics does not support strict syntax mode in Nextflow v25.10.0.
 
-- [Breaking changes in 24.04](https://www.nextflow.io/docs/latest/migrations/24-04.html#breaking-changes "https://www.nextflow.io/docs/latest/migrations/24-04.html#breaking-changes")
-- [Breaking changes in 24.10](https://www.nextflow.io/docs/latest/migrations/24-10.html#breaking-changes "https://www.nextflow.io/docs/latest/migrations/24-10.html#breaking-changes")
+To migrate your workflow to the latest supported version (v25.10.0), follow the [Nextflow upgrade guide](https://www.nextflow.io/docs/latest/migrations/25-10.html "https://www.nextflow.io/docs/latest/migrations/25-10.html").
+
+There are some breaking changes when migrating to Nextflow v24 and v25. Follow the [Nextflow migration guide](https://www.nextflow.io/docs/latest/migrations/index.html "https://www.nextflow.io/docs/latest/migrations/index.html").
 
 ### Detect and process Nextflow versions
 
@@ -68,7 +69,6 @@ HealthOmics detects the requested DSL version in your workflow definition file. 
 HealthOmics supports DSL 2 by default. It provides backwards compatibility with DSL 1, if specified in your
 workflow definition file.
 
-- If you specify DSL 2, HealthOmics runs Nextflow v23.10.0, unless you specify Nextflow v22.04.0 or v24.10.8.
 - If you specify DSL 1, HealthOmics runs Nextflow v22.04 DSL1 (the only supported version that runs DSL
   1).
 - If you don't specify a DSL version, or if HealthOmics can’t parse the DSL information for any reason (such
@@ -110,9 +110,10 @@ HealthOmics processes the Nextflow version information as follows:
 - If you use **!** to specify an exact version or a range of versions that are not
   supported, HealthOmics raises an exception and fails the run. Consider using this option if you want to be strict
   with version requests and fail quickly if the request includes unsupported versions.
-- If you specify a range of versions, HealthOmics uses the latest supported version in that range, unless the
-  range includes v24.10.8. In this case, HealthOmics gives preference to an earlier version. For example, if the
-  range covers both v23.10.0 and v24.10.8, HealthOmics chooses v23.10.0.
+- If you specify a range of versions, HealthOmics uses the highest-preference version in that range. The preference order from highest to lowest is v23.10.0, v22.04.0, v24.10.8, and v25.10.0. For example:
+  - If the range covers v23.10.0, v24.10.8, and v25.10.0, HealthOmics chooses v23.10.0.
+  - If the range covers v24.10.8 and v25.10.0, HealthOmics chooses v24.10.8.
+
 - If there is no requested version, or if the requested versions aren't valid or can’t be parsed for
   any reason:
   - If you specified DSL 1, HealthOmics runs Nextflow v22.04.
