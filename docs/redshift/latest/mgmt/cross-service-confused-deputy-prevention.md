@@ -49,3 +49,27 @@ problem for Amazon Redshift.
   }
 }
 ```
+
+The following example shows a policy for Amazon Redshift Serverless.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Sid": "ConfusedDeputyPreventionForRedshiftServerless",
+    "Effect": "Allow",
+    "Principal": {
+      "Service": "redshift-serverless.amazonaws.com"
+    },
+    "Action": "sts:AssumeRole",
+    "Condition": {
+      "ArnLike": {
+        "aws:SourceArn": "arn:aws:redshift-serverless:us-east-1:123456789012:workgroup/my-workgroup"
+      },
+      "StringEquals": {
+        "aws:SourceAccount": "123456789012"
+      }
+    }
+  }
+}
+```

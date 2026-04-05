@@ -25,6 +25,7 @@ and avoid potential disruptions to your workloads, see
 
 ###### Topics
 
+- [Amazon Redshift patch 200](#cluster-version-200 "#cluster-version-200")
 - [Amazon Redshift patch 199](#cluster-version-199 "#cluster-version-199")
 - [Amazon Redshift patch 198](#cluster-version-198 "#cluster-version-198")
 - [Amazon Redshift patch 197](#cluster-version-197 "#cluster-version-197")
@@ -57,6 +58,56 @@ and avoid potential disruptions to your workloads, see
 - [Amazon Redshift patch 170](#cluster-version-170 "#cluster-version-170")
 - [Amazon Redshift patch 169](#cluster-version-169 "#cluster-version-169")
 - [Amazon Redshift patch 168](#cluster-version-168 "#cluster-version-168")
+
+## Amazon Redshift patch 200
+
+Cluster versions in this patch:
+
+- 1.0.257586 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
+  version – Released on March 26, 2026
+
+### New features and improvements in this patch
+
+- Fixed an issue where INSERT operations could fail on tables using multidimensional data layout sort keys.
+- Improved Amazon Redshift Advisor recommendations for multidimensional data layout (MDDL) sort keys for tables that would benefit from workload-based sorting.
+- Enhanced Redshift Serverless AI-driven scaling and optimizations with improved disk usage signals, enabling more accurate and responsive scaling decisions.
+- Fixed an issue where data sharing queries using IAM Identity Center identity propagation could fail when the cached identity token expired on the consumer.
+- Fixed an issue where IAM Identity Center group synchronization could cause subsequent background maintenance operations to fail.
+- Fixed an issue where updating an IAM Identity Center identity provider configuration with a different application ARN could cause a cluster restart.
+- Fixed an issue where data sharing queries with IAM Identity Center identity propagation could fail in certain AWS Regions.
+- Improved IAM Identity Center integration reliability by ensuring identity provider configuration changes are consistently propagated.
+- Optimized query plans for some correlated NOT EXISTS subqueries by decorrelating them into anti-joins.
+- Fixed an issue where DROP TABLE IF EXISTS on Apache Iceberg tables could incorrectly report a query failure instead of success when the target table did not exist.
+- Added proper error messaging when users attempt to run ANALYZE on catalog tables.
+- Spectrum COPY is now generally available, removing the dependency on temporary tables for Spectrum-based COPY operations.
+- Improved Auto COPY reliability by throttling S3 notification queue reads when durable persistence tasks cannot keep pace, reducing the need for S3 listing operations to reconcile COPY JOB state.
+- Stream ingestion for Amazon Kinesis is now generally available, removing the dependency on temporary tables. This allows customers to offload Kinesis ingestion from the main cluster when it is under heavy load.
+- Concurrency Scaling is now generally available for read and write operations on zero-ETL tables.
+- Fixed a race condition in zero-ETL CDC replication that could cause cluster restarts when concurrent disk commits interfered with uncommitted table state tracking.
+- Improved zero-ETL CDC ingestion reliability by using the most recent ingestion position across both table and client state to filter already-applied data.
+- Fixed a data reliability issue in zero-ETL table resync where old, already-applied checkpoints could be re-ingested after table failures, by correctly tracking checkpoint lower bounds and resync state across the re-synchronization lifecycle.
+- Improved zero-ETL error messages with clearer failure reasons, including details for column length exceeded and invalid UTF-8 character errors.
+- Enhanced the SYS_LUDF_DETAIL system view to report duration in microseconds instead of milliseconds for improved observability.
+- Fixed an issue where Auto COPY job creation was incorrectly allowed in zero-ETL databases.
+- Improved query performance on row-level security (RLS) protected tables by classifying additional built-in functions as RLS-safe, enabling predicate pushdown for common query patterns that previously experienced performance degradation.
+- Added support for DELETE, UPDATE, and MERGE operations on Apache Iceberg tables.
+- Added support for position-independent superblock, enabling predictable cluster restart times regardless of data volume.
+- Enabled GUID-based disk cache, removing the dependency of disk cache on superblock position and enabling predictable cluster restart times regardless of data volume.
+- Improved automatic table distribution optimization: tables with a single primary key are now eligible for automatic conversion from ALL distribution to KEY distribution, improving query performance and reducing storage overhead.
+- Fixed an issue where VACUUM operations could fail or produce incorrect results due to a conflict when vacuum and concurrent DML operations accessed the same storage object.
+- Fixed an issue where VACUUM FULL could fail on certain tables due to an out-of-bounds memory access when processing special partition chains.
+- Fixed an issue where ALTER TABLE OWNER operations could incorrectly allow changing object ownership to the internal bootstrap user.
+- Fixed a race condition where concurrent VACUUM operations and staging table reuse could cause cluster instability.
+- Fixed an issue where VACUUM FULL or VACUUM SORT on large tables could fail with an internal error when the number of processed partitions exceeded an internal limit.
+- Fixed an issue where background partition statistics collection could fail when a table was dropped while statistics were being aggregated from remote clusters.
+- Added support for concurrency scaling table copy (RSTC) to automatically convert DISTALL tables with a single primary key to DISTKEY distribution, improving query performance for such tables on concurrency scaling clusters.
+- Improved performance of VACUUM SORT operations by avoiding unnecessary data refreshes, reducing the time and resources required for vacuum on sorted tables.
+- Fixed an issue where incorrect internal partition data access during vacuum operations could cause unexpected errors or cluster instability.
+- Fixed an issue where ALTER TABLE operations could incorrectly change table ownership to a non-privileged user. Owner changes during ALTER operations are now correctly restricted to authorized users only.
+- Fixed a rare issue where an internal limit check during vacuum operations could cause unnecessary query failures on tables with a large number of partitions.
+- Fixed an issue where background statistics collection could fail or produce errors when encountering tables that had been deleted, improving cluster stability.
+- Fixed an issue where concurrency scaling table copy (RSTC) operations using COPY could fail due to a distribution style mismatch when copying from a pristine (freshly restored) table.
+- Fixed an issue where vacuum operations could use stale table metadata, potentially causing incorrect behavior during vacuum on tables with concurrent schema changes.
 
 ## Amazon Redshift patch 199
 
