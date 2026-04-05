@@ -293,7 +293,7 @@ For more information, see [Merge](chap-oracle-aurora-pg.sql.merge.md "chap-oracl
 
 ## Materialized views
 
-![Two star automation level](/images/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-2.png)
+![Two star automation level](images/pb-automation-2.png)
 
 Materialized views aren’t supported, some features such as incremental refresh or DML commands on materialized views aren’t supported.
 
