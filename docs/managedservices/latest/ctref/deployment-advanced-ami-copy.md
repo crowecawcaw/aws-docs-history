@@ -183,7 +183,7 @@ For detailed information about the execution input parameters, see
       "True"
     ],
     "KmsKeyId": [
-      "arn:aws:kms:us-west-2:111122223333:key/01234567-abcd-abcd-abcd-0123456789ab"
+      "arn:aws:kms:us-east-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab"
     ]
   }
 }

@@ -1059,7 +1059,7 @@ Change type schemas specify the execution input parameters for a change type.
           "items": {
             "type": "string",
             "default": "",
-            "pattern": "^(arn:aws:kms:[a-z0-9-]+:[0-9]{12}:key/){0,1}[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$|^$"
+            "pattern": "^(arn:(aws|aws-cn|aws-us-gov):kms:[a-z0-9-]+:[0-9]{12}:key/){0,1}(mrk-[a-f0-9]{32}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$|^$"
           },
           "minItems": 1,
           "maxItems": 1
@@ -4276,7 +4276,7 @@ Change type schemas specify the execution input parameters for a change type.
           "description": "A domain name for the hosted zone. The name can contain only lowercase letters, numbers, hyphens (-), and a dot (.). For example, mycorp.com",
           "type": "string",
           "minLength": 2,
-          "pattern": "^([a-z0-9]+(-[a-z0-9]+)*\\.)+[a-z]{2,255}$"
+          "pattern": "^[a-z0-9!\"#$%&'()*+,\\-:;<=>?@\\[\\\\\\]^_`{|}\\.~]+$"
         },
         "VPCId": {
           "description": "ID of the VPC to use, in the form vpc-0123abcd or vpc-01234567890abcdef.",
@@ -7290,6 +7290,75 @@ Change type schemas specify the execution input parameters for a change type.
     "Region",
     "Parameters"
   ]
+}
+```
+
+## Schema for Change Type ct-0p1oqt4xcp1cv
+
+###### Classifications:
+
+- [Management | Advanced stack components | RDS database stack | Update parameter group](management-advanced-rds-database-stack-update-parameter-group.md "management-advanced-rds-database-stack-update-parameter-group.md")
+
+```
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "Update DB Instance or Cluster Parameter Group.",
+  "description": "Change the RDS parameter group. The RDS instance or cluster can be standalone or belong to a CloudFormation stack. In the latter case, an update might cause stack drift. When you associate a new DB parameter group with a DB instance or DB cluster, you must reboot the instance or cluster to apply the modified static and dynamic parameters. Reboot the RDS instance or cluster during your preferred maintenance window.",
+  "type": "object",
+  "properties": {
+    "DocumentName": {
+      "description": "Must be AWSManagedServices-UpdateDBParameterGroup.",
+      "type": "string",
+      "enum": [
+        "AWSManagedServices-UpdateDBParameterGroup"
+      ],
+      "default": "AWSManagedServices-UpdateDBParameterGroup"
+    },
+    "Region": {
+      "description": "The AWS Region in which the AWS resource is located, in the form us-east-1.",
+      "type": "string",
+      "pattern": "^([a-z]{2}((-gov))?-[a-z]+-\\d{1})$"
+    },
+    "Parameters": {
+      "type": "object",
+      "properties": {
+        "DBArn": {
+          "description": "The identifier of the RDS instance or cluster.",
+          "type": "string",
+          "pattern": "^arn:(aws|aws-cn|aws-us-gov):rds:([a-z]{2}((-gov))?-[a-z]+-\\d{1}):[0-9]{12}:(db|cluster):(?!([mM][cC]|[aA][mM][sS]|[Aa][Ww][Ss][Mm][Ss])-)[a-zA-Z]{1}(?!.*--)(?!.*-$)[A-Za-z0-9-]{0,62}$"
+        },
+        "ParameterGroupName": {
+          "description": "The name of the parameter group. When you associate a new DB parameter group with a DB instance or cluster, RDS applies the modified static and dynamic parameters only after the DB instance or cluster is rebooted. If a DB instance or instances in the cluster aren't using the latest changes to the associated DB parameter group, the AWS Management Console shows the DB parameter group with the status of pending-reboot.",
+          "type": "string",
+          "pattern": "^(?!.*--)[a-zA-Z][-a-zA-Z0-9.]{0,253}(?<!-)$"
+        }
+      },
+      "metadata": {
+        "ui:order": [
+          "DBArn",
+          "ParameterGroupName"
+        ]
+      },
+      "required": [
+        "DBArn",
+        "ParameterGroupName"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "metadata": {
+    "ui:order": [
+      "DocumentName",
+      "Region",
+      "Parameters"
+    ]
+  },
+  "required": [
+    "DocumentName",
+    "Region",
+    "Parameters"
+  ],
+  "additionalProperties": false
 }
 ```
 
@@ -33956,6 +34025,68 @@ Change type schemas specify the execution input parameters for a change type.
 }
 ```
 
+## Schema for Change Type ct-2sav5hzk5twk4
+
+###### Classifications:
+
+- [Management | Advanced stack components | Site-to-Site VPN | Replace tunnel (managed automation)](management-advanced-site-to-site-vpn-replace-tunnel-managed-automation.md "management-advanced-site-to-site-vpn-replace-tunnel-managed-automation.md")
+
+```
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "Replace Site-to-Site VPN Tunnel",
+  "description": "Replace an existing Site-to-Site VPN tunnel, optionally applying maintenance.",
+  "type": "object",
+  "properties": {
+    "Region": {
+      "description": "(Required) The AWS Region of the Site-to-Site VPN, in the format of the Region code. For example, us-east-1.",
+      "type": "string",
+      "pattern": "^([a-z]{2}((-gov))?-[a-z]+-\\d{1})$"
+    },
+    "VpnId": {
+      "description": "(Required) The ID of the VPN connection that contains the tunnel to replace. In the format vpn-01234567890abcdef.",
+      "type": "string",
+      "pattern": "^vpn-[a-z0-9]{17}$"
+    },
+    "VpnTunnelOutsideIpAddress": {
+      "description": "(Required) The outside IP address of the VPN tunnel to replace.",
+      "type": "string",
+      "pattern": "^(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]\\d?|0)(\\.(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]\\d?|0)){3}$"
+    },
+    "ApplyPendingMaintenance": {
+      "description": "Indicates whether to apply pending maintenance during the tunnel replacement.",
+      "type": "boolean",
+      "default": true
+    },
+    "Priority": {
+      "description": "The priority of the request. See AMS \"RFC scheduling\" documentation for a definition of the priorities.",
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "default": "Medium"
+    }
+  },
+  "metadata": {
+    "ui:order": [
+      "Region",
+      "VpnId",
+      "VpnTunnelOutsideIpAddress",
+      "ApplyPendingMaintenance",
+      "Priority"
+    ]
+  },
+  "additionalProperties": false,
+  "required": [
+    "Region",
+    "VpnId",
+    "VpnTunnelOutsideIpAddress"
+  ]
+}
+```
+
 ## Schema for Change Type ct-2svg4k2fqi4ak
 
 ###### Classifications:
@@ -44022,6 +44153,96 @@ Change type schemas specify the execution input parameters for a change type.
     "Parameters"
   ],
   "additionalProperties": false
+}
+```
+
+## Schema for Change Type ct-3k67klld7cimj
+
+###### Classifications:
+
+- [Management | Directory Service | DNS | Remediate DNS scavenging issue](management-directory-dns-remediate-dns-scavenging-issue.md "management-directory-dns-remediate-dns-scavenging-issue.md")
+
+```
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "Remediate DNS Scavenging Issue for Failover Cluster",
+  "description": "Remediates DNS scavenging issues for Windows failover clusters by updating permissions on CNO and VCO DNS records. Grants 'Read Permissions' to Everyone on CNO and VCO DNS records, 'Reset Password' permission to Everyone on the CNO computer object, and 'Full Control' permissions to the CNO computer object and specified cluster node computer objects on all CNO and VCO DNS records. This ensures that DNS records associated with the failover cluster are not inadvertently removed during DNS scavenging operations.",
+  "type": "object",
+  "properties": {
+    "DocumentName": {
+      "description": "Must be AWSManagedServices-UpdateClusterNodeRecordPermissions-Admin.",
+      "type": "string",
+      "enum": [
+        "AWSManagedServices-UpdateClusterNodeRecordPermissions-Admin"
+      ],
+      "default": "AWSManagedServices-UpdateClusterNodeRecordPermissions-Admin"
+    },
+    "Region": {
+      "description": "The AWS Region in which the resource is located, in the form us-east-1.",
+      "type": "string",
+      "pattern": "^([a-z]{2}((-gov))?-[a-z]+-\\d{1})$"
+    },
+    "Parameters": {
+      "type": "object",
+      "properties": {
+        "ClusterCNOName": {
+          "description": "Name of the Cluster Name Object (CNO) whose DNS record permissions will be updated to allow the CNO computer object and cluster nodes full control.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-_]{1,63}$"
+          },
+          "maxItems": 1
+        },
+        "ClusterNodeComputerNames": {
+          "description": "Names of the cluster node computer objects to be granted full control permissions on the CNO and VCO DNS records.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9-_]{1,63}$"
+          },
+          "minItems": 1,
+          "maxItems": 50
+        },
+        "ClusterVCONames": {
+          "description": "Names of the Virtual Computer Objects (VCOs) whose DNS record permissions will be updated to allow the CNO, VCO computer object, and cluster nodes full control.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9-_]{1,63}$"
+          },
+          "minItems": 1,
+          "maxItems": 50
+        }
+      },
+      "metadata": {
+        "ui:order": [
+          "ClusterCNOName",
+          "ClusterNodeComputerNames",
+          "ClusterVCONames"
+        ]
+      },
+      "additionalProperties": false,
+      "required": [
+        "ClusterCNOName",
+        "ClusterNodeComputerNames",
+        "ClusterVCONames"
+      ]
+    }
+  },
+  "metadata": {
+    "ui:order": [
+      "DocumentName",
+      "Region",
+      "Parameters"
+    ]
+  },
+  "additionalProperties": false,
+  "required": [
+    "DocumentName",
+    "Region",
+    "Parameters"
+  ]
 }
 ```
 

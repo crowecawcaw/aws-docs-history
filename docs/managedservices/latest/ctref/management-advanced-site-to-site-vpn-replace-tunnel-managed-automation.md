@@ -1,27 +1,27 @@
-# VPC | Delete Route
+# Site-To-Site VPN | Replace Tunnel (Managed Automation)
 
-Delete a route in a route table within a VPC.
+Replace an existing Site-to-Site VPN tunnel, optionally applying maintenance.
 
-**Full classification:** Management | Advanced stack components | VPC | Delete route
+**Full classification:** Management | Advanced stack components | Site-to-Site VPN | Replace tunnel (managed automation)
 
 ## Change Type Details
 
-|                             |                  |
-| --------------------------- | ---------------- |
-| Change type ID              | ct-1nusoameibz5p |
-| Current version             | 1.0              |
-| Expected execution duration | 60 minutes       |
-| AWS approval                | Required         |
-| Customer approval           | Not required     |
-| Execution mode              | Automated        |
+|                             |                           |
+| --------------------------- | ------------------------- |
+| Change type ID              | ct-2sav5hzk5twk4          |
+| Current version             | 1.0                       |
+| Expected execution duration | 240 minutes               |
+| AWS approval                | Required                  |
+| Customer approval           | Not required if submitter |
+| Execution mode              | Manual                    |
 
 ## Additional Information
 
-### Delete VPC route
+### Replace Site-to-Site VPN tunnel
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Delete VPC route change type in the AMS console](images/guiVpcRouteDeleteCT.png)
+![Screenshot of the Replace Site-to-Site VPN tunnel change type in the AMS console](images/guiVpnS2sTunnelReplaceCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -72,52 +72,50 @@ quotation marks when providing execution parameters inline) and then submit the
 returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-1nusoameibz5p" --change-type-version "1.0" --title "Delete VPC route" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-DeleteRoute\",\"Region\":\"`us-east-1`\",\"Parameters\":{\"RouteTableId\":\"`rtb-1234abcd12345abcd`\",\"DestinationCidrBlock\":\"`10.0.0.0/8`\"}}"
+aws amscm create-rfc --change-type-id "ct-2sav5hzk5twk4" --change-type-version "1.0" --title "Replace S2S VPN Tunnel" --execution-parameters "{\"Region\":\"`us-east-1`\",\"VpnId\":\"`vpn-01234567890abcdef`\",\"VpnTunnelOutsideIpAddress\":\"`203.0.113.1`\",\"ApplyPendingMaintenance\": `true`,\"Priority\":\"`High`\"}"
 ```
 
 _TEMPLATE CREATE_:
 
 1. Output the execution parameters JSON schema for this change type; this
-   example names it DeleteVPCRouteParams.json:
+   example names it ReplaceS2SVpnTunnelParams.json:
 
 ```
-aws amscm get-change-type-version --change-type-id "ct-1nusoameibz5p" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > DeleteVPCRouteParams.json
+aws amscm get-change-type-version --change-type-id "ct-2sav5hzk5twk4" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > ReplaceS2SVpnTunnelParams.json
 ```
 
 2. Modify and save the execution parameters JSON file. For example, you can replace the contents with something like this:
 
 ```
 {
-  "DocumentName": "AWSManagedServices-DeleteRoute",
   "Region": "`us-east-1`",
-  "Parameters": {
-    "RouteTableId": "`rtb-1234abcd12345abcd`",
-    "DestinationCidrBlock": "`10.0.0.0/8`",
-    "DestinationPrefixListId": "`pl-abcd1234`"
-  }
+  "VpnId": "`vpn-01234567890abcdef`",
+  "VpnTunnelOutsideIpAddress": "`203.0.113.1`",
+  "ApplyPendingMaintenance": `true`,
+  "Priority": "`High`"
 }
 ```
 
-3. Output the RFC template JSON file; this example names it DeleteVPCRouteRfc.json:
+3. Output the RFC template JSON file; this example names it ReplaceS2SVpnTunnelRFC.json:
 
 ```
-aws amscm create-rfc --generate-cli-skeleton > DeleteVPCRouteRfc.json
+aws amscm create-rfc --generate-cli-skeleton > ReplaceS2SVpnTunnelRFC.json
 ```
 
-4. Modify and save the DeleteVPCRouteRfc.json file. For example, you can replace the contents with something like this:
+4. Modify and save the ReplaceS2SVpnTunnelRFC.json file. For example, you can replace the contents with something like this:
 
 ```
 {
-  "ChangeTypeVersion" : "1.0",
-  "ChangeTypeId" : "ct-1nusoameibz5p",
-  "Title" : "`Delete VPC route`"
+  "ChangeTypeVersion": "1.0",
+  "ChangeTypeId": "ct-2sav5hzk5twk4",
+  "Title": "`Replace S2S VPN Tunnel`"
 }
 ```
 
-5. Create the RFC, specifying the DeleteVPCRouteRfc file and the DeleteVPCRouteParams file:
+5. Create the RFC, specifying the ReplaceS2SVpnTunnelRFC file and the ReplaceS2SVpnTunnelParams file:
 
 ```
-aws amscm create-rfc --cli-input-json file://DeleteVPCRouteRfc.json  --execution-parameters file://DeleteVPCRouteParams.json
+aws amscm create-rfc --cli-input-json file://ReplaceS2SVpnTunnelRFC.json --execution-parameters file://ReplaceS2SVpnTunnelParams.json
 ```
 
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
@@ -125,30 +123,26 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 ## Execution Input Parameters
 
 For detailed information about the execution input parameters, see
-[Schema for Change Type ct-1nusoameibz5p](schemas.md#ct-1nusoameibz5p-schema-section "schemas.md#ct-1nusoameibz5p-schema-section").
+[Schema for Change Type ct-2sav5hzk5twk4](schemas.md#ct-2sav5hzk5twk4-schema-section "schemas.md#ct-2sav5hzk5twk4-schema-section").
 
 ## Example: Required Parameters
 
 ```
 {
-    "DocumentName": "AWSManagedServices-DeleteRoute",
-    "Region": "us-east-1",
-    "Parameters": {
-      "RouteTableId": "rtb-abcdabcdabcdabcda"
-    }
-  }
+  "Region": "us-east-1",
+  "VpnId": "vpn-01234567890abcdef",
+  "VpnTunnelOutsideIpAddress": "203.0.113.1"
+}
 ```
 
 ## Example: All Parameters
 
 ```
 {
-  "DocumentName": "AWSManagedServices-DeleteRoute",
-  "Region": "us-east-1",
-  "Parameters": {
-    "RouteTableId": "rtb-abcdabcdabcdabcda",
-    "DestinationCidrBlock": "10.0.0.0/8",
-    "DestinationPrefixListId": "pl-abcdabcd"
-  }
+  "Region": "us-west-2",
+  "VpnId": "vpn-01234567890abcdef",
+  "VpnTunnelOutsideIpAddress": "203.0.113.1",
+  "ApplyPendingMaintenance": true,
+  "Priority": "High"
 }
 ```

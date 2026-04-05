@@ -1,14 +1,14 @@
-# VPC | Delete Route
+# RDS Database Stack | Update Parameter Group
 
-Delete a route in a route table within a VPC.
+Change the RDS parameter group. The RDS instance or cluster can be standalone or belong to a CloudFormation stack. In the latter case, an update might cause stack drift. When you associate a new DB parameter group with a DB instance or DB cluster, you must reboot the instance or cluster to apply the modified static and dynamic parameters. Reboot the RDS instance or cluster during your preferred maintenance window.
 
-**Full classification:** Management | Advanced stack components | VPC | Delete route
+**Full classification:** Management | Advanced stack components | RDS database stack | Update parameter group
 
 ## Change Type Details
 
 |                             |                  |
 | --------------------------- | ---------------- |
-| Change type ID              | ct-1nusoameibz5p |
+| Change type ID              | ct-0p1oqt4xcp1cv |
 | Current version             | 1.0              |
 | Expected execution duration | 60 minutes       |
 | AWS approval                | Required         |
@@ -17,11 +17,11 @@ Delete a route in a route table within a VPC.
 
 ## Additional Information
 
-### Delete VPC route
+### Update parameter group of DB instance or cluster
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Delete VPC route change type in the AMS console](images/guiVpcRouteDeleteCT.png)
+![Screenshot of the Update Parameter Group of DB instance or cluster change type in the AMS console](images/guiRdsDbParameterGroupUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -72,52 +72,51 @@ quotation marks when providing execution parameters inline) and then submit the
 returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-1nusoameibz5p" --change-type-version "1.0" --title "Delete VPC route" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-DeleteRoute\",\"Region\":\"`us-east-1`\",\"Parameters\":{\"RouteTableId\":\"`rtb-1234abcd12345abcd`\",\"DestinationCidrBlock\":\"`10.0.0.0/8`\"}}"
+aws amscm create-rfc --change-type-id "ct-0p1oqt4xcp1cv" --change-type-version "1.0" --title "Change Parameter Group" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-UpdateDBParameterGroup\",\"Region\":\"`us-east-1`\",\"Parameters\":{\"DBArn\":\"`arn:aws:rds:us-east-1:945533541580:db:database-1`\",\"ParameterGroupName\":\"`minlz-parameter-group-mysql`\"}}"
 ```
 
 _TEMPLATE CREATE_:
 
 1. Output the execution parameters JSON schema for this change type; this
-   example names it DeleteVPCRouteParams.json:
+   example names it UpdateDBParameterGroupParams.json:
 
 ```
-aws amscm get-change-type-version --change-type-id "ct-1nusoameibz5p" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > DeleteVPCRouteParams.json
+aws amscm get-change-type-version --change-type-id "ct-0p1oqt4xcp1cv" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > UpdateDBParameterGroupParams.json
 ```
 
 2. Modify and save the execution parameters JSON file. For example, you can replace the contents with something like this:
 
 ```
 {
-  "DocumentName": "AWSManagedServices-DeleteRoute",
+  "DocumentName": "AWSManagedServices-UpdateDBParameterGroup",
   "Region": "`us-east-1`",
   "Parameters": {
-    "RouteTableId": "`rtb-1234abcd12345abcd`",
-    "DestinationCidrBlock": "`10.0.0.0/8`",
-    "DestinationPrefixListId": "`pl-abcd1234`"
+    "DBArn": "`arn:aws:rds:us-east-1:945533541580:db:database-1`",
+    "ParameterGroupName": "`minlz-parameter-group-mysql`"
   }
 }
 ```
 
-3. Output the RFC template JSON file; this example names it DeleteVPCRouteRfc.json:
+3. Output the RFC template JSON file; this example names it UpdateDBParameterGroupRFC.json:
 
 ```
-aws amscm create-rfc --generate-cli-skeleton > DeleteVPCRouteRfc.json
+aws amscm create-rfc --generate-cli-skeleton > UpdateDBParameterGroupRFC.json
 ```
 
-4. Modify and save the DeleteVPCRouteRfc.json file. For example, you can replace the contents with something like this:
+4. Modify and save the UpdateDBParameterGroupRFC.json file. For example, you can replace the contents with something like this:
 
 ```
 {
   "ChangeTypeVersion" : "1.0",
-  "ChangeTypeId" : "ct-1nusoameibz5p",
-  "Title" : "`Delete VPC route`"
+  "ChangeTypeId" : "ct-0p1oqt4xcp1cv",
+  "Title" : "`Change Parameter Group`"
 }
 ```
 
-5. Create the RFC, specifying the DeleteVPCRouteRfc file and the DeleteVPCRouteParams file:
+5. Create the RFC, specifying the UpdateDBParameterGroupRFC file and the UpdateDBParameterGroupParams file:
 
 ```
-aws amscm create-rfc --cli-input-json file://DeleteVPCRouteRfc.json  --execution-parameters file://DeleteVPCRouteParams.json
+aws amscm create-rfc --cli-input-json file://UpdateDBParameterGroupRFC.json  --execution-parameters file://UpdateDBParameterGroupParams.json
 ```
 
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
@@ -125,30 +124,30 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 ## Execution Input Parameters
 
 For detailed information about the execution input parameters, see
-[Schema for Change Type ct-1nusoameibz5p](schemas.md#ct-1nusoameibz5p-schema-section "schemas.md#ct-1nusoameibz5p-schema-section").
+[Schema for Change Type ct-0p1oqt4xcp1cv](schemas.md#ct-0p1oqt4xcp1cv-schema-section "schemas.md#ct-0p1oqt4xcp1cv-schema-section").
 
 ## Example: Required Parameters
 
 ```
 {
-    "DocumentName": "AWSManagedServices-DeleteRoute",
-    "Region": "us-east-1",
-    "Parameters": {
-      "RouteTableId": "rtb-abcdabcdabcdabcda"
-    }
+  "DocumentName": "AWSManagedServices-UpdateDBParameterGroup",
+  "Region": "us-east-1",
+  "Parameters": {
+    "DBArn": "arn:aws:rds:us-east-1:123456789012:db:testdbinstance",
+    "ParameterGroupName": "TestParameterGroup"
   }
+}
 ```
 
 ## Example: All Parameters
 
 ```
 {
-  "DocumentName": "AWSManagedServices-DeleteRoute",
+  "DocumentName": "AWSManagedServices-UpdateDBParameterGroup",
   "Region": "us-east-1",
   "Parameters": {
-    "RouteTableId": "rtb-abcdabcdabcdabcda",
-    "DestinationCidrBlock": "10.0.0.0/8",
-    "DestinationPrefixListId": "pl-abcdabcd"
+    "DBArn": "arn:aws:rds:us-east-1:123456789012:db:testdbinstance",
+    "ParameterGroupName": "TestParameterGroup"
   }
 }
 ```

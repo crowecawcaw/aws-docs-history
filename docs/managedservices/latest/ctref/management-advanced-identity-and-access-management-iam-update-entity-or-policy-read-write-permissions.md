@@ -93,7 +93,7 @@ aws amscm get-change-type-version --change-type-id "ct-1e0xmuy1diafq" --query "C
       {
         "RoleName": "`RoleTest01`",
         "Description": "`This is a test role`",
-        "AssumeRolePolicyDocument": {"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"`Allow`","Principal":{"AWS":"`arn:aws:iam::123456789012:root`"},"Action":"`sts:AssumeRole`"}]},
+        "AssumeRolePolicyDocument": {"Version": "2012-10-17","Statement":[{"Effect":"`Allow`","Principal":{"AWS":"`arn:aws:iam::123456789012:root`"},"Action":"`sts:AssumeRole`"}]},
         "ManagedPolicyArns": [
           "`arn:aws:iam::123456789012:policy/policy01`",
           "`arn:aws:iam::123456789012:policy/policy02`"
@@ -107,7 +107,7 @@ aws amscm get-change-type-version --change-type-id "ct-1e0xmuy1diafq" --query "C
     "Policies": [
       {
         "ManagedPolicyName": "`TestPolicy01`",
-        "PolicyDocument": {"Version": "2012-10-17",		 	 	 "Statement":[{"Sid":"`AllQueueActions`","Effect":"`Allow`","Action":"`sqs:ListQueues`","Resource":"`*`","Condition":{"`ForAllValues:StringEquals`":{"`aws:tagKeys`":["`temporary`"]}}}]}
+        "PolicyDocument": {"Version": "2012-10-17","Statement":[{"Sid":"`AllQueueActions`","Effect":"`Allow`","Action":"`sqs:ListQueues`","Resource":"`*`","Condition":{"`ForAllValues:StringEquals`":{"`aws:tagKeys`":["`temporary`"]}}}]}
       }
     ]
   }

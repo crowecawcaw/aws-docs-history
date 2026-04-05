@@ -11,6 +11,7 @@
 - [DNS | Add A Record](management-directory-dns-add-a-record.md "management-directory-dns-add-a-record.md")
 - [DNS | Add CNAME Record](management-directory-dns-add-cname-record.md "management-directory-dns-add-cname-record.md")
 - [DNS | Delete Conditional Forwarder](management-directory-dns-delete-conditional-forwarder.md "management-directory-dns-delete-conditional-forwarder.md")
+- [DNS | Remediate DNS Scavenging Issue](management-directory-dns-remediate-dns-scavenging-issue.md "management-directory-dns-remediate-dns-scavenging-issue.md")
 - [DNS | Remove Record](management-directory-dns-remove-record.md "management-directory-dns-remove-record.md")
 - [DNS | Update Cluster Permissions](management-directory-dns-update-cluster-permissions.md "management-directory-dns-update-cluster-permissions.md")
 - [DNS | Update Conditional Forwarder](management-directory-dns-update-conditional-forwarder.md "management-directory-dns-update-conditional-forwarder.md")

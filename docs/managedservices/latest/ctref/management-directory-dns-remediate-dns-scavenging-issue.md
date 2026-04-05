@@ -1,27 +1,27 @@
-# VPC | Delete Route
+# DNS | Remediate DNS Scavenging Issue
 
-Delete a route in a route table within a VPC.
+Remediates DNS scavenging issues for Windows failover clusters by updating permissions on CNO and VCO DNS records. Grants 'Read Permissions' to Everyone on CNO and VCO DNS records, 'Reset Password' permission to Everyone on the CNO computer object, and 'Full Control' permissions to the CNO computer object and specified cluster node computer objects on all CNO and VCO DNS records. This ensures that DNS records associated with the failover cluster are not inadvertently removed during DNS scavenging operations.
 
-**Full classification:** Management | Advanced stack components | VPC | Delete route
+**Full classification:** Management | Directory Service | DNS | Remediate DNS scavenging issue
 
 ## Change Type Details
 
 |                             |                  |
 | --------------------------- | ---------------- |
-| Change type ID              | ct-1nusoameibz5p |
+| Change type ID              | ct-3k67klld7cimj |
 | Current version             | 1.0              |
-| Expected execution duration | 60 minutes       |
+| Expected execution duration | 15 minutes       |
 | AWS approval                | Required         |
 | Customer approval           | Not required     |
 | Execution mode              | Automated        |
 
 ## Additional Information
 
-### Delete VPC route
+### Remediate DNS scavenging issue
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Delete VPC route change type in the AMS console](images/guiVpcRouteDeleteCT.png)
+![Screenshot of the Remediate DNS scavenging issue change type in the AMS console](images/guiDirservDnsScavengingRemediateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -72,52 +72,52 @@ quotation marks when providing execution parameters inline) and then submit the
 returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-1nusoameibz5p" --change-type-version "1.0" --title "Delete VPC route" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-DeleteRoute\",\"Region\":\"`us-east-1`\",\"Parameters\":{\"RouteTableId\":\"`rtb-1234abcd12345abcd`\",\"DestinationCidrBlock\":\"`10.0.0.0/8`\"}}"
+aws amscm create-rfc --change-type-id "ct-3k67klld7cimj" --change-type-version "1.0" --title "Remediate DNS scavenging issue" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-UpdateClusterNodeRecordPermissions-Admin\",\"Parameters\":{\"ClusterCNOName\":[\"`CLUSTER_CNO_NAME`\"],\"ClusterNodeComputerNames\":[\"`NODE_NAME_1`\",\"`NODE_NAME_2`\"],\"ClusterVCONames\":[\"`VCO_NAME_1`\",\"`VCO_NAME_2`\"]},\"Region\":\"`us-east-1`\"}"
 ```
 
 _TEMPLATE CREATE_:
 
 1. Output the execution parameters JSON schema for this change type; this
-   example names it DeleteVPCRouteParams.json:
+   example names it RemediateDnsScavengingParams.json:
 
 ```
-aws amscm get-change-type-version --change-type-id "ct-1nusoameibz5p" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > DeleteVPCRouteParams.json
+aws amscm get-change-type-version --change-type-id "ct-3k67klld7cimj" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > RemediateDnsScavengingParams.json
 ```
 
 2. Modify and save the execution parameters JSON file. For example, you can replace the contents with something like this:
 
 ```
 {
-  "DocumentName": "AWSManagedServices-DeleteRoute",
+  "DocumentName": "AWSManagedServices-UpdateClusterNodeRecordPermissions-Admin",
   "Region": "`us-east-1`",
   "Parameters": {
-    "RouteTableId": "`rtb-1234abcd12345abcd`",
-    "DestinationCidrBlock": "`10.0.0.0/8`",
-    "DestinationPrefixListId": "`pl-abcd1234`"
+    "ClusterCNOName": ["`CLUSTER_CNO_NAME`"],
+    "ClusterNodeComputerNames": ["`NODE_NAME_1`", "`NODE_NAME_2`"],
+    "ClusterVCONames": ["`VCO_NAME_1`", "`VCO_NAME_2`"]
   }
 }
 ```
 
-3. Output the RFC template JSON file; this example names it DeleteVPCRouteRfc.json:
+3. Output the RFC template JSON file; this example names it RemediateDnsScavengingRfc.json:
 
 ```
-aws amscm create-rfc --generate-cli-skeleton > DeleteVPCRouteRfc.json
+aws amscm create-rfc --generate-cli-skeleton > RemediateDnsScavengingRfc.json
 ```
 
-4. Modify and save the DeleteVPCRouteRfc.json file. For example, you can replace the contents with something like this:
+4. Modify and save the RemediateDnsScavengingRfc.json file. For example, you can replace the contents with something like this:
 
 ```
 {
   "ChangeTypeVersion" : "1.0",
-  "ChangeTypeId" : "ct-1nusoameibz5p",
-  "Title" : "`Delete VPC route`"
+  "ChangeTypeId" : "ct-3k67klld7cimj",
+  "Title" : "`Remediate DNS scavenging issue`"
 }
 ```
 
-5. Create the RFC, specifying the DeleteVPCRouteRfc file and the DeleteVPCRouteParams file:
+5. Create the RFC, specifying the RemediateDnsScavengingRfc file and the RemediateDnsScavengingParams file:
 
 ```
-aws amscm create-rfc --cli-input-json file://DeleteVPCRouteRfc.json  --execution-parameters file://DeleteVPCRouteParams.json
+aws amscm create-rfc --cli-input-json file://RemediateDnsScavengingRfc.json  --execution-parameters file://RemediateDnsScavengingParams.json
 ```
 
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
@@ -125,30 +125,25 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 ## Execution Input Parameters
 
 For detailed information about the execution input parameters, see
-[Schema for Change Type ct-1nusoameibz5p](schemas.md#ct-1nusoameibz5p-schema-section "schemas.md#ct-1nusoameibz5p-schema-section").
+[Schema for Change Type ct-3k67klld7cimj](schemas.md#ct-3k67klld7cimj-schema-section "schemas.md#ct-3k67klld7cimj-schema-section").
 
 ## Example: Required Parameters
 
 ```
 {
-    "DocumentName": "AWSManagedServices-DeleteRoute",
-    "Region": "us-east-1",
-    "Parameters": {
-      "RouteTableId": "rtb-abcdabcdabcdabcda"
-    }
+  "DocumentName": "AWSManagedServices-UpdateClusterNodeRecordPermissions-Admin",
+  "Region": "us-east-1",
+  "Parameters": {
+    "ClusterCNOName": ["ClusterCNO"],
+    "ClusterNodeComputerNames": ["Node1"],
+    "ClusterVCONames": ["ClusterVCO1"]
   }
+}
+
 ```
 
 ## Example: All Parameters
 
 ```
-{
-  "DocumentName": "AWSManagedServices-DeleteRoute",
-  "Region": "us-east-1",
-  "Parameters": {
-    "RouteTableId": "rtb-abcdabcdabcdabcda",
-    "DestinationCidrBlock": "10.0.0.0/8",
-    "DestinationPrefixListId": "pl-abcdabcd"
-  }
-}
+Example not available.
 ```

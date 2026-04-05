@@ -86,7 +86,7 @@ aws amscm get-change-type-version --change-type-id "ct-2epp05svrlwod" --query "C
 ```
 {
   "Description": "`KMS key request`",
-  "KeyPermissions": {"Id":"key-consolepolicy-3","Version": "2012-10-17",		 	 	 "Statement":[{"Sid":"Allow use of the key","Effect":"Allow","Principal":{"AWS":["arn:aws:iam::111122223333:role/KMSRole"]},"Action":["kms:Encrypt","kms:Decrypt","kms:ReEncrypt*","kms:GenerateDataKey*","kms:DescribeKey"],"Resource":"*"}]},
+  "KeyPermissions": {"Id":"key-consolepolicy-3","Version": "2012-10-17","Statement":[{"Sid":"Allow use of the key","Effect":"Allow","Principal":{"AWS":["arn:aws:iam::111122223333:role/KMSRole"]},"Action":["kms:Encrypt","kms:Decrypt","kms:ReEncrypt*","kms:GenerateDataKey*","kms:DescribeKey"],"Resource":"*"}]},
   "Operation": "Create"
 }
 ```
