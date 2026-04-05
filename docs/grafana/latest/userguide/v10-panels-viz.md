@@ -91,7 +91,7 @@ In the following sections you can find visualizations examples.
 
 For time based line, area, and bar charts, we recommend the default [time series](v10-panels-time-series.md "v10-panels-time-series.md") visualization.
 
-![An image showing examples of times series visualizations in Grafana.](images/viz/time_series_example.png)
+![An image showing examples of times series visualizations in Grafana.](/images/grafana/latest/userguide/images/viz/time_series_example.png)
 
 For categorical data, use a [bar chart](v10-panels-bar-chart.md "v10-panels-bar-chart.md").
 
