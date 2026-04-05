@@ -23,6 +23,12 @@ Use the following resources to learn more about the Customer Carbon Footprint To
 
 This section documents the updates made to Customer Carbon Footprint Tool. This page lists announcements about new or updated features, bug fixes, improvements, and deprecated functionality for the year 2026.
 
+#### March 31, 2026
+
+##### CCFT deprecation notice
+
+The CCFT will be deprecated on June 30th 2026 in favor of the new AWS Sustainability service which offers additional functionalities and does not require Billing console permissions. [AWS Sustainability user guide](../../../sustainability/latest/userguide.md "../../../sustainability/latest/userguide.md")
+
 #### February 23, 2026
 
 ##### On-demand backfills for carbon emissions in Data Exports are now available
