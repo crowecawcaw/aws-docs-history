@@ -1,3 +1,8 @@
+AWS Audit Manager will no longer be open to new customers starting
+April 30, 2026. If you would like to use Audit Manager, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[AWS Audit Manager availability change](audit-manager-availability-change.md "audit-manager-availability-change.md").
+
 # AWS CloudTrail event names supported by AWS Audit Manager
 
 You can use Audit Manager to capture AWS CloudTrail [management events](../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md#cloudtrail-concepts-management-events "../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md#cloudtrail-concepts-management-events") and [global service events](../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md#cloudtrail-concepts-global-service-events "../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md#cloudtrail-concepts-global-service-events") as evidence for audits. When you create or edit a custom

@@ -1,3 +1,8 @@
+AWS Audit Manager will no longer be open to new customers starting
+April 30, 2026. If you would like to use Audit Manager, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[AWS Audit Manager availability change](audit-manager-availability-change.md "audit-manager-availability-change.md").
+
 # Create an Audit Manager assessment report that contains one day of evidence using an AWS SDK
 
 The following code example shows how to create an Audit Manager assessment report that contains one day of evidence.

@@ -1,3 +1,8 @@
+AWS Audit Manager will no longer be open to new customers starting
+April 30, 2026. If you would like to use Audit Manager, sign up prior to that date. Existing customers
+can continue to use the service as normal. For more information, see
+[AWS Audit Manager availability change](audit-manager-availability-change.md "audit-manager-availability-change.md").
+
 # Responding to share requests in AWS Audit Manager
 
 This tutorial describes the actions to take when you receive a share request for a
@@ -37,7 +42,7 @@ notification badge indicates the number of share requests that need your attenti
 **Received requests** tab. 5. Identify the share requests that need your action by looking for items with a blue
 dot.
 
-![Screenshot of a received request with a blue dot next to the framework name.](images/framework_sharing-blue_dot_notification-console.png) 6. (Optional) To view only requests that expire in the next 30 days, find the
+![Screenshot of a received request with a blue dot next to the framework name.](/images/audit-manager/latest/userguide/images/framework_sharing-blue_dot_notification-console.png) 6. (Optional) To view only requests that expire in the next 30 days, find the
 **All statuses** dropdown list and select
 **Expiring**.
 
