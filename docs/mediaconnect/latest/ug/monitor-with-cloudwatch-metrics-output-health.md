@@ -3,16 +3,12 @@
 AWS Elemental MediaConnect sends metrics to CloudWatch. You can review specific metrics to
 evaluate the health of the output of your flow.
 
-###### Note
-
-Metrics tracked by MediaConnect adhere to the standard as defined by the TR
-101 290 spec.
-
 ###### Topics
 
 - [Output metrics for transport stream protocols](#monitor-with-cloudwatch-metrics-output-health-ts "#monitor-with-cloudwatch-metrics-output-health-ts")
 - [Output metrics for NDI®](#monitor-with-cloudwatch-metrics-output-health-ndi "#monitor-with-cloudwatch-metrics-output-health-ndi")
 - [Output metrics for CDI protocols](#monitor-with-cloudwatch-metrics-output-health-cdi "#monitor-with-cloudwatch-metrics-output-health-cdi")
+- [Output metrics for router connections](#monitor-with-cloudwatch-metrics-output-health-router "#monitor-with-cloudwatch-metrics-output-health-router")
 
 ## Output metrics for transport stream protocols
 
@@ -44,3 +40,13 @@ Metrics tracked by MediaConnect adhere to the standard as defined by the TR
 | `OutputLatePayloads`    | Packets of a payload that arrive at the output outside of<br>MediaConnect's internal buffer. A payload is a frame of video or an<br>audio sample. Payloads can consist of multiple packets.<br>Payload metrics are only applicable when using CDI.<br>Units: Count<br>Valid dimensions:<br>• Output ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows |
 | `OutputTotalBytes`      | Total amount of bytes transferred from MediaConnect to the<br>output.<br>This metric is only applicable when using CDI.<br>Units: Bytes<br>Valid dimensions:<br>• Output ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows                                                                                                                            |
 | `OutputTotalPayloads`   | Total amount of payloads delivered from MediaConnect to the<br>output. A payload is a frame of video or an audio sample.<br>Payloads can consist of multiple packets. Payload metrics<br>are only applicable when using CDI.<br>Units: Count<br>Valid dimensions:<br>• Output ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows                       |
+
+## Output metrics for router connections
+
+The following table lists source metrics that MediaConnect sends to CloudWatch
+when a flow output sends content to a router input.
+
+| Metric          | Description                                                                                                                                                                                                                                               |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `OutputEnabled` | The status of the output. A value of 1 indicates that the<br>output is enabled, and a value of 0 (zero) indicates that<br>the output is disabled.<br>Units: None<br>Valid dimensions:<br>• Output ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows |
+| `OutputBitrate` | The bitrate of the outgoing (output) video.<br>Units: bits per second (bps)<br>Valid dimensions:<br>• Output ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows                                                                                      |

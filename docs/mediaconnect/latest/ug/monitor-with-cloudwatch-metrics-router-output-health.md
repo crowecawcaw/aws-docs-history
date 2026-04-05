@@ -9,11 +9,14 @@ monitor flow health](monitor-with-cloudwatch-metrics-flow-health.md "monitor-wit
 
 ###### Topics
 
-- [Router output metrics](#monitor-with-cloudwatch-metrics-router-output "#monitor-with-cloudwatch-metrics-router-output")
+- [Standard output metrics](#monitor-with-cloudwatch-metrics-router-output "#monitor-with-cloudwatch-metrics-router-output")
+- [Router output metrics for MediaConnect flow connections](#monitor-with-cloudwatch-metrics-router-output-flow "#monitor-with-cloudwatch-metrics-router-output-flow")
+- [Router output metrics for MediaLive connections](#monitor-with-cloudwatch-metrics-router-output-medialive "#monitor-with-cloudwatch-metrics-router-output-medialive")
+- [Route metrics](#monitor-with-cloudwatch-metrics-router-output-route "#monitor-with-cloudwatch-metrics-router-output-route")
 
-## Router output metrics
+## Standard output metrics
 
-The following table lists router output metrics that AWS Elemental MediaConnect sends
+The following table lists router standard output metrics that AWS Elemental MediaConnect sends
 to CloudWatch.
 
 | Metric                       | Description                                                                                                                                                                                                                                                                                                      |
@@ -28,3 +31,50 @@ to CloudWatch.
 | `RouterOutputResentPackets`  | The number of packets that were retransmitted to the<br>output destination.<br>Units: Count<br>Valid dimensions:<br>• RouterOutputName, RouterOutputID, AvailabilityZone<br>• RouterOutputARN<br>• AvailabilityZone<br>Protocols: RIST, SRT                                                                      |
 | `RouterOutputRoundTripTime`  | The amount of time it takes for the output to send a<br>signal and receive an acknowledgment.<br>Units: Milliseconds<br>Valid dimensions:<br>• RouterOutputName, RouterOutputID, AvailabilityZone<br>• RouterOutputARN<br>• AvailabilityZone<br>Protocols: RIST, SRT                                             |
 | `RouterOutputTotalPackets`   | The total number of packets sent by the output.<br>Units: Count<br>Valid dimensions:<br>• RouterOutputName, RouterOutputID, AvailabilityZone<br>• RouterOutputARN<br>• AvailabilityZone<br>Protocols: All                                                                                                        |
+
+## Router output metrics for MediaConnect flow connections
+
+When a router output sends content to a MediaConnect flow, MediaConnect
+sends the following metrics to CloudWatch.
+
+| Metric                | Description                                                                                                                                                                                                                                                                                          |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RouterOutputBitRate` | The bitrate of the output stream payload, not including protocol<br>overhead.<br>Units: bits per second (bps)<br>Valid dimensions:<br>• RouterOutputName, RouterOutputID, AvailabilityZone, DownstreamFlowSourceName, DownstreamFlowARN<br>• RouterOutputARN<br>• AvailabilityZone<br>Protocols: All |
+
+###### Note
+
+When no AWS Elemental MediaConnect flow is connected to the router output, the
+DownstreamFlowSourceName and DownstreamFlowARN dimensions display as
+`<unconnected>`.
+
+## Router output metrics for MediaLive connections
+
+When a router output sends content to a MediaLive input, MediaConnect
+sends the following metrics to CloudWatch.
+
+| Metric                | Description                                                                                                                                                                                                                                                                         |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RouterOutputBitRate` | The bitrate of the output stream payload, not including protocol<br>overhead.<br>Units: bits per second (bps)<br>Valid dimensions:<br>• RouterOutputName, RouterOutputID, AvailabilityZone, DownstreamMediaLiveInputID<br>• RouterOutputARN<br>• AvailabilityZone<br>Protocols: All |
+
+###### Note
+
+When no MediaLive input is connected to the router output, the
+DownstreamMediaLiveInputID dimension displays as
+`<unconnected>`.
+
+## Route metrics
+
+These metrics track the connection between a router input and a
+router output. MediaConnect publishes these metrics on the output side of the
+route.
+
+| Metric                     | Description                                                                                                                                                                                                                                                                                                                                   |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RouteBitRate`             | The bitrate of the content on the route between the router<br>input and the router output.<br>Units: bits per second (bps)<br>Valid dimensions:<br>• RouterOutputName, RouterOutputID, RouterOutputAvailabilityZone, RouterInputName, RouterInputID, RouterInputAvailabilityZone<br>• RouterOutputARN<br>• AvailabilityZone<br>Protocols: All |
+| `RouteNotRecoveredPackets` | The number of packets lost between the router input and<br>the router output.<br>Units: Count<br>Valid dimensions:<br>• RouterOutputName, RouterOutputID, RouterOutputAvailabilityZone, RouterInputName, RouterInputID, RouterInputAvailabilityZone<br>• RouterOutputARN<br>• AvailabilityZone<br>Protocols: All                              |
+
+###### Note
+
+When the router output is running but not connected to a router input, the
+RouterInputName, RouterInputID and RouterInputAvailabilityZone dimensions display
+as `<unrouted>`.
