@@ -1,5 +1,9 @@
 # Promoting an RDS Custom for Oracle replica to a standalone DB instance
 
+###### Note
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md "RDS-Custom-for-Oracle-end-of-support.md").
+
 Just as with RDS for Oracle, you can promote an RDS Custom for Oracle replica to a standalone DB instance. When you promote a Oracle replica, RDS Custom for Oracle
 reboots the DB instance before it becomes available. For more information about promoting Oracle replicas, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
 

@@ -1,6 +1,6 @@
 # Creating read replicas for Amazon RDS on AWS Outposts
 
-Amazon RDS on AWS Outposts uses the MySQL and PostgreSQL DB engines' built-in replication functionality to create a read replica from a
+Amazon RDS on AWS Outposts uses the DB engines' built-in replication functionality to create a read replica from a
 source DB instance. The source DB instance becomes the primary DB instance. Updates made to the primary DB instance are
 asynchronously copied to the read replica. You can reduce the load on your primary DB instance by routing read queries from your
 applications to the read replica. Using read replicas, you can elastically scale out beyond the capacity constraints of a single DB
@@ -59,7 +59,7 @@ The read replica must be encrypted. 11. Choose other options as needed. 12. Choo
 After the read replica is created, you can see it on the **Databases** page in the RDS console. It shows
 **Replica** in the **Role** column.
 
-To create a read replica from a source MySQL or PostgreSQL DB instance, use the AWS CLI command [create-db-instance-read-replica](../../../cli/latest/reference/rds/create-db-instance-read-replica.md "../../../cli/latest/reference/rds/create-db-instance-read-replica.md").
+To create a read replica from a source MySQL, PostgreSQL, or Oracle DB instance, use the AWS CLI command [create-db-instance-read-replica](../../../cli/latest/reference/rds/create-db-instance-read-replica.md "../../../cli/latest/reference/rds/create-db-instance-read-replica.md").
 
 You can control where the read replica is created by specifying the `--db-subnet-group-name` and
 `--availability-zone` options:
@@ -93,7 +93,7 @@ aws rds create-db-instance-read-replica ^
     --availability-zone `us-west-2a`
 ```
 
-To create a read replica from a source MySQL or PostgreSQL DB instance, call the Amazon RDS API [CreateDBInstanceReadReplica](../APIReference/API_CreateDBInstanceReadReplica.md "../APIReference/API_CreateDBInstanceReadReplica.md") operation with
+To create a read replica from a source MySQL, PostgreSQL, or Oracle DB instance, call the Amazon RDS API [CreateDBInstanceReadReplica](../APIReference/API_CreateDBInstanceReadReplica.md "../APIReference/API_CreateDBInstanceReadReplica.md") operation with
 the following required parameters:
 
 - `DBInstanceIdentifier`

@@ -1,5 +1,9 @@
 # Working with container databases (CDBs) in RDS Custom for Oracle
 
+###### Note
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md "RDS-Custom-for-Oracle-end-of-support.md").
+
 You can either create your RDS Custom for Oracle DB instance with the Oracle multitenant architecture
 (`custom-oracle-ee-cdb` or `custom-oracle-se2-cdb` engine type) or
 with the traditional non-CDB architecture (`custom-oracle-ee` or

@@ -1,5 +1,9 @@
 # Connecting to your RDS Custom DB instance using Session Manager
 
+###### Note
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md "RDS-Custom-for-Oracle-end-of-support.md").
+
 After you create your RDS Custom DB instance, you can connect to it using AWS Systems Manager Session Manager. This is the
 preferred technique when your DB instance isn't publicly accessible.
 

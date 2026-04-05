@@ -1,5 +1,9 @@
 # Customizing the OS in an RDS Custom for Oracle Multi-AZ deployment
 
+###### Note
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md "RDS-Custom-for-Oracle-end-of-support.md").
+
 With RDS Custom for Oracle Multi-AZ deployments, you can customize the operating system and install
 third-party software on both primary and standby EC2 instances. Unlike Amazon RDS, RDS Custom for Oracle
 provides administrative access to the database environment and underlying operating system,

@@ -93,7 +93,6 @@ The following limitations apply to using additional storage volumes with RDS for
   additional storage volumes:
   - Cross-region automated backups
   - Storage autoscaling (for additional storage volumes)
-  - Cross-account snapshot copy
   - Public snapshots
 
 - You can't delete the primary storage volume (`rdsdbdata`),

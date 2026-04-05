@@ -1,5 +1,9 @@
 # Converting a Single-AZ deployment to a Multi-AZ deployment in RDS Custom for Oracle
 
+###### Note
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md "RDS-Custom-for-Oracle-end-of-support.md").
+
 You can convert an existing multi-AZ compatible RDS Custom for Oracle instance from a Single-AZ
 deployment to a Multi-AZ deployment. When you modify the DB instance, Amazon RDS performs several
 actions:

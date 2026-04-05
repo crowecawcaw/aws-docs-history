@@ -36,6 +36,8 @@ RDS for SQL Server Developer Edition is available in the following AWS Regions:
 - Canada (Central)
 - South America (São Paulo)
 - Africa (Cape Town)
+- AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
 ## Licensing and usage
 

@@ -1,5 +1,9 @@
 # Upgrading an RDS Custom for Oracle DB instance
 
+###### Note
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md "RDS-Custom-for-Oracle-end-of-support.md").
+
 To upgrade your RDS Custom for Oracle DB instance, modify it to use a new CEV. This CEV can contain either
 new database binaries or a new AMI. For example, to upgrade your Oracle Linux 7.9 DB instance to
 Oracle Linux 8, specify the latest AMI, which uses Oracle Linux 8. To upgrade the database

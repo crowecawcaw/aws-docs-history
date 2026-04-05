@@ -140,6 +140,12 @@ The following maintenance actions apply to RDS DB instances:
 ###### Note
 
 Engines that support rotation without restart don't receive this notification.
+Amazon RDS for Oracle DB instances will receive this notification, but they don't require restart.
+Only the database listener is restarted during the server certificate rotation.
+Existing database connections are unaffected, but new connections will encounter
+errors for a brief period while the listener is restarted. See
+[Automatic server certificate rotation](UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-server-cert-rotation "UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-server-cert-rotation")
+for details.
 
 - `db-upgrade` – Upgrade the DB engine version for the DB instance.
 - `hardware-maintenance` – Perform maintenance on the underlying hardware for the DB instance.

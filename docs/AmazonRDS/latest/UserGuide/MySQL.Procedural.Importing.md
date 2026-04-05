@@ -406,7 +406,7 @@ aws rds restore-db-instance-from-s3 \
     --s3-bucket-name `amzn-s3-demo-bucket` \
     --s3-ingestion-role-arn `arn:aws:iam::account-number:role/rolename` \
     --s3-prefix `bucket_prefix` \
-    --source-engine `my_sql` \
+    --source-engine `mysql` \
     --source-engine-version `8.0.32` \
     --max-allocated-storage `1000`
 ```

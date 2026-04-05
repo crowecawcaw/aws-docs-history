@@ -1,5 +1,9 @@
 # Creating an RDS Custom for Oracle snapshot
 
+###### Note
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md "RDS-Custom-for-Oracle-end-of-support.md").
+
 RDS Custom for Oracle creates a storage volume snapshot of your DB instance, backing up the entire
 DB instance and not just individual databases. When your DB instance contains a
 container database (CDB), the snapshot of the instance includes the root CDB and all

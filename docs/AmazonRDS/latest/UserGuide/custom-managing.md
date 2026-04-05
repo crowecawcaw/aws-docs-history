@@ -1,5 +1,9 @@
 # Managing an Amazon RDS Custom for Oracle DB instance
 
+###### Note
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md "RDS-Custom-for-Oracle-end-of-support.md").
+
 Amazon RDS Custom supports a subset of the usual management tasks for Amazon RDS DB instances.
 Following, you can find instructions for the supported RDS Custom for Oracle management tasks using the
 AWS Management Console and the AWS CLI.

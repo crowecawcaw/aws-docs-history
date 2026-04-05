@@ -1,5 +1,9 @@
 # Oracle time zone
 
+###### Note
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md "RDS-Custom-for-Oracle-end-of-support.md").
+
 To change the system time zone used by your RDS Custom for Oracle DB instance, use the time zone option.
 For example, you might change the time zone of a DB instance to be compatible with an
 on-premises environment, or a legacy application. The time zone option changes the time

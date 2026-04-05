@@ -1,5 +1,9 @@
 # Preparing to create a CEV
 
+###### Note
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md "RDS-Custom-for-Oracle-end-of-support.md").
+
 To create a CEV, access the installation files and patches that are stored in your
 Amazon S3 bucket for any of the following releases:
 

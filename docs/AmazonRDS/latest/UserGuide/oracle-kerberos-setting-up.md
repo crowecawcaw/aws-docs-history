@@ -332,7 +332,7 @@ When you use the console to create a DB instance, choose **Password and Kerberos
 **Database authentication** section. Choose **Browse Directory** and then select the directory, or
 choose **Create a new directory**.
 
-![Kerberos authentication setting when creating a DB instance](images/kerberos-authentication.png)
+![Kerberos authentication setting when creating a DB instance](/images/AmazonRDS/latest/UserGuide/images/kerberos-authentication.png)
 
 When you use the console to modify or restore a DB instance, choose the directory in the **Kerberos authentication**
 section, or choose **Create a new directory**.

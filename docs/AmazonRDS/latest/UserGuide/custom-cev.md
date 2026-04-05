@@ -1,5 +1,9 @@
 # Working with custom engine versions for Amazon RDS Custom for Oracle
 
+###### Note
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md "RDS-Custom-for-Oracle-end-of-support.md").
+
 A _custom engine version (CEV)_ for Amazon RDS Custom for Oracle is a binary volume
 snapshot of a database engine and specific Amazon Machine Image (AMI). By default, RDS Custom for Oracle uses the
 latest available AMI managed by RDS Custom, but you can specify an AMI that was used in a previous CEV. You store your database

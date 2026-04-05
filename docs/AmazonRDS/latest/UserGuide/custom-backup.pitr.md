@@ -1,5 +1,9 @@
 # Restoring an RDS Custom for Oracle instance to a point in time
 
+###### Note
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md "RDS-Custom-for-Oracle-end-of-support.md").
+
 You can restore a DB instance to a specific point in time (PITR), creating a new DB instance. To support PITR, your DB
 instances must have backup retention set to a nonzero value.
 

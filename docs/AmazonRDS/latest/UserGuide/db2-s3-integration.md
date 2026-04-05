@@ -148,7 +148,7 @@ For Linux, macOS, or Unix:
 aws iam create-policy \
     --policy-name `iam_policy_name` \
     --policy-document '{
-      "Version": "2012-10-17"		 	 	 		 	 	 		 	 	 ,
+      "Version": "2012-10-17",
       "Statement": [
         {
           "Effect": "Allow",
@@ -178,7 +178,7 @@ For Windows:
 aws iam create-policy ^
     --policy-name `iam_policy_name` ^
     --policy-document '{
-      "Version": "2012-10-17"		 	 	 		 	 	 		 	 	 ,
+      "Version": "2012-10-17",
       "Statement": [
         {
           "Effect": "Allow",
@@ -268,7 +268,7 @@ For Linux, macOS, or Unix:
 aws iam create-role \
     --role-name `iam_role_name` \
     --assume-role-policy-document '{
-      "Version": "2012-10-17"		 	 	 		 	 	 		 	 	 ,
+      "Version": "2012-10-17",
       "Statement": [
         {
           "Effect": "Allow",
@@ -287,7 +287,7 @@ For Windows:
 aws iam create-role ^
     --role-name `iam_role_name` ^
     --assume-role-policy-document '{
-      "Version": "2012-10-17"		 	 	 		 	 	 		 	 	 ,
+      "Version": "2012-10-17",
       "Statement": [
         {
           "Effect": "Allow",

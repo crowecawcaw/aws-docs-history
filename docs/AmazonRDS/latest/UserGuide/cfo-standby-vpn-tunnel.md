@@ -1,5 +1,9 @@
 # Configuring a VPN tunnel between RDS Custom for Oracle primary and replica instances
 
+###### Note
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md "RDS-Custom-for-Oracle-end-of-support.md").
+
 A VPN tunnel is an encrypted connection between two or more devices over a network. To
 ensure the highest level of security for your Oracle Data Guard instances in RDS Custom for Oracle,
 we strongly recommend that you implement a VPN tunnel to encrypt communication between

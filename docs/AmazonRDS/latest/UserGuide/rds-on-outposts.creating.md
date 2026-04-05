@@ -186,6 +186,8 @@ aws rds create-db-subnet-group ^
     - PostgreSQL – Specify `postgres`.
     - Microsoft SQL Server – Specify `sqlserver-ee`, `sqlserver-se`,
       or `sqlserver-web`.
+    - Oracle – Specify `oracle-se2`, `oracle-se2-cdb`,
+      `oracle-ee`, or `oracle-ee-cdb`.
 
   - `--availability-zone`
   - `--vpc-security-group-ids`

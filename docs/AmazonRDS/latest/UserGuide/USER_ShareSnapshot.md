@@ -45,7 +45,6 @@ DB snapshot. The OLS option is permanent and persistent only for Oracle DB insta
 For more information about these options, see [Oracle time zone](Appendix.Oracle.Options.Timezone.md "Appendix.Oracle.Options.Timezone.md") and [Oracle Label Security](Oracle.Options.OLS.md "Oracle.Options.OLS.md").
 
 - You can't share a snapshot of a Multi-AZ DB cluster.
-- You can't share a snapshot when it contains an additional storage volume.
   See the following topics for information about sharing public snapshots, sharing encrypted snapshots, and stopping snapshot sharing.
 
 ###### Topics

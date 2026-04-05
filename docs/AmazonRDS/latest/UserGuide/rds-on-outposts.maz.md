@@ -8,7 +8,7 @@ Multi-AZ deployments on AWS Outposts operate like Multi-AZ deployments in AWS Re
 - They require a local connection between two or more Outposts.
 - They require customer-owned IP (CoIP) pools. For more information, see [Customer-owned IP addresses for Amazon RDS on AWS Outposts](rds-on-outposts.coip.md "rds-on-outposts.coip.md").
 - Replication runs on your local network.
-  Multi-AZ on AWS Outposts is available for all supported versions of MySQL and PostgreSQL on RDS on Outposts. Local backups aren't
+  Multi-AZ on AWS Outposts is available for all supported versions of MySQL, PostgreSQL, and Oracle on RDS on Outposts. Local backups aren't
   supported for Multi-AZ deployments. For more information, see [Creating DB instances for Amazon RDS on AWS Outposts](rds-on-outposts.creating.md "rds-on-outposts.creating.md").
 
 ## Working with the shared responsibility model

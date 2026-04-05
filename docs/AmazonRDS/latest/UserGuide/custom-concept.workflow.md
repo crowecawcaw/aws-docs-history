@@ -1,5 +1,9 @@
 # RDS Custom for Oracle workflow
 
+###### Note
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md "RDS-Custom-for-Oracle-end-of-support.md").
+
 The following diagram shows the typical workflow for RDS Custom for Oracle.
 
 ![RDS Custom for Oracle architecture components](images/RDS_Custom_architecture_v2.png)

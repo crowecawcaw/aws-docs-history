@@ -103,12 +103,12 @@ instance class type or availability mode can support, modifying the DB instance
 fails. You can see the status of your request in the **Events**
 pane.
 
-| Instance class type              | Allowed vCPU range      | Single-AZ | Multi-AZ with DBM | Multi-AZ with Always On AGs |
+| Instance class type              | vCPU configured on RDS  | Single-AZ | Multi-AZ with DBM | Multi-AZ with Always On AGs |
 | -------------------------------- | ----------------------- | --------- | ----------------- | --------------------------- |
 | db.\*.micro to db.\*.medium      | N/A                     | 30        | N/A               | N/A                         |
 | db.\*.large                      | N/A                     | 30        | 30                | 30                          |
 | db.\*.xlarge to db.\*.16xlarge   | 4 vCPUs<br>• 64 vCPUs   | 100       | 50                | 75                          |
-| db.\*.24xlarge to db.\*.32xlarge | 4 vCPUs<br>• 64 vCPUs   | 100       | 50                | 100                         |
+| db.\*.24xlarge to db.\*.32xlarge | 4 vCPUs<br>• 64 vCPUs   | 100       | 50                | 75                          |
 | db.\*.24xlarge to db.\*.32xlarge | 96 vCPUs<br>• 128 vCPUs | 100       | 50                | 100                         |
 
 \* Represents the different instance class types.

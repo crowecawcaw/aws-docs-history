@@ -10,7 +10,7 @@ When creating a CEV, you must follow specific naming conventions:
 - CEV name must follow the pattern `major-version.minor-version.customized-string`.
 - `customized-string` can contain 1-50 alphanumeric characters, underscores, dashes, and periods. For example: `16.00.4215.2.my-dev-cev` for SQL Server 2022.
 
-To list all supported engine versions, use the following command:
+To list all supported engine versions, use the following AWS CLI command:
 
 ```
 aws rds describe-db-engine-versions --engine sqlserver-dev-ee --output json --query "{DBEngineVersions: DBEngineVersions[?Status=='requires-custom-engine-version'].{Engine: Engine, EngineVersion: EngineVersion, Status: Status, DBEngineVersionDescription: DBEngineVersionDescription}}"
