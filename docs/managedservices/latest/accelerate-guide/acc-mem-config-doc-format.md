@@ -34,7 +34,6 @@ Both the default configuration profile document and the customization configurat
 AWS::EC2::Instance
 AWS::EC2::Instance::Disk
 AWS::RDS::DBInstance
-AWS::RDS::DBCluster
 AWS::Elasticsearch::Domain
 AWS::OpenSearch::Domain
 AWS::Redshift::Cluster
@@ -47,11 +46,10 @@ AWS::FSx::FileSystem::Windows
 AWS::EFS::FileSystem
 AWS::EC2::NatGateway
 AWS::EC2::VPNConnection
+
 ```
 
-- **ConfigurationID**: This key must be unique in the profile, and uniquely names the following block of configuration. If two
-  configuration blocks in the same **ResourceType** block have the same **ConfigurationID**, the one that appears latest in the profile
-  takes effect. If you specify a **ConfigurationID** in your customization profile that is the same as one specified in the default profile, the
+- **ConfigurationID**: This key must be unique in the profile, and uniquely names the following block of configuration. If you specify a **ConfigurationID** in your customization profile that is the same as one specified in the default profile, the
   configuration block defined in the customization profile takes effect.
   - **Enabled**: (optional, default=true) Specify if the configuration block will take effect. Set this to false to disable a
     configuration block. A disabled configuration block behaves as if it's not present in the profile.

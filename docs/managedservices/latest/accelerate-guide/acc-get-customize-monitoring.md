@@ -14,5 +14,4 @@ To customize monitoring of your cloud resources based on your application needs:
 - AMS-Resource-Tagger-Reporting-Dashboard
   For a complete description of the dashboard metrics, see:
 
-- [Viewing the number of resources monitored by Alarm Manager for Accelerate](acc-mem-number-of-resources.md "acc-mem-number-of-resources.md")
 - [Viewing the number of resources managed by Resource Tagger](acc-rt-using.md#acc-rt-number-of-resources "acc-rt-using.md#acc-rt-number-of-resources")

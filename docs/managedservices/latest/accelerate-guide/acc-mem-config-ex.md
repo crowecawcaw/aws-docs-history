@@ -25,10 +25,6 @@ In the following example, the system creates an alarm for each disk attached to 
                     {
                         "Name": "fstype",
                         "Value": "${EC2::Disk::FSType}"
-                    },
-                    {
-                        "Name": "path",
-                        "Value": "${EC2::Disk::Path}"
                     }
                 ],
                 "AlarmName": "${EC2::InstanceId}: Disk Usage Too High - ${EC2::Disk::UUID}"
