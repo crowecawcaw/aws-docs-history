@@ -10,7 +10,7 @@ For more information on enabling image scanning, see [Image scanning](../../../A
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), China (Beijing), Asia Pacific (Thailand), Asia Pacific (Malaysia), Mexico (Central), Asia Pacific (Taipei), Canada West (Calgary), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), China (Beijing), Asia Pacific (Thailand), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
 
 **Parameters:**
 

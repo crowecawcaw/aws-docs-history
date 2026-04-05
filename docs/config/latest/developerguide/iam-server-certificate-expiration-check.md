@@ -8,7 +8,7 @@ Checks if AWS IAM SSL/TLS server certificates stored in IAM are expired. The rul
 
 **Trigger type:** Periodic
 
-**AWS Region:** Only available in US East (N. Virginia) Region
+**AWS Region:** Only available in China (Beijing), US East (N. Virginia) Region
 
 **Parameters:**
 

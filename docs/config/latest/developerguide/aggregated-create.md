@@ -202,7 +202,7 @@ administrator, see [Registering a Delegated Administrator for AWS Config](aggreg
    following command:
 
 ```
-aws iam create-role --role-name `OrgConfigRole` --assume-role-policy-document "{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":[{\"Sid\":\"\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"config.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}" --description "Role for organizational AWS Config aggregator"
+aws iam create-role --role-name `OrgConfigRole` --assume-role-policy-document "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"config.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}" --description "Role for organizational AWS Config aggregator"
 ```
 
 ###### Note
@@ -213,7 +213,7 @@ response object. 3. If have not attached a policy to your IAM role, attach the [
 following command:
 
 ```
-aws iam create-policy --policy-name OrgConfigPolicy --policy-document '{"Version":"2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Action":["organizations:ListAccounts","organizations:DescribeOrganization","organizations:ListAWSServiceAccessForOrganization","organizations:ListDelegatedAdministrators"],"Resource":"*"}]}'
+aws iam create-policy --policy-name OrgConfigPolicy --policy-document '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":["organizations:ListAccounts","organizations:DescribeOrganization","organizations:ListAWSServiceAccessForOrganization","organizations:ListDelegatedAdministrators"],"Resource":"*"}]}'
 ```
 
 4. Enter the following command to create an aggregator named

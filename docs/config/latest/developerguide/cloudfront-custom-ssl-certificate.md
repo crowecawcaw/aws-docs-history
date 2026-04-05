@@ -1,6 +1,6 @@
 # cloudfront-custom-ssl-certificate
 
-Checks if the certificate associated with an Amazon CloudFront distribution is the default SSL certificate. The rule is NON_COMPLIANT if a CloudFront distribution uses the default SSL certificate.
+Checks if the certificate associated with an Amazon CloudFront distribution is the default SSL certificate. The rule is NON_COMPLIANT if a CloudFront distribution uses the default SSL certificate. Multi-tenant distributions are not applicable.
 
 **Identifier:** CLOUDFRONT_CUSTOM_SSL_CERTIFICATE
 

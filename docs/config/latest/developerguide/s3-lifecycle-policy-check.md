@@ -8,7 +8,7 @@ Checks if a lifecycle rule is configured for an Amazon Simple Storage Service (A
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Asia Pacific (Thailand), Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 
