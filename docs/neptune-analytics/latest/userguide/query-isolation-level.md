@@ -51,3 +51,9 @@ Query 2: MERGE (n {lastName: 'lname2'})
 Query 1: MERGE (n {firstName: 'fname', lastName: 'lname1'})
 Query 2: MERGE (n {firstName: 'fname', lastName: 'lname2'})
 ```
+
+**Vector embeddings:** The changes (inserts, deletes, and updates) to vector
+embeddings are non-atomic and unisolated (see [Vector index
+transaction support](vector-index.md#vector-index-transaction-support "vector-index.md#vector-index-transaction-support")), unlike other graph updates. The changes to vector embeddings by a query become
+durable on write and visible to all other queries even if that query fails later. If a query updates the
+vector embeddings and makes other changes to the graph, then only the latter are atomic and isolated.

@@ -30,6 +30,10 @@ Neptune Analytics is available in the following AWS Regions:
 - Israel (Tel Aviv):   `il-central-1`
 - Africa (Cape Town):   `af-south-1`
 
+###### Note
+
+Neptune Analytics is not available in the AWS GovCloud (US-West) or AWS GovCloud (US-East) Regions.
+
 ## Quotas
 
 Your AWS account has default quotas, formerly referred to as limits, for each AWS service.

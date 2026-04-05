@@ -26,6 +26,8 @@ aws neptune-graph start-export-task \
 - `--role-arn <arn>` - The ARN of an IAM role that grants Neptune Analytics the necessary permissions
   to access the Amazon S3 bucket for the export.
 - `--format <format>` - The output format for the exported data, either CSV or PARQUET.
+- `--parquet-type <parquet-type>` - (Optional) The Parquet data type of the export. The only
+  valid value is `COLUMNAR`. Required if the format is `PARQUET`.
 - `--kms-key-identifier <kms-key>` - The AWS KMS key to use for server-side encryption of the exported data in Amazon S3.
   For more information see [Create and configure IAM role and AWS KMS key](import-export-permissions.md#create-iam-and-kms "import-export-permissions.md#create-iam-and-kms").
 - `--destination <s3-url>` - The Amazon S3 location where the exported data will be written. The provided
