@@ -36,7 +36,7 @@ _IAM User Guide_.
 
 ```
 {
-  "Version": "2012-10-17"		 	 	 ,
+  "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
@@ -74,7 +74,7 @@ _IAM User Guide_.
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -135,7 +135,7 @@ account?](https://aws.amazon.com/premiumsupport/knowledge-center/quicksight-cros
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",

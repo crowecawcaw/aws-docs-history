@@ -1,6 +1,6 @@
 # Select research materials
 
-After defining your research objective, you can select the data sources that Quick Research will use to gather information. You can choose from multiple types of research materials to ensure comprehensive coverage of your topic.
+After defining your research objective, you can select the data sources that Quick Research will use to gather information. Set your preferences and control what sources Quick Research uses. Include files, web search preferences, company assets, and premium and public datasets.
 
 ###### To select research materials
 
@@ -11,9 +11,9 @@ After defining your research objective, you can select the data sources that Qui
 
    For best results, include key documents that are most relevant to your research goals. Adding more materials may increase research time and lead to less focused insights.
 
-   If you're working with larger collections, consider using Spaces to organize and optimize extensive research materials for better results. 3. Select **Quick assets** to include data spaces, dashboards, and knowledge bases. These aree collections of files, documents, and analytics that you've organized in Quick for easy access and analysis. For more information about creating and managing data spaces, see [Organize, collaborate, and share resources with spaces in Amazon Quick](working-with-spaces.md "working-with-spaces.md").
+   If you're working with larger collections, consider using Spaces to organize and optimize extensive research materials for better results. 3. Choose **Quick assets** to include data spaces, dashboards, knowledge bases, and integrations in your research. For more information about creating and managing data spaces, see [Organize, collaborate, and share resources with spaces in Amazon Quick](working-with-spaces.md "working-with-spaces.md"). 4. Choose **Third party data** to incorporate data from premium datasets and trusted public data sources to enhance your research. For more information, see [Using third party data in Amazon Quick Research](third-party-data.md "third-party-data.md").
 
-3. Choose **Create plan** to proceed to research plan review.
+3. Choose **Review plan** to review a draft research plan before starting, or choose **Start researching** to begin research immediately.
 
 ## Web search
 
@@ -34,8 +34,6 @@ Adding a domain to the list of preferred websites doesn't guarantee that the web
 
 Upload specific documents, PDFs, spreadsheets, or other files that you want Quick Research to analyze as part of your research. This is useful when you have particular sources or documents that are directly relevant to your research objective.
 
-![](images/qresearch-upload-add-files.png)
-
 ###### To upload files
 
 1. Choose **Upload** to open the **File Uploads** window.
@@ -49,11 +47,9 @@ Accepted file formats include .pdf, .txt, .doc, .xls, and .csv files. The file s
 
 ## Quick assets
 
-Connect Quick Research to your existing data spaces to include internal documents, reports, and knowledge bases in your research. This allows you to combine external web sources with your organization's proprietary information.
+Connect Quick Research to your existing data spaces to include internal documents, reports, knowledge bases, and integrations in your research. You can combine external web sources with your organization's proprietary information. Quick Research can also fetch data through Quick action connectors, enabling it to pull live data from connected systems during the research process.
 
 For optimal results, consider selecting the most relevant assets for your specific research question. Choose **Browse** to add assets from Quick.
-
-![](images/qresearch-quick-suite-data-browse.png)
 
 ###### To add Quick assets
 
@@ -64,6 +60,7 @@ For optimal results, consider selecting the most relevant assets for your specif
    3. **Dashboard** - Dashboard resources (maximum of 2 selections)
    4. **Topic** - Topic resources (maximum of 2 selections)
    5. **Knowledgebase** - Knowledge base resources
+   6. **Integration** - Action connectors that can fetch live data from connected systems
 
 3. Review the available assets, which display the Name, Owner, and Last Modified date and time for each asset.
 4. Select the assets you want to include in your research.

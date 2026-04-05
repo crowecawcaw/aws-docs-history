@@ -19,7 +19,7 @@ IAM console administration actions.
 
 ```
 {
-   "Version": "2012-10-17"		 	 	 ,
+   "Version": "2012-10-17",
    "Statement": [
        {
            "Sid": "Statement1",
@@ -58,7 +58,7 @@ embedding for specific dashboards.
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Action": "quicksight:RegisterUser",
@@ -83,7 +83,7 @@ Creating namespaces
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -105,7 +105,7 @@ Deleting namespaces
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -128,7 +128,7 @@ administrator or a developer to manage custom permissions.
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -146,7 +146,7 @@ the previous example.
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -174,7 +174,7 @@ address they want to send email reports from is a verified identity in SES.
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -200,7 +200,7 @@ Enterprise edition Amazon Quick account with Amazon Quick managed users.
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "Statement1",
@@ -253,7 +253,7 @@ the specified resource.
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Action": [
@@ -273,7 +273,7 @@ developers to create and manage groups.
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -303,7 +303,7 @@ unsubscribe from Amazon Quick.
 
 ```
 {
-  "Version": "2012-10-17"		 	 	 ,
+  "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
@@ -467,7 +467,7 @@ denies permission to unsubscribe from Amazon Quick.
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -528,7 +528,7 @@ management console.
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -570,7 +570,7 @@ management console.
 
 ```
 {
-   "Version":"2012-10-17"		 	 	 ,
+   "Version":"2012-10-17",
    "Statement":[
       {
          "Effect":"Allow",
@@ -606,7 +606,7 @@ CMKs that are registered to the Amazon Quick account.
 
 ```
 {
-   "Version":"2012-10-17"		 	 	 ,
+   "Version":"2012-10-17",
    "Statement":[
       {
          "Effect":"Allow",
@@ -651,7 +651,7 @@ for permissions to AWS resources.
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Action": [

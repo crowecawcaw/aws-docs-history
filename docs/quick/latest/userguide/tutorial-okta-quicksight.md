@@ -132,7 +132,7 @@ Resource Name (ARN).
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
     {
         "Effect": "Allow",
@@ -162,7 +162,7 @@ ARN.
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Action": [
@@ -256,7 +256,7 @@ Tags**. 18. Choose **Next: Review**. 19. For **Role name**, enter
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",

@@ -76,7 +76,7 @@ aws iam create-role \
         --role-name TestAthenaRoleForQuickSight \
         --description "Test Athena Role For QuickSight" \
         --assume-role-policy-document '{
-            "Version": "2012-10-17"		 	 	 ,
+            "Version": "2012-10-17",
             "Statement": [
                 {
                     "Effect": "Allow",
@@ -147,7 +147,7 @@ aws iam create-role \
 --role-name TestRedshiftRoleForQuickSight \
 --description "Test Redshift Role For QuickSight" \
 --assume-role-policy-document '{
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -181,7 +181,7 @@ aws iam attach-role-policy \
 --policy-arn arn:aws:iam:111122223333:policy/RedshiftGetClusterCredentialsPolicy1
 // redshift-get-cluster-credentials-policy.json
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "RedshiftGetClusterCredentialsPolicy",
@@ -207,7 +207,7 @@ shown in the example below.
 aws iam attach-role-policy \
 --role-name TestRedshiftRoleForQuickSight \
 --policy-arn arn:aws:iam:111122223333:policy/RedshiftGetClusterCredentialsPolicy1 // redshift-get-cluster-credentials-policy.json {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "RedshiftGetClusterCredentialsPolicy",
@@ -392,7 +392,7 @@ aws iam put-role-policy \
     --role-name QuickSightAccessToS3RunAsRoleBucket \
     --policy-name GrantS3RunAsRoleAccess \
     --policy-document '{
-        "Version": "2012-10-17"		 	 	 ,
+        "Version": "2012-10-17",
         "Statement": [
             {
                 "Effect": "Allow",

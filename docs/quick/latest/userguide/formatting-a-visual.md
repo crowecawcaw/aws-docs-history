@@ -19,6 +19,7 @@ visual.
 - [Analytics formatting per type in Quick](analytics-format-options.md "analytics-format-options.md")
 - [Table and pivot table formatting options in Quick](format-tables-pivot-tables.md "format-tables-pivot-tables.md")
 - [Adding data bars to tables in Quick](format-data-bars.md "format-data-bars.md")
+- [Adding sparklines to tables in Quick](format-sparklines.md "format-sparklines.md")
 - [Map and geospatial chart formatting options in Quick](geospatial-formatting.md "geospatial-formatting.md")
 - [Axes and grid lines on visual types in Quick](showing-hiding-axis-grid-tick.md "showing-hiding-axis-grid-tick.md")
 - [Colors in visual types in Quick](changing-visual-colors.md "changing-visual-colors.md")

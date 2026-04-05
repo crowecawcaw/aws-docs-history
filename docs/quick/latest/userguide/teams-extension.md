@@ -86,7 +86,7 @@ both platforms without requiring additional configuration.
 
 ### Add Microsoft Teams extension access for accounts using IAM Identity Center
 
-Configuring extension access with IAM Identity Center requires completing steps specific to your identity provider (Entra ID or Okta) followed by common setup steps in AWS.
+Configuring extension access with IAM Identity Center requires completing steps specific to your identity provider (for example, Entra ID or Okta) followed by common setup steps in AWS.
 
 #### Configure IAM Identity Center with Entra ID
 
@@ -98,7 +98,7 @@ Follow these steps only if you are using IAM Identity Center with Entra ID to se
    1. Go to **App registrations**.
    2. In the **App registrations** screen, choose **New registration**. Under the **Supported account types** option, choose **Accounts in this organizational directory only (Personal use only - Single tenant)**. Once finished, choose **Register**.
    3. Note the client ID. You will need this later.
-   4. Create a client secret for the app registration and keep note of it. You will need this later.
+   4. Create a client secret for the app registration. Copy and save the secret's **Value** attribute. You need it later. This value is only shown once and cannot be retrieved after you leave the page.
 
 2. Add callback URLs for each Region in which your Teams extension will be installed.
    1. Navigate to the app registration's **Authentication** tab.
@@ -195,7 +195,7 @@ Follow these steps to set up permissions on AWS Console:
 
 {
 "client_id":"`Your app registration client ID`",
-"client_secret":"`Your app registration client secret`"
+"client_secret":"`Your app registration client secret value`"
 }
 ```
 

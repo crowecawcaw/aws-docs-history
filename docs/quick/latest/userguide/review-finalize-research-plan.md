@@ -2,14 +2,12 @@
 
 Before Quick Research begins gathering and analyzing information, you have the opportunity to review and refine your research plan. This step helps ensure that the research will meet your specific needs and expectations.
 
-![](images/qresearch-revise-plan.png)
-
 ###### To review and finalize your research plan
 
 1. Review the AI-generated suggestions in the **Revise Plan** pane on the right for improving your research plan.
 2. (Optional) To make revisions, enter your changes in the **How should I change the plan?** field. You can add comments and notes to provide additional context or specific instructions for the AI, such as clarifying particular aspects you want emphasized, specifying exclusions, or providing domain-specific guidance that will help generate more relevant results.
 3. Choose **Revise plan** to update the plan with your revisions.
-4. Choose **Start Research** to begin the analysis process.
+4. Choose **Start researching** to begin the analysis process.
 
 ## Research suggestions
 

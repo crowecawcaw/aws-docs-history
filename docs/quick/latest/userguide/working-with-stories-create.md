@@ -1,4 +1,4 @@
-# Creating a data story with Generative BI;
+# Creating a data story with Generative BI
 
 Use the following procedure to create a data story with Generative BI.
 

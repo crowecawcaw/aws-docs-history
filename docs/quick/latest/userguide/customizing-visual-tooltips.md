@@ -79,6 +79,143 @@ A new field is added to the list of fields in your tooltip.
    the tooltip.
 3. Choose **Save**.
 
+## Using sheet tooltips in Quick
+
+Sheet tooltips transform how viewers explore data by providing rich context
+without disrupting their analysis flow. Instead of navigating away from a visual or
+opening separate sheets, viewers get instant access to detailed breakdowns, trends,
+and supporting information, making dashboards more intuitive and reducing the need
+for multiple sheets.
+
+Sheet tooltips are available on interactive sheets only. They are not supported on
+paginated reports. You can duplicate a tooltip sheet to another tooltip sheet, or
+duplicate a tooltip sheet to a regular interactive sheet. Additionally, you can
+duplicate a visual to a tooltip sheet.
+
+### How sheet tooltips work
+
+When an author creates a sheet tooltip, a tooltip sheet is created and
+associated with a visual. This tooltip sheet works like a regular sheet. You can
+add visuals, text boxes, and images to it using a free-form layout. When a
+viewer hovers over a data point, the tooltip sheet inherits all filters from the
+source visual and adds an additional filter for the specific data point. For
+example, if your source visual is filtered to "2025 data" and a viewer hovers
+over "Electronics," the tooltip shows Electronics data for 2025 only.
+
+Consider a bar chart showing sales by product category. You could create
+a sheet tooltip that shows a trend line of monthly sales, a KPI of
+year-over-year growth, and a text box with the category name, all filtered to
+whichever category the viewer hovers over.
+
+### Sheet tooltip limits
+
+The following limits apply to sheet tooltips:
+
+- Up to 50 tooltip sheets per analysis
+- Up to 5 visuals per tooltip sheet
+- Up to 5 text boxes per tooltip sheet
+- Up to 5 images per tooltip sheet
+- Tooltip sheets use free-form layout only
+- Layer map visuals are not allowed on tooltip sheets
+- Maximum size of a tooltip sheet is 640px wide by 720px tall
+
+### Creating a sheet tooltip
+
+Use the following procedure to create a sheet tooltip for a visual.
+
+###### To create a tooltip sheet
+
+1. On the analysis page, choose the visual that you want to add a sheet
+   tooltip to.
+2. On the menu in the upper-right corner of the visual, choose the
+   **Format visual** icon.
+3. In the **Properties** pane that opens, choose
+   **Interactions** >
+   **Tooltip**.
+4. For **Type**, choose **Sheet
+   tooltip**.
+5. Choose **Create tooltip sheet**. You will
+   automatically navigate to a tooltip sheet editing experience. A tooltip
+   name is auto-generated and you can edit it by choosing the tab
+   title.
+6. Add visuals, text boxes, or images to the tooltip sheet. Arrange them
+   using the free-form layout.
+7. When you are finished, return to the source sheet by choosing the
+   **Back** button located to the left of the sheet
+   tooltip title. To preview the tooltip, hover over any data points in
+   the visual.
+
+### Assigning a tooltip sheet to a visual
+
+When you select **Sheet tooltip** as the tooltip type in the
+**Properties** pane, a control appears that lets you select all
+tooltip sheets available in the analysis. You can assign one tooltip sheet to
+multiple visuals or create separate tooltip sheets for each visual.
+
+If you would like to apply the same tooltip sheet to another visual, you can
+do this by assigning one tooltip sheet to multiple visuals in the
+**Interactions** > **Tooltip** accordion
+in the **Properties** pane.
+
+### Editing a tooltip sheet
+
+Use the following procedure to edit an existing sheet tooltip.
+
+###### To edit a tooltip sheet
+
+1. Choose any visual where a sheet tooltip is enabled.
+2. Open the **Properties** pane and navigate to
+   **Interactions** >
+   **Tooltip**.
+3. In the **Tooltip** accordion, select the tooltip
+   that you would like to edit and choose the edit icon next to the
+   tooltip sheet name to navigate to it.
+4. Make your changes to the visuals, text boxes, or images on the
+   tooltip sheet.
+
+### Switching between tooltip types
+
+You can switch a visual's tooltip between basic, detailed, and sheet tooltip
+types at any time.
+
+###### To change the tooltip type
+
+1. Choose the visual that you want to update.
+2. Open the **Properties** pane, choose
+   **Interactions**, and then choose
+   **Tooltip**.
+3. For **Type**, select the tooltip type that you want:
+   **Basic tooltip**, **Detailed
+   tooltip**, or **Sheet tooltip**.
+
+###### Note
+
+Switching away from a sheet tooltip preserves your work. You can always
+switch back without losing your tooltip sheet design.
+
+### Sheet tooltip considerations
+
+Keep the following in mind when working with sheet tooltips:
+
+- Tables and pivot tables support sheet tooltips but not basic or
+  detailed tooltips.
+- Visuals in a tooltip sheet do not support context menus, on-visual
+  menus, or custom actions.
+- [Using custom actions for filtering and navigating](quicksight-actions.md "quicksight-actions.md") on visuals in a tooltip sheet are not
+  supported when the sheet is rendered as a tooltip.
+- Sheet tooltips support filters, cross-sheet filtering, and
+  parameters. Filter controls are not supported.
+- Sheet descriptions are not displayed on tooltip sheets.
+- Cross-sheet filters cannot be scoped to tooltip sheets.
+- An analysis must contain at least one regular interactive sheet. An
+  analysis cannot consist of only tooltip sheets.
+- Layer map visuals cannot be placed inside a tooltip sheet.
+- Tooltips on tooltip sheets are not supported.
+
+These limits ensure tooltip sheets load quickly and maintain a focused,
+scannable experience for viewers. For more complex analysis, consider using
+drill-down actions or separate detail sheets.
+
 ## Hiding tooltips in a visual
 
 If you don't want tooltips to appear when you hover your cursor over data in a

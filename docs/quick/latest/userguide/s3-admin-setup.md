@@ -110,7 +110,7 @@ Add this statement to your bucket access policy to allow Amazon Quick to access 
 
 ```
 {
-  "Sid": "Allow-Quick-access"		 	 	 ,
+  "Sid": "Allow-Quick-access",
   "Principal": "arn:aws:iam::Quick Account:role/service-role/aws-quicksight-service-role-v0",
   "Action": "s3:*",
   "Effect": "Allow",
@@ -139,7 +139,7 @@ For example:
 
 ```
 {
-   "Version":"2012-10-17"		 	 	 ,
+   "Version":"2012-10-17",
    "Id": "Policy1415115909152",
    "Statement": [
      {
@@ -163,7 +163,7 @@ Should be reversed into:
 
 ```
 {
-   "Version":"2012-10-17"		 	 	 ,
+   "Version":"2012-10-17",
    "Id": "Policy1415115909152",
    "Statement": [
      {
@@ -220,7 +220,7 @@ access to two specific buckets:
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",

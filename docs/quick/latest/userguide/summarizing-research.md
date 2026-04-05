@@ -4,7 +4,6 @@ After completing your research report, you can create focused summaries for diff
 
 Quick Research provides multiple summary formats to help you present your findings in different contexts and for various audiences. Choose the summary type that best fits your intended use and audience needs.
 
-![](images/qresearch-summarizing.png)
 In the **Options** tab, you can choose to create a custom summary by entering up to 5,000 characters about how you would like to summarize, or select one of two preset summary styles:
 
 - _Executive summary_ - VP-oriented tone, 2-page maximum, no citations

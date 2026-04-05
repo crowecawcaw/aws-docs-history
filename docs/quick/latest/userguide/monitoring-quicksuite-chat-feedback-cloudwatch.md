@@ -47,7 +47,7 @@ To set up CloudWatch Logs for Amazon Quick, use the following IAM policy example
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [{
         "Sid": "QuicksightLogDeliveryPermissions",
         "Effect": "Allow",
@@ -61,7 +61,7 @@ You must also allow the `delivery.logs.amazonaws.com` service principal in your 
 
 ```
 {
-    "Effect": "Allow"		 	 	 ,
+    "Effect": "Allow",
     "Principal": {
         "Service": "delivery.logs.amazonaws.com"
     },

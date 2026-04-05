@@ -12,7 +12,7 @@ Use the following topics to create, modify, and share a data story.
 
 ###### Topics
 
-- [Creating a data story with Generative BI;](working-with-stories-create.md "working-with-stories-create.md")
+- [Creating a data story with Generative BI](working-with-stories-create.md "working-with-stories-create.md")
 - [Personalize data stories in Amazon Quick Sight](working-with-stories-personalize.md "working-with-stories-personalize.md")
 - [Viewing a generated data story in Amazon Quick Sight](working-with-stories-view.md "working-with-stories-view.md")
 - [Editing a generated data story in Amazon Quick Sight](working-with-stories-edit.md "working-with-stories-edit.md")
