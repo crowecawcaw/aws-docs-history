@@ -16,7 +16,7 @@ RampIDs to another set using either maintained or derived RampIDs.
     1. Enter an **ID mapping workflow name** and an optional
        **Description**.
 
-    ![The name and description fields on the Specify ID mapping workflow page](/images/entityresolution/latest/userguide/images/specify-ID-mapping-details-name.png) 2. For the **ID mapping method**, choose **Provider
+    ![The name and description fields on the Specify ID mapping workflow page](images/specify-ID-mapping-details-name.png) 2. For the **ID mapping method**, choose **Provider
     services**.
 
     AWS Entity Resolution currently offers the LiveRamp provider service as an ID mapping method. If
@@ -81,7 +81,7 @@ RampIDs to another set using either maintained or derived RampIDs.
     2. View the **LiveRamp generated output**.
     3. Choose **Next**.
 
-    ![The Data output destination fields on the Specify data output location page](/images/entityresolution/latest/userguide/images/specify-data-ouput-IDM.PNG)
+    ![The Data output destination fields on the Specify data output location page](images/specify-data-ouput-IDM.PNG)
 
 8.  For **Step 4: Review and create**, do the following.
     1. Review the selections that you made for the previous steps and edit them if
