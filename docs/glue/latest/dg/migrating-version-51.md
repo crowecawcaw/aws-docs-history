@@ -29,12 +29,12 @@ This section describes new features and advantages of AWS Glue version
   [blog post](https://aws.amazon.com/blogs/big-data/introducing-apache-iceberg-materialized-views-in-aws-glue-data-catalog/ "https://aws.amazon.com/blogs/big-data/introducing-apache-iceberg-materialized-views-in-aws-glue-data-catalog/")
 - **Iceberg format version 3.0** - Extends data types and existing metadata structures to add new capabilities. For more information, see the
   [Iceberg Table Spec](https://iceberg.apache.org/spec/ "https://iceberg.apache.org/spec/").
-- **Hudi Full Table Access** - Full Table Access (FTA) control for Apache Hudi in Apache Spark based on your policies defined in .
-  This feature enables read and write operations from your AWS Glue ETL jobs on registered tables when the job role has full table access.
-- **Spark native fine-grained access control (FGAC) support using** - DDL/DML operations (like CREATE, ALTER, DELETE, DROP) with fine grained access control for
-  Apache Hive, Apache Iceberg and Delta Lake tables registered in .
+- **Hudi Full Table Access** - Full Table Access (FTA) control for Apache Hudi in Apache Spark based on your policies defined in AWS Lake Formation.
+  This feature enables read and write operations from your AWS Glue ETL jobs on AWS Lake Formation registered tables when the job role has full table access.
+- **Spark native fine-grained access control (FGAC) support using AWS Lake Formation** - DDL/DML operations (like CREATE, ALTER, DELETE, DROP) with fine grained access control for
+  Apache Hive, Apache Iceberg and Delta Lake tables registered in AWS Lake Formation.
 - **Audit context for Spark jobs** - Audit context for AWS Glue ETL jobs will be available
-  for AWS Glue and AWS Lake Formation API calls in the AWS CloudTrail logs
+  for AWS Glue and AWS Lake Formation API calls in the AWS CloudTrail logs.
 
 ###### Known Issues and Limitations
 
@@ -154,7 +154,7 @@ Note the following changes:
   - Table encryption keys.
   - Default value support for columns.
 
-- Support Spark-native FGAC writes on registered tables.
+- Support Spark-native FGAC writes on AWS Lake Formation registered tables.
 - Athena SQL compatibility - Cannot read Iceberg V3 tables created by EMR Spark due to
   error: `GENERIC_INTERNAL_ERROR: Cannot read unsupported version 3`
 

@@ -93,7 +93,7 @@ partitions found since a previous run.
 
 ## How does a crawler determine when to create partitions?
 
-When an AWS Glue crawler scans Amazon S3 data stpre and detects multiple folders in a bucket, it determines
+When an AWS Glue crawler scans Amazon S3 data store and detects multiple folders in a bucket, it determines
 the root of a table in the folder structure and which folders are partitions of a table. The
 name of the table is based on the Amazon S3 prefix or folder name. You provide an
 **Include path** that points to the folder level to crawl. When the

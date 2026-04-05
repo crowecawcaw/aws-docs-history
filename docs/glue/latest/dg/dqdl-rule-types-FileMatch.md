@@ -41,8 +41,14 @@ FileMatch "s3://amzn-s3-demo-bucket /internal-folder/" in ["3ee0d8617ac04179315
 **Compare files in different folders**
 
 ```
+# Compare all files across two buckets
 FileMatch "s3://original_bucket/" "s3://archive_bucket/"
+# Compare files within specific subfolders
 FileMatch "s3://original_bucket/internal-folder/" "s3://original_bucket/other-folder/"
+# Compare only .json files across two folders
+FileMatch "s3://original_bucket/" "s3://archive_bucket/" with uriRegex = "\.json$"
+# Compare only the 5 most recent .csv files
+FileMatch "s3://original_bucket/" "s3://archive_bucket/" with recentFiles = 5 with uriRegex = "\.csv$" with filterOrder = ["uriRegex","recentFiles"]
 ```
 
 FileMatch will check the contents of the files in `original_bucket` and ensure they match what’s in
@@ -85,7 +91,37 @@ Tags allow you to control the rule behaviour.
 This tag limits the number of files processed by keeping the most recent file first.
 
 ```
-FileMatch "s3://amzn-s3-demo-bucket/file.json" in ["3ee0d8617ac04179sam4713e5ef8f319"] with recentFiles = 1
+FileMatch "s3://bucket/" in ["3ee0d8617ac04179sam4713e5ef8f319"] with recentFiles = 1
+```
+
+**uriRegex**
+
+###### Note
+
+The `uriRegex` tag is available in AWS Glue 5.0 and later.
+
+This tag filters files by applying a regex pattern to the file path. Only files whose paths match the pattern are
+processed. You can also use a negative lookahead to exclude files that match a pattern.
+
+```
+# Match only files with a .json extension
+FileMatch "s3://bucket/" in ["3ee0d8617ac04179sam4713e5ef8f319"] with uriRegex = "\.json$"
+# Exclude files ending in .tmp using a negative lookahead
+FileMatch "s3://bucket/" in ["3ee0d8617ac04179sam4713e5ef8f319"] with uriRegex = "(?!.*\.tmp$).*"
+```
+
+**filterOrder**
+
+###### Note
+
+The `filterOrder` tag is available in AWS Glue 5.0 and later.
+
+When you use multiple filter tags such as `recentFiles` and `uriRegex` together, the
+`filterOrder` tag controls the order in which they are applied. The default order is
+`recentFiles` first, then `uriRegex`.
+
+```
+FileMatch "s3://bucket/" in ["3ee0d8617ac04179sam4713e5ef8f319"] with recentFiles = 1 with uriRegex = "\.json$" with filterOrder = ["uriRegex","recentFiles"]
 ```
 
 **matchFileName**

@@ -1,5 +1,10 @@
 # Using Ray Core and Ray Data in AWS Glue for Ray
 
+###### Important
+
+AWS Glue for Ray will no longer be open to new customers starting April 30, 2026. If you would like to use AWS Glue for Ray, sign up prior to that date. Existing customers can continue to use the service as normal. For capabilities similar to for AWS Glue for Ray, explore Amazon EKS. For more information, see
+[AWS Glue for Ray end of support](awsglue-ray-jobs-availability-change.md "awsglue-ray-jobs-availability-change.md").
+
 Ray is a framework for scaling up Python scripts by distributing work across a cluster. You can use Ray as a
 solution to many sorts of problems, so Ray provides libraries to optimize certain tasks. In AWS Glue, we focus on
 using Ray to transform large datasets. AWS Glue offers support for Ray Data and parts of Ray Core to facilitate

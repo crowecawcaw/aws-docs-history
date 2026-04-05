@@ -1,5 +1,10 @@
 # Using job parameters in Ray jobs
 
+###### Important
+
+AWS Glue for Ray will no longer be open to new customers starting April 30, 2026. If you would like to use AWS Glue for Ray, sign up prior to that date. Existing customers can continue to use the service as normal. For capabilities similar to for AWS Glue for Ray, explore Amazon EKS. For more information, see
+[AWS Glue for Ray end of support](awsglue-ray-jobs-availability-change.md "awsglue-ray-jobs-availability-change.md").
+
 You set arguments for AWS Glue Ray jobs the same way you set arguments for AWS Glue for Spark jobs. For more
 information about the AWS Glue API, see [Jobs](aws-glue-api-jobs-job.md "aws-glue-api-jobs-job.md"). You can configure AWS Glue Ray jobs
 with different arguments, which are listed in this reference. You can also provide your own arguments.

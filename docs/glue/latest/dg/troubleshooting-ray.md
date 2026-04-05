@@ -1,5 +1,10 @@
 # Troubleshooting AWS Glue for Ray errors from logs
 
+###### Important
+
+AWS Glue for Ray will no longer be open to new customers starting April 30, 2026. If you would like to use AWS Glue for Ray, sign up prior to that date. Existing customers can continue to use the service as normal. For capabilities similar to for AWS Glue for Ray, explore Amazon EKS. For more information, see
+[AWS Glue for Ray end of support](awsglue-ray-jobs-availability-change.md "awsglue-ray-jobs-availability-change.md").
+
 AWS Glue provides access to logs that are emitted by Ray processes during the job run. If you encounter errors or
 unexpected behavior in Ray jobs, first gather information from the logs to determine the cause of failure. We
 also provide similar logs for interactive sessions. Sessions logs are provided with the

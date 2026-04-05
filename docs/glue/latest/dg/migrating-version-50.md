@@ -204,10 +204,10 @@ The following new parameters were added:
 
 Refer to the Spark migration documentation:
 
-- [Migration Guide: Spark Core](https://spark.apache.org/docs/3.5.0/core-migration-guide.html "https://spark.apache.org/docs/3.5.0/core-migration-guide.html")
-- [Migration Guide: SQL, Datasets and DataFrame](https://spark.apache.org/docs/3.5.0/sql-migration-guide.html "https://spark.apache.org/docs/3.5.0/sql-migration-guide.html")
-- [Migration Guide: Structured Streaming](https://spark.apache.org/docs/3.5.0/ss-migration-guide.html "https://spark.apache.org/docs/3.5.0/ss-migration-guide.html")
-- [Upgrading PySpark](https://spark.apache.org/docs/3.5.0/api/python/migration_guide/pyspark_upgrade.html "https://spark.apache.org/docs/3.5.0/api/python/migration_guide/pyspark_upgrade.html")
+- [Migration Guide: Spark Core](https://spark.apache.org/docs/3.5.6/core-migration-guide.html "https://spark.apache.org/docs/3.5.6/core-migration-guide.html")
+- [Migration Guide: SQL, Datasets and DataFrame](https://spark.apache.org/docs/3.5.6/sql-migration-guide.html "https://spark.apache.org/docs/3.5.6/sql-migration-guide.html")
+- [Migration Guide: Structured Streaming](https://spark.apache.org/docs/3.5.6/ss-migration-guide.html "https://spark.apache.org/docs/3.5.6/ss-migration-guide.html")
+- [Upgrading PySpark](https://spark.apache.org/docs/3.5.6/api/python/migration_guide/pyspark_upgrade.html "https://spark.apache.org/docs/3.5.6/api/python/migration_guide/pyspark_upgrade.html")
 
 ## Migrating from AWS Glue 3.0 to AWS Glue 5.0
 

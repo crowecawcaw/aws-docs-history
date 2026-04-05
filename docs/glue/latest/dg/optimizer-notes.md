@@ -2,14 +2,30 @@
 
 This section includes things to consider when using table optimizers within the AWS Glue Data Catalog.
 
+## Durability and correctness
+
+**S3 Table Locations:**
+
+When multiple AWS Glue Data Catalog tables share the same Amazon S3 location and have optimizers
+enabled, the snapshot retention or orphan file deletion optimizer for one table may delete
+files that are still referenced by the other table. Ensure that each table with optimizers
+enabled has a unique Amazon S3 location that is not shared with any other table, including
+tables in different databases.
+
+**S3 Lifecycle Expiry:**
+
+Amazon S3 lifecycle expiration rules that apply to Iceberg table storage locations can
+delete manifest and data files that are still referenced by active snapshots. If your
+bucket has lifecycle expiration rules, ensure they exclude the Iceberg table storage
+path.
+
 ## Supported formats and limitations for managed data compaction
 
 Data compaction supports a variety of data types and compression formats for reading and writing data, including reading data from encrypted tables.
 
 **Concurrency Control:**
 
-Apache Iceberg supports optimistic concurrency control, allowing multiple writers to perform operations simultaneously. Conflicts are detected and resolved at commit time. When working with streaming pipelines, configure appropriate retry settings through table properties and compaction settings to handle concurrent writes effectively. For detailed guidance, refer to the AWS Big Data Blog on managing concurrent writes in Iceberg tables.
-see https://aws.amazon.com/blogs/big-data/manage-concurrent-write-conflicts-in-apache-iceberg-on-the-aws-glue-data-catalog/
+Apache Iceberg supports optimistic concurrency control, allowing multiple writers to perform operations simultaneously. Conflicts are detected and resolved at commit time. When working with streaming pipelines, configure appropriate retry settings through table properties and compaction settings to handle concurrent writes effectively. For detailed guidance, refer to the AWS Big Data Blog on [managing concurrent writes in Iceberg tables](https://aws.amazon.com/blogs/big-data/manage-concurrent-write-conflicts-in-apache-iceberg-on-the-aws-glue-data-catalog/ "https://aws.amazon.com/blogs/big-data/manage-concurrent-write-conflicts-in-apache-iceberg-on-the-aws-glue-data-catalog/").
 
 **Compaction Retries:**
 
@@ -18,7 +34,7 @@ When compaction operations fail four consecutive times, AWS Glue catalog table o
 **Data compaction supports:**
 
 - Encryption – Data compaction only supports default Amazon S3 encryption (SSE-S3) and server-side KMS encryption (SSE-KMS).
-- Compaction strategies –- Binpack, sort, and Z-order
+- Compaction strategies – Binpack, sort, and Z-order
   sorting
 - You can run compaction from the account where Data Catalog resides when the Amazon S3
   bucket that stores the underlying data is in another account. To do this, the
@@ -31,7 +47,7 @@ When compaction operations fail four consecutive times, AWS Glue catalog table o
   compaction on cross-Region tables.
 - Enabling compaction on resource links
 - Tables in Amazon S3 Express One Zone storage class –
-  You can't run compaction on S3 Express One Zone Iceberg Tables.
+  You can't run compaction on Amazon S3 Express One Zone Iceberg Tables.
 - Z-order compaction strategy doesn't support the following data types
   :
   - Decimal
@@ -62,7 +78,7 @@ deletion optimizers.
   to the specified retention rules. Branch and tag-level retention policies take precedence
   over the optimizer configurations.
 
-For more information, see [Branching and Tagging](https://iceberg.apache.org/docs/1.6.0/branching/?h=branch "https://iceberg.apache.org/docs/1.6.0/branching/?h=branch") in Apache Iceberg documentation.
+For more information, see [Branching and Tagging](https://iceberg.apache.org/docs/nightly/branching/ "https://iceberg.apache.org/docs/nightly/branching/") in Apache Iceberg documentation.
 
 - Snapshot retention and orphan file deletion optimizers will delete files eligible
   for clean-up as per configured parameters. Enhance your control over file deletion by
@@ -74,10 +90,9 @@ For detailed instructions on setting up versioning and creating life cycle rules
 - For proper orphan file determination, ensure that the provided table location and any sub-paths don't overlap with or contain data from any other tables or data sources.
   If paths overlap, you risk unrecoverable data loss from unintended deletion of files.
 
-## Debugging `OversizedAllocationException` exception
+## Debugging OversizedAllocationException exception
 
 To resolve an `OversizedAllocationException` exception:
 
 - Reduce the batch size of the vectorized reader and check. The default batch size is 5000. This is controlled in the `read.parquet.vectorization.batch-size`.
   - If this doesn’t work even after multiple variations, turn off vectorization. This is controlled in the `read.parquet.vectorization.enabled`.
-  - If this doesn't work even after multiple variations, turn off vectorization. This is controlled in the `read.parquet.vectorization.enabled`.

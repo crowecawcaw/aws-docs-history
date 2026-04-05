@@ -49,6 +49,7 @@ clean data. You can also use AWS Glue Studio to troubleshoot and edit job script
 - [Getting started with AWS Glue](#getting-started-with-glue "#getting-started-with-glue")
 - [Accessing AWS Glue](#accessing-aws-glue "#accessing-aws-glue")
 - [Related services](#what-is-glue-related-services "#what-is-glue-related-services")
+- [AWS Glue for Ray end of support](awsglue-ray-jobs-availability-change.md "awsglue-ray-jobs-availability-change.md")
 
 ## AWS Glue features
 

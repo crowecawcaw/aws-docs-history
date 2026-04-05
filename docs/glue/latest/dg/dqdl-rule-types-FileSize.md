@@ -70,12 +70,43 @@ This tag limits the number of files processed by keeping the most recent file fi
 FileSize "s3://amzn-s3-demo-bucket/" > 5 B with recentFiles = 1
 ```
 
-**matchFileName**
+**uriRegex**
 
-This tag ensures that files don’t have duplicate names. Default behavior is false.
+###### Note
+
+The `uriRegex` tag is available in AWS Glue 5.0 and later.
+
+This tag filters files by applying a regex pattern to the file path. Only files whose paths match the pattern are processed.
+You can also use a negative lookahead to exclude files that match a pattern.
 
 ```
-FileSize "s3://amzn-s3-demo-bucket/" > 5 B with matchFileName = "true"
+# Match only files with a .dat extension
+FileSize "s3://bucket/" > 5 B with uriRegex = "\.dat$"
+# Exclude files ending in .tmp using a negative lookahead
+FileSize "s3://bucket/" > 5 B with uriRegex = "(?!.*\.tmp$).*"
+```
+
+**filterOrder**
+
+###### Note
+
+The `filterOrder` tag is available in AWS Glue 5.0 and later.
+
+When you use multiple filter tags such as `recentFiles` and `uriRegex` together, the
+`filterOrder` tag controls the order in which they are applied. The default order is
+`recentFiles` first, then `uriRegex`.
+
+```
+FileSize "s3://bucket/" > 5 B with recentFiles = 5 with uriRegex = "\.dat$" with filterOrder = ["uriRegex","recentFiles"]
+```
+
+**failFast**
+
+When set to `"true"`, the rule returns failure immediately on the first file that fails the size
+condition, instead of evaluating all files and computing a compliance ratio.
+
+```
+FileSize "s3://bucket/" > 2 MB with failFast = "true"
 ```
 
 There are a few considerations:

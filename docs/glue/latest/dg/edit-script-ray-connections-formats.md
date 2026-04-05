@@ -1,5 +1,10 @@
 # Connecting to data in Ray jobs
 
+###### Important
+
+AWS Glue for Ray will no longer be open to new customers starting April 30, 2026. If you would like to use AWS Glue for Ray, sign up prior to that date. Existing customers can continue to use the service as normal. For capabilities similar to for AWS Glue for Ray, explore Amazon EKS. For more information, see
+[AWS Glue for Ray end of support](awsglue-ray-jobs-availability-change.md "awsglue-ray-jobs-availability-change.md").
+
 AWS Glue Ray jobs can use a broad array of Python packages that are designed for you to quickly integrate data.
 We provide a minimal set of dependencies in order to not clutter your environment. For more information about
 what is included by default, see [Modules provided with Ray jobs](edit-script-ray-env-dependencies.md#edit-script-ray-modules-provided "edit-script-ray-env-dependencies.md#edit-script-ray-modules-provided").

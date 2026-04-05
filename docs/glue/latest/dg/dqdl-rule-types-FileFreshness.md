@@ -95,6 +95,58 @@ This tag limits the number of files processed by keeping the most recent file fi
 FileFreshness "s3://amzn-s3-demo-bucket/" between (now() - 100 minutes) and (now() + 10 minutes) with recentFiles = 1
 ```
 
+**uriRegex**
+
+###### Note
+
+The `uriRegex` tag is available in AWS Glue 5.0 and later.
+
+This tag filters files by applying a regex pattern to the file path. Only files whose paths match the pattern are processed.
+You can also use a negative lookahead to exclude files that match a pattern.
+
+```
+# Match only files with a .csv extension
+FileFreshness "s3://amzn-s3-demo-bucket/" > (now() - 24 hours) with uriRegex = "\.csv$"
+# Match Parquet files that contain "orders_" in the path
+FileFreshness "s3://amzn-s3-demo-bucket/" > (now() - 24 hours) with uriRegex = ".*orders_.*\.parquet"
+# Exclude files ending in .tmp using a negative lookahead
+FileFreshness "s3://amzn-s3-demo-bucket/" > (now() - 24 hours) with uriRegex = "(?!.*\.tmp$).*"
+```
+
+**filterOrder**
+
+###### Note
+
+The `filterOrder` tag is available in AWS Glue 5.0 and later.
+
+When you use multiple filter tags such as `recentFiles` and `uriRegex` together, the
+`filterOrder` tag controls the order in which they are applied. The default order is
+`recentFiles` first, then `uriRegex`.
+
+```
+FileFreshness "s3://amzn-s3-demo-bucket/" > (now() - 24 hours) with recentFiles = 1 with uriRegex = "inventory_" with filterOrder = ["uriRegex","recentFiles"]
+```
+
+In the example above, the `uriRegex` filter is applied first to select only files matching "inventory\_",
+and then `recentFiles = 1` takes the most recent file from that filtered set. Without
+`filterOrder`, the default behavior would take the single most recent file first and then apply the
+regex, which could result in no files matching if the most recent file doesn't match the pattern.
+
+###### Note
+
+All values in the `filterOrder` list must reference other filter tags (`recentFiles` or
+`uriRegex`) that are also present on the same rule. Non-filter tags such as `timeZone` or
+`failFast` are not valid in `filterOrder`.
+
+**failFast**
+
+When set to `"true"`, the rule returns failure immediately on the first file that fails the freshness
+condition, instead of evaluating all files and computing a compliance ratio.
+
+```
+FileFreshness "s3://amzn-s3-demo-bucket/" > (now() - 24 hours) with failFast = "true"
+```
+
 **timeZone**
 
 Accepted time zone overrides, see [Allowed Time Zones](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html "https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html") for

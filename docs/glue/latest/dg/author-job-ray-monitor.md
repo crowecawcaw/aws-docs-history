@@ -1,5 +1,10 @@
 # Monitoring Ray jobs with metrics
 
+###### Important
+
+AWS Glue for Ray will no longer be open to new customers starting April 30, 2026. If you would like to use AWS Glue for Ray, sign up prior to that date. Existing customers can continue to use the service as normal. For capabilities similar to for AWS Glue for Ray, explore Amazon EKS. For more information, see
+[AWS Glue for Ray end of support](awsglue-ray-jobs-availability-change.md "awsglue-ray-jobs-availability-change.md").
+
 You can monitor Ray jobs using AWS Glue Studio and Amazon CloudWatch. CloudWatch collects and processes raw metrics from AWS Glue with
 Ray, which makes them available for analysis. These metrics are visualized in the AWS Glue Studio console, so you can
 monitor your job as it runs.

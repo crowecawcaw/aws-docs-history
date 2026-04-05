@@ -3,7 +3,7 @@
 ###### Note
 
 AWS Glue Schema Registry is not supported in the following Regions in the
-AWS Glue console: Asia Pacific (Jakarta),, Europe (Zurich) and Middle East (UAE).
+AWS Glue console: Middle East (UAE).
 
 The AWS Glue Schema registry allows you to centrally discover, control,
 and evolve data stream schemas. A _schema_ defines the structure and
