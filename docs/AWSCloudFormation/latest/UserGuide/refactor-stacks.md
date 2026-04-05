@@ -252,7 +252,7 @@ The following example target template currently has the
     applied to imported resources at this time. 7. The **Events** pane of the **Stack
     details** page for your parent stack displays.
 
-    ![The Events tab in the console.](images/import-events.png)
+    ![The Events tab in the console.](/images/AWSCloudFormation/latest/UserGuide/images/import-events.png)
 
     ###### Note
 

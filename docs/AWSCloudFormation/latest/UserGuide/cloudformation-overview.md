@@ -43,7 +43,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: A sample template
 Resources:
   MyEC2Instance:
-    Type: 'AWS::EC2::Instance'
+    Type: AWS::EC2::Instance
     Properties:
       ImageId: ami-0ff8a91507f77f867
       InstanceType: t2.micro
@@ -100,7 +100,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: A sample template
 Resources:
   MyEC2Instance:
-    Type: 'AWS::EC2::Instance'
+    Type: AWS::EC2::Instance
     Properties:
       ImageId: ami-0ff8a91507f77f867
       InstanceType: t2.micro
@@ -113,7 +113,7 @@ Resources:
             DeleteOnTermination: false
             VolumeSize: 20
   MyEIP:
-    Type: 'AWS::EC2::EIP'
+    Type: AWS::EC2::EIP
     Properties:
       InstanceId: !Ref MyEC2Instance
 

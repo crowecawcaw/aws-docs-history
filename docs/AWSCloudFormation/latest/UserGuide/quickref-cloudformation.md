@@ -246,15 +246,9 @@ property of the EC2 instance.
 
 ```
 UserData:
-  'Fn::Base64':
-    'Fn::Join':
-      - ''
-      - - |
-          #!/bin/bash -xe
-        - /opt/aws/bin/cfn-signal --exit-code 0 '
-        - Ref: myWaitHandle
-        - |
-          '
+  Fn::Base64: !Sub |
+    #!/bin/bash -xe
+    /opt/aws/bin/cfn-signal --exit-code 0 '${myWaitHandle}'
 ```
 
 ### Using Curl to signal a wait condition

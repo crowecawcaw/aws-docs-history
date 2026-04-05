@@ -80,21 +80,21 @@ _AWS Systems Manager User Guide_.
 {
     "Parameters": {
         "VpcId": {
-            "Description": ID of an existing Virtual Private Cloud (VPC).,
-            "Type": AWS::EC2::VPC::Id
+            "Description": "ID of an existing Virtual Private Cloud (VPC).",
+            "Type": "AWS::EC2::VPC::Id"
         },
         "PublicSubnetId": {
-            "Description": ID of an existing public subnet within the specified VPC.,
-            "Type": AWS::EC2::Subnet::Id
+            "Description": "ID of an existing public subnet within the specified VPC.",
+            "Type": "AWS::EC2::Subnet::Id"
         },
         "KeyName": {
-            "Description": Name of an existing EC2 key pair to enable SSH access to the instance.,
-            "Type": AWS::EC2::KeyPair::KeyName
+            "Description": "Name of an existing EC2 key pair to enable SSH access to the instance.",
+            "Type": "AWS::EC2::KeyPair::KeyName"
         },
         "AMIId": {
-            "Description": Name of a Parameter Store parameter that stores the ID of the Amazon Machine Image (AMI).,
-            "Type": AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>,
-            "Default": /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2
+            "Description": "Name of a Parameter Store parameter that stores the ID of the Amazon Machine Image (AMI).",
+            "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+            "Default": "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
         }
     },
     "Resources": {
