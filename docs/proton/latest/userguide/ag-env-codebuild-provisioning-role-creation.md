@@ -30,7 +30,7 @@ The CodeBuild Provisioning role can be created in the IAM console or in the AWS 
 create it in the AWS CLI:
 
 ```
-aws iam create-role --role-name AWSProtonCodeBuildProvisioning --assume-role-policy-document '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"Service":"codebuild.amazonaws.com"},"Action":"sts:AssumeRole"}]}'
+aws iam create-role --role-name AWSProtonCodeBuildProvisioning --assume-role-policy-document '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":"codebuild.amazonaws.com"},"Action":"sts:AssumeRole"}]}'
 aws iam attach-role-policy --role-name AWSProtonCodeBuildProvisioning --policy-arn arn:aws:iam::aws:policy/AWSProtonCodeBuildProvisioningBasicAccess
 ```
 
@@ -59,7 +59,7 @@ You can create a role with `AdministratorAccess` in the IAM console or by
 executing this command:
 
 ```
-aws iam create-role --role-name AWSProtonCodeBuildProvisioning --assume-role-policy-document '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"Service":"codebuild.amazonaws.com"},"Action":"sts:AssumeRole"}]}'
+aws iam create-role --role-name AWSProtonCodeBuildProvisioning --assume-role-policy-document '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":"codebuild.amazonaws.com"},"Action":"sts:AssumeRole"}]}'
 aws iam attach-role-policy --role-name AWSProtonCodeBuildProvisioning --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
 ```
 
@@ -144,6 +144,6 @@ You could also use the `AmazonEC2FullAccess` managed policy, although that inclu
 that you may not need. To attach the managed policy using the CLI:
 
 ```
-aws iam create-role --role-name AWSProtonCodeBuildProvisioning --assume-role-policy-document '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"Service":"codebuild.amazonaws.com"},"Action":"sts:AssumeRole"}]}'
+aws iam create-role --role-name AWSProtonCodeBuildProvisioning --assume-role-policy-document '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":"codebuild.amazonaws.com"},"Action":"sts:AssumeRole"}]}'
 aws iam attach-role-policy --role-name AWSProtonCodeBuildProvisioning --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
 ```

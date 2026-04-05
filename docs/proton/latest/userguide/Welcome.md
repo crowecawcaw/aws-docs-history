@@ -61,7 +61,7 @@ what constitutes a simple AWS Proton workflow.
 As an **Administrator**, you create and register an **Environment Template**
 with AWS Proton, which defines the shared resources.
 
-![Number 2 icon in a pink circle.](/images/proton/latest/userguide/images/label-two.png)
+![Number 2 icon in a pink circle.](images/label-two.png)
 AWS Proton deploys one or more **Environments**, based on an **Environment
 Template**.
 
