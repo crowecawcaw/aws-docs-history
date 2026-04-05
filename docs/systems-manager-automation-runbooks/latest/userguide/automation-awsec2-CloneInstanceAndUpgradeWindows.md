@@ -2,8 +2,8 @@
 
 **Description**
 
-Create an Amazon Machine Image (AMI) from a Windows Server 2008 R2, 2012 R2, 2016, or 2019 instance, and
-then upgrade the AMI to Windows Server 2016, 2019, or 2022. The supported upgrade paths are as
+Create an Amazon Machine Image (AMI) from a Windows Server 2008 R2, 2012 R2, 2016, 2019, or 2022 instance, and
+then upgrade the AMI to Windows Server 2016, 2019, 2022, or 2025. The supported upgrade paths are as
 follows.
 
 - Windows Server 2008 R2 to Windows Server 2016.
@@ -12,7 +12,10 @@ follows.
 - Windows Server 2012 R2 to Windows Server 2022.
 - Windows Server 2016 to Windows Server 2019.
 - Windows Server 2016 to Windows Server 2022.
+- Windows Server 2016 to Windows Server 2025.
 - Windows Server 2019 to Windows Server 2022.
+- Windows Server 2019 to Windows Server 2025.
+- Windows Server 2022 to Windows Server 2025.
   The upgrade operation is a multi-step process that can take 2 hours to complete. We recommend
   performing an operating system upgrade on instances with at least 2 vCPUs and 4GB of RAM.
   The automation creates an AMI from the instance and then launches a temporary instance from
@@ -42,7 +45,7 @@ Amazon
 
 **Platforms**
 
-Windows Server 2008 R2, 2012 R2, 2016, or 2019 Standard and Datacenter editions
+Windows Server 2008 R2, 2012 R2, 2016, 2019, or 2022 Standard and Datacenter editions
 
 **Prerequisites**
 
@@ -59,7 +62,7 @@ Windows Server 2008 R2, 2012 R2, 2016, or 2019 Standard and Datacenter editions
   Microsoft. This requirement is met if either the subnet is a public subnet and the
   instance has a public IP address, or if the subnet is a private subnet with a route
   that sends internet traffic to a public NAT device.
-- This Automation works only with Windows Server 2008 R2, 2012 R2, 2016, and 2019 instances.
+- This Automation works only with Windows Server 2008 R2, 2012 R2, 2016, 2019, and 2022 instances.
 - Configure the Windows Server instance with an AWS Identity and Access Management (IAM) instance profile
   that provides the requisite permissions for Systems Manager. For more information, see
   [Create an IAM
@@ -69,18 +72,18 @@ Windows Server 2008 R2, 2012 R2, 2016, or 2019 Standard and Datacenter editions
 - If the instance does not use an AWS-provided Windows license, then
   specify an Amazon EBS snapshot ID that includes Windows Server 2012 R2 installation
   media. To do this:
+  - Verify that the EC2 instance is running Windows Server 2012 or
+    later.
+  - Create a 6 GB EBS volume in the same Availability Zone where the
+    instance is running. Attach the volume to the instance. Mount it,
+    for example, as drive D.
+  - Right-click the ISO and mount it to an instance as, for example,
+    drive E.
+  - Copy the content of the ISO from drive E:\ to drive D:\
+  - Create an EBS snapshot of the 6 GB volume created in step 2
+    above.
 
-      + Verify that the EC2 instance is running Windows Server 2012 or
-       later.
-      + Create a 6 GB EBS volume in the same Availability Zone where the
-       instance is running. Attach the volume to the instance. Mount it,
-       for example, as drive D.
-      + Right-click the ISO and mount it to an instance as, for example,
-       drive E.
-      + Copy the content of the ISO from drive E:\ to drive D:\
-      + Create an EBS snapshot of the 6 GB volume created in step 2
-       above.
-
+- For Windows Server 2025 upgrades, the source instance must be [Nitro-based](../../../AWSEC2/latest/UserGuide/instance-types.md#instance-hypervisor-type "../../../AWSEC2/latest/UserGuide/instance-types.md#instance-hypervisor-type").
   **Limitations**
 
 This Automation doesn't support upgrading Windows domain controllers, clusters, or
@@ -123,7 +126,7 @@ enables Systems Manager to manage the instance.
 
 Type: String
 
-Description: (Required) The EC2 instance running Windows Server 2008 R2, 2012 R2, 2016, or 2019.
+Description: (Required) The EC2 instance running Windows Server 2008 R2, 2012 R2, 2016, 2019, or 2022.
 
 - KeepPreUpgradeImageBackUp
 
@@ -148,7 +151,7 @@ Type: String
 
 Description: (Required) Select the target Windows version.
 
-Default: 2022
+Default: 2025
 
 - RebootInstanceBeforeTakingImage
 
