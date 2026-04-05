@@ -49,6 +49,9 @@ security agent for Amazon EC2 instances.
 | Oracle Linux 8.9                                                                            | 5.15                                                                                                                                                                                                                                      |
 | Oracle Linux 9.3                                                                            | 5.15                                                                                                                                                                                                                                      |
 | Rocky Linux 9.5                                                                             | 5.14                                                                                                                                                                                                                                      |
+| Alma Linux 9                                                                                | 5.14                                                                                                                                                                                                                                      |
+| Alma Linux 10                                                                               | 6.12                                                                                                                                                                                                                                      |
+| SUSE Linux Enterprise Server 16                                                             | 6.12                                                                                                                                                                                                                                      |
 
     1. Runtime Monitoring for Amazon EC2 resources doesn't support the first generation Graviton
      instance such as A1 instance types.
@@ -63,7 +66,7 @@ security agent for Amazon EC2 instances.
      `RLIMIT_MEMLOCK` value is set too low, GuardDuty recommends setting both hard and
      soft limits to at least 32 MB. For information about verifying and modifying the default
      `RLIMIT_MEMLOCK` value, see [Viewing and updating RLIMIT\_MEMLOCK values](#runtime-monitoring-ec2-modify-rlimit-memlock "#runtime-monitoring-ec2-modify-rlimit-memlock").
-    5. For Ubuntu 24.04, the kernel versions 6.13 and 6.14 support EC2 agent versions only 1.9.1 and above.
+    5. For Ubuntu 24.04, the kernel versions 6.13 and 6.14 support EC2 agent versions only 1.9.2 and above.
 
 - Additional requirements - Only if you have Amazon ECS/Amazon EC2
 
