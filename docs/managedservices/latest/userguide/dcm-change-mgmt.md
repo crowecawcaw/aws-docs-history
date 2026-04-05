@@ -38,7 +38,6 @@ see the "Additional Information" section for the relevant change type in the _AM
 | AMS Resource Scheduler                              |
 | AWS Backup                                          | Create backup plan        |
 | AMS Workload Ingestion (WIGs)                       | Any                       |
-| AMS Egress Filtering (Managed Palo Alto)            |
 | AMS Advanced MALZ account changes                   |
 | Amazon GuardDuty                                    |
 | AMS Advanced Stack Access                           | Any                       |
