@@ -70,7 +70,35 @@ The following statement is required within your KMS key policy to allow SES to u
             "aws:SourceAccount": "`000000000000`"
         },
         "ArnLike": {
-            "aws:SourceArn": "arn:aws:ses:`us-east-1`:`000000000000`:mailmanager-ingress-point/*"
+            "aws:SourceArn": "arn:`aws`:ses:`us-east-1`:`000000000000`:mailmanager-ingress-point/*"
+        }
+    }
+}
+```
+
+### KMS customer managed key (CMK) key policy for mTLS trust store
+
+If you use a customer managed key (CMK) to encrypt your mTLS trust store, the following
+statement is required within your KMS key policy to allow SES to use your
+key.
+
+```
+{
+    "Effect": "Allow",
+    "Principal": {
+        "Service": "ses.amazonaws.com"
+    },
+    "Action": [
+        "kms:Decrypt",
+        "kms:DescribeKey"
+    ],
+    "Resource": "*",
+    "Condition": {
+        "StringEquals": {
+            "aws:SourceAccount": "`000000000000`"
+        },
+        "ArnLike": {
+            "aws:SourceArn": "arn:`aws`:ses:`us-east-1`:`000000000000`:mailmanager-ingress-point/*"
         }
     }
 }
@@ -351,6 +379,9 @@ JSON
 - [Deliver to Q Business
   policy](#eb-policies-q "#eb-policies-q")
 - [Publish to SNS policy](#eb-policies-sns "#eb-policies-sns")
+- [Bounce policy](#eb-policies-bounce "#eb-policies-bounce")
+- [Invoke Lambda function
+  policy](#eb-policies-lambda "#eb-policies-lambda")
 
 ### Permission policy for _Write to S3_ rule action
 
@@ -607,3 +638,56 @@ JSON
 
 For more information about attaching policies to AWS KMS keys, see [Using Key Policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the
 _AWS Key Management Service Developer Guide_.
+
+### Permission policy for _Bounce_ rule action
+
+The following policy is required for your IAM role to use the
+**Bounce** rule action which bounces the email by returning a
+bounce response to the sender.
+
+```
+`{
+ "Version": "2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowSendBounce",
+ "Effect": "Allow",
+ "Action": [
+ "ses:SendBounce"
+ ],
+ "Resource": [
+ "arn:aws:ses:`us-east-1`:`123456789012`:identity/*"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "ses:FromAddress": "`sender@example.com`"
+ }
+ }
+ }
+ ]
+}`
+```
+
+### Permission policy for _Invoke Lambda function_ rule action
+
+The following policy is required for your IAM role to use the **Invoke
+Lambda function** rule action which invokes an AWS Lambda function to
+process the email.
+
+```
+`{
+ "Version": "2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowInvokeLambdaFunction",
+ "Effect": "Allow",
+ "Action": [
+ "lambda:InvokeFunction"
+ ],
+ "Resource": [
+ "arn:aws:lambda:`us-east-1`:`123456789012`:function:`MyFunction`"
+ ]
+ }
+ ]
+}`
+```

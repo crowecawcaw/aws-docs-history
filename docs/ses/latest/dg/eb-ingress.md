@@ -29,8 +29,8 @@ creating an ingress endpoint should be in the following order:
 
 ## Configuring your environment to use an ingress endpoint
 
-SES supports both public endpoints and Amazon Virtual Private Cloud (VPC) endpoints for ingress
-endpoints to accept incoming email. The following sections explain how to configure your
+SES supports both public endpoints and Amazon Virtual Private Cloud (VPC) endpoints for ingress endpoints
+to accept incoming email. The following sections explain how to configure your
 ingress endpoint to use either of these options.
 
 ###### Topics
@@ -66,6 +66,15 @@ of endpoint you created and your use case:
     and password.
   - Supported ports: 25, 587 ([RFC
     2476](https://www.ietf.org/rfc/rfc2476.txt "https://www.ietf.org/rfc/rfc2476.txt"))
+  - Supports STARTTLS: Yes
+
+- mTLS endpoint – Mail sent to your
+  domain must come from clients that present a TLS client certificate signed
+  by one of the certificate authorities (CAs) in the ingress endpoint's trust store.
+  See [Mutual TLS (mTLS) authentication for ingress endpoints](#eb-ingress-mtls "#eb-ingress-mtls").
+  - Copy and paste the value of the "A" record directly into the SMTP
+    configuration of an on-premise SMTP client.
+  - Supported port: 25
   - Supports STARTTLS: Yes
 
 If you're using an MX record in your configuration, keep in mind that while every
@@ -195,9 +204,6 @@ must be met:
 
 ###### Important configuration notes
 
-- US & Canada regions – FIPS
-  endpoints are the only VPC endpoints available in US and Canada
-  regions and are the correct ones to use in these regions.
 - One-to-one relationship – Each VPC
   endpoint can only be associated with a single ingress endpoint. You cannot use the
   same VPC endpoint for multiple ingress endpoints.
@@ -211,6 +217,12 @@ must be met:
 - Validation at creation time –
   SES performs validation during resource creation to ensure the VPC
   endpoint meets all requirements.
+- TLS policy must match VPC endpoint service
+  – When creating a private ingress endpoint, the TLS policy value must match
+  the VPC endpoint service type. An ingress endpoint with a `FIPS` TLS
+  policy must use a FIPS VPC endpoint service, and an ingress endpoint with a
+  `REQUIRED` or `OPTIONAL` TLS policy must use a
+  non-FIPS VPC endpoint service. They cannot be mixed.
 
 ###### Connecting to your ingress endpoint through a VPC endpoint
 
@@ -222,6 +234,117 @@ After configuring your VPC endpoint and ingress endpoint:
 3. If using an authenticated endpoint, configure your SMTP clients with the
    appropriate base64-encoded credentials used with your authenticated
    ingress endpoint.
+
+## TLS policy for ingress endpoints
+
+The TLS policy for an ingress endpoint controls whether connecting SMTP clients are required
+to use TLS encryption when sending email to your endpoint. You can specify a TLS policy
+when creating an ingress endpoint using the `CreateIngressPoint` API, and change it
+later using the `UpdateIngressPoint` API. The default TLS policy depends on
+your region: `FIPS` is the default in US and Canada regions, and
+`REQUIRED` is the default in all other regions.
+
+All ingress endpoint connections use opportunistic TLS through the STARTTLS command. The
+connection begins as plaintext and is upgraded to TLS if the connecting client supports
+it. Implicit TLS (TLS Wrapper), where the connection starts encrypted, is not
+supported.
+
+The following TLS policy values are available:
+
+- FIPS – Requires TLS encryption using
+  FIPS-validated cryptographic modules. This is the default in US and Canada
+  regions and is only available in those regions.
+- REQUIRED – Connecting SMTP clients must
+  use TLS encryption. Connections that do not use TLS are rejected. This is the
+  default in regions outside of the US and Canada.
+- OPTIONAL – TLS encryption is supported
+  but not required. Connecting SMTP clients can send email with or without
+  TLS.
+
+###### Availability by ingress endpoint type
+
+Not all TLS policy values are valid for every combination of ingress endpoint type and
+network configuration:
+
+- FIPS – Can be used with all ingress endpoint
+  types (open, authenticated, and mTLS) on public networks, and with open and
+  authenticated ingress endpoints on private networks, but
+  only in US and Canada regions. Once set, `FIPS` cannot be changed to
+  another value through an update. If you need a different TLS policy, you must
+  create a new ingress endpoint.
+- REQUIRED – Can be used with all
+  ingress endpoint types in all regions. However, for authenticated and mTLS ingress endpoints
+  on public networks, `REQUIRED` can only be set at creation
+  time—it cannot be changed through an update. For open ingress endpoints (public
+  or private) and authenticated ingress endpoints on private networks,
+  `REQUIRED` can be set at creation time and changed through an
+  update. Note that `REQUIRED` is not available for authenticated or
+  mTLS ingress endpoints on public networks in US and Canada regions, where
+  `FIPS` is used instead.
+- OPTIONAL – Can be used with open
+  ingress endpoints on both public and private networks, and with authenticated
+  ingress endpoints on private networks. `OPTIONAL` is not available for
+  mTLS ingress endpoints, and is not available for authenticated ingress endpoints on public
+  networks.
+
+###### Rules for changing TLS policy
+
+The following rules apply when updating the TLS policy on an existing
+ingress endpoint:
+
+- `FIPS` cannot be changed after creation.
+- For open ingress endpoints and authenticated ingress endpoints on private networks, you can
+  switch between `REQUIRED` and `OPTIONAL`.
+- For mTLS ingress endpoints and authenticated ingress endpoints on public networks, the TLS
+  policy cannot be changed after creation.
+
+## Mutual TLS (mTLS) authentication for ingress endpoints
+
+Mutual TLS (mTLS) authentication requires connecting SMTP clients to present a
+TLS client certificate signed by one of the certificate authorities (CAs) in the
+ingress endpoint's trust store. Only clients with trusted certificates can send email to
+your endpoint.
+
+###### Important
+
+mTLS authentication is only available for public ingress endpoints. Amazon VPC endpoints do not support mTLS authentication.
+
+To create an mTLS ingress endpoint, choose `MTLS` as the ingress endpoint type and
+provide a `TlsAuthConfiguration` containing a `TrustStore` in the
+`IngressPointConfiguration` parameter of the `CreateIngressPoint`
+API.
+
+###### Trust store configuration
+
+The trust store defines which client certificates are accepted by your ingress endpoint.
+It contains the following fields:
+
+- CAContent (required) – A certificate
+  authority (CA) certificate bundle in PEM format. This bundle contains the CA
+  certificates used to validate client certificates. You can include multiple CA
+  certificates in a single bundle, up to 500 KB.
+- CrlContent (optional) – A certificate
+  revocation list (CRL) in PEM format. If provided, client certificates that
+  appear on the CRL are rejected even if they are signed by a trusted CA. Up to
+  500 KB.
+- KmsKeyArn (optional) – The ARN of a
+  AWS KMS customer managed key (CMK) used to encrypt the trust store data. If not
+  specified, an AWS managed key is used. When using a CMK, the key policy must
+  allow SES to use the key. See [KMS customer managed key (CMK) key policy for mTLS trust store](eb-policies.md#eb-policies-ingress-mtls-cmk "eb-policies.md#eb-policies-ingress-mtls-cmk").
+
+Expired certificates are considered invalid and are not accepted in connections.
+SES also filters out expired CA certificates and expired certificate revocation
+lists (CRLs) from your trust store. If a CRL expires, the CA certificate associated
+with that CRL is also removed from the trust store, which means clients signed by that
+CA will no longer be able to connect until you provide an updated CRL.
+
+###### Using client certificate attributes in rule conditions
+
+When a client connects to an mTLS ingress endpoint with a valid certificate, the
+certificate attributes (such as Common Name, serial number, and Subject Alternative
+Name fields) are made available for use in rule conditions as string expressions.
+This allows you to route, filter, or act on email based on the identity of the
+connecting client. For the full list of available attributes, see the [Rule conditions](eb-rules.md#rule-conditions "eb-rules.md#rule-conditions") reference.
 
 ## Creating an ingress endpoint in the SES console
 
@@ -238,8 +361,9 @@ created.
    endpoint**.
 4. On the **Create new ingress endpoint** page, enter a unique name for
    your ingress endpoint.
-5. Choose whether it will be a **Open** or
-   **Authenticated** endpoint.
+5. Choose whether it will be an **Open**,
+   **Authenticated**, or **mTLS**
+   endpoint.
    - If you choose **Authenticated**, select either
      **SMTP password** and enter a password (to be
      shared with authorized senders), or **Secret** and
@@ -247,6 +371,10 @@ created.
      _If you select a previously created secret, it must contain
      the policies indicated in the following steps for creating a new
      secret._
+   - If you choose **mTLS**, you must provide a trust
+     store configuration containing your CA certificate bundle. Optionally,
+     you can also provide a certificate revocation list and a AWS KMS key. See
+     [Mutual TLS (mTLS) authentication for ingress endpoints](#eb-ingress-mtls "#eb-ingress-mtls").
    - You have the option to create a new secret by choosing
      **Create new**—the AWS Secrets Manager console will
      open where you can continue to create a new key:
@@ -303,27 +431,31 @@ created.
      **Create VPC endpoint** to open the Amazon VPC
      console.
 
-9. Select **Create ingress endpoint**.
-10. In **General details**, "Provisioning" will be displayed
+9. Select a TLS policy for your ingress endpoint. The default depends on your
+   region—see [TLS policy](#eb-ingress-tls-policy "#eb-ingress-tls-policy") for details on available
+   values and restrictions.
+10. Select **Create ingress endpoint**.
+11. In **General details**, "Provisioning" will be displayed
     while your ingress endpoint is being created—refresh the page until "Active" is
     displayed and the **ARecord** field contains a value. Copy the
     "A" record value and paste it into your DNS configuration or your SMTP client as
     discussed in [Public endpoint
     configuration](#eb-ingress-a-record "#eb-ingress-a-record").
-11. Just above the **General
+12. Just above the **General
     details** container on the console, there is a large, unlabeled
     number prefixed by "inp" (also replicated in the breadcrumb trail at the top of
     the page), for example, **inp-1abc2de3fghi4jkl5mnop6qr**. This
     is referred to as the _ingress endpoint ID_, its value is used as
     the _username_ to login to your ingress server. (You'll need
     to share this with your authorized senders to connect to your endpoint.)
-12. You can view and manage the ingress endpoints you've already created from the
+13. You can view and manage the ingress endpoints you've already created from the
     **Ingress endpoints** page. If there's an ingress endpoint you want to
     remove, select it's radio button followed by **Delete**.
-13. To edit an ingress endpoint, select its name to open its summary page:
-    - You can change the endpoint's active status by choosing
-      **Edit** in **General details**
-      followed by **Save changes**.
+14. To edit an ingress endpoint, select its name to open its summary page:
+    - You can change the endpoint's active status or TLS policy (for
+      supported configurations) by choosing **Edit** in
+      **General details** followed by **Save
+      changes**.
     - You can select a different rule set or traffic policy by choosing
       **Edit** in either **Rule set** or
       **Traffic policy** followed by **Save

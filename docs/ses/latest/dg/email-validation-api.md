@@ -110,7 +110,7 @@ aws --region us-east-1 sesv2 get-email-address-insights --email-address user@exa
 
 ```
 {
-  "Version": "2012-10-17		 	 	 ",
+  "Version": "2012-10-17",
   "Statement": [
     {
       "Sid": "EmailValidationPermissions",

@@ -144,7 +144,7 @@ The logs are generated per message.
 {
   "resource_arn": "arn:aws:ses:us-east-1:1234567890:mailmanager-ingress-point/inp-xxxxx",
   "event_timestamp": 1728562395042,
-  "ingress_point_type": "OPEN" | "AUTH",
+  "ingress_point_type": "OPEN" | "AUTH" | "MTLS",
   "ingress_point_name": "MyIngressPoint",
   "message_id": "0000llcki1jmushh817gr586f963a5inhkvnh81",
   "message_size_bytes": 100000,
@@ -155,9 +155,37 @@ The logs are generated per message.
   "tls_protocol": "TLSv1.2",
   "tls_cipher_suite": "TLS_AES_256_GCM_SHA384",
   "recipients": ["me@mydomain.com", "you@mydomain.com", "they@mydomain.com"],
-  "ingress_point_metadata": { // only applies to AUTH Ingress Endpoint
+  "ingress_point_metadata": {
+       // Only applies to AUTH Ingress endpoint
        "password_version": "",
-       "secrets_manager_arn": ""
+       "secrets_manager_arn": "",
+       // Only applies to MTLS Ingress endpoint
+       "client_certificate_details": {
+           "common_names": ["mail.example.com"],
+           "serial_number": "0A:DE:EB:89:42:FB:1C:67",
+           "subject_alternative_names": ["mail.example.com", "smtp.example.com"],
+           "issuer": "CN=Example CA,O=Example Corp,C=US",
+           "not_before": "2025-01-15T00:00:00Z",
+           "not_after": "2026-01-15T23:59:59Z"
+       },
+       "trust_store_monitoring": {
+           "ca_invalid_or_near_expiry": [
+               {
+                   "subject": "CN=Example CA,O=Example Corp,C=US",
+                   "not_before": "2023-06-01T00:00:00Z",
+                   "not_after": "2025-05-15T23:59:59Z"
+               },
+               ...
+           ],
+           "crl_invalid_or_near_expiry": [
+               {
+                   "issuer": "CN=Example CA,O=Example Corp,C=US",
+                   "this_update": "2025-03-01T00:00:00Z",
+                   "next_update": "2025-04-01T00:00:00Z"
+               },
+               ...
+           ]
+       }
   }
 }
 ```
@@ -167,6 +195,14 @@ The logs are generated per message.
 Logs are created only for messages that are accepted by the ingress endpoint. An
 ingress endpoint that rejects all the incoming messages will not publish any
 application logs.
+
+###### Note
+
+The `trust_store_monitoring` lists
+(`ca_invalid_or_near_expiry` and
+`crl_invalid_or_near_expiry`) each return a maximum of 10
+entries. “Near expiry” means the certificate or CRL expires within
+90 days.
 
 #### Example CloudWatch Logs Insights queries
 

@@ -98,14 +98,16 @@ Developer Guide_.
 For more information about troubleshooting, see [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam"), in the _AWS Key Management Service Developer
 Guide_.
 
-## Specifying a customer managed key for Mail Manager archiving
+## Specifying a customer managed key for Mail Manager
 
 You can specify a customer managed key as an alternative to using AWS owned keys.
-When you create an archive, you can specify the data key by
-entering a **KMS key ARN**, which Mail Manager archiving uses to
-encrypt all customer data in the archive.
+When you create an archive or configure an ingress endpoint with
+mutual TLS (mTLS) authentication, you can specify the data key by entering a
+**KMS key ARN**. For archiving, Mail Manager uses the key to encrypt
+all customer data in the archive. For mTLS ingress endpoints, Mail Manager uses the key to encrypt
+the trust store contents at rest.
 
-- **KMS key ARN** – A [key identifier](../../../kms/latest/developerguide/concepts.md#key-id "../../../kms/latest/developerguide/concepts.md#key-id") for an
+- **KMS key ARN** – A [key identifier](../../../kms/latest/developerguide/concepts.md#key-id "../../../kms/latest/developerguide/concepts.md#key-id") for a
   AWS KMS customer managed key. Enter a key ID, key ARN, alias name, or alias ARN.
 
 ## Amazon SES encryption context
@@ -238,6 +240,98 @@ all assets.
             ],
             "Resource": "*"
         },
+```
+
+## Ingress endpoint mTLS policies
+
+The following example policies enable using a customer managed key to encrypt trust store contents
+for mutual TLS (mTLS) authentication on Mail Manager ingress endpoints.
+
+To scope the example policies to a specific ingress endpoint, replace the wildcard in
+the condition with an exact resource ARN (for example,
+`arn:aws:ses:us-east-1:111122223333:mailmanager-ingress-point/inp-ab1c2defgh3ij4klmno5pq6rs`).
+
+**IAM policy**
+
+```
+{
+    "Effect": "Allow",
+    "Principal": {
+      "AWS": "arn:aws:iam::111122223333:role/rolename"
+    },
+    "Action": [
+      "kms:GenerateDataKey",
+      "kms:Decrypt"
+    ],
+    "Resource": "*",
+    "Condition": {
+      "StringEquals": {
+        "kms:ViaService": "ses.us-east-1.amazonaws.com"
+      },
+      "StringLike": {
+        "kms:EncryptionContext:aws:ses:arn": [
+          "arn:aws:ses:us-east-1:111122223333:mailmanager-ingress-point/*"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Principal": {
+      "AWS": "arn:aws:iam::111122223333:role/rolename"
+    },
+    "Action": [
+      "kms:DescribeKey"
+    ],
+    "Resource": "*",
+    "Condition": {
+      "StringEquals": {
+        "kms:ViaService": "ses.us-east-1.amazonaws.com"
+      }
+    }
+  }
+```
+
+**AWS KMS policy**
+
+```
+{
+    "Effect": "Allow",
+    "Principal": {
+      "Service": "ses.amazonaws.com"
+    },
+    "Action": [
+      "kms:Decrypt"
+    ],
+    "Resource": "*",
+    "Condition": {
+      "StringLike": {
+        "aws:SourceArn": [
+          "arn:aws:ses:us-east-1:111122223333:mailmanager-ingress-point/*"
+        ],
+        "kms:EncryptionContext:aws:ses:arn": [
+          "arn:aws:ses:us-east-1:111122223333:mailmanager-ingress-point/*"
+        ]
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Principal": {
+      "Service": "ses.amazonaws.com"
+    },
+    "Action": [
+      "kms:DescribeKey"
+    ],
+    "Resource": "*",
+    "Condition": {
+      "StringLike": {
+        "aws:SourceArn": [
+          "arn:aws:ses:us-east-1:111122223333:mailmanager-ingress-point/*"
+        ]
+      }
+    }
+  }
 ```
 
 ## Monitoring your encryption keys for Amazon SES
