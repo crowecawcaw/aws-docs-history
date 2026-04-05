@@ -503,7 +503,7 @@ custom authorizer function, such as this example.
     "isAuthenticated": true,
     "principalId": "principalId",
     "policyDocuments": [
-        "{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":[{\"Action\":\"iot:*\",\"Effect\":\"Deny\",\"Resource\":\"arn:aws:iot:`Region`:57EXAMPLE833:*\"}]}"
+        "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"iot:*\",\"Effect\":\"Deny\",\"Resource\":\"arn:aws:iot:`Region`:57EXAMPLE833:*\"}]}"
     ],
     "refreshAfterInSeconds": 600,
     "disconnectAfterInSeconds": 3600

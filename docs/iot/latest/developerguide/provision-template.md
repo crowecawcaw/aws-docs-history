@@ -274,7 +274,7 @@ policy:
         "policy" : {
             "Type" : "AWS::IoT::Policy",
             "Properties" : {
-                "PolicyDocument" : "{ \"Version\": \"2012-10-17\",		 	 	  \"Statement\": [{ \"Effect\": \"Allow\", \"Action\":[\"iot:Publish\"], \"Resource\": [\"arn:aws:iot:us-east-1:123456789012:topic/foo/bar\"] }] }"
+                "PolicyDocument" : "{ \"Version\": \"2012-10-17\", \"Statement\": [{ \"Effect\": \"Allow\", \"Action\":[\"iot:Publish\"], \"Resource\": [\"arn:aws:iot:us-east-1:123456789012:topic/foo/bar\"] }] }"
             }
         }
     }
@@ -358,7 +358,7 @@ escaped string.)
         "policy" : {
             "Type" : "AWS::IoT::Policy",
             "Properties" : {
-                "PolicyDocument" : "{ \"Version\": \"2012-10-17\",		 	 	  \"Statement\": [{ \"Effect\": \"Allow\", \"Action\":[\"iot:Publish\"], \"Resource\": [\"arn:aws:iot:us-east-1:123456789012:topic/foo/bar\"] }] }"
+                "PolicyDocument" : "{ \"Version\": \"2012-10-17\", \"Statement\": [{ \"Effect\": \"Allow\", \"Action\":[\"iot:Publish\"], \"Resource\": [\"arn:aws:iot:us-east-1:123456789012:topic/foo/bar\"] }] }"
             }
         }
     }
@@ -426,7 +426,7 @@ specifies an existing certificate with a certificate ID:
       "policy":{
          "Type":"AWS::IoT::Policy",
          "Properties":{
-            "PolicyDocument":"{ \"Version\": \"2012-10-17\",		 	 	  \"Statement\": [{ \"Effect\": \"Allow\", \"Action\":[\"iot:Publish\"], \"Resource\": [\"arn:aws:iot:us-east-1:123456789012:topic/foo/bar\"] }] }"
+            "PolicyDocument":"{ \"Version\": \"2012-10-17\", \"Statement\": [{ \"Effect\": \"Allow\", \"Action\":[\"iot:Publish\"], \"Resource\": [\"arn:aws:iot:us-east-1:123456789012:topic/foo/bar\"] }] }"
          }
       }
    }
