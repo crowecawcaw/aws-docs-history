@@ -282,7 +282,7 @@ ApproximateNumberOfMessagesDelayed    : 0
 CreatedTimestamp                      : 2/11/2015 5:53:35 PM
 LastModifiedTimestamp                 : 12/29/2015 2:23:17 PM
 QueueARN                              : arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue
-Policy                                : {"Version":"2012-10-17",		 	 	 "Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
+Policy                                : {"Version":"2012-10-17","Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
                                         495134224EX","Effect":"Allow","Principal":{"AWS":"*"},"Action":"SQS:SendMessage","Resource":"arn:aws:sqs:us-east-1:80
                                         398EXAMPLE:MyQueue","Condition":{"ArnEquals":{"aws:SourceArn":"arn:aws:sns:us-east-1:80398EXAMPLE:MyTopic"}}},{"Sid":
                                         "SendMessagesFromMyQueue","Effect":"Allow","Principal":{"AWS":"80398EXAMPLE"},"Action":"SQS:SendMessage","Resource":"
@@ -311,7 +311,7 @@ ApproximateNumberOfMessagesDelayed    : 0
 CreatedTimestamp                      : 2/11/2015 5:53:35 PM
 LastModifiedTimestamp                 : 12/29/2015 2:23:17 PM
 QueueARN                              : arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue
-Policy                                : {"Version":"2012-10-17",		 	 	 "Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
+Policy                                : {"Version":"2012-10-17","Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
                                         495134224EX","Effect":"Allow","Principal":{"AWS":"*"},"Action":"SQS:SendMessage","Resource":"arn:aws:sqs:us-east-1:80
                                         398EXAMPLE:MyQueue","Condition":{"ArnEquals":{"aws:SourceArn":"arn:aws:sns:us-east-1:80398EXAMPLE:MyTopic"}}},{"Sid":
                                         "SendMessagesFromMyQueue","Effect":"Allow","Principal":{"AWS":"80398EXAMPLE"},"Action":"SQS:SendMessage","Resource":"
@@ -345,7 +345,7 @@ ApproximateNumberOfMessagesDelayed    : 0
 CreatedTimestamp                      : 2/11/2015 5:53:35 PM
 LastModifiedTimestamp                 : 12/29/2015 2:23:17 PM
 QueueARN                              : arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue
-Policy                                : {"Version":"2012-10-17",		 	 	 "Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
+Policy                                : {"Version":"2012-10-17","Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
                                         495134224EX","Effect":"Allow","Principal":{"AWS":"*"},"Action":"SQS:SendMessage","Resource":"arn:aws:sqs:us-east-1:80
                                         398EXAMPLE:MyQueue","Condition":{"ArnEquals":{"aws:SourceArn":"arn:aws:sns:us-east-1:80398EXAMPLE:MyTopic"}}},{"Sid":
                                         "SendMessagesFromMyQueue","Effect":"Allow","Principal":{"AWS":"80398EXAMPLE"},"Action":"SQS:SendMessage","Resource":"
@@ -374,7 +374,7 @@ ApproximateNumberOfMessagesDelayed    : 0
 CreatedTimestamp                      : 2/11/2015 5:53:35 PM
 LastModifiedTimestamp                 : 12/29/2015 2:23:17 PM
 QueueARN                              : arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue
-Policy                                : {"Version":"2012-10-17",		 	 	 "Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
+Policy                                : {"Version":"2012-10-17","Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
                                         495134224EX","Effect":"Allow","Principal":{"AWS":"*"},"Action":"SQS:SendMessage","Resource":"arn:aws:sqs:us-east-1:80
                                         398EXAMPLE:MyQueue","Condition":{"ArnEquals":{"aws:SourceArn":"arn:aws:sns:us-east-1:80398EXAMPLE:MyTopic"}}},{"Sid":
                                         "SendMessagesFromMyQueue","Effect":"Allow","Principal":{"AWS":"80398EXAMPLE"},"Action":"SQS:SendMessage","Resource":"
