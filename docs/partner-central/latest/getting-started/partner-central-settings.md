@@ -4,7 +4,7 @@ In addition to capturing company profile details in the Partner and Seller profi
 
 Navigate to the AWS Partner Central settings page from the left-hand navigation menu. At the top of the page, you will see a snapshot of your Account Summary, including:
 
-- **Legal business name:** This Legal business name was provided during the Registration process and cannot be updated. This name is only visible to you. To change how your company name appears to other AWS Partners or customers browsing the AWS Marketplace, navigate to Partner profiles menu item and update your Partner and/or Seller profile Display Name.
+- **Legal business name:** This Legal business name was provided during the Registration process. This name is only visible to you. To change how your company name appears to other AWS Partners or customers browsing the AWS Marketplace, navigate to Partner profiles menu item and update your Partner and/or Seller profile Display Name.
 - **Partner Account status:** During Registration, if all account details were successfully verified, this will show as Active.
 - **AWS Marketplace account status:** During Registration, an AWS Marketplace account was also created.
 
