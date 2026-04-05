@@ -123,7 +123,7 @@ policy  = {
      <statement_block>
 }
 
-<version_block> = "Version" : ("2008-10-17"		 	 	  | "2012-10-17"		 	 	 )
+<version_block> = "Version" : ("2008-10-17" | "2012-10-17")
 
 <id_block> = "Id" : <policy_id_string>
 

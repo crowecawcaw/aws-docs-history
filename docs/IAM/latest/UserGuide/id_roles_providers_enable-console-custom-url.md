@@ -483,7 +483,7 @@ getFederationTokenRequest.setName("UserName");
 
 // A sample policy for accessing Amazon Simple Notification Service (Amazon SNS) in the console.
 
-String policy = "{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":[{\"Action\":\"sns:*\"," +
+String policy = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"sns:*\"," +
   "\"Effect\":\"Allow\",\"Resource\":\"*\"}]}";
 
 getFederationTokenRequest.setPolicy(policy);
@@ -575,7 +575,7 @@ sts = Aws::STS::Client.new()
 session = sts.get_federation_token({
   duration_seconds: 1800,
   name: "UserName",
-  policy: "{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":{\"Effect\":\"Allow\",\"Action\":\"sns:*\",\"Resource\":\"*\"}}",
+  policy: "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"sns:*\",\"Resource\":\"*\"}}",
 })
 
 # The issuer value is the URL where users are directed (such as

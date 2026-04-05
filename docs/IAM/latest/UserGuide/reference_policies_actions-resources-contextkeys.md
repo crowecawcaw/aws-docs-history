@@ -93,6 +93,7 @@ If the **Type** column specifies a "List of …" one of the simple types, then y
 - [AWS Certificate Manager](list_awscertificatemanager.md "list_awscertificatemanager.md")
 - [AWS Chatbot](list_awschatbot.md "list_awschatbot.md")
 - [Amazon Chime](list_amazonchime.md "list_amazonchime.md")
+- [Claude Platform on AWS](list_claudeplatformonaws.md "list_claudeplatformonaws.md")
 - [AWS Clean Rooms](list_awscleanrooms.md "list_awscleanrooms.md")
 - [AWS Clean Rooms ML](list_awscleanroomsml.md "list_awscleanroomsml.md")
 - [AWS Cloud Control API](list_awscloudcontrolapi.md "list_awscloudcontrolapi.md")

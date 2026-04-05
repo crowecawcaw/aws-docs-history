@@ -525,7 +525,7 @@ Resources:
         - !Ref RolePermissionsBoundary
         - !Ref AWS::NoValue
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
           - Effect: Allow
             Principal:

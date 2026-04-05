@@ -232,7 +232,7 @@ $policy
 **Output:**
 
 ```
-{"Version":"2012-10-17",		 	 	 "Statement":[{"Sid":"","Effect":"Allow","Principal":{"Service":"lambda.amazonaws.com"},"Action":"sts:AssumeRole"}]}
+{"Version":"2012-10-17","Statement":[{"Sid":"","Effect":"Allow","Principal":{"Service":"lambda.amazonaws.com"},"Action":"sts:AssumeRole"}]}
 ```
 
 - For API details, see
@@ -273,7 +273,7 @@ $policy
 **Output:**
 
 ```
-{"Version":"2012-10-17",		 	 	 "Statement":[{"Sid":"","Effect":"Allow","Principal":{"Service":"lambda.amazonaws.com"},"Action":"sts:AssumeRole"}]}
+{"Version":"2012-10-17","Statement":[{"Sid":"","Effect":"Allow","Principal":{"Service":"lambda.amazonaws.com"},"Action":"sts:AssumeRole"}]}
 ```
 
 - For API details, see
