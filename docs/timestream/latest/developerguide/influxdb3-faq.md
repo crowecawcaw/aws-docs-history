@@ -9,7 +9,7 @@ Amazon Timestream for InfluxDB 3 is a fully managed time-series database service
 What Amazon Timestream for InfluxDB 3 is, how it differs from v2, Core vs Enterprise editions, and regional availability.
 
 **Clusters and instances**
-Instance types from db.influx.medium to db.influx.24xlarge, creating clusters, multi-node Enterprise deployments, and scaling.
+Instance types from db.influx.medium to db.influx.24xlarge, creating clusters, multi-node Enterprise deployments, scaling, cluster endpoints, and maintenance windows.
 
 **Writing and querying data**
 Write APIs (v3, v2, v1 compatibility), SQL and InfluxQL query support, token-based authentication, line protocol format, and data plane administration.
