@@ -170,10 +170,6 @@ call.
 If a `Task` state using the callback task token times out, a new random token is generated. You can access the task tokens from the
 [Context object](input-output-contextobject.md#contextobject-access "input-output-contextobject.md#contextobject-access").
 
-###### Note
-
-A task token must contain at least one character, and cannot exceed 1024 characters.
-
 To use `.waitForTaskToken` with an AWS SDK integration, the API you use
 must have a parameter field in which to place the task token.
 
