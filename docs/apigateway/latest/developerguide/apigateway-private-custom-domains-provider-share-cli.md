@@ -28,7 +28,7 @@ VPC endpoint and your private custom domain name. You can't do this for them.
 [{
     "op": "replace",
     "path": "/managementPolicy",
-    "value": "{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"arn:aws:iam::111122223333:root\", \"arn:aws:iam::444455556666:root\"]},\"Action\":\"apigateway:CreateAccessAssociation\",\"Resource\":\"arn:aws:apigateway:us-west-2:111122223333:/domainnames/private.example.com+abcd1234\"}]}"
+    "value": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"arn:aws:iam::111122223333:root\", \"arn:aws:iam::444455556666:root\"]},\"Action\":\"apigateway:CreateAccessAssociation\",\"Resource\":\"arn:aws:apigateway:us-west-2:111122223333:/domainnames/private.example.com+abcd1234\"}]}"
 }]
 ```
 
@@ -52,7 +52,7 @@ example policy that grants two VPC endpoints to invoke the private custom domain
 [{
     "op": "replace",
     "path": "/policy",
-    "value": "{\"Version\": \"2012-10-17\",		 	 	 \"Statement\": [{\"Effect\": \"Allow\",\"Principal\": \"*\",\"Action\": \"execute-api:Invoke\",\"Resource\": \"arn:aws:execute-api:us-west-2:111122223333:/domainnames/private.example.com+abcd1234\"},{\"Effect\": \"Deny\",\"Principal\": \"*\",\"Action\": \"execute-api:Invoke\",\"Resource\": \"arn:aws:execute-api:us-west-2:111122223333:/domainnames/private.example.com+abcd1234\",\"Condition\": {\"StringNotEquals\": {\"aws:SourceVpce\": [\"vpce-abcd1234\",\"vpce-xyzz0000\"]}}}]}"
+    "value": "{\"Version\": \"2012-10-17\",\"Statement\": [{\"Effect\": \"Allow\",\"Principal\": \"*\",\"Action\": \"execute-api:Invoke\",\"Resource\": \"arn:aws:execute-api:us-west-2:111122223333:/domainnames/private.example.com+abcd1234\"},{\"Effect\": \"Deny\",\"Principal\": \"*\",\"Action\": \"execute-api:Invoke\",\"Resource\": \"arn:aws:execute-api:us-west-2:111122223333:/domainnames/private.example.com+abcd1234\",\"Condition\": {\"StringNotEquals\": {\"aws:SourceVpce\": [\"vpce-abcd1234\",\"vpce-xyzz0000\"]}}}]}"
 }]
 ```
 
@@ -90,7 +90,7 @@ aws apigateway reject-domain-name-access-association \
 [{
      "op": "replace",
      "path": "/managementPolicy",
-     "value": "{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"apigateway:CreateAccessAssociation\",\"Resource\":\"arn:aws:apigateway:us-west-2:111122223333:/domainnames/private.example.com+abcd1234\"}]}"
+     "value": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"apigateway:CreateAccessAssociation\",\"Resource\":\"arn:aws:apigateway:us-west-2:111122223333:/domainnames/private.example.com+abcd1234\"}]}"
 }]
 ```
 
@@ -112,7 +112,7 @@ aws apigateway update-domain-name \
 [{
     "op": "replace",
     "path": "/policy",
-    "value": "{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"execute-api:Invoke\",\"Resource\":\"arn:aws:execute-api:us-west-2:111122223333:/domainnames/private.example.com+abcd1234\"},{\"Effect\":\"Deny\",\"Principal\":\"*\",\"Action\":\"execute-api:Invoke\",\"Resource\":\"arn:aws:execute-api:us-west-2:111122223333:/domainnames/private.example.com+abcd1234\",\"Condition\":{\"StringNotEquals\":{\"aws:SourceVpce\":\"vpce-abcd1234\"}}}]}"
+    "value": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"execute-api:Invoke\",\"Resource\":\"arn:aws:execute-api:us-west-2:111122223333:/domainnames/private.example.com+abcd1234\"},{\"Effect\":\"Deny\",\"Principal\":\"*\",\"Action\":\"execute-api:Invoke\",\"Resource\":\"arn:aws:execute-api:us-west-2:111122223333:/domainnames/private.example.com+abcd1234\",\"Condition\":{\"StringNotEquals\":{\"aws:SourceVpce\":\"vpce-abcd1234\"}}}]}"
 }]
 ```
 

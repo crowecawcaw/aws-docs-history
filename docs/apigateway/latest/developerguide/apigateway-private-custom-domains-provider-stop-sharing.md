@@ -84,7 +84,7 @@ the `execute-api` service for a private custom domain name. This new
 aws apigateway update-domain-name
     --domain-name private.example.com \
     --domain-name-id abcd1234 \
-    --patch-operations op=replace,path=/policy,value='"{\"Version\": \"2012-10-17\",		 	 	 \"Statement\": [{\"Effect\": \"Allow\",\"Principal\": \"*\",\"Action\": \"execute-api:Invoke\",\"Resource\":[\"execute-api:/*\"]},{\"Effect\": \"Deny\",\"Principal\": \"*\",\"Action\": \"execute-api:Invoke\",\"Resource\":[\"execute-api:/*\"],\"Condition\":{\"StringNotEquals\":{\"aws:SourceVpce\": \"vpce-abcd1234efg\"}}}]}"
+    --patch-operations op=replace,path=/policy,value='"{\"Version\": \"2012-10-17\",\"Statement\": [{\"Effect\": \"Allow\",\"Principal\": \"*\",\"Action\": \"execute-api:Invoke\",\"Resource\":[\"execute-api:/*\"]},{\"Effect\": \"Deny\",\"Principal\": \"*\",\"Action\": \"execute-api:Invoke\",\"Resource\":[\"execute-api:/*\"],\"Condition\":{\"StringNotEquals\":{\"aws:SourceVpce\": \"vpce-abcd1234efg\"}}}]}"
 ```
 
 The API consumer should then delete the domain name access association. You can't delete it for them. For

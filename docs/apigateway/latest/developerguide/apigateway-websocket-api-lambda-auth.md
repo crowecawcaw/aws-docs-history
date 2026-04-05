@@ -154,7 +154,7 @@ var generatePolicy = function(principalId, effect, resource) {
     authResponse.principalId = principalId;
    if (effect && resource) {
        var policyDocument = {};
-        policyDocument.Version = '2012-10-17		 	 	 '; // default version
+        policyDocument.Version = '2012-10-17'; // default version
        policyDocument.Statement = [];
        var statementOne = {};
         statementOne.Action = 'execute-api:Invoke'; // default action
@@ -236,7 +236,7 @@ def generatePolicy(principalId, effect, resource):
     authResponse['principalId'] = principalId
     if (effect and resource):
         policyDocument = {}
-        policyDocument['Version'] = '2012-10-17		 	 	 '
+        policyDocument['Version'] = '2012-10-17'
         policyDocument['Statement'] = []
         statementOne = {}
         statementOne['Action'] = 'execute-api:Invoke'
