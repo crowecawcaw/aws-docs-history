@@ -56,6 +56,14 @@ to:
   safeguards on your web and mobile applications for well- rounded AIT
   protection.
 
+###### Note
+
+When you use Notify, a protect configuration is automatically created and
+managed by the service to enforce country-level restrictions based on your notify
+configuration's enabled countries. You do not need to create a separate protect
+configuration for Notify. For more information, see
+[What is AWS End User Messaging Notify?](notify.md "notify.md").
+
 ###### Topics
 
 - [Protect configuration](protect-configuration.md "protect-configuration.md")

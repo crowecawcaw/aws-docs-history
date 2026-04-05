@@ -8,6 +8,7 @@ The following registrations can be filled out and submitted through the AWS End 
 - [Belarus sender ID registration](registrations-belarus.md "registrations-belarus.md")
 - [China SMS template registration form](phone-numbers-sms-template-registration.md "phone-numbers-sms-template-registration.md")
 - [Egypt sender ID registration](registrations-egypt.md "registrations-egypt.md")
+- [Finland sender ID registration](registrations-finland.md "registrations-finland.md")
 - [India sender ID
   registration](registrations-sms-senderid-india.md "registrations-sms-senderid-india.md")
 - [Indonesia sender ID registration](registrations-indonesia.md "registrations-indonesia.md")

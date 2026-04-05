@@ -286,12 +286,17 @@ each country that your recipients are located in.
 6. Are you planning to send messages to recipients in
    India?
    - If you answered **Yes**, you can start
-     sending immediately. However, the messages that you send are charged at
-     the International Long-Distance Operator (ILDO) rate, which costs
-     several times more than messages sent using a registered Sender ID. If
+     sending immediately using international (ILDO) routes from any
+     AWS Region. However, the messages that you send are charged at the
+     International Long-Distance Operator (ILDO) rate, which costs
+     significantly more than messages sent using a registered Sender ID. If
      costs are an important factor, you should consider registering your
      company and use case in India. When you complete this registration
-     process, you can send messages at the less-expensive local rate.
+     process, you can send messages at the less-expensive local rate. Note
+     that local routes using DLT-registered sender IDs are only supported
+     from the AP-SOUTH-1 Asia Pacific (Mumbai) and AP-SOUTH-2 Asia Pacific
+     (Hyderabad) regions. For
+     more information, see [India sender ID registration process in AWS End User Messaging SMS](registrations-sms-senderid-india.md "registrations-sms-senderid-india.md").
 
    If you want to determine what kind of origination identity to use for
    another country, return to [question 1](#one-way-q1 "#one-way-q1").

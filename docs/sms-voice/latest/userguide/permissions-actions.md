@@ -666,3 +666,69 @@ Verify a destination phone number.
 
 - Resource ARN –
   `arn:aws:sms-voice:`region`:`accountId`:verified-destination-number/`verifiedDestinationNumberId``
+
+**`sms-voice:CreateNotifyConfiguration`**
+
+Create a new Notify configuration.
+
+- Resource ARN –
+  `arn:aws:sms-voice:`region`:`accountId`:notify-configuration/`notifyConfigurationId``
+
+**`sms-voice:UpdateNotifyConfiguration`**
+
+Update an existing Notify configuration.
+
+- Resource ARN –
+  `arn:aws:sms-voice:`region`:`accountId`:notify-configuration/`notifyConfigurationId``
+
+**`sms-voice:DeleteNotifyConfiguration`**
+
+Delete an existing Notify configuration.
+
+- Resource ARN –
+  `arn:aws:sms-voice:`region`:`accountId`:notify-configuration/`notifyConfigurationId``
+
+**`sms-voice:DescribeNotifyConfigurations`**
+
+Describe the specified Notify configurations or all in your account.
+
+- Resource ARN –
+  `arn:aws:sms-voice:`region`:`accountId`:notify-configuration/`notifyConfigurationId``
+
+**`sms-voice:DescribeNotifyTemplates`**
+
+Describe the available Notify templates.
+
+- Resource ARN – Not available. Use `*`.
+
+**`sms-voice:ListNotifyCountries`**
+
+List the countries available for Notify.
+
+- Resource ARN – Not available. Use `*`.
+
+**`sms-voice:SendNotifyTextMessage`**
+
+Send a templated SMS message using a Notify configuration.
+
+- Resource ARN –
+  `arn:aws:sms-voice:`region`:`accountId`:notify-configuration/`notifyConfigurationId``
+
+**`sms-voice:SendNotifyVoiceMessage`**
+
+Send a templated voice message using a Notify configuration.
+
+- Resource ARN –
+  `arn:aws:sms-voice:`region`:`accountId`:notify-configuration/`notifyConfigurationId``
+
+**`sms-voice:SetNotifyMessageSpendLimitOverride`**
+
+Set an account-level monthly spending limit override for sending Notify messages.
+
+- Resource ARN – Not available. Use `*`.
+
+**`sms-voice:DeleteNotifyMessageSpendLimitOverride`**
+
+Delete an account-level monthly spending limit override for sending Notify messages.
+
+- Resource ARN – Not available. Use `*`.

@@ -110,3 +110,9 @@ aws pinpoint-sms-voice-v2 delete-text-message-spend-limit-override
 
 When the command completes, it returns the value of your enforced
 limit.
+
+###### Note
+
+Notify has a separate spend limit that is independent of your SMS, MMS, and
+voice spend limits. For information about managing Notify spend limits, see
+[Notify spend limits](notify-spend-limits.md "notify-spend-limits.md").

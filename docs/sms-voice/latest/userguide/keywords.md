@@ -22,6 +22,13 @@ deny listing your number and blocking your messages.
 A keyword can be between 1 and 30 characters in length and can't start or end with a
 space. Keywords are case insensitive.
 
+For AWS RCS Agents, keywords are configured on the AWS RCS Agent and apply
+to all associated RCS for Business IDs (testing agent and country launch agents).
+When an end user sends a message containing a keyword to your AWS RCS Agent,
+AWS End User Messaging SMS responds with the configured keyword response. For more information
+about receiving inbound RCS messages and keyword handling, see
+[Receiving inbound RCS messages](rcs-inbound.md "rcs-inbound.md").
+
 Wireless carriers in the US require short codes to support the following keywords. In
 addition, AWS expects all long codes and short codes to support these keywords:
 

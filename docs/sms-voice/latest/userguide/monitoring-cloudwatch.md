@@ -30,6 +30,14 @@ and **VoiceMessageMonthlySpend** and trigger an alarm when greater
 than, greater than or equal to, or equal to the threshold. The namespace for AWS End User Messaging SMS is
 `AWS/SMSVoice`.
 
+AWS End User Messaging SMS also publishes RCS-specific metrics in the `AWS/SMSVoice` namespace,
+including `RCS.MessagesSent`, `RCS.MessagesDelivered`, and
+`RCS.MessagesFallenBackToSMS`. Existing metrics now include an
+`OriginationIdentityType` dimension with values such as `PHONE_NUMBER`,
+`SENDER_ID`, `RCS_AGENT`, and `POOL`. For the full list of
+RCS metrics and dimensions, see
+[RCS CloudWatch metrics and monitoring](rcs-monitoring.md "rcs-monitoring.md").
+
 ###### Topics
 
 - [Message spend metrics](#cw-metrics-message-spend "#cw-metrics-message-spend")
@@ -85,11 +93,12 @@ You can use the following dimensions to refine the metrics listed in the previou
 These dimensions allow you to filter and group the metrics based on specific attributes of
 your SMS and voice messages.
 
-| Dimension                                | Description                                                                                             |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| None                                     | Do not filter                                                                                           |
-| IsoCountryCode                           | This dimension filters the data you request by ISO country code                                         |
-| MessageFeedbackStatus                    | This dimension filters the data you request by the message feedback status of<br>`RECEIVED` or `FAILED` |
-| ProtectConfigurationId                   | This dimension filters the data you request by protect configuration                                    |
-| [IsoCountryCode, MessageFeedbackStatus]  | This dimension filters the data you request by ISO country code and message<br>feedback status          |
-| [ProtectConfigurationId, IsoCountryCode] | This dimension filters the data you request by protect configuration and ISO<br>country code            |
+| Dimension                                | Description                                                                                                                                                                                                                                                       |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| None                                     | Do not filter                                                                                                                                                                                                                                                     |
+| IsoCountryCode                           | This dimension filters the data you request by ISO country code                                                                                                                                                                                                   |
+| MessageFeedbackStatus                    | This dimension filters the data you request by the message feedback status of<br>`RECEIVED` or `FAILED`                                                                                                                                                           |
+| ProtectConfigurationId                   | This dimension filters the data you request by protect configuration                                                                                                                                                                                              |
+| [IsoCountryCode, MessageFeedbackStatus]  | This dimension filters the data you request by ISO country code and message<br>feedback status                                                                                                                                                                    |
+| [ProtectConfigurationId, IsoCountryCode] | This dimension filters the data you request by protect configuration and ISO<br>country code                                                                                                                                                                      |
+| OriginationIdentityType                  | This dimension filters the data you request by origination identity type.<br>Values include `PHONE_NUMBER`, `SENDER_ID`,<br>`RCS_AGENT`, and `POOL`. For more information, see<br>[RCS CloudWatch metrics and monitoring](rcs-monitoring.md "rcs-monitoring.md"). |

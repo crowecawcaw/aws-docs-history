@@ -87,3 +87,17 @@ information, see [Choosing an origination identity](phone-number-types.md "phone
 See phone number. When your account is in Sandbox you can only send SMS messages to
 phone numbers that have gone through the verification process. The phone number receives
 an SMS messaging with a verification code. The received code must be entered into the console to complete the process.
+
+###### Notify configuration
+
+A resource that represents your brand identity and messaging settings for sending
+templated SMS and voice messages. A Notify configuration includes a display name,
+use case, enabled channels, enabled countries, and an optional associated phone
+pool.
+
+###### Notify template
+
+A pre-approved, AWS-managed message template for sending OTP and verification
+messages. Templates include variable placeholders (such as a verification code) that
+are substituted at send time. Customers select from available templates but cannot
+create or modify them.

@@ -20,6 +20,12 @@ features of AWS End User Messaging SMS, with restrictions on your SMS, MMS, and 
   **Service limit increase** request for each channel that you want to
   move.
 
+###### Tip
+
+If you want to send OTP or verification messages without managing phone numbers,
+you can use Notify. Notify lets you send templated messages using AWS-managed origination
+identities. For more information, see [What is AWS End User Messaging Notify?](notify.md "notify.md").
+
 ###### Topics
 
 - [First time user tutorial](getting-started-tutorial.md "getting-started-tutorial.md")

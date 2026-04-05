@@ -19,6 +19,7 @@ increase](#quotas-increase "#quotas-increase").
 | AssociateProtectConfiguration                   | 1                                        |
 | CreateConfigurationSet                          | 1                                        |
 | CreateEventDestination                          | 1                                        |
+| CreateNotifyConfiguration                       | 1                                        |
 | CreateOptOutList                                | 1                                        |
 | CreatePool                                      | 1                                        |
 | CreateProtectConfiguration                      | 1                                        |
@@ -26,6 +27,7 @@ increase](#quotas-increase "#quotas-increase").
 | CreateRegistrationAssociation                   | 1                                        |
 | CreateRegistrationAttachment                    | 1                                        |
 | CreateRegistrationVersion                       | 1                                        |
+| CreateRcsAgent                                  | 1                                        |
 | CreateVerifiedDestinationNumber                 | 1                                        |
 | DeleteAccountDefaultProtectConfiguration        | 1                                        |
 | DeleteConfigurationSet                          | 1                                        |
@@ -34,6 +36,8 @@ increase](#quotas-increase "#quotas-increase").
 | DeleteEventDestination                          | 1                                        |
 | DeleteKeyword                                   | 1                                        |
 | DeleteMediaMessageSpendLimitOverride            | 1                                        |
+| DeleteNotifyConfiguration                       | 1                                        |
+| DeleteNotifyMessageSpendLimitOverride           | 1                                        |
 | DeleteOptedOutNumber                            | 10                                       |
 | DeleteOptOutList                                | 1                                        |
 | DeletePool                                      | 1                                        |
@@ -42,6 +46,7 @@ increase](#quotas-increase "#quotas-increase").
 | DeleteRegistration                              | 1                                        |
 | DeleteRegistrationAttachment                    | 1                                        |
 | DeleteRegistrationFieldValue                    | 1                                        |
+| DeleteRcsAgent                                  | 1                                        |
 | DeleteTextMessageSpendLimitOverride             | 1                                        |
 | DeleteVerifiedDestinationNumber                 | 1                                        |
 | DeleteVoiceMessageSpendLimitOverride            | 1                                        |
@@ -49,6 +54,8 @@ increase](#quotas-increase "#quotas-increase").
 | DescribeAccountLimits                           | 1                                        |
 | DescribeConfigurationSets                       | 1                                        |
 | DescribeKeywords                                | 1                                        |
+| DescribeNotifyConfigurations                    | 1                                        |
+| DescribeNotifyTemplates                         | 1                                        |
 | DescribeOptedOutNumbers                         | 1                                        |
 | DescribeOptOutLists                             | 1                                        |
 | DescribePhoneNumbers                            | 1                                        |
@@ -61,6 +68,8 @@ increase](#quotas-increase "#quotas-increase").
 | DescribeRegistrationSectionDefinitions          | 1                                        |
 | DescribeRegistrationTypeDefinitions             | 1                                        |
 | DescribeRegistrationVersions                    | 1                                        |
+| DescribeRcsAgents                               | 1                                        |
+| DescribeRcsAgentCountryLaunchStatus             | 1                                        |
 | DescribeSenderIds                               | 1                                        |
 | DescribeSpendLimits                             | 1                                        |
 | DescribeVerifiedDestinationNumbers              | 1                                        |
@@ -68,6 +77,7 @@ increase](#quotas-increase "#quotas-increase").
 | DisassociateProtectConfiguration                | 1                                        |
 | DiscardRegistrationVersion                      | 1                                        |
 | GetProtectConfigurationCountryRuleSet           | 1                                        |
+| ListNotifyCountries                             | 1                                        |
 | ListPoolOriginationIdentities                   | 1                                        |
 | ListProtectConfigurationRuleSetNumberOverrides  | 1                                        |
 | ListRegistrationAssociations                    | 1                                        |
@@ -84,6 +94,8 @@ increase](#quotas-increase "#quotas-increase").
 | RequestSenderId                                 | 1                                        |
 | SendDestinationNumberVerificationCode           | 1                                        |
 | SendMediaMessage                                | 1                                        |
+| SendNotifyTextMessage                           | 1                                        |
+| SendNotifyVoiceMessage                          | 1                                        |
 | SendTextMessage                                 | 1                                        |
 | SendVoiceMessage                                | 1                                        |
 | SetAccountDefaultProtectConfiguration           | 1                                        |
@@ -91,16 +103,19 @@ increase](#quotas-increase "#quotas-increase").
 | SetDefaultMessageType                           | 1                                        |
 | SetDefaultSenderId                              | 1                                        |
 | SetMediaMessageSpendLimitOverride               | 1                                        |
+| SetNotifyMessageSpendLimitOverride              | 1                                        |
 | SetTextMessageSpendLimitOverride                | 1                                        |
 | SetVoiceMessageSpendLimitOverride               | 1                                        |
 | SubmitRegistrationVersion                       | 1                                        |
 | TagResource                                     | 1                                        |
 | UntagResource                                   | 1                                        |
 | UpdateEventDestination                          | 1                                        |
+| UpdateNotifyConfiguration                       | 1                                        |
 | UpdatePhoneNumber                               | 1                                        |
 | UpdateProtectConfiguration                      | 1                                        |
 | UpdateProtectConfigurationCountryRuleSet        | 1                                        |
 | UpdatePool                                      | 1                                        |
+| UpdateRcsAgent                                  | 1                                        |
 | UpdateSenderId                                  | 1                                        |
 | VerifyDestinationNumber                         | 1                                        |
 
@@ -152,6 +167,16 @@ The following quotas apply to registrations.
 | ---------------------------------- | -------------- | ------------------------------------------------------------------ |
 | Number of registrations            | 25 per account | [Yes](#quotas-increase-aws-service "#quotas-increase-aws-service") |
 | Number of registration attachments | 25 per account | [Yes](#quotas-increase-aws-service "#quotas-increase-aws-service") |
+
+## RCS quotas
+
+The following quotas apply to RCS messaging.
+
+| Resource                                                 | Default quota        | Eligible for increase                      |
+| -------------------------------------------------------- | -------------------- | ------------------------------------------ |
+| Number of AWS RCS Agents per account                     | 5 per account        | [Yes](#quotas-increase "#quotas-increase") |
+| Number of verified destination numbers per AWS RCS Agent | 10 per AWS RCS Agent | No                                         |
+| Number of keywords per AWS RCS Agent                     | 30 per AWS RCS Agent | [Yes](#quotas-increase "#quotas-increase") |
 
 ## Voice quotas
 

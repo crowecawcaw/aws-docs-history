@@ -4,6 +4,11 @@ Some countries require you to register your company's identity to be able to
 purchase phone numbers or sender IDs and review the messages you send to recipients in their
 country. For more information on which countries require registration, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
 
+###### Note
+
+Registrations are also used for Notify Advanced tier brand verification. For
+more information, see [Notify tiers](notify-tiers.md "notify-tiers.md").
+
 ###### Important
 
 To enable Amazon Pinpoint or Amazon SNS to use an origination identity you must add a **Resource
@@ -23,6 +28,8 @@ The following registration forms can be filled out and submitted through the AWS
   in Belarus. For more information on completing the registration, see [Belarus sender ID registration](registrations-belarus.md "registrations-belarus.md").
 - **Egypt sender ID registration** – Register a sender ID
   in Egypt. For more information on completing the registration, see [Egypt sender ID registration](registrations-egypt.md "registrations-egypt.md").
+- **Finland sender ID registration** – Register a sender ID
+  in Finland. For more information on completing the registration, see [Finland sender ID registration](registrations-finland.md "registrations-finland.md").
 - **India sender ID registration** – Register a sender ID for use in India. For more information on completing the
   registration for see [India sender ID
   registration](registrations-sms-senderid-india.md "registrations-sms-senderid-india.md").
