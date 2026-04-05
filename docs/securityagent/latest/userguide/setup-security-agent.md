@@ -82,10 +82,10 @@ Complete these steps only if you selected IAM Identity Center (SSO) as your acce
 
 ###### Important
 
-Your application must be configured in the same Region where you enable IAM Identity Center. The displayed Region is where your Agent Space will be created. IAM Identity Center must be enabled in US East (N. Virginia) `us-east-1`. 2. In the **IAM Identity Center** section, choose one of the following:
+Your application must be configured in the same Region where you enable IAM Identity Center. The displayed Region is where your Agent Space will be created. IAM Identity Center must be enabled in the same Region where you create your Agent Space. 2. In the **IAM Identity Center** section, choose one of the following:
 
     * Click **Create account instance** to create a new IAM Identity Center account instance
-    * If an organization instance already exists in US East (N. Virginia) `us-east-1`, AWS Security Agent will automatically connect to it
+    * If an organization instance already exists in the same Region, AWS Security Agent will automatically connect to it
 
 
     ###### Note

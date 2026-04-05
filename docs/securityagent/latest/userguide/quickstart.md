@@ -8,7 +8,7 @@ You need access to AWS Management console to setup a new penetration test
 
 ## Step 1: Set up AWS Security Agent in the AWS console
 
-1. Navigate to [AWS Security Agent](https://us-east-1.console.aws.amazon.com/securityagent/ "https://us-east-1.console.aws.amazon.com/securityagent/") in the AWS Management Console.
+1. Navigate to [AWS Security Agent](https://console.aws.amazon.com/securityagent/ "https://console.aws.amazon.com/securityagent/") in the AWS Management Console.
 2. Select **Set up AWS Security Agent**
 3. Create an agent space. An agent space can be used by multiple users and should be specific for every application you want to test. Enter a name and description for your first agent space. This name appears to users in the web application. The name of the agent space should be based on the application you want to penetration test.
 4. Select **IAM-only access** under _User access configuration_

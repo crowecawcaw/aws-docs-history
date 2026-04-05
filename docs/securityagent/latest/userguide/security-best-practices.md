@@ -57,6 +57,8 @@ AWS Security Agent can provide security guidance on code changes through pull re
 
 AWS Security Agent does not provide code security guidance for public repositories. It will not comment on public repositories or open-source projects where security findings would be publicly visible.
 
+AWS Security Agent penetration tests can review and remediate private and public repositories that you configured for the pentest. If the repository is public, the remediation code will be provided as a downloadable diff file instead of a pull request.
+
 ## Accessible URLs
 
 Accessible URLs specify additional endpoints that the penetration testing environment can access during testing. These are necessary when your application depends on external services such as third-party authentication providers or CDNs. All network dependencies required for testing must be specified as either target URLs or accessible URLs. The network blocks access to any unspecified endpoints.
@@ -65,9 +67,16 @@ Accessible URLs specify additional endpoints that the penetration testing enviro
 
 ## Cross Region Inference
 
-AWS Security Agent uses Amazon Bedrock’s geographic cross-Region inference to increase throughput while keeping data processing within the United States. At launch, AWS Security Agent is deployed in the US geographic region only.
+AWS Security Agent will automatically select the optimal region within your geography to process your inference requests. This maximizes available compute resources, model availability, and delivers the best customer experience. Your data will remain stored only in the region where the request originated, however, input prompts and output results may be processed outside that region. All data will be transmitted encrypted across Amazon’s secure network.
 
-Your input prompts (including design documents, code, and application context) and output results (including security findings and remediation guidance) may be processed across multiple US regions during inference operations. Data storage remains in your source region, and all data transmission is encrypted in transit over Amazon’s secure network.
+AWS Security Agent will securely route your inference requests to available compute resources within the geographic area where the request originated, as follows:
 
-- **Data residency** – All data processing occurs within US regions. If your organization requires data processing within a specific single US region, evaluate whether processing across the broader US geographic boundary satisfies your compliance obligations.
-- **IAM and Service Control Policies** – Ensure your IAM policies and Service Control Policies (SCPs) allow access to US regions used for cross-Region inference operations.
+- Inference requests originating in the European Union will be processed within the European Union.
+- Inference requests originating in the United States will be processed within the United States.
+- Inference requests originating in Australia will be processed within Australia.
+- Inference requests originating within Japan will be processed within Japan.
+
+Cross-Region inference is always enabled and cannot be opted out of.
+
+- **Data residency** – All data processing occurs within your geographic area. If your organization requires data processing within a specific single region, evaluate whether processing across the broader geographic boundary satisfies your compliance obligations.
+- **IAM and Service Control Policies** – Ensure your IAM policies and Service Control Policies (SCPs) allow access to regions within your geography used for cross-Region inference operations.

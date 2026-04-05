@@ -1,0 +1,30 @@
+# Managed target domains used for penetration testing
+
+In the AWS Management Console, you can add and manage target domains consumed by agent spaces for penetration testing. These target domains will need to be verified before they can be used in a penetration test. For more information about verifying target domains, see [Enable penetration test](enable-penetration-test.md "enable-penetration-test.md")
+
+## Prerequisites
+
+Before you begin, ensure you have:
+
+1. Enabled penetration test (see [Enable penetration test](enable-penetration-test.md "enable-penetration-test.md"))
+
+## Manage target domain resources
+
+- Navigate to the Target Domains overview page.
+- You should see all target domain resources associated with your account
+  - If you don’t see any target domains associated with your account, follow the steps in [Enable penetration test](enable-penetration-test.md "enable-penetration-test.md") to create and verify a target domain
+
+- Target domains can be reused between agent spaces and share verification status
+  - To add an existing target domain to an agent space, navigate to the **Penetration test** tab of the agent space. Select **Add domain** and click the desired domain under **Select from available previously registered domains** in the domain name field
+  - Target domains must be associated with an agent space before they can be used in a penetration test
+
+- Removing a domain from an agent space does not delete the domain. The associated target domain can be permanently deleted from the Target Domains overview page
+
+## Verify target domains
+
+In order for a target domain to be used in a penetration test, it must first be verified using one of the below methods:
+
+- **Route 53 domains (same AWS account)**: Choose **One-click verification**. AWS Security Agent automatically creates the DNS record and completes verification.
+- **DNS TXT (other DNS providers)**: Copy the verification token, add the TXT record with your DNS registrar, then select the domain and choose **Verify**.
+- **HTTP route**: Place the verification token at the required route path on your web server, then select the domain and choose **Verify**. For details, see [Enable an application domain for penetration testing](enable-test-domain.md "enable-test-domain.md").
+- **Private VPC domain**: Verify the target domain IP falls within a private CIDR range (see [Connect agent to private VPC resources](connect-agent-vpc.md "connect-agent-vpc.md") for a list of private CIDR ranges). Click **Verify** and confirm that the target domain status becomes **Unreachable**. This domain can now be used for penetration testing with a configured VPC

@@ -40,7 +40,7 @@ AWS Security Agent is instructed to discover security risks, but to do so using 
 
 #### What data does AWS Security Agent collect and where is it stored?
 
-AWS Security Agent allows users to upload artifacts to provide context about their application being tested. For more information on data protection, see [Data protection in AWS Security Agent](data-protection.md "data-protection.md"). AWS Security Agent uses Amazon Bedrock’s geographic [cross-region inference](security-best-practices.md#_cross_region_inference.html "security-best-practices.md#_cross_region_inference.html") to increase throughput while keeping data processing within the United States. At launch, AWS Security Agent is deployed in the US East (N. Virginia) region only.
+AWS Security Agent allows users to upload artifacts to provide context about their application being tested. For more information on data protection, see [Data protection in AWS Security Agent](data-protection.md "data-protection.md"). AWS Security Agent will automatically select the optimal region within your geography to process your inference requests. This maximizes available compute resources, model availability, and delivers the best customer experience. Your data will remain stored only in the region where the request originated, however, input prompts and output results may be processed outside that region. All data will be transmitted encrypted across Amazon’s secure network. For more information, see [Cross Region Inference](security-best-practices.md#_cross_region_inference "security-best-practices.md#_cross_region_inference").
 
 #### What controls are present to block unauthorized testing against an endpoint?
 

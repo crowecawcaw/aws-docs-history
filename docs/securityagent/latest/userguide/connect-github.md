@@ -31,11 +31,35 @@ If your GitHub enterprise organization has enabled IP allowlisting, you must acc
 
 The following IP addresses are used to access your GitHub resources:
 
-```
-34.228.181.128
-44.219.176.187
-54.226.244.221
-```
+- Asia Pacific (Sydney) (ap-southeast-2)
+  - `13.237.95.197`
+  - `13.238.84.102`
+  - `52.64.174.242`
+
+- Asia Pacific (Tokyo) (ap-northeast-1)
+  - `13.192.12.233`
+  - `35.74.181.230`
+  - `57.183.50.158`
+
+- Europe (Frankfurt) (eu-central-1)
+  - `18.158.110.140`
+  - `52.57.96.160`
+  - `52.59.55.56`
+
+- Europe (Ireland) (eu-west-1)
+  - `34.251.85.24`
+  - `52.30.157.157`
+  - `52.51.192.222`
+
+- US East (N. Virginia) (us-east-1)
+  - `34.228.181.128`
+  - `44.219.176.187`
+  - `54.226.244.221`
+
+- US West (Oregon) (us-west-2)
+  - `34.212.16.133`
+  - `52.89.67.212`
+  - `54.187.135.61`
 
 ## Authorize and register the AWS Security Agent GitHub App
 

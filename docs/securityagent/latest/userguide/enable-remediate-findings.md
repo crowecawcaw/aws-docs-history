@@ -4,6 +4,10 @@ In the AWS Management Console, you can enable the code remediation feature that 
 
 When you enable this functionality in the AWS Management Console, users of the AWS Security Agent web app can start code remediation for a specific finding. The remediation will be available as GitHub pull requests.
 
+###### Note
+
+Code remediation is currently available in only us-east-1.
+
 ## Prerequisites
 
 Before you begin, ensure you have:

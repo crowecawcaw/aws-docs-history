@@ -1,7 +1,6 @@
 # Data protection in AWS Security Agent
 
-The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") applies to data protection in AWS Security Agent. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see the [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/").
-
+The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") applies to data protection in AWS Security Agent. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For information about data protection in Europe, see the [AWS Shared Responsibility Model and GDPR](https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/ "https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/") blog post on the _AWS Security Blog_.
 For data protection purposes, we recommend that you protect AWS account credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
 
 - Use multi-factor authentication (MFA) with each account.
@@ -14,14 +13,14 @@ For data protection purposes, we recommend that you protect AWS account credenti
 
 ## Encryption at rest
 
-AWS Security Agent encrypts all data at rest using AWS-managed encryption keys. This includes:
+AWS Security Agent encrypts all data at rest using AWS-managed encryption keys by default. This includes:
 
 - **Design documents and code** – All design documents, code repositories, and application artifacts you provide for security reviews are encrypted using AES-256 encryption.
 - **Security findings** – All security findings, vulnerability reports, and remediation recommendations are encrypted at rest.
 - **Configuration data** – Security requirements, custom policies, and service configurations are encrypted.
 - **Audit logs** – All service activity logs and audit trails are encrypted.
 
-AWS Security Agent uses AWS Key Management Service (AWS KMS) to manage encryption keys. You cannot use customer managed keys for AWS Security Agent at this time.
+AWS Security Agent uses AWS Key Management Service (AWS KMS) to manage encryption keys. You can optionally use a customer managed key to encrypt your data, giving you full control over the encryption keys that protect your resources. For more information, see [Customer managed keys for AWS Security Agent](customer-managed-keys.md "customer-managed-keys.md").
 
 ## Encryption in transit
 
@@ -34,10 +33,23 @@ AWS Security Agent encrypts all data in transit using Transport Layer Security (
 
 ## Key management
 
-AWS Security Agent uses AWS Key Management Service (AWS KMS) to manage encryption keys. You cannot use customer managed keys for AWS Security Agent at this time.
+AWS Security Agent uses AWS Key Management Service (AWS KMS) to manage encryption keys. By default, data is encrypted using AWS-managed keys. You can optionally specify a customer managed key when creating resources such as Agent Spaces and integrations. For more information, see [Customer managed keys for AWS Security Agent](customer-managed-keys.md "customer-managed-keys.md").
 
 ## Internetwork traffic privacy
 
 AWS Security Agent uses the public internet to communicate with GitHub.
 
 In the default configuration, AWS Security Agent uses the public internet to reach your app for penetration testing. You can optionally configure penetration tests to use a VPC to access your application. For more information, see [Connect agent to private VPC resources](connect-agent-vpc.md "connect-agent-vpc.md").
+
+## Data deletion
+
+When you delete data from AWS Security Agent:
+
+- The data is marked for deletion and is no longer accessible through the service.
+- The data is deleted from all AWS Security Agent systems within 30 days.
+
+To delete your data
+
+1. In the AWS console, navigate to AWS Security Agent.
+2. Choose the data you want to delete (security reviews, findings, or custom requirements).
+3. Choose **Delete** and confirm the deletion.
