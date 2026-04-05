@@ -32,7 +32,7 @@ permissions to:
 
 ```
 {
-"Version": "2012-10-17",		 	 	 ,
+"Version": "2012-10-17",,
 "Statement": [
   {
     "Sid": "AllowsAmazonQToGetObjectfromS3",
@@ -97,7 +97,7 @@ permissions to:
 
 ```
 {
-"Version": "2012-10-17",		 	 	 ,
+"Version": "2012-10-17",,
 "Statement": [
   {
     "Effect": "Allow",
@@ -128,7 +128,7 @@ source, use the following role policy:**
 
 ```
 {
-  "Version": "2012-10-17",		 	 	 ,
+  "Version": "2012-10-17",,
   "Statement": [
     {
       "Sid": "AllowsAmazonQToGetObjectfromS3",
@@ -233,7 +233,7 @@ access permissions to your policy:**
 
 ```
 {
-  "Version": "2012-10-17",		 	 	 ,
+  "Version": "2012-10-17",,
   "Statement": [
     {
       "Sid": "AllowsAmazonQToGetObjectfromS3",
@@ -370,7 +370,7 @@ policy:**
 
 ```
 {
-  "Version": "2012-10-17",		 	 	 ,
+  "Version": "2012-10-17",,
   "Statement": [
     {
       "Sid": "AllowsAmazonQToAssumeRoleForServicePrincipal",

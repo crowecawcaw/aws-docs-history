@@ -29,7 +29,7 @@ permissions to:
 
 ```
 {
-  "Version": "2012-10-17",		 	 	 ,
+  "Version": "2012-10-17",,
   "Statement": [
     {
       "Sid": "AllowsAmazonQToGetObjectfromS3",
@@ -134,7 +134,7 @@ policy:**
 
 ```
 {
-  "Version": "2012-10-17",		 	 	 ,
+  "Version": "2012-10-17",,
   "Statement": [
     {
       "Sid": "AllowsAmazonQToAssumeRoleForServicePrincipal",

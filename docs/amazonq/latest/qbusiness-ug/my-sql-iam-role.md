@@ -25,7 +25,7 @@ To connect your data source connector to Amazon Q, you must give Amazon Q an IAM
 
 ```
 {
-    "Version": "2012-10-17",		 	 	 ,
+    "Version": "2012-10-17",,
     "Statement": [{
             "Sid": "AllowsAmazonQToGetS3Objects",
             "Action": [
@@ -176,7 +176,7 @@ trust policy:**
 
 ```
 {
-  "Version": "2012-10-17",		 	 	 ,
+  "Version": "2012-10-17",,
   "Statement": [
     {
       "Sid": "AllowsAmazonQToAssumeRoleForServicePrincipal",

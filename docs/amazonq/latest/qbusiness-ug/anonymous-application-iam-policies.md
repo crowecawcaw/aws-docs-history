@@ -18,7 +18,7 @@ policies.
 
 ```
 {
-    "Version": "2012-10-17",		 	 	 ,
+    "Version": "2012-10-17",,
     "Statement": [{
             "Sid": "QBusinessAnonymousConversationAPIPermissions",
             "Effect": "Allow",
@@ -56,7 +56,7 @@ create-role \
 
 ```
 {
-    "Version": "2012-10-17",		 	 	 ,
+    "Version": "2012-10-17",,
     "Statement": [{
             "Sid": "QBusinessAnonymousWebExperienceConversationPermissions",
             "Effect": "Allow",
@@ -76,7 +76,7 @@ create-role \
 
 ```
 {
-    "Version": "2012-10-17",		 	 	 ,
+    "Version": "2012-10-17",,
     "Statement": [
         {
             "Sid": "QBusinessTrustPolicy",

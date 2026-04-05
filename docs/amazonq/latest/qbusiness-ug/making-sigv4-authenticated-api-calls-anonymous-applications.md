@@ -35,7 +35,7 @@ these steps once.
 
 ```
 {
-    "Version": "2012-10-17",		 	 	 ,
+    "Version": "2012-10-17",,
     "Statement": [{
             "Sid": "QBusinessAnonymousConversationAPIPermissions",
             "Effect": "Allow",
