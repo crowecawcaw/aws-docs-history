@@ -112,7 +112,7 @@ The possible versions are `V1` and `V2`.
 ```
 {
     "version": "2.0",
-    "path": "/",
+    "path": "/?query1=value1&query2=value2",
     "method": "GET|POST|HEAD|...",
     "headers": {
         "`header-key`": ["`header-value`", ...],
@@ -179,7 +179,7 @@ gRPC and the request body is not already a string.
 The HTTP method of the request. Present only if the protocol is HTTP, HTTPS, or gRPC.
 
 `path`
-The path of the request. Present only if the protocol is HTTP, HTTPS, or gRPC.
+The path of the request from the client that includes query string parameters. Present only if the protocol is HTTP, HTTPS, or gRPC.
 
 `queryStringParameters`
 The HTTP query string parameters. Present only if the protocol is HTTP, HTTPS, or gRPC.
@@ -200,7 +200,7 @@ The time, in microseconds.
 
 ```
 {
-    "raw_path": "`/path/to/resource`",
+    "raw_path": "`/path/to/resource?query1=value1&query2=value2`",
     "method": "GET|POST|HEAD|...",
     "headers": {"`header-key`": "`header-value`", ... },
     "query_string_parameters": {"`key`": "`value`", ...},
