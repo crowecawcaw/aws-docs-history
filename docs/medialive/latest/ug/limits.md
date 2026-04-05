@@ -19,3 +19,8 @@ limits that you can't change. For more information about these constraints, see 
 There is a limit on the number of actions that a channel schedule can contain. This
 limit isn't listed here because it's not a quota that you can change. This limit is
 documented in [MediaLive feature rules and limits](eml-limitations-and-rules.md "eml-limitations-and-rules.md").
+
+## Quotas for Elemental Inference
+
+There are quotas, separate from MediaLive quotas, that apply if you use the Elemental Inference features of
+MediaLive. These quotas are part of the AWS Elemental Inference service. For more information, see [Elemental Inference quotas](elemental-inference.md#elemental-inference-in-eml-quotas "elemental-inference.md#elemental-inference-in-eml-quotas").

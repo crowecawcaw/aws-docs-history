@@ -56,6 +56,7 @@ but identical charge for each pipeline in the channel.
 - Output codec: All supported codecs.
 - Aspect ratio: Any aspect ratio, and any orientation (portrait or
   landscape).
+- Resolution: All supported resolutions.
 - Shared encodes: You might choose not to share encodes in a channel that you
   set up for smart crop because if you enable smart crop in one of the outputs
   that shares an encode, MediaLive automatically enables it in the other output that

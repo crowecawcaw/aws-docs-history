@@ -13,11 +13,9 @@ MediaLive uses AWS Elemental Inference for this feature.
 
 - When a channel that has event clipping enabled is running, MediaLive delivers the
   source stream to Elemental Inference.
-- Elemental Inference uses
-  foundational
-  models to continually analyze the content to detect events of
-  interest. For each event, Elemental Inference generates metadata that identifies the start and
-  finish of the event. Elemental Inference sends the metadata for each event to EventBridge.
+- Elemental Inference uses foundational models to continually analyze the content to detect
+  events of interest. For each event, Elemental Inference generates metadata that identifies the
+  start and finish of the event. Elemental Inference sends the metadata for each event to EventBridge.
   Note that MediaLive delivers the source stream to Elemental Inference, and then its involvement in event
   clipping stops.
 
@@ -26,7 +24,8 @@ video clip.
 
 ###### Important
 
-Currently, MediaLive supports event clipping with video for soccer games and basketball games.
+Currently, MediaLive supports event clipping with video for soccer games and basketball
+games.
 
 ###### Topics
 
@@ -49,8 +48,8 @@ separate but identical charge for each pipeline in the channel.
 
 ## Source requirements
 
-- Input type: All supported types. The input must be live input, not a file
-  input.
+- Input type: All supported types. The _input_
+  must be live input, not a file input.
 - Input codec: All supported codecs
 - Input resolution: All supported resolutions.
 - Aspect ratio: Any aspect ratio

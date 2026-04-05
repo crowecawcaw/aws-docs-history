@@ -38,5 +38,5 @@ a specific color space in a MediaLive output.
 | Rec. 709, HLG, HDR10                                                                                                                             | Rec. 601                                           |
 | Rec. 601, HLG, HDR10                                                                                                                             | Rec. 709                                           |
 | Rec. 601, Rec. 709, HLG                                                                                                                          | HDR10                                              |
-| None. Conversion to HLG isn't supported                                                                                                          | HLG                                                |
+| Rec. 601, Rec. 709, HDR10                                                                                                                        | HLG                                                |
 | HDR10<br>If MediaLive encounters a portion of non-HDR10 content, it passes through the<br>color space and color space metadata for that portion, | Dolby Vision 8.1                                   |

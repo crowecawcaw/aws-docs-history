@@ -11,6 +11,6 @@ The following table shows which conversions MediaLive supports. Read across each
 | Rec. 709, HLG, HDR10                         | Rec. 601                               | Yes           |
 | Rec. 601, HLG, HDR10                         | Rec. 709                               | Yes           |
 | Rec. 601, Rec. 709, HLG                      | HDR10                                  | Yes           |
-| Rec. 601, Rec. 709, HDR10                    | HLG                                    | Not supported |
+| Rec. 601, Rec. 709, HDR10                    | HLG                                    | Yes           |
 | Rec. 601, Rec. 709, HLG, HDR10               | Dolby Vision 8.1                       | Yes           |
 | Dolby Vision 8.1                             | Any color space supported by MediaLive | Not supported |

@@ -4,6 +4,7 @@ This
 use case applies if the MediaLive channel includes inputs that use the VPC:
 
 - MediaConnect inputs
+- MediaConnect Router inputs
 - CDI inputs
 - RTMP VPC inputs
 - RTP VPC inputs

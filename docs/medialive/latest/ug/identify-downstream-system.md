@@ -34,15 +34,18 @@ When you know what your downstream systems are, return to this section.
    supports the output format and protocol that the downstream system requires. See [Output types supported in MediaLive](outputs-supported-containers.md "outputs-supported-containers.md").
 4. If your preferred downstream system is another AWS media service, [read this for information about choosing the service](dss-choose-service.md "dss-choose-service.md").
 5. If your downstream system supports Microsoft Smooth Streaming, see [Options for handling Microsoft Smooth output](downstream-system-for-mss.md "downstream-system-for-mss.md") for options.
-6. Decide if you want to create an Archive output group in order to produce an archive file
+6. If you want to send your output to other AWS Regions or to other AWS accounts before
+   distribution, consider creating a MediaConnect Router output group. MediaConnect Router is an
+   excellent choice for workflows that require cross-region or cross-account distribution.
+7. Decide if you want to create an Archive output group in order to produce an archive file
    of the content. An archive file is a supplement to streaming; it isn't itself a streaming
    output. Typically, you create an archive file as a permanent file version of the streaming
    output.
-7. Decide if you want to create a Frame capture output group in order to produce a frame
+8. Decide if you want to create a Frame capture output group in order to produce a frame
    capture output. A Frame capture output is a supplement to streaming; it isn't itself a
    streaming output. This type of output might be useful for your workflow. For example, you
    might use a Frame capture output to create thumbnails of the content.
-8. Make a note of the output groups that you decide to create.
+9. Make a note of the output groups that you decide to create.
 
 For example, after you have followed these steps, you might have this list of output
 groups:

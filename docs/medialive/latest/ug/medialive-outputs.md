@@ -20,6 +20,7 @@ to.
 - [Creating a CMAF Ingest output group](opg-cmafi.md "opg-cmafi.md")
 - [Creating a Frame capture output group](opg-framecapture.md "opg-framecapture.md")
 - [Creating an HLS output group](opg-hls.md "opg-hls.md")
+- [Creating a MediaConnect Router output group](opg-mediaconnect-router.md "opg-mediaconnect-router.md")
 - [Creating a MediaPackage output group](opg-mediapackage.md "opg-mediapackage.md")
 - [Creating a Microsoft Smooth output group](opg-mss.md "opg-mss.md")
 - [Creating an RTMP output group](opg-rtmp.md "opg-rtmp.md")

@@ -17,8 +17,10 @@ These troubleshooting steps apply to all pipeline locking methods:
   outputs](pipeline-lock.md "pipeline-lock.md").
 - Make sure that you changed the **Framerate control** so that
   it is _not_ **Initialize_from_source**.
-- Make sure that the input framerate and output framerate are a [simple conversion](pipeline-locking-verify-input.md#pipeline-locking-requirements-frame-rate "pipeline-locking-verify-input.md#pipeline-locking-requirements-frame-rate") of each
-  other.
+- Check the **ComplexFRCPresent** CloudWatch metric. A value of 1 indicates
+  that Medialive is performing complex framerate conversion and is not attempting to lock
+  pipelines. Pipeline locking only supports
+  [simple framerate conversions](pipeline-locking-verify-input.md#pipeline-locking-requirements-frame-rate "pipeline-locking-verify-input.md#pipeline-locking-requirements-frame-rate").
 - If the framerate within the source changes, it's possible that MediaLive can't
   perform pipeline locking for the duration because for that section of video,
   there is no simple framerate conversion.
@@ -53,12 +55,16 @@ troubleshooting steps:
   file inputs cause video aligned pipeline locking to run in open loop
   mode (unlocked). See
   [Requirements for video aligned pipeline locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs").
+- Check the **InputVideoAligned** CloudWatch metric.
+  A value of 1 indicates pipeline locking has successfully aligned the
+  input video content between pipelines. If the value is 0:
+  - Ensure both pipelines are receiving the same video content. Video
+    aligned pipeline locking compares visual signatures between encoders
+    and cannot lock if the content differs.
+
 - Check the **PipelinesLocked** CloudWatch metric. Video
   aligned pipeline locking reports its locked status through this same
   metric. A value of 1 indicates successful synchronization.
-- Ensure both pipelines are receiving the same video content. Video
-  aligned pipeline locking compares visual signatures between encoders
-  and cannot lock if the content differs.
 - If synchronization is intermittent, verify that your network
   connectivity to both pipelines is stable. Visual signature comparison
   requires consistent video delivery to both encoders.

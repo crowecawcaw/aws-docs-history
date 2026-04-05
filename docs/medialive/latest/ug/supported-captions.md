@@ -24,4 +24,4 @@ format:
 - [Captions formats supported in HLS or MediaPackage outputs](supported-formats-hls-output.md "supported-formats-hls-output.md")
 - [Captions formats supported in Microsoft Smooth outputs](supported-formats-smooth-output.md "supported-formats-smooth-output.md")
 - [Captions formats supported in RTMP outputs](supported-formats-rtmp-output.md "supported-formats-rtmp-output.md")
-- [Captions formats supported in UDP, SRT, or multiplex outputs](supported-formats-ts-output.md "supported-formats-ts-output.md")
+- [Captions formats supported in UDP, SRT, MediaConnect Router, or multiplex outputs](supported-formats-ts-output.md "supported-formats-ts-output.md")

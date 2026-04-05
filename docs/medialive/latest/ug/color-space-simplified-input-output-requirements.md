@@ -23,7 +23,7 @@ specified color space.
 | Rec. 601           | Yes | Yes         | Yes          |
 | Rec. 709           | Yes | Yes         | Yes          |
 | HDR10              | Yes |             | Yes          |
-| HLG                |     |             | Yes          |
+| HLG                | Yes |             | Yes          |
 | Dolby Vision 8.1   |     |             | Yes          |
 
 **Supported video profile for HDR10 or Dolby Vision 8.1

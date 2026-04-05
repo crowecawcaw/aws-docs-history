@@ -1,8 +1,8 @@
 # Clipping the content of a file input
 
 You can clip a file input so that MediaLive ingests only a portion of the file. The file must be
-an MP4 file that is stored on Amazon S3, AWS Elemental MediaStore, or an HTTP server that supports HTTP range
-requests.
+an MP4 file that is stored on Amazon S3
+or an HTTP server that supports HTTP range requests.
 
 You clip a file as part of setting up an input switching action in the channel schedule.
 Therefore, to use a clipped file, you must use the schedule.

@@ -4,6 +4,8 @@
 
 [Active outputs](eml-metrics-output-metrics.md#eml-metrics-active-outputs "eml-metrics-output-metrics.md#eml-metrics-active-outputs")
 
+[Complex FRC present](eml-metrics-output-metrics.md#eml-metrics-complex-frc-present "eml-metrics-output-metrics.md#eml-metrics-complex-frc-present")
+
 [Channel input error seconds](eml-metrics-input-metrics.md#eml-metrics-input-error-seconds "eml-metrics-input-metrics.md#eml-metrics-input-error-seconds")
 
 [Dropped frames](eml-metrics-output-metrics.md#eml-metrics-dropped-frames "eml-metrics-output-metrics.md#eml-metrics-dropped-frames")
@@ -17,6 +19,8 @@
 [Input loss seconds](eml-metrics-input-metrics.md#eml-metrics-udp-input-loss "eml-metrics-input-metrics.md#eml-metrics-udp-input-loss")
 
 [Input timecodes present](eml-metrics-input-metrics.md#eml-metrics-input-timecode "eml-metrics-input-metrics.md#eml-metrics-input-timecode")
+
+[Input video aligned](eml-metrics-output-lock.md#eml-metrics-input-video-aligned "eml-metrics-output-lock.md#eml-metrics-input-video-aligned")
 
 [Input video frame rate](eml-metrics-input-metrics.md#eml-metrics-input-frate "eml-metrics-input-metrics.md#eml-metrics-input-frate")
 

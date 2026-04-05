@@ -8,6 +8,7 @@ of output group.
 
 - Frame Capture
 - HLS
+- MediaConnect Router
 - MediaPackage
 - Microsoft Smooth
 - Multiplex

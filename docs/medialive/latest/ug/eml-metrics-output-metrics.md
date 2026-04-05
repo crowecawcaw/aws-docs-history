@@ -14,6 +14,7 @@ processed by MediaLive as an output.
 - [Output 4xx errors](#eml-metrics-4xx "#eml-metrics-4xx")
 - [Output 5xx errors](#eml-metrics-5xx "#eml-metrics-5xx")
 - [SVQ time](#eml-metrics-svq-time "#eml-metrics-svq-time")
+- [Complex FRC present](#eml-metrics-complex-frc-present "#eml-metrics-complex-frc-present")
 
 ## Active outputs
 
@@ -223,5 +224,33 @@ in order to encode fast enough to keep up with real time.
   input, or paused.
 
 - Supported dimensions sets: Pipeline, Region
+
+- Recommended statistic: Max.
+
+## Complex FRC present
+
+An indicator of whether complex FRC (framerate conversion) is present on a pipeline. Framerate conversion
+is considered complex if one of these statements is true:
+
+- The output framerate is NOT a whole number multiple of the input framerate.
+- The input framerate is NOT a whole number multiple of the output framerate.
+
+Following are examples of complex framerates:
+
+- Input FPS is 59.94, output FPS is 60.
+- Input FPS is 45, output FPS is 60.
+- Input FPS is 29.97 FPS, output FPS is 23.978.
+
+**Details**
+
+- Name: ComplexFrcPresent
+- Units: Not applicable.
+- Meaning of zero: MediaLive is not performing complex framerate conversion.
+- Meaning of no datapoints: The channel isn’t producing
+  output. This means that it isn’t running, or that it is
+  running but it is initializing, or waiting for initial
+  input, or paused.
+
+- Supported dimensions sets: ChannelId, Pipeline
 
 - Recommended statistic: Max.

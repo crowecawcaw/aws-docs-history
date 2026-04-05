@@ -46,10 +46,10 @@ The following table specifies the supported codecs for the MediaLive output colo
 
 | Output color space | AV1 | AVC (H.264) | HEVC (H.265) |
 | ------------------ | --- | ----------- | ------------ |
-| Rec. 601           |     | Yes         | Yes          |
-| Rec. 709           |     | Yes         | Yes          |
-| HDR10              |     |             | Yes          |
-| HLG                |     |             | Yes          |
+| Rec. 601           | Yes | Yes         | Yes          |
+| Rec. 709           | Yes | Yes         | Yes          |
+| HDR10              | Yes |             | Yes          |
+| HLG                | Yes |             | Yes          |
 | Dolby Vision 8.1   |     |             | Yes          |
 
 **Supported video profile for HDR10 or Dolby Vision 8.1
