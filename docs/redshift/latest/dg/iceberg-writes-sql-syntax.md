@@ -27,12 +27,19 @@ remove a table from the AWS Glue Data Catalog, you can use the `DROP TABLE` comm
 Note that this only removes the table registration. The actual data will stay in storage
 until you delete it separately.
 
-All other SQL statements, such as `DELETE`, `UPDATE`,
-`MERGE`, and `ALTER TABLE`, are not yet supported on Iceberg
-tables.
+You can also modify existing data using `DELETE`,
+`UPDATE`, and `MERGE` commands. All other SQL statements,
+such as `ALTER TABLE`, are not yet supported on Iceberg tables.
 
-The following sections demonstrate SQL syntax for creating, inserting, and managing
-Iceberg tables in Amazon Redshift.
+It's possible for you to write into an Iceberg table that is not created by Amazon Redshift.
+However, there are some limitations:
+
+- The table must be an Iceberg v2 table.
+- The table must be using Parquet as default data format.
+- The table must not have metadata compression set to True.
+- The table must not enable Write-Audit-Publish (WAP).
+  The following sections demonstrate SQL syntax for creating, inserting, modifying, and
+  managing Iceberg tables in Amazon Redshift.
 
 ###### Contents
 
@@ -40,6 +47,9 @@ Iceberg tables in Amazon Redshift.
 - [CREATE TABLE AS SELECT](iceberg-writes-sql-syntax.md#iceberg-writes-create-table-as-select "iceberg-writes-sql-syntax.md#iceberg-writes-create-table-as-select")
 - [SHOW TABLE](iceberg-writes-sql-syntax.md#iceberg-writes-show-table "iceberg-writes-sql-syntax.md#iceberg-writes-show-table")
 - [INSERT INTO](iceberg-writes-sql-syntax.md#iceberg-writes-insert-into "iceberg-writes-sql-syntax.md#iceberg-writes-insert-into")
+- [DELETE](iceberg-writes-sql-syntax.md#iceberg-writes-delete "iceberg-writes-sql-syntax.md#iceberg-writes-delete")
+- [UPDATE](iceberg-writes-sql-syntax.md#iceberg-writes-update "iceberg-writes-sql-syntax.md#iceberg-writes-update")
+- [MERGE](iceberg-writes-sql-syntax.md#iceberg-writes-merge "iceberg-writes-sql-syntax.md#iceberg-writes-merge")
 - [DROP TABLE](iceberg-writes-sql-syntax.md#iceberg-writes-drop-table "iceberg-writes-sql-syntax.md#iceberg-writes-drop-table")
 
 ## CREATE TABLE
@@ -233,18 +243,204 @@ to the predefined partition specification. If for any reason the `SELECT`
 query fails, the query will fail and no data will be inserted into the Iceberg
 table.
 
-It's possible for you to `INSERT INTO` an Iceberg table that is not
-created by Amazon Redshift. However, there are some limitations:
+## DELETE
 
-- The table must be an Iceberg v2 table.
-- The table must be using Parquet as default data format.
-- The table must not have metadata compression set to True.
-- The table must not enable Write-Audit-Publish (WAP).
+The `DELETE` query for Iceberg table uses the existing
+`DELETE` syntax in the RMS table:
+
+```
+[ WITH [RECURSIVE] `common_table_expression` [, `common_table_expression` , ...] ]
+DELETE [ FROM ] `iceberg_table`
+[ { USING } `table_name, ...` ] [ WHERE `condition` ]
+```
+
+You can also use three-part notation for S3 table buckets:
+
+```
+[ WITH [RECURSIVE] `common_table_expression` [, `common_table_expression` , ...] ]
+DELETE [ FROM ] "`<table_bucket_name>`@s3tablescatalog".`<database_name>`.`<table_name>`
+[ { USING } `table_name, ...` ] [ WHERE `condition` ]
+```
+
+The `iceberg_table` can be referenced using
+the ``<external_schema>`.`<external_table_name>``
+form, or use the 3-part notation for auto mounted catalog. See [Referencing Iceberg
+tables in Amazon Redshift](referencing-iceberg-tables.md "referencing-iceberg-tables.md").
+
+The `table_name` in the
+`USING` clause will be used to join with the target table for
+deleting rows that are satisfied with the `WHERE` condition. The
+`table_name` can be an Iceberg table or a
+Amazon Redshift RMS table.
+
+Since Iceberg uses hidden partition scheme, user can use `DELETE` query
+to remove partitions, achieving the same effect as `ALTER TABLE ... DROP
+ PARTITION ...` for Hive tables.
+
+For example, when we have partitioned Iceberg table like below:
+
+```
+CREATE TABLE my_external_schema.lineitem
+(l_item_id int,
+ l_ship_date varchar,
+ ...
+)
+USING ICEBERG
+LOCATION ...
+PARTITIONED BY l_ship_date;
+```
+
+Then we can easily remove a partition using query like this:
+
+```
+DELETE FROM my_external_schema.lineitem WHERE l_ship_date = '20251231';
+```
+
+For query like this, Amazon Redshift will optimize the execution to only conduct metadata
+only operation and short circuit the execution. Thus unlike normal
+`DELETE` query, the metadata only delete query doesn't show execution
+steps in `EXPLAIN`:
+
+```
+explain DELETE FROM my_external_schema.lineitem WHERE l_ship_date = '20251231';
+
+ QUERY PLAN
+------------
+"XN Seq Scan Metadata of my_external_schema.lineitem location: "s3://s3-path//table-location" format:ICEBERG (cost=0.00..0.01 rows=0 width=0)"
+(0 rows)
+```
+
+## UPDATE
+
+The `UPDATE` query syntax for Iceberg table is very similar to the
+existing `UPDATE` syntax for the RMS table:
+
+```
+[ WITH [RECURSIVE] `common_table_expression` [, `common_table_expression` , ...] ]
+UPDATE `iceberg_table` [ [ AS ] alias ] SET column = { `expression` } [,...]
+[ FROM `fromlist` ]
+[ WHERE `condition` ]
+```
+
+You can also use three-part notation for S3 table buckets:
+
+```
+[ WITH [RECURSIVE] `common_table_expression` [, `common_table_expression` , ...] ]
+UPDATE "`<table_bucket_name>`@s3tablescatalog".`<database_name>`.`<table_name>` [ [ AS ] alias ] SET column = { `expression` } [,...]
+[ FROM `fromlist` ]
+[ WHERE `condition` ]
+```
+
+The `iceberg_table` can be referenced using
+the ``<external_schema>`.`<external_table_name>``
+form, or use the 3-part notation for auto mounted catalog. See [Referencing Iceberg
+tables in Amazon Redshift](referencing-iceberg-tables.md "referencing-iceberg-tables.md").
+
+You can update a table by referencing information in other tables. List these
+other tables in the FROM clause or use a subquery as part of the WHERE condition.
+The source tables can be either Iceberg tables or Amazon Redshift RMS tables.
+
+`UPDATE` can also run on partitioned table. When
+`UPDATE` changes column values that belongs to current partition
+spec, the new updated row would be inserted into the new partition based on the
+newly updated value.
+
+For example, when we have a partitioned Iceberg table like below:
+
+```
+CREATE TABLE my_external_schema.lineitem
+(l_item_id int,
+ l_ship_date varchar,
+ ...
+)
+USING ICEBERG
+LOCATION ...
+PARTITIONED BY l_ship_date;
+
+INSERT INTO my_external_schema.lineitem VALUES (10099, '20251231', ...);
+```
+
+And when we run below update query:
+
+```
+UPDATE my_external_schema.lineitem SET l_ship_date = '20260101'
+WHERE l_item_id = 10099;
+```
+
+we will move this row with `l_item_id` 10099 from partition
+`20251231` to new partition `20260101`.
+
+It's also important to note that it's possible `UPDATE` has multiple
+candidate values. Consider below query:
+
+```
+CREATE TABLE my_ext_schema.t1(x1 int, y1 int) USING ICEBERG LOCATION ...;
+CREATE TABLE my_ext_schema.t2(x2 int, y2 int) USING ICEBERG LOCATION ...;
+INSERT INTO my_ext_schema.t1 VALUES (1,10), (2,20), (3,30);
+INSERT INTO my_ext_schema.t2 VALUES (2,40), (2,50);
+UPDATE my_ext_schema.t1 SET y1=y2 FROM my_ext_schema.t2 WHERE x1=x2;
+```
+
+In this case, y1 can be 40 or 50. The result is nondeterministic. You can set the
+configuration parameter
+`error_on_nondeterministic_update` to true to force query error when
+such case happens. This is consistent with the existing RMS table
+`UPDATE` behavior. For more, refer to [error_on_nondeterministic_update](r_error_on_nondeterministic_update.md "r_error_on_nondeterministic_update.md").
+
+## MERGE
+
+The `MERGE` query conditionally merges rows from a source table into a
+target table. It shares the same `MERGE` query syntax as the existing RMS
+table:
+
+```
+MERGE INTO `target_iceberg_table` USING `source_table` [ [ AS ] `alias` ]
+ON `match_condition`
+[ WHEN MATCHED THEN { UPDATE SET `col_name` = { `expr` } [,...] | DELETE }
+  WHEN NOT MATCHED THEN INSERT [ ( `col_name` [,...] ) ]
+  VALUES ( { `expr` } [, ...] )
+| REMOVE DUPLICATES ]
+```
+
+You can also use three-part notation for S3 table buckets:
+
+```
+MERGE INTO "`<table_bucket_name>`@s3tablescatalog".`<database_name>`.`<table_name>` USING `source_table` [ [ AS ] `alias` ]
+ON `match_condition`
+[ WHEN MATCHED THEN { UPDATE SET `col_name` = { `expr` } [,...] | DELETE }
+  WHEN NOT MATCHED THEN INSERT [ ( `col_name` [,...] ) ]
+  VALUES ( { `expr` } [, ...] )
+| REMOVE DUPLICATES ]
+```
+
+The
+`target_iceberg_table` can be referenced
+using the ``<external_schema>`.`<external_table_name>``
+form, or use the 3-part notation for auto mounted catalog. See [Referencing Iceberg
+tables in Amazon Redshift](referencing-iceberg-tables.md "referencing-iceberg-tables.md").
+
+The `source_table` can be either an Iceberg
+table or a Amazon Redshift RMS table.
+
+When `REMOVE DUPLICATES` is used, the `MERGE` command uses
+simplified mode. For more details about simplified mode, please refer to the
+original `MERGE`
+[command
+document](r_MERGE.md "r_MERGE.md").
+
+While executing `MERGE` query, Amazon Redshift generates and stores intermediate
+data files in the target table location. These files will be garbage collected at the
+end of the query. Because of this, `MERGE` query would require
+`DELETE` permission on Amazon S3 bucket in order to work properly. An
+insufficient permission error would throw if the garbage collection operation is
+failed. For Amazon S3 tables the garbage collection is managed by Amazon S3 tables service.
+Hence `DELETE` permission is not required to execute `MERGE`
+query.
+
+## DROP TABLE
 
 To remove an Iceberg table from the catalog, use the `DROP TABLE`
 command:
-
-## DROP TABLE
 
 ```
 DROP TABLE `<external_schema>`.`<table_name>`
@@ -253,7 +449,7 @@ DROP TABLE `<external_schema>`.`<table_name>`
 You can also use three-part notation with auto-mounted catalogs:
 
 ```
-DROP TABLE "`<catalog_name>`.`<database_name>`.`<table_name>`
+DROP TABLE "`<catalog_name>`".`<database_name>`.`<table_name>`
 ```
 
 Dropping an Iceberg table is a metadata only operation. It removes the table entry

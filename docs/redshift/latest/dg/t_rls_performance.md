@@ -24,7 +24,10 @@ RLS-unsafe operators include:
 
 - Arithmetic operators — +, -, /, \*, %.
 - Text operators — LIKE and SIMILAR TO.
-- Cast operators.
+- Some cast operators. Note that certain casts are classified as safe,
+  including date-to-timestamp and timestamp-to-date conversions, integer
+  widening casts (such as INT2 to INT8 or INT4 to INT8), and integer-to-text
+  casts.
 - UDFs.
 
 Use the following SELECT statement to check the safety of operators and
@@ -43,6 +46,44 @@ advantage of sort keys. For better performance, avoid queries using RLS-unsafe
 predicates that take advantage of a sort key. To verify that Amazon Redshift is able to push
 down operators and functions, you can use EXPLAIN statements in combination with the
 system permission EXPLAIN RLS.
+
+### Conditionally safe functions
+
+Some functions are classified as unsafe in general but become safe when
+specific arguments are constant values (literal values, not column references).
+When the relevant arguments are constants, Amazon Redshift can push these predicates
+down to base table scans, improving query performance.
+
+For example, `DATE_TRUNC('day', timestamp_col)` is
+conditionally safe because `'day'` is a constant literal.
+However, `DATE_TRUNC(datepart_col, timestamp_col)` is not
+conditionally safe because `datepart_col` is a column
+reference.
+
+The following table lists the categories of conditionally safe functions and
+which arguments must be constant for the function to be considered safe.
+
+| Function category   | Functions                                                                                                                               | Argument that must be constant |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| DATE_TRUNC          | DATE_TRUNC(datepart, timestamp),<br>DATE_TRUNC(datepart, timestamptz)                                                                   | datepart (first argument)      |
+| EXTRACT / DATE_PART | EXTRACT(field FROM source),<br>DATE_PART(field, source) for timestamp, timestamptz, date,<br>time, timetz, interval, and datetime types | field (first argument)         |
+| DATEDIFF            | DATEDIFF(datepart, start, end) for timestamp and time<br>types                                                                          | datepart (first argument)      |
+| TO_CHAR             | TO_CHAR(timestamp, format),<br>TO_CHAR(timestamptz, format)                                                                             | format (second argument)       |
+| CONVERT_TIMEZONE    | CONVERT_TIMEZONE(source_tz, target_tz, timestamp),<br>CONVERT_TIMEZONE(target_tz, timestamp)                                            | timezone arguments             |
+| LEFT / RIGHT        | LEFT(string, length), RIGHT(string, length)                                                                                             | length (second argument)       |
+| SUBSTRING           | SUBSTRING(string, start, length) for text, bytea, and<br>varbyte types                                                                  | length (third argument)        |
+| SPLIT_PART          | SPLIT_PART(string, delimiter, part)                                                                                                     | part (third argument)          |
+
+Use the following SELECT statement to check which functions are conditionally
+safe and which argument positions must be constant.
+
+```
+SELECT proname, proc_is_rls_conditionally_safe(oid) FROM pg_proc
+WHERE proc_is_rls_conditionally_safe(oid) IS NOT NULL;
+```
+
+The function returns an array of 0-indexed argument positions that must be
+constant, or NULL if the function is not conditionally safe.
 
 ## Result caching
 
@@ -66,3 +107,31 @@ For more information about result caching in Amazon Redshift, see [Result cachin
 
 For better performance, avoid using complex policies with subqueries that join
 multiple tables.
+
+## Using constant arguments for better pushdown
+
+When using functions such as DATE_TRUNC, EXTRACT, DATEDIFF, TO_CHAR,
+CONVERT_TIMEZONE, LEFT, RIGHT, SUBSTRING, or SPLIT_PART in queries on
+RLS-protected tables, use constant literal arguments instead of column references
+for the arguments that control error behavior. This allows Amazon Redshift to classify
+these functions as safe and push predicates down to base table scans, which can
+significantly improve performance.
+
+For example, the following query allows predicate pushdown because the datepart
+argument is a constant:
+
+```
+SELECT * FROM rls_protected_table
+WHERE DATE_TRUNC('month', event_date) = '2024-01-01';
+```
+
+The following query prevents predicate pushdown because the datepart argument
+is a column reference:
+
+```
+SELECT * FROM rls_protected_table
+WHERE DATE_TRUNC(datepart_col, event_date) = '2024-01-01';
+```
+
+For the full list of conditionally safe functions and which arguments must be
+constant, see [Conditionally safe functions](#t_rls_conditional_safety "#t_rls_conditional_safety").
