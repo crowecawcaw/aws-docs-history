@@ -65,6 +65,9 @@ guide.
 | Ruby 3.2 AL2023                          | July 31, 2026          |
 | Node.js 20 AL2023                        | July 31, 2026          |
 | IIS 10.0 on Windows Server 2016 (& Core) | September 30, 2026     |
+| PHP 8.2 AL2023                           | March 31, 2027         |
+| .NET 9 AL2023                            | March 31, 2027         |
+| .NET 8 AL2023                            | March 31, 2027         |
 
 ## Retired platform branch history
 
