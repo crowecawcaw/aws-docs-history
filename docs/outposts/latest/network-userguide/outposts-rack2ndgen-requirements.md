@@ -137,6 +137,12 @@ Service Link infrastructure subnets – A service
 link infrastructure subnet (must be /24) is required for each Outposts
 installation.
 
+###### Important
+
+For second-generation Outposts racks, the customer-side BGP ASN must be identical
+across all four Service Link peers. All customer network devices peering with the Outpost
+must use the same ASN value.
+
 ### Network readiness checklist
 
 Use this checklist when you are gathering the information for your Outpost

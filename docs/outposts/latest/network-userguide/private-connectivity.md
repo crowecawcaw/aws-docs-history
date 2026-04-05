@@ -57,8 +57,17 @@ for your Outpost:
 
 Do not delete this VPC as it maintains the connection to your Outposts.
 
-- Configure the subnet security group to allow traffic for UDP 443 inbound and
-  outbound directions.
+- Configure the security group attached to the network interface to allow the
+  following inbound traffic:
+  - ICMP from your specified source
+  - TCP port 443 from your specified source
+  - UDP port 443 from your specified source
+
+###### Note
+
+Both TCP and UDP on port 443 are required for private connectivity to function
+properly.
+
 - Advertise the subnet CIDR to your on-premises network. You can use AWS Direct Connect to
   do so. For more information, see [Direct Connect
   virtual interfaces](../../../directconnect/latest/UserGuide/WorkingWithVirtualInterfaces.md "../../../directconnect/latest/UserGuide/WorkingWithVirtualInterfaces.md") and [Working with
