@@ -133,7 +133,7 @@ self-managed Active Directory.
   Ensure that the security group and the VPC Network ACLs for the subnets where you create your file system allow traffic on the
   ports and in the direction shown in the following diagram.
 
-![FSx for Windows File Server port configuration requirements for VPC security groups and network ACLs for the subnets where the file system is created.](/images/fsx/latest/WindowsGuide/images/Windows-port-requirements.png)
+![FSx for Windows File Server port configuration requirements for VPC security groups and network ACLs for the subnets where the file system is created.](images/Windows-port-requirements.png)
 
 The following table identifies the protocol, ports, and its role.
 
@@ -248,7 +248,7 @@ For example, we recommend only allowing outbound traffic to your self-managed Ac
 domains controllers or to within the subnet or security group you are using.
 For more information, see [File system access control with Amazon VPC](limit-access-security-groups.md "limit-access-security-groups.md").
 
-**Do not move computer objects created Amazon FSx**
+**Do not move computer objects created by Amazon FSx**
 
 ###### Important
 
