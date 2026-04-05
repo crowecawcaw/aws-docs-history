@@ -138,7 +138,7 @@ The following tags will be included if an exception occurs:
 
 ## Errors
 
-For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
 
 **ClientLimitExceededException**
 
