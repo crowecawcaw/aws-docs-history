@@ -1,5 +1,13 @@
 # Calling label detection operations for streaming video events
 
+###### Note
+
+Amazon Rekognition Streaming Video Analysis will no longer be
+open to new customers starting April 30, 2026. If you would like to use Streaming Video Analysis, sign up prior to
+that date. Existing customers for accounts that have used this feature within the last 12 months can continue
+to use the service as normal. For more information, see
+[Rekognition Streaming Video Analysis availability change](rekognition-streaming-video-analysis-availability-change.md "rekognition-streaming-video-analysis-availability-change.md").
+
 Amazon Rekognition Video can detect people or relevant objects in a streaming video and notify you
 when they're detected. When you create a label detection stream processor, choose what
 labels that you want Amazon Rekognition Video to detect. These can be people, packages and pets, or

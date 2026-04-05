@@ -1,5 +1,13 @@
 # Processing images in bulk
 
+###### Note
+
+Amazon Rekognition Batch Image Content Moderation will no longer be
+open to new customers starting April 30, 2026. If you would like to use Batch Image Content Moderation, sign up prior to
+that date. Existing customers for accounts that have used this feature within the last 12 months can continue to use the
+service as normal. For more information, see
+[Rekognition Batch Image Content Moderation availability change](rekognition-batch-image-content-moderation-availability-change.md "rekognition-batch-image-content-moderation-availability-change.md").
+
 You can start a new bulk analysis job by submitting a manifest file and calling the
 StartMediaAnalysisJob operation. The input manifest file contains references to images
 in an Amazon S3 bucket and it is formatted as follows:

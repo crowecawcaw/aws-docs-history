@@ -1,5 +1,13 @@
 # Troubleshooting streaming video
 
+###### Note
+
+Amazon Rekognition Streaming Video Analysis will no longer be
+open to new customers starting April 30, 2026. If you would like to use Streaming Video Analysis, sign up prior to
+that date. Existing customers for accounts that have used this feature within the last 12 months can continue
+to use the service as normal. For more information, see
+[Rekognition Streaming Video Analysis availability change](rekognition-streaming-video-analysis-availability-change.md "rekognition-streaming-video-analysis-availability-change.md").
+
 This topic provides troubleshooting information for using Amazon Rekognition Video with streaming videos.
 
 ###### Topics
@@ -8,7 +16,7 @@ This topic provides troubleshooting information for using Amazon Rekognition Vid
 - [I don't know if I've configured my stream processor correctly](#ts-configured-sp "#ts-configured-sp")
 - [My stream processor isn't returning results](#ts-streaming-video-no-results-from-sp "#ts-streaming-video-no-results-from-sp")
 - [The state of my stream processor is FAILED](#ts-failed-state "#ts-failed-state")
-- [My stream processor isn't returning the expected results](#w2aac27c79c27c15 "#w2aac27c79c27c15")
+- [My stream processor isn't returning the expected results](#w2aac27c79c29c17 "#w2aac27c79c29c17")
 
 ## I don't know if my stream processor was successfully created
 

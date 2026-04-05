@@ -1,5 +1,13 @@
 # Streaming using a GStreamer plugin
 
+###### Note
+
+Amazon Rekognition Streaming Video Analysis will no longer be
+open to new customers starting April 30, 2026. If you would like to use Streaming Video Analysis, sign up prior to
+that date. Existing customers for accounts that have used this feature within the last 12 months can continue
+to use the service as normal. For more information, see
+[Rekognition Streaming Video Analysis availability change](rekognition-streaming-video-analysis-availability-change.md "rekognition-streaming-video-analysis-availability-change.md").
+
 Amazon Rekognition Video can analyze a live streaming video from a device camera. To access media input from a device source, you need to install GStreamer.
 GStreamer is a third-party multimedia framework software that connects media sources and processing tools together in workflow pipelines.
 You also need to install the
