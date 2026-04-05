@@ -22,7 +22,7 @@ CLI command. You can name the role as
 
 ```
 aws iam create-role --role-name `SidewalkRole` \
-    --assume-role-policy-document '{"Version": "2012-10-17",		 	 	 "Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}'
+    --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}'
 ```
 
 You can also define the trust policy for the role using a JSON file.
