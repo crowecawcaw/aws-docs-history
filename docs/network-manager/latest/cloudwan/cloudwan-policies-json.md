@@ -924,8 +924,8 @@ The following parameters are used in `routing-policies`:
 
 
           + `drop` — Drop matched routes
-          + `allow` — Allow only matched
-           routes
+          + `allow` — Allow specified routes that would otherwise be dropped by a drop rule.
+           Allow rules should have a lower rule number than drop rules.
           + `summarize` — Summarize routes
            (outbound only)
           + `prepend-asn-list` — Add ASNs to

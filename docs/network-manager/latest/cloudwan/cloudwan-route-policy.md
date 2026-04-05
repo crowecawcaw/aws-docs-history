@@ -52,7 +52,8 @@ A routing policy rule consists of a match condition and an action used to contro
 8. Set the **Action** for the rule. Available actions
    include:
    - **Drop** - Block specified routes
-   - **Allow** - Permit only specified routes
+   - **Allow** - Allow specified routes that would otherwise be dropped by a drop rule.
+     Allow rules should have a lower rule number than drop rules.
    - **Prepend ASN list** - Add ASNs to make this path
      less preferred
    - **Remove ASN list** - Remove ASNs to make this path
