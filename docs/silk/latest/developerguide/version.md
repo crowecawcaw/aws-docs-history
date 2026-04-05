@@ -8,7 +8,7 @@ From the Silk browser, tap the menu icon. If you see this menu, you have the lat
 version of Silk. Use the following procedure to locate the build version and browser version.
 If your menu looks different, you may have an older version of Silk.
 
-![Amazon Silk browser menu displaying options like Private Browsing, Bookmarks, and Settings.](images/Silk_shared-menu.png)
+![Amazon Silk browser menu displaying options like Private Browsing, Bookmarks, and Settings.](/images/silk/latest/developerguide/images/Silk_shared-menu.png)
 
 1. From the Silk menu, tap **Settings**, and then tap **About Silk**.
 2. Locate the application number, which should look something like this:
