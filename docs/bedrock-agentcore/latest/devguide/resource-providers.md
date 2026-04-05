@@ -18,37 +18,64 @@ token vault, and provides the agent with the necessary access tokens.
 ## Creating an OAuth 2.0 credential provider
 
 Provider configurations in AgentCore Identity define the basic parameters needed for
-credential management with different resources and authentication systems. The
-following example demonstrates how to use the AgentCore SDK to configure an OAuth
-2.0 credential provider to use with GitHub.
+credential management with different resources and authentication systems.
+
+If you are using the AgentCore CLI, you can create an OAuth 2.0 credential
+provider with the `agentcore add credential` command:
+
+```
+agentcore add credential --type oauth \
+  --name `github-provider` \
+  --discovery-url `https://your-idp/.well-known/openid-configuration` \
+  --client-id `your-github-client-id` \
+  --client-secret `your-github-client-secret` \
+  --scopes `repo,user`
+```
+
+The CLI stores the credential configuration in
+`agentcore/agentcore.json` and saves sensitive values (client ID
+and client secret) to `agentcore/.env.local`.
+
+Alternatively, you can use the AgentCore SDK to configure an OAuth 2.0 credential
+provider programmatically. The following example configures a provider for
+GitHub.
 
 ```
 from bedrock_agentcore.services.identity import IdentityClient
 identity_client = IdentityClient("us-east-1")
 github_provider = identity_client.create_oauth2_credential_provider({
-        "name": "github-provider",
-        "credentialProviderVendor": "GithubOauth2",
-        "oauth2ProviderConfigInput": {
-            "githubOauth2ProviderConfig": {
-                "clientId": "your-github-client-id",
-                "clientSecret": "your-github-client-secret"
-            }
-        }
-    })
+        "name": "github-provider",
+        "credentialProviderVendor": "GithubOauth2",
+        "oauth2ProviderConfigInput": {
+            "githubOauth2ProviderConfig": {
+                "clientId": "your-github-client-id",
+                "clientSecret": "your-github-client-secret"
+            }
+        }
+    })
 ```
 
 ## Creating an API key credential provider
 
 For services that use API keys for authentication rather than OAuth, AgentCore Identity
-will securely store and retrieve keys for your agents. The example below illustrates
-using the AgentCore SDK to store an API key. For information about API key
+will securely store and retrieve keys for your agents. For information about API key
 credential provider limits, see [AgentCore Identity Service Quotas](bedrock-agentcore-limits.md#identity-service-limits "bedrock-agentcore-limits.md#identity-service-limits").
+
+If you are using the AgentCore CLI, you can store an API key with a single
+command:
+
+```
+agentcore add credential --name `your-service-name` --api-key `your-api-key`
+```
+
+Alternatively, you can use the AgentCore SDK to store an API key
+programmatically:
 
 ```
 from bedrock_agentcore.services.identity import IdentityClient
 identity_client= IdentityClient("us-east-1")
 apikey_provider= identity_client.create_api_key_credential_provider({
-        "name": "`your-service-name`",
-        "apiKey": "`your-api-key`"
-    })
+        "name": "`your-service-name`",
+        "apiKey": "`your-api-key`"
+    })
 ```

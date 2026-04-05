@@ -1,9 +1,9 @@
-# Get started without the starter toolkit
+# Get started without the AgentCore CLI
 
-You can create a AgentCore Runtime agent without the starter toolkit. Instead you can use a
+You can create a AgentCore Runtime agent without the AgentCore CLI. Instead you can use a
 combination of command line tools to configure and deploy your agent to an AgentCore Runtime.
 
-This tutorial shows how to deploy a custom agent without using the starter toollkit. A
+This tutorial shows how to deploy a custom agent without using the AgentCore CLI. A
 custom agent is an agent built without using the AgentCore Python SDK. In this tutorial, the custom
 agent is built using FastAPI and Docker. The custom agent follows the [AgentCore Runtime requirements](runtime-service-contract.md "runtime-service-contract.md"), meaning the agent
 must expose `/invocations` POST and `/ping` GET endpoints and be

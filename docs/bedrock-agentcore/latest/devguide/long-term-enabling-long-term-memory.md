@@ -6,86 +6,70 @@ updating an existing resource to include them.
 ## Creating a new memory with long-term strategies
 
 The most direct method is to include strategies when you create a new
-AgentCore Memory. After calling `get_or_create_memory`, you must wait for
+AgentCore Memory. After calling `create_memory`, you must wait for
 the AgentCore Memory status to become `ACTIVE` before you can use
 it.
 
-###### Example Create a new AgentCore Memory
-
-Starter toolkit CLI
+AgentCore CLI
 
 ```
-agentcore memory create PersonalizedShoppingAgentMemory \
-  --region us-west-2 \
-  --strategies '[{"userPreferenceMemoryStrategy": {"name": "UserShoppingPreferences", "namespaceTemplates": ["/users/{actorId}/preferences/"]}}]' \
-  --wait
+agentcore add memory --name PersonalizedShoppingAgentMemory --strategies USER_PREFERENCE
+agentcore deploy
 ```
 
-Starter toolkit
+Interactive
+Run `agentcore` to open the TUI, then select
+**add** and choose **Memory**:
 
-```
-from bedrock_agentcore_starter_toolkit.operations.memory.manager import MemoryManager
-from bedrock_agentcore_starter_toolkit.operations.memory.models.strategies import UserPreferenceStrategy
+1. Select the **User preference** strategy:
 
-# Create memory manager
-memory_manager = MemoryManager(region_name="us-west-2")
+![Memory wizard: select USER_PREFERENCE strategy](images/tui/memory-add-strategies.png) 2. Review the configuration and press Enter to confirm:
 
-# Create memory resource with user preference strategy
-memory = memory_manager.get_or_create_memory(
-    name="PersonalizedShoppingAgentMemory",
-    strategies=[
-        UserPreferenceStrategy(
-            name="UserShoppingPreferences",
-            namespace_templates=["/users/{actorId}/preferences/"]
-        )
-    ]
-)
+![Memory wizard: confirm memory configuration](images/tui/memory-add-confirm.png)
 
-memory_id = memory.get('id')
-print(f"Memory resource is now ACTIVE with ID: {memory_id}")
-
-
-
-```
+Then run `agentcore deploy` to provision the memory in AWS.
 
 ## Adding long-term strategies to an existing AgentCore Memory
 
 To add long-term capabilities to an existing AgentCore Memory, you use the
-`update_memory_strategies` operation. You can add, modify or delete
+`update_memory` operation. You can add, modify or delete
 strategies for an existing memory.
 
 ###### Note
 
-The starter toolkit CLI currently supports creating and managing memory resources. To update memory strategies on an existing memory, use the starter toolkit Python API or AWS SDK.
+The AgentCore CLI supports creating and managing memory resources. To update memory strategies on an existing memory, use the AWS SDK.
 
 ###### Example Add a Session Summary strategy to an existing AgentCore Memory
 
 ```
-from bedrock_agentcore_starter_toolkit.operations.memory.manager import MemoryManager
-from bedrock_agentcore_starter_toolkit.operations.memory.models.strategies import SummaryStrategy
+import boto3
 
-# Create memory manager
-memory_manager = MemoryManager(region_name="us-west-2")
+# Initialize the Boto3 client for control plane operations
+control_client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
 
 # Assume 'memory_id' is the ID of an existing AgentCore Memory that has no strategies attached to it
 memory_id = "your-existing-memory-id"
 
-summaryStrategy = SummaryStrategy(
-    name="SessionSummarizer",
-    description="Summarizes conversation sessions for context",
-    namespace_templates=["/summaries/{actorId}/{sessionId}/"]
-)
-
-memory = memory_manager.update_memory_strategies(
-    memory_id=memory_id,
-    add_strategies=[summaryStrategy]
+# Update the memory to add a summary strategy
+response = control_client.update_memory(
+    memoryId=memory_id,
+    memoryStrategies=[
+        {
+            'summaryMemoryStrategy': {
+                'name': 'SessionSummarizer',
+                'description': 'Summarizes conversation sessions for context',
+                'namespaceTemplates': ['/summaries/{actorId}/{sessionId}/']
+            }
+        }
+    ]
 )
 
 print(f"Successfully submitted update for memory ID: {memory_id}")
 
-# Validate startegy was added to the memory
-memory_strategies = memory_manager.get_memory_strategies(memoryId=memory_id)
-print(f"Memory strategies for memoryID: {memory_id} are: {memory_strategies}")
+# Validate strategy was added to the memory
+memory_response = control_client.get_memory(memoryId=memory_id)
+strategies = memory_response.get('memory', {}).get('strategies', [])
+print(f"Memory strategies for memoryID: {memory_id} are: {strategies}")
 
 ```
 

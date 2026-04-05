@@ -86,7 +86,7 @@ summary of the conversation saved in the previous step.
 # 'session' is an existing session object that you created when adding the coversation turns
 # session should be created on a memory resource with an active summary strategy.
 
-# --- Example 1: Retrieve the user’s shipping preference ---
+# --- Example 1: Retrieve the user's shipping preference ---
 memories = session.search_long_term_memories(
     namespace_prefix=f"/summaries/{actor_id}/{session_id}/",
     query="What problem did the user report with their order?",

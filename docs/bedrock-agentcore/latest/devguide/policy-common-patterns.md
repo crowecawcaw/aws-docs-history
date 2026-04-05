@@ -1,7 +1,11 @@
 # Common policy patterns
 
-These examples demonstrate frequently used Cedar policy patterns for common authorization
-scenarios in Amazon Bedrock AgentCore Gateway.
+These examples demonstrate frequently used Cedar policy patterns. The patterns work with
+both OAuth and IAM authentication—select the appropriate principal type for your AgentCore Gateway
+configuration. For details on principal attributes, see
+[Principal attributes](policy-conditions.md#policy-principal-attributes "policy-conditions.md#policy-principal-attributes").
+
+These patterns apply regardless of authentication type.
 
 ## Emergency shutdown
 
@@ -38,7 +42,11 @@ affecting other functionality.
 
 ## Block user access
 
-Prevent a specific user from performing any actions:
+Prevent specific users or accounts from performing any actions:
+
+### OAuth: Block specific user
+
+Block a user by matching their username tag:
 
 ```
 forbid(
@@ -55,10 +63,80 @@ when {
 **Use case:** Immediately revoke access for a compromised or
 suspended user account.
 
+### IAM: Block specific account
+
+Block callers from a specific AWS account:
+
+```
+forbid(
+  principal is AgentCore::IamEntity,
+  action,
+  resource
+)
+when {
+  principal.id like "*:444455556666:*"
+};
+```
+
+**Use case:** Block test or unauthorized accounts from
+accessing production tools.
+
+## Role-based access control
+
+Restrict access based on roles. OAuth uses role tags; IAM uses role ARN patterns.
+
+### OAuth: Using role tags
+
+Permit access only to users with specific roles:
+
+```
+permit(
+  principal is AgentCore::OAuthUser,
+  action == AgentCore::Action::"AdminAPI__delete_resource",
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/admin"
+)
+when {
+  principal.hasTag("role") &&
+  (principal.getTag("role") == "admin" || principal.getTag("role") == "manager")
+};
+```
+
+**Use case:** Allow administrative operations only for users
+with admin or manager roles.
+
+### IAM: Using IAM role ARNs
+
+Permit access only to callers using specific IAM roles:
+
+```
+permit(
+  principal is AgentCore::IamEntity,
+  action == AgentCore::Action::"AdminAPI__delete_resource",
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/admin"
+)
+when {
+  principal.id like "arn:aws:iam::*:role/AdminRole"
+};
+```
+
+**Use case:** Allow administrative operations only for
+callers using the AdminRole IAM role.
+
+**Variations:**
+
+```
+// Match assumed role sessions
+principal.id like "arn:aws:sts::*:assumed-role/AdminRole/*"
+
+// Match any role in a specific account
+principal.id like "arn:aws:iam::123456789012:role/*"
+```
+
 ## Data type operations
 
-Cedar supports various data types in conditions. Here are examples showing how to work with
-them:
+Cedar supports various data types in conditions. These examples use OAuth principals
+(`AgentCore::OAuthUser`). For IAM-authenticated gateways, use
+`AgentCore::IamEntity` instead - the input validation logic remains identical.
 
 ### Integers (Long)
 

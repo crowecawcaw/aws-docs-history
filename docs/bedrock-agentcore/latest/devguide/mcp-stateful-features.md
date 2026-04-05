@@ -488,13 +488,13 @@ python test_client.py
 1. Install the AgentCore CLI if you haven't already:
 
 ```
-pip install bedrock-agentcore-starter-toolkit
+npm install -g @aws/agentcore
 ```
 
-2. Configure the agent for deployment:
+2. Create a project for deployment:
 
 ```
-agentcore configure -e travel_server.py -p MCP -n travel_agent_demo
+agentcore create --name TravelAgentDemo --protocol MCP
 ```
 
 3. Deploy the agent:
@@ -525,7 +525,7 @@ LOCAL_TEST=false python test_client.py
 3. The client will test resources, prompts, and the `plan_trip` tool. Follow the interactive prompts to complete a booking, which demonstrates elicitation, progress notifications, and sampling on your deployed agent.
 
 ```
-  Agent ARN: arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/travel_agent_demo
+  Agent ARN: arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/TravelAgentDemo
   Endpoint: https://bedrock-agentcore.us-west-2.amazonaws.com
 ============================================================
   Travel Agent - MCP Feature Test Client

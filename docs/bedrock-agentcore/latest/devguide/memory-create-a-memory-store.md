@@ -1,7 +1,6 @@
 # Create an AgentCore Memory
 
-You can create an AgentCore Memory with the Amazon Bedrock AgentCore starter toolkit, AgentCore
-python SDK, the AWS console, or with the [CreateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md") AWS SDK operation. When creating a memory, you can configure
+You can create an AgentCore Memory with the AgentCore CLI, the AWS console, or with the [CreateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md") AWS SDK operation. When creating a memory, you can configure
 settings such as name, description, encryption settings, expiration timestamp for raw
 events, and memory strategies if you want to extract long-term memory.
 
@@ -25,100 +24,50 @@ more information, see [Use long-term memory](long-term-memory-long-term.md "long
 help identify the purpose of each AgentCore Memory, especially if your application uses
 multiple stores.
 
-Starter toolkit CLI
+AgentCore CLI
+The AgentCore CLI memory commands must be run inside an existing
+agentcore project. If you don't have one yet, create a project
+first:
+
+```
+agentcore create --name my-agent --no-agent
+cd my-agent
+```
+
 **Create** a basic memory (short-term only):
 
 ```
-agentcore memory create my_agent_memory --region us-west-2
+agentcore add memory --name my_agent_memory
+agentcore deploy
 ```
 
 **Create** memory with long-term strategies:
 
 ```
-agentcore memory create ShoppingSupportAgentMemory \
-  --region us-west-2 \
-  --description "Memory for a customer support agent." \
-  --strategies '[{"summaryMemoryStrategy": {"name": "SessionSummarizer", "namespaceTemplates": ["/summaries/{actorId}/{sessionId}/"]}}, {"userPreferenceMemoryStrategy": {"name": "PreferenceLearner", "namespaceTemplates": ["/users/{actorId}/preferences/"]}}]' \
-  --wait
-```
-
-**List** all memories:
-
-```
-agentcore memory list --region us-west-2
-```
-
-**Get** memory details:
-
-```
-agentcore memory get <memory-id> --region us-west-2
+agentcore add memory --name ShoppingSupportAgentMemory \
+  --strategies SUMMARIZATION,USER_PREFERENCE
+agentcore deploy
 ```
 
 **Check** memory status:
 
 ```
-agentcore memory status <memory-id> --region us-west-2
+agentcore status
 ```
 
-Starter toolkit
-for the full example, see [Get started with AgentCore Memory](memory-get-started.md "memory-get-started.md").
+Interactive
+Run `agentcore` to open the TUI, then select
+**add** and choose **Memory**:
 
-```
+1. Enter the memory name:
 
-from bedrock_agentcore_starter_toolkit.operations.memory.manager import MemoryManager
-from bedrock_agentcore.memory.session import MemorySessionManager
-from bedrock_agentcore.memory.constants import ConversationalMessage, MessageRole
-from bedrock_agentcore_starter_toolkit.operations.memory.models.strategies import SummaryStrategy, UserPreferenceStrategy
-import time
+![Memory wizard: enter name](images/tui/memory-add-name.png) 2. Select the event expiry duration:
 
-# Create memory manager
-memory_manager = MemoryManager(region_name="us-west-2")
+![Memory wizard: select event expiry duration](images/tui/memory-add-expiry.png) 3. Choose memory strategies for long-term memory extraction:
 
-print("Creating a new memory resource and waiting for it to become active...")
+![Memory wizard: select memory strategies](images/tui/memory-add-strategies.png) 4. Review the configuration and press Enter to confirm:
 
-# Create memory resource with summary and user preference strategy
-memory = memory_manager.get_or_create_memory(
-    name="ShoppingSupportAgentMemory",
-    description="Memory for a customer support agent.",
-    strategies=[
-        SummaryStrategy(
-            name="SessionSummarizer",
-            namespace_templates=["/summaries/{actorId}/{sessionId}/"]
-        ),
-        UserPreferenceStrategy(
-            name="PreferenceLearner",
-            namespace_templates=["/users/{actorId}/preferences/"]
-        )
-    ]
-)
-
-memory_id = memory.get('id')
-print(f"Memory resource is now ACTIVE with ID: {memory_id}")
-```
-
-AgentCore python SDK
-For more information, see [Amazon Bedrock AgentCore SDK](agentcore-sdk-memory.md "agentcore-sdk-memory.md").
-
-```
-from bedrock_agentcore.memory import MemoryClient
-import time
-
-client = MemoryClient(region_name="us-east-1")
-
-memory = client.create_memory_and_wait(
-    name="MyAgentMemory",
-    strategies=[{
-        "summaryMemoryStrategy": {
-            # Name of the extraction model/strategy
-            "name": "SessionSummarizer",
-            # Organize facts by session ID for easy retrieval
-            # Example: "summaries/session123" contains summary of session123
-            "namespaceTemplates": ["/summaries/{actorId}/{sessionId}/"]
-        }
-    }]
-)
-
-```
+![Memory wizard: review configuration](images/tui/memory-add-confirm.png)
 
 AWS SDK
 For more information, see [AWS SDK](aws-sdk-memory.md "aws-sdk-memory.md").

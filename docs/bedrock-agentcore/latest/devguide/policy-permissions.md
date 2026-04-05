@@ -257,11 +257,11 @@ While the Resource field is included for consistency, these permission-only acti
 
 Determine whether Policy in AgentCore permissions need to be added to the Amazon Bedrock AgentCore Gateway execution role based on how the Amazon Bedrock AgentCore Gateway was created.
 
-**Scenario 1: Gateway Created with Starter Toolkit**
+**Scenario 1: Gateway Created with AgentCore CLI**
 
-**Status:** No action needed
+**Status:** Action required
 
-The starter toolkit automatically creates an execution role with `bedrock-agentcore:*` wildcard permissions that include all Policy in AgentCore actions. The role is fully configured and ready to use.
+The AgentCore CLI creates a gateway execution role with scoped permissions for target invocation and outbound authentication, but does not include Policy in AgentCore permissions. You must manually add the `AuthorizeAction`, `PartiallyAuthorizeActions`, and `GetPolicyEngine` permissions documented in this guide to the gateway execution role.
 
 **Scenario 2: Custom Execution Role**
 
@@ -273,7 +273,7 @@ Custom IAM roles require the Policy in AgentCore permissions documented in this 
 
 **Status:** Action required
 
-Even when using the starter toolkit, production environments may require replacing wildcard permissions with specific actions that follow least-privilege principles.
+For production environments, scope the Policy in AgentCore permissions to specific resource ARNs rather than using wildcards. Replace `policy-engine/*` and `gateway/*` with the specific policy engine and gateway IDs in your permission policies.
 
 ## Troubleshooting
 

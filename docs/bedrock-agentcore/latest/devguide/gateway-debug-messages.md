@@ -4,7 +4,7 @@ While your gateway is in development, you can turn on debugging messages to retu
 
 ###### To turn on debugging messages, do one of the following:
 
-- If you use the AgentCore starter toolkit to create a gateway, debugging is automatically turned on.
+- If you use the AgentCore CLI to create a gateway, debugging is automatically turned on.
 - If you use the AWS Management Console to create a gateway, debugging is turned on by default. The option is under **Additional configurations** in the **Gateway details** section.
 - If you use the AWS CLI or an AWS SDK, set the `exceptionLevel` value as `DEBUG` when you make a [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") or [UpdateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md") request.
   When you're done debugging your gateway, you can update the gateway to turn off debugging messages, such that the message to the end user only shows an unspecified internal error.

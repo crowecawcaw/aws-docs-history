@@ -60,7 +60,7 @@ and `<account_id>` with your AWS account ID in the policy below:
 ```
 
 {
-    "Version":"2012-10-17",			 	 	 &TCX5-2025-waiver;
+    "Version":"2012-10-17",	&TCX5-2025-waiver;
     "Statement": [
         {
             "Sid": "BedrockAgentCoreCodeInterpreterFullAccess",

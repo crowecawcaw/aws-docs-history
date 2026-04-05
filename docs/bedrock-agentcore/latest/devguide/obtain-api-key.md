@@ -13,5 +13,9 @@ from bedrock_agentcore.identity.auth import requires_api_key
     provider_name= "your-service-name" # replace with your own credential provider name
 )
 async def need_api_key(*, api_key: str):
-    asyncio.run(need_api_key(api_key))
+    # Use the API key
+    pass
+
+# To invoke:
+# asyncio.run(need_api_key())
 ```

@@ -24,20 +24,21 @@ to more personalized and relevant interactions.
 ###### Configuration example:
 
 ```
-from bedrock_agentcore_starter_toolkit.operations.memory.manager import MemoryManager
-from bedrock_agentcore_starter_toolkit.operations.memory.models.strategies import UserPreferenceStrategy
+import boto3
 
-# Create memory manager
-memory_manager = MemoryManager(region_name="us-west-2")
+# Initialize the Boto3 client for control plane operations
+control_client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
 
 # Create memory resource with user preference strategy
-memory = memory_manager.get_or_create_memory(
+response = control_client.create_memory(
     name="ECommerceAgentMemory",
-    strategies=[
-        UserPreferenceStrategy(
-            name="UserPreferenceExtractor",
-            namespace_templates=["/users/{actorId}/preferences/"]
-        )
+    memoryStrategies=[
+        {
+            'userPreferenceMemoryStrategy': {
+                'name': 'UserPreferenceExtractor',
+                'namespaceTemplates': ['/users/{actorId}/preferences/']
+            }
+        }
     ]
 )
 ```
@@ -58,20 +59,21 @@ important entities, events, and details discussed during an interaction.
 ###### Configuration example:
 
 ```
-from bedrock_agentcore_starter_toolkit.operations.memory.manager import MemoryManager
-from bedrock_agentcore_starter_toolkit.operations.memory.models.strategies import SemanticStrategy
+import boto3
 
-# Create memory manager
-memory_manager = MemoryManager(region_name="us-west-2")
+# Initialize the Boto3 client for control plane operations
+control_client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
 
 # Create memory resource with semantic strategy
-memory = memory_manager.get_or_create_memory(
+response = control_client.create_memory(
     name="SupportAgentFactMemory",
-    strategies=[
-        SemanticStrategy(
-            name="FactExtractor",
-            namespace_templates=["/support_cases/{sessionId}/facts/"]
-        )
+    memoryStrategies=[
+        {
+            'semanticMemoryStrategy': {
+                'name': 'FactExtractor',
+                'namespaceTemplates': ['/support_cases/{sessionId}/facts/']
+            }
+        }
     ]
 )
 ```
@@ -92,20 +94,21 @@ conversation without needing to re-process the entire history.
 ###### Configuration example:
 
 ```
-from bedrock_agentcore_starter_toolkit.operations.memory.manager import MemoryManager
-from bedrock_agentcore_starter_toolkit.operations.memory.models.strategies import SummaryStrategy
+import boto3
 
-# Create memory manager
-memory_manager = MemoryManager(region_name="us-west-2")
+# Initialize the Boto3 client for control plane operations
+control_client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
 
 # Create memory resource with summary strategy
-memory = memory_manager.get_or_create_memory(
+response = control_client.create_memory(
     name="TroubleshootingAgentSummaryMemory",
-    strategies=[
-        SummaryStrategy(
-            name="SessionSummarizer",
-            namespace_templates=["/summaries/{actorId}/{sessionId}/"]
-        )
+    memoryStrategies=[
+        {
+            'summaryMemoryStrategy': {
+                'name': 'SessionSummarizer',
+                'namespaceTemplates': ['/summaries/{actorId}/{sessionId}/']
+            }
+        }
     ]
 )
 
@@ -121,23 +124,24 @@ The [episodic](episodic-memory-strategy.md "episodic-memory-strategy.md")
 ###### Configuration example:
 
 ```
-from bedrock_agentcore_starter_toolkit.operations.memory.manager import MemoryManager
-from bedrock_agentcore_starter_toolkit.operations.memory.models.strategies import SummaryStrategy
+import boto3
 
-# Create memory manager
-memory_manager = MemoryManager(region_name="us-west-2")
+# Initialize the Boto3 client for control plane operations
+control_client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
 
-# Create memory resource with summary strategy
-memory_manager.get_or_create_memory(
+# Create memory resource with episodic strategy
+response = control_client.create_memory(
     name="MyMemory",
-    strategies=[
-        EpisodicStrategy(
-            name="EpisodicStrategy",
-            namespace_templates=["/strategy/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}/"],
-            reflection={
-                "namespace_templates": ["strategy/{memoryStrategyId}/actors/{actorId}/"]
+    memoryStrategies=[
+        {
+            'episodicMemoryStrategy': {
+                'name': 'EpisodicStrategy',
+                'namespaceTemplates': ['/strategy/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}/'],
+                'reflection': {
+                    'namespaceTemplates': ['strategy/{memoryStrategyId}/actors/{actorId}/']
+                }
             }
-        )
+        }
     ]
 )
 ```

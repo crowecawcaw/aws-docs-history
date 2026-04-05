@@ -50,7 +50,7 @@ This flexibility allows you to use your preferred WebSocket implementation acros
 ## Using WebSocket with AgentCore Runtime
 
 In this getting started tutorial you will create, test, and deploy an agent application that supports bidirectional
-streaming using the **bedrock-agentcore Python SDK** and the **Amazon Bedrock AgentCore starter toolkit** for deployment.
+streaming using the **bedrock-agentcore Python SDK** and the **AgentCore CLI** for deployment.
 
 ###### Topics
 
@@ -69,8 +69,8 @@ Before you start, make sure you have:
   configure your AWS credentials, see [Configuration and credential file settings in the AWS CLI.](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md")
 - **Python 3.10+** installed
 - **AWS Permissions**: To create and deploy an
-  agent with the starter toolkit, you must have appropriate permissions. For
-  more information, see [Use the starter toolkit](runtime-permissions.md#runtime-permissions-starter-toolkit "runtime-permissions.md#runtime-permissions-starter-toolkit").
+  agent with the AgentCore CLI, you must have appropriate permissions. For
+  more information, see [Use the AgentCore CLI](runtime-permissions.md#runtime-permissions-cli "runtime-permissions.md#runtime-permissions-cli").
 
 ### Step 1: Set up project and install dependencies
 
@@ -190,10 +190,10 @@ python websocket_agent_client.py
 
 #### Install deployment tools
 
-Install the Amazon Bedrock AgentCore starter toolkit:
+Install the AgentCore CLI:
 
 ```
-pip install bedrock-agentcore-starter-toolkit
+npm install -g @aws/agentcore
 ```
 
 Verify installation:
@@ -202,18 +202,18 @@ Verify installation:
 agentcore --help
 ```
 
-#### Configure and deploy to AWS
+#### Create project and deploy to AWS
 
-Configure your bidirectional streaming agent for deployment:
+Create a new project for your bidirectional streaming agent:
 
 ```
-agentcore configure -e websocket_echo_agent.py
+agentcore create
 ```
 
 Deploy your agent:
 
 ```
-agentcore launch
+agentcore deploy
 ```
 
 ###### Note

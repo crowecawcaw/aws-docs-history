@@ -21,4 +21,6 @@ issue investigation.
 
 - [IAM permissions for on-demand evaluation](iam-permissions-on-demand.md "iam-permissions-on-demand.md")
 - [Getting started with on-demand evaluation](getting-started-on-demand.md "getting-started-on-demand.md")
+- [Ground truth evaluations](ground-truth-evaluations.md "ground-truth-evaluations.md")
+- [Dataset evaluations](dataset-evaluations.md "dataset-evaluations.md")
 - [Understanding input spans](understanding-input-spans.md "understanding-input-spans.md")

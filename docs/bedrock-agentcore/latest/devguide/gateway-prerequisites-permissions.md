@@ -12,7 +12,7 @@ To use Amazon Bedrock AgentCore Gateway and its capabilities, you'll need to con
 If you prefer not to set up custom permissions, you can use the following options for easy setup:
 
 - Attach the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") to an IAM identity to allow it to create, manage, and invoke gateways.
-- Use the AWS Management Console or AgentCore starter toolkit to create an AgentCore gateway service role with the proper permissions and gateway targets with the proper resource-based policies to allow the service role to access them.
+- Use the AWS Management Console or AgentCore CLI to create an AgentCore gateway service role with the proper permissions and gateway targets with the proper resource-based policies to allow the service role to access them.
   Select a topic to learn more:
 
 ###### Topics
@@ -80,7 +80,7 @@ In addition to gateway-related permissions, you'll also need to configure permis
 
 When creating a gateway, you need a service role that has permissions to assume an IAM role and to access AWS resources and external services on the IAM role's behalf. You can create the service role in the following ways:
 
-- If you create a gateway in the AWS Management Console or through the AgentCore starter toolkit, you can choose to let AgentCore automatically create a service role for you with the necessary permissions. If you prefer this method, you can skip this prerequisite.
+- If you create a gateway in the AWS Management Console or through the AgentCore CLI, you can choose to let AgentCore automatically create a service role for you with the necessary permissions. If you prefer this method, you can skip this prerequisite.
 - If you prefer to create your own service role for greater customization, you'll need to configure the role with the permissions outlined in this topic. To learn how to create a service role and attach permissions to it, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md").
 
 The required permissions for a service role are in the following topics:

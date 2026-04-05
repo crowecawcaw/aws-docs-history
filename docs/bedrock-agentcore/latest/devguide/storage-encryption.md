@@ -10,7 +10,7 @@ policy to the IAM user or role that you are using to setup memory.
 
 ```
 {
-  "Version": "2012-10-17" 		 	 	 ,
+  "Version": "2012-10-17" ,
   "Statement": [
     {
       "Sid": "AllowAgentCoreMemoryKMS",

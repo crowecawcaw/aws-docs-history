@@ -23,13 +23,14 @@ Before starting, make sure you have:
 - **Python 3.10+** installed
 - **Enable transaction search** on Amazon CloudWatch. Only once, first-time users must enable [CloudWatch Transaction Search](../../../AmazonCloudWatch/latest/monitoring/Enable-TransactionSearch.md "../../../AmazonCloudWatch/latest/monitoring/Enable-TransactionSearch.md") to view Bedrock Amazon Bedrock AgentCore
   spans and traces
-- **Add the OpenTelemetry library** Include
+- **(Non-runtime agents only) Add the OpenTelemetry library** – Include
   `aws-opentelemetry-distro` (ADOT) in your requirements.txt
-  file.
-- Make sure that your framework is configured to emit traces (eg.
-  `strands-agents[otel]` package), you may sometimes need to
-  include `<your-agent-framework-auto-instrumentor>` # e.g.,
-  `opentelemetry-instrumentation-langchain`
+  file. If you deploy using the AgentCore CLI, the runtime automatically
+  instruments your agent and this step is not required.
+- **(Non-runtime agents only)** Make sure that your framework is configured to emit traces (for example,
+  `strands-agents[otel]` package). You may sometimes need to
+  include your agent framework's auto-instrumentor (for example,
+  `opentelemetry-instrumentation-langchain`).
 
 Amazon Bedrock AgentCore Observability offers two ways to configure monitoring to match
 different infrastructure needs:
@@ -57,7 +58,7 @@ An example is shown below on how to format your AWS CLI command with
 `PutResourcePolicy`.
 
 ```
-aws logs put-resource-policy --policy-name MyResourcePolicy --policy-document '{ "Version": "2012-10-17"		 	 	 , "Statement": [ { "Sid": "TransactionSearchXRayAccess", "Effect": "Allow", "Principal": { "Service": "xray.amazonaws.com" }, "Action": "logs:PutLogEvents", "Resource": [ "arn:partition:logs:region:account-id:log-group:aws/spans:*", "arn:partition:logs:region:account-id:log-group:/aws/application-signals/data:*" ], "Condition": { "ArnLike": { "aws:SourceArn": "arn:partition:xray:region:account-id:*" }, "StringEquals": { "aws:SourceAccount": "account-id" } } } ]}'
+aws logs put-resource-policy --policy-name MyResourcePolicy --policy-document '{ "Version": "2012-10-17", "Statement": [ { "Sid": "TransactionSearchXRayAccess", "Effect": "Allow", "Principal": { "Service": "xray.amazonaws.com" }, "Action": "logs:PutLogEvents", "Resource": [ "arn:partition:logs:region:account-id:log-group:aws/spans:*", "arn:partition:logs:region:account-id:log-group:/aws/application-signals/data:*" ], "Condition": { "ArnLike": { "aws:SourceArn": "arn:partition:xray:region:account-id:*" }, "StringEquals": { "aws:SourceAccount": "account-id" } } } ]}'
 ```
 
 2. Configure the destination of trace segments.
@@ -98,57 +99,42 @@ Let's now proceed to exploring the two ways to configure observability.
 
 Amazon Bedrock AgentCore Runtime-hosted agents are deployed and executed directly within the
 Amazon Bedrock AgentCore environment, providing automatic instrumentation with minimal
-configuration. This approach offers the fastest path to deployment and is ideal for
-rapid development and testing.
+configuration. When you deploy an agent using the AgentCore CLI, the runtime
+automatically instruments your agent with OpenTelemetry — no additional OTEL
+libraries or configuration are needed.
 
 For a complete example, refer to this [notebook](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/01-Agentcore-runtime-hosted/Strands%20Agents/runtime_with_strands_and_bedrock_models.ipynb "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/01-Agentcore-runtime-hosted/Strands%20Agents/runtime_with_strands_and_bedrock_models.ipynb")
 
-### Set up folder and virtual environment
+### Create your agent project
 
-Create a new folder for your agent. Then create and initialize a new python
-virtual environment.
-
-```
-mkdir agentcore-observability-quickstart
-cd agentcore-observability-quickstart
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-### Create your agent
-
-The following is an example of using the Strands Agents SDK.
-
-To enable OTEL exporting, install [Strands Agents](https://strandsagents.com/latest/ "https://strandsagents.com/latest/") with otel extra
-dependencies:
+Create a new project using the AgentCore CLI. This sets up your project
+folder, virtual environment, and dependencies:
 
 ```
-pip install 'strands-agents[otel]'
+npm install -g @aws/agentcore
+agentcore create --name StrandsClaudeGettingStarted
 ```
 
-Use the following steps to host a strands agent on an AgentCore Runtime:
+In the project's agent directory, replace the default agent code with
+your own agent logic. The following is an example using the Strands Agents
+SDK:
 
 ```
-##  Save this as strands_claude.py
+## app/StrandsClaudeGettingStarted/main.py
 from strands import Agent, tool
-from strands_tools import calculator # Import the calculator tool
-import argparse
-import json
+from strands_tools import calculator
 from bedrock_agentcore.runtime import BedrockAgentCoreApp
 from strands.models import BedrockModel
 
 app = BedrockAgentCoreApp()
 
-# Create a custom tool
 @tool
 def weather():
-    """ Get weather """ # Dummy implementation
+    """Get weather"""
     return "sunny"
 
-
-model_id = "us.anthropic.claude-3-7-sonnet-20250219-v1:0"
 model = BedrockModel(
-    model_id=model_id,
+    model_id="us.anthropic.claude-3-7-sonnet-20250219-v1:0",
 )
 agent = Agent(
     model=model,
@@ -158,11 +144,8 @@ agent = Agent(
 
 @app.entrypoint
 def strands_agent_bedrock(payload):
-    """
-    Invoke the agent with a payload
-    """
+    """Invoke the agent with a payload"""
     user_input = payload.get("prompt")
-    print("User input:", user_input)
     response = agent(user_input)
     return response.message['content'][0]['text']
 
@@ -170,41 +153,41 @@ if __name__ == "__main__":
     app.run()
 ```
 
-### Deploy and invoke your agent on Amazon Bedrock AgentCore Runtime
+### Deploy and invoke your agent
 
-Use the following code to deploy the agent to AgentCore Runtime by using the
-`bedrock_agentcore_starter_toolkit` package.
+Deploy the agent to AgentCore Runtime. The AgentCore CLI handles
+packaging, deployment, and automatic OTEL instrumentation:
 
 ```
-from bedrock_agentcore_starter_toolkit import Runtime
-from boto3.session import Session
-boto_session = Session()
-region = boto_session.region_name
+cd StrandsClaudeGettingStarted
+agentcore deploy
+```
 
-agentcore_runtime = Runtime()
-agent_name = "strands_claude_getting_started"
-response = agentcore_runtime.configure(
-    entrypoint="strands_claude.py",
-    auto_create_execution_role=True,
-    auto_create_ecr=True,
-    requirements_file="requirements.txt", # make sure aws-opentelemetry-distro exists along with your libraries required to run your agent
-    region=region,
-    agent_name=agent_name
+After deployment, your agent runs on AgentCore Runtime and is automatically
+instrumented using OpenTelemetry. Invoke your agent and view the traces,
+sessions, and metrics on the GenAI Observability dashboard in
+Amazon CloudWatch:
+
+```
+agentcore invoke
+```
+
+Alternatively, you can invoke your agent programmatically using the
+AWS SDK:
+
+```
+import boto3, json
+
+client = boto3.client('bedrock-agentcore')
+
+response = client.invoke_agent_runtime(
+    agentRuntimeArn="YOUR_AGENT_RUNTIME_ARN",
+    runtimeSessionId="my-observability-session-001",
+    payload=json.dumps({"prompt": "What is 2 + 2?"}),
+    qualifier="DEFAULT"
 )
 
-launch_result = agentcore_runtime.launch()
-launch_result
-```
-
-In these steps you deployed your strands agent to an AgentCore Runtime with the starter
-toolkit. When you invoke your agent, it is automatically instrumented using Open Telemetry.
-
-Invoke your agent using the following command and view the Traces, sessions and
-metrics on GenAI Observability dashboard on Amazon CloudWatch.
-
-```
-invoke_response = agentcore_runtime.invoke({"prompt": "How is the weather now?"})
-invoke_response
+print(json.loads(response['response'].read()))
 ```
 
 ## Step 3: Enable observability for non-Amazon Bedrock AgentCore-hosted agents

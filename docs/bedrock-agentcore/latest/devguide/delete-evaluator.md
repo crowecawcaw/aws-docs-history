@@ -17,10 +17,10 @@ becomes unavailable for use once deletion completes.
 
 ###### Topics
 
-- [Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK](#delete-evaluators-code-samples "#delete-evaluators-code-samples")
+- [Code samples for AgentCore CLI, AgentCore SDK, and AWS SDK](#delete-evaluators-code-samples "#delete-evaluators-code-samples")
 - [Console](#delete-evaluator-console "#delete-evaluator-console")
 
-## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
+## Code samples for AgentCore CLI, AgentCore SDK, and AWS SDK
 
 The following code samples demonstrate how to delete evaluators using different
 development approaches. Choose the method that best fits your development
@@ -29,8 +29,20 @@ environment and preferences.
 AgentCore CLI
 
 ```
-agentcore eval evaluator delete --evaluator-id 'your_evaluator_id'
+agentcore remove evaluator --name "your_custom_evaluator_name"
+agentcore deploy
 ```
+
+The `remove` command removes the evaluator from your local
+project configuration. Run `agentcore deploy` to apply the
+deletion to your AWS account.
+
+Interactive
+
+- Run `agentcore remove` and select
+  **Evaluator** from the resource type menu.
+
+![Remove resource type selection](images/tui/eval-remove-select.png)
 
 AgentCore SDK
 

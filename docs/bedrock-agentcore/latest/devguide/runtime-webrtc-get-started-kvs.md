@@ -10,7 +10,7 @@ bidirectionally between the browser and your agent.
 
 This tutorial requires a VPC with internet egress for connectivity to KVS TURN
 endpoints. For more information, see [Internet access considerations](agentcore-vpc.md#agentcore-internet-access "agentcore-vpc.md#agentcore-internet-access"). All other prerequisites are handled by
-the sample application. The sample uses the AgentCore starter toolkit for deployment
+the sample application. The sample uses the AgentCore CLI for deployment
 to AgentCore Runtime.
 
 For the complete sample application, see [WebRTC Voice Agent

@@ -7,6 +7,7 @@ work together to provide policy-based governance for your AI agents.
 
 - [Gateway](#concept-gateway "#concept-gateway")
 - [Gateway Target](#concept-gateway-target "#concept-gateway-target")
+- [Principal types](#concept-principal-types "#concept-principal-types")
 - [Cedar](#concept-cedar "#concept-cedar")
 - [Cedar Policy](#concept-cedar-policy "#concept-cedar-policy")
 - [Policy engine](#concept-policy-engine "#concept-policy-engine")
@@ -26,6 +27,21 @@ A Gateway can have multiple targets, each representing a different tool or set o
 A target defines the APIs or Lambda function that a Gateway will provide as tools to an
 agent. Targets can be Lambda functions, OpenAPI specifications, Smithy models, or other tool
 definitions.
+
+## Principal types
+
+Cedar policies use principals to represent the entity making an authorization request.
+Policy in AgentCore supports two principal types depending on how your AgentCore Gateway is configured for
+authentication:
+
+- **AgentCore::OAuthUser** - Represents OAuth-authenticated
+  users. When a AgentCore Gateway uses OAuth authorization, the principal is created from the JWT
+  token's `sub` claim. OAuth principals support tags that contain JWT claims such as
+  username, scope, role, etc.
+- **AgentCore::IamEntity** - Represents IAM-authenticated
+  callers. When a AgentCore Gateway uses AWS_IAM authorization, the principal is created from the
+  caller's IAM ARN. IAM principals have an `id` attribute containing the full IAM
+  ARN, which can be used for account-based or role-based access control.
 
 ## Cedar
 

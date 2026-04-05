@@ -8,7 +8,7 @@ evaluate the AI agents that are hosted under AgentCore Runtime as well as AI age
 of AgentCore.
 
 You can create and manage evaluation or relevant resources using the
-AgentCore starter toolkit, the AgentCore Python SDK, the AWS Management Console or directly through AWS
+AgentCore CLI, the AgentCore Python SDK, the AWS Management Console or directly through AWS
 SDKs.
 
 ###### Topics

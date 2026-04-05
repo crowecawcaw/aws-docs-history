@@ -6,8 +6,8 @@ information is extracted from conversations and stored persistently. This sectio
 through configuring built-in and built-in with overrides strategies to enable long-term
 memory for your agent.
 
-This section provides examples for the [Amazon Bedrock AgentCore starter
-toolkit](https://github.com/aws/bedrock-agentcore-starter-toolkit "https://github.com/aws/bedrock-agentcore-starter-toolkit"). For other SDKs, see [Amazon Bedrock AgentCore Memory examples](memory-examples.md "memory-examples.md").
+This section provides examples using the AWS SDK (Boto3). For complete end-to-end
+examples, see [Amazon Bedrock AgentCore Memory examples](memory-examples.md "memory-examples.md").
 
 ###### Topics
 

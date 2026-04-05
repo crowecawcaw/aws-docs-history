@@ -10,7 +10,7 @@ To create a gateway, you set up inbound authorization and configure invocable ta
 You can create a gateway in the following ways:
 
 - **AWS Management Console** – With the console, you can configure authorization, create the gateway, and add targets all on one page.
-- **Amazon Bedrock AgentCore starter toolkit CLI** – Use the CLI commands to create gateways and targets with simplified commands that handle common configurations automatically.
+- **AgentCore CLI** – Create gateways and targets with simplified commands that handle common configurations automatically.
 - **Amazon Bedrock AgentCore API** – You can directly invoke the [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") API or through the help of a supported tool. If you use the API, you will add targets to your gateway in a separate step.
 
 ###### Note

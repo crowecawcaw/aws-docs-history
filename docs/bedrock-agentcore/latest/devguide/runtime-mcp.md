@@ -158,13 +158,13 @@ You can also test your server using the MCP Inspector as described in [Local tes
 
 ### Install deployment tools
 
-Install the AgentCore starter toolkit:
+Install the AgentCore CLI:
 
 ```
-pip install bedrock-agentcore-starter-toolkit
+npm install -g @aws/agentcore
 ```
 
-You use the starter toolkit to deploy your agent to AgentCore Runtime.
+You use the AgentCore CLI to deploy your agent to AgentCore Runtime.
 
 Create a project folder with the following structure:
 
@@ -186,9 +186,9 @@ mcp
 
 `requirements.txt` specifies the requirements that the agent needs for deployment to AgentCore Runtime.
 
-### Configure your MCP server for deployment
+### Create your project for deployment
 
-Before configuring your deployment, you need to set up a Cognito user pool for
+Before creating your project, you need to set up a Cognito user pool for
 authentication as described in [Set up Cognito user pool for authentication](#runtime-mcp-appendix-a "#runtime-mcp-appendix-a"). This
 provides the OAuth tokens required for secure access to your deployed server.
 
@@ -196,35 +196,26 @@ provides the OAuth tokens required for secure access to your deployed server.
 
 Starting **October 7, 2025**, Amazon Bedrock AgentCore uses a Service-Linked Role for workload identity permissions when using OAuth authentication. For detailed information about this change, see [Identity service-linked role](service-linked-roles.md#identity-service-linked-role "service-linked-roles.md#identity-service-linked-role").
 
-After setting up authentication, create the deployment configuration:
+After setting up authentication, scaffold a new project with MCP protocol:
 
 ```
-agentcore configure -e my_mcp_server.py --protocol MCP
+agentcore create --protocol MCP
 ```
 
-This will start a guided prompt workflow:
-
-- For execution role, you need to have an IAM execution role with
-  appropriate permissions
-- For ECR, just press `enter` to skip and it will
-  auto-create
-- For dependency file, the CLI will auto-detect from current
-  directory
-- For OAuth, type `yes` and provide the discovery URL
-  and client ID token
+Follow the interactive prompts to provide a project name. The CLI scaffolds the project structure including an `agentcore/agentcore.json` configuration file. Copy your `my_mcp_server.py` file into the generated project's agent code directory, and ensure the entrypoint in `agentcore/agentcore.json` points to your server file.
 
 ### Deploy to AWS
 
 Deploy your agent:
 
 ```
-agentcore launch
+agentcore deploy
 ```
 
 This command will:
 
-1. Build a Docker container with your agent
-2. Push it to Amazon ECR
+1. Package your agent code and dependencies
+2. Upload the deployment artifact to Amazon S3
 3. Create a Amazon Bedrock AgentCore runtime
 4. Deploy your agent to AWS
 
@@ -319,32 +310,28 @@ Follow the Auth0 setup instructions at [Auth0 by Okta](identity-idp-auth0.md "id
 
 For more information, see [Auth0 Dynamic Client Registration documentation](https://auth0.com/docs/get-started/applications/dynamic-client-registration "https://auth0.com/docs/get-started/applications/dynamic-client-registration").
 
-### Step 5: Configure your MCP server for deployment
+### Step 5: Create your project for deployment
 
-After setting up authentication, create the deployment configuration:
+After setting up authentication, scaffold a new project with MCP protocol:
 
 ```
-agentcore configure -e my_mcp_server.py --protocol MCP
+agentcore create --protocol MCP
 ```
 
-This will start a guided prompt workflow:
-
-- For execution role, you need to have an IAM execution role with appropriate permissions
-- For ECR, just press `enter` to skip and it will auto-create
-- For OAuth, type `yes` and provide the discovery URL and audience.
+Follow the interactive prompts to provide a project name. The CLI scaffolds the project structure including an `agentcore/agentcore.json` configuration file. Copy your `my_mcp_server.py` file into the generated project's agent code directory, and ensure the entrypoint in `agentcore/agentcore.json` points to your server file.
 
 ### Step 6: Deploy to AWS
 
 Deploy your agent:
 
 ```
-agentcore launch
+agentcore deploy
 ```
 
 This command will:
 
-- Build a Docker container with your agent
-- Push it to Amazon ECR
+- Package your agent code and dependencies
+- Upload the deployment artifact to Amazon S3
 - Create a Amazon Bedrock AgentCore runtime
 - Deploy your agent to AWS
 
@@ -956,9 +943,9 @@ For detailed OAuth authentication setup and Service-Linked Role information, see
 After running this script, note the following values for use in the deployment
 configuration:
 
-- Discovery URL: Used during the `agentcore configure`
+- Discovery URL: Used during the `agentcore create`
   step
-- Client ID: Used during the `agentcore configure` step
+- Client ID: Used during the `agentcore create` step
 - Bearer Token: Used when invoking your deployed server
 
 ### Local testing with MCP inspector

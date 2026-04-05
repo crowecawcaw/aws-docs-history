@@ -6,18 +6,28 @@ in your policies.
 
 ###### Topics
 
-- [Principal Type](#policy-principal-type "#policy-principal-type")
+- [Principal Types](#policy-principal-type "#policy-principal-type")
 - [Resource Type](#policy-resource-type "#policy-resource-type")
 - [Actions](#policy-actions "#policy-actions")
 - [Context](#policy-context "#policy-context")
 - [What You Cannot Do](#policy-limitations "#policy-limitations")
 
-## Principal Type
+## Principal Types
 
-- Must be `AgentCore::OAuthUser`
-- Represents OAuth-authenticated users
+The principal type depends on the authentication method configured for your AgentCore Gateway:
+
+`AgentCore::OAuthUser`
+
+- Used for OAuth-authenticated gateways
 - Has an `id` attribute (from JWT sub claim)
 - Supports tags for OAuth claims (username, scope, role, etc.)
+
+`AgentCore::IamEntity`
+
+- Used for IAM-authenticated gateways (AWS_IAM authorizer)
+- Has an `id` attribute containing the caller's IAM ARN
+- Does not support tags; use pattern matching on `principal.id` for
+  access control
 
 ## Resource Type
 

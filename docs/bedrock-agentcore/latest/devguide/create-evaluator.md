@@ -2,21 +2,26 @@
 
 The `CreateEvaluator` API creates a new custom evaluator that defines how
 to assess specific aspects of your agent's behavior. This asynchronous operation returns
-immediately while the evaluator is being provisioned.
+immediately while the evaluator is being provisioned. The API returns the evaluator ARN, ID, creation timestamp, and initial status. Once
+created, the evaluator can be referenced in online evaluation configurations.
 
 **Required parameters:** You must specify a unique
-evaluator name (within your Region), evaluator configuration (LLM-as-judge prompts,
-model settings, and rating scales), and evaluation level (`TOOL_CALL`,
-`TRACE`, or `SESSION`).
+evaluator name (within your Region), evaluator configuration, and evaluation level
+(`TOOL_CALL`, `TRACE`, or `SESSION`).
 
-**Evaluator configuration:** Define the evaluation logic
-including evaluation instructions, model ARN (Bedrock model for LLM-as-judge), inference
-parameters, and rating scales (categorical or numerical ratings).
+**Evaluator configuration:** You can choose one of two
+evaluator types:
 
-**Instructions:** The instruction must include at least
-one placeholder, which is replaced with actual trace information before being sent to
-the judge model. Each evaluator level supports only a fixed set of placeholder
-values:
+- **LLM-as-a-judge** – Define evaluation
+  instructions (prompts), model settings, and rating scales. The evaluation logic
+  is executed by a Bedrock foundation model.
+- **Code-based** – Specify an AWS Lambda function
+  ARN to run your own programmatic evaluation logic. For details on the Lambda
+  function contract and configuration, see [Custom code-based evaluator](code-based-evaluators.md "code-based-evaluators.md").
+  **LLM-as-a-judge instructions:** For LLM-as-a-judge
+  evaluators, the instruction must include at least one placeholder, which is replaced
+  with actual trace information before being sent to the judge model. Each evaluator level
+  supports only a fixed set of placeholder values:
 
 - **Session-level evaluators:**
   - `context` – A list of user prompts, assistant responses,
@@ -41,16 +46,48 @@ values:
        evaluated.
       + `tool_turn` – The tool call under evaluation.
 
-  The API returns the evaluator ARN, ID, creation timestamp, and initial status. Once
-  created, the evaluator can be referenced in online evaluation configurations.
+  **Ground truth placeholders:** In addition to the standard placeholders, custom evaluators can reference ground truth
+  placeholders that are populated from the `evaluationReferenceInputs` provided at
+  evaluation time. This enables you to build evaluators that compare agent behavior against
+  known-correct answers.
+
+- **Session-level evaluators:**
+  - `actual_tool_trajectory` — The actual sequence of tool names the agent called
+    during the session.
+  - `expected_tool_trajectory` — The expected sequence of tool names, provided via
+    `expectedTrajectory` in the evaluation reference inputs.
+  - `assertions` — The list of natural language assertions, provided via
+    `assertions` in the evaluation reference inputs.
+
+- **Trace-level evaluators:**
+  - `expected_response` — The expected agent response, provided via
+    `expectedResponse` in the evaluation reference inputs.
+
+###### Important
+
+Custom evaluators that use ground truth placeholders (`assertions`,
+`expected_response`, `expected_tool_trajectory`) cannot be used in online evaluation
+configurations. Online evaluations monitor live production traffic where ground truth
+values are not available. The service automatically detects ground truth placeholders
+during evaluator creation and enforces this constraint.
+
+**Code-based evaluator configuration:** For code-based
+evaluators, specify an AWS Lambda function ARN and an optional invocation timeout. The
+Lambda function receives the session spans and evaluation target as input, and must
+return a result conforming to the [Response schema](code-based-evaluators.md#code-based-response-schema "code-based-evaluators.md#code-based-response-schema"). For the full Lambda function contract,
+configuration options, and code samples, see [Custom code-based evaluator](code-based-evaluators.md "code-based-evaluators.md").
+
+The API returns the evaluator ARN, ID, creation timestamp, and initial status. Once
+created, the evaluator can be referenced in online evaluation configurations.
 
 ###### Topics
 
-- [Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK](#custom-evaluator-code-samples "#custom-evaluator-code-samples")
+- [Code samples for AgentCore CLI, AgentCore SDK, and AWS SDK](#custom-evaluator-code-samples "#custom-evaluator-code-samples")
+- [Custom evaluator config examples with ground truth](#custom-evaluator-gt-examples "#custom-evaluator-gt-examples")
 - [Console](#create-evaluator-console "#create-evaluator-console")
 - [Custom evaluator best practices](#custom-evaluator-best-practices "#custom-evaluator-best-practices")
 
-## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
+## Code samples for AgentCore CLI, AgentCore SDK, and AWS SDK
 
 The following code samples demonstrate how to create custom evaluators using
 different development approaches. Choose the method that best fits your development
@@ -110,12 +147,29 @@ client of your choice:
 AgentCore CLI
 
 ```
-agentcore eval evaluator create \
+agentcore add evaluator \
   --name "your_custom_evaluator_name" \
   --config custom_evaluator_config.json \
-  --level "TRACE" \
-  --description "Conciseness evaluator from config file"
+  --level "TRACE"
 ```
+
+Interactive
+
+1. Enter a name for your custom evaluator.
+
+![Evaluator name input](images/tui/eval-add-name.png) 2. Select the evaluation level: Session, Trace, or Tool Call.
+
+![Evaluation level selection](images/tui/eval-add-level.png) 3. Choose the LLM judge model for evaluation.
+
+![Model selection](images/tui/eval-add-model.png) 4. Enter your evaluation instructions. The prompt must include at least
+one placeholder: `{context}` for conversation history or
+`{available_tools}` for the tool list.
+
+![Evaluation instructions input](images/tui/eval-add-instructions.png) 5. Select a rating scale preset or define a custom scale.
+
+![Rating scale selection](images/tui/eval-add-rating-scale.png) 6. Review the evaluator configuration and press Enter to confirm.
+
+![Review evaluator configuration](images/tui/eval-add-confirm.png)
 
 AgentCore SDK
 
@@ -167,6 +221,127 @@ aws bedrock-agentcore-control create-evaluator \
     --evaluator-config file://custom_evaluator_config.json
 ```
 
+## Custom evaluator config examples with ground truth
+
+The following examples show how to create custom evaluators that use ground truth
+placeholders for different evaluation scenarios.
+
+Trajectory compliance evaluator (session-level)
+This evaluator uses an LLM to compare the expected and actual tool trajectories,
+allowing for nuanced judgment — for example, tolerating minor deviations like extra
+helper tool calls. It uses the `expected_tool_trajectory` and
+`actual_tool_trajectory` placeholders.
+
+Save the following as `trajectory_compliance_config.json`:
+
+```
+{
+  "llmAsAJudge": {
+    "instructions": "You are evaluating whether an AI agent followed the expected tool-use trajectory.\n\nExpected trajectory (ordered list of tool names):\n{expected_tool_trajectory}\n\nActual trajectory (ordered list of tool names the agent used):\n{actual_tool_trajectory}\n\nFull session context:\n{context}\n\nAvailable tools:\n{available_tools}\n\nCompare the expected and actual trajectories. Consider whether the agent called the right tools in the right order. Minor deviations (e.g., an extra logging tool call) are acceptable if the core trajectory is preserved.",
+    "ratingScale": {
+      "numerical": [
+        { "label": "No Match",      "value": 0.0, "definition": "The actual trajectory has no meaningful overlap with the expected trajectory" },
+        { "label": "Partial Match", "value": 0.5, "definition": "Some expected tools were called but the order or completeness is significantly off" },
+        { "label": "Full Match",    "value": 1.0, "definition": "The actual trajectory matches the expected trajectory in order and completeness" }
+      ]
+    },
+    "modelConfig": {
+      "bedrockEvaluatorModelConfig": {
+        "modelId": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+        "inferenceConfig": { "maxTokens": 512, "temperature": 0.0 }
+      }
+    }
+  }
+}
+```
+
+Create the evaluator:
+
+```
+aws bedrock-agentcore-control create-evaluator \
+  --evaluator-name 'TrajectoryCompliance' \
+  --level SESSION \
+  --description 'Evaluates whether the agent followed the expected tool trajectory.' \
+  --evaluator-config file://trajectory_compliance_config.json
+```
+
+Assertion checker evaluator (session-level)
+This evaluator checks whether the agent's behavior satisfies a set of assertions,
+returning a categorical PASS/FAIL/INCONCLUSIVE verdict. It uses the `assertions`
+placeholder along with `context` and `available_tools`.
+
+Save the following as `assertion_checker_config.json`:
+
+```
+{
+  "llmAsAJudge": {
+    "instructions": "You are a quality assurance judge for an AI agent session.\n\nSession context (full conversation history):\n{context}\n\nAvailable tools:\n{available_tools}\n\nAssertions to verify:\n{assertions}\n\nFor each assertion, determine if the session satisfies it. The overall verdict should be PASS only if ALL assertions are satisfied. If any assertion fails, the verdict is FAIL. If the session data is insufficient to determine, verdict is INCONCLUSIVE.",
+    "ratingScale": {
+      "categorical": [
+        { "label": "PASS",         "definition": "All assertions are satisfied by the session" },
+        { "label": "FAIL",         "definition": "One or more assertions are not satisfied" },
+        { "label": "INCONCLUSIVE", "definition": "Insufficient information to determine assertion satisfaction" }
+      ]
+    },
+    "modelConfig": {
+      "bedrockEvaluatorModelConfig": {
+        "modelId": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+        "inferenceConfig": { "maxTokens": 1024, "temperature": 0.0 }
+      }
+    }
+  }
+}
+```
+
+Create the evaluator:
+
+```
+aws bedrock-agentcore-control create-evaluator \
+  --evaluator-name 'AssertionChecker' \
+  --level SESSION \
+  --description 'Checks whether the agent session satisfies a set of assertions.' \
+  --evaluator-config file://assertion_checker_config.json
+```
+
+Response similarity evaluator (trace-level)
+This evaluator compares the agent's actual response against an expected response,
+scoring semantic similarity. It uses the `expected_response` placeholder to receive
+the ground truth at evaluation time.
+
+Save the following as `response_similarity_config.json`:
+
+```
+{
+  "llmAsAJudge": {
+    "instructions": "Compare the agent's actual response to the expected response.\n\nConversation context:\n{context}\n\nAgent's actual response:\n{assistant_turn}\n\nExpected response:\n{expected_response}\n\nEvaluate semantic similarity. The agent does not need to match word-for-word, but the meaning, key facts, and intent should align. Penalize missing critical information or contradictions.",
+    "ratingScale": {
+      "numerical": [
+        { "label": "No Match",        "value": 0.0,  "definition": "The response contradicts or is completely unrelated to the expected response" },
+        { "label": "Low Similarity",   "value": 0.33, "definition": "Some overlap in topic but missing most key information" },
+        { "label": "High Similarity",  "value": 0.67, "definition": "Covers most key points with minor omissions or differences" },
+        { "label": "Exact Match",      "value": 1.0,  "definition": "Semantically equivalent to the expected response" }
+      ]
+    },
+    "modelConfig": {
+      "bedrockEvaluatorModelConfig": {
+        "modelId": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+        "inferenceConfig": { "maxTokens": 512, "temperature": 0.0 }
+      }
+    }
+  }
+}
+```
+
+Create the evaluator:
+
+```
+aws bedrock-agentcore-control create-evaluator \
+  --evaluator-name 'ResponseSimilarity' \
+  --level TRACE \
+  --description 'Evaluates how closely the agent response matches the expected response.' \
+  --evaluator-config file://response_similarity_config.json
+```
+
 ## Console
 
 You can create custom evaluators using the Amazon Bedrock AgentCore console's visual
@@ -188,7 +363,19 @@ your evaluator settings.
    1. (Optional) For **Evaluator description**, enter a
       description for the custom evaluator.
 
-4. For **Custom evaluator definition**, you can load
+4. For **Evaluator type**, choose one of the
+   following:
+   - **LLM-as-a-judge** – Uses a foundation model to
+     evaluate agent performance. Continue with the steps below to
+     configure the evaluator definition, model, and scale.
+   - **Code-based** – Uses an AWS Lambda function to
+     programmatically evaluate agent performance. For
+     **Lambda function ARN**, enter the ARN of your
+     Lambda function. Optionally, set the **Lambda
+     timeout** (1–300 seconds, default 60). Then skip to the
+     evaluation level step.
+
+5. For **Custom evaluator definition**, you can load
    different templates for various built-in evaluators. By default, the
    Faithfulness template is loaded. Modify the template according to your
    requirements.
@@ -196,7 +383,7 @@ your evaluator settings.
 ###### Note
 
 If you load another template, any changes to your existing custom
-evaluator definition will be overwritten. 5. For **Custom evaluator model**, choose a supported
+evaluator definition will be overwritten. 6. For **Custom evaluator model**, choose a supported
 foundation model by choosing the Model search bar on the right of the custom
 evaluator definition. For more information about supported foundation
 models, see:
@@ -207,12 +394,12 @@ models, see:
      P**, **Set max. output tokens**, and
      **Set stop sequences**.
 
-6. For **Evaluator scale type**, choose either
+7. For **Evaluator scale type**, choose either
    **Define scale as numeric values** or **Define
    scale as string values**.
-7. For **Evaluator scale definitions**, you can have a total
+8. For **Evaluator scale definitions**, you can have a total
    of 20 definitions.
-8. For **Evaluator evaluation level**, choose one of the
+9. For **Evaluator evaluation level**, choose one of the
    following:
    - **Session** – Evaluate the entire conversation
      sessions.
@@ -220,8 +407,8 @@ models, see:
      trace.
    - **Tool call** – Evaluate every tool call.
 
-9. Choose **Create custom evaluator** to create the custom
-   evaluator.
+10. Choose **Create custom evaluator** to create the custom
+    evaluator.
 
 ## Custom evaluator best practices
 

@@ -18,68 +18,23 @@ Use caution when setting this to `true` as request headers may contain sensitive
 
 The following examples show how to create a gateway with interceptors that have `passRequestHeaders` set to `true`:
 
-AgentCore starter toolkit (CLI)
-Use the following command to create a gateway with interceptors configured to pass request headers:
+AgentCore CLI
+With the AgentCore CLI, first create and deploy the gateway, then configure
+interceptors using the AWS CLI or AWS Python SDK (Boto3).
+
+Create the gateway:
 
 ```
-agentcore create_mcp_gateway \
-  --region us-west-2 \
+agentcore add gateway \
   --name my-gateway-with-headers \
-  --role-arn arn:aws:iam::123456789012:role/my-gateway-service-role \
-  --authorizer-config '{
-      "customJWTAuthorizer": {
-        "discoveryUrl": "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration",
-        "allowedClients": ["clientId"]
-      }
-    }' \
-  --interceptor-configurations '[{
-      "interceptor": {
-          "lambda": {
-            "arn":"arn:aws:lambda:us-west-2:123456789012:function:my-interceptor-lambda"
-          }
-      },
-      "interceptionPoints": ["REQUEST", "RESPONSE"],
-      "inputConfiguration": {
-        "passRequestHeaders": true
-      }
-  }]'
+  --authorizer-type CUSTOM_JWT \
+  --discovery-url "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration" \
+  --allowed-audience "api.example.com"
+agentcore deploy
 ```
 
-AgentCore starter toolkit (Python)
-Use the following Python code to create a gateway with interceptors configured to pass request headers:
-
-```
-from bedrock_agentcore_starter_toolkit.operations.gateway.client import GatewayClient
-
-# Initialize the Gateway client
-client = GatewayClient(region_name="us-west-2")
-
-# Create the gateway with interceptor configurations
-gateway = client.create_mcp_gateway(
-  name="my-gateway-with-headers",
-  role_arn="arn:aws:iam::123456789012:role/my-gateway-service-role",
-  authorizer_config={
-    "customJWTAuthorizer": {
-      "discoveryUrl": "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration",
-      "allowedClients": ["clientId"]
-    }
-  },
-  interceptor_configurations=[{
-      "interceptor": {
-          "lambda": {
-            "arn":"arn:aws:lambda:us-west-2:123456789012:function:my-interceptor-lambda"
-          }
-      },
-      "interceptionPoints": ["REQUEST", "RESPONSE"],
-      "inputConfiguration": {
-        "passRequestHeaders": True
-      }
-  }],
-  enable_semantic_search=False
-)
-
-print(f"MCP Endpoint: {gateway['gatewayUrl']}")
-```
+After deployment, configure interceptors on the gateway using the AWS CLI
+`update-gateway` command or the AWS Python SDK (Boto3) as shown in the other tabs.
 
 AWS CLI
 Use the following AWS CLI command to create a gateway with interceptors configured to pass request headers:

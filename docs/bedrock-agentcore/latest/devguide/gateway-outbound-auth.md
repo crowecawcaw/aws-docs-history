@@ -16,11 +16,11 @@ AgentCore Gateway supports the following types of outbound authorization:
 
 | Target type       | No authorization | Gateway service role | OAuth (client credentials) | OAuth (authorization code) | API key |
 | ----------------- | ---------------- | -------------------- | -------------------------- | -------------------------- | ------- |
-| API Gateway stage | No               | Yes                  | No                         | No                         | Yes     |
+| API Gateway stage | Yes              | Yes                  | No                         | No                         | Yes     |
 | Lambda function   | No               | Yes                  | No                         | No                         | No      |
-| MCP server        | Yes              | No                   | Yes                        | No                         | No      |
+| MCP server        | Yes              | Yes                  | Yes                        | No                         | No      |
 | OpenAPI schema    | No               | No                   | Yes                        | Yes                        | Yes     |
-| Smithy schema     | No               | Yes                  | Yes                        | Yes                        | No      |
+| Smithy schema     | No               | Yes                  | Yes                        | No                         | No      |
 
 ###### Note
 
@@ -30,7 +30,7 @@ Before adding a target to your gateway, you must set up authorization for it thr
 
 ###### Note
 
-You can skip this prerequisite if you plan to use the AWS Management Console or AgentCore starter toolkit to create your gateway. If you use either of these tools, you can let AgentCore automatically create a service role for you with the necessary permissions to access the target. Each time you add a target, the necessary permissions will be automatically attached to your service role.
+You can skip this prerequisite if you plan to use the AWS Management Console or AgentCore CLI to create your gateway. If you use either of these tools, you can let AgentCore automatically create a service role for you with the necessary permissions to access the target. Each time you add a target, the necessary permissions will be automatically attached to your service role.
 
 Select a topic to learn how to set up that type of authorization:
 
@@ -42,9 +42,18 @@ Select a topic to learn how to set up that type of authorization:
 
 ## Set up IAM-based outbound authorization with a gateway service role
 
-IAM-based outbound authorization lets you use the gateway service role's IAM credentials to authorize with [AWS Signature Version 4 (Sig V4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md"). This option lets the Amazon Bedrock AgentCore service to authenticate to gateway targets on your gateway callers' behalf.
+IAM-based outbound authorization lets you use the gateway service role's IAM credentials to authorize with [AWS Signature Version 4 (Sig V4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md"). This option lets the Amazon Bedrock AgentCore service authenticate to gateway targets on your gateway callers' behalf.
 
-If you use this option, make sure that the gateway service role has `bedrock-agentcore:InvokeGateway` permissions. The service role's credentials will be used for authentication during gateway invocation.
+If you use this option, verify that the gateway service role has `bedrock-agentcore:InvokeGateway` permissions. The gateway uses the service role credentials for authentication during invocation.
+
+**Additional configuration for MCP server targets**
+
+When you use IAM-based outbound authorization with an MCP server target, you must provide additional configuration for SigV4 signing. In the `credentialProviderConfigurations`, include an `iamCredentialProvider` with the following fields:
+
+- **service** (required) – The AWS service name used for SigV4 signing. For example, `bedrock-agentcore` for MCP servers hosted on Amazon Bedrock AgentCore.
+- **region** (optional) – The AWS Region for SigV4 signing. If you don't specify a Region, the gateway uses its own Region.
+
+For Lambda, API Gateway, and Smithy targets, do not include the `iamCredentialProvider` field. These target types only support the basic `GATEWAY_IAM_ROLE` configuration with `credentialProviderType` only. For more information about specifying the credential provider configuration, see [AgentCore Gateway service role (IAM) authorization](gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-service-role "gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-service-role").
 
 ## Set up outbound authorization with an OAuth client
 
@@ -115,7 +124,22 @@ Replace the values of the following fields:
 
 The following examples show you how to set authorization through an OAuth client for your gateway target:
 
-CLI
+AgentCore CLI
+The AgentCore CLI credential commands must be run inside an existing
+agentcore project. If you don't have one yet, create a project
+first with `agentcore create`.
+
+```
+agentcore add credential \
+  --name oauth-credential-provider \
+  --type oauth \
+  --discovery-url `<DiscoveryUrl>` \
+  --client-id `<ClientId>` \
+  --client-secret `<ClientSecret>`
+agentcore deploy
+```
+
+AWS CLI
 
 ```
 aws bedrock-agentcore-control create-oauth2-credential-provider \
@@ -223,7 +247,20 @@ Replace the values of the following fields:
 
 The following examples show you how to set an API key for your gateway target:
 
-CLI
+AgentCore CLI
+The AgentCore CLI credential commands must be run inside an existing
+agentcore project. If you don't have one yet, create a project
+first with `agentcore create`.
+
+```
+agentcore add credential \
+  --name api-key-credential-provider \
+  --type api-key \
+  --api-key `<API_KEY_VALUE>`
+agentcore deploy
+```
+
+AWS CLI
 
 ```
 aws bedrock-agentcore-control create-api-key-credential-provider \

@@ -35,11 +35,16 @@ The AWS Management Console lets you create and maintain gateway and gateway targ
 - **Installation** – To learn how to install the AWS CLI see [Installing or updating to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 - **Authentication** – To learn about configuring your credentials in the AWS CLI see [Setting up the AWS CLI](../../../cli/latest/userguide/getting-started-quickstart.md "../../../cli/latest/userguide/getting-started-quickstart.md").
 - **Other resources** – To see the syntax of specific API methods in the Amazon Bedrock AgentCore control plane service, see the [bedrock-agentcore-control](../../../cli/latest/reference/bedrock-agentcore-control.md "../../../cli/latest/reference/bedrock-agentcore-control.md") reference.
-  The AgentCore starter toolkit is a Python SDK that provides tools to help you easily interact with the AgentCore API. Refer to the following resources in the [AgentCore starter toolkit repository](https://github.com/aws/bedrock-agentcore-starter-toolkit "https://github.com/aws/bedrock-agentcore-starter-toolkit").
+  The AgentCore CLI is a Node.js command-line tool for interacting with the AgentCore API. Refer to the following resources in the [AgentCore CLI repository](https://github.com/aws/agentcore-cli "https://github.com/aws/agentcore-cli").
 
-- **Installation** – To learn how to install the starter toolkit, follow the steps at [Installation](https://github.com/aws/bedrock-agentcore-starter-toolkit?tab=readme-ov-file#installation "https://github.com/aws/bedrock-agentcore-starter-toolkit?tab=readme-ov-file#installation").
-- **Authentication** – To access your AWS credentials and configure them for the AgentCore starter toolkit, follow the steps at [Using IAM Identity Center to authenticate AWS SDK and Tools](../../../sdkref/latest/guide/access-sso.md "../../../sdkref/latest/guide/access-sso.md").
-- **Other resources** – You use the Gateway client in this toolkit to interact with AgentCore Gateway. For more information, see [AgentCore Gateway client](https://github.com/aws/bedrock-agentcore-starter-toolkit/blob/main/src/bedrock_agentcore_starter_toolkit/operations/gateway/client.py "https://github.com/aws/bedrock-agentcore-starter-toolkit/blob/main/src/bedrock_agentcore_starter_toolkit/operations/gateway/client.py").
+- **Installation** – To install the AgentCore CLI, run the following command:
+
+```
+npm install -g @aws/agentcore
+```
+
+- **Authentication** – To access your AWS credentials and configure them for the AgentCore CLI, follow the steps at [Using IAM Identity Center to authenticate AWS SDK and Tools](../../../sdkref/latest/guide/access-sso.md "../../../sdkref/latest/guide/access-sso.md").
+- **Other resources** – For more information about using the AgentCore CLI to interact with AgentCore Gateway, see the [AgentCore CLI repository](https://github.com/aws/agentcore-cli "https://github.com/aws/agentcore-cli").
 
 ## Invocation of gateways
 

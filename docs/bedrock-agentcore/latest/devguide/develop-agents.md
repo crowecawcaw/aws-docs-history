@@ -2,43 +2,55 @@
 
 Amazon Bedrock AgentCore supports various interfaces for developing and deploying your agent
 code. The simplest approach is to use the AgentCore Python SDK to create your agent code and use
-the AgentCore starter toolkit to deploy your agent.
+the AgentCore CLI to deploy your agent.
 
-The AgentCore starter toolkit and AgentCore Python SDK don't support all AgentCore
+The AgentCore CLI and AgentCore Python SDK don't support all AgentCore
 operations that the AWS SDK supplies. If they don't support a specific AgentCore
 operation, use the AWS SDK.
 
 ###### Topics
 
-- [Amazon Bedrock AgentCore starter toolkit](#bedrock-agentcore-configure-deploy-starter-toolkit "#bedrock-agentcore-configure-deploy-starter-toolkit")
+- [AgentCore CLI](#agentcore-cli-configure-deploy "#agentcore-cli-configure-deploy")
 - [AgentCore Python SDK](#develop-agents-bedroock-agentcore-sdk "#develop-agents-bedroock-agentcore-sdk")
 - [Amazon Bedrock AgentCore MCP server](#develop-agents-bedroock-agentcore-mcp-server "#develop-agents-bedroock-agentcore-mcp-server")
 - [AWS SDK](#develop-agents-bedrock-agentcore-aws-sdk "#develop-agents-bedrock-agentcore-aws-sdk")
 - [Amazon Bedrock AgentCore console](#develop-agents-console "#develop-agents-console")
 - [AWS Command Line Interface](#bedrock-agentcore-configure-deploy-cli "#bedrock-agentcore-configure-deploy-cli")
 
-## Amazon Bedrock AgentCore starter toolkit
+## AgentCore CLI
 
-The [AgentCore starter toolkit](https://github.com/aws/bedrock-agentcore-starter-toolkit "https://github.com/aws/bedrock-agentcore-starter-toolkit") provides CLI tools and higher-level
-abstractions for:
+The [AgentCore CLI](https://github.com/aws/agentcore-cli "https://github.com/aws/agentcore-cli") is a Node.js command-line tool
+for creating, configuring, deploying, and managing agents on Amazon Bedrock AgentCore. It
+requires Node.js 20 or later.
 
-- _Create_: Set up a skeleton agent project with your preferred framework and model provider
-- _Deployment_: Containerize and deploy agents to AWS
+Install the AgentCore CLI globally with npm:
+
+```
+npm install -g @aws/agentcore
+```
+
+The AgentCore CLI provides the following key commands:
+
+- _agentcore create_: Set up a new agent project with your
+  preferred framework and model provider
+- _agentcore deploy_: Deploy your agent to AWS
   infrastructure
-- _Import Agent_: Migrate existing Bedrock Agents to
-  AgentCore with framework conversion
-- _Gateway Integration_: Create and manage gateways for agent
-  tools using the CLI
-- _Memory Management_: Create and manage memory for
-  agents
-- _Configuration Management_: Manage environment and
-  deployment settings
-- _Observability_: Monitor agents in production
-  environments
-- _AgentCore Evaluations_: Assess agent performance and quality
+- _agentcore dev_: Run your agent locally for development and
+  testing
+- _agentcore invoke_: Invoke a deployed agent for
+  testing
+- _agentcore status_: Check the status of a deployed
+  agent
 
-The getting started instructions in this guide use the AgentCore starter
-toolkit.
+Configuration is managed through JSON files in the
+`agentcore/` directory of your project. These files include
+`agentcore.json` for project settings and `aws-targets.json` for AWS deployment targets.
+
+Under the hood, the AgentCore CLI uses AWS CDK constructs from the
+`@aws/agentcore-cdk` package to provision and manage AWS
+resources.
+
+For step-by-step instructions, see [Get started with Amazon Bedrock AgentCore](agentcore-get-started-cli.md "agentcore-get-started-cli.md").
 
 ## AgentCore Python SDK
 

@@ -76,7 +76,7 @@ In this tutorial you create, test, and deploy an A2A server.
 ###### Topics
 
 - [Prerequisites](#runtime-a2a-prerequisites "#runtime-a2a-prerequisites")
-- [Step 1: Create your A2A server](#runtime-a2a-create-server "#runtime-a2a-create-server")
+- [Step 1: Create your A2A project](#runtime-a2a-create-server "#runtime-a2a-create-server")
 - [Step 2: Test your A2A server locally](#runtime-a2a-test-locally "#runtime-a2a-test-locally")
 - [Step 3: Deploy your A2A server to Bedrock AgentCore Runtime](#runtime-a2a-deploy "#runtime-a2a-deploy")
 - [Step 4: Get the agent card](#runtime-a2a-step-4 "#runtime-a2a-step-4")
@@ -85,74 +85,54 @@ In this tutorial you create, test, and deploy an A2A server.
 ### Prerequisites
 
 - Python 3.10 or higher installed and basic understanding of Python
+- Node.js 18 or higher installed (required for the AgentCore CLI)
+- The AgentCore CLI installed: `npm install -g @aws/agentcore`
 - An AWS account with appropriate permissions and local credentials
   configured
 - Understanding of the A2A protocol and agent-to-agent communication
   concepts
 
-### Step 1: Create your A2A server
+### Step 1: Create your A2A project
 
-We are showing an example with strands, but you can use other ways to build with
-A2A.
+This example uses Strands Agents, but the AgentCore CLI also supports
+A2A projects with LangChain/LangGraph and Google ADK.
 
-#### Install required packages
+#### Scaffold the project
 
-First, install the required packages for A2A:
-
-```
-pip install strands-agents[a2a]
-pip install bedrock-agentcore
-pip install strands-agents-tools
-```
-
-#### Create your first A2A server
-
-Create a new file called `my_a2a_server.py`:
+Run the following command and select _Strands_ as your
+framework when prompted:
 
 ```
+agentcore create --protocol A2A
+```
 
-import logging
-import os
-from strands_tools.calculator import calculator
-from strands import Agent
-from strands.multiagent.a2a import A2AServer
-import uvicorn
-from fastapi import FastAPI
+The CLI scaffolds a complete project with all required dependencies
+and configuration. The generated `main.py` contains your
+A2A server:
 
-logging.basicConfig(level=logging.INFO)
+```
+from strands import Agent, tool
+from strands.multiagent.a2a.executor import StrandsA2AExecutor
+from bedrock_agentcore.runtime import serve_a2a
+from model.load import load_model
 
-# Use the complete runtime URL from environment variable, fallback to local
-runtime_url = os.environ.get('AGENTCORE_RUNTIME_URL', 'http://127.0.0.1:9000/')
 
-logging.info(f"Runtime URL: {runtime_url}")
+@tool
+def add_numbers(a: int, b: int) -> int:
+    """Return the sum of two numbers."""
+    return a + b
 
-strands_agent = Agent(
-    name="Calculator Agent",
-    description="A calculator agent that can perform basic arithmetic operations.",
-    tools=[calculator],
-    callback_handler=None
+
+tools = [add_numbers]
+
+agent = Agent(
+    model=load_model(),
+    system_prompt="You are a helpful assistant. Use tools when appropriate.",
+    tools=tools,
 )
-
-host, port = "0.0.0.0", 9000
-
-# Pass runtime_url to http_url parameter AND use serve_at_root=True
-a2a_server = A2AServer(
-    agent=strands_agent,
-    http_url=runtime_url,
-    serve_at_root=True  # Serves locally at root (/) regardless of remote URL path complexity
-)
-
-app = FastAPI()
-
-@app.get("/ping")
-def ping():
-    return {"status": "healthy"}
-
-app.mount("/", a2a_server.to_fastapi_app())
 
 if __name__ == "__main__":
-    uvicorn.run(app, host=host, port=port)
-
+    serve_a2a(StrandsA2AExecutor(agent))
 ```
 
 #### Understanding the code
@@ -161,19 +141,26 @@ if __name__ == "__main__":
 
 Creates an agent with specific tools and capabilities
 
-**A2AServer**
+**StrandsA2AExecutor**
 
-Wraps the agent to provide A2A protocol compatibility
+Wraps the Strands agent to provide A2A protocol
+compatibility
 
-**Agent Card URL**
+**serve_a2a**
 
-Dynamically constructs the correct URL based on deployment context
-using the `AGENTCORE_RUNTIME_URL` environment
-variable
+The Amazon Bedrock AgentCore SDK helper that starts a
+Bedrock-compatible A2A server. It handles the
+`/ping` health endpoint, Agent Card serving,
+`AGENTCORE_RUNTIME_URL` environment variable,
+Bedrock header propagation, and runs on port 9000 by
+default.
 
 **Port 9000**
 
 A2A servers run on port 9000 by default in AgentCore Runtime
+
+To customize this agent, replace the `add_numbers` tool
+with your own tools and update the system prompt.
 
 ### Step 2: Test your A2A server locally
 
@@ -181,10 +168,16 @@ Run and test your A2A server in a local development environment.
 
 #### Start your A2A server
 
-Run your A2A server locally:
+Start your A2A server locally using the AgentCore CLI:
 
 ```
-python my_a2a_server.py
+agentcore dev
+```
+
+Alternatively, you can run the server directly:
+
+```
+python main.py
 ```
 
 You should see output indicating the server is running on port
@@ -227,60 +220,27 @@ You can also test your deployed server using the A2A Inspector as described in
 
 ### Step 3: Deploy your A2A server to Bedrock AgentCore Runtime
 
-Deploy your A2A server to AWS using the Amazon Bedrock AgentCore starter toolkit.
-
-#### Install deployment tools
-
-Install the Amazon Bedrock AgentCore starter toolkit:
-
-```
-pip install bedrock-agentcore-starter-toolkit
-```
-
-Start by creating a project folder with the following structure:
-
-```
-## Project Folder Structure
-your_project_directory/
-├── my_a2a_server.py          # Your main agent code
-├── requirements.txt       # Dependencies for your agent
-```
-
-Create a new file called `requirements.txt`, add the
-following to it:
-
-```
-strands-agents[a2a]
-bedrock-agentcore
-strands-agents-tools
-```
-
 #### Set up Cognito user pool for authentication
 
-Configure authentication for secure access to your deployed
+Before deploying, configure authentication for secure access to your deployed
 server. For detailed Cognito setup instructions, see [Set up Cognito user
 pool for authentication](runtime-mcp.md#runtime-mcp-appendix-a "runtime-mcp.md#runtime-mcp-appendix-a"). This provides the OAuth tokens required for
 secure access to your deployed server.
-
-#### Configure your A2A server for deployment
-
-After setting up authentication, create the deployment configuration:
-
-```
-agentcore configure -e my_a2a_server.py --protocol A2A
-```
-
-- Select protocol as A2A
-- Configure with OAuth configuration as setup in the previous
-  step
 
 #### Deploy to AWS
 
 Deploy your agent:
 
 ```
-agentcore launch
+agentcore deploy
 ```
+
+This command will:
+
+1. Package your agent code and dependencies
+2. Upload the deployment artifact to Amazon S3
+3. Create a Amazon Bedrock AgentCore runtime
+4. Deploy your agent to AWS
 
 After deployment, you'll receive an agent runtime ARN that looks like:
 

@@ -10,17 +10,11 @@ Updating, or Deleting), check current execution status (ENABLED or DISABLED), an
 retrieve all configuration parameters including evaluator lists, data source settings,
 and output destinations.
 
-## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
+## Code samples for AgentCore SDK and AWS SDK
 
 The following code samples demonstrate how to get online evaluation configuration
 details using different development approaches. Choose the method that best fits
 your development environment and preferences.
-
-AgentCore CLI
-
-```
-agentcore eval online get --config-id "config-abc123"
-```
 
 AgentCore SDK
 

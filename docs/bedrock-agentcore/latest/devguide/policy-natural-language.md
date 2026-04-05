@@ -39,6 +39,13 @@ you to:
 
 ###### Note
 
+Natural language policy generation requires a deployed AgentCore Gateway and policy engine.
+The service uses the AgentCore Gateway schema to generate valid Cedar policies. See
+[Getting started with Policy in AgentCore](policy-getting-started.md "policy-getting-started.md") for setup
+instructions.
+
+###### Note
+
 Natural language is flexible, but precision is essential for security. Policies must be
 clear and unambiguous.
 

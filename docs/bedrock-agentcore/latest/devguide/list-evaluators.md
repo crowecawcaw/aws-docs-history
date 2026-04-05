@@ -14,20 +14,14 @@ current lock status for quick overview and selection.
 
 ###### Topics
 
-- [Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK](#list-evaluators-code-samples "#list-evaluators-code-samples")
+- [Code samples for AgentCore SDK and AWS SDK](#list-evaluators-code-samples "#list-evaluators-code-samples")
 - [Console](#list-evaluators-console "#list-evaluators-console")
 
-## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
+## Code samples for AgentCore SDK and AWS SDK
 
 The following code samples demonstrate how to list evaluators using different
 development approaches. Choose the method that best fits your development
 environment and preferences.
-
-AgentCore CLI
-
-```
-agentcore eval evaluator list
-```
 
 AgentCore SDK
 

@@ -42,7 +42,7 @@ or create a policy with the following permissions:
 ```
 
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -73,7 +73,7 @@ policy:
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "",
@@ -219,28 +219,34 @@ New memory: "The user prefers to use Bank of America, which his account number i
 # This IAM role must be created with the policies described above.
 MEMORY_EXECUTION_ROLE_ARN = "`arn:aws:iam::123456789012:role/MyMemoryExecutionRole`"
 
-from bedrock_agentcore_starter_toolkit.operations.memory.manager import MemoryManager
-from bedrock_agentcore_starter_toolkit.operations.memory.models.strategies import SummaryStrategy
+import boto3
 
-# Create memory manager
-memory_manager = MemoryManager(region_name="us-west-2")
+# Initialize the Boto3 client for control plane operations
+control_client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
 
-memory = memory_manager.get_or_create_memory(
+response = control_client.create_memory(
     name="CustomTravelAgentMemory",
-    strategies=[
-        CustomUserPreferenceStrategy(
-            name="CustomTravelPreferenceExtractor",
-            description="Custom user travel preference extraction with specific prompts",
-            extraction_config=ExtractionConfig(
-                append_to_prompt=CUSTOM_EXTRACTION_INSTRUCTIONS,
-                model_id="anthropic.claude-3-sonnet-20240229-v1:0"
-            ),
-            consolidation_config=ConsolidationConfig(
-                append_to_prompt=CUSTOM_CONSOLIDATION_INSTRUCTIONS,
-                model_id="anthropic.claude-3-sonnet-20240229-v1:0"
-            ),
-            namespace_templates=["/users/{actorId}/travel_preferences/"]
-        )
-    ],
-    memory_execution_role_arn=MEMORY_EXECUTION_ROLE_ARN
+    memoryExecutionRoleArn=MEMORY_EXECUTION_ROLE_ARN,
+    memoryStrategies=[
+        {
+            'customMemoryStrategy': {
+                'name': 'CustomTravelPreferenceExtractor',
+                'description': 'Custom user travel preference extraction with specific prompts',
+                'configuration': {
+                    'userPreferenceOverride': {
+                        'extraction': {
+                            'appendToPrompt': CUSTOM_EXTRACTION_INSTRUCTIONS,
+                            'modelId': 'anthropic.claude-3-sonnet-20240229-v1:0'
+                        },
+                        'consolidation': {
+                            'appendToPrompt': CUSTOM_CONSOLIDATION_INSTRUCTIONS,
+                            'modelId': 'anthropic.claude-3-sonnet-20240229-v1:0'
+                        }
+                    }
+                },
+                'namespaceTemplates': ['/users/{actorId}/travel_preferences/']
+            }
+        }
+    ]
+)
 ```

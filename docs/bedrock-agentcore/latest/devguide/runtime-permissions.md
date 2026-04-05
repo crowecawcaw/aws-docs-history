@@ -8,7 +8,7 @@ For information about using resource-based policies to control access to your Ag
 ###### Topics
 
 - [Use Amazon Bedrock AgentCore](#runtime-permissions-use-agentcore "#runtime-permissions-use-agentcore")
-- [Use the starter toolkit](#runtime-permissions-starter-toolkit "#runtime-permissions-starter-toolkit")
+- [Use the AgentCore CLI](#runtime-permissions-cli "#runtime-permissions-cli")
 - [User permissions for Amazon Bedrock AgentCore Console](#runtime-permissions-console "#runtime-permissions-console")
 - [Execution role for running an agent in AgentCore Runtime](#runtime-permissions-execution "#runtime-permissions-execution")
 
@@ -17,17 +17,17 @@ For information about using resource-based policies to control access to your Ag
 To use Amazon Bedrock AgentCore, you can attach the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") AWS managed policy to your IAM user or IAM. role. This AWS
 managed policy grants broad permissions. We recommend creating a custom policy with only the permissions
 your application requires by copying the relevant statements and restricting the resources to your
-specific use case. To use the starter toolkit, you need [additional](#runtime-permissions-starter-toolkit "#runtime-permissions-starter-toolkit") permissions.
+specific use case. To use the AgentCore CLI, you need [additional](#runtime-permissions-cli "#runtime-permissions-cli") permissions.
 
-## Use the starter toolkit
+## Use the AgentCore CLI
 
-To use the Amazon Bedrock AgentCore starter toolkit, attach the following IAM policy to your IAM user or
+To use the AgentCore CLI, attach the following IAM policy to your IAM user or
 role. To change IAM permissions, see [Change permissions for an IAM
 user](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md").
 
 ###### Important
 
-The IAM policies created by the starter toolkit are designed for development and testing purposes. These permissions grant broad access to facilitate rapid prototyping and are not suitable for production environments. For production deployments, create custom IAM policies that follow the principle of least privilege and restrict permissions to only the specific resources and actions required by your Bedrock AgentCore application.
+The IAM policies created by the AgentCore CLI are designed for development and testing purposes. These permissions grant broad access to facilitate rapid prototyping and are not suitable for production environments. For production deployments, create custom IAM policies that follow the principle of least privilege and restrict permissions to only the specific resources and actions required by your Amazon Bedrock AgentCore application.
 
 JSON
 

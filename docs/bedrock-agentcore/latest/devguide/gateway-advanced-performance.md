@@ -30,18 +30,18 @@ overall performance of your agent-gateway interactions. Enable semantic search w
 creating your gateway:
 
 ```
-from bedrock_agentcore_starter_toolkit.operations.gateway.client import GatewayClient
+import boto3
 
-# Initialize the Gateway client
-gateway_client = GatewayClient(region_name="us-west-2")
+# Initialize the AgentCore control client
+client = boto3.client('bedrock-agentcore-control', region_name="us-west-2")
 
 # Create a gateway with semantic search enabled
-gateway = gateway_client.create_gateway(
+gateway = client.create_gateway(
     name="semantic-search-gateway",
     description="A gateway with semantic search enabled",
-    protocol_configuration={
+    protocolConfiguration={
         "mcp": {
-            "search_type": "SEMANTIC"
+            "searchType": "SEMANTIC"
         }
     }
 )

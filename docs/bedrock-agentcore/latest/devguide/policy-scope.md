@@ -29,7 +29,12 @@ Entity format: `Namespace::EntityType::"identifier"`
 
 ## Principal
 
-The principal identifies the entity making the authorization request:
+The principal identifies the entity making the authorization request. The principal type
+depends on how your AgentCore Gateway is configured for authentication.
+
+### OAuth User Principal
+
+When using OAuth authorization, the principal is an `AgentCore::OAuthUser`:
 
 ```
 
@@ -40,11 +45,33 @@ principal is AgentCore::OAuthUser
 Components:
 
 - `principal` - The entity making the authorization request
-- `AgentCore::OAuthUser` - Entity type representing authenticated users
+- `AgentCore::OAuthUser` - Entity type representing OAuth-authenticated users
 - `is` - Type check operator (matches any OAuthUser entity)
 
 Principals are OAuth-authenticated users. Each user has a unique ID from the JWT sub
 claim.
+
+### IAM Entity Principal
+
+When using AWS_IAM authorization, the principal is an
+`AgentCore::IamEntity`:
+
+```
+
+principal is AgentCore::IamEntity
+
+```
+
+Components:
+
+- `principal` - The entity making the authorization request
+- `AgentCore::IamEntity` - Entity type representing IAM-authenticated
+  callers
+- `is` - Type check operator (matches any IamEntity)
+
+IAM principals have an `id` attribute containing the caller's IAM ARN. You can
+use pattern matching on this attribute to implement account-based or role-based access
+control.
 
 ## Action
 

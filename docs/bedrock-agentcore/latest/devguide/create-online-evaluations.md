@@ -17,7 +17,7 @@ enabled (`executionStatus` = false).
 
 - [Execution status control](#execution-status-control "#execution-status-control")
 - [Evaluator protection](#evaluator-protection "#evaluator-protection")
-- [Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK](#create-online-evaluation-code-samples "#create-online-evaluation-code-samples")
+- [Code samples for AgentCore CLI, AgentCore SDK, and AWS SDK](#create-online-evaluation-code-samples "#create-online-evaluation-code-samples")
 - [Console](#create-online-evaluation-console "#create-online-evaluation-console")
 
 ## Execution status control
@@ -43,7 +43,7 @@ selected. Once locked:
 - **No deletion allowed** – You cannot delete
   the evaluator while any evaluation job is using it (running).
 
-## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
+## Code samples for AgentCore CLI, AgentCore SDK, and AWS SDK
 
 The following code samples demonstrate how to create online evaluation
 configurations using different development approaches. Choose the method that best
@@ -53,18 +53,28 @@ AgentCore CLI
 
 ```
 # Create online evaluation configuration
-# - Config names must use underscores, not hyphens
-# - By default, auto-creates IAM execution role and enables the config
-AGENT_ID="YOUR_AGENT_ID"
-CONFIG_NAME="YOUR_CONFIG_NAME"
-agentcore eval online create \
-  --name $CONFIG_NAME \
-  --agent-id $AGENT_ID \
+agentcore add online-eval \
+  --name "your_config_name" \
+  --runtime "your_runtime_name" \
+  --evaluator "Builtin.GoalSuccessRate" "Builtin.Helpfulness" \
   --sampling-rate 1.0 \
-  --evaluator "Builtin.GoalSuccessRate" \
-  --evaluator "Builtin.Helpfulness" \
-  --description "Online Evaluation Config"
+  --enable-on-create
 ```
+
+Interactive
+
+1. Enter a name for your online evaluation configuration.
+
+![Online eval config name input](images/tui/online-eval-add-name.png) 2. Select the evaluators to include. You can choose from built-in evaluators
+and any custom evaluators you have created.
+
+![Evaluator multi-select list](images/tui/online-eval-add-evaluators.png) 3. Set the sampling rate — the percentage of agent requests that will be evaluated.
+
+![Sampling rate input](images/tui/online-eval-add-sampling-rate.png) 4. Choose whether to enable evaluation automatically after deployment.
+
+![Enable on deploy selection](images/tui/online-eval-add-enable.png) 5. Review the configuration and press Enter to confirm.
+
+![Review online eval configuration](images/tui/online-eval-add-confirm.png)
 
 AgentCore SDK
 

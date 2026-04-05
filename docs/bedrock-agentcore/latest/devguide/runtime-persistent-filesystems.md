@@ -289,33 +289,21 @@ endpoint with a custom policy, you can scope access to your regional session sto
 bucket as follows:
 
 ```
+"Action": [
+    "s3:GetObject",
+    "s3:PutObject",
+    "s3:ListBucket"
+],
 "Resource": [
-    "arn:aws:s3:::acr-storage-`account-id`-`region`-an",
-    "arn:aws:s3:::acr-storage-`account-id`-`region`-an/*"
-]
+    "arn:aws:s3:::acr-storage-*-`region`-an",
+    "arn:aws:s3:::acr-storage-*-`region`-an/*"
+],
+"Condition": {
+    "StringEquals": {
+        "aws:PrincipalServiceName": "bedrock-agentcore.amazonaws.com"
+    }
+}
 ```
 
 Replace `region` with your AWS Region (for example,
-`us-west-2`) and `account-id` with the account ID
-for your region from the table below. The required actions are `s3:GetObject`
-and `s3:PutObject`.
-
-If your S3 Gateway endpoint policy requires account-level restrictions, you can
-use the following AWS account IDs for session storage in each Region:
-
-| Session storage account IDs by Region     | Region       | Account ID |
-| ----------------------------------------- | ------------ | ---------- |
-| Asia Pacific (Tokyo) – ap-northeast-1     | 046651569190 |
-| Asia Pacific (Seoul) – ap-northeast-2     | 894064921762 |
-| Asia Pacific (Mumbai) – ap-south-1        | 883086653949 |
-| Asia Pacific (Singapore) – ap-southeast-1 | 426567131211 |
-| Asia Pacific (Sydney) – ap-southeast-2    | 502881461673 |
-| Canada (Central) – ca-central-1           | 408585017259 |
-| Europe (Frankfurt) – eu-central-1         | 215229808186 |
-| Europe (Stockholm) – eu-north-1           | 335057493446 |
-| Europe (Ireland) – eu-west-1              | 440913182437 |
-| Europe (London) – eu-west-2               | 476199653545 |
-| Europe (Paris) – eu-west-3                | 798429904384 |
-| US East (N. Virginia) – us-east-1         | 642137767729 |
-| US East (Ohio) – us-east-2                | 623592712076 |
-| US West (Oregon) – us-west-2              | 306679390385 |
+`us-west-2`).

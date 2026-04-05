@@ -23,19 +23,23 @@ manage evaluation costs and performance.
   ENABLED to DISABLED, the system stops processing new traces while preserving
   your configuration for future use.
 
-## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
+## Code samples for AgentCore CLI, AgentCore SDK, and AWS SDK
 
 The following code samples demonstrate how to update online evaluation
 configurations using different development approaches. Choose the method that best
 fits your development environment and preferences.
 
 AgentCore CLI
+To update an online evaluation configuration with the AgentCore CLI,
+edit the configuration in your `agentcore.json` file
+directly, then redeploy:
 
 ```
-# Update description
-agentcore eval online update --config-id "config-abc123" \
-  --description "Updated description for online evaluation"
+agentcore deploy
 ```
+
+The CLI detects the configuration changes and updates the online
+evaluation in your account.
 
 AgentCore SDK
 

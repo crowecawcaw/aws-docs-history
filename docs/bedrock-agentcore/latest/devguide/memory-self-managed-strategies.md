@@ -86,7 +86,7 @@ Use the following trust policy:
 
 ```
 {
-    "Version": "2012-10-17 		 	 	 ",
+    "Version": "2012-10-17 ",
     "Statement": [
         {
             "Effect": "Allow",
@@ -105,7 +105,7 @@ Use the following permissions policy:
 
 ```
 {
-    "Version": "2012-10-17 		 	 	 ",
+    "Version": "2012-10-17 ",
     "Statement": [
         {
             "Sid": "S3PayloadDelivery",

@@ -12,21 +12,26 @@ confirm changes are applied successfully using the `GetEvaluator` API.
 
 ###### Topics
 
-- [Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK](#update-evaluators-code-samples "#update-evaluators-code-samples")
+- [Code samples for AgentCore SDK and AWS SDK](#update-evaluators-code-samples "#update-evaluators-code-samples")
 - [Console](#update-evaluator-console "#update-evaluator-console")
 
-## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
+## Code samples for AgentCore SDK and AWS SDK
 
 The following code samples demonstrate how to update evaluators using different
 development approaches. Choose the method that best fits your development
 environment and preferences.
 
 AgentCore CLI
+To update an evaluator with the AgentCore CLI, edit the evaluator
+configuration in your `agentcore.json` file directly,
+then redeploy:
 
 ```
-agentcore eval evaluator update --evaluator-id "evaluator-abc123" \
-  --description "Updated custom evaluator description"
+agentcore deploy
 ```
+
+The CLI detects the configuration changes and updates the evaluator
+in your account.
 
 AgentCore SDK
 

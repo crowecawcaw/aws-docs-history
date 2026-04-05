@@ -28,14 +28,24 @@ cannot be modified.
 ## Custom evaluators
 
 Custom evaluators offer more flexibility by allowing you to define all aspects of
-your evaluation process, while still using LLMs as the underlying judges. You can
-tailor the evaluation to your specific needs by selecting the evaluator model,
-crafting custom evaluation instructions, defining specific evaluation criteria, and
-designing your own scoring schema. This level of customization is particularly
-valuable when you need to evaluate domain-specific agents, apply unique quality
-standards, or implement specialized scoring systems.
+your evaluation process. AgentCore Evaluations supports two types of custom
+evaluators:
 
-For example, you might create custom evaluation criteria for specific industries
-like healthcare or finance, or design scoring schemas that align with your
-organization's quality metrics. Custom evaluators give you complete control over how
-your agents are evaluated while leveraging LLMs to make objective judgments.
+- **LLM-as-a-judge evaluators** – Define your
+  own evaluator model, evaluation instructions, and scoring schemas. You can
+  tailor the evaluation to your specific needs by selecting the evaluator
+  model, crafting custom evaluation instructions, defining specific evaluation
+  criteria, and designing your own scoring schema. For more information, see
+  [Custom evaluators](custom-evaluators.md "custom-evaluators.md").
+- **Code-based evaluators** – Use your own
+  AWS Lambda function to programmatically evaluate agent performance. This
+  approach gives you full control over the evaluation logic, enabling
+  deterministic checks, external API calls, regex matching, custom metrics, or
+  any business-specific rules without relying on an LLM judge. For more
+  information, see [Custom code-based evaluator](code-based-evaluators.md "code-based-evaluators.md").
+
+This level of customization is particularly valuable when you need to evaluate
+domain-specific agents, apply unique quality standards, or implement specialized
+scoring systems. For example, you might create custom evaluation criteria for
+specific industries like healthcare or finance, or design scoring schemas that align
+with your organization's quality metrics.

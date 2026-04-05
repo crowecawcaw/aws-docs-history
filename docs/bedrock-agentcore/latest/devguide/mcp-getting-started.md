@@ -8,8 +8,8 @@ The MCP server works with popular MCP clients including Kiro, Cursor, Claude Cod
 
 - [Prerequisites](#mcp-prerequisites "#mcp-prerequisites")
 - [Step 1: Install the MCP server](#mcp-install-server "#mcp-install-server")
-- [Step 2: Transform an existing agent for AgentCore runtime](#mcp-transform-agent "#mcp-transform-agent")
-- [Step 3: Deploy your agent to AgentCore runtime](#mcp-deploy-agent "#mcp-deploy-agent")
+- [Step 2: Transform an existing agent for AgentCore Runtime compatibility](#mcp-transform-agent "#mcp-transform-agent")
+- [Step 3: Deploy your agent to AgentCore Runtime](#mcp-deploy-agent "#mcp-deploy-agent")
 - [Step 4: Test your deployed agent](#mcp-test-agent "#mcp-test-agent")
 - [Next steps](#mcp-next-steps "#mcp-next-steps")
 
@@ -18,6 +18,7 @@ The MCP server works with popular MCP clients including Kiro, Cursor, Claude Cod
 Before you begin, verify that you have the following:
 
 - An AWS account with Amazon Bedrock AgentCore permissions
+- **Node.js 20+** installed (required for the AgentCore CLI)
 - AWS CLI installed and configured with appropriate credentials. For setup instructions, see [Installing or updating to the latest version of the AWS CLI](../../../amazonq/latest/qdeveloper-ug/command-line-installing.md "../../../amazonq/latest/qdeveloper-ug/command-line-installing.md").
 - One of the supported MCP clients:
   - Kiro
@@ -25,7 +26,7 @@ Before you begin, verify that you have the following:
   - Claude Code
   - Amazon Q CLI
 
-- An existing AgentCore agent built with a supported framework (Strands Agents, LangGraph, CrewAI, or similar)
+- An existing AgentCore agent built with a supported framework (Strands Agents, LangGraph, or similar)
 
 For more information about Amazon Bedrock AgentCore, see the [Amazon Bedrock AgentCore documentation](../../../bedrock-agentcore.md "../../../bedrock-agentcore.md").
 
@@ -36,11 +37,13 @@ Install the necessary packages for Amazon Bedrock AgentCore development.
 To install the required packages, run the following commands:
 
 ```
+# Install the AgentCore CLI
+npm install -g @aws/agentcore
+```
 
-# Install AgentCore dependencies
+```
+# Install the AgentCore Python SDK
 pip install bedrock-agentcore
-pip install bedrock-agentcore-starter-toolkit
-
 ```
 
 ## Step 1: Install the MCP server
@@ -149,7 +152,7 @@ To verify that the MCP server is connected and working successfully, restart you
 - `search_agentcore_docs` - Search Amazon Bedrock AgentCore documentation
 - `fetch_agentcore_doc` - Fetch specific Amazon Bedrock AgentCore documentation pages
 
-## Step 2: Transform an existing agent for AgentCore runtime
+## Step 2: Transform an existing agent for AgentCore Runtime compatibility
 
 To make your existing AgentCore agent code compatible with Amazon Bedrock AgentCore Runtime, use the MCP server to guide the transformation process. For example, if you have a Strands AgentCore agent, the transformation helps convert it to be Amazon Bedrock AgentCore-compatible by updating imports, dependencies, and application structure.
 
@@ -222,9 +225,9 @@ Transform this AgentCore agent code to be compatible with AgentCore runtime. Upd
 
 ```
 
-## Step 3: Deploy your agent to AgentCore runtime
+## Step 3: Deploy your agent to AgentCore Runtime
 
-After you transform your AgentCore agent for AgentCore compatibility, deploy it using the AgentCore CLI through your MCP client.
+After you transform your AgentCore agent for AgentCore Runtime compatibility, deploy it using the AgentCore CLI through your MCP client.
 
 ### Deploy using the AgentCore CLI
 
@@ -285,16 +288,16 @@ Status: Success
 
 ## Next steps
 
-After you successfully deploy and test your first AgentCore agent with the AgentCore MCP server, you can explore additional capabilities:
+After you successfully deploy and test your first AgentCore agent with the Amazon Bedrock AgentCore MCP server, you can explore additional capabilities:
 
 - _Stateful MCP features_ - Build MCP servers with resources, prompts, elicitation, sampling, and progress notifications. See [Stateful MCP server features](mcp-stateful-features.md "mcp-stateful-features.md").
 - _Tool integration_ - Connect your AgentCore agent to Amazon Bedrock AgentCore Gateway for external tool access
 - _Memory integration_ - Add Amazon Bedrock AgentCore Memory for conversation context
 - _Identity management_ - Implement Amazon Bedrock AgentCore Identity for secure access control
-- _Advanced frameworks_ - Explore integration with LangGraph, CrewAI, and other frameworks
+- _Advanced frameworks_ - Explore integration with LangGraph, and other frameworks
 
 For more information, see the following:
 
 - [Get started with AgentCore Runtime](runtime-getting-started.md "runtime-getting-started.md")
 - [Get started with AgentCore Gateway](gateway-quick-start.md "gateway-quick-start.md")
-- [AgentCore CLI reference](https://aws.github.io/bedrock-agentcore-starter-toolkit/api-reference/cli.html "https://aws.github.io/bedrock-agentcore-starter-toolkit/api-reference/cli.html")
+- [AgentCore CLI reference](https://github.com/aws/agentcore-cli "https://github.com/aws/agentcore-cli")

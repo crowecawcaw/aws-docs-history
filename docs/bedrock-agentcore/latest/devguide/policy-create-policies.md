@@ -2,7 +2,8 @@
 
 Policy in Amazon Bedrock AgentCore uses Cedar as its authorization language to control access to
 tools and resources. This guide explains how to understand Cedar policies and write authorization
-requirements in natural language that can be automatically converted to Cedar.
+requirements in natural language that can be automatically converted to Cedar. Natural language
+policy generation requires a deployed AgentCore Gateway and policy engine.
 
 Cedar is a formal policy language that provides precise, verifiable access control. When
 working with AgentCore Gateway authorization:

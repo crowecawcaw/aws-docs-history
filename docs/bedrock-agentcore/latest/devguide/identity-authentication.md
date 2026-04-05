@@ -22,28 +22,34 @@ interact with Google Drive on behalf of an end user. For more information, see [
     on_auth_url= lambda x: print("\nPlease copy and paste this URL in your browser:\n" + x),
     # If false, caches obtained access token
     force_authentication= False,
-    callback_url='insert_oauth2_callback_url_for_session_binding',
+    callback_url='`insert_oauth2_callback_url_for_session_binding`',
 )
 async def write_to_google_drive(*, access_token: str):
     # Use the token to call Google Drive
-    asyncio.run(write_to_google_drive(access_token= ""))
+    pass
+
+# To invoke:
+# asyncio.run(write_to_google_drive())
 ```
 
 The process is similar to obtain a token for machine-to-machine calls, as shown in
 the following example:
 
 ```
-import asyncio
-from bedrock_agentcore.identity.auth import requires_access_token, requires_api_key
+import asyncio
+from bedrock_agentcore.identity.auth import requires_access_token, requires_api_key
 
 @requires_access_token(
     provider_name= "`my-api-key-provider`", # replace with your own credential provider name
     scopes= [],
     auth_flow= 'M2M',
 )
-async def need_token_2LO_async(*, access_token: str):
-    # Use the access token
-    asyncio.run(need_token_2LO_async(access_token= ""))
+async def need_token_2LO_async(*, access_token: str):
+    # Use the access token
+    pass
+
+# To invoke:
+# asyncio.run(need_token_2LO_async())
 ```
 
 ###### Topics
@@ -133,7 +139,7 @@ from bedrock_agentcore.identity.auth import requires_access_token
         "message": "Please visit this URL to authorize access"
     }),
     force_authentication=False,
-    callback_url='insert_oauth2_callback_url_for_session_binding'
+    callback_url='`insert_oauth2_callback_url_for_session_binding`'
 )
 async def agent_with_streaming_auth(*, access_token: str):
     # Agent logic continues after user completes authorization
@@ -161,7 +167,7 @@ from bedrock_agentcore.identity.auth import requires_access_token
     # Store URL and trigger callback
     on_auth_url=lambda url: handle_auth_callback(url),
     force_authentication=False,
-    callback_url='insert_oauth2_callback_url_for_session_binding'
+    callback_url='`insert_oauth2_callback_url_for_session_binding`'
 )
 async def agent_with_callback_auth(*, access_token: str):
     return {"status": "success", "data": "processed"}
@@ -197,7 +203,7 @@ from bedrock_agentcore.identity.auth import requires_access_token
     # Store URL for polling retrieval
     on_auth_url=lambda url: store_auth_url_for_polling(url),
     force_authentication=False,
-    callback_url='insert_oauth2_callback_url_for_session_binding'
+    callback_url='`insert_oauth2_callback_url_for_session_binding`'
 )
 async def agent_with_polling_auth(*, access_token: str):
     return {"status": "success", "data": "processed"}

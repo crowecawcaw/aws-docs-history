@@ -1,7 +1,24 @@
 # Get an event
 
-[GetEvent](../APIReference/API_GetEvent.md "../APIReference/API_GetEvent.md") API is an operation that retrieves a specific raw event by
+The [GetEvent](../APIReference/API_GetEvent.md "../APIReference/API_GetEvent.md") API retrieves a specific raw event by
 its identifier from short-term memory in AgentCore Memory. This API requires you to
 specify the `memoryId`, `actorId`, `sessionId`, and
-`eventId` as path parameters in the request URL to target your events
-based on above filters.
+`eventId` as path parameters in the request URL.
+
+```
+import boto3
+
+data_client = boto3.client('bedrock-agentcore')
+
+response = data_client.get_event(
+    memoryId="`your-memory-id`",
+    actorId="`your-actor-id`",
+    sessionId="`your-session-id`",
+    eventId="`your-event-id`"
+)
+
+event = response['event']
+print(f"Event ID: {event['eventId']}")
+print(f"Timestamp: {event['eventTimestamp']}")
+print(f"Payload: {event['payload']}")
+```

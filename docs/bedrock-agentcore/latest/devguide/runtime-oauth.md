@@ -141,7 +141,7 @@ The command will prompt you to:
 This generates:
 
 - Agent code with your selected framework
-- `.bedrock_agentcore.yaml` configuration file
+- `agentcore/agentcore.json` configuration file
 - `requirements.txt` with necessary dependencies
 
 ###### Note
@@ -274,27 +274,20 @@ validate the incoming token.
 
 If both client_id and aud is provided, the agent runtime authorizer will verify both.
 
-Starter toolkit
+AgentCore CLI
 
 ###### To configure and deploy your agent
 
-1. Configure your agent runtime with the following command, replacing the
-   placeholder values with your actual values:
+1. Create your agent project with the AgentCore CLI:
 
 ```
-agentcore configure --entrypoint agent_example.py \
---name hello_agent \
---execution-role your-execution-role-arn \
---disable-otel \
---requirements-file requirements.txt \
---authorizer-config "{\"customJWTAuthorizer\":{\"discoveryUrl\":\"$DISCOVERY_URL\",\"allowedClients\":[\"$CLIENT_ID\"]}}"
+agentcore create
 ```
 
-Replace `$DISCOVERY_URL` with the Discovery URL from Step 2, and
-`$CLIENT_ID` with the Client ID from Step 2. 2. Deploy your agent:
+When prompted, choose your framework (choose Strands Agents for this tutorial). 2. Deploy your agent:
 
 ```
-agentcore launch
+agentcore deploy
 ```
 
 3. Note the agent runtime ARN from the output. You'll need this in the next
@@ -302,12 +295,8 @@ agentcore launch
 
 ###### Tip
 
-You can also run the configure command with just the entry point file for a fully
-interactive experience:
-
-```
-agentcore configure --entrypoint agent_example.py
-```
+You can also run the `agentcore create` command without flags for a fully
+interactive experience that guides you through project setup.
 
 Python
 
@@ -320,7 +309,7 @@ client = boto3.client('bedrock-agentcore-control', region_name="us-east-1")
 
 # Call the CreateAgentRuntime operation
 response = client.create_agent_runtime(
-    agentRuntimeName='hello_agent',
+    agentRuntimeName='HelloAgent',
     agentRuntimeArtifact={
         'containerConfiguration': {
             'containerUri': '111122223333.dkr.ecr.us-east-1.amazonaws.com/my-agent:latest'
@@ -479,13 +468,6 @@ else:
 
 ```
 python invoke_agent.py
-```
-
-Use starter toolkit
-REplace `ADD_TOKEN_HERE` with your bearer token.
-
-```
-agentcore invoke '{"prompt": "Hello what is 1+1?"}' --bearer-token `ADD_TOKEN_HERE`
 ```
 
 ## OAuth Error Responses
@@ -665,24 +647,18 @@ def invoke(payload, context):
 
 ### Step 6.2: Create the agent with request header allowlist
 
-Use the AgentCore starter toolkit to configure the agent with request header allowlist. Navigate to your generated project directory and run:
+Use the AgentCore CLI to configure the agent with request header allowlist. Navigate to your generated project directory and run:
 
 ```
-agentcore configure --entrypoint src/main.py \
- --name hello_agent \
---execution-role your-execution-role-arn \
---disable-otel \
---requirements-file requirements.txt \
---authorizer-config "{\"customJWTAuthorizer\":{\"discoveryUrl\":\"$DISCOVERY_URL\",\"allowedClients\":[\"$CLIENT_ID\"]}}" \
---request-header-allowlist "Authorization"
+agentcore create --name HelloAgent --framework Strands --model-provider Bedrock --memory none
 
-// now launch the agent runtime
-agentcore launch
+# Now deploy the agent runtime
+agentcore deploy
 ```
 
 ###### Note
 
-The `--entrypoint` path should match the location of your main agent file in the generated project structure. This may vary depending on your framework choice during project creation.
+The AgentCore CLI creates the project structure and configuration files. Adjust the agent configuration in `agentcore/agentcore.json` as needed for your framework choice.
 
 ### Step 6.3: Invoke your agent
 

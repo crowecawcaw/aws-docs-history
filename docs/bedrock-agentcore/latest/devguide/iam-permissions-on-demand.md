@@ -28,7 +28,21 @@ evaluations:
                 "arn:aws:bedrock:*::foundation-model/*",
                 "arn:aws:bedrock:*:*:inference-profile/*"
             ]
+        },
+        {
+            "Sid": "LambdaInvokeForCodeBasedEvaluators",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:InvokeFunction",
+                "lambda:GetFunction"
+            ],
+            "Resource": "arn:aws:lambda:*:*:function:*"
         }
     ]
 }
 ```
+
+###### Note
+
+The Lambda permissions are only required if you use [Custom code-based evaluator](code-based-evaluators.md "code-based-evaluators.md"). You can scope the Lambda resource
+ARN to specific functions as needed.

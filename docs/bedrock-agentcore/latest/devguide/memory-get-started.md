@@ -3,9 +3,7 @@
 Amazon Bedrock Amazon Bedrock AgentCore Memory lets you create and manage AgentCore Memory resources that
 store conversation context for your AI agents. This getting started guides you through
 installing dependencies and implementing both short-term and long-term memory
-features. The instructions use the
-[AgentCore starter
-toolkit](https://github.com/aws/bedrock-agentcore-starter-toolkit "https://github.com/aws/bedrock-agentcore-starter-toolkit").
+features. The instructions use the AgentCore CLI.
 
 The steps are as follows:
 
@@ -21,29 +19,30 @@ Before starting, make sure you have:
 - **AWS Account** with credentials configured
   (`aws configure`)
 - **Python 3.10+** installed
+- Node.js 18+ installed (for the AgentCore CLI)
 
-To get started with Amazon Bedrock Amazon Bedrock AgentCore Memory, make a folder for this
-quick start, create a virtual environment, and install the dependencies. The below
-command can be run directly in the terminal.
+To get started with Amazon Bedrock Amazon Bedrock AgentCore Memory, install the dependencies,
+create an AgentCore CLI project, and set up a virtual environment. The below
+commands can be run directly in the terminal.
 
 ```
-mkdir agentcore-memory-quickstart
+pip install bedrock-agentcore
+npm install -g @aws/agentcore
+agentcore create --name agentcore-memory-quickstart --no-agent
 cd agentcore-memory-quickstart
 python -m venv .venv
 source .venv/bin/activate
-pip install bedrock-agentcore
-pip install bedrock-agentcore-starter-toolkit
 ```
 
-The starter toolkit includes a CLI (`agentcore`) for memory resource management. The CLI provides commands for creating, listing, getting, and deleting memory resources. For event operations and session management, use the starter toolkit Python API or AWS SDK.
+The AgentCore CLI provides commands for creating and managing memory resources. Use `agentcore add memory` to create a memory, and `agentcore deploy` to provision it in AWS. For event operations and session management, use the AWS Python SDK (Boto3) (`bedrock-agentcore`).
 
 ###### Note
 
-The Amazon Bedrock AgentCore Starter Toolkit is intended to help developers get started
-quickly. For the complete set of Amazon Bedrock AgentCore Memory operations, see the Boto3
+The AgentCore CLI helps you create and deploy memory resources. For
+the complete set of Amazon Bedrock AgentCore Memory operations, see the Boto3
 documentation: [bedrock-agentcore-control](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html") and [bedrock-agentcore](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore.html").
 
-**Full example:** See the [complete code example](https://github.com/aws/bedrock-agentcore-starter-toolkit/blob/main/documentation/docs/examples/semantic_search.md "https://github.com/aws/bedrock-agentcore-starter-toolkit/blob/main/documentation/docs/examples/semantic_search.md") that demonstrates steps 1-3.
+**Full example:** See the [Amazon Bedrock AgentCore samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials") that demonstrate steps 1-3.
 
 ## Step 1: Create an AgentCore Memory
 
@@ -59,55 +58,31 @@ In this step, you create an AgentCore Memory with a semantic strategy so that bo
 term and long term memory can be utilized. This will take 2-3 minutes. You can also
 create AgentCore Memory resources in the AWS console.
 
-Starter toolkit CLI
 Create memory with semantic strategy:
 
-```
-agentcore memory create CustomerSupportSemantic \
-  --region us-west-2 \
-  --description "Customer support memory store" \
-  --strategies '[{"semanticMemoryStrategy": {"name": "semanticLongTermMemory", "namespaceTemplates": ["/strategies/{memoryStrategyId}/actors/{actorId}/"]}}]' \
-  --wait
-```
-
-List memories to verify creation:
+AgentCore CLI
 
 ```
-agentcore memory list --region us-west-2
+agentcore add memory --name CustomerSupportSemantic --strategies SEMANTIC
+agentcore deploy
 ```
 
-Starter toolkit
+Interactive
+Run `agentcore` to open the TUI, then select
+**add** and choose **Memory**:
+
+1. Enter the memory name:
+
+![Memory wizard: enter name](images/tui/memory-add-name.png) 2. Select the **Semantic** strategy, then confirm:
+
+![Memory wizard: select SEMANTIC strategy](images/tui/memory-add-strategies.png)
+
+Then run `agentcore deploy` to provision the memory in AWS.
+
+After deployment, verify the memory was created:
 
 ```
-from bedrock_agentcore_starter_toolkit.operations.memory.manager import MemoryManager
-from bedrock_agentcore.memory.session import MemorySessionManager
-from bedrock_agentcore.memory.constants import ConversationalMessage, MessageRole
-from bedrock_agentcore_starter_toolkit.operations.memory.models.strategies import SemanticStrategy
-import time
-
-memory_manager = MemoryManager(region_name="us-west-2")
-
-print("Creating memory resource...")
-
-memory = memory_manager.get_or_create_memory(
-    name="CustomerSupportSemantic",
-    description="Customer support memory store",
-    strategies=[
-        SemanticStrategy(
-            name="semanticLongTermMemory",
-            namespace_templates=['/strategies/{memoryStrategyId}/actors/{actorId}/'],
-        )
-    ]
-)
-
-print(f"Memory ID: {memory.get('id')}")
-```
-
-You can call `list_memories` to see that the memory resource has been
-created with:
-
-```
-memories = memory_manager.list_memories()
+agentcore status
 ```
 
 ## Step 2: Write events to memory
@@ -124,9 +99,20 @@ this step, you create three events, simulating messages between an end user and 
 bot.
 
 ```
+import boto3
+from bedrock_agentcore.memory import MemorySessionManager
+from bedrock_agentcore.memory.constants import ConversationalMessage, MessageRole
+
+control_client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
+
+# Retrieve the memory created in Step 1
+response = control_client.list_memories()
+memory = response['memories'][0]
+memory_id = memory['id']
+
 # Create a session to store memory events
 session_manager = MemorySessionManager(
-    memory_id=memory.get("id"),
+    memory_id=memory_id,
     region_name="us-west-2")
 
 session = session_manager.create_memory_session(
@@ -203,26 +189,100 @@ Important information about the user is likely stored is long term memory. Agent
 use long term memory rather than a full conversation history to make sure that LLMs are
 not overloaded with context.
 
+## Adding memory to an existing agent
+
+If you created a Strands agent without memory and want to add it later, follow these
+steps:
+
+1. Add a memory resource to your project:
+
+```
+agentcore add memory --name MyMemory --strategies SEMANTIC,SUMMARIZATION
+agentcore deploy
+```
+
+2. Create the `memory/` directory in your agent:
+
+```
+mkdir -p app/`MyAgent`/memory
+```
+
+3. Create `app/`MyAgent`/memory/session.py`:
+
+```
+import os
+from typing import Optional
+from bedrock_agentcore.memory.integrations.strands.config import AgentCoreMemoryConfig, RetrievalConfig
+from bedrock_agentcore.memory.integrations.strands.session_manager import AgentCoreMemorySessionManager
+
+MEMORY_ID = os.getenv("MEMORY_MYMEMORY_ID")
+REGION = os.getenv("AWS_REGION")
+
+def get_memory_session_manager(session_id: str, actor_id: str) -> Optional[AgentCoreMemorySessionManager]:
+    if not MEMORY_ID:
+        return None
+
+    retrieval_config = {
+        f"/users/{actor_id}/facts": RetrievalConfig(top_k=3, relevance_score=0.5),
+        f"/summaries/{actor_id}/{session_id}": RetrievalConfig(top_k=3, relevance_score=0.5)
+    }
+
+    return AgentCoreMemorySessionManager(
+        AgentCoreMemoryConfig(
+            memory_id=MEMORY_ID,
+            session_id=session_id,
+            actor_id=actor_id,
+            retrieval_config=retrieval_config,
+        ),
+        REGION
+    )
+```
+
+4. Update your `main.py` to use the session manager:
+
+```
+from memory.session import get_memory_session_manager
+
+@app.entrypoint
+async def invoke(payload, context):
+    session_id = getattr(context, 'session_id', 'default-session')
+    user_id = getattr(context, 'user_id', 'default-user')
+
+    agent = Agent(
+        model=load_model(),
+        session_manager=get_memory_session_manager(session_id, user_id),
+        system_prompt="You are a helpful assistant.",
+    )
+
+    response = agent(payload.get("prompt"))
+    return response
+```
+
+5. Deploy the updated project:
+
+```
+agentcore deploy
+```
+
+###### Note
+
+Each memory resource gets an environment variable
+`MEMORY_`<NAME>`_ID` (uppercase, with
+underscores) that is automatically available in your agent's runtime
+environment after deployment.
+
 ## Cleanup
 
 When you're done with the memory resource, you can delete it:
 
-Starter toolkit CLI
-
 ```
-agentcore memory delete <memory-id> --region us-west-2 --wait
-```
-
-Starter toolkit
-
-```
-# Delete the memory resource
-memory_manager.delete_memory(memory_id=memory.get("id"))
+agentcore remove memory --name CustomerSupportSemantic
+agentcore deploy
 ```
 
 ## Next steps
 
-Consider the following::
+Consider the following:
 
 - [Add another
   strategy](long-term-enabling-long-term-memory.md#long-term-adding-strategies-to-existing-memory "long-term-enabling-long-term-memory.md#long-term-adding-strategies-to-existing-memory") to your memory resource.

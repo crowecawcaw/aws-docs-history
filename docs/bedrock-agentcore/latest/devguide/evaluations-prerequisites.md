@@ -113,13 +113,12 @@ behalf. This role allows the service to:
 - Write evaluation results to Amazon CloudWatch
 - Configure log indexing for trace analysis
 
-To create the IAM role you can use the AgentCore Evaluations Console, AWS console, or
-AgentCore Evaluations starter toolkits.
+To create the IAM role you can use the AgentCore Evaluations console, the AWS console, or the AgentCore CLI.
 
 ###### Topics
 
 - [Option 1: Using AgentCore Evaluations Console](#option-console "#option-console")
-- [Option 2: Using AgentCore Evaluations Starter Toolkits](#option-toolkit "#option-toolkit")
+- [Option 2: Using the AgentCore CLI](#option-toolkit "#option-toolkit")
 - [Option 3: Using the AWS Console](#option-aws-console "#option-aws-console")
 
 ### Option 1: Using AgentCore Evaluations Console
@@ -138,10 +137,10 @@ creation.
    service role** and the console will automatically create
    the IAM role for you.
 
-### Option 2: Using AgentCore Evaluations Starter Toolkits
+### Option 2: Using the AgentCore CLI
 
-The AgentCore Evaluations Starter Toolkits automatically create the required IAM
-role.
+The AgentCore CLI automatically creates the required IAM
+role when you deploy your project.
 
 ### Option 3: Using the AWS Console
 

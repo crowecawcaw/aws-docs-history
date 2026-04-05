@@ -18,3 +18,4 @@ arn:aws:bedrock-agentcore:region:account:evaluator/evaluator-id
 - [Update evaluator](update-evaluator.md "update-evaluator.md")
 - [Get evaluator](get-evaluator.md "get-evaluator.md")
 - [Delete evaluator](delete-evaluator.md "delete-evaluator.md")
+- [Custom code-based evaluator](code-based-evaluators.md "code-based-evaluators.md")

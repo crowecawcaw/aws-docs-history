@@ -1,6 +1,6 @@
 # Specify the authorization type and credentials to access the gateway target
 
-You provide the credential provider configuration as a member of the array that the `credentialProviderConfigurations` field in the [CreateGatewayTarget](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGatewayTarget.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGatewayTarget.md") request body maps to. The configuration that you provide depends on the outbound authorization that you set up. For reference information about the API structure for the credential provider configuration, see [CredentialProviderConfiguration](../../../bedrock-agentcore-control/latest/APIReference/API_CredentialProviderConfiguration.md "../../../bedrock-agentcore-control/latest/APIReference/API_CredentialProviderConfiguration.md"). For more information on outbound authorization, see [Set up outbound authorization for your gateway](gateway-outbound-auth.md "gateway-outbound-auth.md").
+In the [CreateGatewayTarget](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGatewayTarget.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGatewayTarget.md") request body, you specify the credential provider configuration in the `credentialProviderConfigurations` array. The configuration depends on the outbound authorization type that you set up. For reference information about the API structure for the credential provider configuration, see [CredentialProviderConfiguration](../../../bedrock-agentcore-control/latest/APIReference/API_CredentialProviderConfiguration.md "../../../bedrock-agentcore-control/latest/APIReference/API_CredentialProviderConfiguration.md"). For more information on outbound authorization, see [Set up outbound authorization for your gateway](gateway-outbound-auth.md "gateway-outbound-auth.md").
 
 To learn more about a credential provider configuration, select a topic:
 
@@ -12,13 +12,40 @@ To learn more about a credential provider configuration, select a topic:
 
 ## AgentCore Gateway service role (IAM) authorization
 
-If you're using IAM authorization through an AgentCore Gateway service role for your target, you can just specify the `credentialProviderType` as `GATEWAY_IAM_ROLE"` and omit the `credentialProvider` field, as in the following example:
+If you're using IAM authorization through an AgentCore Gateway service role for your target, specify the `credentialProviderType` as `GATEWAY_IAM_ROLE`. The configuration depends on your target type.
+
+**For Lambda, API Gateway, and Smithy targets**
+
+The `iamCredentialProvider` configuration is not needed because the target service name is already known to the AgentCore Gateway service. Use only the `credentialProviderType` configuration, as shown in the following example:
 
 ```
 {
     "credentialProviderType": "GATEWAY_IAM_ROLE"
 }
 ```
+
+**For MCP server targets**
+
+For MCP server targets, you must also provide an `iamCredentialProvider` with the service name used for [AWS Signature Version 4 (Sig V4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md") signing. The `service` field is required. The `region` field is optional and defaults to the gateway's Region.
+
+```
+{
+    "credentialProviderType": "GATEWAY_IAM_ROLE",
+    "credentialProvider": {
+        "iamCredentialProvider": {
+            "service": "bedrock-agentcore",
+            "region": "us-west-2"
+        }
+    }
+}
+```
+
+The following table describes the fields in the `iamCredentialProvider` object:
+
+| Field     | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `service` | Yes      | The AWS service name used for SigV4 signing. This value must match the service name that the target expects when verifying the SigV4 signature. The following are common values:<br>• `bedrock-agentcore` – For MCP servers hosted on Amazon Bedrock AgentCore, such as the runtime (see [Deploy MCP servers in AgentCore Runtime](runtime-mcp.md "runtime-mcp.md")) or another gateway.<br>• `execute-api` – For MCP servers behind Amazon API Gateway.<br>• `lambda` – For MCP servers behind Lambda Function URLs. |
+| `region`  | No       | The AWS Region for SigV4 signing. If omitted, defaults to the gateway's Region.                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 ## OAuth authorization
 
@@ -80,7 +107,7 @@ To learn more about 3LO authentication, see [OAuth 2.0 authorization URL session
 
 ## API key authorization
 
-If you set up API key authorization, you specify the `credentialProviderType` as `API_KEY`. In the object that the `credentialProvider` field maps to, map an `oauthCredentialProvider` field name to an [OAuthCredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_OAuthCredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_OAuthCredentialProvider.md") object and provide the values based on your outbound authorization setup. The following JSON shows the structure:
+If you set up API key authorization, you specify the `credentialProviderType` as `API_KEY`. In the object that the `credentialProvider` field maps to, map an `apiKeyCredentialProvider` field name to an [ApiKeyCredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_ApiKeyCredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_ApiKeyCredentialProvider.md") object and provide the values based on your outbound authorization setup. The following JSON shows the structure:
 
 ```
 {
@@ -88,7 +115,7 @@ If you set up API key authorization, you specify the `credentialProviderType` as
     "credentialProvider": {
         "apiKeyCredentialProvider": {
             "providerArn": "`string`",
-            "credentialLocation": "HEADER" | "QUERY PARAMETER",
+            "credentialLocation": "HEADER" | "QUERY_PARAMETER",
             "credentialParameterName": "`string`",
             "credentialPrefix": "`string`"
         }

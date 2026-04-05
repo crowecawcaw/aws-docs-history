@@ -14,10 +14,7 @@ Select a topic to see examples of adding a target type:
 
 ## Add a Lambda target
 
-If you use the AgentCore starter toolkit (either the CLI or the Python SDK), you can
-add a Lambda target to your gateway by specifying the `--target_type` as
-`lambda` and omitting all optional arguments. The default Lambda function
-and accompanying tool schema can be found in the [AgentCore starter toolkit github](https://github.com/aws/bedrock-agentcore-starter-toolkit/blob/main/src/bedrock_agentcore_starter_toolkit/operations/gateway/constants.py "https://github.com/aws/bedrock-agentcore-starter-toolkit/blob/main/src/bedrock_agentcore_starter_toolkit/operations/gateway/constants.py").
+You can add a Lambda target to your gateway using the AgentCore CLI by specifying the `--type` as `lambda-function-arn` and providing the Lambda ARN and a tool schema file.
 
 ###### Target configuration
 
@@ -33,27 +30,22 @@ For more information about Lambda targets, see [AWS Lambda function targets](gat
 
 Select one of the following methods:
 
-AgentCore starter toolkit (CLI)
-
-###### Add a default Lambda function as a target
-
-To add the default Lambda function as a target to your gateway in the
-AgentCore starter toolkit CLI, run the
-`create_mcp_gateway_target` command and specify the
-`--target_type` argument as `lambda`. The
-following example shows the minimum arguments you can provide:
+AgentCore CLI
+To add a Lambda function as a target, run `agentcore add gateway-target` with the `--type lambda-function-arn` option. Provide the Lambda ARN and a JSON file containing the tool schema:
 
 ```
-agentcore create_mcp_gateway_target \
-  --gateway-arn arn:aws:bedrock-agentcore:us-east-1:123456789012:gateway/my-gateway \
-  --gateway-url https://gateway-id.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
-  --role-arn arn:aws:iam::123456789012:role/AgentCoreGatewayExecutionRole \
-  --target-type lambda
+agentcore add gateway-target \
+  --name MyLambdaTarget \
+  --type lambda-function-arn \
+  --lambda-arn `arn:aws:lambda:us-east-1:123456789012:function:MyFunction` \
+  --tool-schema-file tools.json \
+  --gateway MyGateway
+agentcore deploy
 ```
 
-AgentCore starter toolkit (Python)
-With the AgentCore starter toolkit, you can easily create a Lambda target
-with default configurations.s
+AgentCore Python SDK
+With the AgentCore CLI, you can easily create a Lambda target
+with default configurations.
 
 ```
 # Import dependencies
@@ -168,6 +160,17 @@ target = agentcore_client.create_gateway_target(
 )
 ```
 
+Interactive
+In the AgentCore CLI interactive terminal UI, run
+`agentcore`, select **add**,
+choose **Gateway Target**, and then select
+**Lambda function**:
+
+![TUI target type selection with Lambda function highlighted](images/tui/gateway-target-type-lambda.png)
+
+The wizard then prompts you for the target name, Lambda function ARN,
+tool schema file, and outbound authorization configuration.
+
 ## Add an API Gateway stage target
 
 To add a stage of an API Gateway REST API as a target, specify the ARN of the API and stage and define settings to filter tools in the API gateway or to override names and descriptions of tools in the gateway:
@@ -178,6 +181,19 @@ The following examples show how to add an API Gateway target. The following conf
 - GET /products is renamed as `get_items`.
 
 Select one of the following methods:
+
+AgentCore CLI
+To add an API Gateway REST API stage as a target, run `agentcore add gateway-target` with the `--type api-gateway` option:
+
+```
+agentcore add gateway-target \
+  --name MyAPIGatewayTarget \
+  --type api-gateway \
+  --rest-api-id `your-rest-api-id` \
+  --stage `your-stage` \
+  --gateway MyGateway
+agentcore deploy
+```
 
 AWS CLI
 The following command uses the AWS CLI:
@@ -268,82 +284,32 @@ target = agentcore_client.create_gateway_target(
 )
 ```
 
+Interactive
+In the AgentCore CLI interactive terminal UI, run
+`agentcore`, select **add**,
+choose **Gateway Target**, and then select
+**API Gateway REST API**:
+
+![TUI target type selection showing API Gateway REST API option](images/tui/gateway-target-type-apigw.png)
+
+The wizard then prompts you for the target name, REST API ID, stage,
+and outbound authorization configuration.
+
 ## Add an OpenAPI target
 
 Select one of the following methods:
 
-AgentCore starter toolkit
-
-###### Example with S3 definition and API key outbound authorization
-
-The following example demonstrates adding an OpenAPI schema target to
-a gateway. The schema has been uploaded to an S3 location whose URI is
-referenced in the `target_payload`. Outbound authorization
-for the target is through an API key.
+AgentCore CLI
+To add an OpenAPI schema target, run `agentcore add gateway-target` with the `--type open-api-schema` option and provide the path to your OpenAPI specification file:
 
 ```
-# Import dependencies
-from bedrock_agentcore_starter_toolkit.operations.gateway.client import GatewayClient
-
-# Initialize the client
-gateway_client = GatewayClient(region_name="us-west-2")
-
-# Create an OpenAPI target with API Key authentication
-open_api_target = gateway_client.create_mcp_gateway_target(
-    gateway="your-gateway-id",
-    target_type="openApiSchema",
-    target_payload={
-        "s3": {
-            "uri": "s3://your-bucket/path/to/open-api-spec.json"
-        }
-    },
-    credentials={
-        "api_key": "your-api-key",
-        "credential_location": "HEADER",
-        "credential_parameter_name": "X-API-Key"
-    }
-)
-```
-
-###### Example with S3 definition and OAuth outbound authorization
-
-The following example demonstrates adding an OpenAPI schema target to
-a gateway. The schema has been uploaded to an S3 location whose URI is
-referenced in the `target_payload`. Outbound authorization
-for the target is through an OAuth.
-
-```
-# Import dependencies
-from bedrock_agentcore_starter_toolkit.operations.gateway.client import GatewayClient
-
-# Initialize the client
-gateway_client = GatewayClient(region_name="us-west-2")
-
-# Create an OpenAPI target with OAuth authentication
-open_api_with_oauth_target = gateway_client.create_mcp_gateway_target(
-    gateway="your-gateway-id",
-    target_type="openApiSchema",
-    target_payload={
-        "s3": {
-            "uri": "s3://your-bucket/path/to/open-api-spec.json"
-        }
-    },
-    credentials={
-      "oauth2_provider_config": {
-        "customOauth2ProviderConfig": {
-        "oauthDiscovery": {
-          "authorizationServerMetadata": {
-            "issuer": "https://example.auth0.com",
-            "authorizationEndpoint": "https://example.auth0.com/authorize",
-            "tokenEndpoint": "https://example.auth0.com/oauth/token"
-          }
-        },
-        "clientId": "your-client-id",
-        "clientSecret": "your-client-secret"
-      }
-    }
-  }
-)
+agentcore add gateway-target \
+  --name MyOpenAPITarget \
+  --type open-api-schema \
+  --schema `path/to/openapi-spec.json` \
+  --outbound-auth `none|api-key|oauth` \
+  --gateway MyGateway
+agentcore deploy
 ```
 
 Boto3
@@ -387,39 +353,31 @@ target = agentcore_client.create_gateway_target(
 )
 ```
 
+Interactive
+In the AgentCore CLI interactive terminal UI, run
+`agentcore`, select **add**,
+choose **Gateway Target**, and then select
+**OpenAPI Schema**:
+
+![TUI target type selection showing OpenAPI Schema option](images/tui/gateway-target-type-openapi.png)
+
+The wizard then prompts you for the target name, path to the OpenAPI
+specification file, and outbound authorization configuration.
+
 ## Add a Smithy target
 
 Select one of the following methods:
 
-AgentCore starter toolkit
-The AgentCore starter toolkit lets you create a Smithy target with a
-default model definition in DynamoDB if you omit the
-`targetConfiguration` field. The following example shows the
-creation of the default Smithy model definition and also a custom one
-uploaded to S3.
+AgentCore CLI
+To add a Smithy model target, run `agentcore add gateway-target` with the `--type smithy-model` option and provide the path to your Smithy model file:
 
 ```
-from bedrock_agentcore_starter_toolkit.operations.gateway.client import GatewayClient
-
-# Initialize the Gateway client
-gateway_client = GatewayClient(region_name="us-west-2")
-
-# Create a Smithy model target for a built-in AWS service (this default configuration uses a DynamoDB Smithy model)
-smithy_target = gateway_client.create_mcp_gateway_target(
-    gateway=gateway,
-    target_type="smithyModel"
-)
-
-# Or create a Smithy model target with a custom model
-custom_smithy_target = gateway_client.create_mcp_gateway_target(
-    gateway=gateway,
-    target_type="smithyModel",
-    target_payload={
-        "s3": {
-            "uri": "s3://your-bucket/path/to/smithy-model.json"
-        }
-    }
-)
+agentcore add gateway-target \
+  --name MySmithyTarget \
+  --type smithy-model \
+  --schema `path/to/smithy-model.json` \
+  --gateway MyGateway
+agentcore deploy
 ```
 
 Boto3
@@ -454,44 +412,172 @@ target = agentcore_client.create_gateway_target(
 )
 ```
 
+Interactive
+In the AgentCore CLI interactive terminal UI, run
+`agentcore`, select **add**,
+choose **Gateway Target**, and then select
+**Smithy Model**:
+
+![TUI target type selection showing Smithy Model option](images/tui/gateway-target-type-smithy.png)
+
+The wizard then prompts you for the target name, path to the Smithy
+model file, and outbound authorization configuration.
+
 ## Add an MCP server target
 
-You can add an MCP server target and synchronize targets using the CLI.
+You can add an MCP server target using the AgentCore CLI or AWS Python SDK (Boto3). The following examples show how to create an MCP server target with different outbound authorization types.
 
-CLI
-The AgentCore CLI provides a simple way to add MCP server targets:
+**MCP server with IAM (SigV4) authorization**
+
+The following example creates an MCP server target with IAM authorization. The gateway signs requests to the MCP server using SigV4 with the gateway service role's credentials. You must specify the `service` name for signing. The `region` is optional and defaults to the gateway's Region.
+
+The value of `service` depends on where your MCP server is hosted. The following are common values:
+
+- `bedrock-agentcore` – For MCP servers hosted on Amazon Bedrock AgentCore, such as the runtime (see [Deploy MCP servers in AgentCore Runtime](runtime-mcp.md "runtime-mcp.md")) or another gateway.
+- `execute-api` – For MCP servers behind Amazon API Gateway.
+- `lambda` – For MCP servers behind Lambda Function URLs.
+
+Select one of the following methods:
+
+AWS CLI
 
 ```
-# Create MCP server as target
-{gatewayUrl}/gateways/{gatewayIdentifier}/targets
-{
-    "name": "myMCPTarget",
-    "description": "description of my MCP target",
-    "credentialProviderConfigurations": [{
+aws bedrock-agentcore-control create-gateway-target \
+    --gateway-identifier "your-gateway-id" \
+    --name "MyMCPTarget" \
+    --target-configuration '{
+        "mcp": {
+            "mcpServer": {
+                "endpoint": "https://my-server.bedrock-agentcore.us-west-2.api.aws"
+            }
+        }
+    }' \
+    --credential-provider-configurations '[{
+        "credentialProviderType": "GATEWAY_IAM_ROLE",
+        "credentialProvider": {
+            "iamCredentialProvider": {
+                "service": "bedrock-agentcore",
+                "region": "us-west-2"
+            }
+        }
+    }]'
+```
+
+Interactive
+In the AgentCore CLI interactive terminal UI, run
+`agentcore`, select **add**,
+choose **Gateway Target**, and then select
+**MCP Server endpoint**:
+
+![TUI target type selection with MCP Server endpoint highlighted](images/tui/gateway-target-type-mcp.png)
+
+The wizard then prompts you for the target name, MCP server endpoint URL,
+and outbound authorization configuration.
+
+Boto3
+
+```
+import boto3
+
+agentcore_client = boto3.client('bedrock-agentcore-control')
+
+target = agentcore_client.create_gateway_target(
+    gatewayIdentifier="your-gateway-id",
+    name="MyMCPTarget",
+    targetConfiguration={
+        "mcp": {
+            "mcpServer": {
+                "endpoint": "https://my-server.bedrock-agentcore.us-west-2.api.aws"
+            }
+        }
+    },
+    credentialProviderConfigurations=[
+        {
+            "credentialProviderType": "GATEWAY_IAM_ROLE",
+            "credentialProvider": {
+                "iamCredentialProvider": {
+                    "service": "bedrock-agentcore",
+                    "region": "us-west-2"
+                }
+            }
+        }
+    ]
+)
+```
+
+**MCP server with OAuth authorization**
+
+The following example creates an MCP server target with OAuth (client credentials) authorization.
+
+Select one of the following methods:
+
+AWS CLI
+
+```
+aws bedrock-agentcore-control create-gateway-target \
+    --gateway-identifier "your-gateway-id" \
+    --name "MyMCPTarget" \
+    --target-configuration '{
+        "mcp": {
+            "mcpServer": {
+                "endpoint": "https://my-mcp-server.example.com"
+            }
+        }
+    }' \
+    --credential-provider-configurations '[{
         "credentialProviderType": "OAUTH",
         "credentialProvider": {
             "oauthCredentialProvider": {
-                "providerArn": "arn:aws:bedrock-agentcore:{region}:{account}:token-vault/default/oauth2credentialprovider/resource-provider-oauth-test",
+                "providerArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/oauth2credentialprovider/my-oauth-provider",
                 "scopes": []
             }
         }
-    }],
-    "targetConfiguration": {
+    }]'
+```
+
+AgentCore CLI
+To add an MCP server target with OAuth authorization, run `agentcore add gateway-target` with the `--type mcp-server` option and specify the OAuth credentials:
+
+```
+agentcore add gateway-target \
+  --type mcp-server \
+  --name MyMCPTarget \
+  --endpoint `https://my-mcp-server.example.com` \
+  --gateway MyGateway \
+  --outbound-auth oauth \
+  --oauth-client-id `my-client` \
+  --oauth-client-secret `my-secret` \
+  --oauth-discovery-url `https://auth.example.com/.well-known/openid-configuration`
+agentcore deploy
+```
+
+Boto3
+
+```
+import boto3
+
+agentcore_client = boto3.client('bedrock-agentcore-control')
+
+target = agentcore_client.create_gateway_target(
+    gatewayIdentifier="your-gateway-id",
+    name="MyMCPTarget",
+    targetConfiguration={
         "mcp": {
             "mcpServer": {
-                "endpoint": "myMCPServerURL"
+                "endpoint": "https://my-mcp-server.example.com"
             }
         }
-    }
-}
-
-# SynchronizeGatewayTargets
-{gatewayUrl}/gateways/{gatewayIdentifier}/synchronizeTargets
-{
-    "targetIdList": [
-        "<targetId>"
+    },
+    credentialProviderConfigurations=[
+        {
+            "credentialProviderType": "OAUTH",
+            "credentialProvider": {
+                "oauthCredentialProvider": {
+                    "providerArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/oauth2credentialprovider/my-oauth-provider",
+                    "scopes": []
+                }
+            }
+        }
     ]
-}
-
-
+)
 ```

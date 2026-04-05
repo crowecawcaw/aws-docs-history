@@ -4,6 +4,41 @@ Use the [Strands Agents](https://strandsagents.com/latest/ "https://strandsagent
 seamless integration with agent frameworks, providing automatic memory management and
 retrieval within conversational agents.
 
+First, create a memory with all three long-term strategies. You can do this with the
+AgentCore CLI or through the SDK code in the examples below.
+
+AgentCore CLI
+The AgentCore CLI memory commands must be run inside an existing
+agentcore project. If you don't have one yet, create a project
+first:
+
+```
+agentcore create --name my-agent --no-agent
+cd my-agent
+```
+
+Then add memory and deploy:
+
+```
+agentcore add memory --name ComprehensiveAgentMemory \
+  --strategies SEMANTIC,SUMMARIZATION,USER_PREFERENCE
+agentcore deploy
+```
+
+Interactive
+Run `agentcore` to open the TUI, then select
+**add** and choose **Memory**:
+
+1. Enter the memory name:
+
+![Memory wizard: enter ComprehensiveAgentMemory name](images/tui/strands-memory-add-name.png) 2. Select all three strategies (Semantic, Summarization, User preference):
+
+![Memory wizard: select all three memory strategies](images/tui/strands-memory-add-strategies.png) 3. Review the configuration and press Enter to confirm:
+
+![Memory wizard: confirm ComprehensiveAgentMemory with all strategies](images/tui/strands-memory-add-confirm.png)
+
+Then run `agentcore deploy` to provision the memory in AWS.
+
 **Install dependencies**
 
 ```

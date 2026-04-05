@@ -20,7 +20,7 @@ Fine-grained access control in Gateway can be implemented at multiple levels:
 
 **Gateway-level access**
 
-Controls which users or agents can connect to and authenticate with the gateway through OAuth authorization servers.
+Controls which users or agents can connect to and authenticate with the gateway through OAuth authorization servers or AWS IAM authentication.
 
 **Tool-level access**
 
@@ -41,6 +41,10 @@ You can implement fine-grained access control using:
 **JWT claims validation**
 
 Use interceptors to examine JWT claims such as user roles, departments, or custom attributes to make authorization decisions.
+
+**IAM principal matching**
+
+For IAM-authenticated gateways, implement access control by matching against the caller's IAM ARN. Use pattern matching on `principal.id` in Cedar policies to restrict access based on AWS accounts, roles, or users.
 
 **External authorization services**
 

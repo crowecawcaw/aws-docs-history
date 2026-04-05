@@ -1,14 +1,22 @@
-# Example: Authorization for the default gateway and target created by the AgentCore starter toolkit
+# Example: Authorization for the default gateway and target created by the AgentCore CLI
 
-If you used the AgentCore starter toolkit to create a gateway and a Lambda target,
-you'll authorize with the following:
+If you used the AgentCore CLI to create a gateway and a Lambda target,
+the CLI configures JWT-based inbound authorization and IAM-based outbound authorization for you automatically.
+
+###### Note
+
+If you invoke your gateway using `agentcore invoke`, the CLI handles
+authentication automatically. The steps below are only needed if you want to invoke
+the gateway programmatically (for example, using the AWS SDK or `curl`).
+
+For programmatic access, you'll authorize with the following:
 
 - **Inbound authorization using JWT** –
   Obtain the access token from the Amazon Cognito authorization that was automatically set
   up for you and include it in the authorization header. See the example below to
   learn how to obtain the token.
 - **Outbound authorization using IAM** –
-  The AgentCore starter toolkit configures the following permissions for you, so
+  The AgentCore CLI configures the following permissions for you, so
   you don't need any additional setup:
 
       + Your gateway service role has permissions to invoke all functions in
@@ -18,7 +26,7 @@ you'll authorize with the following:
        role as a `Principal` that can invoke it.
 
   You can obtain the access token created for your gateway by the
-  AgentCore starter toolkit with the help of Amazon Cognito by collecting the following
+  AgentCore CLI with the help of Amazon Cognito by collecting the following
   information:
 
 - **Token endpoint** – Find at the **Discovery URL** in the authorizer configuration for the

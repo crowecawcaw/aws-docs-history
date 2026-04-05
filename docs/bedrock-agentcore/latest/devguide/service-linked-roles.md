@@ -10,6 +10,7 @@ AgentCore uses the following service-linked roles:
 
 - `AWSServiceRoleForBedrockAgentCoreNetwork` - Manages network interfaces in your VPC
 - `AWSServiceRoleForBedrockAgentCoreRuntimeIdentity` - Manages workload identity access tokens and OAuth credentials for agent runtimes
+- `AWSServiceRoleForBedrockAgentCoreGatewayNetwork` - Manages Amazon VPC Lattice resources for AgentCore Gateway private connectivity
 
 ## AgentCore service-linked role permissions
 
@@ -178,12 +179,118 @@ The service-linked role ensures that AgentCore can only access workload identity
 
 For implementation details, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").
 
+### Gateway service-linked role
+
+AgentCore uses the service-linked role named `AWSServiceRoleForBedrockAgentCoreGatewayNetwork` to allow AgentCore Gateway to create and manage Amazon VPC Lattice resources in your account on your behalf. This role is used when you configure a gateway target with a managed private endpoint, enabling AgentCore Gateway to set up the necessary VPC Lattice resource gateways for private connectivity to resources in your VPC.
+
+The `AWSServiceRoleForBedrockAgentCoreGatewayNetwork` service-linked role trusts the following services to assume the role:
+
+- `bedrock-agentcore.amazonaws.com`
+
+The role permissions policy allows AgentCore to complete the following actions on the specified resources:
+
+You can view the complete policy at [BedrockAgentCoreGatewayNetworkServiceRolePolicy](../../../aws-managed-policy/latest/reference/BedrockAgentCoreGatewayNetworkServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreGatewayNetworkServiceRolePolicy.md").
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowSLRActionsForLattice",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateServiceLinkedRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::*:role/aws-service-role/vpc-lattice.amazonaws.com/AWSServiceRoleForVpcLattice"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "iam:AWSServiceName": "vpc-lattice.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "AllowResourceGatewayCreate",
+            "Effect": "Allow",
+            "Action": [
+                "vpc-lattice:CreateResourceGateway",
+                "vpc-lattice:TagResource"
+            ],
+            "Resource": [
+                "arn:aws:vpc-lattice:*:*:resourcegateway/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/BedrockAgentCoreGatewayManaged": "true",
+                    "aws:ResourceTag/BedrockAgentCoreGatewayManaged": "true"
+                }
+            }
+        },
+        {
+            "Sid": "AllowEC2PermissionsForResourceGatewayCreate",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeSubnets",
+                "ec2:DescribeVpcs",
+                "ec2:DescribeSecurityGroups"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "AllowResourceGatewayDelete",
+            "Effect": "Allow",
+            "Action": [
+                "vpc-lattice:DeleteResourceGateway",
+                "vpc-lattice:GetResourceGateway"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceTag/BedrockAgentCoreGatewayManaged": "true"
+                }
+            }
+        }
+    ]
+}
+```
+
+###### Understanding the Gateway Managed Lattice Feature
+
+The service-linked role is used to support the managed private endpoint feature for AgentCore Gateway targets. When you create a gateway target with a managed private endpoint, AgentCore uses this role to create and manage VPC Lattice resource gateways in your account on your behalf. These managed resource gateways enable private connectivity between AgentCore Gateway and resources in your VPC without requiring you to set up VPC Lattice resources manually.
+
+###### Key Benefits of Managed Lattice Resources
+
+- **Simplified Setup**: Eliminates the need to manually create and configure VPC Lattice resource gateways
+- **Scoped-down Networking permissions**: Application developers don't need VPC Lattice networking permissions in their own IAM policies
+- **Managed Lifecycle**: AgentCore manages the full lifecycle of the Lattice resources, including creation, reuse, and cleanup
+- **Automatic Provisioning**: The service-linked role is created automatically when you create a gateway target with a managed private endpoint
+
+###### How Managed Lattice Resources Work
+
+When you create a gateway target with a managed private endpoint:
+
+1. You specify the VPC, subnets, and optional security groups for the private endpoint in the `managedLatticeResource` configuration
+2. AgentCore creates the service-linked role automatically if it does not already exist
+3. AgentCore uses the role to create a managed VPC Lattice resource gateway in your account, tagged with `BedrockAgentCoreGatewayManaged`
+4. AgentCore sets up the necessary VPC Lattice resources to enable private connectivity
+5. When you delete the gateway target, AgentCore cleans up the managed Lattice resources that are no longer in use
+
+###### Note
+
+The service-linked role can only manage VPC Lattice resource gateways that are tagged with `BedrockAgentCoreGatewayManaged`. It cannot modify or delete resource gateways that you create and manage yourself. If you use the self-managed Lattice resource option for your gateway targets, this service-linked role is not required.
+
 ## Creating a service-linked role for AgentCore
 
 You don't need to manually create service-linked roles. AgentCore creates them automatically when needed:
 
 - **Network service-linked role**: Created when you create an AgentCore Runtime, Code Interpreter, or Browser resources with VPC configuration
 - **Identity service-linked role**: Created when you create or update an AgentCore Runtime on or after **October 13, 2025**
+- **Gateway service-linked role**: Created when you create a AgentCore Gateway target with a managed private endpoint (`managedLatticeResource`) configuration
 
 If you delete a service-linked role and then need to create it again, you can use the same process to re-create the role in your account. When you create the appropriate AgentCore resources, AgentCore creates the service-linked role for you again.
 
@@ -222,12 +329,27 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 }
 ```
 
+###### For the Gateway service-linked role
+
+```
+{
+    "Effect": "Allow",
+    "Action": "iam:CreateServiceLinkedRole",
+    "Resource": "arn:aws:iam::*:role/aws-service-role/bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreGatewayNetwork",
+    "Condition": {
+        "StringEquals": {
+            "iam:AWSServiceName": "bedrock-agentcore.amazonaws.com"
+        }
+    }
+}
+```
+
 These permissions are already included in the AWS managed policy
 [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md").
 
 ## Editing a service-linked role for AgentCore
 
-AgentCore does not allow you to edit the `AWSServiceRoleForBedrockAgentCoreNetwork` or `AWSServiceRoleForBedrockAgentCoreRuntimeIdentity` service-linked roles. After you create a service-linked role, you cannot change the name of the role because various entities might reference the role. However, you can edit the description of the role using IAM. For more information, see
+AgentCore does not allow you to edit the `AWSServiceRoleForBedrockAgentCoreNetwork`, `AWSServiceRoleForBedrockAgentCoreRuntimeIdentity`, or `AWSServiceRoleForBedrockAgentCoreGatewayNetwork` service-linked roles. After you create a service-linked role, you cannot change the name of the role because various entities might reference the role. However, you can edit the description of the role using IAM. For more information, see
 [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role").
 
 ## Deleting a service-linked role for AgentCore
@@ -236,6 +358,7 @@ If you no longer need to use a feature or service that requires a service-linked
 
 - **Network service-linked role**: Delete all AgentCore Runtime, Code Interpreter, and Browser resources with VPC configuration
 - **Identity service-linked role**: Delete all AgentCore Runtime resources
+- **Gateway service-linked role**: Delete all AgentCore Gateway targets that use managed private endpoints (`managedLatticeResource` configuration)
 
 ### Cleaning up a service-linked role
 
@@ -256,6 +379,7 @@ If you want to remove a service-linked role, you must first delete the appropria
 
 - `AWSServiceRoleForBedrockAgentCoreNetwork`: Delete all AgentCore Runtime, Code Interpreter, and Browser resources with VPC configuration
 - `AWSServiceRoleForBedrockAgentCoreRuntimeIdentity`: Delete all AgentCore Runtime resources
+- `AWSServiceRoleForBedrockAgentCoreGatewayNetwork`: Delete all AgentCore Gateway targets that use managed private endpoints. After all managed targets are deleted, AgentCore releases the managed VPC Lattice resource gateways that are no longer in use.
 
 ### Manually delete the service-linked role
 

@@ -8,11 +8,11 @@ Before you create your gateway, you must set up inbound authorization. Inbound a
 
 ###### Important
 
-Do not use No Authorization gateways for testing or development purposes. No Authorization gateways should only be used for production gateways that you intend to make public after you have implemented all the security best practices listed later on in this page.
+Do not use No Authorization gateways for production workloads. No Authorization gateways should only be used for testing and development purposes where security is not a primary concern.
 
 ###### Note
 
-If use the AWS Management Console or AgentCore starter toolkit to create your gateway, you can create a default inbound authorization configuration using Amazon Cognito during gateway creation. If you plan to use the default authorization configuration, you can skip this prerequisite.
+If you use the AWS Management Console or AgentCore CLI to create your gateway, you can create a default inbound authorization configuration using Amazon Cognito during gateway creation. If you plan to use the default authorization configuration, you can skip this prerequisite.
 
 If you don't plan to use the default authorization configuration using Amazon Cognito, select the topic that corresponds to the type of authorization that you plan to use to learn how to set it up:
 
@@ -72,7 +72,7 @@ of the JWT token in CloudTrail. The entry includes the [Subject](http://openid.n
 using any personally identifiable information (PII) in this field. For example,
 you could instead use a GUID or a pairwise identifier, as [suggested in the OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes "http://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes").
 
-You can use the AgentCore starter toolkit to set up a default JWT, or create one manually with a supported identity provider. To learn more about different methods for setting up a JWT, select from the following topics:
+You can use the AgentCore CLI to set up a default JWT, or create one manually with a supported identity provider. To learn more about different methods for setting up a JWT, select from the following topics:
 
 ###### Topics
 
@@ -81,19 +81,13 @@ You can use the AgentCore starter toolkit to set up a default JWT, or create one
 
 ### Set up a default JWT
 
-The AgentCore starter toolkit lets you easily create a default authorization configuration using Amazon Cognito that you can then use when creating a gateway. To create this default JWT, run the following code example:
+The AgentCore CLI lets you easily create a default authorization configuration using Amazon Cognito that you can then use when creating a gateway. When you run `agentcore create`, the CLI prompts you to configure inbound authorization and can automatically set up a Amazon Cognito user pool for you.
 
 ```
-# Initialize gateway client from starter toolkit
-from bedrock_agentcore_starter_toolkit.operations.gateway.client import GatewayClient
-client = GatewayClient()
-
-# Retrieve JWT from the create response and store as the authorization configuration. When you create the gateway, specify it in the authorizer_config field
-cognito_result = client.create_oauth_authorizer_with_cognito("my-gateway")
-authorizer_configuration = cognito_result["authorizer_config"]
+agentcore create
 ```
 
-The `cognito_result` contains authentication and authorization information:
+After the command completes, the AgentCore CLI provides authentication and authorization information:
 
 - You'll use the authorizer configuration when you create the gateway.
 - For inbound authorization when invoking your gateway, you'll need to obtain an access token by using your client ID, client secret, and the token endpoint. For more information on how to obtain your access token, see the **Example** at [Use an AgentCore gateway](gateway-using.md "gateway-using.md") or [The token issuer endpoint](../../../cognito/latest/developerguide/token-endpoint.md "../../../cognito/latest/developerguide/token-endpoint.md") in the Amazon Cognito Developer Guide.
@@ -122,7 +116,7 @@ You can create a gateway that is configured with no authorization by using `auth
 
 ###### Important
 
-Do not use No Authorization gateways for testing or development purposes. No Authorization gateways should only be used for production gateways that you intend to make public after you have implemented all the security best practices listed below.
+Do not use No Authorization gateways for production workloads unless you have implemented all the security best practices listed below. No Authorization gateways are most appropriate for testing and development purposes.
 
 ###### Security Best Practices
 

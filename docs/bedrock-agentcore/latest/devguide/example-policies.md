@@ -10,6 +10,7 @@ authorization patterns that you can adapt for your own applications.
 - [Authorization policies](#authorization-policies "#authorization-policies")
 - [Understanding authorization semantics](#authorization-semantics "#authorization-semantics")
 - [Test scenarios](#test-scenarios "#test-scenarios")
+- [IAM-based authorization examples](#iam-authorization-examples "#iam-authorization-examples")
 
 ## Available tools
 
@@ -396,3 +397,120 @@ coverageType="auto-liability"
 
 **Expected:** ALLOW (Policy 7, pattern matches
 "auto")
+
+## IAM-based authorization examples
+
+When your AgentCore Gateway uses AWS_IAM authentication instead of OAuth, the principal in Cedar
+policies is represented as `AgentCore::IamEntity`. IAM principals have an
+`id` attribute containing the caller's IAM ARN, which enables account-based and
+role-based access control using pattern matching.
+
+### Basic IAM entity permit
+
+This policy permits any IAM-authenticated caller to use a specific tool:
+
+```
+
+permit(
+  principal is AgentCore::IamEntity,
+  action == AgentCore::Action::"OrderAPI__get_order",
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/order-gateway"
+);
+
+```
+
+**Explanation:** This is the simplest form of IAM policy.
+It permits any caller authenticated via AWS_IAM to call the get_order tool. Use this when
+you only need to verify that callers are IAM-authenticated without additional
+restrictions.
+
+### Account-based restriction
+
+Restrict tool access to callers from specific AWS accounts:
+
+```
+
+permit(
+  principal is AgentCore::IamEntity,
+  action == AgentCore::Action::"OrderAPI__process_order",
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/order-gateway"
+)
+when {
+  principal.id like "*:111122223333:*"
+};
+
+```
+
+**Explanation:** The `principal.id` contains the
+full IAM ARN (e.g., `arn:aws:iam::111122223333:role/MyRole`). The pattern
+`*:111122223333:*` matches any ARN containing that account ID. This restricts
+access to callers from the specified AWS account only.
+
+### Role-based restriction
+
+Restrict administrative tools to specific IAM roles:
+
+```
+
+permit(
+  principal is AgentCore::IamEntity,
+  action == AgentCore::Action::"AdminAPI__delete_resource",
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/admin-gateway"
+)
+when {
+  principal.id like "arn:aws:iam::*:role/AdminRole"
+};
+
+```
+
+**Explanation:** This policy uses pattern matching to
+restrict access to callers using a specific IAM role name. The wildcard `*` in
+the account position allows the role from any account. To restrict to a specific account,
+use the full account ID: `arn:aws:iam::111122223333:role/AdminRole`.
+
+### IAM with input validation
+
+Combine IAM principal matching with tool input validation:
+
+```
+
+permit(
+  principal is AgentCore::IamEntity,
+  action == AgentCore::Action::"RefundAPI__process_refund",
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/refund-gateway"
+)
+when {
+  principal.id like "*:111122223333:*" &&
+  context.input has amount &&
+  context.input.amount < 1000
+};
+
+```
+
+**Explanation:** This policy combines account-based access
+control with input validation. Only callers from the specified account can process refunds,
+and only when the refund amount is less than $1000. This demonstrates how IAM authorization
+works alongside the same `context.input` conditions used with OAuth.
+
+### Forbid specific accounts
+
+Block callers from specific AWS accounts from accessing sensitive tools:
+
+```
+
+forbid(
+  principal is AgentCore::IamEntity,
+  action == AgentCore::Action::"AdminAPI__delete_resource",
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/admin-gateway"
+)
+when {
+  principal.id like "*:444455556666:*"
+};
+
+```
+
+**Explanation:** This forbid policy blocks all callers from a
+third-party vendor account (444455556666) from performing administrative deletions. Even though
+the vendor may have been granted IAM permissions for other operations, this policy ensures they
+cannot delete resources. Due to forbid-wins semantics, this takes precedence over any permit
+policies.

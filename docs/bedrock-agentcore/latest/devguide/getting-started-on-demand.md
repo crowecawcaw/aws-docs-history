@@ -102,46 +102,56 @@ For evaluations we require:
   hosted on AgentCore Runtime.
   - For on-demand evaluation, we need to download the spans from CloudWatch
     log groups and use them for evaluation.
-  - **AgentCore starter toolkit** does
+  - **AgentCore CLI** does
     this for you automatically and is the easiest to get started
     with.
-  - If you are not using starter toolkit, we will show how to download
-    logs using session-id and use them for evaluation using AWS
-    SDK.
+  - If you are not using the AgentCore CLI, we will show
+    how to download logs using session-id and use them for evaluation
+    using the AWS SDK.
 
 ###### Topics
 
-- [Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK](#starter-toolkit-evaluation "#starter-toolkit-evaluation")
+- [Code samples for AgentCore CLI and AgentCore SDK](#agentcore-cli-evaluation "#agentcore-cli-evaluation")
 - [AWS SDK](#aws-sdk-evaluation "#aws-sdk-evaluation")
 
-### Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
+### Code samples for AgentCore CLI and AgentCore SDK
 
 The following code samples demonstrate how to run on-demand evaluations using
 different development approaches. Choose the method that best fits your
 development environment and preferences.
 
-AgentCore starter toolkit CLI
+AgentCore CLI
 
 ````
-# Runs evaluation for the specified agent and session.
+# Runs evaluation for the specified runtime and session.
 # It auto queries cloudwatch logs and orchestrates evaluation over multiple evaluators.
 
-AGENT_ID="YOUR_AGENT_ID"
+RUNTIME_NAME="your_runtime_name"
 SESSION_ID="YOUR_SESSION_ID"
-agentcore eval run \
-  --agent-id $AGENT_ID \
+agentcore run eval \
+  --runtime $RUNTIME_NAME \
   --session-id $SESSION_ID \
   --evaluator "Builtin.Helpfulness" \
   --evaluator "Builtin.GoalSuccessRate"
 
-# Auto reads default agentId and sessionId from current agent config (.bedrock_agentcore.yaml) if available
-# Verify using ```agentcore status``` or look for ".bedrock_agentcore.yaml"
-agentcore eval run \
+# Auto reads default runtime from current project config if available
+# Verify using ```agentcore status```
+agentcore run eval \
   --evaluator "Builtin.Helpfulness" \
   --evaluator "Builtin.GoalSuccessRate"
 ````
 
-AgentCore starter toolkit SDK
+Interactive
+Run `agentcore` to open the TUI, then select
+**run** and choose **On-demand Evaluation**:
+
+1. Select evaluators to run against agent traces:
+
+![On-demand evaluation: select evaluators](images/tui/eval-run-evaluators.png) 2. Review the configuration and press Enter to confirm:
+
+![On-demand evaluation: review configuration](images/tui/eval-run-confirm.png)
+
+AgentCore SDK
 
 ```
 from bedrock_agentcore_starter_toolkit import Evaluation
@@ -200,9 +210,9 @@ import time
 import json
 from datetime import datetime, timedelta
 
-region = region-code
-agent_id = add the agent-id from step-2 here
-session_id = use the session-id from step-3 here
+region = "region-code"
+agent_id = "agent-id-from-step-2"
+session_id = "session-id-from-step-3"
 
 def query_logs(log_group_name, query_string):
     client = boto3.client('logs', region_name=region)

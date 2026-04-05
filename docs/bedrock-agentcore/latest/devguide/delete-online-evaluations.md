@@ -9,7 +9,7 @@ An online evaluation can only be deleted when the configuration is in Active,
 UpdateFailed, or Disabled status. Configurations currently being created or updated must
 complete their operations before deletion is allowed.
 
-## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
+## Code samples for AgentCore CLI, AgentCore SDK, and AWS SDK
 
 The following code samples demonstrate how to delete online evaluation
 configurations using different development approaches. Choose the method that best
@@ -19,8 +19,20 @@ AgentCore CLI
 
 ```
 # Delete (with confirmation prompt)
-agentcore eval online delete --config-id "config-abc123"
+agentcore remove online-eval --name "your_config_name"
+agentcore deploy
 ```
+
+The `remove` command removes the online evaluation
+configuration from your local project. Run `agentcore deploy`
+to apply the deletion to your AWS account.
+
+Interactive
+
+- Run `agentcore remove` and select
+  **Online Eval Config** from the resource type menu.
+
+![Remove resource type selection](images/tui/eval-remove-select.png)
 
 AgentCore SDK
 

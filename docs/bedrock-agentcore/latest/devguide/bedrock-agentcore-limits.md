@@ -47,15 +47,14 @@ Guide_.
 The following table describes the invocation limits for AgentCore Runtime.
 You can request increases for some quotas using the Service Quotas console.
 
-| Invocation limits                 | Limit           | Value | Adjustable                                                                         | Notes |
-| --------------------------------- | --------------- | ----- | ---------------------------------------------------------------------------------- | ----- |
-| Request timeout                   | 15 minutes      | No    | Maximum time for synchronous requests                                              |
-| Maximum payload size              | 100 MB          | No    | Maximum size for request/response payloads                                         |
-| Streaming chunk size              | 10 MB           | No    | Maximum size for individual chunks                                                 |
-| Streaming maximum duration        | 60 mins         | No    | Maximum time for streaming connections (Response streaming, WebSocket connections) |
-| Asynchronous job maximum duration | 8 hours         | No    | Maximum execution time for asynchronous jobs                                       |
-| Invocations per second            | 25 per endpoint | Yes   | Rate limit for API calls                                                           |
-| WebSocket frame size              | 32 KB           | No    | Maximum size for individual WebSocket frames                                       |
+| Invocation limits                 | Limit      | Value | Adjustable                                                                         | Notes |
+| --------------------------------- | ---------- | ----- | ---------------------------------------------------------------------------------- | ----- |
+| Request timeout                   | 15 minutes | No    | Maximum time for synchronous requests                                              |
+| Maximum payload size              | 100 MB     | No    | Maximum size for request/response payloads                                         |
+| Streaming chunk size              | 10 MB      | No    | Maximum size for individual chunks                                                 |
+| Streaming maximum duration        | 60 mins    | No    | Maximum time for streaming connections (Response streaming, WebSocket connections) |
+| Asynchronous job maximum duration | 8 hours    | No    | Maximum execution time for asynchronous jobs                                       |
+| WebSocket frame size              | 64 KB      | No    | Maximum size for individual WebSocket frames                                       |
 
 For more information about service quotas and how to request increases, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User
 Guide_.
@@ -199,30 +198,30 @@ The AgentCore service principal is:
 Amazon Bedrock AgentCore Gateway has the following service quotas. You can request increases for
 some quotas using the Service Quotas console.
 
-| Amazon Bedrock AgentCore Gateway service quotas                                       | Quota                      | Default value | Adjustable |
-| ------------------------------------------------------------------------------------- | -------------------------- | ------------- | ---------- |
-| Number of gateways per account                                                        | 1000                       | Yes           |
-| Number of targets per gateway                                                         | 100                        | Yes           |
-| Number of tools per target                                                            | 1000                       | Yes           |
-| Timeout for a gateway invocation                                                      | 15 minutes                 | Yes           |
-| Maximum inline schema size                                                            | 1 MB                       | Yes           |
-| Maximum S3 payload schema size                                                        | 10 MB                      | Yes           |
-| Tool name character limit                                                             | 256 characters             | Yes           |
-| CreateGateway API rate                                                                | 5 transactions per second  | Yes           |
-| UpdateGateway API rate                                                                | 5 transactions per second  | Yes           |
-| GetGateway API rate                                                                   | 10 transactions per second | Yes           |
-| ListGateways API rate                                                                 | 10 transactions per second | Yes           |
-| DeleteGateway API rate                                                                | 5 transactions per second  | Yes           |
-| CreateGatewayTarget API rate                                                          | 5 transactions per second  | Yes           |
-| UpdateGatewayTarget API rate                                                          | 5 transactions per second  | Yes           |
-| GetGatewayTarget API rate                                                             | 10 transactions per second | Yes           |
-| ListGatewayTargets API rate                                                           | 10 transactions per second | Yes           |
-| DeleteGatewayTarget API rate                                                          | 5 transactions per second  | Yes           |
-| Concurrent target operations (total of<br>Create/Update/DeleteTarget) on same gateway | 5                          | Yes           |
-| tool-call/tool-list rate at gateway level                                             | 50 concurrent connections  | Yes           |
-| tool-call/tool-list rate at account level                                             | 50 concurrent connections  | Yes           |
-| Search-based tool-call rate                                                           | 25 transactions per minute | Yes           |
-| Maximum tool-call/tool-list/tool-search payload size                                  | 6 MB                       | Yes           |
+| Amazon Bedrock AgentCore Gateway service quotas                                       | Quota                       | Default value | Adjustable |
+| ------------------------------------------------------------------------------------- | --------------------------- | ------------- | ---------- |
+| Number of gateways per account                                                        | 1000                        | Yes           |
+| Number of targets per gateway                                                         | 100                         | Yes           |
+| Number of tools per target                                                            | 1000                        | Yes           |
+| Timeout for a gateway invocation                                                      | 15 minutes                  | Yes           |
+| Maximum inline schema size                                                            | 1 MB                        | Yes           |
+| Maximum S3 payload schema size                                                        | 10 MB                       | Yes           |
+| Tool name character limit                                                             | 256 characters              | Yes           |
+| CreateGateway API rate                                                                | 5 transactions per second   | Yes           |
+| UpdateGateway API rate                                                                | 5 transactions per second   | Yes           |
+| GetGateway API rate                                                                   | 10 transactions per second  | Yes           |
+| ListGateways API rate                                                                 | 10 transactions per second  | Yes           |
+| DeleteGateway API rate                                                                | 5 transactions per second   | Yes           |
+| CreateGatewayTarget API rate                                                          | 5 transactions per second   | Yes           |
+| UpdateGatewayTarget API rate                                                          | 5 transactions per second   | Yes           |
+| GetGatewayTarget API rate                                                             | 10 transactions per second  | Yes           |
+| ListGatewayTargets API rate                                                           | 10 transactions per second  | Yes           |
+| DeleteGatewayTarget API rate                                                          | 5 transactions per second   | Yes           |
+| Concurrent target operations (total of<br>Create/Update/DeleteTarget) on same gateway | 5                           | Yes           |
+| tool-call/tool-list rate at gateway level                                             | 1000 concurrent connections | Yes           |
+| tool-call/tool-list rate at account level                                             | 1000 concurrent connections | Yes           |
+| Search-based tool-call rate                                                           | 25 transactions per minute  | Yes           |
+| Maximum tool-call/tool-list/tool-search payload size                                  | 6 MB                        | Yes           |
 
 For more information about service quotas and how to request increases, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User
 Guide_.
@@ -323,7 +322,6 @@ tool:
 | ---------------------------------- | ------- | ----- | ------------------------------------------------ | ----- |
 | Request timeout                    | 15 mins | No    | Maximum time for synchronous requests            |
 | Max payload size                   | 100 MB  | No    | Maximum size for request/response payloads       |
-| Invocations per second             | 3       | No    | Rate limit for API calls per session             |
 | Asynchronous command max duration  | 8 hrs   | No    | Maximum execution time for asynchronous commands |
 | Disk size                          | 10 GB   | No    | Maximum disk space available per session         |
 

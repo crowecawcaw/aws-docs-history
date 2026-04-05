@@ -7,8 +7,7 @@ needs to follow [AgentCore Runtime requirements](runtime-service-contract.md "ru
 SDK](https://github.com/aws/bedrock-agentcore-sdk-python "https://github.com/aws/bedrock-agentcore-sdk-python") or implements `/invocations` POST and `/ping` GET
 server endpoints.
 
-To create your deployment package as .zip file archive, you can use [Amazon Bedrock AgentCore starter
-toolkit](https://github.com/aws/bedrock-agentcore-starter-toolkit "https://github.com/aws/bedrock-agentcore-starter-toolkit") or follow the steps in the _Custom zip + boto3_ tab below, or any
+To create your deployment package as .zip file archive, you can use [AgentCore CLI](https://github.com/aws/agentcore-cli "https://github.com/aws/agentcore-cli") or follow the steps in the _Custom zip + boto3_ tab below, or any
 other .zip file utility such as [7zip](https://www.7-zip.org/download.html "https://www.7-zip.org/download.html"). The examples shown in the following sections assume you're using a
 command-line `zip` tool in a Linux or MacOS environment. To use the same commands
 in Windows, you can [install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10 "https://docs.microsoft.com/en-us/windows/wsl/install-win10") to get a Windows-integrated version of
@@ -38,8 +37,8 @@ Before you start, make sure you have:
 - [**Uv**](https://docs.astral.sh/uv/getting-started/installation/ "https://docs.astral.sh/uv/getting-started/installation/")
   **installed** and [**Python 3.10+**](https://docs.astral.sh/uv/guides/install-python/ "https://docs.astral.sh/uv/guides/install-python/") installed
 - **AWS Permissions**: To create and deploy an
-  agent with the starter toolkit, you must have appropriate permissions. For
-  information, see [Use the starter toolkit](runtime-permissions.md#runtime-permissions-starter-toolkit "runtime-permissions.md#runtime-permissions-starter-toolkit").
+  agent with the AgentCore CLI, you must have appropriate permissions. For
+  information, see [Use the AgentCore CLI](runtime-permissions.md#runtime-permissions-cli "runtime-permissions.md#runtime-permissions-cli").
 - **Model access**: Anthropic Claude Sonnet 4.0
   [enabled](../../../bedrock/latest/userguide/model-access-modify.md "../../../bedrock/latest/userguide/model-access-modify.md") in the Amazon Bedrock console. For information about using a
   different model with the Strands Agents see the _Model
@@ -61,10 +60,10 @@ Add core packages:
 uv add bedrock-agentcore strands-agents
 ```
 
-Add optional packages:
+Install the AgentCore CLI (required for the steps that follow):
 
 ```
-uv add --dev bedrock-agentcore-starter-toolkit
+npm install -g @aws/agentcore
 ```
 
 Package descriptions:
@@ -72,10 +71,10 @@ Package descriptions:
 - **bedrock-agentcore** - The Amazon Bedrock AgentCore SDK
   for building AI agents
 - **strands-agents** - The [Strands Agents](https://strandsagents.com/latest/ "https://strandsagents.com/latest/") SDK
-- **bedrock-agentcore-starter-toolkit** - The
-  Amazon Bedrock AgentCore starter toolkit
+- **@aws/agentcore** - The
+  AgentCore CLI
 
-Optional, `uv add aws-opentelemetry-distro`, to enable [Amazon Bedrock AgentCore observability traces](../../../xray/latest/devguide/xray-services-adot.md "../../../xray/latest/devguide/xray-services-adot.md").
+Optionally, run `uv add aws-opentelemetry-distro` to enable [Amazon Bedrock AgentCore observability traces](../../../xray/latest/devguide/xray-services-adot.md "../../../xray/latest/devguide/xray-services-adot.md").
 
 Uv will automatically create a `pyproject.toml` file with
 dependencies, `uv.lock` file with dependency closure and
@@ -99,14 +98,14 @@ The command will prompt you to:
 This command generates:
 
 - Agent code with your selected framework
-- A `requirements.txt` file with necessary dependencies
-- A `.bedrock_agentcore.yaml` configuration file
+- A `pyproject.toml` file with necessary dependencies
+- An `agentcore/agentcore.json` configuration file
 - Infrastructure as Code (IaC) files if production template is selected
 
 ## Step 3: Test locally
 
 Make sure port 8080 is free before starting. See _Port 8080 in use (local
-only)_ in [Common issues and solutions](runtime-get-started-toolkit.md#common-issues "runtime-get-started-toolkit.md#common-issues").
+only)_ in [Common issues and solutions](runtime-get-started-cli.md#common-issues "runtime-get-started-cli.md#common-issues").
 
 Open a terminal window and start your agent with the following command:
 
@@ -138,23 +137,23 @@ see [View observability data for your Amazon Bedrock AgentCore agents](observabi
 
 Deploy your agent using one of the following methods:
 
-starter toolkit
+AgentCore CLI
 The following steps will be required to deploy an agent to AgentCore Runtime,
-refer to [Get started with the Amazon Bedrock AgentCore starter toolkit](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md"), for
-detailed steps. If Uv is available, the starter toolkit will recommend
+refer to [Get started with the AgentCore CLI](runtime-get-started-cli.md "runtime-get-started-cli.md"), for
+detailed steps. If Uv is available, the AgentCore CLI will recommend
 direct code deployment. Otherwise it will default to container deployment
 type.
 
-Once you have your agent set up using `agentcore create`, use the `launch` command to create a zip deployment package, upload it to the specified bucket, and deploy the agent.
+Once you have your agent set up using `agentcore create`, use the `deploy` command to create a zip deployment package, upload it to the specified bucket, and deploy the agent.
 
 ```
-agentcore launch
+agentcore deploy
 ```
 
 Let's prompt the agent to tell a joke!
 
 ```
-agentcore invoke '{"prompt":"Tell me a joke"}'
+agentcore invoke "Tell me a joke"
 ```
 
 The first deployment takes time to install dependencies but subsequent
@@ -162,13 +161,20 @@ updates to the agent optimizes this by re-using zipped dependencies
 
 ###### Configuration management
 
-You can modify your agent configuration at any time using the `configure` command:
+You can modify your agent configuration at any time using the `agentcore add` commands or by editing the `agentcore/agentcore.json` configuration file directly.
 
-```
-agentcore configure -e src/main.py
-```
+The configuration file allows you to update deployment parameters such as your VPC configuration, execution roles, session timeouts, and OAuth authorizer settings.
 
-The command allows you to update deployment parameters such as your VPC configuration, execution roles, session timeouts, and OAuth authorizer settings.
+Interactive
+Run `agentcore` to open the TUI, then select
+**deploy**. The deploy screen shows real-time
+progress as it validates your project, synthesizes CloudFormation, and
+provisions AWS resources:
+
+![AgentCore deploy progress showing CloudFormation stack updates](images/tui/code-deploy-progress.png)
+
+After deployment completes, use `agentcore invoke` to test
+your agent.
 
 Custom zip + boto3
 To download a wheel that's compatible with AgentCore Runtime, you use the uv pip
@@ -204,7 +210,7 @@ zip deployment_package.zip main.py
 After you have created your .zip deployment package, you can use it to
 create a new AgentCore Runtime or update an existing one. You can deploy your .zip
 package using AgentCore Runtime API, AgentCore Runtime console and AWS Command Line
-Interface. Amazon Bedrock AgentCore starter toolkit will take care of above steps
+Interface. The AgentCore CLI will take care of above steps
 to create .zip.
 
 ###### Note
@@ -281,7 +287,7 @@ print(f"Agent Runtime ARN: {response['agentRuntimeArn']}")
 print(f"Status: {response['status']}")
 ```
 
-To invoke an agent on Amazon Bedrock AgentCore runtime using boto3, refer: [https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-get-started-toolkit.html#invoke-programmatically](runtime-get-started-toolkit.md#invoke-programmatically "runtime-get-started-toolkit.md#invoke-programmatically")
+To invoke an agent on Amazon Bedrock AgentCore runtime using boto3, refer: [https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-get-started-cli.html#invoke-programmatically](runtime-get-started-cli.md#invoke-programmatically "runtime-get-started-cli.md#invoke-programmatically")
 
 console
 You can deploy your agent using the Amazon Bedrock AgentCore console with managed runtime support. The console provides an intuitive interface for uploading ZIP files and configuring agent settings.
@@ -322,23 +328,20 @@ Your agent requires an execution role with appropriate permissions. For detailed
 
 Stop your runtime session, update, or cleanup your agent using one of the following methods:
 
-starter toolkit
+AgentCore CLI
 To update previously deployed AgentCore Runtime, execute:
 
 ```
-agentcore launch
+agentcore deploy
 ```
 
-To stop the running session before the configurable `IdleRuntimeSessionTimeout` (defaulted at 15 minutes) and save on any potential runaway costs, execute:
+To stop a running session before the configurable `IdleRuntimeSessionTimeout` (defaulted at 15 minutes) and save on any potential runaway costs, use the [StopRuntimeSession](../APIReference/API_StopRuntimeSession.md "../APIReference/API_StopRuntimeSession.md") API operation. The AgentCore CLI does not currently support stopping sessions directly.
+
+To delete all resources related to a AgentCore Runtime, first remove all resources and then deploy to tear down AWS resources:
 
 ```
-agentcore stop-session
-```
-
-To delete all resources related to a AgentCore Runtime, execute:
-
-```
-agentcore destroy
+agentcore remove all
+agentcore deploy
 ```
 
 boto3
@@ -420,7 +423,7 @@ print("Deleting deployment archive from S3...")
 s3_client.delete_object(
     Bucket=f"bedrock-agentcore-code-{account_id}-us-west-2",
     Key=f"{agent_name}/deployment_package.zip",
-    ExtraArgs={'ExpectedBucketOwner': account_id}
+    ExpectedBucketOwner=account_id
 )
 print("Archive deleted successfully from S3!")
 ```
@@ -634,8 +637,8 @@ Guide_.
 
 ## Common Issues
 
-Common issues and solutions when getting started with the Amazon Bedrock AgentCore starter
-toolkit. For more troubleshooting information, see [Troubleshoot Amazon Bedrock AgentCore AgentCore Runtime](runtime-troubleshooting.md "runtime-troubleshooting.md").
+Common issues and solutions when getting started with Amazon Bedrock AgentCore direct code
+deployment. For more troubleshooting information, see [Troubleshoot Amazon Bedrock AgentCore AgentCore Runtime](runtime-troubleshooting.md "runtime-troubleshooting.md").
 
 ### Permission Issues - Insufficient S3 permissions
 

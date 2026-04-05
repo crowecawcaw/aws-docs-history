@@ -111,6 +111,17 @@ session_id = f"session_{datetime.now().strftime('%Y%m%d%H%M%S')}"
 
 ########## Wait for long-term memory to become active ##########
 
+while True:
+    mem_status_response = control_client.get_memory(memoryId=memory_id)
+    status = mem_status_response.get('memory', {}).get('status')
+    if status == 'ACTIVE':
+        print("Memory resource is now ACTIVE.")
+        break
+    elif status == 'FAILED':
+        raise Exception("Memory resource creation FAILED.")
+    print("Waiting for memory to become active...")
+    time.sleep(10)
+
 
 # Create single event with all conversation turns
 event = data_client.create_event(
