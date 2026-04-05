@@ -1,5 +1,11 @@
 # How to get secondary addresses of a Place ID
 
+###### Note
+
+For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`, this
+use case is not supported, as the `SecondaryAddresses` field is not available. Refer to the
+[GetPlace API Reference](../APIReference/API_geoplaces_GetPlace.md "../APIReference/API_geoplaces_GetPlace.md") for details.
+
 The `SecondaryAddresses` API command allows you to retrieve all secondary
 addresses that are under a main address. Geocode also returns secondary units, if any
 that are present within the `QueryText` parameter.

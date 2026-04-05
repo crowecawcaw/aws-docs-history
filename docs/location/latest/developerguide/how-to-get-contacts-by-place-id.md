@@ -1,5 +1,11 @@
 # How to get contacts for a PlaceId
 
+###### Note
+
+For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`, this
+use case is not supported, as the `Contacts` field is not available. Refer to the
+[GetPlace API Reference](../APIReference/API_geoplaces_GetPlace.md "../APIReference/API_geoplaces_GetPlace.md") for details.
+
 The GetPlace API allows retrieval of contact information associated with a specific
 PlaceId, providing you with details such as phone numbers and website URLs.
 

@@ -48,6 +48,11 @@ Calculate routes](calculate-routes-how-to.md "calculate-routes-how-to.md").
 
 ## Understand the request
 
+###### Note
+
+For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`, supported request and response fields may differ. Refer to the
+[CalculateRoutes API Reference](../APIReference/API_CalculateRoutes.md "../APIReference/API_CalculateRoutes.md") for details.
+
 The request requires `Origin` and `Destination` parameters,
 while optional parameters like `Allow`, `Avoid`, and
 `Traffic` customize the route to meet specific needs and constraints.

@@ -294,7 +294,7 @@ permissions for the guest role as follows:
 
 ```
 {
-    'Version': '2012-10-17		 	 	 ',
+    'Version': '2012-10-17',
     'Statement': [
         {
             'Action': [

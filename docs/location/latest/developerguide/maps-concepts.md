@@ -2,6 +2,8 @@
 
 Amazon Location Service provides comprehensive mapping capabilities that enable you to create customized, visually consistent maps for your applications. You can leverage AWS map styles and design principles to customize the look and feel of your maps, ensuring visual consistency and branding.
 
+For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`, supported request and response fields may differ. Refer to the [Maps API Reference](../APIReference/API_Operations_Amazon_Location_Service_Maps_V2.md "../APIReference/API_Operations_Amazon_Location_Service_Maps_V2.md") for details.
+
 This topic covers essential mapping concepts including terminology, localization, internationalization, and map features.
 
 ## Features

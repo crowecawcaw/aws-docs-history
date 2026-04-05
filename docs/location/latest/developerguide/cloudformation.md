@@ -22,9 +22,9 @@ User Guide_.
 
 Amazon Location supports creating the following resource types in CloudFormation:
 
-- [AWS::Location::Tracker](../../../AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.md")
-- [AWS::Location::TrackerConsumer](../../../AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.md")
-- [AWS::Location::GeofenceCollection](../../../AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.md")
+- [AWS::Location::Tracker](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-location-tracker.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-location-tracker.md")
+- [AWS::Location::TrackerConsumer](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-location-trackerconsumer.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-location-trackerconsumer.md")
+- [AWS::Location::GeofenceCollection](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-location-geofencecollection.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-location-geofencecollection.md")
 
 For more information, including examples of JSON and YAML templates for Amazon Location resources, see the [Amazon Location Service resource type reference](../../../AWSCloudFormation/latest/TemplateReference/AWS_Location.md "../../../AWSCloudFormation/latest/TemplateReference/AWS_Location.md") in the _CloudFormation Template Reference_.
 

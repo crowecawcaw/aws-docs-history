@@ -531,7 +531,7 @@ Use the following ARN syntax:
 arn:`Partition`:geo:`Region`:`Account`:`ResourcePrefix`/`ResourceName`
 ```
 
-For more information about the format of ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md").
+For more information about the format of ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md").
 
 **Examples**
 

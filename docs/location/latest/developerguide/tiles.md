@@ -64,6 +64,11 @@ The following are the 10 layers of vector map tiles:
 
 ## Understand the request
 
+###### Note
+
+For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`, supported request and response fields may differ. Refer to the
+[GetTile API Reference](../APIReference/API_geomaps_GetTile.md "../APIReference/API_geomaps_GetTile.md") for details.
+
 The request requires the following parameters: `Tileset`,
 `X`, `Y`, and `Z` to identify the specific tile
 to be fetched. The `Key` parameter can be optionally included for

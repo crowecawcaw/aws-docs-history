@@ -35,7 +35,7 @@ In addition to service quotas, the following API usage limits apply:
 
 Please check the following for further details:
 
-- [Attribution](location/latest/developerguide/data-attribution.md "location/latest/developerguide/data-attribution.md"): Information on data attribution requirements for
+- [Attribution](data-attribution.md "data-attribution.md"): Information on data attribution requirements for
   Amazon Location Service.
 - [SLA](https://aws.amazon.com/location/sla/ "https://aws.amazon.com/location/sla/"): The service
   level agreement for Amazon Location Service, including uptime commitments

@@ -102,7 +102,7 @@ Guide_.
 Key policies control access to your customer managed key. Every customer managed key must have exactly
 one key policy, which contains statements that determine who can use the key and how
 they can use it. When you create your customer managed key, you can specify a key policy. For
-more information, see [Managing access to customer managed keys](../../../kms/latest/developerguide/control-access-overview.md#managing-access "../../../kms/latest/developerguide/control-access-overview.md#managing-access") in the _AWS Key Management Service
+more information, see [Managing access to customer managed keys](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the _AWS Key Management Service
 Developer Guide_.
 
 To use your customer managed key with your Amazon Location resources, the following API operations
@@ -176,7 +176,7 @@ The following are policy statement examples you can add for Amazon Location:
   ]
 ```
 
-For more information about [specifying permissions in a policy](../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements "../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements"), see the _AWS Key Management Service Developer Guide_.
+For more information about [specifying permissions in a policy](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md"), see the _AWS Key Management Service Developer Guide_.
 
 For more information about [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam"), see the _AWS Key Management Service Developer Guide_.
 
@@ -211,7 +211,7 @@ To decrypt data, you include the same encryption context in the request.
 Amazon Location uses the same encryption context in all AWS KMS cryptographic
 operations, where the key is `aws:geo:arn` and the value is the
 resource [Amazon Resource
-Name](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") (ARN).
+Name](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md") (ARN).
 
 ###### Example
 

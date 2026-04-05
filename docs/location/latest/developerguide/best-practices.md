@@ -13,7 +13,7 @@ should follow only the recommendations that are applicable for your environment.
 To help manage or even avoid security risks, consider the following best practices:
 
 - Use identity federation and IAM roles to manage, control, or limit access to your
-  Amazon Location resources. For more information, see [IAM Best Practices](../../../IAM/latest/UserGuide/IAMBestPractices.md "../../../IAM/latest/UserGuide/IAMBestPractices.md")
+  Amazon Location resources. For more information, see [IAM Best Practices](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md")
   in the _IAM User Guide_.
 - Follow the Principle of Least Privilege to grant only the minimum required access to
   your Amazon Location Service resources.

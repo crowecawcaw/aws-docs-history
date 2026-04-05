@@ -45,7 +45,7 @@ Amazon Location Trackers APIs.
 The following example uses an API request that associates
 `ExampleTracker` with a geofence collection
 using its [Amazon Resource
-Name](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") (ARN).
+Name](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md") (ARN).
 
 ```
 POST /tracking/v0/trackers/`ExampleTracker`/consumers

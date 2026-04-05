@@ -39,6 +39,11 @@ Suggest](suggest-how-to.md "suggest-how-to.md").
 
 ## Understand the request
 
+###### Note
+
+For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`, supported request and response fields may differ. Refer to the
+[Suggest API Reference](../APIReference/API_geoplaces_Suggest.md "../APIReference/API_geoplaces_Suggest.md") for details.
+
 The Suggest API request uses parameters to generate suggestions based on user input.
 Optional parameters allow for refined search results using location bias and filtering
 criteria. For more details, refer to the Suggest API Reference.

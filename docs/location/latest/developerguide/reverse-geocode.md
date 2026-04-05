@@ -32,6 +32,11 @@ Reverse Geocode](reverse-geocode-how-to.md "reverse-geocode-how-to.md").
 
 ## Understand the request
 
+###### Note
+
+For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`, supported request and response fields may differ. Refer to the
+[ReverseGeocode API Reference](../APIReference/API_geoplaces_ReverseGeocode.md "../APIReference/API_geoplaces_ReverseGeocode.md") for details.
+
 The Reverse Geocode API request accepts a combination of required and optional
 parameters to customize results. The required parameter `QueryPosition`
 (longitude and latitude) specifies the coordinates to reverse geocode. Optional

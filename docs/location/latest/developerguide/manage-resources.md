@@ -7,7 +7,7 @@ can create groups of AWS resources based on one or more tags or portions of tags
 also create groups based on their occurrence in an AWS CloudFormation stack. Using
 Resource Groups and Tag Editor, you can consolidate and view data for applications that
 consist of multiple services, resources, and Regions in one place. For more information on
-[Common Tagging Strategies](../../../general/latest/gr/aws_tagging.md#tag-strategies "../../../general/latest/gr/aws_tagging.md#tag-strategies"), see the _AWS General
+[Common Tagging Strategies](../../../tag-editor/latest/userguide/best-practices-and-strats.md "../../../tag-editor/latest/userguide/best-practices-and-strats.md"), see the _AWS General
 Reference_.
 
 Each tag is a label consisting of a key and value that you define:
@@ -18,7 +18,7 @@ Each tag is a label consisting of a key and value that you define:
 
 For more information about:
 
-- Tagging best practices, see [Tagging AWS resources](../../../general/latest/gr/aws_tagging.md#tag-best-practices "../../../general/latest/gr/aws_tagging.md#tag-best-practices") in the _AWS General
+- Tagging best practices, see [Tagging AWS resources](../../../tag-editor/latest/userguide/best-practices-and-strats.md "../../../tag-editor/latest/userguide/best-practices-and-strats.md") in the _AWS General
   Reference_.
 - Using tags to control access to AWS resources, see
   [Controlling access to AWS resources using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md")

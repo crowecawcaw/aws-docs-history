@@ -18,7 +18,7 @@ with your on-premises network, see the [Direct Connect User Guide](../../../dire
 User Guide](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md").
 
 For general information about interface endpoints, see [Interface Amazon VPC endpoints
-(AWS PrivateLink)](../../../vpc/latest/privatelink/vpce-interface.md "../../../vpc/latest/privatelink/vpce-interface.md") in the _AWS PrivateLink
+(AWS PrivateLink)](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _AWS PrivateLink
 Guide_.
 
 ###### Topics
@@ -35,7 +35,7 @@ Guide_.
 You can use one type of Amazon VPC endpoint to access Amazon Location Service: _interface endpoints_ (by using AWS PrivateLink). _Interface endpoints_ use private IP addresses to route
 requests to Amazon Location from within your Amazon VPC, on premises, or from an Amazon VPC in another
 AWS Region by using Amazon VPC peering. For more information, see [What is
-Amazon VPC peering?](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md") and [Transit Gateway vs Amazon VPC peering](../../../whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/transit-gateway-vs-vpc-peering.md "../../../whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/transit-gateway-vs-vpc-peering.md").
+Amazon VPC peering?](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md") and [Transit Gateway vs Amazon VPC peering](../../../whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/vpc-to-vpc-connectivity.md "../../../whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/vpc-to-vpc-connectivity.md").
 
 Interface endpoints are compatible with gateway endpoints. If you have an existing
 gateway endpoint in the Amazon VPC, you can use both types of endpoints in the same
@@ -53,7 +53,7 @@ Interface endpoints for Amazon Location have the following properties:
 ## Considerations when using AWS PrivateLink for Amazon Location Service
 
 Amazon VPC considerations apply to AWS PrivateLink for Amazon Location Service. For more information, see
-[Interface endpoint considerations](../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations") and [AWS PrivateLink quotas](../../../vpc/latest/privatelink/vpc-limits-endpoints.md "../../../vpc/latest/privatelink/vpc-limits-endpoints.md")
+[Interface endpoint considerations](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") and [AWS PrivateLink quotas](../../../vpc/latest/privatelink/vpc-limits-endpoints.md "../../../vpc/latest/privatelink/vpc-limits-endpoints.md")
 in the _AWS PrivateLink Guide_. In addition, the
 following restrictions apply.
 
@@ -64,7 +64,7 @@ AWS PrivateLink for Amazon Location Service doesn't support the following:
 
 Amazon VPC endpoints:
 
-- Don't support [Amazon Location Service Maps API](../APIReference/API_Operations_Amazon_Location_Service_Maps.md "../APIReference/API_Operations_Amazon_Location_Service_Maps.md") operations, including: `GetGlyphs`,
+- Don't support [Amazon Location Service Maps API](../APIReference/API_Operations_Amazon_Location_Service_Maps_V2.md "../APIReference/API_Operations_Amazon_Location_Service_Maps_V2.md") operations, including: `GetGlyphs`,
   `GetSprites`, and `GetStyleDescriptor`
 - Don't support cross-region requests. Ensure that you create your endpoint in
   the same region where you plan to issue your API calls to Amazon Location Service.
@@ -88,7 +88,7 @@ applications connecting to the AWS PrivateLink endpoints.
 
 You can create an interface endpoint for Amazon Location Service using either the Amazon VPC Console or the
 AWS Command Line Interface (AWS CLI). For more information, see [Create
-an interface endpoint](../../../vpc/latest/privatelink/vpce-interface.md#create-interface-endpoint "../../../vpc/latest/privatelink/vpce-interface.md#create-interface-endpoint") in the _AWS PrivateLink
+an interface endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _AWS PrivateLink
 Guide_.
 
 There are six different VPC endpoints, one for each feature offered by

@@ -7,7 +7,7 @@ Amazon Cognito provides authentication, authorization, and user management for w
 apps. You can use Amazon Cognito unauthenticated identity pools with Amazon Location as a way for
 applications to retrieve temporary, scoped-down AWS credentials.
 
-For more information, see [Getting Started with User Pools](../../../cognito/latest/developerguide/getting-started-with-cognito-user-pools.md "../../../cognito/latest/developerguide/getting-started-with-cognito-user-pools.md") in the _Amazon Cognito
+For more information, see [Getting Started with User Pools](../../../cognito/latest/developerguide/getting-started-user-pools.md "../../../cognito/latest/developerguide/getting-started-user-pools.md") in the _Amazon Cognito
 Developer Guide_.
 
 You may want to use this form of authentication for the following reasons:

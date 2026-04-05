@@ -35,6 +35,12 @@ GetPlace](get-place-how-to.md "get-place-how-to.md").
 
 ## Understand the request
 
+###### Note
+
+For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`, supported
+request and response fields may differ. Refer to the
+[GetPlace API Reference](../APIReference/API_geoplaces_GetPlace.md "../APIReference/API_geoplaces_GetPlace.md") for details.
+
 The GetPlace API request requires specific parameters, such as the
 `PlaceId`, and supports optional parameters for additional features or
 language localization. These parameters help tailor the results based on language,

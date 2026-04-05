@@ -38,6 +38,11 @@ Search Text](search-text-how-to.md "search-text-how-to.md").
 
 ## Understand the request
 
+###### Note
+
+For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`, supported request and response fields may differ. Refer to the
+[SearchText API Reference](../APIReference/API_geoplaces_SearchText.md "../APIReference/API_geoplaces_SearchText.md") for details.
+
 The Search Text API request allows various parameters to refine the search. Optional
 parameters enable additional features, location biasing, filtering criteria, language
 preferences, and result limits. For more details, refer to the Search Text API

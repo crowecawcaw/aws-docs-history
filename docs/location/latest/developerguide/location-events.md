@@ -10,7 +10,7 @@ leave the geofenced areas) are sent to EventBridge by default. You can also enab
 position update events for a tracker resource. For more information, see [Enable update events for a tracker](#enable-update-events "#enable-update-events").
 
 For more information, see [the Events and
-Event Patterns](../../../eventbridge/latest/userguide/eventbridge-and-event-patterns.md "../../../eventbridge/latest/userguide/eventbridge-and-event-patterns.md") in _the Amazon EventBridge User
+Event Patterns](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md") in _the Amazon EventBridge User
 Guide_.
 
 ###### Topics
@@ -23,7 +23,7 @@ Guide_.
 
 By default, Amazon Location sends only `ENTER` and `EXIT` geofence
 events to EventBridge. You can enable all filtered position `UPDATE` events for a
-tracker to be sent to EventBridge. You can do this when you [create](../APIReference/API_CreateTracker.md "../APIReference/API_CreateTracker.md") or [update](../APIReference/API_UpdateTracker.md "../APIReference/API_UpdateTracker.md") a tracker.
+tracker to be sent to EventBridge. You can do this when you [create](../APIReference/API_WaypointTracking_CreateTracker.md "../APIReference/API_WaypointTracking_CreateTracker.md") or [update](../APIReference/API_WaypointTracking_UpdateTracker.md "../APIReference/API_WaypointTracking_UpdateTracker.md") a tracker.
 
 For example, to update an existing tracker using the AWS CLI, you can use the following
 command (use the name of your tracker resource in place of
@@ -46,7 +46,7 @@ be sent when a phone is detected within a geofenced boundary.
 
 **To create a rule for Amazon Location events**
 
-Using the following values, [create an EventBridge rule](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md")
+Using the following values, [create an EventBridge rule](../../../eventbridge/latest/userguide/eb-create-rule-visual.md "../../../eventbridge/latest/userguide/eb-create-rule-visual.md")
 based on Amazon Location events:
 
 - For **Rule type**, choose **Rule with an event
