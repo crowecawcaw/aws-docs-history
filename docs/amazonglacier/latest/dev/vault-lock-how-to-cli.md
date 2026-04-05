@@ -58,7 +58,7 @@ To find the ARN of the vault you wish to lock, you can use the
 `list-vaults` command.
 
 ```
-{"Policy":"{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":[{\"Sid\":\"Define-vault-lock\",\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"arn:aws:iam::`111122223333:root`\"},\"Action\":\"glacier:DeleteArchive\",\"Resource\":\"`VAULT_ARN`\",\"Condition\":{\"NumericLessThanEquals\":{\"glacier:ArchiveAgeinDays\":\"365\"}}}]}"}
+{"Policy":"{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Define-vault-lock\",\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"arn:aws:iam::`111122223333:root`\"},\"Action\":\"glacier:DeleteArchive\",\"Resource\":\"`VAULT_ARN`\",\"Condition\":{\"NumericLessThanEquals\":{\"glacier:ArchiveAgeinDays\":\"365\"}}}]}"}
 ```
 
 3. After initiating the vault lock you should see the `lockId` returned.
