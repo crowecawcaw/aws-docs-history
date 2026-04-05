@@ -84,6 +84,7 @@ CloudWatch Logs as data sources:
 | `aws_nlb`                                  | `access`                                   |
 | `aws_pcs`                                  | `job_completion`                           |
 | `aws_pcs`                                  | `scheduler`                                |
+| `aws_security_hub_cspm`                    | `asff_finding`                             |
 | `aws_shield`                               | `protection_flow`                          |
 | `aws_step_functions`                       | `express`                                  |
 | `aws_step_functions`                       | `standard`                                 |

@@ -11,10 +11,6 @@ Before you can send logs using bearer token authentication with any of the HTTP 
 
 We recommend using SigV4 authentication with short-term credentials for all workloads where this is possible. SigV4 provides the strongest security posture. Restrict the use of API keys (bearer tokens) to scenarios where short-term credential-based authentication is not feasible. When you are ready to incorporate CloudWatch Logs into applications with greater security requirements, you should switch to short-term credentials. For more information, see [Alternatives to long-term access keys](../../../IAM/latest/UserGuide/best-practices.md#bp-workloads-use-roles "../../../IAM/latest/UserGuide/best-practices.md#bp-workloads-use-roles") in the _IAM User Guide_.
 
-###### Note
-
-API key (bearer token) for HTTP endpoint access is currently in preview and available in the following AWS Regions: `us-east-1`, `us-west-1`, `us-west-2`, and `us-east-2`. Please check this documentation for updates in future.
-
 ## Option 1: Quick start using the AWS console
 
 The AWS Management Console provides a streamlined workflow to generate API keys for HTTP endpoint access.
