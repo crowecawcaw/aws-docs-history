@@ -65,9 +65,63 @@ execution and serialization. Warning: This report can be verbose.
 
 The following is a sample `profile` query.
 
+AWS CLI
+
 ```
-curl -k -X POST https://your-neptune-endpoint:port/gremlin/profile \
-     -d '{"gremlin":"g.V().hasLabel(\"airport\").has(\"code\", \"AUS\").emit().repeat(in().simplePath()).times(2).limit(100)", "profile.serializer":"application/vnd.gremlin-v3.0+json"}'
+aws neptunedata execute-gremlin-profile-query \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --gremlin-query 'g.V().hasLabel("airport").has("code", "AUS").emit().repeat(in().simplePath()).times(2).limit(100)' \
+  --serializer "application/vnd.gremlin-v3.0+json"
+```
+
+For more information, see [execute-gremlin-profile-query](../../../cli/latest/reference/neptunedata/execute-gremlin-profile-query.md "../../../cli/latest/reference/neptunedata/execute-gremlin-profile-query.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.execute_gremlin_profile_query(
+    gremlinQuery='g.V().hasLabel("airport").has("code", "AUS").emit().repeat(in().simplePath()).times(2).limit(100)',
+    serializer='application/vnd.gremlin-v3.0+json'
+)
+
+print(response['output'])
+```
+
+For AWS SDK examples in other languages like Java, .NET, and more, see [AWS SDK](access-graph-gremlin-sdk.md "access-graph-gremlin-sdk.md").
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/gremlin/profile \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -d '{"gremlin":"g.V().hasLabel(\"airport\").has(\"code\", \"AUS\").emit().repeat(in().simplePath()).times(2).limit(100)", "profile.serializer":"application/vnd.gremlin-v3.0+json"}'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+For more information about using **awscurl** with IAM authentication, see
+[Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl").
+
+curl
+
+```
+curl -X POST https://`your-neptune-endpoint`:`port`/gremlin/profile \
+  -d '{"gremlin":"g.V().hasLabel(\"airport\").has(\"code\", \"AUS\").emit().repeat(in().simplePath()).times(2).limit(100)", "profile.serializer":"application/vnd.gremlin-v3.0+json"}'
 ```
 
 This query generates the following `profile` report when executed on the
@@ -242,9 +296,61 @@ formatted as shown in the example below.
 
 Query:
 
+AWS CLI
+
 ```
-curl https://your-neptune-endpoint:port/gremlin/profile \
-  -d "{\"gremlin\": \"g.withSideEffect('Neptune#useDFE', true).V().has('code', 'ATL').out()\"}"
+aws neptunedata execute-gremlin-profile-query \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --gremlin-query "g.withSideEffect('Neptune#useDFE', true).V().has('code', 'ATL').out()"
+```
+
+For more information, see [execute-gremlin-profile-query](../../../cli/latest/reference/neptunedata/execute-gremlin-profile-query.md "../../../cli/latest/reference/neptunedata/execute-gremlin-profile-query.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.execute_gremlin_profile_query(
+    gremlinQuery="g.withSideEffect('Neptune#useDFE', true).V().has('code', 'ATL').out()"
+)
+
+print(response['output'])
+```
+
+For AWS SDK examples in other languages like Java, .NET, and more, see [AWS SDK](access-graph-gremlin-sdk.md "access-graph-gremlin-sdk.md").
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/gremlin/profile \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -d '{"gremlin":"g.withSideEffect('"'"'Neptune#useDFE'"'"', true).V().has('"'"'code'"'"', '"'"'ATL'"'"').out()"}'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+For more information about using **awscurl** with IAM authentication, see
+[Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl").
+
+curl
+
+```
+curl -X POST https://`your-neptune-endpoint`:`port`/gremlin/profile \
+  -d '{"gremlin":"g.withSideEffect('"'"'Neptune#useDFE'"'"', true).V().has('"'"'code'"'"', '"'"'ATL'"'"').out()"}'
 ```
 
 ```

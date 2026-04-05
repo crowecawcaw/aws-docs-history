@@ -71,10 +71,63 @@ for a sample report.
 
 The syntax of the `explain` API is the same as that for the HTTP API for query,
 except that it uses `/gremlin/explain` as the endpoint instead of
-`/gremlin`, as in the following example.
+`/gremlin`, as in the following examples.
+
+AWS CLI
 
 ```
-curl -X POST https://`your-neptune-endpoint`:`port`/gremlin/explain -d '{"gremlin":"g.V().limit(1)"}'
+aws neptunedata execute-gremlin-explain-query \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --gremlin-query "g.V().limit(1)"
+```
+
+For more information, see [execute-gremlin-explain-query](../../../cli/latest/reference/neptunedata/execute-gremlin-explain-query.md "../../../cli/latest/reference/neptunedata/execute-gremlin-explain-query.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.execute_gremlin_explain_query(
+    gremlinQuery='g.V().limit(1)'
+)
+
+print(response['output'])
+```
+
+For AWS SDK examples in other languages like Java, .NET, and more, see [AWS SDK](access-graph-gremlin-sdk.md "access-graph-gremlin-sdk.md").
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/gremlin/explain \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -d '{"gremlin":"g.V().limit(1)"}'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+For more information about using **awscurl** with IAM authentication, see
+[Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl").
+
+curl
+
+```
+curl -X POST https://`your-neptune-endpoint`:`port`/gremlin/explain \
+  -d '{"gremlin":"g.V().limit(1)"}'
 ```
 
 The preceding query would produce the following output.

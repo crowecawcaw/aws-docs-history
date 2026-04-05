@@ -26,6 +26,62 @@ For information about finding the hostname of your Neptune DB instance, see [Con
 
 ## To connect to Neptune using the HTTP REST endpoint
 
+The following examples show how to submit a Gremlin query to the REST endpoint.
+You can use the AWS SDK, the AWS CLI, or **curl**.
+
+AWS CLI
+
+```
+aws neptunedata execute-gremlin-query \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --gremlin-query "g.V().limit(1)"
+```
+
+For more information, see [execute-gremlin-query](../../../cli/latest/reference/neptunedata/execute-gremlin-query.md "../../../cli/latest/reference/neptunedata/execute-gremlin-query.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+import json
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.execute_gremlin_query(
+    gremlinQuery='g.V().limit(1)',
+    serializer='application/vnd.gremlin-v3.0+json;types=false'
+)
+
+print(json.dumps(response['result'], indent=2))
+```
+
+For AWS SDK examples in other languages like Java, .NET, and more, see [AWS SDK](access-graph-gremlin-sdk.md "access-graph-gremlin-sdk.md").
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/gremlin \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -d '{"gremlin":"g.V().limit(1)"}'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+For more information about using **awscurl** with IAM authentication, see
+[Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl").
+
+curl
 The following example uses **curl** to submit a Gremlin query through
 HTTP **POST**. The query is submitted in JSON format in the body of the
 post as the `gremlin` property.
@@ -34,7 +90,14 @@ post as the `gremlin` property.
 curl -X POST -d '{"gremlin":"*g.V().limit(1)*"}' https://`your-neptune-endpoint`:`port`/gremlin
 ```
 
-This example returns the first vertex in the graph by using the `g.V().limit(1)` traversal.
+Although HTTP **POST** requests are recommended for sending Gremlin
+queries, it is also possible to use HTTP **GET** requests:
+
+```
+curl -G "https://`your-neptune-endpoint`:`port`?gremlin=*g.V().count()*"
+```
+
+These examples return the first vertex in the graph by using the `g.V().limit(1)` traversal.
 You can query for something else by replacing it with another Gremlin traversal.
 
 ###### Important
@@ -45,13 +108,6 @@ on the Neptune DB instance.
 
 You can avoid this by enabling chunked responses (results returned in a series
 of separate responses). See [Use optional HTTP trailing headers to enable multi-part Gremlin responses](access-graph-gremlin-rest-trailing-headers.md "access-graph-gremlin-rest-trailing-headers.md").
-
-Although HTTP **POST** requests are recommended for sending Gremlin
-queries, it is also possible to use HTTP **GET** requests:
-
-```
-curl -G "https://`your-neptune-endpoint`:`port`?gremlin=*g.V().count()*"
-```
 
 ###### Note
 

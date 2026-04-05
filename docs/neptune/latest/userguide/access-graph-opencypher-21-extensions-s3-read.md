@@ -29,7 +29,7 @@ YIELD row
   - More details on the supported Parquet format can be found in
     [Supported Parquet column types](access-graph-opencypher-21-extensions-s3-read-parquet.md#access-graph-opencypher-21-extensions-s3-read-parquet-column-types "access-graph-opencypher-21-extensions-s3-read-parquet.md#access-graph-opencypher-21-extensions-s3-read-parquet-column-types").
   - For more information on the supported csv format, see
-    [Load format for openCypher data](bulk-load-tutorial-format-opencypher.md "bulk-load-tutorial-format-opencypher.md").
+    [Gremlin load data format](bulk-load-tutorial-format-gremlin.md "bulk-load-tutorial-format-gremlin.md").
 
 - **concurrency** (optional) - Type: 0 or greater integer. Default: 0. Specifies the number of
   threads to be used for reading the file. If the value is 0, the maximum number of threads allowed by the resource will be used.
