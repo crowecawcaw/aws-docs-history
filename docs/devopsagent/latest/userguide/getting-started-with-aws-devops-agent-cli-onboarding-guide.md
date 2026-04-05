@@ -1,51 +1,33 @@
-# CLI onboarding guide
+# AWS DevOps Agent CLI onboarding guide
 
 ## Overview
 
-AWS DevOps Agent helps you monitor and manage your AWS infrastructure. This guide walks you through setting up AWS DevOps Agent in the **us-east-1** region.
+With AWS DevOps Agent, you can monitor and manage your AWS infrastructure. This guide walks you through setting up AWS DevOps Agent by using the AWS Command Line Interface (AWS CLI). You create IAM roles, set up an agent space, and associate your AWS account. You also enable the operator app and optionally connect third-party integrations. This guide takes approximately 20 minutes to complete.
 
-###### Note
-
-AWS DevOps Agent is in preview. The instructions on this page may change before general availability (GA)
+AWS DevOps Agent is available in six AWS Regions: US East (N. Virginia), US West (Oregon), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Frankfurt), and Europe (Ireland). For more information about supported Regions, see [Supported Regions](about-aws-devops-agent-supported-regions.md "about-aws-devops-agent-supported-regions.md").
 
 ## Prerequisites
 
-- AWS CLI installed and configured
-- Authenticated to your AWS monitoring account
-- AWS DevOps Agent is available in us-east-1
+Before you begin, make sure that you have the following:
 
-## Setup AWS CLI for DevOps Agent
+- AWS CLI version 2 installed and configured
+- Authentication to your AWS monitoring account
+- Permissions to create AWS Identity and Access Management (IAM) roles and attach policies
+- An AWS account to use as the monitoring account
+- Familiarity with the AWS CLI and JSON syntax
 
-### Download the Service Model
+Throughout this guide, replace the following placeholder values with your own:
 
-Download the AWS DevOps Agent model file:
+- `<MONITORING_ACCOUNT_ID>` — Your 12-digit AWS account ID for the monitoring (primary) account
+- `<EXTERNAL_ACCOUNT_ID>` — The 12-digit AWS account ID of the secondary account to monitor (used in step 4)
+- `<REGION>` — The AWS Region code for your agent space (for example, `us-east-1` or `eu-central-1`)
+- `<AGENT_SPACE_ID>` — The agent space identifier that is returned by the `create-agent-space` command
 
-```
-# Download from: https://d1co8nkiwcta1g.cloudfront.net/devopsagent.json
-# Save as: devopsagent.json
-```
+## IAM roles setup
 
-### Patch AWS CLI
+### 1. Create the DevOps Agent space role
 
-Add the DevOps Agent service to your AWS CLI:
-
-```
-aws configure add-model --service-model "file://${PWD}/devopsagent.json" --service-name devopsagent
-
-```
-
-Test the installation:
-
-```
-aws devopsagent help
-
-```
-
-## IAM Roles Setup
-
-### 1. Create DevOps Agent Space Role
-
-Create the AWS Identity and Access Management (IAM) trust policy:
+Create the IAM trust policy by running the following command:
 
 ```
 cat > devops-agentspace-trust-policy.json << 'EOF'
@@ -60,10 +42,10 @@ cat > devops-agentspace-trust-policy.json << 'EOF'
       "Action": "sts:AssumeRole",
       "Condition": {
         "StringEquals": {
-          "aws:SourceAccount": "<ACCOUNT_ID>"
+          "aws:SourceAccount": "<MONITORING_ACCOUNT_ID>"
         },
         "ArnLike": {
-          "aws:SourceArn": "arn:aws:aidevops:us-east-1:<ACCOUNT_ID>:agentspace/*"
+          "aws:SourceArn": "arn:aws:aidevops:<REGION>:<MONITORING_ACCOUNT_ID>:agentspace/*"
         }
       }
     }
@@ -77,11 +59,15 @@ Create the IAM role:
 
 ```
 aws iam create-role \
-  --region us-east-1 \
+  --region <REGION> \
   --role-name DevOpsAgentRole-AgentSpace \
   --assume-role-policy-document file://devops-agentspace-trust-policy.json
 
-# Save the role ARN
+```
+
+Save the role ARN by running the following command:
+
+```
 aws iam get-role --role-name DevOpsAgentRole-AgentSpace --query 'Role.Arn' --output text
 
 ```
@@ -91,41 +77,25 @@ Attach the AWS managed policy:
 ```
 aws iam attach-role-policy \
   --role-name DevOpsAgentRole-AgentSpace \
-  --policy-arn arn:aws:iam::aws:policy/AIOpsAssistantPolicy
+  --policy-arn arn:aws:iam::aws:policy/AIDevOpsAgentAccessPolicy
 
 ```
 
-Create and attach additional inline policy:
+Create and attach an inline policy to allow creation of the Resource Explorer service-linked role:
 
 ```
-cat > devops-agentspace-inline-policy.json << 'EOF'
+cat > devops-agentspace-additional-policy.json << 'EOF'
 {
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "AllowAwsSupportActions",
+      "Sid": "AllowCreateServiceLinkedRoles",
       "Effect": "Allow",
       "Action": [
-        "support:CreateCase",
-        "support:DescribeCases"
+        "iam:CreateServiceLinkedRole"
       ],
       "Resource": [
-        "*"
-      ]
-    },
-    {
-      "Sid": "AllowExpandedAIOpsAssistantPolicy",
-      "Effect": "Allow",
-      "Action": [
-        "aidevops:GetKnowledgeItem",
-        "aidevops:ListKnowledgeItems",
-        "eks:AccessKubernetesApi",
-        "synthetics:GetCanaryRuns",
-        "route53:GetHealthCheckStatus",
-        "resource-explorer-2:Search"
-      ],
-      "Resource": [
-        "*"
+        "arn:aws:iam::<MONITORING_ACCOUNT_ID>:role/aws-service-role/resource-explorer-2.amazonaws.com/AWSServiceRoleForResourceExplorer"
       ]
     }
   ]
@@ -134,14 +104,14 @@ EOF
 
 aws iam put-role-policy \
   --role-name DevOpsAgentRole-AgentSpace \
-  --policy-name AllowExpandedAIOpsAssistantPolicy \
-  --policy-document file://devops-agentspace-inline-policy.json
+  --policy-name AllowCreateServiceLinkedRoles \
+  --policy-document file://devops-agentspace-additional-policy.json
 
 ```
 
-### 2. Create Operator App IAM Role
+### 2. Create the operator app IAM role
 
-Create the IAM trust policy:
+Create the IAM trust policy by running the following command:
 
 ```
 cat > devops-operator-trust-policy.json << 'EOF'
@@ -153,13 +123,16 @@ cat > devops-operator-trust-policy.json << 'EOF'
       "Principal": {
         "Service": "aidevops.amazonaws.com"
       },
-      "Action": "sts:AssumeRole",
+      "Action": [
+        "sts:AssumeRole",
+        "sts:TagSession"
+      ],
       "Condition": {
         "StringEquals": {
-          "aws:SourceAccount": "<ACCOUNT_ID>"
+          "aws:SourceAccount": "<MONITORING_ACCOUNT_ID>"
         },
         "ArnLike": {
-          "aws:SourceArn": "arn:aws:aidevops:us-east-1:<ACCOUNT_ID>:agentspace/*"
+          "aws:SourceArn": "arn:aws:aidevops:<REGION>:<MONITORING_ACCOUNT_ID>:agentspace/*"
         }
       }
     }
@@ -175,145 +148,99 @@ Create the IAM role:
 aws iam create-role \
   --role-name DevOpsAgentRole-WebappAdmin \
   --assume-role-policy-document file://devops-operator-trust-policy.json \
-  --region us-east-1
+  --region <REGION>
 
-# Save the role ARN
+```
+
+Save the role ARN by running the following command:
+
+```
 aws iam get-role --role-name DevOpsAgentRole-WebappAdmin --query 'Role.Arn' --output text
 
 ```
 
-Create and attach the operator app inline policy:
+Attach the AWS managed operator app policy:
 
 ```
-cat > devops-operator-inline-policy.json << 'EOF'
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AllowBasicOperatorActions",
-      "Effect": "Allow",
-      "Action": [
-        "aidevops:GetAgentSpace",
-        "aidevops:GetAssociation",
-        "aidevops:ListAssociations",
-        "aidevops:CreateBacklogTask",
-        "aidevops:GetBacklogTask",
-        "aidevops:UpdateBacklogTask",
-        "aidevops:ListBacklogTasks",
-        "aidevops:ListChildExecutions",
-        "aidevops:ListJournalRecords",
-        "aidevops:DiscoverTopology",
-        "aidevops:InvokeAgent",
-        "aidevops:ListGoals",
-        "aidevops:ListRecommendations",
-        "aidevops:ListExecutions",
-        "aidevops:GetRecommendation",
-        "aidevops:UpdateRecommendation",
-        "aidevops:CreateKnowledgeItem",
-        "aidevops:ListKnowledgeItems",
-        "aidevops:GetKnowledgeItem",
-        "aidevops:UpdateKnowledgeItem",
-        "aidevops:ListPendingMessages",
-        "aidevops:InitiateChatForCase",
-        "aidevops:EndChatForCase",
-        "aidevops:DescribeSupportLevel",
-        "aidevops:ListChats",
-        "aidevops:CreateChat",
-        "aidevops:SendMessage"
-      ],
-      "Resource": "arn:aws:aidevops:us-east-1:<ACCOUNT_ID>:agentspace/*"
-    },
-    {
-      "Sid": "AllowSupportOperatorActions",
-      "Effect": "Allow",
-      "Action": [
-        "support:DescribeCases",
-        "support:InitiateChatForCase",
-        "support:DescribeSupportLevel"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-EOF
-
-aws iam put-role-policy \
+aws iam attach-role-policy \
   --role-name DevOpsAgentRole-WebappAdmin \
-  --policy-name AIDevOpsBasicOperatorActionsPolicy \
-  --policy-document file://devops-operator-inline-policy.json
+  --policy-arn arn:aws:iam::aws:policy/AIDevOpsOperatorAppAccessPolicy
 ```
 
-## Onboarding Steps
+This managed policy grants the operator app permissions to access agent space features. These features include investigations, recommendations, knowledge management, chat, and AWS Support integration. The policy scopes access to the specific agent space by using the `aws:PrincipalTag/AgentSpaceId` condition. For more information about the full list of actions, see [DevOps Agent IAM permissions](aws-devops-agent-security-devops-agent-iam-permissions.md "aws-devops-agent-security-devops-agent-iam-permissions.md").
 
-### 1. Create an Agent Space
+## Onboarding steps
+
+### 1. Create an agent space
+
+Run the following command to create an agent space:
 
 ```
-aws devopsagent create-agent-space \
+aws devops-agent create-agent-space \
   --name "MyAgentSpace" \
   --description "AgentSpace for monitoring my application" \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 
 ```
 
-Save the `agentSpaceId`from the response.
+Optionally, specify `--kms-key-arn` to use a customer managed AWS KMS key for encryption. You can also use `--tags` to add resource tags and `--locale` to set the language for agent responses.
 
-To list your agent spaces later:
+Save the `agentSpaceId` from the response (located at `agentSpace.agentSpaceId`).
 
-```
-aws devopsagent list-agent-spaces \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+To list your agent spaces later, run the following command:
 
 ```
-
-### 2. Associate AWS Account
-
-Associate your AWS account to enable topology discovery. This is the primary source or monitoring account, the account where the agentspace exists.
+aws devops-agent list-agent-spaces \
+  --region <REGION>
 
 ```
-aws devopsagent associate-service \
+
+### 2. Associate your AWS account
+
+Associate your AWS account to turn on topology discovery. Set the `accountType` to one of the following values:
+
+- `monitor` — The primary account where the agent space exists. This account hosts the agent and is used for topology discovery.
+- `source` — An additional account that the agent monitors. Use this type when you associate external accounts in step 4.
+
+```
+aws devops-agent associate-service \
   --agent-space-id <AGENT_SPACE_ID> \
   --service-id aws \
   --configuration '{
     "aws": {
-      "assumableRoleArn": "arn:aws:iam::<ACCOUNT_ID>:role/DevOpsAgentRole-AgentSpace",
-      "accountId": "<ACCOUNT_ID>",
-      "accountType": "monitor",
-      "resources": [
-      ]
+      "assumableRoleArn": "arn:aws:iam::<MONITORING_ACCOUNT_ID>:role/DevOpsAgentRole-AgentSpace",
+      "accountId": "<MONITORING_ACCOUNT_ID>",
+      "accountType": "monitor"
     }
   }' \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 
 ```
 
-### 3. Enable Operator App
+### 3. Enable the operator app
 
-Authentication flows can use IAM, IDC. Enable the Operator App for your AgentSpace:
+Authentication flows can use IAM, IAM Identity Center (IDC), or an external identity provider (IdP). Run the following command to enable the operator app for your agent space:
 
 ```
-aws devopsagent enable-operator-app \
+aws devops-agent enable-operator-app \
   --agent-space-id <AGENT_SPACE_ID> \
   --auth-flow iam \
-  --operator-app-role-arn "arn:aws:iam::<ACCOUNT_ID>:role/DevOpsAgentRole-WebappAdmin" \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --operator-app-role-arn "arn:aws:iam::<MONITORING_ACCOUNT_ID>:role/DevOpsAgentRole-WebappAdmin" \
+  --region <REGION>
 
 ```
 
-###### Note
+For IAM Identity Center authentication, use `--auth-flow idc` and provide `--idc-instance-arn`. For an external identity provider, use `--auth-flow idp` and provide `--issuer-url`, `--idp-client-id`, and `--idp-client-secret`. For more information, see [Setting Up IAM Identity Center Authentication](aws-devops-agent-security-setting-up-iam-identity-center-authentication.md "aws-devops-agent-security-setting-up-iam-identity-center-authentication.md") and [Setting Up External Identity Provider (IdP) Authentication](aws-devops-agent-security-setting-up-external-identity-provider-idp-authentication.md "aws-devops-agent-security-setting-up-external-identity-provider-idp-authentication.md").
 
-If you have previously created an Operator App role for another AgentSpace in your account, you can reuse that role ARN.
+### 4. (Optional) Associate additional source accounts
 
-### 4. (Optional) Associate Additional Source Accounts
+To monitor additional accounts with AWS DevOps Agent, create an IAM cross-account role.
 
-For additional accounts that AWS DevOps Agent should monitor, you need to create an IAM cross-account role.
+#### Create the cross-account role in the external account
 
-#### Create Cross-Account Role in External Account
+Switch to the external account and create the trust policy. The `MONITORING_ACCOUNT_ID` is the main account that hosts the agent space that you set up in step 2. This configuration allows the AWS DevOps Agent service to assume a role in the secondary source accounts on behalf of the monitoring account.
 
-Switch to the external account and create the trust policy, the `MONITORING_ACCOUNT_ID` is the main account hosting the agentspace setup in step 2. This allows the monitoring account to assume a role in the secondary source account(s).
+Run the following command to create the trust policy:
 
 ```
 cat > devops-cross-account-trust-policy.json << 'EOF'
@@ -323,12 +250,13 @@ cat > devops-cross-account-trust-policy.json << 'EOF'
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::<MONITORING_ACCOUNT_ID>:role/DevOpsAgentRole-AgentSpace"
+        "Service": "aidevops.amazonaws.com"
       },
       "Action": "sts:AssumeRole",
       "Condition": {
         "StringEquals": {
-          "sts:ExternalId": "arn:aws:aidevops:us-east-1:<MONITORING_ACCOUNT_ID>:agentspace/<AGENT_SPACE_ID>"
+          "aws:SourceAccount": "<MONITORING_ACCOUNT_ID>",
+          "sts:ExternalId": "arn:aws:aidevops:<REGION>:<MONITORING_ACCOUNT_ID>:agentspace/<AGENT_SPACE_ID>"
         }
       }
     }
@@ -345,7 +273,11 @@ aws iam create-role \
   --role-name DevOpsAgentCrossAccountRole \
   --assume-role-policy-document file://devops-cross-account-trust-policy.json
 
-# Save the role ARN
+```
+
+Save the role ARN by running the following command:
+
+```
 aws iam get-role --role-name DevOpsAgentCrossAccountRole --query 'Role.Arn' --output text
 ```
 
@@ -354,95 +286,73 @@ Attach the AWS managed policy:
 ```
 aws iam attach-role-policy \
   --role-name DevOpsAgentCrossAccountRole \
-  --policy-arn arn:aws:iam::aws:policy/AIOpsAssistantPolicy
+  --policy-arn arn:aws:iam::aws:policy/AIDevOpsAgentAccessPolicy
 ```
 
-Attach the additional inline policy (json created in step 2):
+Attach the inline policy to allow creation of the Resource Explorer service-linked role in the external account:
 
 ```
-aws iam put-role-policy \
-  --role-name DevOpsAgentCrossAccountRole  \
-  --policy-name AIDevOpsAdditionalPermissions \
-  --policy-document file://devops-agentspace-inline-policy.json
-```
-
-#### Update Monitoring Account Role
-
-**Switch back to your monitoring account** and add cross-account permissions:
-
-```
-cat > devops-cross-account-policy.json << 'EOF'
+cat > devops-cross-account-additional-policy.json << 'EOF'
 {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Sid": "AllowCreateServiceLinkedRoles",
       "Effect": "Allow",
-      "Action": "sts:AssumeRole",
-      "Resource": "arn:aws:iam::<EXTERNAL_ACCOUNT_ID>:role/DevOpsAgentCrossAccountRole"
+      "Action": [
+        "iam:CreateServiceLinkedRole"
+      ],
+      "Resource": [
+        "arn:aws:iam::<EXTERNAL_ACCOUNT_ID>:role/aws-service-role/resource-explorer-2.amazonaws.com/AWSServiceRoleForResourceExplorer"
+      ]
     }
   ]
 }
 EOF
 
 aws iam put-role-policy \
-  --role-name DevOpsAgentRole-AgentSpace \
-  --policy-name DevOpsAgentCrossAccountAccess \
-  --policy-document file://devops-cross-account-policy.json
+  --role-name DevOpsAgentCrossAccountRole \
+  --policy-name AllowCreateServiceLinkedRoles \
+  --policy-document file://devops-cross-account-additional-policy.json
 ```
 
-#### Associate the External Account
+#### Associate the external account
+
+Switch back to your monitoring account, and then run the following command to associate the external account:
 
 ```
-aws devopsagent associate-service \
+aws devops-agent associate-service \
   --agent-space-id <AGENT_SPACE_ID> \
   --service-id aws \
   --configuration '{
     "sourceAws": {
       "accountId": "<EXTERNAL_ACCOUNT_ID>",
       "accountType": "source",
-      "assumableRoleArn": "arn:aws:iam::<EXTERNAL_ACCOUNT_ID>:role/DevOpsAgentCrossAccountRole",
-      "resources": []
+      "assumableRoleArn": "arn:aws:iam::<EXTERNAL_ACCOUNT_ID>:role/DevOpsAgentCrossAccountRole"
     }
   }' \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 ```
 
 ### 5. (Optional) Associate GitHub
 
-###### Note
+For instructions on registering GitHub through the console, see [Connecting to CI/CD pipelines](configuring-capabilities-for-aws-devops-agent-connecting-to-cicd-pipelines-index.md "configuring-capabilities-for-aws-devops-agent-connecting-to-cicd-pipelines-index.md").
 
-GitHub must first be registered through the AWS DevOps Agent Console UI via OAuth flow before it can be associated via CLI.
-
-[Connecting to CI/CD pipelines](configuring-capabilities-for-aws-devops-agent-connecting-to-cicd-pipelines-index.md "configuring-capabilities-for-aws-devops-agent-connecting-to-cicd-pipelines-index.md")
-
-List registered services:
+List the registered services:
 
 ```
-aws devopsagent list-services \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+aws devops-agent list-services \
+  --region <REGION>
 ```
 
-Save the `serviceId` for serviceType:“github”
+Save the `<SERVICE_ID>` for serviceType: `github`.
 
-Search for accessible GitHub repositories:
-
-```
-aws devopsagent search-service-accessible-resource \
-  --service-id <serviceId> \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
-```
-
-Save the `name`, `id`, and extract the `owner` from the `fullName`. The `ownerType` will either be user or organization depending on the type of repo.
-
-After registering GitHub in the UI, associate GitHub repositories:
+After you register GitHub in the console, associate GitHub repositories by running the following command:
 
 ```
-aws devopsagent associate-service \
+aws devops-agent associate-service \
   --agent-space-id <AGENT_SPACE_ID> \
-  --service-id github \
+  --service-id <SERVICE_ID> \
   --configuration '{
     "github": {
       "repoName": "<GITHUB_REPO_NAME>",
@@ -451,17 +361,16 @@ aws devopsagent associate-service \
       "ownerType": "organization"
     }
   }' \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 
 ```
 
-### 6. (Optional) Register and Associate ServiceNow
+### 6. (Optional) Register and associate ServiceNow
 
 First, register the ServiceNow service with OAuth credentials:
 
 ```
-aws devopsagent register-service \
+aws devops-agent register-service \
   --service servicenow \
   --service-details  '{
     "servicenow": {
@@ -475,14 +384,13 @@ aws devopsagent register-service \
       }
     }
   }' \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 ```
 
 Save the returned `<SERVICE_ID>`, then associate ServiceNow:
 
 ```
-aws devopsagent associate-service \
+aws devops-agent associate-service \
   --agent-space-id <AGENT_SPACE_ID> \
   --service-id <SERVICE_ID> \
   --configuration '{
@@ -490,17 +398,16 @@ aws devopsagent associate-service \
       "instanceUrl": "<SERVICENOW_INSTANCE_URL>"
     }
   }' \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 
 ```
 
-### 7. (Optional) Register and Associate Dynatrace
+### 7. (Optional) Register and associate Dynatrace
 
 First, register the Dynatrace service with OAuth credentials:
 
 ```
-aws devopsagent register-service \
+aws devops-agent register-service \
   --service dynatrace \
   --service-details '{
   "dynatrace": {
@@ -514,14 +421,13 @@ aws devopsagent register-service \
       }
     }
   }' \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 ```
 
-Save the returned `<SERVICE_ID>`, then associate Dynatrace (resources are optional), the environment is which specific Dynatrace environment to associate with:
+Save the returned `<SERVICE_ID>`, then associate Dynatrace. Resources are optional. The environment specifies which Dynatrace environment to associate with.
 
 ```
-aws devopsagent associate-service \
+aws devops-agent associate-service \
   --agent-space-id <AGENT_SPACE_ID> \
   --service-id <SERVICE_ID> \
   --configuration '{
@@ -533,23 +439,20 @@ aws devopsagent associate-service \
       ]
     }
   }' \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 
 ```
 
-The response will include webhook information for integration, you can trigger an investigation from Dynatrace using this webhook. For details see, [Connecting Dynatrace](connecting-telemetry-sources-connecting-dynatrace.md "connecting-telemetry-sources-connecting-dynatrace.md")
+The response includes webhook information for integration. You can use this webhook to trigger an investigation from Dynatrace. For more information, see [Connecting Dynatrace](connecting-telemetry-sources-connecting-dynatrace.md "connecting-telemetry-sources-connecting-dynatrace.md").
 
-### 7. (Optional) Register and Associate Splunk
+### 8. (Optional) Register and associate Splunk
 
-First, register the Splunk service with OAuth credentials:
+First, register the Splunk service with BearerToken credentials.
 
-The endpoint will look something like:
-
-`"endpoint": "[https://<XXX>.api.scs.splunk.com/<XXX>/mcp/v1/](https://partner-nfr-us-east-1.api.scs.splunk.com/partner-nfr-us-east-1/mcp/v1/)",`
+The endpoint uses the following format: `https://<XXX>.api.scs.splunk.com/<XXX>/mcp/v1/`
 
 ```
-aws devopsagent register-service \
+aws devops-agent register-service \
   --service mcpserversplunk \
   --service-details '{
   "mcpserversplunk": {
@@ -563,14 +466,13 @@ aws devopsagent register-service \
       }
     }
   }' \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 ```
 
 Save the returned `<SERVICE_ID>`, then associate Splunk:
 
 ```
-aws devopsagent associate-service \
+aws devops-agent associate-service \
   --agent-space-id <AGENT_SPACE_ID> \
   --service-id <SERVICE_ID> \
   --configuration '{
@@ -579,22 +481,21 @@ aws devopsagent associate-service \
       "endpoint": "<SPLUNK_ENDPOINT>"
     }
   }' \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 ```
 
-The response will include webhook information for integration, you can trigger an investigation from Splunk using this webhook. For details see, [Connecting Splunk](connecting-telemetry-sources-connecting-splunk.md "connecting-telemetry-sources-connecting-splunk.md")
+The response includes webhook information for integration. You can use this webhook to trigger an investigation from Splunk. For more information, see [Connecting Splunk](connecting-telemetry-sources-connecting-splunk.md "connecting-telemetry-sources-connecting-splunk.md").
 
-### 8. (Optional) Register and Associate New relic
+### 9. (Optional) Register and associate New Relic
 
-First, register the New relic service with apiKey credentials:
+First, register the New Relic service with API key credentials.
 
-Region: Either "US" or "EU"
+Region: Either `US` or `EU`.
 
 Optional fields: `applicationIds`, `entityGuids`, `alertPolicyIds`
 
 ```
-aws devopsagent register-service \
+aws devops-agent register-service \
   --service mcpservernewrelic \
   --service-details '{
     "mcpservernewrelic": {
@@ -610,14 +511,13 @@ aws devopsagent register-service \
       }
     }
   }' \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 ```
 
-Save the returned `<SERVICE_ID>`, then associate New relic:
+Save the returned `<SERVICE_ID>`, then associate New Relic:
 
 ```
-aws devopsagent associate-service \
+aws devops-agent associate-service \
   --agent-space-id <AGENT_SPACE_ID> \
   --service-id <SERVICE_ID> \
   --configuration '{
@@ -626,30 +526,28 @@ aws devopsagent associate-service \
       "endpoint": "https://mcp.newrelic.com/mcp/"
     }
   }' \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 ```
 
-The response will include webhook information for integration, you can trigger an investigation from New relic using this webhook. For details see, [Connecting New Relic](connecting-telemetry-sources-connecting-new-relic.md "connecting-telemetry-sources-connecting-new-relic.md")
+The response includes webhook information for integration. You can use this webhook to trigger an investigation from New Relic. For more information, see [Connecting New Relic](connecting-telemetry-sources-connecting-new-relic.md "connecting-telemetry-sources-connecting-new-relic.md").
 
-### 9. (Optional) Register and Associate Datadog
+### 10. (Optional) Register and associate Datadog
 
-Datadog must first be registered through the AWS DevOps Agent Console UI via OAuth flow before it can be associated via CLI. For details, see [Connecting DataDog](connecting-telemetry-sources-connecting-datadog.md "connecting-telemetry-sources-connecting-datadog.md")
+You must first register Datadog through the AWS DevOps Agent console by using the OAuth flow before you can associate it through the CLI. For more information, see [Connecting DataDog](connecting-telemetry-sources-connecting-datadog.md "connecting-telemetry-sources-connecting-datadog.md").
 
-List registered services
-
-```
-aws devopsagent list-services \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
-```
-
-Note the serviceId for serviceType:“`mcpserverdatasog`”
-
-Save the returned `<SERVICE_ID>`, then associate Datadog:
+List the registered services:
 
 ```
-aws devopsagent associate-service \
+aws devops-agent list-services \
+  --region <REGION>
+```
+
+Save the `<SERVICE_ID>` for serviceType: `mcpserverdatadog`.
+
+Then associate Datadog:
+
+```
+aws devops-agent associate-service \
   --agent-space-id <AGENT_SPACE_ID> \
   --service-id <SERVICE_ID> \
   --configuration '{
@@ -658,51 +556,51 @@ aws devopsagent associate-service \
       "endpoint": "<DATADOG_MCP_ENDPOINT>"
     }
   }' \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 ```
 
-The response will include webhook information for integration, you can trigger an investigation from Datadog using this webhook. For details see, [Connecting DataDog](connecting-telemetry-sources-connecting-datadog.md "connecting-telemetry-sources-connecting-datadog.md")
+The response includes webhook information for integration. You can use this webhook to trigger an investigation from Datadog. For more information, see [Connecting DataDog](connecting-telemetry-sources-connecting-datadog.md "connecting-telemetry-sources-connecting-datadog.md").
 
-### 10. (Optional) Deleting an agent space
+### 11. (Optional) Delete an agent space
 
-Deleting agent spaces
+Deleting an agent space removes all associations, configurations, and investigation data for that agent space. This action can't be undone.
+
+To delete an agent space, run the following command:
 
 ```
-aws devopsagent delete-agent-space \
+aws devops-agent delete-agent-space \
   --agent-space-id <AGENT_SPACE_ID> \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 ```
 
 ## Verification
 
-Verify your setup:
+To verify your setup, run the following commands:
 
 ```
-# List your AgentSpaces
-aws devopsagent list-agent-spaces \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+# List your agent spaces
+aws devops-agent list-agent-spaces \
+  --region <REGION>
 
-# Get details of a specific AgentSpace
-aws devopsagent get-agent-space \
+# Get details of a specific agent space
+aws devops-agent get-agent-space \
   --agent-space-id <AGENT_SPACE_ID> \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 
-# List associations for an AgentSpace
-aws devopsagent list-associations \
+# List associations for an agent space
+aws devops-agent list-associations \
   --agent-space-id <AGENT_SPACE_ID> \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --region <REGION>
 
 ```
+
+## Next steps
+
+- To connect additional integrations, see [Configuring capabilities for AWS DevOps Agent](configuring-capabilities-for-aws-devops-agent.md "configuring-capabilities-for-aws-devops-agent.md").
+- To learn about agent skills and capabilities, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md "about-aws-devops-agent-devops-agent-skills.md").
+- To understand the operator web app, see [What is a DevOps Agent Web App?](about-aws-devops-agent-what-is-a-devops-agent-web-app.md "about-aws-devops-agent-what-is-a-devops-agent-web-app.md").
 
 ## Notes
 
-- Replace `<AGENT_SPACE_ID>`, `<ACCOUNT_ID>`, `<STACK_NAME>`, `<TEAM_ID>`, etc. with your actual values
-- All commands must be run in us-east-1 region
-- When onboarding accounts, we recommend providing CloudFormation stacks to expedite resource indexing
-- Alternatively, you can use tag key:value pairs
-- If you want to onboard all stacks in an account, leave the resources list empty
+- Replace `<AGENT_SPACE_ID>`, `<MONITORING_ACCOUNT_ID>`, `<EXTERNAL_ACCOUNT_ID>`, `<REGION>`, and so on with your actual values.
+- For a list of supported Regions, see [Supported Regions](about-aws-devops-agent-supported-regions.md "about-aws-devops-agent-supported-regions.md").

@@ -13,15 +13,14 @@ Slack needs to be registered with DevOps Agent before it can be added to an Agen
 
 ![](images/4034f56fad96.png)
 
-1. From the **Settings** tab in the AWS DevOps Agent console, navigate to **Communications > Slack.**
+1. From the **Capability Providers** page in the AWS DevOps Agent console, find **Slack** in the **Available** providers section under **Communication** and click **Register**.
 2. Choose the **Register** button.
 3. You will be redirected to Slack to authorize the AWS DevOps Agent application for your workspace.
-   1. Install directly to workspaces, not at the organization level.
-   2. Choose a workspace from the dropdown. Do not select an Enterprise Grid.
-   3. Install per workspace as needed for your organization.
-
-4. Review the requested scopes and click **Allow** to authorize the integration.
-5. After authorization, you'll return to the AWS DevOps Agent console.
+4. On the Slack authorization page, install directly to workspaces, not at the organization level.
+5. Choose a workspace from the dropdown. Do not select an Enterprise Grid.
+6. Install per workspace as needed for your organization.
+7. Review the requested scopes and click **Allow** to authorize the integration.
+8. After authorization, you'll return to the AWS DevOps Agent console.
 
 ## Associate Slack with your DevOps Agent Space(s)
 
@@ -38,4 +37,4 @@ The agent’s bot user must be added to private channels before it can post mess
 
 ###### Important
 
-Uninstalling the Slack app may result in the Slack app not being able to be reinstalled. Avoid uninstalling the Slack app during the public preview.
+Uninstalling the Slack app may result in the Slack app not being able to be reinstalled. Please avoid uninstalling the Slack app.

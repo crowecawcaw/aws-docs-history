@@ -12,10 +12,11 @@ Before configuring webhook access, ensure you have:
 
 ## Webhook types
 
-AWS DevOps Agent supports two types of webhooks:
+AWS DevOps Agent supports the following types of webhooks:
 
 - **Integration-specific webhooks** – Automatically generated when you configure third-party integrations like Dynatrace, Splunk, Datadog, New Relic, ServiceNow, or Slack. These webhooks are associated with the specific integration and use authentication methods determined by the integration type
 - **Generic webhooks** – Can be manually created for triggering investigations from any source not covered by a specific integration. Generic webhooks currently use **HMAC** authentication (bearer token not currently available).
+- **Grafana alert webhooks** – Grafana can send alert notifications directly to AWS DevOps Agent through webhook contact points. For setup instructions including a custom notification template, see [Connecting Grafana](connecting-telemetry-sources-connecting-grafana.md "connecting-telemetry-sources-connecting-grafana.md").
 
 ## Webhook authentication methods
 

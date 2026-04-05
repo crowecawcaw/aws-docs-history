@@ -20,7 +20,7 @@ AWS DevOps Agent provides comprehensive incident response and prevention capabil
 AWS DevOps Agent autonomously investigates issues the moment they occur:
 
 - **Automated incident investigation** – Begins investigating immediately when an alert or support ticket comes in
-- **AWS DevOps Agent Chat** - Query your infrastructure, analyze system health, and guide investigations using natural language throughout the DevOps Agent Space web app. Chat provides context-aware responses based on the page you're viewing, whether asking about resources in DevOps Center, steering an investigation, or filtering recommendations in Prevention.
+- **AWS DevOps Agent Chat** - Query your infrastructure, analyze system health, and guide investigations using natural language throughout the DevOps Agent Space web app. Chat provides context-aware responses based on the page you're viewing, whether asking about resources in Topology, steering an investigation, or filtering recommendations in Prevention.
 - **Detailed mitigation plans** – Provides specific actions to resolve incidents, validate success, and revert changes if needed
 - **Automated incident coordination** – Routes observations, findings, and mitigation steps through your preferred communication channels like Slack and ServiceNow
 - **AWS Support integration** – Create AWS Support cases directly from an investigation with immediate context provided to AWS Support experts

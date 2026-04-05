@@ -4,8 +4,8 @@
 
 Currently, AWS DevOps Agent supports Datadog users with built-in, 1 way integration, enabling the following:
 
-- **Automated Investigation triggering -** Datadog events can be configured to trigger AWS DevOps Agent incident resolution Investigations via AWS DevOps Agent webhooks.
-- **Telemetry introspection** - AWS DevOps Agent can introspect Datadog telemetry as it investigates an issue via the each providers remote MCP server.
+- **Automated Investigation triggering** - Datadog events can be configured to trigger AWS DevOps Agent incident resolution Investigations via AWS DevOps Agent webhooks.
+- **Telemetry introspection** - AWS DevOps Agent can introspect Datadog telemetry as it investigates an issue via each provider's remote MCP server.
 
 ## Onboarding
 
@@ -15,15 +15,28 @@ Establish connection to your Datadog remote MCP endpoint with account access cre
 
 #### Configuration
 
-1. Open the hamburger menu and select Settings
-2. Scroll to the Available - Telemetry section. Press Register next to Datadog
+1. Go to the **Capability Providers** page (accessible from the side navigation)
+2. Find **Datadog** in the **Available** providers section under **Telemetry** and click **Register**
 3. Enter your Datadog MCP server details:
    - **Server Name** - Unique identifier (e.g., my-datadog-server)
-   - **Endpoint URL** - Your Datadog MCP server endpoint (typically [https://mcp.datadoghq.com/api/unstable/mcp-server/mcp](https://mcp.datadoghq.com/api/unstable/mcp-server/mcp "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp"))
+   - **Endpoint URL** - Your Datadog MCP server endpoint. The endpoint URL varies depending on your Datadog site. See the Datadog site endpoint table below.
    - **Description** - Optional server description
 
 4. Click Next
 5. Review and submit
+
+#### Datadog site endpoints
+
+The MCP endpoint URL varies depending on your Datadog site. To identify your site, check the URL in your browser when logged into Datadog, or see [Access the Datadog site](https://docs.datadoghq.com/getting_started/site/#access-the-datadog-site "https://docs.datadoghq.com/getting_started/site/#access-the-datadog-site").
+
+| Datadog Site  | Site Domain         | MCP Endpoint URL                                            |
+| ------------- | ------------------- | ----------------------------------------------------------- |
+| US1 (default) | `datadoghq.com`     | `https://mcp.datadoghq.com/api/unstable/mcp-server/mcp`     |
+| US3           | `us3.datadoghq.com` | `https://mcp.us3.datadoghq.com/api/unstable/mcp-server/mcp` |
+| US5           | `us5.datadoghq.com` | `https://mcp.us5.datadoghq.com/api/unstable/mcp-server/mcp` |
+| EU1           | `datadoghq.eu`      | `https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp`      |
+| AP1           | `ap1.datadoghq.com` | `https://mcp.ap1.datadoghq.com/api/unstable/mcp-server/mcp` |
+| AP2           | `ap2.datadoghq.com` | `https://mcp.ap2.datadoghq.com/api/unstable/mcp-server/mcp` |
 
 #### Authorization
 
@@ -89,7 +102,7 @@ Learn more: [Datadog Remote MCP Server](https://www.datadoghq.com/blog/datadog-r
 
 ## Removal
 
-The telemetry source is connected at two levels at the agent space level and at account level. To completely remove it you must first remove from all agentspaces where it is used and then it can be unregistered.
+The telemetry source is connected at two levels at the agent space level and at account level. To completely remove it you must first remove from all agent spaces where it is used and then it can be unregistered.
 
 ### Step 1: Remove from agent space
 
@@ -99,9 +112,9 @@ The telemetry source is connected at two levels at the agent space level and at 
 4. Select Datadog
 5. Press remove
 
-### Step 2: Remove from agent space
+### Step 2: Deregister from account
 
-1. Open the hamburger menu and select Settings
+1. Go to the **Capability Providers** page (accessible from the side navigation)
 2. Scroll to the **Currently registered** section.
 3. Check the agent space count is zero (if not repeat Step 1 above in your other agent spaces)
 4. Press Deregister next to Datadog

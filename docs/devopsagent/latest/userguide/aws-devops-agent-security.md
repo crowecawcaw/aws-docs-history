@@ -2,6 +2,12 @@
 
 This document provides information about security considerations, data protection, access controls, and compliance capabilities for AWS DevOps Agent. Use this information to understand how AWS DevOps Agent is designed to meet your security and compliance requirements.
 
+## Multi-layered security
+
+AWS DevOps Agent implements security at multiple layers. Even if broader permissions are granted to the agent's IAM role, the agent enforces its own internal access controls to limit the scope of its actions. For example, if a customer adds a full Amazon S3 access IAM policy to the agent's IAM role, AWS DevOps Agent will ensure that only logs after the `AWSLogs` prefix are read for troubleshooting purposes.
+
+We recommend following the principle of least privilege when configuring IAM permissions for AWS DevOps Agent, and implementing security at multiple layers. Defense in depth ensures that no single misconfiguration can compromise the security of your environment.
+
 ## Agent Spaces
 
 Agent Spaces serve as the primary security boundary in AWS DevOps Agent. Each Agent Space:
@@ -14,14 +20,21 @@ Agent Spaces maintain strict isolation to ensure security and prevent unintended
 
 ## Regional processing and data flow
 
-AWS DevOps Agent operates from the US East (N. Virginia) region (us-east-1) as its primary processing hub. The agent retrieves operational data from AWS regions across all AWS accounts granted access within the configured Agent Space. This multi-region cross-account data collection ensures comprehensive incident analysis.
+AWS DevOps Agent operates globally with regional processing capabilities. The agent retrieves operational data from AWS regions across all AWS accounts granted access within the configured Agent Space. This multi-region cross-account data collection ensures comprehensive incident analysis while respecting geographical boundaries for inference processing.
 
 ### Amazon Bedrock usage and cross-region inference
 
-AWS DevOps Agent will automatically select the optimal region within the US to process your inference requests. This maximizes available compute resources, model availability, and delivers the best customer experience. Your data will remain stored in the US East (N. Virginia) region, but inputs, requests, and output may be processed in other US regions. All data will be transmitted encrypted across Amazon's secure network.
+AWS DevOps Agent will automatically select the optimal region within your geography to process your inference requests. This maximizes available compute resources, model availability, and delivers the best customer experience. Your data will remain stored only in the region where your Agent Space is created, however, input prompts and output results may be processed outside that region as described in the following list. All data will be transmitted encrypted across Amazon's secure network.
 
+AWS DevOps Agent will securely route your inference requests to available compute resources within the geographic area where the request originated, as follows:
+
+- Inference requests originating in the European Union will be processed within the European Union.
+- Inference requests originating in the United States will be processed within the United States.
+- Inference requests originating in Australia will be processed within Australia.
+- Inference requests originating within Japan will be processed within Japan.
+- If an inference request originates in an area not listed, it will be processed by default within the United States.
 - DevOps Agent and Bedrock are not impacted by customer policies in Service Control Policies (SCPs) or Control Tower that restrict customer content to specific regions
-- Bedrock may use U.S. regions other than US East (N. Virginia) to perform stateless inference to optimize performance and availability
+- Bedrock may use regions other than the originating region within your geography to perform stateless inference to optimize performance and availability
 
 ## Identity and access management
 
@@ -53,7 +66,7 @@ AWS DevOps Agent encrypts all customer data:
 
 ### Data storage and retention
 
-Data is stored in the US East (N. Virginia) region
+Data is stored in the region where your Agent Space is created, while inference processing may occur within your geography as described in the Amazon Bedrock usage section above.
 
 ### Personal identifiable information (PII)
 
@@ -132,13 +145,46 @@ The following tools use account-level registration:
 
 ## Network connectivity
 
-AWS DevOps Agent connects to third-party systems, including remote MCP servers, from the following public IP addresses:
+AWS DevOps Agent connects to your third-party systems and remote MCP servers to perform investigations and other operations.
 
-- 34.228.181.128
-- 44.219.176.187
-- 54.226.244.221
+### Inbound traffic from AWS DevOps Agent to your systems
 
-If your third-party systems or remote MCP servers use IP allowlisting or firewall rules, you must allow inbound connections from these IP addresses to enable AWS DevOps Agent to access your integrations.
+AWS DevOps Agent initiates outbound connections to your third-party systems and remote MCP servers, which arrive as inbound traffic to your infrastructure. How you secure this traffic depends on how your tools are hosted:
+
+- **Privately hosted tools** – If your tools are reachable from within an AWS VPC, you can use AWS DevOps Agent _private connections_ to keep traffic isolated to AWS networks, and off of the public internet. For more information, see [Connecting to privately hosted tools](configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md "configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md").
+- **Publicly hosted tools** – If your tools are reachable over the public internet and use IP allowlisting or firewall rules, you must allow inbound traffic from the following AWS DevOps Agent source IP addresses:
+  - Asia Pacific (Sydney) (ap-southeast-2)
+    - `13.237.95.197`
+    - `13.238.84.102`
+
+  - Asia Pacific (Tokyo) (ap-northeast-1)
+    - `13.192.12.233`
+    - `35.74.181.230`
+    - `57.183.50.158`
+
+  - Europe (Frankfurt) (eu-central-1)
+    - `18.158.110.140`
+    - `52.57.96.160`
+    - `52.59.55.56`
+
+  - Europe (Ireland) (eu-west-1)
+    - `34.251.85.24`
+    - `52.30.157.157`
+    - `52.51.192.222`
+
+  - US East (N. Virginia) (us-east-1)
+    - `34.228.181.128`
+    - `44.219.176.187`
+    - `54.226.244.221`
+
+  - US West (Oregon) (us-west-2)
+    - `34.212.16.133`
+    - `52.89.67.212`
+    - `54.187.135.61`
+
+### Outbound traffic from your VPC to AWS DevOps Agent
+
+For outbound traffic from your AWS VPC to AWS DevOps Agent (for example, using [Invoking DevOps Agent through Webhook](configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md "configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md")), you can use VPC Endpoints to keep this network traffic isolated to AWS networks. For more information, see [VPC Endpoints (AWS PrivateLink)](aws-devops-agent-security-vpc-endpoints-aws-privatelink.md "aws-devops-agent-security-vpc-endpoints-aws-privatelink.md").
 
 ## Shared responsibility model
 

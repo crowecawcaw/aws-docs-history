@@ -16,15 +16,17 @@ AWS DevOps Agent On Demand Tasks provides comprehensive capabilities to help you
 
 **Investigation steering** – When viewing an investigation detail page, guide the investigation by directing the agent to focus on specific logs, explore particular hypotheses, or update root cause analysis. Provide steering input like "Focus on logs for the payment service and update your RCA" or "Explore the hypothesis that DynamoDB throttling caused the issue."
 
+**Chat artifacts** – Generate structured reports and documents, such as operational health summaries, error reports, and incident analyses. Artifacts appear in a dedicated panel and support versioned editing within the conversation.
+
 **Recommendation filtering** – Query incident prevention recommendations with specific criteria, such as recommendations related to particular services or operational concerns. Chat explains the impact and implementation considerations for each recommendation. For example, "Show me recommendations that will prevent incidents involving DynamoDB" or "Which recommendations would help me detect request latency issues quicker?"
 
 ## Accessing Chat
 
-To access Chat, click the chat icon in the bottom right corner of any page within the DevOps Agent Space web app. The chat interface opens as a persistent panel that remains accessible as you navigate between pages.
+Chat is available as a persistent panel on the left side of the DevOps Agent Space web app. The left sidebar includes a **+ New chat** button, a **Pages** section for navigating to Incidents, Ops Backlog, and Topology, and a **Chats** section that displays your recent conversations. Choose **View all** to see your full conversation history.
 
 Chat provides context-aware responses based on where you access it:
 
-**DevOps Center** – Ask general questions about your Agent Space resources, architecture, and operational health. Chat has full visibility into all connected accounts and services. From this context, you can query resource configurations, deployment history, topology information, and observability tool integrations.
+**Topology** – Ask general questions about your Agent Space resources, architecture, and operational health. Chat has full visibility into all connected accounts and services. From this context, you can query resource configurations, deployment history, topology information, and observability tool integrations.
 
 **Incident Response** – When viewing the incident response page, ask questions about investigation trends, resolution times, and incident patterns across your Agent Space. Chat can analyze historical investigation data to identify common causes and improvement opportunities.
 
@@ -42,7 +44,7 @@ When viewing an investigation detail page, Chat automatically understands you ar
 
 On the prevention page, Chat understands you are interested in incident prevention recommendations. Queries automatically filter and analyze recommendations within your Agent Space context. The system recognizes whether you are asking about general recommendations or specific recommendation details.
 
-When accessing Chat from the DevOps Center, Chat provides broad visibility across all resources, metrics, and historical data in your Agent Space. You can ask about any resource, service, or operational concern without specifying the investigation or recommendation context.
+When accessing Chat from the Topology page, Chat provides broad visibility across all resources, metrics, and historical data in your Agent Space. You can ask about any resource, service, or operational concern without specifying the investigation or recommendation context.
 
 This context awareness eliminates the need to repeatedly specify which investigation, recommendation, or resource scope you are referencing, creating a more natural conversational flow.
 
@@ -50,17 +52,44 @@ This context awareness eliminates the need to repeatedly specify which investiga
 
 Chat maintains conversation history to enable you to continue previous discussions and reference earlier queries.
 
-**Creating new conversations** – Click the "New Chat" button in the chat interface to start a fresh conversation without prior context. New conversations do not carry over information from previous chats, allowing you to ask unrelated questions without confusion.
+**Creating new conversations** – Click the "New session" button in the chat panel to start a fresh conversation without prior context. New conversations do not carry over information from previous chats, allowing you to ask unrelated questions without confusion.
 
-**Accessing conversation history** – Click "Chat History" to view all previous conversations within your Agent Space. Conversations are organized chronologically with timestamps and preview text. Conversation history is retained for 90 days and is private to your user account within the Agent Space.
+**Accessing conversation history** – Click "History" to view all previous conversations within your Agent Space. Conversations are organized chronologically with timestamps and preview text. Conversation history is retained for 90 days and is private to your user account within the Agent Space.
 
 **Continuing conversations** – Select any conversation from your history to resume where you left off. Chat maintains the full context of previous messages, enabling you to ask follow-up questions that reference earlier parts of the conversation. When you switch pages while viewing a conversation, the conversation context remains but page-specific context updates based on your current location.
 
 Note that conversation history is isolated within each Agent Space. Conversations in one Agent Space are not visible or accessible from other Agent Spaces. This isolation ensures that sensitive information remains compartmentalized according to your organizational boundaries.
 
+## Generating artifacts
+
+AWS DevOps Agent supports chat artifacts — structured, versioned documents generated by the agent during a conversation. Artifacts provide a dedicated, interactive panel in the chat UI for reviewing and editing AI-generated content, such as operational reports, error summaries, and health assessments.
+
+You can request artifacts from any page in the DevOps Agent Space web app. Chat uses the current page context to scope the artifact content.
+
+### How artifacts work
+
+When you ask Chat to create or update content, Chat generates an artifact — typically a formatted document — and displays it in the artifact panel alongside the conversation.
+
+**Generate** – Send a natural language request to create a report or document. For example, ask "Generate a weekly operational health report for my Agent Space" or "Show me a report for my 4xx errors from last week".
+
+**Review** – The artifact appears in a dedicated panel alongside the conversation. You can review the full content while continuing to interact with Chat.
+
+**Edit** – Request changes to the artifact through Chat. For example, ask "Add a section on Lambda cold starts" or "Update the report to include last month's data". Chat creates a new version of the artifact with your requested changes.
+
 ## Sample queries
 
 The following examples demonstrate the types of questions you can ask Chat. These examples are organized by use case and context.
+
+### Artifact generation queries
+
+From any page in the DevOps Agent Space web app:
+
+- Generate a weekly operational health summary for my Agent Space
+- Create a report of all 4xx errors from last week
+- Build an incident summary report for the last 30 days
+- Create a summary of alarm activity for the payment service this week
+- Generate a deployment history report for the last 7 days
+- Summarize all open recommendations into a report
 
 ### Resource information queries
 
@@ -76,7 +105,7 @@ From any page in the DevOps Agent Space web app:
 
 ### System health queries
 
-From DevOps Center or Incident Response pages:
+From Topology or Incident Response pages:
 
 - Which alarms fired in the last 24 hours?
 - Any 5xx errors in the last hour?
@@ -89,7 +118,7 @@ From DevOps Center or Incident Response pages:
 
 ### Observability tool queries
 
-From DevOps Center:
+From Topology:
 
 - List Splunk log groups
 - Show me Prometheus metrics and their alarm thresholds
@@ -149,7 +178,7 @@ Chat is available in all DevOps Agent Space web apps. The setup process depends 
 
 ### New Agent Spaces
 
-Chat is **automatically enabled** when you create a new Agent Space. No additional configuration or IAM permissions setup is required. After you configure your DevOps Agent Space web app, Chat is immediately available through the chat icon in the bottom right corner of any page.
+Chat is **automatically enabled** when you create a new Agent Space. No additional configuration or IAM permissions setup is required. After you configure your DevOps Agent Space web app, Chat is immediately available as a persistent panel on the left side of any page.
 
 ### Existing Agent Spaces
 
@@ -177,4 +206,4 @@ Add the following IAM permissions to your existing operator access role:
 
 Navigate to the AWS IAM console, locate your DevOps Agent operator role, and add these permissions to the role policy. Chat becomes available immediately after the permissions are added.
 
-After completing either option, refresh your DevOps Agent Space web app and the chat icon appears in the bottom right corner.
+After completing either option, refresh your DevOps Agent Space web app and the chat panel appears on the left side of any page.

@@ -300,8 +300,6 @@ You can modify or remove log delivery at any time from the AWS DevOps Agent cons
 3. In the **Configuration** tab (for Agent Space-level logs) or **Capability Providers** **>** **Logs** tab (for service-level logs), choose the delivery to modify.
 4. Update the configuration as needed and choose **Save**.
 
-> **Note:** You can't change the destination type of an existing delivery. To change the destination type, delete the current delivery and create a new one.
-
 #### Disable log delivery (console)
 
 1. Open the AWS DevOps Agent console in the AWS Management Console.

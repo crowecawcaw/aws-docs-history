@@ -23,25 +23,27 @@ Resource mapping provides several capabilities that enhance incident investigati
 
 ## Topology views
 
-The topology visualization in DevOps Center page in the Operator Web App offers multiple levels of detail:
+The topology visualization in the Topology page in the Operator Web App offers multiple levels of detail:
 
-- **System view** – Shows high-level account and region boundaries
-- **Container view** – Displays deployment stacks like CloudFormation stacks that contain related resources
-- **Resource view** – Shows the complete view with all resources and their relationships
+- **Learned** – The default view, generated from the Agent Space Understanding skill. Displays a structured summary of your infrastructure organized by logical services and request paths.
+- **System** – Shows high-level account and region boundaries.
+- **Container** – Displays deployment stacks like CloudFormation stacks that contain related resources.
+- **Components** – Shows individual components within containers and their relationships.
+- **All Resources** – Shows the complete view with all discovered resources and their relationships.
 
 ## Resource discovery
 
 Resources are discovered through two methods:
 
-- **CloudFormation stacks** – The agent will list all of the CloudFormation stacks and their resources in the primary AWS account as well as an connected secondary accounts. This is supported for any infrastructure-as-code tooling that uses CloudFormation for deployment, including Cloud Development Kit (CDK).
-- **Resource Tags** – For resources not deployed from CloudFormation, you can specify a list of AWS Tag keys and value pairs to include in the resource topology. This is useful to identify application boundaries for applications deployed through the AWS Management Console, the AWS service APIs, or other infrastructure-as-code frameworks.
-
-###### Note
-
-The target AWS account must have Resource Explorer enabled to discover tagged resources.
+- **CloudFormation stacks** – The agent lists all CloudFormation stacks and their resources in the primary AWS account and any connected secondary accounts. This is supported for any infrastructure-as-code tooling that uses CloudFormation for deployment, including AWS Cloud Development Kit (AWS CDK).
+- **Resource Explorer** – For resources not deployed from CloudFormation, tagged resources are discovered from AWS Resource Explorer. The target AWS account must have Resource Explorer enabled. This is useful for identifying application boundaries for resources deployed through the AWS Management Console, the AWS service APIs, or other infrastructure-as-code frameworks.
 
 ## Investigation scope beyond topology
 
 While the application topology provides important context during investigations, AWS DevOps Agent is not limited to investigating only the resources shown in the topology. The agent may use additional data sources, such as AWS service APIs or connected observability tools, to investigate resources that are not in the application topology.
 
 To limit the resources the agent has access to, restrict the policy for the role assigned to the agent to access cross-account resources. For more information, see [Limiting Agent Access in an AWS Account](aws-devops-agent-security-limiting-agent-access-in-an-aws-account.md "aws-devops-agent-security-limiting-agent-access-in-an-aws-account.md").
+
+## Topology and the Agent Space Understanding skill
+
+The topology graph feeds into the Agent Space Understanding learned skill, which encodes a structured summary of your infrastructure for use during investigations. When topology discovery completes for a new agent space, the system automatically generates the Agent Space Understanding skill. For more information about learned skills, see [Learned Skills](about-aws-devops-agent-learned-skills.md "about-aws-devops-agent-learned-skills.md").

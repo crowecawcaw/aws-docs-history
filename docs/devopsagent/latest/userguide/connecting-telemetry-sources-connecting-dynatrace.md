@@ -17,7 +17,7 @@ Onboarding your Dynatrace observability system involves three stages:
 
 1. **Connect** - Establish connection to Dynatrace by configuring account access credentials, with all the environments you may need
 2. **Enable** - Activate Dynatrace in specific Agent spaces with specific Dynatrace environments
-3. **Configure your Dynatrace environment -** download the workflows and dashboard and import into Dynatrace, making a note of the webhooks details to trigger investigations in designated Agent spaces
+3. **Configure your Dynatrace environment** - download the workflows and dashboard and import into Dynatrace, making a note of the webhook details to trigger investigations in designated Agent spaces
 
 ### Step 1: Connect
 
@@ -25,18 +25,18 @@ Establish connection to your Dynatrace environment
 
 #### Configuration
 
-1. Open the hamburger menu and select Settings
-2. Scroll to the Available - Telemetry section. Press Register next to Dynatrace
+1. Go to the **Capability Providers** page (accessible from the side navigation)
+2. Find **Dynatrace** in the **Available** providers section under **Telemetry** and click **Register**
 3. **Create OAuth client in Dynatrace, with the detailed permissions.**
    1. See [Dynatrace documentation](https://docs.dynatrace.com/docs/shortlink/aws-devops-agent "https://docs.dynatrace.com/docs/shortlink/aws-devops-agent")
    2. When ready press next
-   3. You can connect multiple dynatrace environments and later scope to specific ones for each DevOps Agent Space you may have.
+   3. You can connect multiple Dynatrace environments and later scope to specific ones for each DevOps Agent Space you may have.
 
 4. Enter your Dynatrace details from the OAuth client setup:
-   1. **Client Name**
-   2. **Client ID**
-   3. **Client Secret**
-   4. **Account URN**
+   - **Client Name**
+   - **Client ID**
+   - **Client Secret**
+   - **Account URN**
 
 5. Click Next
 6. Review and add
@@ -54,15 +54,48 @@ Activate Dynatrace in a specific Agent space and configure appropriate scoping
 5. Dynatrace Environment ID - Provide the Dynatrace environment ID you would like to associate with this DevOps agent space.
 6. Enter one or more Dynatrace Entity IDs - these help DevOps agent discover your most important resources, examples might be services or applications. **If you are unsure you can press remove.**
 7. Review and press Save
-8. Copy the Webhook URL and Webhook Secret and follow the instructions [[https://docs.dynatrace.com/docs/shortlink/aws-devops-agent](https://docs.dynatrace.com/docs/shortlink/aws-devops-agent "https://docs.dynatrace.com/docs/shortlink/aws-devops-agent")] to add this credentials to Dynatrace.
+8. Copy the Webhook URL and Webhook Secret. See [Dynatrace documentation](https://docs.dynatrace.com/docs/shortlink/aws-devops-agent "https://docs.dynatrace.com/docs/shortlink/aws-devops-agent") to add these credentials to Dynatrace.
 
 ### Step 3: Configure your Dynatrace environment
 
-To complete your Dynatrace set up you will need to perform certain setup steps in your Dynatrace environment. Follow the instructions here: [https://docs.dynatrace.com/docs/shortlink/aws-devops-agent](https://docs.dynatrace.com/docs/shortlink/aws-devops-agent "https://docs.dynatrace.com/docs/shortlink/aws-devops-agent")
+To complete your Dynatrace set up you will need to perform certain setup steps in your Dynatrace environment. Follow the instructions in the [Dynatrace documentation](https://docs.dynatrace.com/docs/shortlink/aws-devops-agent "https://docs.dynatrace.com/docs/shortlink/aws-devops-agent").
+
+#### Supported Event Schemas
+
+AWS DevOps Agent supports two types of events from Dynatrace using webhooks. The supported event schemas are documented below:
+
+##### Incident Event
+
+Incident events are used to trigger an investigation. The event schema is:
+
+```
+{
+    "event.id": string;
+    "event.status": "ACTIVE" | "CLOSED";
+    "event.status_transition": string;
+    "event.description": string;
+    "event.name": string;
+    "event.category": "AVAILABILITY" | "ERROR" | "SLOWDOWN" | "RESOURCE_CONTENTION" | "CUSTOM_ALERT" | "MONITORING_UNAVAILABLE" | "INFO";
+    "event.start"?: string;
+    "affected_entity_ids"?: string[];
+}
+```
+
+##### Mitigation Event
+
+Mitigation events are used to trigger generating a mitigation report for the investigation on next steps. The event schema is:
+
+```
+{
+    "task_id": string;
+    "task_version": number;
+    "event.type": "mitigation_request";
+}
+```
 
 ## Removal
 
-The telemetry source is connected at two levels at the agent space level and at account level. To completely remove it you must first remove from all agentspaces where it is used and then it can be unregistered.
+The telemetry source is connected at two levels at the agent space level and at account level. To completely remove it you must first remove from all agent spaces where it is used and then it can be unregistered.
 
 ### Step 1: Remove from agent space
 
@@ -72,9 +105,9 @@ The telemetry source is connected at two levels at the agent space level and at 
 4. Select Dynatrace
 5. Press remove
 
-### Step 2: Remove from agent space
+### Step 2: Deregister from account
 
-1. Open the hamburger menu and select Settings
+1. Go to the **Capability Providers** page (accessible from the side navigation)
 2. Scroll to the **Currently registered** section.
 3. Check the agent space count is zero (if not repeat Step 1 above in your other agent spaces)
 4. Press Deregister next to Dynatrace

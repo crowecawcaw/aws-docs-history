@@ -6,11 +6,38 @@ Incident response investigations can be started in one of three ways.
 
 - **Built-in integrations** - You can connect a DevOps Agent Space to ticketing systems like ServiceNow using built-in integrations. Once connected, DevOps Agent incident response investigations will be automatically triggered from support tickets, and your DevOps Agent will provide updates of its key findings, root cause analyses, and mitigation plans into the originating ticket.
 - **Webhooks** - You can use webhooks to send events to AWS DevOps Agent. For example you can use webhooks to trigger incident response investigations from PagerDuty tickets or Grafana alarms.
-- **Manually** - You can manually start incident response investigations from the Incident Response tab of the any DevOps Agent Space web app. You can either enter free form text that describes the incident you want your DevOps Agent to investigation, and it will create an investigation plan, collect finds, determine a root cause, and offer to generate a mitigation plan. You can also choose from several pre-configured starting points to quickly begin your Investigation: Latest alarm to investigate your most recent triggered alarm and analyze the underlying metrics and logs to determine the root cause, High CPU usage to investigate high CPU utilization metrics across your compute resources and identify which processes or services are consuming excessive resources, or Error rate spike to investigate the recent increase in application error rates by analyzing metrics, application logs, and identifying the source of failures.
+- **Manually** - You can manually start incident response investigations from the Incident Response tab of any DevOps Agent Space web app. You can either enter free form text that describes the incident you want your DevOps Agent to investigate, and it will create an investigation plan, collect findings, determine a root cause, and offer to generate a mitigation plan. You can also choose from several pre-configured starting points to quickly begin your Investigation: Latest alarm to investigate your most recent triggered alarm and analyze the underlying metrics and logs to determine the root cause, High CPU usage to investigate high CPU utilization metrics across your compute resources and identify which processes or services are consuming excessive resources, or Error rate spike to investigate the recent increase in application error rates by analyzing metrics, application logs, and identifying the source of failures.
 
 ![](images/2f22200ef528.png)
 
-Once you click “Start Investigation” you’ll be asked to provide some additional (optional) details to help the agent focus its work. Provide any additional details you may have, and click Start Investigation. You will then be taken to the investigation details page where you can see your DevOps Agent in action!
+Once you click "Start Investigation" you'll be asked to provide some additional details to help the agent focus its work. The investigation dialog includes the following fields:
+
+- **Investigation details** – Pre-filled with your description. You can edit this to refine the investigation scope.
+- **Investigation starting point** – Optionally describe a specific alarm, metric, log snippet, or other starting point for the agent.
+- **Date and time of incident** – Auto-filled with the current time in UTC format. Adjust if the incident occurred earlier.
+- **Name your investigation** – Auto-generated with a timestamp. You can customize this (maximum 400 characters).
+- **Priority** – Select the investigation priority from the dropdown (Medium is the default).
+
+Review and adjust these fields as needed, then click "Start investigating..." to begin. You will then be taken to the investigation details page where you can see your DevOps Agent in action!
+
+## Incident triage
+
+The triage phase is the first stage of AWS DevOps Agent's incident response system. When an external event triggers, such as an alarm from Datadog, an incident ticket from ServiceNow, or a problem from Dynatrace, AWS DevOps Agent automatically processes it within seconds to determine whether it should be investigated independently or linked to an existing investigation.
+
+The primary function of the triage stage is incident correlation — identifying related incidents and consolidating them into a single investigation to avoid duplicate work and resource waste. When a new incident arrives, AWS DevOps Agent analyzes it alongside active investigations within a look-back window (typically 20 minutes). Using AI-powered analysis, it examines factors like component similarities, geographic region, and timing patterns to determine relationships between incidents.
+
+AWS DevOps Agent makes one of two decisions:
+
+- **Linked** – Correlates the incident to an existing investigation and sends a steering message to that investigation with context about the new incident.
+- **Proceed** – Schedules a new independent investigation for the incident.
+
+### Viewing triage decisions
+
+When incidents are linked, the primary investigation receives a steering message containing the linked incident's details and correlation reasoning. On your AWS DevOps Agent Space web app, you'll see a status of **LINKED** along with correlation reasoning explaining why incidents were linked. The primary investigation displays a list of all linked incidents, allowing you to see the full scope of related issues being investigated together. Your external ticket system (ServiceNow, PagerDuty, etc.) and communication channel (Slack) will receive a notification that the incident was linked along with correlation reasoning.
+
+### Unlinking incidents and custom correlation rules
+
+If AWS DevOps Agent incorrectly correlates incidents, you can manually unlink them through the AWS DevOps Agent Space web app. This will reschedule the unlinked incident as an independent investigation. You can also provide custom correlation rules to guide AWS DevOps Agent by creating an AWS DevOps Agent Skill containing your correlation logic and associating it with the triage stage.
 
 ## Ask for human support
 

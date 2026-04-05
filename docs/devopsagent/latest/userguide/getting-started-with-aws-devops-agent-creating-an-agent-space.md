@@ -11,12 +11,13 @@ An Agent Space defines the tools and infrastructure that AWS DevOps Agent has ac
 
 ### Name the Agent Space
 
-1. Click **Create Agent Space +**
+1. Click **Create Agent Space**
 
 In the **Agent Space details** section, provide:
 
 1. In the **Name** field, enter a name for your Agent Space
 2. (Optional) In the **Description** field, add details about the Agent Space's purpose
+3. (Optional) From the **Agent response language** dropdown, select the language the agent uses when generating responses, findings, and investigation output. Options include: Bahasa Indonesian, Chinese (Simplified/PRC), Chinese (Traditional/Taiwan), English (UK), French (France), German (Germany), Italian (Italy), Japanese (Japan), Korean (Korea), Portuguese (Brazil), Spanish (Latin America), Turkish (Turkey), Arabic (Saudi Arabia), Thai (Thailand), and Vietnamese (Vietnam). If no language is selected, the agent responds in the language of the input.
 
 ### Configuring primary account access
 
@@ -80,11 +81,17 @@ Use this option when you need to customize permissions for web app access.
 1. Select **Create a new AWS DevOps Agent role using a policy template**
 2. Follow the instructions to create the new role’s trust policy and inline policy.
 
-Once all sections are filled out, click **Submit**
+### Adding tags (optional)
+
+You can add AWS tags to your Agent Space during creation. Tags are key-value pairs that help you organize and identify your resources. You can add up to 50 tags per Agent Space. To add tags, expand the **Tags** section on the Create Agent Space page and click **Add new tag**.
+
+### Complete agent space creation
+
+Once all sections are filled out, click **Create**
 
 ## Verifying your Agent Space setup
 
-Once configured, the “Configure Web App” button should become “Admin access”. Clicking should open the Web App and authenticate successfully.
+Once configured, the **Operator access** button will appear on the Agent Space details page. Clicking it will open the Web App in a new tab and authenticate successfully.
 
 ## Next steps
 

@@ -20,11 +20,11 @@ AWS DevOps Agent offers two authentication methods for accessing the Agent Space
 
 ## Configuring IAM Identity Center during Agent Space creation
 
-When you create an Agent Space, you can configure IAM Identity Center authentication on the **Web app** tab:
+When you create an Agent Space, you can configure IAM Identity Center authentication on the **Access** tab:
 
 ### Step 1: Navigate to the Web app configuration
 
-1. After configuring your Agent Space details and AWS account access, proceed to the **Web app** tab
+1. After configuring your Agent Space details and AWS account access, proceed to the **Access** tab
 2. You'll see two sections: "Connect IAM Identity Center" and "Admin access"
 
 ### Step 2: Configure IAM Identity Center integration
@@ -76,7 +76,7 @@ After configuring IAM Identity Center authentication, you need to grant specific
 ### Step 1: Access user management
 
 1. In the AWS DevOps Agent console, select your Agent Space
-2. Go to the **Web app** tab
+2. Go to the **Access** tab
 3. Under **User Access**, click **Manage Users and Groups**
 
 ### Step 2: Add users or groups

@@ -4,8 +4,8 @@
 
 Currently, AWS DevOps Agent supports Splunk users with built-in, 1 way integration, enabling the following:
 
-- **Automated Investigation triggering -** Splunk events can be configured to trigger AWS DevOps Agent incident resolution Investigations via AWS DevOps Agent webhooks.
-- **Telemetry introspection** - AWS DevOps Agent can introspect Splunk telemetry as it investigates an issue via the each providers remote MCP server.
+- **Automated Investigation triggering** - Splunk events can be configured to trigger AWS DevOps Agent incident resolution Investigations via AWS DevOps Agent webhooks.
+- **Telemetry introspection** - AWS DevOps Agent can introspect Splunk telemetry as it investigates an issue via each provider's remote MCP server.
 
 ## Prerequisites
 
@@ -37,8 +37,8 @@ Establish connection to your Splunk remote MCP endpoint with account access cred
 
 #### Configuration
 
-1. Open the hamburger menu and select Settings
-2. Scroll to the Available - Telemetry section. Press Register next to Splunk
+1. Go to the **Capability Providers** page (accessible from the side navigation)
+2. Find **Splunk** in the **Available** providers section under **Telemetry** and click **Register**
 3. Enter your Splunk MCP server details:
    - **Server Name** - Unique identifier (e.g., my-splunk-server)
    - **Endpoint URL** - Your Splunk MCP server endpoint:
@@ -109,7 +109,7 @@ Send webhooks with Splunk [https://help.splunk.com/en/splunk-enterprise/alert-an
 
 ## Removal
 
-The telemetry source is connected at two levels at the agent space level and at account level. To completely remove it you must first remove from all agentspaces where it is used and then it can be unregistered.
+The telemetry source is connected at two levels at the agent space level and at account level. To completely remove it you must first remove it from all agent spaces where it is used and then it can be unregistered.
 
 ### Step 1: Remove from agent space
 
@@ -119,9 +119,9 @@ The telemetry source is connected at two levels at the agent space level and at 
 4. Select Splunk
 5. Press remove
 
-### Step 2: Remove from agent space
+### Step 2: Deregister from account
 
-1. Open the hamburger menu and select Settings
+1. Go to the **Capability Providers** page (accessible from the side navigation)
 2. Scroll to the **Currently registered** section.
 3. Check the agent space count is zero (if not repeat Step 1 above in your other agent spaces)
 4. Press Deregister next to Splunk

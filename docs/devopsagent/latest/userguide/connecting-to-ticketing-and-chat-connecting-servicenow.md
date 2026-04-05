@@ -23,7 +23,7 @@ The first step is to create in ServiceNow an OAuth application client that AWS D
 
 ### Connect your ServiceNow OAuth client to AWS DevOps Agent
 
-1. You can start this process in two places. First, by navigating to AWS DevOps Agent → Settings → Communications, selecting ServiceNow from the list, and clicking register. Alternatively you can select any DevOps Agent Space you may have created and navigate to Capabilities → Communications → Add → ServiceNow and click Register.
+1. You can start this process in two places. First, by navigating to the **Capability Providers** page and finding **ServiceNow** under **Communication**, then clicking **Register**. Alternatively you can select any DevOps Agent Space you may have created and navigate to Capabilities → Communications → Add → ServiceNow and click Register.
 2. Next, authorize DevOps Agent to access your ServiceNow instance using the OAuth application client you just created.
 
 ![](images/3db5a9aafc5f.png)
@@ -182,7 +182,7 @@ Once you have established connectivity, you’ll need to configure a business ru
 })(current, previous);
 ```
 
-If you chose to register your ServiceNow connection from the AWS DevOps Agent Setting tab, you now need to navigate to the DevOps Agent Space you want to investigate ServiceNow incident tickets, select Capabilities → Communications and then register the ServiceNow instance you connected to in the Settings tab. Now, everything should be set up, and all incidents where the caller is set to “Problem Administrator” (to mimic the permissions you gave the AWS DevOps OAuth client) will trigger a incident response investigation in the configured DevOps Agent Space. You can test this by creating a new incident in ServiceNow and setting the Caller field of the incident as “Problem Administrator.”
+If you chose to register your ServiceNow connection from the **Capability Providers** page, you now need to navigate to the DevOps Agent Space you want to investigate ServiceNow incident tickets, select Capabilities → Communications and then register the ServiceNow instance you registered on the Capability Providers page. Now, everything should be set up, and all incidents where the caller is set to “Problem Administrator” (to mimic the permissions you gave the AWS DevOps OAuth client) will trigger a incident response investigation in the configured DevOps Agent Space. You can test this by creating a new incident in ServiceNow and setting the Caller field of the incident as “Problem Administrator.”
 
 ![](images/4c7d24a85f88.png)
 

@@ -6,7 +6,6 @@ Model Context Protocol (MCP) servers extend AWS DevOps Agent's investigation cap
 
 Before connecting an MCP server, ensure your server meets these requirements:
 
-- **Publicly accessible endpoint** – MCP servers must be accessible from the public internet over HTTPS. AWS DevOps Agent does not support connecting to servers hosted in VPCs.
 - **Streamable HTTP transport protocol** – Only MCP servers that implement the Streamable HTTP transport protocol are supported.
 - **Authentication support** – Your MCP server must support OAuth 2.0 authentication flows or API key/token-based authentication.
 
@@ -23,6 +22,10 @@ Please note that the maximum tool length of any MCP tool is 64.
 
 See [AWS DevOps Agent Security](aws-devops-agent-security.md "aws-devops-agent-security.md") for more information on prompt injection and the shared responsibility model.
 
+###### Note
+
+If your MCP server is on a private network, see [Connecting to privately hosted tools](configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md "configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md")
+
 ## Registering an MCP server (account-level)
 
 MCP servers are registered at the AWS account level and shared among all Agent Spaces in that account. Individual Agent Spaces can then choose which specific tools they need from each MCP server.
@@ -31,8 +34,8 @@ MCP servers are registered at the AWS account level and shared among all Agent S
 
 1. Sign in to the AWS Management Console
 2. Navigate to the AWS DevOps Agent console
-3. Go to the **Capabilities** tab
-4. In the **MCP Servers** section, click **Add**
+3. Go to the **Capability Providers** page (accessible from the side navigation)
+4. Find **MCP Server** in the **Available** providers section and click **Register**
 5. On the **MCP server details** page, enter the following information:
    - **Name** – Enter a descriptive name for your MCP server
    - **Endpoint URL** – Enter the full HTTPS URL of your MCP server endpoint
@@ -119,7 +122,7 @@ AWS DevOps Agent will now be able to use the allowlisted tools from your MCP ser
 
 ## Managing MCP server connections
 
-**Updating authentication credentials** – If your authentication credentials need to be updated, you will need to re-register your MCP server. Navigate to the **Settings** page the AWS DevOps Agent console, locate your MCP server, remove any active associations, and click **Deregister**. Next, **register** your MCP server with the new authentication credentials and re-create any necessary associations with your Agent Space.
+**Updating authentication credentials** – If your authentication credentials need to be updated, you will need to re-register your MCP server. Navigate to the **Capability Providers** page in the AWS DevOps Agent console, locate your MCP server, remove any active associations, and click **Deregister**. Next, **register** your MCP server with the new authentication credentials and re-create any necessary associations with your Agent Space.
 
 **Viewing connected MCP servers** – To see all MCP servers connected to your Agent Space, select your Agent Space, go to the **Capabilities** tab, and check the **MCP Servers** section. You can also update selected tools here.
 

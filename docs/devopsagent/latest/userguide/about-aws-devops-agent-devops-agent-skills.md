@@ -47,6 +47,28 @@ The `SKILL.md` is the only mandatory file. It contains the core instructions wri
 - Include decision trees for different scenarios.
 - Document expected outputs and success criteria.
 
+### Frontmatter
+
+Frontmatter is the metadata block at the top of a `SKILL.md` file, enclosed between `---` delimiters. It contains the `name` and `description` fields that AWS DevOps Agent uses to determine when to activate the Skill during an investigation or task.
+
+```
+---
+name: rds-performance-investigation
+description: Investigation procedures for RDS performance issues including
+  connection exhaustion, slow queries, replication lag, and storage capacity.
+  Use this skill when investigating database latency, connection errors, or
+  read/write performance degradation.
+---
+```
+
+**name** – A unique identifier for the Skill. Use lowercase letters, numbers, and hyphens only (maximum 64 characters). Must not start or end with a hyphen.
+
+**description** – A detailed explanation of when and why AWS DevOps Agent should use this Skill. AWS DevOps Agent evaluates this field to decide whether the Skill is relevant to the current task. A vague or missing description can cause the agent to skip the Skill entirely, even if the instructions are well-written.
+
+**Important** – Write the description from the agent's perspective. Include the specific scenarios, services, error types, or symptoms that should trigger the Skill. For example, "Use this skill when investigating database latency, connection errors, or query timeouts for Amazon RDS instances" is more effective than "RDS skill".
+
+When you create a Skill in the UI, the system generates frontmatter automatically from the name and description you provide. Skills uploaded as zip files must include frontmatter in the `SKILL.md` file.
+
 ## Example: Complete skill
 
 The following example shows a complete, well-formed skill for investigating RDS performance issues. It demonstrates the directory structure, SKILL.md frontmatter, actionable investigation procedures, and a supplementary references file.
@@ -178,12 +200,14 @@ my-skill.zip
 
 **SKILL.md frontmatter requirements:**
 
-Skills uploaded as zip files must include frontmatter in SKILL.md:
+Skills uploaded as zip files must include frontmatter in SKILL.md with `name` and `description` fields. AWS DevOps Agent uses these fields to determine when to activate the Skill. For details on writing effective frontmatter, see the Frontmatter section earlier in this topic.
 
 ```
 ---
 name: rds-performance-analysis
 description: Comprehensive RDS performance investigation procedures
+  for connection exhaustion, slow queries, and storage capacity issues.
+  Use when investigating database latency or read/write degradation.
 ---
 
 

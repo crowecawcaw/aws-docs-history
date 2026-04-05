@@ -1,0 +1,19 @@
+# Quotas
+
+AWS DevOps Agent quotas include number of agent spaces, concurrent investigations and more. You can request increases for some quotas, but not all quotas can be increased. These increases are not granted immediately, so it may take a couple of hours to days for your increase to become effective. Unless otherwise noted, each quota is Region-specific.
+
+The following table describes the quotas for AWS DevOps Agent.
+
+| Name                                             | Default | Adjustable | Description                                                                                                 |
+| ------------------------------------------------ | ------- | ---------- | ----------------------------------------------------------------------------------------------------------- |
+| Agent spaces per account per Region              | 10      | Yes        | The maximum number of agent spaces that you can create per account in each AWS Region.                      |
+| Concurrent investigations per agent space        | 3       | Yes        | The maximum number of incident resolution investigations that can run concurrently in a single agent space. |
+| Concurrent evaluations per agent space           | 1       | No         | The maximum number of incident prevention evaluations that can run concurrently in a single agent space.    |
+| Concurrent on-demand invocations per agent space | 10      | Yes        | The maximum number of on-demand DevOps invocations that can run concurrently in a single agent space.       |
+
+## Requesting a quota increase
+
+You can request a quota increase by using one of the following options:
+
+- **From the AWS Management Console** – Open the [Service Quotas console](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/"). In the navigation pane, choose **AWS services**. Select **DevOps Agent**, select a quota, and follow the directions to request a quota increase. For more information, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
+- **From the AWS CLI** – Use the [request-service-quota-increase](../../../cli/latest/reference/service-quotas/request-service-quota-increase.md "../../../cli/latest/reference/service-quotas/request-service-quota-increase.md") AWS CLI command. For more information, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.

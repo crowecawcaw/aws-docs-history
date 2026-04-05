@@ -10,34 +10,28 @@ GitLab is registered at the AWS account level and shared among all Agent Spaces 
 
 1. Sign in to the AWS Management Console
 2. Navigate to the AWS DevOps Agent console
-3. Go to the **Capabilities** tab
-4. In the **Pipeline** section, click **Add**
-5. Select **GitLab** from the list of available providers
+3. Go to the **Capability Providers** page (accessible from the side navigation)
+4. Find **GitLab** in the **Available** providers section under **Pipeline** and click **Register**
 
-If GitLab hasn't been registered yet, you'll be prompted to register it first.
+### Step 2: Configure GitLab connection
 
-### Step 2: Choose connection type
+On the GitLab registration page, configure the following:
 
-On the "Register GitLab Account / Group" screen, select whether you're connecting as a person or a group:
+**Connection type** – Select whether you're connecting as a person or a group:
 
-- **Personal** – Your individual GitLab user account with a username and profile
+- **Personal** (default) – Your individual GitLab user account with a username and profile
 - **Group** – In GitLab, you use groups to manage one or more related projects at the same time
 
-### Step 3: Select GitLab instance type
+**GitLab instance type** – Choose which type of GitLab instance you're connecting to:
 
-Choose which type of GitLab instance you're connecting to:
-
-- **[GitLab.com](http://GitLab.com "http://GitLab.com")** (default) – The public GitLab service
-- **Publicly accessible Managed GitLab instance** – A managed GitLab deployment accessible from the public internet
-- **Publicly accessible self-hosted GitLab** – Your own GitLab deployment accessible from the public internet
-
-If you're using a self-hosted or managed GitLab instance, check the box "Use GitLab self hosted endpoint" and provide the URL to your GitLab instance.
+- **GitLab.com** (default) – The public GitLab service
+- **Publicly accessible self-hosted GitLab** – Check the **Use GitLab self hosted endpoint** box and provide the URL to your GitLab instance
 
 ###### Note
 
 Currently, only publicly accessible GitLab instances are supported.
 
-### Step 4: Create and provide an access token
+**Access token** – Provide a GitLab personal access token:
 
 1. In a separate browser tab, log in to your GitLab account
 2. Navigate to your user settings and select **Access Tokens**
@@ -53,9 +47,11 @@ Currently, only publicly accessible GitLab instances are supported.
 6. Return to the AWS DevOps Agent console
 7. Paste the token into the "Access Token" field
 
-### Step 5: Complete registration
+### Step 3: Complete registration
 
-Click **Submit** to complete the GitLab registration process. The system will validate your access token and establish the connection.
+**(Optional) Tags** – Add AWS tags to the GitLab registration for organizational purposes.
+
+Click **Next** to review your configuration, then click **Submit** to complete the GitLab registration process. The system will validate your access token and establish the connection.
 
 ## Connecting projects to an Agent Space
 
@@ -69,10 +65,6 @@ After registering GitLab at the account level, you can connect specific projects
 6. Click **Save**
 
 AWS DevOps Agent will monitor these projects for deployments from GitLab Pipelines to inform causal investigations.
-
-### Associating AWS resources with project deployments
-
-See [Associating AWS resources with project deployments](connecting-to-cicd-pipelines-associating-aws-resources-with-project-deployments.md "connecting-to-cicd-pipelines-associating-aws-resources-with-project-deployments.md") to associate deployments with AWS resources. This helps incident investigations correlate recent deployments with possible root causes.
 
 ## Managing GitLab connections
 

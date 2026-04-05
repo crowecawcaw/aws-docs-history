@@ -17,7 +17,7 @@ To learn about 2-way integrations, see
 
 ## Built-in, 1-way integration
 
-Currently, AWS DevOps Agent supports AWS CloudWatch, Datadog, New Relic, and Splunk users with built-in, 1 way integrations.
+Currently, AWS DevOps Agent supports AWS CloudWatch, Datadog, Grafana, New Relic, and Splunk users with built-in, 1 way integrations.
 
 **Security best practice:** When configuring credentials for built-in 1-way integrations, we recommend scoping API keys and tokens to read-only access. AWS DevOps Agent uses these credentials for telemetry introspection only and does not require write access to your telemetry provider.
 
@@ -26,20 +26,21 @@ The AWS CloudWatch built-in, 1-way integration requires no additional setup and 
 - **Topology resource mapping** - AWS DevOps Agent will augment your DevOps Agent Space Topology with entities and relationships available to it via your configured primary and secondary AWS cloud accounts.
 - **Telemetry introspection** - AWS DevOps Agent can introspect AWS CloudWatch telemetry as it investigates an issue via the IAM role(s) provided during primary and secondary AWS cloud account configuration.
 
-The Datadog, New Relic, and Splunk built-in, 1 way integrations require setup and enable the following:
+The Datadog, Grafana, New Relic, and Splunk built-in, 1 way integrations require setup and enable the following:
 
-- **Automated Investigation triggering -** Datadog, New Relic, and Splunk events can be configured to trigger AWS DevOps Agent incident resolution Investigations via AWS DevOps Agent webhooks.
-- **Telemetry introspection** - AWS DevOps Agent can introspect Datadog, New Relic, and Splunk telemetry as it investigates an issue via the each providers remote MCP server.
+- **Automated Investigation triggering** - Datadog, Grafana, New Relic, and Splunk events can be configured to trigger AWS DevOps Agent incident resolution Investigations via AWS DevOps Agent webhooks.
+- **Telemetry introspection** - AWS DevOps Agent can introspect Datadog, Grafana, New Relic, and Splunk telemetry as it investigates an issue via each provider's remote MCP server.
 
 To learn about 1-way integrations, see the following:
 
 - [Connecting DataDog](connecting-telemetry-sources-connecting-datadog.md "connecting-telemetry-sources-connecting-datadog.md")
+- [Connecting Grafana](connecting-telemetry-sources-connecting-grafana.md "connecting-telemetry-sources-connecting-grafana.md")
 - [Connecting New Relic](connecting-telemetry-sources-connecting-new-relic.md "connecting-telemetry-sources-connecting-new-relic.md")
 - [Connecting Splunk](connecting-telemetry-sources-connecting-splunk.md "connecting-telemetry-sources-connecting-splunk.md")
 
 ## Bring-your-own telemetry sources
 
-For any other telemetry source, including Grafana dashboards/alarms and Prometheus metrics, you can leverage AWS DevOps Agent’s support for both webhook and MCP server integration.
+For any other telemetry source, including Prometheus metrics, you can leverage AWS DevOps Agent’s support for both webhook and MCP server integration.
 
 To learn about bring-your-own integrations, see the following
 

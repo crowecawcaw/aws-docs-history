@@ -12,7 +12,7 @@ Before adding a secondary AWS account, ensure you have:
 
 ## Adding a secondary AWS account
 
-In addition to the steps below, you can use the [CLI onboarding guide](getting-started-with-aws-devops-agent-cli-onboarding-guide.md "getting-started-with-aws-devops-agent-cli-onboarding-guide.md") to programmatically add secondary accounts.
+In addition to the steps below, you can use the [AWS DevOps Agent CLI onboarding guide](getting-started-with-aws-devops-agent-cli-onboarding-guide.md "getting-started-with-aws-devops-agent-cli-onboarding-guide.md") to programmatically add secondary accounts.
 
 ### Step 1: Start the secondary account configuration
 

@@ -19,4 +19,3 @@ AWS DevOps Agent supports the following CI/CD platforms:
 
 - [Connecting GitHub](connecting-to-cicd-pipelines-connecting-github.md "connecting-to-cicd-pipelines-connecting-github.md")
 - [Connecting GitLab](connecting-to-cicd-pipelines-connecting-gitlab.md "connecting-to-cicd-pipelines-connecting-gitlab.md")
-- [Associating AWS resources with project deployments](connecting-to-cicd-pipelines-associating-aws-resources-with-project-deployments.md "connecting-to-cicd-pipelines-associating-aws-resources-with-project-deployments.md")

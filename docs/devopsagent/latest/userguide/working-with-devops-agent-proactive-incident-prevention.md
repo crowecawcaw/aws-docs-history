@@ -1,19 +1,21 @@
 # Proactive incident prevention
 
-AWS DevOps Agent analyzes patterns across your incident investigations to deliver targeted recommendations that continuously improve your operational posture and prevent future incidents. Access the Prevention feature through the Prevention page in the Operator Web App.
+AWS DevOps Agent analyzes patterns across your incident investigations to deliver targeted recommendations that continuously improve your operational posture and prevent future incidents. Access proactive incident prevention through the Ops Backlog page in the Operator Web App.
 
-## How prevention works
+## How proactive incident prevention works
 
 AWS DevOps Agent evaluates recent incident investigations to identify lasting improvements to prevent future incidents and quicken the mean time to detection (MTTD). The agent analyzes multiple incidents to identify recommendations that may prevent whole classes of incidents in the future, focusing on the most impactful recommendations to ensure they are actionable.
 
-The agent automatically runs evaluations weekly. You can also manually trigger an evaluation at any time, which is useful when a recent investigation warrants a quick turnaround on recommended improvements.
+By default, the agent automatically runs evaluations weekly. You can pause the schedule if you prefer to run evaluations only on demand. Manual evaluations are always available, which is useful when a recent investigation warrants a quick turnaround on recommended improvements.
 
-The agent identifies improvements across four areas:
+The agent identifies improvements across four categories, shown in the Recommendation Categorization chart on the Ops Backlog page:
 
-- **Observability posture** – Recommendations to enhance monitoring, alerting, and logging capabilities to detect issues quicker and more accurately.
-- **Testing gaps** – Recommendations to strengthen testing and validation processes in your deployment pipelines.
-- **Code changes** – Recommendations to better improve resilience and performance.
-- **Infrastructure architecture** – Recommendations to optimize resource configurations, implement autoscaling, and improve system resilience.
+- **Observability** – Recommendations to enhance monitoring, alerting, logging, and system visibility to detect issues quicker and more accurately.
+- **Infrastructure** – Recommendations to optimize resource configurations, capacity tuning, and architectural resilience.
+- **Governance** – Recommendations to strengthen deployment processes, pipeline improvements, testing practices, and operational controls.
+- **Code optimization** – Recommendations to improve application code quality, error handling, and code resilience.
+
+This categorization helps you understand where your operational improvements are most needed and allows you to prioritize recommendations based on your team's focus areas.
 
 ## Benefits
 
@@ -24,43 +26,49 @@ The agent identifies improvements across four areas:
 
 ## Agent summary
 
-The Agent Summary in the Prevention page of the Web App provides a description of the outcomes from the last evaluation of recent incidents. The summary explains the number of incident investigations analyzed, which incidents are similar to past ones, and which recommendations were created or updated with new information.
+The Agent Summary in the Ops Backlog page of the Web App provides a description of the outcomes from the last evaluation of recent incidents. The summary explains the number of incident investigations analyzed, which incidents are similar to past ones, and which recommendations were created or updated with new information.
 
 The summary helps you quickly understand what the agent discovered during its most recent evaluation and highlights the most notable recommendations that could have the greatest impact on your operational posture.
-
-## Recommendation categorization
-
-The Recommendation Categorization chart shows the distribution of recommendations across four key categories:
-
-- **Code optimization** – Recommendations to improve application code quality, performance, and error handling.
-- **Observability** – Recommendations to enhance monitoring, alerting, logging, and system visibility.
-- **Infrastructure** – Recommendations to optimize resource configurations, capacity tuning, and architectural resilience.
-- **Governance** – Recommendations to strengthen deployment processes, testing practices, and operational controls.
-
-This categorization helps you understand where your operational improvements are most needed and allows you to prioritize recommendations based on your team's focus areas.
 
 ## Controlling evaluations
 
 You can control when AWS DevOps Agent evaluates incidents and generates recommendations:
 
-- **Running evaluations manually** – Click the **Run Now** button in the Prevention page to start an evaluation immediately. This is useful when a recent investigation warrants a quick turnaround on recommended improvements.
-- **Stopping active evaluations** – Click the **Stop Evaluation** button in the Prevention page to halt an evaluation that is currently in progress.
+- **Running evaluations manually** – Click the **Run Now** button in the Ops Backlog page to start an evaluation immediately. This is useful when a recent investigation warrants a quick turnaround on recommended improvements.
+- **Stopping active evaluations** – Click the **Stop Evaluation** button in the Ops Backlog page to halt an evaluation that is currently in progress.
 
 ## Managing recommendations
 
-AWS DevOps Agent provides recommendations in the Prevention page where you can review and manage them:
+AWS DevOps Agent provides recommendations in the Ops Backlog page where you can review and manage them:
 
-- **Viewing recommendation details** – Click on a recommendation to open the recommendation details page, where you can see more information about the suggested improvement including the incidents that informed the recommendation, the expected impacts, and next steps.
-- **Accepting recommendations** – To accept a recommendation, click ‘Accept’ in the recommendation table. When you accept a recommendation, it remains in the recommendation table for tracking. This allows you to monitor which improvements you plan to implement and track their progress.
-- **Rejecting recommendations** – To reject a recommendation, click ‘Reject’ in the recommendation table. When you reject a recommendation, you can provide a natural language explanation of why it doesn't meet your needs. The agent learns from this feedback and uses it to inform future recommendations, ensuring they become more aligned with your operational priorities and requirements over time.
-- **Automatic removal** – Recommendations that are not accepted may be removed after approximately 6 weeks if no new incidents would have been prevented by implementing the recommendation. This ensures the Prevention page focuses on the most relevant improvements for your operational challenges.
-- **Recommendation updates** – Existing recommendations are updated when newer incidents are found that would have been prevented by the recommendation. Updates may change the recommendation's priority or refine the recommendation based on new insights.
+- **Viewing recommendation details** – Click on a recommendation to open the recommendation details page, where you can see more information about the suggested improvement including the incidents that informed the recommendation, the expected impacts, and next steps. For recommendations with code changes, you can also view the agent-ready specification that can be handed to a coding agent for implementation.
+- **Keep** – Click ‘Keep’ to retain a recommendation in your backlog for tracking. This allows you to monitor which improvements you plan to implement and track their progress.
+- **Discard** – Click ‘Discard’ to remove a recommendation from your backlog. When you discard a recommendation, you can provide a natural language explanation of why it doesn’t meet your needs. The agent learns from this feedback and uses it to inform future recommendations, ensuring they become more aligned with your operational priorities and requirements over time.
+- **Implemented** – Click ‘Implemented’ to mark a recommendation as completed. This helps you track which improvements have been applied and allows the agent to measure the effectiveness of its recommendations over time.
+- **Automatic removal** – Recommendations that have not been marked as Keep or Implemented may be removed after approximately 6 weeks if no new incidents would have been prevented by implementing the recommendation. This ensures the Ops Backlog page focuses on the most relevant improvements for your operational challenges.
+- **Recommendation updates** – Existing recommendations are updated when newer incidents are found that would have been prevented by the recommendation. Updates may change the recommendation’s priority or refine the recommendation based on new insights.
+
+## Agent-ready specifications
+
+For recommendations that involve code or configuration changes, AWS DevOps Agent can generate an agent-ready specification. This specification provides a structured document that can be handed directly to a coding agent for implementation.
+
+The specification includes:
+
+- **Problem statement** – A summary of the issue and its root cause
+- **Solution summary** – A high-level description of the recommended approach
+- **Target repositories** – The specific repositories where changes need to be made
+- **Code changes** – Detailed descriptions of what needs to change and why, with specific file paths and implementation considerations
+- **Test requirements** – What scenarios need to be tested
+- **Implementation plan** – A phased approach to implementing the changes
+
+Agent-ready specifications accelerate implementation by providing coding agents with the context they need to make production-ready changes without requiring extensive back-and-forth with engineers.
 
 ## Implementing recommendations
 
-To maximize the value of Prevention recommendations, consider the following practices for acting on them:
+To maximize the value of proactive incident prevention recommendations, consider the following practices for acting on them:
 
-- **Adding recommendations to your ticket backlog** – Copy accepted recommendations to your team's ticketing system or project management tool to ensure they are prioritized alongside other engineering work.
+- **Using agent-ready specifications** – For recommendations with code changes, use the generated specification to accelerate implementation by handing it to a coding agent or using it as a detailed guide for manual implementation.
+- **Adding recommendations to your ticket backlog** – Copy recommendations to your team's ticketing system or project management tool to ensure they are prioritized alongside other engineering work.
 - **Prioritizing recommendations based on impact** – Focus first on recommendations that address the most frequent or severe incident types, or those that affect critical systems.
 - **Tracking implementation progress** – Monitor which recommendations have been implemented and measure their effectiveness by observing whether similar incidents decrease over time.
 - **Coordinating with development teams** – Share recommendations with the appropriate teams who own the affected systems, ensuring they have the context and resources needed to implement improvements.

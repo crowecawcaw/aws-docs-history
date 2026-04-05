@@ -1,58 +1,51 @@
 # Getting started with AWS DevOps Agent using Terraform
 
-AWS DevOps Agent helps you monitor and manage your AWS infrastructure using AI-powered insights. This guide shows you how to use Terraform to automate the setup and deployment of AWS DevOps Agent resources, providing Infrastructure as Code for your DevOps monitoring solution.
-
 ## Overview
 
-This Terraform configuration replicates the AWS DevOps Agent CLI onboarding setup, automating the creation of Agent Spaces, IAM roles, and account associations. Using Terraform provides several advantages:
+This guide shows you how to use Terraform to create and deploy AWS DevOps Agent resources. The Terraform configuration automates the creation of an agent space, IAM roles, an operator app, and AWS account associations.
 
-- **Infrastructure as Code** – Version control your DevOps Agent configuration
-- **Reproducible deployments** – Consistent setup across environments
-- **Automated provisioning** – Reduce manual configuration errors
-- **Cross-account management** – Easily manage multiple AWS accounts
+The Terraform approach automates the manual steps described in the [CLI onboarding guide](getting-started-with-aws-devops-agent-cli-onboarding-guide.md "getting-started-with-aws-devops-agent-cli-onboarding-guide.md") by defining all required resources as infrastructure as code.
 
-**Note**
-
-AWS DevOps Agent is in preview. The instructions on this page may change before general availability (GA).
+AWS DevOps Agent is available in the following 6 AWS Regions: US East (N. Virginia), US West (Oregon), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Frankfurt), and Europe (Ireland). For more information about supported Regions, see [Supported Regions](about-aws-devops-agent-supported-regions.md "about-aws-devops-agent-supported-regions.md").
 
 ## Prerequisites
 
-Before you begin, ensure you have:
+Before you begin, make sure you have the following:
 
 - Terraform >= 1.0 installed
-- AWS CLI configured with appropriate permissions
-- AWS account with administrative access
-- AWS DevOps Agent is only available in the `us-east-1` region
+- AWS CLI installed and configured with appropriate credentials
+- One AWS account for the monitoring (primary) account
+- (Optional) A second AWS account if you want to set up cross-account monitoring
 
-### Required IAM permissions
+## What this guide covers
 
-Your AWS credentials must have permissions to create: _IAM roles and policies_ DevOps Agent resources (Agent Spaces, associations) \* Cross-account trust relationships
+This guide is divided into two parts:
 
-## Architecture
+- **Part 1** — Deploy an agent space with an operator app and an AWS association in your monitoring account. After completing this part, the agent can monitor issues in that account.
+- **Part 2 (Optional)** — Add a source AWS association for a service account and deploy a cross-account IAM role plus an echo Lambda into that account. This allows the agent space to monitor resources across accounts.
 
-The Terraform configuration creates the following resources:
+## Resources created
 
-### IAM Resources
+### Part 1: Monitoring account
 
-- **DevOpsAgentRole-AgentSpace** – IAM role for the Agent Space with monitoring permissions
-- **DevOpsAgentRole-WebappAdmin** – IAM role for the Operator App interface
-- Associated policies and trust relationships for secure access
+- **IAM role** (`DevOpsAgentRole-AgentSpace-*`) — Assumed by the DevOps Agent service to monitor the account. Includes the `AIDevOpsAgentAccessPolicy` managed policy and an inline policy that allows creation of the Resource Explorer service-linked role.
+- **IAM role** (`DevOpsAgentRole-WebappAdmin-*`) — Operator app role with the `AIDevOpsOperatorAppAccessPolicy` managed policy for agent operations.
+- **Agent space** (configurable name) — The central agent space, created using the `awscc_devopsagent_agent_space` resource. Includes operator app configuration.
+- **Association** (AWS monitor) — Links the monitoring account to the agent space using the `awscc_devopsagent_association` resource.
+- **Association** (AWS source) — (Optional) Links the service account to the agent space for cross-account monitoring.
 
-### DevOps Agent Resources
+### Part 2: Service account (optional)
 
-- **Agent Space** – The main container for your DevOps Agent configuration
-- **AWS Account Association** – Links your AWS account for monitoring
-- **Operator App** – (Optional) Enables the web-based operator interface
-- **External Account Associations** – (Optional) For cross-account monitoring
+- **IAM role** (`DevOpsAgentRole-SecondaryAccount-TF`) — Cross-account role with a fixed name. Trusted by the agent space in the monitoring account. Includes the `AIDevOpsAgentAccessPolicy` managed policy and an inline policy that allows creation of the Resource Explorer service-linked role.
+- **Lambda function** (`echo-service-tf`) — A simple example service that echoes back input events.
 
-## Getting started
+## Setup
 
-### Step 1: Clone the repository
+### Step 1: Clone the sample repository
 
 ```
 git clone https://github.com/aws-samples/sample-aws-devops-agent-terraform.git
 cd sample-aws-devops-agent-terraform
-
 ```
 
 ### Step 2: Configure variables
@@ -61,202 +54,214 @@ Copy the example variables file and customize it for your environment:
 
 ```
 cp terraform.tfvars.example terraform.tfvars
-
 ```
 
-Edit `terraform.tfvars` with your specific configuration:
+Edit `terraform.tfvars` with your agent space name and description:
 
 ```
-agent_space_name = "MyCompanyAgentSpace"
-agent_space_description = "DevOps monitoring for production workloads"
-enable_operator_app = true
-auth_flow = "iam"
-# external_account_ids = ["123456789012"]  # Optional: for cross-account monitoring
-
+agent_space_name        = "MyCompanyAgentSpace"
+agent_space_description = "DevOps Agent Space for monitoring production workloads"
 ```
 
-### Step 3: Deploy with automation (recommended)
+## Part 1: Deploy the agent space
+
+In this section, you create the agent space, IAM roles, operator app, and an AWS association in your monitoring account.
+
+### Step 1: Deploy with automation (recommended)
 
 Use the provided deployment script for a streamlined setup:
 
 ```
 ./deploy.sh
-
 ```
 
-This script automatically: _Checks prerequisites (Terraform, AWS CLI, credentials)_ Creates `terraform.tfvars` from example if needed _Initializes, validates, plans, and applies Terraform_ Handles IAM propagation delays with retry logic
+This script automatically:
 
-### Step 4: Complete the setup
+- Checks prerequisites (Terraform, AWS CLI, credentials)
+- Creates `terraform.tfvars` from example if needed
+- Initializes, validates, plans, and applies Terraform
 
-Run the post-deployment script to finalize configuration:
-
-```
-./post-deploy.sh
-
-```
-
-This script: _Configures AWS DevOps Agent CLI if needed_ Optionally enables the Operator App \* Provides verification commands
-
-## Manual deployment
-
-If you prefer manual control over the deployment process:
-
-### Step 1: Initialize Terraform
+Alternatively, if you prefer manual control:
 
 ```
 terraform init
-
-```
-
-### Step 2: Review the plan
-
-```
 terraform plan
-
-```
-
-### Step 3: Apply the configuration
-
-```
 terraform apply
-
 ```
 
 Type `yes` when prompted to confirm the deployment.
 
-## Configuration options
+### Step 2: Record the outputs
 
-### Input variables
-
-Variable Description Default Required 1`aws_region` AWS region (must be us-east-1) `us-east-1` Yes 2`agent_space_name` Name for the Agent Space `MyAgentSpace` No 3`agent_space_description` Description for the Agent Space `AgentSpace for monitoring my application` No 4`enable_operator_app` Enable the operator web app TRUE No 5`auth_flow` Authentication flow (iam/idc) `iam` No 6`external_account_ids` External AWS accounts to monitor `[]` No 7`tags` Tags for all resources See variables.tf No
-
-### Output values
-
-After deployment, Terraform provides these useful outputs:
-
-- `agent_space_id` – The ID of your Agent Space
-- `agent_space_arn` – The ARN of your Agent Space
-- `devops_agentspace_role_arn` – ARN of the Agent Space IAM role
-- `devops_operator_role_arn` – ARN of the Operator App IAM role
-- `manual_setup_instructions` – Next steps and verification commands
-
-## Cross-account monitoring
-
-To monitor resources across multiple AWS accounts, you need to set up cross-account roles.
-
-### Automated setup (recommended)
-
-1. **Deploy the main infrastructure first**: `bash ./deploy.sh ./post-deploy.sh`
-2. **Generate cross-account role templates**: `bash ./setup-cross-account-roles.sh`
-
-This script extracts necessary values from your Terraform deployment and generates step-by-step commands for each external account.
-
-1. **Add external account IDs**: Edit `terraform.tfvars` and add: `hcl external_account_ids = ["123456789012", "234567890123"]`
-2. **Apply the updated configuration**: `bash terraform apply`
-
-### Manual cross-account setup
-
-For each external AWS account you want to monitor:
-
-1. **Create the trust policy**:
-
-`bash cat > trust-policy.json << EOF { "Version": "2012-10-17" , "Statement": [ { "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::MONITORING_ACCOUNT_ID:role/DevOpsAgentRole-AgentSpace" }, "Action": "sts:AssumeRole", "Condition": { "StringEquals": { "sts:ExternalId": "arn:aws:aidevops:us-east-1:MONITORING_ACCOUNT_ID:agentspace/AGENT_SPACE_ID" } } } ] } EOF`
-
-1. **Create the cross-account role**:
-
-`bash aws iam create-role \ --role-name DevOpsAgentCrossAccountRole \ --assume-role-policy-document file://trust-policy.json aws iam attach-role-policy \ --role-name DevOpsAgentCrossAccountRole \ --policy-arn arn:aws:iam::aws:policy/AIOpsAssistantPolicy`
-
-1. **Update your Terraform configuration** to include the external account ID in the `external_account_ids` variable.
-
-## Verification
-
-After deployment, verify your setup using the AWS CLI:
-
-### List Agent Spaces
+After deployment completes, Terraform prints the outputs. Record these values for later use:
 
 ```
-aws devopsagent list-agent-spaces \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
-
+Outputs:
+agent_space_id              = "abc123"
+agent_space_arn             = "arn:aws:aidevops:<REGION>:<MONITORING_ACCOUNT_ID>:agentspace/abc123"
+agent_space_name            = "MyCompanyAgentSpace"
+devops_agentspace_role_arn  = "arn:aws:iam::<MONITORING_ACCOUNT_ID>:role/DevOpsAgentRole-AgentSpace-a1b2c3d4"
+devops_operator_role_arn    = "arn:aws:iam::<MONITORING_ACCOUNT_ID>:role/DevOpsAgentRole-WebappAdmin-a1b2c3d4"
+primary_account_id          = "<MONITORING_ACCOUNT_ID>"
+primary_account_association_id = "assoc-xyz"
 ```
 
-### Get Agent Space details
+If you plan to complete Part 2, save the `agent_space_arn` value. You will need it to configure the service account resources.
+
+### Step 3: Verify the deployment
+
+Run the post-deployment verification script:
 
 ```
-aws devopsagent get-agent-space \
+./post-deploy.sh
+```
+
+Or use the AWS CLI to verify that the agent space was created successfully:
+
+```
+aws devops-agent get-agent-space \
   --agent-space-id <AGENT_SPACE_ID> \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
-
+  --region <REGION>
 ```
 
-### List associations
+At this point, your agent space is deployed with the operator app enabled and your monitoring account associated. The agent can monitor issues in this account.
+
+## Part 2 (Optional): Add cross-account monitoring
+
+In this section, you extend the setup so the agent space can monitor resources in a second AWS account (the service account). This involves two actions:
+
+1. Adding a source AWS association that points to the service account.
+2. Deploying a cross-account IAM role and an echo Lambda function into the service account.
+
+###### Important
+
+You must complete Part 1 before proceeding. The service account resources require the `agent_space_arn` from the Part 1 deployment output.
+
+### Step 1: Configure the service account ID
+
+In `terraform.tfvars`, set your service account ID:
 
 ```
-aws devopsagent list-associations \
-  --agent-space-id <AGENT_SPACE_ID> \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
-
+service_account_id = "<YOUR_SERVICE_ACCOUNT_ID>"
 ```
 
-## Accessing AWS DevOps Agent
+### Step 2: Set the agent space ARN
 
-After successful deployment, you can access AWS DevOps Agent through:
+Copy the `agent_space_arn` value from the Part 1 output (Step 2) and set it in `terraform.tfvars`:
 
-1. **AWS Management Console** – Visit https://console.aws.amazon.com/devopsagent/
-2. **AWS CLI** – Use the AWS CLI with the DevOps Agent service model
-3. **Operator App** – If enabled, access through the AWS console for interactive investigations
+```
+agent_space_arn = "arn:aws:aidevops:<REGION>:<MONITORING_ACCOUNT_ID>:agentspace/<SPACE_ID>"
+```
+
+The service account resources use this value to scope the trust policy on the secondary account role. These resources are only created when this value is set.
+
+### Step 3: Configure the `aws.service` provider
+
+In `main.tf`, configure the `aws.service` provider alias with credentials for the service account. You can use either a named profile or an assume role:
+
+Using a profile:
+
+```
+provider "aws" {
+  alias   = "service"
+  region  = var.aws_region
+  profile = "your-service-account-profile"
+}
+```
+
+Or using assume role:
+
+```
+provider "aws" {
+  alias  = "service"
+  region = var.aws_region
+  assume_role {
+    role_arn = "arn:aws:iam::<SERVICE_ACCOUNT_ID>:role/OrganizationAccountAccessRole"
+  }
+}
+```
+
+### Step 4: Deploy
+
+Apply the updated configuration:
+
+```
+terraform apply
+```
+
+This creates the following resources in the service account:
+
+- An IAM role (`DevOpsAgentRole-SecondaryAccount-TF`) that trusts the agent space in the monitoring account
+- An echo Lambda function (`echo-service-tf`) as an example service
+
+It also creates a source AWS association in the monitoring account that links the service account.
+
+### Step 5: Verify the deployment
+
+Test the echo service to confirm the Lambda function was deployed successfully:
+
+```
+aws lambda invoke \
+  --function-name echo-service-tf \
+  --payload '{"test": "hello world"}' \
+  --profile <your-service-account-profile> \
+  --region <REGION> \
+  response.json
+cat response.json
+```
 
 ## Troubleshooting
 
-### Common issues
+**IAM propagation delays**
 
-**Region error** : Ensure you're deploying to the `us-east-1` region. AWS DevOps Agent is currently only available in this region.
+- The configuration includes a 30-second `time_sleep` between IAM role creation and Agent Space creation. The DevOps Agent service validates the operator role's trust policy during Agent Space creation, and this can fail if IAM hasn't fully propagated. If you still see trust policy errors, wait a minute and run `terraform apply` again — the IAM roles will already exist and the apply will pick up where it left off.
 
-**Permission errors** : Verify your AWS credentials have the necessary IAM permissions to create roles and policies.
+**Permission errors**
 
-**Role trust issues** : Check that trust policies include the correct account IDs and external IDs.
+- Verify that your AWS credentials have the necessary IAM permissions to create roles and policies.
+- Check that the trust policy conditions match your account ID.
 
-**IAM propagation delays** : The deployment script includes retry logic for IAM propagation. If deploying manually, wait a few minutes between role creation and usage.
+**Cross-account deployment fails**
 
-### Getting help
+- The `aws.service` provider must be configured with credentials for the service account. Use a named profile or an assume role block.
+- Verify that the `agent_space_arn` value matches the ARN from the Part 1 output.
 
-If you encounter issues:
+**Terraform resource type not found**
 
-1. Check the Terraform output for error messages
-2. Verify your AWS credentials and permissions
-3. Ensure you're using the correct region (`us-east-1`)
-4. Review the AWS DevOps Agent documentation for service-specific requirements
+- Verify that you have the `awscc` provider version `~> 1.0` or later. The `awscc_devopsagent_agent_space` and `awscc_devopsagent_association` resources require the AWS Cloud Control provider.
 
-## Clean up
+## Cleanup
 
-To remove all resources created by this Terraform configuration:
+To remove all resources, destroy in reverse order if you deployed Part 2:
 
 ```
 ./cleanup.sh
-
 ```
 
 Or manually:
 
 ```
 terraform destroy
-
 ```
 
-**Important**
+**Warning:** This permanently deletes your agent space and all associated data. Make sure you have backed up any important information before proceeding.
 
-This will permanently delete your Agent Space and all associated configurations. Ensure you have backups of any important data before proceeding.
+## Security considerations
+
+- The Terraform configuration creates IAM roles with trust policies that only allow the `aidevops.amazonaws.com` service principal to assume them.
+- Trust policies include conditions that restrict access to your specific AWS account and agent space ARN.
+- All policies follow the principle of least privilege. Review and customize the IAM policies based on your organization's security requirements.
+- The cross-account role (`DevOpsAgentRole-SecondaryAccount-TF`) uses a fixed name and is scoped to a specific agent space ARN.
 
 ## Next steps
 
-After setting up AWS DevOps Agent with Terraform:
+After you have deployed your AWS DevOps Agent using Terraform:
 
-1. **Configure integrations** – Connect your observability tools, code repositories, and CI/CD pipelines
-2. **Set up notifications** – Configure Slack, ServiceNow, or other communication channels
-3. **Review topology** – Examine the automatically generated application topology
-4. **Test investigations** – Create test incidents to verify the agent's response capabilities
+1. Learn about the full range of DevOps Agent capabilities in the [AWS DevOps Agent User Guide](../userguide.md "../userguide.md").
+2. Consider integrating the Terraform deployment into your CI/CD pipelines for automated infrastructure management.
 
-For more information about using AWS DevOps Agent, see the [AWS DevOps Agent User Guide](../userguide.md "../userguide.md").
+## Additional resources
+
+- [AWS DevOps Agent User Guide](../userguide.md "../userguide.md")
+- [Sample Terraform repository](https://github.com/aws-samples/sample-aws-devops-agent-terraform "https://github.com/aws-samples/sample-aws-devops-agent-terraform")
+- [CLI onboarding guide](getting-started-with-aws-devops-agent-cli-onboarding-guide.md "getting-started-with-aws-devops-agent-cli-onboarding-guide.md")
