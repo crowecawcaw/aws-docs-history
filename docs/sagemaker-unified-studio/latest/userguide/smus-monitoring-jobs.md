@@ -1,14 +1,13 @@
 # Monitoring jobs and job runs
 
-SageMaker Unified Studio provides comprehensive monitoring capabilities for jobs and job runs,
-enabling you to track performance, costs, and run history.
+With Amazon SageMaker Unified Studio, you can monitor your jobs and job runs by tracking performance, costs, run history, and Amazon CloudWatch metrics.
 
 ## Monitoring capabilities
 
 - **Job Status and History** - View job run status, success rates, and historical performance.
 - **Resource Utilization** - Monitor compute resource consumption and optimization opportunities.
 - **Cost Tracking** - Track run costs and resource usage for budgeting and optimization.
-- **Logs and Metrics** - Access CloudWatch logs and Spark UI for detailed troubleshooting.
+- **Logs and Metrics** - Access Amazon CloudWatch logs, metrics, and Spark UI for detailed troubleshooting.
 - **Data Lineage** - Track data flow and dependencies across job runs.
 
 SageMaker Unified Studio provides aggregate job-level metrics including:
@@ -182,3 +181,27 @@ You can:
     + Search the log by entering a search query. You can then filter on the results of your search and sort results.
 
 - In the Job run details page, choose the **Run parameters** tab.
+
+## Viewing CloudWatch metrics for AWS Glue jobs
+
+Amazon SageMaker Unified Studio displays Amazon CloudWatch metrics for your AWS Glue jobs directly within the job run detail view. The **Metrics** tab displays key performance indicators. These indicators include data movement size, memory profiles for drivers and executors, and CPU load.
+
+###### To view CloudWatch metrics for a AWS Glue job run
+
+1. In the left navigation pane, choose **Jobs**.
+2. Select the AWS Glue job that you want to monitor.
+3. Choose the **Runs** tab to view the list of previous job runs.
+4. Select a previous run to open the run detail view.
+5. In the run detail view, choose the **Metrics** tab.
+
+The **Metrics** tab displays the following performance indicators for the selected job run:
+
+- **Data movement size** — The volume of data read and written during the job run.
+- **Memory profile for drivers and executors** — Memory utilization over time for the Spark driver and each executor. Use this metric to identify memory pressure or out-of-memory conditions.
+- **CPU load** — CPU utilization across the driver and executors. Use this metric to identify compute bottlenecks or underutilized resources.
+
+You can use these metrics alongside job logs in the same view. Correlate resource utilization patterns with log output to diagnose performance issues without leaving Amazon SageMaker Unified Studio.
+
+###### Note
+
+The **Metrics** tab is available for all previous AWS Glue job runs accessible from the **Runs** tab. CloudWatch metrics data is retained for 14 days. For job runs older than 14 days, metrics charts might not be available.

@@ -29,21 +29,23 @@ There is no additional cost for using cross-region inference.
 
 ## Supported regions for cross-region inference
 
-**Regions Using Geographic cross-region inference**
+**Regions using geographic cross-region inference**
 
 For most Regions, cross-region inference requests are kept within the AWS Regions that
 are part of the same geography where your Amazon SageMaker Unified Studio domain resides.
 For example, a request made from a notebook in the US East (N. Virginia) Region is routed
-only to AWS Regions within the United States geography. The following table describes what
-Regions your requests may be routed to depending on the geography where the request
-originated:
+only to AWS Regions within the United States geography. The following table describes the
+Regions that your requests might be routed to, depending on the geography where the request
+originated.
 
 | Supported geography | Inference regions                                                                                                               |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | United States       | US East (N. Virginia) (us-east-1), US West (Oregon) (us-west-2), US East<br>(Ohio) (us-east-2)                                  |
 | Europe              | Europe (Frankfurt) (eu-central-1), Europe (Ireland) (eu-west-1), Europe<br>(Paris) (eu-west-3), Europe (Stockholm) (eu-north-1) |
+| Japan               | Asia Pacific (Tokyo) (ap-northeast-1), Asia Pacific (Osaka)<br>(ap-northeast-3)                                                 |
+| Australia           | Asia Pacific (Sydney) (ap-southeast-2), Asia Pacific (Melbourne)<br>(ap-southeast-4)                                            |
 
-## Regions Using Global Cross-Region Inference
+## Regions using global cross-region inference
 
 ###### Important
 
@@ -53,9 +55,7 @@ is listed below will be securely routed to all available compute resources acros
 global commercial AWS Regions, to optimize performance and availability:
 
 - Asia Pacific (Mumbai) (ap-south-1)
-- Asia Pacific (Tokyo) (ap-northeast-1)
 - Asia Pacific (Seoul) (ap-northeast-2)
 - Asia Pacific (Singapore) (ap-southeast-1)
-- Asia Pacific (Sydney) (ap-southeast-2)
 - South America (São Paulo) (sa-east-1)
 - Canada (Central) (ca-central-1)
