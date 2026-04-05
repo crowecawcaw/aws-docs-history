@@ -16,24 +16,33 @@ console.
 - [Events for disbursements](#events-for-disbursements "#events-for-disbursements")
 - [Events for agreements](#events-for-agreements "#events-for-agreements")
 - [Events for licenses](#events-for-licenses "#events-for-licenses")
+- [Events for cancellations](#events-for-cancellations "#events-for-cancellations")
+- [Events for billing adjustments](#events-for-billing-adjustments "#events-for-billing-adjustments")
   This topic
 
-| Action by seller                                                                          | Event received                     | Related topic                                                                           |
-| ----------------------------------------------------------------------------------------- | ---------------------------------- | --------------------------------------------------------------------------------------- |
-| Independent software vendor (ISV) creates an offer and makes it available for<br>purchase | `Offer Released`                   | [Events for new offers](#events-offerreleased "#events-offerreleased")                  |
-| ISV's product is used by a channel partner to create an offer                             | `Offer Released`                   | [Events for new offers](#events-offerreleased "#events-offerreleased")                  |
-| Channel partner creates an offer                                                          | `Offer Released`                   | [Events for new offers](#events-offerreleased "#events-offerreleased")                  |
-| ISV creates a new offer set                                                               | `OfferSet Released`                | [Events for new offers](#events-offerreleased "#events-offerreleased")                  |
-| Channel partner creates a new offer set                                                   | `OfferSet Released`                | [Events for new offers](#events-offerreleased "#events-offerreleased")                  |
-| Change set succeeds                                                                       | `Change Set Succeeded`             | [Events for change sets](#events-changesets "#events-changesets")                       |
-| Change set fails                                                                          | `Change Set Failed`                | [Events for change sets](#events-changesets "#events-changesets")                       |
-| Change set is cancelled                                                                   | `Change Set Cancelled`             | [Events for change sets](#events-changesets "#events-changesets")                       |
-| Security vulnerabilities were detected on the ISV's product                               | `Products Security Report Created` | [Events for security summary report](#events-security-report "#events-security-report") |
-| Customer subscribes to SaaS product                                                       | `Purchase Agreement Created`       | [Events for agreements](#events-for-agreements "#events-for-agreements")                |
-| Customer's SaaS agreement is amended                                                      | `Purchase Agreement Amended`       | [Events for agreements](#events-for-agreements "#events-for-agreements")                |
-| Customer cancels SaaS subscription                                                        | `Purchase Agreement Ended`         | [Events for agreements](#events-for-agreements "#events-for-agreements")                |
-| Customer's SaaS entitlements change                                                       | `License Updated`                  | [Events for licenses](#events-for-licenses "#events-for-licenses")                      |
-| Customer's SaaS entitlements are revoked                                                  | `License Deprovisioned`            | [Events for licenses](#events-for-licenses "#events-for-licenses")                      |
+| Action by seller                                                                          | Event received                                                   | Related topic                                                                                       |
+| ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Independent software vendor (ISV) creates an offer and makes it available for<br>purchase | `Offer Released`                                                 | [Events for new offers](#events-offerreleased "#events-offerreleased")                              |
+| ISV's product is used by a channel partner to create an offer                             | `Offer Released`                                                 | [Events for new offers](#events-offerreleased "#events-offerreleased")                              |
+| Channel partner creates an offer                                                          | `Offer Released`                                                 | [Events for new offers](#events-offerreleased "#events-offerreleased")                              |
+| ISV creates a new offer set                                                               | `OfferSet Released`                                              | [Events for new offers](#events-offerreleased "#events-offerreleased")                              |
+| Channel partner creates a new offer set                                                   | `OfferSet Released`                                              | [Events for new offers](#events-offerreleased "#events-offerreleased")                              |
+| Change set succeeds                                                                       | `Change Set Succeeded`                                           | [Events for change sets](#events-changesets "#events-changesets")                                   |
+| Change set fails                                                                          | `Change Set Failed`                                              | [Events for change sets](#events-changesets "#events-changesets")                                   |
+| Change set is cancelled                                                                   | `Change Set Cancelled`                                           | [Events for change sets](#events-changesets "#events-changesets")                                   |
+| Security vulnerabilities were detected on the ISV's product                               | `Products Security Report Created`                               | [Events for security summary report](#events-security-report "#events-security-report")             |
+| Customer subscribes to SaaS product                                                       | `Purchase Agreement Created`                                     | [Events for agreements](#events-for-agreements "#events-for-agreements")                            |
+| Customer's SaaS agreement is amended                                                      | `Purchase Agreement Amended`                                     | [Events for agreements](#events-for-agreements "#events-for-agreements")                            |
+| Customer cancels SaaS subscription                                                        | `Purchase Agreement Ended`                                       | [Events for agreements](#events-for-agreements "#events-for-agreements")                            |
+| Customer's SaaS entitlements change                                                       | `License Updated`                                                | [Events for licenses](#events-for-licenses "#events-for-licenses")                                  |
+| Customer's SaaS entitlements are revoked                                                  | `License Deprovisioned`                                          | [Events for licenses](#events-for-licenses "#events-for-licenses")                                  |
+| Seller submits a cancellation request                                                     | `Agreement Cancellation Request Pending Approval<br>• Proposer`  | [Events for cancellations](#events-for-cancellations "#events-for-cancellations")                   |
+| Cancellation request is approved or auto-approved                                         | `Agreement Cancellation Request Approved<br>• Proposer`          | [Events for cancellations](#events-for-cancellations "#events-for-cancellations")                   |
+| Cancellation request is denied by buyer                                                   | `Agreement Cancellation Request Rejected<br>• Proposer`          | [Events for cancellations](#events-for-cancellations "#events-for-cancellations")                   |
+| Seller withdraws a cancellation request                                                   | `Agreement Cancellation Request Cancelled<br>• Proposer`         | [Events for cancellations](#events-for-cancellations "#events-for-cancellations")                   |
+| Cancellation request fails validation                                                     | `Agreement Cancellation Request Validation Failed<br>• Proposer` | [Events for cancellations](#events-for-cancellations "#events-for-cancellations")                   |
+| Billing adjustment is processed                                                           | `Purchase Agreement Billing Adjustment Completed<br>• Proposer`  | [Events for billing adjustments](#events-for-billing-adjustments "#events-for-billing-adjustments") |
+| Billing adjustment fails validation                                                       | `Purchase Agreement Billing Adjustment Failed<br>• Proposer`     | [Events for billing adjustments](#events-for-billing-adjustments "#events-for-billing-adjustments") |
 
 ## Events for new offers
 
@@ -720,6 +729,267 @@ The following is an example event body for **License Deprovisioned - Manufacture
     },
     "offer": {
       "id": "8kkr91jo647j3qxlcjhlqce7y"
+    }
+  }
+}
+```
+
+## Events for cancellations
+
+When a cancellation request status changes, sellers, buyers, and ISVs (for CPPO) receive
+events. Each event is sent to the relevant party with a role-specific detail type (Proposer
+for sellers, Acceptor for buyers, Manufacturer for ISVs). The source for these events is
+`aws.agreement-marketplace`.
+
+For information on creating EventBridge rules, see [Amazon EventBridge rules](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md") in the
+_Amazon EventBridge User Guide_.
+
+The following is an example event body for **Agreement
+Cancellation Request Pending Approval - Proposer**. This event is sent when you
+submit a cancellation request and it is awaiting buyer approval.
+
+```
+{
+  "version": "0",
+  "id": "01234567-0123-0123-0123-0123456789ab",
+  "detail-type": "Agreement Cancellation Request Pending Approval - Proposer",
+  "source": "aws.agreement-marketplace",
+  "account": "123456789012",
+  "time": "2025-01-01T13:12:22Z",
+  "region": "us-east-1",
+  "resources": [],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-abcdexampleid",
+      "acceptorId": "123465789012",
+      "productId": "prod-exampleid",
+      "offerId": "offer-exampleid"
+    },
+    "agreementCancellationRequest": {
+      "id": "acr-abcdexampleid",
+      "reasonCode": "INCORRECT_TERMS_ACCEPTED",
+      "reasonMessage": "",
+      "statusCode": "PENDING_APPROVAL",
+      "statusMessage": "",
+      "createdAt": "2025-01-01T13:12:22Z",
+      "updatedAt": "2025-01-01T13:12:22Z"
+    }
+  }
+}
+```
+
+The following is an example event body for **Agreement
+Cancellation Request Approved - Proposer**. This event is sent when the buyer
+approves your cancellation request or when it is auto-approved after 7 days.
+
+```
+{
+  "version": "0",
+  "id": "01234567-0123-0123-0123-0123456789ab",
+  "detail-type": "Agreement Cancellation Request Approved - Proposer",
+  "source": "aws.agreement-marketplace",
+  "account": "123456789012",
+  "time": "2025-01-01T13:16:07Z",
+  "region": "us-east-1",
+  "resources": [],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-abcdexampleid",
+      "acceptorId": "123465789012",
+      "productId": "prod-exampleid",
+      "offerId": "offer-exampleid"
+    },
+    "agreementCancellationRequest": {
+      "id": "acr-abcdexampleid",
+      "reasonCode": "INCORRECT_TERMS_ACCEPTED",
+      "reasonMessage": "The terms accepted in agreement had wrong rate",
+      "statusCode": "APPROVED",
+      "statusMessage": "",
+      "createdAt": "2025-01-03T16:16:22Z",
+      "updatedAt": "2025-01-03T16:20:08Z"
+    }
+  }
+}
+```
+
+The following is an example event body for **Agreement
+Cancellation Request Rejected - Proposer**. This event is sent when the buyer
+denies your cancellation request.
+
+```
+{
+  "version": "0",
+  "id": "01234567-0123-0123-0123-0123456789ab",
+  "detail-type": "Agreement Cancellation Request Rejected - Proposer",
+  "source": "aws.agreement-marketplace",
+  "account": "123456789012",
+  "time": "2025-01-02T10:30:00Z",
+  "region": "us-east-1",
+  "resources": [],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-abcdexampleid",
+      "acceptorId": "123465789012",
+      "productId": "prod-exampleid",
+      "offerId": "offer-exampleid"
+    },
+    "agreementCancellationRequest": {
+      "id": "acr-abcdexampleid",
+      "reasonCode": "INCORRECT_TERMS_ACCEPTED",
+      "reasonMessage": "",
+      "statusCode": "REJECTED",
+      "statusMessage": "We still need this product",
+      "createdAt": "2025-01-01T13:12:22Z",
+      "updatedAt": "2025-01-02T10:30:00Z"
+    }
+  }
+}
+```
+
+The following is an example event body for **Agreement
+Cancellation Request Cancelled - Proposer**. This event is sent when you withdraw
+a cancellation request.
+
+```
+{
+  "version": "0",
+  "id": "01234567-0123-0123-0123-0123456789ab",
+  "detail-type": "Agreement Cancellation Request Cancelled - Proposer",
+  "source": "aws.agreement-marketplace",
+  "account": "123456789012",
+  "time": "2025-01-02T08:00:00Z",
+  "region": "us-east-1",
+  "resources": [],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-abcdexampleid",
+      "acceptorId": "123465789012",
+      "productId": "prod-exampleid",
+      "offerId": "offer-exampleid"
+    },
+    "agreementCancellationRequest": {
+      "id": "acr-abcdexampleid",
+      "reasonCode": "INCORRECT_TERMS_ACCEPTED",
+      "reasonMessage": "",
+      "statusCode": "CANCELLED",
+      "statusMessage": "Seller withdrew the request",
+      "createdAt": "2025-01-01T13:12:22Z",
+      "updatedAt": "2025-01-02T08:00:00Z"
+    }
+  }
+}
+```
+
+The following is an example event body for **Agreement
+Cancellation Request Validation Failed - Proposer**. This event is sent only to
+the seller when an async validation fails after submission.
+
+```
+{
+  "version": "0",
+  "id": "01234567-0123-0123-0123-0123456789ab",
+  "detail-type": "Agreement Cancellation Request Validation Failed - Proposer",
+  "source": "aws.agreement-marketplace",
+  "account": "123456789012",
+  "time": "2025-01-01T13:15:00Z",
+  "region": "us-east-1",
+  "resources": [],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-abcdexampleid",
+      "acceptorId": "123465789012",
+      "productId": "prod-exampleid",
+      "offerId": "offer-exampleid"
+    },
+    "agreementCancellationRequest": {
+      "id": "acr-abcdexampleid",
+      "reasonCode": "INCORRECT_TERMS_ACCEPTED",
+      "reasonMessage": "The terms accepted in agreement had wrong rate",
+      "statusCode": "VALIDATION_FAILED",
+      "statusMessage": "Agreement has a renewal agreement that must be canceled first",
+      "createdAt": "2025-01-01T13:12:22Z",
+      "updatedAt": "2025-01-01T13:15:00Z"
+    }
+  }
+}
+```
+
+## Events for billing adjustments
+
+When a billing adjustment status changes, sellers, buyers, and ISVs (for CPPO) receive
+events. Each event is sent to the relevant party with a role-specific detail type (Proposer
+for sellers, Acceptor for buyers, Manufacturer for ISVs). The source for these events is
+`aws.agreement-marketplace`.
+
+The following is an example event body for **Purchase Agreement Billing Adjustment Completed - Proposer**.
+
+```
+{
+  "version": "0",
+  "id": "01234567-0123-0123-0123-0123456789ab",
+  "detail-type": "Purchase Agreement Billing Adjustment Completed - Proposer",
+  "source": "aws.agreement-marketplace",
+  "account": "123456789012",
+  "time": "2025-01-01T13:12:22Z",
+  "region": "us-east-1",
+  "resources": [],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-abcdexampleid"
+    },
+    "billingAdjustmentRequest": {
+      "id": "ba-abcdexampleid",
+      "adjustmentAmount": "-100.00",
+      "currencyCode": "USD",
+      "adjustmentReasonCode": "INCORRECT_TERMS_ACCEPTED"
+    },
+    "invoice": {
+      "originalInvoiceId": "2028746221"
+    }
+  }
+}
+```
+
+The following is an example event body for **Purchase Agreement
+Billing Adjustment Failed - Proposer**. This event is sent only to the seller when
+a billing adjustment fails async validation.
+
+```
+{
+  "version": "0",
+  "id": "01234567-0123-0123-0123-0123456789ab",
+  "detail-type": "Purchase Agreement Billing Adjustment Failed - Proposer",
+  "source": "aws.agreement-marketplace",
+  "account": "123456789012",
+  "time": "2025-01-01T13:15:00Z",
+  "region": "us-east-1",
+  "resources": [],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-abcdexampleid"
+    },
+    "billingAdjustmentRequest": {
+      "id": "ba-abcdexampleid",
+      "adjustmentAmount": "-1000.00",
+      "currencyCode": "USD",
+      "adjustmentReasonCode": "INCORRECT_TERMS_ACCEPTED"
+    },
+    "invoice": {
+      "originalInvoiceId": "2028746221"
     }
   }
 }

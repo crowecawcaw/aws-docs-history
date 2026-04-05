@@ -120,4 +120,4 @@ scenarios for new customers.
 After your integration and testing is complete, you can perform a final review and
 list your product on the public AWS Marketplace. For more information, see [Creating a SaaS product in AWS Marketplace](saas-create-product.md "saas-create-product.md"). You can also
 cancel your test subscription by completing a Refund Request Form. For more information
-on cancelling a subscription, see the [Requesting a product refund](refunds.md#refund-process "refunds.md#refund-process").
+on cancelling a subscription, see the [Requesting a billing adjustment (refund)](refunds.md#refund-process "refunds.md#refund-process").

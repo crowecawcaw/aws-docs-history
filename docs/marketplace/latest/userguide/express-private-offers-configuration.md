@@ -10,7 +10,7 @@ For express private offer configuration permissions, you can use the [AWSMarketp
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [{
             "Sid": "AWSMarketplaceChangeSetReadAccess",
             "Effect": "Allow",

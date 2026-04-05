@@ -6,7 +6,7 @@ There is no service fee for free or open-source software that is made available 
 without charge. This topic provides information about pricing models and pricing for software
 products in AWS Marketplace.
 
-For information about refunds, see [Product refunds in AWS Marketplace](refunds.md "refunds.md").
+For information about refunds, see [Refunds and cancellations in AWS Marketplace](refunds.md "refunds.md").
 
 ###### Topics
 
@@ -16,7 +16,7 @@ For information about refunds, see [Product refunds in AWS Marketplace](refunds.
 - [Changing pricing models](changing-pricing-models.md "changing-pricing-models.md")
 - [Changing prices](#changing-prices "#changing-prices")
 - [Private offers](private-offers.md "private-offers.md")
-- [Product refunds in AWS Marketplace](refunds.md "refunds.md")
+- [Refunds and cancellations in AWS Marketplace](refunds.md "refunds.md")
 
 ## Changing prices
 

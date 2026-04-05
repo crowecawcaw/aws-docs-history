@@ -96,7 +96,7 @@ effect for a price increase not a price decrease.
 ## Updating the refund policy of a product
 
 You can update the refund policy for your product. Updates to the refund policy take
-effect for all users. For more information, see [Product refunds in AWS Marketplace](refunds.md "refunds.md").
+effect for all users. For more information, see [Refunds and cancellations in AWS Marketplace](refunds.md "refunds.md").
 
 1. Open the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/tour/](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/") and sign in to your seller
    account.

@@ -1,150 +1,398 @@
-# Product refunds in AWS Marketplace
+# Refunds and cancellations in AWS Marketplace
+
+All paid products in AWS Marketplace must have a stated refund policy for software charges. The
+refund policy must include the terms of the refund and a method of contacting the seller to
+request a refund.
+
+As a seller, you are responsible for defining the terms of your refund policy. However, we
+encourage you to offer buyers a refund option for usage of the product. You must comply with
+your posted refund policies.
+
+AWS Marketplace provides self-service tools for sellers to initiate agreement cancellations and
+billing adjustments (refunds) directly from the **Agreements** page in
+AWS Partner Central (formerly AWS Marketplace Management Portal) or through the AWS Marketplace APIs, without requiring AWS Customer
+Service involvement. Billing adjustments are processed automatically after validation and do
+not require buyer approval. Cancellation requests are sent to buyers for approval with a
+7-day response window.
 
 ###### Note
 
-If you transact through an Amazon Web Services EMEA operator,
-only verified users can process refunds, amend Know Your Customer (KYC) information, and change financial information
-such as bank account details. Verified users are KYC verified users and secondary users who
-complete verification. For more information on the KYC process, refer to
-[Complete the Know Your Customer process](registration-process.md#complete-kyc-process "registration-process.md#complete-kyc-process").
-
-All paid products in AWS Marketplace, regardless of pricing model, must have a stated refund policy
-for software charges. The refund policy must include the terms of the refund, and a method
-of contacting the seller to request a refund.
-
-As a seller, the details of the refund policy are
-up to you. However, we encourage you to offer buyers some manner of refund for usage of the
-product. You must comply with your posted refund policies. This topic provides information about
-the types of AWS Marketplace product refund requests, the related policy and approvals process, and how
-you can submit a refund request for a buyer.
+In AWS Partner Central, refunds are referred to as _billing adjustments_.
+Both terms refer to the same process of returning funds to a buyer or reducing the
+outstanding balance on an invoice.
 
 ###### Topics
 
 - [Refund request types for AWS Marketplace products](#refund-requests "#refund-requests")
 - [AWS Marketplace product refund policy and approvals](#refund-approval "#refund-approval")
-- [Requesting a product refund](#refund-process "#refund-process")
+- [Requesting an agreement cancellation](#requesting-cancellation "#requesting-cancellation")
+- [Requesting a billing adjustment (refund)](#refund-process "#refund-process")
+- [Tracking cancellation requests](#tracking-cancellations "#tracking-cancellations")
+- [Tracking billing adjustments](#tracking-billing-adjustments "#tracking-billing-adjustments")
+- [Notifications](#scaba-notifications "#scaba-notifications")
+- [Using the AWS Marketplace APIs](#scaba-apis "#scaba-apis")
+- [Channel Partner Private Offers (CPPO)](#cppo-cancellations-adjustments "#cppo-cancellations-adjustments")
 - [Requesting a bulk refund](#bulk-refund-process "#bulk-refund-process")
+- [Legacy refund request process](#legacy-refund-process "#legacy-refund-process")
 
 ## Refund request types for AWS Marketplace products
 
 Buyers can request different types of refunds for AWS Marketplace products. For AWS Marketplace products
-sold by AWS, refer to the refund policy page and then submit the contact support form using
-the AWS Support Center Console. If a buyer requests a software refund directly from AWS, we
-instruct them to contact the seller using your posted support contact information for the
-product in question. Refunds of any AWS infrastructure charges are up to the discretion of
-AWS and are handled independently of software refunds.
+sold by AWS, refer to the refund policy page and then submit a support case using the
+[Support Center Console](https://console.aws.amazon.com/support/home? "https://console.aws.amazon.com/support/home?"). If a buyer requests
+a software refund directly from AWS, we instruct them to contact the seller using the
+support contact information you provided for the product in question. Refunds of any AWS
+infrastructure charges are at the discretion of AWS and are handled separately from
+software refunds.
 
-For products sold by a third-party, buyers must view refund policies
-on the product detail page. Software charges for AWS Marketplace subscriptions are paid to the seller of
-the product, and refunds must be requested from the seller directly. Each AWS Marketplace seller is
-required to include a refund policy on their AWS Marketplace page.
+For products sold by a third-party seller, buyers must refer to the product detail page
+to view the refund policy. Software charges for AWS Marketplace subscriptions are paid to the seller
+of record, and refunds must be requested from the seller directly.
 
 ## AWS Marketplace product refund policy and approvals
 
 The following list describes the AWS Marketplace refund policy and whether your approval is
 needed:
 
-- **Free trials**
-
-If you list your software as a free trial product, AWS can issue refunds on your
-behalf for software charges accruing within seven days of a conversion from a free trial
-to a paid subscription. Refunds issued in connection with free trial conversions require
-no action on your part. By enabling a free trial on a product, you agree to this
-policy.
-
-- **Private offers**
-
-All refunds for private offers must be authorized by you before AWS can process
-them.
-
-- **Software metering refunds**
-
-If you use the AWS Marketplace Metering Service to meter the usage of your software, AWS can issue
-refunds on your behalf for software charges resulting from software metering errors. If
-these errors are common across multiple buyers, AWS reserves the right to determine
-an appropriate refund for each buyer and apply it directly to each buyer. Refunds
-issued in connection with the AWS Marketplace Metering Service must be confirmed with the seller one time, but does
-not require the seller to confirm each individual refund. By using the AWS Marketplace Metering Service with a
-product, you are agreeing to this policy.
-
+- **Free trials** — If you list your software as a
+  free trial product, AWS can issue refunds on your behalf for software charges that
+  accrue within seven days of converting to a paid subscription. Refunds issued in
+  connection with free trial conversions require no action on your part. By enabling a free
+  trial on a product, you agree to this policy.
+- **Private offers** — All refunds for private
+  offers must be authorized by you before AWS can process them.
+- **Software metering refunds** — If you use the
+  AWS Marketplace Metering Service to meter the usage of your software, AWS can issue refunds on your behalf
+  for software charges resulting from software metering errors. If these errors are common
+  across multiple buyers, AWS reserves the right to determine an appropriate refund for
+  each buyer and apply it directly to each buyer. By using the AWS Marketplace Metering Service with a product, you
+  are agreeing to this policy.
 - **Subscription cancellation within 48 hours of
-  purchase**
+  purchase** — If a buyer cancels their subscription within 48 hours of a
+  non-private offer purchase, AWS issues a full refund (cancel with 100 percent refund).
+  Refunds issued in connection with cancellation within 48 hours of purchase require no
+  action on your part. After 48 hours, such buyer request is at your discretion. By listing
+  your product on AWS Marketplace, you agree to this policy.
+- **Subscription upgrade** — If a buyer replaces an
+  existing non-private offer subscription with a more expensive subscription or a
+  subscription of equal value, AWS can issue refunds on your behalf for the lower-tier
+  subscription.
+- **Subscription downgrade** — All downgrade
+  subscription refund requests must be authorized by you before AWS can process
+  them.
+- **Seller-initiated billing adjustments** — As the
+  seller of record, you can initiate billing adjustments (refunds) for any agreement through
+  the **Agreements** page in AWS Partner Central or through the Billing Adjustments
+  API. Billing adjustments don't require buyer approval and are processed automatically
+  after validation. Refunds are irreversible after they've been processed.
+- **Seller-initiated cancellations** — As the seller
+  of record, you can initiate agreement cancellation requests through the
+  **Agreements** page in AWS Partner Central or through the Cancellation API.
+  Cancellation requests are sent to the buyer for approval. If the buyer doesn't respond
+  within 7 days, the cancellation is automatically approved and the agreement is
+  canceled.
 
-If a buyer cancels their subscription within 48 hours of a non-private offer purchase,
-AWS issues a full refund (cancel with 100 percent refund). Refunds issued in
-connection with cancellation within 48 hours of purchase require no action on your part.
-After 48 hours, such buyer request is at your discretion. By listing your product on
-AWS Marketplace, you agree to this policy.
-
-- **Subscription upgrade**
-
-If a buyer replaces an existing non-private offer subscription with a more expensive
-subscription or a subscription of equal value, AWS can issue refunds on your behalf for
-the lower-tier subscription. This is a two-step process for the buyer: Buy a new
-subscription and then request cancellation of the old subscription with a refund.
-
-- **Subscription downgrade**
-
-All downgrade subscription refund requests must be authorized by you before AWS can
-process them.
-
-All AWS authorized refunds are processed automatically and require no action on your
+All AWS-authorized refunds are processed automatically and require no action on your
 part.
 
-## Requesting a product refund
+## Requesting an agreement cancellation
 
-Use the following procedure to request a software refund for an external buyer or an
-internal testing account.
+You can initiate an agreement cancellation request from the
+**Agreements** page in AWS Partner Central. Cancellation requests are sent to the
+buyer for approval. The buyer has 7 days to approve or deny the request. If the buyer doesn't
+respond within 7 days, the cancellation is automatically approved and the agreement is
+canceled.
 
-###### To request a software refund
+###### Important
 
-1. Gather the following information:
-   - Buyer AWS account ID (12 digits) used to subscribe to the product. If the buyer
-     is the payer of their organization, obtain the AWS account ID of the linked account
-     used to subscribe.
-   - The buyer’s email address that is associated with their AWS account.
-   - Seller AWS account ID (12 digits).
-   - Product ID. You can find the Product ID in the [agreements and renewals dashboard](agreements-renewals-dashboard.md "agreements-renewals-dashboard.md") or [billed revenue dashboard](billed-revenue-dashboard.md "billed-revenue-dashboard.md").
-   - Offer ID. You can find the Offer ID in the [agreements and renewals dashboard](agreements-renewals-dashboard.md "agreements-renewals-dashboard.md") or [billed revenue dashboard](billed-revenue-dashboard.md "billed-revenue-dashboard.md"), **Offers** tab, or **Agreements** tab in the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/homepage "https://aws.amazon.com/marketplace/management/homepage").
-   - Billing period.
-   - Invoice number from your [billed revenue dashboard](billed-revenue-dashboard.md "billed-revenue-dashboard.md").
-   - Pre-tax refund amount.
+Cancellation only cancels future invoices that have not been issued. It doesn't
+automatically refund existing open invoices. If you also need to refund past charges, you
+must submit a separate billing adjustment request. See
+[Requesting a billing adjustment (refund)](#refund-process "#refund-process").
 
-2. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
-3. Choose **Support**.
-4. Choose **Request Refund**.
-5. Enter the subscriber's AWS account number, product ID, and billing period.
-6. In the **Additional comments (optional)** field, enter a brief
-   description of the request, including the product ID, refund type, and invoice number (if
-   available). For example:
+### Prerequisites
 
-`Cancel the buyer’s subscription to *<product-ID>* and *<offer-ID>* and process a full refund for invoice *<invoice-number>*.` 7. To submit a request for a refund, upgrade, or downgrade of an annual subscription, do
-the following:
+- You must be the seller of record for the agreement. For Marketplace Private Offers
+  (MPPO), this is the ISV. For Channel Partner Private Offers (CPPO), this is the channel
+  partner (CP).
+- The agreement must be active.
+- There must not be an existing active cancellation request for the same
+  agreement.
+- No related agreement should exist for the agreement being canceled. For instance, a
+  usage agreement can't be canceled if it has an associated annual discount
+  agreement.
 
-    1. Verify the buyer has purchased an annual subscription using the [agreements and renewals dashboard](agreements-renewals-dashboard.md "agreements-renewals-dashboard.md") or [billed revenue dashboard](billed-revenue-dashboard.md "billed-revenue-dashboard.md").
-    2. In the **Additional comments (optional)** field, enter the subscription cancellation date and specify if the buyer is requesting a refund, upgrade, or downgrade.
+### To request an agreement cancellation
 
-8.  Submit the form. We'll be notified and will begin to process the refund and issue it
-    to the buyer.
-9.  To manage the refund request, the AWS Marketplace buyer support team will create a corresponding support case in the [Support Center Console](https://console.aws.amazon.com/support/home? "https://console.aws.amazon.com/support/home?"). The status of the refund will appear in the subject line of the support case. The status can be one of the following:
+1. Sign in to [AWS Partner Central](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management")
+   and navigate to the **Agreements** page.
+2. Select the agreement you want to cancel and choose
+   **Request cancellation**.
+3. Review the agreement information (Buyer account ID, Agreement ID, Offer ID). Choose
+   a cancellation reason from the dropdown. In the **Additional details**
+   field, you can optionally include a message to the buyer.
+4. Choose **Submit request**.
+5. Upon successful submission, you'll receive a link to the buyer response form. You
+   can optionally expedite the process by sharing the response form link with the buyer
+   directly. You can also copy the link later from the **Cancellation
+   requests** tracking table.
 
-        * **Completed** – The refund was processed and no
-         further action is required.
-        * **Pending** – The refund will be processed once
-         the current billing cycle ends.
-        * **Action Required** – The request could not be
-         processed, and we need additional information from you. You can respond directly to
-         the support case; however, you will also need to submit a new refund request
-         form.
+### Withdrawing a cancellation request
 
-    A refund will appear in the buyer’s account
-    within 24–48 hours. However, it can take up to five business days for the funds to
-    appear in the buyer’s financial account.
+You can withdraw a pending cancellation request from either the
+**Cancellation requests** tab or the request details page. To withdraw a
+pending request from the **Cancellation requests** tab, select the request
+you want to withdraw and choose **Withdraw request**. In the dialog box,
+provide a withdrawal reason.
+
+## Requesting a billing adjustment (refund)
+
+You can initiate billing adjustments (refunds) from the
+**Agreements** page in AWS Partner Central. Billing adjustments allow you to either
+refund buyers for charges on existing invoices, or reduce the outstanding balance on invoices
+that have not yet been paid. Billing adjustments don't require buyer approval and are
+processed immediately upon successful validation.
+
+###### Important
+
+If the billing adjustment you want to apply is dependent on cancellation of the
+agreement, submit the cancellation request first and wait for approval before submitting
+the billing adjustment.
+
+### Prerequisites
+
+- You must be the seller of record for the agreement. For Marketplace Private Offers
+  (MPPO), this is the ISV. For Channel Partner Private Offers (CPPO), this is the channel
+  partner (CP).
+- To adjust invoices issued in countries with Know Your Customer (KYC) compliance
+  requirements, you must first complete secondary user verification and enable
+  multi-factor authentication (MFA). To become KYC-verified, see
+  [Complete
+  the Know Your Customer process](complete-kyc-process.md "complete-kyc-process.md") and
+  [Managing
+  your secondary user for KYC](managing-secondary-users.md "managing-secondary-users.md") for more information.
+
+### To apply a billing adjustment
+
+1. Sign in to [AWS Partner Central](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management")
+   and navigate to the **Agreements** page.
+2. Select the agreement you want to adjust and choose
+   **Apply billing adjustment**.
+
+The billing adjustment wizard guides you through four steps:
+
+**Step 1: Provide details**
+
+Review the agreement information (Buyer account ID, Agreement ID, Offer ID). Choose a
+billing adjustment reason from the dropdown. In the **Additional details**
+field, you can optionally include a message to the buyer. Choose
+**Next**.
+
+**Step 2: Select invoices**
+
+In the **Available invoices** table, select the invoices you want to
+adjust. You can filter invoices by either invoice date or billing period. Choose
+**Next**.
+
+**Step 3: Adjust billing amounts**
+
+You can either start from zero and manually enter custom adjustment amounts for each
+selected invoice, or you can start from the maximum adjustment amount per invoice and
+optionally modify individual amounts as needed. The value you enter must be a positive
+number and can't exceed the maximum adjustment amount for that invoice, and is exclusive of
+taxes. If the maximum adjustment amount is less than the original charge amount, this
+indicates that a partial adjustment was previously applied. In this case, the maximum
+adjustment amount represents the remaining balance. After you've made your adjustments,
+choose **Next**.
+
+**Step 4: Review and apply**
+
+Review the details of your billing adjustment to ensure that all the information is
+correct. Next, choose **Apply billing adjustment**. In the confirmation
+window, provide written confirmation by typing the total adjustment amount.
+
+###### Important
+
+Billing adjustments are irreversible after they have been processed. For unpaid
+invoices, adjustments are deducted from the total amount due. For paid invoices,
+adjustments are applied as either credit memos or cash refunds.
+
+The buyer is notified by email and Amazon EventBridge event when the billing adjustment is
+processed.
+
+## Tracking cancellation requests
+
+You can track all cancellation requests from the **Cancellation requests**
+tab on the **Agreements** page.
+
+1. Sign in to [AWS Partner Central](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
+2. Navigate to the **Agreements** page.
+3. Choose the **Cancellation requests** tab.
+
+The cancellation requests table displays the following columns: Request ID, Request status,
+Agreement ID, Buyer ID, Request date, and Response date.
+
+You can filter by **status** or **agreement ID**.
+
+To view details of a specific request, select the request and choose
+**View details**. You can also choose **Withdraw request**
+to withdraw a pending request, or **Copy link** to copy the buyer approval
+link.
+
+### Cancellation request statuses
+
+| API status            | UI label          | Description                                                                                                                                                                         |
+| --------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Pending approval**  | Pending approval  | The request has been submitted and is waiting for the buyer to approve or deny. The buyer has 7 days to respond. If no response is received, the request is automatically approved. |
+| **Approved**          | Approved          | The buyer approved the cancellation, or the request was automatically approved after 7 days. The agreement is canceled.                                                             |
+| **Rejected**          | Denied            | The buyer denied the cancellation request. You can submit a new request if needed.                                                                                                  |
+| **Canceled**          | Withdrawn         | You withdrew the cancellation request before the buyer took action.                                                                                                                 |
+| **Validation failed** | Validation failed | The request did not pass automated validation.                                                                                                                                      |
+
+## Tracking billing adjustments
+
+You can track all billing adjustment requests from the **Billing adjustments**
+tab on the **Agreements** page.
+
+1. Sign in to [AWS Partner Central](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
+2. Navigate to the **Agreements** page.
+3. Choose the **Billing adjustments** tab.
+
+The billing adjustments table displays the following columns: Adjustment ID, Invoice ID,
+Status, Agreement ID, Buyer ID, Submitted, Processed, and Creation date.
+
+You can filter by **agreement ID**, **creation date**,
+or **status**.
+
+###### Note
+
+If you submitted billing adjustments for multiple invoices in a single request, each
+invoice appears as a separate row in the table. All rows from the same submission will have different billing adjustment request IDs.
+
+### Billing adjustment statuses
+
+| API status            | UI label    | Description                                                                                                               |
+| --------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **Pending**           | In progress | The adjustment has been submitted and is being processed.                                                                 |
+| **Completed**         | Adjusted    | The adjustment was processed successfully. The buyer receives a credit memo or cash refund.                               |
+| **Validation failed** | Failed      | Your billing adjustment request failed automated checks. You may need to submit a new request with corrected information. |
+
+## Notifications
+
+You receive automated notifications for cancellation and billing adjustment status updates
+through two channels:
+
+- **Email notifications** — Sent to the root email
+  associated with your AWS account. You can also
+  [add
+  custom email aliases](email-notifications.md#adding-updating-email-addresses "email-notifications.md#adding-updating-email-addresses") for notifications and
+  [unsubscribe
+  recipients](email-notifications.md#unsubscribe-notifications "email-notifications.md#unsubscribe-notifications") from email notifications.
+- **[Amazon EventBridge](notifications-eventbridge.md "notifications-eventbridge.md")
+  events** — Sent to your account's default event bus, which you can use to
+  trigger automated workflows.
+
+### Cancellation notifications
+
+| Event                                                     | Recipients                         | Email subject (seller)                            |
+| --------------------------------------------------------- | ---------------------------------- | ------------------------------------------------- |
+| Cancellation request submitted                            | Seller, Buyer, Manufacturer (CPPO) | "You submitted an agreement cancellation request" |
+| Cancellation request approved (by buyer or auto-approved) | Seller, Buyer, Manufacturer (CPPO) | "Agreement cancellation request approved"         |
+| Cancellation request denied by buyer                      | Seller, Buyer, Manufacturer (CPPO) | "Agreement cancellation request denied"           |
+| Cancellation request withdrawn by seller                  | Seller, Buyer, Manufacturer (CPPO) | "Agreement cancellation request withdrawn"        |
+| Cancellation request failed validation                    | Submitter only                     | "Agreement cancellation request failed"           |
+
+When a cancellation request is submitted, the seller's email also includes a
+**response form URL** that can be shared directly with the
+buyer to expedite approval.
+
+### Billing adjustment notifications
+
+| Event                                | Recipients                         | Email subject (seller)              |
+| ------------------------------------ | ---------------------------------- | ----------------------------------- |
+| Billing adjustment processed         | Seller, Buyer, Manufacturer (CPPO) | "Billing adjustment processed"      |
+| Billing adjustment failed validation | Submitter only                     | "Billing adjustment request failed" |
+
+###### Note
+
+Billing adjustments don't generate a "submitted" notification. You receive a single
+notification when the adjustment is completed or if it fails.
+
+###### Note
+
+If a billing adjustment fails instantly (for example, the refund amount exceeds the
+maximum refundable amount), the request is not created and no notification is sent. You
+see the error directly in the console or receive an error code through the API.
+
+###### Important
+
+For CPPO agreements, the ISV (manufacturer) receives notifications when the channel
+partner submits or completes cancellation and billing adjustment requests. However, the
+refund amount and message to buyer are **not** included in
+ISV notifications to protect channel partner margin information.
+
+## Using the AWS Marketplace APIs
+
+In addition to the console experience, you can manage cancellations and billing
+adjustments programmatically using the AWS Marketplace APIs.
+
+### Cancellation API
+
+The AWS Marketplace Self-Service Cancellation API enables you to manage agreement cancellation
+requests programmatically.
+
+**Endpoint:**
+`https://agreement-marketplace.us-east-1.amazonaws.com`
+
+| Operation                            | Description                                                            |
+| ------------------------------------ | ---------------------------------------------------------------------- |
+| `SendAgreementCancellationRequest`   | Initiate a new cancellation request for an agreement                   |
+| `AcceptAgreementCancellationRequest` | Accept a pending cancellation request (buyer action)                   |
+| `RejectAgreementCancellationRequest` | Reject a pending cancellation request with a reason (buyer action)     |
+| `CancelAgreementCancellationRequest` | Withdraw a pending cancellation request (seller action)                |
+| `GetAgreementCancellationRequest`    | Retrieve details of a specific cancellation request                    |
+| `ListAgreementCancellationRequests`  | List cancellation requests with optional filters. Supports pagination. |
+
+### Billing Adjustments API
+
+The AWS Marketplace Billing Adjustments API enables you to manage billing adjustments (refunds)
+programmatically.
+
+**Endpoint:**
+`https://agreement-marketplace.us-east-1.amazonaws.com`
+
+| Operation                             | Description                                                                               |
+| ------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `ListAgreementInvoiceLineItems`       | Retrieve invoice line items for an agreement to identify invoices eligible for adjustment |
+| `BatchCreateBillingAdjustmentRequest` | Create billing adjustment requests for one or more invoices (up to 5 per request)         |
+| `GetBillingAdjustmentRequest`         | Retrieve details of a specific billing adjustment request                                 |
+| `ListBillingAdjustmentRequests`       | List billing adjustment requests with optional filters. Supports pagination.              |
+
+## Channel Partner Private Offers (CPPO)
+
+For Channel Partner Private Offers (CPPO), the following rules apply:
+
+- Only the channel partner (CP), as the seller of record, can initiate cancellation and
+  billing adjustment requests for CPPO agreements. The ISV can't initiate these
+  requests.
+- The ISV (manufacturer) receives email and Amazon EventBridge notifications when the CP submits a
+  cancellation or billing adjustment request.
+- ISV notifications include the selling authorization ID, Product ID, and Buyer
+  AWS account ID, but don't include the refund amount or message to buyer to protect CP
+  margin information.
+- The CP can view and track all active and historical cancellation and billing
+  adjustment requests for CPPO agreements on the **Agreements** page and
+  through the APIs.
 
 ## Requesting a bulk refund
 
-The following steps explain how to create refund requests involving 20+ invoices or 20+ accounts,
-This process streamlines large-scale refund requests and ensures that you provide the necessary information.
+You can also process billing adjustments programmatically using the Billing Adjustments
+API (`BatchCreateBillingAdjustmentRequest`), regardless of the number of invoices.
+See [Using the AWS Marketplace APIs](#scaba-apis "#scaba-apis").
+
+The following steps explain how to create refund requests involving 20+ invoices or 20+
+accounts using a support case. This process streamlines large-scale refund requests and
+ensures that you provide the necessary information.
 
 ###### To request a bulk refund
 
@@ -180,3 +428,53 @@ You can't complete these steps unless you sign in as the root user. 4. Create a 
 
 7. Attach the CSV file and create the support case.
 8. The support case is routed to the next available agent for assistance.
+
+## Legacy refund request process
+
+###### Important
+
+The following legacy refund request process is being replaced by the new self-service
+workflows through the **Agreements** page. For cases not currently
+supported by the new experience, you can continue to use this process. This process will be
+deprecated in the future as support for additional cases is added to the self-service
+workflow. We recommend using the **Agreements** page or the AWS Marketplace APIs for
+all supported requests.
+
+The legacy process for requesting refunds:
+
+**Step 1: Submit a refund and/or cancellation request**
+
+1. Sign in to [AWS Partner Central](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
+2. Choose **Marketplace refund support** (or **Support**
+   in the former AWS Marketplace Management Portal).
+3. Choose **Request Refund**.
+4. Enter the following details:
+   - **Subscriber's AWS account ID** — The buyer's account ID used to subscribe. You can find this in the offer detail or on the Billed Revenue Dashboard. This must be the subscriber account ID.
+   - **Seller's AWS account ID** — Your AWS account ID used to create the offer.
+   - **Product ID** — You can find this in the offer detail or on the Billed Revenue Dashboard.
+   - **Billing period** — You can find this on the Billed Revenue Dashboard. For monthly usage invoices, this is the calendar month previous to the invoice date.
+   - **Refund amount** — Indicate full or partial refund.
+
+5. In the **Additional comments (optional)** field:
+   - For contract cancellation, include: "Please cancel agreement `agreement-id`".
+   - For refunds (whether the invoice has been paid or not), include: "This refund targets invoice ID `invoice-id` dated `invoice-date`".
+   - If you need both cancellation and refund, include both statements. Cancellation of a contract does not automatically cancel any issued invoices — you must explicitly request refund of each invoice that needs to be adjusted.
+
+6. Submit the form and save the reference ID generated on submission for further communication with AWS.
+
+**Step 2: (Optional) Create a support ticket to expedite the request**
+
+If a refund and/or cancellation needs to be expedited, you can create a support case directly with the AWS Customer Service team:
+
+1. Sign in to the [Support Center Console](https://console.aws.amazon.com/support/home? "https://console.aws.amazon.com/support/home?").
+2. Create a new case with the following details:
+   - **Type:** Account and Billing
+   - **Service:** Marketplace
+   - **Category:** Marketplace Seller Request
+   - **Severity:** General question
+   - **Subject:** "Please expedite refund and/or cancellation request"
+   - **Description:** "Please expedite the refund and/or cancellation request related to reference ID: `reference-id`" (the reference ID from Step 1)
+
+For information about the new self-service process, see
+[Requesting an agreement cancellation](#requesting-cancellation "#requesting-cancellation") and
+[Requesting a billing adjustment (refund)](#refund-process "#refund-process").

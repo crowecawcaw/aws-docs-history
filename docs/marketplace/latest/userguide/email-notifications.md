@@ -3,7 +3,7 @@
 AWS Marketplace sends email notifications of updates to offers, agreements, subscriptions, products,
 security, billing and payments, and Private Marketplace. Independent software vendors (ISVs),
 AWS Marketplace Channel Partners, and customers can receive email notifications. For examples and details
-of email notifications sent for offer and agreement updates, refer to [Event types](#event-types "#event-types").
+of email notifications sent for offer and agreement updates, refer to [Supported email notifications](#event-types "#event-types").
 
 AWS Marketplace sends email notifications to the email address associated with the [root user](../../../accounts/latest/reference/root-user.md "../../../accounts/latest/reference/root-user.md") of your
 AWS account. To update the email address associated with your AWS account, refer to [Update the primary contact for your AWS account](../../../accounts/latest/reference/manage-acct-update-contact-primary.md "../../../accounts/latest/reference/manage-acct-update-contact-primary.md"). You can also [add custom email aliases](#adding-updating-email-addresses "#adding-updating-email-addresses") for notifications
@@ -19,13 +19,13 @@ Mail](https://help.yahoo.com/kb/SLN28140.html "https://help.yahoo.com/kb/SLN2814
 
 ###### Topics
 
-- [Event types](#event-types "#event-types")
+- [Supported email notifications](#event-types "#event-types")
 - [Field descriptions](#email-notification-field-descriptions "#email-notification-field-descriptions")
 - [Manage notifications](#manage-notifications "#manage-notifications")
 
-## Event types
+## Supported email notifications
 
-The following event types are supported by email notifications for all products and
+The following email notifications are supported for all products and
 pricing types, except for machine learning products.
 
 ###### Topics
@@ -35,6 +35,7 @@ pricing types, except for machine learning products.
 - [Variable payments](#email-details-variable-payments "#email-details-variable-payments")
 - [Disbursements](#email-details-disbursements "#email-details-disbursements")
 - [Adding bank account details](#add-bank-account-details "#add-bank-account-details")
+- [Cancellations and billing adjustments](#email-details-cancellations-adjustments "#email-details-cancellations-adjustments")
 
 ### Offers and Offer Sets
 
@@ -136,6 +137,36 @@ how.
 7. If prompted to verify Know Your Customer (KYC) and bank account, follow the
    verification steps.
 8. Save your changes.
+
+### Cancellations and billing adjustments
+
+Sellers, buyers, and ISVs (for CPPO) receive email notifications for agreement
+cancellation and billing adjustment events. The following tables show the emails that
+are sent for cancellation and billing adjustment events.
+
+**Cancellation request emails**
+
+| Event                                                     | Recipient                          | Title                                           | Fields                                                                                                                                                          |
+| --------------------------------------------------------- | ---------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cancellation request submitted                            | Seller, Buyer, Manufacturer (CPPO) | You submitted an agreement cancellation request | Buyer account ID, Agreement ID, Product ID, Offer ID, Request ID, Request date, Request expiry date, Cancellation reason, Additional details, Response form URL |
+| Cancellation request approved (by buyer or auto-approved) | Seller, Buyer, Manufacturer (CPPO) | Agreement cancellation request approved         | Agreement ID, Product ID, Offer ID, Request ID, Request date, Cancellation reason, Canceled date                                                                |
+| Cancellation request denied                               | Seller, Buyer, Manufacturer (CPPO) | Agreement cancellation request denied           | Agreement ID, Product ID, Offer ID, Request ID, Request date, Cancellation reason, Denial reason, Denial date                                                   |
+| Cancellation request withdrawn                            | Seller, Buyer, Manufacturer (CPPO) | Agreement cancellation request withdrawn        | Agreement ID, Product ID, Offer ID, Request ID, Request date, Withdrawal reason                                                                                 |
+| Cancellation request validation failed                    | Seller only                        | Agreement cancellation request failed           | Agreement ID, Product ID, Request ID, Request date, Cancellation reason                                                                                         |
+
+**Billing adjustment emails**
+
+| Event                        | Recipient                          | Title                             | Fields                                                                                                                                   |
+| ---------------------------- | ---------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Billing adjustment processed | Seller, Buyer, Manufacturer (CPPO) | Billing adjustment processed      | Agreement ID, Product ID, Offer ID, Request ID, Invoice ID(s), Refund amount with currency code, Request date, Billing adjustment reason |
+| Billing adjustment failed    | Seller only                        | Billing adjustment request failed | Agreement ID, Product ID, Request ID, Invoice ID(s), Request date, Billing adjustment reason                                             |
+
+###### Note
+
+For CPPO agreements, the ISV (manufacturer) receives notifications when the channel
+partner submits or completes cancellation and billing adjustment requests. However, the
+refund amount and message to buyer are **not** included in
+ISV notifications to protect channel partner margin information.
 
 ## Field descriptions
 
