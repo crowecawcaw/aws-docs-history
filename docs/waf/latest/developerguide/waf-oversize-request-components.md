@@ -27,6 +27,9 @@ The component inspection size limits are as follows:
   you can increase the limit up to 64 KB in your protection pack (web ACL) configuration. For more information, see
   [Considerations for managing body inspection in AWS WAF](web-acl-setting-body-inspection-limit.md "web-acl-setting-body-inspection-limit.md").
 - **`Headers`** – AWS WAF can inspect at most the first 8 KB (8,192 bytes) of the request headers and at most the first 200 headers. The content is available for inspection by AWS WAF up to the first limit reached.
+
+These limits apply when you inspect all headers in a request. When you inspect a single header, AWS WAF can inspect the full contents of that header without these size or count restrictions.
+
 - **`Cookies`** – AWS WAF can inspect at most the first 8 KB (8,192 bytes) of the request cookies and at most the first 200 cookies. The content is available for inspection by AWS WAF up to the first limit reached.
 
 ###### Oversize handling options for your rule statements

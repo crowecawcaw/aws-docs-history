@@ -71,6 +71,7 @@ Shield Advanced provides the metrics and dimensions in the
 | `DDoSAttackBitsPerSecond`     | The number of bits observed during a DDoS event for a<br>particular Amazon Resource Name (ARN). This metric is<br>available only for network and transport layer (layer 3 and layer 4) DDoS events.<br>This metric has a non-zero value during an event.Units:<br>Bits                                       |
 | `DDoSAttackPacketsPerSecond`  | The number of packets observed during a DDoS event for a<br>particular Amazon Resource Name (ARN). This metric is<br>available only for network and transport layer (layer 3 and layer 4) DDoS events.<br>This metric has a non-zero value during an event.Units:<br>Packets                                 |
 | `DDoSAttackRequestsPerSecond` | The number of requests observed during a DDoS event for a<br>particular Amazon Resource Name (ARN). This metric is<br>available only for layer 7 DDoS events. The metric is<br>reported only for the most significant layer 7 events.<br>This metric has a non-zero value during an event.Units:<br>Requests |
+| `DDoSAttackRequests`          | The number of requests observed during a DDoS event for a<br>particular Amazon Resource Name (ARN). This metric is available<br>only for Anti-DDoS Managed Rules (AMR) DDoS events. This<br>metic is in the AWS/WAFV2 namespace and<br>has a non-zero value during an event.Units:<br>Requests               |
 
 Shield Advanced posts the `DDoSDetected` metric with no other
 dimensions. The remaining detection metrics include the
@@ -80,6 +81,7 @@ attack, from the following list:
 - `ACKFlood`
 - `ChargenReflection`
 - `DNSReflection`
+- AWS/WAFV2
 - `GenericUDPReflection`
 - `MemcachedReflection`
 - `MSSQLReflection`
