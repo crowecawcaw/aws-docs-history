@@ -80,6 +80,7 @@ Linux
 - Foundry Nuke
   - `nuke=15`
   - `nuke=16`
+  - `nuke=17`
   - `nuke-openjd`
 
 - Maxon Cinema 4D
@@ -111,11 +112,6 @@ Windows
   - `cinema4d-c4dtoa=2025`
   - `cinema4d-c4dtoa=2026`
 
-- KeyShot Studio
-  - `keyshot=2024`
-  - `keyshot=2025`
-  - `keyshot-openjd`
-
 - Maxon Cinema 4D
   - `cinema4d=2024`
   - `cinema4d=2025`
@@ -126,6 +122,7 @@ Windows
   - `unrealengine=5.4`
   - `unrealengine=5.5`
   - `unrealengine=5.6`
+  - `unrealengine=5.7`
   - `unrealengine-openjd`
 
 ###### Note

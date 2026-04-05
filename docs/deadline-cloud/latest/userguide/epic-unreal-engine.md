@@ -25,6 +25,7 @@ The following table shows current support levels for Unreal Engine versions:
 | 5.4           | Windows           | Windows       |
 | 5.5           | Windows           | Windows       |
 | 5.6           | Windows           | Windows       |
+| 5.7           | Windows           | Windows       |
 
 ## Deadline Cloud Conda Channel
 
@@ -35,6 +36,7 @@ The following table lists all conda packages applicable to Unreal Engine availab
 | Windows | unreal-engine        | 5.4     |
 | Windows | unreal-engine        | 5.5     |
 | Windows | unreal-engine        | 5.6     |
+| Windows | unreal-engine        | 5.7     |
 | Windows | unreal-engine-openjd |         |
 
 ## Getting started

@@ -11,34 +11,29 @@ KeyShot Studio is a real-time ray tracing and global illumination program develo
 KeyShot Studio is supported by the following components:
 
 - **Submitter**: Integrated submitter extension for direct job submission from KeyShot with automatic scene and asset detection.
-- **Conda package**: Pre-packaged software for automatic installation on service-managed fleets.
 - **Cross-platform compatibility**: Submitter support for Windows and macOS with worker support for Windows.
-- **Usage-based Licensing**: Pay-as-you-go for KeyShot licensing.
+- **Licensing (BYOL)**: Bring Your Own License for KeyShot rendering on your farm.
 
 ## KeyShot version compatibility
 
 The following table shows current support levels for Keyshot versions:
 
-| Major Version | Submitter Support | Conda Support | Render Engines      | Usage-Based Licensing           |
-| ------------- | ----------------- | ------------- | ------------------- | ------------------------------- |
-| 2024          | Windows, macOS    | Windows       | Built-in ray tracer | Usage-based licensing available |
-| 2025          | Windows, macOS    | Windows       | Built-in ray tracer | Usage-based licensing available |
+| Major Version | Submitter Support | Render Engines      | Licensing     |
+| ------------- | ----------------- | ------------------- | ------------- |
+| 2024          | Windows, macOS    | Built-in ray tracer | BYOL required |
+| 2025          | Windows, macOS    | Built-in ray tracer | BYOL required |
 
-## Deadline Cloud Conda Channel
+## Prerequisites
 
-The following table lists all conda packages applicable to Keyshot available to Service-managed fleets in the `deadline-cloud` conda channel:
+KeyShot requires **Bring Your Own License (BYOL)**. You must have valid KeyShot licenses available for your render farm fleet. Configure your license server to be accessible from worker nodes. For more information, see [Connect service-managed fleets to a custom license server](../developerguide/smf-byol.md "../developerguide/smf-byol.md").
 
-| OS      | Package        | Version | Notes                        |
-| ------- | -------------- | ------- | ---------------------------- |
-| Windows | keyshot        | 2024    | Includes built-in ray tracer |
-| Windows | keyshot        | 2025    | Includes built-in ray tracer |
-| Linux   | keyshot-openjd |         | Includes the KeyShot Adaptor |
+To use KeyShot on service-managed fleets, you must create a conda package and host it in a custom conda channel. A [sample conda recipe for KeyShot](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025") is available on GitHub. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
 
 ## Getting started
 
 To use KeyShot with Deadline Cloud:
 
-1. Create a service-managed fleet and associate it with a queue. Your queue must be set up with a queue environment that supports the `deadline-cloud` conda channel. For more information, see [Creating a queue environment](create-queue-environment.md "create-queue-environment.md").
+1. Create a service-managed fleet and associate it with a queue. Your queue must be set up with a queue environment that includes your custom conda channel that contains the KeyShot package. For more information, see [Creating a queue environment](create-queue-environment.md "create-queue-environment.md").
 2. Install the Deadline Cloud monitor and KeyShot submitter on your artist workstation using the Deadline Cloud Submitter and monitor installers. For more information, see [Set up your workstation](submitter.md "submitter.md").
 
 ## Using the KeyShot submitter
@@ -58,17 +53,15 @@ For more information about using the KeyShot submitter for Deadline Cloud, see [
 
 ### Using unsupported versions
 
-Deadline Cloud only supports and tests the workstation and worker software versions in the table above. When using the submitter, the worker will attempt to install the same version as used on the workstation. This will fail if the workstation version of KeyShot does not appear in the version table above.
+Deadline Cloud only supports and tests the workstation and worker software versions in the table above. When using the submitter, the worker uses the KeyShot version from your custom conda package. Ensure that your custom conda channel contains packages for all KeyShot versions that you intend to use.
 
-If you require an unsupported version of KeyShot, you have the following options:
-
-- When submitting the job from KeyShot, you may override the CondaPackages queue parameter to specify a supported version to use on the worker (for example, `keyshot=2024`). The job may run successfully depending on the features used by your scene and how KeyShot works with scenes from the version on your workstation.
-- You may build a custom conda recipe and channel for your desired version to be installed on the worker. Use the conda recipe for a supported version linked below as a starting point, and package your desired version in a custom conda channel. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
+If you require an unsupported version of KeyShot, you can build a custom conda recipe and channel for your desired version to be installed on the worker. Use the [sample conda recipe for KeyShot](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025") as a starting point. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
 
 ## Open source resources
 
 The submitter is open source and available on GitHub:
 
-- [Deadline Cloud for KeyShot](https://github.com/aws-deadline/deadline-cloud-for-keyshot "https://github.com/aws-deadline/deadline-cloud-for-keyshot")
-- [Standalone KeyShot job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/keyshot_standalone "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/keyshot_standalone") is available on GitHub.
-- [Comprehensive user guide](https://aws-deadline.github.io/keyshot/ "https://aws-deadline.github.io/keyshot/") is available.
+- [Deadline Cloud for KeyShot](https://github.com/aws-deadline/deadline-cloud-for-keyshot "https://github.com/aws-deadline/deadline-cloud-for-keyshot").
+- [KeyShot conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025").
+- [Standalone KeyShot job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/keyshot_standalone "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/keyshot_standalone").
+- [Comprehensive user guide](https://aws-deadline.github.io/keyshot/ "https://aws-deadline.github.io/keyshot/").

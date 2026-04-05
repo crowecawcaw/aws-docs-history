@@ -19,3 +19,4 @@ You can set up two types of Deadline Cloud fleets:
 
 - [Service-managed fleets](smf-manage.md "smf-manage.md")
 - [Customer-managed fleets](manage-cmf.md "manage-cmf.md")
+- [Auto scaling configuration](auto-scaling-configuration.md "auto-scaling-configuration.md")

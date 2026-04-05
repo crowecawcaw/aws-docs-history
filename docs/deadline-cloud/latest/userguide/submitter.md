@@ -64,7 +64,7 @@ With the installer, you can install the following submitters:
 | [Autodesk VRED](autodesk-vred.md "autodesk-vred.md")                     | 2025<br>• 2026     | Included          | Not included    | Not included            |
 | [Blender](blender.md "blender.md")                                       | 3.6<br>• 5.0       | Included          | Included        | Included                |
 | [Chaos V-Ray for Maya](autodesk-maya.md "autodesk-maya.md")              | 6<br>• 7           | Included          | Included        | Included                |
-| [Foundry Nuke](foundry-nuke.md "foundry-nuke.md")                        | 15<br>• 16         | Included          | Included        | Included                |
+| [Foundry Nuke](foundry-nuke.md "foundry-nuke.md")                        | 15<br>• 17         | Included          | Included        | Included                |
 | [KeyShot Studio](keyshot.md "keyshot.md")                                | 2023<br>• 2025     | Included          | Not included    | Included                |
 | [Maxon Cinema 4D](maxon-cinema-4d.md "maxon-cinema-4d.md")               | 2024<br>• 2026     | Included          | Not included    | Included                |
 | [Maxon Redshift for Maya](autodesk-maya.md "autodesk-maya.md")           | 2025-2026          | Included          | Included        | Included                |
