@@ -270,6 +270,19 @@ WordPress themes. WordPress is in full compliance with the standards of the [_Wo
 Learn more about [WordPress](https://bitnami.com/stack/wordpress "https://bitnami.com/stack/wordpress")
 at the _Bitnami_ website.
 
+\***\*WordPress Multisite\*\***
+
+The WordPress Multisite blueprint provides a complete production environment with PHP, MariaDB, phpMyAdmin, and WordPress.
+Lightsail packages blueprints to be secure and up-to-date using industry best practices.
+
+Lightsail instances launched from WordPress Multisite will have Instance Metadata Service Version 2
+(IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md "amazon-lightsail-configuring-instance-metadata-service.md").
+
+[Set up WordPress Multisite on Lightsail](amazon-lightsail-quick-start-guide-wordpress-multisite.md "amazon-lightsail-quick-start-guide-wordpress-multisite.md")
+
+Learn more about [WordPress
+Multisite](https://developer.wordpress.org/advanced-administration/multisite/ "https://developer.wordpress.org/advanced-administration/multisite/") at the _WordPress_ website.
+
 \***\*WordPress Multisite certified by Bitnami\*\***
 
 WordPress Multisite enables administrators to host and manage multiple websites from

@@ -86,4 +86,4 @@ the domain will redirect to the new blog site on your WordPress Multisite instan
 
 After you add blogs as subdomains to your WordPress Multisite instance, we recommend that
 you get familiar with WordPress Multisite administration. For more information see [Multisite
-Network Administration](https://wordpress.org/support/article/multisite-network-administration/ "https://wordpress.org/support/article/multisite-network-administration/") in the WordPress documentation.
+Network Administration](https://developer.wordpress.org/advanced-administration/multisite/ "https://developer.wordpress.org/advanced-administration/multisite/") in the WordPress documentation.

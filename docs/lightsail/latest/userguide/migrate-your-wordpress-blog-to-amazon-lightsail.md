@@ -98,7 +98,7 @@ Bitnami
    password**. This expands **Access default password** at
    the bottom of the page.
 
-![Accessing WordPress admin password in Lightsail.](images/wordpress/wordpress-bitnami-retrieve-password.png) 3. Choose **Launch CloudShell**. This opens a panel at the bottom of
+![Accessing WordPress admin password in Lightsail.](/images/lightsail/latest/userguide/images/wordpress/wordpress-bitnami-retrieve-password.png) 3. Choose **Launch CloudShell**. This opens a panel at the bottom of
 the page. 4. Choose **Copy** and then paste the contents into the CloudShell
 window. You can either put your cursor at the CloudShell prompt and press Ctrl+V,
 or you can right-click to open the menu and then choose **Paste**. 5. Make a note of the password displayed in the CloudShell window. You need this

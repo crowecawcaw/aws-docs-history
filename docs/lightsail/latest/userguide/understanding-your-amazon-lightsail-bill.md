@@ -54,6 +54,14 @@ AWS Region.
   memory-optimized instance plan used (in hours). The **{Size}** defines the
   memory specification of the memory-optimized instance plan used. For example, if **16GB** of memory is specified, then the billed hours for the $134 USD/month
   Windows memory-optimized instance plan is displayed.
+- **Amazon Lightsail ComputeOptBundle:{Size}GB:** The Linux or Unix compute-optimized
+  instance plan used (in hours). The **{Size}** defines the
+  memory specification of the compute-optimized instance plan used. For example, if **4GB** of memory is specified, then the billed hours for the $42 USD/month
+  Linux or Unix compute-optimized instance plan is displayed.
+- **Amazon Lightsail ComputeOptBundle:{Size}GB (Windows):** The Windows
+  compute-optimized instance plan used (in hours). The **{Size}** defines the
+  memory specification of the compute-optimized instance plan used. For example, if **4GB** of memory is specified, then the billed hours for the $100 USD/month
+  Windows compute-optimized instance plan is displayed.
 - **Amazon Lightsail RelationalDatabase:{Size}GB:** The
   standard database plans used (in hours). The **{Size}** defines
   the memory specification of the database plan used. For example, if **4GB** of memory is specified, then the billed hours for the $60 USD/month

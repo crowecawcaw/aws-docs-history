@@ -196,7 +196,7 @@ window. You can either put your cursor at the CloudShell prompt and press Ctrl+V
 or you can right-click to open the menu and then choose **Paste**. 5. Make a note of the password displayed in the CloudShell window. You need this
 to sign in to the administration dashboard of your WordPress website.
 
-![Viewing WordPress admin password in Lightsail.](images/amazon-wordpress-viewing-admin-password-01.png)
+![Viewing WordPress admin password in Lightsail.](/images/lightsail/latest/userguide/images/amazon-wordpress-viewing-admin-password-01.png)
 
 ## Step 5: Sign in to the administration dashboard of your WordPress website
 
@@ -347,7 +347,7 @@ is stored on the instance. Complete the following steps to get the password.
    password**. This expands **Access default password** at
    the bottom of the page.
 
-![Accessing WordPress admin password in Lightsail.](images/wordpress/wordpress-lightsail-retrieve-password.png) 3. Choose **Launch CloudShell**. This opens a panel at the bottom of
+![Accessing WordPress admin password in Lightsail.](/images/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-retrieve-password.png) 3. Choose **Launch CloudShell**. This opens a panel at the bottom of
 the page. 4. Choose **Copy** and then paste the contents into the CloudShell
 window. You can either put your cursor at the CloudShell prompt and press Ctrl+V,
 or you can right-click to open the menu and then choose **Paste**. 5. Make a note of the password displayed in the CloudShell window. You need this
