@@ -43,12 +43,15 @@ The following metrics are available from Direct Connect dedicated connections.
 
 The following metrics are available from Direct Connect virtual interfaces.
 
-| Metric                       | Description                                                                                                                                                                                                               |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `VirtualInterfaceBpsEgress`  | The bitrate for outbound data from the AWS side of the<br>virtual interface.<br>The number reported is the aggregate (average) over the<br>specified time period (5 minutes by default).<br>Units: Bits per second        |
-| `VirtualInterfaceBpsIngress` | The bitrate for inbound data to the AWS side of the virtual<br>interface.<br>The number reported is the aggregate (average) over the<br>specified time period (5 minutes by default).<br>Units: Bits per second           |
-| `VirtualInterfacePpsEgress`  | The packet rate for outbound data from the AWS side of the<br>virtual interface.<br>The number reported is the aggregate (average) over the<br>specified time period (5 minutes by default).<br>Units: Packets per second |
-| `VirtualInterfacePpsIngress` | The packet rate for inbound data to the AWS side of the<br>virtual interface.<br>The number reported is the aggregate (average) over the<br>specified time period (5 minutes by default).<br>Units: Packets per second    |
+| Metric                                  | Description                                                                                                                                                                                                               |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `VirtualInterfaceBpsEgress`             | The bitrate for outbound data from the AWS side of the<br>virtual interface.<br>The number reported is the aggregate (average) over the<br>specified time period (5 minutes by default).<br>Units: Bits per second        |
+| `VirtualInterfaceBpsIngress`            | The bitrate for inbound data to the AWS side of the virtual<br>interface.<br>The number reported is the aggregate (average) over the<br>specified time period (5 minutes by default).<br>Units: Bits per second           |
+| `VirtualInterfacePpsEgress`             | The packet rate for outbound data from the AWS side of the<br>virtual interface.<br>The number reported is the aggregate (average) over the<br>specified time period (5 minutes by default).<br>Units: Packets per second |
+| `VirtualInterfacePpsIngress`            | The packet rate for inbound data to the AWS side of the<br>virtual interface.<br>The number reported is the aggregate (average) over the<br>specified time period (5 minutes by default).<br>Units: Packets per second    |
+| `VirtualInterfaceBgpStatus`             | The state of the BGP peering session for the virtual<br>interface. 1 indicates **up**<br>and 0 indicates **down**.<br>Units: There are no units returned for this metric.                                                 |
+| `VirtualInterfaceBgpPrefixesAccepted`   | The number of BGP prefixes accepted from the BGP peer on<br>the virtual interface.<br>The number reported is the aggregate (average) over the<br>specified time period (5 minutes by default).<br>Units: Count            |
+| `VirtualInterfaceBgpPrefixesAdvertised` | The number of BGP prefixes advertised to the BGP peer on<br>the virtual interface.<br>The number reported is the aggregate (average) over the<br>specified time period (5 minutes by default).<br>Units: Count            |
 
 ### Direct Connect available dimensions
 
