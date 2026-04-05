@@ -95,7 +95,7 @@ To create the role using the AWS CLI, send the following request:
 aws iam create-role \
   --role-name `my_e2e_iam_role_name` \
 
-  --assume-role-policy-document '{"Version":"2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"Service":["rds.amazonaws.com"]},"Action":"sts:AssumeRole"}]}'
+  --assume-role-policy-document '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["rds.amazonaws.com"]},"Action":"sts:AssumeRole"}]}'
 ```
 
 Then, attach the policy to the role:
@@ -210,7 +210,7 @@ To create the role using the AWS CLI, send the following request:
 ```
 aws iam create-role \
   --role-name `my_role_name` \
-  --assume-role-policy-document '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"Service":["rds.amazonaws.com"]},"Action":"sts:AssumeRole"}]}'
+  --assume-role-policy-document '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["rds.amazonaws.com"]},"Action":"sts:AssumeRole"}]}'
 ```
 
 Then, attach the policy to the role:

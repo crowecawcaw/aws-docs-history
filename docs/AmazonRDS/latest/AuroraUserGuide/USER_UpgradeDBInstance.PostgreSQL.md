@@ -70,6 +70,12 @@ apply security patches to your Aurora PostgreSQL DB cluster when they become
 available in your pending maintenance tasks.
 
 Auto minor version upgrades are performed to the default minor version.
+For more information, see [Automatic minor version upgrades for Aurora DB clusters](USER_UpgradeDBInstance.Maintenance.md#Aurora.Maintenance.AMVU "USER_UpgradeDBInstance.Maintenance.md#Aurora.Maintenance.AMVU").
+
+For clusters with Automatic Minor Version Upgrade enabled, if cluster
+availability is impacted by an issue that is fixed in a more recent patch,
+the patch will be applied during your maintenance window to resolve the
+issue with 2 weeks' advance notice.
 
 The upgrade process involves the possibility of brief outages as each
 instance in the cluster is upgraded to the new version. However, after

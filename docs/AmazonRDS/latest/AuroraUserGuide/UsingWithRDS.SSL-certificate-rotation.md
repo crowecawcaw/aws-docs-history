@@ -291,6 +291,15 @@ whether the DB engine version supports rotating the certificate without
 restart. For more information, see [Setting the CA for your database](UsingWithRDS.SSL.md#UsingWithRDS.SSL.RegionCertificateAuthorities.Selection "UsingWithRDS.SSL.md#UsingWithRDS.SSL.RegionCertificateAuthorities.Selection")
 .
 
+###### Important
+
+For Amazon RDS for Oracle DB instances, you will see the `SupportsCertificateRotationWithoutRestart`
+flag of the DB engine versions marked as `FALSE`. However, Amazon RDS for Oracle DB instances do NOT
+require restart, but the database listener is restarted during the server certificate rotation.
+Existing database connections are unaffected, but new connections will encounter errors for a
+brief period while the listener is restarted. If you want to manually rotate the server certificate,
+use the [apply-pending-maintenance-action](../../../cli/latest/reference/rds/apply-pending-maintenance-action.md "../../../cli/latest/reference/rds/apply-pending-maintenance-action.md") AWS CLI command.
+
 ## Sample script for importing certificates into your trust store
 
 The following are sample shell scripts that import the certificate bundle

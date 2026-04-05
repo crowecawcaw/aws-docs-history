@@ -6,34 +6,17 @@ Explorer or the SSMS Query Editor to connect to your Babelfish cluster.
 
 ###### Limitations
 
-- In Babelfish 2.1.0 and older versions, using `PARSE` to
-  check SQL syntax doesn't work as it should. Rather than checking the
-  syntax without running the query, the `PARSE` command runs the
-  query but doesn't display any results. Using the SMSS
-  <Ctrl><F5> key combination to check syntax has the same
-  anomalous behavior, that is, Babelfish unexpectedly runs the query
-  without providing any output.
 - Babelfish doesn't support MARS (Multiple Active Result Sets).
   Be sure that any client applications that you use to connect to
   Babelfish aren't set to use MARS.
-- For Babelfish 1.3.0 and older versions, only the Query Editor is
-  supported for SSMS. To use SSMS with Babelfish, be sure to open the
-  Query Editor connection dialog in SSMS, and not the Object Explorer. If the
-  Object Explorer dialog does open, cancel the dialog and re-open the Query
-  Editor. In the following image, you can find the menu options to choose when
-  connecting to Babelfish 1.3.0 or older versions.
-
-![Connecting to a Babelfish database with SSMS if Object Explorer doesn't work.](images/babelfish_connect_ssms.png)
-For more information about interoperability and behavioral differences between SQL
-Server and Babelfish, see [Differences between Babelfish for Aurora PostgreSQL and SQL Server](babelfish-compatibility.md "babelfish-compatibility.md").
+  For more information about interoperability and behavioral differences between SQL
+  Server and Babelfish, see [Differences between Babelfish for Aurora PostgreSQL and SQL Server](babelfish-compatibility.md "babelfish-compatibility.md").
 
 ## Using sqlcmd to connect to the DB cluster
 
 You can connect to and interact with an Aurora PostgreSQL DB cluster that supports
-Babelfish by only using version 19.1 and earlier SQL Server
-`sqlcmd` command line client. SSMS version 19.2 isn't supported
-to connect to a Babelfish cluster. Use the following command to
-connect.
+Babelfish by SQL Server `sqlcmd` command line client.
+Use the following command to connect.
 
 ```
 sqlcmd -S `endpoint,port` -U `login-id` -P `password` -d `your-DB-name`
@@ -57,6 +40,12 @@ using Microsoft SQL Server Management Studio (SSMS). SSMS includes a variety of
 tools, including the SQL Server Import amd Export Wizard discussed in [Migrating a SQL Server database to Babelfish for Aurora PostgreSQL](babelfish-migration.md "babelfish-migration.md"). For
 more information about SSMS, see [Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16 "https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16") in the Microsoft
 documentation. To configure SSL/TLS, see [Using SSL with a Microsoft SQL Server DB instance](../UserGuide/SQLServer.Concepts.General.SSL.Using.md "../UserGuide/SQLServer.Concepts.General.SSL.Using.md").
+
+###### Note
+
+SSMS version 19.2 and later requires Babelfish version 3.5.0
+(Aurora PostgreSQL 15.6) or higher to display databases in Object
+Explorer.
 
 ###### To connect to your Babelfish database with SSMS
 
@@ -90,8 +79,13 @@ documentation. To configure SSL/TLS, see [Using SSL with a Microsoft SQL Server 
 
     ![Connecting to a Babelfish database with SSMS.](images/Babelfish-SSMS-connect-database1.png)
 
-4.  (Optional) Choose **Options**, and then choose the
-    **Connection Properties** tab.
+###### Note
+
+Babelfish 5.1.0 and later versions use TLS by default.
+You can either install the root CA certificate on the client or
+select the **Trust server certificate** checkbox
+on the Login tab. 4. (Optional) Choose **Options**, and then choose the
+**Connection Properties** tab.
 
 ![Connecting to a Babelfish database in SSMS.](images/Babelfish-SSMS-connect-database2.png) 5. (Optional) For **Connect to database**, specify the
 name of the migrated SQL Server database to connect to, and choose

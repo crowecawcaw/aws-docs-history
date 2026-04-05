@@ -38,6 +38,5 @@ Babelfish for Aurora PostgreSQL DB cluster.
 - [Connecting to a Babelfish DB cluster](babelfish-connect.md "babelfish-connect.md")
 - [Working with Babelfish](working-with-babelfish-usage-notes-features.md "working-with-babelfish-usage-notes-features.md")
 - [Troubleshooting Babelfish](babelfish-troubleshooting.md "babelfish-troubleshooting.md")
-- [Turning off Babelfish](babelfish-remove.md "babelfish-remove.md")
 - [Managing Babelfish for Aurora PostgreSQL version updates](babelfish-information.md "babelfish-information.md")
 - [Babelfish for Aurora PostgreSQL reference](USER_AuroraPostgreSQL_Babelfish_Reference.md "USER_AuroraPostgreSQL_Babelfish_Reference.md")
