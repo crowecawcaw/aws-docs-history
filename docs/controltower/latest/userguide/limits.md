@@ -25,6 +25,12 @@ This section describes known limitations and unsupported use cases in AWS Contro
     Account Factory, through an asynchronous process, with up to five (5)
     account-related operations in progress simultaneously. Unmanaging
     accounts must be performed one account at a time.
+    - With auto-enrollment enabled, only a single move account
+      operation can be performed on the destination OU and any
+      additional account-related operations on the same OU will be
+      considered conflicting until the move account operation is
+      finished.
+
   - Account Factory for Terraform (AFT) has additional concurrency parameters
     configured during deployment. AWS has tested AFT with these default values:
 

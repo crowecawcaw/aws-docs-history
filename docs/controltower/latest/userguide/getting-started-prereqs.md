@@ -26,7 +26,9 @@ By default, all accounts are subscribed to these services.
 ## Considerations for AWS IAM Identity Center (IAM Identity Center) customers
 
 - If AWS IAM Identity Center (IAM Identity Center) is already set up, the AWS Control Tower home Region must be
-  the same as the IAM Identity Center Region.
+  the same as the IAM Identity Center Region. However, if IAM Identity Center is set up in the
+  US East (N. Virginia) Region (us-east-1), AWS Control Tower uses that instance
+  regardless of the home Region you select.
 - IAM Identity Center can be installed only in the management account of an
   organization.
 - Three options apply to your IAM Identity Center directory, based on the identity source

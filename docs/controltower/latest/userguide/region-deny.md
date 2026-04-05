@@ -1,21 +1,22 @@
 # Configure the Region deny control
 
-AWS Control Tower offers two Region deny controls. One control, `GRREGIONDENY`, when
+AWS Control Tower offers two Region deny controls. One control, `AWS-GR_REGION_DENY`, when
 activated, applies to the entire landing zone. Another control,
-`CTMULTISERVICEPV1`, when activated, can apply to specific OUs that you
+`CT.MULTISERVICE.PV.1`, when activated, can apply to specific OUs that you
 specify. For more information see [Deny
 access to AWS based on the requested AWS Region](../controlreference/primary-region-deny-policy.md "../controlreference/primary-region-deny-policy.md") and [Region deny control applied to the OU](../controlreference/ou-region-deny.md "../controlreference/ou-region-deny.md").
 
 **Considerations about the Region deny control for the landing
 zone**
 
-The Region deny control, [`GRREGIONDENY`](../controlreference/primary-region-deny-policy.md "../controlreference/primary-region-deny-policy.md") is unique, because it applies to the landing
+The Region deny control, [`AWS-GR_REGION_DENY`](../controlreference/primary-region-deny-policy.md "../controlreference/primary-region-deny-policy.md") is unique, because it applies to the landing
 zone as a whole, rather than to any specific OU. To configure the Region deny control,
 go to the **Landing zone settings** page and select **Modify
 settings**.
 
 - This setting can be changed at a later time.
-- When enabled, this control applies to all registered OUs.
+- When enabled, this control applies to all OUs with the
+  `AWSControlTowerBaseline` enabled.
 - This control cannot be configured for individual OUs.
 
 ###### Note
@@ -25,9 +26,9 @@ resources in these Regions, because you will not have access to your resources a
 you apply the control. While the control is enabled, you will not be able to deploy
 resources in the denied Regions.
 
-When you enable the control, it applies to all registered, top-level OUs in your
-hierarchy, and it is inherited by OUs lower in the chain. When you remove the control,
-it is removed on all registered OUs, all non-governed Regions in AWS Control Tower remain in a
+When you enable the control, it applies to all top-level OUs with the `AWSControlTowerBaseline`
+enabled, and it is inherited by OUs lower in the organization hierarchy. When you remove the control,
+it is removed on all previously applied OUs, all non-governed Regions in AWS Control Tower remain in a
 **Not governed** status, and you can deploy resources in Regions
 outside of AWS Control Tower availability.
 
@@ -39,9 +40,9 @@ IAM and AWS Organizations, are exempt from the Region deny control. To learn mor
 AWS based on the requested AWS Region](../controlreference/lz-region-deny.md "../controlreference/lz-region-deny.md").
 
 - Full control name: **Deny access to AWS based on the requested AWS
-  Region**
+  Region for the landing zone**
 - Control description: Disallows access to unlisted operations in global and
-  regional services outside of the specified Regions.
+  regional services outside of the specified Regions for the landing zone.
 - This is an elective control with preventive guidance.
   To view the template for the Region deny control SCP, see [Deny access to AWS
   based on the requested AWS Region](../controlreference/lz-region-deny.md "../controlreference/lz-region-deny.md") in the _AWS Control Tower

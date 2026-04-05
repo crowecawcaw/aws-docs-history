@@ -9,6 +9,7 @@ resources.
 
 - [AWSControlTowerAdmin role](access-control-managing-permissions.md#AWSControlTowerAdmin "access-control-managing-permissions.md#AWSControlTowerAdmin")
 - [AWSControlTowerStackSetRole](access-control-managing-permissions.md#AWSControlTowerStackSetRole "access-control-managing-permissions.md#AWSControlTowerStackSetRole")
+- [AWSControlTowerCloudTrailRole](access-control-managing-permissions.md#AWSControlTowerCloudTrailRolePolicy "access-control-managing-permissions.md#AWSControlTowerCloudTrailRolePolicy")
   We recommend that you restrict access to your role trust policies for these roles. For
   more information, see [Optional
   conditions for your role trust relationships](conditions-for-role-trust.md "conditions-for-role-trust.md").

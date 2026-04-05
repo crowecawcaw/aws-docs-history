@@ -22,4 +22,10 @@ _AWS Control Tower User Guide_.
 
 ###### Note
 
-Up to five accounts can be provisioned at a time.
+**With auto-enrollment disabled:**
+Up to five accounts can be provisioned simultaneously.
+
+**With auto-enrollment enabled:**
+Up to 5 accounts can be provisioned simultaneously, but any active
+account move operation for the destination OU blocks all provisioning
+on the same OU until it completes.
