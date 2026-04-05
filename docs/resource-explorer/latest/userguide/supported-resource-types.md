@@ -768,8 +768,17 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 ### Amazon Elastic Kubernetes Service (Amazon EKS)
 
 - `eks:cluster`
+- `eks:daemonset`
+- `eks:deployment`
 - `eks:eks-anywhere-subscription`
+- `eks:endpointslice`
+- `eks:ingress`
+- `eks:namespace`
+- `eks:persistentvolume`
 - `eks:podidentityassociation`
+- `eks:replicaset`
+- `eks:service`
+- `eks:statefulset`
 
 ### Elastic Load Balancing
 

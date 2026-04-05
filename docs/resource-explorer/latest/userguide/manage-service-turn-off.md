@@ -29,6 +29,8 @@ If your account includes a managed view (a view managed by an AWS service), the
 managed view must be deleted before you can turn off Resource Explorer. Review [AWS managed views](aws-managed-views.md "aws-managed-views.md") for instructions on removing a managed view from your
 account and prompting the managing service to delete the view.
 
+If your account has streaming access enabled for an AWS service, the streaming access must be removed before you can turn off Resource Explorer. To remove streaming access, follow the offboarding workflow for each service that has streaming access enabled. You can view which services have streaming access by using the [ListStreamingAccessForServices](../apireference/API_ListStreamingAccessForServices.md "../apireference/API_ListStreamingAccessForServices.md") API operation.
+
 If you no longer want to support searching for resources in one or more of the
 AWS Regions in your account, perform the steps in the following procedure.
 
@@ -116,6 +118,8 @@ recreates the service-linked role.
 If your account includes a managed view (a view managed by an AWS service), the
 managed view must be deleted before you can turn off Resource Explorer. Review [AWS managed views](aws-managed-views.md "aws-managed-views.md") for instructions on removing a managed view from your
 account and prompting the managing service to delete the view.
+
+If your account has streaming access enabled for an AWS service, the streaming access must be removed before you can turn off Resource Explorer. To remove streaming access, follow the offboarding workflow for each service that has streaming access enabled. You can view which services have streaming access by using the [ListStreamingAccessForServices](../apireference/API_ListStreamingAccessForServices.md "../apireference/API_ListStreamingAccessForServices.md") API operation.
 
 You can turn off Resource Explorer by using the AWS Management Console, by using commands in the AWS Command Line Interface
 (AWS CLI), or by using API operations in an AWS SDK.
