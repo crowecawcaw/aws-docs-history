@@ -4,11 +4,11 @@
 
 ### 1.1 What is Partner Revenue Measurement?
 
-Partner Revenue Measurement refers to AWS Partner Network's (APN) capabilities to track and quantify the impact AWS partners have on overall AWS revenue. Partner Revenue Measurement empowers AWS Partners to demonstrate their AWS revenue impact by tagging AWS resources with their product identifier.
+Partner Revenue Measurement is a set of capabilities that enables AWS Partners to measure the AWS service consumption driven by their solutions and quantify their impact on overall AWS revenue. These capabilities empower AWS Partners to better understand their AWS revenue impact and product consumption patterns. Partner Revenue Measurement offers three implementation options: [AWS Marketplace Metering](marketplace-metering.md "marketplace-metering.md"), [Resource Tagging](resource-tagging.md "resource-tagging.md"), and [User Agent String](user-agent-string.md "user-agent-string.md").
 
 ### 1.2 Which AWS services are supported by Partner Revenue Measurement?
 
-Partner Revenue Measurement supports AWS services for resource tagging. See [Resource Tagging supported services](included-aws-services.md#resource-tagging-supported-services "included-aws-services.md#resource-tagging-supported-services") for complete list.
+Partner Revenue Measurement supports AWS services across implementation methods. The supported services vary by method. See [AWS Marketplace Metering included services](included-aws-services-marketplace-metering.md "included-aws-services-marketplace-metering.md"), [Resource Tagging included services](resource-tagging-included-services.md "resource-tagging-included-services.md"), and [User Agent String included services](user-agent-included-services.md "user-agent-included-services.md") for complete lists.
 
 ### 1.3 Where do I find my AWS Marketplace product code?
 
@@ -24,7 +24,7 @@ Contact your AWS partner management team or [APN Support](https://partnercentral
 
 ### 1.6 How should I handle if there is another tag on the AWS resource?
 
-Since an AWS resource can only have one tag with the 'aws-apn-id' key, you must remove the existing tag and add your new tag. For example, if an S3 bucket has a tag with key 'aws-apn-id' and value 'pc:5ugbbrmu7ud3u5hsipfzug61p', you need to remove that tag and add your own with key 'aws-apn-id' and value 'pc:5ugbbrmu7ud3u5hsipfzug61p'.
+Since an AWS resource can only have one tag with the `aws-apn-id` key, only one partner identifier is allowed per resource. For multi-partner scenarios where multiple partners operate on the same AWS resource, consider using the [User Agent String](user-agent-string.md "user-agent-string.md") method instead. If you must use resource tagging, coordinate with the other partner and the customer to determine tag ownership before making changes.
 
 ### 1.7 Who can remove tags?
 
@@ -34,12 +34,14 @@ Any user that has access to the account can remove a tag. Both customers and par
 
 Partner Revenue Measurement currently supports only Commercial regions, not European Sovereign Cloud (ESC) or US GovCloud / Amazon Dedicated Cloud (ADC).
 
+### 1.9 How often does my partner solution need to make regular AWS API/CLI calls for User Agent based attribution?
+
+Your partner solution must make at least one regular AWS API/CLI call per resource per month. Attribution is evaluated on a monthly billing cycle. If no calls are made on a resource in a given month, that resource does not contribute to revenue attribution for that month. Attribution resumes the next month a qualifying call is made. In scenarios where your partner solution does not make frequent calls, you can use non-mutating, read-only calls (such as `Describe*` operations) to demonstrate continued interaction. Refer to the [included services](user-agent-included-services.md "user-agent-included-services.md") for supported API actions.
+
+### 1.10 What are my options if the customer's environment does not permit additional resource tags?
+
+Use the [User Agent String](user-agent-string.md "user-agent-string.md") method instead. User Agent strings do not require adding user-defined tags to any AWS resource, do not consume the customer's tag quota, and do not interfere with existing tag policies. The User Agent string is captured in AWS CloudTrail logs, which also provides the customer with operational visibility into partner solution activity for auditing and operational excellence purposes.
+
 ## 2. Troubleshooting
 
-### 2.1 My tags are not showing revenue attribution. What should I check?
-
-- Verify tag format: Key must be **aws-apn-id**, value must start with **pc:**
-- Confirm product code matches AWS Marketplace listing exactly (see [Retrieve your product code](product-code-retrieval.md "product-code-retrieval.md"))
-- Ensure resources are in [supported services](included-aws-services.md#resource-tagging-supported-services "included-aws-services.md#resource-tagging-supported-services")
-- Check that resources are actively consuming AWS services and incurring spend. Partner Revenue Measurement tracks revenue attribution based on AWS service consumption. For example, IAM is a no-cost AWS service, so tagging IAM resources will not generate revenue attribution. Focus on tagging resources that incur charges such as EC2 instances, S3 buckets with storage, RDS databases, or Lambda functions with invocations
-- Verify tags are applied correctly using [AWS Tag Editor](automated-tagging.md#tag-editor-bulk-tagging "automated-tagging.md#tag-editor-bulk-tagging") or reach out to your AWS partner management team or [APN Support](https://partnercentral.awspartner.com/partnercentral2/s/support "https://partnercentral.awspartner.com/partnercentral2/s/support") (Partner Central login required) for assistance
+For troubleshooting guidance across all implementation methods, see [Troubleshooting Partner Revenue Measurement](troubleshooting.md "troubleshooting.md").

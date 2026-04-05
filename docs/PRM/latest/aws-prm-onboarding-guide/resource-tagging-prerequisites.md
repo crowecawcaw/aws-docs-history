@@ -1,6 +1,6 @@
-# Resource Tagging Prerequisites
+# Prerequisites
 
-Before implementing Resource Tagging, you must have:
+Before implementing Partner Revenue Measurement, you must have:
 
 1. **AWS Partner Central and AWS account linking**
 
@@ -36,17 +36,18 @@ Complete these three steps:
     2. [Migrate](https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started "https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started") to the new Partner Central experience (Partner Central login required)
     3. Link all AWS Marketplace accounts to your primary AWS account through [Subsidiary Account Connections](../../../partner-central/latest/getting-started/manage-subsidiary.md "../../../partner-central/latest/getting-started/manage-subsidiary.md") (Partner Central login required)
 
-2. **Product listing on AWS Marketplace (Public or Limited)**
+2. **Product listing on AWS Marketplace (Public)**
 
 See the [AWS Marketplace Seller Guide](../../../marketplace/latest/userguide/user-guide-for-sellers.md "../../../marketplace/latest/userguide/user-guide-for-sellers.md") for general information. For product-specific listing guide instructions:
 
-| Product Type          | Listing Guide                                                                                                                                                                                            |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SaaS                  | [SaaS Product Listing Guide](../../../marketplace/latest/userguide/saas-create-product.md "../../../marketplace/latest/userguide/saas-create-product.md")                                                |
-| Professional Services | [Professional Services Listing Guide](../../../marketplace/latest/userguide/proserv-getting-started.md#proserv-create "../../../marketplace/latest/userguide/proserv-getting-started.md#proserv-create") |
+| Product Type               | Listing Guide                                                                                                                                                                                               |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SaaS                       | [SaaS Product Listing Guide](../../../marketplace/latest/userguide/saas-create-product.md "../../../marketplace/latest/userguide/saas-create-product.md")                                                   |
+| Amazon Machine Image (AMI) | [AMI Product Listing Guide](../../../marketplace/latest/userguide/ami-single-ami-products.md#ami-create-product "../../../marketplace/latest/userguide/ami-single-ami-products.md#ami-create-product")      |
+| Machine Learning (ML)      | [ML Product Listing Guide](../../../marketplace/latest/userguide/ml-publishing-your-product-in-aws-marketplace.md "../../../marketplace/latest/userguide/ml-publishing-your-product-in-aws-marketplace.md") |
+| Professional Services      | [Professional Services Listing Guide](../../../marketplace/latest/userguide/proserv-getting-started.md#proserv-create "../../../marketplace/latest/userguide/proserv-getting-started.md#proserv-create")    |
 
 3. **Product that uses one or more of the [supported AWS services](included-aws-services.md "included-aws-services.md")**
-4. **Ability to tag AWS resources in your own account or in customer's account**
-5. **Ensure that Cost Explorer is enabled**
+4. **Ensure that Cost Explorer is enabled**
 
 To learn how to enable Cost Explorer, see [Enabling Cost Explorer](../../../cost-management/latest/userguide/ce-enable.md "../../../cost-management/latest/userguide/ce-enable.md").

@@ -1,6 +1,6 @@
 # Product Code Retrieval
 
-Your AWS Marketplace product code is required for resource tagging. This code uniquely identifies your product for revenue attribution.
+Your AWS Marketplace product code is required for all implementation methods. This code uniquely identifies your product for revenue attribution.
 
 ###### To retrieve your product code
 

@@ -1,16 +1,21 @@
 # Getting started with Partner Revenue Measurement
 
-Partner Revenue Measurement tracks AWS service consumption driven by partner products through resource tagging. This enables AWS to attribute revenue to partner solutions and provide aggregated consumption data back to partners.
+Partner Revenue Measurement measures AWS service consumption driven by partner products. This enables AWS to attribute revenue to partner solutions and provide aggregated consumption data back to partners.
 
-To implement Partner Revenue Measurement, consider the following requirements:
+Partner Revenue Measurement supports three implementation methods:
+
+- [AWS Marketplace Metering](marketplace-metering.md "marketplace-metering.md") — Zero-touch revenue attribution for Amazon Machine Image (AMI) and Machine Learning (ML) products listed on AWS Marketplace
+- [Resource Tagging](resource-tagging.md "resource-tagging.md") — Tag AWS resources with your product code for revenue attribution
+- [User Agent String](user-agent-string.md "user-agent-string.md") — Include a User Agent string in regular AWS API/CLI calls for revenue attribution
+  To implement Partner Revenue Measurement, consider the following requirements:
 
 - What AWS services does your product use (Amazon EC2, Amazon S3, Amazon ECS, Amazon RDS)?
-- Do you have a SaaS, AMI, or Container product listed on AWS Marketplace?
+- Do you have a SaaS, AMI, ML, or Professional Services product listed on AWS Marketplace?
 - Which architecture pattern does your solution follow (Partner account, Customer account, or Hybrid)?
 
 ###### Note
 
-Partner Revenue Measurement requires resource tagging to enable revenue attribution for [supported AWS services](included-aws-services.md "included-aws-services.md").
+Partner Revenue Measurement requires implementation of one or more methods to enable revenue attribution for [supported AWS services](included-aws-services.md "included-aws-services.md").
 
 ## Partner Revenue Measurement Architecture Patterns
 
@@ -28,8 +33,10 @@ Partner Revenue Measurement requires resource tagging to enable revenue attribut
 
 1. **Step 1: Complete Prerequisites**
 
-Review [Resource Tagging Prerequisites](resource-tagging-prerequisites.md "resource-tagging-prerequisites.md") 2. **Step 2: Retrieve Product Code**
+Review [Prerequisites](resource-tagging-prerequisites.md "resource-tagging-prerequisites.md") 2. **Step 2: Retrieve Product Code**
 
-[Retrieve your product code from AWS Marketplace Management Portal](product-code-retrieval.md "product-code-retrieval.md") 3. **Step 3: Implement Resource Tagging**
+[Retrieve your product code from AWS Marketplace Management Portal](product-code-retrieval.md "product-code-retrieval.md") 3. **Step 3: Choose Implementation Method**
 
-Follow [Resource Tagging implementation guide](prm-resource-tagging.md "prm-resource-tagging.md")
+Select one or more [implementation methods](implementation-methods.md "implementation-methods.md") based on your product type and architecture 4. **Step 4: Complete Method-Specific Requirements and Implement**
+
+Review the method-specific requirements for your chosen method, then follow the implementation guide. For a low-effort approach at scale, consider using [automation](automation.md "automation.md") where available.

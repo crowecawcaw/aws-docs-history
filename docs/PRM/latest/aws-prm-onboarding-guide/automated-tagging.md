@@ -8,13 +8,23 @@ Only tag resources that are directly used or influenced by your partner solution
 
 ## AWS CloudFormation
 
-AWS CloudFormation enables you to create and provision AWS infrastructure deployments predictably and repeatedly. It helps you leverage AWS services such as Amazon EC2, Amazon Elastic Block Store (EBS), Amazon SNS, Elastic Load Balancing, and Application Auto Scaling to build highly reliable, highly scalable, cost-effective applications in the cloud without worrying about creating and configuring the underlying AWS infrastructure. AWS CloudFormation enables you to use a template file to create and delete a collection of resources together as a single unit (a stack).
-
-You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources. You can only tag AWS CloudFormation supported resources. For information about which resources you can tag with CloudFormation, see the [AWS resources and property types reference](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the AWS CloudFormation user guide. For more information on how to use CloudFormation, see the [Resource tag](../../../AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.md") in the AWS CloudFormation user guide.
+**Stack-level propagation (recommended):** Tags applied at the stack level propagate automatically to all resources in the stack that support tagging. This is the simplest approach when your entire stack belongs to your partner solution.
 
 ###### Note
 
-Replace `5ugbbrmu7ud3u5hsipfzug61p` with your product code in the following example.
+Replace `5ugbbrmu7ud3u5hsipfzug61p` with your product code in the following examples.
+
+```
+aws cloudformation create-stack --stack-name my-stack \
+  --template-body file://template.yaml \
+  --tags Key=aws-apn-id,Value=pc:5ugbbrmu7ud3u5hsipfzug61p
+```
+
+###### Note
+
+Most common resource types (EC2, S3, RDS, Lambda, ECS, etc.) support stack-level tag propagation. However, some resources do not — for example, EBS volumes created from block device mappings. Use per-resource tagging as a fallback for those specific resources.
+
+**Per-resource tagging:** Add the tag directly to individual resource definitions when you need to tag only specific resources within a stack, or when different resources need different attribution.
 
 ```
 Resources:
@@ -26,13 +36,23 @@ Resources:
           Value: "pc:5ugbbrmu7ud3u5hsipfzug61p"
 ```
 
+For information about which resources you can tag with CloudFormation, see the [AWS resources and property types reference](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the AWS CloudFormation user guide.
+
 ## AWS Cloud Development Kit (AWS CDK)
 
-The AWS Cloud Development Kit (AWS CDK) is an open-source software development framework to define your cloud application resources using familiar programming languages. A tag in AWS CDK is applied to a given construct that also applies to all of its taggable children. These tags are included in the AWS CloudFormation template synthesized from your application and are applied to the AWS resources it deploys. For more information about AWS CDK tagging, see [Tagging](../../../cdk/v2/guide/tagging.md "../../../cdk/v2/guide/tagging.md") in the AWS Cloud Development Kit (AWS CDK) v2 developer guide.
+A tag in AWS CDK is applied to a given construct and all of its taggable children. For more information, see [Tagging](../../../cdk/v2/guide/tagging.md "../../../cdk/v2/guide/tagging.md") in the AWS CDK v2 developer guide.
+
+**Stack-level propagation (recommended):** Tag the stack to propagate to all resources.
 
 ###### Note
 
-Replace `5ugbbrmu7ud3u5hsipfzug61p` with your product code in the following example.
+Replace `5ugbbrmu7ud3u5hsipfzug61p` with your product code in the following examples.
+
+```
+Tags.of(stack).add('aws-apn-id', 'pc:5ugbbrmu7ud3u5hsipfzug61p');
+```
+
+**Per-resource tagging:**
 
 ```
 {
@@ -43,9 +63,27 @@ Replace `5ugbbrmu7ud3u5hsipfzug61p` with your product code in the following exam
 
 ## Terraform
 
+**Provider-level default tags (recommended):** The `default_tags` block applies the tag to every resource Terraform creates or manages through that provider.
+
 ###### Note
 
-Replace `5ugbbrmu7ud3u5hsipfzug61p` with your product code in the following example.
+Replace `5ugbbrmu7ud3u5hsipfzug61p` with your product code in the following examples.
+
+```
+provider "aws" {
+  default_tags {
+    tags = {
+      aws-apn-id = "pc:5ugbbrmu7ud3u5hsipfzug61p"
+    }
+  }
+}
+```
+
+###### Note
+
+Some Terraform resource types do not support `default_tags` (e.g., `aws_autoscaling_group`). If you also define the same tag key in a resource's `tags` block, Terraform raises a conflict. Use either `default_tags` or per-resource tags for the `aws-apn-id` tag, not both on the same resource.
+
+**Per-resource tagging:** Add the tag to individual resource blocks when you need to tag only specific resources.
 
 ```
 resource "aws_instance" "example" {
@@ -98,3 +136,28 @@ aws resourcegroupstaggingapi tag-resources \
     --resource-arn-list arn:aws:ec2:region:account-id:instance/i-1234567890abcdef0 \
     --tags aws-apn-id=pc:5ugbbrmu7ud3u5hsipfzug61p
 ```
+
+## API/SDK Bulk Tagging
+
+Use the Resource Groups Tagging API to tag multiple resources across different service types in a single call. This is the most efficient approach for large-scale tagging.
+
+###### Note
+
+Replace `5ugbbrmu7ud3u5hsipfzug61p` with your product code in the following example.
+
+```
+import boto3
+
+tagging = boto3.client('resourcegroupstaggingapi')
+tagging.tag_resources(
+    ResourceARNList=[
+        'arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0',
+        'arn:aws:s3:::my-bucket'
+    ],
+    Tags={'aws-apn-id': 'pc:5ugbbrmu7ud3u5hsipfzug61p'}
+)
+```
+
+###### Important
+
+For resources managed by infrastructure as code (CloudFormation, CDK, Terraform), always apply tags through the IaC tool instead. SDK/CLI tagging of IaC-managed resources causes drift detection on the next IaC run.
