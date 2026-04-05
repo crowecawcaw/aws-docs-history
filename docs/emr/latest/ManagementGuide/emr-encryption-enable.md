@@ -218,7 +218,7 @@ your cluster resides in us-west-2 (Oregon), you could specify
 `CN=*.us-west-2.compute.internal`.
 
 If the provided PEM file in the encryption artifact doesn't have a
-wildcard character in the for the domain in the common name, you must change the value of
+wildcard character for the domain in the common name, you must change the value of
 `hadoop.ssl.hostname.verifier` to `ALLOW_ALL`.
 To do so in Amazon EMR releases 7.3.0 and higher, add the `core-site` classification
 when you submit configurations to a cluster. In releases lower than 7.3.0, add the

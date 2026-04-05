@@ -185,6 +185,11 @@ Amazon EMR cluster with multiple primary nodes:
   currently not available for Amazon EMR clusters with multiple
   primary nodes or for Amazon EMR clusters integrated with AWS Lake
   Formation.
+- Runtime role-based access control. For
+  more information, see [Additional considerations](emr-steps-runtime-roles.md#emr-steps-runtime-roles-considerations "emr-steps-runtime-roles.md#emr-steps-runtime-roles-considerations") in
+  [Runtime roles for Amazon EMR steps](emr-steps-runtime-roles.md "emr-steps-runtime-roles.md").
+- Amazon EMR integration with AWS IAM Identity Center (trusted identity propagation). For
+  more information, see [Integrate Amazon EMR with AWS IAM Identity Center](emr-idc.md "emr-idc.md").
 
 ###### Note
 
