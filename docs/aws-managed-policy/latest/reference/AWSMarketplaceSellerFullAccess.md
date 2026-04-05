@@ -12,13 +12,13 @@ You can attach `AWSMarketplaceSellerFullAccess` to your users, groups, and roles
 
 - **Type**: AWS managed policy
 - **Creation time**: July 02, 2019, 20:40 UTC
-- **Edited time:** March 02, 2026, 23:42 UTC
+- **Edited time:** March 31, 2026, 17:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess`
 
 ## Policy version
 
-**Policy version:** v25 (default)
+**Policy version:** v26 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -210,6 +210,31 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "partnercentral:GetVerification"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSMarketplaceAgreementsCancellationAndAdjustmentAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:ListAgreementInvoiceLineItems",
+        "aws-marketplace:ListBillingAdjustmentRequests",
+        "aws-marketplace:GetBillingAdjustmentRequest",
+        "aws-marketplace:BatchCreateBillingAdjustmentRequest",
+        "aws-marketplace:ListAgreementCancellationRequests",
+        "aws-marketplace:GetAgreementCancellationRequest",
+        "aws-marketplace:SendAgreementCancellationRequest",
+        "aws-marketplace:CancelAgreementCancellationRequest"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws-marketplace:PartyType" : "Proposer"
+        },
+        "ForAllValues:StringEquals" : {
+          "aws-marketplace:AgreementType" : [
+            "PurchaseAgreement"
+          ]
+        }
+      }
     }
   ]
 }

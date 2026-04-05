@@ -12,13 +12,13 @@ You can attach `SageMakerStudioAdminIAMPermissiveExecutionPolicy` to your users,
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 17:19 UTC
-- **Edited time:** March 05, 2026, 17:42 UTC
+- **Edited time:** March 27, 2026, 17:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMPermissiveExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v16 (default)
+**Policy version:** v17 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -70,7 +70,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "cloudformation:*"
       ],
       "Resource" : [
-        "arn:aws:cloudformation:*:*:stack/DataZone*"
+        "arn:aws:cloudformation:*:*:stack/DataZone*",
+        "arn:aws:cloudformation:*:*:transform/*"
       ]
     },
     {
@@ -270,7 +271,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "lakeformation:RevokePermissions",
         "lakeformation:ListLakeFormationOptIns",
         "lakeformation:CreateLakeFormationOptIn",
-        "lakeformation:DeleteLakeFormationOptIn"
+        "lakeformation:DeleteLakeFormationOptIn",
+        "lakeformation:*DataCellsFilter"
       ],
       "Resource" : "*"
     },
@@ -696,6 +698,51 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringNotEquals" : {
           "aws:ResourceTag/AmazonDataZoneSessionOwner" : "${aws:SourceIdentity}"
+        }
+      }
+    },
+    {
+      "Sid" : "SSOApplicationPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "sso:CreateApplication",
+        "sso:PutApplicationGrant",
+        "sso:PutApplicationAssignmentConfiguration",
+        "sso:PutApplicationAuthenticationMethod",
+        "sso:PutApplicationAccessScope",
+        "sso:UpdateApplication",
+        "sso:CreateApplicationAssignment",
+        "sso:DeleteApplicationAssignment"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "Bool" : {
+          "aws:ViaAWSService" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "SSOReadOnlyPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "sso:ListInstances",
+        "organizations:DescribeOrganization"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SSOKMSPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "sso.*.amazonaws.com"
+        },
+        "Null" : {
+          "kms:EncryptionContext:aws:sso:instance-arn" : "false"
         }
       }
     }

@@ -12,13 +12,13 @@ You can attach `ViewOnlyAccess` to your users, groups, and roles.
 
 - **Type**: Job function policy
 - **Creation time**: November 10, 2016, 17:20 UTC
-- **Edited time:** February 12, 2026, 18:02 UTC
+- **Edited time:** March 31, 2026, 19:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/job-function/ViewOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v43 (default)
+**Policy version:** v44 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -198,7 +198,35 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ecr:ListImages",
         "ecs:Describe*",
         "ecs:List*",
+        "eks:DescribeAccessEntry",
+        "eks:DescribeAddon",
+        "eks:DescribeAddonConfiguration",
+        "eks:DescribeAddonVersions",
+        "eks:DescribeCapability",
+        "eks:DescribeCluster",
+        "eks:DescribeClusterVersions",
+        "eks:DescribeEksAnywhereSubscription",
+        "eks:DescribeFargateProfile",
+        "eks:DescribeIdentityProviderConfig",
+        "eks:DescribeInsight",
+        "eks:DescribeInsightsRefresh",
+        "eks:DescribeNodegroup",
+        "eks:DescribePodIdentityAssociation",
+        "eks:DescribeUpdate",
+        "eks:ListAccessEntries",
+        "eks:ListAccessPolicies",
+        "eks:ListAddons",
+        "eks:ListAssociatedAccessPolicies",
+        "eks:ListCapabilities",
+        "eks:ListClusters",
+        "eks:ListEksAnywhereSubscriptions",
+        "eks:ListFargateProfiles",
+        "eks:ListIdentityProviderConfigs",
+        "eks:ListInsights",
+        "eks:ListNodegroups",
+        "eks:ListPodIdentityAssociations",
         "eks:ListTagsForResource",
+        "eks:ListUpdates",
         "elasticache:Describe*",
         "elasticbeanstalk:DescribeApplications",
         "elasticbeanstalk:DescribeApplicationVersions",

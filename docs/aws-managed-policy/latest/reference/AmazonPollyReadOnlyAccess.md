@@ -12,13 +12,13 @@ You can attach `AmazonPollyReadOnlyAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: November 30, 2016, 18:59 UTC
-- **Edited time:** July 17, 2018, 16:41 UTC
+- **Edited time:** April 01, 2026, 08:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonPollyReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -37,7 +37,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "polly:GetSpeechSynthesisTask",
         "polly:ListLexicons",
         "polly:ListSpeechSynthesisTasks",
-        "polly:SynthesizeSpeech"
+        "polly:SynthesizeSpeech",
+        "polly:StartSpeechSynthesisStream"
       ],
       "Resource" : [
         "*"

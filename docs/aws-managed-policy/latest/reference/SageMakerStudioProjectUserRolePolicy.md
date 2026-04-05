@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectUserRolePolicy` to your users, groups, and
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:59 UTC
-- **Edited time:** March 02, 2026, 20:27 UTC
+- **Edited time:** March 25, 2026, 21:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePolicy`
 
 ## Policy version
 
-**Policy version:** v63 (default)
+**Policy version:** v64 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -153,7 +153,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AllowGlueCreateEniOnSecurityGroup",
+      "Sid" : "GlueENIonSG",
       "Effect" : "Allow",
       "Action" : [
         "ec2:CreateNetworkInterface"
@@ -168,7 +168,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AllowGlueCreateEniOnSubnet",
+      "Sid" : "GlueENIonSubnet",
       "Effect" : "Allow",
       "Action" : [
         "ec2:CreateNetworkInterface"
@@ -181,7 +181,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AllowManageGlueEni",
+      "Sid" : "GlueNetwork",
       "Effect" : "Allow",
       "Action" : [
         "ec2:DeleteNetworkInterface",
@@ -199,7 +199,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AllowAttachGlueEniOnInstance",
+      "Sid" : "GlueEniOnInstance",
       "Effect" : "Allow",
       "Action" : [
         "ec2:AttachNetworkInterface"
@@ -228,7 +228,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "FederatedDataConnectionGlueSecret",
+      "Sid" : "GlueSecret",
       "Effect" : "Allow",
       "Action" : [
         "secretsmanager:DescribeSecret",
@@ -1135,7 +1135,20 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "GlueCrawlerPermissions",
+      "Sid" : "S3TCatalogPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "glue:*ColumnStatistics*",
+        "glue:*Database*",
+        "glue:*Partition*",
+        "glue:*Table*",
+        "glue:GetCatalog*",
+        "glue:GetUserDefinedFunction*"
+      ],
+      "Resource" : "arn:*:glue:*:*:catalog/s3tablescatalog"
+    },
+    {
+      "Sid" : "GlueCrawler",
       "Effect" : "Allow",
       "Action" : "glue:ListCrawls",
       "Resource" : "arn:aws:glue:*:*:crawler/*",
@@ -1146,7 +1159,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "GlueGlobalTempDatabasePermissions",
+      "Sid" : "GlueGlobalTempDb",
       "Effect" : "Allow",
       "Action" : [
         "glue:CreateDatabase",
@@ -1159,7 +1172,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ]
     },
     {
-      "Sid" : "GlueDefaultCatalogsPermissions",
+      "Sid" : "GlueDefaultCatalogs",
       "Effect" : "Allow",
       "Action" : [
         "glue:GetCatalog",
@@ -1175,7 +1188,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "GlueNonDefaultCatalogsPermissions",
+      "Sid" : "GlueNonDefaultCatalogs",
       "Effect" : "Allow",
       "Action" : [
         "glue:GetCatalog",
@@ -1192,7 +1205,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "GlueCatalogDatabasePermissions",
+      "Sid" : "GlueCatalogDb",
       "Effect" : "Allow",
       "Action" : [
         "glue:CreateDatabase",
@@ -1205,7 +1218,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ]
     },
     {
-      "Sid" : "LakeFormationPermissionForDataLakeAccess",
+      "Sid" : "LFforDL",
       "Effect" : "Allow",
       "Action" : [
         "lakeformation:GetDataAccess",
@@ -1277,7 +1290,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "SetContextForTrustedIdentityPropagation",
+      "Sid" : "SetContextForTIP",
       "Effect" : "Allow",
       "Action" : [
         "sts:SetContext"
@@ -1334,7 +1347,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
-      "Sid" : "GlueEntitiesAccessForFederatedDatabase",
+      "Sid" : "GlueEntities",
       "Effect" : "Allow",
       "Action" : [
         "glue:ListEntities",
@@ -1366,7 +1379,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "SQLWorkBenchActionsWithoutResourceType",
+      "Sid" : "SQLWorkBench",
       "Effect" : "Allow",
       "Action" : [
         "sqlworkbench:PutTab",
@@ -1446,7 +1459,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AllowAccessExistingRedshiftCompute",
+      "Sid" : "ExistingRedshiftCompute",
       "Effect" : "Allow",
       "Action" : [
         "redshift-serverless:GetWorkgroup",
@@ -1555,7 +1568,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "RedshifServerlessCredentialsForManagedWorkgroup",
+      "Sid" : "RssCreds",
       "Effect" : "Allow",
       "Action" : [
         "redshift-serverless:GetCredentials"
@@ -1867,7 +1880,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
-      "Sid" : "InvokeBedrockModel",
+      "Sid" : "InvokeBRModel",
       "Effect" : "Allow",
       "Action" : [
         "bedrock:InvokeModel",
@@ -1909,7 +1922,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "InvokeBedrockModelAppInferenceProfilePermissions",
+      "Sid" : "InvokeBedrockModel",
       "Effect" : "Allow",
       "Action" : [
         "bedrock:GetInferenceProfile",

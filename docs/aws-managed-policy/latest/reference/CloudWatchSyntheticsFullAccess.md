@@ -12,13 +12,13 @@ You can attach `CloudWatchSyntheticsFullAccess` to your users, groups, and roles
 
 - **Type**: AWS managed policy
 - **Creation time**: November 25, 2019, 17:39 UTC
-- **Edited time:** February 12, 2026, 17:59 UTC
+- **Edited time:** March 31, 2026, 21:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/CloudWatchSyntheticsFullAccess`
 
 ## Policy version
 
-**Policy version:** v13 (default)
+**Policy version:** v14 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -52,10 +52,21 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "iam:ListRoles",
         "s3:ListAllMyBuckets",
         "xray:GetTraceSummaries",
-        "xray:BatchGetTraces",
-        "apigateway:GET"
+        "xray:BatchGetTraces"
       ],
       "Resource" : "*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "apigateway:GET"
+      ],
+      "Resource" : [
+        "arn:aws:apigateway:*::/restapis",
+        "arn:aws:apigateway:*::/restapis/*/stages",
+        "arn:aws:apigateway:*::/restapis/*/stages/*/exports/swagger",
+        "arn:aws:apigateway:*::/apis"
+      ]
     },
     {
       "Effect" : "Allow",
@@ -110,7 +121,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "cloudwatch:GetMetricData",
-        "cloudwatch:GetMetricStatistics"
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:ListMetrics"
       ],
       "Resource" : "*"
     },

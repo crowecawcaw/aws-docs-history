@@ -12,13 +12,13 @@ You can attach `BedrockAgentCoreFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: July 16, 2025, 13:37 UTC
-- **Edited time:** February 12, 2026, 17:58 UTC
+- **Edited time:** March 27, 2026, 21:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/BedrockAgentCoreFullAccess`
 
 ## Policy version
 
-**Policy version:** v15 (default)
+**Policy version:** v16 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -409,6 +409,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:bedrock:*::foundation-model/*",
         "arn:aws:bedrock:*:*:inference-profile/*"
       ]
+    },
+    {
+      "Sid" : "AgentCoreEvaluationLambdaAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "lambda:InvokeFunction",
+        "lambda:GetFunction"
+      ],
+      "Resource" : "arn:aws:lambda:*:*:function:*"
     }
   ]
 }

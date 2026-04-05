@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 28, 2017, 20:12 UTC
-- **Edited time:** August 12, 2024, 20:01 UTC
+- **Edited time:** March 25, 2026, 20:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonGuardDutyServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v10 (default)
+**Policy version:** v11 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -283,6 +283,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : "ssm:GetCommandInvocation",
       "Resource" : "*"
+    },
+    {
+      "Sid" : "CloudTrailCreateServiceLinkedChannelSid",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudtrail:CreateServiceLinkedChannel"
+      ],
+      "Resource" : "arn:aws:cloudtrail:*:*:channel/aws-service-channel/guardduty/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     }
   ]
 }

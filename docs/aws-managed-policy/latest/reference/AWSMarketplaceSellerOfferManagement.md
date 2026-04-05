@@ -12,13 +12,13 @@ You can attach `AWSMarketplaceSellerOfferManagement` to your users, groups, and 
 
 - **Type**: AWS managed policy
 - **Creation time**: November 19, 2024, 00:41 UTC
-- **Edited time:** November 19, 2024, 00:41 UTC
+- **Edited time:** March 31, 2026, 16:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSMarketplaceSellerOfferManagement`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -102,6 +102,28 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws-marketplace:AgreementType" : [
             "PurchaseAgreement"
           ]
+        }
+      }
+    },
+    {
+      "Sid" : "AWSMarketplaceAgreementsCancellationAndAdjustmentReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:ListAgreementInvoiceLineItems",
+        "aws-marketplace:ListBillingAdjustmentRequests",
+        "aws-marketplace:GetBillingAdjustmentRequest",
+        "aws-marketplace:ListAgreementCancellationRequests",
+        "aws-marketplace:GetAgreementCancellationRequest"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAllValues:StringEquals" : {
+          "aws-marketplace:AgreementType" : [
+            "PurchaseAgreement"
+          ]
+        },
+        "StringEquals" : {
+          "aws-marketplace:PartyType" : "Proposer"
         }
       }
     }

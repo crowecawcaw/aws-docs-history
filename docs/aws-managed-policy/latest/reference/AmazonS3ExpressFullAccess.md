@@ -1,24 +1,24 @@
-# AWSCertificateManagerReadOnly
+# AmazonS3ExpressFullAccess
 
-**Description**: Provides read only access to AWS Certificate Manager (ACM).
+**Description**: Provides full access to all S3 directory buckets.
 
-`AWSCertificateManagerReadOnly` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AmazonS3ExpressFullAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AWSCertificateManagerReadOnly` to your users, groups, and roles.
+You can attach `AmazonS3ExpressFullAccess` to your users, groups, and roles.
 
 ## Policy details
 
 - **Type**: AWS managed policy
-- **Creation time**: January 21, 2016, 17:07 UTC
-- **Edited time:** March 31, 2026, 18:57 UTC
+- **Creation time**: April 03, 2026, 20:42 UTC
+- **Edited time:** April 03, 2026, 20:42 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AWSCertificateManagerReadOnly`
+  `arn:aws:iam::aws:policy/AmazonS3ExpressFullAccess`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -28,18 +28,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
 ```
 {
   "Version" : "2012-10-17",
-  "Statement" : {
-    "Effect" : "Allow",
-    "Action" : [
-      "acm:DescribeCertificate",
-      "acm:ListCertificates",
-      "acm:SearchCertificates",
-      "acm:GetCertificate",
-      "acm:ListTagsForCertificate",
-      "acm:GetAccountConfiguration"
-    ],
-    "Resource" : "*"
-  }
+  "Statement" : [
+    {
+      "Sid" : "S3ExpressFullAccess",
+      "Effect" : "Allow",
+      "Action" : "s3express:*",
+      "Resource" : "*"
+    }
+  ]
 }
 ```
 

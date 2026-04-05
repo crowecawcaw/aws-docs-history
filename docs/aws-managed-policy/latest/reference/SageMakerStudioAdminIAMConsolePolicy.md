@@ -12,13 +12,13 @@ You can attach `SageMakerStudioAdminIAMConsolePolicy` to your users, groups, and
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 22:49 UTC
-- **Edited time:** March 05, 2026, 17:42 UTC
+- **Edited time:** March 27, 2026, 17:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMConsolePolicy`
 
 ## Policy version
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -497,6 +497,40 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "glue:GetCatalog"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "SSOApplicationPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "sso:DeleteApplication"
+      ],
+      "Resource" : [
+        "arn:aws:sso::*:application/*/*"
+      ],
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "datazone.amazonaws.com"
+        },
+        "Bool" : {
+          "aws:ViaAWSService" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "SSOKMSPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "sso.*.amazonaws.com"
+        },
+        "Null" : {
+          "kms:EncryptionContext:aws:sso:instance-arn" : "false"
+        }
+      }
     }
   ]
 }

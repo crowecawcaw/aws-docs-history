@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: February 16, 2026, 14:27 UTC
-- **Edited time:** February 16, 2026, 14:27 UTC
+- **Edited time:** March 27, 2026, 00:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForAIDevOpsPolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -42,6 +42,79 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "cloudwatch:namespace" : [
             "AWS/AIDevOps"
           ]
+        }
+      }
+    },
+    {
+      "Sid" : "LatticeCreateResourceGateway",
+      "Effect" : "Allow",
+      "Action" : [
+        "vpc-lattice:CreateResourceGateway"
+      ],
+      "Resource" : "arn:aws:vpc-lattice:*:*:resourcegateway/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestTag/AWSAIDevOpsManaged" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "LatticeTagResourceGateway",
+      "Effect" : "Allow",
+      "Action" : [
+        "vpc-lattice:TagResource"
+      ],
+      "Resource" : "arn:aws:vpc-lattice:*:*:resourcegateway/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestTag/AWSAIDevOpsManaged" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "LatticeManageTaggedResourceGateways",
+      "Effect" : "Allow",
+      "Action" : [
+        "vpc-lattice:DeleteResourceGateway"
+      ],
+      "Resource" : "arn:aws:vpc-lattice:*:*:resourcegateway/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/AWSAIDevOpsManaged" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "LatticeGetResourceGateway",
+      "Effect" : "Allow",
+      "Action" : [
+        "vpc-lattice:GetResourceGateway"
+      ],
+      "Resource" : "arn:aws:vpc-lattice:*:*:resourcegateway/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/AWSAIDevOpsManaged" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "DescribeApis",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "CreateLatticeServiceLinkedRole",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/vpc-lattice.amazonaws.com/AWSServiceRoleForVpcLattice",
+      "Condition" : {
+        "StringLike" : {
+          "iam:AWSServiceName" : "vpc-lattice.amazonaws.com"
         }
       }
     }

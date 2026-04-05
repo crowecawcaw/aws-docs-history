@@ -12,13 +12,13 @@ You can attach `SageMakerStudioUserIAMDefaultExecutionPolicy` to your users, gro
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 17:19 UTC
-- **Edited time:** March 11, 2026, 17:42 UTC
+- **Edited time:** March 27, 2026, 17:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioUserIAMDefaultExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v22 (default)
+**Policy version:** v23 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -85,7 +85,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "datazone:StopNotebookCompute",
         "datazone:StartConversation",
         "datazone:GenerateCode",
-        "datazone:SendMessage"
+        "datazone:SendMessage",
+        "datazone:StartNotebookImport",
+        "datazone:StartNotebookExport"
       ],
       "Resource" : "*"
     },
@@ -271,7 +273,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sagemaker:StartMlflowTrackingServer",
         "sagemaker:StopMlflowTrackingServer",
         "sagemaker:CreatePresignedMlflowTrackingServerUrl",
-        "sagemaker-mlflow:*"
+        "sagemaker-mlflow:*",
+        "sagemaker:*Feature*",
+        "sagemaker:*Record"
       ],
       "Resource" : "*"
     },
@@ -305,6 +309,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "cloudwatch:PutMetricData",
+        "cloudwatch:GetMetricData",
         "logs:CreateLogGroup",
         "logs:CreateLogStream",
         "logs:Describe*",

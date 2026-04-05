@@ -1,24 +1,24 @@
-# AmazonEventBridgeSchedulerReadOnlyAccess
+# AmazonS3ExpressReadOnlyAccess
 
-**Description**: The AmazonEventBridgeSchedulerReadOnlyAccess managed policy grants read-only permissions to view details about your schedules and schedule groups
+**Description**: Provides read only access to S3Express operations for S3 directory buckets.
 
-`AmazonEventBridgeSchedulerReadOnlyAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AmazonS3ExpressReadOnlyAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AmazonEventBridgeSchedulerReadOnlyAccess` to your users, groups, and roles.
+You can attach `AmazonS3ExpressReadOnlyAccess` to your users, groups, and roles.
 
 ## Policy details
 
 - **Type**: AWS managed policy
-- **Creation time**: November 10, 2022, 18:50 UTC
-- **Edited time:** April 02, 2026, 17:57 UTC
+- **Creation time**: April 03, 2026, 20:42 UTC
+- **Edited time:** April 03, 2026, 20:42 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AmazonEventBridgeSchedulerReadOnlyAccess`
+  `arn:aws:iam::aws:policy/AmazonS3ExpressReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -30,10 +30,29 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
+      "Sid" : "S3ExpressReadOnlySessionObjectAccess",
+      "Effect" : "Allow",
+      "Action" : "s3express:CreateSession",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "s3express:SessionMode" : "ReadOnly"
+        }
+      }
+    },
+    {
+      "Sid" : "S3ExpressReadOnlyControlPlaneAccess",
       "Effect" : "Allow",
       "Action" : [
-        "scheduler:List*",
-        "scheduler:Get*"
+        "s3express:GetBucketPolicy",
+        "s3express:GetEncryptionConfiguration",
+        "s3express:GetLifecycleConfiguration",
+        "s3express:GetAccessPoint",
+        "s3express:GetAccessPointPolicy",
+        "s3express:GetAccessPointScope",
+        "s3express:ListAllMyDirectoryBuckets",
+        "s3express:ListAccessPointsForDirectoryBuckets",
+        "s3express:ListTagsForResource"
       ],
       "Resource" : "*"
     }

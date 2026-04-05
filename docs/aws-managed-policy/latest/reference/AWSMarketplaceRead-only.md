@@ -12,13 +12,13 @@ You can attach `AWSMarketplaceRead-only` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:40 UTC
-- **Edited time:** February 12, 2026, 18:01 UTC
+- **Edited time:** March 31, 2026, 16:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSMarketplaceRead-only`
 
 ## Policy version
 
-**Policy version:** v11 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -69,6 +69,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "aws-marketplace:ListPrivateListings"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:ListAgreementCancellationRequests",
+        "aws-marketplace:GetAgreementCancellationRequest"
       ],
       "Resource" : "*"
     }
