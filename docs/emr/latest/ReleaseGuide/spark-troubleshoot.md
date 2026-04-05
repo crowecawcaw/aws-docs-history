@@ -6,6 +6,10 @@ The Apache Spark Troubleshooting Agent for Amazon EMR is a conversational AI cap
 
 You can use the agent to troubleshoot PySpark and Scala applications failures. The agent analyzes your failed jobs, identifies performance bottlenecks, and provides actionable recommendations and code fixes while giving you full control over implementation decisions.
 
+###### Note
+
+The Apache Spark Troubleshooting Agent is available at no additional cost as part of Amazon EMR. The agent provides analysis and recommendations only. You only pay for the Amazon EMR resources that you use when you run your applications to validate any recommended fixes.
+
 ## Architecture Overview
 
 The troubleshooting agent has three main components: an MCP-compatible AI Assistant in your development environment for interaction, the [MCP Proxy for AWS](https://github.com/aws/mcp-proxy-for-aws "https://github.com/aws/mcp-proxy-for-aws") that handles secure communication and authentication between your client and AWS services, and the Amazon SageMaker Unified Studio Remote MCP Server `(preview)` that provides specialized Spark troubleshooting tools for Amazon EMR, AWS Glue and Amazon SageMaker Notebooks. This diagram illustrates how you interact with the Amazon SageMaker Unified Studio Remote MCP Server through your AI Assistant.
