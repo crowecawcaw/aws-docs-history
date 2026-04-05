@@ -55,6 +55,12 @@ The following example publishes the Blender 4.5 sample recipe from the
 repository on GitHub. You can substitute a different recipe from the samples
 repository or use your own recipe.
 
+###### Note
+
+Large applications can require tens of GB of free disk space for the source archive,
+extracted files, and build output. Make sure that you use a disk with enough available
+space for the package build output.
+
 ###### To publish a package to an Amazon S3 channel
 
 1. Clone the Deadline Cloud samples repository.
@@ -72,32 +78,25 @@ cd deadline-cloud-samples/conda_recipes
 3. Run the following command. Replace `amzn-s3-demo-bucket`
    with your bucket name.
 
-On Linux and macOS, run the following command.
-
 ```
-rattler-build publish blender-4.5/recipe/recipe.yaml \
-    --to s3://amzn-s3-demo-bucket/Conda/Default
-```
-
-On Windows (cmd), run the following command.
-
-```
-rattler-build publish blender-4.5/recipe/recipe.yaml ^
-    --to s3://amzn-s3-demo-bucket/Conda/Default
+rattler-build publish blender-4.5/recipe/recipe.yaml --to s3://amzn-s3-demo-bucket/Conda/Default --build-number=+1
 ```
 
 The `/Conda/Default` prefix organizes the channel within the bucket. You
 can use a different prefix, but the prefix must be consistent across all commands and
 queue configurations that reference the channel.
 
-To rebuild and publish an updated package, add `--build-number=+1` to
-automatically increment the build number.
+###### About build numbers
 
-```
-rattler-build publish blender-4.5/recipe/recipe.yaml \
-    --to s3://amzn-s3-demo-bucket/Conda/Default \
-    --build-number=+1
-```
+The `--build-number=+1` option automatically picks the next build number
+based on what already exists in the destination channel. The best practice is to never
+overwrite a package in a channel. Always build to a new build number if the package would
+otherwise have the same filename. Using `--build-number=+1` achieves this when
+you build to a production channel or a staging channel that mirrors production.
+
+If you want to control the build number directly, you can set it with a specific value
+such as `--build-number=7`. If you omit the option, `rattler-build`
+uses the build number defined in the `recipe.yaml` file.
 
 If your package recipe depends on packages from a particular channel, such as
 [conda-forge](https://conda-forge.org/ "https://conda-forge.org/"), add `-c
@@ -139,6 +138,40 @@ pixi add blender=4.5
 
 ```
 pixi run blender --version
+```
+
+The [`pixi
+ run`](https://pixi.sh/latest/reference/cli/pixi/run/ "https://pixi.sh/latest/reference/cli/pixi/run/") command activates the conda environment for the project directory
+and runs the specified command within it. The environment persists in the project
+directory, so you can use the same `pixi run` command from other
+terminals.
+
+## Removing packages from the channel
+
+Avoid removing packages from channels that you use for production, because lockfiles
+reference specific packages by hash. Removing a package prevents re-creating environments
+from those lockfiles. For development and testing channels, you can remove a specific
+package by deleting the `.conda` file from the bucket and then re-indexing the
+channel. First, install `rattler-index`.
+
+```
+pixi global install rattler-index
+```
+
+Then delete the package file and re-index the channel. Replace
+`amzn-s3-demo-bucket` with your bucket name.
+
+```
+aws s3 rm s3://amzn-s3-demo-bucket/Conda/Default/linux-64/blender-4.5.0-hb0f4dca_1.conda
+rattler-index s3 s3://amzn-s3-demo-bucket/Conda/Default
+```
+
+Package files are stored in platform-specific subdirectories such as
+`linux-64`, `win-64`, or `osx-arm64`. To list the
+packages in a subdirectory, run the following command.
+
+```
+aws s3 ls s3://amzn-s3-demo-bucket/Conda/Default/linux-64/
 ```
 
 ## Cleaning up

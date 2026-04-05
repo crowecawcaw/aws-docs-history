@@ -102,7 +102,7 @@ Maya adaptor that is available as the
 Job submissions from Deadline Cloud submitter GUIs include a `CondaPackages`
 parameter value that specifies the conda packages to include in a virtual environment for
 running the job. The `CondaPackages` parameter value for Maya
-typically looks like `maya=2025.* maya-openjd=0.15.* maya-mtoa` and might
+typically looks like `maya=2026.* maya-openjd=0.15.* maya-mtoa` and might
 contain alternative entries for plugin packages. When the queue environment sets up a
 conda virtual environment for running the job, it resolves these package names and version
 constraints to be compatible and adds all the dependency packages they need to run. Each

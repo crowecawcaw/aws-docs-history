@@ -1,17 +1,161 @@
 # Schedule jobs in Deadline Cloud
 
-After a job is created, AWS Deadline Cloud schedules it to be processed on one or more of the
-fleets associated with a queue. The fleet that processes a particular task is chosen based on
-the capabilities configured for the fleet and the host requirements of a specific step.
-
-Jobs in a queue are scheduled in a best-effort priority order, highest to lowest. When two
-jobs have the same priority, the oldest job is scheduled first.
+After you create a job, AWS Deadline Cloud schedules it to be processed on one or more of the
+fleets associated with a queue. The fleet that processes a particular task is chosen
+based on the scheduling configuration, the capabilities configured for the fleet, and
+the host requirements of a specific step.
 
 The following sections provide details of the process of scheduling a job.
 
+## Scheduling configurations
+
+You can configure how Deadline Cloud schedules jobs in a queue by setting a scheduling
+configuration on the queue. The scheduling configuration controls how workers are
+distributed across jobs.
+
+You can set the scheduling configuration using the Deadline Cloud console or by calling the
+[CreateQueue](../APIReference/API_CreateQueue.md "../APIReference/API_CreateQueue.md") or
+[UpdateQueue](../APIReference/API_UpdateQueue.md "../APIReference/API_UpdateQueue.md") APIs.
+
+There are three available scheduling configurations:
+
+- **Priority, first-in-first-out** (`priorityFifo`) –
+  Schedules the highest priority, earliest submitted job first (default).
+- **Priority, balanced**
+  (`priorityBalanced`) – Distributes workers evenly across jobs at the
+  highest priority.
+- **Weighted, balanced**
+  (`weightedBalanced`) – Uses a weighted formula to determine how
+  workers are distributed across jobs.
+
+In all scheduling configurations, in-progress tasks run to completion before a new
+scheduling decision is made. If you change the scheduling configuration while tasks are
+running, the change applies only when workers are assigned next. Running tasks
+are not interrupted or reassigned.
+
+### Priority, first-in-first-out
+
+Priority, first-in-first-out (`priorityFifo`) is the default scheduling configuration
+for new queues. Deadline Cloud assigns workers to the highest-priority job first. When multiple
+jobs share the same priority, the oldest (earliest submitted) job receives all available
+workers first.
+
+Use priority FIFO when you want strict ordering of jobs. This configuration is
+appropriate when jobs should complete one at a time in the order they were submitted,
+such as sequential pipeline stages or batch processing where each job must finish
+before the next one starts.
+
+This configuration has no additional parameters.
+
+### Priority, balanced
+
+Priority, balanced (`priorityBalanced`) distributes workers evenly across
+all jobs at the highest priority level. When only one job exists at the highest priority,
+Deadline Cloud assigns all workers to that job. When multiple jobs share the highest priority,
+workers are split evenly among them. If the workers cannot be evenly divided,
+the extra workers are distributed among the highest priority jobs.
+
+Use priority balanced when multiple artists or users submit jobs at the same priority
+and each user needs immediate feedback. This configuration ensures that no single job
+monopolizes all available workers, so that all users are allocated workers shortly after
+submission.
+
+If a job has fewer remaining tasks than its share of workers, the surplus workers are
+redistributed to other jobs at the same priority level. If all jobs at the highest
+priority are fully allocated, surplus workers cascade to jobs at the next highest
+priority level.
+
+This configuration has the following parameter:
+
+`renderingTaskBuffer`
+
+Controls worker stickiness. A worker switches from its current job to another
+job at the same priority only if the difference in rendering tasks exceeds the
+`renderingTaskBuffer` value. A higher value keeps workers on their
+current jobs longer, reducing context switching. The default
+value is `1`.
+
+### Weighted, balanced
+
+Weighted, balanced (`weightedBalanced`) uses a formula to calculate a
+weight for each job. Deadline Cloud assigns workers to the highest-weight job first. If multiple
+jobs have the same weight, workers are distributed among them.
+
+Use weighted balanced when you need fine-grained control over how workers are
+distributed across jobs with varying priorities, error rates, and submission times.
+This configuration is appropriate for complex render farm environments where you want
+to tune the balance between job priority, job age, error handling, and worker
+stickiness.
+
+The weight for each job is calculated as follows:
+
+```
+weight = (job.Priority * priorityWeight) +
+         (job.Errors * errorWeight) +
+         ((currentTimeInSeconds - job.SubmissionTime) * submissionTimeWeight) +
+         ((job.RenderingTasks - renderingTaskBuffer) * renderingTaskWeight)
+```
+
+The `renderingTaskBuffer` component is applied only if the worker is
+currently working on the job. The `renderingTaskWeight` is usually set
+to a negative value so that jobs with assigned workers receive a lower weight,
+bringing other jobs to the front of the queue. The
+`errorWeight` is also usually negative so that jobs with errors are
+deprioritized. You can use scheduling overrides for minimum and maximum priority
+jobs.
+
+This configuration has the following parameters:
+
+`priorityWeight`
+
+The weight applied to a job's priority. A positive value means higher-priority
+jobs are scheduled first. The default value is `100.0`. Range:
+`0` to `10000`.
+
+`errorWeight`
+
+The weight applied to a job's error count. A negative value means jobs without
+errors are scheduled first. The default value is
+`-10.0`. Range: `-10000` to `10000`.
+
+`submissionTimeWeight`
+
+The weight applied to a job's submission time (in seconds). A positive value
+means earlier submitted jobs are scheduled first. The default value is
+`3.0`. Range: `0` to `10000`.
+
+`renderingTaskWeight`
+
+The weight applied to the number of tasks currently rendering for a job. A
+negative value means jobs with fewer workers are scheduled next. The
+default value is `-100.0`. Range: `-10000` to
+`10000`.
+
+`renderingTaskBuffer`
+
+The number of rendering tasks before the rendering task weight takes effect.
+A positive value keeps workers on their current jobs. The default value is
+`1`. Range: `0` to `1000`.
+
+`maxPriorityOverride`
+
+Optional. When set to `alwaysScheduleFirst`, jobs at the maximum
+priority (100) are always scheduled before other jobs, regardless of the weighted
+formula. When multiple jobs have the maximum priority, ties are broken using the
+standard weighted formula. When the override is absent, maximum priority jobs use
+the standard weighted formula with no special treatment.
+
+`minPriorityOverride`
+
+Optional. When set to `alwaysScheduleLast`, jobs at the minimum
+priority (0) are always scheduled after other jobs, regardless of the weighted
+formula. When multiple jobs have the minimum priority, ties are broken using the
+standard weighted formula. When the override is absent, minimum priority jobs use
+the standard weighted formula with no special treatment.
+
 ## Determine fleet compatibility
 
-After a job is created, Deadline Cloud checks the host requirements for each step in the job
+After you create a job, Deadline Cloud checks the host requirements for each step in the job
 against the capabilities of the fleets associated with the queue the job was submitted to.
 If a fleet meets the host requirements, the job is put into the `READY`
 state.

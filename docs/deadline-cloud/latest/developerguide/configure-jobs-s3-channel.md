@@ -35,6 +35,7 @@ premises for workstations and on-premises farm hosts.
 - [Create a conda package for an application or plugin](conda-package.md "conda-package.md")
 - [Create a conda build recipe for Blender](create-conda-recipe-blender.md "create-conda-recipe-blender.md")
 - [Create a conda build recipe for Autodesk Maya](create-conda-recipe-maya.md "create-conda-recipe-maya.md")
+- [Create a conda build recipe for the Maya adaptor](create-conda-recipe-maya-openjd.md "create-conda-recipe-maya-openjd.md")
 - [Create a conda build recipe for Autodesk Maya to Arnold (MtoA) plugin](create-conda-recipe-mtoa-plugin.md "create-conda-recipe-mtoa-plugin.md")
 - [Automate package builds with Deadline Cloud](automate-package-builds.md "automate-package-builds.md")
 
@@ -103,7 +104,7 @@ default: "s3://amzn-s3-demo-bucket/Conda/Default deadline-cloud"
 ```
 
 Service-managed fleets enable flexible channel priority for conda by default. For a
-job requesting `blender=4.2` if Blender 4.2 is in both the new channel and the
+job requesting `blender=4.5` if Blender 4.5 is in both the new channel and the
 `deadline-cloud` channel, the package will be pulled from whichever channel
 is first in the channel list. If a specified package version is not found in the first
 channel then subsequent channels will be checked in order for the package version.

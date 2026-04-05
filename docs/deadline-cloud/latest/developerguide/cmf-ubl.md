@@ -26,7 +26,6 @@ for your farm's VPC. Configure the security group to allow the following inbound
 
 - Autodesk Maya and Arnold – 2701 - 2702, TCP, IPv4, IPv6
 - Cinema 4D – 7057, TCP, IPv4, IPv6
-- KeyShot – 2703, TCP, IPv4, IPv6
 - Foundry Nuke – 6101, TCP, IPv4, IPv6
 - Red Giant – 7055, TCP, IPV4
 - Redshift – 7054, TCP, IPv4, IPv6
@@ -124,31 +123,6 @@ using a command line similar to this one:
 "C:\Program Files\Maxon Cinema 4D 2025\Commandline.exe" -render ^
     "C:\Users\User\MyC4DFileWithRedshift.c4d" -frame 0 ^
     -oimage "C:\Users\Administrator\User\MyOutputImage.png
-```
-
-###### Example– KeyShot
-
-Set the environment variable `LUXION_LICENSE_FILE` to:
-
-```
-2703@`VPC_Endpoint_DNS_Name`
-```
-
-After you install KeyShot and run `pip install
- deadline-cloud-for-keyshot` you can test the license is working using the
-following command. The script validates your settings but does not render anything.
-
-```
-"C:\Program Files\KeyShot12\bin\keyshot_headless.exe" ^
-    -floating_feature keyshot2 ^
-    -floating_license_server 2703@`VPC_Endpoint_DNS_Name` ^
-    -script "C:\Program Files\Python311\Lib\site-packages\deadline\keyshot_adaptor\KeyShotClient\keyshot_handler.py"
-```
-
-The response should contain the following without any error messages:
-
-```
-Connecting to floating license server
 ```
 
 ###### Example– Foundry Nuke

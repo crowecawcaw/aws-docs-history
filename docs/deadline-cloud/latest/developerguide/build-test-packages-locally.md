@@ -39,6 +39,12 @@ In this procedure, you clone the Deadline Cloud samples repository and use
 `rattler-build publish` to build and publish the package to a local filesystem
 channel.
 
+###### Note
+
+Large applications can require tens of GB of free disk space for the source archive,
+extracted files, and build output. Make sure that you use a disk with enough available
+space for the package build output.
+
 ###### To build and publish a package to a local channel
 
 1. Clone the Deadline Cloud samples repository.
@@ -60,14 +66,16 @@ On Linux and macOS, run the following command.
 
 ```
 rattler-build publish blender-4.5/recipe/recipe.yaml \
-    --to file://$HOME/my-conda-channel
+    --to file://$HOME/my-conda-channel \
+    --build-number=+1
 ```
 
 On Windows (cmd), run the following command.
 
 ```
 rattler-build publish blender-4.5/recipe/recipe.yaml ^
-    --to file://%USERPROFILE%/my-conda-channel
+    --to file://%USERPROFILE%/my-conda-channel ^
+    --build-number=+1
 ```
 
 The `rattler-build publish` command performs the following actions:
@@ -81,14 +89,17 @@ If your package recipe depends on packages from a particular channel, such as
 [conda-forge](https://conda-forge.org/ "https://conda-forge.org/"), add `-c
  conda-forge` to the command.
 
-To rebuild the package after making changes to the recipe, add
-`--build-number=+1` to automatically increment the build number.
+###### About build numbers
 
-```
-rattler-build publish blender-4.5/recipe/recipe.yaml \
-    --to file://$HOME/my-conda-channel \
-    --build-number=+1
-```
+The `--build-number=+1` option automatically picks the next build number
+based on what already exists in the destination channel. The best practice is to never
+overwrite a package in a channel. Always build to a new build number if the package would
+otherwise have the same filename. Using `--build-number=+1` achieves this when
+you build to a production channel or a staging channel that mirrors production.
+
+If you want to control the build number directly, you can set it with a specific value
+such as `--build-number=7`. If you omit the option, `rattler-build`
+uses the build number defined in the `recipe.yaml` file.
 
 For more information about `rattler-build publish`, see the
 [rattler-build publish
@@ -147,9 +158,47 @@ pixi add blender=4.5
 pixi run blender --version
 ```
 
+The [`pixi
+ run`](https://pixi.sh/latest/reference/cli/pixi/run/ "https://pixi.sh/latest/reference/cli/pixi/run/") command activates the conda environment for the project directory
+and runs the specified command within it. The environment persists in the project
+directory, so you can use the same `pixi run` command from other
+terminals.
+
 When you are satisfied with the package, you can publish the package to an Amazon S3 conda
 channel so that Deadline Cloud workers can install the package. See [Publish packages to an S3 conda
 channel](publish-packages-s3-channel.md "publish-packages-s3-channel.md").
+
+## Removing packages from the channel
+
+Avoid removing packages from channels that you use for production, because lockfiles
+reference specific packages by hash. Removing a package prevents re-creating environments
+from those lockfiles. For development and testing channels, you can remove a specific
+package by deleting the `.conda` file from the channel directory and then
+re-indexing the channel. First, install `rattler-index`.
+
+```
+pixi global install rattler-index
+```
+
+Then delete the package file and re-index the channel.
+
+On Linux and macOS, run the following commands.
+
+```
+rm $HOME/my-conda-channel/linux-64/blender-4.5.0-hb0f4dca_1.conda
+rattler-index fs $HOME/my-conda-channel
+```
+
+On Windows (cmd), run the following commands.
+
+```
+del %USERPROFILE%\my-conda-channel\win-64\blender-4.5.0-hb0f4dca_1.conda
+rattler-index fs %USERPROFILE%\my-conda-channel
+```
+
+Package files are stored in platform-specific subdirectories such as
+`linux-64`, `win-64`, or `osx-arm64`. List the contents
+of these subdirectories to find the exact filename of the package you want to remove.
 
 ## Cleaning up
 

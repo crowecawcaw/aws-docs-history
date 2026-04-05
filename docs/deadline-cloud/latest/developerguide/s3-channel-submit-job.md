@@ -1,25 +1,55 @@
-# Test your package with a Blender 4.2 render job
+# Test your package with a Blender render job
 
-After you have the Blender 4.2 package built and your production queue configured to use
-the S3 conda channel, you can submit jobs to render with the package. If you don't have a
-Blender scene, download the Blender 3.5 - Cozy Kitchen scene from the [Blender demo files](https://www.blender.org/download/demo-files "https://www.blender.org/download/demo-files") page.
+After you build the Blender 4.5 package, you can test it with a
+render job. If you do not have a Blender scene, download the
+Blender 3.5 - Cozy Kitchen scene from the [Blender demo
+files](https://www.blender.org/download/demo-files "https://www.blender.org/download/demo-files") page. The Deadline Cloud samples repository contains a
+`blender_render` job bundle and a conda queue environment that you can use
+for both local and cloud testing.
 
-The Deadline Cloud samples GitHub repository that you downloaded earlier contains a sample job to
-render a Blender scene using the following commands:
+## Testing locally
+
+You can run the job template on your workstation using the [Open Job Description
+CLI](https://github.com/OpenJobDescription/openjd-cli#readme "https://github.com/OpenJobDescription/openjd-cli#readme"). Install the CLI with `pip`.
+
+```
+pip install openjd-cli
+```
+
+From the `job_bundles` directory in the samples repository, run the
+following command. Replace `/path/to/scene.blend` with the
+path to your Blender scene file.
+
+```
+openjd run blender_render/template.yaml \
+    --environment ../queue_environments/conda_queue_env_pyrattler.yaml \
+    -p CondaPackages=blender=4.5 \
+    -p CondaChannels=file://$HOME/my-conda-channel \
+    -p BlenderSceneFile=`/path/to/scene.blend` \
+    -p Frames=1
+```
+
+The `--environment` option applies the conda queue environment, which
+creates a conda virtual environment with the packages specified in
+`CondaPackages`. The `CondaChannels` parameter tells the queue
+environment where to find the packages. If you published to an Amazon S3 channel instead
+of a local channel, replace the `file://` path with your
+`s3://` channel URL.
+
+## Testing on Deadline Cloud
+
+After you configure your production queue to use the Amazon S3 conda channel, you can
+submit the render job to Deadline Cloud. From the `job_bundles` directory in the
+samples repository, run the following command.
 
 ```
 deadline bundle submit blender_render \
-     -p CondaPackages=blender=4.2 \
-     -p BlenderSceneFile=/path/to/downloaded/blender-3.5-splash.blend \
-     -p Frames=1
+    -p CondaPackages=blender=4.5 \
+    -p BlenderSceneFile=`/path/to/scene.blend` \
+    -p Frames=1
 ```
 
-You can use the Deadline Cloud monitor to track the progress of your job:
-
-1. In the monitor, select the task for the job you submitted, then select the option to
-   view the log.
-2. On the right side of the log view, select the **Launch Conda**
-   session action.
-   You can see that the action searched for Blender 4.2 in the two conda channels
-   configured for the queue environment, and that it found the package in the S3
-   channel.
+Use the Deadline Cloud monitor to track the progress of the job. In the monitor, select
+the task for the job and choose **View logs**. Select the
+**Launch Conda** session action to verify that the package was found
+in the Amazon S3 channel.
