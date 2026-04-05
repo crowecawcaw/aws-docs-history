@@ -32,7 +32,6 @@ The implementation of Amazon EC2 is different for AWS GovCloud (US) in the follo
 - The get-console-screenshot CLI command is not supported.
 - Get instance screenshot is not supported.
 - On-Demand Instance hibernation is not supported.
-- Amazon EC2 instance topology is not supported.
 - [EC2 Instance Connect](../../../AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.md "../../../AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.md") will not work if your Linux instance has SELinux enabled in enforcing mode. The process for enabling or disabling SELinux varies across Linux distributions. For information about how to check the status of SELinux on your instance, or to enable or disable SELinux, see the relevant operating system guide for your instance.
 - EC2 CPU Optimization is currently API-only.
 - [Attestation documents](../../../enclaves/latest/user/set-up-attestation.md "../../../enclaves/latest/user/set-up-attestation.md") used by Nitro Enclaves are signed by the AWS Nitro Attestation Public Key Infrastructure (PKI). You can verify that the attestation documents are signed by the Nitro Attestation PKI. For more information, see [Verifying the root of trust](../../../enclaves/latest/user/verify-root.md "../../../enclaves/latest/user/verify-root.md") in the _AWS Nitro Enclaves User Guide_.

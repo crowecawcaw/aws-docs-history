@@ -6,8 +6,13 @@ Amazon Kinesis Video Streams makes it easy to securely stream video from connect
 
 The following features are not yet supported in AWS GovCloud (US):
 
-- Kinesis Video Streams with WebRTC
+- WebRTC Ingestion and Storage
 - Kinesis Video Streams Edge Agent
+- Kinesis Video Streams Multiviewer
+
+The following features are not supported in AWS GovCloud (US):
+
+- Unencrypted STUN and TURN connections
 
 In addition, the Amazon SNS
 `Publish` action has a default quota of 300 messages per second in the AWS GovCloud (US-East) and AWS GovCloud (US-West) regions. When notifications are enabled, one message is published per fragment per stream. If you need a higher quota limit for your account, request through the Service Quotas console.
@@ -15,6 +20,8 @@ In addition, the Amazon SNS
 ## Documentation for Amazon Kinesis Video Streams
 
 [Kinesis Video Streams documentation](../../../kinesisvideostreams/latest/dg/what-is-kinesis-video.md "../../../kinesisvideostreams/latest/dg/what-is-kinesis-video.md").
+
+[Kinesis Video Streams with WebRTC documentation](../../../kinesisvideostreams-webrtc-dg/latest/devguide/webrtc-ingestion.md "../../../kinesisvideostreams-webrtc-dg/latest/devguide/webrtc-ingestion.md").
 
 ## Export-controlled content
 

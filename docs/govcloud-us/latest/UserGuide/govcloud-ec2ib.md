@@ -6,7 +6,6 @@ Amazon Elastic Compute Cloud Image Builder is a fully managed AWS service that m
 
 The implementation of Amazon EC2 Image Builder is different for AWS GovCloud (US) Regions in the following ways:
 
-- Image Builder doesn’t support Dedicated Instances or Dedicated Hosts.
 - Image Builder doesn’t support macOS images.
 
 The following Image Builder features are not supported in AWS GovCloud (US) Regions:
