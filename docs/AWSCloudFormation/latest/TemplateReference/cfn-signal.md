@@ -180,7 +180,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: Simple EC2 instance
 Resources:
   MyInstance:
-    Type: 'AWS::EC2::Instance'
+    Type: AWS::EC2::Instance
     Metadata:
       'AWS::CloudFormation::Init':
         config:
@@ -193,35 +193,14 @@ Resources:
     Properties:
       ImageId: '{{resolve:ssm:/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2}}'
       InstanceType: t2.micro
-      UserData: !Base64
-        'Fn::Join':
-          - ''
-          - - |
-              #!/bin/bash -x
-            - |
-              # Install the files and packages from the metadata
-            - yum install -y aws-cfn-bootstrap
-            - |+
-
-            - |
-            - '/opt/aws/bin/cfn-init -v '
-            - '         --stack '
-            - !Ref 'AWS::StackName'
-            - '         --resource MyInstance '
-            - '         --region '
-            - !Ref 'AWS::Region'
-            - |+
-
-            - |
-              # Signal the status from cfn-init
-            - '/opt/aws/bin/cfn-signal -e $? '
-            - '         --stack '
-            - !Ref 'AWS::StackName'
-            - '         --resource MyInstance '
-            - '         --region '
-            - !Ref 'AWS::Region'
-            - |+
-
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash -x
+          # Install the files and packages from the metadata
+          yum install -y aws-cfn-bootstrap
+          /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource MyInstance --region ${AWS::Region}
+          # Signal the status from cfn-init
+          /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource MyInstance --region ${AWS::Region}
     CreationPolicy:
       ResourceSignal:
         Timeout: PT5M

@@ -135,8 +135,8 @@ function.
 function.
 
 ```
-UserData: !Base64
-  Fn::Sub: |-
+UserData:
+  Fn::Base64: !Sub |
     #!/bin/bash -xe
     yum update -y aws-cfn-bootstrap
     # Install the files and packages from the metadata

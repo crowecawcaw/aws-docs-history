@@ -93,6 +93,7 @@ Resource type identifiers always take the following form:
 - [AWS Device Farm](AWS_DeviceFarm.md "AWS_DeviceFarm.md")
 - [AWS DevOps Agent](AWS_DevOpsAgent.md "AWS_DevOpsAgent.md")
 - [Amazon DevOps Guru](AWS_DevOpsGuru.md "AWS_DevOpsGuru.md")
+- [AWS Direct Connect](AWS_DirectConnect.md "AWS_DirectConnect.md")
 - [AWS Directory Service](AWS_DirectoryService.md "AWS_DirectoryService.md")
 - [AWS Database Migration Service](AWS_DMS.md "AWS_DMS.md")
 - [Amazon DocumentDB (with MongoDB compatibility)](AWS_DocDB.md "AWS_DocDB.md")
