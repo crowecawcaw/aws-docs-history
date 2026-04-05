@@ -69,7 +69,7 @@ Stack](https://github.com/awslabs/cid-framework/tree/main/data-collection/deploy
 
 ![Organization Root ID](images/data-collection/update-process/data-read-permissions/2a-find-organisation-root-id.png)
 
-![Data Read Role CloudFormation stack - parameters](images/data-collection/update-process/data-read-permissions/2b-data-read-permissions-stack-create-parameters.png)
+![Data Read Role CloudFormation stack - parameters](/images/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2b-data-read-permissions-stack-create-parameters.png)
 
 1. Make sure to select all modules that you want to allow access to your
    organization accounts data. You can check the list of the modules
