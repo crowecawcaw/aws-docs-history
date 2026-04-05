@@ -1,3 +1,8 @@
+End of support notice: On March 31, 2027, AWS
+will end support for AWS Service Management Connector. After March 31, 2027, you will
+no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources.
+For more information, see [AWS Service Management Connector end of support](smc-end-of-support.md "smc-end-of-support.md").
+
 # Enabling the AWS Service Catalog request type in the Jira Customer Portal
 
 The Jira Customer Portal enables registered Atlassian site internal
