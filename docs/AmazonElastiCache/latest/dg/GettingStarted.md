@@ -8,5 +8,6 @@ Use the hands-on tutorial in this section to help you get started and learn more
 - [Create a Valkey serverless cache](GettingStarted.serverless-valkey.step1.md "GettingStarted.serverless-valkey.step1.md")
 - [Create a Redis OSS serverless cache](GettingStarted.serverless-redis.step1.md "GettingStarted.serverless-redis.step1.md")
 - [Create a Memcached serverless cache](create-serverless-cache-mem.md "create-serverless-cache-mem.md")
+- [Network type for serverless caches](serverless-network-type.md "serverless-network-type.md")
 - [Tutorials: Getting started with Python and ElastiCache](ElastiCache-Getting-Started-Tutorials.md "ElastiCache-Getting-Started-Tutorials.md")
 - [Tutorial: Configuring Lambda to access ElastiCache in a VPC](LambdaRedis.md "LambdaRedis.md")

@@ -60,8 +60,8 @@ For more information about creating an Amazon S3 bucket, see [Creating a bucket]
 
 ## Grant ElastiCache access to your Amazon S3 bucket
 
-For ElastiCache to be able to copy a snapshot to an Amazon S3 bucket, you must update your IAM bucket policy to grant ElastiCache access to the
-bucket.
+ElastiCache requires access to your Amazon S3 bucket to copy a snapshot to it. We recommend
+granting access by using an Amazon S3 bucket policy rather than access control lists (ACLs).
 
 ###### Warning
 
@@ -71,86 +71,65 @@ recommend that you set up IAM policies to prevent unauthorized access to this
 Amazon S3 bucket. For more information, see [Managing
 access](../../../AmazonS3/latest/userguide/s3-access-control.md "../../../AmazonS3/latest/userguide/s3-access-control.md") in the _Amazon S3 User Guide_.
 
-To create the proper permissions on an Amazon S3 bucket, take the steps described following.
+Add the following bucket policy to your Amazon S3 bucket. Replace
+`amzn-s3-demo-bucket` with the name of your
+Amazon S3 bucket and `region` with the AWS Region
+of your bucket (for example, `us-east-1`).
 
-###### To grant ElastiCache access to an S3 bucket
+JSON
 
-1.  Sign in to the AWS Management Console and open the Amazon S3 console at
-    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2.  Choose the name of the Amazon S3 bucket that you want to copy the backup to.
-    This should be the S3 bucket that you created in [Create an Amazon S3 bucket](#backups-exporting-create-s3-bucket "#backups-exporting-create-s3-bucket").
-3.  Choose the **Permissions** tab and under **Permissions**, choose **Access control list (ACL)** and then choose **Edit**.
-4.  Add grantee Canonical Id `540804c33a284a299d2547575ce1010f2312ef3da9b3a053c8bc45bf233e4353` with the following options:
-    - **Objects: List, Write**
-    - **Bucket ACL: Read, Write**
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ElastiCacheSnapshotExport",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "`region`.elasticache-snapshot.amazonaws.com"
+ },
+ "Action": [
+ "s3:PutObject",
+ "s3:GetObject",
+ "s3:ListBucket",
+ "s3:GetBucketAcl",
+ "s3:ListMultipartUploadParts",
+ "s3:ListBucketMultipartUploads"
+ ],
+ "Resource": [
+ "arn:aws:s3:::`amzn-s3-demo-bucket`",
+ "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
+ ]
+ }
+ ]
+}`
 
-    ###### Note
+```
 
-        + For the PDT GovCloud Region, the Canonical Id is `40fa568277ad703bd160f66ae4f83fc9dfdfd06c2f1b5060ca22442ac3ef8be6`.
-        + For the OSU GovCloud Region, the Canonical Id is `c54286759d2a83da9c480405349819c993557275cf37d820d514b42da6893f5c`.
+###### To add the bucket policy using the Amazon S3 console
 
-5.  Choose **Save**.
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. Choose the name of the Amazon S3 bucket that you want to copy the backup to.
+   This should be the S3 bucket that you created in [Create an Amazon S3 bucket](#backups-exporting-create-s3-bucket "#backups-exporting-create-s3-bucket").
+3. Choose the **Permissions** tab.
+4. Under **Bucket policy**, choose **Edit**.
+5. Paste the bucket policy into the policy editor. Replace the
+   `region` and
+   `amzn-s3-demo-bucket` placeholders
+   with your values.
+6. Choose **Save changes**.
+
+For more information about migrating from ACLs to bucket policies, see
+[Grant
+Amazon ElastiCache (Redis OSS) access to your S3 bucket](../../../AmazonS3/latest/userguide/object-ownership-migrating-acls-prerequisites.md#object-ownership-elasticache-redis "../../../AmazonS3/latest/userguide/object-ownership-migrating-acls-prerequisites.md#object-ownership-elasticache-redis") in the
+_Amazon S3 User Guide_.
 
 ## Export an ElastiCache backup
 
 Now you've created your S3 bucket and granted ElastiCache permissions to access it.
 Next, you can use the ElastiCache console, the AWS CLI, or the ElastiCache API to export your
 snapshot to it.
-
-The following is an example of what the updated policy might look like.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Id": "Policy15397346",
- "Statement": [
- {
- "Sid": "Stmt15399484",
- "Effect": "Allow",
- "Action": "s3:*",
- "Resource": [
- "arn:aws:s3:::hkg-elasticache-backup",
- "arn:aws:s3:::hkg-elasticache-backup/*"
- ]
- }
- ]
-}`
-
-```
-
-For opt-in Regions, the following is an example of what the updated IAM policy for the S3 bucket might look like. (This examples uses the Asia Pacific (Hong Kong) Region.)
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Id": "Policy15397346",
- "Statement": [
- {
- "Sid": "Stmt15399483",
- "Effect": "Allow",
- "Action": "s3:*",
- "Resource": [
- "arn:aws:s3:::hkg-elasticache-backup",
- "arn:aws:s3:::hkg-elasticache-backup/*"
- ]
- },
- {
- "Sid": "Stmt15399484",
- "Effect": "Allow",
- "Action": "s3:*",
- "Resource": [
- "arn:aws:s3:::hkg-elasticache-backup",
- "arn:aws:s3:::hkg-elasticache-backup/*"
- ]
- }
- ]
-}`
-
-```
 
 The following steps use the ElastiCache console to export a backup to an Amazon S3 bucket
 so that you can access it from outside ElastiCache.

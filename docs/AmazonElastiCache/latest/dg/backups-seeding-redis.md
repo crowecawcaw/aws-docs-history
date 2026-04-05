@@ -264,20 +264,24 @@ JSON
 ```
 `{
  "Version":"2012-10-17",
- "Id": "Policy15397346",
  "Statement": [
  {
- "Sid": "Stmt15399483",
+ "Sid": "ElastiCacheSnapshotExport",
  "Effect": "Allow",
+ "Principal": {
+ "Service": "`region`.elasticache-snapshot.amazonaws.com"
+ },
  "Action": [
+ "s3:PutObject",
  "s3:GetObject",
  "s3:ListBucket",
- "s3:GetBucketAcl"
+ "s3:GetBucketAcl",
+ "s3:ListMultipartUploadParts",
+ "s3:ListBucketMultipartUploads"
  ],
  "Resource": [
  "arn:aws:s3:::`amzn-s3-demo-bucket`",
- "arn:aws:s3:::`amzn-s3-demo-bucket/backup1.rdb`",
- "arn:aws:s3:::`amzn-s3-demo-bucket/backup2.rdb`"
+ "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
  ]
  }
  ]

@@ -61,7 +61,7 @@ ElastiCache does not support mTLS (mutual TLS).
 The following constraints on Amazon ElastiCache in-transit encryption should be kept in mind
 when you plan your node-based cluster implementation:
 
-- In-transit encryption is supported on replication groups running Valkey 7.2 and later, and Redis OSS versions 3.2.6, 4.0.10 and later.
+- In-transit encryption is supported on replication groups running Valkey and Redis OSS.
 - Modifying the in-transit encryption setting, for an existing cluster, is
   supported on replication groups running Valkey 7.2 and later, and Redis OSS version 7 and later.
 - In-transit encryption is supported only for replication groups running in an Amazon VPC.

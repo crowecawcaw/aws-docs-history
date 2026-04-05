@@ -9,7 +9,6 @@ When designing your own cluster, 'Dev/Test' and 'Production' configurations
 with the 'Easy create' method have in-transit encryption enabled. When choosing
 configuration yourself, make the following selections:
 
-- Choose engine version 3.2.6, 4.0.10 or later.
 - Click the checkbox next to **Enable** for the **Encryption
   in transit** option.
   For the step-by-step process, see the following:
@@ -70,8 +69,6 @@ has in-transit encryption enabled:
 
 - `--engine`—Must be `valkey` or
   `redis`.
-- `--engine-version`—If the engine is Redis OSS, this must be 3.2.6,
-  4.0.10 or later.
 - `--transit-encryption-enabled`—Required.
   If you enable in-transit encryption, you must also provide a value
   for the `--cache-subnet-group` parameter.
@@ -91,8 +88,6 @@ in-transit encryption enabled:
 
 - `--engine`—Must be `valkey` or
   `redis`.
-- `--engine-version`—If the engine is Redis OSS, this must be 3.2.6,
-  4.0.10 or later.
 - `--transit-encryption-enabled`—Required.
   If you enable in-transit encryption you must also provide a value
   for the `--cache-subnet-group` parameter.
