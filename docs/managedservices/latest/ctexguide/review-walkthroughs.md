@@ -2,6 +2,10 @@
 
 ###### Topics
 
+- [Remediate DNS scavenging issue](#ex-dirserv-dns-scavenging-remediate-col "#ex-dirserv-dns-scavenging-remediate-col")
+- [Delete VPC route](#ex-vpc-route-delete-col "#ex-vpc-route-delete-col")
+- [Update parameter group of DB instance or cluster](#ex-rds-db-parameter-group-update-col "#ex-rds-db-parameter-group-update-col")
+- [Replace Site-to-Site VPN tunnel](#ex-vpn-s2s-tunnel-replace-col "#ex-vpn-s2s-tunnel-replace-col")
 - [Create a DHCP option set](#ex-vpc-create-dhcp-option-set-col "#ex-vpc-create-dhcp-option-set-col")
 - [Create ELB Listener Rule](#ex-load-balancer-create-elb-listener-rule-col "#ex-load-balancer-create-elb-listener-rule-col")
 - [Update VPC Endpoint Policy](#ex-vpc-endpoint-update-policy-col "#ex-vpc-endpoint-update-policy-col")
@@ -63,6 +67,423 @@
 - [Update RDS maintainance window (Managed Automation)](#ex-rds-update-window-col "#ex-rds-update-window-col")
 - [Update RDS performance insights (Managed Automation)](#ex-rds-update-insights-col "#ex-rds-update-insights-col")
 - [Create security group (Managed Automation)](#ex-sec-group-create-rr-col "#ex-sec-group-create-rr-col")
+
+## Remediate DNS scavenging issue
+
+The following shows this change type in the AMS console.
+
+![Screenshot of the Remediate DNS scavenging issue change type in the AMS console](images/guiDirservDnsScavengingRemediateCT.png)
+How it works:
+
+1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
+2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
+   **Choose by category** view.
+   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
+     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+
+   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
+   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
+   a **Create with older version** option appears next to the **Create RFC** button.
+   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
+     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+
+3. On the **Run RFC** page, open the CT name area to see the CT details box.
+   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
+   **Additional configuration** area to add information about the RFC.
+
+In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
+optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
+page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
+Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+How it works:
+
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
+   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
+   command with the two files as input. Both methods are described here.
+2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+
+Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+To check the change type version, use this command:
+
+```
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+```
+
+###### Note
+
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
+change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
+RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
+[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
+
+_INLINE CREATE_:
+
+Issue the create RFC command with execution parameters provided inline (escape
+quotation marks when providing execution parameters inline) and then submit the
+returned RFC ID. For example, you can replace the contents with something like this:
+
+```
+aws amscm create-rfc --change-type-id "ct-3k67klld7cimj" --change-type-version "1.0" --title "Remediate DNS scavenging issue" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-UpdateClusterNodeRecordPermissions-Admin\",\"Parameters\":{\"ClusterCNOName\":[\"`CLUSTER_CNO_NAME`\"],\"ClusterNodeComputerNames\":[\"`NODE_NAME_1`\",\"`NODE_NAME_2`\"],\"ClusterVCONames\":[\"`VCO_NAME_1`\",\"`VCO_NAME_2`\"]},\"Region\":\"`us-east-1`\"}"
+```
+
+_TEMPLATE CREATE_:
+
+1. Output the execution parameters JSON schema for this change type; this
+   example names it RemediateDnsScavengingParams.json:
+
+```
+aws amscm get-change-type-version --change-type-id "ct-3k67klld7cimj" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > RemediateDnsScavengingParams.json
+```
+
+2. Modify and save the execution parameters JSON file. For example, you can replace the contents with something like this:
+
+```
+{
+  "DocumentName": "AWSManagedServices-UpdateClusterNodeRecordPermissions-Admin",
+  "Region": "`us-east-1`",
+  "Parameters": {
+    "ClusterCNOName": ["`CLUSTER_CNO_NAME`"],
+    "ClusterNodeComputerNames": ["`NODE_NAME_1`", "`NODE_NAME_2`"],
+    "ClusterVCONames": ["`VCO_NAME_1`", "`VCO_NAME_2`"]
+  }
+}
+```
+
+3. Output the RFC template JSON file; this example names it RemediateDnsScavengingRfc.json:
+
+```
+aws amscm create-rfc --generate-cli-skeleton > RemediateDnsScavengingRfc.json
+```
+
+4. Modify and save the RemediateDnsScavengingRfc.json file. For example, you can replace the contents with something like this:
+
+```
+{
+  "ChangeTypeVersion" : "1.0",
+  "ChangeTypeId" : "ct-3k67klld7cimj",
+  "Title" : "`Remediate DNS scavenging issue`"
+}
+```
+
+5. Create the RFC, specifying the RemediateDnsScavengingRfc file and the RemediateDnsScavengingParams file:
+
+```
+aws amscm create-rfc --cli-input-json file://RemediateDnsScavengingRfc.json  --execution-parameters file://RemediateDnsScavengingParams.json
+```
+
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+
+## Delete VPC route
+
+The following shows this change type in the AMS console.
+
+![Screenshot of the Delete VPC route change type in the AMS console](images/guiVpcRouteDeleteCT.png)
+How it works:
+
+1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
+2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
+   **Choose by category** view.
+   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
+     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+
+   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
+   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
+   a **Create with older version** option appears next to the **Create RFC** button.
+   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
+     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+
+3. On the **Run RFC** page, open the CT name area to see the CT details box.
+   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
+   **Additional configuration** area to add information about the RFC.
+
+In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
+optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
+page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
+Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+How it works:
+
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
+   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
+   command with the two files as input. Both methods are described here.
+2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+
+Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+To check the change type version, use this command:
+
+```
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+```
+
+###### Note
+
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
+change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
+RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
+[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
+
+_INLINE CREATE_:
+
+Issue the create RFC command with execution parameters provided inline (escape
+quotation marks when providing execution parameters inline) and then submit the
+returned RFC ID. For example, you can replace the contents with something like this:
+
+```
+aws amscm create-rfc --change-type-id "ct-1nusoameibz5p" --change-type-version "1.0" --title "Delete VPC route" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-DeleteRoute\",\"Region\":\"`us-east-1`\",\"Parameters\":{\"RouteTableId\":\"`rtb-1234abcd12345abcd`\",\"DestinationCidrBlock\":\"`10.0.0.0/8`\"}}"
+```
+
+_TEMPLATE CREATE_:
+
+1. Output the execution parameters JSON schema for this change type; this
+   example names it DeleteVPCRouteParams.json:
+
+```
+aws amscm get-change-type-version --change-type-id "ct-1nusoameibz5p" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > DeleteVPCRouteParams.json
+```
+
+2. Modify and save the execution parameters JSON file. For example, you can replace the contents with something like this:
+
+```
+{
+  "DocumentName": "AWSManagedServices-DeleteRoute",
+  "Region": "`us-east-1`",
+  "Parameters": {
+    "RouteTableId": "`rtb-1234abcd12345abcd`",
+    "DestinationCidrBlock": "`10.0.0.0/8`",
+    "DestinationPrefixListId": "`pl-abcd1234`"
+  }
+}
+```
+
+3. Output the RFC template JSON file; this example names it DeleteVPCRouteRfc.json:
+
+```
+aws amscm create-rfc --generate-cli-skeleton > DeleteVPCRouteRfc.json
+```
+
+4. Modify and save the DeleteVPCRouteRfc.json file. For example, you can replace the contents with something like this:
+
+```
+{
+  "ChangeTypeVersion" : "1.0",
+  "ChangeTypeId" : "ct-1nusoameibz5p",
+  "Title" : "`Delete VPC route`"
+}
+```
+
+5. Create the RFC, specifying the DeleteVPCRouteRfc file and the DeleteVPCRouteParams file:
+
+```
+aws amscm create-rfc --cli-input-json file://DeleteVPCRouteRfc.json  --execution-parameters file://DeleteVPCRouteParams.json
+```
+
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+
+## Update parameter group of DB instance or cluster
+
+The following shows this change type in the AMS console.
+
+![Screenshot of the Update Parameter Group of DB instance or cluster change type in the AMS console](images/guiRdsDbParameterGroupUpdateCT.png)
+How it works:
+
+1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
+2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
+   **Choose by category** view.
+   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
+     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+
+   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
+   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
+   a **Create with older version** option appears next to the **Create RFC** button.
+   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
+     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+
+3. On the **Run RFC** page, open the CT name area to see the CT details box.
+   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
+   **Additional configuration** area to add information about the RFC.
+
+In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
+optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
+page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
+Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+How it works:
+
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
+   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
+   command with the two files as input. Both methods are described here.
+2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+
+Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+To check the change type version, use this command:
+
+```
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+```
+
+###### Note
+
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
+change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
+RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
+[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
+
+_INLINE CREATE_:
+
+Issue the create RFC command with execution parameters provided inline (escape
+quotation marks when providing execution parameters inline) and then submit the
+returned RFC ID. For example, you can replace the contents with something like this:
+
+```
+aws amscm create-rfc --change-type-id "ct-0p1oqt4xcp1cv" --change-type-version "1.0" --title "Change Parameter Group" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-UpdateDBParameterGroup\",\"Region\":\"`us-east-1`\",\"Parameters\":{\"DBArn\":\"`arn:aws:rds:us-east-1:945533541580:db:database-1`\",\"ParameterGroupName\":\"`minlz-parameter-group-mysql`\"}}"
+```
+
+_TEMPLATE CREATE_:
+
+1. Output the execution parameters JSON schema for this change type; this
+   example names it UpdateDBParameterGroupParams.json:
+
+```
+aws amscm get-change-type-version --change-type-id "ct-0p1oqt4xcp1cv" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > UpdateDBParameterGroupParams.json
+```
+
+2. Modify and save the execution parameters JSON file. For example, you can replace the contents with something like this:
+
+```
+{
+  "DocumentName": "AWSManagedServices-UpdateDBParameterGroup",
+  "Region": "`us-east-1`",
+  "Parameters": {
+    "DBArn": "`arn:aws:rds:us-east-1:945533541580:db:database-1`",
+    "ParameterGroupName": "`minlz-parameter-group-mysql`"
+  }
+}
+```
+
+3. Output the RFC template JSON file; this example names it UpdateDBParameterGroupRFC.json:
+
+```
+aws amscm create-rfc --generate-cli-skeleton > UpdateDBParameterGroupRFC.json
+```
+
+4. Modify and save the UpdateDBParameterGroupRFC.json file. For example, you can replace the contents with something like this:
+
+```
+{
+  "ChangeTypeVersion" : "1.0",
+  "ChangeTypeId" : "ct-0p1oqt4xcp1cv",
+  "Title" : "`Change Parameter Group`"
+}
+```
+
+5. Create the RFC, specifying the UpdateDBParameterGroupRFC file and the UpdateDBParameterGroupParams file:
+
+```
+aws amscm create-rfc --cli-input-json file://UpdateDBParameterGroupRFC.json  --execution-parameters file://UpdateDBParameterGroupParams.json
+```
+
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+
+## Replace Site-to-Site VPN tunnel
+
+The following shows this change type in the AMS console.
+
+![Screenshot of the Replace Site-to-Site VPN tunnel change type in the AMS console](images/guiVpnS2sTunnelReplaceCT.png)
+How it works:
+
+1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
+2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
+   **Choose by category** view.
+   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
+     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+
+   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
+   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
+   a **Create with older version** option appears next to the **Create RFC** button.
+   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
+     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+
+3. On the **Run RFC** page, open the CT name area to see the CT details box.
+   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
+   **Additional configuration** area to add information about the RFC.
+
+In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
+optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
+page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
+Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+How it works:
+
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
+   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
+   command with the two files as input. Both methods are described here.
+2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+
+Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+To check the change type version, use this command:
+
+```
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+```
+
+###### Note
+
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
+change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
+RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
+[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
+
+_INLINE CREATE_:
+
+Issue the create RFC command with execution parameters provided inline (escape
+quotation marks when providing execution parameters inline) and then submit the
+returned RFC ID. For example, you can replace the contents with something like this:
+
+```
+aws amscm create-rfc --change-type-id "ct-2sav5hzk5twk4" --change-type-version "1.0" --title "Replace S2S VPN Tunnel" --execution-parameters "{\"Region\":\"`us-east-1`\",\"VpnId\":\"`vpn-01234567890abcdef`\",\"VpnTunnelOutsideIpAddress\":\"`203.0.113.1`\",\"ApplyPendingMaintenance\": `true`,\"Priority\":\"`High`\"}"
+```
+
+_TEMPLATE CREATE_:
+
+1. Output the execution parameters JSON schema for this change type; this
+   example names it ReplaceS2SVpnTunnelParams.json:
+
+```
+aws amscm get-change-type-version --change-type-id "ct-2sav5hzk5twk4" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > ReplaceS2SVpnTunnelParams.json
+```
+
+2. Modify and save the execution parameters JSON file. For example, you can replace the contents with something like this:
+
+```
+{
+  "Region": "`us-east-1`",
+  "VpnId": "`vpn-01234567890abcdef`",
+  "VpnTunnelOutsideIpAddress": "`203.0.113.1`",
+  "ApplyPendingMaintenance": `true`,
+  "Priority": "`High`"
+}
+```
+
+3. Output the RFC template JSON file; this example names it ReplaceS2SVpnTunnelRFC.json:
+
+```
+aws amscm create-rfc --generate-cli-skeleton > ReplaceS2SVpnTunnelRFC.json
+```
+
+4. Modify and save the ReplaceS2SVpnTunnelRFC.json file. For example, you can replace the contents with something like this:
+
+```
+{
+  "ChangeTypeVersion": "1.0",
+  "ChangeTypeId": "ct-2sav5hzk5twk4",
+  "Title": "`Replace S2S VPN Tunnel`"
+}
+```
+
+5. Create the RFC, specifying the ReplaceS2SVpnTunnelRFC file and the ReplaceS2SVpnTunnelParams file:
+
+```
+aws amscm create-rfc --cli-input-json file://ReplaceS2SVpnTunnelRFC.json --execution-parameters file://ReplaceS2SVpnTunnelParams.json
+```
+
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
 ## Create a DHCP option set
 
@@ -3578,7 +3999,7 @@ _INLINE CREATE_:
 Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-1n9gfnog5x7fl" --change-type-version "1.0" --title "`Create role or policy`" --execution-parameters '{"DocumentName":"AWSManagedServices-HandleAutomatedIAMProvisioningCreate-Admin","Region":"`us-east-1`","Parameters":{"ValidateOnly":"`No`"},"RoleDetails":{"Roles":[{"RoleName":"`RoleTest01`","Description":"`This is a test role`","AssumeRolePolicyDocument":"{"Version": "2012-10-17", 		 	 	 		 	 	 "Statement":`[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:root"},"Action":"sts:AssumeRole"}]}","ManagedPolicyArns":["arn:aws:iam::123456789012:policy/policy01","arn:aws:iam::123456789012:policy/policy02"],"Path":"/","MaxSessionDuration":"7200","PermissionsBoundary":"arn:aws:iam::123456789012:policy/permission_boundary01","InstanceProfile":"No"}]},"ManagedPolicyDetails":{"Policies":[{"ManagedPolicyName":"TestPolicy01","Description":"This is customer policy","Path":"/test/","PolicyDocument":"{"`Version`":"2012-10-17","Statement":[{"Sid":"AllQueueActions","Effect":"Allow","Action":"sqs:ListQueues","Resource":"*","Condition":{"ForAllValues:StringEquals":{"aws:tagKeys":["temporary"]}}}]}"}]}`}'
+aws amscm create-rfc --change-type-id "ct-1n9gfnog5x7fl" --change-type-version "1.0" --title "`Create role or policy`" --execution-parameters '{"DocumentName":"AWSManagedServices-HandleAutomatedIAMProvisioningCreate-Admin","Region":"`us-east-1`","Parameters":{"ValidateOnly":"`No`"},"RoleDetails":{"Roles":[{"RoleName":"`RoleTest01`","Description":"`This is a test role`","AssumeRolePolicyDocument":"{"Version": "2012-10-17", "Statement":`[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:root"},"Action":"sts:AssumeRole"}]}","ManagedPolicyArns":["arn:aws:iam::123456789012:policy/policy01","arn:aws:iam::123456789012:policy/policy02"],"Path":"/","MaxSessionDuration":"7200","PermissionsBoundary":"arn:aws:iam::123456789012:policy/permission_boundary01","InstanceProfile":"No"}]},"ManagedPolicyDetails":{"Policies":[{"ManagedPolicyName":"TestPolicy01","Description":"This is customer policy","Path":"/test/","PolicyDocument":"{"`Version`":"2012-10-17","Statement":[{"Sid":"AllQueueActions","Effect":"Allow","Action":"sqs:ListQueues","Resource":"*","Condition":{"ForAllValues:StringEquals":{"aws:tagKeys":["temporary"]}}}]}"}]}`}'
 ```
 
 _TEMPLATE CREATE_:
@@ -3765,7 +4186,7 @@ aws amscm get-change-type-version --change-type-id "ct-1e0xmuy1diafq" --query "C
       {
         "RoleName": "`RoleTest01`",
         "Description": "`This is a test role`",
-        "AssumeRolePolicyDocument": {"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"`Allow`","Principal":{"AWS":"`arn:aws:iam::123456789012:root`"},"Action":"`sts:AssumeRole`"}]},
+        "AssumeRolePolicyDocument": {"Version": "2012-10-17","Statement":[{"Effect":"`Allow`","Principal":{"AWS":"`arn:aws:iam::123456789012:root`"},"Action":"`sts:AssumeRole`"}]},
         "ManagedPolicyArns": [
           "`arn:aws:iam::123456789012:policy/policy01`",
           "`arn:aws:iam::123456789012:policy/policy02`"
@@ -3779,7 +4200,7 @@ aws amscm get-change-type-version --change-type-id "ct-1e0xmuy1diafq" --query "C
     "Policies": [
       {
         "ManagedPolicyName": "`TestPolicy01`",
-        "PolicyDocument": {"Version": "2012-10-17",		 	 	 "Statement":[{"Sid":"`AllQueueActions`","Effect":"`Allow`","Action":"`sqs:ListQueues`","Resource":"`*`","Condition":{"`ForAllValues:StringEquals`":{"`aws:tagKeys`":["`temporary`"]}}}]}
+        "PolicyDocument": {"Version": "2012-10-17","Statement":[{"Sid":"`AllQueueActions`","Effect":"`Allow`","Action":"`sqs:ListQueues`","Resource":"`*`","Condition":{"`ForAllValues:StringEquals`":{"`aws:tagKeys`":["`temporary`"]}}}]}
       }
     ]
   }
