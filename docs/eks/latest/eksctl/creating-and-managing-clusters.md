@@ -90,7 +90,7 @@ nodeGroups:
         imageBuilder: true
 ```
 
-The cluster name or nodegroup name must contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and can’t exceed 128 characters, or you will receive a validation error. For more information, see [Create a stack from the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-parameters.md "../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-parameters.md") in the AWS CloudFormation user guide.
+The cluster name or nodegroup name must contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and can’t exceed 128 characters, or you will receive a validation error. For more information, see [Create a stack from the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-parameters.md "../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-parameters.md") in the AWS CLoudFormation user guide.
 
 ## Update kubeconfig for new cluster
 

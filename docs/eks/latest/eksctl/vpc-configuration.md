@@ -20,11 +20,11 @@ In `us-east-1` eksctl only creates 2 public and 2 private subnets by default.
 ## Change VPC CIDR
 
 If you need to set up peering with another VPC, or simply need a larger or smaller range of IPs, you can use `--vpc-cidr` flag to
-change it. Please refer to [the AWS docs](../../../vpc/latest/userguide/VPC_Subnets.md#VPC_Sizing "../../../vpc/latest/userguide/VPC_Subnets.md#VPC_Sizing") for guides on choosing CIDR blocks which are permitted for use in a VPC.
+change it. Please refer to [the AWS docs](../../../vpc/latest/userguide/VPC_Subnets.md#VPC_Sizing "../../../vpc/latest/userguide/VPC_Subnets.md#VPC_Sizing") for guides on choosing CIDR blocks which are permitted for use in an AWS VPC.
 
-If you are creating an IPv6 cluster you can configure `VPC.IPv6Cidr` in the cluster config file. This setting is only in the config file, not in a CLI flag.
+If you are creating an IPv6 cluster you can configure `VPC.IPv6Cidr` in the cluser config file. This setting is only in the config file, not in a CLI flag.
 
-If you own an IPv6 IP address block, you can also bring your own IPv6 pool. See [Bring your own IP addresses (BYOIP) to Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-byoip.md "../../../AWSEC2/latest/UserGuide/ec2-byoip.md") on how to import your own pool. Then use the `VPC.IPv6Cidr` in the cluster config file to configure Eksctl.
+If you own an IPv6 IP address block, you can also bring your own IPv6 pool. See [Bring your own IP addresses (BYOIP) to Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-byoip.md "../../../AWSEC2/latest/UserGuide/ec2-byoip.md") on how to import your own pool. Then use the `VPC.IPv6Cidr` in the cluser config file to configure Eksctl.
 
 ## Use an existing VPC: shared with kops
 

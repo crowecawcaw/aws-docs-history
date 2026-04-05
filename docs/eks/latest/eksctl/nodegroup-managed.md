@@ -70,7 +70,7 @@ managedNodeGroups:
 Another example of a config file for creating a managed nodegroup can be found [here](https://github.com/eksctl-io/eksctl/blob/main/examples/15-managed-nodes.yaml "https://github.com/eksctl-io/eksctl/blob/main/examples/15-managed-nodes.yaml").
 
 It’s possible to have a cluster with both managed and unmanaged nodegroups. Unmanaged nodegroups do not show up in
-the Amazon EKS console but `eksctl get nodegroup` will list both types of nodegroups.
+the AWS EKS console but `eksctl get nodegroup` will list both types of nodegroups.
 
 ```
 # cluster.yaml
@@ -231,8 +231,8 @@ managedNodeGroups:
       version: "2" #optional (uses the default version of the launch template if unspecified)
 ```
 
-- create a new version of the custom AMI (using Amazon EKS console).
-- create a new launch template version with the new AMI ID (using Amazon EKS console).
+- create a new version of the custom AMI (using AWS EKS console).
+- create a new launch template version with the new AMI ID (using AWS EKS console).
 - upgrade the nodes to the new version of the launch template. e.g.
 
 ```

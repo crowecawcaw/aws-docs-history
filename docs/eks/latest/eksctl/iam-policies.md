@@ -1,6 +1,6 @@
 # IAM policies
 
-You can attach Instance Roles to node groups. Workloads running on the node will receive IAM permissions from the node. For more information, see [IAM roles for Amazon EC2](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md").
+You can attach Instance Roles to node groups. Workloads running on the node will receive IAM permissions from the node. For mroe information, see [IAM roles for Amazon EC2](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md").
 
 This page lists the pre-defined IAM policy templates available in eksctl. These templates simplify the process of granting your EKS nodes the appropriate AWS service permissions without having to manually create custom IAM policies.
 

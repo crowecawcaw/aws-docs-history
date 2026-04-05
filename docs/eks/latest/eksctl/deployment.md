@@ -16,4 +16,4 @@ For the most accurate information about EKS deployment options, see [Deploy Amaz
   - AWS Outposts support in eksctl lets you create local clusters with the entire Kubernetes cluster, including the EKS control plane and worker nodes, running locally on AWS Outposts.
 
 - [EKS Hybrid Nodes](hybrid-nodes.md "hybrid-nodes.md")
-  - Run on-premises and edge applications on customer-managed infrastructure with the same Amazon EKS clusters, features, and tools you use in AWS.
+  - Run on-premises and edge applications on customer-managed infrastructure with the same AWS EKS clusters, features, and tools you use in the AWS Cloud.

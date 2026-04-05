@@ -102,4 +102,4 @@ vpc:
 ...
 ```
 
-For more information on VPC configuration options, see [Networking](networking.md "networking.md").
+Fore more information on VPC configuration options, see [Networking](networking.md "networking.md").

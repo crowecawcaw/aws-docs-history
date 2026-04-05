@@ -4,11 +4,11 @@ You can use eksctl to manage EKS Access Entries. Use access entries to grant Kub
 
 This topic covers how to use eksctl to manage access entries. For general information about access entries, see [Grant IAM users access to Kubernetes with EKS access entries](../userguide/access-entries.md "../userguide/access-entries.md").
 
-You can attach Kubernetes access policies defined by AWS, or associate an IAM Identity with a Kubernetes group.
+You can attach Kubernetes access policies defined by AWS, or assocoiate an IAM Identity with a Kubernetes group.
 
 For more information about the available pre-defined policies, see [Associate access policies with access entries](../userguide/access-policies.md#access-policy-permissions "../userguide/access-policies.md#access-policy-permissions").
 
-If you need to define custom Kubernetes policies, associate the IAM Identity with a Kubernetes group, and grant permissions to that group.
+If you need to define customer Kubernetes policies, associate the IAM Identity with a Kubernetes group, and grant permissions to that group.
 
 ## Cluster authentication mode
 
@@ -96,7 +96,7 @@ The integration with access entries for these resources will be achieved behind 
 
 Each access entry has a type. For authorizing self-managed nodegroups, `eksctl` will create a unique access entry for each nodegroup with the principal ARN set to the node role ARN and type set to either `EC2_LINUX` or `EC2_WINDOWS` depending on nodegroup amiFamily.
 
-When creating your own access entries, you can also specify `EC2_LINUX` (for an IAM role used with Linux or Bottlerocket self-managed nodes), `EC2_WINDOWS` (for IAM roles used with Windows self-managed nodes), `FARGATE_LINUX` (for IAM roles used with AWS Fargate (Fargate)), or `STANDARD` as a type. If you don’t specify a type, the default type is set to `STANDARD`.
+When creating your own access entries, you can also specify `EC2_LINUX` (for an IAM role used with Linux or Bottlerocket self-managed nodes), `EC2_WINDOWS` (for an IAM roles used with Windows self-managed nodes), `FARGATE_LINUX` (for an IAM roles used with AWS Fargate (Fargate)), or `STANDARD` as a type. If you don’t specify a type, the default type is set to `STANDARD`.
 
 ###### Note
 
@@ -120,7 +120,7 @@ For an example config file for creating access entries, see [40-access-entries.y
 
 ## Get access entry
 
-The user can retrieve all access entries associated with a certain cluster by running one of the following:
+The user can retieve all access entries associated with a certain cluster by running one of the following:
 
 ```
 eksctl get accessentry -f config.yaml
