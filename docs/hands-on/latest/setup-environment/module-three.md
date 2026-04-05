@@ -222,7 +222,7 @@ https://device.sso.us-east1.amazonaws.com/**
 
 **ABCD-ABCD**
 
-![Interface element requiring manual review.](/images/hands-on/latest/setup-environment/images/interface-1.png) 9. Complete authentication
+![Interface element requiring manual review.](images/interface-1.png) 9. Complete authentication
 
 Navigate to the browser window and **allow
 access** to your data. When you return to the CLI window
@@ -236,7 +236,7 @@ For more information about CLI file credential, see the
 and credential file settings in the AWS CLI](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md") in the
 **AWS Command Line Interface** user guide.
 
-![The configuration settings interface.](/images/hands-on/latest/setup-environment/images/interface-1.png)
+![The configuration settings interface.](images/interface-1.png)
 As you add roles to your AWS account and add additional AWS accounts
 to your organization, repeat the procedure above to create a profile
 for those roles and accounts.
