@@ -12,7 +12,7 @@ Amazon Keyspaces is compatible with Cassandra drivers that support Apache Cassan
 - `.NET CassandraCSharpDriver -v 3.20.1`
   For more information about
   Cassandra drivers, see [Apache
-  Cassandra Client drivers](http://cassandra.apache.org/doc/latest/getting_started/drivers.html "http://cassandra.apache.org/doc/latest/getting_started/drivers.html").
+  Cassandra Client drivers](https://cassandra.apache.org/doc/stable/cassandra/getting-started/drivers.html "https://cassandra.apache.org/doc/stable/cassandra/getting-started/drivers.html").
 
 ###### Note
 
