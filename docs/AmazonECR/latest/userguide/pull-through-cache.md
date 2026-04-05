@@ -64,11 +64,12 @@ Consider the following when using Amazon ECR pull through cache rules.
   will return the image directly from the cache in the customer's private registry.
 - For upstream repositories that do not require authentication, when an image is pulled through the Amazon ECR private registry URI, the
   image pulls are initiated by AWS IP addresses.
-- When a cached image is pulled through the Amazon ECR private registry URI,
-  Amazon ECR checks the upstream repository at least once every 24 hours to verify
-  whether the cached image is the latest version. If there is a newer image in
-  the upstream registry, Amazon ECR attempts to update the cached image. This timer
-  is based off the last pull of the cached image.
+- When a customer pulls a cached image through the Amazon ECR private registry URI,
+  Amazon ECR checks whether it has validated the image against the upstream
+  registry within the last 24 hours. If the 24-hour window has expired,
+  Amazon ECR sends a request upstream to check for a newer version and updates
+  the cache if one exists. If the window has not expired, Amazon ECR serves the
+  cached image without contacting the upstream.
 - If Amazon ECR is unable to update the image from the upstream registry for any
   reason and the image is pulled, the last cached image will still be
   pulled.

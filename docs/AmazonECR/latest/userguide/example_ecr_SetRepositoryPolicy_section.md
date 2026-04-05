@@ -285,7 +285,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
 ```
     TRY.
         " iv_repository_name = 'my-repository'
-        " iv_policy_text = '{"Version":"2012-10-17",		 	 	 "Statement":[...]}'
+        " iv_policy_text = '{"Version":"2012-10-17","Statement":[...]}'
         lo_ecr->setrepositorypolicy(
           iv_repositoryname = iv_repository_name
           iv_policytext = iv_policy_text ).
