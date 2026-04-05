@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Implement fault tolerance in Managed Service for Apache Flink
 
 Checkpointing is the method that is used for implementing fault tolerance in

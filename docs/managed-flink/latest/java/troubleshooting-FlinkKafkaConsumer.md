@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # FlinkKafkaConsumer issue with stop with savepoint
 
 When using the legacy FlinkKafkaConsumer there is a possibility your application may get stuck in UPDATING, STOPPING or SCALING,

@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Create a Studio notebook with Kinesis Data Streams
 
 This tutorial describes how to create a Studio notebook that uses a Kinesis data stream as a source.

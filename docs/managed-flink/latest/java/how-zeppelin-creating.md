@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Create a Studio notebook
 
 A Studio notebook contains queries or programs written in SQL, Python, or Scala that

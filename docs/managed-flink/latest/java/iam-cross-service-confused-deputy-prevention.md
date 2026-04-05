@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Cross-service confused deputy prevention
 
 In AWS, cross-service impersonation can occur when one service (the calling service) calls another service (the called service).

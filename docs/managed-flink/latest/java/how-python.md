@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Use Python with Managed Service for Apache Flink
 
 ###### Note
@@ -7,9 +5,9 @@ Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Ama
 If you are developing Python Flink application on a new Mac with Apple Silicon chip, you may encounter some [known issues](https://issues.apache.org/jira/browse/FLINK-26981 "https://issues.apache.org/jira/browse/FLINK-26981") with Python dependencies of PyFlink 1.15.
 In this case we recommend running the Python interpreter in Docker. For step-by-step instructions, see [PyFlink 1.15 development on Apple Silicon Mac](https://github.com/aws-samples/amazon-managed-service-for-apache-flink-examples/tree/main/python/LocalDevelopmentOnAppleSilicon "https://github.com/aws-samples/amazon-managed-service-for-apache-flink-examples/tree/main/python/LocalDevelopmentOnAppleSilicon").
 
-Apache Flink version 1.20 includes support for creating applications using Python version
-3.11. For more information, see [Flink
-Python Docs](https://nightlies.apache.org/flink/flink-docs-release-1.20/api/python/ "https://nightlies.apache.org/flink/flink-docs-release-1.20/api/python/"). You create a Managed Service for Apache Flink application using Python by doing the
+Apache Flink version 2.2 includes support for creating applications using Python version
+3.12; support for Python version 3.8 is removed. For more information, see [Flink
+Python Docs](https://nightlies.apache.org/flink/flink-docs-release-2.2/api/python/ "https://nightlies.apache.org/flink/flink-docs-release-2.2/api/python/"). You create a Managed Service for Apache Flink application using Python by doing the
 following:
 
 - Create your Python application code as a text file with a `main` method.

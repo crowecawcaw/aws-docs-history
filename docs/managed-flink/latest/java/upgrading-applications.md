@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Upgrade applications using in-place version upgrades for Apache Flink
 
 Before you begin, we recommend that you watch this video: [In-Place Version

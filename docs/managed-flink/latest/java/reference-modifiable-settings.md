@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Modifiable Flink configuration properties
 
 Following are Flink configuration settings that you can modify using a [support case](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/"). You can modify more than one
@@ -27,7 +25,7 @@ strategy by default.
 
 ## Checkpoints and state backends
 
-`state.backend:`
+`state.backend.type:`
 
 `state.backend.fs.memory-threshold:`
 
@@ -120,9 +118,9 @@ This API is used by Flink’s own dashboard, but it can also be used by custom m
 
 `taskmanager.slot.timeout:`
 
-`taskmanager.network.memory.fraction:`
+`taskmanager.memory.network.fraction:`
 
-`taskmanager.network.memory.max:`
+`taskmanager.memory.network.max:`
 
 `taskmanager.network.request-backoff.initial:`
 

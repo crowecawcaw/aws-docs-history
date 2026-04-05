@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Use in-place version upgrades for Apache Flink
 
 With in-place version upgrades for Apache Flink, you retain application traceability
@@ -21,3 +19,5 @@ You can't use in-place version upgrades for Apache Flink with Amazon Managed Ser
 - [Roll back application upgrades](rollback.md "rollback.md")
 - [General best practices and recommendations for application upgrades](best-practices-recommendations.md "best-practices-recommendations.md")
 - [Precautions and known issues with application upgrades](precautions.md "precautions.md")
+- [Upgrading to Flink 2.2: Complete guide](flink-2-2-upgrade-guide.md "flink-2-2-upgrade-guide.md")
+- [State compatibility guide for Flink 2.2 upgrades](state-compatibility.md "state-compatibility.md")

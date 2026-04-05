@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Apache Flink Flame Graphs
 
 Flame Graphs are enabled by default on applications

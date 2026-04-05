@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Managed Service for Apache Flink API example code
 
 This topic contains example request blocks for Managed Service for Apache Flink actions.

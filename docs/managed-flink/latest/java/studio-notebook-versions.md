@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Use the correct Studio notebook Runtime version
 
 With Amazon Managed Service for Apache Flink Studio, you can query data streams in real time and build and run

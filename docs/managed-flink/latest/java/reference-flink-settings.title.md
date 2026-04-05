@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Apache Flink settings
 
 Managed Service for Apache Flink is an implementation of the Apache Flink framework. Managed Service for Apache Flink uses the
@@ -18,6 +16,7 @@ modifiable.
 - [Heap sizes](#reference-defaults-heap "#reference-defaults-heap")
 - [Buffer debloating](#reference-defaults-buffer-debloating "#reference-defaults-buffer-debloating")
 - [Modifiable Flink configuration properties](reference-modifiable-settings.md "reference-modifiable-settings.md")
+- [Programmatic Flink configuration properties](programmatic-configuration.md "programmatic-configuration.md")
 - [View configured Flink properties](viewing-modifiable-settings.md "viewing-modifiable-settings.md")
 
 ## Apache Flink configuration

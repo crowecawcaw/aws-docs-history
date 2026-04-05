@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Implement user-defined functions
 
 User-defined functions (UDFs) are extension points that allow you to call

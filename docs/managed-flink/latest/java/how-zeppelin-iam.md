@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Review IAM permissions for Studio notebooks
 
 Managed Service for Apache Flink creates an IAM role for you when you create a Studio notebook through the AWS Management Console. It

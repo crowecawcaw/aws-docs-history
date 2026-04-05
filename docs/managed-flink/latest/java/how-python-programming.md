@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Program your Managed Service for Apache Flink Python application
 
 You code your Managed Service for Apache Flink for Python application using the Apache Flink Python Table API. The Apache Flink engine translates

@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Upstream or source throttling from a Kinesis data stream
 
 **Symptom**: The application is encountering

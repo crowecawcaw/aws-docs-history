@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Add tags to Managed Service for Apache Flink applications
 
 This section describes how to add key-value metadata tags to Managed Service for Apache Flink applications. These tags can be used for the following purposes:

@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Enable checkpointing
 
 You enable checkpointing by using environment settings. For information about checkpointing, see

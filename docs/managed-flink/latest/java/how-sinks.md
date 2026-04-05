@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Write data using sinks in Managed Service for Apache Flink
 
 In your application code, you can use any [Apache Flink sink](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/overview/ "https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/overview/") connector to write into external systems, including

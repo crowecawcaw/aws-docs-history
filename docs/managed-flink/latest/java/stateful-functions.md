@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Apache Flink stateful functions
 
 [Stateful Functions](https://nightlies.apache.org/flink/flink-statefun-docs-stable/ "https://nightlies.apache.org/flink/flink-statefun-docs-stable/") is an API that simplifies building distributed stateful applications. It’s based on functions with persistent state

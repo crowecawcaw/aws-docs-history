@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # I/O bound operators
 
 It's best to avoid dependencies to external systems on the data path. It's often much more performant to keep a

@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Security in Amazon Managed Service for Apache Flink
 
 Cloud security at AWS is the highest priority. As an AWS customer, you will benefit from a data center and network architecture built to meet
@@ -24,7 +22,7 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 - [Data protection in Amazon Managed Service for Apache Flink](data-protection.md "data-protection.md")
 - [Key management in Amazon Managed Service for Apache Flink](key-management-flink.md "key-management-flink.md")
 - [Identity and Access Management for Amazon Managed Service for Apache Flink](security-iam.md "security-iam.md")
-- [Compliance validation for Amazon Managed Service for Apache Flink](akda-java-compliance.md "akda-java-compliance.md")
+- [Compliance validation for Amazon Managed Service for Apache Flink](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon Managed Service for Apache Flink](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Managed Service for Apache Flink](infrastructure-security.md "infrastructure-security.md")
 - [Security best practices for Managed Service for Apache Flink](security-best-practices.md "security-best-practices.md")

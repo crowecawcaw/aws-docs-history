@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Identity and Access Management for Amazon Managed Service for Apache Flink
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access

@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Logging in Managed Service for Apache Flink
 
 Logging is important for production applications to understand errors and failures. However,

@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Unbounded state growth
 
 If your application is not properly disposing of outdated state information, it will continually accumulate

@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # VPC application permissions
 
 This section describes the permission policies your application will need to work with your VPC. For more

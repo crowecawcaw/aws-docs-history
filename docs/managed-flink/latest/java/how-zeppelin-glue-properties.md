@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Table properties
 
 In addition to data fields, your AWS Glue tables provide other information to your Studio notebook using

@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Using customer managed keys in Amazon MSF
 
 You need to consider the following factors when establishing, managing, and operating Amazon MSF applications subject to a CMK policy.

@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Credential provider issue with EFO connector 1.15.2
 
 There is a [known issue](https://issues.apache.org/jira/browse/FLINK-29205 "https://issues.apache.org/jira/browse/FLINK-29205") with Kinesis Data Streams EFO connector versions up to 1.15.2 where the

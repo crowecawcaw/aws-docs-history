@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Monitor your Managed Service for Apache Flink Python application
 
 You use your application's CloudWatch log to monitor your Managed Service for Apache Flink Python application.

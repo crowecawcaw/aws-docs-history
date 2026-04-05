@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Create and run the application (CLI)
 
 In this section, you use the AWS Command Line Interface to create and run the Managed Service for Apache Flink application. Use the _kinesisanalyticsv2_ AWS CLI command

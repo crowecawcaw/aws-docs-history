@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Log Managed Service for Apache Flink API calls with AWS CloudTrail
 
 Managed Service for Apache Flink is integrated with AWS CloudTrail, a service that provides a record of actions taken

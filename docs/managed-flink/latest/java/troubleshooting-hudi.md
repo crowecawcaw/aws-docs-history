@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Hudi configuration best practices
 
 To run Hudi connectors on Managed Service for Apache Flink we recommend the following configuration

@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Checkpoints
 
 Checkpoints are Flink’s mechanism to ensure that the state of an application is fault tolerant.

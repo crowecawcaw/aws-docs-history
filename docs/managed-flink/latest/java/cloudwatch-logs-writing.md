@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Write custom messages to CloudWatch Logs
 
 You can write custom messages to your Managed Service for Apache Flink application's CloudWatch log. You do this by

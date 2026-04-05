@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Per second billing in Managed Service for Apache Flink
 
 Managed Service for Apache Flink is now billed in one-second increments. There is a ten-minute minimum charge

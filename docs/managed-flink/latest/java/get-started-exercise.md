@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Create and run a Managed Service for Apache Flink application
 
 In this step, you create a Managed Service for Apache Flink application with Kinesis data streams as a source and a
@@ -797,7 +795,7 @@ JSON
 ```
 
 `{
- "Version":"2012-10-17", 
+ "Version":"2012-10-17",
  "Statement": [
  {
  "Sid": "ReadCode",

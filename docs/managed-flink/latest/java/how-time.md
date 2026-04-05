@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Track events in Managed Service for Apache Flink using the DataStream API
 
 Managed Service for Apache Flink tracks events using the following timestamps:

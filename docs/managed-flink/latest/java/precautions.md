@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Precautions and known issues with application upgrades
 
 ## Kafka Commit on checkpointing fails repeatedly after a broker restart

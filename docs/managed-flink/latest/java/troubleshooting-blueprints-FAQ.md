@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Real-time vector embedding blueprints - FAQ
 
 Review the following FAQ about real-time vector embedding blueprints. For more information

@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # State skew
 
 For stateful operators, i.e., operators that maintain state for their business logic such as windows,

@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Compile error: "Could not resolve dependencies for project"
 
 In order to compile the Managed Service for Apache Flink sample applications, you must first download

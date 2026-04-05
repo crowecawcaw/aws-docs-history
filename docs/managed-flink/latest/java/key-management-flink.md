@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Key management in Amazon Managed Service for Apache Flink
 
 In Amazon MSF, you can choose to use either [AWS managed keys](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") or your own [customer managed keys (CMKs)](../../../kms/latest/developerguide/concepts.md#customer-mgn-key "../../../kms/latest/developerguide/concepts.md#customer-mgn-key") to encrypt data. CMKs in AWS Key Management Service (AWS KMS) are encryption keys that you create, own, and manage yourself.

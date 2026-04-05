@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Use CloudFormation with Managed Service for Apache Flink
 
 The following exercise shows how to start a Flink application created with CloudFormation using a
@@ -101,7 +99,7 @@ StartApplicationLambdaRole:
     Properties:
       Description: A role for lambda to use while interacting with an application.
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
           - Effect: Allow
             Principal:
@@ -176,7 +174,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
           - Effect: Allow
             Principal:
@@ -239,7 +237,7 @@ Resources:
     Properties:
       Description: A role for lambda to use while interacting with an application.
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
           - Effect: Allow
             Principal:

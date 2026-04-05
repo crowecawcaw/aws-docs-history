@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Create custom IAM policies for Managed Service for Apache Flink Studio notebooks
 
 You normally use managed IAM policies to allow your application to access dependent resources.

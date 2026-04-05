@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Create a Managed Service for Apache Flink application
 
 This topic contains information about creating a Managed Service for Apache Flink application.
@@ -42,10 +40,10 @@ applications](how-creating-apps-beam.md "how-creating-apps-beam.md").
 When using Managed Service for Apache Flink Runtime version 1.1.0 and later, you specify the version of
 Apache Flink that your application uses when you compile your application. You
 provide the version of Apache Flink with the `-Dflink.version` parameter.
-For example, if you are using Apache Flink 1.19.1, provide the following:
+For example, if you are using Apache Flink 2.2.0, provide the following:
 
 ```
-mvn package -Dflink.version=1.19.1
+mvn package -Dflink.version=2.2.0
 ```
 
 For building applications with earlier versions of Apache Flink, see [Earlier versions](earlier.md "earlier.md").

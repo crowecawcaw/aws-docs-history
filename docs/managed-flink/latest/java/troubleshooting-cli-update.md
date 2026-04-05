@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Invalid choice: "kinesisanalyticsv2"
 
 To use v2 of the Managed Service for Apache Flink API, you need the latest version of the AWS Command Line Interface

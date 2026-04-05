@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Table API time attributes
 
 Each record in a data stream has several timestamps that define when events related to the record occurred:

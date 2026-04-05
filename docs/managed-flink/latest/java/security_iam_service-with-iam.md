@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # How Amazon Managed Service for Apache Flink works with IAM
 
 In Amazon MSF, you use IAM in the following different contexts:

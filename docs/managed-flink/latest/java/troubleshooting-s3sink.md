@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # S3 StreamingFileSink FileNotFoundExceptions
 
 Managed Service for Apache Flink applications can run into In-progress part file `FileNotFoundException` when starting from snapshots if an

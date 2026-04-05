@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Add or update tags for an existing application
 
 You add tags to an application using the [TagResource](../apiv2/API_TagResource.md "../apiv2/API_TagResource.md") action. You cannot add tags to an application using the

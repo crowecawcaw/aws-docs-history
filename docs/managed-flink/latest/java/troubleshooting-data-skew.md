@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Data skew
 
 A Flink application is executed on a cluster in a distributed fashion. To scale out to multiple nodes,

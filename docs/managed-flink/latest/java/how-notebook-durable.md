@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Deploy as an application with durable state
 
 You can build your code and export it to Amazon S3. You can promote the code that you wrote

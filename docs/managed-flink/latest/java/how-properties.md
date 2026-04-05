@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Use runtime properties in Managed Service for Apache Flink
 
 You can use _runtime properties_ to configure your application without recompiling your application code.

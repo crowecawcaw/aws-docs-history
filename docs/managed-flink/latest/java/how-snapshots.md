@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Manage application backups using snapshots
 
 A _snapshot_ is the Managed Service for Apache Flink implementation of an Apache Flink

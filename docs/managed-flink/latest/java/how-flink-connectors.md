@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Use Apache Flink connectors with Managed Service for Apache Flink
 
 Apache Flink connectors are software components that move data into and out of an
@@ -26,7 +24,47 @@ information, see [The Generic Asynchronous Base Sink](https://flink.apache.org/2
 
 To access the repository for Apache Flink AWS connectors, see [flink-connector-aws](https://github.com/apache/flink-connector-aws "https://github.com/apache/flink-connector-aws").
 
-| Connectors for Flink versions                                 | Connector                                        | Flink version 1.15                              | Flink version 1.18                              | Flink versions 1.19                             | Flink versions 1.20 |
+## Connectors for Flink 2.2
+
+When upgrading to Flink 2.2, you need to update your connector dependencies to
+versions that are compatible with the Flink 2.x runtime. Flink connectors are released
+independently from the Flink runtime, and not all connectors have a Flink
+2.x-compatible release yet. The following table summarizes the availability of commonly
+used connectors in Amazon Managed Service for Apache Flink as of this writing:
+
+| Connectors for Flink 2.2              | Connector                                     | Flink 2.0+ Version                                   | Notes |
+| ------------------------------------- | --------------------------------------------- | ---------------------------------------------------- | ----- |
+| Apache Kafka                          | flink-connector-kafka 4.0.0-2.0               | Recommended for Flink 2.2                            |
+| Kinesis Data Streams (source)         | flink-connector-aws-kinesis-streams 6.0.0-2.0 | Recommended for Flink 2.2                            |
+| Kinesis Data Streams (sink)           | flink-connector-aws-kinesis-streams 6.0.0-2.0 | Recommended for Flink 2.2                            |
+| FileSystem (S3, HDFS)                 | Bundled with Flink                            | Built into the Flink distribution — always available |
+| JDBC                                  | Not yet released for 2.x                      | No Flink 2.x-compatible release available            |
+| OpenSearch                            | Not yet released for 2.x                      | No Flink 2.x-compatible release available            |
+| Elasticsearch                         | Not yet released for 2.x                      | Consider migrating to the OpenSearch connector       |
+| Amazon Managed Service for Prometheus | Not yet released for 2.x                      | No Flink 2.x-compatible release at time of writing   |
+
+If your application depends on a connector that does not yet have a Flink 2.2
+release, you have two options: wait for the connector to release a compatible version,
+or evaluate whether you can replace it with an alternative (for example, using the JDBC
+catalog or a custom sink).
+
+**Known issues**
+
+- Applications using the `KinesisStreamsSource` with EFO
+  (Enhanced Fan-Out / SubscribeToShard) path introduced in connector v5.0.0 and
+  v6.0.0 may fail when Kinesis streams undergo resharding. This is a known issue
+  in the community. For more information, see [FLINK-37648](https://issues.apache.org/jira/browse/FLINK-37648 "https://issues.apache.org/jira/browse/FLINK-37648").
+- Applications using the `KinesisStreamsSource` with EFO
+  (Enhanced Fan-Out / SubscribeToShard) path introduced in connector v5.0.0 and
+  v6.0.0 together with `KinesisStreamsSink` may experience deadlocks
+  if the Flink application is under backpressure, resulting in a complete stop of
+  data processing in one or more TaskManagers. A force stop operation and a start
+  app operation are needed to recover the app. This is a sub-case of the known
+  issue in the community: [FLINK-34071](https://issues.apache.org/jira/browse/FLINK-34071 "https://issues.apache.org/jira/browse/FLINK-34071").
+
+## Connectors for older Flink versions
+
+| Connectors for older Flink versions                           | Connector                                        | Flink version 1.15                              | Flink version 1.18                              | Flink versions 1.19                             | Flink versions 1.20 |
 | ------------------------------------------------------------- | ------------------------------------------------ | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ------------------- |
 | Kinesis Data Stream<br>• Source<br>• DataStream and Table API | flink-connector-kinesis, 1.15.4                  | flink-connector-kinesis, 4.3.0-1.18             | flink-connector-kinesis, 5.0.0-1.19             | flink-connector-kinesis, 5.0.0-1.20             |
 | Kinesis Data Stream<br>• Sink<br>• DataStream and Table API   | flink-connector-aws-kinesis-streams, 1.15.4      | flink-connector-aws-kinesis-streams, 4.3.0-1.18 | flink-connector-aws-kinesis-streams, 5.0.0-1.19 | flink-connector-aws-kinesis-streams, 5.0.0-1.20 |
@@ -47,7 +85,7 @@ To learn more about connectors in Amazon Managed Service for Apache Flink, see:
 - [DataStream API connectors](how-connectors.md "how-connectors.md")
 - [Table API connectors](how-table-connectors.md "how-table-connectors.md")
 
-## Known issues
+### Known issues
 
 There is a known open source Apache Flink issue with the Apache Kafka connector in
 Apache Flink 1.15. This issue is resolved in later versions of Apache Flink.

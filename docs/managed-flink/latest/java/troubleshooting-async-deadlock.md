@@ -1,5 +1,3 @@
-Amazon Managed Service for Apache Flink (Amazon MSF) was previously known as Amazon Kinesis Data Analytics for Apache Flink.
-
 # Flink 1.15 Async Sink Deadlock
 
 There is a [known issue](https://issues.apache.org/jira/browse/FLINK-32230 "https://issues.apache.org/jira/browse/FLINK-32230") with AWS connectors for Apache Flink implementing
