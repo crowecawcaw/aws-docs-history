@@ -27,8 +27,8 @@ functionality remains intact.
 You can exclude session keys using two methods:
 
 - **Static configuration** - Configure the setting on the
-  origin endpoint to exclude session keys from manifests. This is done through the DRM
-  settings in the filter configuration. For console instructions, see [Creating an origin endpoint](endpoints-create.md "endpoints-create.md").
+  origin endpoint HLS or LL-HLS manifests to exclude session keys. This is done through the **DRM
+  settings** in the filter configuration. For console instructions, see [Manifest fields](endpoints-create.md#endpoints-manifest "endpoints-create.md#endpoints-manifest").
 - **Dynamic exclusion** - Use the
   `aws.drmsettings=exclude_session_keys` query parameter to exclude
   session keys on a per-request basis. For more information, see [Manifest filtering](manifest-filtering.md "manifest-filtering.md").

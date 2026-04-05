@@ -462,9 +462,10 @@ Optionally specify DRM-related settings for HLS
 manifests. Currently supports excluding session keys
 from the multivariant playlist.
 
-To exclude session keys, enter
-`exclude_session_keys:true`. This removes
-`EXT-X-SESSION-KEY` tags from the
+To exclude session keys, either enter
+`aws.drmsettings=exclude_session_keys` in the manifest
+filters or click **Exclude session keys**.
+This removes `EXT-X-SESSION-KEY` tags from the
 multivariant playlist while preserving key information
 in individual media playlists. This setting is useful
 for legacy clients that have issues with session key

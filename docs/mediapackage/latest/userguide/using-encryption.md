@@ -60,6 +60,7 @@ for MediaPackage.
 
 ###### Topics
 
+- [Implementing SPEKE v2.0](implementing-speke-v2.md "implementing-speke-v2.md")
 - [Content key encryption](drm-content-key-encryption.md "drm-content-key-encryption.md")
 - [Key rotation](drm-content-key-rotation.md "drm-content-key-rotation.md")
 - [Managing DRM segment metadata](drm-segment-metadata-management.md "drm-segment-metadata-management.md")
