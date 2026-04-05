@@ -1,3 +1,8 @@
+End of support notice: On March 31, 2027, AWS
+will end support for Amazon WorkMail. After March 31, 2027, you will
+no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources.
+For more information, see [Amazon WorkMail end of support](workmail-end-of-support.md "workmail-end-of-support.md").
+
 # Using service-linked roles for Amazon WorkMail
 
 Amazon WorkMail uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is

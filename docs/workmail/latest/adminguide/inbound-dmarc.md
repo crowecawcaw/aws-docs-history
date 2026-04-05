@@ -1,3 +1,8 @@
+End of support notice: On March 31, 2027, AWS
+will end support for Amazon WorkMail. After March 31, 2027, you will
+no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources.
+For more information, see [Amazon WorkMail end of support](workmail-end-of-support.md "workmail-end-of-support.md").
+
 # Enforcing DMARC policies on incoming email
 
 Email domains use Domain Name System (DNS) records for security. They protect your
