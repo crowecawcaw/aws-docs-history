@@ -194,7 +194,7 @@ print(f"IMAGE = {IMAGE}")
 
 # Model Parameters
 CONTEXT_LENGTH = "8000"        # Maximum total context length
-MAX_CONCURRENCY = "16"         # Maximum concurrent sequences
+MAX_CONCURRENCY = "8"         # Maximum concurrent sequences
 
 # Optional: Default generation parameters (uncomment to use)
 DEFAULT_TEMPERATURE = "0.0"   # Deterministic output

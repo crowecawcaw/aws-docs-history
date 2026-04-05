@@ -32,7 +32,7 @@ your datasets effectively for fine-tuning Amazon Nova models.
 
 SFT data format requirements - For both full-rank SFT and LoRA SFT, data
 should follow the format shown below. For examples and constraints of this
-format, see [Preparing data for fine-tuning Understanding models](fine-tune-prepare-data-understanding.md "fine-tune-prepare-data-understanding.md").
+format, see [Preparing data for multimodal fine-tuning](fine-tune-prepare-data-understanding.md "fine-tune-prepare-data-understanding.md").
 
 SFT data validation - To validate your dataset format before submission, we
 recommend using the following validation script from the [Amazon Bedrock samples repository](https://github.com/aws-samples/amazon-bedrock-samples/blob/main/custom-models/bedrock-fine-tuning/nova/understanding/dataset_validation/nova_ft_dataset_validator.py "https://github.com/aws-samples/amazon-bedrock-samples/blob/main/custom-models/bedrock-fine-tuning/nova/understanding/dataset_validation/nova_ft_dataset_validator.py"). This validation tool will help ensure
@@ -48,7 +48,7 @@ in the similar format as SFT except the last turn needs to have preference
 pairs.
 
 DPO dataset other constraints - Other constraints on datasets are the same for
-SFT. For more information, see [Dataset constraints](fine-tune-prepare-data-understanding.md "fine-tune-prepare-data-understanding.md"). A single JSONL file for training and a single
+SFT. For more information, see [Preparing data for multimodal fine-tuning](fine-tune-prepare-data-understanding.md "fine-tune-prepare-data-understanding.md"). A single JSONL file for training and a single
 JSONL file for validation is expected. Validation set is optional.
 
 DPO dataset recommendations - A minimum of 1,000 preference pairs for
