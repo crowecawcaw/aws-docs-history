@@ -22,9 +22,7 @@ The remediation guidance provided in this topic might require additional consult
 ###### Contents
 
 - [Misconfiguration traits for Lambda functions](exposure-lambda-function.md#lambda-function-misconfiguration "exposure-lambda-function.md#lambda-function-misconfiguration")
-  - [Lambda function is running an unsupported runtime](exposure-lambda-function.md#function-runtimes "exposure-lambda-function.md#function-runtimes")
   - [Lambda function is deployed outside of an Amazon VPC](exposure-lambda-function.md#deployed-outside-vpc "exposure-lambda-function.md#deployed-outside-vpc")
-  - [The Lambda function is able to assume an IAM role](exposure-lambda-function.md#aws-role-access-granted "exposure-lambda-function.md#aws-role-access-granted")
   - [The IAM Role associated with the Lambda function has an Administrative access policy](exposure-lambda-function.md#administrative-access-policy "exposure-lambda-function.md#administrative-access-policy")
   - [The IAM Role associated with the Lambda function has a policy with administrative access to an AWS Service](exposure-lambda-function.md#service-admin-policy "exposure-lambda-function.md#service-admin-policy")
   - [The Lambda function is accessible through API Gateway without authorization](exposure-lambda-function.md#api-gateway-no-authorization "exposure-lambda-function.md#api-gateway-no-authorization")
@@ -36,28 +34,11 @@ The remediation guidance provided in this topic might require additional consult
   - [The Lambda function has network-exploitable software vulnerabilities](exposure-lambda-function.md#high-priority-vulnerability "exposure-lambda-function.md#high-priority-vulnerability")
   - [The Lambda function has software vulnerabilities](exposure-lambda-function.md#low-priority-vulnerability "exposure-lambda-function.md#low-priority-vulnerability")
   - [The Lambda function has malicious software packages](exposure-lambda-function.md#malicious-package "exposure-lambda-function.md#malicious-package")
-  - [The Lambda function has code vulnerabilities](exposure-lambda-function.md#lambda-code-vulnerability "exposure-lambda-function.md#lambda-code-vulnerability")
+  - [The Lambda function has code vulnerabilities](exposure-lambda-function.md#code-vulnerability "exposure-lambda-function.md#code-vulnerability")
 
 ## Misconfiguration traits for Lambda functions
 
 Here are misconfiguration traits for Lambda functions and suggested remediation steps.
-
-### Lambda function is running an unsupported runtime
-
-Lambda allows developers to run code without provisioning or managing servers through runtimes that execute your code in a managed environment.
-Lambda automatically applies patches and security updates to managed runtimes and their corresponding container base images.
-When a runtime version is no longer supported, it no longer receives security updates, bug fixes, or technical support.
-Functions running on deprecated runtimes can have security vulnerabilities and may eventually stop working due to issues like certificate expiration.
-Additionally, unsupported runtimes may be vulnerable to newly discovered security exploits without available patches.
-Following security best practices, we recommend using patched, supported runtimes for Lambda functions.
-
-###### Upgrade function runtime
-
-In the **Resources** tab of the exposure, open the resource with the hyperlink.
-This will open the Lambda function window.
-To upgrade your function to a supported runtime, configure the runtime management configuration.
-You can choose to have your function automatically update to the latest runtime version, but before selecting this option, assess if automatic upgrades could impact your running applications.
-For more information, see [Understanding how Lambda manages runtime version updates](../../../lambda/latest/dg/runtimes-update.md "../../../lambda/latest/dg/runtimes-update.md").
 
 ### Lambda function is deployed outside of an Amazon VPC
 
@@ -76,28 +57,6 @@ Before attaching your function to a VPC, plan for any AWS service access it may 
 For information about how to attach a Lambda function to an Amazon VPC in your account, see [Attaching Lambda functions to an Amazon VPC in your AWS account](../../../lambda/latest/dg/configuration-vpc.md#configuration-vpc-attaching "../../../lambda/latest/dg/configuration-vpc.md#configuration-vpc-attaching").
 Consider using VPC endpoints for service connectivity without internet access if your function requires to access AWS services from within a private subnet.
 Configure a NAT Gateway if you require outbound internet connectivity from private subnets.
-
-### The Lambda function is able to assume an IAM role
-
-Lambda functions use IAM roles to interact with AWS services.
-These roles grant permissions for the Lambda function to access AWS resources during execution.
-While these roles are sometimes necessary for Lambda functions to perform their tasks, these roles should follow the principle of least privilege.
-Following standard security principles, AWS recommends that you review whether the permissions attached to the role are appropriate based on the function's intended functionality.
-
-1. **Determine if attached IAM Role is required**
-
-Determine whether the Lambda function requires an IAM execution role to be configured.
-Most Lambda functions need basic permissions to operate, such as writing logs to CloudWatch.
-Review the permissions attached to the function's execution role and determine whether the IAM Role is required for the function.
-For information on Lambda execution roles, see [Defining Lambda function permissions with an execution role](../../../lambda/latest/dg/lambda-intro-execution-role.md "../../../lambda/latest/dg/lambda-intro-execution-role.md") in the _AWS Lambda Developer Guide_. 2. **Implement least privilege access**
-
-Replace overly permissive policies with those that grant only the specific permissions required for the function to operate.
-For information about security best practices for IAM roles, see [Apply least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") in the _AWS Identity and Access Management User Guide_.
-To identify unnecessary permissions, you can use the IAM Access Analyzer to understand how to modify your policy based on access history.
-For more information, see [Findings for external and unused access](../../../IAM/latest/UserGuide/access-analyzer-findings.md "../../../IAM/latest/UserGuide/access-analyzer-findings.md") in the _AWS Identity and Access Management User Guide_.
-Alternatively, you can create a new IAM role to avoid impacting other Lambda functions that are using the existing role.
-In this scenario, create a new IAM role, then associate the new IAM role with the instance.
-For instructions on replacing an IAM role for a function, see [Update a function’s execution role](../../../lambda/latest/dg/permissions-executionrole-update.md#update-execution-role "../../../lambda/latest/dg/permissions-executionrole-update.md#update-execution-role") in the _AWS Lambda Developer Guide_.
 
 ### The IAM Role associated with the Lambda function has an Administrative access policy
 
@@ -225,7 +184,6 @@ Vendor documentation may include specific remediation guidance.
 Update the vulnerable libraries to their latest secure versions following the vendor recommended procedures.
 Typically, the remediation workflow depends on whether you deployed the Lambda package by uploading a zip file or by creating a Lambda function with a container image.
 After updating the libraries, update the Lambda function code to use the fixed version.
-
 Afterwards, deploy the updated version.
 
 ### The Lambda function has software vulnerabilities
@@ -242,7 +200,6 @@ Vendor documentation may include specific remediation guidance.
 Update the vulnerable libraries to their latest secure versions following the vendor recommended procedures.
 Typically, the remediation workflow depends on whether you deployed the Lambda package by uploading a zip file or by creating a Lambda function with a container image.
 After updating the libraries, update the Lambda function code to use the fixed version.
-
 Afterwards, deploy the updated version.
 
 ### The Lambda function has malicious software packages

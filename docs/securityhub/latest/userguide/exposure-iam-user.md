@@ -111,7 +111,6 @@ Otherwise, in the policy document, look for statements that have the statements 
 ###### Implement least privilege access
 
 Replace service administrative policies with those that grant only the specific permissions required for the user to function.
-
 To identify unnecessary permissions, you can use the IAM Access Analyzer to understand how to modify your policy based on access history.
 
 ###### Secure configuration considerations
@@ -203,5 +202,4 @@ Modify the policy to replace the `"*"` resource with the specific ARNs of requir
 
 Consider adding conditions to further restrict when these permissions can be used.
 For example, you can limit decryption operations to specific VPC endpoints or source IP ranges.
-
 You can also configure key policies to further restrict who can use specific KMS keys.

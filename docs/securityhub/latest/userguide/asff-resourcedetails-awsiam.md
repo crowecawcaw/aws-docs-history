@@ -117,7 +117,7 @@ attributes, see [AwsIamRoleDetails](../../1.0/APIReference/API_AwsIamRoleDetails
 
 ```
 "AwsIamRole": {
-    "AssumeRolePolicyDocument": "{'Version': '2012-10-17',		 	 	 'Statement': [{'Effect': 'Allow','Action': 'sts:AssumeRole'}]}",
+    "AssumeRolePolicyDocument": "{'Version': '2012-10-17','Statement': [{'Effect': 'Allow','Action': 'sts:AssumeRole'}]}",
     "AttachedManagedPolicies": [
         {
             "PolicyArn": "arn:aws:iam::aws:policy/ExamplePolicy1",

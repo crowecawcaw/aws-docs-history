@@ -29,5 +29,5 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   provide a URL to an external server, we strongly recommend that you do not include credentials
   information in the URL to validate your request to that server.
 
-Security Hub is a multi-tenant service offering. To ensure data protection, Security Hub encrypts data
+Security Hub is a multi-tenant service offering. To help protect your data, Security Hub encrypts data
 at rest and data in transit between component services.

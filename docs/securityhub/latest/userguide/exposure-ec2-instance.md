@@ -24,13 +24,12 @@ The remediation guidance provided in this topic might require additional consult
 - [Misconfiguration traits for EC2 instances](exposure-ec2-instance.md#misconfiguration "exposure-ec2-instance.md#misconfiguration")
   - [The EC2 instance allows access to IMDS using version 1](exposure-ec2-instance.md#metadata-misconfiguration "exposure-ec2-instance.md#metadata-misconfiguration")
   - [The IAM role associated with the Amazon EC2 instance has an administrative access policy](exposure-ec2-instance.md#administrative-access-policy "exposure-ec2-instance.md#administrative-access-policy")
-  - [The IAM role associated with the Amazon EC2 instance has a service admin policy](exposure-ec2-instance.md#service-administrative-policy "exposure-ec2-instance.md#service-administrative-policy")
+  - [The IAM role associated with the Amazon EC2 instance has a service admin policy](exposure-ec2-instance.md#service-admin-policy "exposure-ec2-instance.md#service-admin-policy")
   - [The Amazon EC2 instance has a security group or network ACL that allows SSH or RDP access](exposure-ec2-instance.md#remote-access-allowed "exposure-ec2-instance.md#remote-access-allowed")
   - [The Amazon EC2 instance has an open security group](exposure-ec2-instance.md#open-security-group "exposure-ec2-instance.md#open-security-group")
 
 - [Reachability traits for EC2 instances](exposure-ec2-instance.md#reachability "exposure-ec2-instance.md#reachability")
   - [The EC2 instance is reachable over the internet](exposure-ec2-instance.md#internet-reachable "exposure-ec2-instance.md#internet-reachable")
-  - [The Amazon EC2 instance is reachable within the Amazon VPC](exposure-ec2-instance.md#vpc-reachable "exposure-ec2-instance.md#vpc-reachable")
 
 - [Vulnerability traits for EC2 instances](exposure-ec2-instance.md#vulnerability "exposure-ec2-instance.md#vulnerability")
   - [EC2 instance has network-exploitable software vulnerabilities with a high likelihood of exploitation](exposure-ec2-instance.md#high-priority-vulnerability "exposure-ec2-instance.md#high-priority-vulnerability")
@@ -223,55 +222,12 @@ Consider the following options for alternative access methods:
 - **Use NAT Gateway for outbound internet connectivity** –
   For instances in private subnets that require access to the internet (e.g., to download updates), consider using a NAT Gateway instead of assigning a public IP address.
   A NAT Gateway allows instances in private subnets to initiate outbound connections to the internet while preventing inbound connections from the internet.
-  s
 - **Use Systems Manager Session Manager** –
   Session Manager provides secure shell access to your Amazon EC2 instances without the need for inbound ports, managing SSH keys, or maintaining bastion hosts.
 - **Use WAF and Elastic Load Balancing or Application Load Balancer** –
   For instances that are running web applications, consider using an LB combined with AWS Web Application Firewall (WAF).
   LBs can be configured to allow your instances to run in private subnets while the LB runs in a public subnet and handles internet traffic.
   Adding a WAF to your load balancer provides additional protection against web exploits and bots.
-
-### The Amazon EC2 instance is reachable within the Amazon VPC
-
-Amazon Virtual Private Cloud (Amazon VPC) allows you to launch AWS resources in a defined virtual network.
-Amazon VPC network configurations that allow unrestricted access between instances can increase the scope of an attack if an instance is compromised.
-Following security best practices, AWS recommends implementing network segmentation and least-privilege access controls at the subnet and security group levels.
-
-###### Review Amazon VPC network connectivity patterns
-
-In the exposure finding, identify the security group ID in the ARN.
-Identify which instances need to communicate with each other and on which ports.
-You can use Amazon VPC Flow Logs to analyze existing traffic patterns in your Amazon VPC to help identify which ports are being used.
-
-###### Modify security group rules
-
-Modify your security group rules to restrict access to specific trusted IP addresses or ranges.
-For example, instead of allowing all traffic from the entire VPC CIDR range (e.g., 10.0.0.0/16), restrict access to specific security groups or IP ranges.
-When updating your security group rules, consider separating access requirements for different network segments by creating rules for each required source IP range or restricting access to specific ports.
-To modify security group rules, see [Configure security group rules](../../../vpc/latest/userguide/working-with-security-group-rules.md "../../../vpc/latest/userguide/working-with-security-group-rules.md") in the Amazon EC2 User Guide.
-
-Consider organizing your Amazon VPC resources into subnets based on security requirements or function.
-For example, place web servers and database servers in separate subnets.
-For more information, see [Subnets for your VPC](../../../vpc/latest/userguide/flow-logs.md "../../../vpc/latest/userguide/flow-logs.md") in the _Amazon Virtual Private Cloud User Guide_.
-
-###### Configure network ACLs for subnet level protection
-
-Network Access Control Lists (NACLs) provide an additional layer of security at the subnet level.
-Unlike security groups, NACLs are stateless and require both inbound and outbound rules to be explicitly defined.
-For more information, see [Control subnet traffic with network access control lists](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") in the _Amazon Virtual Private Cloud User Guide_.
-
-###### Additional considerations
-
-Consider the following when restricting access to your Amazon VPC
-
-- **Transit Gateway or Amazon VPC Peering with restrictive routing** –
-  If your architecture uses multiple VPCs that need to communicate, consider using AWS Transit Gateway and Amazon VPC peering to provide connectivity between Amazon VPCs while allowing you to control which subnets can communicate with each other.
-  For more information, see [Get started with using Amazon VPC Transit Gateways](../../../vpc/latest/tgw/tgw-getting-started.md "../../../vpc/latest/tgw/tgw-getting-started.md") and [VPC peering connections](../../../vpc/latest/peering/working-with-vpc-peering.md "../../../vpc/latest/peering/working-with-vpc-peering.md").
-- **Service endpoints and private links** –
-  Amazon VPC endpoints can be used to keep traffic within the AWS network to communicate with AWS resources rather than over the internet.
-  This reduces the need for direct connectivity between instances accessing the same services.
-  For information on VPC endpoints, see [What are Amazon VPC endpoints?](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _Amazon Virtual Private Cloud User Guide_.
-  For connectivity to services hosted in other Amazon VPCs, consider using AWS PrivateLink.
 
 ## Vulnerability traits for EC2 instances
 
@@ -311,9 +267,7 @@ For more information, see [AMI updates patching (using patched AMIs for Auto Sca
 
 To prevent future occurrences, consider implementing a vulnerability management program.
 Amazon Inspector can be configured to automatically scan for CVEs on your instances.
-
 Amazon Inspector can also be integrated with Security Hub for automatic remediations.
-
 Consider implementing a regular patching schedule using Systems Manager Maintenance Windows to minimize disruption to your instances.
 
 ### The Amazon EC2 instance has software vulnerabilities
@@ -345,9 +299,7 @@ For more information, see [AMI updates patching (using patched AMIs for Auto Sca
 
 To prevent future occurrences, consider implementing a vulnerability management program.
 Amazon Inspector can be configured to automatically scan for CVEs on your instances.
-
 Amazon Inspector can also be integrated with Security Hub for automatic remediations.
-
 Consider implementing a regular patching schedule using Systems Manager Maintenance Windows to minimize disruption to your instances.
 
 ### The EC2 instance has an End-Of-Life operating system

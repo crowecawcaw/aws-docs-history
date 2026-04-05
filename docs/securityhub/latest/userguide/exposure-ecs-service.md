@@ -22,15 +22,14 @@ The remediation guidance provided in this topic might require additional consult
 ###### Contents
 
 - [Misconfiguration traits for Amazon ECS services](exposure-ecs-service.md#ecs-service-misconfiguration "exposure-ecs-service.md#ecs-service-misconfiguration")
-  - [The Amazon ECS service uses a task definition configured with elevated privileges](exposure-ecs-service.md#task-definition-privileged "exposure-ecs-service.md#task-definition-privileged")
   - [The Amazon ECS service uses a task definition that allows containers to access the root file systems](exposure-ecs-service.md#root-access-to-filesystem "exposure-ecs-service.md#root-access-to-filesystem")
-  - [The Amazon ECS service uses a task definition configured to share a host's process namespace](exposure-ecs-service.md#exposed-name-space "exposure-ecs-service.md#exposed-name-space")
+  - [The Amazon ECS service uses a task definition configured to share a host's process namespace](exposure-ecs-service.md#exposed-namespace "exposure-ecs-service.md#exposed-namespace")
   - [The Amazon ECS service uses a task definition configured with cleartext credentials in the environment variables](exposure-ecs-service.md#cleartext-credentials-present "exposure-ecs-service.md#cleartext-credentials-present")
   - [The Amazon ECS service has an open security group](exposure-ecs-service.md#open-security-group "exposure-ecs-service.md#open-security-group")
   - [The Amazon ECS service has public IP addresses](exposure-ecs-service.md#public-ip-assigned "exposure-ecs-service.md#public-ip-assigned")
   - [The Amazon ECS service uses a task definition that is configured with host networking mode enabled](exposure-ecs-service.md#host-networking-mode-enabled "exposure-ecs-service.md#host-networking-mode-enabled")
   - [The IAM role associated with the Amazon ECS service has an administrative access policy](exposure-ecs-service.md#administrative-access-policy "exposure-ecs-service.md#administrative-access-policy")
-  - [The IAM Role associated with the ECS service has a Service Admin Policy](exposure-ecs-service.md#service-administrative-policy "exposure-ecs-service.md#service-administrative-policy")
+  - [The IAM Role associated with the ECS service has a Service Admin Policy](exposure-ecs-service.md#service-admin-policy "exposure-ecs-service.md#service-admin-policy")
 
 - [Vulnerability traits for Amazon ECS services](exposure-ecs-service.md#vulnerability "exposure-ecs-service.md#vulnerability")
   - [The Amazon ECS service has a container with network-exploitable software vulnerabilities with a high likelihood of exploitation](exposure-ecs-service.md#high-priority-vulnerability "exposure-ecs-service.md#high-priority-vulnerability")
@@ -41,29 +40,6 @@ The remediation guidance provided in this topic might require additional consult
 ## Misconfiguration traits for Amazon ECS services
 
 Here are misconfiguration traits for Amazon ECS services and suggested remediation steps.
-
-### The Amazon ECS service uses a task definition configured with elevated privileges
-
-Amazon ECS containers running with elevated privileges have similar capabilities to the
-host system, potentially allowing access to host resources and other containers.
-This configuration increases the risk that a compromised container could be used to
-access or modify resources outside its intended scope, potentially leading to
-container escape, unauthorized access to the underlying host, and breaches affecting
-other containers on the same host. Following standard security principles, AWS
-recommends that you grant least privileges, which means that you grant only the
-permissions required to perform a task.
-
-###### Review and modify task definition
-
-In the exposure, identify the task definition ARN. Open the task definition in
-the Amazon ECS console. In the task definition, look for the privileged flag set to
-true in the container definitions.
-
-If privileged mode is not required, create a new task definition revision
-without the privileged flag.
-
-If privileged mode is required, consider configuring the container to use a
-read-only file system to prevent unauthorized modifications.
 
 ### The Amazon ECS service uses a task definition that allows containers to access the root file systems
 
@@ -81,10 +57,8 @@ In the exposure finding, identify the task definition ARN. Open the task
 definition in the Amazon ECS console. Look for the volumes section in the task
 definition that defines host path mappings. Review the task definition to
 determine if the host filesystem access is required for container functionality.
-
 If host filesystem access is not required, create a new task definition revision
 and remove any volume definitions that use host paths.
-
 If host filesystem access is required, consider configuring the container to use
 a read-only file system to prevent unauthorized modifications.
 
@@ -245,10 +219,8 @@ for statements that have the statements `"Effect": "Allow", "Action": "*",
 
 Replace administrative policies with those that grant only the specific
 permissions required for the instance to function.
-
 To identify unnecessary permissions, you can use IAM Access Analyzer to understand how
 to modify your policy based on access history.
-
 Alternatively, you can create a new IAM role to avoid impacting other
 applications that are using the existing role. In this scenario, create a new
 IAM role, then associate the new IAM role with the instance.
@@ -368,9 +340,7 @@ To further strengthen the security posture of your container images, consider
 following Amazon ECS task and container security best
 practices. Amazon Inspector can be configured to
 automatically scan for CVEs on your containers.
-
 Amazon Inspector can also be integrated with Security Hub for automatic remediations.
-
 Consider implementing a regular patching schedule using Systems Manager Maintenance
 Windows to minimize disruption to your containers.
 

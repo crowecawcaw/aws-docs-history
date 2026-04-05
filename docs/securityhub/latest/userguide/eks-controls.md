@@ -67,7 +67,7 @@ in the **Amazon EKS User Guide**.
 
 **Parameters:**
 
-- `oldestVersionSupported`: `1.32` (not customizable)
+- `oldestVersionSupported`: `1.33` (not customizable)
 
 This control checks whether an Amazon Elastic Kubernetes Service (Amazon EKS) cluster runs on a supported Kubernetes version. The control fails if
 the EKS cluster runs on an unsupported version.

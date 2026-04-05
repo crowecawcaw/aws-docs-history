@@ -22,7 +22,7 @@ The remediation guidance provided in this topic might require additional consult
 
 - [Misconfiguration traits in DynamoDB](exposure-ddb-instance.md#misconfiguration "exposure-ddb-instance.md#misconfiguration")
   - [The DynamoDB table has point-in-time recovery disabled](exposure-ddb-instance.md#point-in-time-recovery-disabled "exposure-ddb-instance.md#point-in-time-recovery-disabled")
-  - [The DynamoDB table is not covered by a backup plan](exposure-ddb-instance.md#backup-plan "exposure-ddb-instance.md#backup-plan")
+  - [The DynamoDB table is not covered by a backup plan](exposure-ddb-instance.md#backup-plan-disabled "exposure-ddb-instance.md#backup-plan-disabled")
   - [The DynamoDB table has deletion protection disabled](exposure-ddb-instance.md#deletion-protection-disabled "exposure-ddb-instance.md#deletion-protection-disabled")
 
 ## Misconfiguration traits in DynamoDB
@@ -59,5 +59,4 @@ Following data protection best practices, we recommend enabling data protection 
 
 If you manage multiple tables, consider using CloudFormation to update table properties in bulk.
 You can modify your CloudFormation templates to include `DeletionProtectionEnabled` property and update your stacks.
-
 After completing remediation, verify deletion protection is enabled in the **Additional** info dropdown in the table **Settings** tab.

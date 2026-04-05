@@ -81,7 +81,6 @@ Following security best practices, AWS recommends encrypting all sensitive infor
 ###### Encrypt Kubernetes secrets
 
 Amazon EKS supports the encryption of Kubernetes secrets using KMS keys through envelope encryption.
-
 To enable encryption of Kubernetes secrets for your EKS cluster, see [Encrypt Kubernetes secrets with KMS on existing clusters](../../../eks/latest/userguide/enable-kms.md "../../../eks/latest/userguide/enable-kms.md") in the _Amazon EKS User Guide_.
 
 ## Vulnerability traits for Amazon EKS clusters

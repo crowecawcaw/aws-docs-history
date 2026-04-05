@@ -23,6 +23,7 @@ The remediation guidance provided in this topic might require additional consult
 - [Misconfiguration traits for Amazon RDS instances and clusters](exposure-rds.md#rds-instance-cluster-misconfiguration "exposure-rds.md#rds-instance-cluster-misconfiguration")
   - [The Amazon RDS DB instance is configured with public access](exposure-rds.md#public-access-configured "exposure-rds.md#public-access-configured")
   - [The Amazon RDS DB cluster has a snapshot that's shared publicly](exposure-rds.md#publicly-available-rds-cluster-snapshot "exposure-rds.md#publicly-available-rds-cluster-snapshot")
+  - [The Amazon RDS DB instance has a snapshot that's shared publicly](exposure-rds.md#publicly-available-rds-database-snapshot "exposure-rds.md#publicly-available-rds-database-snapshot")
   - [The Amazon RDS DB instance has a snapshot that is not encrypted at rest](exposure-rds.md#unencrypted-rds-database-snapshot "exposure-rds.md#unencrypted-rds-database-snapshot")
   - [The Amazon RDS DB cluster has a snapshot that is not encrypted at rest](exposure-rds.md#unencrypted-rds-cluster-snapshot "exposure-rds.md#unencrypted-rds-cluster-snapshot")
   - [The Amazon RDS DB instance has an open security group](exposure-rds.md#open-security-group "exposure-rds.md#open-security-group")
@@ -65,6 +66,18 @@ Following security best practices, we recommend restricting access to your Amazo
 In the exposure finding, open the resource through the hyperlink.
 For information about how to modify snapshot sharing settings, see [Sharing a snapshot](../../../AmazonRDS/latest/AuroraUserGuide/aurora-share-snapshot.md#aurora-share-snapshot.Sharing "../../../AmazonRDS/latest/AuroraUserGuide/aurora-share-snapshot.md#aurora-share-snapshot.Sharing") in the _Amazon Aurora User Guide._
 For information about how to stop sharing snapshots, see [Stopping snapshot sharing](../../../AmazonRDS/latest/AuroraUserGuide/share-snapshot-stop.md "../../../AmazonRDS/latest/AuroraUserGuide/share-snapshot-stop.md") in the _Amazon Aurora User Guide._.
+
+### The Amazon RDS DB instance has a snapshot that's shared publicly
+
+Public snapshots can be accessed by any AWS account, potentially exposing sensitive data to unauthorized users.
+Any AWS account has permission to copy these public snapshots and create DB instances from them, which could lead to data breaches or unauthorized data access.
+Following security best practices, we recommend restricting access to your Amazon RDS snapshots to only trusted AWS accounts and organizations.
+
+###### Configure an Amazon RDS snapshot for private access
+
+In the exposure finding, open the resource through the hyperlink.
+For information about how to modify snapshot sharing settings, see [Sharing a DB snapshot](../../../AmazonRDS/latest/UserGuide/USER_ShareSnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_ShareSnapshot.md") in the _Amazon RDS User Guide._
+For information about how to stop sharing snapshots, see [Stop sharing a DB snapshot](../../../AmazonRDS/latest/UserGuide/USER_ShareSnapshot.md#USER_ShareSnapshot.Sharing.StopSharing "../../../AmazonRDS/latest/UserGuide/USER_ShareSnapshot.md#USER_ShareSnapshot.Sharing.StopSharing") in the _Amazon RDS User Guide._.
 
 ### The Amazon RDS DB instance has a snapshot that is not encrypted at rest
 
