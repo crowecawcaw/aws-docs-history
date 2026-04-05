@@ -51,3 +51,27 @@ the task. For more information about each of the returned stats, see [ContainerS
 
 Amazon ECS tasks on Amazon ECS Managed Instances require that the container run for ~1
 second prior to returning the container stats.
+
+`${ECS_CONTAINER_METADATA_URI_V4}/tasks`
+
+This path returns metadata for all tasks running on the container instance.
+The response is a JSON array of task metadata objects, where each element
+has the same structure as the response from the `/task` endpoint.
+For more information about the response for each task, see [Amazon ECS task metadata v4 JSON response for tasks on Amazon ECS Managed Instances](task-metadata-endpoint-v4-managed-instances-response.md "task-metadata-endpoint-v4-managed-instances-response.md").
+
+###### Note
+
+This endpoint is only available for tasks running as a Managed Daemon
+Service on Amazon ECS Managed Instances.
+
+`${ECS_CONTAINER_METADATA_URI_V4}/tasks/stats`
+
+This path returns Docker stats for all containers across all tasks running
+on the container instance. The response is a JSON array where each element
+contains a map of container IDs to their Docker stats for a given task.
+For more information about each of the returned stats, see [ContainerStats](https://docs.docker.com/engine/api/v1.30/#operation/ContainerStats "https://docs.docker.com/engine/api/v1.30/#operation/ContainerStats") in the Docker API documentation.
+
+###### Note
+
+This endpoint is only available for tasks running as a Managed Daemon
+Service on Amazon ECS Managed Instances.

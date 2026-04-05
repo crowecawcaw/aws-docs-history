@@ -2,17 +2,18 @@
 
 You can update an existing cluster to use Amazon ECS Managed Instances.
 
-When you add Amazon ECS Managed Instances to your cluster, you gain access to the
-`FARGATE_MANAGED_INSTANCE` capacity provider by default. This capacity provider
-automatically selects the most cost-optimized general-purpose instance types for your workloads. You can also
-create custom capacity providers if you need specific instance attributes or types.
+When you add Amazon ECS Managed Instances to your cluster, Amazon ECS automatically creates a
+managed instances capacity provider with default configurations. This capacity provider
+selects the most cost-optimized general-purpose instance types for your workloads. You can
+also create custom capacity providers if you need specific instance attributes or
+types.
 
 ## Prerequisites
 
-By default, Amazon ECS chooses the instance types based on the requirements you specify in
-the task definition. This is the default capacity provider. If you need specific
-instance attributes or types, take note of all the requirements. You'll need to use a
-custom capacity provider, and then specify the instance requirements.
+When you don't specify `instanceRequirements`, Amazon ECS automatically
+selects the most cost-optimized instance types based on your task definition
+requirements. To use specific instance attributes or types, create a capacity provider
+with `instanceRequirements`.
 
 You have the required IAM roles for Amazon ECS Managed Instances. This includes:
 

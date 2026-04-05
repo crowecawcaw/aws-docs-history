@@ -22,12 +22,58 @@ Some configuration options in this section, such as `workers` and
 later. For information about available versions, see [AWS for Fluent Bit
 releases](https://github.com/aws/aws-for-fluent-bit/releases "https://github.com/aws/aws-for-fluent-bit/releases").
 
-## Use filesystem buffering
+## Understanding chunks
 
-By default, Fluent Bit buffers all data in memory. When data is
-ingested faster than it can be flushed to outputs, the buffer fills up. Once full,
-the input plugin pauses until buffer space becomes available, which can cause
-backpressure and slow down your application.
+Fluent Bit processes data in units called
+_chunks_. When an INPUT plugin receives data, the engine
+creates a chunk that gets stored in memory or on the filesystem before being sent to
+OUTPUT destinations.
+
+Buffering behavior depends on the `storage.type` setting in your INPUT
+sections. By default, Fluent Bit uses memory buffering. For
+high-throughput or production scenarios, filesystem buffering provides better
+resilience.
+
+For more information, see [Chunks](https://docs.fluentbit.io/manual/administration/buffering-and-storage#chunks "https://docs.fluentbit.io/manual/administration/buffering-and-storage#chunks") in the Fluent Bit documentation and [What is a Chunk?](https://github.com/aws-samples/amazon-ecs-firelens-examples/tree/mainline/examples/fluent-bit/oomkill-prevention#what-is-a-chunk "https://github.com/aws-samples/amazon-ecs-firelens-examples/tree/mainline/examples/fluent-bit/oomkill-prevention#what-is-a-chunk") in the AWS for Fluent Bit examples
+repository.
+
+## Memory buffering (default)
+
+By default, Fluent Bit uses memory buffering
+(`storage.type memory`). You can limit memory usage per INPUT plugin
+using the `Mem_Buf_Limit` parameter.
+
+The following example shows a memory-buffered input configuration:
+
+```
+[INPUT]
+    Name          tcp
+    Tag           ApplicationLogs
+    Port          5170
+    storage.type  memory
+    Mem_Buf_Limit 5MB
+```
+
+###### Important
+
+When `Mem_Buf_Limit` is exceeded for a plugin, Fluent
+Bit pauses the input and new records are lost. This can cause
+backpressure and slow down your application. The following warning
+appears in the Fluent Bit logs:
+
+```
+[input] tcp.1 paused (mem buf overlimit)
+```
+
+Memory buffering is suitable for simple use cases with low to moderate log
+throughput. For high-throughput or production scenarios where data loss is a concern,
+use filesystem buffering instead.
+
+For more information, see [Buffering and Memory](https://docs.fluentbit.io/manual/administration/buffering-and-storage#buffering-and-memory "https://docs.fluentbit.io/manual/administration/buffering-and-storage#buffering-and-memory") in the Fluent Bit documentation and
+[Memory Buffering Only](https://github.com/aws-samples/amazon-ecs-firelens-examples/tree/mainline/examples/fluent-bit/oomkill-prevention#case-1-memory-buffering-only-default-or-storagetype-memory "https://github.com/aws-samples/amazon-ecs-firelens-examples/tree/mainline/examples/fluent-bit/oomkill-prevention#case-1-memory-buffering-only-default-or-storagetype-memory") in the AWS for Fluent Bit
+examples repository.
+
+## Filesystem buffering
 
 For high-throughput scenarios, we recommend using filesystem buffering. For more information about how
 Fluent Bit manages buffering and storage, see [Buffering and Storage](https://docs.fluentbit.io/manual/administration/buffering-and-storage "https://docs.fluentbit.io/manual/administration/buffering-and-storage") in the Fluent Bit
@@ -109,11 +155,97 @@ Fluent Bit uses `mmap` to map chunks to
 both memory and disk, providing persistence without sacrificing
 performance.
 
+`storage.total_limit_size`
+
+The maximum disk space for buffered data for a specific OUTPUT plugin.
+When this limit is reached, the oldest records for that output are
+dropped. For more information about sizing, see [Understanding storage.total_limit_size](#firelens-storage-sizing "#firelens-storage-sizing").
+
 `threaded true`
 
 Runs the input in its own thread, separate from Fluent
 Bit's main event loop. This prevents slow inputs from
 blocking the entire pipeline.
+
+For more information, see [Filesystem Buffering](https://docs.fluentbit.io/manual/administration/buffering-and-storage#filesystem-buffering "https://docs.fluentbit.io/manual/administration/buffering-and-storage#filesystem-buffering") in the Fluent Bit documentation and
+[Filesystem and Memory Buffering](https://github.com/aws-samples/amazon-ecs-firelens-examples/tree/mainline/examples/fluent-bit/oomkill-prevention#case-2-filesystem-and-memory-buffering-storagetype-filesystem "https://github.com/aws-samples/amazon-ecs-firelens-examples/tree/mainline/examples/fluent-bit/oomkill-prevention#case-2-filesystem-and-memory-buffering-storagetype-filesystem") in the AWS for Fluent
+Bit examples repository.
+
+## Understanding `storage.total_limit_size`
+
+The `storage.total_limit_size` parameter on each OUTPUT plugin
+controls the maximum disk space for buffered data for that output. When this
+limit is reached, the oldest records for that output are dropped to make room for
+new data. When disk space is completely exhausted, Fluent Bit
+fails to queue records and they are lost.
+
+Use the following formula to calculate the appropriate
+`storage.total_limit_size` based on your log rate and desired
+recovery window:
+
+```
+If log rate is in KB/s, convert to MB/s first:
+log_rate (MB/s) = log_rate (KB/s) / 1000
+
+storage.total_limit_size (GB) = log_rate (MB/s) × duration (hours) × 3600 (seconds/hour) / 1000 (MB to GB)
+```
+
+The following table shows example calculations for common log rates and
+recovery windows:
+
+| Log Rate  | 1 hour | 6 hours | 12 hours | 24 hours |
+| --------- | ------ | ------- | -------- | -------- |
+| 0.25 MB/s | 0.9 GB | 5.4 GB  | 10.8 GB  | 21.6 GB  |
+| 0.5 MB/s  | 1.8 GB | 10.8 GB | 21.6 GB  | 43.2 GB  |
+| 1 MB/s    | 3.6 GB | 21.6 GB | 43.2 GB  | 86.4 GB  |
+| 5 MB/s    | 18 GB  | 108 GB  | 216 GB   | 432 GB   |
+| 10 MB/s   | 36 GB  | 216 GB  | 432 GB   | 864 GB   |
+
+To observe peak throughput and choose appropriate buffer sizes, use the [measure-throughput FireLens sample](https://github.com/aws-samples/amazon-ecs-firelens-examples/tree/mainline/examples/measure-throughput "https://github.com/aws-samples/amazon-ecs-firelens-examples/tree/mainline/examples/measure-throughput").
+
+Use the formula, example calculations, and benchmarking to choose a suitable
+`storage.total_limit_size` that provides runway for best-effort
+recovery during an outage.
+
+## Amazon ECS task storage requirements
+
+Sum all `storage.total_limit_size` values across OUTPUT
+sections and add buffer for overhead. This total determines the storage
+space needed in your Amazon ECS task definition. For example, 3 outputs × 10 GB
+each = 30 GB + buffer (5–10 GB) = 35–40 GB total required. If the total
+exceeds available storage, Fluent Bit may fail to queue records
+and they will be lost.
+
+The following storage options are available:
+
+Bind mounts (ephemeral storage)
+
+- For AWS Fargate, the default is 20 GB of ephemeral storage (max
+  200 GB). Configure using `ephemeralStorage` in the
+  task definition. For more information, see [EphemeralStorage](../../../AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.md") in the
+  _AWS CloudFormation User Guide_.
+- For EC2, the default is 30 GB when using the Amazon ECS-optimized
+  AMI (shared between the OS and Docker). Increase by changing the
+  root volume size.
+
+Amazon EBS volumes
+
+- Provides highly available, durable, high-performance block
+  storage.
+- Requires volume configuration and `mountPoint` in
+  the task definition pointing to `storage.path`
+  (default: `/var/log/flb-storage/`).
+- For more information, see [Defer volume configuration to launch time in an Amazon ECS task definition](specify-ebs-config.md "specify-ebs-config.md").
+
+Amazon EFS volumes
+
+- Provides simple, scalable file storage.
+- Requires volume configuration and `mountPoint` in
+  the task definition pointing to `storage.path`
+  (default: `/var/log/flb-storage/`).
+- For more information, see [Specify an Amazon EFS file system in an Amazon ECS task definition](specify-efs-config.md "specify-efs-config.md").
+
+For more information about data volumes, see [Storage options for Amazon ECS tasks](using_data_volumes.md "using_data_volumes.md").
 
 ## Optimize output configuration
 
@@ -126,24 +258,75 @@ following parameters control retry behavior:
 
 `retry_limit`
 
-The maximum retry attempts before dropping records. The default is 1.
-For production environments, we recommend 15 or higher, which covers
-several minutes of outage with exponential backoff.
+The maximum number of retries after the initial attempt before
+dropping records. The default is 1. For example,
+`retry_limit 3` means 4 total attempts (1 initial + 3
+retries). For production environments, we recommend 15 or higher, which
+covers several minutes of outage with exponential backoff.
+
+Set to `no_limits` or `False` for infinite
+retries:
+
+- With memory buffering, infinite retries cause the input plugin
+  to pause when memory limits are reached.
+- With filesystem buffering, the oldest records are dropped when
+  `storage.total_limit_size` is reached.
+
+###### Important
+
+After exhausting all retry attempts (1 initial +
+`retry_limit` retries), records are dropped. AWS
+plugins with `auto_retry_requests true` (default) provide
+an additional retry layer before Fluent Bit's retry
+mechanism. For more information, see [Configure retries](https://docs.fluentbit.io/manual/administration/scheduling-and-retries#configure-retries "https://docs.fluentbit.io/manual/administration/scheduling-and-retries#configure-retries") in the Fluent Bit
+documentation.
+
+For example, `retry_limit 3` with default settings
+(`scheduler.base 5`,
+`scheduler.cap 2000`,
+`net.connect_timeout 10s`) provides approximately
+70 seconds of scheduler wait time (10s + 20s + 40s), 40 seconds of
+network connect timeouts (4 attempts × 10s), plus AWS plugin
+retries — totaling approximately 2–10 minutes depending on network
+conditions and OS TCP timeouts.
 
 `scheduler.base`
 
-The minimum seconds between retries. We recommend 10 seconds.
+The base seconds between retries (default: 5). We recommend 10 seconds.
 
 `scheduler.cap`
 
-The maximum seconds between retries when using exponential backoff. We
-recommend 60 seconds.
+The maximum seconds between retries (default: 2000). We recommend 60 seconds.
+
+Wait time between retries uses exponential backoff with jitter:
+
+```
+wait_time = random(base, min(base × 2^retry_number, cap))
+```
+
+For example, with `scheduler.base 10` and
+`scheduler.cap 60`:
+
+- First retry: random wait between 10–20 seconds
+- Second retry: random wait between 10–40 seconds
+- Third retry and later: random wait between 10–60 seconds (capped)
+
+For more information, see [Configure wait time for retry](https://docs.fluentbit.io/manual/administration/scheduling-and-retries#configure-wait-time-for-retry "https://docs.fluentbit.io/manual/administration/scheduling-and-retries#configure-wait-time-for-retry") and [Networking](https://docs.fluentbit.io/manual/administration/networking "https://docs.fluentbit.io/manual/administration/networking") in the Fluent Bit documentation.
 
 `workers`
 
 The number of threads for parallel output processing. Multiple workers
 allow concurrent flushes, improving throughput when processing many
 chunks.
+
+`auto_retry_requests`
+
+An AWS plugin-specific setting that provides an additional retry
+layer before Fluent Bit's built-in retry mechanism. The
+default is `true`. When enabled, the AWS output plugin
+retries failed requests internally before the request is considered a
+failed flush and subject to the `retry_limit`
+configuration.
 
 The `Grace` parameter in the `[SERVICE]` section sets the
 time Fluent Bit waits during shutdown to flush buffered data. The
@@ -194,6 +377,99 @@ all recommended settings for high-throughput scenarios:
     # Maximum disk space for buffered data for this output
     storage.total_limit_size 10G
 ```
+
+## Understanding data loss scenarios
+
+Records can be lost during extended outages or issues with output destinations. The
+configuration recommendations in this guide are best-effort approaches to minimize
+data loss, but cannot guarantee zero loss during prolonged failures. Understanding
+these scenarios helps you configure Fluent Bit to maximize
+resilience.
+
+Records can be lost in two ways: oldest records are dropped when storage fills up, or
+newest records are rejected when the system cannot accept more data.
+
+### Oldest records dropped
+
+The oldest buffered records are dropped when retry attempts are exhausted or when
+`storage.total_limit_size` fills up and needs to make room for
+new data.
+
+Retry limit exceeded
+
+Occurs after AWS plugin retries (if
+`auto_retry_requests true`) plus 1 initial
+Fluent Bit attempt plus
+`retry_limit` retries. To mitigate, set
+`retry_limit no_limits` per OUTPUT plugin for
+infinite retries:
+
+```
+[OUTPUT]
+    Name                        cloudwatch_logs
+    Match                       ApplicationLogs
+    retry_limit                 no_limits
+    auto_retry_requests         true
+```
+
+###### Important
+
+Infinite retries prevent dropping records due to retry exhaustion,
+but may cause `storage.total_limit_size` to fill
+up.
+
+Storage limit reached (filesystem buffering)
+
+Occurs when the output destination is unavailable longer than your
+configured `storage.total_limit_size` can buffer. For
+example, a 10 GB buffer at 1 MB/s log rate provides approximately
+2.7 hours of buffering. To mitigate, increase
+`storage.total_limit_size` per OUTPUT plugin and
+provision adequate Amazon ECS task storage:
+
+```
+[OUTPUT]
+    Name                        cloudwatch_logs
+    Match                       ApplicationLogs
+    storage.total_limit_size    10G
+```
+
+### Newest records rejected
+
+The newest records are dropped when disk space is exhausted or when input is
+paused due to `Mem_Buf_Limit`.
+
+Disk space exhausted (filesystem buffering)
+
+Occurs when disk space is completely exhausted. Fluent
+Bit fails to queue new records and they are lost. To
+mitigate, sum all `storage.total_limit_size` values and
+provision adequate Amazon ECS task storage. For more information, see
+[Amazon ECS task storage requirements](#firelens-storage-task-requirements "#firelens-storage-task-requirements").
+
+Memory limit reached (memory buffering)
+
+Occurs when the output destination is unavailable and the memory
+buffer fills. Paused input plugins stop accepting new records. To
+mitigate, use `storage.type filesystem` for better
+resilience, or increase `Mem_Buf_Limit`.
+
+### Best practices to minimize data loss
+
+Consider the following best practices to minimize data loss:
+
+- **Use filesystem buffering** – Set
+  `storage.type filesystem` for better resilience during
+  outages.
+- **Size storage appropriately** –
+  Calculate `storage.total_limit_size` based on log rate and
+  desired recovery window.
+- **Provision adequate disk** – Ensure the
+  Amazon ECS task has sufficient ephemeral storage, Amazon EBS, or Amazon EFS.
+- **Configure retry behavior** – Balance
+  between `retry_limit` (drops records after exhausting retries)
+  and `no_limits` (retries indefinitely but may fill
+  storage).
 
 ## Use multi-destination logging for reliability
 

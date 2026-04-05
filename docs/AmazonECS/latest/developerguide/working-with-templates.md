@@ -2479,7 +2479,7 @@ Resources:
     Properties:
       RoleName: !Sub '${AWS::StackName}-task-execution-role'
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
           - Effect: Allow
             Principal:
@@ -2496,7 +2496,7 @@ Resources:
     Properties:
       RoleName: !Sub '${AWS::StackName}-task-role'
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
           - Effect: Allow
             Principal:
@@ -3373,7 +3373,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
           - Effect: Allow
             Principal:
@@ -3829,7 +3829,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
           - Effect: Allow
             Principal:

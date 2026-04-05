@@ -37,8 +37,8 @@ For detailed instructions on getting started, see:
 ## Capacity providers
 
 Amazon ECS Managed Instances uses capacity providers to manage compute capacity for your
-workloads. You can use the default capacity provider or create custom capacity providers
-with specific instance requirements.
+workloads. When you create a capacity provider, you can use default instance selection
+or specify custom instance requirements using `instanceRequirements`.
 
 The following capacity provider options are available:
 
@@ -241,6 +241,97 @@ Guide_.
 In addition to using the data volume attached to the instance, you can also configure
 data volumes for each task that runs on Amazon ECS Managed Instances. For more information about
 available task-level storage options, see [Storage options for Amazon ECS tasks](using_data_volumes.md "using_data_volumes.md").
+
+## Local Storage
+
+[Amazon EC2 instance store](../../../AWSEC2/latest/UserGuide/InstanceStorage.md "../../../AWSEC2/latest/UserGuide/InstanceStorage.md") provides temporary block-level storage for your Amazon EC2
+instances. The storage provided by Amazon EC2 instance store is accessible through disks
+that are physically attached to the hosts. You can configure Amazon ECS Managed Instances to
+use instance store as a data volume for tasks running on the container instance.
+When you enable local storage and the instance has instance store volumes, Amazon ECS
+uses the instance store volumes instead of provisioning an Amazon EBS data volume. This
+can reduce storage costs and improve I/O performance for latency-sensitive
+workloads. There is no additional charge for using instance store volumes with
+Amazon ECS Managed Instances.
+
+When an instance has multiple instance store volumes, Amazon ECS automatically combines
+them into a single RAID 0 volume and presents it as contiguous storage for tasks.
+When an instance doesn't have instance store volumes, or when local storage is
+disabled, Amazon ECS provisions an Amazon EBS data volume with the size specified in
+`storageSizeGiB`. Instance store volumes are ephemeral. Data on instance
+store volumes is lost when the instance is stopped, terminated, or when hardware
+fails. Do not use instance store for data that must persist.
+
+To enable local storage, [create a new capacity provider](create-capacity-provider-managed-instances.md "create-capacity-provider-managed-instances.md") with the
+`localStorageConfiguration` parameter and set
+`useLocalStorage` to `true`. You can also use the
+`instanceRequirements` parameter to ensure that provisioned instances
+include local storage of a specific size.
+
+###### Note
+
+When you create a cluster using the AWS Management Console, the default managed
+instances capacity provider that Amazon ECS creates doesn't include
+`localStorageConfiguration`.
+
+The following example shows a capacity provider configuration with local
+storage enabled and instance requirements that specify SSD-based instance store
+with a minimum of 50 GiB.
+
+```
+{
+...
+    "managedInstancesProvider": {
+        "infrastructureRoleArn": "arn:aws:iam::123456789012:role/ecsInfrastructureRole",
+        "instanceLaunchTemplate": {
+            "ec2InstanceProfileArn": "arn:aws:iam::123456789012:instance-profile/ecsInstanceProfile",
+            "networkConfiguration": {
+                "subnets": [
+                    "subnet-abcdef01234567",
+                    "subnet-bcdefa98765432"
+                ],
+                "securityGroups": [
+                    "sg-0123456789abcdef"
+                ]
+            },
+            "storageConfiguration": {
+                "storageSizeGiB": 50
+            },
+            "localStorageConfiguration": {
+                "useLocalStorage": true
+            },
+            "instanceRequirements": {
+                "localStorage": "REQUIRED",
+                "totalLocalStorageGB": {
+                    "Min": 50
+                },
+                "localStorageTypes": ["ssd"]
+            }
+        }
+    }
+}
+```
+
+When you omit the `instanceRequirements` configuration, Amazon ECS defaults
+`localStorage` to `INCLUDED`. In this case, Amazon ECS considers
+instances both with and without instance store volumes for provisioning. Instances
+with instance store volumes use an instance store for data volume, while instances
+without instance store volumes use an Amazon EBS data volume. When
+`totalLocalStorageGB` is not specified, Amazon ECS uses all available instance
+storage, with no minimum size enforced.
+
+The `storageSizeGiB` value in `storageConfiguration` defines
+only the Amazon EBS data volume size and is used when instance storage is unavailable.
+The `totalLocalStorageGB` value in `instanceRequirements`
+controls the minimum instance storage size required on provisioned instances. To
+guarantee that all instances use local storage, set `localStorage` to
+`REQUIRED` and specify a minimum size by using
+`totalLocalStorageGB`.
+
+To verify whether a specific provisioned container instance is using local
+storage, check for the
+`ecs.capability.storage.local-storage-enabled` attribute on the
+container instance.
 
 ## Service load balancing
 
