@@ -10,10 +10,11 @@
 - [How can I backfill data after changing my report settings or when a new methodology is released?](#carbon-emissions-backfill-request "#carbon-emissions-backfill-request")
 - [Why can't I see historical data in my S3 bucket?](#carbon-emissions-historical-data "#carbon-emissions-historical-data")
 - [Why don't I see the newly released columns in my export?](#carbon-emissions-new-columns "#carbon-emissions-new-columns")
+- [Why is my data not provided using older methodology versions?](#carbon-emissions-methodology "#carbon-emissions-methodology")
 
 ## Why can't I create an export of the Carbon emissions table even though I have IAM permissions to use Data Exports and the CUR 2.0 table?
 
-To access data in the Customer Carbon Footprint Tool or the Carbon emissions table, you
+To access carbon footprint data, you
 need the IAM permission `sustainability:GetCarbonFootprintSummary`.
 
 ## Why can't I see carbon emissions data for some member accounts in my organization?
@@ -88,3 +89,13 @@ updated. To add new columns to an existing export, you must update your export c
 future monthly exports (previously exported data remains unchanged). To backfill data with the
 new columns, you need to create a new export. This provides up to 38 months of historical data
 plus monthly updates.
+
+## Why is my data not provided using older methodology versions?
+
+We publish data using the latest methodology version to ensure your estimated emissions are as accurate as possible.
+If you had an existing data export with data from previous versions, the data will continue to be available for you to reference, unless you delete it.
+There is no other way to retrieve old versions.
+
+If you configured your Data Export’s _File versioning_ to _Overwrite_, we will only update your files if a data improvement is delivered within the same methodology version.
+If you want to keep all historical versions of your data, select _Create new_ under _File versioning_.
+This will ensure your data is never overwritten.

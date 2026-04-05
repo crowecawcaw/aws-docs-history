@@ -4,8 +4,7 @@ The carbon emissions table contains your estimated carbon emissions. It provides
 account-level and regional granularity of your carbon emissions data. You can configure
 automated monthly deliveries to Amazon S3 in either CSV or Parquet format, making it
 simple to integrate with your existing business intelligence tools and reporting
-systems. For more detailed information, see [Viewing your carbon footprint](../../../awsaccountbilling/latest/aboutv2/what-is-ccft.md "../../../awsaccountbilling/latest/aboutv2/what-is-ccft.md") in the _AWS Billing User
-Guide_.
+systems. For detailed information about the methodology, see [Calculation Methodology](../../../sustainability/latest/userguide/methodology.md "../../../sustainability/latest/userguide/methodology.md") in the _AWS Sustainability User Guide_.
 
 The SQL table name for carbon emissions is `CARBON_EMISSIONS`.
 
@@ -21,7 +20,7 @@ There are no table configurations for the Carbon emissions table.
 
 ## Permissions
 
-To access data in the Customer Carbon Footprint Tool or the Carbon emissions table, you
+To access carbon footprint data, you
 need the IAM permission
 `sustainability:GetCarbonFootprintSummary`.
 

@@ -56,9 +56,8 @@ There are five export types:
    and create an export that integrates with Amazon QuickSight and deploys a pre-built cost and usage
    dashboard.
 
-You can also access the [Customer
-Carbon
-Footprint
-Tool](../../../awsaccountbilling/latest/aboutv2/what-is-ccft.md "../../../awsaccountbilling/latest/aboutv2/what-is-ccft.md")
-and the [AWS Usage
-Report](usage-report.md "usage-report.md") from the **Data Exports** page.
+You can also access
+[AWS Sustainability](../../../sustainability/latest/userguide.md "../../../sustainability/latest/userguide.md")
+and the
+[AWS Usage Report](usage-report.md "usage-report.md")
+from the **Data Exports** page.

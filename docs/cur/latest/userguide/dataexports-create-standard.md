@@ -23,8 +23,7 @@ Exporting the Cost optimization recommendations table requires a service-linked
 role. For more information, see [Service-linked roles for Data Exports](../../../cost-management/latest/userguide/data-exports-SLR.md "../../../cost-management/latest/userguide/data-exports-SLR.md").
 
 Exporting the Carbon emissions table requires the IAM permission
-`sustainability:GetCarbonFootprintSummary` to access the Customer Carbon
-Footprint Tool and data.
+`sustainability:GetCarbonFootprintSummary` to access the carbon footprint data.
 
 With the exception of FOCUS 1.0 with AWS columns and Carbon emissions, there are
 different table configurations to add data to your export.
