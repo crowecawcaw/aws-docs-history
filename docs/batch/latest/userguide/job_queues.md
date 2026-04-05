@@ -14,3 +14,5 @@ first.
 - [Fair-share scheduling policies](job_scheduling.md "job_scheduling.md")
 - [Resource-aware scheduling](resource-aware-scheduling.md "resource-aware-scheduling.md")
 - [Quota management](quota-management.md "quota-management.md")
+- [Track service job capacity utilization](track-capacity-utilization-service-jobs.md "track-capacity-utilization-service-jobs.md")
+- [Track compute job capacity utilization](track-capacity-utilization-compute-jobs.md "track-capacity-utilization-compute-jobs.md")
