@@ -21,14 +21,14 @@ If you want to automatically set up a GraphQL endpoint in AWS AppSync with an HT
 endpoint configured (using Amazon API Gateway and Lambda), you can use the following AWS CloudFormation
 template :
 
-[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](/images/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/http/http-full.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/http/http-full.yaml")
+[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/http/http-full.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/http/http-full.yaml")
 
 ## Creating a REST API
 
 You can use the following AWS CloudFormation template to set up a REST endpoint that works for
 this tutorial:
 
-[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](/images/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/http/http-api-gw.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/http/http-api-gw.yaml")
+[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/http/http-api-gw.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/http/http-api-gw.yaml")
 
 The AWS CloudFormation stack performs the following steps:
 
