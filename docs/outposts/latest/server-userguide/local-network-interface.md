@@ -30,6 +30,7 @@ using AWS PrivateLink. For more information, see [AWS Outposts connectivity to A
 ###### Contents
 
 - [Local network interface basics](#limits-lni "#limits-lni")
+- [Enabling LNI on your Outpost subnet](enable-lni.md "enable-lni.md")
 - [Add a local network interface](add-lni.md "add-lni.md")
 - [Local connectivity](local-server.md "local-server.md")
 
