@@ -26,8 +26,7 @@ SageMaker HyperPod cluster, organized by category.
 
 When your cluster contains Restricted Instance Groups, most metrics
 categories are available on restricted nodes with the following exceptions
-and considerations. You can also set up alerting on any metric of your
-choice.
+and considerations:
 
 | Metric category             | Available on RIG nodes? | Notes                                                                                                                                                                                    |
 | --------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -39,7 +38,7 @@ choice.
 | Instance metrics            | Yes                     | Node Exporter and cAdvisor metrics are collected on all<br>nodes including restricted nodes.                                                                                             |
 | Accelerated compute metrics | Yes                     | DCGM Exporter runs on GPU-enabled restricted nodes.<br>Neuron Monitor runs on Neuron-enabled restricted nodes when<br>advanced mode is enabled.                                          |
 | Network metrics             | Yes                     | EFA Exporter runs on EFA-enabled restricted nodes when<br>advanced mode is enabled.                                                                                                      |
-| File system metrics         | Yes                     | FSx for Lustre cluster utilization metrics are supported<br>on Restricted Instance Groups.                                                                                               |
+| File system metrics         | No                      | Not available for Restricted Instance Groups attached FSX<br>volumes.                                                                                                                    |
 
 ###### Note
 

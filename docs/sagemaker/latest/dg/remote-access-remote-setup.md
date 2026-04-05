@@ -1,6 +1,6 @@
 # Set up remote access
 
-Before users can connect their Remote IDE to Studio spaces, the
+Before users can connect their local Visual Studio Code to Studio spaces, the
 administrator must configure permissions. This section provides instructions for
 administrators on how to set up their Amazon SageMaker AI domain with remote access.
 
@@ -14,9 +14,9 @@ Currently remote IDE connections are authenticated using IAM credentials, not
 IAM Identity Center. This applies for domains that use the IAM Identity Center [authentication method](onboard-custom.md#onboard-custom-authentication-details "onboard-custom.md#onboard-custom-authentication-details") for your users to access the domain. If you
 prefer not to use IAM authentication for remote connections, you can opt-out by
 disabling this feature using the `RemoteAccess` conditional key in your
-IAM policies. For more information, see [Remote access enforcement](remote-access-remote-setup-abac.md#remote-access-remote-setup-abac-remote-access-enforcement "remote-access-remote-setup-abac.md#remote-access-remote-setup-abac-remote-access-enforcement"). When using IAM credentials, Remote IDE connections may maintain
-active sessions even after you log out of your IAM Identity Center session. Sometimes, these Remote
-IDE connections can persist for up to 12 hours. To ensure the
+IAM policies. For more information, see [Remote access enforcement](remote-access-remote-setup-abac.md#remote-access-remote-setup-abac-remote-access-enforcement "remote-access-remote-setup-abac.md#remote-access-remote-setup-abac-remote-access-enforcement"). When using IAM credentials, Local IDE (Visual Studio Code) connection may maintain
+active sessions even after you log out of your IAM Identity Center session. Sometimes, these Local
+IDE (Visual Studio Code) connection can persist for up to 12 hours. To ensure the
 security of your environment, administrators must review session duration settings
 where possible and be cautious when using shared workstations or public networks.
 
@@ -188,7 +188,7 @@ the space. For more information, see [Method 3: Connect from the terminal via SS
 
 After you set up the permissions, you must toggle on **Remote
 Access** and start your space in Studio before the user can
-connect using their Remote IDE. This setup only needs to be done once.
+connect using their local VS Code. This setup only needs to be done once.
 
 ###### Note
 

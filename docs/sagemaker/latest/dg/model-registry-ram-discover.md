@@ -18,7 +18,7 @@ AWS CLI
     ```
     aws sagemaker put-model-package-group-policy
     --model-package-group-name `<model-package-group-name>`
-    --resource-policy "{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":[{\"Sid\":
+    --resource-policy "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":
     \"ExampleResourcePolicy\",\"Effect\":\"Allow\",\"Principal\":`<principal>`,
     \"Action\":[\"sagemaker:DescribeModelPackage\",
     \"sagemaker:ListModelPackages\",\"sagemaker:DescribeModelPackageGroup\"],

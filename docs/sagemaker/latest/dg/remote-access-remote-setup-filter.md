@@ -4,7 +4,7 @@ Users can filter spaces in the AWS Toolkit for Visual Studio Code explorer to di
 spaces. This section provides information on filtering and how to set up automated
 filtering.
 
-This setup only applies when using the [Method 2: AWS Toolkit in the Remote IDE](remote-access-local-ide-setup.md#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code "remote-access-local-ide-setup.md#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code") method to connect from your Remote IDE to Amazon SageMaker Studio spaces. See [Set up remote access](remote-access-remote-setup.md "remote-access-remote-setup.md") for more information.
+This setup only applies when using the [Method 2: AWS Toolkit for Visual Studio Code](remote-access-local-ide-setup.md#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code "remote-access-local-ide-setup.md#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code") method to connect from local Visual Studio Codes to Amazon SageMaker Studio spaces. See [Set up remote access](remote-access-remote-setup.md "remote-access-remote-setup.md") for more information.
 
 ###### Topics
 

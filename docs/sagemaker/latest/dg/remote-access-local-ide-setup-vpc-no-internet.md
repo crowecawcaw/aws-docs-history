@@ -1,67 +1,42 @@
 # Connect to VPC with subnets without internet access
 
-Before connecting your Remote IDE to Studio spaces in private subnets without
+Before connecting Visual Studio Code to Studio spaces in private subnets without
 internet access, ensure your administrator has [Set up Studio to run with subnets without internet access within a VPC](remote-access-remote-setup-vpc-subnets-without-internet-access.md "remote-access-remote-setup-vpc-subnets-without-internet-access.md").
 
-You have the following options to connect your Remote IDE to Studio spaces in
+You have two options to connect your local Visual Studio Code to Studio spaces in
 private subnets:
 
-- Set up HTTP Proxy (supported for VS Code and Kiro)
-- Pre-packaged remote server and extensions (VS Code only)
-
-###### Important
-
-Cursor is not supported for connecting to Studio spaces in private subnets
-without outbound internet access.
+- Set up HTTP Proxy
+- Pre-packaged VS Code remote server and extensions
 
 ###### Topics
 
 - [HTTP Proxy with controlled allow-listing](#remote-access-local-ide-setup-vpc-no-internet-http-proxy-with-controlled-allow-listing "#remote-access-local-ide-setup-vpc-no-internet-http-proxy-with-controlled-allow-listing")
-- [Pre-packaged remote server and extensions (VS Code only)](#remote-access-local-ide-setup-vpc-no-internet-pre-packaged-vs-code-remote-server-and-extensions "#remote-access-local-ide-setup-vpc-no-internet-pre-packaged-vs-code-remote-server-and-extensions")
+- [Pre-packaged VS Code remote server and extensions](#remote-access-local-ide-setup-vpc-no-internet-pre-packaged-vs-code-remote-server-and-extensions "#remote-access-local-ide-setup-vpc-no-internet-pre-packaged-vs-code-remote-server-and-extensions")
 
 ## HTTP Proxy with controlled allow-listing
 
 When your Studio space is behind a firewall or proxy, ask your
-administrator to allow access to your IDE server and extension-related CDNs and
+administrator to allow access to VS Code server and extension-related CDNs and
 endpoints. For more information, see [Set up HTTP Proxy with controlled allow-listing](remote-access-remote-setup-vpc-subnets-without-internet-access.md#remote-access-remote-setup-vpc-subnets-without-internet-access-setup-http-proxy-with-controlled-allow-listing "remote-access-remote-setup-vpc-subnets-without-internet-access.md#remote-access-remote-setup-vpc-subnets-without-internet-access-setup-http-proxy-with-controlled-allow-listing").
 
-VS Code
-Configure the HTTP proxy for VS Code remote development
+Once set up, you can configure the HTTP proxy for VS Code remote development
 by providing the proxy URL with the `remote.SSH.httpProxy` or
 `remote.SSH.httpsProxy` setting.
 
 ###### Note
 
-Consider enabling "Remote.SSH: Use Curl And Wget Configuration Files" to
+Consider enabling “Remote.SSH: Use Curl And Wget Configuration Files” to
 use the configuration from the remote environment’s `curlrc` and
 `wgetrc` files. This is so that the `curlrc` and
 `wgetrc` files, placed in their respective default locations
 in the SageMaker space, can be used for enabling certain cases.
 
-Kiro
-Configure the HTTP proxy for Kiro remote development
-by setting the `aws.sagemaker.ssh.kiro.httpsProxy` setting to your
-HTTP or HTTPS proxy endpoint.
-
-If you use MCP (Model Context Protocol) servers in Kiro, you also need to
-add the proxy environment variables to your MCP server configuration:
-
-```
-"env": {
-    "http_proxy": "${http_proxy}",
-    "https_proxy": "${https_proxy}"
-}
-```
-
 This option works when you are allowed to set up HTTP proxy and lets you
 install additional extensions flexibly, as some extensions require a public
 endpoint.
 
-## Pre-packaged remote server and extensions (VS Code only)
-
-###### Note
-
-This option is only available for Visual Studio Code. Kiro and Cursor do not support pre-packaged remote server setup.
+## Pre-packaged VS Code remote server and extensions
 
 When your Studio spaces can’t access external endpoints to download
 VS Code remote server and extensions, you can pre-package them. With this
@@ -69,7 +44,7 @@ approach, your administrator can export a tarball containing the `.VS
  Code-server` directory for a specific version of VS Code. Then,
 the administrator uses a SageMaker AI Lifecycle Configuration (LCC) script to copy and
 extract the tarball into your home directory
-(`/home/sagemaker-user`). For more information, see [Set up Pre-packaged remote server and extensions (VS Code only)](remote-access-remote-setup-vpc-subnets-without-internet-access.md#remote-access-remote-setup-vpc-subnets-without-internet-access-setup-pre-packaged-vs-code-remote-server-and-extensions "remote-access-remote-setup-vpc-subnets-without-internet-access.md#remote-access-remote-setup-vpc-subnets-without-internet-access-setup-pre-packaged-vs-code-remote-server-and-extensions").
+(`/home/sagemaker-user`). For more information, see [Set up Pre-packaged Visual Studio Code remote server and extensions](remote-access-remote-setup-vpc-subnets-without-internet-access.md#remote-access-remote-setup-vpc-subnets-without-internet-access-setup-pre-packaged-vs-code-remote-server-and-extensions "remote-access-remote-setup-vpc-subnets-without-internet-access.md#remote-access-remote-setup-vpc-subnets-without-internet-access-setup-pre-packaged-vs-code-remote-server-and-extensions").
 
 **Instructions for using pre-packaging for your VS Code
 remote server and extensions**

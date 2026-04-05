@@ -5,7 +5,7 @@ AWS Toolkit for Visual Studio Code explorer. The following provides information 
 automated filtering. For more information on the definitions of manual and automatic
 filtering, see [Filtering overview](remote-access-remote-setup-filter.md#remote-access-remote-setup-filter-overview "remote-access-remote-setup-filter.md#remote-access-remote-setup-filter-overview").
 
-This setup only applies when using the [Method 2: AWS Toolkit in the Remote IDE](remote-access-local-ide-setup.md#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code "remote-access-local-ide-setup.md#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code") method to connect from your Remote IDE to Amazon SageMaker Studio spaces. See [Set up remote access](remote-access-remote-setup.md "remote-access-remote-setup.md") for more information.
+This setup only applies when using the [Method 2: AWS Toolkit for Visual Studio Code](remote-access-local-ide-setup.md#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code "remote-access-local-ide-setup.md#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code") method to connect from local Visual Studio Code to Amazon SageMaker Studio spaces. See [Set up remote access](remote-access-remote-setup.md "remote-access-remote-setup.md") for more information.
 
 ###### Topics
 
@@ -16,7 +16,7 @@ This setup only applies when using the [Method 2: AWS Toolkit in the Remote IDE]
 
 To manually filter displayed spaces:
 
-- Open your Remote IDE and navigate to the Toolkit for VS Code side panel
+- Open VS Code and navigate to the Toolkit for VS Code side panel
   explorer
 - Find the **SageMaker AI** section
 - Choose the filter icon on the right of the SageMaker AI section header. This
@@ -41,7 +41,7 @@ session name.
 
 Automatic filtering is opt-in for users:
 
-- Open your Remote IDE settings
+- Open VS Code settings
 - Navigate to the **AWS Toolkit** extension
 - Find **Enable Identity Filtering**
 - Choose to enable automatic filtration of spaces based on your AWS

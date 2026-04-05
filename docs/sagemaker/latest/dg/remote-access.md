@@ -1,47 +1,46 @@
-# Connect your Remote IDE to SageMaker spaces with remote access
+# Connect your local Visual Studio Code to SageMaker spaces with remote access
 
-You can remotely connect from your Remote IDE to Amazon SageMaker Studio spaces. You can use your
-customized local IDE setup, including AI-assisted development tools and custom
+You can remotely connect from Visual Studio Code to Amazon SageMaker Studio spaces. You can use your
+customized local VS Code setup, including AI-assisted development tools and custom
 extensions, with the scalable compute resources in Amazon SageMaker AI. This guide provides concepts
 and setup instructions for administrators and users.
 
-A Remote IDE connection establishes a secure connection between your local IDE
+A remote VS Code connection establishes a secure connection between your local VS Code
 and SageMaker spaces. This connection lets you:
 
 - **Access SageMaker AI compute resources** — Run code on
   scalable SageMaker AI infrastructure from your local environment
 - **Maintain security boundaries** — Work within the
   same security framework as SageMaker AI
-- **Keep your familiar IDE experience** — Use
-  compatible local extensions, themes, and configurations that support remote
-  development
+- **Keep your familiar Visual Studio Code experience** — Use
+  compatible local extensions, themes, and configurations that support [Microsoft Remote
+  Development](https://code.visualstudio.com/docs/remote/remote-overview "https://code.visualstudio.com/docs/remote/remote-overview")
 
 ###### Note
 
-Not all IDE extensions are compatible with remote development. Extensions that
+Not all VS Code extensions are compatible with remote development. Extensions that
 require local GUI components, have architecture dependencies, or need specific
 client-server interactions may not work properly in the remote environment. Verify that
-your required extensions support remote development before use.
+your required extensions support Microsoft Remote Development before use.
 
 ###### Topics
 
 - [Key concepts](#remote-access-key-concepts "#remote-access-key-concepts")
 - [Connection methods](#remote-access-connection-methods "#remote-access-connection-methods")
 - [Supported IDEs](#remote-access-supported-ides "#remote-access-supported-ides")
-- [IDE version requirements](#remote-access-ide-version-requirements "#remote-access-ide-version-requirements")
+- [VS Code version requirement](#remote-access-vs-code-version-requirement "#remote-access-vs-code-version-requirement")
 - [Operating system requirements](#remote-access-os-requirements "#remote-access-os-requirements")
 - [Local machine prerequisites](#remote-access-local-prerequisites "#remote-access-local-prerequisites")
 - [Image requirements](#remote-access-image-requirements "#remote-access-image-requirements")
 - [Instance requirements](#remote-access-instance-requirements "#remote-access-instance-requirements")
 - [Set up remote access](remote-access-remote-setup.md "remote-access-remote-setup.md")
-- [Set up Remote IDE](remote-access-local-ide-setup.md "remote-access-local-ide-setup.md")
-- [Supported AWS Regions](remote-access-supported-regions.md "remote-access-supported-regions.md")
+- [Set up local Visual Studio Code](remote-access-local-ide-setup.md "remote-access-local-ide-setup.md")
 
 ## Key concepts
 
 - **Remote connection** — A secure tunnel between
-  your Remote IDE and a SageMaker space. This connection enables interactive
-  development and code execution using SageMaker AI compute resources.
+  your local VS Code and a SageMaker space. This connection enables interactive
+  development and code execution in VS Code using SageMaker AI compute resources.
 - [**Amazon SageMaker Studio space**](studio-updated-spaces.md "studio-updated-spaces.md") — A dedicated environment
   within Amazon SageMaker Studio where you can manage your storage and resources for your
   Studio applications.
@@ -50,15 +49,15 @@ your required extensions support remote development before use.
 
 ## Connection methods
 
-There are three main ways to connect your Remote IDE to SageMaker spaces:
+There are three main ways to connect your local VS Code to SageMaker spaces:
 
 - **Deep link access** — You can connect directly
-  to a specific space by using the **Open space with** button
+  to a specific space by using the **Open in VS Code** button
   available in SageMaker AI. This uses URL patterns to establish a remote connection and
-  open your SageMaker space in your Remote IDE.
+  open your SageMaker space in VS Code.
 - [**AWS Toolkit for Visual Studio Code**](../../../toolkit-for-vscode/latest/userguide/welcome.md "../../../toolkit-for-vscode/latest/userguide/welcome.md") — You can authenticate with
   AWS Toolkit for Visual Studio Code. This allows you to connect to spaces and open a remotely
-  connected window from your Remote IDE.
+  connected window from VS Code.
 - **SSH terminal connection** — You can connect via
   command line using SSH configuration.
 
@@ -67,21 +66,11 @@ There are three main ways to connect your Remote IDE to SageMaker spaces:
 Remote connection to Studio spaces supports:
 
 - [Visual Studio Code](https://code.visualstudio.com/ "https://code.visualstudio.com/")
-- [Kiro](https://kiro.dev/ "https://kiro.dev/")
-- [Cursor](https://cursor.com/home "https://cursor.com/home")
 
-## IDE version requirements
+## VS Code version requirement
 
-The following table lists the minimum version requirements for each supported Remote IDE.
-
-| IDE                | Minimum version                                                                                                                                                                                                                               |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Visual Studio Code | [v1.90](https://code.visualstudio.com/updates/v1_90 "https://code.visualstudio.com/updates/v1_90") or greater. We recommend using the [latest stable version](https://code.visualstudio.com/updates "https://code.visualstudio.com/updates"). |
-| Kiro               | v0.10.78 or greater                                                                                                                                                                                                                           |
-| Cursor             | v2.6.18 or greater                                                                                                                                                                                                                            |
-
-The AWS Toolkit extension is required to connect your Remote IDE to Studio spaces.
-For Kiro and Cursor, AWS Toolkit extension version v3.100 or greater is required.
+VS Code version [v1.90](https://code.visualstudio.com/updates/v1_90 "https://code.visualstudio.com/updates/v1_90") or greater is required. We recommend using the [latest stable version of
+VS Code](https://code.visualstudio.com/updates "https://code.visualstudio.com/updates").
 
 ## Operating system requirements
 
@@ -94,12 +83,12 @@ spaces:
 
 - Windows 11
 - Linux
-  - For VS Code, install the official [Microsoft
+  - Install the official [Microsoft
     VS Code for Linux](https://code.visualstudio.com/docs/setup/linux "https://code.visualstudio.com/docs/setup/linux"), not an open-source version
 
 ## Local machine prerequisites
 
-Before connecting your Remote IDE to Studio spaces, ensure your local
+Before connecting your local Visual Studio Code to Studio spaces, ensure your local
 machine has the required dependencies and network access.
 
 ###### Important
@@ -115,15 +104,15 @@ components are available.
 Your local machine must have the following components installed:
 
 - **[Remote-SSH
-  Extension](https://code.visualstudio.com/docs/remote/ssh "https://code.visualstudio.com/docs/remote/ssh")** — Remote development extension
-  for your IDE (available in the extension marketplace for VS Code, Kiro, and Cursor)
+  Extension](https://code.visualstudio.com/docs/remote/ssh "https://code.visualstudio.com/docs/remote/ssh")** — Standard VS Code Marketplace extension
+  for remote development
 - **[Session Manager plugin](../../../systems-manager/latest/userguide/session-manager-working-with-install-plugin.md "../../../systems-manager/latest/userguide/session-manager-working-with-install-plugin.md")** — Required for secure session
   management
 - **SSH Client** — Standard component on most
   machines ([OpenSSH recommended for Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse "https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse"))
-- **IDE CLI Command** — Typically included with IDE
-  installation (for example, `code` for VS Code, `kiro` for Kiro,
-  `cursor` for Cursor)
+- **[VS Code
+  CLI Command](https://code.visualstudio.com/docs/configure/command-line "https://code.visualstudio.com/docs/configure/command-line")** — Typically included with VS Code
+  installation
 
 **Platform-specific requirements**
 
@@ -173,5 +162,4 @@ specifications](studio-updated-byoi-specs.md "studio-updated-byoi-specs.md") and
 ###### Topics
 
 - [Set up remote access](remote-access-remote-setup.md "remote-access-remote-setup.md")
-- [Set up Remote IDE](remote-access-local-ide-setup.md "remote-access-local-ide-setup.md")
-- [Supported AWS Regions](remote-access-supported-regions.md "remote-access-supported-regions.md")
+- [Set up local Visual Studio Code](remote-access-local-ide-setup.md "remote-access-local-ide-setup.md")

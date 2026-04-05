@@ -47,7 +47,7 @@ Studio offers the following benefits:
 - [Amazon EFS auto-mounting in Studio](studio-updated-automount.md "studio-updated-automount.md")
 - [Idle shutdown](studio-updated-idle-shutdown.md "studio-updated-idle-shutdown.md")
 - [Applications supported in Amazon SageMaker Studio](studio-updated-apps.md "studio-updated-apps.md")
-- [Connect your Remote IDE to SageMaker spaces with remote access](remote-access.md "remote-access.md")
+- [Connect your local Visual Studio Code to SageMaker spaces with remote access](remote-access.md "remote-access.md")
 - [Bring your own image (BYOI)](studio-updated-byoi.md "studio-updated-byoi.md")
 - [Lifecycle configurations within Amazon SageMaker Studio](studio-lifecycle-configurations.md "studio-lifecycle-configurations.md")
 - [Amazon SageMaker Studio spaces](studio-updated-spaces.md "studio-updated-spaces.md")

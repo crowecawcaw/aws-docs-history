@@ -97,7 +97,7 @@ methods:
   choose the model that you want to deploy. Then, from the model’s
   **Versions** page, choose the **More
   options** icon (
-  ![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+  ![Vertical ellipsis icon representing a menu or more options.](/images/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)
   ) next to a model version and select
   **Deploy**.
 - When on the details page for a model version, on the
@@ -106,7 +106,7 @@ methods:
 - When on the details page for a model version, on the
   **Predict** tab, choose the **More
   options** icon (
-  ![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+  ![Vertical ellipsis icon representing a menu or more options.](/images/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)
   ) at the top of the page and select
   **Deploy**.
 - On the **ML Ops** page of the Canvas application, choose

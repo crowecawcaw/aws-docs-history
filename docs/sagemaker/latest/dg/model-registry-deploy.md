@@ -142,7 +142,7 @@ cross_account_id = "123456789012"
 
 # Create the policy for access to the ECR repository
 ecr_repository_policy = {
-    'Version': '2012-10-17		 	 	 ',
+    'Version': '2012-10-17',
     'Statement': [{
         'Sid': 'AddPerm',
         'Effect': 'Allow',
@@ -166,7 +166,7 @@ response = ecr.set_repository_policy(
 
 # Create a policy for accessing the S3 bucket
 bucket_policy = {
-    'Version': '2012-10-17		 	 	 ',
+    'Version': '2012-10-17',
     'Statement': [{
         'Sid': 'AddPerm',
         'Effect': 'Allow',
@@ -202,7 +202,7 @@ response = client.create_grant(
 
 # 3. Create a policy for access to the Model Group.
 model_package_group_policy = {
-    'Version': '2012-10-17		 	 	 ',
+    'Version': '2012-10-17',
     'Statement': [{
         'Sid': 'AddPermModelPackageGroup',
         'Effect': 'Allow',
