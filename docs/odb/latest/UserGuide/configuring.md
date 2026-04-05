@@ -33,6 +33,8 @@ You can create an ODB peering connection between an ODB network in one account a
 different account, after the ODB network has been shared using AWS RAM. VPC owner accounts can manage
 CIDR ranges specified in the peering connection without also owning the ODB network.
 
+### Peering connection limits
+
 You can create up to 45 peerings for a single ODB network.
 
 1. Sign in to the AWS Management Console and open the Oracle Database@AWS console at [https://console.aws.amazon.com/odb/](https://console.aws.amazon.com/odb/ "https://console.aws.amazon.com/odb/").

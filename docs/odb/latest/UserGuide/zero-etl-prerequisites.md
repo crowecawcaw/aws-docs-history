@@ -114,6 +114,8 @@ ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
 ALTER SYSTEM ARCHIVE LOG CURRENT;
 ```
 
+### SSL configuration
+
 To set up a zero-ETL integration between Oracle Database@AWS and Amazon Redshift, you must configure SSL.
 
 **For Oracle Exadata databases**
@@ -136,12 +138,12 @@ required.
 
 The SSL port is fixed as 2484.
 
-### AWS service prerequisites
+## AWS service prerequisites
 
 Before setting up zero-ETL integration, set up AWS Secrets Manager and configure IAM
 permissions.
 
-#### Set up AWS Secrets Manager
+### Set up AWS Secrets Manager
 
 Store your Oracle database credentials in AWS Secrets Manager as follows:
 
@@ -200,7 +202,7 @@ Infrastructure.
 }
 ```
 
-#### Configure IAM permissions
+### Configure IAM permissions
 
 Create IAM policies that allow zero-ETL integration operations. The following example
 policy allows describe, create, update, and delete operations for an Exadata VM cluster. For an

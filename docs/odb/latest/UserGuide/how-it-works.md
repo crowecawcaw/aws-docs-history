@@ -74,45 +74,32 @@ When you create an ODB network, you specify information such as the following:
 
 You can use Oracle Database@AWS in the following AWS Regions:
 
-**US East (N. Virginia)**
+**North America**
 
-You can use the AZs with the physical IDs `use1-az4` and `use1-az6`.
+| Region name           | Region code    | Availability Zones     |
+| --------------------- | -------------- | ---------------------- |
+| US East (N. Virginia) | `us-east-1`    | `use1-az4`, `use1-az6` |
+| US East (Ohio)        | `us-east-2`    | `use2-az1`, `use2-az2` |
+| US West (Oregon)      | `us-west-2`    | `usw2-az3`, `usw2-az4` |
+| Canada (Central)      | `ca-central-1` | `cac1-az1`, `cac1-az4` |
 
-**US West (Oregon)**
+**Europe**
 
-You can use the AZs with the physical IDs `usw2-az3` and
-`usw2-az4`.
+| Region name        | Region code    | Availability Zones     |
+| ------------------ | -------------- | ---------------------- |
+| Europe (Frankfurt) | `eu-central-1` | `euc1-az1`, `euc1-az2` |
+| Europe (Ireland)   | `eu-west-1`    | `euw1-az1`, `euw1-az3` |
+| Europe (London)    | `eu-west-2`    | `euw2-az1`             |
 
-**Asia Pacific (Tokyo)**
+**Asia Pacific**
 
-You can use the AZs with the physical IDs `apne1-az1` and
-`apne1-az4`.
-
-**US East (Ohio)**
-
-You can use the AZs with the physical IDs `use2-az1` and
-`use2-az2`.
-
-**Europe (Frankfurt)**
-
-You can use the AZs with the physical IDs `euc1-az1` and
-`euc1-az2`.
-
-**Canada (Central)**
-
-You can use the AZs with the physical IDs `cac1-az1` and `cac1-az4`.
-
-**Asia Pacific (Sydney)**
-
-You can use the AZs with the physical IDs `apse2-az1` and `apse2-az4`.
-
-**Europe (Ireland)**
-
-You can use the AZs with the physical IDs `euw1-az1` and `euw1-az3`.
-
-**Europe (London)**
-
-You can use the AZ with the physical ID `euw2-az1`.
+| Region name              | Region code      | Availability Zones       |
+| ------------------------ | ---------------- | ------------------------ |
+| Asia Pacific (Tokyo)     | `ap-northeast-1` | `apne1-az1`, `apne1-az4` |
+| Asia Pacific (Seoul)     | `ap-northeast-2` | `apne2-az1`              |
+| Asia Pacific (Mumbai)    | `ap-south-1`     | `aps1-az2`, `aps1-az3`   |
+| Asia Pacific (Hyderabad) | `ap-south-2`     | `aps2-az1`, `aps2-az3`   |
+| Asia Pacific (Sydney)    | `ap-southeast-2` | `apse2-az1`, `apse2-az2` |
 
 To find the logical AZ names in your account that map to the preceding physical AZ IDs, run
 the following command.
