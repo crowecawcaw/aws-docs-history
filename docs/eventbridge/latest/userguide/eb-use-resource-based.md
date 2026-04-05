@@ -97,7 +97,7 @@ policy for these types of logs, adjust the resource ARN accordingly.
 
 ```
 aws logs put-resource-policy --policy-name EventBridgeToCWLogsPolicy \
---policy-document '{"Version":"2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"Service":["events.amazonaws.com","delivery.logs.amazonaws.com"]},"Action":["logs:CreateLogStream","logs:PutLogEvents"],"Resource":"arn:aws:logs:`region`:`account-id`:log-group:/aws/events/*:*"}]}'
+--policy-document '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["events.amazonaws.com","delivery.logs.amazonaws.com"]},"Action":["logs:CreateLogStream","logs:PutLogEvents"],"Resource":"arn:aws:logs:`region`:`account-id`:log-group:/aws/events/*:*"}]}'
 ```
 
 For more information, see [PutResourcePolicy](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.md") in the _CloudWatch Logs API Reference guide_.
@@ -170,7 +170,7 @@ The following example shows the result of a new SNS topic.
         "SubscriptionsDeleted": "0",
         "EffectiveDeliveryPolicy": "{\"http\":{\"defaultHealthyRetryPolicy\":{\"minDelayTarget\":20,\"maxDelayTarget\":20,\"numRetries\":3,\"numMaxDelayRetries\":0,\"numNoDelayRetries\":0,\"numMinDelayRetries\":0,\"backoffFunction\":\"linear\"},\"disableSubscriptionOverrides\":false}}",
         "Owner": "`account-id`",
-        "Policy": "{\"Version\":\"2012-10-17\",		 	 	 \"Id\":\"__default_policy_ID\",\"Statement\":[{\"Sid\":\"__default_statement_ID\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":[\"SNS:GetTopicAttributes\",\"SNS:SetTopicAttributes\",\"SNS:AddPermission\",\"SNS:RemovePermission\",\"SNS:DeleteTopic\",\"SNS:Subscribe\",\"SNS:ListSubscriptionsByTopic\",\"SNS:Publish\"],\"Resource\":\"arn:aws:sns:`region`:`account-id`:`topic-name`\",\"Condition\":{\"StringEquals\":{\"AWS:SourceAccount\":\"`account-id`\"}}}]}",
+        "Policy": "{\"Version\":\"2012-10-17\",\"Id\":\"__default_policy_ID\",\"Statement\":[{\"Sid\":\"__default_statement_ID\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":[\"SNS:GetTopicAttributes\",\"SNS:SetTopicAttributes\",\"SNS:AddPermission\",\"SNS:RemovePermission\",\"SNS:DeleteTopic\",\"SNS:Subscribe\",\"SNS:ListSubscriptionsByTopic\",\"SNS:Publish\"],\"Resource\":\"arn:aws:sns:`region`:`account-id`:`topic-name`\",\"Condition\":{\"StringEquals\":{\"AWS:SourceAccount\":\"`account-id`\"}}}]}",
         "TopicArn": "arn:aws:sns:`region`:`account-id`:`topic-name`",
         "SubscriptionsPending": "0"
     }
@@ -209,7 +209,7 @@ example.
 ```
 aws sns set-topic-attributes --topic-arn "arn:aws:sns:`region`:`account-id`:`topic-name`" \
 --attribute-name Policy \
---attribute-value "{\"Version\":\"2012-10-17\",		 	 	 \"Id\":\"__default_policy_ID\",\"Statement\":[{\"Sid\":\"__default_statement_ID\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":[\"SNS:GetTopicAttributes\",\"SNS:SetTopicAttributes\",\"SNS:AddPermission\",\"SNS:RemovePermission\",\"SNS:DeleteTopic\",\"SNS:Subscribe\",\"SNS:ListSubscriptionsByTopic\",\"SNS:Publish\"],\"Resource\":\"arn:aws:sns:`region`:`account-id`:`topic-name`\",\"Condition\":{\"StringEquals\":{\"AWS:SourceAccount\":\"`account-id`\"}}}, {\"Sid\":\"PublishEventsToMyTopic\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"events.amazonaws.com\"},\"Action\":\"sns:Publish\",\"Resource\":\"arn:aws:sns:`region`:`account-id`:`topic-name`\"}]}"
+--attribute-value "{\"Version\":\"2012-10-17\",\"Id\":\"__default_policy_ID\",\"Statement\":[{\"Sid\":\"__default_statement_ID\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":[\"SNS:GetTopicAttributes\",\"SNS:SetTopicAttributes\",\"SNS:AddPermission\",\"SNS:RemovePermission\",\"SNS:DeleteTopic\",\"SNS:Subscribe\",\"SNS:ListSubscriptionsByTopic\",\"SNS:Publish\"],\"Resource\":\"arn:aws:sns:`region`:`account-id`:`topic-name`\",\"Condition\":{\"StringEquals\":{\"AWS:SourceAccount\":\"`account-id`\"}}}, {\"Sid\":\"PublishEventsToMyTopic\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"events.amazonaws.com\"},\"Action\":\"sns:Publish\",\"Resource\":\"arn:aws:sns:`region`:`account-id`:`topic-name`\"}]}"
 ```
 
 For more information, see the [SetTopicAttributes](../../../sns/latest/api/API_SetTopicAttributes.md "../../../sns/latest/api/API_SetTopicAttributes.md") action in the
@@ -270,7 +270,7 @@ aws sqs get-queue-attributes \
 
 ```
 {
-    "Policy": "{\"Version\":\"2012-10-17\",		 	 	 \"Id\":\"arn:aws:sqs:`region`:`account-id`:`queue-name`/SQSDefaultPolicy\",\"Statement\":[{\"Sid\": \"EventsToMyQueue\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"events.amazonaws.com\"}, \"Action\": \"sqs:SendMessage\", \"Resource\": \"arn:aws:sqs:`region`:`account-id`:`queue-name`\", \"Condition\": {\"ArnEquals\": {\"aws:SourceArn\": \"arn:aws:events:`region`:`account-id`:rule/`rule-name`\"}}}]}"
+    "Policy": "{\"Version\":\"2012-10-17\",\"Id\":\"arn:aws:sqs:`region`:`account-id`:`queue-name`/SQSDefaultPolicy\",\"Statement\":[{\"Sid\": \"EventsToMyQueue\", \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"events.amazonaws.com\"}, \"Action\": \"sqs:SendMessage\", \"Resource\": \"arn:aws:sqs:`region`:`account-id`:`queue-name`\", \"Condition\": {\"ArnEquals\": {\"aws:SourceArn\": \"arn:aws:events:`region`:`account-id`:rule/`rule-name`\"}}}]}"
 }
 ```
 
