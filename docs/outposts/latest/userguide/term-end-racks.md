@@ -20,11 +20,7 @@ charges.
 1. Open the AWS Outposts console at [https://console.aws.amazon.com/outposts/](https://console.aws.amazon.com/outposts/home "https://console.aws.amazon.com/outposts/home").
 2. In the navigation pane, choose **Outposts**.
 3. Choose **Actions**.
-4. Choose **Renew Outpost**.
-5. Choose the subscription term length and payment option.
-
-For pricing, see [AWS Outposts rack
-pricing](https://aws.amazon.com/outposts/rack/pricing/ "https://aws.amazon.com/outposts/rack/pricing/"). You can also request a price quote. 6. Choose **Submit support ticket**.
+4. Choose **Renew Outpost** and follow the workflow.
 
 ###### Note
 

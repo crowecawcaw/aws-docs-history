@@ -8,8 +8,8 @@ To begin using AWS Outposts, you must create an Outpost and order Outpost capaci
   configurations](https://aws.amazon.com/outposts/rack/pricing/ "https://aws.amazon.com/outposts/rack/pricing/") for your Outposts racks.
 - An Outpost site is the physical location for your Outpost equipment. Before ordering
   capacity, verify that your site meets the requirements. For more information, see [Site requirements for Outposts racks](outposts-requirements.md "outposts-requirements.md").
-- You must have an AWS Enterprise Support plan or an AWS Enterprise On-Ramp Support
-  plan.
+- You must have an [AWS Enterprise Support](https://aws.amazon.com/premiumsupport/plans/enterprise/ "https://aws.amazon.com/premiumsupport/plans/enterprise/") plan or an [AWS Unified
+  Operations](https://aws.amazon.com/premiumsupport/plans/unified-operations/ "https://aws.amazon.com/premiumsupport/plans/unified-operations/") plan.
 - Determine which AWS account you will use to create the Outposts site, create the
   Outpost, and place the order. Monitor the email associated with this account for information
   from AWS.
