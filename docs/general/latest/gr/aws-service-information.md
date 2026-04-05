@@ -256,7 +256,6 @@ quotas](aws-general.pdf.md#aws-service-information "aws-general.pdf.md#aws-servi
 - [AWS Signer](signer.md "signer.md")
 - [AWS Sign-In](signin-service.md "signin-service.md")
 - [Amazon SimpleDB](sdb.md "sdb.md")
-- [SimSpace Weaver](simspaceweaver.md "simspaceweaver.md")
 - [Amazon SNS](sns.md "sns.md")
 - [Amazon SQS](sqs-service.md "sqs-service.md")
 - [AWS STS](sts.md "sts.md")

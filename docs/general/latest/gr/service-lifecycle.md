@@ -16,7 +16,7 @@ lifecycle:
   functionality to them. We recommend that customers learn about and explore the alternatives
   suggested in the product pages and documentation.
 - **Sunset:** Customers already using these services and
-  features should plan to migration to alternatives as recommended in the product
+  features should plan to migrate to alternatives as recommended in the product
   pages and documentation. Sunset services have a sunset time line (typically 12
   months). The sunset date is the date AWS will end operations and support of the
   service.

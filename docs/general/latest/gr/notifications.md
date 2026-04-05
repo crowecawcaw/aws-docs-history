@@ -28,6 +28,7 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Seoul)      | ap-northeast-2 | notifications.ap-northeast-2.api.aws | HTTPS    |
 | Asia Pacific (Singapore)  | ap-southeast-1 | notifications.ap-southeast-1.api.aws | HTTPS    |
 | Asia Pacific (Sydney)     | ap-southeast-2 | notifications.ap-southeast-2.api.aws | HTTPS    |
+| Asia Pacific (Thailand)   | ap-southeast-7 | notifications.ap-southeast-7.api.aws | HTTPS    |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | notifications.ap-northeast-1.api.aws | HTTPS    |
 | Canada (Central)          | ca-central-1   | notifications.ca-central-1.api.aws   | HTTPS    |
 | Canada West (Calgary)     | ca-west-1      | notifications.ca-west-1.api.aws      | HTTPS    |
@@ -46,10 +47,9 @@ The following are the service endpoints and service quotas for this service.
 
 ## AWS User Notifications Contacts endpoints
 
-| Region Name             | Region         | Endpoint                                      | Protocol |
-| ----------------------- | -------------- | --------------------------------------------- | -------- |
-| US East (N. Virginia)   | us-east-1      | notifications-contacts.us-east-1.api.aws      | HTTPS    |
-| Asia Pacific (Malaysia) | ap-southeast-5 | notifications-contacts.ap-southeast-5.api.aws | HTTPS    |
+| Region Name           | Region    | Endpoint                                 | Protocol |
+| --------------------- | --------- | ---------------------------------------- | -------- |
+| US East (N. Virginia) | us-east-1 | notifications-contacts.us-east-1.api.aws | HTTPS    |
 
 ## Service quotas
 
