@@ -159,9 +159,9 @@ Amazon RDS
 The DB instance types for the RDS for MySQL and RDS for PostgreSQL database engines supported by Compute Optimizer.
 
 | DB instance class family      | Type   |
-| ----------------------------- | ------ | -------- | --------- | ------ | ------ | ------ | ------- | ------ | ------- | ------ |
-| **General purpose**           | db.m7g | db.m6g   | db.m6i    | db.m5  | db.m3  | db.m1  | db.m2   | db.m5d | db.m6gd | db.m6i |
-| **Memory-optimized R family** | db.r3  | db.r4    | db.r5     | db.r5b | db.r5d | db.r6g | db.r6gd | db.r6i | db.r7g  |
+| ----------------------------- | ------ | -------- | --------- | ------- | ------- | ------- | ------- | ------ | ------ |
+| **General purpose**           | db.m5  | db.m5d   | db.m6g    | db.m6gd | db.m6i  | db.m6id | db.m7g  |
+| **Memory-optimized R family** | db.r5  | db.r5b   | db.r5d    | db.r6g  | db.r6gd | db.r6i  | db.r6id | db.r7g | db.r7i |
 | **Burstable-performance**     | db.t3  | db.t4g   |
 | **Memory-optimized Z family** | db.x2g | db.x2idn | db.x2iedn |
 
@@ -169,10 +169,10 @@ Amazon Aurora
 The DB instance types for the Aurora MySQL-Compatible Edition and Aurora PostgreSQL-Compatible Edition database engines supported by Compute Optimizer.
 
 | DB instance class family      | Type    |
-| ----------------------------- | ------- | ------- | ------ | ------ | ------ |
-| **Memory-optimized R family** | db.r4   | db.r5   | db.r6g | db.r6i | db.r7g |
+| ----------------------------- | ------- | ------- | ------ | ------ |
+| **Memory-optimized R family** | db.r5   | db.r6g  | db.r6i | db.r7g |
 | **Memory-optimized X family** | db.x2g  |
-| **Burstable-performance**     | db.t2   | db.t3   | db.t4g |
+| **Burstable-performance**     | db.t3   | db.t4g  |
 | **Optimized Reads**           | db.r6gd | db.r6id |
 
 ###### Note
