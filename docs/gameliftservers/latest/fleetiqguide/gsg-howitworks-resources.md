@@ -32,7 +32,7 @@ deployment with these resources before using them through a game server group.
 - **Amazon GameLift Servers game server group**. A game server
   group contains configuration settings that define how Amazon GameLift Servers FleetIQ works with a
   corresponding Auto Scaling group to deliver low-cost game hosting. Game server groups
-  are Region-specfic. When you create a game server group in a Region, a new Auto
+  are Region-specific. When you create a game server group in a Region, a new Auto
   Scaling group is automatically created in your AWS account in the same Region.
   The game server group is linked to the Auto Scaling group and has access (by
   assuming the IAM role) to manage and modify some of its settings. A game server
