@@ -10,5 +10,5 @@ Authenticated API calls must be signed using the Signature Version 4 Signing Pro
 
 - [Actions](API_Operations.md "API_Operations.md")
 - [Data Types](API_Types.md "API_Types.md")
-- [Common Errors](CommonErrors.md "CommonErrors.md")
+- [Common Error Types](CommonErrors.md "CommonErrors.md")
 - [Common Parameters](CommonParameters.md "CommonParameters.md")
