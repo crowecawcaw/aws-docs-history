@@ -86,9 +86,9 @@ For information about current platform versions, see [.NET Core on Linux](platfo
 
 Elastic Beanstalk has scheduled the following Node.js platform versions for retirement.
 
-| Platform Version and _Solution Stack Name_                                                 | AMI              | Node.js versions (npm versions)              | Proxy Server                          | Git    | AWS X-Ray | End Date   |
-| ------------------------------------------------------------------------------------------ | ---------------- | -------------------------------------------- | ------------------------------------- | ------ | --------- | ---------- |
-| **Node.js 20 AL2023 version 6.9.0**<br>_64bit Amazon Linux 2023 v6.9.0 running Node.js 20_ | 2023.10.20260302 | 20.20.0 (10.8.2)<br>Default version: 20.20.0 | nginx 1.28.2 (default), Apache 2.4.66 | 2.50.1 | 3.6.2     | 2026-07-31 |
+| Platform Version and _Solution Stack Name_                                                   | AMI              | Node.js versions (npm versions)              | Proxy Server                          | Git    | AWS X-Ray | End Date   |
+| -------------------------------------------------------------------------------------------- | ---------------- | -------------------------------------------- | ------------------------------------- | ------ | --------- | ---------- |
+| **Node.js 20 AL2023 version 6.10.0**<br>_64bit Amazon Linux 2023 v6.10.0 running Node.js 20_ | 2023.10.20260325 | 20.20.1 (10.8.2)<br>Default version: 20.20.1 | nginx 1.28.2 (default), Apache 2.4.66 | 2.50.1 | 3.6.2     | 2026-07-31 |
 
 For information about current platform versions, see [Node.js](platforms-supported.md#platforms-supported.nodejs "platforms-supported.md#platforms-supported.nodejs").
 
@@ -96,10 +96,10 @@ For information about current platform versions, see [Node.js](platforms-support
 
 Elastic Beanstalk has scheduled the following PHP platform versions for retirement.
 
-| Platform Version and _Solution Stack Name_                                             | AMI              | Language   | Composer | Proxy Server                          | End Date   |
-| -------------------------------------------------------------------------------------- | ---------------- | ---------- | -------- | ------------------------------------- | ---------- |
-| **PHP 8.1 AL2023 version 4.11.0**<br>_64bit Amazon Linux 2023 v4.11.0 running PHP 8.1_ | 2023.10.20260302 | PHP 8.1.34 | 2.9.5    | nginx 1.28.2 (default), Apache 2.4.66 | 2026-03-31 |
-| **PHP 8.1 AL2 version 3.14.0**<br>_64bit Amazon Linux 2 v3.14.0 running PHP 8.1_       | 2.0.20260302     | PHP 8.1.33 | 2.9.5    | nginx 1.28.2 (default), Apache 2.4.66 | 2026-03-31 |
+| Platform Version and _Solution Stack Name_                                             | AMI              | Language   | Package Manager            | Proxy Server                          | End Date   |
+| -------------------------------------------------------------------------------------- | ---------------- | ---------- | -------------------------- | ------------------------------------- | ---------- |
+| **PHP 8.1 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running PHP 8.1_ | 2023.10.20260325 | PHP 8.1.34 | Composer 2.9.5, PIE 1.3.10 | nginx 1.28.2 (default), Apache 2.4.66 | 2026-03-31 |
+| **PHP 8.1 AL2 version 3.14.0**<br>_64bit Amazon Linux 2 v3.14.0 running PHP 8.1_       | 2.0.20260302     | PHP 8.1.33 | Composer 2.9.5             | nginx 1.28.2 (default), Apache 2.4.66 | 2026-03-31 |
 
 For information about current platform versions, see [PHP](platforms-supported.md#platforms-supported.PHP "platforms-supported.md#platforms-supported.PHP").
 
@@ -109,7 +109,7 @@ Elastic Beanstalk has scheduled the following Python platform versions for retir
 
 | Platform Version and _Solution Stack Name_                                                   | AMI              | Language      | Package Manager             | AWS X-Ray | Proxy Server                          | End Date   |
 | -------------------------------------------------------------------------------------------- | ---------------- | ------------- | --------------------------- | --------- | ------------------------------------- | ---------- |
-| **Python 3.9 AL2023 version 4.11.0**<br>_64bit Amazon Linux 2023 v4.11.0 running Python 3.9_ | 2023.10.20260302 | Python 3.9.25 | pip 26.0.1, pipenv 2025.0.4 | 3.6.2     | nginx 1.28.2 (default), Apache 2.4.66 | 2026-07-31 |
+| **Python 3.9 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running Python 3.9_ | 2023.10.20260325 | Python 3.9.25 | pip 26.0.1, pipenv 2025.0.4 | 3.6.2     | nginx 1.28.2 (default), Apache 2.4.66 | 2026-07-31 |
 
 For information about current platform versions, see [Python](platforms-supported.md#platforms-supported.python "platforms-supported.md#platforms-supported.python").
 
@@ -119,6 +119,6 @@ Elastic Beanstalk has scheduled the following Ruby platform versions for retirem
 
 | Platform Version and _Solution Stack Name_                                               | AMI              | Language   | Package Manager | Application Server | AWS X-Ray | Proxy Server | End Date   |
 | ---------------------------------------------------------------------------------------- | ---------------- | ---------- | --------------- | ------------------ | --------- | ------------ | ---------- |
-| **Ruby 3.2 AL2023 version 4.11.0**<br>_64bit Amazon Linux 2023 v4.11.0 running Ruby 3.2_ | 2023.10.20260302 | Ruby 3.2.8 | RubyGems 3.4.19 | Puma 7.2.0         | 3.6.2     | nginx 1.28.2 | 2026-07-31 |
+| **Ruby 3.2 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running Ruby 3.2_ | 2023.10.20260325 | Ruby 3.2.8 | RubyGems 3.4.19 | Puma 7.2.0         | 3.6.2     | nginx 1.28.2 | 2026-07-31 |
 
 For information about current platform versions, see [Ruby](platforms-supported.md#platforms-supported.ruby "platforms-supported.md#platforms-supported.ruby").
