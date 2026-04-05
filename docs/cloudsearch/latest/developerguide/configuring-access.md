@@ -389,7 +389,7 @@ search requests from the IP address `192.0.2.0`.
 
 ```
 **aws cloudsearch update-service-access-policies --domain-name movies
---access-policies "{\"Version\":\"2012-10-17\", \"Statement\":[{
+--access-policies "{\"Version\":\"2012-10-17\",\"Statement\":[{
  \"Sid\":\"search\_only\",
  \"Effect\":\"Allow\",
  \"Principal\": \"\*\",
@@ -406,7 +406,7 @@ search requests from the IP address `192.0.2.0`.
       "UpdateDate": "2014-04-30T22:07:30Z"
     },
     "Options":
-      "{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":[{\"Sid\":\"\",
+      "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"\",
         \"Effect\":\"Allow\",\"Principal\":\"*\",
         \"Action\":\"cloudsearch:search\",
         \"Condition\":{\"IpAddress\":{\"aws:SourceIp\":
