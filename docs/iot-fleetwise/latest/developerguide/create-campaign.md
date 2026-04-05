@@ -1,3 +1,5 @@
+AWS IoT FleetWise will no longer be open to new customers starting April 30, 2026. If you would like to use AWS IoT FleetWise, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS IoT FleetWise availability change](iotfleetwise-availability-change.md "iotfleetwise-availability-change.md").
+
 # Create an AWS IoT FleetWise campaign
 
 ###### Important
@@ -81,116 +83,104 @@ following:
 Manually specify the type of data collection scheme and
 define options to customize the scheme.
 
-    1. In the **Data collection scheme
-     details** section, choose the type of
-     data collection scheme you want this campaign to
-     use. To use a logical expression to recognize what
-     vehicle data to collect, choose
-     **Condition-based**. To use a
-     specific time period to decide how often to collect
-     vehicle data, choose
-     **Time-based**.
-    2. Define the duration of time the campaign collects
-     data.
+1. In the **Data collection scheme
+   details** section, choose the type of
+   data collection scheme you want this campaign to
+   use. To use a logical expression to recognize what
+   vehicle data to collect, choose
+   **Condition-based**. To use a
+   specific time period to decide how often to collect
+   vehicle data, choose
+   **Time-based**.
+2. Define the duration of time the campaign collects
+   data.
 
+###### Note
 
-    ###### Note
+By default, an approved campaign is activated
+immediately and doesn't have a set end time. To
+avoid extra charges, you must specify a time
+range. 3. If you specified a condition-based data collection
+scheme, you must define a logical expression to
+recognize what data to collect. AWS IoT FleetWise uses a
+logical expression to recognize what data to collect
+for a condition-based scheme. The expression must
+specify a signal's fully qualified name as a
+variable, a comparison operator, and a comparison
+value.
 
-    By default, an approved campaign is activated
-     immediately and doesn't have a set end time. To
-     avoid extra charges, you must specify a time
-     range.
-    3. If you specified a condition-based data collection
-     scheme, you must define a logical expression to
-     recognize what data to collect. AWS IoT FleetWise uses a
-     logical expression to recognize what data to collect
-     for a condition-based scheme. The expression must
-     specify a signal's fully qualified name as a
-     variable, a comparison operator, and a comparison
-     value.
+For example, if you specify the
+`$variable.`myVehicle.InVehicleTemperature`
 
+> 50.0` expression, AWS IoT FleetWise collects
+> temperature values that are greater than 50.0. For
+> instructions about how to write expressions, see
+> [Logical expressions for AWS IoT FleetWise campaigns](logical-expression.md "logical-expression.md").
 
-    For example, if you specify the
-     `$variable.`myVehicle.InVehicleTemperature`
-     > 50.0` expression, AWS IoT FleetWise collects
-     temperature values that are greater than 50.0. For
-     instructions about how to write expressions, see
-     [Logical expressions for AWS IoT FleetWise campaigns](logical-expression.md "logical-expression.md").
+Enter the logical expression used to recognize
+what data to collect. 4. (Optional) Specify the language version of the
+conditional expression. The default value is
 
-
-    Enter the logical expression used to recognize
-     what data to collect.
-    4. (Optional) Specify the language version of the
-     conditional expression. The default value is
-     1.
-    5. (Optional) Specify the minimum trigger interval,
-     which is the smallest duration of time between two
-     data collection events. For example, if a signal
-     changes often, you might want to collect data at a
-     slower rate.
-    6. Specify the **Trigger mode**
-     condition for the Edge Agent software to collect data. By
-     default, the Edge Agent for AWS IoT FleetWise software
-     **Always** collects data whenever
-     the condition is met. Or, it can collect data only
-     when the condition is met for the first time,
-     **On first trigger**.
-    7. If you specified a time-based data collection
-     scheme, you must specify a time
-     **Period**, in milliseconds, from
-     10,000 ‐ 60,000 milliseconds. The Edge Agent software
-     uses the time period to decide how often to collect
-     data.
-    8. (Optional) Edit the scheme’s **Advanced
-     scheme options**.
-
-
-    	1. To save wireless bandwidth and reduce
-    	 network traffic by compressing data, choose
-    	 **Snappy**.
-    	2. (Optional) To define how long, in
-    	 milliseconds, to continue collecting data after a
-    	 data collection event, you can specify the
-    	 **Post trigger collection
-    	 duration**.
-    	3. (Optional) To indicate the priority level of
-    	 the campaign, specify the campaign
-    	 **Priority**. Campaigns with a
-    	 smaller number for priority are deployed first and
-    	 are considered to have a higher priority.
-    	4. The Edge Agent software can temporarily store data
-    	 locally when a vehicle isn't connected to the
-    	 cloud. After the connection is reestablished, the
-    	 data stored locally is automatically transferred
-    	 to the cloud. Specify if you want the Edge Agent
-    	 to **Store data locally** during
-    	 a lost connection.
-    	5. (Optional) To provide additional information
-    	 for a signal, add up to five attributes as
-    	 **Extra data dimensions**.
-
-- To upload a file to define the data collection scheme, select
-  **Upload a .json file from your local device**.
-  AWS IoT FleetWise automatically defines which options that you can define in the
-  file. You can review and update the selected options.
+1.
+2. (Optional) Specify the minimum trigger interval,
+   which is the smallest duration of time between two
+   data collection events. For example, if a signal
+   changes often, you might want to collect data at a
+   slower rate.
+3. Specify the **Trigger mode**
+   condition for the Edge Agent software to collect data. By
+   default, the Edge Agent for AWS IoT FleetWise software
+   **Always** collects data whenever
+   the condition is met. Or, it can collect data only
+   when the condition is met for the first time,
+   **On first trigger**.
+4. If you specified a time-based data collection
+   scheme, you must specify a time
+   **Period**, in milliseconds, from
+   10,000 ‐ 60,000 milliseconds. The Edge Agent software
+   uses the time period to decide how often to collect
+   data.
+5. (Optional) Edit the scheme’s **Advanced
+   scheme options**.
+   1. To save wireless bandwidth and reduce
+      network traffic by compressing data, choose
+      **Snappy**.
+   2. (Optional) To define how long, in
+      milliseconds, to continue collecting data after a
+      data collection event, you can specify the
+      **Post trigger collection
+      duration**.
+   3. (Optional) To indicate the priority level of
+      the campaign, specify the campaign
+      **Priority**. Campaigns with a
+      smaller number for priority are deployed first and
+      are considered to have a higher priority.
+   4. The Edge Agent software can temporarily store data
+      locally when a vehicle isn't connected to the
+      cloud. After the connection is reestablished, the
+      data stored locally is automatically transferred
+      to the cloud. Specify if you want the Edge Agent
+      to **Store data locally** during
+      a lost connection.
+   5. (Optional) To provide additional information
+      for a signal, add up to five attributes as
+      **Extra data dimensions**.
 
 Upload a .json file with details about the data collection
 scheme.
 
-    1. To import information about the data collection
-     scheme, choose **Choose files**.
-     For more information about the required file format,
-     see the [CreateCampaign](../APIReference/API_CreateCampaign.md#API_CreateCampaign "../APIReference/API_CreateCampaign.md#API_CreateCampaign") API documentation.
+1. To import information about the data collection
+   scheme, choose **Choose files**.
+   For more information about the required file format,
+   see the [CreateCampaign](../APIReference/API_CreateCampaign.md#API_CreateCampaign "../APIReference/API_CreateCampaign.md#API_CreateCampaign") API documentation.
 
+###### Note
 
-    ###### Note
-
-    AWS IoT FleetWise currently supports the .json file
-     format extension.
-    2. AWS IoT FleetWise automatically defines the data collection
-     scheme based on the information in your file. Review
-     the options that AWS IoT FleetWise selected for you. You can
-     update the options, if needed.
+AWS IoT FleetWise currently supports the .json file
+format extension. 2. AWS IoT FleetWise automatically defines the data collection
+scheme based on the information in your file. Review
+the options that AWS IoT FleetWise selected for you. You can
+update the options, if needed.
 
 ### Step 2: Specify storage and upload conditions
 

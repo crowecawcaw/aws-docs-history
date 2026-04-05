@@ -1,3 +1,5 @@
+AWS IoT FleetWise will no longer be open to new customers starting April 30, 2026. If you would like to use AWS IoT FleetWise, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS IoT FleetWise availability change](iotfleetwise-availability-change.md "iotfleetwise-availability-change.md").
+
 # Infrastructure security in AWS IoT FleetWise
 
 As a managed service, AWS IoT FleetWise is protected by AWS global network security. For

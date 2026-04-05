@@ -1,3 +1,5 @@
+AWS IoT FleetWise will no longer be open to new customers starting April 30, 2026. If you would like to use AWS IoT FleetWise, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS IoT FleetWise availability change](iotfleetwise-availability-change.md "iotfleetwise-availability-change.md").
+
 # AWS IoT FleetWise API actions and resources reference
 
 When you're [Managing access using policies](security-iam.md#security_iam_access-manage "security-iam.md#security_iam_access-manage") for an IAM identity, you can use the following table as a reference.

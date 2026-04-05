@@ -1,3 +1,5 @@
+AWS IoT FleetWise will no longer be open to new customers starting April 30, 2026. If you would like to use AWS IoT FleetWise, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS IoT FleetWise availability change](iotfleetwise-availability-change.md "iotfleetwise-availability-change.md").
+
 # Monitor AWS IoT FleetWise with Amazon CloudWatch
 
 ###### Important
@@ -29,10 +31,10 @@ The `AWS/IoTFleetWise` namespace includes the following metrics.
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | VehicleNotFound | A message received by AWS IoT FleetWise, where the<br>vehicle is unknown.<br>Units: Count<br>Dimensions: None<br>Valid statistics: Sum |
 
-| Deployment metrics       | Metric                                                                                                                                                                                                                                                                                                                 | Description |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| PayloadSize              | Size of the message sent from AWS IoT FleetWise to the vehicle.<br>Units: Count<br>Dimensions: VehicleName, ResourceTypes (StateTemplates, Campaigns,<br>DecoderManifest)                                                                                                                                              |
-| PayloadSizeLimitExceeded | A message sent from AWS IoT FleetWise to the vehicle exceeded the maximum size of a payload<br>[service<br>limit](../../../general/latest/gr/iotfleetwise.md "../../../general/latest/gr/iotfleetwise.md") for this account in the current Region.<br>Units: Count<br>Dimensions: VehicleName<br>Valid statistics: Sum |
+| Deployment metrics       | Metric                                                                                                                                                                                                                                                                                                              | Description |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| PayloadSize              | Size of the message sent from AWS IoT FleetWise to the vehicle.<br>Units: KB<br>Dimensions: VehicleName, ResourceTypes (StateTemplates, Campaigns,<br>DecoderManifest)                                                                                                                                              |
+| PayloadSizeLimitExceeded | A message sent from AWS IoT FleetWise to the vehicle exceeded the maximum size of a payload<br>[service<br>limit](../../../general/latest/gr/iotfleetwise.md "../../../general/latest/gr/iotfleetwise.md") for this account in the current Region.<br>Units: KB<br>Dimensions: VehicleName<br>Valid statistics: Sum |
 
 | Campaign metrics | Metric                                                                                                                                                                     | Description |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |

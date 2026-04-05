@@ -1,3 +1,5 @@
+AWS IoT FleetWise will no longer be open to new customers starting April 30, 2026. If you would like to use AWS IoT FleetWise, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS IoT FleetWise availability change](iotfleetwise-availability-change.md "iotfleetwise-availability-change.md").
+
 # Provision AWS IoT FleetWise vehicles
 
 The Edge Agent for AWS IoT FleetWise software running in your vehicle collects and transfers data to the cloud.
@@ -29,11 +31,12 @@ aws iot create-policy --policy-name `policy-name` --policy-document file://`file
 
 Before you use the example policy, do the following:
 
-    + Replace `us-east-1` with the
-     AWS Region where you created AWS IoT FleetWise
-     resources.
-    + Replace `111122223333` with
-     your AWS account ID.This example includes topics reserved by AWS IoT FleetWise. You must add the topics to the policy. For more information, see [Reserved topics in AWS IoT FleetWise](reserved-topics.md "reserved-topics.md").
+- Replace `us-east-1` with the
+  AWS Region where you created AWS IoT FleetWise
+  resources.
+- Replace `111122223333` with
+  your AWS account ID.
+  This example includes topics reserved by AWS IoT FleetWise. You must add the topics to the policy. For more information, see [Reserved topics in AWS IoT FleetWise](reserved-topics.md "reserved-topics.md").
 
 JSON
 
