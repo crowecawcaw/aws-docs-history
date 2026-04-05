@@ -1,6 +1,6 @@
 # EC2 Capacity Manager
 
-Amazon EC2 Capacity Manager allows you to monitor, analyze, and manage your capacity usage across On-Demand Instances, Spot Instances, and Capacity Reservations
+Amazon EC2 Capacity Manager helps you monitor, analyze, and manage your capacity usage across On-Demand Instances, Spot Instances, and Capacity Reservations
 from a single location. Capacity Manager simplifies capacity tracking through a unified dashboard that aggregates your usage data with hourly refreshes and
 optimization opportunities.
 

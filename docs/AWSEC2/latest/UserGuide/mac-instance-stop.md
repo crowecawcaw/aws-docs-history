@@ -9,10 +9,9 @@ and to update to the latest device firmware. This ensures that Mac instances pro
 same security and data privacy as other EC2 Nitro instances. It also allows you to run
 the latest macOS AMIs. During the scrubbing workflow, the Dedicated Host temporarily
 enters the pending state. On x86 Mac instances, the scrubbing workflow might take up to
-50 minutes to complete. On Apple silicon Mac instances, the scrubbing workflow might
-take up to 110 minutes to complete. Additionally, on x86 Mac instances, if the device
-firmware needs to be updated, the scrubbing workflow might take up to 3 hours to
-complete.
+50 minutes to complete. If Amazon EC2 needs to update the device firmware, the workflow might take up to 3 hours to complete.
+On Apple silicon Mac instances, the scrubbing workflow might
+take up to 4.5 hours to complete.
 
 You can't start the stopped Mac instance or launch a new Mac instance until after the
 scrubbing workflow completes, at which point the Dedicated Host enters the `available`

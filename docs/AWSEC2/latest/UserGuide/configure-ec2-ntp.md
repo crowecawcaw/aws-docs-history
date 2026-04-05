@@ -321,14 +321,20 @@ one second of accuracy:
   Checks against the configured NTP Server every 900 seconds (15
   minutes).
 
-| Registry path                                                           | Key name            | Data                |
-| ----------------------------------------------------------------------- | ------------------- | ------------------- |
-| HKLM:\System\CurrentControlSet\services\w32time\Config                  | UpdateInterval      | 120                 |
-| HKLM:\System\CurrentControlSet\services\w32time\Parameters              | NtpServer           | 169.254.169.123,0x9 |
-| HKLM:\System\CurrentControlSet\services\w32time\Parameters              | Type                | NTP                 |
-| HKLM:\System\CurrentControlSet\services\w32time\TimeProviders\NtpClient | Enabled             | 1                   |
-| HKLM:\System\CurrentControlSet\services\w32time\TimeProviders\NtpClient | InputProvider       | 1                   |
-| HKLM:\System\CurrentControlSet\services\w32time\TimeProviders\NtpClient | SpecialPollInterval | 900                 |
+###### Note
+
+For Windows Server 2025 AMIs, the
+`SpecialPollInterval` value is 1024 seconds
+instead of 900 seconds.
+
+| Registry path                                                           | Key name            | Data                                                                    |
+| ----------------------------------------------------------------------- | ------------------- | ----------------------------------------------------------------------- |
+| HKLM:\System\CurrentControlSet\services\w32time\Config                  | UpdateInterval      | 120                                                                     |
+| HKLM:\System\CurrentControlSet\services\w32time\Parameters              | NtpServer           | 169.254.169.123,0x9                                                     |
+| HKLM:\System\CurrentControlSet\services\w32time\Parameters              | Type                | NTP                                                                     |
+| HKLM:\System\CurrentControlSet\services\w32time\TimeProviders\NtpClient | Enabled             | 1                                                                       |
+| HKLM:\System\CurrentControlSet\services\w32time\TimeProviders\NtpClient | InputProvider       | 1                                                                       |
+| HKLM:\System\CurrentControlSet\services\w32time\TimeProviders\NtpClient | SpecialPollInterval | 900 (Windows Server 2016, 2019, and 2022) or 1024 (Windows Server 2025) |
 
 ## Connect to the IPv6 endpoint of the Amazon Time Sync Service
 

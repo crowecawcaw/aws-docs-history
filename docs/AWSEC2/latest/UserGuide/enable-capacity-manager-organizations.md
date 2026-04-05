@@ -80,6 +80,34 @@ aws ec2 update-capacity-manager-organizations-access --organizations-access
 
 ```
 
+PowerShell
+
+###### To enable organization access in Capacity Manager
+
+1. Create a service-linked role using the [New-IAMServiceLinkedRole](../../../powershell/latest/reference/items/New-IAMServiceLinkedRole.md "../../../powershell/latest/reference/items/New-IAMServiceLinkedRole.md") cmdlet.
+
+```
+New-IAMServiceLinkedRole -AWSServiceName "ec2.capacitymanager.amazonaws.com"
+```
+
+2. Enable AWS Organization access using the [Enable-ORGAWSServiceAccess](../../../powershell/latest/reference/items/Enable-ORGAWSServiceAccess.md "../../../powershell/latest/reference/items/Enable-ORGAWSServiceAccess.md") cmdlet.
+
+```
+Enable-ORGAWSServiceAccess -ServicePrincipal "ec2.capacitymanager.amazonaws.com"
+```
+
+3. Enable Capacity Manager with AWS Organization using the [Enable-EC2CapacityManager](../../../powershell/latest/reference/items/Enable-EC2CapacityManager.md "../../../powershell/latest/reference/items/Enable-EC2CapacityManager.md") cmdlet.
+
+```
+Enable-EC2CapacityManager -OrganizationsAccess $true
+```
+
+To update organization access for an existing Capacity Manager, run the following [Update-EC2CapacityManagerOrganizationsAccess](../../../powershell/latest/reference/items/Update-EC2CapacityManagerOrganizationsAccess.md "../../../powershell/latest/reference/items/Update-EC2CapacityManagerOrganizationsAccess.md") cmdlet:
+
+```
+Update-EC2CapacityManagerOrganizationsAccess -OrganizationsAccess $true
+```
+
 ## Verifying Capacity Manager is enabled with your organization
 
 Console
@@ -115,12 +143,36 @@ The output should display:
 
 ```
 
+PowerShell
+
+###### To verify Capacity Manager is enabled with your organization
+
+Use the [Get-EC2CapacityManagerAttribute](../../../powershell/latest/reference/items/Get-EC2CapacityManagerAttribute.md "../../../powershell/latest/reference/items/Get-EC2CapacityManagerAttribute.md") cmdlet.
+
+```
+Get-EC2CapacityManagerAttribute
+```
+
+The output should display:
+
+```
+CapacityManagerStatus      : enabled
+DataExportCount            : 0
+EarliestDatapointTimestamp :
+IngestionStatus            : initial-ingestion-in-progress
+IngestionStatusMessage     : Capacity Manager is collecting historical data from
+                              2026-03-17T16:00:00Z. Data collection is in progress and may take
+                              several hours to complete.
+LatestDatapointTimestamp   :
+OrganizationsAccess        : True
+```
+
 ## Considerations
 
 - **Service-linked role creation:** When you enable organization access through the console,
   Capacity Manager automatically creates the AWSServiceRoleForEC2CapacityManager service-linked role in all m
   ember accounts. If you enable through the AWS CLI, you must call `createServiceLinkedRole` manually.
-- **Data aggregation:** After enabling organization access, Capacity Manager will backfill 14 days of historical
+- **Data aggregation:** After enabling organization access, Capacity Manager backfills 14 days of historical
   data from all member accounts. This process typically takes a few minutes to complete.
 - **Regional limitations:** You can only enable Capacity Manager in one Region per organization, but it will
   aggregate data from all commercial regions.

@@ -49,6 +49,14 @@ VPC can use to contact the instance.
 When you're finished with an instance, to avoid incurring unnecessary costs, be sure to
 terminate it. For more information, see [Terminate Amazon EC2 instances](terminating-instances.md "terminating-instances.md").
 
+If you need to launch a large number of instances, use multiple instance types, or use
+multiple purchasing options such as On-Demand Instance, Reserved Instance, and Spot Instance, consider using EC2 Fleet. For more
+information, see [EC2 Fleet and Spot Fleet](Fleets.md "Fleets.md").
+
+If you want to automate the lifecycle of your instances, including automatic scaling,
+health checks, and replacement of unhealthy instances, consider using [Amazon EC2 Auto
+Scaling](../../../autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.md "../../../autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.md").
+
 The following methods are some of the ways that you can launch an instance.
 
 | Method                                                                                                                                                                                     | Tool                             | Documentation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |

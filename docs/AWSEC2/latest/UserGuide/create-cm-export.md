@@ -13,7 +13,7 @@ For more information, see [Setting up an Amazon S3 bucket for Capacity Manager d
 
 ## Procedure
 
-You can export your Capacity Manager data using the AWS Console or the AWS CLI.
+You can export your Capacity Manager data using the AWS Console, the AWS CLI, or PowerShell.
 
 Console
 
@@ -23,7 +23,7 @@ Console
 2. In the navigation pane, choose **Capacity Manager**.
 3. Choose the **Data exports** tab.
 4. Choose **Create data export**.
-5. Configure you export properties, delivery location, and tags (optional).
+5. Configure your export properties, delivery location, and tags (optional).
 6. Choose **Create**.
 
 AWS CLI
@@ -41,4 +41,25 @@ aws ec2 create-capacity-manager-data-export \
     --output-format `parquet/CSV` \
     --tag-specifications 'ResourceType=capacity-manager-data-export,Tags=[{Key=environment,Value=production}]'
 
+```
+
+PowerShell
+
+###### To create a data export
+
+Use the [New-EC2CapacityManagerDataExport](../../../powershell/latest/reference/items/New-EC2CapacityManagerDataExport.md "../../../powershell/latest/reference/items/New-EC2CapacityManagerDataExport.md") cmdlet.
+
+```
+New-EC2CapacityManagerDataExport `
+    -S3BucketName "my-exports-bucket" `
+    -S3BucketPrefix "capacity-data-exports" `
+    -Schedule "hourly" `
+    -OutputFormat "`parquet`" `
+    -TagSpecification @([Amazon.EC2.Model.TagSpecification]@{
+        ResourceType = "capacity-manager-data-export"
+        Tags = @([Amazon.EC2.Model.Tag]@{
+            Key   = "environment"
+            Value = "production"
+        })
+    })
 ```

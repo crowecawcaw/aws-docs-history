@@ -20,7 +20,7 @@ Your management account must have enabled Capacity Manager with AWS Organization
 
 ## Register a delegated administrator
 
-You can register a delegated administrator using the Amazon EC2 console or the AWS CLI.
+You can register a delegated administrator using the Amazon EC2 console, the AWS CLI, or PowerShell.
 
 Console
 
@@ -47,9 +47,21 @@ aws organizations register-delegated-administrator \
 
 ```
 
+PowerShell
+
+###### To register a delegated administrator
+
+Use the [Register-ORGDelegatedAdministrator](../../../powershell/latest/reference/items/Register-ORGDelegatedAdministrator.md "../../../powershell/latest/reference/items/Register-ORGDelegatedAdministrator.md") cmdlet.
+
+```
+Register-ORGDelegatedAdministrator `
+    -AccountId "`123456789012`" `
+    -ServicePrincipal "ec2.capacitymanager.amazonaws.com"
+```
+
 ## Remove a delegated administrator
 
-You can remove a delegated administrator using the Amazon EC2 console or the AWS CLI.
+You can remove a delegated administrator using the Amazon EC2 console, the AWS CLI, or PowerShell.
 
 Console
 
@@ -73,4 +85,16 @@ aws organizations deregister-delegated-administrator \
     --account-id `123456789012` \
     --service-principal ec2.capacitymanager.amazonaws.com
 
+```
+
+PowerShell
+
+###### To remove a delegated administrator
+
+Use the [Unregister-ORGDelegatedAdministrator](../../../powershell/latest/reference/items/Unregister-ORGDelegatedAdministrator.md "../../../powershell/latest/reference/items/Unregister-ORGDelegatedAdministrator.md") cmdlet.
+
+```
+Unregister-ORGDelegatedAdministrator `
+    -AccountId "`123456789012`" `
+    -ServicePrincipal "ec2.capacitymanager.amazonaws.com"
 ```

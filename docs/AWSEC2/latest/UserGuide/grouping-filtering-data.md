@@ -1,7 +1,7 @@
 # Grouping and filtering data
 
 Capacity Manager aggregates your metrics based on the dimensions and date period you choose. If no dimensions are chosen,
-Capacity Manager will aggregate the data and return one data point per period in the date range. You can group your data into
+Capacity Manager aggregates the data and return one data point per period in the date range. You can group your data into
 smaller aggregations by adding dimensions.
 
 - **Grouping** — Break down your capacity data by dimensions such as Region, Instance Family,
