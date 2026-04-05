@@ -43,8 +43,9 @@ By default, the Amazon Inspector SSM plugin runs at below normal priority.
 
 ###### Note
 
-You can use Windows instances with the [Default Host Management Configuration setting](../../../systems-manager/latest/userguide/managed-instances-default-host-management.md "../../../systems-manager/latest/userguide/managed-instances-default-host-management.md").
-However, you must create or use a role that's configured with the `ssm:PutInventory` and `ssm:GetParameter` permissions.
+Scanning Windows instances requires `ssm:PutInventory` and `ssm:GetParameter` permissions.
+If an IAM instance profile is configured on the instance, Amazon Inspector uses that profile and ignores the Default Host Management Configuration (DHMC) role. The instance profile must include these permissions.
+If no instance profile is set, Amazon Inspector uses the configured [Default Host Management Configuration](../../../systems-manager/latest/userguide/managed-instances-default-host-management.md "../../../systems-manager/latest/userguide/managed-instances-default-host-management.md") role, which must include these permissions.
 
 ### Uninstalling the Amazon Inspector SSM plugin
 

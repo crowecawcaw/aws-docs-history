@@ -7,8 +7,9 @@ However, you can [configure custom paths](deep-inspection.md#deep-inspection-pat
 
 ###### Note
 
-You can use deep inspection with the Default Host Management Configuration setting.
-However, you must create or use a role that's configured with the `ssm:PutInventory` and `ssm:GetParameter` permissions.
+Deep inspection requires `ssm:PutInventory` and `ssm:GetParameter` permissions.
+If an IAM instance profile is configured on the instance, Amazon Inspector uses that profile and ignores the DHMC role. The instance profile must include these permissions.
+If no instance profile is set, Amazon Inspector uses the configured [Default Host Management Configuration](../../../systems-manager/latest/userguide/managed-instances-default-host-management.md "../../../systems-manager/latest/userguide/managed-instances-default-host-management.md") role, which must include these permissions.
 
 To perform deep inspection scans for your Linux-based Amazon EC2 instances, Amazon Inspector uses data collected with the Amazon Inspector SSM plugin.
 To manage the Amazon Inspector SSM plugin and perform deep inspection for Linux, Amazon Inspector automatically creates the SSM association `InvokeInspectorLinuxSsmPlugin-do-not-delete` in your account.

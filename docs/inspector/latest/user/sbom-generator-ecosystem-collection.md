@@ -10,26 +10,29 @@ The ecosystem collection extends SBOM generation beyond packages installed throu
 This is done through the collection of applications deployed in alternative methods, such as manual installation.
 The Amazon Inspector SBOM Generator supports scanning for the following ecosystems:
 
-| Ecosystems             | Applications                                                                                                                                                                                                                                                          |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 7-Zip                  | 7-Zip archiver (version 21.07 and higher)                                                                                                                                                                                                                             |
-| Apache                 | Apache httpd<br>Apache tomcat                                                                                                                                                                                                                                         |
-| Atlassian              | Jira Core<br>Confluence<br>Jira Software<br>Jira Service Management                                                                                                                                                                                                   |
-| Curl                   | Curl<br>Libcurl                                                                                                                                                                                                                                                       |
-| Elasticsearch          | Elasticsearch                                                                                                                                                                                                                                                         |
-| Google                 | Chrome                                                                                                                                                                                                                                                                |
-| Java                   | JDK<br>JRE<br>Amazon Corretto                                                                                                                                                                                                                                         |
-| Jenkins                | Jenkins (version 2.400.\<br>• and higher)                                                                                                                                                                                                                             |
-| MariaDB and MySQL      | MariaDB Server (10.6+, 11.x, 12.x)<br>Oracle MySQL Server Server (8.0, 8.4, 9.4+)                                                                                                                                                                                     |
-| Microsoft applications | PowerShell<br>NuGet CLI<br>Visual Studio Code<br>Microsoft Edge<br>SharePoint Server<br>Microsoft Defender<br>Exchange Server<br>Visual Studio<br>.NET Runtime<br>ASP.NET Core Runtime<br>Microsoft Teams<br>Outlook for Windows<br>Microsoft Office<br>Microsoft 365 |
-| Nginx                  | Nginx                                                                                                                                                                                                                                                                 |
-| Node                   | Node                                                                                                                                                                                                                                                                  |
-| Node.JS                | node                                                                                                                                                                                                                                                                  |
-| OpenSSH                | OpenSSH (versions 9 and 10)                                                                                                                                                                                                                                           |
-| OpenSSL                | OpenSSL                                                                                                                                                                                                                                                               |
-| Oracle                 | Oracle Database Server                                                                                                                                                                                                                                                |
-| PHP                    | PHP (version 8.1 and higher)                                                                                                                                                                                                                                          |
-| WordPress              | core<br>plugin<br>theme                                                                                                                                                                                                                                               |
+| Ecosystems             | Applications                                                                                                                                                                                                                                                                                 |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 7-Zip                  | 7-Zip archiver (version 21.07 and higher)                                                                                                                                                                                                                                                    |
+| Apache                 | Apache httpd<br>Apache tomcat                                                                                                                                                                                                                                                                |
+| Atlassian              | Jira Core<br>Confluence<br>Jira Software<br>Jira Service Management                                                                                                                                                                                                                          |
+| Curl                   | Curl<br>Libcurl                                                                                                                                                                                                                                                                              |
+| Elasticsearch          | Elasticsearch                                                                                                                                                                                                                                                                                |
+| Google                 | Chrome                                                                                                                                                                                                                                                                                       |
+| HuggingFace            | HuggingFace CLI Models Cache                                                                                                                                                                                                                                                                 |
+| Java                   | JDK<br>JRE<br>Amazon Corretto                                                                                                                                                                                                                                                                |
+| Jenkins                | Jenkins (version 2.400.\<br>• and higher)                                                                                                                                                                                                                                                    |
+| MariaDB and MySQL      | MariaDB Server (10.6+, 11.x, 12.x)<br>Oracle MySQL Server Server (8.0, 8.4, 9.4+)                                                                                                                                                                                                            |
+| Microsoft applications | PowerShell<br>NuGet CLI<br>Visual Studio Code<br>Microsoft Edge<br>SharePoint Server<br>Microsoft Defender<br>Exchange Server<br>Visual Studio<br>.NET Core Runtime<br>.NET Framework<br>ASP.NET Core Runtime<br>Microsoft Teams<br>Outlook for Windows<br>Microsoft Office<br>Microsoft 365 |
+| MongoDB                | MongoDB Server (7.0+, 8.0+)                                                                                                                                                                                                                                                                  |
+| Nginx                  | Nginx                                                                                                                                                                                                                                                                                        |
+| Node                   | Node                                                                                                                                                                                                                                                                                         |
+| Node.JS                | node                                                                                                                                                                                                                                                                                         |
+| OpenSSH                | OpenSSH (versions 9 and 10)                                                                                                                                                                                                                                                                  |
+| OpenSSL                | OpenSSL                                                                                                                                                                                                                                                                                      |
+| Oracle                 | Oracle Database Server                                                                                                                                                                                                                                                                       |
+| PHP                    | PHP (version 8.1 and higher)                                                                                                                                                                                                                                                                 |
+| Redis                  | Redis (version 7.2 and higher)                                                                                                                                                                                                                                                               |
+| WordPress              | core<br>plugin<br>theme                                                                                                                                                                                                                                                                      |
 
 ## 7-Zip ecosystem collection
 
@@ -462,6 +465,34 @@ The following is an example package URL with skip qualifier for a `puppeteer` ve
 pkg:generic/google/puppeteer@22.15.0?distro=linux&skip_chromium_download=true
 ```
 
+## HuggingFace ecosystem collection
+
+###### Supported applications
+
+- HuggingFace `hf` CLI
+
+###### Key features
+
+- Extracts locally cached AI/ML models installed by HuggingFace
+- Generates HuggingFace Package URLs
+- Models downloaded using `hf download --local-dir` are not currently supported
+
+###### Example path
+
+The following is an example of a cached HuggingFace model path.
+
+```
+/home/ec2-user/.cache/huggingface/hub/models--MiniMaxAI--MiniMax-M2.5/snapshots/<hash>
+```
+
+###### Example PURL
+
+The following is an example package URL for a HuggingFace model. The component type is `machine-learning-model`.
+
+```
+pkg:huggingface/MiniMaxAI/MiniMax-M2.5@<hash>
+```
+
 ## Java ecosystem collection
 
 ###### Supported applications
@@ -688,7 +719,8 @@ Findings will be mapped to Microsoft KBs or CVEs (where applicable).
 - Microsoft Defender
 - Exchange Server
 - Visual Studio
-- .NET Runtime
+- .NET Core Runtime
+- .NET Framework
 - ASP.NET Core Runtime
 - Microsoft Teams
 - Outlook for Windows
@@ -703,15 +735,35 @@ Findings will be mapped to Microsoft KBs or CVEs (where applicable).
 - Microsoft Edge – Examines the `msedge.exe` file to extract the embedded version information.
 - SharePoint Server – Examines the `Microsoft.SharePoint.dll` file to extract the embedded version information.
 - Microsoft Defender – Examines the `MsMpEng.exe` file to extract the embedded version information.
-- Exhange Server – Examines the `Exsetup.exe` file to extract the embedded version information.
+- Exchange Server – Examines the `Exsetup.exe` file to extract the embedded version information.
 - Visual Studio – Parses the `state.json` file to retrieve the version string from the `catalogInfo.productDisplayVersion` field.
-- .NET Runtime – Searches for `Microsoft.NETCore.App.deps.json` file in installation paths and extracts the version string from the following file path pattern.
+- .NET Core Runtime – Searches for `Microsoft.NETCore.App.deps.json` file in installation paths and extracts the version string from the following file path pattern.
 
 ```
 Microsoft.NETCore.App/<VERSION>/Microsoft.NETCore.App.deps.json
 ```
 
-- ASP.NET Runtime – Searches for `Microsoft.AspNetCore.App.deps.json` file in installation paths and extracts the version string from the following file path pattern.
+- .NET Framework – Parses Windows Registry and reads file metadata to detect installed .NET Framework versions. The scanner checks the following registry key and value, and files.
+  - **Registry Key** (<VERSION_SUB_KEY> represents the .NET Framework version, such as v2.0.50727, v3.5, or v4\Full)
+
+  ```
+  HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\<VERSION_SUB_KEY>
+  ```
+
+  ```
+  HKLM\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\<VERSION_SUB_KEY>
+  ```
+
+  - **Registry Value**
+    - Install – Indicates whether the .NET Framework version is installed.
+    - Version – Installed .NET Framework version (version 4.0 or lower)
+    - Release – A REG_DWORD value that maps to the installed .NET Framework version (version 4.5 or later)
+
+  - **DLL Files**
+
+  The scanner extracts the file version from `mscorlib.dll` and `System.dll`. If these files exist, they are added to the SBOM as nested file components. For .NET Framework version 4.5 or later, the largest file version among files is reported as the version.
+
+- ASP.NET Core Runtime – Searches for `Microsoft.AspNetCore.App.deps.json` file in installation paths and extracts the version string from the following file path pattern.
 
 ```
 Microsoft.AspNetCore.App/<VERSION>/Microsoft.AspNetCore.App.deps.json
@@ -733,7 +785,7 @@ HKLM\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\A
   - Registry Key
 
   ```
-  KEY_LOCAL_MACHINES\SOFTWARE\Microsoft\Office\ClickToRun\Configuration
+  HKLM\SOFTWARE\Microsoft\Office\ClickToRun\Configuration
   ```
 
   - Registry Value
@@ -801,8 +853,11 @@ Sample PURL: pkg:generic/microsoft/exchangeserver@15.2.2562.17
 // Visual Studio
 Sample PURL: pkg:generic/microsoft/visualstudio@17.14.19
 
-// .NET Runtime
+// .NET Core Runtime
 Sample PURL: pkg:generic/microsoft/dotnet@8.0.18
+
+// .NET Framework
+Sample PURL: pkg:generic/microsoft/dotnet-framework-v4.8.1@4.8.9320.0
 
 // ASP.NET Core Runtime
 Sample PURL: pkg:generic/microsoft/aspdotnet@8.0.18
@@ -827,6 +882,44 @@ Sample PURL: pkg:generic/microsoft/powerpoint@16.0.19127.20264
 
 // Microsoft Outlook
 Sample PURL: pkg:generic/microsoft/outlook@16.0.19127.20264
+```
+
+## MongoDB ecosystem collection
+
+###### Supported applications
+
+- MongoDB Server (7.0+, 8.0+)
+
+###### Key features
+
+- Examines mongod binaries to extract embedded version information.
+
+###### Note
+
+The mongod binary can exceed 200 MB in size. To scan for MongoDB, the Amazon Inspector SBOM Generator file size limit must be configured to allow files over 200 MB.
+
+The Amazon Inspector SBOM Generator looks for MongoDB installations in common installation paths across platforms:
+
+###### Linux
+
+- `/usr/bin/mongod`
+- `/usr/local/bin/mongod`
+
+###### macOS
+
+- `/usr/local/bin/mongod`
+- `/opt/homebrew/bin/mongod`
+
+###### Windows
+
+- `C:\Program Files\MongoDB\Server\bin\mongod.exe`
+
+###### Example PURL
+
+The following is an example package URL for MongoDB Server.
+
+```
+pkg:generic/mongodb/mongodb-server@8.2.4?platform=linux
 ```
 
 ## Nginx ecosystem collection
@@ -1108,6 +1201,47 @@ The following is an example package URL for a PHP pattern.
 
 ```
 pkg:generic/php/php@8.4.12
+```
+
+## Redis ecosystem collection
+
+###### Supported applications
+
+- Redis (version 7.2 and higher)
+
+###### Key features
+
+- Extracts version information from Redis `redis-server` binary executables using embedded version strings.
+- Searches for version strings in the binary executable `.rodata` section (for ELF binaries on Linux) or `__cstring` section (for Mach-O binaries on macOS).
+
+The Amazon Inspector SBOM Generator looks for Redis installations in common installation paths across platforms:
+
+###### Linux
+
+- `/usr/bin/redis-server`
+- `/usr/local/bin/redis-server`
+
+###### macOS
+
+- `/opt/homebrew/bin/redis-server`
+- `/usr/local/bin/redis-server`
+
+###### Example version string
+
+The following is an example of a version string embedded in a Redis binary.
+
+```
+redis-7.2.6
+```
+
+Version `7.2.6` is extracted to identify the Redis version.
+
+###### Example PURL
+
+The following is an example package URL for Redis.
+
+```
+pkg:generic/redis/redis@7.2.6
 ```
 
 ## WordPress ecosystem collection

@@ -103,8 +103,10 @@ permissions needed for Amazon Inspector EC2 scanning.
 ###### Note
 
 You can also automate SSM management of all your EC2 instances, without
-the use of IAM instance profiles using SSM Default Host Management
-Configuration. For more information, see [Default Host Management Configuration](../../../systems-manager/latest/userguide/managed-instances-default-host-management.md "../../../systems-manager/latest/userguide/managed-instances-default-host-management.md").
+the use of IAM instance profiles, by using SSM Default Host Management
+Configuration. For more information, see [Default Host Management Configuration](../../../systems-manager/latest/userguide/managed-instances-default-host-management.md "../../../systems-manager/latest/userguide/managed-instances-default-host-management.md"). When an IAM instance
+profile is configured on an instance, Amazon Inspector uses that profile and ignores
+the Default Host Management Configuration (DHMC) role.
 
 ###### To configure SSM for an Amazon EC2 instance
 

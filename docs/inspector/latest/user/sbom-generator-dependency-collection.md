@@ -772,9 +772,9 @@ For more information, see [package-url](https://github.com/package-url/purl-spec
 
 ## Python dependency scanning
 
-| Programming language | Package manager                              | Supported artifacts                                                                                    | Toolchain support               | Development dependencies        | Transitive dependencies         | Private flag                    | Recursively                     |
-| -------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- |
-| `Python`             | `pip`<br>`Poetry`<br>`Pipenv`<br>`Egg/Wheel` | `requirements.txt`<br>`Poetry.lock`<br>`Pipfile.lock`<br>`.egg-info/PKG-INFO`<br>`.dist-info/METADATA` | N/A<br>N/A<br>N/A<br>N/A<br>N/A | N/A<br>N/A<br>N/A<br>N/A<br>N/A | N/A<br>N/A<br>N/A<br>N/A<br>N/A | N/A<br>N/A<br>N/A<br>N/A<br>N/A | Yes<br>Yes<br>Yes<br>Yes<br>Yes |
+| Programming language | Package manager                                      | Supported artifacts                                                                                                 | Toolchain support                      | Development dependencies               | Transitive dependencies                | Private flag                           | Recursively                            |
+| -------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| `Python`             | `pip`<br>`Poetry`<br>`Pipenv`<br>`uv`<br>`Egg/Wheel` | `requirements.txt`<br>`Poetry.lock`<br>`Pipfile.lock`<br>`uv.lock`<br>`.egg-info/PKG-INFO`<br>`.dist-info/METADATA` | N/A<br>N/A<br>N/A<br>N/A<br>N/A<br>N/A | N/A<br>N/A<br>N/A<br>Yes<br>N/A<br>N/A | N/A<br>N/A<br>N/A<br>N/A<br>N/A<br>N/A | N/A<br>N/A<br>N/A<br>N/A<br>N/A<br>N/A | Yes<br>Yes<br>Yes<br>Yes<br>Yes<br>Yes |
 
 ### requirements.txt
 
@@ -889,6 +889,64 @@ description = "Python HTTP for Humans."
 category = "main"
 optional = false
 python-versions = ">=3.5"
+
+```
+
+###### Note
+
+This file produces an output that contains a package URL.
+This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](../../v2/APIReference/API_inspector-scan_ScanSbom.md "../../v2/APIReference/API_inspector-scan_ScanSbom.md") API.
+For more information, see [package-url](https://github.com/package-url/purl-spec "https://github.com/package-url/purl-spec") on the GitHub Website.
+
+### uv.lock
+
+uv is a fast Python package manager written in Rust.
+The `uv.lock` file locks exact versions of dependencies to facilitate consistent environments.
+The Amazon Inspector SBOM Generator extracts detailed dependency information from this file.
+
+###### Key features
+
+- Parses the TOML formatted `uv.lock` for structured data
+- Extracts dependency names, and versions
+- Supports development dependencies
+- Collects only packages where the source is a registry
+
+###### Example `uv.lock` file
+
+The following is an example of a `uv.lock` file.
+
+```
+
+version = 1
+requires-python = ">=3.12"
+
+[[package]]
+name = "flask"
+version = "3.1.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "blinker" },
+    { name = "click" },
+    { name = "itsdangerous" },
+    { name = "jinja2" },
+    { name = "markupsafe" },
+    { name = "werkzeug" },
+]
+
+[[package]]
+name = "pytest"
+version = "8.3.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "iniconfig" },
+    { name = "packaging" },
+    { name = "pluggy" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "pytest" },
+]
 
 ```
 

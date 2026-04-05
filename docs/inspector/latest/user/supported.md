@@ -73,6 +73,7 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | Debian Server (Bookworm)            | 12              | DSA CVE                                | Yes                    | Yes                      |
 | Debian Server (Trixie)              | 13              | DSA CVE                                | Yes                    | Yes                      |
 | Fedora                              | 42              | Errata CVE                             | Yes                    | Yes                      |
+| Fedora                              | 43              | Errata CVE                             | Yes                    | Yes                      |
 | OpenSUSE Leap                       | 15.6            | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux (Oracle)               | 8               | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux (Oracle)               | 9               | Errata CVE                             | Yes                    | Yes                      |
@@ -84,11 +85,11 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | Rocky Linux                         | 9               | Errata CVE                             | Yes                    | Yes                      |
 | Rocky Linux                         | 10              | Errata CVE                             | Yes                    | Yes                      |
 | SUSE Linux Enterprise Server (SLES) | 15.7            | SUSE CVE                               | Yes                    | Yes                      |
-| Ubuntu (Xenial)                     | 16.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Bionic)                     | 18.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Focal)                      | 20.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Jammy)                      | 22.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Noble Numbat)               | 24.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
+| Ubuntu (Questing Quokka)            | 25.10           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Windows Server                      | 2016            | MSKB                                   | Yes                    | Yes                      |
 | Windows Server                      | 2019            | MSKB                                   | Yes                    | Yes                      |
 | Windows Server                      | 2022            | MSKB                                   | Yes                    | Yes                      |
@@ -112,12 +113,12 @@ It also specifies the vendor security advisory for each operating system.
 | AlmaLinux                           | 8       | Errata CVE                             |
 | AlmaLinux                           | 9       | Errata CVE                             |
 | AlmaLinux                           | 10      | Errata CVE                             |
-| Alpine Linux (Alpine)               | 3.20    | Errata CVE                             |
 | Alpine Linux (Alpine)               | 3.21    | Errata CVE                             |
 | Alpine Linux (Alpine)               | 3.22    | Errata CVE                             |
 | Alpine Linux (Alpine)               | 3.23    | Errata CVE                             |
 | Amazon Linux (AL2)                  | AL2     | CVE                                    |
 | Amazon Linux 2023 (AL2023)          | AL2023  | CVE                                    |
+| Azure Linux                         | 3       | Errata CVE                             |
 | BusyBox                             | –       | MITRE CVE                              |
 | Chainguard                          | –       | Errata CVE                             |
 | Debian Server (Bullseye)            | 11      | DSA CVE                                |
@@ -125,6 +126,7 @@ It also specifies the vendor security advisory for each operating system.
 | Debian Server (Trixie)              | 13      | DSA CVE                                |
 | Echo                                | 2       | Errata CVE                             |
 | Fedora                              | 42      | Errata CVE                             |
+| Fedora                              | 43      | Errata CVE                             |
 | Minimus                             | –       | Errata CVE                             |
 | OpenSUSE Leap                       | 15.6    | Errata CVE                             |
 | Oracle Linux (Oracle)               | 8       | Errata CVE                             |
@@ -139,11 +141,11 @@ It also specifies the vendor security advisory for each operating system.
 | Rocky Linux                         | 9       | Errata CVE                             |
 | Rocky Linux                         | 10      | Errata CVE                             |
 | SUSE Linux Enterprise Server (SLES) | 15.7    | SUSE CVE                               |
-| Ubuntu (Xenial)                     | 16.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
 | Ubuntu (Bionic)                     | 18.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
 | Ubuntu (Focal)                      | 20.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
 | Ubuntu (Jammy)                      | 22.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
 | Ubuntu (Noble Numbat)               | 24.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
+| Ubuntu (Questing Quokka)            | 25.10   | USN, Ubuntu Pro (esm-infra & esm-apps) |
 | Wolfi                               | –       | Errata CVE                             |
 
 ### Supported operating systems: CIS scanning
@@ -184,7 +186,6 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 | AlmaLinux 8              | 8       |
 | AlmaLinux                | 9       |
 | AlmaLinux                | 10      |
-| Alpine Linux             | 3.20    |
 | Alpine Linux             | 3.21    |
 | Alpine Linux             | 3.22    |
 | Alpine Linux             | 3.23    |
@@ -216,7 +217,6 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 | Rocky Linux              | 10      |
 | SUSE Server              | 15.7    |
 | SUSE Server              | 16.0    |
-| Ubuntu                   | 16.04   |
 | Ubuntu                   | 18.04   |
 | Ubuntu                   | 20.04   |
 | Ubuntu                   | 22.04   |
@@ -229,7 +229,7 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 The following table lists operating systems that have been discontinued and when they were discontinued.
 
 Even though Amazon Inspector doesn't provide full support for discontinued operating systems, Amazon Inspector continues to scan Amazon EC2 instances and Amazon ECR container images running them.
-As a security best practice, we recommend moving to a supported version.
+As a security best practice, Amazon Inspector will generate a CRITICAL finding for resources using a discontinued operating system and recommends moving to a supported version.
 Findings that Amazon Inspector generates for discontinued operating systems should be used for informational purposes only.
 
 In accordance with vendor policy, discontinued operating systems no longer receive patch updates.
@@ -257,6 +257,7 @@ As a result, Amazon Inspector can stop generating findings for known CVEs.
 | Alpine Linux (Alpine)               | 3.17    | November 22, 2024 |
 | Alpine Linux (Alpine)               | 3.18    | May 9, 2025       |
 | Alpine Linux (Alpine)               | 3.19    | November 1, 2025  |
+| Alpine Linux (Alpine)               | 3.20    | April 1, 2026     |
 | Amazon Linux (AL1)                  | 2012    | December 31, 2021 |
 | CentOS Linux (CentOS)               | 7       | June 30, 2024     |
 | CentOS Linux (CentOS)               | 8       | December 31, 2021 |
@@ -297,6 +298,7 @@ As a result, Amazon Inspector can stop generating findings for known CVEs.
 | SUSE Linux Enterprise Server (SLES) | 15.6    | December 31, 2025 |
 | Ubuntu (Trusty)                     | 12.04   | April 28, 2017    |
 | Ubuntu (Trusty)                     | 14.04   | April 1, 2024     |
+| Ubuntu (Xenial)                     | 16.04   | April 1, 2026     |
 | Ubuntu (Groovy)                     | 20.10   | July 22, 2021     |
 | Ubuntu (Hirsute)                    | 21.04   | January 20, 2022  |
 | Ubuntu (Impish)                     | 21.10   | July 31, 2022     |

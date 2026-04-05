@@ -167,11 +167,14 @@ to continuously monitor and scan the instance.
     more information, see [Amazon EC2 Systems Manager endpoints and
     quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md").
   - **Deep inspection collection time limit exceeded** – Amazon Inspector failed to extract the package inventory because the package collection time exceeding the maximum threshold of 15 minutes.
-  - **Deep inspection has no inventory** – The [Amazon Inspector SSM plugin](inspector-ssm-plugin.md "inspector-ssm-plugin.md")hasn't yet
+  - **Deep inspection has no inventory** – The [Amazon Inspector SSM plugin](inspector-ssm-plugin.md "inspector-ssm-plugin.md") hasn't yet
     been able to collect an inventory of packages for this instance.
     This is usually the result of a pending scan, however, if this
     status persists after 6 hours, use Amazon EC2 Systems Manager to ensure that the
     required Amazon Inspector associations exist and are running for the instance.
+    This error can also occur if the instance is missing the required `ssm:PutInventory` and `ssm:GetParameter` permissions.
+    If the instance has an IAM instance profile, verify these permissions are included in the profile.
+    If no instance profile is configured, verify these permissions are included in the [Default Host Management Configuration](../../../systems-manager/latest/userguide/managed-instances-default-host-management.md "../../../systems-manager/latest/userguide/managed-instances-default-host-management.md") role.
 
 For details about configuring the scanning settings for an EC2 instance, see [Amazon EC2 instance scanning](scanning-ec2.md "scanning-ec2.md").
 
