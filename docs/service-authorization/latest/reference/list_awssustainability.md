@@ -4,9 +4,9 @@ AWS Sustainability (service prefix: `sustainability`) provides the following ser
 
 References:
 
-- Learn how to [configure this service](../../../awsaccountbilling/latest/aboutv2/what-is-ccft.md "../../../awsaccountbilling/latest/aboutv2/what-is-ccft.md").
-- View a list of the [API operations available for this service](../../../aws-cost-management/latest/APIReference/Welcome.md "../../../aws-cost-management/latest/APIReference/Welcome.md").
-- Learn how to secure this service and its resources by [using IAM](../../../awsaccountbilling/latest/aboutv2/billing-permissions-ref.md "../../../awsaccountbilling/latest/aboutv2/billing-permissions-ref.md") permission policies.
+- Learn how to [configure this service](../../../sustainability/latest/userguide/what-is-sustainability.md "../../../sustainability/latest/userguide/what-is-sustainability.md").
+- View a list of the [API operations available for this service](../../../sustainability/latest/APIReference/Welcome.md "../../../sustainability/latest/APIReference/Welcome.md").
+- Learn how to secure this service and its resources by [using IAM](../../../sustainability/latest/userguide/security-iam.md "../../../sustainability/latest/userguide/security-iam.md") permission policies.
 
 ###### Topics
 
@@ -32,9 +32,11 @@ Resource condition keys are listed in the [Resource types](#awssustainability-re
 
 For details about the columns in the following table, see [Actions table](reference_policies_actions-resources-contextkeys.md#actions_table "reference_policies_actions-resources-contextkeys.md#actions_table").
 
-| Actions                                                                                                                                                                  | Description                                         | Access level | Resource types (\*required) | Condition keys | Dependent actions |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- | ------------ | --------------------------- | -------------- | ----------------- |
-| [GetCarbonFootprintSummary](../../../awsaccountbilling/latest/aboutv2/billing-permissions-ref.md "../../../awsaccountbilling/latest/aboutv2/billing-permissions-ref.md") | Grants permission to view the carbon footprint tool | Read         |                             |                |                   |
+| Actions                                                                                                                                                                                                                                     | Description                                                                                                    | Access level | Resource types (\*required) | Condition keys | Dependent actions |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------ | --------------------------- | -------------- | ----------------- |
+| [GetCarbonFootprintSummary](../../../awsaccountbilling/latest/aboutv2/billing-permissions-ref.md "../../../awsaccountbilling/latest/aboutv2/billing-permissions-ref.md")                                                                    | Grants permission to view the carbon footprint tool                                                            | Read         |                             |                |                   |
+| [GetEstimatedCarbonEmissions](../../../sustainability/latest/APIReference/API_GetEstimatedCarbonEmissions.md "../../../sustainability/latest/APIReference/API_GetEstimatedCarbonEmissions.md")                                              | Grants permission to view estimated carbon emission values based on customer grouping and filtering parameters | Read         |                             |                |                   |
+| [GetEstimatedCarbonEmissionsDimensionValues](../../../sustainability/latest/APIReference/API_GetEstimatedCarbonEmissionsDimensionValues.md "../../../sustainability/latest/APIReference/API_GetEstimatedCarbonEmissionsDimensionValues.md") | Grants permission to view the possible dimension values available for the estimated carbon emission values     | Read         |                             |                |                   |
 
 ## Resource types defined by AWS Sustainability
 
