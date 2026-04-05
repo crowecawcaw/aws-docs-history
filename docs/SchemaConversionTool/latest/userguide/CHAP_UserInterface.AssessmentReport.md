@@ -29,7 +29,7 @@ describe the schema that can't be converted automatically. Choose one of the
 action items in the list. AWS SCT highlights the item from your schema that the
 action item applies to, as shown following.
 
-![Action items tab](/images/SchemaConversionTool/latest/userguide/images/action_items_tab.png) 6. Choose the **Summary** tab.
+![Action items tab](images/action_items_tab.png) 6. Choose the **Summary** tab.
 
 The **Summary** tab displays the summary information from
 the database migration assessment report.
@@ -47,7 +47,7 @@ database to remove.
 
 An example of an assessment report summary is shown following.
 
-![Assessment report summary](images/summary_tab.png) 7. Choose the **Summary** tab, and then
+![Assessment report summary](/images/SchemaConversionTool/latest/userguide/images/summary_tab.png) 7. Choose the **Summary** tab, and then
 choose **Save to PDF**.
 The database migration assessment report is saved as a PDF file.
 The PDF file contains both the summary
