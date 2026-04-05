@@ -68,6 +68,7 @@ You can also search the AWS documentation website for a product's API reference.
 - [Data retrieval APIs for AWS Certificate Manager](awscertificatemanager.md "awscertificatemanager.md")
 - [Data retrieval APIs for AWS Chatbot](awschatbot.md "awschatbot.md")
 - [Data retrieval APIs for Amazon Chime](amazonchime.md "amazonchime.md")
+- [Data retrieval APIs for Claude Platform on AWS](claudeplatformonaws.md "claudeplatformonaws.md")
 - [Data retrieval APIs for AWS Clean Rooms](awscleanrooms.md "awscleanrooms.md")
 - [Data retrieval APIs for AWS Clean Rooms ML](awscleanroomsml.md "awscleanroomsml.md")
 - [Data retrieval APIs for AWS Cloud Control API](awscloudcontrolapi.md "awscloudcontrolapi.md")
