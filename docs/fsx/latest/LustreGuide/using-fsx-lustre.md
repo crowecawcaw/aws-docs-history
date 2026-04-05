@@ -175,6 +175,7 @@ Scratch 2, Persistent 1, and Persistent 2 deployment types are available in the 
 | US East (N. Virginia)            | ✓            | ✓            | ✓         |
 | US East (Atlanta) Local Zone     | ✓ \*         |              |           |
 | US East (Dallas) Local Zone      | ✓ \*         |              |           |
+| US East (South Bend) Local Zone  | ✓ \*         |              |           |
 | US West (N. California)          | ✓            | ✓            | ✓         |
 | US West (Los Angeles) Local Zone |              | ✓            | ✓         |
 | US West (Oregon)                 | ✓            | ✓            | ✓         |

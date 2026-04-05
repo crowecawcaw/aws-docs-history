@@ -106,7 +106,7 @@ example creates an FSx for Lustre EFA-enabled file system with a
  --file-system-type-version 2.15 \
  --subnet-ids subnet-01234567890 \
  --security-group-ids sg-0123456789abcdefg \
- --lustre-configuration '{"DeploymentType": "PERSISTENT_2", "EfaSupport": true}'`
+ --lustre-configuration '{"DeploymentType": "PERSISTENT_2", "EfaEnabled": true}'`
 ```
 
 After successfully creating the file system, Amazon FSx returns the file

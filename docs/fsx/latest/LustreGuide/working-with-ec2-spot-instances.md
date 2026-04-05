@@ -26,7 +26,11 @@ their temporary access permissions. To protect the file system against misbehavi
 servers can evict Lustre clients that do not respond after a few minutes. To avoid having to
 wait multiple minutes for a non-responding client to reply to the server request, it is
 important to cleanly unmount Lustre clients, especially before terminating EC2 Spot
-Instances.
+Instances. A clean unmount is initiated by using the `umount` command without
+`-f` or `-l`.
+
+If Lustre clients are shut down without cleanly unmounting the file system, other clients
+using that file system are likely to experience temporarily increased latency, hanging operations, or I/O errors.
 
 EC2 Spot sends termination notices 2 minutes in advance before shutting down an
 instance. We recommend that you automate the process of cleanly unmounting Lustre clients
@@ -47,6 +51,13 @@ following:
   application. For more information about best practices for handling Spot Instance
   interruptions, see [Best
   practices for handling EC2 Spot Instance interruptions](https://aws.amazon.com/blogs//compute/best-practices-for-handling-ec2-spot-instance-interruptions/ "https://aws.amazon.com/blogs//compute/best-practices-for-handling-ec2-spot-instance-interruptions/").
+
+###### Note
+
+It can take time for a Lustre client to unmount
+a file system. If you mount many file systems on the same Amazon EC2 Spot Instance, it may take too long to unmount all
+of them within the two-minute Spot termination notice window. If you need to mount a large number of file systems on one host, we recommend using
+On-Demand Instances to avoid issues with unclean unmounts due to Amazon EC2 Spot Instance interruptions.
 
 ```
 #!/bin/bash
