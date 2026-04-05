@@ -36,12 +36,9 @@ your logically air-gapped vaults:
 3. The administrator then will [create an approval team](../../../mpa/latest/userguide/create-team.md "../../../mpa/latest/userguide/create-team.md"), the
    core group of trusted individuals who will be the primary users of Multi-party
    approval.
-4. The administrator uses AWS RAM to [share an approval team](multipartyapproval-tasks-administrator.md#share-multipartyapproval-team-using-ram "multipartyapproval-tasks-administrator.md#share-multipartyapproval-team-using-ram") with
-   each account that owns at least one logically air-gapped vault (likely your primary
-   account). Both the account that owns the vault and the secondary organization needs to
-   have RAM set up.
-5. An administrator of those accounts [associates a logically air-gapped vault
-   with an approval team](multipartyapproval-tasks-requester.md#associate-multipartyapproval-team "multipartyapproval-tasks-requester.md#associate-multipartyapproval-team").
+4. The administrator uses AWS RAM to [share an approval team](multipartyapproval-tasks-administrator.md#share-multipartyapproval-team-using-ram "multipartyapproval-tasks-administrator.md#share-multipartyapproval-team-using-ram") with each account
+   that owns a logically air-gapped vault and the recovery account that needs to request access on that vault.
+5. An administrator of the logically air-gapped vault owning account [associates the vault with an approval team](multipartyapproval-tasks-requester.md#associate-multipartyapproval-team "multipartyapproval-tasks-requester.md#associate-multipartyapproval-team").
 6. A recovery account [requests
    access](multipartyapproval-tasks-requester.md#create-restore-access-vault "multipartyapproval-tasks-requester.md#create-restore-access-vault") to an account that has a logically air-gapped vault with an associated
    Multi-party approval team (“team”). The team associated with the account [approves or

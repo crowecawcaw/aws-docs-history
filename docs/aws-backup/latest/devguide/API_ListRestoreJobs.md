@@ -160,7 +160,7 @@ Type: Array of [RestoreJobsListMember](API_RestoreJobsListMember.md "API_Restore
 
 ## Errors
 
-For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
 
 **InvalidParameterValueException**
 

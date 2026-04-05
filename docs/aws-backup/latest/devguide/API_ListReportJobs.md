@@ -106,7 +106,7 @@ Type: Array of [ReportJob](API_ReportJob.md "API_ReportJob.md") objects
 
 ## Errors
 
-For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
 
 **InvalidParameterValueException**
 

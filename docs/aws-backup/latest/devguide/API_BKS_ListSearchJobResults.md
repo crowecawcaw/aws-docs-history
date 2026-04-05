@@ -80,7 +80,7 @@ Type: Array of [ResultItem](API_BKS_ResultItem.md "API_BKS_ResultItem.md") objec
 
 ## Errors
 
-For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
 
 **AccessDeniedException**
 

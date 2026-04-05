@@ -52,6 +52,7 @@ resource types you can copy to a logically air-gapped vault.
 - [Additional programmatic options for logically air-gapped vaults](#lag-programmatic "#lag-programmatic")
 - [Understanding encryption key types for logically air-gapped vaults](#lag-encryption-key-types "#lag-encryption-key-types")
 - [Usage of service-owned key](#lag-service-owned-key "#lag-service-owned-key")
+- [Considerations for security auto-remediation](#lag-security-auto-remediation "#lag-security-auto-remediation")
 - [Troubleshoot a logically air-gapped vault issue](#lag-troubleshoot "#lag-troubleshoot")
 - [Primary backups to logically air-gapped vaults](lag-vault-primary-backup.md "lag-vault-primary-backup.md")
 - [Multi-party approval for logically air-gapped vaults](multipartyapproval.md "multipartyapproval.md")
@@ -789,7 +790,7 @@ requirement:
 
 ```
 {
-    "Version": "2012-10-17"		 	 	 ,
+    "Version": "2012-10-17",
     "Statement": [
          {
             "Sid": "KMSPermissions",
@@ -873,10 +874,73 @@ encryption key during a data loss event.
 Visit the [AWS KMS documentation](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") to learn
 more.
 
+## Considerations for security auto-remediation
+
+When AWS Backup copies an EC2 (AMI) backup to a logically air-gapped vault, it temporarily
+grants `launchPermission` (on the AMI) and `createVolumePermission`
+(on associated EBS snapshots) to a service-owned account. These permissions are
+automatically revoked after the copy completes.
+
+These operations generate `ModifyImageAttribute` and
+`ModifySnapshotAttribute` events in your AWS CloudTrail logs, with
+`userIdentity.invokedBy` set to `backup.amazonaws.com`.
+
+If you have security auto-remediation logic (e.g., Amazon EventBridge rules with
+AWS Lambda) that monitors these events and revokes cross-account sharing, you must exclude
+events where `userIdentity.invokedBy` is `backup.amazonaws.com`.
+Otherwise, copy jobs to logically air-gapped vaults will fail with: "You do not have
+permission to access the storage of this ami."
+
+This exclusion is safe because the copy is authorized by your vault access policies
+(`backup:CopyFromBackupVault` on the source vault and
+`backup:CopyIntoBackupVault` on the destination vault), which are evaluated
+before any EC2 attribute modifications occur. The temporary permissions are granted only
+to a fixed AWS service-owned account and are automatically revoked after the copy
+completes.
+
+Example EventBridge rule event pattern that excludes AWS Backup operations:
+
+```
+{
+  "source": ["aws.ec2"],
+  "detail-type": ["AWS API Call via CloudTrail"],
+  "detail": {
+    "eventSource": ["ec2.amazonaws.com"],
+    "eventName": ["ModifySnapshotAttribute", "ModifyImageAttribute"],
+    "userIdentity": {
+      "invokedBy": [{"anything-but": "backup.amazonaws.com"}]
+    }
+  }
+}
+```
+
 ## Troubleshoot a logically air-gapped vault issue
 
 If you encounter errors during your workflow, consult the following example errors and
 suggested resolutions:
+
+### `EC2 AMI copy job to logically air-gapped vault fails with permission error`
+
+**Error:** `Copy job fails with "You do not have permission to access
+ the storage of this ami."`
+
+**Possible cause:** During an EC2 AMI copy job to a logically
+air-gapped vault, AWS Backup temporarily grants launch permission (AMI) and create volume
+permission (EBS snapshot) to a service-owned account, generating
+`ModifyImageAttribute` and `ModifySnapshotAttribute` events in
+your AWS CloudTrail logs. If you have security auto-remediation logic (such as EventBridge
+rules with Lambda) that monitors these events and automatically revokes cross-account
+sharing permissions, it can remove the temporary access before the copy completes.
+
+###### Note
+
+This can similarly happen for copy jobs for other resources like Amazon FSx.
+
+**Resolution:** Update your EventBridge rule event pattern to exclude
+operations performed by AWS Backup. Specifically, exclude events where
+`userIdentity.invokedBy` is `backup.amazonaws.com` to ensure your
+auto-remediation logic does not revoke the temporary cross-account permissions that AWS Backup
+grants during the copy process.
 
 ### `AccessDeniedException`
 

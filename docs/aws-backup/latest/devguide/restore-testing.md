@@ -298,6 +298,10 @@ selection can include a wildcard value ("\*") for `ProtectedResourceArns`
 along with `ProtectedResourceConditions`. Alternatively, you can include up
 to 30 specific protected resource ARNs in `ProtectedResourceArns`.
 
+**Restore test frequency**
+
+AWS Backup evaluates cron expressions between 00:00 and 23:59. If you create a restore testing plan for "every 12 hours" but provide a start time of later than 11:59, it will only run once per day.
+
 **Recovery point determination**
 
 Each time a testing plan runs (according to the frequency and start time you specified),
