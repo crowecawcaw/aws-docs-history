@@ -50,6 +50,7 @@ With batch runs, you can:
   created from which input configuration.
 - **Batch status** — The overall state of the batch operation.
   Possible values:
+  - `CREATING` — Batch is being created.
   - `PENDING` — Batch has been created; run configurations are being validated
     asynchronously.
   - `SUBMITTING` — Validation complete; individual runs are being
@@ -259,7 +260,7 @@ The response returns a batch ID you use for all subsequent operations:
 {
   "id": "7123456",
   "arn": "arn:aws:omics:us-west-2:123456789012:runBatch/7123456",
-  "status": "PENDING"
+  "status": "CREATING"
 }
 ```
 
@@ -269,7 +270,7 @@ The response returns a batch ID you use for all subsequent operations:
 aws omics get-batch --batch-id `7123456`
 ```
 
-Watch the `status` field progress from `PENDING` → `SUBMITTING` →
+Watch the `status` field progress from `CREATING` → `PENDING` → `SUBMITTING` →
 `INPROGRESS` → `PROCESSED`. The `submissionSummary` shows how many runs were
 submitted successfully, and `runSummary` shows execution progress.
 
@@ -476,7 +477,7 @@ A successful request returns a batch ID and initial status:
 {
   "id": "7123456",
   "arn": "arn:aws:omics:us-west-2:123456789012:runBatch/7123456",
-  "status": "PENDING",
+  "status": "CREATING",
   "uuid": "96c57683-74bf-9d6d-ae7e-f09b097db14a",
   "tags": {
     "project": "genomics-study",
@@ -555,7 +556,7 @@ resource itself. They are not inherited by individual runs. Run-level tags are c
 ### Gradual submission
 
 **StartRunBatch** validates common fields synchronously and returns immediately with a
-batch ID and status `PENDING`. Runs in a batch are submitted gradually and asynchronously at a
+batch ID and status `CREATING`. Runs in a batch are submitted gradually and asynchronously at a
 controlled rate according to your throughput quotas.
 
 For the full list of HealthOmics quotas, see
@@ -563,12 +564,13 @@ For the full list of HealthOmics quotas, see
 
 The batch transitions through the following states during normal processing:
 
-1. `PENDING` — Batch created, run configurations being validated.
-2. `SUBMITTING` — Validation complete, individual runs being
+1. `CREATING` — Batch is being created.
+2. `PENDING` — Batch created, run configurations being validated.
+3. `SUBMITTING` — Validation complete, individual runs being
    submitted.
-3. `INPROGRESS` — All run submissions attempted, runs are
+4. `INPROGRESS` — All run submissions attempted, runs are
    executing.
-4. `PROCESSED` — All runs have reached a terminal state.
+5. `PROCESSED` — All runs have reached a terminal state.
 
 ###### Important
 
@@ -869,9 +871,9 @@ Batch events use the same event bus and source as other HealthOmics events. For 
 
 ### Event detail-type
 
-| Event name          | Emitted when                                                                                                                                                         |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Batch Status Change | The batch transitions to a new status (`PENDING`, `SUBMITTING`,<br>`INPROGRESS`, `STOPPING`, `CANCELLED`, `PROCESSED`,<br>`FAILED`, `RUNS_DELETING`, `RUNS_DELETED`) |
+| Event name             | Emitted when                                                                                                                                                                     |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RunBatch Status Change | The batch transitions to a new status (`CREATING`, `PENDING`, `SUBMITTING`,<br>`INPROGRESS`, `STOPPING`, `CANCELLED`, `PROCESSED`,<br>`FAILED`, `RUNS_DELETING`, `RUNS_DELETED`) |
 
 ### Event detail fields
 
@@ -914,7 +916,7 @@ The `detail` object in a batch event includes the following fields:
 {
   "version": "0",
   "id": "a1b2c3d4-5678-90ab-cdef-example11111",
-  "detail-type": "Batch Status Change",
+  "detail-type": "RunBatch Status Change",
   "source": "aws.omics",
   "account": "123456789012",
   "time": "2025-03-15T12:30:00Z",
@@ -947,7 +949,7 @@ The `detail` object in a batch event includes the following fields:
 {
   "version": "0",
   "id": "a1b2c3d4-5678-90ab-cdef-example22222",
-  "detail-type": "Batch Status Change",
+  "detail-type": "RunBatch Status Change",
   "source": "aws.omics",
   "account": "123456789012",
   "time": "2025-03-15T10:01:00Z",
@@ -973,7 +975,7 @@ The following event pattern matches when any batch reaches a terminal state:
 ```
 {
   "source": ["aws.omics"],
-  "detail-type": ["Batch Status Change"],
+  "detail-type": ["RunBatch Status Change"],
   "detail": {
     "status": ["PROCESSED", "FAILED", "CANCELLED"]
   }

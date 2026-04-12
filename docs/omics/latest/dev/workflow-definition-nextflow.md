@@ -12,6 +12,7 @@ the workflow.
 - [Use nf-schema and nf-validation plugins](#schema-and-validation-plugins-nextflow "#schema-and-validation-plugins-nextflow")
 - [Specify storage URIs](#storage-uris-nextflow "#storage-uris-nextflow")
 - [Nextflow directives](#workflow-nexflow-directives "#workflow-nexflow-directives")
+- [Export workflow-level content](#exporting-workflow-content-nextflow "#exporting-workflow-content-nextflow")
 - [Export task content](#exporting-task-content-nextflow "#exporting-task-content-nextflow")
 
 ## Use nf-schema and nf-validation plugins
@@ -23,7 +24,7 @@ Summary of HealthOmics support for plugins:
 - v22.04 – no support for plugins
 - v23.10 – supports `nf-schema` and `nf-validation`
 - v24.10 – supports `nf-schema`
-- v25.10 – supports `nf-schema`, `nf-core-utils`, and `nf-fgbio`
+- v25.10 – supports `nf-schema`, `nf-core-utils`, `nf-fgbio`, and `nf-prov`
 
 HealthOmics provides the following support for Nextflow plugins:
 
@@ -255,6 +256,35 @@ process {
 }
 ```
 
+## Export workflow-level content
+
+For Nextflow v25.10, you can export files produced outside of individual tasks, such as
+provenance reports or pipeline DAGs. To export these files, write them to
+`/mnt/workflow/output/`. HealthOmics exports files placed in this directory to the
+`output/` prefix in your run's Amazon S3 output location.
+
+The following example shows how to configure the `nf-prov` plugin to write a
+provenance report to `/mnt/workflow/output/`.
+
+```
+prov {
+    formats {
+        bco {
+            file = "/mnt/workflow/output/pipeline_info/manifest.bco.json"
+        }
+    }
+}
+```
+
+You can also pass this path as a parameter in your run's input JSON. This approach is common with nf-core
+workflows that use `params.outdir`.
+
+```
+{
+    "outdir": "/mnt/workflow/output/"
+}
+```
+
 ## Export task content
 
 For workflows written in Nextflow, define a **publishDir** directive to export task content
@@ -318,3 +348,39 @@ to your output Amazon S3 bucket. As shown in the following example, set the **pu
     """
   }
 ```
+
+For Nextflow v25.10, as an alternative to `publishDir`, you can use workflow outputs to export task content.
+The following example shows how to define a workflow `output` block that
+exports task results to Amazon S3.
+
+```
+process myTask {
+    input:
+    val data
+
+    output:
+    path 'result.txt'
+
+    script:
+    """
+    echo ${data} > result.txt
+    """
+}
+
+workflow {
+    main:
+    output_file = myTask('hello')
+
+    publish:
+    results = output_file
+}
+
+output {
+    results {
+        path '.'
+    }
+}
+```
+
+For more information about workflow outputs, see [Workflow
+outputs](https://www.nextflow.io/docs/latest/workflow.html#workflow-output-def "https://www.nextflow.io/docs/latest/workflow.html#workflow-output-def") in the Nextflow documentation.
