@@ -19,6 +19,7 @@ the quantum task ID, which is introduced in the next section.
 - **QuEra
   Aquila** : `arn:aws:braket:us-east-1::device/qpu/quera/Aquila`
 - **Rigetti Ankaa-3** : `arn:aws:braket:us-west-1::device/qpu/rigetti/Ankaa-3`
+- **Rigetti Cepheus-1-108Q** : `arn:aws:braket:us-west-1::device/qpu/rigetti/Cepheus-1-108Q`
 
 ###### Note
 
@@ -125,6 +126,8 @@ Rigetti quantum processors are universal, gate-model machines based on
 all-tunable superconducting qubits.
 
 - The Ankaa-3 system is an 84-qubit device that utilizes
+  scalable multi-chip technology.
+- The Cepheus-1-108Q system is a 108-qubit device that utilizes
   scalable multi-chip technology.
 
 The Rigetti device supports the following quantum gates.
