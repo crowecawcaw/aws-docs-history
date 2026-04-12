@@ -81,6 +81,9 @@ are turned on by default. We recommend you use aggregation settings.
     notification configuration. You can generate another verification email for pending
     addresses by choosing **Reverify**.
 
+    The recipient must be signed in to the AWS account that added the email address to complete the
+    verification process. The verification link directs to the AWS Management Console.
+
         1. Choose **Add emails**.
 
 

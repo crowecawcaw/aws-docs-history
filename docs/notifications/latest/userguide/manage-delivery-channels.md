@@ -6,10 +6,12 @@ locations.
 ###### Note
 
 Emails you receive from User Notifications are sent from the domain `@aws.com`. The prefix of the emails you receive reflect the AWS service
-sending the communication. For example, notifications from AWS Health are sent from the email `health@aws.com` and Amazon CloudWatch notifications
-are sent from a `cloudwatch@aws.com` email address.
+sending the communication. For example, notifications from AWS Health are sent from the email `health@aws.com`, Amazon CloudWatch notifications
+are sent from `cloudwatch@aws.com`, and aggregated notifications are sent from `notifications@aws.com`.
 
-To find the email prefix for a specific service email, inspect the event through the [Amazon EventBridge sandbox](../../../eventbridge/latest/userguide/eb-event-pattern-sandbox.md "../../../eventbridge/latest/userguide/eb-event-pattern-sandbox.md"). For example, events where "source": "aws.ec2" will be sent from `ec2@aws.com`.
+To find the email prefix for a specific service email, inspect the event through the [Amazon EventBridge sandbox](../../../eventbridge/latest/userguide/eb-event-pattern-sandbox.md "../../../eventbridge/latest/userguide/eb-event-pattern-sandbox.md").
+
+If your organization uses an email allow list, add the `@aws.com` domain to ensure you receive all User Notifications emails.
 
 Emails
 
@@ -24,7 +26,10 @@ Emails
 A verification email is sent to newly added email addresses. You can generate another
 verification email for pending addresses by choosing **Reverify**.
 Verified emails have a green checkmark next to the email address when added as a
-**Recipient**. 4. Choose **Add emails**.
+**Recipient**.
+
+The recipient must be signed in to the AWS account that added the email address to complete the
+verification process. The verification link directs to the AWS Management Console. 4. Choose **Add emails**.
 
 ###### Tip
 

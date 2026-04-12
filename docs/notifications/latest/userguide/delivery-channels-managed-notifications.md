@@ -17,6 +17,8 @@ You can add delivery channels from the console to have your AWS managed notifica
 Emails you receive from User Notifications are sent from the domain `@aws.com`. The prefix of the emails you receive reflect the AWS service
 sending the communication. For example, notifications from AWS Health are sent from the email `health@aws.com`.
 
+Aggregated notifications are sent from `notifications@aws.com`. If your organization uses an email allow list, add the `@aws.com` domain to ensure you receive all User Notifications emails.
+
 ###### To add delivery channels
 
 1. Open User Notifications in the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
@@ -30,6 +32,9 @@ A verification email is sent to newly added email addresses. You can generate an
 verification email for pending addresses by choosing **Reverify**.
 Verified emails have a green checkmark next to the email address when added as a
 **Recipient**.
+
+The recipient must be signed in to the AWS account that added the email address to complete the
+verification process. The verification link directs to the AWS Management Console.
 
 ###### Tip
 

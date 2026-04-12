@@ -24,12 +24,12 @@ Trusted access is granted to individual services. You must enable trusted access
 
 ## User-configured notifications with organizations
 
-You can create notification configurations to filter events across acounts in your organiation. When an event from any member account matches the event rules,
-User Notifications generates a notification in the management account.
+You can create notification configurations in management or Delegated Admin account to filter events across accounts in your organization. When an event from any member account matches the event rules,
+User Notifications generates a notification in the respective account.
 
 Configuring notifications for organization accounts creates read-only notification configurations in member accounts.
 These configurations don't generate notifications in member accounts, only the
-management account receives organization notifications. For more information, see [Managing notifications across your organization with AWS User Notifications](managing-org-notifications.md "managing-org-notifications.md").
+management or Delegated Admin account receives organization notifications. For more information, see [Managing notifications across your organization with AWS User Notifications](managing-org-notifications.md "managing-org-notifications.md").
 
 ## AWS managed notifications with organizations
 
@@ -75,7 +75,7 @@ You can disable trusted access at any time from the User Notifications console.
 
 ## Registering delegated administrators in AWS User Notifications
 
-Delegated administrators share administrator access for User Notifications. They're able to view notifications about member accounts in the organization.
+Delegated administrators have independent administrator access for User Notifications. Each delegated administrator can independently configure their own notification contacts, delivery channels, notification configurations, and can associate with OUs of an organization to receive notifications about the member accounts attached to those OUs.
 You must [enable trusted access](#enable-ta "#enable-ta") before registering delegated administrators. You can register up to five delegated administrators.
 You must also enable AWS managed notifications to allow delegated administrators to view AWS managed notifications.
 
