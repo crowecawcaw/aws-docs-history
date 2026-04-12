@@ -2,6 +2,12 @@
 
 The following information can help you troubleshoot issues with your WorkSpaces.
 
+###### Tip
+
+You can also use Amazon WorkSpaces Advisor to identify and resolve issues with AI-powered
+troubleshooting. For more information, see
+[What is Amazon WorkSpaces Advisor?](workspaces-advisor.md "workspaces-advisor.md").
+
 ## Enabling advanced logging
 
 To help troubleshoot issues that your users might experience, you can enable advanced

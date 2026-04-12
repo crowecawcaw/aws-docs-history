@@ -22,8 +22,6 @@ Before you set up VPC endpoints for WorkSpaces, be aware of the following prereq
   supported.
 - You can only configure VPC endpoints that are in the same AWS account as your directory.
   VPC endpoints in other AWS accounts are not supported, including endpoints in shared VPCs.
-- The feature currently only support private DNS name for VPC endpoints. The private DNS name
-  for a VPC endpoint is not publicly resolvable.
 - The feature is currently available for WorkSpaces Personal only. WorkSpaces
   Pools does not support VPC endpoints for streaming.
 - The VPC endpoint feature is available exclusively for WorkSpaces using Amazon DCV. When you
@@ -102,7 +100,7 @@ you configure Amazon VPC so that your WorkSpaces users can stream from WorkSpace
    - **Service Name** – Choose **com.amazonaws.`Region`.highlander**.
    - **VPC** – Choose a VPC in which to create the interface endpoint. You can choose a different VPC than the VPC with WorkSpaces
      resources as long as the network routes traffic to the VPC endpoint.
-   - **Enable Private DNS Name** – The check box is selected. If your users use a network proxy to access streaming instances,
+   - **Enable Private DNS Name** – The check box is selected. It is recommended to keep it selected even when using the public DNS name for backward compatibility. If your users use a network proxy to access streaming instances,
      disable any proxy caching on the domain and DNS names that are associated with the private endpoint.
      The VPC endpoint DNS name should be allowed through the proxy. For successful DNS name resolution, it is essential to use the private DNS servers within the VPC,
      this is because public DNS servers will not resolve the VPC endpoint DNS name.
@@ -125,7 +123,7 @@ You need to configure the WorkSpaces directory to use the VPC endpoint that you 
 2. In the **Navigation** pane, select **Directories**, and then .
 3. Select the directory that you want to use.
 4. Go to the **VPC Endpoints** section, then **Edit**.
-5. In the **Edit VPC Endpoint** dialog box, under **Streaming Endpoint**, select the VPC endpoint you created.
+5. In the **Edit VPC Endpoint** dialog box, under **Streaming Endpoint**, select the VPC endpoint you created. Note that only 1 VPC endpoint can be selected for each directory.
 6. Optionally, you can enable **Allow users with PCoIP WorkSpaces to stream from the internet**.
 
 ###### Note
@@ -137,3 +135,52 @@ Traffic for new streaming sessions will be routed through this VPC endpoint. How
 ###### Note
 
 Users with DCV WorkSpaces cannot stream using the public internet when a VPC endpoint is specified.
+
+## Understanding VPC Endpoint DNS Names
+
+After you create an interface VPC endpoint for WorkSpaces streaming, AWS automatically assigns two DNS names to the endpoint that WorkSpaces clients can use to connect:
+
+**Unique publicly resolvable DNS name**
+
+A globally unique, publicly resolvable DNS name in the format:
+
+```
+vpce-<endpoint-id>-<random-string>.prod.highlander.<region>.vpce.amazonaws.com
+```
+
+This DNS name is unique per VPC endpoint. While it is publicly resolvable (anyone can query it), it returns private IP addresses from your VPC that are only accessible from within your VPC or connected networks (via VPN or AWS Direct Connect).
+
+**Generic private DNS name**
+
+A shared private DNS name in the format:
+
+```
+privatelink.prod.<region>.highlander.aws.a2z.com
+```
+
+This DNS name is shared across all VPC endpoints in the same region and resolves only within your VPC where the VPC endpoint is, using the Private DNS resolver in that VPC. This DNS name is maintained for backward compatibility with existing deployments.
+
+WorkSpaces clients automatically use the unique publicly resolvable DNS name by default, with automatic fallback to the generic DNS name if needed. No action is required for existing customers.
+
+To find the unique publicly resolvable DNS name for your VPC endpoint:
+
+1. Open the [Amazon VPC console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose Endpoints.
+3. Select your WorkSpaces interface VPC endpoint (service name: com.amazonaws.`Region`.highlander).
+4. In the Details tab, find the DNS names section.
+5. The unique publicly resolvable DNS name is listed as the Regional DNS name.
+
+## Network Requirements
+
+Ensure your firewall or proxy allows access to:
+
+```
+*.prod.highlander.<region>.vpce.amazonaws.com
+privatelink.prod.<region>.highlander.aws.a2z.com
+```
+
+Replace `<region>` with your AWS Region (for example, `us-east-1`, `eu-west-1`).
+
+The same port requirements for DCV streaming apply.
+
+If you use a proxy for WorkSpaces client connections, the VPC endpoint DNS name must be allowed through the proxy. For successful DNS name resolution, use the private DNS servers within your VPC; public DNS servers will resolve the DNS name but the returned private IP addresses will not be accessible from outside your VPC.

@@ -43,6 +43,9 @@ Amazon WorkSpaces allows you to choose between WorkSpaces Personal and WorkSpace
 - Choose monthly or hourly billing for WorkSpaces.
   For more information, see [WorkSpaces
   Pricing](https://aws.amazon.com/workspaces/pricing/ "https://aws.amazon.com/workspaces/pricing/").
+- Use Amazon WorkSpaces Advisor to identify and resolve issues impacting your WorkSpaces Personal
+  resources with AI-powered troubleshooting. For more information, see
+  [What is Amazon WorkSpaces Advisor?](workspaces-advisor.md "workspaces-advisor.md").
   For more information about working with WorkSpaces, see:
 
 - [Amazon WorkSpaces

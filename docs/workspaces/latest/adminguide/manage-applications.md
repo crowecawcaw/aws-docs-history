@@ -32,6 +32,16 @@ Manage applications allows you install and uninstall the following applications 
 your WorkSpaces. For Microsoft Office 2016 bundle and Microsoft Office 2019, you can only
 uninstall.
 
+###### End of Support Notice
+
+Microsoft Office, Visio, and Project 2021 (Standard and Professional editions)
+will reach end of support on **October 13, 2026**.
+After this date, these applications will no longer receive security updates or
+technical support from Microsoft.
+
+**Recommended action**: Migrate to the
+2024 LTSC Professional/Standard versions of Office, Visio, and Project.
+
 - Microsoft Office LTSC Professional Plus 2024
 - Microsoft Visio LTSC Professional 2024
 - Microsoft Project Professional 2024

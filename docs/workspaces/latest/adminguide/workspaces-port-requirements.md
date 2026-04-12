@@ -298,6 +298,15 @@ to be able to access the WorkSpace DCV service.
 | AWS GovCloud (US-West)    | • \*.prod.us-gov-west-1.highlander.aws.a2z.com<br>• (FIPS) \*.wsp-fips.prod.us-gov-west-1.highlander.aws.a2z.com |
 | AWS GovCloud (US-East)    | • \*.prod.us-gov-east-1.highlander.aws.a2z.com<br>• (FIPS) \*.wsp-fips.prod.us-gov-east-1.highlander.aws.a2z.com |
 
+## DCV PrivateLink domain names
+
+If you use VPC endpoints for WorkSpaces streaming, the following domains must be allowed through your firewall or proxy. Replace <region> with your AWS Region (for example, us-east-1).
+
+| DNS Name Type                       | Domain                                           |
+| ----------------------------------- | ------------------------------------------------ |
+| Unique publicly resolvable DNS name | \*.prod.highlander.<region>.vpce.amazonaws.com   |
+| Generic private DNS name            | privatelink.prod.<region>.highlander.aws.a2z.com |
+
 ## Network interfaces
 
 Each WorkSpace has the following network interfaces:
