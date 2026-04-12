@@ -446,8 +446,8 @@ _Amazon EC2 User Guide_.
 ### aws:ebs:volume-io-latency
 
 Injects latency on I/O operations of target EBS volumes. The target volumes must be in
-the same Availability Zone and must be attached to [Nitro-based instances](../../../ec2/latest/instancetypes/ec2-nitro-instances.md "../../../ec2/latest/instancetypes/ec2-nitro-instances.md").
-The volumes cannot be attached to instances in an Outpost.
+the same Availability Zone. The volumes can't be attached to instances on an
+Outpost.
 
 To initiate the experiment using the Amazon EC2 console, see [Fault testing on Amazon EBS](../../../AWSEC2/latest/UserGuide/ebs-fis.md "../../../AWSEC2/latest/UserGuide/ebs-fis.md") in the _Amazon EBS User Guide_.
 
