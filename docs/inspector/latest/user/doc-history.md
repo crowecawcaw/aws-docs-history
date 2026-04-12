@@ -7,6 +7,7 @@ To receive notifications about documentation updates, you can subscribe to an RS
 
 | Change                                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Date               |
 | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [Updates for the Amazon Inspector SBOM Generator](doc-history.md "doc-history.md")                                 | Amazon Inspector is aware of a scenario where the Amazon Inspector SBOM Generator might generate vulnerability findings for CVE-2026-32280. This finding is resolved by upgrading to Amazon Inspector SBOM Generator version 1.12.1.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | April 9, 2026      |
 | [Updates for the Amazon Inspector SBOM Generator](doc-history.md "doc-history.md")                                 | Amazon Inspector is aware of a scenario where the Amazon Inspector SBOM Generator might generate vulnerability findings for CVE-2026-33997, CVE-2026-34040, CVE-2026-33747 and CVE-2026-33748. It was confirmed the Amazon Inspector SBOM Generator is not impacted by these vulnerabilities. These findings will be resolved in Amazon Inspector SBOM Generator version 1.12.0.                                                                                                                                                                                                                                                                                                                                                                                      | March 26, 2026     |
 | [Updates for the Amazon Inspector SBOM Generator](doc-history.md "doc-history.md")                                 | Amazon Inspector is aware of a scenario where the Amazon Inspector SBOM Generator might generate vulnerability findings for CVE-2026-25679, CVE-2026-27142, and CVE-2026-27139. It was confirmed the Amazon Inspector SBOM Generator is not impacted by these vulnerabilities. This vulnerability can be resolved by upgrading the Amazon Inspector SBOM Generator version to 1.11.2 or later.                                                                                                                                                                                                                                                                                                                                                                        | March 11, 2026     |
 | [Updates for the Amazon Inspector SBOM Generator](doc-history.md "doc-history.md")                                 | Amazon Inspector is aware of a scenario where the Amazon Inspector SBOM Generator might generate vulnerability findings for `CVE-2025-15558`. It was confirmed the Amazon Inspector SBOM Generator is not impacted by CVE-2025-15558. This vulnerability can be resolved by upgrading the Amazon Inspector SBOM Generator version to 1.11.1 or later.                                                                                                                                                                                                                                                                                                                                                                                                                 | March 5, 2026      |
@@ -102,27 +103,27 @@ To receive notifications about documentation updates, you can subscribe to an RS
 
 Amazon Inspector continuously monitors and identifies malicious packages from the NPM registry to protect your applications from supply chain attacks.
 
-**Latest Update:** 2026-02-06 12:00:00 UTC
+**Latest Update:** 2026-04-07 12:00:00 UTC
 
 ### Detection Summary
 
-- **Lifetime Total:** 191,801 malicious packages identified
-- **This Month:** 147 new malicious packages identified
-- **Last Month:** 527 new malicious packages identified
-- **This Week:** 147 new malicious packages identified
-- **Last Week:** 96 new malicious packages identified
+- **Lifetime Total:** 193,090 malicious packages identified
+- **This Month:** 81 new malicious packages identified
+- **Last Month:** 1,026 new malicious packages identified
+- **This Week:** 18 new malicious packages identified
+- **Last Week:** 85 new malicious packages identified
 
 ### Recent Malicious Package Reports (Last 10)
 
-| Package Name                  | MAL-ID       | Detection Date |
-| ----------------------------- | ------------ | -------------- |
-| web3-sinon                    | MAL-2026-807 | 2026-02-06     |
-| web3-chain-sinon              | MAL-2026-806 | 2026-02-06     |
-| aligned-arrays                | MAL-2026-805 | 2026-02-06     |
-| breadcrumb-service            | MAL-2026-804 | 2026-02-06     |
-| @sbseg-plugin/qbo-web-app-ui  | MAL-2026-802 | 2026-02-06     |
-| @rsgweb/utils                 | MAL-2026-801 | 2026-02-06     |
-| @rsgweb/tina                  | MAL-2026-800 | 2026-02-06     |
-| @rsgweb/rockstar-account      | MAL-2026-799 | 2026-02-06     |
-| @rsgweb/modules-core-www-page | MAL-2026-798 | 2026-02-06     |
-| @rsgweb/modules-core-feedback | MAL-2026-797 | 2026-02-06     |
+| Package Name              | MAL-ID        | Detection Date |
+| ------------------------- | ------------- | -------------- |
+| totally-safe-util         | MAL-2026-2500 | 2026-04-06     |
+| nerite-security-audit     | MAL-2026-2499 | 2026-04-06     |
+| df-sandbox-test           | MAL-2026-2498 | 2026-04-06     |
+| commerce-utils            | MAL-2026-2497 | 2026-04-06     |
+| chess-sec-ssrf1           | MAL-2026-2496 | 2026-04-06     |
+| cloudera                  | MAL-2026-2495 | 2026-04-05     |
+| cloudera-poc              | MAL-2026-2493 | 2026-04-05     |
+| admin0911                 | MAL-2026-2492 | 2026-04-05     |
+| @not-nemo/crypto-tracker  | MAL-2026-2491 | 2026-04-05     |
+| strapi-plugin-sitemap-gen | MAL-2026-2484 | 2026-04-03     |
