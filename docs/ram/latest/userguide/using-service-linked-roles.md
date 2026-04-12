@@ -220,7 +220,9 @@ Console
 4. In **Step 1: Specify resource share details**, do the
    following:
    1. For **Name**, enter a descriptive name for
-      the resource share.
+      the resource share. The name can contain alphabetic characters,
+      numbers, spaces, periods (.), and hyphens (-). It must
+      be fewer than 256 characters.
    2. Under **Resources**, choose resources to add
       to the resource share as follows:
       - For **Select resource type**, choose
