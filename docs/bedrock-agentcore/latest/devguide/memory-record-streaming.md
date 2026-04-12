@@ -1,17 +1,12 @@
 # Memory record streaming
 
-Memory record streaming in Amazon Bedrock AgentCore Memory delivers real-time notifications when
-memory records are created, updated, or deleted. Instead of polling APIs to detect changes,
-you receive push-based events to a Kinesis Data Stream in your account, enabling
-event-driven architectures that react to memory record lifecycle changes as they
-occur.
+Memory record streaming in Amazon Bedrock AgentCore Memory delivers real-time notifications when memory records are created, updated, or deleted. Instead of polling APIs to detect changes, you receive push-based events to a Kinesis Data Stream in your account, enabling event-driven architectures that react to memory record lifecycle changes as they occur.
 
 With memory record streaming, you can:
 
 - Receive real-time events for memory record creation, updates, and deletion
 - Build event-driven architectures without polling APIs
-- Stream memory record data into data lakes for consolidation and profile
-  management
+- Stream memory record data into data lakes for consolidation and profile management
 - Trigger downstream workflows when new insights are extracted
 - Track memory record state changes across agents and sessions
 
@@ -29,36 +24,29 @@ With memory record streaming, you can:
 
 ## How it works
 
-Memory record streaming uses a push-based delivery model. When memory records change,
-events are automatically published to your Kinesis Data Stream.
+Memory record streaming uses a push-based delivery model. When memory records change, events are automatically published to your Kinesis Data Stream.
 
 Events are triggered by the following operations:
 
-1. **Creation** – Asynchronous extraction from
-   short-term memory events (via `CreateEvent` and memory strategies),
-   or direct creation via `BatchCreateMemoryRecords` API
-2. **Updates** – Direct modification via
-   `BatchUpdateMemoryRecords` API
-3. **Deletion** – Consolidation workflows
-   (de-duplication/superseding), `DeleteMemoryRecord` API, or
-   `BatchDeleteMemoryRecords` API
+1. **Creation** – Asynchronous extraction from short-term memory events (via `CreateEvent` and memory strategies), or direct creation via `BatchCreateMemoryRecords` API
+2. **Updates** – Direct modification via `BatchUpdateMemoryRecords` API
+3. **Deletion** – Consolidation workflows (de-duplication/superseding), `DeleteMemoryRecord` API, or `BatchDeleteMemoryRecords` API
 
 ## Stream event types
 
 The following table describes the supported stream event types and when they are triggered.
 
-| Operation | Stream event type     | Triggered by                                                                            |
-| --------- | --------------------- | --------------------------------------------------------------------------------------- |
-| Create    | `MemoryRecordCreated` | Long term memory extraction/consolidation,<br>`BatchCreateMemoryRecords` API            |
-| Update    | `MemoryRecordUpdated` | `BatchUpdateMemoryRecords` API                                                          |
-| Delete    | `MemoryRecordDeleted` | `BatchDeleteMemoryRecords`, `DeleteMemoryRecord`<br>API, long term memory consolidation |
+| Operation | Stream event type     | Triggered by                                                                          |
+| --------- | --------------------- | ------------------------------------------------------------------------------------- |
+| Create    | `MemoryRecordCreated` | Long term memory extraction/consolidation, `BatchCreateMemoryRecords` API             |
+| Update    | `MemoryRecordUpdated` | `BatchUpdateMemoryRecords` API                                                        |
+| Delete    | `MemoryRecordDeleted` | `BatchDeleteMemoryRecords` , `DeleteMemoryRecord` API, long term memory consolidation |
 
 ## Event schema
 
 ### MemoryRecordCreated / MemoryRecordUpdated
 
-`MemoryRecordCreated` and `MemoryRecordUpdated` events share
-the same schema.
+`MemoryRecordCreated` and `MemoryRecordUpdated` events share the same schema.
 
 ```
 {
@@ -77,8 +65,7 @@ the same schema.
 }
 ```
 
-The `memoryRecordText` field is only included when the content level on
-the stream delivery configuration is set to `FULL_CONTENT`. See [Configure event content level](#memory-record-streaming-content-level "#memory-record-streaming-content-level") for additional details.
+The `memoryRecordText` field is only included when the content level on the stream delivery configuration is set to `FULL_CONTENT` . See [Configure event content level](#memory-record-streaming-content-level "#memory-record-streaming-content-level") for additional details.
 
 ### MemoryRecordDeleted
 
@@ -93,8 +80,7 @@ the stream delivery configuration is set to `FULL_CONTENT`. See [Configure event
 }
 ```
 
-Deletion events contain only the memory and record identifiers, regardless of the
-configured content level.
+Deletion events contain only the memory and record identifiers, regardless of the configured content level.
 
 ## Prerequisites
 
@@ -108,30 +94,25 @@ Before setting up memory record streaming, verify you have:
 
 ### Step 1: Create a Kinesis Data Stream
 
-Create a Kinesis Data Stream in your account where Amazon Bedrock AgentCore will
-publish memory record lifecycle events.
+Create a Kinesis Data Stream in your account where Amazon Bedrock AgentCore will publish memory record lifecycle events.
 
-You can create the stream using the AWS Console, CDK, CloudFormation, or the
-AWS CLI. If you enable Kinesis server-side encryption, note the KMS key ARN —
-you'll need it for the IAM role permissions.
+You can create the stream using the AWS Console, CDK, CloudFormation, or the AWS CLI. If you enable Kinesis server-side encryption, note the KMS key ARN — you’ll need it for the IAM role permissions.
 
 ### Step 2: Set up a consumer
 
 Set up a consumer to process events from your Kinesis Data Stream.
 
-Grant your consumer `AmazonKinesisReadOnlyAccess` (or
-equivalent permissions) and add the Kinesis Data Stream as a trigger.
+Grant your consumer `AmazonKinesisReadOnlyAccess` (or equivalent permissions) and add the Kinesis Data Stream as a trigger.
 
 ### Step 3: Create an IAM role
 
-Create an IAM role that Amazon Bedrock AgentCore can assume to publish events to
-your Kinesis Data Stream.
+Create an IAM role that Amazon Bedrock AgentCore can assume to publish events to your Kinesis Data Stream.
 
 Trust policy:
 
 ```
 {
-  "Version": "2012-10-17",
+"Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
@@ -150,7 +131,7 @@ For built-in memory strategies, the permissions policy looks like the following:
 
 ```
 {
-  "Version": "2012-10-17",
+"Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
@@ -168,7 +149,7 @@ For custom memory strategies, the permissions policy looks like the following:
 
 ```
 {
-  "Version": "2012-10-17",
+"Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
@@ -198,8 +179,7 @@ For custom memory strategies, the permissions policy looks like the following:
 }
 ```
 
-If your Kinesis Data Stream uses server-side encryption, add the following to
-the permissions policy:
+If your Kinesis Data Stream uses server-side encryption, add the following to the permissions policy:
 
 ```
 {
@@ -212,10 +192,7 @@ the permissions policy:
 
 ### Step 4: Create a memory with streaming enabled
 
-Use the `CreateMemory` API to create an Amazon Bedrock AgentCore Memory
-with a stream delivery resource. You must provide the
-`memoryExecutionRoleArn` when specifying a stream delivery
-resource.
+Use the `CreateMemory` API to create an Amazon Bedrock AgentCore Memory with a stream delivery resource. You must provide the `memoryExecutionRoleArn` when specifying a stream delivery resource.
 
 ```
 aws bedrock-agentcore-control create-memory \
@@ -242,10 +219,7 @@ aws bedrock-agentcore-control create-memory \
 
 ### Step 5: Verify your streaming integration
 
-When you create a memory with streaming enabled, Amazon Bedrock AgentCore Memory
-validates the configuration and permissions. Upon successful validation, a
-`StreamingEnabled` event is published to your Kinesis Data
-Stream.
+When you create a memory with streaming enabled, Amazon Bedrock AgentCore Memory validates the configuration and permissions. Upon successful validation, a `StreamingEnabled` event is published to your Kinesis Data Stream.
 
 Check your consumer for a validation event in the following format:
 
@@ -262,27 +236,18 @@ Check your consumer for a validation event in the following format:
 
 ## Configure event content level
 
-The `contentConfigurations` field controls what data is included in each
-event. You can choose between two content levels:
+The `contentConfigurations` field controls what data is included in each event. You can choose between two content levels:
 
-- **METADATA_ONLY**: Stream events only include
-  metadata fields (`memoryId`, `memoryRecordId`,
-  `namespaces`, `strategyId`, timestamps, and so on).
-  Requires an API call to retrieve the full memory record content.
-- **FULL_CONTENT**: Stream events include all
-  metadata fields plus the `memoryRecordText` field containing the
-  memory record content.
+- **METADATA_ONLY** : Stream events only include metadata fields ( `memoryId` , `memoryRecordId` , `namespaces` , `strategyId` , timestamps, and so on). Requires an API call to retrieve the full memory record content.
+- **FULL_CONTENT** : Stream events include all metadata fields plus the `memoryRecordText` field containing the memory record content.
 
-Use `METADATA_ONLY` for lightweight event notifications where you only need
-to know that a change occurred. Use `FULL_CONTENT` when your downstream
-processing needs the memory record text without making additional API calls.
+Use `METADATA_ONLY` for lightweight event notifications where you only need to know that a change occurred. Use `FULL_CONTENT` when your downstream processing needs the memory record text without making additional API calls.
 
 ## Test your implementation
 
 ### Step 1: Create test events
 
-Use the Data Plane APIs to generate memory record lifecycle events and verify
-they appear in your consumer.
+Use the Data Plane APIs to generate memory record lifecycle events and verify they appear in your consumer.
 
 Create events via short-term memory (triggers asynchronous extraction):
 
@@ -325,9 +290,7 @@ aws bedrock-agentcore batch-create-memory-records \
 
 ### Step 2: Verify delivery
 
-Check your consumer to confirm events are being
-received. You should see `MemoryRecordCreated` events for records
-created through either method.
+Check your consumer to confirm events are being received. You should see `MemoryRecordCreated` events for records created through either method.
 
 You can also monitor delivery health using [Metrics](#memory-record-streaming-metrics "#memory-record-streaming-metrics") and [Logs](#memory-record-streaming-logs "#memory-record-streaming-logs").
 
@@ -343,8 +306,7 @@ aws bedrock-agentcore list-memory-records \
 
 ### Update streaming configuration
 
-Use the `UpdateMemory` API to modify or remove the stream delivery
-resource.
+Use the `UpdateMemory` API to modify or remove the stream delivery resource.
 
 Remove streaming:
 
@@ -379,39 +341,34 @@ aws bedrock-agentcore-control update-memory \
 
 ## Observability
 
-Amazon Bedrock AgentCore Memory vends CloudWatch metrics and logs to your AWS account,
-giving you visibility into the health and status of memory record stream
-delivery.
+Amazon Bedrock AgentCore Memory vends CloudWatch metrics and logs to your AWS account, giving you visibility into the health and status of memory record stream delivery.
 
 ### Metrics
 
-Metrics are published to your account under the
-`AWS/Bedrock-AgentCore` namespace.
+Metrics are published to your account under the `AWS/Bedrock-AgentCore` namespace.
 
-| CloudWatch metrics        | Metric                                                                                                                                         | Description |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `StreamPublishingSuccess` | The number of memory record events successfully published to your<br>Kinesis Data Stream.                                                      |
-| `StreamPublishingFailure` | The number of memory record events that failed to publish to your<br>Kinesis Data Stream.                                                      |
-| `StreamUserError`         | The number of events that failed due to customer-side<br>configuration issues, such as missing IAM permissions or an invalid<br>KMS key state. |
+| Metric                    | Description                                                                                                                              |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `StreamPublishingSuccess` | The number of memory record events successfully published to your Kinesis Data Stream.                                                   |
+| `StreamPublishingFailure` | The number of memory record events that failed to publish to your Kinesis Data Stream.                                                   |
+| `StreamUserError`         | The number of events that failed due to customer-side configuration issues, such as missing IAM permissions or an invalid KMS key state. |
 
-All metrics are emitted as `Count` units with the following
-dimensions:
+All metrics are emitted as `Count` units with the following dimensions:
 
-| Metric dimensions | Dimension           | Value                                                                                                                  | Description |
-| ----------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Operation         | `MemoryStreamEvent` | The streaming operation type.                                                                                          |
-| Resource          | Memory ARN          | The ARN of the memory resource (for example,<br>`arn:aws:bedrock-agentcore:us-east-1:123456789012:memory/memory-123`). |
+| Dimension | Value               | Description                                                                                                          |
+| --------- | ------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Operation | `MemoryStreamEvent` | The streaming operation type.                                                                                        |
+| Resource  | Memory ARN          | The ARN of the memory resource (for example, `arn:aws:bedrock-agentcore:us-east-1:123456789012:memory/memory-123` ). |
 
 ### Logs
 
-Amazon Bedrock AgentCore Memory vends logs to your account when terminal
-(non-retryable) publishing failures occur.
+Amazon Bedrock AgentCore Memory vends logs to your account when terminal (non-retryable) publishing failures occur.
 
-| Log fields       | Field                                                                                                 | Description |
-| ---------------- | ----------------------------------------------------------------------------------------------------- | ----------- |
-| `log`            | Error message describing the failure.                                                                 |
-| `streamArn`      | The target Kinesis Data Stream ARN.                                                                   |
-| `errorCode`      | The specific error code.                                                                              |
-| `errorMessage`   | A human-readable description of the error.                                                            |
-| `eventType`      | The stream event type (`MemoryRecordCreated`,<br>`MemoryRecordUpdated`, or<br>`MemoryRecordDeleted`). |
-| `memoryRecordId` | The identifier of the affected memory record.                                                         |
+| Field            | Description                                                                                         |
+| ---------------- | --------------------------------------------------------------------------------------------------- |
+| `log`            | Error message describing the failure.                                                               |
+| `streamArn`      | The target Kinesis Data Stream ARN.                                                                 |
+| `errorCode`      | The specific error code.                                                                            |
+| `errorMessage`   | A human-readable description of the error.                                                          |
+| `eventType`      | The stream event type ( `MemoryRecordCreated` , `MemoryRecordUpdated` , or `MemoryRecordDeleted` ). |
+| `memoryRecordId` | The identifier of the affected memory record.                                                       |

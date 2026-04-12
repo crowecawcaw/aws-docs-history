@@ -1,83 +1,67 @@
 # Execute shell commands in AgentCore Runtime sessions
 
-The [InvokeAgentRuntimeCommand](../APIReference/API_InvokeAgentRuntimeCommand.md "../APIReference/API_InvokeAgentRuntimeCommand.md") operation lets you execute shell commands directly
-inside a running AgentCore Runtime session and stream the output back over HTTP/2. Commands run
-in the same container, filesystem, and environment as your agent - the same session used by
-`InvokeAgentRuntime`. This enables workflows where your application uses the
-agent for reasoning tasks and commands for deterministic operations like running tests, git
-operations, or environment setup.
+The [InvokeAgentRuntimeCommand](../APIReference/API_InvokeAgentRuntimeCommand.md "../APIReference/API_InvokeAgentRuntimeCommand.md") operation lets you execute shell commands directly inside a running AgentCore Runtime session and stream the output back over HTTP/2. Commands run in the same container, filesystem, and environment as your agent - the same session used by `InvokeAgentRuntime` . This enables workflows where your application uses the agent for reasoning tasks and commands for deterministic operations like running tests, git operations, or environment setup.
 
-To call `InvokeAgentRuntimeCommand`, you need
-`bedrock-agentcore:InvokeAgentRuntimeCommand` permissions.
+To call `InvokeAgentRuntimeCommand` , you need `bedrock-agentcore:InvokeAgentRuntimeCommand` permissions.
 
 ## When to use InvokeAgentRuntimeCommand
 
-| Choosing between InvokeAgentRuntimeCommand and InvokeAgentRuntime | Use InvokeAgentRuntimeCommand                                          | Use InvokeAgentRuntime |
-| ----------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------- |
-| The operation has a known command (`npm test`, `git push`)        | The operation requires reasoning ("analyze this code and fix the bug") |
-| You want deterministic execution<br>• same command, same result   | You want the LLM to decide what to do                                  |
-| You need streaming output from a long-running process             | You need the agent to use tools in a loop                              |
-| The operation is a validation gate in your workflow               | The operation is the creative or analytical work                       |
-| You're bootstrapping the environment before the agent starts      | You're asking the agent to work on a task                              |
+| Use InvokeAgentRuntimeCommand                                   | Use InvokeAgentRuntime                                                 |
+| --------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| The operation has a known command ( `npm test` , `git push` )   | The operation requires reasoning ("analyze this code and fix the bug") |
+| You want deterministic execution<br>• same command, same result | You want the LLM to decide what to do                                  |
+| You need streaming output from a long-running process           | You need the agent to use tools in a loop                              |
+| The operation is a validation gate in your workflow             | The operation is the creative or analytical work                       |
+| You’re bootstrapping the environment before the agent starts    | You’re asking the agent to work on a task                              |
 
 ## How it works
 
-`InvokeAgentRuntimeCommand` runs a shell command inside the container of
-an active AgentCore Runtime session and streams the output back.
+`InvokeAgentRuntimeCommand` runs a shell command inside the container of an active AgentCore Runtime session and streams the output back.
 
-###### Same agent, same session
+**Same agent, same session**
 
-`InvokeAgentRuntimeCommand` operates on the same agent runtime and
-session as `InvokeAgentRuntime`. You don't create separate resources.
-The agent you deployed with `CreateAgentRuntime` accepts both agent
-invocations and command execution on any active session.
+`InvokeAgentRuntimeCommand` operates on the same agent runtime and session as `InvokeAgentRuntime` . You don’t create separate resources. The agent you deployed with `CreateAgentRuntime` accepts both agent invocations and command execution on any active session.
 
 ###### Note
 
-The AgentCore Runtime microVM does not include developer tools like `git`,
-`npm`, or language runtimes by default. Any tools your commands
-depend on must be included in your container image (via your Dockerfile) or
-installed dynamically at runtime.
+The AgentCore Runtime microVM does not include developer tools like `git` , `npm` , or language runtimes by default. Any tools your commands depend on must be included in your container image (via your Dockerfile) or installed dynamically at runtime.
 
 The response is a stream of three event types:
 
-| Command execution event types | Event            | When                                                    | Contains |
-| ----------------------------- | ---------------- | ------------------------------------------------------- | -------- |
-| `contentStart`                | First chunk      | Confirms the command started                            |
-| `contentDelta`                | During execution | `stdout` and/or `stderr` output                         |
-| `contentStop`                 | Last chunk       | `exitCode` and `status`<br>(`COMPLETED` or `TIMED_OUT`) |
+| Event          | When             | Contains                                               |
+| -------------- | ---------------- | ------------------------------------------------------ |
+| `contentStart` | First chunk      | Confirms the command started                           |
+| `contentDelta` | During execution | `stdout` and/or `stderr` output                        |
+| `contentStop`  | Last chunk       | `exitCode` and `status` ( `COMPLETED` or `TIMED_OUT` ) |
 
-Output streams in real time. You see results as they run, not after they
-finish.
+Output streams in real time. You see results as they run, not after they finish.
 
 ## Prerequisites
 
-- `bedrock-agentcore:InvokeAgentRuntimeCommand` IAM
-  permission
+- `bedrock-agentcore:InvokeAgentRuntimeCommand` IAM permission
 - A valid AgentCore Runtime endpoint ARN
 
 ###### Note
 
-Agents created after March 17, 2026 support command execution
-automatically. If you deployed your agent before this date, you
-must redeploy it to update the agent runtime.
+Agents created after March 17, 2026 support command execution automatically. If you deployed your agent before this date, you must redeploy it to update the agent runtime.
 
 ## Execute a command
 
+###### Example
+
 Python
-The following example shows how to use boto3 to execute a command in a
-AgentCore Runtime session.
+
+1. The following example shows how to use boto3 to execute a command in a AgentCore Runtime session.
 
 ```
-
 import boto3
 import sys
 
 client = boto3.client('bedrock-agentcore', region_name='us-west-2')
 
 response = client.invoke_agent_runtime_command(
-    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:`account-id`:runtime/`my-agent`',
-    runtimeSessionId='`session-id-at-least-33-characters-long`',
+    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:account-id:runtime/my-agent',
+    runtimeSessionId='session-id-at-least-33-characters-long',
     qualifier='DEFAULT',
     contentType='application/json',
     accept='application/vnd.amazon.eventstream',
@@ -105,15 +89,13 @@ for event in response.get('stream', []):
         if 'contentStop' in chunk:
             stop = chunk['contentStop']
             print(f"\nExit code: {stop.get('exitCode')}, Status: {stop.get('status')}")
-
 ```
 
 Java
-The following example shows how to use the AWS SDK for Java to execute
-a command in a AgentCore Runtime session.
+
+1. The following example shows how to use the AWS SDK for Java to execute a command in a AgentCore Runtime session.
 
 ```
-
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.bedrockagentcore.BedrockAgentCoreAsyncClient;
@@ -123,7 +105,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ExecuteCommandExample {
     public static void main(String[] args) throws Exception {
-        String agentArn = "arn:aws:bedrock-agentcore:us-west-2:`account-id`:runtime/`my-agent`";
+        String agentArn = "arn:aws:bedrock-agentcore:us-west-2:account-id:runtime/my-agent";
         String sessionId = UUID.randomUUID().toString();
 
         BedrockAgentCoreAsyncClient client = BedrockAgentCoreAsyncClient.builder()
@@ -168,15 +150,13 @@ public class ExecuteCommandExample {
         client.close();
     }
 }
-
 ```
 
 JavaScript
-The following example shows how to use the AWS SDK for JavaScript v3 to
-execute a command in a AgentCore Runtime session.
+
+1. The following example shows how to use the AWS SDK for JavaScript v3 to execute a command in a AgentCore Runtime session.
 
 ```
-
 import {
     BedrockAgentCoreClient,
     InvokeAgentRuntimeCommandCommand
@@ -186,7 +166,7 @@ import { randomUUID } from "crypto";
 const client = new BedrockAgentCoreClient({ region: "us-west-2" });
 
 const request = {
-    agentRuntimeArn: "arn:aws:bedrock-agentcore:us-west-2:`account-id`:runtime/`my-agent`",
+    agentRuntimeArn: "arn:aws:bedrock-agentcore:us-west-2:account-id:runtime/my-agent",
     runtimeSessionId: randomUUID(),
     qualifier: "DEFAULT",
     contentType: "application/json",
@@ -222,26 +202,22 @@ for await (const event of response.stream) {
 }
 
 client.destroy();
-
 ```
 
 ## Coding agent workflow example
 
-A common pattern is to use `InvokeAgentRuntime` for reasoning and
-`InvokeAgentRuntimeCommand` for deterministic operations in the same
-session.
+A common pattern is to use `InvokeAgentRuntime` for reasoning and `InvokeAgentRuntimeCommand` for deterministic operations in the same session.
 
-###### Example End-to-end coding agent workflow
+**Example End-to-end coding agent workflow**
 
 ```
-
 import boto3
 import json
 
 client = boto3.client('bedrock-agentcore', region_name='us-west-2')
 
-AGENT_ARN = 'arn:aws:bedrock-agentcore:us-west-2:`account-id`:runtime/`my-agent`'
-SESSION_ID = '`session-id-at-least-33-characters-long`'
+AGENT_ARN = 'arn:aws:bedrock-agentcore:us-west-2:account-id:runtime/my-agent'
+SESSION_ID = 'session-id-at-least-33-characters-long'
 
 def run_command(command, timeout=60):
     """Helper to run a command and return the exit code."""
@@ -273,19 +249,15 @@ if exit_code == 0:
     run_command('/bin/bash -c "cd /workspace && git checkout -b fix/JIRA-1234"')
     run_command('/bin/bash -c "cd /workspace && git add -A && git commit -m \'Fix JIRA-1234\'"')
     run_command('/bin/bash -c "cd /workspace && git push origin fix/JIRA-1234"')
-
 ```
 
-The agent writes the code. The platform runs the commands. Each does what it's best
-at.
+The agent writes the code. The platform runs the commands. Each does what it’s best at.
 
 ## Common use cases
 
 Running test suites
 
-After the agent writes code, run the project's test suite as a command.
-The streaming response lets you detect failures early and feed specific
-error output back to the agent for iteration.
+After the agent writes code, run the project’s test suite as a command. The streaming response lets you detect failures early and feed specific error output back to the agent for iteration.
 
 ```
 /bin/bash -c "cd /workspace && npm test 2>&1"
@@ -293,9 +265,7 @@ error output back to the agent for iteration.
 
 Git operations
 
-Branching, committing, and pushing are deterministic operations. Run them
-as commands after the agent completes its work, keeping version control
-logic out of the LLM.
+Branching, committing, and pushing are deterministic operations. Run them as commands after the agent completes its work, keeping version control logic out of the LLM.
 
 ```
 /bin/bash -c "cd /workspace && git add -A && git commit -m 'Fix issue'"
@@ -303,9 +273,7 @@ logic out of the LLM.
 
 Dependency installation
 
-Bootstrap the environment before invoking the agent -clone repos,
-install packages, set up build tooling. This preparation runs faster and
-more reliably as direct commands.
+Bootstrap the environment before invoking the agent -clone repos, install packages, set up build tooling. This preparation runs faster and more reliably as direct commands.
 
 ```
 /bin/bash -c "pip install -r requirements.txt"
@@ -313,8 +281,7 @@ more reliably as direct commands.
 
 Build and compile
 
-Compile steps and asset generation -anything with a known command that
-should run exactly as specified.
+Compile steps and asset generation -anything with a known command that should run exactly as specified.
 
 ```
 /bin/bash -c "cd /workspace && cargo build --release"
@@ -322,8 +289,7 @@ should run exactly as specified.
 
 Linting and validation
 
-Run code quality checks as a validation gate after the agent writes
-code, before committing.
+Run code quality checks as a validation gate after the agent writes code, before committing.
 
 ```
 /bin/bash -c "cd /workspace && npx eslint src/ --format json"
@@ -331,8 +297,7 @@ code, before committing.
 
 Environment inspection
 
-Check runtime state, installed packages, available tools -useful for
-debugging agent failures.
+Check runtime state, installed packages, available tools -useful for debugging agent failures.
 
 ```
 /bin/bash -c "python --version && node --version && git --version"
@@ -340,8 +305,7 @@ debugging agent failures.
 
 Data operations
 
-Fetch datasets, upload results, run data transformations -network and
-compute operations that run faster as direct commands.
+Fetch datasets, upload results, run data transformations -network and compute operations that run faster as direct commands.
 
 ```
 /bin/bash -c "aws s3 cp s3://my-bucket/data.csv /workspace/"
@@ -351,132 +315,77 @@ compute operations that run faster as direct commands.
 
 One-shot, non-interactive execution
 
-Each command spawns a new bash process, runs to completion (or timeout),
-and returns. There is no persistent shell session between commands. This
-matches how agent frameworks use command execution -craft a command, run it,
-read the output, decide what to do next.
+Each command spawns a new bash process, runs to completion (or timeout), and returns. There is no persistent shell session between commands. This matches how agent frameworks use command execution -craft a command, run it, read the output, decide what to do next.
 
 Streaming response over HTTP/2
 
-Output arrives as it's produced, not buffered until completion. A
-`npm test` that takes two minutes streams results in real
-time. Your application can detect a failure in the first few seconds and
-cancel early rather than waiting for the full run.
+Output arrives as it’s produced, not buffered until completion. A `npm test` that takes two minutes streams results in real time. Your application can detect a failure in the first few seconds and cancel early rather than waiting for the full run.
 
 Container isolation
 
-Commands execute inside the same container as your agent code. They see the
-same filesystem, environment variables, and installed packages. A file the
-agent wrote at `/workspace/fix.py` is immediately visible to a
-command running `cat /workspace/fix.py`.
+Commands execute inside the same container as your agent code. They see the same filesystem, environment variables, and installed packages. A file the agent wrote at `/workspace/fix.py` is immediately visible to a command running `cat /workspace/fix.py`.
 
 Non-blocking to the runtime
 
-Command execution doesn't block agent invocations. You can invoke the
-agent and run commands concurrently on the same session. The platform handles
-the concurrency.
+Command execution doesn’t block agent invocations. You can invoke the agent and run commands concurrently on the same session. The platform handles the concurrency.
 
 Stateless between commands
 
-Each command starts fresh -no shell history, no environment variable
-changes from previous commands carry over. If you need state, encode it in
-the command itself: `cd /workspace && export NODE_ENV=test
- && npm test`.
+Each command starts fresh -no shell history, no environment variable changes from previous commands carry over. If you need state, encode it in the command itself: `cd /workspace && export NODE_ENV=test && npm test`.
 
 ## Security considerations
 
 ###### Important
 
-Under the AWS shared responsibility model, you are responsible for the security
-of the commands you execute in your AgentCore Runtime sessions. AWS provides the secure
-infrastructure and isolation at the microVM level. You are responsible for the
-commands you run, the data you process, and the access controls you
-configure.
+Under the AWS shared responsibility model, you are responsible for the security of the commands you execute in your AgentCore Runtime sessions. AWS provides the secure infrastructure and isolation at the microVM level. You are responsible for the commands you run, the data you process, and the access controls you configure.
 
-The security boundary for command execution is the microVM. Each AgentCore Runtime session
-runs in an isolated microVM with its own kernel, memory, and filesystem. Commands you
-execute cannot access other customers' workloads or escape the VM boundary. However,
-within your VM, commands have full access to the container filesystem and any
-credentials or secrets you have configured.
+The security boundary for command execution is the microVM. Each AgentCore Runtime session runs in an isolated microVM with its own kernel, memory, and filesystem. Commands you execute cannot access other customers' workloads or escape the VM boundary. However, within your VM, commands have full access to the container filesystem and any credentials or secrets you have configured.
 
-###### Auditing with CloudWatch Logs
+**Auditing with CloudWatch Logs**
 
-AgentCore Runtime sends the request ID and the input command to your agent's Amazon CloudWatch Logs
-log group. You can use these logs to monitor command activity and maintain an
-audit trail of what commands were executed in your sessions. The command execution
-output (stdout and stderr) is streamed back to your application and is not logged
-by the service.
+AgentCore Runtime sends the request ID and the input command to your agent’s Amazon CloudWatch Logs log group. You can use these logs to monitor command activity and maintain an audit trail of what commands were executed in your sessions. The command execution output (stdout and stderr) is streamed back to your application and is not logged by the service.
 
-###### Auditing with CloudTrail
+**Auditing with CloudTrail**
 
-AWS CloudTrail records `InvokeAgentRuntimeCommand` API calls in your
-account. Each record includes metadata such as the caller identity, timestamp,
-source IP address, and response status. CloudTrail does not log the request or response
-payload. Use CloudTrail to audit who executed commands and when, then correlate with
-CloudWatch Logs logs using the request ID to see what command was executed.
+AWS CloudTrail records `InvokeAgentRuntimeCommand` API calls in your account. Each record includes metadata such as the caller identity, timestamp, source IP address, and response status. CloudTrail does not log the request or response payload. Use CloudTrail to audit who executed commands and when, then correlate with CloudWatch Logs logs using the request ID to see what command was executed.
 
 For sensitive workloads, consider implementing additional controls such as:
 
-- Using IAM policies to restrict which principals can call
-  `InvokeAgentRuntimeCommand`
+- Using IAM policies to restrict which principals can call `InvokeAgentRuntimeCommand`
 - Configuring VPC endpoints to keep traffic within your network
-- Setting up CloudWatch Logs metric filters and alarms to detect unexpected command
-  patterns
+- Setting up CloudWatch Logs metric filters and alarms to detect unexpected command patterns
 - Reviewing CloudTrail logs regularly for unauthorized access attempts
 
 ## Error handling
 
-When using the `InvokeAgentRuntimeCommand` operation, you might encounter
-the following errors:
+When using the `InvokeAgentRuntimeCommand` operation, you might encounter the following errors:
 
 **ValidationException**
 
-Occurs when the request parameters are invalid. Check that your agent ARN,
-session ID, and command are correctly formatted. The command must be between
-1 byte and 64 KB, the timeout must be between 1 and 3600 seconds, and the
-session ID must be at least 33 characters.
+Occurs when the request parameters are invalid. Check that your agent ARN, session ID, and command are correctly formatted. The command must be between 1 byte and 64 KB, the timeout must be between 1 and 3600 seconds, and the session ID must be at least 33 characters.
 
 **ResourceNotFoundException**
 
-Occurs when the specified agent runtime or session cannot be found. Verify
-that the agent ARN is correct and that the session is active.
+Occurs when the specified agent runtime or session cannot be found. Verify that the agent ARN is correct and that the session is active.
 
 **AccessDeniedException**
 
-Occurs when you don't have the necessary permissions. Ensure that your IAM
-policy includes the
-`bedrock-agentcore:InvokeAgentRuntimeCommand`
-permission.
+Occurs when you don’t have the necessary permissions. Ensure that your IAM policy includes the `bedrock-agentcore:InvokeAgentRuntimeCommand` permission.
 
 **ThrottlingException**
 
-Occurs when you exceed the request rate limit of 25 TPS. Implement
-exponential backoff and retry logic in your application.
+Occurs when you exceed the request rate limit of 25 TPS. Implement exponential backoff and retry logic in your application.
 
-A command that completes with a non-zero exit code is not an API error. Check the
-`exitCode` in the `contentStop` event to determine if the
-command itself succeeded. A `status` of `TIMED_OUT` indicates the
-command exceeded the specified timeout.
+A command that completes with a non-zero exit code is not an API error. Check the `exitCode` in the `contentStop` event to determine if the command itself succeeded. A `status` of `TIMED_OUT` indicates the command exceeded the specified timeout.
 
 ## Best practices
 
-Follow these best practices when using the `InvokeAgentRuntimeCommand`
-operation:
+Follow these best practices when using the `InvokeAgentRuntimeCommand` operation:
 
-- Use `InvokeAgentRuntimeCommand` for deterministic operations
-  (tests, git, builds) and `InvokeAgentRuntime` for reasoning tasks.
-  Don't route deterministic operations through the LLM.
-- Include any developer tools your commands depend on (such as
-  `git`, `npm`, or language runtimes) in your container
-  image via your Dockerfile.
-- Always check the `exitCode` in the `contentStop` event
-  to determine if the command succeeded.
-- Set appropriate timeouts. A test suite might need 5 minutes, while a
-  `git push` might only need 30 seconds.
-- Process streaming output incrementally to detect failures early. You can cancel
-  a long-running command rather than waiting for it to complete.
-- Encode state in the command itself using `&&` chaining
-  (for example, `cd /workspace && export NODE_ENV=test && npm
-test`), since each command starts a fresh bash process.
-- Use UUIDs for session IDs to meet the 33-character minimum requirement
-  (for example, `12345678-1234-1234-1234-123456789012`).
+- Use `InvokeAgentRuntimeCommand` for deterministic operations (tests, git, builds) and `InvokeAgentRuntime` for reasoning tasks. Don’t route deterministic operations through the LLM.
+- Include any developer tools your commands depend on (such as `git` , `npm` , or language runtimes) in your container image via your Dockerfile.
+- Always check the `exitCode` in the `contentStop` event to determine if the command succeeded.
+- Set appropriate timeouts. A test suite might need 5 minutes, while a `git push` might only need 30 seconds.
+- Process streaming output incrementally to detect failures early. You can cancel a long-running command rather than waiting for it to complete.
+- Encode state in the command itself using `&&` chaining (for example, `cd /workspace && export NODE_ENV=test && npm test` ), since each command starts a fresh bash process.
+- Use UUIDs for session IDs to meet the 33-character minimum requirement (for example, `12345678-1234-1234-1234-123456789012` ).

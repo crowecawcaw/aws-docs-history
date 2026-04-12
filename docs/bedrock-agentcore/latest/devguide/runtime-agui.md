@@ -1,8 +1,6 @@
 # Deploy AGUI servers in AgentCore Runtime
 
-Amazon Bedrock AgentCore AgentCore Runtime lets you deploy and run Agent User Interface (AGUI)
-servers in the AgentCore Runtime. This guide walks you through creating, testing, and deploying your
-first AGUI server.
+Amazon Bedrock AgentCore AgentCore Runtime lets you deploy and run Agent User Interface (AGUI) servers in the AgentCore Runtime. This guide walks you through creating, testing, and deploying your first AGUI server.
 
 In this section, you learn:
 
@@ -21,20 +19,11 @@ In this section, you learn:
 
 ## How Amazon Bedrock AgentCore supports AGUI
 
-Amazon Bedrock AgentCore's AGUI protocol support enables integration with
-agent user interface servers by acting as a proxy layer. When configured for AGUI,
-Amazon Bedrock AgentCore expects containers to run servers on port
-`8080` at the `/invocations` path for HTTP/SSE or `/ws` for WebSocket connections.
-Although AGUI uses the same port and paths as the HTTP protocol, the runtime distinguishes
-between them based on the `--protocol` flag specified during deployment configuration.
+Amazon Bedrock AgentCore’s AGUI protocol support enables integration with agent user interface servers by acting as a proxy layer. When configured for AGUI, Amazon Bedrock AgentCore expects containers to run servers on port `8080` at the `/invocations` path for HTTP/SSE or `/ws` for WebSocket connections. Although AGUI uses the same port and paths as the HTTP protocol, the runtime distinguishes between them based on the `--protocol` flag specified during deployment configuration.
 
-Amazon Bedrock AgentCore acts as a proxy between clients and your AGUI container.
-Requests from the [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md") API are passed through to your container without modification.
-Amazon Bedrock AgentCore handles authentication (SigV4/OAuth 2.0), session isolation,
-and scaling.
+Amazon Bedrock AgentCore acts as a proxy between clients and your AGUI container. Requests from the [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md") API are passed through to your container without modification. Amazon Bedrock AgentCore handles authentication (SigV4/OAuth 2.0), session isolation, and scaling.
 
-Key differences from other
-protocols:
+Key differences from other protocols:
 
 **Port**
 
@@ -42,8 +31,7 @@ AGUI servers run on port 8080 (same as HTTP, vs 8000 for MCP, 9000 for A2A)
 
 **Path**
 
-AGUI servers use `/invocations` for HTTP/SSE and
-`/ws` for WebSocket (same as HTTP protocol)
+AGUI servers use `/invocations` for HTTP/SSE and `/ws` for WebSocket (same as HTTP protocol)
 
 **Message Format**
 
@@ -76,15 +64,12 @@ For complete examples and framework-specific implementations, see [AGUI Quicksta
 ### Prerequisites
 
 - Python 3.12 or higher (or TypeScript/Node.js) installed and basic understanding of your chosen language
-- An AWS account with appropriate permissions and local credentials
-  configured
-- Understanding of the AGUI protocol and event-based agent-to-user communication
-  concepts
+- An AWS account with appropriate permissions and local credentials configured
+- Understanding of the AGUI protocol and event-based agent-to-user communication concepts
 
 ### Step 1: Create your AGUI server
 
-AGUI is supported by multiple agent frameworks. Choose the framework that best fits
-your needs. For this example, we'll show the general pattern.
+AGUI is supported by multiple agent frameworks. Choose the framework that best fits your needs. For this example, we’ll show the general pattern.
 
 #### Install required packages
 
@@ -100,10 +85,9 @@ For other frameworks, see the [AGUI framework integrations](https://docs.ag-ui.c
 
 #### Create your first AGUI server
 
-Create a new file called `my_agui_server.py`. This example uses AWS Strands with AGUI:
+Create a new file called `my_agui_server.py` . This example uses AWS Strands with AGUI:
 
 ```
-
 # my_agui_server.py
 import uvicorn
 from fastapi import FastAPI, Request
@@ -157,7 +141,6 @@ async def ping():
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8080)
-
 ```
 
 For complete, framework-specific examples, see:
@@ -192,8 +175,7 @@ Run your AGUI server locally:
 python my_agui_server.py
 ```
 
-You should see output indicating the server is running on port
-`8080`.
+You should see output indicating the server is running on port `8080`.
 
 #### Test the endpoint
 
@@ -213,7 +195,7 @@ curl -N -X POST http://localhost:8080/invocations \
 }'
 ```
 
-You should see AGUI event streams returned in SSE format, including `RUN_STARTED`, `TEXT_MESSAGE_CONTENT`, and `RUN_FINISHED` events.
+You should see AGUI event streams returned in SSE format, including `RUN_STARTED` , `TEXT_MESSAGE_CONTENT` , and `RUN_FINISHED` events.
 
 ### Step 3: Deploy your AGUI server to Bedrock AgentCore Runtime
 
@@ -246,10 +228,7 @@ ag-ui-strands
 
 #### Set up Cognito user pool for authentication
 
-Configure authentication for secure access to your deployed
-server. For detailed Cognito setup instructions, see [Set up Cognito user
-pool for authentication](#runtime-agui-appendix-a "#runtime-agui-appendix-a"). This provides the OAuth tokens required for
-secure access to your deployed server.
+Configure authentication for secure access to your deployed server. For detailed Cognito setup instructions, see [Set up Cognito user pool for authentication](#runtime-agui-appendix-a "#runtime-agui-appendix-a") . This provides the OAuth tokens required for secure access to your deployed server.
 
 #### Configure your AGUI server for deployment
 
@@ -260,8 +239,7 @@ agentcore configure -e my_agui_server.py --protocol AGUI
 ```
 
 - Select protocol as AGUI
-- Configure with OAuth configuration as setup in the previous
-  step
+- Configure with OAuth configuration as setup in the previous step
 
 #### Deploy to AWS
 
@@ -271,7 +249,7 @@ Deploy your agent:
 agentcore deploy
 ```
 
-After deployment, you'll receive an agent runtime ARN that looks like:
+After deployment, you’ll receive an agent runtime ARN that looks like:
 
 ```
 arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/my_agui_server-xyz123
@@ -350,8 +328,7 @@ async def invoke_agui_agent(message: str):
 asyncio.run(invoke_agui_agent("Hello!"))
 ```
 
-For building full UI applications, see [CopilotKit](https://docs.copilotkit.ai/ "https://docs.copilotkit.ai/")
-or the [AGUI TypeScript client SDK](https://docs.ag-ui.com/sdk/js/client/overview "https://docs.ag-ui.com/sdk/js/client/overview").
+For building full UI applications, see [CopilotKit](https://docs.copilotkit.ai/ "https://docs.copilotkit.ai/") or the [AGUI TypeScript client SDK](https://docs.ag-ui.com/sdk/js/client/overview "https://docs.ag-ui.com/sdk/js/client/overview").
 
 ## Appendix
 
@@ -362,13 +339,11 @@ or the [AGUI TypeScript client SDK](https://docs.ag-ui.com/sdk/js/client/overvie
 
 ### Set up Cognito user pool for authentication
 
-For detailed Cognito setup instructions, see Set up
-[Cognito user pool for authentication](runtime-mcp.md#set-up-cognito-user-pool-for-authentication "runtime-mcp.md#set-up-cognito-user-pool-for-authentication")
-in the MCP documentation. The setup process is identical for AGUI servers.
+For detailed Cognito setup instructions, see Set up [Cognito user pool for authentication](runtime-mcp.md#set-up-cognito-user-pool-for-authentication "runtime-mcp.md#set-up-cognito-user-pool-for-authentication") in the MCP documentation. The setup process is identical for AGUI servers.
 
 ### Troubleshooting
 
-###### Common AGUI-specific issues
+**Common AGUI-specific issues**
 
 The following are common issues you might encounter:
 
@@ -378,8 +353,7 @@ AGUI servers must run on port 8080 in the AgentCore Runtime environment
 
 Authorization method mismatch
 
-Make sure your request uses the same authentication method (OAuth or
-SigV4) that the agent was configured with
+Make sure your request uses the same authentication method (OAuth or SigV4) that the agent was configured with
 
 Event format errors
 

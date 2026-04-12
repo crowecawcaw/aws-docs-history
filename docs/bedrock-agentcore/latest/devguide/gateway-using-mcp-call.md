@@ -1,29 +1,32 @@
 # Call a tool in a AgentCore gateway
 
-To call a specific tool, make a POST request to the gateway's MCP endpoint and specify `tools/call` as the method in the request body, name of the tool, and the arguments:
+To call a specific tool, make a POST request to the gateway’s MCP endpoint and specify `tools/call` as the method in the request body, name of the tool, and the arguments:
 
 ```
 POST /mcp HTTP/1.1
-Host: `${GatewayEndpoint}`
+Host: ${GatewayEndpoint}
 Content-Type: application/json
-Authorization: `${Authorization header}`
+Authorization: ${Authorization header}
 
-`${RequestBody}`
+${RequestBody}
 ```
 
 Replace the following values:
 
 - `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") API.
 - `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
-- `${RequestBody}` – The JSON payload of the request body, as specified in [Calling tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#calling-tools "https://modelcontextprotocol.io/specification/2025-06-18/server/tools#calling-tools") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro"). Include `tools/call` as the `method` and include the `name` of the tool and its `arguments`.
+- `${RequestBody}` – The JSON payload of the request body, as specified in [Calling tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#calling-tools "https://modelcontextprotocol.io/specification/2025-06-18/server/tools#calling-tools") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") . Include `tools/call` as the `method` and include the `name` of the tool and its `arguments`.
   The response returns the content returned by the tool and associated metadata.
 
 ## Code samples for calling tools
 
 To see examples of listing available tools in the gateway, select one of the following methods:
 
+###### Example
+
 curl
-The following curl request shows an example request to call a tool called `searchProducts` through a gateway with the ID `mygateway-abcdefghij`.
+
+1. The following curl request shows an example request to call a tool called `searchProducts` through a gateway with the ID `mygateway-abcdefghij`.
 
 ```
 curl -X POST \
@@ -51,15 +54,16 @@ curl -X POST \
 
 Python requests package
 
-```
-import requests
-import json
+1. ```
+   import requests
+   import json
+   ```
 
 def call_tool(gateway_url, access_token, tool_name, arguments):
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {access_token}"
-    }
+headers = {
+"Content-Type": "application/json",
+"Authorization": f"Bearer {access_token}"
+}
 
     payload = {
         "jsonrpc": "2.0",
@@ -75,20 +79,23 @@ def call_tool(gateway_url, access_token, tool_name, arguments):
     return response.json()
 
 # Example usage
-gateway_url = "https://`${GatewayEndpoint}`/mcp" # Replace with your actual gateway endpoint
-access_token = "`${AccessToken}"` # Replace with your actual access token
+
+gateway_url = "https://${GatewayEndpoint}/mcp" # Replace with your actual gateway endpoint
+access_token = "${AccessToken}" # Replace with your actual access token
 result = call_tool(
-    gateway_url,
-    access_token,
-    "openapi-target-1___get_orders_byId",  # Replace with <{TargetId}__{ToolName}>
-    {"orderId": "ORD-12345-67890", "customerId": "CUST-98765"}
+gateway_url,
+access_token,
+"openapi-target-1**\_get_orders_byId", # Replace with <{TargetId}**{ToolName}>
+{"orderId": "ORD-12345-67890", "customerId": "CUST-98765"}
 )
 print(json.dumps(result, indent=2))
-```
+
+````
+
 
 MCP Client
 
-```
+1. ```
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 import asyncio
@@ -127,7 +134,6 @@ async def execute_mcp(
             print(f"Tool response: {tool_response}")
             return tool_response
 
-
 async def main():
     url = "https://${GatewayEndpoint}/mcp"
     token = "your_bearer_token_here"
@@ -146,22 +152,18 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-```
+````
 
 Strands MCP Client
 
-###### Note
-
-This is for invoking agent
+1. NOTE: This is for invoking agent
 
 ```
 from strands.tools.mcp.mcp_client import MCPClient
 from mcp.client.streamable_http import streamablehttp_client
 
-
 def create_streamable_http_transport(mcp_url: str, access_token: str):
     return streamablehttp_client(mcp_url, headers={"Authorization": f"Bearer {access_token}"})
-
 
 def run_agent(mcp_url: str, access_token: str):
     mcp_client = MCPClient(lambda: create_streamable_http_transport(mcp_url, access_token))
@@ -181,9 +183,7 @@ run_agent(url, token)
 
 LangGraph MCP Client
 
-###### Note
-
-This is for invoking agent
+1. NOTE: This is for invoking agent
 
 ```
 import asyncio
@@ -221,36 +221,36 @@ The `tools/call` operation can return the following types of errors:
 
 The request failed due to invalid authentication credentials.
 
-**HTTP Status Code**: 401
+**HTTP Status Code** : 401
 
 **AuthorizationError**
 
 The caller does not have permission to invoke the tool.
 
-**HTTP Status Code**: 403
+**HTTP Status Code** : 403
 
 **ResourceNotFoundError**
 
 The specified tool does not exist.
 
-**HTTP Status Code**: 404
+**HTTP Status Code** : 404
 
 **ValidationError**
 
-The provided arguments do not conform to the tool's input schema.
+The provided arguments do not conform to the tool’s input schema.
 
-**HTTP Status Code**: 400
+**HTTP Status Code** : 400
 
 **ToolExecutionError**
 
 An error occurred while executing the tool.
 
-**HTTP Status Code**: 500
+**HTTP Status Code** : 500
 
 **InternalServerError**
 
 An internal server error occurred.
 
-**HTTP Status Code**: 500
+**HTTP Status Code** : 500
 
 - MCP errors. For more information about these types of errors, [Error Handling](https://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handlinghttps://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handling "https://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handlinghttps://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handling") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") documentation.

@@ -1,9 +1,6 @@
 # Common policy patterns
 
-These examples demonstrate frequently used Cedar policy patterns. The patterns work with
-both OAuth and IAM authentication—select the appropriate principal type for your AgentCore Gateway
-configuration. For details on principal attributes, see
-[Principal attributes](policy-conditions.md#policy-principal-attributes "policy-conditions.md#policy-principal-attributes").
+These examples demonstrate frequently used Cedar policy patterns. The patterns work with both OAuth and IAM authentication—select the appropriate principal type for your AgentCore Gateway configuration. For details on principal attributes, see [Principal attributes](policy-conditions.md#policy-principal-attributes "policy-conditions.md#policy-principal-attributes").
 
 These patterns apply regardless of authentication type.
 
@@ -19,11 +16,9 @@ forbid(
 );
 ```
 
-**Use case:** Emergency shutdown, maintenance mode, or
-incident response.
+**Use case:** Emergency shutdown, maintenance mode, or incident response.
 
-**Effect:** Overrides all permit policies due to forbid-wins
-semantics.
+**Effect:** Overrides all permit policies due to forbid-wins semantics.
 
 ## Disable specific tool
 
@@ -37,8 +32,7 @@ forbid(
 );
 ```
 
-**Use case:** Temporarily disable a problematic tool without
-affecting other functionality.
+**Use case:** Temporarily disable a problematic tool without affecting other functionality.
 
 ## Block user access
 
@@ -60,8 +54,7 @@ when {
 };
 ```
 
-**Use case:** Immediately revoke access for a compromised or
-suspended user account.
+**Use case:** Immediately revoke access for a compromised or suspended user account.
 
 ### IAM: Block specific account
 
@@ -78,8 +71,7 @@ when {
 };
 ```
 
-**Use case:** Block test or unauthorized accounts from
-accessing production tools.
+**Use case:** Block test or unauthorized accounts from accessing production tools.
 
 ## Role-based access control
 
@@ -101,8 +93,7 @@ when {
 };
 ```
 
-**Use case:** Allow administrative operations only for users
-with admin or manager roles.
+**Use case:** Allow administrative operations only for users with admin or manager roles.
 
 ### IAM: Using IAM role ARNs
 
@@ -119,8 +110,7 @@ when {
 };
 ```
 
-**Use case:** Allow administrative operations only for
-callers using the AdminRole IAM role.
+**Use case:** Allow administrative operations only for callers using the AdminRole IAM role.
 
 **Variations:**
 
@@ -134,9 +124,7 @@ principal.id like "arn:aws:iam::123456789012:role/*"
 
 ## Data type operations
 
-Cedar supports various data types in conditions. These examples use OAuth principals
-(`AgentCore::OAuthUser`). For IAM-authenticated gateways, use
-`AgentCore::IamEntity` instead - the input validation logic remains identical.
+Cedar supports various data types in conditions. These examples use OAuth principals ( `AgentCore::OAuthUser` ). For IAM-authenticated gateways, use `AgentCore::IamEntity` instead - the input validation logic remains identical.
 
 ### Integers (Long)
 

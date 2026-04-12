@@ -2,22 +2,22 @@
 
 If you enabled semantic search for your gateway when you created it, you can call the `x_amz_bedrock_agentcore_search` tool to search for tools in your gateway with a natural language query. Semantic search is particularly useful when you have many tools and need to find the most appropriate ones for your use case. To learn how to enable semantic search during gateway creation, see [Create an Amazon Bedrock AgentCore gateway](gateway-create.md "gateway-create.md").
 
-To search for a tool using this AgentCore tool, make the following POST request with the `tools/call` method to the gateway's MCP endpoint:
+To search for a tool using this AgentCore tool, make the following POST request with the `tools/call` method to the gateway’s MCP endpoint:
 
 ```
 POST /mcp HTTP/1.1
-Host: `${GatewayEndpoint}`
+Host: ${GatewayEndpoint}
 Content-Type: application/json
-Authorization: `${Authorization header}`
+Authorization: ${Authorization header}
 
 {
   "jsonrpc": "2.0",
-  "id": "`${RequestName}`",
+  "id": "${RequestName}",
   "method": "tools/call",
   "params": {
     "name": "x_amz_bedrock_agentcore_search",
     "arguments": {
-      "query": `${Query}`
+      "query": ${Query}
     }
   }
 }
@@ -35,17 +35,20 @@ Replace the following values:
 
 To see examples of using natural language queries to find tools in the gateway, select one of the following methods:
 
+###### Example
+
 Python requests package
 
-```
-import requests
-import json
+1. ```
+   import requests
+   import json
+   ```
 
 def search_tools(gateway_url, access_token, query):
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {access_token}"
-    }
+headers = {
+"Content-Type": "application/json",
+"Authorization": f"Bearer {access_token}"
+}
 
     payload = {
         "jsonrpc": "2.0",
@@ -63,15 +66,18 @@ def search_tools(gateway_url, access_token, query):
     return response.json()
 
 # Example usage
-gateway_url = "https://`${GatewayEndpoint}`/mcp" # Replace with your actual gateway endpoint
-access_token = "`${AccessToken}"` # Replace with your actual access token
+
+gateway_url = "https://${GatewayEndpoint}/mcp" # Replace with your actual gateway endpoint
+access_token = "${AccessToken}" # Replace with your actual access token
 results = search_tools(gateway_url, access_token, "find order information")
 print(json.dumps(results, indent=2))
-```
+
+````
+
 
 MCP Client
 
-```
+1. ```
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 import asyncio
@@ -110,7 +116,6 @@ async def execute_mcp(
             print(f"Tool response: {tool_response}")
             return tool_response
 
-
 async def main():
     url = "https://${GatewayEndpoint}/mcp"
     token = "your_bearer_token_here"
@@ -129,39 +134,37 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-```
+````
 
 Strands MCP Client
 
-```
-from strands.tools.mcp.mcp_client import MCPClient
-from mcp.client.streamable_http import streamablehttp_client
-
+1. ```
+   from strands.tools.mcp.mcp_client import MCPClient
+   from mcp.client.streamable_http import streamablehttp_client
+   ```
 
 def create_streamable_http_transport(mcp_url: str, access_token: str):
-    return streamablehttp_client(mcp_url, headers={"Authorization": f"Bearer {access_token}"})
-
+return streamablehttp_client(mcp_url, headers={"Authorization": f"Bearer {access_token}"})
 
 def get_full_tools_list(client):
-    """
-    List tools w/ support for pagination
-    """
-    more_tools = True
-    tools = []
-    pagination_token = None
-    while more_tools:
-        tmp_tools = client.list_tools_sync(pagination_token=pagination_token)
-        tools.extend(tmp_tools)
-        if tmp_tools.pagination_token is None:
-            more_tools = False
-        else:
-            more_tools = True
-            pagination_token = tmp_tools.pagination_token
-    return tools
-
+"""
+List tools w/ support for pagination
+"""
+more_tools = True
+tools = []
+pagination_token = None
+while more_tools:
+tmp_tools = client.list_tools_sync(pagination_token=pagination_token)
+tools.extend(tmp_tools)
+if tmp_tools.pagination_token is None:
+more_tools = False
+else:
+more_tools = True
+pagination_token = tmp_tools.pagination_token
+return tools
 
 def run_agent(mcp_url: str, access_token: str):
-    mcp_client = MCPClient(lambda: create_streamable_http_transport(mcp_url, access_token))
+mcp_client = MCPClient(lambda: create_streamable_http_transport(mcp_url, access_token))
 
     with mcp_client:
         tools = get_full_tools_list(mcp_client)
@@ -173,15 +176,16 @@ def run_agent(mcp_url: str, access_token: str):
         )
         print(result)
 
-
 url = {gatewayUrl}
 token = {AccessToken}
 run_agent(url, token)
-```
+
+````
+
 
 LangGraph MCP Client
 
-```
+1. ```
 import asyncio
 
 from langchain_mcp_adapters.client import MultiServerMCPClient
@@ -227,4 +231,4 @@ def execute_agent(
         f"Response - \n{_response}\n"
     )
     return _response
-```
+````

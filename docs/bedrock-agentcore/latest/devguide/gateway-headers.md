@@ -7,113 +7,115 @@ Header propagation refers to the systematic forwarding of selective HTTP headers
 This feature operates as a shared responsibility model:
 
 - AWS responsibility is to securely pass the headers and query parameters which you have allowlisted for your targets.
-- Your responsibility is to exercise caution and **only allowlist those headers for propagation which are essential to the targets**, ensuring they meet your security and functional requirements.
+- Your responsibility is to exercise caution and **only allowlist those headers for propagation which are essential to the targets** , ensuring they meet your security and functional requirements.
 
 ### Header restrictions
 
 To maintain security and prevent exposure of sensitive information, the following headers are restricted and cannot be configured for propagation:
 
-Restricted headers| Authorization\* |
-| Proxy-Authorization |
-| WWW-Authenticate |
-| Accept |
-| Accept-Charset |
-| Accept-Encoding |
-| Accept-Language |
-| Content-Type |
-| Content-Length |
-| Content-Encoding |
-| Content-Language |
-| Content-Location |
-| Content-Range |
-| Cache-Control |
-| ETag |
-| Expires |
-| If-Match |
-| If-Modified-Since |
-| If-None-Match |
-| If-Range |
-| If-Unmodified-Since |
-| Last-Modified |
-| Pragma |
-| Vary |
-| Connection |
-| Keep-Alive |
-| Proxy-Connection |
-| Upgrade |
-| Host |
-| User-Agent |
-| Referer |
-| From |
-| Range |
-| Accept-Ranges |
-| Transfer-Encoding |
-| TE |
-| Trailer |
-| Server |
-| Date |
-| Location |
-| Retry-After |
-| Set-Cookie |
-| Cookie |
-| Content-Security-Policy |
+|                                     |
+| ----------------------------------- |
+| Authorization\*                     |
+| Proxy-Authorization                 |
+| WWW-Authenticate                    |
+| Accept                              |
+| Accept-Charset                      |
+| Accept-Encoding                     |
+| Accept-Language                     |
+| Content-Type                        |
+| Content-Length                      |
+| Content-Encoding                    |
+| Content-Language                    |
+| Content-Location                    |
+| Content-Range                       |
+| Cache-Control                       |
+| ETag                                |
+| Expires                             |
+| If-Match                            |
+| If-Modified-Since                   |
+| If-None-Match                       |
+| If-Range                            |
+| If-Unmodified-Since                 |
+| Last-Modified                       |
+| Pragma                              |
+| Vary                                |
+| Connection                          |
+| Keep-Alive                          |
+| Proxy-Connection                    |
+| Upgrade                             |
+| Host                                |
+| User-Agent                          |
+| Referer                             |
+| From                                |
+| Range                               |
+| Accept-Ranges                       |
+| Transfer-Encoding                   |
+| TE                                  |
+| Trailer                             |
+| Server                              |
+| Date                                |
+| Location                            |
+| Retry-After                         |
+| Set-Cookie                          |
+| Cookie                              |
+| Content-Security-Policy             |
 | Content-Security-Policy-Report-Only |
-| Strict-Transport-Security |
-| X-Content-Type-Options |
-| X-Frame-Options |
-| X-XSS-Protection |
-| Referrer-Policy |
-| Permissions-Policy |
-| Cross-Origin-Embedder-Policy |
-| Cross-Origin-Opener-Policy |
-| Cross-Origin-Resource-Policy |
-| Access-Control-Allow-Origin |
-| Access-Control-Allow-Methods |
-| Access-Control-Allow-Headers |
-| Access-Control-Allow-Credentials |
-| Access-Control-Expose-Headers |
-| Access-Control-Max-Age |
-| Access-Control-Request-Method |
-| Access-Control-Request-Headers |
-| Origin |
-| Accept-CH |
-| Accept-CH-Lifetime |
-| DPR |
-| Width |
-| Viewport-Width |
-| Downlink |
-| ECT |
-| RTT |
-| Save-Data |
-| Clear-Site-Data |
-| Feature-Policy |
-| Expect-CT |
-| Public-Key-Pins |
-| Public-Key-Pins-Report-Only |
-| X-Forwarded-For |
-| X-Forwarded-Host |
-| X-Forwarded-Proto |
-| X-Real-IP |
-| X-Requested-With |
-| X-CSRF-Token |
-| CF-Ray |
-| CF-Connecting-IP |
-| X-Amz-Cf-Id |
-| X-Cache |
-| X-Served-By |
-| :method |
-| :path |
-| :scheme |
-| :authority |
-| :status |
-| Link |
-| Sec-WebSocket-Key |
-| Sec-WebSocket-Accept |
-| Sec-WebSocket-Version |
-| Sec-WebSocket-Protocol |
-| Sec-WebSocket-Extensions |
+| Strict-Transport-Security           |
+| X-Content-Type-Options              |
+| X-Frame-Options                     |
+| X-XSS-Protection                    |
+| Referrer-Policy                     |
+| Permissions-Policy                  |
+| Cross-Origin-Embedder-Policy        |
+| Cross-Origin-Opener-Policy          |
+| Cross-Origin-Resource-Policy        |
+| Access-Control-Allow-Origin         |
+| Access-Control-Allow-Methods        |
+| Access-Control-Allow-Headers        |
+| Access-Control-Allow-Credentials    |
+| Access-Control-Expose-Headers       |
+| Access-Control-Max-Age              |
+| Access-Control-Request-Method       |
+| Access-Control-Request-Headers      |
+| Origin                              |
+| Accept-CH                           |
+| Accept-CH-Lifetime                  |
+| DPR                                 |
+| Width                               |
+| Viewport-Width                      |
+| Downlink                            |
+| ECT                                 |
+| RTT                                 |
+| Save-Data                           |
+| Clear-Site-Data                     |
+| Feature-Policy                      |
+| Expect-CT                           |
+| Public-Key-Pins                     |
+| Public-Key-Pins-Report-Only         |
+| X-Forwarded-For                     |
+| X-Forwarded-Host                    |
+| X-Forwarded-Proto                   |
+| X-Real-IP                           |
+| X-Requested-With                    |
+| X-CSRF-Token                        |
+| CF-Ray                              |
+| CF-Connecting-IP                    |
+| X-Amz-Cf-Id                         |
+| X-Cache                             |
+| X-Served-By                         |
+| :method                             |
+| :path                               |
+| :scheme                             |
+| :authority                          |
+| :status                             |
+| Link                                |
+| Sec-WebSocket-Key                   |
+| Sec-WebSocket-Accept                |
+| Sec-WebSocket-Version               |
+| Sec-WebSocket-Protocol              |
+| Sec-WebSocket-Extensions            |
 
-\* Authorization header cannot be allowlisted during target creation. However it will be forwarded to the target when provided by an interceptor lambda. See [Header propagation from interceptor lambda](#gateway-headers-interceptor-propagation "#gateway-headers-interceptor-propagation") for details.
+- Authorization header cannot be allowlisted during target creation. However it will be forwarded to the target when provided by an interceptor lambda. See [Header propagation from interceptor lambda](#gateway-headers-interceptor-propagation "#gateway-headers-interceptor-propagation") for details.
 
 ###### Important
 
@@ -122,10 +124,10 @@ In addition to restricted headers mentioned above, headers provided in API keys 
 Additional validation rules apply to allowed headers:
 
 - Maximum of 10 request headers, 10 response headers, and 10 query parameters per target to prevent abuse and maintain performance
-- Header names must contain only alphanumeric characters, hyphens, and underscores (regex: `^[a-zA-Z0-9_-]+$`)
+- Header names must contain only alphanumeric characters, hyphens, and underscores (regex: `^[a-zA-Z0-9_-]+$` )
 - Header values are limited to 4KB maximum to prevent memory exhaustion
 - Header values must contain only printable ASCII characters
-- Headers starting with `X-Amzn-` are prohibited (except for `X-Amzn-Bedrock-AgentCore-Runtime-Custom-*` headers)
+- Headers starting with `X-Amzn-` are prohibited (except for X-Amzn-Bedrock-AgentCore-Runtime-Custom-\* headers)
 
 ## Configuring header and query parameter propagation
 
@@ -133,7 +135,7 @@ You can configure header and query parameters at the target level when creating 
 
 ### Target-level configuration
 
-Configure header propagation by adding `allowedRequestHeaders`, `allowedResponseHeaders`, and `allowedQueryParameters` fields to your target's `metadataConfiguration`:
+Configure header propagation by adding `allowedRequestHeaders` , `allowedResponseHeaders` , and `allowedQueryParameters` fields to your target’s `metadataConfiguration` :
 
 ```
 {
@@ -205,14 +207,14 @@ When using custom interceptor lambdas with your gateway, you can dynamically con
 
 Interceptor lambdas can influence header propagation in the following ways:
 
-- **Authorization header override:** The `Authorization` header from the interceptor lambda response is automatically propagated to the target. While the `Authorization` header cannot be configured in the target's allowlist, it will be forwarded to the target when provided by an interceptor lambda.
+- **Authorization header override:** The `Authorization` header from the interceptor lambda response is automatically propagated to the target. While the `Authorization` header cannot be configured in the target’s allowlist, it will be forwarded to the target when provided by an interceptor lambda.
 
-For example, if you have added a credential provider to the target which provides an authorization token like `Authorization: Bearer client-token` and the interceptor lambda provides `Authorization: Bearer refreshed-token`, the value `Bearer refreshed-token` from the interceptor lambda will be forwarded to the target.
+For example, if you have added a credential provider to the target which provides an authorization token like `Authorization: Bearer client-token` and the interceptor lambda provides `Authorization: Bearer refreshed-token` , the value `Bearer refreshed-token` from the interceptor lambda will be forwarded to the target.
 
 - **Custom header injection:** Additional headers from the interceptor lambda response are merged with the configured target header allowlist.
 - **Header precedence:** Interceptor lambda-provided headers take precedence over client-provided headers in case of conflicts.
 
-For example, if you allowlist header `x-tenant-id` in the target configuration, and the incoming request provides `x-tenant-id: tenant-123` while the interceptor lambda provides `x-tenant-id: tenant-456`, the value `tenant-456` from the interceptor lambda will be forwarded to the target.
+For example, if you allowlist header `x-tenant-id` in the target configuration, and the incoming request provides `x-tenant-id: tenant-123` while the interceptor lambda provides `x-tenant-id: tenant-456` , the value `tenant-456` from the interceptor lambda will be forwarded to the target.
 
 - **Security validation:** All lambda-provided headers are subject to the same validation rules as configured headers. Except for Authorization header, all other headers must be allowlisted during target creation for them to be forwarded to the targets.
 
@@ -253,7 +255,6 @@ def lambda_handler(event, context):
             }
         }
     }
-
 ```
 
 **Common use cases for interceptor header propagation include:**

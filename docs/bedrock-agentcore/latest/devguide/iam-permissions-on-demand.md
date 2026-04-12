@@ -1,13 +1,12 @@
 # IAM permissions for on-demand evaluation
 
-Your IAM user or role needs the following permissions to run on-demand
-evaluations:
+Your IAM user or role needs the following permissions to run on-demand evaluations:
 
 ## Console and API operations
 
 ```
 {
-    "Version": "2012-10-17",
+"Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -44,5 +43,4 @@ evaluations:
 
 ###### Note
 
-The Lambda permissions are only required if you use [Custom code-based evaluator](code-based-evaluators.md "code-based-evaluators.md"). You can scope the Lambda resource
-ARN to specific functions as needed.
+The Lambda permissions are only required if you use [Custom code-based evaluator](code-based-evaluators.md "code-based-evaluators.md") . You can scope the Lambda resource ARN to specific functions as needed.

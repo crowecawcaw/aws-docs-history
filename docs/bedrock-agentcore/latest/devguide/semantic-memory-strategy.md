@@ -1,11 +1,8 @@
 # Semantic memory strategy
 
-The semantic memory strategy is designed to identify and extract
-key pieces of factual information and contextual knowledge from conversational
-data. This lets your agent to build a persistent knowledge base about the
-entities, events, and key details discussed during an interaction.
+The semantic memory strategy is designed to identify and extract key pieces of factual information and contextual knowledge from conversational data. This lets your agent to build a persistent knowledge base about the entities, events, and key details discussed during an interaction.
 
-###### Steps in the strategy
+**Steps in the strategy**
 
 The semantic memory strategy includes the following steps:
 
@@ -16,20 +13,21 @@ The semantic memory strategy includes the following steps:
 
 The semantic strategy processes only `USER` and `ASSISTANT` role messages during extraction. For more information about roles in agent conversations, see [Conversational](../APIReference/API_Conversational.md "../APIReference/API_Conversational.md").
 
-###### Strategy output
+**Strategy output**
 
 The semantic memory strategy returns facts as JSON objects, each representing a standalone personal fact about the user.
 
-###### Example of facts captured by this strategy
+**Example of facts captured by this strategy**
 
-- An order number (`#XYZ-123`) is associated with a specific
-  support case.
-- A project's deadline of October 25th.
+- An order number ( #XYZ-123 ) is associated with a specific support case.
+- A project’s deadline of October 25th.
 - The user is running version 2.1 of the software.
-  By referencing this stored knowledge, your agent can provide more accurate,
-  context-aware responses, perform multi-step tasks that rely on previously stated
-  information, and avoid asking users to repeat key details.
+  By referencing this stored knowledge, your agent can provide more accurate, context-aware responses, perform multi-step tasks that rely on previously stated information, and avoid asking users to repeat key details.
 
-###### Default namespace
+**Default namespace**
 
 `/strategy/{memoryStrategyId}/actors/{actorId}/`
+
+###### Topics
+
+- [System prompt for semantic memory strategy](memory-system-prompt.md "memory-system-prompt.md")

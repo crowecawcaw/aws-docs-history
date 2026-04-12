@@ -1,19 +1,17 @@
 # Set up permissions for AgentCore Gateway
 
-To use Amazon Bedrock AgentCore Gateway and its capabilities, you'll need to consider the following permissions:
+To use Amazon Bedrock AgentCore Gateway and its capabilities, you’ll need to consider the following permissions:
 
 1. **Gateway builder/user permissions** – Permissions provided to a gateway builder or user to allow it to create, manage, and or use AgentCore gateways.
-2. **Gateway service role permissions** – Permissions provided to a service role that you'll create for your gateway. These permissions allow the Amazon Bedrock AgentCore service to perform actions on behalf of the identity that invokes the gateway.
-3. **Resource-based permissions** – Permissions attached to resources to allow the gateway service role to access it. You'll include the Amazon Resource Name (ARN) of the gateway service role as the `Principal` in the resource-based policy.
-4. **Gateway resource-based policies** – Policies attached directly to your gateway resources to control which principals can invoke them. For more information, see [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md "resource-based-policies.md").
+2. **Gateway service role permissions** – Permissions provided to a service role that you’ll create for your gateway. These permissions allow the Amazon Bedrock AgentCore service to perform actions on behalf of the identity that invokes the gateway.
+3. **Resource-based permissions** – Permissions attached to resources to allow the gateway service role to access it. You’ll include the Amazon Resource Name (ARN) of the gateway service role as the `Principal` in the resource-based policy.
+4. **Gateway resource-based policies** – Policies attached directly to your gateway resources to control which principals can invoke them. For more information, see [Resource-based policies for Amazon Bedrock AgentCore](security.md#resource-based-policies "security.md#resource-based-policies").
 
 ###### Note
 
-If you prefer not to set up custom permissions, you can use the following options for easy setup:
+If you prefer not to set up custom permissions, you can use the following options for easy setup: \* Attach the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") to an IAM identity to allow it to create, manage, and invoke gateways. \* Use the AWS Management Console or AgentCore CLI to create an AgentCore gateway service role with the proper permissions and gateway targets with the proper resource-based policies to allow the service role to access them.
 
-- Attach the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") to an IAM identity to allow it to create, manage, and invoke gateways.
-- Use the AWS Management Console or AgentCore CLI to create an AgentCore gateway service role with the proper permissions and gateway targets with the proper resource-based policies to allow the service role to access them.
-  Select a topic to learn more:
+Select a topic to learn more:
 
 ###### Topics
 
@@ -23,65 +21,59 @@ If you prefer not to set up custom permissions, you can use the following option
 
 ## Gateway builder and user permissions
 
-For an identity to be able to create, manage, or use gateways, you need to attach an identity-based policy to the IAM identity to allow it to perform [Amazon Bedrock AgentCore-related actions](../../../service-authorization/latest/reference/list_amazonbedrockagentcore.md "../../../service-authorization/latest/reference/list_amazonbedrockagentcore.md"). For comprehensive permissions, you can use the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") managed policy.
+For an identity to be able to create, manage, or use gateways, you need to attach an identity-based policy to the IAM identity to allow it to perform [Amazon Bedrock AgentCore-related actions](../../../service-authorization/latest/reference/list_amazonbedrockagentcore.md "../../../service-authorization/latest/reference/list_amazonbedrockagentcore.md") . For comprehensive permissions, you can use the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") managed policy.
 
 For greater security and control, you can create your own custom policy by reducing the permissions in the full access policy. For example, the following policy allows an identity to perform actions related to AgentCore Gateway but not to other AgentCore services, such as AgentCore Runtime or AgentCore Browser:
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "bedrock-agentcore:*Gateway*",
- "bedrock-agentcore:*WorkloadIdentity",
- "bedrock-agentcore:*CredentialProvider",
- "bedrock-agentcore:*Token*",
- "bedrock-agentcore:*Access*"
- ],
- "Resource": "arn:aws:bedrock-agentcore:*:*:*gateway*"
- }
- ]
-}`
-
+{
+"Version":"2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "bedrock-agentcore:*Gateway*",
+        "bedrock-agentcore:*WorkloadIdentity",
+        "bedrock-agentcore:*CredentialProvider",
+        "bedrock-agentcore:*Token*",
+        "bedrock-agentcore:*Access*"
+      ],
+      "Resource": "arn:aws:bedrock-agentcore:*:*:*gateway*"
+    }
+  ]
+}
 ```
 
-The following custom policy is a more restrictive one that only allows read access to gateways and gateway targets::
-
-JSON
+The following custom policy is a more restrictive one that only allows read access to gateways and gateway targets
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "bedrock-agentcore:ListGateways",
- "bedrock-agentcore:GetGateway",
- "bedrock-agentcore:ListGatewayTargets",
- "bedrock-agentcore:GetGatewayTarget"
- ],
- "Resource": "arn:aws:bedrock-agentcore:*:*:*gateway*"
- }
- ]
-}`
-
+{
+"Version":"2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "bedrock-agentcore:ListGateways",
+        "bedrock-agentcore:GetGateway",
+        "bedrock-agentcore:ListGatewayTargets",
+        "bedrock-agentcore:GetGatewayTarget"
+      ],
+      "Resource": "arn:aws:bedrock-agentcore:*:*:*gateway*"
+    }
+  ]
+}
 ```
 
 ### Gateway access permissions (inbound authorization)
 
-In addition to gateway-related permissions, you'll also need to configure permissions for identities to be able to access the gateway during invocation. You'll configure these permissions when you [set up inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
+In addition to gateway-related permissions, you’ll also need to configure permissions for identities to be able to access the gateway during invocation. You’ll configure these permissions when you [set up inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
 
 ## AgentCore Gateway service role permissions
 
-When creating a gateway, you need a service role that has permissions to assume an IAM role and to access AWS resources and external services on the IAM role's behalf. You can create the service role in the following ways:
+When creating a gateway, you need a service role that has permissions to assume an IAM role and to access AWS resources and external services on the IAM role’s behalf. You can create the service role in the following ways:
 
 - If you create a gateway in the AWS Management Console or through the AgentCore CLI, you can choose to let AgentCore automatically create a service role for you with the necessary permissions. If you prefer this method, you can skip this prerequisite.
-- If you prefer to create your own service role for greater customization, you'll need to configure the role with the permissions outlined in this topic. To learn how to create a service role and attach permissions to it, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md").
+- If you prefer to create your own service role for greater customization, you’ll need to configure the role with the permissions outlined in this topic. To learn how to create a service role and attach permissions to it, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md").
 
 The required permissions for a service role are in the following topics:
 
@@ -97,39 +89,33 @@ A service role must have a [trust policy](../../../IAM/latest/UserGuide/id_roles
 
 The following is an example of a trust policy that you can use.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "GatewayAssumeRolePolicy",
- "Effect": "Allow",
- "Principal": {
- "Service": "bedrock-agentcore.amazonaws.com"
- },
- "Action": "sts:AssumeRole",
- "Condition": {
- "StringEquals": {
- "aws:SourceAccount": "`111122223333`"
- },
- "ArnLike": {
- "aws:SourceArn": "arn:aws:bedrock-agentcore:`us-east-1`:`111122223333`:gateway/`gateway-name`-*"
- }
- }
- }
- ]
-}`
-
+{
+"Version":"2012-10-17",
+  "Statement": [
+    {
+      "Sid": "GatewayAssumeRolePolicy",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "bedrock-agentcore.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "111122223333"
+        },
+        "ArnLike": {
+          "aws:SourceArn": "arn:aws:bedrock-agentcore:us-east-1:111122223333:gateway/gateway-name-*"
+        }
+      }
+    }
+  ]
+}
 ```
 
 ###### Note
 
-Because you won't know the gateway ARN before you create it, you can omit the `Condition` field when you first create the service role. After you create the gateway, add the `Condition` field back to the policy as a best security practice and do the following:
-
-- Replace the `aws:SourceAccount` condition key value with the ID of the account that the gateway belongs to.
-- Replace the `aws:SourceArn` condition key with the ARN of the gateway.
+Because you won’t know the gateway ARN before you create it, you can omit the `Condition` field when you first create the service role. After you create the gateway, add the `Condition` field back to the policy as a best security practice and do the following: \* Replace the `aws:SourceAccount` condition key value with the ID of the account that the gateway belongs to. \* Replace the `aws:SourceArn` condition key with the ARN of the gateway.
 
 ### Outbound authorization permissions
 
@@ -147,16 +133,13 @@ If you attach a Lambda target to your gateway, you need to add permissions for t
 
 ###### Topics
 
-- [Attach an identity-based policy to the gateway service role](#gateway-lambda-identity-based-permissions "#gateway-lambda-identity-based-permissions")
-- [(If function is in another account) Attach a resource-based policy to the Lambda function](#gateway-lambda-resource-based-permissions "#gateway-lambda-resource-based-permissions")
-
-##### Attach an identity-based policy to the gateway service role
+===== Attach an identity-based policy to the gateway service role
 
 To allow the gateway service role to access a Lambda target, attach the following identity-based policy to your AgentCore Gateway service role by choosing the topic at [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") that pertains to your use case and following the steps..
 
 ```
 {
-    "Version": "2012-10-17",
+"Version": "2012-10-17",
     "Statement": [{
         "Sid": "AmazonBedrockAgentCoreGatewayLambdaProd",
         "Effect": "Allow",
@@ -164,7 +147,7 @@ To allow the gateway service role to access a Lambda target, attach the followin
             "lambda:InvokeFunction"
         ],
         "Resource": [
-            "arn:aws:lambda:`us-east-1`:`123456789012`:function:`FunctionName`"
+            "arn:aws:lambda:us-east-1:123456789012:function:FunctionName"
         ]
     }]
 }
@@ -172,22 +155,22 @@ To allow the gateway service role to access a Lambda target, attach the followin
 
 Replace the ARN in the `Resource` field with the ARN of your Lambda function gateway target. If your gateway has multiple Lambda targets, you can add the ARN of each function to the `Resource` list.
 
-##### (If function is in another account) Attach a resource-based policy to the Lambda function
+===== (If function is in another account) Attach a resource-based policy to the Lambda function
 
 If the Lambda function target is in a different account from the gateway service role, you need to attach a resource-based policy to allow the gateway service role to access it. The following is an example policy that you can use:
 
 ```
 {
-    "Version":"2012-10-17",
+"Version":"2012-10-17",
     "Statement": [
         {
             "Sid": "LambdaAllowGatewayServiceRoleMyFunction",
             "Effect": "Allow",
             "Principal": {
-              "AWS": "arn:aws:iam::`123456789012`:role/`MyGatewayExecutionRole`"
+              "AWS": "arn:aws:iam::123456789012:role/MyGatewayExecutionRole"
             },
             "Action": "lambda:InvokeFunction",
-            "Resource":  "arn:aws:lambda:`us-east-1`:`123456789012`:function:`MyFunction`"
+            "Resource":  "arn:aws:lambda:us-east-1:123456789012:function:MyFunction"
         }
      ]
 }
@@ -198,62 +181,61 @@ Replace the values of the following fields:
 - `AWS` – Use the ARN of your gateway service role.
 - `Resource` – Use the ARN of your Lambda function.
 
-To learn how to attach a resource-based policy to the Lambda function that allows your gateway service role to access the function, select one of the following methods::
+To learn how to attach a resource-based policy to the Lambda function that allows your gateway service role to access the function, select one of the following methods
 
 Console
 
-###### To attach a resource-based policy to your Lambda function in the AWS Management Console
-
-1. Follow the steps in the **Console** tab at [Viewing resource-based IAM policies in Lambda](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md").
-2. In the **Resource-based policy statements** section, choose **Add permissions**.
-3. Select **AWS account** and fill out the following fields:
+1. ====== To attach a resource-based policy to your Lambda function in the AWS Management Console
+2. Follow the steps in the **Console** tab at [Viewing resource-based IAM policies in Lambda](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md").
+3. In the **Resource-based policy statements** section, choose **Add permissions**.
+4. Select **AWS account** and fill out the following fields:
    - **Statement ID** – A unique identifier for the statement providing permissions for the gateway service role to access the function.
    - **Principal** – Specify the ARN of your gateway service role.
    - **Action** – Select `lambda:InvokeFunction`.
 
 CLI
-To attach a resource-based policy to your Lambda function using the AWS CLI, follow the steps at [Granting Lambda function access to AWS services](../../../lambda/latest/dg/permissions-function-services.md "../../../lambda/latest/dg/permissions-function-services.md") and specify your gateway service role as the `principal`.
 
-You can run the following code in a terminal to add permissions for your gateway service role to access the function in `us-east-1`:
+1. To attach a resource-based policy to your Lambda function using the AWS CLI, follow the steps at [Granting Lambda function access to AWS services](../../../lambda/latest/dg/permissions-function-services.md "../../../lambda/latest/dg/permissions-function-services.md") and specify your gateway service role as the `principal`.
+
+You can run the following code in a terminal to add permissions for your gateway service role to access the function in `us-east-1` :
 
 ```
 aws lambda add-permission \
-  --function-name "`MyFunction`" \
+  --function-name "MyFunction" \
   --statement-id "GatewayInvoke" \
   --action "lambda:InvokeFunction" \
-  --principal "arn:aws:iam::`123456789012`:role/`MyGatewayServiceRole`"
-  --region `us-east-1`
+  --principal "arn:aws:iam::123456789012:role/MyGatewayServiceRole"
+  --region us-east-1
 ```
 
-If you plan to include a gateway target tool definition from an Amazon S3 URI, you'll need to include permissions for the gateway service role to access the bucket. The [AmazonS3ReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonS3ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonS3ReadOnlyAccess.md") policy is an example of a policy that you can attach to the service role. You can scope the `Resource` to the S3 location for greater security.
+###### Example
 
-If you plan to add a Smithy target, you need to add permissions for the gateway service role to access AWS services that your Smithy models refer to. To determine which permissions need to be attached to the service role, refer to that service's documentation.
+If you plan to include a gateway target tool definition from an Amazon S3 URI, you’ll need to include permissions for the gateway service role to access the bucket. The [AmazonS3ReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonS3ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonS3ReadOnlyAccess.md") policy is an example of a policy that you can attach to the service role. You can scope the `Resource` to the S3 location for greater security.
+
+If you plan to add a Smithy target, you need to add permissions for the gateway service role to access AWS services that your Smithy models refer to. To determine which permissions need to be attached to the service role, refer to that service’s documentation.
 
 You can add permissions to the service role by choosing the topic at [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") that pertains to your use case and following the steps.
 
 For example, if your Smithy model target accesses a DynamoDB table, you can attach the following policy to allow the service role to perform DynamoDB operations on the table:
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "dynamodb:GetItem",
- "dynamodb:PutItem",
- "dynamodb:UpdateItem",
- "dynamodb:DeleteItem",
- "dynamodb:Query",
- "dynamodb:Scan"
- ],
- "Resource": "arn:aws:dynamodb:*:*:table/*"
- }
- ]
-}`
-
+{
+"Version":"2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:GetItem",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:Query",
+        "dynamodb:Scan"
+      ],
+      "Resource": "arn:aws:dynamodb:*:*:table/*"
+    }
+  ]
+}
 ```
 
 ## Best practices for Gateway permissions

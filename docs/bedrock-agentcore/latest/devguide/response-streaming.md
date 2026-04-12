@@ -1,7 +1,6 @@
 # Stream agent responses
 
-The following Strands Agents example shows how an AgentCore Runtime agent can stream a response
-back to a client.
+The following Strands Agents example shows how an AgentCore Runtime agent can stream a response back to a client.
 
 ```
 from strands import Agent
@@ -23,6 +22,4 @@ async def agent_invocation(payload):
 
 if __name__ == "__main__":
     app.run()
-
-
 ```

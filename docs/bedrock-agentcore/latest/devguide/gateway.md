@@ -2,6 +2,21 @@
 
 Amazon Bedrock AgentCore Gateway provides an easy and secure way for developers to build, deploy, discover, and connect to tools at scale. AI agents need tools to perform real-world tasks—from querying databases to sending messages to analyzing documents. With Gateway, developers can convert APIs, Lambda functions, and existing services into Model Context Protocol (MCP)-compatible tools and make them available to agents through Gateway endpoints with just a few lines of code. Gateway supports OpenAPI, Smithy, and Lambda as input types, and is the only solution that provides both comprehensive ingress authentication and egress authentication in a fully-managed service. Gateway also provides 1-click integration with several popular tools such as Salesforce, Slack, Jira, Asana, and Zendesk. Gateway eliminates weeks of custom code development, infrastructure provisioning, and security implementation so developers can focus on building innovative agent applications.
 
+###### Topics
+
+- [Key benefits](#gateway-benefits-using "#gateway-benefits-using")
+- [Key capabilities](#gateway-core-concepts-connectivity-layer "#gateway-core-concepts-connectivity-layer")
+- [Get started with AgentCore Gateway](gateway-quick-start.md "gateway-quick-start.md")
+- [Core concepts for Amazon Bedrock AgentCore Gateway](gateway-core-concepts.md "gateway-core-concepts.md")
+- [Amazon Bedrock AgentCore Gateway features](gateway-features.md "gateway-features.md")
+- [Supported targets for Amazon Bedrock AgentCore gateways](gateway-supported-targets.md "gateway-supported-targets.md")
+- [Prerequisites for using the Amazon Bedrock AgentCore gateway service](gateway-prerequisites.md "gateway-prerequisites.md")
+- [Set up an Amazon Bedrock AgentCore gateway](gateway-building.md "gateway-building.md")
+- [Use an AgentCore gateway](gateway-using.md "gateway-using.md")
+- [Fine-grained access control for Amazon Bedrock AgentCore Gateway](gateway-fine-grained-access-control.md "gateway-fine-grained-access-control.md")
+- [Debug and assess your gateway](gateway-building-debug.md "gateway-building-debug.md")
+- [Advanced features and topics for Amazon Bedrock AgentCore Gateway](gateway-advanced.md "gateway-advanced.md")
+
 ## Key benefits
 
 **Simplify tool development and integration**

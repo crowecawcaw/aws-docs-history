@@ -1,11 +1,8 @@
 # Custom evaluators
 
-Custom evaluators in AgentCore Evaluations allow you to define your own evaluator model,
-evaluation instruction and scoring schemas. You can create custom evaluators that are
-tailored to your specific use cases and evaluation requirements.
+Custom evaluators in AgentCore Evaluations allow you to define your own evaluator model, evaluation instruction and scoring schemas. You can create custom evaluators that are tailored to your specific use cases and evaluation requirements.
 
-You can use custom evaluators with both online and on-demand evaluations. To specify a
-custom evaluator, use its Amazon Resource Name (ARN) in the following format:
+You can use custom evaluators with both online and on-demand evaluations. To specify a custom evaluator, use its Amazon Resource Name (ARN) in the following format:
 
 ```
 arn:aws:bedrock-agentcore:region:account:evaluator/evaluator-id

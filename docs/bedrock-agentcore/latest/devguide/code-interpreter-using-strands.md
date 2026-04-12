@@ -1,7 +1,6 @@
 # Using AgentCore Code Interpreter via AWS Strands
 
-The following sections show you how to use the Amazon Bedrock AgentCore Code Interpreter with
-the Strands SDK. Before you go through the examples in this section, see [Prerequisites](code-interpreter-getting-started.md#code-interpreter-prerequisites "code-interpreter-getting-started.md#code-interpreter-prerequisites").
+The following sections show you how to use the Amazon Bedrock AgentCore Code Interpreter with the Strands SDK. Before you go through the examples in this section, see [Prerequisites](code-interpreter-getting-started.md#code-interpreter-prerequisites "code-interpreter-getting-started.md#code-interpreter-prerequisites").
 
 ###### Topics
 
@@ -32,9 +31,9 @@ pip install bedrock-agentcore strands-agents strands-agents-tools
 
 These packages provide:
 
-- `bedrock-agentcore`: The SDK for Amazon Bedrock AgentCore tools including AgentCore Code Interpreter
-- `strands-agents`: The Strands agent framework
-- `strands-agents-tools`: The tools that the Strands agent framework offers
+- `bedrock-agentcore` : The SDK for Amazon Bedrock AgentCore tools including AgentCore Code Interpreter
+- `strands-agents` : The Strands agent framework
+- `strands-agents-tools` : The tools that the Strands agent framework offers
 
 ## Step 2: Create your agent with AgentCore Code Interpreter
 
@@ -63,7 +62,6 @@ print(f"\n\nPrompt: {prompt}\n\n")
 
 response = agent(prompt)
 print(response.message["content"][0]["text"])
-
 ```
 
 This code:
@@ -71,7 +69,7 @@ This code:
 - Initializes the AgentCore Code Interpreter tool for your region
 - Creates an agent configured to use code execution for validation
 - Sends a prompt asking the agent to calculate Fibonacci numbers
-- Prints the agent's response
+- Prints the agent’s response
 
 ## Step 3: Run the agent
 
@@ -81,9 +79,9 @@ Execute the script:
 python code_interpreter_agent.py
 ```
 
-###### Expected output
+**Expected output**
 
-You should see the agent's response containing the first 10 Fibonacci numbers. The agent will write Python code to calculate the sequence and return both the code and the results.
+You should see the agent’s response containing the first 10 Fibonacci numbers. The agent will write Python code to calculate the sequence and return both the code and the results.
 
 If you encounter errors, verify:
 

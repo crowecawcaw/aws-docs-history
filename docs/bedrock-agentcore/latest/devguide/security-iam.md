@@ -1,9 +1,6 @@
 # Identity and access management for Amazon Bedrock AgentCore
 
-AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
-to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
-(have permissions) to use AgentCore resources. IAM is an AWS service that you can
-use with no additional charge.
+AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_ (have permissions) to use AgentCore resources. IAM is an AWS service that you can use with no additional charge.
 
 ###### Topics
 
@@ -21,12 +18,9 @@ use with no additional charge.
 
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
-- **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting Amazon Bedrock AgentCore identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
-- **Service administrator** - determine user access and
-  submit permission requests (see [How Amazon Bedrock AgentCore works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
-- **IAM administrator** - write policies to manage
-  access (see [Identity-based policy examples for Amazon Bedrock AgentCore](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+- **Service user** - request permissions from your administrator if you cannot access features (see [Troubleshooting Amazon Bedrock AgentCore identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md") )
+- **Service administrator** - determine user access and submit permission requests (see [How Amazon Bedrock AgentCore works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md") )
+- **IAM administrator** - write policies to manage access (see [Identity-based policy examples for Amazon Bedrock AgentCore](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md") )
 
 ## Authenticating with identities
 
@@ -38,7 +32,7 @@ For programmatic access, AWS provides an SDK and CLI to cryptographically sign r
 
 ### AWS account root user
 
-When you create an AWS account, you begin with one sign-in identity called the AWS account _root user_ that has complete access to all AWS services and resources. We strongly recommend that you don't use the root user for everyday tasks. For tasks that require root user credentials, see [Tasks that require root user credentials](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks") in the _IAM User Guide_.
+When you create an AWS account, you begin with one sign-in identity called the AWS account _root user_ that has complete access to all AWS services and resources. We strongly recommend that you don’t use the root user for everyday tasks. For tasks that require root user credentials, see [Tasks that require root user credentials](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks") in the _IAM User Guide_.
 
 ### Federated identity
 
@@ -50,13 +44,13 @@ For centralized access management, we recommend AWS IAM Identity Center. For mor
 
 ### IAM users and groups
 
-An _[IAM user](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md")_ is an identity with specific permissions for a single person or application. We recommend using temporary credentials instead of IAM users with long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_.
+An _IAM user_ is an identity with specific permissions for a single person or application. We recommend using temporary credentials instead of IAM users with long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_.
 
-An [_IAM group_](../../../IAM/latest/UserGuide/id_groups.md "../../../IAM/latest/UserGuide/id_groups.md") specifies a collection of IAM users and makes permissions easier to manage for large sets of users. For more information, see [Use cases for IAM users](../../../IAM/latest/UserGuide/gs-identities-iam-users.md "../../../IAM/latest/UserGuide/gs-identities-iam-users.md") in the _IAM User Guide_.
+An [IAM group](../../../IAM/latest/UserGuide/id_groups.md "../../../IAM/latest/UserGuide/id_groups.md") specifies a collection of IAM users and makes permissions easier to manage for large sets of users. For more information, see [Use cases for IAM users](../../../IAM/latest/UserGuide/gs-identities-iam-users.md "../../../IAM/latest/UserGuide/gs-identities-iam-users.md") in the _IAM User Guide_.
 
 ### IAM roles
 
-An _[IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")_ is an identity with specific permissions that provides temporary credentials. You can assume a role by [switching from a user to an IAM role (console)](../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md") or by calling an AWS CLI or AWS API operation. For more information, see [Methods to assume a role](../../../IAM/latest/UserGuide/id_roles_manage-assume.md "../../../IAM/latest/UserGuide/id_roles_manage-assume.md") in the _IAM User Guide_.
+An _IAM role_ is an identity with specific permissions that provides temporary credentials. You can assume a role by [switching from a user to an IAM role (console)](../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md") or by calling an AWS CLI or AWS API operation. For more information, see [Methods to assume a role](../../../IAM/latest/UserGuide/id_roles_manage-assume.md "../../../IAM/latest/UserGuide/id_roles_manage-assume.md") in the _IAM User Guide_.
 
 IAM roles are useful for federated user access, temporary IAM user permissions, cross-account access, cross-service access, and applications running on Amazon EC2. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the _IAM User Guide_.
 
@@ -64,7 +58,7 @@ IAM roles are useful for federated user access, temporary IAM user permissions, 
 
 You control access in AWS by creating policies and attaching them to AWS identities or resources. A policy defines permissions when associated with an identity or resource. AWS evaluates these policies when a principal makes a request. Most policies are stored in AWS as JSON documents. For more information about JSON policy documents, see [Overview of JSON policies](../../../IAM/latest/UserGuide/access_policies.md#access_policies-json "../../../IAM/latest/UserGuide/access_policies.md#access_policies-json") in the _IAM User Guide_.
 
-Using policies, administrators specify who has access to what by defining which **principal** can perform **actions** on what **resources**, and under what **conditions**.
+Using policies, administrators specify who has access to what by defining which **principal** can perform **actions** on what **resources** , and under what **conditions**.
 
 By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, which users can then assume. IAM policies define permissions regardless of the method used to perform the operation.
 
@@ -76,9 +70,9 @@ Identity-based policies can be _inline policies_ (embedded directly into a singl
 
 ### Resource-based policies
 
-Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.
+Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_ . In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.
 
-Resource-based policies are inline policies that are located in that service. You can't use AWS managed policies from IAM in a resource-based policy.
+Resource-based policies are inline policies that are located in that service. You can’t use AWS managed policies from IAM in a resource-based policy.
 
 ### Other policy types
 

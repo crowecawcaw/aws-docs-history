@@ -1,13 +1,8 @@
 # Use long-term memory
 
-Long-term memory is enabled by adding
-one or more memory strategies to a memory resource. These strategies define what kind of
-information is extracted from conversations and stored persistently. This section guides you
-through configuring built-in and built-in with overrides strategies to enable long-term
-memory for your agent.
+Long-term memory is enabled by adding one or more memory strategies to a memory resource. These strategies define what kind of information is extracted from conversations and stored persistently. This section guides you through configuring built-in and built-in with overrides strategies to enable long-term memory for your agent.
 
-This section provides examples using the AWS SDK (Boto3). For complete end-to-end
-examples, see [Amazon Bedrock AgentCore Memory examples](memory-examples.md "memory-examples.md").
+This section provides examples using the AWS SDK (Boto3). For complete end-to-end examples, see [Amazon Bedrock AgentCore Memory examples](memory-examples.md "memory-examples.md").
 
 ###### Topics
 

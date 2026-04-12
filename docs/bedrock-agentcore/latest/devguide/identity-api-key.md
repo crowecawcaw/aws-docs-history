@@ -1,9 +1,6 @@
 # Configure an API key
 
-API keys provide key-based authentication for services that require direct key access
-with secure storage capabilities. An API key is a unique identifier used to authenticate
-and authorize access to a resource, enabling your agent to access external services
-without embedding sensitive credentials directly in your application code.
+API keys provide key-based authentication for services that require direct key access with secure storage capabilities. An API key is a unique identifier used to authenticate and authorize access to a resource, enabling your agent to access external services without embedding sensitive credentials directly in your application code.
 
 ###### Topics
 

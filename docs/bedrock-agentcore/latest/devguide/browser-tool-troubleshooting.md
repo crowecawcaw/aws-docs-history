@@ -22,7 +22,7 @@ This section provides solutions to common issues you might encounter when using 
 - Navigate to the Amazon Bedrock console
 - Go to **Model access** in the left navigation
 - Enable **Anthropic Claude Sonnet 4**
-- Verify you're in the correct region (match the region in your code)
+- Verify you’re in the correct region (match the region in your code)
 
 ## Browser session timeout
 
@@ -79,7 +79,6 @@ This section provides solutions to common issues you might encounter when using 
 **Solution:** Add CORS middleware to your BedrockAgentCoreApp to handle cross-origin requests from your frontend:
 
 ```
-
 from bedrock_agentcore.runtime import BedrockAgentCoreApp
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -102,14 +101,13 @@ async def options_handler():
 @app.entrypoint
 def my_agent(payload):
     return {"response": "Hello from agent"}
-
 ```
 
 ###### Important
 
-In production environments, replace `allow_origins=["*"]` with specific domain origins for better security.
+In production environments, replace allow_origins=["\*"] with specific domain origins for better security.
 
-## Session Replay and Web Bot Auth don't work in new browser windows or contexts
+## Session Replay and Web Bot Auth don’t work in new browser windows or contexts
 
 **Issue:** Session Replay and Web Bot Auth features are not available when your automation code creates new browser windows or contexts.
 
@@ -118,14 +116,12 @@ In production environments, replace `allow_origins=["*"]` with specific domain o
 **Solution:** Use the default browser context provided when you connect to the browser session. Avoid creating new contexts or windows if you need Session Replay or Web Bot Auth functionality.
 
 ```
-
 # ✓ Use the existing default context
 context = browser.contexts[0]
 page = context.pages[0]
 
 # ✗ Don't create new contexts - Session Replay and Web Bot Auth won't work
 # context = browser.new_context()
-
 ```
 
 ## Browser extensions issues
@@ -156,7 +152,8 @@ page = context.pages[0]
 
 ### Failed to save browser session profile due to concurrent operation on the profile
 
-**Symptom:** `SaveBrowserSessionProfile` throws `ConflictException`.
+**Symptom:**
+`SaveBrowserSessionProfile` throws `ConflictException`.
 
 **Solution:**
 
@@ -165,7 +162,8 @@ page = context.pages[0]
 
 ### Failed to save browser session profile due to concurrent operation on the session
 
-**Symptom:** `SaveBrowserSessionProfile` throws `ConflictException`.
+**Symptom:**
+`SaveBrowserSessionProfile` throws `ConflictException`.
 
 **Solution:**
 
@@ -194,13 +192,13 @@ Cookie expiration times are set by websites and cannot be modified by browser pr
 
 The following table describes common errors and their resolutions when configuring root CA certificates for Amazon Bedrock AgentCore Browser.
 
-| Certificate configuration errors                       | Error                                                                              | Cause                                                                                                                                                    | Resolution |
-| ------------------------------------------------------ | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| Error                                                  | Cause                                                                              | Resolution                                                                                                                                               |
+| ------------------------------------------------------ | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Certificate secret not found in Secrets Manager        | The secret ARN does not exist or the secret has been deleted.                      | Verify the secret ARN is correct and the secret exists in the specified Region.                                                                          |
 | Access denied to certificate secret in Secrets Manager | The caller does not have `secretsmanager:GetSecretValue` permission on the secret. | Add the `secretsmanager:GetSecretValue` permission to your IAM policy for the specified secret ARN.                                                      |
 | Certificate content is not valid PEM/X.509 format      | The secret value is not a valid PEM-encoded X.509 certificate.                     | Ensure the secret contains a properly formatted PEM certificate starting with `-----BEGIN CERTIFICATE-----` and ending with `-----END CERTIFICATE-----`. |
-| Certificate has expired                                | The certificate's `notAfter` date is in the past.                                  | Replace the expired certificate with a valid one in AWS Secrets Manager and retry.                                                                       |
-| Certificate is not yet valid                           | The certificate's `notBefore` date is in the future.                               | Wait until the certificate's validity period begins, or use a certificate that is currently valid.                                                       |
+| Certificate has expired                                | The certificate’s `notAfter` date is in the past.                                  | Replace the expired certificate with a valid one in AWS Secrets Manager and retry.                                                                       |
+| Certificate is not yet valid                           | The certificate’s `notBefore` date is in the future.                               | Wait until the certificate’s validity period begins, or use a certificate that is currently valid.                                                       |
 | Number of certificates exceeds the maximum allowed     | More than 10 certificates were provided at the session level or tool level.        | Reduce the number of certificates to 10 or fewer per session and 10 or fewer per tool.                                                                   |
 | Certificate location is required                       | A certificate entry was provided without a location.                               | Ensure each certificate in the array includes a `location` with a `secretsManager` entry containing a valid `secretArn`.                                 |
 | Certificates configuration is not enabled              | The certificates feature is not enabled for your account.                          | Contact AWS Support to enable the certificates feature for your account.                                                                                 |
@@ -209,7 +207,8 @@ The following table describes common errors and their resolutions when configuri
 
 ### Errors when starting a session with proxy
 
-**Symptom:** `StartBrowserSession` returns an HTTP 400 error with a message beginning with `Failed to set up browser proxy:`.
+**Symptom:**
+`StartBrowserSession` returns an HTTP 400 error with a message beginning with `Failed to set up browser proxy:`.
 
 **Cause:** The proxy configuration or credentials secret is invalid.
 
@@ -217,7 +216,7 @@ The following table describes common errors and their resolutions when configuri
 
 - `Proxy credentials secret not found in Secrets Manager` – The secret ARN does not match any secret in the target account and Region. Verify the ARN is correct and that the secret has not been deleted or scheduled for deletion.
 - `Invalid proxy credentials secret configuration (check encryption key for cross-account access)` – The secret exists but cannot be accessed. Ensure the calling identity has `secretsmanager:GetSecretValue` permission. For cross-account secrets, see [Cross-account secret access](browser-proxies.md#browser-proxies-cross-account "browser-proxies.md#browser-proxies-cross-account").
-- `Proxy credentials secret must be a JSON object with username and password fields` – Update the secret value to a valid JSON object: `{"username": "...", "password": "..."}`.
+- `Proxy credentials secret must be a JSON object with username and password fields` – Update the secret value to a valid JSON object: `{"username": "…​", "password": "…​"}`.
 - `Failed to parse proxy credentials from secret` – The secret value could not be read as proxy credentials. Verify the secret contains a plain JSON string (not binary) with `username` and `password` fields.
 - `Field 'username' is missing or empty in secret` or `Field 'password' is missing or empty in secret` – Ensure both `username` and `password` are present and non-empty in the secret.
 - `Field 'username' contains invalid characters` or `Field 'password' contains invalid characters` – Use only the characters listed in the error message. See [Step 1: Create a credentials secret (if using authentication)](browser-proxies.md#browser-proxies-step1 "browser-proxies.md#browser-proxies-step1") for allowed characters.
@@ -238,3 +237,22 @@ The following table describes common errors and their resolutions when configuri
 ###### Note
 
 These errors are visible in Live View and through the automation API.
+
+## Troubleshooting InvokeBrowser OS actions
+
+The following table describes common errors when using the InvokeBrowser API for OS-level browser actions.
+
+| Exception                       | HTTP code | Description                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ValidationException`           | 400       | Invalid input. For coordinate-based actions ( `mouseClick` , `mouseMove` , `mouseDrag` , `mouseScroll` ), coordinates must be strictly within the session viewport bounds (1 < x < viewportWidth-2, 1 < y < viewportHeight-2). The default viewport size is 1456×819 pixels. Also returned for disabled actions or invalid parameter values. |
+| `AccessDeniedException`         | 403       | Insufficient permissions or action not allowed for the session.                                                                                                                                                                                                                                                                              |
+| `ResourceNotFoundException`     | 404       | Invalid `browserIdentifier` or `sessionId`.                                                                                                                                                                                                                                                                                                  |
+| `ServiceQuotaExceededException` | 402       | Service quota has been exceeded.                                                                                                                                                                                                                                                                                                             |
+| `ThrottlingException`           | 429       | Rate limit exceeded.                                                                                                                                                                                                                                                                                                                         |
+| `InternalServerException`       | 500       | Unexpected failure in execution.                                                                                                                                                                                                                                                                                                             |
+
+**Solution:**
+
+- Verify that coordinate values are within the session viewport dimensions. Use the `screenshot` action to capture the current screen and confirm the visible area.
+- Check that the browser session is still active and has not timed out.
+- Ensure your IAM identity has the `bedrock-agentcore:InvokeBrowser` permission.

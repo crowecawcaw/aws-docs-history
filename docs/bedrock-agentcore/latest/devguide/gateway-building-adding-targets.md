@@ -11,7 +11,7 @@ When you add a target, you provide the following required fields:
   You can optionally provide the following fields:
 
 - A description of the gateway target.
-- A client token value to ensure that a request completes no more than once. If you don't include this token, one is randomly generated for you. If you don't include a value, one is randomly generated for you. For more information, see [Ensuring idempotency](../../../ec2/latest/devguide/ec2-api-idempotency.md "../../../ec2/latest/devguide/ec2-api-idempotency.md").
+- A client token value to ensure that a request completes no more than once. If you don’t include this token, one is randomly generated for you. If you don’t include a value, one is randomly generated for you. For more information, see [Ensuring idempotency](../../../ec2/latest/devguide/ec2-api-idempotency.md "../../../ec2/latest/devguide/ec2-api-idempotency.md").
   Select a topic to learn how to add a target to an existing gateway using that method:
 
 ###### Topics

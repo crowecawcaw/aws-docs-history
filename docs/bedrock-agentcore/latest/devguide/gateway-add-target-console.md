@@ -1,8 +1,8 @@
 # Add a target using the AWS Management Console
 
-In the AWS Management Console, you can add gateway targets when you create the gateway. After you've created a gateway, you can add targets by doing the following:
+In the AWS Management Console, you can add gateway targets when you create the gateway. After you’ve created a gateway, you can add targets by doing the following:
 
-###### To add a target to an existing gateway
+**To add a target to an existing gateway**
 
 1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home#](https://console.aws.amazon.com/bedrock-agentcore/home# "https://console.aws.amazon.com/bedrock-agentcore/home#").
 2. Choose **Gateways**.

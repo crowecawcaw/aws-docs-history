@@ -1,14 +1,8 @@
 # Using browser profiles
 
-Browser profiles enable you to persist and reuse browser profile data across multiple
-browser sessions. A browser profile stores session information including cookies and local
-storage.
+Browser profiles enable you to persist and reuse browser profile data across multiple browser sessions. A browser profile stores session information including cookies and local storage.
 
-For example, you can authenticate to a website once in a browser session and save the
-profile data to browser profile resource. When you start a new browser session with that
-saved profile, your authentication state is preserved, and you remain logged in. This
-enables agents to perform tasks on authenticated websites without requiring manual
-intervention.
+For example, you can authenticate to a website once in a browser session and save the profile data to browser profile resource. When you start a new browser session with that saved profile, your authentication state is preserved, and you remain logged in. This enables agents to perform tasks on authenticated websites without requiring manual intervention.
 
 ## Overview
 
@@ -24,12 +18,11 @@ Browser profiles in Amazon Bedrock AgentCore work as follows:
 Before using browser profiles, ensure you have:
 
 - Completed the general Browser [Prerequisites](browser-quickstart.md#browser-prerequisites "browser-quickstart.md#browser-prerequisites")
-- IAM permissions to manage profile resources. Add the following permissions to your
-  IAM policy:
+- IAM permissions to manage profile resources. Add the following permissions to your IAM policy:
 
 ```
 {
-    "Version": "2012-10-17",
+"Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "BedrockAgentCoreBrowserProfileManagementAccess",
@@ -46,12 +39,11 @@ Before using browser profiles, ensure you have:
 }
 ```
 
-- IAM permissions to save and load profiles. Add the following permissions to your
-  IAM policy:
+- IAM permissions to save and load profiles. Add the following permissions to your IAM policy:
 
 ```
 {
-    "Version": "2012-10-17",
+"Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "BedrockAgentCoreBrowserProfileUsageAccess",
@@ -72,15 +64,17 @@ Before using browser profiles, ensure you have:
 
 ## Getting started with browser profiles
 
-This section walks you through creating a browser profile, saving session data to it,
-and reusing the profile in subsequent sessions.
+This section walks you through creating a browser profile, saving session data to it, and reusing the profile in subsequent sessions.
 
 ### Step 1: Create a browser profile
 
 Create a browser profile resource to store session data.
 
+###### Example
+
 AWS CLI
-To create a browser profile using the AWS CLI:
+
+1. To create a browser profile using the AWS CLI:
 
 ```
 aws bedrock-agentcore-control create-browser-profile \
@@ -90,7 +84,8 @@ aws bedrock-agentcore-control create-browser-profile \
 ```
 
 Boto3
-To create a browser profile using the AWS SDK for Python (Boto3):
+
+1. To create a browser profile using the AWS SDK for Python (Boto3):
 
 ```
 import boto3
@@ -108,7 +103,8 @@ print(f"Created profile: {profile_id}")
 ```
 
 API
-To create a browser profile using the API:
+
+1. To create a browser profile using the API:
 
 ```
 awscurl -X PUT \
@@ -125,11 +121,13 @@ awscurl -X PUT \
 
 ### Step 2: Start a browser session and perform actions
 
-Start a browser session and perform actions such as login a website. The
-session state, including cookies and local storage, will be captured.
+Start a browser session and perform actions such as login a website. The session state, including cookies and local storage, will be captured.
+
+###### Example
 
 AWS CLI
-To start a browser session using the AWS CLI:
+
+1. To start a browser session using the AWS CLI:
 
 ```
 aws bedrock-agentcore start-browser-session \
@@ -139,11 +137,11 @@ aws bedrock-agentcore start-browser-session \
   --session-timeout-seconds 3600
 ```
 
-Use the returned session ID to interact with the browser and perform your
-desired actions (for example, login into a website).
+Use the returned session ID to interact with the browser and perform your desired actions (for example, login into a website).
 
 Boto3
-To start a browser session using Boto3:
+
+1. To start a browser session using Boto3:
 
 ```
 import boto3
@@ -165,7 +163,8 @@ print(f"Session ID: {session_id}")
 ```
 
 API
-To start a browser session using the API:
+
+1. To start a browser session using the API:
 
 ```
 awscurl -X PUT \
@@ -182,11 +181,13 @@ awscurl -X PUT \
 
 ### Step 3: Save the session to a profile
 
-After performing actions in the browser session, save the current state to your
-browser profile. This captures cookies, local storage, and other session data.
+After performing actions in the browser session, save the current state to your browser profile. This captures cookies, local storage, and other session data.
+
+###### Example
 
 AWS CLI
-To save a browser session to a profile using the AWS CLI:
+
+1. To save a browser session to a profile using the AWS CLI:
 
 ```
 aws bedrock-agentcore save-browser-session-profile \
@@ -197,7 +198,8 @@ aws bedrock-agentcore save-browser-session-profile \
 ```
 
 Boto3
-To save a browser session to a profile using Boto3:
+
+1. To save a browser session to a profile using Boto3:
 
 ```
 import boto3
@@ -215,7 +217,8 @@ print(f"Profile saved successfully")
 ```
 
 API
-To save a browser session to a profile using the API:
+
+1. To save a browser session to a profile using the API:
 
 ```
 awscurl -X PUT \
@@ -233,11 +236,13 @@ awscurl -X PUT \
 
 ### Step 4: Start a new session with the profile
 
-Start a new browser session using the saved profile. The session will be initialized
-with the saved state, including authentication cookies and local storage.
+Start a new browser session using the saved profile. The session will be initialized with the saved state, including authentication cookies and local storage.
+
+###### Example
 
 AWS CLI
-To start a browser session with a profile using the AWS CLI:
+
+1. To start a browser session with a profile using the AWS CLI:
 
 ```
 aws bedrock-agentcore start-browser-session \
@@ -251,7 +256,8 @@ aws bedrock-agentcore start-browser-session \
 ```
 
 Boto3
-To start a browser session with a profile using Boto3:
+
+1. To start a browser session with a profile using Boto3:
 
 ```
 import boto3
@@ -274,7 +280,8 @@ print("Session is now authenticated with saved cookies and state")
 ```
 
 API
-To start a browser session with a profile using the API:
+
+1. To start a browser session with a profile using the API:
 
 ```
 awscurl -X PUT \
@@ -301,8 +308,11 @@ This section describes additional operations for managing browser profiles.
 
 You can list all browser profiles in your account.
 
+###### Example
+
 AWS CLI
-To list browser profiles using the AWS CLI:
+
+1. To list browser profiles using the AWS CLI:
 
 ```
 aws bedrock-agentcore-control list-browser-profiles \
@@ -310,7 +320,8 @@ aws bedrock-agentcore-control list-browser-profiles \
 ```
 
 Boto3
-To list browser profiles using Boto3:
+
+1. To list browser profiles using Boto3:
 
 ```
 import boto3
@@ -328,7 +339,8 @@ for profile in response.get('items', []):
 ```
 
 API
-To list browser profiles using the API:
+
+1. To list browser profiles using the API:
 
 ```
 awscurl -X POST \
@@ -342,8 +354,11 @@ awscurl -X POST \
 
 You can retrieve details about a specific browser profile.
 
+###### Example
+
 AWS CLI
-To get browser profile details using the AWS CLI:
+
+1. To get browser profile details using the AWS CLI:
 
 ```
 aws bedrock-agentcore-control get-browser-profile \
@@ -352,7 +367,8 @@ aws bedrock-agentcore-control get-browser-profile \
 ```
 
 Boto3
-To get browser profile details using Boto3:
+
+1. To get browser profile details using Boto3:
 
 ```
 import boto3
@@ -372,7 +388,8 @@ print(f"Created: {response['createdAt']}")
 ```
 
 API
-To get browser profile details using the API:
+
+1. To get browser profile details using the API:
 
 ```
 awscurl -X GET \
@@ -384,11 +401,13 @@ awscurl -X GET \
 
 ### Deleting a browser profile
 
-When you no longer need a browser profile, you can delete it to free up
-resources.
+When you no longer need a browser profile, you can delete it to free up resources.
+
+###### Example
 
 AWS CLI
-To delete a browser profile using the AWS CLI:
+
+1. To delete a browser profile using the AWS CLI:
 
 ```
 aws bedrock-agentcore-control delete-browser-profile \
@@ -397,7 +416,8 @@ aws bedrock-agentcore-control delete-browser-profile \
 ```
 
 Boto3
-To delete a browser profile using Boto3:
+
+1. To delete a browser profile using Boto3:
 
 ```
 import boto3
@@ -413,7 +433,8 @@ print(f"Profile deleted successfully")
 ```
 
 API
-To delete a browser profile using the API:
+
+1. To delete a browser profile using the API:
 
 ```
 awscurl -X DELETE \
@@ -427,30 +448,15 @@ awscurl -X DELETE \
 
 Browser profiles are useful for:
 
-- **Persistent authentication**: Maintain login sessions
-  across multiple browser invocations without re-authenticating each time
-- **Multi-step workflows**: Execute complex workflows
-  that span multiple sessions while preserving state and context (in cookies or localstorage)
-- **Automated tasks**: Enable AI agents to perform tasks
-  on authenticated websites without manual intervention
+- **Persistent authentication** : Maintain login sessions across multiple browser invocations without re-authenticating each time
+- **Multi-step workflows** : Execute complex workflows that span multiple sessions while preserving state and context (in cookies or localstorage)
+- **Automated tasks** : Enable AI agents to perform tasks on authenticated websites without manual intervention
 
 ## Considerations
 
-- **Profile Persistence**: Profile data is saved when
-  you explicitly call the save operation. Ensure you save the profile before terminating
-  the session to preserve the state.
-- **Session Isolation**: Each browser session using a
-  profile operates independently. Changes made in one session are not visible in other
-  concurrent sessions.
-- **Profile Loading**: Saved profile changes only apply
-  to new sessions. Active sessions continue using the profile state from when they were
-  started and will not reflect updates made to the profile after session starts.
-- **Security**: Browser profiles may contain sensitive
-  data such as authentication cookies. Ensure proper IAM policies are in place to restrict
-  access to profile resources.
-- **Profile Updates**: When you save a session to a
-  profile, it overwrites the previous profile data. Consider your workflow carefully to
-  avoid losing important state information.
-- **Cookie Expiration**: Cookies have their own expiration
-  times set by websites. Browser profiles preserve cookies, but expired cookies are
-  automatically removed by the browser according to their expiration dates.
+- **Profile Persistence** : Profile data is saved when you explicitly call the save operation. Ensure you save the profile before terminating the session to preserve the state.
+- **Session Isolation** : Each browser session using a profile operates independently. Changes made in one session are not visible in other concurrent sessions.
+- **Profile Loading** : Saved profile changes only apply to new sessions. Active sessions continue using the profile state from when they were started and will not reflect updates made to the profile after session starts.
+- **Security** : Browser profiles may contain sensitive data such as authentication cookies. Ensure proper IAM policies are in place to restrict access to profile resources.
+- **Profile Updates** : When you save a session to a profile, it overwrites the previous profile data. Consider your workflow carefully to avoid losing important state information.
+- **Cookie Expiration** : Cookies have their own expiration times set by websites. Browser profiles preserve cookies, but expired cookies are automatically removed by the browser according to their expiration dates.

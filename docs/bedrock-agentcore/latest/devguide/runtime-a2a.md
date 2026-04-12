@@ -1,13 +1,10 @@
 # Deploy A2A servers in AgentCore Runtime
 
-Amazon Bedrock AgentCore AgentCore Runtime lets you deploy and run Agent-to-Agent (A2A)
-servers in the AgentCore Runtime. This guide walks you through creating, testing, and deploying your
-first A2A server.
+Amazon Bedrock AgentCore AgentCore Runtime lets you deploy and run Agent-to-Agent (A2A) servers in the AgentCore Runtime. This guide walks you through creating, testing, and deploying your first A2A server.
 
 In this section, you learn:
 
-- How
-  Amazon Bedrock AgentCore supports A2A
+- How Amazon Bedrock AgentCore supports A2A
 - How to create an A2A server with agent capabilities
 - How to test your server locally
 - How to deploy your server to AWS
@@ -23,26 +20,13 @@ In this section, you learn:
 
 ## How Amazon Bedrock AgentCore supports A2A
 
-Amazon Bedrock AgentCore's A2A protocol support enables seamless integration with
-A2A servers by acting as a transparent proxy layer. When configured for A2A,
-Amazon Bedrock AgentCore expects containers to run stateless, streamable HTTP servers on port
-`9000` at the root path (`0.0.0.0:9000/`), which aligns with the default A2A server
-configuration.
+Amazon Bedrock AgentCore’s A2A protocol support enables seamless integration with A2A servers by acting as a transparent proxy layer. When configured for A2A, Amazon Bedrock AgentCore expects containers to run stateless, streamable HTTP servers on port `9000` at the root path ( `0.0.0.0:9000/` ), which aligns with the default A2A server configuration.
 
-The service provides enterprise-grade session isolation while maintaining protocol
-transparency - JSON-RPC payloads from the [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md") API are passed
-through directly to the A2A container without modification. This architecture preserves
-the standard A2A protocol features like built-in agent discovery through Agent Cards at
-`/.well-known/agent-card.json` and JSON-RPC communication, while adding enterprise
-authentication (SigV4/OAuth 2.0) and scalability.
+The service provides enterprise-grade session isolation while maintaining protocol transparency - JSON-RPC payloads from the [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md") API are passed through directly to the A2A container without modification. This architecture preserves the standard A2A protocol features like built-in agent discovery through Agent Cards at `/.well-known/agent-card.json` and JSON-RPC communication, while adding enterprise authentication (SigV4/OAuth 2.0) and scalability.
 
-The key differentiators from other protocols are the port (9000 vs 8080 for HTTP),
-mount path (`/` vs `/invocations`), and the standardized agent discovery mechanism, making
-Amazon Bedrock AgentCore an ideal deployment platform for A2A agents in production
-environments.
+The key differentiators from other protocols are the port (9000 vs 8080 for HTTP), mount path ( `/` vs `/invocations` ), and the standardized agent discovery mechanism, making Amazon Bedrock AgentCore an ideal deployment platform for A2A agents in production environments.
 
-Key differences from other
-protocols:
+Key differences from other protocols:
 
 **Port**
 
@@ -50,14 +34,11 @@ A2A servers run on port 9000 (vs 8080 for HTTP, 8000 for MCP)
 
 **Path**
 
-A2A servers are mounted at `/` (vs
-`/invocations` for HTTP, `/mcp` for
-MCP)
+A2A servers are mounted at `/` (vs `/invocations` for HTTP, `/mcp` for MCP)
 
 **Agent Cards**
 
-A2A provides built-in agent discovery through Agent Cards at
-`/.well-known/agent-card.json`
+A2A provides built-in agent discovery through Agent Cards at `/.well-known/agent-card.json`
 
 **Protocol**
 
@@ -87,28 +68,22 @@ In this tutorial you create, test, and deploy an A2A server.
 - Python 3.10 or higher installed and basic understanding of Python
 - Node.js 18 or higher installed (required for the AgentCore CLI)
 - The AgentCore CLI installed: `npm install -g @aws/agentcore`
-- An AWS account with appropriate permissions and local credentials
-  configured
-- Understanding of the A2A protocol and agent-to-agent communication
-  concepts
+- An AWS account with appropriate permissions and local credentials configured
+- Understanding of the A2A protocol and agent-to-agent communication concepts
 
 ### Step 1: Create your A2A project
 
-This example uses Strands Agents, but the AgentCore CLI also supports
-A2A projects with LangChain/LangGraph and Google ADK.
+This example uses Strands Agents, but the AgentCore CLI also supports A2A projects with LangChain/LangGraph and Google ADK.
 
 #### Scaffold the project
 
-Run the following command and select _Strands_ as your
-framework when prompted:
+Run the following command and select _Strands_ as your framework when prompted:
 
 ```
 agentcore create --protocol A2A
 ```
 
-The CLI scaffolds a complete project with all required dependencies
-and configuration. The generated `main.py` contains your
-A2A server:
+The CLI scaffolds a complete project with all required dependencies and configuration. The generated `main.py` contains your A2A server:
 
 ```
 from strands import Agent, tool
@@ -116,12 +91,10 @@ from strands.multiagent.a2a.executor import StrandsA2AExecutor
 from bedrock_agentcore.runtime import serve_a2a
 from model.load import load_model
 
-
 @tool
 def add_numbers(a: int, b: int) -> int:
     """Return the sum of two numbers."""
     return a + b
-
 
 tools = [add_numbers]
 
@@ -143,24 +116,17 @@ Creates an agent with specific tools and capabilities
 
 **StrandsA2AExecutor**
 
-Wraps the Strands agent to provide A2A protocol
-compatibility
+Wraps the Strands agent to provide A2A protocol compatibility
 
 **serve_a2a**
 
-The Amazon Bedrock AgentCore SDK helper that starts a
-Bedrock-compatible A2A server. It handles the
-`/ping` health endpoint, Agent Card serving,
-`AGENTCORE_RUNTIME_URL` environment variable,
-Bedrock header propagation, and runs on port 9000 by
-default.
+The Amazon Bedrock AgentCore SDK helper that starts a Bedrock-compatible A2A server. It handles the `/ping` health endpoint, Agent Card serving, `AGENTCORE_RUNTIME_URL` environment variable, Bedrock header propagation, and runs on port 9000 by default.
 
 **Port 9000**
 
 A2A servers run on port 9000 by default in AgentCore Runtime
 
-To customize this agent, replace the `add_numbers` tool
-with your own tools and update the system prompt.
+To customize this agent, replace the `add_numbers` tool with your own tools and update the system prompt.
 
 ### Step 2: Test your A2A server locally
 
@@ -180,8 +146,7 @@ Alternatively, you can run the server directly:
 python main.py
 ```
 
-You should see output indicating the server is running on port
-`9000`.
+You should see output indicating the server is running on port `9000`.
 
 #### Invoke agent
 
@@ -212,20 +177,16 @@ curl -X POST http://localhost:9000/ \
 You can test the agent card endpoint locally:
 
 ```
-curl http://localhost:9000/.well-known/agent-card.json | jq .
+curl http://localhost:9000/.well-known/agent-card.json | jq.
 ```
 
-You can also test your deployed server using the A2A Inspector as described in
-[Remote testing with A2A inspector](https://github.com/a2aproject/a2a-inspector "https://github.com/a2aproject/a2a-inspector").
+You can also test your deployed server using the A2A Inspector as described in [Remote testing with A2A inspector](https://github.com/a2aproject/a2a-inspector "https://github.com/a2aproject/a2a-inspector").
 
 ### Step 3: Deploy your A2A server to Bedrock AgentCore Runtime
 
 #### Set up Cognito user pool for authentication
 
-Before deploying, configure authentication for secure access to your deployed
-server. For detailed Cognito setup instructions, see [Set up Cognito user
-pool for authentication](runtime-mcp.md#runtime-mcp-appendix-a "runtime-mcp.md#runtime-mcp-appendix-a"). This provides the OAuth tokens required for
-secure access to your deployed server.
+Before deploying, configure authentication for secure access to your deployed server. For detailed Cognito setup instructions, see [Set up Cognito user pool for authentication](runtime-mcp.md#runtime-mcp-appendix-a "runtime-mcp.md#runtime-mcp-appendix-a") . This provides the OAuth tokens required for secure access to your deployed server.
 
 #### Deploy to AWS
 
@@ -242,7 +203,7 @@ This command will:
 3. Create a Amazon Bedrock AgentCore runtime
 4. Deploy your agent to AWS
 
-After deployment, you'll receive an agent runtime ARN that looks like:
+After deployment, you’ll receive an agent runtime ARN that looks like:
 
 ```
 arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/my_a2a_server-xyz123
@@ -250,7 +211,7 @@ arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/my_a2a_server-xyz123
 
 ### Step 4: Get the agent card
 
-Agent Cards are JSON metadata documents that describe an A2A server's identity, capabilities, skills, service endpoint, and authentication requirements. They enable automatic agent discovery in the A2A ecosystem.
+Agent Cards are JSON metadata documents that describe an A2A server’s identity, capabilities, skills, service endpoint, and authentication requirements. They enable automatic agent discovery in the A2A ecosystem.
 
 #### Set up environment variables
 
@@ -334,13 +295,11 @@ export AGENTCORE_RUNTIME_URL="https://bedrock-agentcore.us-west-2.amazonaws.com/
 
 ### Step 5: Invoke your deployed A2A server
 
-Create client code to invoke your deployed Amazon Bedrock AgentCore A2A server and send
-messages to test the functionality.
+Create client code to invoke your deployed Amazon Bedrock AgentCore A2A server and send messages to test the functionality.
 
 Create a new file `my_a2a_client_remote.py` to invoke your deployed A2A server:
 
 ```
-
 import asyncio
 import logging
 import os
@@ -413,7 +372,6 @@ async def send_sync_message(message: str):
 
 # Usage - Uses AGENTCORE_RUNTIME_URL environment variable
 asyncio.run(send_sync_message("what is 101 * 11"))
-
 ```
 
 ## Appendix
@@ -426,9 +384,7 @@ asyncio.run(send_sync_message("what is 101 * 11"))
 
 ### Set up Cognito user pool for authentication
 
-For detailed Cognito setup instructions, see Set up
-[Cognito user pool for authentication](runtime-mcp.md#set-up-cognito-user-pool-for-authentication "runtime-mcp.md#set-up-cognito-user-pool-for-authentication")
-in the MCP documentation.
+For detailed Cognito setup instructions, see Set up [Cognito user pool for authentication](runtime-mcp.md#set-up-cognito-user-pool-for-authentication "runtime-mcp.md#set-up-cognito-user-pool-for-authentication") in the MCP documentation.
 
 ### Remote testing with A2A inspector
 
@@ -436,7 +392,7 @@ See [https://github.com/a2aproject/a2a-inspector](https://github.com/a2aproject/
 
 ### Troubleshooting
 
-###### Common A2A-specific issues
+**Common A2A-specific issues**
 
 The following are common issues you might encounter:
 
@@ -446,31 +402,26 @@ A2A servers must run on port 9000 in the AgentCore Runtime environment
 
 JSON-RPC errors
 
-Check that your client is sending properly formatted JSON-RPC 2.0
-messages
+Check that your client is sending properly formatted JSON-RPC 2.0 messages
 
 Authorization method mismatch
 
-Make sure your request uses the same authentication method (OAuth or
-SigV4) that the agent was configured with
+Make sure your request uses the same authentication method (OAuth or SigV4) that the agent was configured with
 
-###### Exception handling
+**Exception handling**
 
 A2A specifications for Error handling: [https://a2a-protocol.org/latest/specification/#81-standard-json-rpc-errors](https://a2a-protocol.org/latest/specification/#81-standard-json-rpc-errors "https://a2a-protocol.org/latest/specification/#81-standard-json-rpc-errors")
 
-A2A servers return errors as standard JSON-RPC error responses with HTTP 200
-status codes. Internal Runtime errors are automatically translated to JSON-RPC
-internal errors to maintain protocol compliance.
+A2A servers return errors as standard JSON-RPC error responses with HTTP 200 status codes. Internal Runtime errors are automatically translated to JSON-RPC internal errors to maintain protocol compliance.
 
-The service now provides proper A2A-compliant error responses with standardized
-JSON-RPC error codes:
+The service now provides proper A2A-compliant error responses with standardized JSON-RPC error codes:
 
-| JSON-RPC Error Codes | JSON-RPC Error Code             | Runtime Exception | HTTP Error Code                                                         | JSON-RPC Error Message |
-| -------------------- | ------------------------------- | ----------------- | ----------------------------------------------------------------------- | ---------------------- |
-| N/A                  | `AccessDeniedException`         | 403               | N/A                                                                     |
-| -32501               | `ResourceNotFoundException`     | 404               | Resource not found – Requested resource does not exist                  |
-| -32502               | `ValidationException`           | 400               | Validation error – Invalid request data                                 |
-| -32503               | `ThrottlingException`           | 429               | Rate limit exceeded – Too many requests                                 |
-| -32503               | `ServiceQuotaExceededException` | 429               | Rate limit exceeded – Too many requests                                 |
-| -32504               | `ResourceConflictException`     | 409               | Resource conflict – Resource already exists                             |
-| -32505               | `RuntimeClientError`            | 424               | Runtime client error – Check your CloudWatch logs for more information. |
+| JSON-RPC Error Code | Runtime Exception               | HTTP Error Code | JSON-RPC Error Message                                                  |
+| ------------------- | ------------------------------- | --------------- | ----------------------------------------------------------------------- |
+| N/A                 | `AccessDeniedException`         | 403             | N/A                                                                     |
+| -32501              | `ResourceNotFoundException`     | 404             | Resource not found – Requested resource does not exist                  |
+| -32502              | `ValidationException`           | 400             | Validation error – Invalid request data                                 |
+| -32503              | `ThrottlingException`           | 429             | Rate limit exceeded – Too many requests                                 |
+| -32503              | `ServiceQuotaExceededException` | 429             | Rate limit exceeded – Too many requests                                 |
+| -32504              | `ResourceConflictException`     | 409             | Resource conflict – Resource already exists                             |
+| -32505              | `RuntimeClientError`            | 424             | Runtime client error – Check your CloudWatch logs for more information. |

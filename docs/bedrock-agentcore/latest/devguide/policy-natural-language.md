@@ -1,19 +1,11 @@
 # Writing policies in natural language
 
-Policy in AgentCore will automatically select the optimal region within your
-geography to process your inference requests made through Policy authoring service. This maximizes
-available compute resources, model availability, and delivers the best customer experience. Your
-data will remain stored only in the region where the request originated, however, input prompts
-and output results may be processed outside that region. All data will be transmitted encrypted
-across Amazon's secure network.
+Policy in AgentCore will automatically select the optimal region within your geography to process your inference requests made through Policy authoring service. This maximizes available compute resources, model availability, and delivers the best customer experience. Your data will remain stored only in the region where the request originated, however, input prompts and output results may be processed outside that region. All data will be transmitted encrypted across Amazon’s secure network.
 
-Policy in AgentCore will securely route your inference requests to available
-compute resources within the geographic area where the request originated, as follows:
+Policy in AgentCore will securely route your inference requests to available compute resources within the geographic area where the request originated, as follows:
 
-- Inference requests originating in European Union will be processed within the European
-  Union.
-- Inference requests originating in the United States will be processed within the United
-  States.
+- Inference requests originating in European Union will be processed within the European Union.
+- Inference requests originating in the United States will be processed within the United States.
 - Inference requests originating in APAC will be processed within APAC.
 
 ###### Topics
@@ -30,8 +22,7 @@ compute resources within the geographic area where the request originated, as fo
 
 ## Overview
 
-Cedar provides precise access control, but requires learning formal syntax. NL2Cedar enables
-you to:
+Cedar provides precise access control, but requires learning formal syntax. NL2Cedar enables you to:
 
 1. Write authorization requirements in natural language
 2. Automatically convert to Cedar syntax
@@ -39,15 +30,11 @@ you to:
 
 ###### Note
 
-Natural language policy generation requires a deployed AgentCore Gateway and policy engine.
-The service uses the AgentCore Gateway schema to generate valid Cedar policies. See
-[Getting started with Policy in AgentCore](policy-getting-started.md "policy-getting-started.md") for setup
-instructions.
+Natural language policy generation requires a deployed AgentCore Gateway and policy engine. The service uses the AgentCore Gateway schema to generate valid Cedar policies. See [Getting started with Policy in AgentCore](policy-getting-started.md "policy-getting-started.md") for setup instructions.
 
 ###### Note
 
-Natural language is flexible, but precision is essential for security. Policies must be
-clear and unambiguous.
+Natural language is flexible, but precision is essential for security. Policies must be clear and unambiguous.
 
 ## Example
 
@@ -55,13 +42,11 @@ The refund policy from the previous section can be expressed in natural language
 
 **Natural language:**
 
-Allow principal with username "refund-agent" to process refunds when the refund amount is
-less than $500.
+Allow principal with username "refund-agent" to process refunds when the refund amount is less than $500.
 
 **Converts to Cedar:**
 
 ```
-
 permit(
   principal is AgentCore::OAuthUser,
   action == AgentCore::Action::"RefundTool__process_refund",
@@ -72,7 +57,6 @@ when {
   principal.getTag("username") == "refund-agent" &&
   context.input.amount < 500
 };
-
 ```
 
 ## Policy effects
@@ -104,23 +88,17 @@ Forbid policies specify what users cannot do:
 
 Understanding how Cedar evaluates policies is crucial for writing effective authorization rules. Cedar follows three fundamental principles:
 
-- **By default, everything is denied** - If no policy
-  explicitly permits an action, it's automatically blocked
-- **Forbid always wins** - If any forbid policy matches, access
-  is denied even if permit policies also match
-- **At least one permit required** - For access to be granted,
-  at least one permit policy must match AND no forbid policies can match
+- **By default, everything is denied** - If no policy explicitly permits an action, it’s automatically blocked
+- **Forbid always wins** - If any forbid policy matches, access is denied even if permit policies also match
+- **At least one permit required** - For access to be granted, at least one permit policy must match AND no forbid policies can match
 
-**Why use forbid policies if everything is denied by
-default?**
+**Why use forbid policies if everything is denied by default?**
 
-Forbid policies ensure that specific actions cannot be mistakenly permitted. Even if someone
-writes a broader permit policy, the forbid policy takes precedence and blocks access.
+Forbid policies ensure that specific actions cannot be mistakenly permitted. Even if someone writes a broader permit policy, the forbid policy takes precedence and blocks access.
 
 **Example scenario:**
 
 ```
-
 // Broad permit policy - allows all users to view model results
 permit(
   principal is AgentCore::OAuthUser,
@@ -137,11 +115,9 @@ forbid(
 when {
   context.input.sensitivity == "high"
 };
-
 ```
 
-**Result:** Users can view low and medium sensitivity results
-(permit applies), but high sensitivity results are always blocked (forbid wins).
+**Result:** Users can view low and medium sensitivity results (permit applies), but high sensitivity results are always blocked (forbid wins).
 
 Use forbid policies for:
 
@@ -170,11 +146,11 @@ The principal identifies which users, roles, or groups the policy applies to.
 
 Flexible expressions:
 
-- "Allow the user refund-agent to..."
-- "Permit users with username refund-agent to..."
-- "Users with role insurance-agent may..."
-- "Anyone with the refund:write scope is authorized to..."
-- "All users can..."
+- "Allow the user refund-agent to…​"
+- "Permit users with username refund-agent to…​"
+- "Users with role insurance-agent may…​"
+- "Anyone with the refund:write scope is authorized to…​"
+- "All users can…​"
 
 Be specific about identity:
 
@@ -205,10 +181,10 @@ The "when" specifies under what circumstances the policy applies.
 
 Flexible conditional expressions:
 
-- "...when the amount is less than $500"
-- "...if the region is US, CA, or UK"
-- "...only when approval status is approved-by-manager"
-- "...provided that the risk score has been submitted"
+- "…​when the amount is less than $500"
+- "…​if the region is US, CA, or UK"
+- "…​only when approval status is approved-by-manager"
+- "…​provided that the risk score has been submitted"
 
 Be precise with conditions:
 
@@ -239,20 +215,17 @@ Elements:
 
 ### Example 2: Role-Based with Multiple Conditions
 
-Allow users with role insurance-agent to update coverage when the coverage type is
-liability or collision and the policy is active.
+Allow users with role insurance-agent to update coverage when the coverage type is liability or collision and the policy is active.
 
 Elements:
 
 - **Who:** users with role insurance-agent
 - **What:** update coverage
-- **When:** coverage type is liability or collision AND policy
-  is active
+- **When:** coverage type is liability or collision AND policy is active
 
 ### Example 3: Scope-Based Access
 
-Allow users with scope travel:book to create flight bookings when the region is not EU and
-the product is eligible.
+Allow users with scope travel:book to create flight bookings when the region is not EU and the product is eligible.
 
 Elements:
 
@@ -262,20 +235,17 @@ Elements:
 
 ### Example 4: Everyone with Constraints
 
-Allow all users to view model results when the data sensitivity is low or medium and the
-result type is risk-score.
+Allow all users to view model results when the data sensitivity is low or medium and the result type is risk-score.
 
 Elements:
 
 - **Who:** all users
 - **What:** view model results
-- **When:** data sensitivity is low or medium AND result type
-  is risk-score
+- **When:** data sensitivity is low or medium AND result type is risk-score
 
 ## Condition syntax
 
-Conditions are where policies often become ambiguous. Here's how to write clear, testable
-conditions.
+Conditions are where policies often become ambiguous. Here’s how to write clear, testable conditions.
 
 ###### Topics
 
@@ -358,8 +328,7 @@ Use words like: "and", "also", "additionally", "while", "with"
 
 Example:
 
-Allow applications when the region is US and the product is eligible and the territory is
-active.
+Allow applications when the region is US and the product is eligible and the territory is active.
 
 ### OR Logic (At Least One Must Be True)
 
@@ -367,8 +336,7 @@ Use words like: "or", "alternatively", "either"
 
 Example:
 
-Allow approval when the claim exceeds $10,000,000 or the risk level is high or
-critical.
+Allow approval when the claim exceeds $10,000,000 or the risk level is high or critical.
 
 ### Complex Logic
 
@@ -376,8 +344,7 @@ For complex conditions, use clear structure:
 
 Example:
 
-Allow finalization when the workflow stage is review-complete or approved, and the
-compliance status is passed, and the authority is manager or director.
+Allow finalization when the workflow stage is review-complete or approved, and the compliance status is passed, and the authority is manager or director.
 
 ## Common pitfalls
 
@@ -413,8 +380,7 @@ Good: "Allow transfers when the amount is less than $10,000"
 
 Bad: "Allow users with scope admin:write to update coverage"
 
-Good: "Allow users with scope admin:write to update coverage when the policy is active and
-the coverage type is liability or collision"
+Good: "Allow users with scope admin:write to update coverage when the policy is active and the coverage type is liability or collision"
 
 ### Mistake 5: Unclear Logic
 

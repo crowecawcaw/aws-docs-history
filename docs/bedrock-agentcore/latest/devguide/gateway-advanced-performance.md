@@ -1,12 +1,10 @@
 # Performance optimization
 
-To optimize the performance of your Gateway implementations, consider the following
-best practices:
+To optimize the performance of your Gateway implementations, consider the following best practices:
 
 **Minimize tool latency**
 
-The overall latency of your gateway is largely determined by the latency of the
-underlying tools. To minimize latency:
+The overall latency of your gateway is largely determined by the latency of the underlying tools. To minimize latency:
 
 - Use Lambda functions in the same region as your gateway
 - Optimize your Lambda functions for fast cold starts
@@ -19,15 +17,12 @@ Well-designed tool schemas can improve the performance of your gateway:
 
 - Keep schemas as simple as possible
 - Use appropriate data types for parameters
-- Include clear descriptions for parameters to help agents use the tools
-  correctly
+- Include clear descriptions for parameters to help agents use the tools correctly
 - Use required fields to ensure that agents provide necessary parameters
 
 **Enable semantic search**
 
-Semantic search helps agents find the right tools for their tasks, improving the
-overall performance of your agent-gateway interactions. Enable semantic search when
-creating your gateway:
+Semantic search helps agents find the right tools for their tasks, improving the overall performance of your agent-gateway interactions. Enable semantic search when creating your gateway:
 
 ```
 import boto3
@@ -49,8 +44,7 @@ gateway = client.create_gateway(
 
 **Monitor and optimize**
 
-Use the observability features described in the previous section to monitor the
-performance of your gateway and identify opportunities for optimization:
+Use the observability features described in the previous section to monitor the performance of your gateway and identify opportunities for optimization:
 
 - Set up CloudWatch alarms for key metrics
 - Analyze logs to identify patterns and issues

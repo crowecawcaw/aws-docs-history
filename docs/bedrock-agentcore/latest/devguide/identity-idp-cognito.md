@@ -1,39 +1,23 @@
 # Amazon Cognito
 
-Amazon Cognito can be configured as an identity provider for accessing
-AgentCore Gateway and Runtime, or an AgentCore Identity credential provider for outbound resource
-access. This allows your agents to authenticate and authorize agent users with Cognito
-as the identity provider and authorization server, or your agents to obtain credentials
-to access resources authorized by Cognito.
+Amazon Cognito can be configured as an identity provider for accessing AgentCore Gateway and Runtime, or an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate and authorize agent users with Cognito as the identity provider and authorization server, or your agents to obtain credentials to access resources authorized by Cognito.
 
 ## Inbound
 
-To add Cognito as an identity provider and authorization server for accessing
-AgentCore Gateway and Runtime, you must:
+To add Cognito as an identity provider and authorization server for accessing AgentCore Gateway and Runtime, you must:
 
-- Configure discovery URL from your IDP directory. This helps AgentCore Identity get the
-  metadata related to your OAuth authorization server and token verification
-  keys.
-- Enter valid `clientId` or `aud` claims for the token.
-  This helps validate the tokens coming from your IDP and allow access for tokens
-  that contain expected claims.
+- Configure discovery URL from your IDP directory. This helps AgentCore Identity get the metadata related to your OAuth authorization server and token verification keys.
+- Enter valid `clientId` or `aud` claims for the token. This helps validate the tokens coming from your IDP and allow access for tokens that contain expected claims.
 
-Use the following procedure to create a Cognito user pool as an inbound identity provider
-for user authentication with AgentCore Runtime. The following steps will create
-a Cognito user pool, a user pool client, add a user, and generate a bearer token for
-the user. The token is valid for 60 minutes by default.
+Use the following procedure to create a Cognito user pool as an inbound identity provider for user authentication with AgentCore Runtime. The following steps will create a Cognito user pool, a user pool client, add a user, and generate a bearer token for the user. The token is valid for 60 minutes by default.
 
-###### To create a Cognito user pool as an inbound identity provider for Runtime authentication
+**To create a Cognito user pool as an inbound identity provider for Runtime authentication**
 
-1. Create a file named `setup_cognito.sh` with the following
-   content:
+1. Create a file named `setup_cognito.sh` with the following content:
 
 ###### Note
 
-The following script is only meant as an example. You should customize
-the user pool settings and user credentials as needed for your
-application. Do not use this script directly in production
-environments.
+The following script is only meant as an example. You should customize the user pool settings and user credentials as needed for your application. Do not use this script directly in production environments.
 
 ```
 #!/bin/bash
@@ -97,15 +81,11 @@ Client ID: clientid
 Bearer Token: bearertoken
 ```
 
-You'll need these values in the next steps.
+You’ll need these values in the next steps.
 
-Use the following procedure to create a Cognito user pool as an inbound identity provider
-for machine-to-machine authentication with AgentCore Gateway. The following
-steps will create a user pool, resource server, client credentials, and discovery
-URL configuration. This setup enables M2M authentication flows for Gateway
-access.
+Use the following procedure to create a Cognito user pool as an inbound identity provider for machine-to-machine authentication with AgentCore Gateway. The following steps will create a user pool, resource server, client credentials, and discovery URL configuration. This setup enables M2M authentication flows for Gateway access.
 
-###### To create a Cognito user pool as an inbound identity provider for Gateway authentication
+**To create a Cognito user pool as an inbound identity provider for Gateway authentication**
 
 1. Create a user pool:
 
@@ -148,8 +128,7 @@ aws cognito-idp create-user-pool-client \
   --supported-identity-providers "COGNITO"
 ```
 
-Record the client ID and client secret from the response. You'll need
-these values to configure the Cognito provider in AgentCore Identity. 5. If needed, create a domain for your user pool:
+Record the client ID and client secret from the response. You’ll need these values to configure the Cognito provider in AgentCore Identity. 5. If needed, create a domain for your user pool:
 
 ```
 aws cognito-idp create-user-pool-domain \
@@ -160,24 +139,19 @@ aws cognito-idp create-user-pool-domain \
 
 ###### Note
 
-Remove any underscore from the `UserPoolId` when creating
-the domain. For example, if your user pool ID is "us-west-2_gmSGKKGr9",
-use "us-west-2gmSGKKGr9" as the domain. 6. Construct the discovery URL for your Cognito user pool:
+Remove any underscore from the `UserPoolId` when creating the domain. For example, if your user pool ID is "us-west-2_gmSGKKGr9", use "us-west-2gmSGKKGr9" as the domain. 6. Construct the discovery URL for your Cognito user pool:
 
 ```
 https://cognito-idp.us-west-2.amazonaws.com/<UserPoolId>/.well-known/openid-configuration
 ```
 
 7. Configure the Gateway Inbound Auth with the following values:
-   1. **Discovery URL**: The URL
-      constructed in the previous step
-   2. **Allowed clients**: The client ID
-      obtained when creating the user pool client
+   1. **Discovery URL** : The URL constructed in the previous step
+   2. **Allowed clients** : The client ID obtained when creating the user pool client
 
 ## Outbound
 
-To configure Cognito user pools as an outbound resource provider, use the
-following configuration:
+To configure Cognito user pools as an outbound resource provider, use the following configuration:
 
 ```
 {

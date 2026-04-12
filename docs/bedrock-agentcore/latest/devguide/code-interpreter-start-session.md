@@ -2,9 +2,11 @@
 
 After creating a Code Interpreter, you can start a session to execute code.
 
+###### Example
+
 AWS CLI
-To start a Code Interpreter session using the AWS CLI, use the
-`start-code-interpreter-session` command:
+
+1. To start a Code Interpreter session using the AWS CLI, use the `start-code-interpreter-session` command:
 
 ```
 aws bedrock-agentcore start-code-interpreter-session \
@@ -13,12 +15,11 @@ aws bedrock-agentcore start-code-interpreter-session \
   --name "my-code-session" \
   --description "My Code Interpreter session for data analysis" \
   --session-timeout-seconds 900
-
 ```
 
 Boto3
-To start a Code Interpreter session using the AWS SDK for Python, use the
-`start_code_interpreter_session` method:
+
+1. To start a Code Interpreter session using the AWS SDK for Python, use the `start_code_interpreter_session` method:
 
 ```
 import boto3
@@ -40,12 +41,11 @@ response = dp_client.start_code_interpreter_session(
 # Print the session ID
 session_id = response["sessionId"]
 print(f"Session created: {session_id}")
-
 ```
 
 API
-To start a new Code Interpreter session using the API, use the following
-call:
+
+1. To start a new Code Interpreter session using the API, use the following call:
 
 ```
 # Using awscurl
@@ -60,11 +60,8 @@ awscurl -X PUT \
     "description": "code sandbox session",
     "sessionTimeoutSeconds": 900
   }'
-
 ```
 
 ###### Note
 
-You can use the managed resource ID `aws.codeinterpreter.v1` or a
-resource ID you get by creating a code interpreter with
-`CreateCodeInterpreter`.
+You can use the managed resource ID `aws.codeinterpreter.v1` or a resource ID you get by creating a code interpreter with `CreateCodeInterpreter`.

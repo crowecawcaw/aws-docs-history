@@ -59,8 +59,6 @@ def lambda_handler(event, context):
         }
 
     return response
-
-
 ```
 
 This Lambda function can be configured as both a REQUEST and RESPONSE interceptor. When configured as a REQUEST interceptor, it will log the MCP method from the incoming request. When configured as a RESPONSE interceptor, it will simply pass the response through unchanged. Both interceptor types return the original data without modification, making this a "pass-through" interceptor.

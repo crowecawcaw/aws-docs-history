@@ -1,14 +1,12 @@
 # Use an AgentCore gateway
 
-After [setting up your gateway with targets](gateway-building.md "gateway-building.md"), you can configure your application or agent to use the gateway through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro"). The MCP provides a standardized way for agents to discover and invoke tools.
+After [setting up your gateway with targets](gateway-building.md "gateway-building.md") , you can configure your application or agent to use the gateway through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") . The MCP provides a standardized way for agents to discover and invoke tools.
 
 ###### Note
 
-AgentCore Gateway supports the following MCP versions:
+AgentCore Gateway supports the following MCP versions: \* 2025-06-18 \* 2025-03-26
 
-- 2025-06-18
-- 2025-03-26
-  You can use the following MCP operations with an AgentCore gateway:
+You can use the following MCP operations with an AgentCore gateway:
 
 | Operation  | Description                                         |
 | ---------- | --------------------------------------------------- |

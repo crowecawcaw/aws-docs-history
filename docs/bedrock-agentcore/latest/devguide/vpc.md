@@ -1,7 +1,6 @@
 # Protecting your data using VPC and AWS PrivateLink
 
-You can use Amazon Virtual Private Cloud (Amazon VPC) and AWS PrivateLink to create private
-connections between your VPC and Amazon Bedrock AgentCore.
+You can use Amazon Virtual Private Cloud (Amazon VPC) and AWS PrivateLink to create private connections between your VPC and Amazon Bedrock AgentCore.
 
 ###### Topics
 

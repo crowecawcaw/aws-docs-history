@@ -1,44 +1,32 @@
 # Get started without the AgentCore CLI
 
-You can create a AgentCore Runtime agent without the AgentCore CLI. Instead you can use a
-combination of command line tools to configure and deploy your agent to an AgentCore Runtime.
+You can create a AgentCore Runtime agent without the AgentCore CLI. Instead you can use a combination of command line tools to configure and deploy your agent to an AgentCore Runtime.
 
-This tutorial shows how to deploy a custom agent without using the AgentCore CLI. A
-custom agent is an agent built without using the AgentCore Python SDK. In this tutorial, the custom
-agent is built using FastAPI and Docker. The custom agent follows the [AgentCore Runtime requirements](runtime-service-contract.md "runtime-service-contract.md"), meaning the agent
-must expose `/invocations` POST and `/ping` GET endpoints and be
-packaged in a Docker container. Amazon Bedrock AgentCore requires ARM64 architecture for all
-deployed agents.
+This tutorial shows how to deploy a custom agent without using the AgentCore CLI. A custom agent is an agent built without using the AgentCore Python SDK. In this tutorial, the custom agent is built using FastAPI and Docker. The custom agent follows the [AgentCore Runtime requirements](runtime-service-contract.md "runtime-service-contract.md") , meaning the agent must expose `/invocations` POST and `/ping` GET endpoints and be packaged in a Docker container. Amazon Bedrock AgentCore requires ARM64 architecture for all deployed agents.
 
 ###### Note
 
-You can also use this approach for agents that you build with the
-AgentCore Python SDK.
+You can also use this approach for agents that you build with the AgentCore Python SDK.
 
 ## Quick start setup
 
 ### Enable observability for your agent
 
-[Amazon Bedrock AgentCore Observability](observability.md "observability.md") helps you trace, debug, and
-monitor agents that you host in AgentCore Runtime. To observe an agent, first enable CloudWatch
-Transaction Search by following the instructions at [Enabling AgentCore observability](observability-configure.md#observability-configure-builtin "observability-configure.md#observability-configure-builtin").
+[Amazon Bedrock AgentCore Observability](observability.md "observability.md") helps you trace, debug, and monitor agents that you host in AgentCore Runtime. To observe an agent, first enable CloudWatch Transaction Search by following the instructions at [Enabling AgentCore observability](observability-configure.md#observability-configure-builtin "observability-configure.md#observability-configure-builtin").
 
 ### Install uv
 
-For this example, we'll use the `uv` package manager, though you can
-use any Python utility or package manager. To install `uv` on
-macOS:
+For this example, we’ll use the `uv` package manager, though you can use any Python utility or package manager. To install `uv` on macOS:
 
 ```
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-For installation instructions on other platforms, refer to the [uv
-documentation](https://docs.astral.sh/uv/getting-started/installation/ "https://docs.astral.sh/uv/getting-started/installation/").
+For installation instructions on other platforms, refer to the [uv documentation](https://docs.astral.sh/uv/getting-started/installation/ "https://docs.astral.sh/uv/getting-started/installation/").
 
 ### Create your agent project
 
-###### Setting up your project
+**Setting up your project**
 
 1. Create and navigate to your project directory:
 
@@ -62,12 +50,9 @@ uv add fastapi 'uvicorn[standard]' pydantic httpx strands-agents
 
 Your custom agent must fulfill these core requirements:
 
-- **`/invocations` Endpoint**: POST
-  endpoint for agent interactions (REQUIRED)
-- **`/ping` Endpoint**: GET endpoint for
-  health checks (REQUIRED)
-- **Docker Container**: ARM64 containerized
-  deployment package
+- **/invocations Endpoint** : POST endpoint for agent interactions (REQUIRED)
+- **/ping Endpoint** : GET endpoint for health checks (REQUIRED)
+- **Docker Container** : ARM64 containerized deployment package
 
 ## Project structure
 
@@ -85,10 +70,9 @@ my-custom-agent/
 
 ## Complete strands agent example
 
-Create `agent.py` in your project root with the following
-content:
+Create `agent.py` in your project root with the following content:
 
-###### Example agent.py
+**Example agent.py**
 
 ```
 from fastapi import FastAPI, HTTPException
@@ -142,15 +126,13 @@ This implementation:
 
 - Creates a FastAPI application with the required endpoints
 - Initializes a Strands agent for processing user messages
-- Implements the `/invocations` POST endpoint for agent
-  interactions
+- Implements the `/invocations` POST endpoint for agent interactions
 - Implements the `/ping` GET endpoint for health checks
-- Configures the server to run on host `0.0.0.0` and port
-  `8080`
+- Configures the server to run on host `0.0.0.0` and port `8080`
 
 ## Test locally
 
-###### Testing your agent
+**Testing your agent**
 
 1. Run the application:
 
@@ -176,10 +158,9 @@ curl -X POST http://localhost:8080/invocations \
 
 ## Create dockerfile
 
-Create `Dockerfile` in your project root with the following
-content:
+Create `Dockerfile` in your project root with the following content:
 
-###### Example Dockerfile
+**Example Dockerfile**
 
 ```
 # Use uv's ARM64 Python base image
@@ -216,8 +197,7 @@ This Dockerfile:
 
 ### Setup docker buildx
 
-Docker buildx lets you build images for different architectures. Set it up
-with:
+Docker buildx lets you build images for different architectures. Set it up with:
 
 ```
 docker buildx create --use
@@ -225,16 +205,15 @@ docker buildx create --use
 
 ### Build for ARM64 and test locally
 
-###### Building and testing your image
+**Building and testing your image**
 
 1. Build the image locally for testing:
 
 ```
-docker buildx build --platform linux/arm64 -t my-agent:arm64 --load .
+docker buildx build --platform linux/arm64 -t my-agent:arm64 --load.
 ```
 
-2. Test locally with credentials (Strands agents need AWS
-   credentials):
+2. Test locally with credentials (Strands agents need AWS credentials):
 
 ```
 docker run --platform linux/arm64 -p 8080:8080 \
@@ -247,7 +226,7 @@ docker run --platform linux/arm64 -p 8080:8080 \
 
 ### Create ECR repository and deploy
 
-###### Deploying to ECR
+**Deploying to ECR**
 
 1. Create an ECR repository:
 
@@ -258,13 +237,13 @@ aws ecr create-repository --repository-name my-strands-agent --region us-west-2
 2. Log in to ECR:
 
 ```
-aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin `account-id`.dkr.ecr.us-west-2.amazonaws.com
+aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin account-id.dkr.ecr.us-west-2.amazonaws.com
 ```
 
 3. Build and push to ECR:
 
 ```
-docker buildx build --platform linux/arm64 -t `account-id`.dkr.ecr.us-west-2.amazonaws.com/my-strands-agent:latest --push .
+docker buildx build --platform linux/arm64 -t account-id.dkr.ecr.us-west-2.amazonaws.com/my-strands-agent:latest --push.
 ```
 
 4. Verify the image was pushed:
@@ -275,10 +254,9 @@ aws ecr describe-images --repository-name my-strands-agent --region us-west-2
 
 ## Deploy agent runtime
 
-Create a file named `deploy_agent.py` with the following
-content:
+Create a file named `deploy_agent.py` with the following content:
 
-###### Example deploy_agent.py
+**Example deploy_agent.py**
 
 ```
 import boto3
@@ -289,11 +267,11 @@ response = client.create_agent_runtime(
     agentRuntimeName='strands_agent',
     agentRuntimeArtifact={
         'containerConfiguration': {
-            'containerUri': '`account-id`.dkr.ecr.us-west-2.amazonaws.com/my-strands-agent:latest'
+            'containerUri': 'account-id.dkr.ecr.us-west-2.amazonaws.com/my-strands-agent:latest'
         }
     },
     networkConfiguration={"networkMode": "PUBLIC"},
-    roleArn='arn:aws:iam::`account-id`:role/AgentRuntimeRole',
+    roleArn='arn:aws:iam::account-id:role/AgentRuntimeRole',
     lifecycleConfiguration={
         'idleRuntimeSessionTimeout': 300,  # 5 min, configurable
         'maxLifetime': 1800                # 30 minutes, configurable
@@ -311,18 +289,13 @@ Run the script to deploy your agent:
 uv run deploy_agent.py
 ```
 
-This script uses the `create_agent_runtime` operation to deploy your agent
-to Amazon Bedrock AgentCore. Make sure to replace `account-id` with
-your actual AWS account ID and ensure the IAM role has the necessary
-permissions. For more information,
-see [IAM Permissions for AgentCore Runtime](runtime-permissions.md "runtime-permissions.md").
+This script uses the `create_agent_runtime` operation to deploy your agent to Amazon Bedrock AgentCore. Make sure to replace `account-id` with your actual AWS account ID and ensure the IAM role has the necessary permissions. For more information, see [IAM Permissions for AgentCore Runtime](runtime-permissions.md "runtime-permissions.md").
 
 ## Invoke your agent
 
-Create a file named `invoke_agent.py` with the following
-content:
+Create a file named `invoke_agent.py` with the following content:
 
-###### Example invoke_agent.py
+**Example invoke_agent.py**
 
 ```
 import boto3
@@ -334,7 +307,7 @@ payload = json.dumps({
 })
 
 response = agent_core_client.invoke_agent_runtime(
-    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:`account-id`:runtime/myStrandsAgent-`suffix`',
+    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:account-id:runtime/myStrandsAgent-suffix',
     runtimeSessionId='dfmeoagmreaklgmrkleafremoigrmtesogmtrskhmtkrlshmt',  # Must be 33+ chars
     payload=payload,
     qualifier="DEFAULT"
@@ -351,20 +324,16 @@ Run the script to invoke your agent:
 uv run invoke_agent.py
 ```
 
-This script uses the
-[InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md") AWS SDK operation to send a request to
-your deployed agent. Make sure to replace `account-id` and
-`agentArn` with your actual values.
+This script uses the [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md")
+AWS SDK operation to send a request to your deployed agent. Make sure to replace `account-id` and `agentArn` with your actual values.
 
-If you plan on integrating your agent with OAuth, you can't use the AWS SDK to call
-`InvokeAgentRuntime`. Instead, make a HTTPS request to
-InvokeAgentRuntime. For more information, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").
+If you plan on integrating your agent with OAuth, you can’t use the AWS SDK to call `InvokeAgentRuntime` . Instead, make a HTTPS request to InvokeAgentRuntime. For more information, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").
 
 ## Expected response format
 
-When you invoke your agent, you'll receive a response like this:
+When you invoke your agent, you’ll receive a response like this:
 
-###### Example Sample response
+**Example Sample response**
 
 ```
 {
@@ -386,40 +355,33 @@ When you invoke your agent, you'll receive a response like this:
 
 To stop the running session before the configurable `IdleRuntimeSessionTimeout` (defaulted at 15 minutes) and save on any potential runaway costs, execute: `stop_runtime_session`
 
-Create a file named `stop_runtime_session.py` with the following
-content:
+Create a file named `stop_runtime_session.py` with the following content:
 
-###### Example stop_runtime_session.py
+**Example stop_runtime_session.py**
 
 ```
-
 import boto3
 
 agent_core_client = boto3.client('bedrock-agentcore', region_name='us-west-2')
 response = agent_core_client.stop_runtime_session(
-    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:`account-id`:runtime/myStrandsAgent-`suffix`',
+    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:account-id:runtime/myStrandsAgent-suffix',
     runtimeSessionId='dfmeoagmreaklgmrkleafremoigrmtesogmtrskhmtkrlshmt',
     qualifier="DEFAULT"
 )
-
 ```
 
 ## Amazon Bedrock AgentCore requirements summary
 
-- **Platform**: Must be
-  `linux/arm64`
-- **Endpoints**: `/invocations` POST and
-  `/ping` GET are mandatory
-- **ECR**: Images must be deployed to ECR
-- **Port**: Application runs on port 8080
-- **Strands Integration**: Uses Strands Agent for
-  AI processing
-- **Credentials**: Strands agents require AWS
-  credentials for operation
+- **Platform** : Must be `linux/arm64`
+- **Endpoints** : `/invocations` POST and `/ping` GET are mandatory
+- **ECR** : Images must be deployed to ECR
+- **Port** : Application runs on port 8080
+- **Strands Integration** : Uses Strands Agent for AI processing
+- **Credentials** : Strands agents require AWS credentials for operation
 
 ## Conclusion
 
-In this guide, you've learned how to:
+In this guide, you’ve learned how to:
 
 - Set up a development environment for building custom agents
 - Create a FastAPI application that implements the required endpoints
@@ -430,6 +392,4 @@ In this guide, you've learned how to:
 - Invoke your deployed agent
 - Stop agent runtime session
 
-By following these steps, you can create and deploy custom agents that leverage the
-power of Amazon Bedrock AgentCore while maintaining full control over your agent's
-implementation.
+By following these steps, you can create and deploy custom agents that leverage the power of Amazon Bedrock AgentCore while maintaining full control over your agent’s implementation.

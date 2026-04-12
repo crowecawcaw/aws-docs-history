@@ -10,14 +10,13 @@ HTTP Status Code: 403
 
 AccessDeniedException
 
-You don't have permission to perform this operation.
+You don’t have permission to perform this operation.
 
 HTTP Status Code: 403
 
 ConflictException
 
-The request conflicts with the current state of the resource (e.g., policy
-name already exists).
+The request conflicts with the current state of the resource (e.g., policy name already exists).
 
 HTTP Status Code: 409
 
@@ -47,7 +46,6 @@ HTTP Status Code: 429
 
 ValidationException
 
-The request contains invalid parameters or the policy statement contains
-syntax errors.
+The request contains invalid parameters or the policy statement contains syntax errors.
 
 HTTP Status Code: 400

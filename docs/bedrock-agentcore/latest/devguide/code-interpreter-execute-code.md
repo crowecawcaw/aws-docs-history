@@ -1,11 +1,12 @@
 # Executing code
 
-Once you have started a Code Interpreter session, you can execute code in the
-session.
+Once you have started a Code Interpreter session, you can execute code in the session.
+
+###### Example
 
 Boto3
-To execute code using the AWS SDK for Python, use the
-`invoke_code_interpreter` method:
+
+1. To execute code using the AWS SDK for Python, use the `invoke_code_interpreter` method:
 
 ```
 import boto3
@@ -37,12 +38,11 @@ for event in response["stream"]:
             for content_item in result["content"]:
                 if content_item["type"] == "text":
                     print(content_item["text"])
-
 ```
 
 API
-To execute code in a code interpreter session using the API, use the following
-call:
+
+1. To execute code in a code interpreter session using the API, use the following call:
 
 ```
 # Using awscurl
@@ -61,5 +61,4 @@ awscurl -X POST \
       "code": "print(\"Hello, world!\")"
     }
   }'
-
 ```

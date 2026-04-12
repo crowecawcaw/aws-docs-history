@@ -1,23 +1,23 @@
 # Stopping a AgentCore Code Interpreter session
 
-When you are finished using a Code Interpreter session, you should stop it to release
-resources and avoid unnecessary charges.
+When you are finished using a Code Interpreter session, you should stop it to release resources and avoid unnecessary charges.
+
+###### Example
 
 AWS CLI
-To stop a code interpreter session using the AWS CLI, use the
-`stop-code-interpreter-session` command:
+
+1. To stop a code interpreter session using the AWS CLI, use the `stop-code-interpreter-session` command:
 
 ```
 aws bedrock-agentcore stop-code-interpreter-session \
   --region <Region> \
   --code-interpreter-id "<your-code-interpreter-id>" \
   --session-id "<your-session-id>"
-
 ```
 
 Boto3
-To stop a Code Interpreter session using the AWS SDK for Python, use the
-`stop_code_interpreter_session` method:
+
+1. To stop a Code Interpreter session using the AWS SDK for Python, use the `stop_code_interpreter_session` method:
 
 ```
 import boto3
@@ -36,11 +36,11 @@ response = dp_client.stop_code_interpreter_session(
 )
 
 print("Session stopped successfully")
-
 ```
 
 API
-To stop a code interpreter session using the API, use the following call:
+
+1. To stop a code interpreter session using the API, use the following call:
 
 ```
 # Using awscurl
@@ -50,5 +50,4 @@ awscurl -X PUT \
   -H "Accept: application/json" \
   --service bedrock-agentcore \
   --region <Region>
-
 ```

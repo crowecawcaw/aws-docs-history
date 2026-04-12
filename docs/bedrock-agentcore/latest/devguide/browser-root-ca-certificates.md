@@ -2,7 +2,7 @@
 
 By default, Amazon Bedrock AgentCore Browser sessions trust only publicly recognized certificate authorities. If your agents need to access internal services, corporate websites, or resources behind a TLS-intercepting proxy that use certificates signed by a private CA, you must provide your custom root CA certificates when starting a session.
 
-Amazon Bedrock AgentCore retrieves the PEM-encoded certificate content from AWS Secrets Manager using your caller credentials, validates the X.509 format and expiry, and installs the certificates into the session's OS trust store. This enables the browser to establish trusted HTTPS connections to your internal resources.
+Amazon Bedrock AgentCore retrieves the PEM-encoded certificate content from AWS Secrets Manager using your caller credentials, validates the X.509 format and expiry, and installs the certificates into the session’s OS trust store. This enables the browser to establish trusted HTTPS connections to your internal resources.
 
 ## How it works
 
@@ -11,9 +11,9 @@ Root Certificate Authority for Amazon Bedrock AgentCore Browser works as follows
 1. You provide a list of certificate locations, each pointing to a secret in AWS Secrets Manager that contains a PEM-encoded root CA certificate.
 2. Amazon Bedrock AgentCore uses your caller credentials to retrieve each certificate from AWS Secrets Manager.
 3. Each certificate is validated for correct X.509 PEM format and checked to ensure it has not expired and is not used before its validity start date.
-4. Valid certificates are deployed to the session's OS trust store, making them available to the browser and any network clients within the sandbox.
+4. Valid certificates are deployed to the session’s OS trust store, making them available to the browser and any network clients within the sandbox.
 
-Certificates configured at the tool level (through `CreateBrowser`) are combined with any certificates provided at session start time. This allows you to set organization-wide certificates on the tool and add session-specific certificates as needed.
+Certificates configured at the tool level (through `CreateBrowser` ) are combined with any certificates provided at session start time. This allows you to set organization-wide certificates on the tool and add session-specific certificates as needed.
 
 ###### Note
 
@@ -29,7 +29,7 @@ Before configuring root CA certificates, ensure you have the following:
 
 ```
 {
-    "Version": "2012-10-17",
+"Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "SecretsManagerCertificateAccess",
@@ -47,19 +47,24 @@ Before configuring root CA certificates, ensure you have the following:
 
 Before you can use a root CA certificate with Amazon Bedrock AgentCore Browser, you must store it as a secret in AWS Secrets Manager. The secret value must be the PEM-encoded certificate content.
 
+###### Example
+
 AWS CLI
 
-```
-aws secretsmanager create-secret \
-  --name "my-corporate-root-ca" \
-  --description "Corporate root CA certificate for AgentCore sessions" \
-  --secret-string file://my-root-ca.pem \
-  --region <region>
-```
+1. ```
+   aws secretsmanager create-secret \
+     --name "my-corporate-root-ca" \
+     --description "Corporate root CA certificate for AgentCore sessions" \
+     --secret-string file://my-root-ca.pem \
+     --region <region>
+   ```
+
+````
+
 
 Boto3
 
-```
+1. ```
 import boto3
 
 client = boto3.client('secretsmanager', region_name='<region>')
@@ -75,7 +80,7 @@ response = client.create_secret(
 )
 
 print(f"Secret ARN: {response['ARN']}")
-```
+````
 
 Note the secret ARN from the output. You will use this ARN when starting sessions with certificate configuration.
 
@@ -87,26 +92,31 @@ The secret must contain a valid PEM-encoded X.509 certificate. The certificate m
 
 To start a browser session that trusts your custom root CA certificates, include the `certificates` parameter in your `StartBrowserSession` request.
 
+###### Example
+
 AWS CLI
 
-```
-aws bedrock-agentcore start-browser-session \
-  --browser-identifier "aws.browser.v1" \
-  --name "session-with-custom-ca" \
-  --certificates '[
-    {
-      "location": {
-        "secretsManager": {
-          "secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:<secret-name>"
-        }
-      }
-    }
-  ]'
-```
+1. ```
+   aws bedrock-agentcore start-browser-session \
+     --browser-identifier "aws.browser.v1" \
+     --name "session-with-custom-ca" \
+     --certificates '[
+       {
+         "location": {
+           "secretsManager": {
+             "secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:<secret-name>"
+           }
+         }
+       }
+     ]'
+   ```
+
+````
+
 
 Boto3
 
-```
+1. ```
 import boto3
 
 client = boto3.client('bedrock-agentcore', region_name='<region>')
@@ -127,32 +137,42 @@ response = client.start_browser_session(
 
 print(f"Session ID: {response['sessionId']}")
 print(f"Status: {response['status']}")
-```
+````
 
 API
 
-```
-{
-  "name": "session-with-custom-ca",
-  "certificates": [
-    {
-      "location": {
-        "secretsManager": {
-          "secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:<secret-name>"
-        }
-      }
-    }
-  ]
-}
-```
+1. ```
+   {
+     "name": "session-with-custom-ca",
+     "certificates": [
+       {
+         "location": {
+           "secretsManager": {
+             "secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:<secret-name>"
+           }
+         }
+       }
+     ]
+   }
+   ```
+
+````
+
+
 
 ## Using multiple certificates
 
+
 You can provide multiple root CA certificates in a single browser session. This is useful when your environment requires trust for multiple internal certificate authorities, such as separate CAs for different internal services or environments.
 
-AWS CLI
 
-```
+###### Example
+
+
+
+ AWS CLI
+
+1. ```
 aws bedrock-agentcore start-browser-session \
   --browser-identifier "aws.browser.v1" \
   --name "session-with-multiple-cas" \
@@ -172,42 +192,52 @@ aws bedrock-agentcore start-browser-session \
       }
     }
   ]'
-```
+````
 
 Boto3
 
-```
-response = client.start_browser_session(
-    browserIdentifier="aws.browser.v1",
-    name="session-with-multiple-cas",
-    certificates=[
-        {
-            "location": {
-                "secretsManager": {
-                    "secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:corporate-root-ca"
-                }
-            }
-        },
-        {
-            "location": {
-                "secretsManager": {
-                    "secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:proxy-ca"
-                }
-            }
-        }
-    ]
-)
-```
+1. ```
+   response = client.start_browser_session(
+       browserIdentifier="aws.browser.v1",
+       name="session-with-multiple-cas",
+       certificates=[
+           {
+               "location": {
+                   "secretsManager": {
+                       "secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:corporate-root-ca"
+                   }
+               }
+           },
+           {
+               "location": {
+                   "secretsManager": {
+                       "secretArn": "arn:aws:secretsmanager:<region>:<account-id>:secret:proxy-ca"
+                   }
+               }
+           }
+       ]
+   )
+   ```
+
+````
+
+
 
 ## Configure certificates at the tool level
 
+
 You can configure certificates at the tool level when creating a custom browser. Certificates configured at the tool level are automatically applied to every session started with that tool, in addition to any certificates provided at session start time.
+
 
 This is useful for organization-wide certificates that should be trusted by all browser sessions.
 
+
+###### Example
+
+
 Boto3
 
-```
+1. ```
 response = client.create_browser(
     name="corporate-browser",
     description="Browser with corporate CA trust",
@@ -224,7 +254,7 @@ response = client.create_browser(
 
 browser_id = response['browserIdentifier']
 print(f"Browser ID: {browser_id}")
-```
+````
 
 When you start a session with a browser that has certificates configured, the tool-level certificates are combined with any session-level certificates. Tool-level certificates are applied first, followed by session-level certificates.
 
@@ -232,11 +262,11 @@ When you start a session with a browser that has certificates configured, the to
 
 Certificates must meet the following requirements:
 
-| Certificate requirements         | Requirement                                                                                                       | Details |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------- |
+| Requirement                      | Details                                                                                                           |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | Format                           | PEM-encoded X.509 certificate                                                                                     |
 | Storage                          | AWS Secrets Manager secret (as a string value, not binary)                                                        |
 | Validity                         | Certificate must not be expired and must be within its validity period (between `notBefore` and `notAfter` dates) |
 | Maximum certificates per session | 10 per session and 10 per tool. A session can have up to 20 certificates in total.                                |
-| Secret ARN format                | `arn:aws:secretsmanager:`region`:`account-id`:secret:`secret-name``                                               |
+| Secret ARN format                | `arn:aws:secretsmanager:region:account-id:secret:secret-name`                                                     |
 | Location type                    | Only AWS Secrets Manager is supported as a certificate location                                                   |

@@ -20,14 +20,9 @@ The Gateway Execution Role is assumed by the Amazon Bedrock AgentCore Gateway se
 - Write logs and traces to CloudWatch and X-Ray
 - Access secrets for authentication configurations
 
-###### Critical Permissions for Policy in AgentCore Integration
+###### Important
 
-The execution role must include these three permissions to use Amazon Bedrock AgentCore Gateway with Policy in AgentCore:
-
-1. `bedrock-agentcore:AuthorizeAction` - Evaluates Cedar policies for authorization decisions
-2. `bedrock-agentcore:PartiallyAuthorizeActions` - Lists tools the caller is authorized to invoke
-3. `bedrock-agentcore:GetPolicyEngine` - Retrieves the policy engine configuration
-   Without these permissions, the Gateway cannot perform policy authorization. This manifests in two ways: attaching a Policy Engine to an existing Gateway will result in an InternalServerException, and all tool invocations will be denied by default even if you have permit policies configured.
+The execution role must include these three permissions to use Amazon Bedrock AgentCore Gateway with Policy in AgentCore: . `bedrock-agentcore:AuthorizeAction` - Evaluates Cedar policies for authorization decisions . `bedrock-agentcore:PartiallyAuthorizeActions` - Lists tools the caller is authorized to invoke . `bedrock-agentcore:GetPolicyEngine` - Retrieves the policy engine configuration Without these permissions, the Gateway cannot perform policy authorization. This manifests in two ways: attaching a Policy Engine to an existing Gateway will result in an InternalServerException, and all tool invocations will be denied by default even if you have permit policies configured.
 
 ### Trust Policy
 
@@ -35,14 +30,11 @@ The Gateway Execution Role must trust the `bedrock-agentcore.amazonaws.com` serv
 
 ###### Important
 
-Replace the following placeholders:
-
-- `us-east-1` with the AWS Region
-- `123456789012` with the AWS account ID
+Replace the following placeholders: \* `us-east-1` with the AWS Region \* `123456789012` with the AWS account ID
 
 ```
 {
-  "Version": "2012-10-17",
+"Version": "2012-10-17",
   "Statement": [
     {
       "Sid": "AllowBedrockAgentCoreAssumeRole",
@@ -70,16 +62,11 @@ This policy grants the Amazon Bedrock AgentCore Gateway the necessary permission
 
 ###### Important
 
-Replace these placeholders:
-
-- `us-east-1` with the AWS Region
-- `123456789012` with the AWS account ID
-- `<gateway-id>` with the Gateway ID (or use `*` for all gateways)
-- `<policy-engine-id>` with the policy engine ID (or use `*` for all policy engines)
+Replace these placeholders: \* `us-east-1` with the AWS Region \* `123456789012` with the AWS account ID \* `<gateway-id>` with the Gateway ID (or use \* for all gateways) \* `<policy-engine-id>` with the policy engine ID (or use \* for all policy engines)
 
 ```
 {
-  "Version": "2012-10-17",
+"Version": "2012-10-17",
   "Statement": [
     {
       "Sid": "PolicyEngineConfiguration",
@@ -109,8 +96,7 @@ Replace these placeholders:
 
 ###### Note
 
-- Additional permissions may be required depending on the Amazon Bedrock AgentCore Gateway integration type (e.g., Lambda functions, API Gateway endpoints). These permissions are not included here as they vary based on the specific integration.
-- For Production: Replace the placeholders with specific resource IDs (e.g., `policy-engine/my-policy-engine-id` instead of `policy-engine/<policy-engine-id>`) to follow least-privilege principles, or use wildcards (`*`) to allow access to all resources of that type.
+\* Additional permissions may be required depending on the Amazon Bedrock AgentCore Gateway integration type (e.g., Lambda functions, API Gateway endpoints). These permissions are not included here as they vary based on the specific integration. \* For Production: Replace the placeholders with specific resource IDs (e.g., `policy-engine/my-policy-engine-id` instead of `policy-engine/<policy-engine-id>` ) to follow least-privilege principles, or use wildcards ( \* ) to allow access to all resources of that type.
 
 ## Resource Management Role
 
@@ -128,14 +114,11 @@ This role is separate from the Gateway Execution Role and is only needed when se
 
 ###### Important
 
-Replace these placeholders:
-
-- `us-east-1` with the AWS Region
-- `123456789012` with the AWS account ID
+Replace these placeholders: \* `us-east-1` with the AWS Region \* `123456789012` with the AWS account ID
 
 ```
 {
-  "Version": "2012-10-17",
+"Version": "2012-10-17",
   "Statement": [
     {
       "Sid": "GatewayManagement",
@@ -241,13 +224,9 @@ Replace these placeholders:
 }
 ```
 
-###### Policy Scope Management Permissions
+###### Important
 
-The `ManageResourceScopedPolicy` and `ManageAdminPolicy` actions are permission-only gates that control what types of Cedar policies administrators can create:
-
-- `ManageResourceScopedPolicy` - Grants permission to create Cedar policies that target specific gateway ARNs (e.g., policies applying to `gateway/my-gateway-123`)
-- `ManageAdminPolicy` - Grants permission to create Cedar policies with wildcards (e.g., policies applying to `gateway/*`)
-  Both permissions are required for full policy management capability. These are not API operations but rather authorization checks that determine the scope of Cedar policies that can be created through the Policy Management APIs.
+The `ManageResourceScopedPolicy` and `ManageAdminPolicy` actions are permission-only gates that control what types of Cedar policies administrators can create: \* `ManageResourceScopedPolicy` - Grants permission to create Cedar policies that target specific gateway ARNs (e.g., policies applying to `gateway/my-gateway-123` ) \* `ManageAdminPolicy` - Grants permission to create Cedar policies with wildcards (e.g., policies applying to gateway/\* ) Both permissions are required for full policy management capability. These are not API operations but rather authorization checks that determine the scope of Cedar policies that can be created through the Policy Management APIs.
 
 ###### Note
 
@@ -261,7 +240,7 @@ Determine whether Policy in AgentCore permissions need to be added to the Amazon
 
 **Status:** Action required
 
-The AgentCore CLI creates a gateway execution role with scoped permissions for target invocation and outbound authentication, but does not include Policy in AgentCore permissions. You must manually add the `AuthorizeAction`, `PartiallyAuthorizeActions`, and `GetPolicyEngine` permissions documented in this guide to the gateway execution role.
+The AgentCore CLI creates a gateway execution role with scoped permissions for target invocation and outbound authentication, but does not include Policy in AgentCore permissions. You must manually add the `AuthorizeAction` , `PartiallyAuthorizeActions` , and `GetPolicyEngine` permissions documented in this guide to the gateway execution role.
 
 **Scenario 2: Custom Execution Role**
 
@@ -273,7 +252,7 @@ Custom IAM roles require the Policy in AgentCore permissions documented in this 
 
 **Status:** Action required
 
-For production environments, scope the Policy in AgentCore permissions to specific resource ARNs rather than using wildcards. Replace `policy-engine/*` and `gateway/*` with the specific policy engine and gateway IDs in your permission policies.
+For production environments, scope the Policy in AgentCore permissions to specific resource ARNs rather than using wildcards. Replace policy-engine/\* and gateway/\* with the specific policy engine and gateway IDs in your permission policies.
 
 ## Troubleshooting
 
@@ -304,7 +283,7 @@ This section covers common issues when configuring IAM permissions for Amazon Be
 
 ###### Note
 
-If you attach a Policy Engine to an existing Gateway using the Policy Engine console, the IAM permissions may not be automatically updated. You must manually add these permissions to the Gateway's Service-Linked Role.
+If you attach a Policy Engine to an existing Gateway using the Policy Engine console, the IAM permissions may not be automatically updated. You must manually add these permissions to the Gateway’s Service-Linked Role.
 
 ### Silent Failures in LOG_ONLY Mode
 
@@ -318,7 +297,7 @@ If you attach a Policy Engine to an existing Gateway using the Policy Engine con
 
 **Symptom:** Amazon Bedrock AgentCore Gateway returns errors indicating it cannot find or access the policy engine.
 
-**Root Cause:** The Gateway Execution Role's policy uses incorrect ARN patterns or is missing the policy-engine resource.
+**Root Cause:** The Gateway Execution Role’s policy uses incorrect ARN patterns or is missing the policy-engine resource.
 
 **Solution:** Ensure both the policy-engine AND gateway ARNs are included in the Resource array:
 
@@ -338,7 +317,7 @@ Both `AuthorizeAction` and `PartiallyAuthorizeActions` require access to BOTH th
 1. **Enable CloudWatch Logs** - Configure detailed logging for the Amazon Bedrock AgentCore Gateway to capture policy evaluation details
 2. **Review X-Ray Traces** - Check AWS X-Ray traces to identify where authorization checks are failing
 3. **Start with LOG_ONLY Mode** - Use LOG_ONLY mode initially to test Cedar policies without blocking requests
-4. **Verify All Four Permissions** - Ensure `AuthorizeAction`, `PartiallyAuthorizeActions`, AND `GetPolicyEngine` are all present
+4. **Verify All Four Permissions** - Ensure `AuthorizeAction` , `PartiallyAuthorizeActions` , AND `GetPolicyEngine` are all present
 5. **Switch to ENFORCED Mode** - Only after verifying all permissions work in LOG_ONLY mode, switch to ENFORCED mode
 
 ## Example: Creating Both IAM Roles
@@ -351,7 +330,7 @@ The following example demonstrates how to create both required IAM roles using t
 # Create the trust policy file
 cat > gateway-trust-policy.json <<EOF
 {
-  "Version": "2012-10-17",
+"Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
@@ -384,7 +363,7 @@ aws iam create-role \
 # Create the permission policy file
 cat > gateway-permissions.json <<EOF
 {
-  "Version": "2012-10-17",
+"Version": "2012-10-17",
   "Statement": [
     {
       "Sid": "PolicyEngineConfiguration",

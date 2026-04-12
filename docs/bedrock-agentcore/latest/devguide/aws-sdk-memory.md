@@ -1,8 +1,6 @@
 # AWS SDK
 
-Use the AWS SDK to directly interact with AgentCore Memory fine-grained control over
-memory operations. The following examples show how to access the AWS SDK with the
-[SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html").
+Use the AWS SDK to directly interact with AgentCore Memory fine-grained control over memory operations. The following examples show how to access the AWS SDK with the [SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html").
 
 **Install dependencies**
 
@@ -108,7 +106,6 @@ memory_id = memory_response['memory']['id']
 actor_id = f"actor_{datetime.now().strftime('%Y%m%d%H%M%S')}"
 session_id = f"session_{datetime.now().strftime('%Y%m%d%H%M%S')}"
 
-
 ########## Wait for long-term memory to become active ##########
 
 while True:
@@ -121,7 +118,6 @@ while True:
         raise Exception("Memory resource creation FAILED.")
     print("Waiting for memory to become active...")
     time.sleep(10)
-
 
 # Create single event with all conversation turns
 event = data_client.create_event(

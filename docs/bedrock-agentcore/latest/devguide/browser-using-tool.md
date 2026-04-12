@@ -2,32 +2,27 @@
 
 ## Creating an AgentCore Browser
 
-You can create a Browser Tool using the Amazon Bedrock AgentCore console, AWS CLI, or AWS
-SDK.
+You can create a Browser Tool using the Amazon Bedrock AgentCore console, AWS CLI, or AWS SDK.
+
+###### Example
 
 Console
 
-###### To create a Browser Tool using the console
-
-1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home#](https://console.aws.amazon.com/bedrock-agentcore/home# "https://console.aws.amazon.com/bedrock-agentcore/home#").
-2. In the navigation pane, choose **Built-in tools**.
-3. Choose **Create browser tool**.
-4. Provide a unique **Tool name** and optional
-   **Description**.
-5. Under **Network settings**, choose **Public
-   network** which allows access to public internet resources.
-6. Under **Session recording**, you can enable recording of
-   browser sessions to an S3 bucket for later review.
-7. Under **Permissions**, specify an IAM execution role that
-   defines what AWS resources the Browser Tool can access.
-8. Choose **Create**.
+1. **To create a Browser Tool using the console**
+2. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home#](https://console.aws.amazon.com/bedrock-agentcore/home# "https://console.aws.amazon.com/bedrock-agentcore/home#").
+3. In the navigation pane, choose **Built-in tools**.
+4. Choose **Create browser tool**.
+5. Provide a unique **Tool name** and optional **Description**.
+6. Under **Network settings** , choose **Public network** which allows access to public internet resources.
+7. Under **Session recording** , you can enable recording of browser sessions to an S3 bucket for later review.
+8. Under **Permissions** , specify an IAM execution role that defines what AWS resources the Browser Tool can access.
+9. Choose **Create**.
 
 AWS CLI
-To create a Browser Tool using the AWS CLI, use the `create-browser`
-command:
+
+1. To create a Browser Tool using the AWS CLI, use the `create-browser` command:
 
 ```
-
 aws bedrock-agentcore-control create-browser \
   --region <Region> \
   --name "my-browser" \
@@ -43,19 +38,17 @@ aws bedrock-agentcore-control create-browser \
     }
   }' \
   --execution-role-arn "arn:aws:iam::123456789012:role/my-execution-role"
-
 ```
 
 Boto3
-To create a Browser Tool using the AWS SDK for Python (Boto3), use the
-`create_browser` method:
 
-###### Request Syntax
+1. To create a Browser Tool using the AWS SDK for Python (Boto3), use the `create_browser` method:
+
+**Request Syntax**
 
 The following shows the request syntax:
 
 ```
-
 response = cp_client.create_browser(
     name="my_custom_browser",
     description="Test browser for development",
@@ -72,14 +65,13 @@ response = cp_client.create_browser(
       }
     }
 )
-
 ```
 
 API
-To create a new browser instance using the API, use the following call:
+
+1. To create a new browser instance using the API, use the following call:
 
 ```
-
 # Using awscurl
 awscurl -X PUT \
   "https://bedrock-agentcore-control.<Region>.amazonaws.com/browsers" \
@@ -102,58 +94,51 @@ awscurl -X PUT \
     },
     "executionRoleArn": "arn:aws:iam::123456789012:role/my-execution-role"
   }'
-
 ```
 
 ## Get AgentCore Browser tool
 
-You can get information about the Browser tool in your account and view their details,
-status, and configurations.
+You can get information about the Browser tool in your account and view their details, status, and configurations.
+
+###### Example
 
 Console
 
-###### To get information about the Browser tool using the console
-
-1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home#](https://console.aws.amazon.com/bedrock-agentcore/home# "https://console.aws.amazon.com/bedrock-agentcore/home#").
-2. In the navigation pane, choose **Built-in tools**.
-3. The browser tools are listed in the **Browser tools**
-   section.
-4. You can choose a tool that you created to view it's details such as name,
-   ID, status, and creation date for each browser tool.
+1. **To get information about the Browser tool using the console**
+2. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home#](https://console.aws.amazon.com/bedrock-agentcore/home# "https://console.aws.amazon.com/bedrock-agentcore/home#").
+3. In the navigation pane, choose **Built-in tools**.
+4. The browser tools are listed in the **Browser tools** section.
+5. You can choose a tool that you created to view it’s details such as name, ID, status, and creation date for each browser tool.
 
 AWS CLI
-To get information about a Browser tool using the AWS CLI, use the
-`get-browser` command:
+
+1. To get information about a Browser tool using the AWS CLI, use the `get-browser` command:
 
 ```
-
 aws bedrock-agentcore-control get-browser \
   --region <Region> \
   --browser-id "<your-browser-id>"
-
 ```
 
 Boto3
-To get information about the Browser tool using the AWS SDK for Python
-(Boto3), use the `get_browser` method:
 
-###### Request Syntax
+1. To get information about the Browser tool using the AWS SDK for Python (Boto3), use the `get_browser` method:
+
+**Request Syntax**
 
 The following shows the request syntax:
 
 ```
-
 response = cp_client.get_browser(
     browserId="<your-browser-id>"
 )
-
 ```
 
 API
-To get the browser tool using the API, use the following call:
+
+1. To get the browser tool using the API, use the following call:
 
 ```
-
 # Using awscurl
 awscurl -X GET \
   "https://bedrock-agentcore-control.<Region>.amazonaws.com/browsers/<your-browser-id>" \
@@ -161,76 +146,65 @@ awscurl -X GET \
   -H "Accept: application/json" \
   --service bedrock-agentcore \
   --region <Region>
-
 ```
 
 ## Listing AgentCore Browser tools
 
-You can list all browser tools in your account to view their details, status, and
-configurations.
+You can list all browser tools in your account to view their details, status, and configurations.
+
+###### Example
 
 Console
 
-###### To list browser tools using the console
-
-1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home#](https://console.aws.amazon.com/bedrock-agentcore/home# "https://console.aws.amazon.com/bedrock-agentcore/home#").
-2. In the navigation pane, choose **Built-in tools**.
-3. The browser tools are listed in the **Browser tools**
-   section.
-4. You can view details such as name, ID, status, and creation date for each
-   browser tool.
+1. **To list browser tools using the console**
+2. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home#](https://console.aws.amazon.com/bedrock-agentcore/home# "https://console.aws.amazon.com/bedrock-agentcore/home#").
+3. In the navigation pane, choose **Built-in tools**.
+4. The browser tools are listed in the **Browser tools** section.
+5. You can view details such as name, ID, status, and creation date for each browser tool.
 
 AWS CLI
-To list browser tools using the AWS CLI, use the `list-browsers`
-command:
+
+1. To list browser tools using the AWS CLI, use the `list-browsers` command:
 
 ```
-
 aws bedrock-agentcore-control list-browsers \
   --region <Region>
-
 ```
 
 You can filter the results by type:
 
 ```
-
 aws bedrock-agentcore-control list-browsers \
   --region <Region> \
   --type SYSTEM
-
 ```
 
 You can also limit the number of results and use pagination:
 
 ```
-
 aws bedrock-agentcore-control list-browsers \
   --region <Region> \
   --max-results 10 \
   --next-token "<your-pagination-token>"
-
 ```
 
 Boto3
-To list browser tools using the AWS SDK for Python (Boto3), use the
-`list_browsers` method:
 
-###### Request Syntax
+1. To list browser tools using the AWS SDK for Python (Boto3), use the `list_browsers` method:
+
+**Request Syntax**
 
 The following shows the request syntax:
 
 ```
-
 response = cp_client.list_browsers(type="CUSTOM")
-
 ```
 
 API
-To list browser tools using the API, use the following call:
+
+1. To list browser tools using the API, use the following call:
 
 ```
-
 # Using awscurl
 awscurl -X POST \
   "https://bedrock-agentcore-control.<Region>.amazonaws.com/browsers" \
@@ -238,91 +212,78 @@ awscurl -X POST \
   -H "Accept: application/json" \
   --service bedrock-agentcore \
   --region <Region>
-
 ```
 
 You can filter the results by type:
 
 ```
-
 awscurl -X POST \
   "https://bedrock-agentcore-control.<Region>.amazonaws.com/browsers?type=SYSTEM" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   --service bedrock-agentcore \
   --region <Region>
-
 ```
 
 You can also limit the number of results and use pagination:
 
 ```
-
 awscurl -X POST \
   "https://bedrock-agentcore-control.<Region>.amazonaws.com/browsers?maxResults=1&nextToken=<your-pagination-token>" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   --service bedrock-agentcore \
   --region <Region>
-
 ```
 
 ## Deleting an AgentCore Browser
 
-When you no longer need a browser tool, you can delete it to free up resources. Before
-deleting a browser tool, make sure to stop all active sessions associated with it.
+When you no longer need a browser tool, you can delete it to free up resources. Before deleting a browser tool, make sure to stop all active sessions associated with it.
+
+###### Example
 
 Console
 
-###### To delete a Browser tool using the console
-
-1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home#](https://console.aws.amazon.com/bedrock-agentcore/home# "https://console.aws.amazon.com/bedrock-agentcore/home#").
-2. Navigate to **Built-in tools** and select your browser
-   tool.
-3. Choose **Delete** from the **Actions**
-   menu.
-4. Confirm the deletion by typing the browser tool name in the confirmation
-   dialog.
-5. Choose **Delete**.
+1. **To delete a Browser tool using the console**
+2. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home#](https://console.aws.amazon.com/bedrock-agentcore/home# "https://console.aws.amazon.com/bedrock-agentcore/home#").
+3. Navigate to **Built-in tools** and select your browser tool.
+4. Choose **Delete** from the **Actions** menu.
+5. Confirm the deletion by typing the browser tool name in the confirmation dialog.
+6. Choose **Delete**.
 
 ###### Note
 
-You cannot delete a browser tool that has active sessions. Stop all sessions
-before attempting to delete the tool.
+You cannot delete a browser tool that has active sessions. Stop all sessions before attempting to delete the tool.
 
 AWS CLI
-To delete a Browser tool using the AWS CLI, use the `delete-browser`
-command:
+
+1. To delete a Browser tool using the AWS CLI, use the `delete-browser` command:
 
 ```
-
 aws bedrock-agentcore-control delete-browser \
   --region <Region> \
   --browser-id "<your-browser-id>"
-
 ```
 
 Boto3
-To delete a Browser tool using the AWS SDK for Python (Boto3), use the
-`delete_browser` method:
 
-###### Request Syntax
+1. To delete a Browser tool using the AWS SDK for Python (Boto3), use the `delete_browser` method:
+
+**Request Syntax**
 
 The following shows the request syntax:
 
 ```
-
 response = cp_client.delete_browser(
     browserId="<your-browser-id>"
     )
-
 ```
 
 API
-To delete a browser tool using the API, use the following call:
+
+1. To delete a browser tool using the API, use the following call:
 
 ```
-
 # Using awscurl
 awscurl -X DELETE \
   "https://bedrock-agentcore-control.<Region>.amazonaws.com/browsers/<your-browser-id>" \
@@ -330,5 +291,4 @@ awscurl -X DELETE \
   -H "Accept: application/json" \
   --service bedrock-agentcore-control \
   --region <Region>
-
 ```

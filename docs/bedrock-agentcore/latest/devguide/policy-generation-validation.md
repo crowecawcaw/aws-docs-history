@@ -1,8 +1,6 @@
 # Policy generation: per-policy validation
 
-When using the policy authoring service to generate policies from natural language,
-validation and analysis occur **per individual policy**
-during generation.
+When using the policy authoring service to generate policies from natural language, validation and analysis occur **per individual policy** during generation.
 
 ## How it works
 
@@ -13,14 +11,11 @@ during generation.
 
 ## Example: Generate and validate a policy
 
-Retrieving generation results is a two-step process: first check the generation
-status, then list the generated assets to see the policies and their validation
-findings.
+Retrieving generation results is a two-step process: first check the generation status, then list the generated assets to see the policies and their validation findings.
 
 Start a policy generation:
 
 ```
-
 aws bedrock-agentcore-control start-policy-generation \
   --policy-engine-id MyEngine-abc123 \
   --name RefundPolicy \
@@ -30,60 +25,47 @@ aws bedrock-agentcore-control start-policy-generation \
   --resource '{
     "arn": "arn:aws:bedrock-agentcore:us-east-1:123456789012:gateway/MyGateway-xyz789"
   }'
-
 ```
 
 The response includes a policy generation ID and status:
 
 ```
-
 {
   "policyGenerationId": "RefundPolicy-def456",
   "policyEngineId": "MyEngine-abc123",
   "status": "GENERATING"
 }
-
 ```
 
-Check the generation status using
-`get-policy-generation`:
+Check the generation status using `get-policy-generation` :
 
 ```
-
 aws bedrock-agentcore-control get-policy-generation \
   --policy-engine-id MyEngine-abc123 \
   --policy-generation-id RefundPolicy-def456
-
 ```
 
 The response shows the overall generation status:
 
 ```
-
 {
   "policyGenerationId": "RefundPolicy-def456",
   "status": "GENERATED",
   "statusReasons": []
 }
-
 ```
 
-Once the status is `GENERATED`, list the generated assets to retrieve
-the policies and their per-policy validation findings:
+Once the status is `GENERATED` , list the generated assets to retrieve the policies and their per-policy validation findings:
 
 ```
-
 aws bedrock-agentcore-control list-policy-generation-assets \
   --policy-engine-id MyEngine-abc123 \
   --policy-generation-id RefundPolicy-def456
-
 ```
 
-The response includes each generated policy with its Cedar definition and
-validation findings:
+The response includes each generated policy with its Cedar definition and validation findings:
 
 ```
-
 {
   "policyGenerationAssets": [
     {
@@ -117,20 +99,15 @@ validation findings:
     }
   ]
 }
-
 ```
 
 ## Validation findings per policy
 
-Each generated policy asset includes a `findings` array of
-`Finding` objects, each with a `type` and
-`description`. The following examples show different finding
-types:
+Each generated policy asset includes a `findings` array of `Finding` objects, each with a `type` and `description` . The following examples show different finding types:
 
 A policy that passed validation and analysis:
 
 ```
-
 {
   "findings": [
     {
@@ -138,13 +115,11 @@ A policy that passed validation and analysis:
     }
   ]
 }
-
 ```
 
 A policy flagged as overly permissive:
 
 ```
-
 {
   "findings": [
     {
@@ -153,13 +128,11 @@ A policy flagged as overly permissive:
     }
   ]
 }
-
 ```
 
 A policy that could not be generated from the natural language input:
 
 ```
-
 {
   "findings": [
     {
@@ -168,20 +141,18 @@ A policy that could not be generated from the natural language input:
     }
   ]
 }
-
 ```
 
 ## Common findings for generated policies
 
-The following table describes the finding types that can be returned for generated
-policies:
+The following table describes the finding types that can be returned for generated policies:
 
-| Policy generation finding types | Finding type | Severity                                                                                                                                      | Description                                                                                                                | Recommended action |
-| ------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `VALID`                         | Success      | Policy is valid Cedar with no findings. No<br>description is returned for this finding type.                                                  | No action required. The policy is ready to use.                                                                            |
-| `INVALID`                       | Error        | The generated Cedar policy contains syntax errors or does not<br>comply with the gateway schema.                                              | Review the generated policy for schema violations or syntax<br>issues. Rephrase the natural language input and regenerate. |
-| `NOT_TRANSLATABLE`              | Error        | Natural language could not be converted to valid Cedar. The<br>request may include conditions that rely on unsupported data or<br>attributes. | Double check targeted gateway resource for tools<br>definition.                                                            |
-| `ALLOW_ALL`                     | Warning      | Permit policy applies to all principal, action, and resource<br>combinations.                                                                 | Confirm that unrestricted access is intended. Add conditions to<br>restrict the scope if not.                              |
-| `ALLOW_NONE`                    | Warning      | Permit policy is non-determining because it permits<br>nothing.                                                                               | Review the policy conditions. The policy may contain<br>contradictory or unreachable conditions.                           |
-| `DENY_ALL`                      | Warning      | Policy denies all actions for all principals.                                                                                                 | Confirm that a full deny is intended. This overrides all permit<br>policies due to forbid-overrides-permit semantics.      |
-| `DENY_NONE`                     | Warning      | Forbid policy is non-determining because it denies<br>nothing.                                                                                | Review the policy conditions. The forbid policy may contain<br>contradictory or unreachable conditions.                    |
+| Finding type       | Severity | Description                                                                                                                             | Recommended action                                                                                                      |
+| ------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `VALID`            | Success  | Policy is valid Cedar with no findings. No description is returned for this finding type.                                               | No action required. The policy is ready to use.                                                                         |
+| `INVALID`          | Error    | The generated Cedar policy contains syntax errors or does not comply with the gateway schema.                                           | Review the generated policy for schema violations or syntax issues. Rephrase the natural language input and regenerate. |
+| `NOT_TRANSLATABLE` | Error    | Natural language could not be converted to valid Cedar. The request may include conditions that rely on unsupported data or attributes. | Double check targeted gateway resource for tools definition.                                                            |
+| `ALLOW_ALL`        | Warning  | Permit policy applies to all principal, action, and resource combinations.                                                              | Confirm that unrestricted access is intended. Add conditions to restrict the scope if not.                              |
+| `ALLOW_NONE`       | Warning  | Permit policy is non-determining because it permits nothing.                                                                            | Review the policy conditions. The policy may contain contradictory or unreachable conditions.                           |
+| `DENY_ALL`         | Warning  | Policy denies all actions for all principals.                                                                                           | Confirm that a full deny is intended. This overrides all permit policies due to forbid-overrides-permit semantics.      |
+| `DENY_NONE`        | Warning  | Forbid policy is non-determining because it denies nothing.                                                                             | Review the policy conditions. The forbid policy may contain contradictory or unreachable conditions.                    |

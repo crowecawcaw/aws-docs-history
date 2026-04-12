@@ -2,23 +2,18 @@
 
 You can use CloudTrail data events to get information about Amazon Bedrock AgentCore Gateway requests. To enable CloudTrail data events for Gateway, you must create a trail manually in CloudTrail backed by an Amazon S3 bucket.
 
-###### Key considerations
+**Key considerations**
 
-- Data event logging incurs additional charges. You must explicitly enable data events
-  as they are not captured by default. Check to ensure that you have data events enabled
-  for your account.
-- With a gateway that is generating a high workload, you could quickly generate
-  thousands of logs in a short amount of time. Be mindful of how long you choose to enable
-  CloudTrail data events for a busy Gateway.
-- CloudTrail stores gateway data event logs in an Amazon S3 bucket of your choosing. Consider using a
-  bucket in a separate AWS account to better organize events from multiple resources into a
-  central place for easier querying and analysis.
-  When you log data events for a trail in CloudTrail, you must use advanced event selectors to log
-  data events for gateway operations.
+- Data event logging incurs additional charges. You must explicitly enable data events as they are not captured by default. Check to ensure that you have data events enabled for your account.
+- With a gateway that is generating a high workload, you could quickly generate thousands of logs in a short amount of time. Be mindful of how long you choose to enable CloudTrail data events for a busy Gateway.
+- CloudTrail stores gateway data event logs in an Amazon S3 bucket of your choosing. Consider using a bucket in a separate AWS account to better organize events from multiple resources into a central place for easier querying and analysis.
+  When you log data events for a trail in CloudTrail, you must use advanced event selectors to log data events for gateway operations.
+
+###### Example
 
 AWS CLI
-To enable CloudTrail data events for gateway resources using the AWS CLI, you can run the
-following command in a terminal:
+
+1. To enable CloudTrail data events for gateway resources using the AWS CLI, you can run the following command in a terminal:
 
 ```
 aws cloudtrail put-event-selectors \
@@ -42,7 +37,8 @@ aws cloudtrail put-event-selectors \
 ```
 
 AWS CDK
-The following example demonstrates how to create a CloudTrail trail with AgentCore Gateway data events using the AWS CDK:
+
+1. The following example demonstrates how to create a CloudTrail trail with AgentCore Gateway data events using the AWS CDK:
 
 ```
 import { Construct } from 'constructs';

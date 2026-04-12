@@ -1,8 +1,6 @@
 # Deploy MCP servers in AgentCore Runtime
 
-Amazon Bedrock AgentCore Runtime lets you deploy and run Model Context Protocol (MCP) servers in the
-AgentCore Runtime. This guide walks you through creating, testing, and deploying your first MCP
-server.
+Amazon Bedrock AgentCore Runtime lets you deploy and run Model Context Protocol (MCP) servers in the AgentCore Runtime. This guide walks you through creating, testing, and deploying your first MCP server.
 
 For an example, see [https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/02-hosting-MCP-server](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/02-hosting-MCP-server "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/02-hosting-MCP-server").
 
@@ -28,31 +26,18 @@ In this section, you learn:
 
 ## How Amazon Bedrock AgentCore supports MCP
 
-When you configure a Amazon Bedrock AgentCore Runtime with the MCP protocol, the service
-expects MCP server containers to be available at the path `0.0.0.0:8000/mcp`,
-which is the default path supported by most official MCP server SDKs.
+When you configure a Amazon Bedrock AgentCore Runtime with the MCP protocol, the service expects MCP server containers to be available at the path `0.0.0.0:8000/mcp` , which is the default path supported by most official MCP server SDKs.
 
-Amazon Bedrock AgentCore supports both stateless and stateful streamable-HTTP MCP servers.
-By default, stateless mode (`stateless_http=True`) is recommended for basic
-MCP servers. The platform automatically adds an `Mcp-Session-Id` header
-for any request without one, so MCP clients can maintain connection continuity to the
-same Amazon Bedrock AgentCore Runtime session.
+Amazon Bedrock AgentCore supports both stateless and stateful streamable-HTTP MCP servers. By default, stateless mode ( `stateless_http=True` ) is recommended for basic MCP servers. The platform automatically adds an `Mcp-Session-Id` header for any request without one, so MCP clients can maintain connection continuity to the same Amazon Bedrock AgentCore Runtime session.
 
-For MCP servers that require multi-turn interactions (elicitation), LLM-generated
-content (sampling), or progress notifications, stateful mode
-(`stateless_http=False`) enables these capabilities. In stateful mode,
-the runtime preserves MCP session state across requests within the same invocation.
-For more information, see
-[Stateful MCP server features](mcp-stateful-features.md "mcp-stateful-features.md").
+For MCP servers that require multi-turn interactions (elicitation), LLM-generated content (sampling), or progress notifications, stateful mode ( `stateless_http=False` ) enables these capabilities. In stateful mode, the runtime preserves MCP session state across requests within the same invocation. For more information, see [Stateful MCP server features](mcp-stateful-features.md "mcp-stateful-features.md").
 
-The payload of the [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md") API is passed through directly,
-allowing RPC messages of protocols like MCP to be easily proxied.
+The payload of the [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md") API is passed through directly, allowing RPC messages of protocols like MCP to be easily proxied.
 
 ## Prerequisites
 
 - Python 3.10 or higher installed and basic understanding of Python
-- An AWS account with appropriate permissions and local credentials
-  configured
+- An AWS account with appropriate permissions and local credentials configured
 
 ## Step 1: Create your MCP server
 
@@ -66,7 +51,7 @@ pip install mcp
 
 ### Create your first MCP server
 
-Create a new file called `my_mcp_server.py`:
+Create a new file called `my_mcp_server.py` :
 
 ```
 # my_mcp_server.py
@@ -97,15 +82,12 @@ if __name__ == "__main__":
 
 ### Understanding the code
 
-- **FastMCP**: Creates an MCP server that can
-  host your tools
-- **@mcp.tool()**: Decorator that turns your
-  Python functions into MCP tools
-- **Tools**: Three simple tools that
-  demonstrate different types of operations
-- **stateless_http=True**: Configures the server in stateless mode, which is the default for basic MCP servers
+- **FastMCP** : Creates an MCP server that can host your tools
+- **@mcp.tool()** : Decorator that turns your Python functions into MCP tools
+- **Tools** : Three simple tools that demonstrate different types of operations
+- **stateless_http=True** : Configures the server in stateless mode, which is the default for basic MCP servers
 
-###### Stateful MCP for interactive features
+###### Tip
 
 For MCP servers that require multi-turn interactions (elicitation) or LLM-generated content (sampling), use `stateless_http=False` to enable stateful mode. Stateful MCP servers maintain session context across multiple requests within the same tool invocation. For more information, see [Stateful MCP server features](mcp-stateful-features.md "mcp-stateful-features.md").
 
@@ -119,13 +101,11 @@ Run your MCP server locally:
 python my_mcp_server.py
 ```
 
-You should see output indicating the server is running on port
-`8000`.
+You should see output indicating the server is running on port `8000`.
 
 ### Test with MCP client
 
-From a new terminal, create a new file `my_mcp_client.py` and
-execute it using `python my_mcp_client.py`
+From a new terminal, create a new file `my_mcp_client.py` and execute it using `python my_mcp_client.py`
 
 ```
 # my_mcp_client.py
@@ -177,8 +157,7 @@ your_project_directory/
 └── __init__.py # Makes the directory a Python package
 ```
 
-Create a new file called `requirements.txt`, add the following
-to it:
+Create a new file called `requirements.txt` , add the following to it:
 
 ```
 mcp
@@ -188,13 +167,11 @@ mcp
 
 ### Create your project for deployment
 
-Before creating your project, you need to set up a Cognito user pool for
-authentication as described in [Set up Cognito user pool for authentication](#runtime-mcp-appendix-a "#runtime-mcp-appendix-a"). This
-provides the OAuth tokens required for secure access to your deployed server.
+Before creating your project, you need to set up a Cognito user pool for authentication as described in [Set up Cognito user pool for authentication](#runtime-mcp-appendix-a "#runtime-mcp-appendix-a") . This provides the OAuth tokens required for secure access to your deployed server.
 
-###### Service-Linked Role for Authentication
+###### Note
 
-Starting **October 7, 2025**, Amazon Bedrock AgentCore uses a Service-Linked Role for workload identity permissions when using OAuth authentication. For detailed information about this change, see [Identity service-linked role](service-linked-roles.md#identity-service-linked-role "service-linked-roles.md#identity-service-linked-role").
+Starting **October 7, 2025** , Amazon Bedrock AgentCore uses a Service-Linked Role for workload identity permissions when using OAuth authentication. For detailed information about this change, see [Identity service-linked role](service-linked-roles.md#identity-service-linked-role "service-linked-roles.md#identity-service-linked-role").
 
 After setting up authentication, scaffold a new project with MCP protocol:
 
@@ -202,7 +179,7 @@ After setting up authentication, scaffold a new project with MCP protocol:
 agentcore create --protocol MCP
 ```
 
-Follow the interactive prompts to provide a project name. The CLI scaffolds the project structure including an `agentcore/agentcore.json` configuration file. Copy your `my_mcp_server.py` file into the generated project's agent code directory, and ensure the entrypoint in `agentcore/agentcore.json` points to your server file.
+Follow the interactive prompts to provide a project name. The CLI scaffolds the project structure including an `agentcore/agentcore.json` configuration file. Copy your `my_mcp_server.py` file into the generated project’s agent code directory, and ensure the entrypoint in `agentcore/agentcore.json` points to your server file.
 
 ### Deploy to AWS
 
@@ -219,10 +196,10 @@ This command will:
 3. Create a Amazon Bedrock AgentCore runtime
 4. Deploy your agent to AWS
 
-After deployment, you'll receive an agent runtime ARN that looks like:
+After deployment, you’ll receive an agent runtime ARN that looks like:
 
 ```
-arn:aws:bedrock-agentcore:us-west-2:`accountId`:runtime/my_mcp_server-xyz123
+arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/my_mcp_server-xyz123
 ```
 
 ## Step 4: Invoke your deployed MCP server
@@ -231,15 +208,12 @@ arn:aws:bedrock-agentcore:us-west-2:`accountId`:runtime/my_mcp_server-xyz123
 
 Before testing, set the following environment variables:
 
-- Export agent ARN as an environment variable: `export
-AGENT_ARN="`agent_arn`"`
-- Export bearer token as an environment variable: `export
-BEARER_TOKEN="`bearer_token`"`
+- Export agent ARN as an environment variable: `export AGENT_ARN="agent_arn"`
+- Export bearer token as an environment variable: `export BEARER_TOKEN="bearer_token"`
 
 if you pass in an `Accept` header, it must follow the [MCP](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#sending-messages-to-the-server "https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#sending-messages-to-the-server") standard. Acceptable media types are `application/json` and `text/event-stream`.
 
-Create a new file `my_mcp_client_remote.py` and execute it
-using `python my_mcp_client_remote.py`
+Create a new file `my_mcp_client_remote.py` and execute it using `python my_mcp_client_remote.py`
 
 ```
 import asyncio
@@ -274,12 +248,11 @@ async def main():
 asyncio.run(main())
 ```
 
-You can also test your deployed server using the MCP Inspector as described in
-[Remote testing with MCP inspector](#runtime-mcp-appendix-c "#runtime-mcp-appendix-c").
+You can also test your deployed server using the MCP Inspector as described in [Remote testing with MCP inspector](#runtime-mcp-appendix-c "#runtime-mcp-appendix-c").
 
 ## Authentication Error Responses for OAuth-Configured Agents
 
-OAuth-configured agents follow [RFC 6749 (OAuth 2.0)](https://datatracker.ietf.org/doc/html/rfc6749 "https://datatracker.ietf.org/doc/html/rfc6749") authentication standards. When authentication is missing, the service returns a 401 Unauthorized response with a WWW-Authenticate header (per [RFC 7235](https://datatracker.ietf.org/doc/html/rfc7235 "https://datatracker.ietf.org/doc/html/rfc7235")), enabling clients to discover the authorization server endpoints through the GetRuntimeProtectedResourceMetadata API.
+OAuth-configured agents follow [RFC 6749 (OAuth 2.0)](https://datatracker.ietf.org/doc/html/rfc6749 "https://datatracker.ietf.org/doc/html/rfc6749") authentication standards. When authentication is missing, the service returns a 401 Unauthorized response with a WWW-Authenticate header (per [RFC 7235](https://datatracker.ietf.org/doc/html/rfc7235 "https://datatracker.ietf.org/doc/html/rfc7235") ), enabling clients to discover the authorization server endpoints through the GetRuntimeProtectedResourceMetadata API.
 
 ### 401 Unauthorized - Missing Authentication
 
@@ -292,7 +265,7 @@ WWW-Authenticate: Bearer resource_metadata="https://bedrock-agentcore.{region}.a
 
 ## End to End Flow with Auth0
 
-This section demonstrates OAuth authentication using Auth0 as the identity provider. We use Auth0 for this example because it supports **Dynamic Client Registration (DCR)**, which simplifies the client setup process by allowing clients to register themselves programmatically at runtime.
+This section demonstrates OAuth authentication using Auth0 as the identity provider. We use Auth0 for this example because it supports **Dynamic Client Registration (DCR)** , which simplifies the client setup process by allowing clients to register themselves programmatically at runtime.
 
 ### Step 1 - Step 3: Create and test your MCP server
 
@@ -318,7 +291,7 @@ After setting up authentication, scaffold a new project with MCP protocol:
 agentcore create --protocol MCP
 ```
 
-Follow the interactive prompts to provide a project name. The CLI scaffolds the project structure including an `agentcore/agentcore.json` configuration file. Copy your `my_mcp_server.py` file into the generated project's agent code directory, and ensure the entrypoint in `agentcore/agentcore.json` points to your server file.
+Follow the interactive prompts to provide a project name. The CLI scaffolds the project structure including an `agentcore/agentcore.json` configuration file. Copy your `my_mcp_server.py` file into the generated project’s agent code directory, and ensure the entrypoint in `agentcore/agentcore.json` points to your server file.
 
 ### Step 6: Deploy to AWS
 
@@ -335,19 +308,19 @@ This command will:
 - Create a Amazon Bedrock AgentCore runtime
 - Deploy your agent to AWS
 
-After deployment, you'll receive an agent runtime ARN that looks like:
+After deployment, you’ll receive an agent runtime ARN that looks like:
 
 ```
-arn:aws:bedrock-agentcore:us-west-2:`accountId`:runtime/my_mcp_server-xyz123
+arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/my_mcp_server-xyz123
 ```
 
 ### Step 7: Invoke your deployed Agent
 
 This client is based on the [official MCP SDK simple-auth-client example](https://github.com/modelcontextprotocol/python-sdk/blob/main/examples/clients/simple-auth-client/mcp_simple_auth_client/main.py "https://github.com/modelcontextprotocol/python-sdk/blob/main/examples/clients/simple-auth-client/mcp_simple_auth_client/main.py") with Auth0-specific modifications.
 
-###### Auth0 Audience Parameter Requirement
+###### Note
 
-When using Auth0 with Dynamic Client Registration, you must include the `audience` parameter in authorization requests to receive JWT tokens. Without this parameter, Auth0 returns opaque tokens or JWE (encrypted) tokens instead of standard JWT tokens. The MCP SDK sends OAuth 2.0's `resource` parameter (RFC 8707), but Auth0 requires the OIDC `audience` parameter for JWT tokens. Both parameters serve similar purposes but Auth0 prioritizes `audience`. For more information, see [Auth0 Community - JWT tokens with Dynamic Application Registration](https://community.auth0.com/t/jwt-tokens-with-dynamic-application-registration/189741 "https://community.auth0.com/t/jwt-tokens-with-dynamic-application-registration/189741").
+When using Auth0 with Dynamic Client Registration, you must include the `audience` parameter in authorization requests to receive JWT tokens. Without this parameter, Auth0 returns opaque tokens or JWE (encrypted) tokens instead of standard JWT tokens. The MCP SDK sends OAuth 2.0’s `resource` parameter (RFC 8707), but Auth0 requires the OIDC `audience` parameter for JWT tokens. Both parameters serve similar purposes but Auth0 prioritizes `audience` . For more information, see [Auth0 Community - JWT tokens with Dynamic Application Registration](https://community.auth0.com/t/jwt-tokens-with-dynamic-application-registration/189741 "https://community.auth0.com/t/jwt-tokens-with-dynamic-application-registration/189741").
 
 Create a file named `mcp_auth0_client.py` with the following code. This client handles Auth0-specific requirements including the audience parameter:
 
@@ -427,8 +400,6 @@ from mcp.client.sse import sse_client
 from mcp.client.streamable_http import streamablehttp_client
 from mcp.shared.auth import OAuthClientInformationFull, OAuthClientMetadata, OAuthToken
 
-
-
 class InMemoryTokenStorage(TokenStorage):
     """Simple in-memory token storage implementation."""
 
@@ -447,7 +418,6 @@ class InMemoryTokenStorage(TokenStorage):
 
     async def set_client_info(self, client_info: OAuthClientInformationFull) -> None:
         self._client_info = client_info
-
 
 class CallbackHandler(BaseHTTPRequestHandler):
     """Simple HTTP handler to capture OAuth callback."""
@@ -501,7 +471,6 @@ class CallbackHandler(BaseHTTPRequestHandler):
         """Suppress default logging."""
         pass
 
-
 class CallbackServer:
     """Simple server to handle OAuth callbacks."""
 
@@ -552,7 +521,6 @@ class CallbackServer:
         """Get the received state parameter."""
         return self.callback_data["state"]
 
-
 def add_auth0_audience_parameter(authorization_url: str, audience: str) -> str:
     """
     Add Auth0 'audience' parameter to authorization URL.
@@ -594,7 +562,6 @@ def add_auth0_audience_parameter(authorization_url: str, audience: str) -> str:
         new_query,
         parsed.fragment
     ))
-
 
 class SimpleAuthClient:
     """Simple MCP client with Auth0 OAuth support."""
@@ -789,7 +756,6 @@ class SimpleAuthClient:
             except EOFError:
                 break
 
-
 async def main():
     """Main entry point."""
     # Get Agent ARN from environment
@@ -831,11 +797,9 @@ async def main():
     )
     await client.connect()
 
-
 def cli():
     """CLI entry point for uv script."""
     asyncio.run(main())
-
 
 if __name__ == "__main__":
     cli()
@@ -872,8 +836,7 @@ The client will automatically:
 
 ### Set up Cognito user pool for authentication
 
-Create a new file `setup_cognito.sh` and add the following
-content.
+Create a new file `setup_cognito.sh` and add the following content.
 
 ```
 #!/bin/bash
@@ -928,30 +891,26 @@ Open a terminal window and set the following environment variables:
 - `PASSWORD` – the password for the new user
 
 ```
-export REGION=`us-east-1` // set your desired Region
-export USERNAME=`USER NAME`
-export PASSWORD=`PASSWORD`
+export REGION=us-east-1 // set your desired Region
+export USERNAME=USER NAME
+export PASSWORD=PASSWORD
 ```
 
-Run the script using the command `source
- setup_cognito.sh`.
+Run the script using the command `source setup_cognito.sh`.
 
 ###### Note
 
 For detailed OAuth authentication setup and Service-Linked Role information, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").
 
-After running this script, note the following values for use in the deployment
-configuration:
+After running this script, note the following values for use in the deployment configuration:
 
-- Discovery URL: Used during the `agentcore create`
-  step
+- Discovery URL: Used during the `agentcore create` step
 - Client ID: Used during the `agentcore create` step
 - Bearer Token: Used when invoking your deployed server
 
 ### Local testing with MCP inspector
 
-The MCP Inspector is a visual tool for testing MCP servers. To use it, you
-need:
+The MCP Inspector is a visual tool for testing MCP servers. To use it, you need:
 
 - Node.js and npm installed
 
@@ -964,18 +923,15 @@ npx @modelcontextprotocol/inspector
 This will:
 
 - Start the MCP Inspector server
-- Display a URL in your terminal (typically
-  `http://localhost:6274`)
+- Display a URL in your terminal (typically `http://localhost:6274` )
 
 To use the Inspector:
 
 1. Navigate to `http://localhost:6274` in your browser
-2. Paste the MCP server URL (`http://localhost:8000/mcp`) into the
-   MCP Inspector connection field
-3. You'll see your tools listed in the sidebar
+2. Paste the MCP server URL ( `http://localhost:8000/mcp` ) into the MCP Inspector connection field
+3. You’ll see your tools listed in the sidebar
 4. Click on any tool to test it
-5. Fill in the parameters (e.g., for `add_numbers`, enter values
-   for `a` and `b`)
+5. Fill in the parameters (e.g., for `add_numbers` , enter values for `a` and `b` )
 6. Click "Call Tool" to see the result
 
 ### Remote testing with MCP inspector
@@ -1003,10 +959,10 @@ npx @modelcontextprotocol/inspector
 
 2. In the web interface:
    - Select "Streamable HTTP" as the transport
-   - Enter your agent's endpoint URL using the encoded ARN. Make sure to use the same region as your agent's ARN:
+   - Enter your agent’s endpoint URL using the encoded ARN. Make sure to use the same region as your agent’s ARN:
 
    ```
-   https://bedrock-agentcore.`REGION`.amazonaws.com/runtimes/`ENCODED_ARN`/invocations?qualifier=DEFAULT
+   https://bedrock-agentcore.REGION.amazonaws.com/runtimes/ENCODED_ARN/invocations?qualifier=DEFAULT
    ```
 
    Example for us-west-2:
@@ -1015,7 +971,7 @@ npx @modelcontextprotocol/inspector
    https://bedrock-agentcore.us-west-2.amazonaws.com/runtimes/arn%3Aaws%3Abedrock-agentcore%3Aus-west-2%3A123456789012%3Aruntime%2Fmy_mcp_server-xyz123/invocations?qualifier=DEFAULT
    ```
 
-   - Add your Bearer token in the Authentication section with header name `Authorization` and value `Bearer `YOUR_TOKEN``
+   - Add your Bearer token in the Authentication section with header name `Authorization` and value `Bearer YOUR_TOKEN`
    - Click "Connect"
 
 3. Test your tools just like you did locally

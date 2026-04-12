@@ -7,14 +7,9 @@ AgentCore Memory provides built-in strategies to create memories. Each built-in 
 - **Reflection** – Insights are generated across episodes.
   Each step is defined by a system prompt, which is a combination of the following:
 
-- **Instructions** – Guide the LLM's behavior. Can
-  include step-by-step processing guidelines (how the model should
-  reason and extract or consolidate information).
+- **Instructions** – Guide the LLM’s behavior. Can include step-by-step processing guidelines (how the model should reason and extract or consolidate information).
 - **Output schema** – How the model should present the result.
-  Each memory strategy provides a structured output format tailored to its purpose. The
-  output is not uniform across strategies, because the type of information being stored
-  and retrieved differs. This maintains that each memory type exposes only the fields most relevant to its
-  strategy. You can find the output formats in the system prompts for each strategy.
+  Each memory strategy provides a structured output format tailored to its purpose. The output is not uniform across strategies, because the type of information being stored and retrieved differs. This maintains that each memory type exposes only the fields most relevant to its strategy. You can find the output formats in the system prompts for each strategy.
 
 You can combine multiple strategies when creating memories.
 

@@ -48,7 +48,7 @@ pip install bedrock-agentcore
 
 ## Step 1: Install the MCP server
 
-To install the AgentCore MCP server, add it to your MCP client's configuration file. Each MCP client stores this configuration in a different location.
+To install the AgentCore MCP server, add it to your MCP client’s configuration file. Each MCP client stores this configuration in a different location.
 
 ### Add MCP server configuration
 
@@ -56,8 +56,7 @@ Choose your MCP client and add the corresponding configuration:
 
 #### For Kiro
 
-Add to `.kiro/settings/mcp.json` (if it doesn't exist, see
-[Creating Configuration Files](https://kiro.dev/docs/mcp/configuration/#creating-configuration-files "https://kiro.dev/docs/mcp/configuration/#creating-configuration-files") ):
+Add to `.kiro/settings/mcp.json` (if it doesn’t exist, see [Creating Configuration Files](https://kiro.dev/docs/mcp/configuration/#creating-configuration-files "https://kiro.dev/docs/mcp/configuration/#creating-configuration-files") ):
 
 ```
 {
@@ -78,15 +77,13 @@ Add to `.kiro/settings/mcp.json` (if it doesn't exist, see
     }
   }
 }
-
 ```
 
 #### For Cursor
 
-Add to `.cursor/mcp.json`:
+Add to `.cursor/mcp.json` :
 
 ```
-
 {
   "mcpServers": {
     "bedrock-agentcore-mcp-server": {
@@ -105,7 +102,6 @@ Add to `.cursor/mcp.json`:
     }
   }
 }
-
 ```
 
 #### For Amazon Q
@@ -118,8 +114,8 @@ For Amazon Q in IDEs (VS Code and JetBrains), see [Using MCP servers with Amazon
 
 Configuration depends on your installation:
 
-- **Standalone app**: Add to `~/.claude/mcp.json`
-- **VS Code extension**: Configure MCP servers through the Claude Code CLI first, then the extension will automatically use them. See the [Claude Code VS Code documentation](https://docs.claude.com/en/docs/claude-code/vs-code "https://docs.claude.com/en/docs/claude-code/vs-code") for setup details.
+- **Standalone app** : Add to `~/.claude/mcp.json`
+- **VS Code extension** : Configure MCP servers through the Claude Code CLI first, then the extension will automatically use them. See the [Claude Code VS Code documentation](https://docs.claude.com/en/docs/claude-code/vs-code "https://docs.claude.com/en/docs/claude-code/vs-code") for setup details.
 
 For standalone Claude Code app:
 
@@ -142,7 +138,6 @@ For standalone Claude Code app:
     }
   }
 }
-
 ```
 
 ### Verify MCP server installation
@@ -165,9 +160,7 @@ The MCP server guides your MCP client to make the following changes to your Agen
 The MCP server adds the required AgentCore imports:
 
 ```
-
 from bedrock_agentcore.runtime import BedrockAgentCoreApp
-
 ```
 
 #### Update dependencies
@@ -175,10 +168,8 @@ from bedrock_agentcore.runtime import BedrockAgentCoreApp
 The MCP server updates your `requirements.txt` file:
 
 ```
-
 bedrock-agentcore
 strands-agents
-
 ```
 
 #### Initialize the AgentCore application
@@ -186,9 +177,7 @@ strands-agents
 The MCP server adds application initialization:
 
 ```
-
 app = BedrockAgentCoreApp()
-
 ```
 
 #### Decorate the main entrypoint
@@ -196,12 +185,10 @@ app = BedrockAgentCoreApp()
 The MCP server converts your handler function:
 
 ```
-
 @app.entrypoint
 def handler(event, context):
     # Your agent logic here
     pass
-
 ```
 
 #### Add application runner
@@ -209,20 +196,16 @@ def handler(event, context):
 The MCP server adds the application runner:
 
 ```
-
 if __name__ == "__main__":
     app.run()
-
 ```
 
 ### Transformation procedure
 
-To transform your AgentCore agent, open your existing AgentCore agent file (for example, `weather_agent.py`) in your MCP client and use your MCP client's AI assistant with the following prompt:
+To transform your AgentCore agent, open your existing AgentCore agent file (for example, `weather_agent.py` ) in your MCP client and use your MCP client’s AI assistant with the following prompt:
 
 ```
-
 Transform this AgentCore agent code to be compatible with AgentCore runtime. Update the imports, dependencies, and application structure as needed.
-
 ```
 
 ## Step 3: Deploy your agent to AgentCore Runtime
@@ -238,12 +221,10 @@ The MCP server uses the AgentCore CLI to deploy your AgentCore agent. The deploy
 - Deploying to Amazon Bedrock AgentCore Runtime
 - Providing the deployment details and AgentCore agent ARN
 
-To deploy your AgentCore agent, use your MCP client's AI assistant with the following prompt:
+To deploy your AgentCore agent, use your MCP client’s AI assistant with the following prompt:
 
 ```
-
 Deploy this AgentCore agent to AgentCore runtime using the AgentCore CLI.
-
 ```
 
 The MCP server executes the necessary CLI commands automatically.
@@ -268,22 +249,18 @@ The MCP server uses the AgentCore CLI to invoke your AgentCore agent and display
 - Execution logs
 - Performance metrics
 
-To test your deployed AgentCore agent, use your MCP client's AI assistant with the following prompt:
+To test your deployed AgentCore agent, use your MCP client’s AI assistant with the following prompt:
 
 ```
-
 Test the deployed AgentCore agent with a sample request.
-
 ```
 
 Review the invocation output:
 
 ```
-
 AgentCore Agent Response: Hello! I can help you with weather information.
 Execution Time: 1.2s
 Status: Success
-
 ```
 
 ## Next steps

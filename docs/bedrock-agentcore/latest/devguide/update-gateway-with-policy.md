@@ -2,12 +2,13 @@
 
 Associate a policy engine with an existing gateway:
 
+###### Example
+
 AWS CLI
-Run the following code in a terminal to update a gateway with a Policy
-Engine using the AWS CLI:
+
+1. Run the following code in a terminal to update a gateway with a Policy Engine using the AWS CLI:
 
 ```
-
 aws bedrock-agentcore-control update-gateway \
   --gateway-identifier my-gateway-id \
   --role-arn arn:aws:iam::123456789012:role/my-gateway-service-role \
@@ -23,18 +24,15 @@ aws bedrock-agentcore-control update-gateway \
     "mode": "ENFORCE",
     "arn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:policy-engine/my_policy_engine"
   }'
-
 ```
 
-The gatewayUrl in the response is the endpoint to use when you invoke the
-gateway.
+The gatewayUrl in the response is the endpoint to use when you invoke the gateway.
 
 AWS Python SDK (Boto3)
-The following Python code shows how to update a gateway with a Policy
-Engine using the AWS Python SDK (Boto3):
+
+1. The following Python code shows how to update a gateway with a Policy Engine using the AWS Python SDK (Boto3):
 
 ```
-
 import boto3
 
 gateway_client = boto3.client('bedrock-agentcore-control')
@@ -59,8 +57,6 @@ response = gateway_client.update_gateway(
 
 print(f"GATEWAY ARN: {response['gatewayArn']}")
 print(f"GATEWAY URL: {response['gatewayUrl']}")
-
 ```
 
-The gatewayUrl in the response is the endpoint to use when you invoke the
-gateway.
+The gatewayUrl in the response is the endpoint to use when you invoke the gateway.

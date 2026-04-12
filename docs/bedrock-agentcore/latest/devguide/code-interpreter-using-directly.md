@@ -1,8 +1,6 @@
 # Using AgentCore Code Interpreter directly
 
-The following sections show you how to use the Amazon Bedrock AgentCore Code Interpreter directly without an
-agent framework. This is especially useful when you want to execute specific code snippets programmatically.
-Before you go through the examples in this section, see [Prerequisites](code-interpreter-getting-started.md#code-interpreter-prerequisites "code-interpreter-getting-started.md#code-interpreter-prerequisites").
+The following sections show you how to use the Amazon Bedrock AgentCore Code Interpreter directly without an agent framework. This is especially useful when you want to execute specific code snippets programmatically. Before you go through the examples in this section, see [Prerequisites](code-interpreter-getting-started.md#code-interpreter-prerequisites "code-interpreter-getting-started.md#code-interpreter-prerequisites").
 
 ###### Topics
 
@@ -13,10 +11,10 @@ Before you go through the examples in this section, see [Prerequisites](code-int
 
 Amazon Bedrock AgentCore provides two ways to interact with AgentCore Code Interpreter: using the high-level SDK client or using boto3 directly.
 
-- **SDK Client**: The `bedrock_agentcore` SDK provides a simplified interface that handles session management details. Use this approach for most applications.
-- **Boto3 Client**: The AWS SDK gives you direct access to the AgentCore Code Interpreter API operations. Use this approach when you need fine-grained control over session configuration or want to integrate with existing boto3-based applications.
+- **SDK Client** : The `bedrock_agentcore` SDK provides a simplified interface that handles session management details. Use this approach for most applications.
+- **Boto3 Client** : The AWS SDK gives you direct access to the AgentCore Code Interpreter API operations. Use this approach when you need fine-grained control over session configuration or want to integrate with existing boto3-based applications.
 
-Create a project folder (if you didn't create one before) and install the required packages:
+Create a project folder (if you didn’t create one before) and install the required packages:
 
 ```
 mkdir agentcore-tools-quickstart
@@ -35,8 +33,8 @@ pip install bedrock-agentcore boto3
 
 These packages provide:
 
-- `bedrock-agentcore`: The SDK for Amazon Bedrock AgentCore tools including AgentCore Code Interpreter
-- `boto3`: AWS SDK for Python (Boto3) to create, configure, and manage AWS services
+- `bedrock-agentcore` : The SDK for Amazon Bedrock AgentCore tools including AgentCore Code Interpreter
+- `boto3` : AWS SDK for Python (Boto3) to create, configure, and manage AWS services
 
 ## Step 2: Execute code
 
@@ -44,10 +42,13 @@ Choose one of the following approaches to execute code with AgentCore Code Inter
 
 ###### Note
 
-Replace `<Region>` with your actual AWS Region (for example, `us-east-1` or `us-west-2`).
+Replace `<Region>` with your actual AWS Region (for example, `us-east-1` or `us-west-2` ).
+
+###### Example
 
 SDK Client
-Create a file named `direct_code_execution_sdk.py` and add the following code:
+
+1. Create a file named `direct_code_execution_sdk.py` and add the following code:
 
 ```
 from bedrock_agentcore.tools.code_interpreter_client import CodeInterpreter
@@ -73,30 +74,39 @@ try:
 finally:
     # Always clean up the session
     code_client.stop()
-
 ```
 
 This code:
 
-- Creates a AgentCore Code Interpreter client for your region
-- Starts a session (required before executing code)
-- Executes Python code and streams the results with full event details
-- Stops the session to clean up resources
+    * Creates a AgentCore Code Interpreter client for your region
+    * Starts a session (required before executing code)
+    * Executes Python code and streams the results with full event details
+    * Stops the session to clean up resources
 
-###### Run the script
 
-Execute the following command:
 
-```
-python direct_code_execution_sdk.py
-```
+    **Run the script**
 
-###### Expected output
 
-You should see a JSON response containing the execution result with `Hello World!!!` in the output content.
+
+    Execute the following command:
+
+
+
+    ```
+    python direct_code_execution_sdk.py
+    ```
+
+
+    **Expected output**
+
+
+
+    You should see a JSON response containing the execution result with `Hello World!!!` in the output content.
 
 Boto3
-Create a file named `direct_code_execution_boto3.py` and add the following code:
+
+1. Create a file named `direct_code_execution_boto3.py` and add the following code:
 
 ```
 import boto3
@@ -151,27 +161,36 @@ finally:
         sessionId=session_id
     )
     print(f"\n\nStopped session: {session_id}")
-
 ```
 
 This code:
 
-- Creates a boto3 client for the bedrock-agentcore service
-- Starts a AgentCore Code Interpreter session with a 900-second timeout
-- Executes Python code using the session ID
-- Parses the streaming response to extract text output
-- Properly stops the session to release resources
+    * Creates a boto3 client for the bedrock-agentcore service
+    * Starts a AgentCore Code Interpreter session with a 900-second timeout
+    * Executes Python code using the session ID
+    * Parses the streaming response to extract text output
+    * Properly stops the session to release resources
 
-The boto3 approach requires explicit session management. You must call `start_code_interpreter_session` before executing code and `stop_code_interpreter_session` when finished.
 
-###### Run the script
+    The boto3 approach requires explicit session management. You must call `start_code_interpreter_session` before executing code and `stop_code_interpreter_session` when finished.
 
-Execute the following command:
 
-```
-python direct_code_execution_boto3.py
-```
 
-###### Expected output
+    **Run the script**
 
-You should see `Hello World!!!` printed as the result of the code execution, along with the session ID information.
+
+
+    Execute the following command:
+
+
+
+    ```
+    python direct_code_execution_boto3.py
+    ```
+
+
+    **Expected output**
+
+
+
+    You should see `Hello World!!!` printed as the result of the code execution, along with the session ID information.

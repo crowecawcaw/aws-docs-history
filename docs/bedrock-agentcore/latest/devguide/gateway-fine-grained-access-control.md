@@ -1,6 +1,6 @@
 # Fine-grained access control for Amazon Bedrock AgentCore Gateway
 
-Amazon Bedrock AgentCore Gateway provides fine-grained access control capabilities that allow you to control which users and agents can access specific tools and resources. You can implement access control through gateway interceptors for custom logic, or use resource-based policies for standard AWS-style access control. For information about resource-based policies, see [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md "resource-based-policies.md").
+Amazon Bedrock AgentCore Gateway provides fine-grained access control capabilities that allow you to control which users and agents can access specific tools and resources. You can implement access control through gateway interceptors for custom logic, or use resource-based policies for standard AWS-style access control. For information about resource-based policies, see [Resource-based policies for Amazon Bedrock AgentCore](security.md#resource-based-policies "security.md#resource-based-policies").
 
 ## Using interceptors for access control
 
@@ -28,7 +28,7 @@ Controls access to specific tools within a gateway using interceptor logic to va
 
 **Operation-level access**
 
-Controls access to specific MCP operations (such as `tools/list` or `tools/call`) using interceptors to validate operation permissions.
+Controls access to specific MCP operations (such as `tools/list` or `tools/call` ) using interceptors to validate operation permissions.
 
 **Parameter-level access**
 
@@ -44,7 +44,7 @@ Use interceptors to examine JWT claims such as user roles, departments, or custo
 
 **IAM principal matching**
 
-For IAM-authenticated gateways, implement access control by matching against the caller's IAM ARN. Use pattern matching on `principal.id` in Cedar policies to restrict access based on AWS accounts, roles, or users.
+For IAM-authenticated gateways, implement access control by matching against the caller’s IAM ARN. Use pattern matching on `principal.id` in Cedar policies to restrict access based on AWS accounts, roles, or users.
 
 **External authorization services**
 

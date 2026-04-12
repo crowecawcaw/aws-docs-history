@@ -1,12 +1,8 @@
 # Self-managed strategy
 
-A self-managed strategy in Amazon Bedrock AgentCore Memory gives you complete
-control over your memory extraction and consolidation pipelines. With a self-managed strategy, you can
-build custom memory processing workflows while leveraging Amazon Bedrock AgentCore for storage
-and retrieval.
+A self-managed strategy in Amazon Bedrock AgentCore Memory gives you complete control over your memory extraction and consolidation pipelines. With a self-managed strategy, you can build custom memory processing workflows while leveraging Amazon Bedrock AgentCore for storage and retrieval.
 
-A self-managed strategy in combination with the batch operations ([BatchCreateMemoryRecords](../APIReference/API_BatchCreateMemoryRecords.md "../APIReference/API_BatchCreateMemoryRecords.md"), [BatchUpdateMemoryRecords](../APIReference/API_BatchUpdateMemoryRecords.md "../APIReference/API_BatchUpdateMemoryRecords.md"), [BatchDeleteMemoryRecords](../APIReference/API_BatchDeleteMemoryRecords.md "../APIReference/API_BatchDeleteMemoryRecords.md")), let you directly ingest these extracted records into
-Amazon Bedrock AgentCore memory for search capabilities.
+A self-managed strategy in combination with the batch operations ( [BatchCreateMemoryRecords](../APIReference/API_BatchCreateMemoryRecords.md "../APIReference/API_BatchCreateMemoryRecords.md") , [BatchUpdateMemoryRecords](../APIReference/API_BatchUpdateMemoryRecords.md "../APIReference/API_BatchUpdateMemoryRecords.md") , [BatchDeleteMemoryRecords](../APIReference/API_BatchDeleteMemoryRecords.md "../APIReference/API_BatchDeleteMemoryRecords.md") ), let you directly ingest these extracted records into Amazon Bedrock AgentCore memory for search capabilities.
 
 With self-managed strategies, you can:
 
@@ -30,22 +26,13 @@ With self-managed strategies, you can:
 
 ## Create and use a self-managed strategy
 
-Self-managed strategies follow a five-step process from trigger configuration to
-memory record storage.
+Self-managed strategies follow a five-step process from trigger configuration to memory record storage.
 
-1. **Configure triggers**: Define trigger conditions
-   (message count, idle timeout, token count) that invoke your pipeline based on
-   short-term memory events
-2. **Receive notifications and payload delivery**:
-   Amazon Bedrock AgentCore publishes notifications to your SNS topic and delivers
-   conversation data to your S3 bucket when trigger conditions are met
-3. **Extract memory records**: Your custom pipeline
-   retrieves the payload and applies extraction logic to identify relevant
-   memories
-4. **Consolidate memory records**: Process extracted
-   memories to remove duplicates and resolve conflicts with existing records
-5. **Store memory records**: Use batch APIs to store
-   processed memory records back into Amazon Bedrock AgentCore long-term memory
+1. **Configure triggers** : Define trigger conditions (message count, idle timeout, token count) that invoke your pipeline based on short-term memory events
+2. **Receive notifications and payload delivery** : Amazon Bedrock AgentCore publishes notifications to your SNS topic and delivers conversation data to your S3 bucket when trigger conditions are met
+3. **Extract memory records** : Your custom pipeline retrieves the payload and applies extraction logic to identify relevant memories
+4. **Consolidate memory records** : Process extracted memories to remove duplicates and resolve conflicts with existing records
+5. **Store memory records** : Use batch APIs to store processed memory records back into Amazon Bedrock AgentCore long-term memory
 
 ## Prerequisites
 
@@ -57,30 +44,25 @@ Before setting up self-managed strategies, verify you have:
 
 ## Set up the infrastructure
 
-Create the required AWS resources including S3 bucket, SNS topic, and IAM role that
-Amazon Bedrock AgentCore needs to access your resources.
+Create the required AWS resources including S3 bucket, SNS topic, and IAM role that Amazon Bedrock AgentCore needs to access your resources.
 
 ### Step 1: Create an S3 bucket
 
-Create an S3 bucket in your account where Amazon Bedrock AgentCore will deliver batched
-event payloads.
+Create an S3 bucket in your account where Amazon Bedrock AgentCore will deliver batched event payloads.
 
-###### Best practice
+###### Important
 
-Configure a lifecycle policy to automatically delete objects after processing
-to control costs.
+Configure a lifecycle policy to automatically delete objects after processing to control costs.
 
 ### Step 2: Create an SNS topic
 
-Create an SNS topic for job notifications. Use FIFO topics if processing order
-within sessions is important for your use case.
+Create an SNS topic for job notifications. Use FIFO topics if processing order within sessions is important for your use case.
 
 ### Step 3: Create an IAM role
 
-Create an IAM role that Amazon Bedrock AgentCore can assume to access your
-resources.
+Create an IAM role that Amazon Bedrock AgentCore can assume to access your resources.
 
-###### Trust policy
+**Trust policy**
 
 Use the following trust policy:
 
@@ -99,7 +81,7 @@ Use the following trust policy:
 }
 ```
 
-###### Permissions policy
+**Permissions policy**
 
 Use the following permissions policy:
 
@@ -132,7 +114,7 @@ Use the following permissions policy:
 }
 ```
 
-###### Additional KMS permissions (if using encrypted resources)
+**Additional KMS permissions (if using encrypted resources)**
 
 If you use encrypted resources, add the following KMS permissions:
 
@@ -150,20 +132,18 @@ If you use encrypted resources, add the following KMS permissions:
 
 ## Create a self-managed strategy
 
-Use the Amazon Bedrock AgentCore control plane APIs to create or update an AgentCore Memory
-with self-managed strategies.
+Use the Amazon Bedrock AgentCore control plane APIs to create or update an AgentCore Memory with self-managed strategies.
 
 ### Required permissions
 
 Your IAM user or role needs:
 
-- `bedrock-agentcore:*` permissions
+- bedrock-agentcore:\* permissions
 - `iam:PassRole` permission for the execution role
 
 ### Create an AgentCore Memory with a self-managed strategy
 
-Use the AWS SDK `CreateMemory` operation to create AgentCore Memory
-that has a self-managed strategy.
+Use the AWS SDK `CreateMemory` operation to create AgentCore Memory that has a self-managed strategy.
 
 ```
 aws bedrock-agentcore-control create-memory \
@@ -209,8 +189,7 @@ aws bedrock-agentcore-control create-memory \
 
 ## Understanding payload delivery
 
-When trigger conditions are met, Amazon Bedrock AgentCore sends notifications and payloads
-using specific schemas.
+When trigger conditions are met, Amazon Bedrock AgentCore sends notifications and payloads using specific schemas.
 
 ### SNS notification message
 
@@ -271,10 +250,7 @@ using specific schemas.
 
 ## Build your custom pipeline
 
-This section demonstrates one approach to building a self-managed memory processing
-pipeline using AWS Lambda and SQS. This is just one example - you can implement your
-pipeline using any compute platform (EC2, ECS, Fargate), logic and processing framework
-that meets your requirements.
+This section demonstrates one approach to building a self-managed memory processing pipeline using AWS Lambda and SQS. This is just one example - you can implement your pipeline using any compute platform (EC2, ECS, Fargate), logic and processing framework that meets your requirements.
 
 ### Step 1: Set up compute
 
@@ -286,26 +262,17 @@ that meets your requirements.
 
 The following example pipeline consists of four main components:
 
-1. Notification handling - Processing SNS notifications and downloading S3
-   payloads
-2. Memory extraction - Using bedrock models to extract relevant information
-   from conversations
-3. Memory consolidation - Deduplicating and merging extracted memories with
-   existing records
-4. Batch ingestion - Storing processed memories back into Amazon Bedrock AgentCore
-   using batch APIs
+1. Notification handling - Processing SNS notifications and downloading S3 payloads
+2. Memory extraction - Using bedrock models to extract relevant information from conversations
+3. Memory consolidation - Deduplicating and merging extracted memories with existing records
+4. Batch ingestion - Storing processed memories back into Amazon Bedrock AgentCore using batch APIs
 
 ## Test your implementation
 
-1. **Create events**: Use the Amazon Bedrock AgentCore APIs
-   to create conversation events (`CreateEvent`)
-2. **Monitor notifications**: Verify that your SNS
-   topic receives notifications when triggers are met
-3. **Validate processing**: Check that your Lambda
-   function processes payloads correctly and extracts memory records
-4. **Verify ingestion**: Use
-   `list-memory-records` to confirm extracted memories are
-   stored
+1. **Create events** : Use the Amazon Bedrock AgentCore APIs to create conversation events ( `CreateEvent` )
+2. **Monitor notifications** : Verify that your SNS topic receives notifications when triggers are met
+3. **Validate processing** : Check that your Lambda function processes payloads correctly and extracts memory records
+4. **Verify ingestion** : Use `list-memory-records` to confirm extracted memories are stored
 
 ### Example: Creating test events
 
@@ -334,47 +301,27 @@ aws bedrock-agentcore list-memory-records \
 
 ## Best practices
 
-Follow these best practices for performance, reliability, cost optimization,
-and security when implementing self-managed strategies.
+Follow these best practices for performance, reliability, cost optimization, and security when implementing self-managed strategies.
 
 ### Performance and reliability
 
-- **SLA sharing**: Long-term memory record
-  generation SLA is shared between Amazon Bedrock AgentCore and your self-managed
-  pipeline
-- **Error handling**: Implement proper retry
-  logic and dead letter queues for failed processing
-- **Monitoring**: Set up CloudWatch logs,
-  metrics, alarms for debugging and processing failures and latency. Also,
-  check vended logs from Amazon Bedrock AgentCore for payload delivery
-  failures
+- **SLA sharing** : Long-term memory record generation SLA is shared between Amazon Bedrock AgentCore and your self-managed pipeline
+- **Error handling** : Implement proper retry logic and dead letter queues for failed processing
+- **Monitoring** : Set up CloudWatch logs, metrics, alarms for debugging and processing failures and latency. Also, check vended logs from Amazon Bedrock AgentCore for payload delivery failures
 
 ### Cost optimization
 
-- **S3 lifecycle policies**: Configure
-  automatic deletion of processed payloads to control storage costs
-- **Right-sizing**: Choose appropriate compute
-  memory and timeout settings based on your processing requirements
+- **S3 lifecycle policies** : Configure automatic deletion of processed payloads to control storage costs
+- **Right-sizing** : Choose appropriate compute memory and timeout settings based on your processing requirements
 
 ### Processing considerations
 
-- **Trigger optimization**: Configure trigger
-  conditions based on your use case requirements - balance between processing
-  efficiency and memory freshness by considering your application's tolerance
-  for latency versus processing costs.
-- **FIFO topics**: Use FIFO SNS topics when
-  session ordering is critical (e.g., for summarization workflows)
-- **Memory consolidation**: Implement
-  deduplication logic to prevent storing redundant or conflicting memory
-  records, which reduces storage costs and improves retrieval accuracy
-- **Memory record organization**: Always
-  include meaningful namespaces and strategy IDs when ingesting records to
-  enable efficient categorization, filtering, and retrieval of memory
-  records
+- **Trigger optimization** : Configure trigger conditions based on your use case requirements - balance between processing efficiency and memory freshness by considering your application’s tolerance for latency versus processing costs.
+- **FIFO topics** : Use FIFO SNS topics when session ordering is critical (e.g., for summarization workflows)
+- **Memory consolidation** : Implement deduplication logic to prevent storing redundant or conflicting memory records, which reduces storage costs and improves retrieval accuracy
+- **Memory record organization** : Always include meaningful namespaces and strategy IDs when ingesting records to enable efficient categorization, filtering, and retrieval of memory records
 
 ### Security
 
-- **Least privilege**: Grant minimal required
-  permissions to all IAM roles
-- **Encryption**: Use KMS encryption for S3
-  buckets and SNS topics containing sensitive data
+- **Least privilege** : Grant minimal required permissions to all IAM roles
+- **Encryption** : Use KMS encryption for S3 buckets and SNS topics containing sensitive data

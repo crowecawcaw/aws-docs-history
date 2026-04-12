@@ -1,14 +1,13 @@
 # Set up outbound authorization for your gateway
 
-Outbound authorization lets Amazon Bedrock AgentCore gateways securely access gateway targets on behalf
-of users that were authenticated and authorized during inbound authorization.
+Outbound authorization lets Amazon Bedrock AgentCore gateways securely access gateway targets on behalf of users that were authenticated and authorized during inbound authorization.
 
 AgentCore Gateway supports the following types of outbound authorization:
 
 - **No authorization (not recommended)** – Some target types provide you the option to bypass outbound authorization. This less secure option is not recommended.
 - **IAM-based outbound authorization** – Use the [gateway service role](gateway-prerequisites-permissions.md#gateway-service-role-permissions "gateway-prerequisites-permissions.md#gateway-service-role-permissions") to authenticate access to the gateway target with [AWS Signature Version 4 (Sig V4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md").
-- **OAuth** – An open authorization framework that allows a client application to access resources. You can use OAuth with a [built-in identity provider](identity-idps.md "identity-idps.md") or with a custom one. For more information, see [OAuth 2.0](https://oauth.net/2/ "https://oauth.net/2/"). You can use the following types of OAuth authorization grants:
-  - **Client credentials grant** – Machine-to-machine authentication (also known as 2-legged OAuth). The client application access resources on the application's behalf, rather than on behalf of the user.
+- **OAuth** – An open authorization framework that allows a client application to access resources. You can use OAuth with a [built-in identity provider](identity-idps.md "identity-idps.md") or with a custom one. For more information, see [OAuth 2.0](https://oauth.net/2/ "https://oauth.net/2/") . You can use the following types of OAuth authorization grants:
+  - **Client credentials grant** – Machine-to-machine authentication (also known as 2-legged OAuth). The client application access resources on the application’s behalf, rather than on behalf of the user.
   - **Authorization code grant** – User-delegated access (also known as 3-legged OAuth). The user provides consent for the client application to access resources on behalf of the user.
 
 - **API key** – Use the AgentCore service to generate an API key to authenticate access to the gateway target.
@@ -42,16 +41,16 @@ Select a topic to learn how to set up that type of authorization:
 
 ## Set up IAM-based outbound authorization with a gateway service role
 
-IAM-based outbound authorization lets you use the gateway service role's IAM credentials to authorize with [AWS Signature Version 4 (Sig V4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md"). This option lets the Amazon Bedrock AgentCore service authenticate to gateway targets on your gateway callers' behalf.
+IAM-based outbound authorization lets you use the gateway service role’s IAM credentials to authorize with [AWS Signature Version 4 (Sig V4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md") . This option lets the Amazon Bedrock AgentCore service authenticate to gateway targets on your gateway callers' behalf.
 
 If you use this option, verify that the gateway service role has `bedrock-agentcore:InvokeGateway` permissions. The gateway uses the service role credentials for authentication during invocation.
 
 **Additional configuration for MCP server targets**
 
-When you use IAM-based outbound authorization with an MCP server target, you must provide additional configuration for SigV4 signing. In the `credentialProviderConfigurations`, include an `iamCredentialProvider` with the following fields:
+When you use IAM-based outbound authorization with an MCP server target, you must provide additional configuration for SigV4 signing. In the `credentialProviderConfigurations` , include an `iamCredentialProvider` with the following fields:
 
 - **service** (required) – The AWS service name used for SigV4 signing. For example, `bedrock-agentcore` for MCP servers hosted on Amazon Bedrock AgentCore.
-- **region** (optional) – The AWS Region for SigV4 signing. If you don't specify a Region, the gateway uses its own Region.
+- **region** (optional) – The AWS Region for SigV4 signing. If you don’t specify a Region, the gateway uses its own Region.
 
 For Lambda, API Gateway, and Smithy targets, do not include the `iamCredentialProvider` field. These target types only support the basic `GATEWAY_IAM_ROLE` configuration with `credentialProviderType` only. For more information about specifying the credential provider configuration, see [AgentCore Gateway service role (IAM) authorization](gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-service-role "gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-service-role").
 
@@ -59,25 +58,25 @@ For Lambda, API Gateway, and Smithy targets, do not include the `iamCredentialPr
 
 To set up outbound authorization with an OAuth client, you use the AgentCore Identity service and specify client credentials that you receive from creating a client in either a built-in identity provider (see [Provider setup and configuration](identity-idps.md "identity-idps.md") or a custom identity provider.
 
-###### To set up outbound authorization with an OAuth client
+**To set up outbound authorization with an OAuth client**
 
 1. Register your client application with a supported third-party provider.
-2. You'll receive a client ID, client secret, and possibly other values that you'll reference when you set up the outbound authorization.
+2. You’ll receive a client ID, client secret, and possibly other values that you’ll reference when you set up the outbound authorization.
 3. Follow one of the steps below, depending on your requirements:
    - To configure outbound authorization in the console using a built-in identity provider, follow the steps at [Add OAuth client using included provider](identity-add-oauth-client-included.md "identity-add-oauth-client-included.md").
    - To configure outbound authorization in the console using a custom identity provider, follow the steps at [Add OAuth client using custom provider](identity-add-oauth-client-custom.md "identity-add-oauth-client-custom.md").
-   - To configure outbound authorization using the API, send a [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") with one of the [AgentCore control plane endpoints](../../../general/latest/gr/bedrock_agentcore.md#bedrock_agentcore_cp "../../../general/latest/gr/bedrock_agentcore.md#bedrock_agentcore_cp"). For examples, see [Examples for setting OAuth client authorization](#gateway-outbound-auth-oauth-examples "#gateway-outbound-auth-oauth-examples").
+   - To configure outbound authorization using the API, send a [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") with one of the [AgentCore control plane endpoints](../../../general/latest/gr/bedrock_agentcore.md#bedrock_agentcore_cp "../../../general/latest/gr/bedrock_agentcore.md#bedrock_agentcore_cp") . For examples, see [Examples for setting OAuth client authorization](#gateway-outbound-auth-oauth-examples "#gateway-outbound-auth-oauth-examples").
 
    ###### Note
 
    The shape of the JSON object that the `oauth2ProviderConfigInput` field maps to depends on the provider that you use and must be congruent with the `credentialProviderVendor` value that you specify. To see examples of different configurations for different credential providers, see the outbound authorization examples in your credential provider of choice at [Provider setup and configuration](identity-idps.md "identity-idps.md").
 
-4. Take note of the generated credential ARN (`credentialProviderArn` in the API) and the AWS Secrets Manager secret ARN (`secretArn` in the API). You'll use these values when you create your gateway target.
-5. (If you're using a custom gateway service role) Attach the following identity-based policy to your gateway service role:
+4. Take note of the generated credential ARN ( `credentialProviderArn` in the API) and the AWS Secrets Manager secret ARN ( `secretArn` in the API). You’ll use these values when you create your gateway target.
+5. (If you’re using a custom gateway service role) Attach the following identity-based policy to your gateway service role:
 
 ```
 {
-    "Version": "2012-10-17",
+"Version": "2012-10-17",
     "Statement": [
       {
         "Sid": "GetWorkloadAccessToken",
@@ -86,8 +85,8 @@ To set up outbound authorization with an OAuth client, you use the AgentCore Ide
             "bedrock-agentcore:GetWorkloadAccessToken",
         ],
         "Resource": [
-            "arn:aws:bedrock-agentcore:`us-east-1`:`123456789012`:workload-identity-directory/default",
-            "arn:aws:bedrock-agentcore:`us-east-1`:`123456789012`:workload-identity-directory/default/workload-identity/`GatewayName`-*"
+            "arn:aws:bedrock-agentcore:us-east-1:123456789012:workload-identity-directory/default",
+            "arn:aws:bedrock-agentcore:us-east-1:123456789012:workload-identity-directory/default/workload-identity/GatewayName-*"
         ]
       },
       {
@@ -97,7 +96,7 @@ To set up outbound authorization with an OAuth client, you use the AgentCore Ide
             "bedrock-agentcore:GetResourceOauth2Token",
         ],
         "Resource": [
-            "arn:aws:bedrock-agentcore:`us-east-1`:`123456789012`:token-vault/`TokenVaultId`/oauth2credentialprovider/`CredentialName`"
+            "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/TokenVaultId/oauth2credentialprovider/CredentialName"
         ]
       },
       {
@@ -107,7 +106,7 @@ To set up outbound authorization with an OAuth client, you use the AgentCore Ide
             "secretsmanager:GetSecretValue",
         ],
         "Resource": [
-            "arn:aws:secretsmanager:`us-east-1`:`123456789012`:secret:`SecretId`"
+            "arn:aws:secretsmanager:us-east-1:123456789012:secret:SecretId"
         ]
       }
     ]
@@ -124,41 +123,45 @@ Replace the values of the following fields:
 
 The following examples show you how to set authorization through an OAuth client for your gateway target:
 
+###### Example
+
 AgentCore CLI
-The AgentCore CLI credential commands must be run inside an existing
-agentcore project. If you don't have one yet, create a project
-first with `agentcore create`.
+
+1. The AgentCore CLI credential commands must be run inside an existing agentcore project. If you don’t have one yet, create a project first with `agentcore create`.
 
 ```
 agentcore add credential \
   --name oauth-credential-provider \
   --type oauth \
-  --discovery-url `<DiscoveryUrl>` \
-  --client-id `<ClientId>` \
-  --client-secret `<ClientSecret>`
+  --discovery-url <DiscoveryUrl> \
+  --client-id <ClientId> \
+  --client-secret <ClientSecret>
 agentcore deploy
 ```
 
 AWS CLI
 
-```
-aws bedrock-agentcore-control create-oauth2-credential-provider \
-  --name oauth-credential-provider \
-  --credential-provider-vendor CustomOAuth2 \
-  --oauth2-provider-config-input '{
-    "customOAuth2ProviderConfig": {
-      "oauthDiscovery": {
-        "discoveryUrl": "<DiscoveryUrl>"
-      },
-      "clientId": "<ClientId>",
-      "clientSecret": "<ClientSecret>"
-    }
-  }'
-```
+1. ```
+   aws bedrock-agentcore-control create-oauth2-credential-provider \
+     --name oauth-credential-provider \
+     --credential-provider-vendor CustomOAuth2 \
+     --oauth2-provider-config-input '{
+       "customOAuth2ProviderConfig": {
+         "oauthDiscovery": {
+           "discoveryUrl": "<DiscoveryUrl>"
+         },
+         "clientId": "<ClientId>",
+         "clientSecret": "<ClientSecret>"
+       }
+     }'
+   ```
+
+````
+
 
 Boto3
 
-```
+1. ```
 import boto3
 
 client = boto3.client("bedrock-agentcore-control")
@@ -174,16 +177,16 @@ client.create_oauth2_credential_provider(
     "clientSecret": "<ClientSecret>"
   }
 )
-```
+````
 
 ## Set up outbound authorization with an API key
 
 To set up outbound authorization with an API key, you use the AgentCore Identity service and specify an API key that you receive from a supported identity provider.
 
-###### To set up outbound authorization with an OAuth client
+**To set up outbound authorization with an OAuth client**
 
 1. Register your client application with a supported third-party provider.
-2. Set up an API key for the provider's service. Take note of the following values, which you'll specify when you add the gateway target:
+2. Set up an API key for the provider’s service. Take note of the following values, which you’ll specify when you add the gateway target:
    - **Credential location** – Whether the API key should be placed in the header or as a query parameter.
    - **Credential prefix** – The prefix for the credential (ex. Bearer).
 
@@ -191,16 +194,16 @@ To set up outbound authorization with an API key, you use the AgentCore Identity
    - To create an API key in the AgentCore console, follow the steps at [Add API key](identity-add-api-key.md "identity-add-api-key.md") and specify the value of the API key.
    - To create an API key using the AgentCore API, send a [CreateApiKeyCredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateApiKeyCredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateApiKeyCredentialProvider.md") request with one of the [AgentCore control plane endpoints](../../../general/latest/gr/bedrock_agentcore.md#bedrock_agentcore_cp "../../../general/latest/gr/bedrock_agentcore.md#bedrock_agentcore_cp") and specify the value of the API key in the `apiKey` field. For examples, see [Examples for setting an API key](#gateway-outbound-auth-api-key-examples "#gateway-outbound-auth-api-key-examples").
 
-4. Take note of the following values, which you'll specify when you add the gateway target:
+4. Take note of the following values, which you’ll specify when you add the gateway target:
    - **Credential provider ARN** – An Amazon Resource Name (ARN) generated for the credential provider.
    - **Name** – The name you gave to the API key.
    - **Secret ARN** – An AWS Secrets Manager secret ARN generated for the API key.
 
-5. (If you're using a custom gateway service role) Attach the following identity-based policy to your gateway service role:
+5. (If you’re using a custom gateway service role) Attach the following identity-based policy to your gateway service role:
 
 ```
 {
-    "Version": "2012-10-17",
+"Version": "2012-10-17",
     "Statement": [
       {
         "Sid": "GetWorkloadAccessToken",
@@ -209,8 +212,8 @@ To set up outbound authorization with an API key, you use the AgentCore Identity
             "bedrock-agentcore:GetWorkloadAccessToken",
         ],
         "Resource": [
-            "arn:aws:bedrock-agentcore:`us-east-1`:`123456789012`:workload-identity-directory/default",
-            "arn:aws:bedrock-agentcore:`us-east-1`:`123456789012`:workload-identity-directory/default/workload-identity/`GatewayName`-*"
+            "arn:aws:bedrock-agentcore:us-east-1:123456789012:workload-identity-directory/default",
+            "arn:aws:bedrock-agentcore:us-east-1:123456789012:workload-identity-directory/default/workload-identity/GatewayName-*"
         ]
       },
       {
@@ -220,7 +223,7 @@ To set up outbound authorization with an API key, you use the AgentCore Identity
             "bedrock-agentcore:GetResourceApiKey",
         ],
         "Resource": [
-            "arn:aws:bedrock-agentcore:`us-east-1`:`123456789012`:token-vault/`TokenVaultId`/apikeycredentialprovider/`Name`"
+            "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/TokenVaultId/apikeycredentialprovider/Name"
         ]
       },
       {
@@ -230,7 +233,7 @@ To set up outbound authorization with an API key, you use the AgentCore Identity
             "secretsmanager:GetSecretValue",
         ],
         "Resource": [
-            "arn:aws:secretsmanager:us-east-1:123456789012:secret:`SecretId`"
+            "arn:aws:secretsmanager:us-east-1:123456789012:secret:SecretId"
         ]
       }
     ]
@@ -247,30 +250,34 @@ Replace the values of the following fields:
 
 The following examples show you how to set an API key for your gateway target:
 
+###### Example
+
 AgentCore CLI
-The AgentCore CLI credential commands must be run inside an existing
-agentcore project. If you don't have one yet, create a project
-first with `agentcore create`.
+
+1. The AgentCore CLI credential commands must be run inside an existing agentcore project. If you don’t have one yet, create a project first with `agentcore create`.
 
 ```
 agentcore add credential \
   --name api-key-credential-provider \
   --type api-key \
-  --api-key `<API_KEY_VALUE>`
+  --api-key <API_KEY_VALUE>
 agentcore deploy
 ```
 
 AWS CLI
 
-```
-aws bedrock-agentcore-control create-api-key-credential-provider \
-  --name api-key-credential-provider \
-  --api-key <API_KEY_VALUE>
-```
+1. ```
+   aws bedrock-agentcore-control create-api-key-credential-provider \
+     --name api-key-credential-provider \
+     --api-key <API_KEY_VALUE>
+   ```
+
+````
+
 
 Boto3
 
-```
+1. ```
 import boto3
 
 client = boto3.client("bedrock-agentcore-control")
@@ -279,4 +286,4 @@ client.create_api_key_credential_provider(
   name="api-key-credential-provider",
   apiKey="<API_KEY_VALUE>"
 )
-```
+````

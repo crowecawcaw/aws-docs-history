@@ -9,7 +9,6 @@ There are no consolidation instructions for built-in summary strategy.
 ## Consolidation output schema
 
 ```
-
 You are a summary generator. You will be given a text block, a concise global summary, and a detailed summary you previous generated.
 <task>
 - Given the contexts(e.g. global summary, detailed previous summary), your goal is to generate
@@ -65,15 +64,10 @@ The XML format of each summary is as it follows:
     </topic>
     ...
 </delta_detailed_summary>
-
 ```
 
 ###### Note
 
-Built-in strategies may use cross-region inference for optimal performance and
-availability.
+Built-in strategies may use cross-region inference for optimal performance and availability.
 
-Built-in strategies may use [cross-region inference](../../../bedrock/latest/userguide/cross-region-inference.md "../../../bedrock/latest/userguide/cross-region-inference.md"). Bedrock will automatically select the optimal
-region within your geography to process your inference request, maximizing available
-compute resources and model availability, and providing the best customer experience.
-There's no additional cost for using cross-region inference.
+Built-in strategies may use [cross-region inference](../../../bedrock/latest/userguide/cross-region-inference.md "../../../bedrock/latest/userguide/cross-region-inference.md") . Bedrock will automatically select the optimal region within your geography to process your inference request, maximizing available compute resources and model availability, and providing the best customer experience. There’s no additional cost for using cross-region inference.

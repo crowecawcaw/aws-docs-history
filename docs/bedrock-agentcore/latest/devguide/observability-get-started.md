@@ -1,8 +1,6 @@
 # Get started with AgentCore Observability
 
-Amazon Bedrock Amazon Bedrock AgentCore Observability helps you trace, debug, and monitor agent
-performance in production environments. This guide helps you implement observability
-features in your agent applications.
+Amazon Bedrock Amazon Bedrock AgentCore Observability helps you trace, debug, and monitor agent performance in production environments. This guide helps you implement observability features in your agent applications.
 
 ###### Topics
 
@@ -17,45 +15,30 @@ features in your agent applications.
 
 Before starting, make sure you have:
 
-- **AWS Account** with credentials configured
-  (`aws configure`) with model access enabled to the Foundation
-  Model you would like to use.
+- **AWS Account** with credentials configured ( `aws configure` ) with model access enabled to the Foundation Model you would like to use.
 - **Python 3.10+** installed
-- **Enable transaction search** on Amazon CloudWatch. Only once, first-time users must enable [CloudWatch Transaction Search](../../../AmazonCloudWatch/latest/monitoring/Enable-TransactionSearch.md "../../../AmazonCloudWatch/latest/monitoring/Enable-TransactionSearch.md") to view Bedrock Amazon Bedrock AgentCore
-  spans and traces
-- **(Non-runtime agents only) Add the OpenTelemetry library** – Include
-  `aws-opentelemetry-distro` (ADOT) in your requirements.txt
-  file. If you deploy using the AgentCore CLI, the runtime automatically
-  instruments your agent and this step is not required.
-- **(Non-runtime agents only)** Make sure that your framework is configured to emit traces (for example,
-  `strands-agents[otel]` package). You may sometimes need to
-  include your agent framework's auto-instrumentor (for example,
-  `opentelemetry-instrumentation-langchain`).
+- **Enable transaction search** on Amazon CloudWatch. Only once, first-time users must enable [CloudWatch Transaction Search](../../../AmazonCloudWatch/latest/monitoring/Enable-TransactionSearch.md "../../../AmazonCloudWatch/latest/monitoring/Enable-TransactionSearch.md") to view Bedrock Amazon Bedrock AgentCore spans and traces
+- **(Non-runtime agents only) Add the OpenTelemetry library** – Include `aws-opentelemetry-distro` (ADOT) in your requirements.txt file. If you deploy using the AgentCore CLI, the runtime automatically instruments your agent and this step is not required.
+- **(Non-runtime agents only)** Make sure that your framework is configured to emit traces (for example, `strands-agents[otel]` package). You may sometimes need to include your agent framework’s auto-instrumentor (for example, `opentelemetry-instrumentation-langchain` ).
 
-Amazon Bedrock AgentCore Observability offers two ways to configure monitoring to match
-different infrastructure needs:
+Amazon Bedrock AgentCore Observability offers two ways to configure monitoring to match different infrastructure needs:
 
 1. Amazon Bedrock AgentCore Runtime-hosted agents
 2. Non-runtime hosted agents
 
-As a one time setup per AWS account, first time users
-need to enable Transaction Search on Amazon CloudWatch. There are two ways to do
-this, via the API and via the CloudWatch Console.
+As a one time setup per AWS account, first time users need to enable Transaction Search on Amazon CloudWatch. There are two ways to do this, via the API and via the CloudWatch Console.
 
 ## Step 1: Enable transaction search on CloudWatch
 
-After you enable Transaction Search, it can take ten minutes for spans to become
-available for search and analysis. Choose one of the options below:
+After you enable Transaction Search, it can take ten minutes for spans to become available for search and analysis. Choose one of the options below:
 
 ### Option 1: Enable transaction search using an API
 
-###### To enable transaction search using the API
+**To enable transaction search using the API**
 
-1. Create a policy that grants access to ingest spans in CloudWatch Logs
-   using AWS CLI.
+1. Create a policy that grants access to ingest spans in CloudWatch Logs using AWS CLI.
 
-An example is shown below on how to format your AWS CLI command with
-`PutResourcePolicy`.
+An example is shown below on how to format your AWS CLI command with `PutResourcePolicy`.
 
 ```
 aws logs put-resource-policy --policy-name MyResourcePolicy --policy-document '{ "Version": "2012-10-17", "Statement": [ { "Sid": "TransactionSearchXRayAccess", "Effect": "Allow", "Principal": { "Service": "xray.amazonaws.com" }, "Action": "logs:PutLogEvents", "Resource": [ "arn:partition:logs:region:account-id:log-group:aws/spans:*", "arn:partition:logs:region:account-id:log-group:/aws/application-signals/data:*" ], "Condition": { "ArnLike": { "aws:SourceArn": "arn:partition:xray:region:account-id:*" }, "StringEquals": { "aws:SourceAccount": "account-id" } } } ]}'
@@ -63,18 +46,15 @@ aws logs put-resource-policy --policy-name MyResourcePolicy --policy-document '{
 
 2. Configure the destination of trace segments.
 
-An example is shown below on how to format your AWS CLI command with
-`UpdateTraceSegmentDestination`.
+An example is shown below on how to format your AWS CLI command with `UpdateTraceSegmentDestination`.
 
 ```
 aws xray update-trace-segment-destination --destination CloudWatchLogs
 ```
 
-3. **Optional** Configure the amount of spans to
-   index.
+3. **Optional** Configure the amount of spans to index.
 
-Configure your desired sampling percentage with
-`UpdateIndexingRule`.
+Configure your desired sampling percentage with `UpdateIndexingRule`.
 
 ```
 aws xray update-indexing-rule --name "Default" --rule '{"Probabilistic": {"DesiredSamplingPercentage": number}}'
@@ -82,42 +62,35 @@ aws xray update-indexing-rule --name "Default" --rule '{"Probabilistic": {"Desir
 
 ### Option 2: Enable transaction search in the CloudWatch console
 
-###### To enable transaction search in the CloudWatch console
+**To enable transaction search in the CloudWatch console**
 
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane under **Setup**, choose **Settings**.
+2. In the navigation pane under **Setup** , choose **Settings**.
 3. Select **Account** and choose **X-Ray traces** tab.
 4. In the **Transaction Search** section, choose **View settings**.
 5. On the page that opens, choose **Edit**.
 6. Choose **Enable Transaction Search**.
 7. Select **For X-Ray users** and enter the percentage of traces to index. You can index 1% of traces at no cost and adjust this percentage later based on your needs.
-8. Choose **Save**. Wait till **Ingest OpenTelemetry spans** shows **Enabled** before sending traces.
+8. Choose **Save** . Wait till **Ingest OpenTelemetry spans** shows **Enabled** before sending traces.
 
-Let's now proceed to exploring the two ways to configure observability.
+Let’s now proceed to exploring the two ways to configure observability.
 
 ## Step 2: Enable observability for Amazon Bedrock AgentCore Runtime hosted agents
 
-Amazon Bedrock AgentCore Runtime-hosted agents are deployed and executed directly within the
-Amazon Bedrock AgentCore environment, providing automatic instrumentation with minimal
-configuration. When you deploy an agent using the AgentCore CLI, the runtime
-automatically instruments your agent with OpenTelemetry — no additional OTEL
-libraries or configuration are needed.
+Amazon Bedrock AgentCore Runtime-hosted agents are deployed and executed directly within the Amazon Bedrock AgentCore environment, providing automatic instrumentation with minimal configuration. When you deploy an agent using the AgentCore CLI, the runtime automatically instruments your agent with OpenTelemetry — no additional OTEL libraries or configuration are needed.
 
 For a complete example, refer to this [notebook](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/01-Agentcore-runtime-hosted/Strands%20Agents/runtime_with_strands_and_bedrock_models.ipynb "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/01-Agentcore-runtime-hosted/Strands%20Agents/runtime_with_strands_and_bedrock_models.ipynb")
 
 ### Create your agent project
 
-Create a new project using the AgentCore CLI. This sets up your project
-folder, virtual environment, and dependencies:
+Create a new project using the AgentCore CLI. This sets up your project folder, virtual environment, and dependencies:
 
 ```
 npm install -g @aws/agentcore
 agentcore create --name StrandsClaudeGettingStarted
 ```
 
-In the project's agent directory, replace the default agent code with
-your own agent logic. The following is an example using the Strands Agents
-SDK:
+In the project’s agent directory, replace the default agent code with your own agent logic. The following is an example using the Strands Agents SDK:
 
 ```
 ## app/StrandsClaudeGettingStarted/main.py
@@ -155,25 +128,20 @@ if __name__ == "__main__":
 
 ### Deploy and invoke your agent
 
-Deploy the agent to AgentCore Runtime. The AgentCore CLI handles
-packaging, deployment, and automatic OTEL instrumentation:
+Deploy the agent to AgentCore Runtime. The AgentCore CLI handles packaging, deployment, and automatic OTEL instrumentation:
 
 ```
 cd StrandsClaudeGettingStarted
 agentcore deploy
 ```
 
-After deployment, your agent runs on AgentCore Runtime and is automatically
-instrumented using OpenTelemetry. Invoke your agent and view the traces,
-sessions, and metrics on the GenAI Observability dashboard in
-Amazon CloudWatch:
+After deployment, your agent runs on AgentCore Runtime and is automatically instrumented using OpenTelemetry. Invoke your agent and view the traces, sessions, and metrics on the GenAI Observability dashboard in Amazon CloudWatch:
 
 ```
 agentcore invoke
 ```
 
-Alternatively, you can invoke your agent programmatically using the
-AWS SDK:
+Alternatively, you can invoke your agent programmatically using the AWS SDK:
 
 ```
 import boto3, json
@@ -192,11 +160,7 @@ print(json.loads(response['response'].read()))
 
 ## Step 3: Enable observability for non-Amazon Bedrock AgentCore-hosted agents
 
-For agents running outside of the Amazon Bedrock AgentCore runtime, you can deliver the same
-monitoring capabilities for agents deployed on your own infrastructure. This allows
-consistent observability regardless of where your agents run. Use the
-following steps to configure the environment variables needed to observe
-your agents.
+For agents running outside of the Amazon Bedrock AgentCore runtime, you can deliver the same monitoring capabilities for agents deployed on your own infrastructure. This allows consistent observability regardless of where your agents run. Use the following steps to configure the environment variables needed to observe your agents.
 
 For a complete example, refer to this [notebook](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/02-Agent-not-hosted-on-runtime/Strands/Strands_Observability.ipynb "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/02-Agent-not-hosted-on-runtime/Strands/Strands_Observability.ipynb")
 
@@ -212,8 +176,7 @@ export AWS_SECRET_ACCESS_KEY=<secret key>
 
 ### Configure CloudWatch logging
 
-Create a log group and log stream for your agent in Amazon CloudWatch which you
-can use to configure below environment variables.
+Create a log group and log stream for your agent in Amazon CloudWatch which you can use to configure below environment variables.
 
 ### Configure OpenTelemetry environment variables
 
@@ -224,11 +187,10 @@ export OTEL_PYTHON_CONFIGURATOR=aws_configurator # Sets AWS configurator for ADO
 export OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf # Configures export protocol
 export  OTEL_EXPORTER_OTLP_LOGS_HEADERS=x-aws-log-group=<YOUR-LOG-GROUP>,x-aws-log-stream=<YOUR-LOG-STREAM>,x-aws-metric-namespace=<YOUR-NAMESPACE>
 # Directs logs to CloudWatch groups
-export OTEL_RESOURCE_ATTRIBUTES=service.name=`<YOUR-AGENT-NAME>` # Identifies your agent in observability data
+export OTEL_RESOURCE_ATTRIBUTES=service.name=<YOUR-AGENT-NAME> # Identifies your agent in observability data
 ```
 
-Replace `<YOUR-AGENT-NAME>` with a unique name to
-identify this agent in the GenAI Observability dashboard and logs.
+Replace `<YOUR-AGENT-NAME>` with a unique name to identify this agent in the GenAI Observability dashboard and logs.
 
 ### Create an agent locally
 
@@ -269,35 +231,27 @@ print(response)
 
 ### Run your agent with automatic instrumentation command
 
-With aws-opentelemetry-distro in your requirements.txt, the
-`opentelemetry-instrument` command will:
+With aws-opentelemetry-distro in your requirements.txt, the `opentelemetry-instrument` command will:
 
 - Load your OTEL configuration from your environment variables
-- Automatically instrument Strands, Amazon Bedrock calls, agent tool and
-  databases, and other requests made by agent
+- Automatically instrument Strands, Amazon Bedrock calls, agent tool and databases, and other requests made by agent
 - Send traces to CloudWatch
-- Enable you to visualize the agent's decision-making process in the GenAI
-  Observability dashboard
+- Enable you to visualize the agent’s decision-making process in the GenAI Observability dashboard
 
 ```
 opentelemetry-instrument python agent.py
 ```
 
-You can now view your traces, sessions and metrics on GenAI Observability
-Dashboard on Amazon CloudWatch with the value of **YOUR-AGENT-NAME** that you configured in your
-[environment
-variables](#configure-opentelemetry-environment-variables "#configure-opentelemetry-environment-variables").
+You can now view your traces, sessions and metrics on GenAI Observability Dashboard on Amazon CloudWatch with the value of **YOUR-AGENT-NAME** that you configured in your [environment variables](#configure-opentelemetry-environment-variables "#configure-opentelemetry-environment-variables").
 
-To correlate traces across multiple agent runs, you can associate a session ID
-with your telemetry data using OpenTelemetry baggage:
+To correlate traces across multiple agent runs, you can associate a session ID with your telemetry data using OpenTelemetry baggage:
 
 ```
 from opentelemetry import baggage, context
 ctx = baggage.set_baggage("session.id", session_id)
 ```
 
-Run the session-enabled version following command, complete implementation
-provided in the [notebook](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/02-Agent-not-hosted-on-runtime/Strands/Strands_Observability.ipynb "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/02-Agent-not-hosted-on-runtime/Strands/Strands_Observability.ipynb"):
+Run the session-enabled version following command, complete implementation provided in the [notebook](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/02-Agent-not-hosted-on-runtime/Strands/Strands_Observability.ipynb "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/02-Agent-not-hosted-on-runtime/Strands/Strands_Observability.ipynb") :
 
 ```
 opentelemetry-instrument python strands_travel_agent_with_session.py --session-id "user-session-123"
@@ -305,53 +259,40 @@ opentelemetry-instrument python strands_travel_agent_with_session.py --session-i
 
 ## Step 4: Observe your agent with GenAI observability on Amazon CloudWatch
 
-After implementing observability, you can view the collected data in
-CloudWatch:
+After implementing observability, you can view the collected data in CloudWatch:
 
 ### Observe your agent
 
 1. Open the [GenAI Observability on CloudWatch console](https://console.aws.amazon.com/cloudwatch/home#gen-ai-observability "https://console.aws.amazon.com/cloudwatch/home#gen-ai-observability")
-2. You can view the data related to model invocations and agents on
-   Bedrock Amazon Bedrock AgentCore on the dashboard.
-3. In the Bedrock Agentcore tab you can view Agents View, Sessions
-   View and Traces View.
-4. Agents View lists all your Agents that are on and not on runtime, you can
-   also choose an agent and view further details like runtime metrics,
-   sessions and traces specific to an agent.
-5. In the **Sessions View** tab, you can navigate across all the sessions
-   associated with agents.
-6. In the **Trace View** tab, you can look into the traces and span information
-   for agents. Also explore the trace trajectory and timeline by choosing a
-   trace.
+2. You can view the data related to model invocations and agents on Bedrock Amazon Bedrock AgentCore on the dashboard.
+3. In the Bedrock Agentcore tab you can view Agents View, Sessions View and Traces View.
+4. Agents View lists all your Agents that are on and not on runtime, you can also choose an agent and view further details like runtime metrics, sessions and traces specific to an agent.
+5. In the **Sessions View** tab, you can navigate across all the sessions associated with agents.
+6. In the **Trace View** tab, you can look into the traces and span information for agents. Also explore the trace trajectory and timeline by choosing a trace.
 
 ### View logs in CloudWatch
 
-###### To view logs in CloudWatch
+**To view logs in CloudWatch**
 
 1. Open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/")
-2. In the left navigation pane, expand **Logs** and select
-   **Log groups**
-3. Search for your agent's log group:
-   - Standard logs (stdout/stderr) Location:
-     `/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>/[runtime-logs]
-<UUID>`
-   - OTEL structured logs:
-     `/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>/runtime-logs`
+2. In the left navigation pane, expand **Logs** and select **Log groups**
+3. Search for your agent’s log group:
+   - Standard logs (stdout/stderr) Location: `/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>/[runtime-logs] <UUID>`
+   - OTEL structured logs: `/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>/runtime-logs`
 
 ### View traces and spans
 
-###### To view traces and spans
+**To view traces and spans**
 
 1. Open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/")
-2. Select **Transaction Search** from the left
-   navigation
+2. Select **Transaction Search** from the left navigation
 3. Location: `/aws/spans/default`
 4. Filter by service name or other criteria
 5. Select a trace to view the detailed execution graph
 
 ### View metrics
 
-###### To view metrics
+**To view metrics**
 
 1. Open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/")
 2. Select **Metrics** from the left navigation
@@ -360,16 +301,8 @@ CloudWatch:
 
 ## Best practices
 
-1. **Start simple, then expand** - The default
-   observability provided by Amazon Bedrock AgentCore captures most critical metrics
-   automatically, including model calls, token usage, and tool execution.
-2. **Configure for development stage** - Tailor your
-   observability configuration to match your current development phase and
-   progressively adjust.
-3. **Use consistent naming** - Establish naming
-   conventions for services, spans, and attributes from the start
-4. **Filter sensitive data** - Prevent exposure of
-   confidential information by filtering sensitive data from observability
-   attributes and payloads.
-5. **Set up alerts** - Configure CloudWatch alarms
-   to notify you of potential issues before they impact users
+1. **Start simple, then expand** - The default observability provided by Amazon Bedrock AgentCore captures most critical metrics automatically, including model calls, token usage, and tool execution.
+2. **Configure for development stage** - Tailor your observability configuration to match your current development phase and progressively adjust.
+3. **Use consistent naming** - Establish naming conventions for services, spans, and attributes from the start
+4. **Filter sensitive data** - Prevent exposure of confidential information by filtering sensitive data from observability attributes and payloads.
+5. **Set up alerts** - Configure CloudWatch alarms to notify you of potential issues before they impact users

@@ -2,15 +2,11 @@
 
 ###### Important
 
-This feature is made available to you as a "Beta Service" as defined in the AWS Service
-Terms. It is subject to your Agreement with AWS and the AWS Service Terms.
+This feature is made available to you as a "Beta Service" as defined in the AWS Service Terms. It is subject to your Agreement with AWS and the AWS Service Terms.
 
-Amazon Bedrock AgentCore supports private connectivity to resources hosted inside your AWS VPC
-or on-premises environments connected to your VPC, such as private MCP servers, internal REST
-APIs, or databases, without exposing those services to the public internet.
+Amazon Bedrock AgentCore supports private connectivity to resources hosted inside your AWS VPC or on-premises environments connected to your VPC, such as private MCP servers, internal REST APIs, or databases, without exposing those services to the public internet.
 
-Private connectivity is established using [Amazon VPC
-Lattice](../../../vpc-lattice/latest/ug/what-is-vpc-lattice.md "../../../vpc-lattice/latest/ug/what-is-vpc-lattice.md") resource gateways and resource configurations. For details on the two supported modes (managed and self-managed Lattice), see [Supported VPC egress modes](#lattice-vpc-egress-compare-modes "#lattice-vpc-egress-compare-modes").
+Private connectivity is established using [Amazon VPC Lattice](../../../vpc-lattice/latest/ug/what-is-vpc-lattice.md "../../../vpc-lattice/latest/ug/what-is-vpc-lattice.md") resource gateways and resource configurations. For details on the two supported modes (managed and self-managed Lattice), see [Supported VPC egress modes](#lattice-vpc-egress-compare-modes "#lattice-vpc-egress-compare-modes").
 
 ###### Topics
 
@@ -29,33 +25,19 @@ Lattice](../../../vpc-lattice/latest/ug/what-is-vpc-lattice.md "../../../vpc-lat
 
 **Resource Gateway**
 
-An Amazon VPC Lattice resource gateway is the point of ingress into your VPC. It is
-associated with one or more subnets and security groups in your VPC and acts as the
-network entry point for traffic from AgentCore. When you use managed Lattice, AgentCore
-creates and manages this resource on your behalf.
+An Amazon VPC Lattice resource gateway is the point of ingress into your VPC. It is associated with one or more subnets and security groups in your VPC and acts as the network entry point for traffic from AgentCore. When you use managed Lattice, AgentCore creates and manages this resource on your behalf.
 
 **Resource Configuration**
 
-A resource configuration represents a specific private endpoint - an IP address or
-DNS name - within your VPC. It is attached to a resource gateway and defines which
-resource AgentCore can reach. When you use managed Lattice, AgentCore creates this
-resource in the AgentCore service account on your behalf.
+A resource configuration represents a specific private endpoint - an IP address or DNS name - within your VPC. It is attached to a resource gateway and defines which resource AgentCore can reach. When you use managed Lattice, AgentCore creates this resource in the AgentCore service account on your behalf.
 
 **Service Network Resource Association**
 
-A service network resource association connects a resource configuration to the
-AgentCore service network, enabling the AgentCore service to invoke your private
-endpoint. AgentCore always creates and manages this association on your behalf,
-regardless of whether you use managed or self-managed Lattice.
+A service network resource association connects a resource configuration to the AgentCore service network, enabling the AgentCore service to invoke your private endpoint. AgentCore always creates and manages this association on your behalf, regardless of whether you use managed or self-managed Lattice.
 
 **Routing domain**
 
-An optional field that specifies an intermediate publicly resolvable domain that
-AgentCore uses as the resource configuration domain instead of the actual target
-domain. This is required when your private endpoint uses a domain that is not publicly
-resolvable, because Amazon VPC Lattice requires publicly resolvable DNS for resource
-configurations. The AgentCore service continues to invoke the actual target domain
-using SNI override. For more information, see [Workaround for private DNS support: routing domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain").
+An optional field that specifies an intermediate publicly resolvable domain that AgentCore uses as the resource configuration domain instead of the actual target domain. This is required when your private endpoint uses a domain that is not publicly resolvable, because Amazon VPC Lattice requires publicly resolvable DNS for resource configurations. The AgentCore service continues to invoke the actual target domain using SNI override. For more information, see [Workaround for private DNS support: routing domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain").
 
 ## Supported Amazon Bedrock AgentCore services
 
@@ -87,46 +69,30 @@ For VPC Lattice pricing details, see [Amazon VPC Lattice pricing](https://aws.am
 
 ## Option 1: Managed Lattice
 
-With managed Lattice, you provide your VPC, subnet, and optional security group
-information. AgentCore handles the creation and lifecycle management of the VPC Lattice
-resource gateway and resource configuration on your behalf, and does not require you to have
-VPC Lattice permissions in your own IAM policies.
+With managed Lattice, you provide your VPC, subnet, and optional security group information. AgentCore handles the creation and lifecycle management of the VPC Lattice resource gateway and resource configuration on your behalf, and does not require you to have VPC Lattice permissions in your own IAM policies.
 
-AgentCore uses the `AWSServiceRoleForBedrockAgentCoreGatewayNetwork`
-service-linked role to create and manage VPC Lattice resource gateways in your account. This
-role is created automatically the first time you create a gateway target with a managed
-private endpoint. For more information about this role, see [Gateway service-linked role](service-linked-roles.md#gateway-service-linked-role "service-linked-roles.md#gateway-service-linked-role").
+AgentCore uses the `AWSServiceRoleForBedrockAgentCoreGatewayNetwork` service-linked role to create and manage VPC Lattice resource gateways in your account. This role is created automatically the first time you create a gateway target with a managed private endpoint. For more information about this role, see [Gateway service-linked role](service-linked-roles.md#gateway-service-linked-role "service-linked-roles.md#gateway-service-linked-role").
 
 ### Prerequisites
 
-Before creating a gateway target with a managed private endpoint, ensure the
-following:
+Before creating a gateway target with a managed private endpoint, ensure the following:
 
-- Your private resource (MCP server or REST API) is running and accessible within
-  your VPC.
-- You have at least one subnet in your VPC that has network access to the private
-  resource.
-- Your security groups allow inbound traffic on the port used by your private
-  resource (typically port 443 for HTTPS).
-- Your IAM principal has the `iam:CreateServiceLinkedRole` permission for
-  `bedrock-agentcore.amazonaws.com`, so that AgentCore can create the
-  service-linked role on your behalf if it does not already exist. For the required IAM
-  policy, see [Gateway service-linked role](service-linked-roles.md#gateway-service-linked-role "service-linked-roles.md#gateway-service-linked-role").
+- Your private resource (MCP server or REST API) is running and accessible within your VPC.
+- You have at least one subnet in your VPC that has network access to the private resource.
+- Your security groups allow inbound traffic on the port used by your private resource (typically port 443 for HTTPS).
+- Your IAM principal has the `iam:CreateServiceLinkedRole` permission for `bedrock-agentcore.amazonaws.com` , so that AgentCore can create the service-linked role on your behalf if it does not already exist. For the required IAM policy, see [Gateway service-linked role](service-linked-roles.md#gateway-service-linked-role "service-linked-roles.md#gateway-service-linked-role").
 - Your IAM principal has the following Amazon EC2 permissions, which are required for AgentCore to set up the VPC Lattice resource gateway in your VPC:
   - `ec2:CreateNetworkInterface`
   - `ec2:DescribeVpcs`
   - `ec2:DescribeSecurityGroups`
   - `ec2:DescribeSubnets`
 
-- If your private endpoint uses a domain that is not publicly resolvable, you must
-  use the `routingDomain` field. For more information, see [Workaround for private DNS support: routing domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain").
+- If your private endpoint uses a domain that is not publicly resolvable, you must use the `routingDomain` field. For more information, see [Workaround for private DNS support: routing domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain").
 - If your private resource uses a TLS certificate issued by a private certificate authority, you can place an internal Application Load Balancer with a public ACM certificate in front of it. For more information, see [Workaround for private certificates: ALB](#lattice-vpc-egress-private-certs "#lattice-vpc-egress-private-certs").
 
 ### Create a target with a managed private endpoint
 
-To create a resource with a managed private endpoint,
-include the `privateEndpoint.managedLatticeResource` block in your
-create request.
+To create a resource with a managed private endpoint, include the `privateEndpoint.managedLatticeResource` block in your create request.
 
 ```
 {
@@ -151,36 +117,27 @@ The ID of the VPC that contains your private resource.
 
 `subnetIds` (required)
 
-A list of subnet IDs within the VPC where the resource gateway will be
-placed.
+A list of subnet IDs within the VPC where the resource gateway will be placed.
 
 `endpointIpAddressType` (required)
 
-The IP address type for the resource configuration. Valid values are
-`IPV4` and `IPV6`.
+The IP address type for the resource configuration. Valid values are `IPV4` and `IPV6`.
 
 `securityGroupIds` (optional)
 
-A list of security group IDs to associate with the resource gateway. If not
-provided, the default security group for the VPC is used.
+A list of security group IDs to associate with the resource gateway. If not provided, the default security group for the VPC is used.
 
 `routingDomain` (optional)
 
-An intermediate publicly resolvable domain to use as the resource configuration
-endpoint. Required when your private endpoint domain is not publicly resolvable. For
-more information, see [Workaround for private DNS support: routing domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain").
+An intermediate publicly resolvable domain to use as the resource configuration endpoint. Required when your private endpoint domain is not publicly resolvable. For more information, see [Workaround for private DNS support: routing domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain").
 
 `tags` (optional)
 
-Tags to apply to the managed VPC Lattice resource gateway. The tag key
-`BedrockAgentCoreGatewayManaged` is reserved and cannot be
-specified.
+Tags to apply to the managed VPC Lattice resource gateway. The tag key `BedrockAgentCoreGatewayManaged` is reserved and cannot be specified.
 
 ### View managed resources
 
-After the resource is created, call the relevant Get API (for example, `GetGatewayTarget`) to view the
-managed VPC Lattice resources that AgentCore created on your behalf. These are returned in
-the `privateEndpointManagedResources` field of the response:
+After the resource is created, call the relevant Get API (for example, `GetGatewayTarget` ) to view the managed VPC Lattice resources that AgentCore created on your behalf. These are returned in the `privateEndpointManagedResources` field of the response:
 
 ```
 {
@@ -203,39 +160,25 @@ the `privateEndpointManagedResources` field of the response:
 }
 ```
 
-The `resourceGatewayArn` is the ARN of the VPC Lattice resource gateway
-that AgentCore created in your account. AgentCore manages the full lifecycle of this
-resource: it reuses the same resource gateway for targets with matching VPC and subnet
-configurations, and deletes it when it is no longer used by any targets.
+The `resourceGatewayArn` is the ARN of the VPC Lattice resource gateway that AgentCore created in your account. AgentCore manages the full lifecycle of this resource: it reuses the same resource gateway for targets with matching VPC and subnet configurations, and deletes it when it is no longer used by any targets.
 
 ## Option 2: Self-managed Lattice
 
-With self-managed Lattice, you create and manage the VPC Lattice resource gateway and
-resource configuration yourself, then provide the resource configuration identifier to
-AgentCore. Use this option if you already have VPC Lattice resources configured, need to
-share a resource configuration across multiple services, or require control over the Lattice
-resource lifecycle.
+With self-managed Lattice, you create and manage the VPC Lattice resource gateway and resource configuration yourself, then provide the resource configuration identifier to AgentCore. Use this option if you already have VPC Lattice resources configured, need to share a resource configuration across multiple services, or require control over the Lattice resource lifecycle.
 
 ### Prerequisites
 
-Before creating a gateway target with a self-managed private endpoint, complete the
-following steps:
+Before creating a gateway target with a self-managed private endpoint, complete the following steps:
 
-- Your private resource (MCP server or REST API) is running and accessible within
-  your VPC.
-- You have at least one subnet in your VPC that has network access to the private
-  resource.
-- Your security groups allow inbound traffic on the port used by your private
-  resource (typically port 443 for HTTPS).
-- If your private endpoint uses a domain that is not publicly resolvable, you must
-  use the `routingDomain` field. For more information, see [Workaround for private DNS support: routing domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain").
+- Your private resource (MCP server or REST API) is running and accessible within your VPC.
+- You have at least one subnet in your VPC that has network access to the private resource.
+- Your security groups allow inbound traffic on the port used by your private resource (typically port 443 for HTTPS).
+- If your private endpoint uses a domain that is not publicly resolvable, you must use the `routingDomain` field. For more information, see [Workaround for private DNS support: routing domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain").
 - If your private resource uses a TLS certificate issued by a private certificate authority, you can place an internal Application Load Balancer with a public ACM certificate in front of it. For more information, see [Workaround for private certificates: ALB](#lattice-vpc-egress-private-certs "#lattice-vpc-egress-private-certs").
 
-###### Set up VPC Lattice resources for self-managed connectivity
+**Set up VPC Lattice resources for self-managed connectivity**
 
-1. **Create a Resource Gateway** in your VPC using the
-   VPC Lattice console or the `CreateResourceGateway` API. Associate it with
-   the subnets and security groups that have access to your private resource.
+1. **Create a Resource Gateway** in your VPC using the VPC Lattice console or the `CreateResourceGateway` API. Associate it with the subnets and security groups that have access to your private resource.
 
 ```
 aws vpc-lattice create-resource-gateway \
@@ -246,9 +189,7 @@ aws vpc-lattice create-resource-gateway \
   --ip-address-type IPV4
 ```
 
-2. **Create a Resource Configuration** that points to
-   your private endpoint. Use the ARN of the resource gateway you created in the previous
-   step.
+2. **Create a Resource Configuration** that points to your private endpoint. Use the ARN of the resource gateway you created in the previous step.
 
 ```
 aws vpc-lattice create-resource-configuration \
@@ -259,9 +200,7 @@ aws vpc-lattice create-resource-configuration \
   --port-ranges 443
 ```
 
-3. **If the resource is in a different account** than the
-   AgentCore owner account, share the resource configuration with the AgentCore owner
-   account using AWS RAM:
+3. **If the resource is in a different account** than the AgentCore owner account, share the resource configuration with the AgentCore owner account using AWS RAM:
 
 ```
 aws ram create-resource-share \
@@ -270,16 +209,13 @@ aws ram create-resource-share \
   --principals <gateway-owner-account-id>
 ```
 
-The AgentCore owner account must accept the resource share before creating the
-target. 4. Note the resource configuration ARN or ID. You will provide this as the
-`resourceConfigurationIdentifier` when creating the gateway target.
+The AgentCore owner account must accept the resource share before creating the target. 4. Note the resource configuration ARN or ID. You will provide this as the `resourceConfigurationIdentifier` when creating the gateway target.
 
-Your IAM principal also needs the following permissions to allow AgentCore to associate
-the resource configuration with the AgentCore service network on your behalf:
+Your IAM principal also needs the following permissions to allow AgentCore to associate the resource configuration with the AgentCore service network on your behalf:
 
 ```
 {
-  "Version": "2012-10-17",
+"Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
@@ -298,9 +234,7 @@ the resource configuration with the AgentCore service network on your behalf:
 
 ### Create a target with a self-managed private endpoint
 
-To create a resource with a self-managed private endpoint, include the
-`privateEndpoint.selfManagedLatticeResource` block in your
-create request:
+To create a resource with a self-managed private endpoint, include the `privateEndpoint.selfManagedLatticeResource` block in your create request:
 
 ```
 {
@@ -314,33 +248,22 @@ create request:
 }
 ```
 
-The `resourceConfigurationIdentifier` can be either the ARN or the ID of
-the VPC Lattice resource configuration. AgentCore uses your credentials (via [Forward Access Sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md")) to associate the resource configuration with the
-AgentCore service network.
+The `resourceConfigurationIdentifier` can be either the ARN or the ID of the VPC Lattice resource configuration. AgentCore uses your credentials (via [Forward Access Sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md") ) to associate the resource configuration with the AgentCore service network.
 
-After the resource is created, the Get API response includes the
-`resourceAssociationArn` in the `privateEndpointManagedResources`
-field. If you create multiple resources pointing to the same resource configuration,
-AgentCore automatically reuses the existing service network resource association.
+After the resource is created, the Get API response includes the `resourceAssociationArn` in the `privateEndpointManagedResources` field. If you create multiple resources pointing to the same resource configuration, AgentCore automatically reuses the existing service network resource association.
 
 ### Cross-account private resources
 
-You can connect AgentCore to private resources in a different AWS account than the
-account that owns the gateway. This is a common pattern for platform teams that manage
-centralized gateways while individual service teams own the private resources.
+You can connect AgentCore to private resources in a different AWS account than the account that owns the gateway. This is a common pattern for platform teams that manage centralized gateways while individual service teams own the private resources.
 
-The resource owner account must share the VPC Lattice resource configuration with the gateway owner account
-using AWS RAM. The gateway owner account then provides the shared resource configuration
-identifier when creating the gateway target.
+The resource owner account must share the VPC Lattice resource configuration with the gateway owner account using AWS RAM. The gateway owner account then provides the shared resource configuration identifier when creating the gateway target.
 
 The following steps summarize the cross-account setup:
 
-###### Set up cross-account private connectivity
+**Set up cross-account private connectivity**
 
-1. **In the resource owner account**: Create a VPC Lattice
-   resource gateway and resource configuration as described in [Prerequisites](#lattice-vpc-egress-self-managed-lattice-prereqs "#lattice-vpc-egress-self-managed-lattice-prereqs").
-2. **In the resource owner account**: Share the resource
-   configuration with the gateway owner account using AWS RAM:
+1. **In the resource owner account** : Create a VPC Lattice resource gateway and resource configuration as described in [Prerequisites](#lattice-vpc-egress-self-managed-lattice-prereqs "#lattice-vpc-egress-self-managed-lattice-prereqs").
+2. **In the resource owner account** : Share the resource configuration with the gateway owner account using AWS RAM:
 
 ```
 aws ram create-resource-share \
@@ -349,66 +272,36 @@ aws ram create-resource-share \
   --principals <gateway-owner-account-id>
 ```
 
-3. **In the gateway owner account**: Accept the resource
-   share:
+3. **In the gateway owner account** : Accept the resource share:
 
 ```
 aws ram accept-resource-share-invitation \
   --resource-share-invitation-arn <invitation-arn>
 ```
 
-4. **In the gateway owner account**: Create the gateway
-   target using the shared resource configuration identifier, as described in [Create a target with a self-managed private endpoint](#lattice-vpc-egress-self-managed-lattice-create "#lattice-vpc-egress-self-managed-lattice-create").
+4. **In the gateway owner account** : Create the gateway target using the shared resource configuration identifier, as described in [Create a target with a self-managed private endpoint](#lattice-vpc-egress-self-managed-lattice-create "#lattice-vpc-egress-self-managed-lattice-create").
 
 ## Workaround for private DNS support: routing domain
 
-Amazon VPC Lattice requires that the domain used in a resource configuration be publicly
-resolvable. If your private endpoint uses a domain that is only resolvable within your VPC
-(for example, a private hosted zone in Route 53), you must use the
-`routingDomain` field.
+Amazon VPC Lattice requires that the domain used in a resource configuration be publicly resolvable. If your private endpoint uses a domain that is only resolvable within your VPC (for example, a private hosted zone in Route 53), you must use the `routingDomain` field.
 
-When using a routing domain, the domain you specify for your target (in the MCP endpoint
-URL or OpenAPI server URL) should be the actual private DNS name of your resource - i.e. the
-name that is resolvable within your VPC. The `routingDomain` is a separate,
-publicly resolvable domain that AgentCore uses only to set up the VPC Lattice resource
-configuration. At invocation time, AgentCore routes traffic through the routing domain but
-sends requests with the private DNS name as the TLS SNI hostname, so your resource receives
-requests addressed to its actual private domain.
+When using a routing domain, the domain you specify for your target (in the MCP endpoint URL or OpenAPI server URL) should be the actual private DNS name of your resource - i.e. the name that is resolvable within your VPC. The `routingDomain` is a separate, publicly resolvable domain that AgentCore uses only to set up the VPC Lattice resource configuration. At invocation time, AgentCore routes traffic through the routing domain but sends requests with the private DNS name as the TLS SNI hostname, so your resource receives requests addressed to its actual private domain.
 
-The routing domain can be any publicly resolvable domain that routes to your private
-resource within the VPC — including any existing component in your architecture that already has a publicly resolvable DNS name. Common options include:
+The routing domain can be any publicly resolvable domain that routes to your private resource within the VPC — including any existing component in your architecture that already has a publicly resolvable DNS name. Common options include:
 
-- **VPC endpoint (VPCE) domain for a private API Gateway** -
-  Use the VPCE DNS name as the `routingDomain`, for example
-  `<vpce-id>.execute-api.us-east-1.vpce.amazonaws.com`.
-  Set the target URL in your OpenAPI spec to the private API Gateway hostname, for example
-  `https://<api-id>.execute-api.us-east-1.amazonaws.com`. AgentCore routes
-  traffic through the VPCE domain but sends requests with the private API hostname as the
-  TLS SNI, ensuring correct routing within your VPC.
-- **Internal Application Load Balancer (ALB)** - Use the
-  internal ALB DNS name as the `routingDomain`, for example
-  `internal-<alb-name>-<id>.us-west-2.elb.amazonaws.com`. Set the target
-  URL to the private DNS name of the resource behind the ALB.
-- **Internal Network Load Balancer (NLB)** - Use the
-  internal NLB DNS name as the `routingDomain`, for example
-  `internal-<nlb-name>-<id>.elb.us-west-2.amazonaws.com`. Set the target
-  URL to the private DNS name of the resource behind the NLB.
+- **VPC endpoint (VPCE) domain for a private API Gateway** - Use the VPCE DNS name as the `routingDomain` , for example `<vpce-id>.execute-api.us-east-1.vpce.amazonaws.com` . Set the target URL in your OpenAPI spec to the private API Gateway hostname, for example `https://<api-id>.execute-api.us-east-1.amazonaws.com` . AgentCore routes traffic through the VPCE domain but sends requests with the private API hostname as the TLS SNI, ensuring correct routing within your VPC.
+- **Internal Application Load Balancer (ALB)** - Use the internal ALB DNS name as the `routingDomain` , for example `internal-<alb-name>-<id>.us-west-2.elb.amazonaws.com` . Set the target URL to the private DNS name of the resource behind the ALB.
+- **Internal Network Load Balancer (NLB)** - Use the internal NLB DNS name as the `routingDomain` , for example `internal-<nlb-name>-<id>.elb.us-west-2.amazonaws.com` . Set the target URL to the private DNS name of the resource behind the NLB.
 
 The following steps describe the traffic flow when a routing domain is used:
 
-1. AgentCore resolves the VPC Lattice-generated DNS name to reach the
-   resource gateway.
-2. Traffic enters your VPC through the resource gateway, addressed to the routing
-   domain.
-3. The routing domain (VPCE or ALB) forwards the request to your private resource. The
-   TLS SNI header contains the actual target domain, so your resource receives the request
-   with the correct hostname.
+1. AgentCore resolves the VPC Lattice-generated DNS name to reach the resource gateway.
+2. Traffic enters your VPC through the resource gateway, addressed to the routing domain.
+3. The routing domain (VPCE or ALB) forwards the request to your private resource. The TLS SNI header contains the actual target domain, so your resource receives the request with the correct hostname.
 
 ### Example: Private API Gateway with VPCE routing domain
 
-The following example shows how to create a gateway target for a private API Gateway using
-its VPCE domain as the routing domain. The target URL is the private API Gateway hostname, and
-the `routingDomain` is the VPCE DNS name:
+The following example shows how to create a gateway target for a private API Gateway using its VPCE domain as the routing domain. The target URL is the private API Gateway hostname, and the `routingDomain` is the VPCE DNS name:
 
 ```
 {
@@ -433,9 +326,7 @@ the `routingDomain` is the VPCE DNS name:
 
 ###### Note
 
-The `routingDomain` field is only available for the
-`managedLatticeResource` option. For self-managed Lattice, configure the
-routing domain directly in your resource configuration when you create it.
+The `routingDomain` field is only available for the `managedLatticeResource` option. For self-managed Lattice, configure the routing domain directly in your resource configuration when you create it.
 
 ## Workaround for private certificates: ALB
 
@@ -443,27 +334,27 @@ VPC egress requires your target endpoint to have a publicly trusted TLS certific
 
 The following steps describe the traffic flow:
 
-1. Set the target URL to a domain that matches your public ACM certificate (for example, `https://my-server.my-company.com`).
-2. Set the `routingDomain` to the internal ALB DNS name (for example, `internal-my-alb-1234567890.us-west-2.elb.amazonaws.com`).
-3. VPC Lattice routes traffic to the ALB via the routing domain. The TLS SNI is set to `my-server.my-company.com`, which matches the ALB's public ACM certificate, so the TLS handshake succeeds.
-4. The ALB terminates TLS and applies a host header transform to rewrite the Host header from `my-server.my-company.com` to the private resource's domain (for example, `my-server.my-company.internal`).
+1. Set the target URL to a domain that matches your public ACM certificate (for example, `https://my-server.my-company.com` ).
+2. Set the `routingDomain` to the internal ALB DNS name (for example, `internal-my-alb-1234567890.us-west-2.elb.amazonaws.com` ).
+3. VPC Lattice routes traffic to the ALB via the routing domain. The TLS SNI is set to `my-server.my-company.com` , which matches the ALB’s public ACM certificate, so the TLS handshake succeeds.
+4. The ALB terminates TLS and applies a host header transform to rewrite the Host header from `my-server.my-company.com` to the private resource’s domain (for example, `my-server.my-company.internal` ).
 5. The ALB forwards the request to your backend resource over HTTPS using the private certificate. All traffic stays inside your VPC.
 
-###### Step 1: Request a public ACM certificate
+**Step 1: Request a public ACM certificate**
 
 Request a public certificate from ACM for a domain you own. This domain will be used as the target URL. For instructions, see [Request a public certificate](../../../acm/latest/userguide/gs-acm-request-public.md "../../../acm/latest/userguide/gs-acm-request-public.md") in the AWS Certificate Manager User Guide.
 
-###### Step 2: Create an internal ALB
+**Step 2: Create an internal ALB**
 
 Create an internal Application Load Balancer in the same VPC as your private resource. For instructions, see [Create an Application Load Balancer](../../../elasticloadbalancing/latest/application/create-application-load-balancer.md "../../../elasticloadbalancing/latest/application/create-application-load-balancer.md") in the Elastic Load Balancing User Guide. Ensure you set the scheme to `internal`.
 
-###### Step 3: Create an IP-based target group
+**Step 3: Create an IP-based target group**
 
-Create a target group with target type `ip` that points to your private resource's IP address on port 443 (HTTPS), and register your private resource as a target. For instructions, see [Create a target group](../../../elasticloadbalancing/latest/application/create-target-group.md "../../../elasticloadbalancing/latest/application/create-target-group.md") in the Elastic Load Balancing User Guide.
+Create a target group with target type `ip` that points to your private resource’s IP address on port 443 (HTTPS), and register your private resource as a target. For instructions, see [Create a target group](../../../elasticloadbalancing/latest/application/create-target-group.md "../../../elasticloadbalancing/latest/application/create-target-group.md") in the Elastic Load Balancing User Guide.
 
-###### Step 4: Create an HTTPS listener with host header transform
+**Step 4: Create an HTTPS listener with host header transform**
 
-Create an HTTPS listener on port 443 using the public ACM certificate. Add a listener rule that transforms the Host header from the public domain to the private resource's domain before forwarding.
+Create an HTTPS listener on port 443 using the public ACM certificate. Add a listener rule that transforms the Host header from the public domain to the private resource’s domain before forwarding.
 
 ```
 aws elbv2 create-listener \
@@ -500,7 +391,7 @@ aws elbv2 modify-rule \
   }]'
 ```
 
-###### Step 5: Configure the private endpoint
+**Step 5: Configure the private endpoint**
 
 Use the ALB DNS name as the `routingDomain` and the public cert domain as the target URL.
 
@@ -523,63 +414,41 @@ The target URL in your target configuration should use `https://my-server.my-com
 
 ## Service-linked role for VPC egress
 
-When you create a gateway target with a managed private endpoint
-(`managedLatticeResource`), AgentCore uses the
-`AWSServiceRoleForBedrockAgentCoreGatewayNetwork` service-linked role to create
-and manage VPC Lattice resource gateways in your account. This role is created automatically
-the first time you create a managed private endpoint target, provided your IAM principal has
-the required `iam:CreateServiceLinkedRole` permission.
+When you create a gateway target with a managed private endpoint ( `managedLatticeResource` ), AgentCore uses the `AWSServiceRoleForBedrockAgentCoreGatewayNetwork` service-linked role to create and manage VPC Lattice resource gateways in your account. This role is created automatically the first time you create a managed private endpoint target, provided your IAM principal has the required `iam:CreateServiceLinkedRole` permission.
 
 The service-linked role has the following key characteristics:
 
-- It can only create and delete VPC Lattice resource gateways that are tagged with
-  `BedrockAgentCoreGatewayManaged: true`. It cannot modify resource gateways
-  that you create and manage yourself.
-- AgentCore reuses the same managed resource gateway for targets that share the same
-  VPC, subnet, security group, and IP address type configuration. The resource gateway is
-  deleted only when no gateway targets are using it.
-- Resource configurations for managed Lattice are created in the AgentCore service
-  account, not in your account. You will not see them in your VPC Lattice console.
+- It can only create and delete VPC Lattice resource gateways that are tagged with `BedrockAgentCoreGatewayManaged: true` . It cannot modify resource gateways that you create and manage yourself.
+- AgentCore reuses the same managed resource gateway for targets that share the same VPC, subnet, security group, and IP address type configuration. The resource gateway is deleted only when no gateway targets are using it.
+- Resource configurations for managed Lattice are created in the AgentCore service account, not in your account. You will not see them in your VPC Lattice console.
 
-For the full policy document and instructions for creating, editing, and deleting this
-role, see [Gateway service-linked role](service-linked-roles.md#gateway-service-linked-role "service-linked-roles.md#gateway-service-linked-role").
+For the full policy document and instructions for creating, editing, and deleting this role, see [Gateway service-linked role](service-linked-roles.md#gateway-service-linked-role "service-linked-roles.md#gateway-service-linked-role").
 
 ## Target status and troubleshooting
 
-After you create a resource with a private endpoint, the resource goes through a
-`CREATING` state while AgentCore sets up the VPC Lattice resources and
-establishes the service network association. You can monitor the status by calling
-the relevant Get API (for example, `GetGatewayTarget`) and checking the `status` and
-`statusReasons` fields.
+After you create a resource with a private endpoint, the resource goes through a `CREATING` state while AgentCore sets up the VPC Lattice resources and establishes the service network association. You can monitor the status by calling the relevant Get API (for example, `GetGatewayTarget` ) and checking the `status` and `statusReasons` fields.
 
 The following table describes common status values and their meanings:
 
-| Status values for private endpoints | Status                                                                                                                                                                    | Description |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `CREATING`                          | AgentCore is setting up VPC Lattice resources and establishing the service<br>network association. This can take up to a few minutes.                                     |
-| `READY`                             | The private endpoint is configured and the target is ready to receive<br>requests.                                                                                        |
-| `FAILED`                            | Target creation failed. Check the `statusReasons` field for details.<br>Common causes include missing IAM permissions or an invalid resource configuration<br>identifier. |
+| Status     | Description                                                                                                                                                         |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CREATING` | AgentCore is setting up VPC Lattice resources and establishing the service network association. This can take up to a few minutes.                                  |
+| `READY`    | The private endpoint is configured and the target is ready to receive requests.                                                                                     |
+| `FAILED`   | Target creation failed. Check the `statusReasons` field for details. Common causes include missing IAM permissions or an invalid resource configuration identifier. |
 
 The following table describes common issues and their solutions:
 
-| Common issues with VPC egress targets                               | Issue                                                                                                                                                                                                                                                                                                                                  | Solution |
-| ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| Target creation fails with an IAM permission error                  | Ensure your IAM principal has the `iam:CreateServiceLinkedRole`<br>permission for `bedrock-agentcore.amazonaws.com`. For self-managed<br>Lattice, ensure you have the required VPC Lattice permissions listed in [Prerequisites](#lattice-vpc-egress-self-managed-lattice-prereqs "#lattice-vpc-egress-self-managed-lattice-prereqs"). |
-| Tool invocations fail with a connection error after target creation | Verify that the security groups associated with the resource gateway allow<br>inbound traffic on the port used by your private resource. Also verify that the<br>private resource is running and accessible from the specified subnets.                                                                                                |
-| Tool invocations fail with a TLS error                              | If your private resource uses a certificate issued by a private CA, ensure that<br>the certificate's Subject Alternative Name (SAN) matches the domain in your MCP<br>endpoint or OpenAPI server URL. If using a routing domain, ensure the routing domain<br>correctly forwards TLS to your private resource.                         |
-| Resource configuration not found (self-managed)                     | For cross-account scenarios, ensure the AWS RAM resource share has been accepted<br>in the gateway owner account before creating the target.                                                                                                                                                                                           |
+| Issue                                                               | Solution                                                                                                                                                                                                                                                                                                                          |
+| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Target creation fails with an IAM permission error                  | Ensure your IAM principal has the `iam:CreateServiceLinkedRole` permission for `bedrock-agentcore.amazonaws.com` . For self-managed Lattice, ensure you have the required VPC Lattice permissions listed in [Prerequisites](#lattice-vpc-egress-self-managed-lattice-prereqs "#lattice-vpc-egress-self-managed-lattice-prereqs"). |
+| Tool invocations fail with a connection error after target creation | Verify that the security groups associated with the resource gateway allow inbound traffic on the port used by your private resource. Also verify that the private resource is running and accessible from the specified subnets.                                                                                                 |
+| Tool invocations fail with a TLS error                              | If your private resource uses a certificate issued by a private CA, ensure that the certificate’s Subject Alternative Name (SAN) matches the domain in your MCP endpoint or OpenAPI server URL. If using a routing domain, ensure the routing domain correctly forwards TLS to your private resource.                             |
+| Resource configuration not found (self-managed)                     | For cross-account scenarios, ensure the AWS RAM resource share has been accepted in the gateway owner account before creating the target.                                                                                                                                                                                         |
 
 ## Limitations and considerations
 
-Be aware of the following limitations during the public preview of VPC egress for
-AgentCore:
+Be aware of the following limitations during the public preview of VPC egress for AgentCore:
 
-- **Private DNS**: Amazon VPC Lattice requires publicly
-  resolvable DNS for resource configurations. If your private endpoint uses a domain that
-  is only resolvable within your VPC, you must use the `routingDomain` field
-  with a publicly resolvable intermediate domain such as a VPCE domain or internal ALB DNS
-  name.
-- **Cross-account**: Cross-account private connectivity
-  requires the self-managed Lattice option. Managed Lattice does not support cross-account
-  scenarios.
-- **DNS TTL configuration**: VPC Lattice uses IP-based routing. Ensure that DNS TTLs for your resource configuration domain are configured appropriately so that IP address changes during rolling deployments do not cause connectivity disruption.
+- **Private DNS** : Amazon VPC Lattice requires publicly resolvable DNS for resource configurations. If your private endpoint uses a domain that is only resolvable within your VPC, you must use the `routingDomain` field with a publicly resolvable intermediate domain such as a VPCE domain or internal ALB DNS name.
+- **Cross-account** : Cross-account private connectivity requires the self-managed Lattice option. Managed Lattice does not support cross-account scenarios.
+- **DNS TTL configuration** : VPC Lattice uses IP-based routing. Ensure that DNS TTLs for your resource configuration domain are configured appropriately so that IP address changes during rolling deployments do not cause connectivity disruption.

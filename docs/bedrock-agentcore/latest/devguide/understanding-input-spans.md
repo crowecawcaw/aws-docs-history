@@ -1,7 +1,6 @@
 # Understanding input spans
 
-The `evaluate` API accepts a list of `sessionSpans`, which
-consists of two types of entities: spans and events
+The `evaluate` API accepts a list of `sessionSpans` , which consists of two types of entities: spans and events
 
 ###### Topics
 
@@ -10,7 +9,7 @@ consists of two types of entities: spans and events
 
 ## Spans and events
 
-The evaluation service processes two types of telemetry data to understand your agent's behavior and performance.
+The evaluation service processes two types of telemetry data to understand your agent’s behavior and performance.
 
 ###### Topics
 
@@ -21,26 +20,15 @@ The evaluation service processes two types of telemetry data to understand your 
 
 ### Spans
 
-Spans contain metadata about individual operations, including attributes,
-scope information, timestamps, and resource identifiers. Spans are available in
-`aws/spans` log group.
+Spans contain metadata about individual operations, including attributes, scope information, timestamps, and resource identifiers. Spans are available in `aws/spans` log group.
 
 ### Events
 
-Events contain payload information in the `body` field, including
-inputs and outputs from models, tools, and the agent. For agent hosted on
-AgentCore Runtime, events are stored in
-`/aws/bedrock-agentcore/runtimes/agent_id-endpoint_name` log
-group. For agents hosted outside AgentCore Runtime, events are stored in the log group
-configured by `OTEL_EXPORTER_OTLP_LOGS_HEADERS` environment
-variable.
+Events contain payload information in the `body` field, including inputs and outputs from models, tools, and the agent. For agent hosted on AgentCore Runtime, events are stored in `/aws/bedrock-agentcore/runtimes/agent_id-endpoint_name` log group. For agents hosted outside AgentCore Runtime, events are stored in the log group configured by `OTEL_EXPORTER_OTLP_LOGS_HEADERS` environment variable.
 
 ###### Note
 
-To evaluate a session, both spans and the corresponding events are
-required. Not all spans will have events, but the ones with the supported
-scopes should include corresponding events, else the service will throw a
-`ValidationException`.
+To evaluate a session, both spans and the corresponding events are required. Not all spans will have events, but the ones with the supported scopes should include corresponding events, else the service will throw a `ValidationException`.
 
 ### Span structure
 
@@ -53,13 +41,11 @@ Spans follow a standardized structure with required and optional fields that pro
 
 #### Attribute variations
 
-The information present in span attributes varies based on the agent
-framework and instrumentation library used.
+The information present in span attributes varies based on the agent framework and instrumentation library used.
 
 #### Supported scopes
 
-The scope name determines whether the service can process the span. The
-following scopes are currently supported:
+The scope name determines whether the service can process the span. The following scopes are currently supported:
 
 - `strands.telemetry.tracer`
 - `opentelemetry.instrumentation.langchain`
@@ -96,9 +82,7 @@ following scopes are currently supported:
 
 ### Event structure
 
-Span events are associated with spans using `spanId` and
-`traceId`. The event's scope name is used to determine whether it
-contains the information required for evaluation.
+Span events are associated with spans using `spanId` and `traceId` . The event’s scope name is used to determine whether it contains the information required for evaluation.
 
 ```
 {
@@ -131,10 +115,7 @@ contains the information required for evaluation.
 
 #### Event body schema
 
-For events with supported scopes, the `body` field follows this
-schema. **The actual values in the `content`
-field vary depending on the framework and instrumentation library
-used.**
+For events with supported scopes, the `body` field follows this schema. **The actual values in the content field vary depending on the framework and instrumentation library used.**
 
 ```
 {
@@ -161,16 +142,16 @@ used.**
 
 ## Example spans and events
 
-Below are example spans and their corresponding events for the demo agent created
-and deployed in AgentCore Runtime as per the getting started guide. The examples
-demonstrate
+Below are example spans and their corresponding events for the demo agent created and deployed in AgentCore Runtime as per the getting started guide. The examples demonstrate
 
 - InvokeAgent spans used for trace level evaluations
 - ExecuteTool spans used for tool level evaluations
 
+###### Example
+
 Strands Agents
-Attribute `"gen_ai.operation.name": "invoke_agent"` is used
-to identify agent-invocation spans
+
+1. Attribute `"gen_ai.operation.name": "invoke_agent"` is used to identify agent-invocation spans
 
 ```
 ## Example invoke_agent span for strands agent
@@ -235,8 +216,8 @@ to identify agent-invocation spans
 ```
 
 Langgraph (with opentelemetry-instrumentation)
-Attribute `"traceloop.span.kind": "workflow"` is used to
-identify agent-invocation spans
+
+1. Attribute `"traceloop.span.kind": "workflow"` is used to identify agent-invocation spans
 
 ```
 {
@@ -288,8 +269,8 @@ identify agent-invocation spans
 ```
 
 ExecuteTool span
-Attribute `"traceloop.span.kind": "tool"` is used to
-identify tool-execution spans
+
+1. Attribute `"traceloop.span.kind": "tool"` is used to identify tool-execution spans
 
 ```
 ## tool span

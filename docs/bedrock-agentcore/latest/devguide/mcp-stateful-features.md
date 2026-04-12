@@ -10,7 +10,7 @@ MCP servers can expose capabilities to clients through several feature types. Th
 
 **Resources**
 
-Resources expose data and content from your server to MCP clients. Use resources to share configuration, reference data, or any contextual information that clients or AI models can read. Resources are identified by URIs (for example, `travel://destinations`).
+Resources expose data and content from your server to MCP clients. Use resources to share configuration, reference data, or any contextual information that clients or AI models can read. Resources are identified by URIs (for example, `travel://destinations` ).
 
 **Prompts**
 
@@ -32,17 +32,17 @@ Sampling allows servers to request LLM-generated content from the client. Use sa
 
 Progress notifications keep clients informed about long-running operations. Use progress reporting to provide real-time feedback during tasks like searching for flights or processing bookings.
 
-###### Stateful mode required
+###### Note
 
 Features like elicitation, sampling, and progress notifications require stateful MCP sessions. Enable stateful mode by setting `stateless_http=False` when running your server.
 
-###### Session management
+**Session management**
 
 In stateful mode, the server returns an `Mcp-Session-Id` header during the initialize call. Clients must include this session ID in subsequent requests to maintain session context. If the server terminates or the session expires, requests may return a 404 error, and clients must re-initialize to obtain a new session ID. For more details, see [Session Management](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#session-management "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#session-management") in the MCP specification.
 
 ## Create an MCP server with all features
 
-###### To set up the project
+**To set up the project**
 
 1. Create a `requirements.txt` file with the required dependencies:
 
@@ -282,7 +282,6 @@ AI RECOMMENDATIONS:
 Thank you for booking with Travel Agent!
 """
 
-
 if __name__ == "__main__":
     print("=" * 60)
     print("  Travel Booking Agent - Stateful MCP Server")
@@ -315,7 +314,7 @@ if __name__ == "__main__":
 
 ## Test locally
 
-###### To start the server
+**To start the server**
 
 - Run the MCP server:
 
@@ -340,7 +339,6 @@ from fastmcp.client.transports import StreamableHttpTransport
 from fastmcp.client.elicitation import ElicitResult
 from mcp.types import CreateMessageResult, TextContent
 
-
 async def elicit_handler(message: str, response_type, params, ctx):
     """Handle elicitation - interactive input."""
     print(f"\n>>> Server asks: {message}")
@@ -358,7 +356,6 @@ async def elicit_handler(message: str, response_type, params, ctx):
 
     print(f"<<< Responding: {response}")
     return ElicitResult(action="accept", content={"value": response})
-
 
 async def sampling_handler(messages, params, ctx):
     """Handle sampling - provide LLM response."""
@@ -378,7 +375,6 @@ async def sampling_handler(messages, params, ctx):
         stopReason="endTurn"
     )
 
-
 async def progress_handler(progress: float, total: float | None, message: str | None):
     """Handle progress notifications."""
     pct = int((progress / total) * 100) if total else 0
@@ -386,7 +382,6 @@ async def progress_handler(progress: float, total: float | None, message: str | 
     print(f"\r    Progress: [{bar}] {pct}% ({int(progress)}/{int(total or 0)})", end="", flush=True)
     if progress == total:
         print(" Done!")
-
 
 async def main():
     local_test = os.getenv('LOCAL_TEST', 'true').lower() == 'true'
@@ -465,13 +460,12 @@ async def main():
 
     return True
 
-
 if __name__ == "__main__":
     success = asyncio.run(main())
     sys.exit(0 if success else 1)
 ```
 
-###### To run the local test
+**To run the local test**
 
 1. With the server running in one terminal, open a new terminal and run the test client:
 
@@ -483,9 +477,9 @@ python test_client.py
 
 ## Deploy to Amazon Bedrock AgentCore
 
-###### To configure and deploy
+**To configure and deploy**
 
-1. Install the AgentCore CLI if you haven't already:
+1. Install the AgentCore CLI if you haven’t already:
 
 ```
 npm install -g @aws/agentcore
@@ -507,7 +501,7 @@ After deployment completes, note the agent ARN provided in the output.
 
 ## Test your deployed agent
 
-###### To test the deployed agent
+**To test the deployed agent**
 
 1. Set the required environment variables:
 
@@ -631,6 +625,6 @@ Thank you for booking with Travel Agent!
 ============================================================
 ```
 
-###### Testing with MCP Inspector
+###### Tip
 
-You can also test your MCP server using the MCP Inspector, a visual tool for testing MCP servers. For local testing instructions, see [Local testing with MCP inspector](runtime-mcp.md#runtime-mcp-appendix-b "runtime-mcp.md#runtime-mcp-appendix-b"). For remote testing instructions, see [Remote testing with MCP inspector](runtime-mcp.md#runtime-mcp-appendix-c "runtime-mcp.md#runtime-mcp-appendix-c").
+You can also test your MCP server using the MCP Inspector, a visual tool for testing MCP servers. For local testing instructions, see [Local testing with MCP inspector](runtime-mcp.md#runtime-mcp-appendix-b "runtime-mcp.md#runtime-mcp-appendix-b") . For remote testing instructions, see [Remote testing with MCP inspector](runtime-mcp.md#runtime-mcp-appendix-c "runtime-mcp.md#runtime-mcp-appendix-c").

@@ -1,13 +1,14 @@
 # Run code in Code Interpreter from Agents
 
-You can build agents that use the Code Interpreter tool to execute code and analyze data.
-This section demonstrates how to build agents using different frameworks.
+You can build agents that use the Code Interpreter tool to execute code and analyze data. This section demonstrates how to build agents using different frameworks.
+
+###### Example
 
 Strands
-You can build an agent that uses the Code Interpreter tool using the Strands
-framework:
 
-###### Install dependencies
+1. You can build an agent that uses the Code Interpreter tool using the Strands framework:
+
+**Install dependencies**
 
 Run the following commands to install the required packages:
 
@@ -16,10 +17,9 @@ pip install strands-agents
 pip install bedrock-agentcore
 ```
 
-###### Write an agent with Code Interpreter tool
+**Write an agent with Code Interpreter tool**
 
-The following Python code shows how to write an agent using Strands with the Code
-Interpreter tool:
+The following Python code shows how to write an agent using Strands with the Code Interpreter tool:
 
 ```
 # strands_ci_agent.py
@@ -61,7 +61,6 @@ Check isError field to see if there was an error.
 
 Be thorough, accurate, and always validate your answers when possible."""
 
-
 #Define and configure the code interpreter tool
 @tool
 def execute_python(code: str, description: str = "") -> str:
@@ -85,8 +84,6 @@ def execute_python(code: str, description: str = "") -> str:
     for event in response["stream"]:
         return json.dumps(event["result"])
 
-
-
 #configure the strands agent including the tool(s)
 agent=Agent(
         tools=[execute_python],
@@ -105,16 +102,14 @@ async def main():
             response_text += chunk
             print(chunk, end="")
 
-
 asyncio.run(main())
-
 ```
 
 LangChain
-You can build an agent that uses the Code Interpreter tool using the LangChain
-framework:
 
-###### Install dependencies
+1. You can build an agent that uses the Code Interpreter tool using the LangChain framework:
+
+**Install dependencies**
 
 Run the following commands to install the required packages:
 
@@ -124,10 +119,9 @@ pip install langchain_aws
 pip install bedrock-agentcore
 ```
 
-###### Write an agent with Code Interpreter tool
+**Write an agent with Code Interpreter tool**
 
-The following Python code shows how to write an agent using LangChain with the
-Code Interpreter tool:
+The following Python code shows how to write an agent using LangChain with the Code Interpreter tool:
 
 ```
 # langchain_ci_agent.py
@@ -140,8 +134,6 @@ from bedrock_agentcore.tools.code_interpreter_client import code_session
 from langchain.agents import AgentExecutor, create_tool_calling_agent, initialize_agent, tool
 from langchain_aws import ChatBedrockConverse
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-
-
 
 #Define and configure the code interpreter tool
 @tool
@@ -164,9 +156,6 @@ def execute_python(code: str, description: str = "") -> str:
     })
     for event in response["stream"]:
         return json.dumps(event["result"])
-
-
-
 
 # Initialize the language model
 # Please ensure access to anthropic.claude-3-5-sonnet model in Amazon Bedrock
@@ -207,10 +196,8 @@ Check isError field to see if there was an error.
 
 Be thorough, accurate, and always validate your answers when possible."""
 
-
 # Create a list of our custom tools
 tools = [execute_python]
-
 
 # Define the prompt template
 prompt = ChatPromptTemplate.from_messages([
@@ -218,7 +205,6 @@ prompt = ChatPromptTemplate.from_messages([
     ("user", "{input}"),
     MessagesPlaceholder(variable_name="agent_scratchpad"),
 ])
-
 
 # Create the agent
 agent = create_tool_calling_agent(llm, tools, prompt)
@@ -230,5 +216,4 @@ resp=agent_executor.invoke({"input": query})
 
 #print the result
 print(resp['output'][0]['text'])
-
 ```

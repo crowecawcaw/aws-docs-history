@@ -12,7 +12,7 @@ Customers should use episodic memory in any scenario where understanding a seque
 
 When you invoke the episodic strategy, AgentCore automatically detects episode completion within conversations and processes events into structured episode records.
 
-###### Steps in the strategy
+**Steps in the strategy**
 
 The episodic memory strategy includes the following steps:
 
@@ -20,34 +20,32 @@ The episodic memory strategy includes the following steps:
 - **Consolidation** – When an episode is complete, combines extractions into single episode.
 - **Reflection** – Insights are generated across episodes.
 
-###### Strategy output
+**Strategy output**
 
 The episodic memory strategy returns XML-formatted output for both episodes and reflections. Each episode is broken down into a situation, intent, assessment, justification, and episode-level reflection. As the interaction proceeds, the episode is analyzed turn-by-turn. You can use this information to better understand the order of operations and tool use.
 
-###### Examples of episodes captured by this strategy
+**Examples of episodes captured by this strategy**
 
-- A code deployment interaction where the agent selected specific tools, encountered
-  an error, and successfully resolved it using an alternative approach.
-- An appointment rescheduling task that captured the user's intent, the agent's
-  decision to use a particular tool, and the successful outcome.
-- A data processing workflow that documented which parameters led to optimal
-  performance for a specific data type.
+- A code deployment interaction where the agent selected specific tools, encountered an error, and successfully resolved it using an alternative approach.
+- An appointment rescheduling task that captured the user’s intent, the agent’s decision to use a particular tool, and the successful outcome.
+- A data processing workflow that documented which parameters led to optimal performance for a specific data type.
   The episodic strategy includes memory extraction and consolidation steps (shared with other strategies). In addition, the episodic strategy also generates reflections, which analyze episodes in the background as interactions take place. Reflections consolidate across multiple episodes to extract broader insights that identify successful strategies and patterns, potential improvements, common failure modes, and lessons learned that span multiple interactions.
 
-###### Examples of reflections include
+**Examples of reflections include**
 
-- Identifying which tool combinations consistently lead to successful outcomes
-  for specific task types.
-- Recognizing patterns in failed attempts and the approaches that resolved
-  them.
-- Extracting best practices from multiple successful episodes with similar
-  scenarios.
+- Identifying which tool combinations consistently lead to successful outcomes for specific task types.
+- Recognizing patterns in failed attempts and the approaches that resolved them.
+- Extracting best practices from multiple successful episodes with similar scenarios.
   The following image schematizes the episodic memory strategy:
 
 ![Schema of episodic memory strategy.](images/memory/episodic-memory-strategy.png)
-By referencing stored episodes, your agent can retrieve relevant past experiences through
-semantic search and review reflections to avoid repeating failed approaches and to adapt successful strategies to new
-contexts. This strategy is useful for agents that benefit from identifying patterns, need to continually update information, maintain consistency across interactions, and require context and reasoning rather than static knowledge to make decisions.
+By referencing stored episodes, your agent can retrieve relevant past experiences through semantic search and review reflections to avoid repeating failed approaches and to adapt successful strategies to new contexts. This strategy is useful for agents that benefit from identifying patterns, need to continually update information, maintain consistency across interactions, and require context and reasoning rather than static knowledge to make decisions.
+
+###### Topics
+
+- [Namespaces](#episodic-memory-strategy-namespaces "#episodic-memory-strategy-namespaces")
+- [How to best retrieve episodes to improve agentic performance](#memory-episodic-retrieve-episodes "#memory-episodic-retrieve-episodes")
+- [System prompts for episodic memory strategy](memory-episodic-prompt.md "memory-episodic-prompt.md")
 
 ## Namespaces
 
@@ -59,14 +57,14 @@ Regardless of the namespace you choose to store episodes in, episodes are always
 
 Episodes are commonly stored in one of the following namespaces:
 
-- `/strategy/`{memoryStrategyId}`/` – Store episodes at the strategy level. Episodes that have different actors or that come from different sessions, but that belong to the same strategy, are stored in the same namespace.
-- `/strategy/`{memoryStrategyId}`/actor/`{actorId}`/` – Store all episodes at the actor level. Episodes that come from different sessions, but that belong to the same actor, are stored in the same namespace.
-- `/strategy/`{memoryStrategyId}`/actor/`{actorId}`/session/`{sessionId}`/` – Store all episodes at the session level. Episodes that belong to the same session are stored in the same namespace.
+- `/strategy/{memoryStrategyId}/` – Store episodes at the strategy level. Episodes that have different actors or that come from different sessions, but that belong to the same strategy, are stored in the same namespace.
+- `/strategy/{memoryStrategyId}/actor/{actorId}/` – Store all episodes at the actor level. Episodes that come from different sessions, but that belong to the same actor, are stored in the same namespace.
+- `/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}/` – Store all episodes at the session level. Episodes that belong to the same session are stored in the same namespace.
 
-Reflections must match the same namespace pattern as episodes, but reflections can be less nested. For example, if your episodic namespace is `/strategy/`{memoryStrategyId}`/actor/`{actorId}`/`, you can use the following namespaces for reflections:
+Reflections must match the same namespace pattern as episodes, but reflections can be less nested. For example, if your episodic namespace is `/strategy/{memoryStrategyId}/actor/{actorId}/` , you can use the following namespaces for reflections:
 
-- `/strategy/`{memoryStrategyId}`/actor/`{actorId}`/` – Insights will be extracted across all episodes for an actor.
-- `/strategy/`{memoryStrategyId}`/` – Insights will be extracted across all episodes and across all actors for the strategy.
+- `/strategy/{memoryStrategyId}/actor/{actorId}/` – Insights will be extracted across all episodes for an actor.
+- `/strategy/{memoryStrategyId}/` – Insights will be extracted across all episodes and across all actors for the strategy.
 
 ###### Important
 
@@ -78,7 +76,7 @@ There are multiple ways to utilize episodic memory:
 
 - Within your agent code
   - When starting a new task, configure your agent to perform a query asking for the most similar episodes and reflections. Also query for relevant episodes and reflection subsequently based on some logic.
-  - When creating short-term memories with [CreateEvent](../../../bedrock-agentcore-control/latest/APIReference/API_CreateEvent.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateEvent.md"), including `TOOL` results will yield optimal results.
+  - When creating short-term memories with [CreateEvent](../../../bedrock-agentcore-control/latest/APIReference/API_CreateEvent.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateEvent.md") , including `TOOL` results will yield optimal results.
   - For similar successful episodes, linearize the turns within the episode and feed only this to the agent so it focuses on the main steps
 
 - Manually

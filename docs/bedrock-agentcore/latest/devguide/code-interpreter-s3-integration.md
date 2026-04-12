@@ -1,79 +1,66 @@
 # Using Terminal Commands with an execution role
 
-You can create a custom Code Interpreter tool with an execution role to upload/download
-files from Amazon S3. This allows your code to interact with S3 buckets for storing and
-retrieving data.
+You can create a custom Code Interpreter tool with an execution role to upload/download files from Amazon S3. This allows your code to interact with S3 buckets for storing and retrieving data.
 
 ## Prerequisites
 
 Before creating a custom Code Interpreter with S3 access, you need to:
 
-1. Create an S3 bucket (e.g.,
-   `DOC-EXAMPLE-BUCKET`)
-2. Create a folder within the bucket (e.g., `output_artifacts`)
+1. Create an S3 bucket (e.g., `DOC-EXAMPLE-BUCKET` )
+2. Create a folder within the bucket (e.g., `output_artifacts` )
 3. Create an IAM role with the following trust policy:
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "bedrock-agentcore.amazonaws.com"
- },
- "Action": "sts:AssumeRole",
- "Condition": {
- "StringEquals": {
- "aws:SourceAccount": "`111122223333`"
- }
- }
- }
- ]
-}`
-
+{
+"Version":"2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "bedrock-agentcore.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "111122223333"
+        }
+      }
+    }
+  ]
+}
 ```
 
 4. Add the following permissions to the role:
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "VisualEditor0",
- "Effect": "Allow",
- "Action": [
- "s3:PutObject",
- "s3:GetObject"
- ],
- "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET/*",
- "Condition": {
- "StringEquals": {
- "s3:ResourceAccount": "${aws:PrincipalAccount}"
- }
- }
- }
- ]
-}`
-
+{
+"Version":"2012-10-17",
+  "Statement": [
+    {
+      "Sid": "VisualEditor0",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject"
+      ],
+      "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET/*",
+      "Condition": {
+          "StringEquals": {
+              "s3:ResourceAccount": "${aws:PrincipalAccount}"
+          }
+      }
+    }
+  ]
+}
 ```
 
 ## Sample Python code
 
-You can implement S3 integration using boto3 (AWS SDK for Python). The following
-example uses boto3 to create a custom Code Interpreter with an execution role that can
-upload files to or download files from Amazon S3.
+You can implement S3 integration using boto3 (AWS SDK for Python). The following example uses boto3 to create a custom Code Interpreter with an execution role that can upload files to or download files from Amazon S3.
 
 ###### Note
 
-Before running this code, make sure to replace `REGION` and
-`<awsaccountid>` with your AWS Region and AWS account
-number.
+Before running this code, make sure to replace `REGION` and `<awsaccountid>` with your AWS Region and AWS account number.
 
 ```
 import boto3
@@ -109,7 +96,6 @@ create_response = bedrock_agentcore_control_client.create_code_interpreter(
 )
 code_interpreter_id = create_response['codeInterpreterId']
 print(f"Created custom interpreter ID: {code_interpreter_id}")
-
 
 session_response = bedrock_agentcore_client.start_code_interpreter_session(
     codeInterpreterIdentifier=code_interpreter_id,
@@ -172,15 +158,12 @@ delete_response = bedrock_agentcore_control_client.delete_code_interpreter(
 )
 print(f"Code interpreter status from response: {delete_response['status']}")
 print(f"Clean up completed, script run successful")
-
 ```
 
 This example shows you how to:
 
 - Create a custom Code Interpreter with an execution role
-- Configure network access - Choose PUBLIC mode if your Code Interpreter needs to
-  connect to the public internet. If your Code Interpreter supports connection to Amazon S3,
-  and needs limited access to the public internet, choose SANDBOX mode.
+- Configure network access - Choose PUBLIC mode if your Code Interpreter needs to connect to the public internet. If your Code Interpreter supports connection to Amazon S3, and needs limited access to the public internet, choose SANDBOX mode.
 - Upload and download files between the Code Interpreter environment and S3
 - Execute commands and scripts within the Code Interpreter environment
 - Clean up resources when finished

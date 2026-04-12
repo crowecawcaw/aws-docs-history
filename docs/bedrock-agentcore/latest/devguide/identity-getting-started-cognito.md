@@ -1,16 +1,8 @@
 # Build your first authenticated agent
 
-This getting started tutorial walks you through building a complete authenticated agent
-from the ground up using Amazon Bedrock AgentCore Identity and will help you get started with implementing
-identity features in your agent applications. You'll learn how to set up your development
-environment, create authentication infrastructure with Cognito, deploy your agent to
-AgentCore Runtime, and test the full authentication workflow.
+This getting started tutorial walks you through building a complete authenticated agent from the ground up using Amazon Bedrock AgentCore Identity and will help you get started with implementing identity features in your agent applications. You’ll learn how to set up your development environment, create authentication infrastructure with Cognito, deploy your agent to AgentCore Runtime, and test the full authentication workflow.
 
-By the end of this tutorial, you'll have a fully deployed agent that can authenticate
-users through OAuth2 flows, obtain access tokens securely, and demonstrate the complete
-identity management lifecycle. Your agent will be running on AgentCore Runtime with
-proper IAM permissions, creating a test lab environment where you can demonstrate and test
-the integration capabilities.
+By the end of this tutorial, you’ll have a fully deployed agent that can authenticate users through OAuth2 flows, obtain access tokens securely, and demonstrate the complete identity management lifecycle. Your agent will be running on AgentCore Runtime with proper IAM permissions, creating a test lab environment where you can demonstrate and test the integration capabilities.
 
 ###### Topics
 
@@ -32,19 +24,13 @@ Before you begin, ensure you have:
 - Python 3.10+ installed
 - The latest AWS CLI and `jq` installed
 - Node.js 18+ installed (for the AgentCore CLI)
-- AWS credentials and region configured (`aws configure`)
+- AWS credentials and region configured ( `aws configure` )
 
-This tutorial requires that you have an OAuth 2.0 authorization server. If you do not
-have one, Step 1 will create one for you using Amazon Cognito user pools. If you have an OAuth
-2.0 authorization server with a client id, client secret, and a user configured, you may
-proceed to step 2. This authorization server will act as a resource credential provider,
-representing the authority that grants the agent an outbound OAuth 2.0 access
-token.
+This tutorial requires that you have an OAuth 2.0 authorization server. If you do not have one, Step 1 will create one for you using Amazon Cognito user pools. If you have an OAuth 2.0 authorization server with a client id, client secret, and a user configured, you may proceed to step 2. This authorization server will act as a resource credential provider, representing the authority that grants the agent an outbound OAuth 2.0 access token.
 
 ### Install the SDK and dependencies
 
-Make a folder for this guide, create a Python virtual environment, and install the
-AgentCore SDK and the AWS Python SDK (boto3).
+Make a folder for this guide, create a Python virtual environment, and install the AgentCore SDK and the AWS Python SDK (boto3).
 
 ```
 mkdir agentcore-identity-quickstart
@@ -54,8 +40,7 @@ source .venv/bin/activate
 pip install bedrock-agentcore boto3 strands-agents pyjwt
 ```
 
-Also create the `requirements.txt` file with the following content.
-This will be used later by the AgentCore deployment tool.
+Also create the `requirements.txt` file with the following content. This will be used later by the AgentCore deployment tool.
 
 ```
 bedrock-agentcore
@@ -66,20 +51,15 @@ strands-agents
 
 ## Step 1: Create a Cognito user pool (Optional)
 
-This tutorial requires an OAuth 2.0 authorization server. If you do not have one
-available for testing, or if you want to keep your test separate from your authorization
-server, this script will use your AWS credentials to set up an Amazon Cognito instance for you
-to use as an authorization server. The script will create:
+This tutorial requires an OAuth 2.0 authorization server. If you do not have one available for testing, or if you want to keep your test separate from your authorization server, this script will use your AWS credentials to set up an Amazon Cognito instance for you to use as an authorization server. The script will create:
 
 - A Cognito user pool
 - An OAuth 2.0 client, and client secret for that user pool
 - A test user and password in that Cognito user pool
 
-Deleting the Cognito user pool AgentCoreIdentityQuickStartPool will delete the
-associated client_id and user as well.
+Deleting the Cognito user pool AgentCoreIdentityQuickStartPool will delete the associated client_id and user as well.
 
-You may choose to save this script as create_cognito.sh and execute it from your
-command line, or paste the script into your command line.
+You may choose to save this script as create_cognito.sh and execute it from your command line, or paste the script into your command line.
 
 ```
 #!/bin/bash
@@ -159,22 +139,17 @@ echo "export COGNITO_PASSWORD='$PASSWORD'"
 
 ## Step 2: Create a credential provider
 
-Credential providers are how your agent accesses external services. Create a
-credential provider and configure it with an OAuth 2.0 client for your authorization
-server.
+Credential providers are how your agent accesses external services. Create a credential provider and configure it with an OAuth 2.0 client for your authorization server.
 
-If you are using your own authorization server, set the environment variables
-`ISSUER_URL`, `CLIENT_ID`, and `CLIENT_SECRET` with
-their appropriate values from your authorization server. If you are using the previous
-script to create an authorization server for you with Cognito, copy the EXPORT
-statements from the output into your terminal to set the environment variables.
+If you are using your own authorization server, set the environment variables `ISSUER_URL` , `CLIENT_ID` , and `CLIENT_SECRET` with their appropriate values from your authorization server. If you are using the previous script to create an authorization server for you with Cognito, copy the EXPORT statements from the output into your terminal to set the environment variables.
 
-This credential provider will be used by your agent's code to get access tokens to act
-on behalf of your user.
+This credential provider will be used by your agent’s code to get access tokens to act on behalf of your user.
+
+###### Example
 
 AgentCore CLI
-If you have an AgentCore CLI project, you can add the credential provider
-using the CLI. The CLI will create the provider during deployment.
+
+1. If you have an AgentCore CLI project, you can add the credential provider using the CLI. The CLI will create the provider during deployment.
 
 ```
 agentcore add credential \
@@ -185,14 +160,16 @@ agentcore add credential \
   --client-secret "$CLIENT_SECRET"
 ```
 
-The credential provider will be created when you run `agentcore deploy`
-in Step 4. Note the callback URL from the deploy output.
+The credential provider will be created when you run `agentcore deploy` in Step 4. Note the callback URL from the deploy output.
 
 AWS CLI
 
-```
-#!/bin/bash
+1. ```
+   #!/bin/bash
+   ```
+
 # please note the expected ISSUER_URL format for Bedrock AgentCore is the full url, including .well-known/openid-configuration
+
 OAUTH2_CREDENTIAL_PROVIDER_RESPONSE=$(aws bedrock-agentcore-control create-oauth2-credential-provider \
   --name "AgentCoreIdentityQuickStartProvider" \
   --credential-provider-vendor "CustomOauth2" \
@@ -200,29 +177,36 @@ OAUTH2_CREDENTIAL_PROVIDER_RESPONSE=$(aws bedrock-agentcore-control create-oauth
     "customOauth2ProviderConfig": {
       "oauthDiscovery": {
         "discoveryUrl": "'$ISSUER_URL'"
-      },
-      "clientId": "'$CLIENT_ID'",
+},
+"clientId": "'$CLIENT_ID'",
       "clientSecret": "'$CLIENT_SECRET'"
-    }
-  }' \
-  --output json)
+}
+}' \
+ --output json)
 
 OAUTH2_CALLBACK_URL=$(echo $OAUTH2_CREDENTIAL_PROVIDER_RESPONSE | jq -r '.callbackUrl')
 
 echo "OAuth2 Callback URL: $OAUTH2_CALLBACK_URL"
+
 ```
+
+
 
 ## Step 2.5: Add the callback URL to your OAuth 2.0 authorization server
 
+
 To prevent unauthorized redirects, add the callback URL retrieved from [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") or [GetOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_GetOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_GetOauth2CredentialProvider.md") to your OAuth 2.0 authorization server.
 
-If you are using the previous script to create an authorization server with Cognito, copy the EXPORT statements from the output into your
-terminal to set the environment variables and update the Cognito user pool client with the OAuth2 credential provider callback URL.
+
+If you are using the previous script to create an authorization server with Cognito, copy the EXPORT statements from the output into your terminal to set the environment variables and update the Cognito user pool client with the OAuth2 credential provider callback URL.
+
+
 
 ```
+
 #!/bin/bash
 aws cognito-idp update-user-pool-client \
-    --user-pool-id $USER_POOL_ID \
+ --user-pool-id $USER_POOL_ID \
     --client-id $CLIENT_ID \
     --client-name AgentCoreQuickStart \
     --allowed-o-auth-flows "code" \
@@ -230,21 +214,24 @@ aws cognito-idp update-user-pool-client \
     --allowed-o-auth-flows-user-pool-client \
     --supported-identity-providers "COGNITO" \
     --callback-urls "$OAUTH2_CALLBACK_URL"
+
 ```
 
 ## Step 3: Create a sample agent that initiates an OAuth 2.0 flow
 
-In this step, we will create an agent that initiates an OAuth 2.0 authorization flow
-to get tokens to act on behalf of the user. For simplicity, the agent will not make
-actual calls to external services on behalf of a user, but will prove to us that it has
-obtained consent to act on behalf of our test user.
+
+In this step, we will create an agent that initiates an OAuth 2.0 authorization flow to get tokens to act on behalf of the user. For simplicity, the agent will not make actual calls to external services on behalf of a user, but will prove to us that it has obtained consent to act on behalf of our test user.
+
 
 ### Agent code
 
-Create a file named `agentcoreidentityquickstart.py`, and save this
-code.
+
+Create a file named `agentcoreidentityquickstart.py` , and save this code.
+
+
 
 ```
+
 """
 AgentCore Identity Outbound Token Agent
 
@@ -262,19 +249,19 @@ import logging
 app = BedrockAgentCoreApp()
 
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(**name**)
 
 def decode_jwt(token):
-    try:
-        decoded = jwt.decode(token, options={"verify_signature": False})
-        return decoded
-    except Exception as e:
-        return {"error": f"Error decoding JWT: {str(e)}"}
+try:
+decoded = jwt.decode(token, options={"verify_signature": False})
+return decoded
+except Exception as e:
+return {"error": f"Error decoding JWT: {str(e)}"}
 
 class StreamingQueue:
-    def __init__(self):
-        self.finished = False
-        self.queue = asyncio.Queue()
+def **init**(self):
+self.finished = False
+self.queue = asyncio.Queue()
 
     async def put(self, item):
         await self.queue.put(item)
@@ -293,31 +280,31 @@ class StreamingQueue:
 queue = StreamingQueue()
 
 async def handle_auth_url(url):
-    await queue.put(f"Authorization URL, please copy to your preferred browser: {url}")
+await queue.put(f"Authorization URL, please copy to your preferred browser: {url}")
 
 @requires_access_token(
-    provider_name="AgentCoreIdentityQuickStartProvider",
-    scopes=["openid"],
-    auth_flow="USER_FEDERATION",
-    on_auth_url=handle_auth_url, # streams authorization URL to client
-    force_authentication=True,
-    callback_url='`insert_oauth2_callback_url_for_session_binding`',
+provider_name="AgentCoreIdentityQuickStartProvider",
+scopes=["openid"],
+auth_flow="USER_FEDERATION",
+on_auth_url=handle_auth_url, # streams authorization URL to client
+force_authentication=True,
+callback_url='insert_oauth2_callback_url_for_session_binding',
 )
-async def introspect_with_decorator(*, access_token: str):
-    """Introspect token using decorator"""
-    logger.info("Inside introspect_with_decorator - decorator succeeded")
-    await queue.put({
-        "message": "Successfully received an access token to act on behalf of your user!",
-        "token_claims": decode_jwt(access_token),
-        "token_length": len(access_token),
-        "token_preview": f"{access_token[:50]}...{access_token[-10:]}"
-    })
-    await queue.finish()
+async def introspect_with_decorator(\*, access_token: str):
+"""Introspect token using decorator"""
+logger.info("Inside introspect_with_decorator - decorator succeeded")
+await queue.put({
+"message": "Successfully received an access token to act on behalf of your user!",
+"token_claims": decode_jwt(access_token),
+"token_length": len(access_token),
+"token_preview": f"{access_token[:50]}...{access_token[-10:]}"
+})
+await queue.finish()
 
 @app.entrypoint
 async def agent_invocation(payload, context):
-    """Handler that uses only the decorator approach"""
-    logger.info("Agent invocation started")
+"""Handler that uses only the decorator approach"""
+logger.info("Agent invocation started")
 
     # Start the agent task and immediately begin streaming
     task = asyncio.create_task(introspect_with_decorator())
@@ -329,74 +316,93 @@ async def agent_invocation(payload, context):
     # Wait for task completion
     await task
 
+if **name** == "**main**":
+app.run()
 
-if __name__ == "__main__":
-    app.run()
 ```
 
 ###### Note
 
-For a sample local callback server implementation to handle [session binding](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md"), refer to [oauth2_callback_server.py](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py")
+For a sample local callback server implementation to handle [session binding](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md") , refer to [oauth2\_callback\_server.py](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py")
+
+
 
 ## Step 4: Deploy the agent to AgentCore Runtime
 
-We will host this agent on AgentCore Runtime. We can do this easily with the
-AgentCore CLI.
+
+We will host this agent on AgentCore Runtime. We can do this easily with the AgentCore CLI.
+
 
 From your terminal, install the AgentCore CLI and create a new project:
 
+
+
 ```
+
 npm install -g @aws/agentcore
 agentcore create --name IdentityQuickstart --defaults
-```
-
-Copy your agent script into the project's agent directory, replacing the default
-agent:
 
 ```
+
+Copy your agent script into the project’s agent directory, replacing the default agent:
+
+
+
+```
+
 cp agentcoreidentityquickstart.py IdentityQuickstart/app/IdentityQuickstart/main.py
-```
-
-Also copy your requirements file into the agent directory to ensure all dependencies
-are included in the deployment:
 
 ```
+
+Also copy your requirements file into the agent directory to ensure all dependencies are included in the deployment:
+
+
+
+```
+
 cp requirements.txt IdentityQuickstart/app/IdentityQuickstart/
+
 ```
 
 Then deploy your project:
 
-```
-cd IdentityQuickstart
-agentcore deploy
+
+
 ```
 
-The CLI synthesizes a AWS CDK stack and deploys your agent to AgentCore Runtime.
-This takes approximately 2–3 minutes.
+cd IdentityQuickstart
+agentcore deploy
+
+```
+
+The CLI synthesizes a AWS CDK stack and deploys your agent to AgentCore Runtime. This takes approximately 2–3 minutes.
+
 
 ### Update the IAM policy of the agent to be able to access the token vault, and client secret
 
-The AgentCore CLI creates the agent's execution role during deployment, but
-the role does not automatically include permissions for token vault access. You need
-to attach an additional policy to allow the agent to retrieve OAuth 2.0 tokens at
-runtime.
 
-This script retrieves your account and region from the AWS CLI, finds the
-agent's execution role from the CloudFormation stack, and attaches the appropriate policy.
-You can copy and paste this script, or save it to a file and execute it.
+The AgentCore CLI creates the agent’s execution role during deployment, but the role does not automatically include permissions for token vault access. You need to attach an additional policy to allow the agent to retrieve OAuth 2.0 tokens at runtime.
+
+
+This script retrieves your account and region from the AWS CLI, finds the agent’s execution role from the CloudFormation stack, and attaches the appropriate policy. You can copy and paste this script, or save it to a file and execute it.
+
+
 
 ```
+
 #!/bin/bash
 
 # Get account and region from AWS CLI
+
 AWS_ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
 REGION=$(aws configure get region)
 
 # Get execution role from CloudFormation stack outputs
+
 EXECUTION_ROLE=$(aws cloudformation describe-stack-resources \
-  --stack-name AgentCore-IdentityQuickstart-prod \
-  --query "StackResources[?ResourceType=='AWS::IAM::Role'].PhysicalResourceId" \
-  --output text | head -1)
+ --stack-name AgentCore-IdentityQuickstart-prod \
+ --query "StackResources[?ResourceType=='AWS::IAM::Role'].PhysicalResourceId" \
+ --output text | head -1)
 
 echo "Parsed values:"
 echo "Execution Role: $EXECUTION_ROLE"
@@ -404,104 +410,102 @@ echo "Account: $AWS_ACCOUNT"
 echo "Region: $REGION"
 
 # Create the policy document with proper variable substitution
+
 cat > agentcore-identity-policy.json << EOF
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AccessTokenVault",
-      "Effect": "Allow",
-      "Action": [
-        "bedrock-agentcore:GetResourceOauth2Token",
-        "secretsmanager:GetSecretValue"
-      ],
-      "Resource": ["arn:aws:bedrock-agentcore:$REGION:$AWS_ACCOUNT:workload-identity-directory/default/workload-identity/*",
-        "arn:aws:bedrock-agentcore:$REGION:$AWS_ACCOUNT:token-vault/default/oauth2credentialprovider/AgentCoreIdentityQuickStartProvider",
-        "arn:aws:bedrock-agentcore:$REGION:$AWS_ACCOUNT:workload-identity-directory/default",
-        "arn:aws:bedrock-agentcore:$REGION:$AWS_ACCOUNT:token-vault/default",
-        "arn:aws:secretsmanager:$REGION:$AWS_ACCOUNT:secret:bedrock-agentcore-identity!default/oauth2/AgentCoreIdentityQuickStartProvider*"
-      ]
-    }
-  ]
+"Version": "2012-10-17",
+"Statement": [
+{
+"Sid": "AccessTokenVault",
+"Effect": "Allow",
+"Action": [
+"bedrock-agentcore:GetResourceOauth2Token",
+"secretsmanager:GetSecretValue"
+],
+"Resource": ["arn:aws:bedrock-agentcore:$REGION:$AWS_ACCOUNT:workload-identity-directory/default/workload-identity/*",
+"arn:aws:bedrock-agentcore:$REGION:$AWS_ACCOUNT:token-vault/default/oauth2credentialprovider/AgentCoreIdentityQuickStartProvider",
+"arn:aws:bedrock-agentcore:$REGION:$AWS_ACCOUNT:workload-identity-directory/default",
+"arn:aws:bedrock-agentcore:$REGION:$AWS_ACCOUNT:token-vault/default",
+"arn:aws:secretsmanager:$REGION:$AWS_ACCOUNT:secret:bedrock-agentcore-identity!default/oauth2/AgentCoreIdentityQuickStartProvider*"
+]
+}
+]
 }
 EOF
 
 # Create the policy
+
 POLICY_ARN=$(aws iam create-policy \
     --policy-name AgentCoreIdentityQuickStartPolicy$(LC_ALL=C tr -dc '0-9' < /dev/urandom | head -c 4) \
-    --policy-document file://agentcore-identity-policy.json \
-    --query 'Policy.Arn' \
-    --output text)
+ --policy-document file://agentcore-identity-policy.json \
+ --query 'Policy.Arn' \
+ --output text)
 
 # Extract role name from ARN and attach policy
+
 ROLE_NAME=$(echo $EXECUTION_ROLE | awk -F'/' '{print $NF}')
 aws iam attach-role-policy \
-    --role-name $ROLE_NAME \
-    --policy-arn $POLICY_ARN
+ --role-name $ROLE_NAME \
+ --policy-arn $POLICY_ARN
 
 echo "Policy created and attached: $POLICY_ARN"
 
 # Cleanup
+
 rm agentcore-identity-policy.json
+
 ```
 
 ## Step 5: Invoke the agent
 
-Now that this is all set up, you can invoke the agent. For this demo, we will use the
-`agentcore invoke` command and our IAM credentials. We will need to
-pass the `--user-id` and `--session-id` arguments when using IAM
-authentication.
+
+Now that this is all set up, you can invoke the agent. For this demo, we will use the `agentcore invoke` command and our IAM credentials. We will need to pass the `--user-id` and `--session-id` arguments when using IAM authentication.
+
+
 
 ```
+
 agentcore invoke "TestPayload" --runtime IdentityQuickstart --user-id "SampleUserID" --session-id "ALongThirtyThreeCharacterMinimumSessionIdYouCanChangeThisAsYouNeed"
+
 ```
 
-The agent will then return a URL to your `agentcore invoke` command. Copy
-and paste that URL into your preferred browser, and you will then be redirected to your
-authorization server's login page. The `--user-id` parameter is the user ID
-you are presenting to AgentCore Identity. The `--session-id` parameter is the session
-ID, which must be at least 33 characters long.
+The agent will then return a URL to your `agentcore invoke` command. Copy and paste that URL into your preferred browser, and you will then be redirected to your authorization server’s login page. The `--user-id` parameter is the user ID you are presenting to AgentCore Identity. The `--session-id` parameter is the session ID, which must be at least 33 characters long.
 
-Enter the username and password for your user on your authorization server when
-prompted on your browser, or use your preferred authentication method you have
-configured. If you used the script from Step 1 to create a Cognito instance, you can
-retrieve this from your terminal history.
 
-Your browser should redirect to your configured OAuth2 callback URL, which handles the [session binding flow](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md").
-Ensure your OAuth2 callback server provides clear success and error responses to indicate the authorization status.
+Enter the username and password for your user on your authorization server when prompted on your browser, or use your preferred authentication method you have configured. If you used the script from Step 1 to create a Cognito instance, you can retrieve this from your terminal history.
+
+
+Your browser should redirect to your configured OAuth2 callback URL, which handles the [session binding flow](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md") . Ensure your OAuth2 callback server provides clear success and error responses to indicate the authorization status.
+
 
 ###### Note
 
-If you interrupt an invocation without completing authorization, you may need to
-request a new URL using a new session ID (`--session-id`
-parameter).
+If you interrupt an invocation without completing authorization, you may need to request a new URL using a new session ID ( `--session-id` parameter).
+
 
 ### Debugging
 
-Should you encounter any errors or unexpected behaviors, the output of the agent
-is captured in Amazon CloudWatch logs. A log tailing command is provided after you run
-`agentcore deploy`.
+
+Should you encounter any errors or unexpected behaviors, the output of the agent is captured in Amazon CloudWatch logs. A log tailing command is provided after you run `agentcore deploy`.
+
 
 ## Clean up
 
-After you're done, run `agentcore remove all` and then `agentcore deploy` from your project directory
-to tear down the deployed AgentCore Runtime resources. Then delete the Amazon Cognito user pool,
-detach and delete the IAM policy you created, and delete the credential
-provider.
+
+After you’re done, run `agentcore remove all` and then `agentcore deploy` from your project directory to tear down the deployed AgentCore Runtime resources. Then delete the Amazon Cognito user pool, detach and delete the IAM policy you created, and delete the credential provider.
+
 
 ## Security best practices
 
+
 When working with identity information:
 
-1. **Never hardcode credentials** in your agent
-   code
-2. **Use environment variables or Amazon SageMaker AI** for
-   sensitive information
-3. **Apply least privilege principle** when
-   configuring IAM permissions
-4. **Regularly rotate credentials** for external
-   services
-5. **Audit access logs** to monitor agent
-   activity
-6. **Implement proper error handling** for
-   authentication failures
+
+
+1. **Never hardcode credentials** in your agent code
+2. **Use environment variables or Amazon SageMaker AI** for sensitive information
+3. **Apply least privilege principle** when configuring IAM permissions
+4. **Regularly rotate credentials** for external services
+5. **Audit access logs** to monitor agent activity
+6. **Implement proper error handling** for authentication failures
+```

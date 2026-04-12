@@ -72,11 +72,7 @@ The following example shows the output payload structure that a request intercep
 
 ###### Important
 
-Important notes about request interceptor output:
-
-- The `interceptorOutputVersion` must be set to `"1.0"`.
-- If the interceptor output contains a `transformedGatewayResponse`, the gateway will respond with that content immediately, even if `transformedGatewayRequest` is also provided.
-- If both REQUEST and RESPONSE interceptors are configured and the REQUEST interceptor output contains a `transformedGatewayResponse`, the RESPONSE interceptor will still be invoked.
+Important notes about request interceptor output: \* The `interceptorOutputVersion` must be set to `"1.0"` . \* If the interceptor output contains a `transformedGatewayResponse` , the gateway will respond with that content immediately, even if `transformedGatewayRequest` is also provided. \* If both REQUEST and RESPONSE interceptors are configured and the REQUEST interceptor output contains a `transformedGatewayResponse` , the RESPONSE interceptor will still be invoked.
 
 ## Response interceptors
 
@@ -129,7 +125,7 @@ The following example shows the input payload structure that a response intercep
 
 ###### Note
 
-The `headers` field in `gatewayRequest` is only included if `passRequestHeaders` is set to `true` in the interceptor configuration. Response interceptors receive both the original request and the gateway's response, allowing you to modify the response before it's returned to the caller.
+The `headers` field in `gatewayRequest` is only included if `passRequestHeaders` is set to `true` in the interceptor configuration. Response interceptors receive both the original request and the gateway’s response, allowing you to modify the response before it’s returned to the caller.
 
 ### Response interceptor output payload example
 
@@ -162,8 +158,4 @@ The following example shows the output payload structure that a response interce
 
 ###### Important
 
-Important notes about response interceptor output:
-
-- The `interceptorOutputVersion` must be set to `"1.0"`.
-- If the interceptor output contains a `transformedGatewayResponse`, the gateway will respond with that content immediately, even if `transformedGatewayRequest` is also provided.
-- If both REQUEST and RESPONSE interceptors are configured and the REQUEST interceptor output contains a `transformedGatewayResponse`, the RESPONSE interceptor will still be invoked.
+Important notes about response interceptor output: \* The `interceptorOutputVersion` must be set to `"1.0"` . \* If the interceptor output contains a `transformedGatewayResponse` , the gateway will respond with that content immediately, even if `transformedGatewayRequest` is also provided. \* If both REQUEST and RESPONSE interceptors are configured and the REQUEST interceptor output contains a `transformedGatewayResponse` , the RESPONSE interceptor will still be invoked.

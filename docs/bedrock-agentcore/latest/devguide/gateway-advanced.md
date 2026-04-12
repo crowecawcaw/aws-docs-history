@@ -1,7 +1,6 @@
 # Advanced features and topics for Amazon Bedrock AgentCore Gateway
 
-This chapter covers some advanced topics and additional information that can help supplement
-your knowledge of gateways and how you can use them effectively in your applications.
+This chapter covers some advanced topics and additional information that can help supplement your knowledge of gateways and how you can use them effectively in your applications.
 
 ###### Topics
 

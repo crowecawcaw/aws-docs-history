@@ -1,8 +1,6 @@
 # Troubleshoot AgentCore Runtime
 
-This troubleshooting topic helps you identify and resolve common issues when working with
-AgentCore Runtime. By following these solutions, you can quickly diagnose and fix problems
-with your agent runtimes.
+This troubleshooting topic helps you identify and resolve common issues when working with AgentCore Runtime. By following these solutions, you can quickly diagnose and fix problems with your agent runtimes.
 
 ###### Topics
 
@@ -22,41 +20,31 @@ with your agent runtimes.
 - [I need help debugging container issues](#debugging-container-issues "#debugging-container-issues")
 - [I need help troubleshooting MCP protocol agents](#troubleshooting-mcp-protocol "#troubleshooting-mcp-protocol")
 - [I need help troubleshooting bidirectional streaming using WebSocket](#troubleshooting-websocket-protocol "#troubleshooting-websocket-protocol")
-- [My code changes aren't reflected in existing sessions](#troubleshoot-code-updates "#troubleshoot-code-updates")
+- [My code changes aren’t reflected in existing sessions](#troubleshoot-code-updates "#troubleshoot-code-updates")
 - [Spans are missing when my runtime is invoked from a Lambda function](#troubleshoot-runtime-lambda-missing-spans "#troubleshoot-runtime-lambda-missing-spans")
 - [Best practices](#best-practices "#best-practices")
 
 ## My agent invocations fail with 504 Gateway Timeout errors
 
-**When this occurs:** During agent invocation via SDK
-or console
+**When this occurs:** During agent invocation via SDK or console
 
-**Why this happens:** Multiple factors can prevent
-your agent from responding within the timeout period
+**Why this happens:** Multiple factors can prevent your agent from responding within the timeout period
 
 Several factors can cause this:
 
-- **Container Issues:** Make sure your Docker
-  image exposes port 8080 and has the `/invocations` path
-- **ARM64 Compatibility:** Currently your
-  container must be ARM64 compatible
-- **Retry Logic:** Review retry mechanisms for
-  handling transient issues
+- **Container Issues:** Make sure your Docker image exposes port 8080 and has the `/invocations` path
+- **ARM64 Compatibility:** Currently your container must be ARM64 compatible
+- **Retry Logic:** Review retry mechanisms for handling transient issues
 
 ## My Docker build fails with "403 Forbidden" when pulling Python base images
 
-**When this occurs:** During `docker
- build` or `docker run` when using `public.ecr.aws`
-base images
+**When this occurs:** During `docker build` or `docker run` when using `public.ecr.aws` base images
 
-**Why this happens:** ECR Public authentication
-issues — expired or missing authentication is a common issue.
+**Why this happens:** ECR Public authentication issues — expired or missing authentication is a common issue.
 
-**Solution:** Either login to ECR Public or logout
-completely:
+**Solution:** Either login to ECR Public or logout completely:
 
 ```
-
 # Option 1: Login to ECR Public
 aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
 
@@ -66,59 +54,40 @@ docker logout public.ecr.aws
 # Option 3: Use Docker Hub directly in Dockerfile
 FROM python:3.10-slim
 # instead of public.ecr.aws/docker/library/python:3.10-slim
-
 ```
 
 ## I get "Unknown service: 'bedrock-agent-core-runtime'" error when using boto3
 
-**When this occurs:** When invoking Amazon Bedrock AgentCore
-APIs using boto3 SDK
+**When this occurs:** When invoking Amazon Bedrock AgentCore APIs using boto3 SDK
 
-**Why this happens:** Outdated boto3 library — common
-issue as most installations don't have latest SDK
+**Why this happens:** Outdated boto3 library — common issue as most installations don’t have latest SDK
 
-**Solution:** Update to latest boto3 and botocore
-versions:
+**Solution:** Update to latest boto3 and botocore versions:
 
 ```
-
 pip install --upgrade boto3 botocore
 
 # Minimum versions: boto3 1.39.8+, botocore 1.33.8+
-
 ```
 
 ## I get "AccessDeniedException" when trying to create an Amazon Bedrock AgentCore Runtime
 
-**When this occurs:** During agent creation via
-console, SDK, or CLI
+**When this occurs:** During agent creation via console, SDK, or CLI
 
-**Why this happens:** Either your user lacks
-permissions, or the execution role isn't properly configured for
-Amazon Bedrock AgentCore
+**Why this happens:** Either your user lacks permissions, or the execution role isn’t properly configured for Amazon Bedrock AgentCore
 
 **Solution:** Several factors can cause this:
 
-- **Missing permissions for the caller.** Make
-  sure that the caller's credentials has
-  `bedrock-agentcore:CreateAgentRuntime`.
-- **Execution Role cannot be assumed by Bedrock
-  Amazon Bedrock AgentCore.** Make sure that the execution role follows
-  this guidance on [permissions for Amazon Bedrock AgentCore Runtime execution
-  role](runtime-permissions.md "runtime-permissions.md").
+- **Missing permissions for the caller.** Make sure that the caller’s credentials has `bedrock-agentcore:CreateAgentRuntime`.
+- **Execution Role cannot be assumed by Bedrock Amazon Bedrock AgentCore.** Make sure that the execution role follows this guidance on [permissions for Amazon Bedrock AgentCore Runtime execution role](runtime-permissions.md "runtime-permissions.md").
 
 ## My Docker build fails with "exec /bin/sh: exec format error"
 
-**When this occurs:** When building containers for
-Amazon Bedrock AgentCore deployment
+**When this occurs:** When building containers for Amazon Bedrock AgentCore deployment
 
-**Why this happens:** Building ARM64 containers on
-x86 systems without proper cross-platform setup
+**Why this happens:** Building ARM64 containers on x86 systems without proper cross-platform setup
 
-**Solution:** Build ARM64 compatible containers. You can
-consider using [buildx](https://github.com/docker/buildx "https://github.com/docker/buildx") for
-cross-platform builds. Alternatively, you can use CodeBuild. For example code, see the
-[Amazon Bedrock AgentCore Samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/ "https://github.com/awslabs/amazon-bedrock-agentcore-samples/").
+**Solution:** Build ARM64 compatible containers. You can consider using [buildx](https://github.com/docker/buildx "https://github.com/docker/buildx") for cross-platform builds. Alternatively, you can use CodeBuild. For example code, see the [Amazon Bedrock AgentCore Samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/ "https://github.com/awslabs/amazon-bedrock-agentcore-samples/").
 
 ## What are the requirements for Docker containers used with Amazon Bedrock AgentCore Runtime?
 
@@ -126,49 +95,33 @@ Review [Amazon Bedrock AgentCore Runtime requirements](runtime-service-contract.
 
 In summary, your Docker container must meet these requirements:
 
-- **Port:** Expose port 8080 (additional ports
-  will be supported soon)
-- **Endpoint:** Must have
-  `/invocations` path available
-- **Architecture:** Must be ARM64
-  compatible
-- **Response:** Should handle the expected
-  payload format
+- **Port:** Expose port 8080 (additional ports will be supported soon)
+- **Endpoint:** Must have `/invocations` path available
+- **Architecture:** Must be ARM64 compatible
+- **Response:** Should handle the expected payload format
 
 ## My long-running tool gets interrupted after 15 minutes
 
-For information, see [Handle asynchronous and long running agents with Amazon Bedrock
-Amazon Bedrock AgentCore Runtime](runtime-long-run.md "runtime-long-run.md") for full details.
+For information, see [Handle asynchronous and long running agents with Amazon Bedrock Amazon Bedrock AgentCore Runtime](runtime-long-run.md "runtime-long-run.md") for full details.
 
-**When this occurs:** During long-running agent
-operations or complex workflows
+**When this occurs:** During long-running agent operations or complex workflows
 
-**Why this happens:** Amazon Bedrock AgentCore automatically
-terminates sessions after 15 minutes of inactivity
+**Why this happens:** Amazon Bedrock AgentCore automatically terminates sessions after 15 minutes of inactivity
 
-**Example solution:** Implement ping handlers with
-HEALTHY_BUSY status for async tasks:
+**Example solution:** Implement ping handlers with HEALTHY_BUSY status for async tasks:
 
 ## How do I access the runtimeSessionId in my agent code for tagging or grouping resources?
 
-**When this applies:** You want to group, tag, or
-trace resources (e.g., S3 objects, logs) by the current agent runtime
-session.
+**When this applies:** You want to group, tag, or trace resources (e.g., S3 objects, logs) by the current agent runtime session.
 
 **Solutions:**
 
-- If you're using the Bedrock Agents SDK, use
-  `context.session_id`.
-- If you're building a custom runtime server, extract it from the
-  `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` HTTP
-  header.
+- If you’re using the Bedrock Agents SDK, use `context.session_id`.
+- If you’re building a custom runtime server, extract it from the `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` HTTP header.
 
-**Solution 1:** For agents using the Bedrock
-Amazon Bedrock AgentCore SDK, use `context.session_id` from your agent
-entrypoint
+**Solution 1:** For agents using the Bedrock Amazon Bedrock AgentCore SDK, use `context.session_id` from your agent entrypoint
 
 ```
-
 @app.entrypoint
 def my_agent(payload, context):
     session_id = context.session_id
@@ -182,29 +135,23 @@ def my_agent(payload, context):
         Tagging=f'SessionId={session_id}'
     )
     return result
-
 ```
 
-**Solution 2:** For custom runtime HTTP
-servers
+**Solution 2:** For custom runtime HTTP servers
 
-The runtime session ID is passed in this HTTP header. Parse it from the incoming
-request and use it for tagging, correlation, or downstream propagation.
+The runtime session ID is passed in this HTTP header. Parse it from the incoming request and use it for tagging, correlation, or downstream propagation.
 
 ```
-
 X-Amzn-Bedrock-AgentCore-Runtime-Session-Id: <value>
-
 ```
 
 ## I have RuntimeClientError (403) issues
 
-###### Problem
+**Problem**
 
-You receive a 403 "RuntimeClientError" when attempting to invoke your agent
-runtime.
+You receive a 403 "RuntimeClientError" when attempting to invoke your agent runtime.
 
-###### Causes
+**Causes**
 
 This error typically occurs due to:
 
@@ -212,66 +159,50 @@ This error typically occurs due to:
 - Permissions issues with execution role
 - Authentication issues with bearer token
 
-###### Resolution
+**Resolution**
 
 Follow these steps to resolve the issue:
 
-1. **Check CloudWatch Logs**: Any issues with
-   starting up the container will reflect as a 403 - RuntimeClientError.
-   Navigate to the following CloudWatch log group to check for startup
-   errors:
+1. **Check CloudWatch Logs** : Any issues with starting up the container will reflect as a 403 - RuntimeClientError. Navigate to the following CloudWatch log group to check for startup errors:
 
 ```
 /aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>/[runtime-logs]
 ```
 
-2. **Verify Execution Role**: Ensure your
-   agent's execution role has the necessary permissions. For more information, see
-   [AgentCore Runtime execution role](runtime-permissions.md#runtime-permissions-execution-role "runtime-permissions.md#runtime-permissions-execution-role").
-3. **Validate Authentication**: For MCP protocol
-   agents, ensure your bearer token is valid and not expired.
+2. **Verify Execution Role** : Ensure your agent’s execution role has the necessary permissions. For more information, see [AgentCore Runtime execution role](runtime-permissions.md#runtime-permissions-execution-role "runtime-permissions.md#runtime-permissions-execution-role").
+3. **Validate Authentication** : For MCP protocol agents, ensure your bearer token is valid and not expired.
 
 ## I have missing or empty CloudWatch Logs
 
-###### Problem
+**Problem**
 
-You encounter errors but don't see any relevant logs in CloudWatch.
+You encounter errors but don’t see any relevant logs in CloudWatch.
 
-###### Solution
+**Solution**
 
 Try these approaches to diagnose the issue:
 
-1. **Check Correct Log Group**: Ensure you're
-   looking in the right CloudWatch log group. The standard pattern is:
+1. **Check Correct Log Group** : Ensure you’re looking in the right CloudWatch log group. The standard pattern is:
 
 ```
 /aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>/runtime-logs
 ```
 
-2. **Run Locally for Diagnostics**: If there are
-   no CloudWatch Logs, try running the agent container locally using the exact
-   same payload you used for invocation in AgentCore Runtime. This can help
-   identify issues that might not be visible in the logs.
-3. **Enable Verbose Logging**: Update your agent
-   code to include more detailed logging, especially around the entry points
-   and any error handling logic.
+2. **Run Locally for Diagnostics** : If there are no CloudWatch Logs, try running the agent container locally using the exact same payload you used for invocation in AgentCore Runtime. This can help identify issues that might not be visible in the logs.
+3. **Enable Verbose Logging** : Update your agent code to include more detailed logging, especially around the entry points and any error handling logic.
 
 ## I have payload format issues
 
-###### Problem
+**Problem**
 
-Your agent runtime invocation fails even though the container starts
-successfully.
+Your agent runtime invocation fails even though the container starts successfully.
 
-###### Resolution
+**Resolution**
 
 Follow these steps to resolve payload format issues:
 
-1. **Verify Payload Structure**: Ensure your
-   payload structure matches what your agent expects. Pay special attention
-   to:
-   - If your agent code expects `input` keyword in the
-     payload, make sure to include it:
+1. **Verify Payload Structure** : Ensure your payload structure matches what your agent expects. Pay special attention to:
+   - If your agent code expects `input` keyword in the payload, make sure to include it:
 
    ```
    {
@@ -289,16 +220,15 @@ Follow these steps to resolve payload format issues:
    }
    ```
 
-2. **Check Documentation**: Review the expected
-   input format in the documentation.
+2. **Check Documentation** : Review the expected input format in the documentation.
 
 ## I need help understanding HTTP error codes
 
-###### Problem
+**Problem**
 
 Your agent returns HTTP error codes that are difficult to interpret.
 
-###### Example error message
+**Example error message**
 
 You may see an error like:
 
@@ -306,19 +236,17 @@ You may see an error like:
 An error occurred (RuntimeClientError) when calling the InvokeAgentRuntime operation: Received error (<HTTP Status Code>) from runtime. Please check your CloudWatch logs for more information
 ```
 
-###### Resolution
+**Resolution**
 
 Here are the most common error codes and their meanings:
 
 **422 Unprocessable Entity**
 
-This happens when the container encounters validation issues with the
-input payload.
+This happens when the container encounters validation issues with the input payload.
 
 Common causes:
 
-- Missing required fields in the payload (e.g., missing "input"
-  field)
+- Missing required fields in the payload (e.g., missing "input" field)
 - Incorrect data types for fields
 - Invalid format for the payload
 
@@ -338,27 +266,25 @@ Check CloudWatch logs for detailed stack traces.
 
 To systematically debug agent runtime issues:
 
-###### Test locally first
+**Test locally first**
 
 Before deploying to AgentCore Runtime:
 
 - Run your agent container locally using the same Docker image
 - Verify it works with the exact same payload
 
-###### Compare payloads
+**Compare payloads**
 
 Ensure consistency between environments:
 
-- Ensure the payload structure between local testing and AgentCore Runtime
-  invocation is identical
-- Pay special attention to nesting of fields like "input" and
-  "prompt"
+- Ensure the payload structure between local testing and AgentCore Runtime invocation is identical
+- Pay special attention to nesting of fields like "input" and "prompt"
 
 ## I need help debugging container issues
 
 If you suspect container-related issues:
 
-###### Pull and run locally
+**Pull and run locally**
 
 Test your container image on your local machine:
 
@@ -367,7 +293,7 @@ docker pull <your-ecr-repo-uri>
 docker run -p 8080:8080 <your-ecr-repo-uri>
 ```
 
-###### Test with curl
+**Test with curl**
 
 Send test requests to your local container:
 
@@ -377,9 +303,9 @@ curl -X POST http://localhost:8080/invocations \
      -d '{"input": {"prompt": "Hello world!"}}'
 ```
 
-###### Check container logs
+**Check container logs**
 
-Examine the container's output for errors:
+Examine the container’s output for errors:
 
 ```
 docker logs <container-id>
@@ -389,21 +315,19 @@ docker logs <container-id>
 
 For MCP protocol agents, follow these specific troubleshooting steps:
 
-###### Verify endpoint path
+**Verify endpoint path**
 
 MCP servers should listen on `0.0.0.0:8000/mcp/`
 
-###### Use MCP Inspector
+**Use MCP Inspector**
 
 Test with the MCP Inspector tool:
 
-1. Install and run the MCP Inspector: `npx
-@modelcontextprotocol/inspector`
-2. Connect to your local server at
-   `http://localhost:8000/mcp`
+1. Install and run the MCP Inspector: `npx @modelcontextprotocol/inspector`
+2. Connect to your local server at `http://localhost:8000/mcp`
 3. For deployed agents, use the properly URL-encoded endpoint
 
-###### Authentication issues
+**Authentication issues**
 
 Check authentication configuration:
 
@@ -414,11 +338,11 @@ Check authentication configuration:
 
 For bidirectional streaming using WebSocket agents, follow these specific troubleshooting steps:
 
-###### Verify endpoint configuration
+**Verify endpoint configuration**
 
 WebSocket agents must run on port 8080 and serve WebSocket connections at `/ws` path
 
-###### Test locally with incremental complexity
+**Test locally with incremental complexity**
 
 Start with simple local testing before deploying:
 
@@ -427,83 +351,71 @@ Start with simple local testing before deploying:
 3. Test session management: Verify persistent conversations work as expected
 4. Test error handling: Ensure your agent gracefully handles connection drops and malformed messages
 
-###### Authentication issues
+**Authentication issues**
 
 Check authentication configuration for deployed agents:
 
 - For OAuth: Ensure bearer token is valid and not expired
 - For SigV4: Make sure input to the signing algorithm is correct, including the WebSocket URL, headers, and request method
-- Use the correct authentication method that matches your agent's configuration
+- Use the correct authentication method that matches your agent’s configuration
 
-###### Common connection issues
+**Common connection issues**
 
 Address common WebSocket connection problems:
 
 - Verify message format compatibility between your agent and client expectations
 - Configure message frame fragmentation or implement chunking to stay within message frame size (64 KB) and message frame rate (250 frames per second) limits to prevent connection closure
 
-## My code changes aren't reflected in existing sessions
+## My code changes aren’t reflected in existing sessions
 
-###### Problem
+**Problem**
 
-You've updated your agent runtime with new code, but existing sessions continue to use the old version.
+You’ve updated your agent runtime with new code, but existing sessions continue to use the old version.
 
-###### Why this happens
+**Why this happens**
 
-Each microVM session is created with the code assets (`agentRuntimeArtifact`) that were deployed at the time of session creation. Once a session is established, it continues using that version of the code until the session terminates, even when code assets are updated as part of performing the [UpdateAgentRuntime](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.md") operation.
+Each microVM session is created with the code assets ( `agentRuntimeArtifact` ) that were deployed at the time of session creation. Once a session is established, it continues using that version of the code until the session terminates, even when code assets are updated as part of performing the [UpdateAgentRuntime](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.md") operation.
 
-###### Solution
+**Solution**
 
 To access your updated code, use a new session ID.
 
 ## Spans are missing when my runtime is invoked from a Lambda function
 
-**When this occurs:** When invoking AgentCore Runtime
-from a Lambda function
+**When this occurs:** When invoking AgentCore Runtime from a Lambda function
 
-**Why this happens:** Lambda generates its own
-`X-Amzn-Trace-Id` header. If the Lambda trace has
-`Sampled=0`, this unsampled context propagates to AgentCore Runtime and
-the runtime skips span generation for that invocation.
+**Why this happens:** Lambda generates its own `X-Amzn-Trace-Id` header. If the Lambda trace has `Sampled=0` , this unsampled context propagates to AgentCore Runtime and the runtime skips span generation for that invocation.
 
 **Solution:**
 
-- **Enable Lambda active tracing:** Turn on
-  X-Ray active tracing on your Lambda function so that it produces sampled
-  traces (`Sampled=1`).
-- **Verify CloudWatch Transaction Search:**
-  Ensure you have completed the setup in [Configure observability](observability-configure.md "observability-configure.md") and that your trace segment
-  destination is set to CloudWatch Logs.
-- **Check the sampling decision:** Log the
-  `_X_AMZN_TRACE_ID` environment variable inside your Lambda
-  function. If it shows `Sampled=0`, active tracing is not
-  enabled or an upstream caller is making the sampling decision.
+- **Enable Lambda active tracing:** Turn on X-Ray active tracing on your Lambda function so that it produces sampled traces ( `Sampled=1` ).
+- **Verify CloudWatch Transaction Search:** Ensure you have completed the setup in [Configure observability](observability-configure.md "observability-configure.md") and that your trace segment destination is set to CloudWatch Logs.
+- **Check the sampling decision:** Log the `_X_AMZN_TRACE_ID` environment variable inside your Lambda function. If it shows `Sampled=0` , active tracing is not enabled or an upstream caller is making the sampling decision.
 
 ## Best practices
 
-###### Enable comprehensive logging
+**Enable comprehensive logging**
 
 Implement thorough logging in your agent:
 
 - Include request/response logging in your agent
 - Log critical paths and error conditions
 
-###### Use structured error handling
+**Use structured error handling**
 
 Implement clear error reporting:
 
 - Return clear error messages with specific codes
 - Include actionable information in error responses
 
-###### Test incremental changes
+**Test incremental changes**
 
 Follow a methodical testing approach:
 
 - When modifying your agent, test locally before deployment
-- Validate payload compatibility with both local and deployed
-  environments
+- Validate payload compatibility with both local and deployed environments
 
-###### Monitor performance
+**Monitor performance**
 
 Set up monitoring for your agent:
 

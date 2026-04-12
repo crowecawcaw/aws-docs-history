@@ -1,16 +1,14 @@
 # Strands Agents SDK
 
-Use the [Strands Agents](https://strandsagents.com/latest/ "https://strandsagents.com/latest/") SDK for
-seamless integration with agent frameworks, providing automatic memory management and
-retrieval within conversational agents.
+Use the [Strands Agents](https://strandsagents.com/latest/ "https://strandsagents.com/latest/") SDK for seamless integration with agent frameworks, providing automatic memory management and retrieval within conversational agents.
 
-First, create a memory with all three long-term strategies. You can do this with the
-AgentCore CLI or through the SDK code in the examples below.
+First, create a memory with all three long-term strategies. You can do this with the AgentCore CLI or through the SDK code in the examples below.
+
+###### Example
 
 AgentCore CLI
-The AgentCore CLI memory commands must be run inside an existing
-agentcore project. If you don't have one yet, create a project
-first:
+
+1. The AgentCore CLI memory commands must be run inside an existing agentcore project. If you don’t have one yet, create a project first:
 
 ```
 agentcore create --name my-agent --no-agent
@@ -26,14 +24,13 @@ agentcore deploy
 ```
 
 Interactive
-Run `agentcore` to open the TUI, then select
-**add** and choose **Memory**:
 
-1. Enter the memory name:
+1. Run `agentcore` to open the TUI, then select **add** and choose **Memory** :
+2. Enter the memory name:
 
-![Memory wizard: enter ComprehensiveAgentMemory name](images/tui/strands-memory-add-name.png) 2. Select all three strategies (Semantic, Summarization, User preference):
+![Memory wizard: enter ComprehensiveAgentMemory name](images/tui/strands-memory-add-name.png) 3. Select all three strategies (Semantic, Summarization, User preference):
 
-![Memory wizard: select all three memory strategies](images/tui/strands-memory-add-strategies.png) 3. Review the configuration and press Enter to confirm:
+![Memory wizard: select all three memory strategies](images/tui/strands-memory-add-strategies.png) 4. Review the configuration and press Enter to confirm:
 
 ![Memory wizard: confirm ComprehensiveAgentMemory with all strategies](images/tui/strands-memory-add-confirm.png)
 
@@ -165,16 +162,11 @@ agent("What should I buy for lunch today?")
 
 **Message batching**
 
-When `batch_size` is greater than 1, messages are buffered in memory and
-sent to AgentCore Memory in a single API call once the buffer reaches the configured size.
-This reduces the number of API requests in high-throughput conversations.
+When `batch_size` is greater than 1, messages are buffered in memory and sent to AgentCore Memory in a single API call once the buffer reaches the configured size. This reduces the number of API requests in high-throughput conversations.
 
 ###### Important
 
-When using `batch_size > 1`, you **must**
-use a `with` block or call `close()` when the session is
-complete. Otherwise, any buffered messages that have not yet reached the batch
-threshold will be lost.
+When using `batch_size > 1` , you **must** use a `with` block or call `close()` when the session is complete. Otherwise, any buffered messages that have not yet reached the batch threshold will be lost.
 
 _Recommended: Context manager_
 
@@ -203,8 +195,7 @@ with AgentCoreMemorySessionManager(config, region_name='us-east-1') as session_m
 
 _Alternative: Explicit close()_
 
-If you cannot use a `with` block, call `close()`
-manually:
+If you cannot use a `with` block, call `close()` manually:
 
 ```
 session_manager = AgentCoreMemorySessionManager(config, region_name='us-east-1')

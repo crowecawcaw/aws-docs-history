@@ -1,0 +1,49 @@
+# IAM Permissions
+
+## Registry actions
+
+For an identity to be able to create, manage, or use Registries, you need to attach an identity-based policy to the IAM identity to allow it to perform [Amazon Bedrock AgentCore-related actions](../../../service-authorization/latest/reference/list_amazonbedrockagentcore.md "../../../service-authorization/latest/reference/list_amazonbedrockagentcore.md") . For comprehensive permissions, you can use the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") managed policy.
+
+For greater security and control, you can create your own custom policy by reducing the permissions in the full access policy.
+
+## Registry control plane actions
+
+| Action                             | Description                            | Access level |
+| ---------------------------------- | -------------------------------------- | ------------ |
+| `bedrock-agentcore:CreateRegistry` | Grants permission to create a registry | Write        |
+| `bedrock-agentcore:GetRegistry`    | Grants permission to get a registry    | Read         |
+| `bedrock-agentcore:UpdateRegistry` | Grants permission to update a registry | Write        |
+| `bedrock-agentcore:DeleteRegistry` | Grants permission to delete a registry | Write        |
+| `bedrock-agentcore:ListRegistries` | Grants permission to list registries   | List         |
+
+## Registry record control plane actions
+
+| Action                                              | Description                                                          | Access level |
+| --------------------------------------------------- | -------------------------------------------------------------------- | ------------ |
+| `bedrock-agentcore:CreateRegistryRecord`            | Grants permission to create a registry record                        | Write        |
+| `bedrock-agentcore:GetRegistryRecord`               | Grants permission to get a registry record                           | Read         |
+| `bedrock-agentcore:UpdateRegistryRecord`            | Grants permission to update a registry record                        | Write        |
+| `bedrock-agentcore:DeleteRegistryRecord`            | Grants permission to delete a registry record                        | Write        |
+| `bedrock-agentcore:ListRegistryRecords`             | Grants permission to list registry records                           | List         |
+| `bedrock-agentcore:SubmitRegistryRecordForApproval` | Grants permission to submit a registry record for approval           | Write        |
+| `bedrock-agentcore:UpdateRegistryRecordStatus`      | Grants permission to approve, reject, or deprecate a registry record | Write        |
+
+## Registry data plane actions
+
+| Action                                    | Description                                           | Access level |
+| ----------------------------------------- | ----------------------------------------------------- | ------------ |
+| `bedrock-agentcore:SearchRegistryRecords` | Grants permission to search registry records          | Read         |
+| `bedrock-agentcore:InvokeRegistryMcp`     | Grants permission to invoke the registry MCP endpoint | Read         |
+
+###### Note
+
+For Invoking the MCP Server, you will need both SearchRegistryRecords and InvokeRegistryMcp IAM Permissions.
+
+## Registry resource types
+
+The following resource types are defined for AWS Agent Registry:
+
+| Resource type   | ARN format                                                                             |
+| --------------- | -------------------------------------------------------------------------------------- |
+| Registry        | `arn:aws:bedrock-agentcore:{region}:{account}:registry/{registryId}`                   |
+| Registry record | `arn:aws:bedrock-agentcore:{region}:{account}:registry/{registryId}/record/{recordId}` |

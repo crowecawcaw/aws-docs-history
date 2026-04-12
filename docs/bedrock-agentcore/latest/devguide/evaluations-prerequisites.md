@@ -1,7 +1,6 @@
 # Prerequisites
 
-Before you begin using Amazon Bedrock AgentCore Evaluations, ensure you have the necessary AWS
-permissions and service roles configured.
+Before you begin using Amazon Bedrock AgentCore Evaluations, ensure you have the necessary AWS permissions and service roles configured.
 
 ###### Topics
 
@@ -13,23 +12,15 @@ permissions and service roles configured.
 
 To use AgentCore Evaluations online evaluation features, you need:
 
-- **AWS Account** with appropriate IAM
-  permissions
-- **Amazon Bedrock** access with model invocation
-  permissions (required when using a custom evaluator)
-- **Amazon CloudWatch** access for viewing evaluation
-  results
-- **Transaction Search** enabled in CloudWatch - see
-  Enable Transaction Search
-- **AWS Distro for OpenTelemetry (ADOT) SDK**
-  instrumenting your agent. Use AgentCore Observability instructions to
-  configure observability for agents hosted on AgentCore Runtime and agents
-  hosted elsewhere.
+- **AWS Account** with appropriate IAM permissions
+- **Amazon Bedrock** access with model invocation permissions (required when using a custom evaluator)
+- **Amazon CloudWatch** access for viewing evaluation results
+- **Transaction Search** enabled in CloudWatch - see Enable Transaction Search
+- **AWS Distro for OpenTelemetry (ADOT) SDK** instrumenting your agent. Use AgentCore Observability instructions to configure observability for agents hosted on AgentCore Runtime and agents hosted elsewhere.
 
 ## IAM user permissions
 
-Your IAM user or role needs the following permissions to create and manage
-evaluations:
+Your IAM user or role needs the following permissions to create and manage evaluations:
 
 ###### Topics
 
@@ -37,15 +28,12 @@ evaluations:
 
 ### Console and API operations
 
-To use Amazon Bedrock AgentCore, you can attach the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") AWS managed policy
-to your IAM user or IAM role. This policy grants broad permissions for all
-AgentCore capabilities. If you only use AgentCore Evaluations, we recommend creating a
-custom IAM policy that includes only the permissions required for
-evaluation.
+To use Amazon Bedrock AgentCore, you can attach the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md")
+AWS managed policy to your IAM user or IAM role. This policy grants broad permissions for all AgentCore capabilities. If you only use AgentCore Evaluations, we recommend creating a custom IAM policy that includes only the permissions required for evaluation.
 
 ```
 {
-    "Version": "2012-10-17",
+"Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -104,11 +92,9 @@ evaluation.
 
 ## Service execution role
 
-Amazon Bedrock AgentCore Evaluations requires a custom IAM role to access AWS resources on your
-behalf. This role allows the service to:
+Amazon Bedrock AgentCore Evaluations requires a custom IAM role to access AWS resources on your behalf. This role allows the service to:
 
-- Invoke Amazon Bedrock models for evaluation (required when using a custom
-  evaluator)
+- Invoke Amazon Bedrock models for evaluation (required when using a custom evaluator)
 - Read traces from Amazon CloudWatch
 - Write evaluation results to Amazon CloudWatch
 - Configure log indexing for trace analysis
@@ -123,42 +109,33 @@ To create the IAM role you can use the AgentCore Evaluations console, the AWS co
 
 ### Option 1: Using AgentCore Evaluations Console
 
-You can create the required IAM role directly through the AgentCore Evaluations
-console, which provides a streamlined approach with automatic role
-creation.
+You can create the required IAM role directly through the AgentCore Evaluations console, which provides a streamlined approach with automatic role creation.
 
-###### To create an IAM role using the AgentCore Evaluations console
+**To create an IAM role using the AgentCore Evaluations console**
 
 1. Open the Amazon Bedrock AgentCore console.
-2. In the left navigation pane, choose
-   **Evaluation**.
+2. In the left navigation pane, choose **Evaluation**.
 3. Choose **Create evaluation configuration**.
-4. In the Permission section, select **Create and use a new
-   service role** and the console will automatically create
-   the IAM role for you.
+4. In the Permission section, select **Create and use a new service role** and the console will automatically create the IAM role for you.
 
 ### Option 2: Using the AgentCore CLI
 
-The AgentCore CLI automatically creates the required IAM
-role when you deploy your project.
+The AgentCore CLI automatically creates the required IAM role when you deploy your project.
 
 ### Option 3: Using the AWS Console
 
-You can manually create the IAM role using the AWS console, which gives
-you full control over the role configuration and policies.
+You can manually create the IAM role using the AWS console, which gives you full control over the role configuration and policies.
 
-###### To create an IAM role using the AWS console
+**To create an IAM role using the AWS console**
 
 1. Open the IAM Console
 2. Navigate to Roles and choose **Create role**
-3. Select **AWS service** as the trusted entity
-   type
-4. Create an IAM role with the following trust policy to allow
-   Amazon Bedrock AgentCore to assume the role:
+3. Select **AWS service** as the trusted entity type
+4. Create an IAM role with the following trust policy to allow Amazon Bedrock AgentCore to assume the role:
 
 ```
 {
-    "Version": "2012-10-17",
+"Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "TrustPolicyStatement",
@@ -188,7 +165,7 @@ you full control over the role configuration and policies.
 
 ```
 {
-    "Version": "2012-10-17",
+"Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "CloudWatchLogReadStatement",
@@ -240,7 +217,4 @@ you full control over the role configuration and policies.
 
 ###### Note
 
-Replace {{region}} and {{accountId}} with your actual AWS region
-and account ID. If you are using a custom evaluator and have
-specified a BedrockInvokeStatement, you can also scope the allowed
-model IDs. 6. Name your role (e.g., AgentCoreEvaluationRole) 7. Review and create the role
+Replace { { region}} and { { accountId}} with your actual AWS region and account ID. If you are using a custom evaluator and have specified a BedrockInvokeStatement, you can also scope the allowed model IDs. 6. Name your role (e.g., AgentCoreEvaluationRole) 7. Review and create the role

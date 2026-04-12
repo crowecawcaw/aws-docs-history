@@ -1,25 +1,25 @@
 # List available tools in an AgentCore gateway
 
-To list all available tools that an AgentCore gateway provides, make a POST request to the gateway's MCP endpoint and specify `tools/list` as the method in the request body:
+To list all available tools that an AgentCore gateway provides, make a POST request to the gateway’s MCP endpoint and specify `tools/list` as the method in the request body:
 
 ```
 POST /mcp HTTP/1.1
-Host: `${GatewayEndpoint}`
+Host: ${GatewayEndpoint}
 Content-Type: application/json
-Authorization: `${Authorization header}`
+Authorization: ${Authorization header}
 
-`${RequestBody}`
+${RequestBody}
 ```
 
 Replace the following values:
 
 - `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") API.
 - `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
-- `${RequestBody}` – The JSON payload of the request body, as specified in [Listing tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#listing-tools "https://modelcontextprotocol.io/specification/2025-06-18/server/tools#listing-tools") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro"). Include `tools/list` as the `method`.
+- `${RequestBody}` – The JSON payload of the request body, as specified in [Listing tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#listing-tools "https://modelcontextprotocol.io/specification/2025-06-18/server/tools#listing-tools") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") . Include `tools/list` as the `method`.
 
 ###### Note
 
-For a list of optionally supported parameters for `tools/list`, see the `params` object in the request body at [Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools "https://modelcontextprotocol.io/specification/2025-06-18/server/tools") in the [Model Context Protocol documentation](https://modelcontextprotocol.io/specification/2025-06-18 "https://modelcontextprotocol.io/specification/2025-06-18"). At the top of the page next to the search bar, you can select the MCP version whose documentation you want to view. Make sure that the version is one [supported by Amazon Bedrock AgentCore](gateway-using.md "gateway-using.md").
+For a list of optionally supported parameters for `tools/list` , see the `params` object in the request body at [Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools "https://modelcontextprotocol.io/specification/2025-06-18/server/tools") in the [Model Context Protocol documentation](https://modelcontextprotocol.io/specification/2025-06-18 "https://modelcontextprotocol.io/specification/2025-06-18") . At the top of the page next to the search bar, you can select the MCP version whose documentation you want to view. Make sure that the version is one [supported by Amazon Bedrock AgentCore](gateway-using.md "gateway-using.md").
 
 The response returns a list of available tools with their names, descriptions, and parameter schemas.
 
@@ -27,17 +27,20 @@ The response returns a list of available tools with their names, descriptions, a
 
 To see examples of listing available tools in the gateway, select one of the following methods:
 
+###### Example
+
 Python requests package
 
-```
-import requests
-import json
+1. ```
+   import requests
+   import json
+   ```
 
 def list_tools(gateway_url, access_token):
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {access_token}"
-    }
+headers = {
+"Content-Type": "application/json",
+"Authorization": f"Bearer {access_token}"
+}
 
     payload = {
         "jsonrpc": "2.0",
@@ -49,15 +52,18 @@ def list_tools(gateway_url, access_token):
     return response.json()
 
 # Example usage
-gateway_url = "https://`${GatewayEndpoint}`/mcp" # Replace with your actual gateway endpoint
-access_token = "`${AccessToken}"` # Replace with your actual access token
+
+gateway_url = "https://${GatewayEndpoint}/mcp" # Replace with your actual gateway endpoint
+access_token = "${AccessToken}" # Replace with your actual access token
 tools = list_tools(gateway_url, access_token)
 print(json.dumps(tools, indent=2))
-```
+
+````
+
 
 MCP Client
 
-```
+1. ```
 import asyncio
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
@@ -126,38 +132,38 @@ async def main():
 # Run the async function
 if __name__ == "__main__":
     asyncio.run(main())
-
-```
+````
 
 Strands MCP Client
 
-```
-from strands.tools.mcp.mcp_client import MCPClient
-from mcp.client.streamable_http import streamablehttp_client
-import os
+1. ```
+   from strands.tools.mcp.mcp_client import MCPClient
+   from mcp.client.streamable_http import streamablehttp_client
+   import os
+   ```
 
 def create_streamable_http_transport(mcp_url: str, access_token: str):
-       return streamablehttp_client(mcp_url, headers={"Authorization": f"Bearer {access_token}"})
+return streamablehttp_client(mcp_url, headers={"Authorization": f"Bearer {access_token}"})
 
 def get_full_tools_list(client):
-    """
-    List tools w/ support for pagination
-    """
-    more_tools = True
-    tools = []
-    pagination_token = None
-    while more_tools:
-        tmp_tools = client.list_tools_sync(pagination_token=pagination_token)
-        tools.extend(tmp_tools)
-        if tmp_tools.pagination_token is None:
-            more_tools = False
-        else:
-            more_tools = True
-            pagination_token = tmp_tools.pagination_token
-    return tools
+"""
+List tools w/ support for pagination
+"""
+more_tools = True
+tools = []
+pagination_token = None
+while more_tools:
+tmp_tools = client.list_tools_sync(pagination_token=pagination_token)
+tools.extend(tmp_tools)
+if tmp_tools.pagination_token is None:
+more_tools = False
+else:
+more_tools = True
+pagination_token = tmp_tools.pagination_token
+return tools
 
 def run_agent(mcp_url: str, access_token: str):
-    mcp_client = MCPClient(lambda: create_streamable_http_transport(mcp_url, access_token))
+mcp_client = MCPClient(lambda: create_streamable_http_transport(mcp_url, access_token))
 
     with mcp_client:
         tools = get_full_tools_list(mcp_client)
@@ -165,16 +171,15 @@ def run_agent(mcp_url: str, access_token: str):
 
 run_agent(<MCP URL>, <Access token>)
 
-```
+````
+
 
 LangGraph MCP Client
 
-```
-
+1. ```
 import asyncio
 
 from langchain_mcp_adapters.client import MultiServerMCPClient
-
 
 def list_tools(
     url,
@@ -209,10 +214,8 @@ def list_tools(
         f"Langchain: List of tool names - \n{tool_names_string}\n"
         f"Langchain: Details of tools - \n{tool_details_string}\n"
     )
-
-```
+````
 
 ###### Note
 
-If search is enabled on the gateway, then the search tool, `x_amz_bedrock_agentcore_search`
-will be listed first in the response.
+If search is enabled on the gateway, then the search tool, `x_amz_bedrock_agentcore_search` will be listed first in the response.

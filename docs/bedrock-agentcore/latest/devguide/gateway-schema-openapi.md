@@ -1,7 +1,6 @@
 # OpenAPI schema targets
 
-OpenAPI (formerly known as Swagger) is a widely used standard for describing RESTful
-APIs. Gateway supports OpenAPI 3.0 specifications for defining API targets.
+OpenAPI (formerly known as Swagger) is a widely used standard for describing RESTful APIs. Gateway supports OpenAPI 3.0 specifications for defining API targets.
 
 OpenAPI targets connect your gateway to REST APIs defined using OpenAPI specifications. The Gateway translates incoming MCP requests into HTTP requests to these APIs and handles the response formatting.
 
@@ -16,24 +15,17 @@ Review the key considerations and limitations, including feature support, to hel
 
 ###### Important
 
-The OpenAPI specification must include `operationId` fields for all
-operations that you want to expose as tools. The operationId is used as the tool name in
-the MCP interface.
+The OpenAPI specification must include `operationId` fields for all operations that you want to expose as tools. The operationId is used as the tool name in the MCP interface.
 
-When using OpenAPI targets, keep in mind the following requirements and
-limitations:
+When using OpenAPI targets, keep in mind the following requirements and limitations:
 
 - OpenAPI versions 3.0 and 3.1 are supported (Swagger 2.0 is not supported)
 - The OpenAPI file must be free of semantic errors
 - The server attribute needs to have a valid URL of the actual endpoint
 - Only application/json content type is fully supported
 - Complex schema features like oneOf, anyOf, and allOf are not supported
-- Path parameter serializers and parameter serializers for query, header, and cookie
-  parameters are not supported
-- Each LLM will have ToolSpec constraints. If OpenAPI has APIs/properties/object
-  names not compliant to ToolSpec of the respective downstream LLMs, the data plane will
-  fail. Common errors are property name exceeding the allowed length or the name
-  containing unsupported character.
+- Path parameter serializers and parameter serializers for query, header, and cookie parameters are not supported
+- Each LLM will have ToolSpec constraints. If OpenAPI has APIs/properties/object names not compliant to ToolSpec of the respective downstream LLMs, the data plane will fail. Common errors are property name exceeding the allowed length or the name containing unsupported character.
 
 For best results with OpenAPI targets:
 
@@ -106,24 +98,23 @@ In considering using OpenAPI schema targets with AgentCore Gateway, review the f
 
 ### OpenAPI feature support
 
-The following table outlines the OpenAPI features that are supported and unsupported
-by Gateway:
+The following table outlines the OpenAPI features that are supported and unsupported by Gateway:
 
-| OpenAPI feature support                                                                                                                                                                                        | Supported Features                                                                                                                                                                                                                       | Unsupported Features |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| **Schema Definitions**<br>• Basic data types (string, number, integer, boolean, array,<br>object)<br>• Required field validation<br>• Nested object structures<br>• Array definitions with item specifications | **Schema Composition**<br>• oneOf specifications<br>• anyOf specifications<br>• allOf specifications                                                                                                                                     |
-| **HTTP Methods**<br>• Standard HTTP methods (GET, POST, PUT, DELETE, PATCH, HEAD,<br>OPTIONS)                                                                                                                  | **Security Schemes**<br>• Security schemes at the OpenAPI specification level (authentication<br>must be configured using the Gateway's outbound authorization configuration)                                                            |
-| **Media Types**<br>• application/json<br>• application/xml<br>• multipart/form-data<br>• application/x-www-form-urlencoded                                                                                     | **Media Types**<br>• Custom media types beyond the supported list<br>• Binary media types                                                                                                                                                |
-| **Path Parameters**<br>• Simple path parameter definitions (Example: /users/{userId})                                                                                                                          | **Parameter Serialization**<br>• Complex path parameter serializers (Example:<br>`/users{;id\\*}{?metadata}`)<br>• Query parameter arrays with complex serialization<br>• Header parameter serializers<br>• Cookie parameter serializers |
-| **Query Parameters**<br>• Basic query parameter definitions<br>• Simple string, number, and boolean types                                                                                                      | **Callbacks and Webhooks**<br>• Callback operations<br>• Webhook definitions                                                                                                                                                             |
-| **Request/Response Bodies**<br>• JSON request and response bodies<br>• XML request and response bodies<br>• Standard HTTP status codes (200, 201, 400, 404, 500, etc.)                                         | **Links**<br>• Links between operations                                                                                                                                                                                                  |
+| Supported Features                                                                                                                                                                           | Unsupported Features                                                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \*_Schema Definitions_<br>• Basic data types (string, number, integer, boolean, array, object) Required field validation Nested object structures Array definitions with item specifications | \*_Schema Composition_<br>• oneOf specifications anyOf specifications allOf specifications                                                                                                                                |
+| \*_HTTP Methods_<br>• Standard HTTP methods (GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS)                                                                                                   | \*_Security Schemes_<br>• Security schemes at the OpenAPI specification level (authentication must be configured using the Gateway’s outbound authorization configuration)                                                |
+| \*_Media Types_<br>• application/json application/xml multipart/form-data application/x-www-form-urlencoded                                                                                  | \*_Media Types_<br>• Custom media types beyond the supported list Binary media types                                                                                                                                      |
+| \*_Path Parameters_<br>• Simple path parameter definitions (Example: /users/ { userId})                                                                                                      | \*_Parameter Serialization_<br>• Complex path parameter serializers (Example: `/users { ;id\*} { ?metadata}`) Query parameter arrays with complex serialization Header parameter serializers Cookie parameter serializers |
+| \*_Query Parameters_<br>• Basic query parameter definitions Simple string, number, and boolean types                                                                                         | \*_Callbacks and Webhooks_<br>• Callback operations Webhook definitions                                                                                                                                                   |
+| \*_Request/Response Bodies_<br>• JSON request and response bodies XML request and response bodies Standard HTTP status codes (200, 201, 400, 404, 500, etc.)                                 | \*_Links_<br>• Links between operations                                                                                                                                                                                   |
 
 ## OpenAPI schema specification
 
 The OpenAPI specification defines the REST API that your Gateway will expose. Refer to the following resources when setting up your OpenAPI specification:
 
 - For information about the format of the OpenAPI specification, see [OpenAPI Specification](https://swagger.io/specification/ "https://swagger.io/specification/").
-- For information about supported and unsupported features when using an OpenAPI specification with AgentCore Gateway, see the table in [OpenAPI feature support](#gateway-schema-openapi-features "#gateway-schema-openapi-features"). Adhere to these requirements to prevent errors during target creation and invocation.
+- For information about supported and unsupported features when using an OpenAPI specification with AgentCore Gateway, see the table in [OpenAPI feature support](#gateway-schema-openapi-features "#gateway-schema-openapi-features") . Adhere to these requirements to prevent errors during target creation and invocation.
 
 After you define your OpenAPI schema, you can do one of the following:
 

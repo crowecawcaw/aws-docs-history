@@ -6,9 +6,9 @@ Interceptors can be configured with an input parameter called `passRequestHeader
 
 When configuring interceptors, you can specify whether request headers should be passed to the interceptor function using the `passRequestHeaders` field:
 
-**`passRequestHeaders`**
+**passRequestHeaders**
 
-A boolean value that determines whether request headers are included in the interceptor input payload. When set to `true`, all request headers will be passed to your interceptor Lambda function. When set to `false` (default), headers are not included.
+A boolean value that determines whether request headers are included in the interceptor input payload. When set to `true` , all request headers will be passed to your interceptor Lambda function. When set to `false` (default), headers are not included.
 
 ###### Warning
 
@@ -16,11 +16,13 @@ Use caution when setting this to `true` as request headers may contain sensitive
 
 ## Configuring interceptors during gateway creation
 
-The following examples show how to create a gateway with interceptors that have `passRequestHeaders` set to `true`:
+The following examples show how to create a gateway with interceptors that have `passRequestHeaders` set to `true` :
+
+###### Example
 
 AgentCore CLI
-With the AgentCore CLI, first create and deploy the gateway, then configure
-interceptors using the AWS CLI or AWS Python SDK (Boto3).
+
+1. With the AgentCore CLI, first create and deploy the gateway, then configure interceptors using the AWS CLI or AWS Python SDK (Boto3).
 
 Create the gateway:
 
@@ -33,11 +35,11 @@ agentcore add gateway \
 agentcore deploy
 ```
 
-After deployment, configure interceptors on the gateway using the AWS CLI
-`update-gateway` command or the AWS Python SDK (Boto3) as shown in the other tabs.
+After deployment, configure interceptors on the gateway using the AWS CLI `update-gateway` command or the AWS Python SDK (Boto3) as shown in the other tabs.
 
 AWS CLI
-Use the following AWS CLI command to create a gateway with interceptors configured to pass request headers:
+
+1. Use the following AWS CLI command to create a gateway with interceptors configured to pass request headers:
 
 ```
 aws bedrock-agentcore-control create-gateway \
@@ -65,7 +67,8 @@ aws bedrock-agentcore-control create-gateway \
 ```
 
 AWS Python SDK (Boto3)
-Use the following Python code with the AWS Python SDK (Boto3) to create a gateway with interceptors configured to pass request headers:
+
+1. Use the following Python code with the AWS Python SDK (Boto3) to create a gateway with interceptors configured to pass request headers:
 
 ```
 import boto3

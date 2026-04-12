@@ -9,7 +9,7 @@ To add Okta as an identity provider and authorization server for accessing Agent
 - Configure a discovery URL from your Okta tenant. This helps AgentCore Identity get the metadata related to your OAuth authorization server and token verification keys.
 - Enter valid `aud` claims for the token. This helps validate the tokens coming from your IdP and allows access for tokens that contain expected claims.
 
-###### To configure Okta for inbound authentication
+**To configure Okta for inbound authentication**
 
 1. Open the Okta developer console.
 2. In the left navigation bar, choose **Applications**.
@@ -31,28 +31,28 @@ To add Okta as an identity provider and authorization server for accessing Agent
 12. Construct the discovery URL for your Okta tenant:
 
 ```
-https://`your-tenant`.okta.com/oauth2/`your-authorization-server`
+https://your-tenant.okta.com/oauth2/your-authorization-server
 ```
 
 13. Configure Inbound Auth with the following values:
     - **Discovery URL:** The URL constructed in the previous step
     - **Allowed Audiences:** The audience value you provided when creating the API in step 11
 
-For more details, refer to [Okta's documentation](https://developer.okta.com/docs/concepts/oauth-openid/ "https://developer.okta.com/docs/concepts/oauth-openid/").
+For more details, refer to [Okta’s documentation](https://developer.okta.com/docs/concepts/oauth-openid/ "https://developer.okta.com/docs/concepts/oauth-openid/").
 
 ### Add a client_id claim into access token claims
 
 Okta by default does not include `client_id` as a standard claim in their tokens. To populate the claim in the token, you need to customize the claims through the authorization server that you use to issue tokens.
 
-###### To add client_id claim to access tokens
+**To add client_id claim to access tokens**
 
-1. In the left navigation bar, choose **Security**. Go to **API** and choose the authorization server that you intend to use for your application.
+1. In the left navigation bar, choose **Security** . Go to **API** and choose the authorization server that you intend to use for your application.
 2. In the details page for the authorization server, choose the **Claims** tab and choose **Add Claim**.
 3. Name the new claim **client_id** and set the value to **app.clientId**.
 4. Set **Include in token type** to **Access Token**.
 5. Choose **Save**.
 
-For more details, refer to [Okta's documentation](https://developer.okta.com/docs/guides/customize-tokens-returned-from-okta/main/ "https://developer.okta.com/docs/guides/customize-tokens-returned-from-okta/main/").
+For more details, refer to [Okta’s documentation](https://developer.okta.com/docs/guides/customize-tokens-returned-from-okta/main/ "https://developer.okta.com/docs/guides/customize-tokens-returned-from-okta/main/").
 
 ## Outbound
 
@@ -66,11 +66,11 @@ To configure Okta as an outbound resource provider in AgentCore Identity, use th
   "credentialProviderVendor": "OktaOauth2",
   "oauth2ProviderConfigInput" : {
     "includedOauth2ProviderConfig": {
-      "clientId": "`your-client-id`",
-      "clientSecret": "`your-client-secret`",
-      "authorizationEndpoint": "https://`your-tenant`.okta.com/oauth2/`your-authorization-server`/v1/authorize",
-      "tokenEndpoint": "https://`your-tenant`.okta.com/oauth2/`your-authorization-server`/v1/token",
-      "issuer": "https://`your-tenant`.okta.com/oauth2/`your-authorization-server`"
+      "clientId": "your-client-id",
+      "clientSecret": "your-client-secret",
+      "authorizationEndpoint": "https://your-tenant.okta.com/oauth2/your-authorization-server/v1/authorize",
+      "tokenEndpoint": "https://your-tenant.okta.com/oauth2/your-authorization-server/v1/token",
+      "issuer": "https://your-tenant.okta.com/oauth2/your-authorization-server"
     }
   }
 }

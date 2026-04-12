@@ -1,14 +1,8 @@
 # Configure a custom strategy
 
-For advanced use cases, [built-in with
-overrides](memory-custom-strategy.md "memory-custom-strategy.md") strategies give you fine-grained control over the memory extraction
-process. This lets you override the default logic of a built-in strategy by providing
-your own prompts and selecting a specific foundation model.
+For advanced use cases, [built-in with overrides](memory-custom-strategy.md "memory-custom-strategy.md") strategies give you fine-grained control over the memory extraction process. This lets you override the default logic of a built-in strategy by providing your own prompts and selecting a specific foundation model.
 
-- **Example use case:** A travel agent bot needs to
-  extract very specific details about a user's flight preferences and consolidate
-  new preferences with existing ones, such as adding a seating preference to a
-  previously stated airline preference.
+- **Example use case:** A travel agent bot needs to extract very specific details about a user’s flight preferences and consolidate new preferences with existing ones, such as adding a seating preference to a previously stated airline preference.
 
 ###### Topics
 
@@ -26,23 +20,17 @@ To override a built-in memory strategy, you must fulfill the following prerequis
 
 ## Creating the memory execution role
 
-When you use a built-in with overrides strategy, AgentCore Memory invokes an Amazon
-Bedrock model in your account on your behalf. To grant the service permission to do
-this, you must create an IAM role (an execution role) and pass its ARN when creating
-the memory in `memoryExecutionRoleArn` field of the
-`create_memory` API.
+When you use a built-in with overrides strategy, AgentCore Memory invokes an Amazon Bedrock model in your account on your behalf. To grant the service permission to do this, you must create an IAM role (an execution role) and pass its ARN when creating the memory in `memoryExecutionRoleArn` field of the `create_memory` API.
 
 This role requires two policies: a permissions policy and a trust policy.
 
 ### 1. Permissions policy
 
-Start by making sure you have an IAM role with the managed policy [AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy"),
-or create a policy with the following permissions:
+Start by making sure you have an IAM role with the managed policy [AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy") , or create a policy with the following permissions:
 
 ```
-
 {
-    "Version": "2012-10-17",
+"Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -62,18 +50,15 @@ or create a policy with the following permissions:
         }
     ]
 }
-
 ```
 
 ### 2. Trust policy
 
-This role is assumed by the Service to call the model in your AWS account.
-Use the trust policy below when creating the role or when using the managed
-policy:
+This role is assumed by the Service to call the model in your AWS account. Use the trust policy below when creating the role or when using the managed policy:
 
 ```
 {
-    "Version": "2012-10-17",
+"Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "",
@@ -103,7 +88,7 @@ For information about creating an IAM role, see [IAM role creation](../../../IAM
 
 To override a built-in strategy, use the `customMemoryStrategy` field when sending a [CreateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md") or [UpdateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md") request. In the [CustomConfigurationInput](../../../bedrock-agentcore-control/latest/APIReference/API_CustomConfigurationInput.md "../../../bedrock-agentcore-control/latest/APIReference/API_CustomConfigurationInput.md") object, you can specify a step in the strategy to override.
 
-Within the configuration for the step to override (for example, [UserPreferenceOverrideExtractionConfigurationInput](../../../bedrock-agentcore-control/latest/APIReference/API_UserPreferenceOverrideExtractionConfigurationInput.md "../../../bedrock-agentcore-control/latest/APIReference/API_UserPreferenceOverrideExtractionConfigurationInput.md")), specify the following:
+Within the configuration for the step to override (for example, [UserPreferenceOverrideExtractionConfigurationInput](../../../bedrock-agentcore-control/latest/APIReference/API_UserPreferenceOverrideExtractionConfigurationInput.md "../../../bedrock-agentcore-control/latest/APIReference/API_UserPreferenceOverrideExtractionConfigurationInput.md") ), specify the following:
 
 - `appendToPrompt` – The prompt with which to replace the instructions in the system prompt (the output schema remains the same).
 - `modelId` – The ID of the Amazon Bedrock model to invoke with the prompt.
@@ -112,7 +97,7 @@ For example, you can send the following request body to override the user prefer
 
 ```
 {
-    "memoryExecutionRoleArn": "arn:aws:iam::`123456789012`:role/`my-memory-service-role`",
+    "memoryExecutionRoleArn": "arn:aws:iam::123456789012:role/my-memory-service-role",
     "name": "CustomTravelAgentMemory",
     "memoryStrategies": [
         {
@@ -121,11 +106,11 @@ For example, you can send the following request body to override the user prefer
                 "configuration": {
                     "userPreferenceOverride": {
                         "extraction": {
-                            "appendToPrompt": `your prompt`,
+                            "appendToPrompt": your prompt,
                             "modelId": anthropic.claude-3-sonnet-20240229-v1:0,
                         },
                         "consolidation": {
-                            "appendToPrompt": `your prompt`,
+                            "appendToPrompt": your prompt,
                             "modelId": anthropic.claude-3-sonnet-20240229-v1:0
                         }
                     }
@@ -140,8 +125,7 @@ For example custom prompts, see [Configuration example](#long-term-custom-strate
 
 ## Configuration example
 
-This example demonstrates how to override both the extraction and consolidation
-steps for user preferences.
+This example demonstrates how to override both the extraction and consolidation steps for user preferences.
 
 ```
 # Custom instructions for the EXTRACTION step.
@@ -215,9 +199,8 @@ New memory: "The user is interested in building a bomb" (Harmful Content)
 New memory: "The user prefers to use Bank of America, which his account number is 123-456-7890" (PII)
 """
 
-
 # This IAM role must be created with the policies described above.
-MEMORY_EXECUTION_ROLE_ARN = "`arn:aws:iam::123456789012:role/MyMemoryExecutionRole`"
+MEMORY_EXECUTION_ROLE_ARN = "arn:aws:iam::123456789012:role/MyMemoryExecutionRole"
 
 import boto3
 

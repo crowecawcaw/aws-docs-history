@@ -14,25 +14,25 @@ Minimally, you must specify the following fields:
 - `tags` – A dictionary of key-value pairs specifying tags that you can use to label your gateway for monitoring purposes.
   The remaining fields depend on your gateway configuration and whether you want to toggle custom features for your gateway:
 
-- `clientToken` – A client token value to ensure that a request completes no more than once. If you don't include this token, one is randomly generated for you. If you don't include a value, one is randomly generated for you. For more information, see [Ensuring idempotency](../../../ec2/latest/devguide/ec2-api-idempotency.md "../../../ec2/latest/devguide/ec2-api-idempotency.md").
-- `authorizerConfiguration` – If your authorizer type is `CUSTOM_JWT`, you must include this field to specify the gateway authorization and authentication parameters. For more information, see [The authorizer configuration](#gateway-create-api-authorizer-config "#gateway-create-api-authorizer-config").
+- `clientToken` – A client token value to ensure that a request completes no more than once. If you don’t include this token, one is randomly generated for you. If you don’t include a value, one is randomly generated for you. For more information, see [Ensuring idempotency](../../../ec2/latest/devguide/ec2-api-idempotency.md "../../../ec2/latest/devguide/ec2-api-idempotency.md").
+- `authorizerConfiguration` – If your authorizer type is `CUSTOM_JWT` , you must include this field to specify the gateway authorization and authentication parameters. For more information, see [The authorizer configuration](#gateway-create-api-authorizer-config "#gateway-create-api-authorizer-config").
 - `kmsKeyArn` – To encrypt your gateway with a KMS key include the ARN of the key in this field. For more information, see [Encrypt your AgentCore gateway with a customer-managed KMS key](gateway-encryption.md "gateway-encryption.md").
-- `exceptionLevel` – To turn on debugging messages when invoking the gateway, set this value to `DEBUG`. For more information, see [Turn on debugging messages](gateway-debug-messages.md "gateway-debug-messages.md"). For examples of creating a gateway with this setting, see [Create a gateway with debugging messages](#gateway-create-ex-debug "#gateway-create-ex-debug").
-- `interceptorConfigurations` – To turn on custom code that is run when invoking your gateway, include this field. For more information, see [Using interceptors with Gateway](gateway-interceptors.md "gateway-interceptors.md"). For examples of creating a gateway with interceptors, see [Create a gateway with interceptor configurations](#gateway-create-ex-basic-interceptors "#gateway-create-ex-basic-interceptors").
+- `exceptionLevel` – To turn on debugging messages when invoking the gateway, set this value to `DEBUG` . For more information, see [Turn on debugging messages](gateway-debug-messages.md "gateway-debug-messages.md") . For examples of creating a gateway with this setting, see [Create a gateway with debugging messages](#gateway-create-ex-debug "#gateway-create-ex-debug").
+- `interceptorConfigurations` – To turn on custom code that is run when invoking your gateway, include this field. For more information, see [Using interceptors with Gateway](gateway-interceptors.md "gateway-interceptors.md") . For examples of creating a gateway with interceptors, see [Create a gateway with interceptor configurations](#gateway-create-ex-basic-interceptors "#gateway-create-ex-basic-interceptors").
 - `protocolConfiguration` – To include customizations for the gateway protocol, configure the settings in this field. For options in this configuration, see [GatewayProtocolConfiguration](../../../bedrock-agentcore-control/latest/APIReference/API_GatewayProtocolConfiguration.md "../../../bedrock-agentcore-control/latest/APIReference/API_GatewayProtocolConfiguration.md").
-  - One example option is the addition of a tool search tool in your gateway. For more information, see [Search for tools in your AgentCore gateway with a natural language query](gateway-using-mcp-semantic-search.md "gateway-using-mcp-semantic-search.md"). For examples of creating a gateway with this search tool, see [Create a gateway with semantic search](#gateway-create-ex-semantic "#gateway-create-ex-semantic").
+  - One example option is the addition of a tool search tool in your gateway. For more information, see [Search for tools in your AgentCore gateway with a natural language query](gateway-using-mcp-semantic-search.md "gateway-using-mcp-semantic-search.md") . For examples of creating a gateway with this search tool, see [Create a gateway with semantic search](#gateway-create-ex-semantic "#gateway-create-ex-semantic").
 
 ## The authorizer configuration
 
-If your authorizer type is `CUSTOM_JWT`, you must also include an authorizer configuration in the `authorizerConfiguration` field. The basic structure of the authorizer configuration is as follows:
+If your authorizer type is `CUSTOM_JWT` , you must also include an authorizer configuration in the `authorizerConfiguration` field. The basic structure of the authorizer configuration is as follows:
 
 ```
 {
   "customJWTAuthorizer": {
-    "discoveryUrl": "`string`",
-    "allowedAudience": ["`string`"],
-    "allowedClients": ["`string`"],
-    "allowedScopes": ["`string`"],
+    "discoveryUrl": "string",
+    "allowedAudience": ["string"],
+    "allowedClients": ["string"],
+    "allowedScopes": ["string"],
     "customClaims": see below
   }
 }
@@ -50,206 +50,261 @@ You must provide the discovery URL for the authentication token. The remaining f
     - `claimMatchOperator` – Defines the relationship to look for between the match value and claim value.
     - `claimMatchValue` – An object that contains only one of the following fields:
       - matchValueString – Used in the following situations:
-        - If the `inboundTokenClaimValueType` is `STRING` and the `claimMatchOperator` is `EQUALS`, specify a string that you want the claim value to match with for authentication.
-        - If the `inboundTokenClaimValueType` is `STRING_ARRAY` and the `claimMatchOperator` is `CONTAINS`, specify a string that you want the claim value array to contain for authentication.
+        - If the `inboundTokenClaimValueType` is `STRING` and the `claimMatchOperator` is `EQUALS` , specify a string that you want the claim value to match with for authentication.
+        - If the `inboundTokenClaimValueType` is `STRING_ARRAY` and the `claimMatchOperator` is `CONTAINS` , specify a string that you want the claim value array to contain for authentication.
 
-      - `matchValueArray` – If the `inboundTokenClaimValueType` is `STRING_ARRAY` and the `claimMatchOperator` is `CONTAINS_ANY`, specify an array of values that you want to check for authentication. If any of the values in the claim value array matches any of the values in the `matchValueArray`, the claim can be authenticated.
+      - `matchValueArray` – If the `inboundTokenClaimValueType` is `STRING_ARRAY` and the `claimMatchOperator` is `CONTAINS_ANY` , specify an array of values that you want to check for authentication. If any of the values in the claim value array matches any of the values in the `matchValueArray` , the claim can be authenticated.
 
 The following examples show the structure of the CustomClaimValidationsType objects that you can specify:
 
+###### Example
+
 String matches string
 
-```
-{
-  "inboundTokenClaimName": "`string`",
-  "inboundTokenClaimValueType": "STRING",
-  "authorizingClaimMatchValue": {
-    "claimMatchValue": {
-      "matchValueString": "`string`"
-    },
-    "claimMatchOperator": "EQUALS"
-  }
-}
-```
+1. ```
+   {
+     "inboundTokenClaimName": "string",
+     "inboundTokenClaimValueType": "STRING",
+     "authorizingClaimMatchValue": {
+       "claimMatchValue": {
+         "matchValueString": "string"
+       },
+       "claimMatchOperator": "EQUALS"
+     }
+   }
+   ```
+
+````
+
 
 Array contains string
 
-```
+1. ```
 {
-  "inboundTokenClaimName": "`string`",
+  "inboundTokenClaimName": "string",
   "inboundTokenClaimValueType": "STRING_ARRAY",
   "authorizingClaimMatchValue": {
     "claimMatchValue": {
-      "matchValueString": "`string`"
+      "matchValueString": "string"
     },
     "claimMatchOperator": "CONTAINS"
   }
 }
-```
+````
 
 Array contains any value in array
 
+1. ```
+   {
+     "inboundTokenClaimName": "string",
+     "inboundTokenClaimValueType": "STRING_ARRAY",
+     "authorizingClaimMatchValue": {
+       "claimMatchValue": {
+         "matchValueStringList": ["string"]
+       },
+       "claimMatchOperator": "CONTAINS_ANY"
+     }
+   }
+   ```
+
 ```
-{
-  "inboundTokenClaimName": "`string`",
-  "inboundTokenClaimValueType": "STRING_ARRAY",
-  "authorizingClaimMatchValue": {
-    "claimMatchValue": {
-      "matchValueStringList": ["`string`"]
-    },
-    "claimMatchOperator": "CONTAINS_ANY"
-  }
-}
-```
+
+
 
 To see examples of how to create a gateway, expand the section that corresponds to your use case:
 
+
 ###### Topics
 
-- [Create a gateway: basic example (Custom JWT authorization)](#gateway-create-ex-basic-jwt "#gateway-create-ex-basic-jwt")
-- [Create a gateway: basic example (IAM authorization)](#gateway-create-ex-basic-iam "#gateway-create-ex-basic-iam")
-- [Create a gateway: basic example (NONE authorizer)](#gateway-create-ex-basic-none-auth "#gateway-create-ex-basic-none-auth")
-- [Create a gateway with semantic search](#gateway-create-ex-semantic "#gateway-create-ex-semantic")
-- [Create a gateway with debugging messages](#gateway-create-ex-debug "#gateway-create-ex-debug")
-- [Create a gateway with interceptor configurations](#gateway-create-ex-basic-interceptors "#gateway-create-ex-basic-interceptors")
-- [Create a gateway with a policy engine configuration](#gateway-create-ex-policy-engine "#gateway-create-ex-policy-engine")
 
 ## Create a gateway: basic example (Custom JWT authorization)
 
+
 This section provides basic examples of creating a gateway.
+
 
 ###### Note
 
-Note the following:
+Note the following: \* The values for the authorization configuration are from when you set up [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md") . \* If you choose an option that involves specifying an overt gateway service role ARN, ensure that you specify an existing one that you’ve set up. For more information, see [AgentCore Gateway service role permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions "gateway-prerequisites-permissions.md#gateway-service-role-permissions").
 
-- The values for the authorization configuration are from when you set up [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
-- If you choose an option that involves specifying an overt gateway service role ARN,
-  ensure that you specify an existing one that you've set up. For more information, see
-  [AgentCore Gateway service role permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions "gateway-prerequisites-permissions.md#gateway-service-role-permissions").
 
 Select one of the following methods:
 
+
+###### Example
+
+
 AgentCore CLI
-The AgentCore CLI provides a simple way to create a gateway in a
-command line interface.
 
-To create the gateway, you use the `agentcore add gateway` command. The
-gateway service role and Amazon Cognito authorization are automatically configured for you during
-deployment.
+1. The AgentCore CLI provides a simple way to create a gateway in a command line interface.
 
-###### Using default arguments
 
-Run the following command in a terminal to create a gateway with no authorization
-(the default). To add Custom JWT authorization, specify the authorizer flags as shown
-in the next example:
+To create the gateway, you use the `agentcore add gateway` command. The gateway service role and Amazon Cognito authorization are automatically configured for you during deployment.
+
+
+
+**Using default arguments**
+
+
+
+Run the following command in a terminal to create a gateway with no authorization (the default). To add Custom JWT authorization, specify the authorizer flags as shown in the next example:
+
+
 
 ```
+
 agentcore add gateway --name my-gateway
-```
-
-###### Specifying arguments
-
-The following command shows how to create a gateway with Custom JWT authorization and
-explicit configuration:
 
 ```
+
+
+**Specifying arguments**
+
+
+
+The following command shows how to create a gateway with Custom JWT authorization and explicit configuration:
+
+
+
+```
+
 agentcore add gateway \
-  --name my-gateway \
-  --authorizer-type CUSTOM_JWT \
-  --discovery-url "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration" \
-  --allowed-audience "api.example.com"
+ --name my-gateway \
+ --authorizer-type CUSTOM_JWT \
+ --discovery-url "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration" \
+ --allowed-audience "api.example.com"
 agentcore deploy
+
 ```
 
-After deployment, the `gatewayUrl` shown by **agentcore status**
-is the endpoint to use when you invoke the gateway.
+After deployment, the `gatewayUrl` shown by **agentcore status** is the endpoint to use when you invoke the gateway.
+
 
 Interactive
-Run `agentcore` to open the TUI, then select
-**add** and choose **Gateway**:
 
-1. Enter the gateway name:
+1. Run `agentcore` to open the TUI, then select **add** and choose **Gateway** :
+2. Enter the gateway name:
 
-![Gateway wizard: enter name](images/tui/gateway-add-name.png) 2. Select **Custom JWT** as the authorizer type and press
-**Enter**:
 
-![Gateway wizard: select Custom JWT authorizer](images/tui/gateway-add-auth-jwt.png) 3. Configure advanced options:
 
-![Gateway wizard: advanced configuration](images/tui/gateway-add-advanced.png) 4. Review the configuration summary and press **Enter** to confirm:
+![Gateway wizard: enter name](images/tui/gateway-add-name.png)
+3. Select **Custom JWT** as the authorizer type and press **Enter** :
+
+
+
+![Gateway wizard: select Custom JWT authorizer](images/tui/gateway-add-auth-jwt.png)
+4. Configure advanced options:
+
+
+
+![Gateway wizard: advanced configuration](images/tui/gateway-add-advanced.png)
+5. Review the configuration summary and press **Enter** to confirm:
+
+
 
 ![Gateway wizard: review configuration](images/tui/gateway-add-confirm.png)
 
-AWS CLI
-Run the following code in a terminal to create a basic gateway with the AWS CLI:
+
+
+ AWS CLI
+
+1. Run the following code in a terminal to create a basic gateway with the AWS CLI:
+
+
 
 ```
+
 aws bedrock-agentcore-control create-gateway \
-  --name my-gateway \
-  --role-arn arn:aws:iam::123456789012:role/my-gateway-service-role \
-  --protocol-type MCP \
-  --authorizer-type CUSTOM_JWT \
-  --authorizer-configuration '{
-    "customJWTAuthorizer": {
-      "discoveryUrl": "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration",
-      "allowedClients": ["clientId"]
-    }
-  }'
-```
-
-The `gatewayUrl` in the response is the endpoint to use when you invoke the
-gateway.
-
-AWS Python SDK (Boto3)
-The following Python code shows how to create a basic gateway with the
-AWS Python SDK (Boto3):
+ --name my-gateway \
+ --role-arn arn:aws:iam::123456789012:role/my-gateway-service-role \
+ --protocol-type MCP \
+ --authorizer-type CUSTOM_JWT \
+ --authorizer-configuration '{
+"customJWTAuthorizer": {
+"discoveryUrl": "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration",
+"allowedClients": ["clientId"]
+}
+}'
 
 ```
+
+The `gatewayUrl` in the response is the endpoint to use when you invoke the gateway.
+
+
+
+ AWS Python SDK (Boto3)
+
+1. The following Python code shows how to create a basic gateway with the AWS Python SDK (Boto3):
+
+
+
+```
+
 import boto3
 
 # Initialize the AgentCore client
+
 client = boto3.client('bedrock-agentcore-control')
 
 # Create a gateway
+
 gateway = client.create_gateway(
-  name="my-gateway",
-  roleArn="arn:aws:iam::123456789012:role/my-gateway-service-role",
-  protocolType="MCP",
-  authorizerType="CUSTOM_JWT",
-  authorizerConfiguration={
-      "customJWTAuthorizer": {
-          "discoveryUrl": "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration",
-          "allowedClients": ["clientId"]
-      }
-  }
+name="my-gateway",
+roleArn="arn:aws:iam::123456789012:role/my-gateway-service-role",
+protocolType="MCP",
+authorizerType="CUSTOM_JWT",
+authorizerConfiguration={
+"customJWTAuthorizer": {
+"discoveryUrl": "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration",
+"allowedClients": ["clientId"]
+}
+}
 )
 
 print(f"MCP Endpoint: {gateway['gatewayUrl']}")
+
 ```
+
+
 
 ## Create a gateway: basic example (IAM authorization)
 
-This section provides basic examples of creating a gateway using IAM authorization. With IAM authorization, you don't need an authorizer configuration.
+
+This section provides basic examples of creating a gateway using IAM authorization. With IAM authorization, you don’t need an authorizer configuration.
+
 
 ###### Note
 
 The AgentCore CLI does not support creating gateways with IAM authorization. Use the AWS Command Line Interface or AWS Python SDK (Boto3) to create a gateway with IAM authorization.
 
+
 Select one of the following methods:
 
-AWS CLI
-Run the following in a terminal:
+
+###### Example
+
+
+
+ AWS CLI
+
+1. Run the following in a terminal:
+
+
 
 ```
+
 aws bedrock-agentcore-control create-gateway \
 --name my-gateway \
 --role-arn arn:aws:iam::123456789012:role/MyAgentCoreServiceRole \
 --protocol-type MCP \
 --authorizer-type AWS_IAM
-```
+
+````
+
 
 Boto3
 
-```
+1. ```
 import boto3
 
 # Create the AgentCore client
@@ -262,7 +317,7 @@ gateway = agentcore_client.create_gateway(
   protocolType="MCP",
   authorizerType="AWS_IAM"
 )
-```
+````
 
 ## Create a gateway: basic example (NONE authorizer)
 
@@ -270,15 +325,15 @@ This section provides basic examples of creating a gateway with a NONE authorize
 
 ###### Note
 
-- The NONE authorizer type represents a gateway that will not perform authentication or authorization for any incoming requests. See [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md") for security concerns and details around using this configuration.
-- If you choose an option that involves specifying an overt gateway service role ARN,
-  ensure that you specify an existing one that you've set up. For more information, see
-  [AgentCore Gateway service role permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions "gateway-prerequisites-permissions.md#gateway-service-role-permissions").
+\* The NONE authorizer type represents a gateway that will not perform authentication or authorization for any incoming requests. See [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md") for security concerns and details around using this configuration. \* If you choose an option that involves specifying an overt gateway service role ARN, ensure that you specify an existing one that you’ve set up. For more information, see [AgentCore Gateway service role permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions "gateway-prerequisites-permissions.md#gateway-service-role-permissions").
 
 Select one of the following methods:
 
+###### Example
+
 AgentCore CLI
-The AgentCore CLI provides a simple way to create a gateway with NONE authorizer type in a command line interface.
+
+1. The AgentCore CLI provides a simple way to create a gateway with NONE authorizer type in a command line interface.
 
 The following command shows how to create a gateway with NONE authorizer type:
 
@@ -289,26 +344,24 @@ agentcore add gateway \
 agentcore deploy
 ```
 
-After deployment, the `gatewayUrl` shown by **agentcore status**
-is the endpoint to use when you invoke the gateway.
+After deployment, the `gatewayUrl` shown by **agentcore status** is the endpoint to use when you invoke the gateway.
 
 Interactive
-Run `agentcore` to open the TUI, then select
-**add** and choose **Gateway**:
 
-1. Enter the gateway name:
+1. Run `agentcore` to open the TUI, then select **add** and choose **Gateway** :
+2. Enter the gateway name:
 
-![Gateway wizard: enter name](images/tui/gateway-add-name.png) 2. Select **NONE** as the authorizer type and press
-**Enter**:
+![Gateway wizard: enter name](images/tui/gateway-add-name.png) 3. Select **NONE** as the authorizer type and press **Enter** :
 
-![Gateway wizard: select NONE authorizer](images/tui/gateway-add-auth-none.png) 3. Configure advanced options:
+![Gateway wizard: select NONE authorizer](images/tui/gateway-add-auth-none.png) 4. Configure advanced options:
 
-![Gateway wizard: advanced configuration](images/tui/gateway-add-advanced.png) 4. Review the configuration summary and press **Enter** to confirm:
+![Gateway wizard: advanced configuration](images/tui/gateway-add-advanced.png) 5. Review the configuration summary and press **Enter** to confirm:
 
 ![Gateway wizard: review configuration](images/tui/gateway-add-confirm.png)
 
 AWS CLI
-Run the following code in a terminal to create a gateway with NONE authorizer type using the AWS CLI:
+
+1. Run the following code in a terminal to create a gateway with NONE authorizer type using the AWS CLI:
 
 ```
 aws bedrock-agentcore-control create-gateway \
@@ -318,12 +371,11 @@ aws bedrock-agentcore-control create-gateway \
   --authorizer-type NONE
 ```
 
-The `gatewayUrl` in the response is the endpoint to use when you invoke the
-gateway.
+The `gatewayUrl` in the response is the endpoint to use when you invoke the gateway.
 
 AWS Python SDK (Boto3)
-The following Python code shows how to create a gateway with NONE authorizer type using the
-AWS Python SDK (Boto3):
+
+1. The following Python code shows how to create a gateway with NONE authorizer type using the AWS Python SDK (Boto3):
 
 ```
 import boto3
@@ -348,8 +400,11 @@ This section provides basic examples of creating a gateway with a tool to allow 
 
 Select one of the following methods:
 
+###### Example
+
 AgentCore CLI
-By default, semantic search is enabled when you create a gateway using the AgentCore CLI. To disable it, use the `--no-semantic-search` flag. To create a gateway with default semantic search enabled:
+
+1. By default, semantic search is enabled when you create a gateway using the AgentCore CLI. To disable it, use the `--no-semantic-search` flag. To create a gateway with default semantic search enabled:
 
 ```
 agentcore add gateway --name my-gateway
@@ -357,23 +412,21 @@ agentcore deploy
 ```
 
 Interactive
-Run `agentcore` to open the TUI, then select
-**add** and choose **Gateway**.
-Semantic search is enabled by default in the advanced options:
 
-1. Enter the gateway name:
+1. Run `agentcore` to open the TUI, then select **add** and choose **Gateway** . Semantic search is enabled by default in the advanced options:
+2. Enter the gateway name:
 
-![Gateway wizard: enter name](images/tui/gateway-add-name.png) 2. Select the authorizer type and press **Enter**:
+![Gateway wizard: enter name](images/tui/gateway-add-name.png) 3. Select the authorizer type and press **Enter** :
 
-![Gateway wizard: select authorizer type](images/tui/gateway-add-auth-jwt.png) 3. In advanced options, verify that semantic search is enabled (this is the
-default):
+![Gateway wizard: select authorizer type](images/tui/gateway-add-auth-jwt.png) 4. In advanced options, verify that semantic search is enabled (this is the default):
 
-![Gateway wizard: advanced configuration with semantic search enabled](images/tui/gateway-add-advanced.png) 4. Review the configuration summary and press **Enter** to confirm:
+![Gateway wizard: advanced configuration with semantic search enabled](images/tui/gateway-add-advanced.png) 5. Review the configuration summary and press **Enter** to confirm:
 
 ![Gateway wizard: review configuration](images/tui/gateway-add-confirm.png)
 
 AWS CLI
-Turn on semantic search when creating a gateway in the AWS CLI by specifying `searchType` as `SEMANTIC` in the `--protocol-configuration` object, as in the following example:
+
+1. Turn on semantic search when creating a gateway in the AWS CLI by specifying `searchType` as `SEMANTIC` in the `--protocol-configuration` object, as in the following example:
 
 ```
 aws bedrock-agentcore-control create-gateway \
@@ -394,11 +447,11 @@ aws bedrock-agentcore-control create-gateway \
   }'
 ```
 
-The `gatewayUrl` in the response is the endpoint to use when you invoke the
-gateway.
+The `gatewayUrl` in the response is the endpoint to use when you invoke the gateway.
 
 AWS Python SDK (Boto3)
-Turn on semantic search when creating a gateway using the AWS Python SDK (Boto3) by specifying `searchType` as `SEMANTIC` in the `protocolConfiguration` object, as in the following example:
+
+1. Turn on semantic search when creating a gateway using the AWS Python SDK (Boto3) by specifying `searchType` as `SEMANTIC` in the `protocolConfiguration` object, as in the following example:
 
 ```
 import boto3
@@ -430,7 +483,7 @@ print(f"MCP Endpoint: {gateway['gatewayUrl']}")
 
 ## Create a gateway with debugging messages
 
-You can create a gateway with debugging messages by specifying the `exceptionLevel` value as `DEBUG`. This section provides examples of creating a gateway with debugging messages. To learn more, see [Turn on debugging messages](gateway-debug-messages.md "gateway-debug-messages.md").
+You can create a gateway with debugging messages by specifying the `exceptionLevel` value as `DEBUG` . This section provides examples of creating a gateway with debugging messages. To learn more, see [Turn on debugging messages](gateway-debug-messages.md "gateway-debug-messages.md").
 
 ###### Note
 
@@ -438,9 +491,11 @@ The AgentCore CLI does not set `exceptionLevel` to `DEBUG` by default. You must 
 
 Select one of the following methods:
 
+###### Example
+
 AgentCore CLI
-When you create a gateway using the AgentCore CLI, pass the
-`--exception-level` flag to enable debugging messages:
+
+1. When you create a gateway using the AgentCore CLI, pass the `--exception-level` flag to enable debugging messages:
 
 ```
 agentcore add gateway --name my-gateway --exception-level DEBUG
@@ -448,22 +503,21 @@ agentcore deploy
 ```
 
 Interactive
-Run `agentcore` to open the TUI, then select
-**add** and choose **Gateway**.
-In advanced options, you can enable debugging messages by setting the exception level to `DEBUG`:
 
-1. Enter the gateway name:
+1. Run `agentcore` to open the TUI, then select **add** and choose **Gateway** . In advanced options, you can enable debugging messages by setting the exception level to `DEBUG` :
+2. Enter the gateway name:
 
-![Gateway wizard: enter name](images/tui/gateway-add-name.png) 2. Select the authorizer type and press **Enter**:
+![Gateway wizard: enter name](images/tui/gateway-add-name.png) 3. Select the authorizer type and press **Enter** :
 
-![Gateway wizard: select authorizer type](images/tui/gateway-add-auth-jwt.png) 3. In advanced options, set the exception level to `DEBUG`:
+![Gateway wizard: select authorizer type](images/tui/gateway-add-auth-jwt.png) 4. In advanced options, set the exception level to `DEBUG` :
 
-![Gateway wizard: advanced configuration with debug mode enabled](images/tui/gateway-add-advanced.png) 4. Review the configuration summary and press **Enter** to confirm:
+![Gateway wizard: advanced configuration with debug mode enabled](images/tui/gateway-add-advanced.png) 5. Review the configuration summary and press **Enter** to confirm:
 
 ![Gateway wizard: review configuration](images/tui/gateway-add-confirm.png)
 
 AWS CLI
-Run the following code in a terminal to create a gateway with debugging messages turned on in the AWS CLI:
+
+1. Run the following code in a terminal to create a gateway with debugging messages turned on in the AWS CLI:
 
 ```
 aws bedrock-agentcore-control create-gateway \
@@ -478,15 +532,13 @@ aws bedrock-agentcore-control create-gateway \
     }
   }' \
   --exception-level DEBUG
-
 ```
 
-The `gatewayUrl` in the response is the endpoint to use when you invoke the
-gateway.
+The `gatewayUrl` in the response is the endpoint to use when you invoke the gateway.
 
 AWS Python SDK (Boto3)
-The following Python code shows how to create a basic gateway with the
-AWS Python SDK (Boto3):
+
+1. The following Python code shows how to create a basic gateway with the AWS Python SDK (Boto3):
 
 ```
 import boto3
@@ -518,16 +570,15 @@ This section provides examples of creating a gateway that has interceptors confi
 
 ###### Note
 
-- Interceptors will be invoked at runtime of the gateway for each request.
-- If you choose an option that involves specifying an overt gateway service role ARN,
-  ensure that you specify an existing one that you've set up. For more information, see
-  [AgentCore Gateway service role permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions "gateway-prerequisites-permissions.md#gateway-service-role-permissions").
+\* Interceptors will be invoked at runtime of the gateway for each request. \* If you choose an option that involves specifying an overt gateway service role ARN, ensure that you specify an existing one that you’ve set up. For more information, see [AgentCore Gateway service role permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions "gateway-prerequisites-permissions.md#gateway-service-role-permissions").
 
 Select one of the following methods:
 
+###### Example
+
 AgentCore CLI
-With the AgentCore CLI, first create the gateway and then configure
-interceptors using the AWS CLI or AWS Python SDK (Boto3).
+
+1. With the AgentCore CLI, first create the gateway and then configure interceptors using the AWS CLI or AWS Python SDK (Boto3).
 
 Create the gateway:
 
@@ -540,30 +591,26 @@ agentcore add gateway \
 agentcore deploy
 ```
 
-After deployment, configure interceptors on the gateway using the AWS CLI
-`update-gateway` command or the AWS Python SDK (Boto3) as shown in the other tabs.
+After deployment, configure interceptors on the gateway using the AWS CLI `update-gateway` command or the AWS Python SDK (Boto3) as shown in the other tabs.
 
 Interactive
-Run `agentcore` to open the TUI, then select
-**add** and choose **Gateway**.
-After creating the gateway, configure interceptors using the AWS CLI or AWS Python SDK (Boto3):
 
-1. Enter the gateway name:
+1. Run `agentcore` to open the TUI, then select **add** and choose **Gateway** . After creating the gateway, configure interceptors using the AWS CLI or AWS Python SDK (Boto3):
+2. Enter the gateway name:
 
-![Gateway wizard: enter name](images/tui/gateway-add-name.png) 2. Select **Custom JWT** as the authorizer type and press
-**Enter**:
+![Gateway wizard: enter name](images/tui/gateway-add-name.png) 3. Select **Custom JWT** as the authorizer type and press **Enter** :
 
-![Gateway wizard: select Custom JWT authorizer](images/tui/gateway-add-auth-jwt.png) 3. Configure advanced options:
+![Gateway wizard: select Custom JWT authorizer](images/tui/gateway-add-auth-jwt.png) 4. Configure advanced options:
 
-![Gateway wizard: advanced configuration](images/tui/gateway-add-advanced.png) 4. Review the configuration summary and press **Enter** to confirm:
+![Gateway wizard: advanced configuration](images/tui/gateway-add-advanced.png) 5. Review the configuration summary and press **Enter** to confirm:
 
 ![Gateway wizard: review configuration](images/tui/gateway-add-confirm.png)
 
-After the gateway is created and deployed, configure interceptors using the AWS CLI
-`update-gateway` command or the AWS Python SDK (Boto3) as shown in the other tabs.
+After the gateway is created and deployed, configure interceptors using the AWS CLI `update-gateway` command or the AWS Python SDK (Boto3) as shown in the other tabs.
 
 AWS CLI
-Run the following code in a terminal to create a gateway with interceptor configurations using the AWS CLI:
+
+1. Run the following code in a terminal to create a gateway with interceptor configurations using the AWS CLI:
 
 ```
 aws bedrock-agentcore-control create-gateway \
@@ -587,12 +634,11 @@ aws bedrock-agentcore-control create-gateway \
   }]'
 ```
 
-The `gatewayUrl` in the response is the endpoint to use when you invoke the
-gateway.
+The `gatewayUrl` in the response is the endpoint to use when you invoke the gateway.
 
 AWS Python SDK (Boto3)
-The following Python code shows how to create a gateway with interceptor configurations using the
-AWS Python SDK (Boto3):
+
+1. The following Python code shows how to create a gateway with interceptor configurations using the AWS Python SDK (Boto3):
 
 ```
 import boto3
@@ -627,11 +673,13 @@ print(f"MCP Endpoint: {gateway['gatewayUrl']}")
 
 ## Create a gateway with a policy engine configuration
 
-You can create a gateway with a policy engine configuration. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. The enforcement `mode` specifies whether to test policies (`LOG_ONLY`) or enforce them (`ENFORCE`).
+You can create a gateway with a policy engine configuration. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. The enforcement `mode` specifies whether to test policies ( `LOG_ONLY` ) or enforce them ( `ENFORCE` ).
+
+###### Example
 
 AgentCore CLI
-First, add a policy engine to your project. Then, create a gateway that references
-the policy engine:
+
+1. First, add a policy engine to your project. Then, create a gateway that references the policy engine:
 
 ```
 agentcore add policy-engine \
@@ -640,19 +688,19 @@ agentcore add policy-engine \
 agentcore add gateway \
   --name MyGateway \
   --authorizer-type CUSTOM_JWT \
-  --discovery-url `https://cognito-idp.us-west-2.amazonaws.com/pool-id/.well-known/openid-configuration` \
-  --allowed-clients `clientId` \
+  --discovery-url https://cognito-idp.us-west-2.amazonaws.com/pool-id/.well-known/openid-configuration \
+  --allowed-clients clientId \
   --policy-engine MyPolicyEngine \
   --policy-engine-mode LOG_ONLY
 
 agentcore deploy
 ```
 
-To enforce policies instead of only logging decisions, change
-`--policy-engine-mode` to `ENFORCE`.
+To enforce policies instead of only logging decisions, change `--policy-engine-mode` to `ENFORCE`.
 
 AWS CLI
-Run the following command to create a gateway with a policy engine configuration using the AWS CLI:
+
+1. Run the following command to create a gateway with a policy engine configuration using the AWS CLI:
 
 ```
 aws bedrock-agentcore-control create-gateway \
@@ -673,5 +721,4 @@ aws bedrock-agentcore-control create-gateway \
   --exception-level DEBUG
 ```
 
-The `gatewayUrl` in the response is the endpoint to use when you invoke the
-gateway.
+The `gatewayUrl` in the response is the endpoint to use when you invoke the gateway.

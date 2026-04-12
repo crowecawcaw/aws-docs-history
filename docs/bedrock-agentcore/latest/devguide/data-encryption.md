@@ -2,13 +2,9 @@
 
 ## Encryption at rest
 
-Amazon Bedrock AgentCore stores data at rest using Amazon DynamoDB and Amazon Simple Storage Service (Amazon S3). The
-data at rest is encrypted using AWS encryption solutions by default. AgentCore encrypts
-your data using AWS owned encryption keys from AWS Key Management Service. You
-don’t have to take any action to protect the AWS managed keys that encrypt your data. For
-more information, see [AWS owned keys](kms/latest/developerguide/concepts.md#aws-owned-cmk "kms/latest/developerguide/concepts.md#aws-owned-cmk") in the _AWS Key Management Service Developer Guide_.
+Amazon Bedrock AgentCore stores data at rest using Amazon DynamoDB and Amazon Simple Storage Service (Amazon S3). The data at rest is encrypted using AWS encryption solutions by default. AgentCore encrypts your data using AWS owned encryption keys from AWS Key Management Service. You don’t have to take any action to protect the AWS managed keys that encrypt your data. For more information, see [AWS owned keys](kms/latest/developerguide/concepts.md#aws-owned-cmk "kms/latest/developerguide/concepts.md#aws-owned-cmk") in the _AWS Key Management Service Developer Guide_.
 
-###### Key considerations
+**Key considerations**
 
 - The following data is not encrypted by default:
   - Gateway names
@@ -21,12 +17,11 @@ more information, see [AWS owned keys](kms/latest/developerguide/concepts.md#aws
 
 ## Encryption in transit
 
-All communication between customers and Amazon Bedrock AgentCore and between AgentCore and its
-downstream dependencies is protected using TLS 1.2 or higher connections.
+All communication between customers and Amazon Bedrock AgentCore and between AgentCore and its downstream dependencies is protected using TLS 1.2 or higher connections.
 
 Encryption in transit is configured by default for the following services:
 
-###### Key considerations
+**Key considerations**
 
 - All outbound traffic for AgentCore Gateway is protected using TLS.
 - When invoking a gateway, note the following about the data that is transferred:
@@ -37,10 +32,10 @@ Encryption in transit is configured by default for the following services:
 
 You can use AWS KMS customer managed keys for the following Amazon Bedrock AgentCore resources:
 
-###### Resources that support AWS KMS customer managed keys
+**Resources that support AWS KMS customer managed keys**
 
 - Memories. For more information, see [Create an AgentCore Memory](memory-create-a-memory-store.md "memory-create-a-memory-store.md").
-- Gateways. For more information, see [Encrypt your AgentCore gateway with a customer-managed KMS key](gateway-encryption.md "gateway-encryption.md"). Note the following:
+- Gateways. For more information, see [Encrypt your AgentCore gateway with a customer-managed KMS key](gateway-encryption.md "gateway-encryption.md") . Note the following:
   - For AgentCore Gateway resources, AWS managed keys are single-tenant use and different for each region.
   - If a key encrypting your gateway is compromised, you should rotate the key or delete the gateway and create a new one with a new key.
   - AgentCore Gateway integrates with AWS Certificate Manager. For more information, see [AWS Certificate Manager User Guide](../../../acm/latest/userguide.md "../../../acm/latest/userguide.md")

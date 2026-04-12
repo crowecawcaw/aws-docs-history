@@ -1,6 +1,6 @@
 # Features
 
-Amazon Bedrock AgentCore Browser provides advanced features including CAPTCHA reduction, browser extensions, session profiles, and proxy configuration.
+Amazon Bedrock AgentCore Browser provides advanced features including CAPTCHA reduction, browser extensions, session profiles, proxy configuration, and OS-level interaction.
 
 ###### Topics
 
@@ -10,3 +10,4 @@ Amazon Bedrock AgentCore Browser provides advanced features including CAPTCHA re
 - [Using browser proxies](browser-proxies.md "browser-proxies.md")
 - [Using browser enterprise policies](browser-enterprise-policies.md "browser-enterprise-policies.md")
 - [Configure Root Certificate Authority for Amazon Bedrock AgentCore Browser](browser-root-ca-certificates.md "browser-root-ca-certificates.md")
+- [Browser OS action](browser-invoke.md "browser-invoke.md")

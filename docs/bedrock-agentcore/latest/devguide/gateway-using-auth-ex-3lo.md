@@ -1,6 +1,6 @@
 # Example: Authentication with an authorization code grant when invoking a gateway
 
-If you set up your gateway target with an authorization code grant (for more information, see [OAuth authorization](gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-oauth "gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-oauth")), the `defaultReturnUrl` that you specified when creating the gateway will be the link that the user's browser redirects to after authentication.
+If you set up your gateway target with an authorization code grant (for more information, see [OAuth authorization](gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-oauth "gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-oauth") ), the `defaultReturnUrl` that you specified when creating the gateway will be the link that the user’s browser redirects to after authentication.
 
 You can use the `_meta` field in the `params` object of the request body to modify default configurations. With 3LO authentication, you map the `_meta` field to the following object:
 
@@ -8,8 +8,8 @@ You can use the `_meta` field in the `params` object of the request body to modi
 {
     "aws.bedrock-agentcore.gateway/credentialProviderConfiguration": {
         "oauthcredentialProvider": {
-            "returnUrl": "`string`",
-            "forceAuthentication": `bool`
+            "returnUrl": "string",
+            "forceAuthentication": bool
         }
     }
 }

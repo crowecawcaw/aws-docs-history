@@ -1,6 +1,6 @@
 # Setting up custom domain names for Gateway endpoints
 
-By default, Gateway endpoints are provided with an AWS-managed domain name in the format `<gateway-id>.gateway.bedrock-agentcore.<region>.amazonaws.com`. For production environments or to create a more user-friendly experience, you may want to use a custom domain name for your gateway endpoint. This section guides you through setting up a custom domain name using Amazon CloudFront as a reverse proxy.
+By default, Gateway endpoints are provided with an AWS-managed domain name in the format `<gateway-id>.gateway.bedrock-agentcore.<region>.amazonaws.com` . For production environments or to create a more user-friendly experience, you may want to use a custom domain name for your gateway endpoint. This section guides you through setting up a custom domain name using Amazon CloudFront as a reverse proxy.
 
 ## Prerequisites
 
@@ -15,10 +15,10 @@ Before you begin, ensure you have:
 
 The solution involves the following components:
 
-- **Route 53 Hosted Zone**: Manages DNS records for your custom domain
-- **ACM Certificate**: Provides SSL/TLS encryption for your custom domain
-- **CloudFront Distribution**: Acts as a reverse proxy, forwarding requests from your custom domain to the Gateway endpoint
-- **Route 53 A Record**: Maps your custom domain to the CloudFront distribution
+- **Route 53 Hosted Zone** : Manages DNS records for your custom domain
+- **ACM Certificate** : Provides SSL/TLS encryption for your custom domain
+- **CloudFront Distribution** : Acts as a reverse proxy, forwarding requests from your custom domain to the Gateway endpoint
+- **Route 53 A Record** : Maps your custom domain to the CloudFront distribution
 
 The following steps will guide you through setting up these components using AWS CDK.
 
@@ -29,7 +29,6 @@ The following steps will guide you through setting up these components using AWS
 First, create a Route 53 hosted zone for your custom domain:
 
 ```
-
 import { RemovalPolicy } from 'aws-cdk-lib';
 import { PublicHostedZone } from 'aws-cdk-lib/aws-route53';
 
@@ -39,7 +38,6 @@ const hostedZone = new PublicHostedZone(this, 'HostedZone', {
     zoneName: domainName,
 });
 this.hostedZone.applyRemovalPolicy(RemovalPolicy.RETAIN);
-
 ```
 
 ###### Note
@@ -51,7 +49,6 @@ We apply a removal policy of `RETAIN` to prevent accidental deletion of the host
 Next, create an SSL/TLS certificate for your custom domain using AWS Certificate Manager (ACM) with DNS validation:
 
 ```
-
 import { RemovalPolicy } from 'aws-cdk-lib';
 import { Certificate, CertificateValidation } from 'aws-cdk-lib/aws-certificatemanager';
 
@@ -60,7 +57,6 @@ const certificate = new Certificate(this, 'SSLCertificate', {
     validation: CertificateValidation.fromDns(hostedZone), // route53 hosted zone from step 1
 });
 this.certificate.applyRemovalPolicy(RemovalPolicy.RETAIN);
-
 ```
 
 DNS validation automatically creates the necessary validation records in your Route 53 hosted zone.
@@ -70,7 +66,6 @@ DNS validation automatically creates the necessary validation records in your Ro
 Create a CloudFront distribution to act as a reverse proxy for your Gateway endpoint:
 
 ```
-
 import {
   AllowedMethods,
   CachePolicy,
@@ -96,21 +91,19 @@ const distribution = new Distribution(this, 'Distribution', {
     domainNames: [domainName], // route53 hosted zone domain name from step 1
     certificate: certificate, // ssl certificate for the route53 domain from step 2
 });
-
 ```
 
 ###### Important
 
-Set `cachePolicy: CachePolicy.CACHING_DISABLED` to ensure that CloudFront doesn't cache responses from your Gateway endpoint, which is important for dynamic API interactions.
+Set `cachePolicy: CachePolicy.CACHING_DISABLED` to ensure that CloudFront doesn’t cache responses from your Gateway endpoint, which is important for dynamic API interactions.
 
-Replace `<mymcpserver>` with your gateway ID and `<region>` with your AWS Region (e.g., `us-east-1`).
+Replace `<mymcpserver>` with your gateway ID and `<region>` with your AWS Region (e.g., `us-east-1` ).
 
 ### Step 4: Create a Route 53 A record
 
 Create a Route 53 A record that points your custom domain to the CloudFront distribution:
 
 ```
-
 import { ARecord, RecordTarget } from 'aws-cdk-lib/aws-route53';
 import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
 
@@ -119,7 +112,6 @@ const aRecord = new ARecord(this, 'AliasRecord', {
     recordName: domainName, // route53 hosted zone domain name from step 1
     target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)), // cloufront distribution from from step 3
 });
-
 ```
 
 This creates an alias record that maps your custom domain to the CloudFront distribution.
@@ -129,9 +121,7 @@ This creates an alias record that maps your custom domain to the CloudFront dist
 Deploy your CDK stack to create the resources:
 
 ```
-
 cdk deploy
-
 ```
 
 The deployment process may take some time, especially for the certificate validation and CloudFront distribution creation.
@@ -145,21 +135,17 @@ After deploying your infrastructure, verify that your custom domain is properly 
 Use the `dig` command to verify that your custom domain resolves to the CloudFront distribution:
 
 ```
-
 dig my.example.com
-
 ```
 
-The output should show that your domain resolves to CloudFront's IP addresses.
+The output should show that your domain resolves to CloudFront’s IP addresses.
 
 ### Verify SSL certificate
 
 Use `curl` to verify that the SSL certificate is properly configured:
 
 ```
-
 curl -v https://my.example.com
-
 ```
 
 The output should show a successful SSL handshake with no certificate errors.
@@ -173,7 +159,6 @@ Once your custom domain is set up and verified, you can configure your MCP clien
 For Cursor, update your configuration file:
 
 ```
-
 {
   "mcpServers": {
     "my-mcp-server": {
@@ -181,15 +166,13 @@ For Cursor, update your configuration file:
     }
   }
 }
-
 ```
 
 ### Other MCP clients
 
-For MCP clients that don't natively support streamable HTTP:
+For MCP clients that don’t natively support streamable HTTP:
 
 ```
-
 {
   "mcpServers": {
     "my-mcp-server": {
@@ -203,7 +186,6 @@ For MCP clients that don't natively support streamable HTTP:
     }
   }
 }
-
 ```
 
 ## Additional considerations
@@ -226,28 +208,26 @@ Enable CloudFront access logs and configure CloudWatch alarms to monitor the hea
 
 **Certificate renewal**
 
-ACM certificates issued through DNS validation are automatically renewed as long as the DNS records remain in place. Ensure that you don't delete the validation records.
+ACM certificates issued through DNS validation are automatically renewed as long as the DNS records remain in place. Ensure that you don’t delete the validation records.
 
 **OAuth protected resource endpoint with custom domains**
 
 By default, the `/.well-known/oauth-protected-resource` endpoint returns a resource URL that contains the gateway domain instead of your custom domain. This can cause OAuth clients to fail authentication when using custom domains.
 
-To resolve this issue, you can implement a Lambda@Edge function that intercepts the OAuth discovery response and generates a new response with the correct custom domain URL. Here's the approach:
+To resolve this issue, you can implement a Lambda@Edge function that intercepts the OAuth discovery response and generates a new response with the correct custom domain URL. Here’s the approach:
 
-- **Use Lambda@Edge with ORIGIN_RESPONSE event type**: Create a function that triggers on origin responses to intercept the OAuth protected resource endpoint response.
-- **Generate a new response**: Lambda@Edge cannot read origin response bodies, so instead of modifying the existing response, generate a completely new JSON response with the custom domain.
-- **Associate with CloudFront behavior**: Configure the Lambda@Edge function to trigger specifically for the `/.well-known/oauth-protected-resource` path pattern.
+- **Use Lambda@Edge with ORIGIN_RESPONSE event type** : Create a function that triggers on origin responses to intercept the OAuth protected resource endpoint response.
+- **Generate a new response** : Lambda@Edge cannot read origin response bodies, so instead of modifying the existing response, generate a completely new JSON response with the custom domain.
+- **Associate with CloudFront behavior** : Configure the Lambda@Edge function to trigger specifically for the `/.well-known/oauth-protected-resource` path pattern.
 
 After implementing this solution, the OAuth protected resource endpoint will return the correct custom domain:
 
 ```
-
 curl https://my-custom-domain.com/.well-known/oauth-protected-resource
 {
   "authorization_servers": ["https://my-org.okta.com/oauth2/default"],
   "resource": "https://my-custom-domain.com/mcp"
 }
-
 ```
 
 ###### Note
@@ -258,10 +238,10 @@ While Lambda@Edge provides a solution for this issue, implementing custom domain
 
 **DNS resolution issues**
 
-If your custom domain doesn't resolve correctly:
+If your custom domain doesn’t resolve correctly:
 
 - Verify that the A record is correctly configured in your Route 53 hosted zone
-- Check that your domain's name servers are correctly set at your domain registrar
+- Check that your domain’s name servers are correctly set at your domain registrar
 - Allow time for DNS propagation (up to 48 hours in some cases)
 
 **SSL certificate issues**
@@ -270,11 +250,11 @@ If you encounter SSL certificate errors:
 
 - Verify that the certificate is issued and active in the ACM console
 - Check that the certificate is correctly associated with your CloudFront distribution
-- Ensure that the certificate covers the exact domain name you're using
+- Ensure that the certificate covers the exact domain name you’re using
 
 **Gateway connectivity issues**
 
-If your custom domain doesn't connect to your gateway:
+If your custom domain doesn’t connect to your gateway:
 
 - Verify that the origin domain and path in your CloudFront distribution are correct
 - Check that your gateway endpoint is accessible directly

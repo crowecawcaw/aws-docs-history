@@ -1,8 +1,6 @@
 # Online evaluation
 
-An online evaluation configuration is a resource that defines how your agent is evaluated,
-including which evaluators to apply, which data sources to monitor, and evaluation
-parameters.
+An online evaluation configuration is a resource that defines how your agent is evaluated, including which evaluators to apply, which data sources to monitor, and evaluation parameters.
 
 ###### Topics
 

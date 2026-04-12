@@ -1,18 +1,14 @@
 # Using browser extensions
 
-Browser Extensions allow you to install custom extensions into browser sessions at session creation time.
-This enables you to customize browser behavior with your own extensions for automation tasks, web scraping, testing, and more.
+Browser Extensions allow you to install custom extensions into browser sessions at session creation time. This enables you to customize browser behavior with your own extensions for automation tasks, web scraping, testing, and more.
 
 ## Overview
 
 Browser Extensions in Amazon Bedrock AgentCore work as follows:
 
-1. You provide a list of browser extension ZIP files stored in your own Amazon S3
-   buckets
-2. The service validates that you have access to these Amazon S3 objects using your
-   credentials
-3. During browser session startup, extensions are downloaded from your Amazon S3 bucket
-   and installed to the browser session
+1. You provide a list of browser extension ZIP files stored in your own Amazon S3 buckets
+2. The service validates that you have access to these Amazon S3 objects using your credentials
+3. During browser session startup, extensions are downloaded from your Amazon S3 bucket and installed to the browser session
 
 ## Prerequisites
 
@@ -24,7 +20,7 @@ Before using browser extensions, ensure you have:
 
 ```
 {
-    "Version": "2012-10-17",
+"Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "ExtensionS3Access",
@@ -49,19 +45,18 @@ The Amazon S3 bucket must be in the same AWS account as the browser session. Ext
 
 To prepare an extension for use with Browser Tool:
 
-1. ###### Create a Chrome Extension
+1. **Create a Chrome Extension**
 
-Your extension should follow the standard Chromium extension format and adhere to [Chromium extension
-guidelines](https://www.chromium.org/developers/design-documents/extensions/ "https://www.chromium.org/developers/design-documents/extensions/"). Each extension must include a valid `manifest.json` file. 2. ###### Create a ZIP File
+Your extension should follow the standard Chromium extension format and adhere to [Chromium extension guidelines](https://www.chromium.org/developers/design-documents/extensions/ "https://www.chromium.org/developers/design-documents/extensions/") . Each extension must include a valid `manifest.json` file. 2. **Create a ZIP File**
 
 Zip the extension directory contents (not the parent folder):
 
 ```
 cd my-extension
-zip -r ../my-extension.zip .
+zip -r ../my-extension.zip.
 ```
 
-3. ###### Upload to S3
+3. **Upload to S3**
 
 Upload the ZIP file to your Amazon S3 bucket:
 
@@ -73,8 +68,11 @@ aws s3 cp my-extension.zip s3://my-extensions-bucket/extensions/my-extension.zip
 
 You can create a browser session with extensions using the AWS CLI, SDK, or API.
 
+###### Example
+
 AWS CLI
-To start a browser session with extensions using the AWS CLI:
+
+1. To start a browser session with extensions using the AWS CLI:
 
 ```
 aws bedrock-agentcore start-browser-session \
@@ -95,8 +93,8 @@ aws bedrock-agentcore start-browser-session \
 ```
 
 Boto3
-To start a browser session with extensions using the AWS SDK for Python
-(Boto3):
+
+1. To start a browser session with extensions using the AWS SDK for Python (Boto3):
 
 ```
 import boto3
@@ -139,7 +137,8 @@ print(f"Automation Stream: {response['streams']['automationStream']['streamEndpo
 ```
 
 API
-To start a browser session with extensions using the API:
+
+1. To start a browser session with extensions using the API:
 
 ```
 # Using awscurl

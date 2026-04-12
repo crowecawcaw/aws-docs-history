@@ -1,24 +1,12 @@
 # Pass custom headers to Amazon Bedrock AgentCore Runtime
 
-Custom headers let you pass contextual information from your application directly to your
-agent code without cluttering the main request payload. This includes authentication tokens
-like JWT (JSON Web Tokens, which contain user identity and authorization claims) through the
-`Authorization` header, allowing your agent to make decisions based on who is calling it. You
-can also pass custom metadata like user preferences, session identifiers, or trace context
-using headers prefixed with `X-Amzn-Bedrock-AgentCore-Runtime-Custom-`, giving
-your agent access to up to 20 pieces of runtime context that travel alongside each request.
-This information can be also used in downstream systems like AgentCore Memory that you can
-namespace based on those characteristics like `user_id` or `aud` in
-claims like line of business.
+Custom headers let you pass contextual information from your application directly to your agent code without cluttering the main request payload. This includes authentication tokens like JWT (JSON Web Tokens, which contain user identity and authorization claims) through the `Authorization` header, allowing your agent to make decisions based on who is calling it. You can also pass custom metadata like user preferences, session identifiers, or trace context using headers prefixed with `X-Amzn-Bedrock-AgentCore-Runtime-Custom-` , giving your agent access to up to 20 pieces of runtime context that travel alongside each request. This information can be also used in downstream systems like AgentCore Memory that you can namespace based on those characteristics like `user_id` or `aud` in claims like line of business.
 
-Amazon Bedrock AgentCore Runtime lets you pass headers in a request to your agent code provided the
-headers match the following criteria:
+Amazon Bedrock AgentCore Runtime lets you pass headers in a request to your agent code provided the headers match the following criteria:
 
 - Header name is one of the following:
   - Starts with `X-Amzn-Bedrock-AgentCore-Runtime-Custom-`
-  - Equal to `Authorization`. This is reserved for agents with
-    OAuth inbound access to pass in the incoming JWT token to the agent
-    code.
+  - Equal to `Authorization` . This is reserved for agents with OAuth inbound access to pass in the incoming JWT token to the agent code.
 
 - Header value is not greater than 4KB in size.
 - Up to 20 headers can be configured per runtime.
@@ -39,8 +27,7 @@ agentcore create --name MyHeaderAgent
 cd MyHeaderAgent
 ```
 
-Update your agent's entrypoint file to access the custom headers from the request
-context:
+Update your agent’s entrypoint file to access the custom headers from the request context:
 
 ```
 import json
@@ -69,13 +56,13 @@ app.run()
 
 ## Step 2: Configure and deploy your agent with custom headers
 
-Configure the request header allowlist on your agent runtime so that custom headers
-are forwarded to your agent code at invocation time.
+Configure the request header allowlist on your agent runtime so that custom headers are forwarded to your agent code at invocation time.
+
+###### Example
 
 AgentCore CLI
-Add the `requestHeaderAllowlist` field to your agent
-configuration in
-`agentcore/agentcore.json`:
+
+1. Add the `requestHeaderAllowlist` field to your agent configuration in `agentcore/agentcore.json` :
 
 ```
 {
@@ -97,12 +84,11 @@ Deploy your agent:
 agentcore deploy
 ```
 
-Note the agent runtime ARN from the output. You need it if you plan to
-invoke using the AWS SDK.
+Note the agent runtime ARN from the output. You need it if you plan to invoke using the AWS SDK.
 
 AWS SDK
-After deploying your agent, update the runtime configuration using the
-AWS SDK:
+
+1. After deploying your agent, update the runtime configuration using the AWS SDK:
 
 ```
 import boto3
@@ -110,7 +96,7 @@ import boto3
 client = boto3.client('bedrock-agentcore')
 
 client.update_agent_runtime(
-    agentRuntimeId='`your-runtime-id`',
+    agentRuntimeId='your-runtime-id',
     requestHeaderConfiguration={
         'requestHeaderAllowlist': [
             'X-Amzn-Bedrock-AgentCore-Runtime-Custom-H1'
@@ -119,25 +105,24 @@ client.update_agent_runtime(
 )
 ```
 
-You can find your runtime ID by running `agentcore
- status`.
+You can find your runtime ID by running `agentcore status`.
 
 ## Step 3: Invoke your agent with custom headers
 
-Pass custom headers when invoking your agent so that your agent code can access them
-through the request context.
+Pass custom headers when invoking your agent so that your agent code can access them through the request context.
+
+###### Example
 
 AgentCore CLI
-Use the `-H` flag to pass custom headers with
-`agentcore invoke`:
+
+1. Use the `-H` flag to pass custom headers with `agentcore invoke` :
 
 ```
 agentcore invoke "Tell me a joke" \
   -H "X-Amzn-Bedrock-AgentCore-Runtime-Custom-H1: test header1"
 ```
 
-You can pass multiple headers by repeating the `-H`
-flag:
+You can pass multiple headers by repeating the `-H` flag:
 
 ```
 agentcore invoke "Tell me a joke" \
@@ -146,14 +131,14 @@ agentcore invoke "Tell me a joke" \
 ```
 
 AWS SDK
-Use boto3 with event handlers to add custom headers to your agent
-invocation. For more details on botocore events, see [botocore events documentation](https://botocore.amazonaws.com/v1/documentation/api/latest/topics/events.html "https://botocore.amazonaws.com/v1/documentation/api/latest/topics/events.html").
+
+1. Use boto3 with event handlers to add custom headers to your agent invocation. For more details on botocore events, see [botocore events documentation](https://botocore.amazonaws.com/v1/documentation/api/latest/topics/events.html "https://botocore.amazonaws.com/v1/documentation/api/latest/topics/events.html").
 
 ```
 import json
 import boto3
 
-agent_arn = `YOUR_AGENT_ARN_HERE`
+agent_arn = YOUR_AGENT_ARN_HERE
 prompt = "Tell me a joke"
 
 agent_core_client = boto3.client('bedrock-agentcore')
@@ -184,13 +169,13 @@ print(json.loads(''.join(content)))
 
 ## Step 4: (Optional) Configure inbound JWT authentication
 
-To pass the JWT token used for OAuth-based inbound access to your agent, configure
-`authorizerType` and `authorizerConfiguration` in your agent
-configuration.
+To pass the JWT token used for OAuth-based inbound access to your agent, configure `authorizerType` and `authorizerConfiguration` in your agent configuration.
+
+###### Example
 
 AgentCore CLI
-Add the authorizer configuration to your agent in
-`agentcore/agentcore.json`:
+
+1. Add the authorizer configuration to your agent in `agentcore/agentcore.json` :
 
 ```
 {
@@ -200,9 +185,9 @@ Add the authorizer configuration to your agent in
       "authorizerType": "CUSTOM_JWT",
       "authorizerConfiguration": {
         "customJwtAuthorizer": {
-          "discoveryUrl": "https://cognito-idp.us-east-1.amazonaws.com/`user-pool-id`/.well-known/openid-configuration",
-          "allowedAudience": ["`your-client-id`"],
-          "allowedClients": ["`your-client-id`"]
+          "discoveryUrl": "https://cognito-idp.us-east-1.amazonaws.com/user-pool-id/.well-known/openid-configuration",
+          "allowedAudience": ["your-client-id"],
+          "allowedClients": ["your-client-id"]
         }
       },
       "requestHeaderAllowlist": [
@@ -219,10 +204,8 @@ Deploy to apply the configuration:
 agentcore deploy
 ```
 
-With this configuration, the `Authorization` header from
-incoming requests is validated against your OIDC provider and forwarded to
-your agent code.
+With this configuration, the `Authorization` header from incoming requests is validated against your OIDC provider and forwarded to your agent code.
 
 AWS SDK
-For information about setting up an agent with OAuth inbound access using
-the AWS SDK, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").
+
+1. For information about setting up an agent with OAuth inbound access using the AWS SDK, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").

@@ -1,7 +1,6 @@
 # Amazon Bedrock AgentCore SDK
 
-Use the [Amazon Bedrock AgentCore Python SDK](https://github.com/aws/bedrock-agentcore-sdk-python "https://github.com/aws/bedrock-agentcore-sdk-python") for a higher-level abstraction that simplifies
-memory operations and provides convenient methods for common use cases.
+Use the [Amazon Bedrock AgentCore Python SDK](https://github.com/aws/bedrock-agentcore-sdk-python "https://github.com/aws/bedrock-agentcore-sdk-python") for a higher-level abstraction that simplifies memory operations and provides convenient methods for common use cases.
 
 **Install dependencies**
 

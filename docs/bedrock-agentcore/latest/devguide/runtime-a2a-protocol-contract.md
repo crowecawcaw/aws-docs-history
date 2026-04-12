@@ -1,8 +1,6 @@
 # A2A protocol contract
 
-The A2A protocol contract defines the requirements for implementing agent-to-agent
-communication in Amazon Bedrock AgentCore Runtime. This contract specifies the technical requirements,
-endpoints, and communication patterns that your A2A server must implement.
+The A2A protocol contract defines the requirements for implementing agent-to-agent communication in Amazon Bedrock AgentCore Runtime. This contract specifies the technical requirements, endpoints, and communication patterns that your A2A server must implement.
 
 For example code, see [Deploy A2A servers in AgentCore Runtime](runtime-a2a.md "runtime-a2a.md").
 
@@ -19,24 +17,17 @@ For example code, see [Deploy A2A servers in AgentCore Runtime](runtime-a2a.md "
 
 Your A2A server must implement these specific protocol requirements:
 
-- **Transport**: [JSON-RPC 2.0](https://www.jsonrpc.org/specification "https://www.jsonrpc.org/specification") over HTTP -
-  Enables standardized agent-to-agent communication
-- **Session Management**: Platform
-  automatically adds `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id`
-  header for session isolation
-- **Agent Discovery**: Must provide Agent Card
-  at `/.well-known/agent-card.json` endpoint
+- **Transport** : [JSON-RPC 2.0](https://www.jsonrpc.org/specification "https://www.jsonrpc.org/specification") over HTTP - Enables standardized agent-to-agent communication
+- **Session Management** : Platform automatically adds `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` header for session isolation
+- **Agent Discovery** : Must provide Agent Card at `/.well-known/agent-card.json` endpoint
 
 ## Container requirements
 
-Your A2A server must be deployed as a containerized application meeting these
-specifications:
+Your A2A server must be deployed as a containerized application meeting these specifications:
 
-- **Host**: `0.0.0.0`
-- **Port**: `9000` - Standard port
-  for A2A server communication (different from HTTP and MCP protocols)
-- **Platform**: ARM64 container - Required for
-  compatibility with AWS Amazon Bedrock AgentCore runtime environment
+- **Host** : `0.0.0.0`
+- **Port** : `9000` - Standard port for A2A server communication (different from HTTP and MCP protocols)
+- **Platform** : ARM64 container - Required for compatibility with AWS Amazon Bedrock AgentCore runtime environment
 
 ## Path requirements
 
@@ -44,9 +35,7 @@ specifications:
 
 #### Purpose
 
-Receives JSON-RPC 2.0 messages and processes them through your agent's
-capabilities, complete pass-through of [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md") API payload with A2A protocol
-messages
+Receives JSON-RPC 2.0 messages and processes them through your agent’s capabilities, complete pass-through of [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md") API payload with A2A protocol messages
 
 #### Use cases
 
@@ -84,8 +73,7 @@ Content-Type: application/json
 
 #### Response format
 
-A2A servers respond with JSON-RPC 2.0 formatted responses containing tasks
-and artifacts:
+A2A servers respond with JSON-RPC 2.0 formatted responses containing tasks and artifacts:
 
 ```
 Content-Type: application/json
@@ -113,8 +101,7 @@ Content-Type: application/json
 
 #### Purpose
 
-Provides Agent Card metadata for agent discovery and capability
-advertisement
+Provides Agent Card metadata for agent discovery and capability advertisement
 
 #### Use cases
 
@@ -127,8 +114,7 @@ The Agent Card endpoint serves several key purposes:
 
 #### Response format
 
-Returns JSON metadata describing the agent's identity and
-capabilities:
+Returns JSON metadata describing the agent’s identity and capabilities:
 
 ```
 Content-Type: application/json
@@ -159,18 +145,14 @@ Content-Type: application/json
 
 #### Purpose
 
-Verifies that your A2A server is operational and ready to handle
-requests
+Verifies that your A2A server is operational and ready to handle requests
 
 #### Response format
 
-Returns a status code indicating your agent's health:
+Returns a status code indicating your agent’s health:
 
-- **Content-Type**:
-  `application/json`
-- **HTTP Status Code**:
-  `200` for healthy, appropriate error codes for
-  unhealthy states
+- **Content-Type** : `application/json`
+- **HTTP Status Code** : `200` for healthy, appropriate error codes for unhealthy states
 
 ```
 {
@@ -185,8 +167,7 @@ A2A servers support multiple authentication mechanisms:
 
 ### OAuth 2.0 Bearer Tokens
 
-For A2A client authentication, include the Bearer token in request
-headers:
+For A2A client authentication, include the Bearer token in request headers:
 
 ```
 Authorization: Bearer <oauth-token>
@@ -195,21 +176,19 @@ X-Amzn-Bedrock-AgentCore-Runtime-Session-Id: <session-id>
 
 ### SigV4 Authentication
 
-Standard AWS SigV4 authentication is also supported for programmatic
-access.
+Standard AWS SigV4 authentication is also supported for programmatic access.
 
 ## Error handling
 
-A2A servers return errors as standard JSON-RPC 2.0 error responses with HTTP 200
-status codes to maintain protocol compliance:
+A2A servers return errors as standard JSON-RPC 2.0 error responses with HTTP 200 status codes to maintain protocol compliance:
 
-| A2A Error Codes | JSON-RPC Error Code       | Runtime Exception | HTTP Error Code                                                                     | JSON-RPC Error Message |
-| --------------- | ------------------------- | ----------------- | ----------------------------------------------------------------------------------- | ---------------------- |
-| -32501          | ResourceNotFoundException | 404               | Resource not found<br>• Requested resource does not exist                           |
-| -32052          | ValidationException       | 400               | Validation error<br>• Invalid request data                                          |
-| -32053          | ThrottlingException       | 429               | Rate limit exceeded<br>• Too many requests                                          |
-| -32054          | ResourceConflictException | 409               | Resource conflict<br>• Resource already exists                                      |
-| -32055          | RuntimeClientError        | 424               | Runtime client error<br>• Please check your CloudWatch logs for more<br>information |
+| JSON-RPC Error Code | Runtime Exception         | HTTP Error Code | JSON-RPC Error Message                                                           |
+| ------------------- | ------------------------- | --------------- | -------------------------------------------------------------------------------- |
+| -32501              | ResourceNotFoundException | 404             | Resource not found<br>• Requested resource does not exist                        |
+| -32052              | ValidationException       | 400             | Validation error<br>• Invalid request data                                       |
+| -32053              | ThrottlingException       | 429             | Rate limit exceeded<br>• Too many requests                                       |
+| -32054              | ResourceConflictException | 409             | Resource conflict<br>• Resource already exists                                   |
+| -32055              | RuntimeClientError        | 424             | Runtime client error<br>• Please check your CloudWatch logs for more information |
 
 Example error response:
 
@@ -226,7 +205,7 @@ Example error response:
 
 ## OAuth Authentication Responses
 
-OAuth-configured agents follow [RFC 6749 (OAuth 2.0)](https://datatracker.ietf.org/doc/html/rfc6749 "https://datatracker.ietf.org/doc/html/rfc6749") authentication standards. When authentication is missing, the service returns a 401 Unauthorized response with a WWW-Authenticate header (per [RFC 7235](https://datatracker.ietf.org/doc/html/rfc7235 "https://datatracker.ietf.org/doc/html/rfc7235")), enabling clients to discover the authorization server endpoints through the GetRuntimeProtectedResourceMetadata API.
+OAuth-configured agents follow [RFC 6749 (OAuth 2.0)](https://datatracker.ietf.org/doc/html/rfc6749 "https://datatracker.ietf.org/doc/html/rfc6749") authentication standards. When authentication is missing, the service returns a 401 Unauthorized response with a WWW-Authenticate header (per [RFC 7235](https://datatracker.ietf.org/doc/html/rfc7235 "https://datatracker.ietf.org/doc/html/rfc7235") ), enabling clients to discover the authorization server endpoints through the GetRuntimeProtectedResourceMetadata API.
 
 ### 401 Unauthorized - Missing Authentication
 

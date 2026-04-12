@@ -1,8 +1,6 @@
 # Schema constraints
 
-Policies for Amazon Bedrock AgentCore Gateway must validate against a specific Cedar schema that is
-automatically generated from the Gateway's MCP tool manifest. This schema defines what's possible
-in your policies.
+Policies for Amazon Bedrock AgentCore Gateway must validate against a specific Cedar schema that is automatically generated from the Gateway’s MCP tool manifest. This schema defines what’s possible in your policies.
 
 ###### Topics
 
@@ -25,15 +23,14 @@ The principal type depends on the authentication method configured for your Agen
 `AgentCore::IamEntity`
 
 - Used for IAM-authenticated gateways (AWS_IAM authorizer)
-- Has an `id` attribute containing the caller's IAM ARN
-- Does not support tags; use pattern matching on `principal.id` for
-  access control
+- Has an `id` attribute containing the caller’s IAM ARN
+- Does not support tags; use pattern matching on `principal.id` for access control
 
 ## Resource Type
 
 - Must be `AgentCore::Gateway`
 - Represents the MCP Gateway instance
-- Can be matched by type (`is`) or specific ARN (`==`)
+- Can be matched by type ( `is` ) or specific ARN ( `==` )
 - Must use specific ARNs to refer to specific actions
 
 ## Actions
@@ -45,7 +42,7 @@ The principal type depends on the authentication method configured for your Agen
 ## Context
 
 - Only available context is `context.input`
-- Contains the tool's input parameters as defined in the MCP manifest
+- Contains the tool’s input parameters as defined in the MCP manifest
 - Each tool has a typed input structure (e.g., RefundTool\_\_\_process_refundInput)
 - Parameter types are automatically mapped from JSON Schema to Cedar types:
   - string → String

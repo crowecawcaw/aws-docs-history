@@ -1,7 +1,6 @@
 # Authorization flow
 
-Amazon Bedrock AgentCore Gateway evaluates Cedar policies against incoming requests. This section
-explains how authorization information flows from the request to policy evaluation.
+Amazon Bedrock AgentCore Gateway evaluates Cedar policies against incoming requests. This section explains how authorization information flows from the request to policy evaluation.
 
 ## Request processing
 
@@ -20,8 +19,7 @@ Amazon Bedrock AgentCore Gateway processes two key pieces of information from ea
 }
 ```
 
-2. **MCP Tool Call Request** - The actual tool
-   invocation:
+2. **MCP Tool Call Request** - The actual tool invocation:
 
 ```
 {
@@ -41,8 +39,7 @@ Amazon Bedrock AgentCore Gateway processes two key pieces of information from ea
 
 ## Cedar authorization request
 
-The Gateway extracts information from both sources and constructs a Cedar authorization
-request.
+The Gateway extracts information from both sources and constructs a Cedar authorization request.
 
 **Complete Authorization Request:**
 
@@ -65,7 +62,7 @@ request.
 
 Principal
 
-Created from the JWT token's sub claim:
+Created from the JWT token’s sub claim:
 
 ```
 AgentCore::OAuthUser::"12345678-1234-1234-1234-123456789012"
@@ -101,8 +98,7 @@ Contains the tool arguments:
 }
 ```
 
-**Entity Store** - The JWT claims are stored as tags on the
-OAuthUser entity:
+**Entity Store** - The JWT claims are stored as tags on the OAuthUser entity:
 
 ```
 {
@@ -127,16 +123,12 @@ OAuthUser entity:
 
 Cedar evaluates:
 
-1. **Principal check:** Is the principal an OAuthUser? ✓
-   (matches)
-2. **Action check:** Is the action RefundTool\_\_process_refund?
-   ✓ (matches)
-3. **Resource check:** Is the resource the refund gateway? ✓
-   (matches)
+1. **Principal check:** Is the principal an OAuthUser? ✓ (matches)
+2. **Action check:** Is the action RefundTool\_\_process_refund? ✓ (matches)
+3. **Resource check:** Is the resource the refund gateway? ✓ (matches)
 4. **Condition checks:**
    - Does principal have username tag? ✓ (yes, from JWT)
    - Is username = "refund-agent"? ✓ (yes)
    - Is context.input.amount < 500? ✓ (450 < 500)
 
-**Result:** ALLOW - All checks pass, the refund is
-authorized.
+**Result:** ALLOW - All checks pass, the refund is authorized.

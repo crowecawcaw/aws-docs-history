@@ -1,35 +1,20 @@
 # Invoke an AgentCore Runtime agent
 
-The [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md") operation lets you send requests to specific AgentCore Runtime
-endpoints identified by their Amazon Resource Name (ARN) and receive streaming responses
-containing the agent's output. The API supports session management through session
-identifiers, enabling you to maintain conversation context across multiple interactions. You
-can target specific agent endpoints using optional qualifiers.
+The [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md") operation lets you send requests to specific AgentCore Runtime endpoints identified by their Amazon Resource Name (ARN) and receive streaming responses containing the agent’s output. The API supports session management through session identifiers, enabling you to maintain conversation context across multiple interactions. You can target specific agent endpoints using optional qualifiers.
 
-To call `InvokeAgentRuntime`, you need
-`bedrock-agentcore:InvokeAgentRuntime` permissions. In the call you can also
-pass a bearer token that the agent can use for user authentication.
+To call `InvokeAgentRuntime` , you need `bedrock-agentcore:InvokeAgentRuntime` permissions. In the call you can also pass a bearer token that the agent can use for user authentication.
 
-The `InvokeAgentRuntime` operation accepts your request payload as binary data
-up to 100 MB in size and returns a streaming response that delivers chunks of data in
-real-time as the agent processes your request. This streaming approach allows you to receive
-partial results immediately rather than waiting for the complete response, making it ideal
-for interactive applications.
+The `InvokeAgentRuntime` operation accepts your request payload as binary data up to 100 MB in size and returns a streaming response that delivers chunks of data in real-time as the agent processes your request. This streaming approach allows you to receive partial results immediately rather than waiting for the complete response, making it ideal for interactive applications.
 
-To execute shell commands (such as running tests, git operations, or environment setup)
-in the same session, use the [Execute shell commands in AgentCore Runtime sessions](runtime-execute-command.md "runtime-execute-command.md") operation. Both operations work on the same
-agent runtime and session.
+To execute shell commands (such as running tests, git operations, or environment setup) in the same session, use the [Execute shell commands in AgentCore Runtime sessions](runtime-execute-command.md "runtime-execute-command.md") operation. Both operations work on the same agent runtime and session.
 
-If you plan on integrating your agent with OAuth, you can't use the AWS SDK to call
-`InvokeAgentRuntime`. Instead, make a HTTPS request to
-InvokeAgentRuntime. For more information, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").
+If you plan on integrating your agent with OAuth, you can’t use the AWS SDK to call `InvokeAgentRuntime` . Instead, make a HTTPS request to InvokeAgentRuntime. For more information, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").
 
 ## Invoke streaming agents
 
 The following example shows how to use boto3 to invoke an agent runtime:
 
 ```
-
 import boto3
 import json
 
@@ -71,17 +56,13 @@ elif response.get("contentType") == "application/json":
 else:
     # Print raw response for other content types
     print(response)
-
 ```
 
 ## Invoke multi-modal agents
 
-You can use the `InvokeAgentRuntime` operation to send multi-modal requests
-that include both text and images. The following example shows how to invoke a
-multi-modal agent:
+You can use the `InvokeAgentRuntime` operation to send multi-modal requests that include both text and images. The following example shows how to invoke a multi-modal agent:
 
 ```
-
 import boto3
 import json
 import base64
@@ -106,71 +87,48 @@ response = agent_core_client.invoke_agent_runtime(
     runtimeSessionId=session_id,
     payload=payload
 )
-
 ```
 
 ## Session management
 
-The `InvokeAgentRuntime` operation supports session management through the
-`runtimeSessionId` parameter. By providing the same session identifier
-across multiple requests, you can maintain conversation context, allowing the agent to
-reference previous interactions.
+The `InvokeAgentRuntime` operation supports session management through the `runtimeSessionId` parameter. By providing the same session identifier across multiple requests, you can maintain conversation context, allowing the agent to reference previous interactions.
 
-To start a new conversation, generate a unique session identifier. To continue an
-existing conversation, use the same session identifier from previous requests. This
-approach enables you to build interactive applications that maintain context over
-time.
+To start a new conversation, generate a unique session identifier. To continue an existing conversation, use the same session identifier from previous requests. This approach enables you to build interactive applications that maintain context over time.
 
 ###### Tip
 
-For best results, use a UUID or other unique identifier for your session IDs to
-avoid collisions between different users or conversations.
+For best results, use a UUID or other unique identifier for your session IDs to avoid collisions between different users or conversations.
 
 ## Error handling
 
-When using the `InvokeAgentRuntime` operation, you might encounter various
-errors. Here are some common errors and how to handle them:
+When using the `InvokeAgentRuntime` operation, you might encounter various errors. Here are some common errors and how to handle them:
 
 **ValidationException**
 
-Occurs when the request parameters are invalid. Check that your agent ARN,
-session ID, and payload are correctly formatted.
+Occurs when the request parameters are invalid. Check that your agent ARN, session ID, and payload are correctly formatted.
 
 **ResourceNotFoundException**
 
-Occurs when the specified agent runtime cannot be found. Verify that the
-agent ARN is correct and that the agent exists in your AWS account.
+Occurs when the specified agent runtime cannot be found. Verify that the agent ARN is correct and that the agent exists in your AWS account.
 
 **AccessDeniedException**
 
-Occurs when you don't have the necessary permissions. Ensure that your IAM
-policy includes the `bedrock-agentcore:InvokeAgentRuntime`
-permission.
+Occurs when you don’t have the necessary permissions. Ensure that your IAM policy includes the `bedrock-agentcore:InvokeAgentRuntime` permission.
 
 **ThrottlingException**
 
-Occurs when you exceed the request rate limits. Implement exponential
-backoff and retry logic in your application.
+Occurs when you exceed the request rate limits. Implement exponential backoff and retry logic in your application.
 
-Implement proper error handling in your application to provide a better user
-experience and to troubleshoot issues effectively.
+Implement proper error handling in your application to provide a better user experience and to troubleshoot issues effectively.
 
 ## Best practices
 
-Follow these best practices when using the `InvokeAgentRuntime`
-operation:
+Follow these best practices when using the `InvokeAgentRuntime` operation:
 
-- Use session management to maintain conversation context for a better user
-  experience.
-- Process streaming responses incrementally to provide real-time feedback to
-  users.
-- Implement proper error handling and retry logic for a robust
-  application.
-- Consider payload size limitations (100 MB) when sending requests, especially
-  for multi-modal content.
-- Use appropriate qualifiers to target specific agent versions or
-  endpoints.
+- Use session management to maintain conversation context for a better user experience.
+- Process streaming responses incrementally to provide real-time feedback to users.
+- Implement proper error handling and retry logic for a robust application.
+- Consider payload size limitations (100 MB) when sending requests, especially for multi-modal content.
+- Use appropriate qualifiers to target specific agent versions or endpoints.
 - Implement authentication mechanisms when necessary using bearer tokens.
-- Use `InvokeAgentRuntimeCommand` for deterministic operations
-  (tests, git, builds) instead of routing them through the agent's LLM. See
-  [Execute shell commands in AgentCore Runtime sessions](runtime-execute-command.md "runtime-execute-command.md").
+- Use `InvokeAgentRuntimeCommand` for deterministic operations (tests, git, builds) instead of routing them through the agent’s LLM. See [Execute shell commands in AgentCore Runtime sessions](runtime-execute-command.md "runtime-execute-command.md").

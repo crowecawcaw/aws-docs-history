@@ -1,8 +1,6 @@
 # Get started with bidirectional streaming using WebSocket
 
-Amazon Bedrock AgentCore Runtime lets you deploy agents that support WebSocket streaming for real-time
-bidirectional communication. This guide walks you through creating, testing, and deploying
-your first bidirectional streaming agent using WebSocket.
+Amazon Bedrock AgentCore Runtime lets you deploy agents that support WebSocket streaming for real-time bidirectional communication. This guide walks you through creating, testing, and deploying your first bidirectional streaming agent using WebSocket.
 
 In this section, you learn:
 
@@ -25,15 +23,9 @@ In this section, you learn:
 
 ## How AgentCore Runtime supports WebSocket connections
 
-AgentCore Runtime's WebSocket support enables persistent, bidirectional streaming connections
-between clients and agents. AgentCore Runtime expects containers to implement WebSocket endpoints
-on port `8080` at the `/ws` path, which aligns with standard WebSocket
-server practices.
+AgentCore Runtime’s WebSocket support enables persistent, bidirectional streaming connections between clients and agents. AgentCore Runtime expects containers to implement WebSocket endpoints on port `8080` at the `/ws` path, which aligns with standard WebSocket server practices.
 
-AgentCore Runtime's WebSocket support provides the same serverless, session isolation,
-identity, and observability capabilities as `InvokeAgentRuntime`. Additionally, it enables low-latency,
-real-time bidirectional streaming of messages through WebSocket connections using SigV4 or OAuth 2.0 authentication,
-making it ideal for applications such as real-time conversational voice agents.
+AgentCore Runtime’s WebSocket support provides the same serverless, session isolation, identity, and observability capabilities as `InvokeAgentRuntime` . Additionally, it enables low-latency, real-time bidirectional streaming of messages through WebSocket connections using SigV4 or OAuth 2.0 authentication, making it ideal for applications such as real-time conversational voice agents.
 
 ### Supported WebSocket libraries
 
@@ -49,8 +41,7 @@ This flexibility allows you to use your preferred WebSocket implementation acros
 
 ## Using WebSocket with AgentCore Runtime
 
-In this getting started tutorial you will create, test, and deploy an agent application that supports bidirectional
-streaming using the **bedrock-agentcore Python SDK** and the **AgentCore CLI** for deployment.
+In this getting started tutorial you will create, test, and deploy an agent application that supports bidirectional streaming using the **bedrock-agentcore Python SDK** and the **AgentCore CLI** for deployment.
 
 ###### Topics
 
@@ -65,12 +56,9 @@ streaming using the **bedrock-agentcore Python SDK** and the **AgentCore CLI** f
 
 Before you start, make sure you have:
 
-- **AWS Account** with credentials configured. To
-  configure your AWS credentials, see [Configuration and credential file settings in the AWS CLI.](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md")
+- **AWS Account** with credentials configured. To configure your AWS credentials, see [Configuration and credential file settings in the AWS CLI.](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md")
 - **Python 3.10+** installed
-- **AWS Permissions**: To create and deploy an
-  agent with the AgentCore CLI, you must have appropriate permissions. For
-  more information, see [Use the AgentCore CLI](runtime-permissions.md#runtime-permissions-cli "runtime-permissions.md#runtime-permissions-cli").
+- **AWS Permissions** : To create and deploy an agent with the AgentCore CLI, you must have appropriate permissions. For more information, see [Use the AgentCore CLI](runtime-permissions.md#runtime-permissions-cli "runtime-permissions.md#runtime-permissions-cli").
 
 ### Step 1: Set up project and install dependencies
 
@@ -99,7 +87,7 @@ pip install bedrock-agentcore
 
 ### Step 2: Create your bidirectional streaming agent
 
-Create a source file for your bidirectional streaming agent code named `websocket_echo_agent.py`. Add the following code:
+Create a source file for your bidirectional streaming agent code named `websocket_echo_agent.py` . Add the following code:
 
 ```
 from bedrock_agentcore import BedrockAgentCoreApp
@@ -134,10 +122,10 @@ The python `websockets` library dependency is included
 
 #### Understanding the code
 
-- **BedrockAgentCoreApp**: Creates an agent application that extends Starlette for AI agent deployment, providing WebSocket support, HTTP routing, middleware, and exception handling capabilities
-- **WebSocket Decorator**: The `@app.websocket` decorator automatically handles connections at the `/ws` path on port 8080
-- **Echo Logic**: Sends back received data using `{"echo": data}`
-- **Error Handling**: Uses try/except/finally structure to ensure proper error logging and graceful connection closure.
+- **BedrockAgentCoreApp** : Creates an agent application that extends Starlette for AI agent deployment, providing WebSocket support, HTTP routing, middleware, and exception handling capabilities
+- **WebSocket Decorator** : The `@app.websocket` decorator automatically handles connections at the `/ws` path on port 8080
+- **Echo Logic** : Sends back received data using `{"echo": data}`
+- **Error Handling** : Uses try/except/finally structure to ensure proper error logging and graceful connection closure.
 
 ### Step 3: Test your bidirectional streaming agent locally
 
@@ -153,7 +141,7 @@ You should see output indicating the server is running on port 8080.
 
 #### Test WebSocket connection
 
-Create a local WebSocket client named `websocket_agent_client.py`:
+Create a local WebSocket client named `websocket_agent_client.py` :
 
 ```
 import asyncio
@@ -184,7 +172,7 @@ Test your bidirectional streaming agent locally by opening another terminal wind
 python websocket_agent_client.py
 ```
 
-**Success:** You should see a response like `Received: {"echo":{"inputText":"Hello WebSocket!"}}`. In the terminal window that's running the agent, enter `Ctrl+C` to stop the agent.
+**Success:** You should see a response like `Received: {"echo":{"inputText":"Hello WebSocket!"}}` . In the terminal window that’s running the agent, enter `Ctrl+C` to stop the agent.
 
 ### Step 4: Deploy your bidirectional streaming agent to AgentCore Runtime
 
@@ -218,16 +206,15 @@ agentcore deploy
 
 ###### Note
 
-Run these commands from your project directory (`agentcore-runtime-quickstart-websocket`)
-where your agent files are located.
+Run these commands from your project directory ( `agentcore-runtime-quickstart-websocket` ) where your agent files are located.
 
-After deployment, you'll receive an agent runtime ARN that looks like:
+After deployment, you’ll receive an agent runtime ARN that looks like:
 
 ```
 arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/websocket_echo_agent-xyz123
 ```
 
-Save this ARN as you'll need it to invoke your deployed agent.
+Save this ARN as you’ll need it to invoke your deployed agent.
 
 ### Step 5: Invoke your deployed bidirectional streaming agent
 
@@ -249,15 +236,11 @@ export BEARER_TOKEN="your_oauth_token_here"
 
 #### Authentication methods
 
-The `InvokeAgentRuntimeWithWebSocketStream` API action establishes a WebSocket connection
-that supports bidirectional streaming between the client and agent. You can authenticate WebSocket connections using the following methods:
+The `InvokeAgentRuntimeWithWebSocketStream` API action establishes a WebSocket connection that supports bidirectional streaming between the client and agent. You can authenticate WebSocket connections using the following methods:
 
-- **AWS Signature Version 4 headers**: Sign the WebSocket
-  handshake request headers using your AWS credentials
-- **AWS Signature Version 4 Pre-signed URL**: Create a
-  presigned WebSocket URL with SigV4 signature provided as query parameters
-- **OAuth Bearer token**: Pass an OAuth token in the
-  Authorization header for external identity provider integration
+- **AWS Signature Version 4 headers** : Sign the WebSocket handshake request headers using your AWS credentials
+- **AWS Signature Version 4 Pre-signed URL** : Create a presigned WebSocket URL with SigV4 signature provided as query parameters
+- **OAuth Bearer token** : Pass an OAuth token in the Authorization header for external identity provider integration
 
 ###### Tip
 
@@ -265,8 +248,7 @@ Make sure that you have `bedrock-agentcore:InvokeAgentRuntimeWithWebSocketStream
 
 #### Connect using SigV4 signed headers
 
-The following example shows how to establish a WebSocket connection and communicate with an agent
-runtime using SigV4 signed headers:
+The following example shows how to establish a WebSocket connection and communicate with an agent runtime using SigV4 signed headers:
 
 ```
 from bedrock_agentcore.runtime import AgentCoreRuntimeClient
@@ -377,14 +359,9 @@ Received: {"echo":{"inputText":"Hello!"}}
 
 #### Connect using OAuth
 
-AgentCore Runtime supports OAuth Bearer token authentication for WebSocket connections. To use OAuth authentication,
-you need to configure your agent runtime with JWT authorization as described in the
-[JWT inbound authorization and OAuth outbound access sample](runtime-oauth.md#oauth-sample-overview "runtime-oauth.md#oauth-sample-overview") section of
-[Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").
+AgentCore Runtime supports OAuth Bearer token authentication for WebSocket connections. To use OAuth authentication, you need to configure your agent runtime with JWT authorization as described in the [JWT inbound authorization and OAuth outbound access sample](runtime-oauth.md#oauth-sample-overview "runtime-oauth.md#oauth-sample-overview") section of [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").
 
-Once you have completed the OAuth setup and obtained a bearer token following
-[Step 4: Use bearer token to invoke your agent](runtime-oauth.md#invoke-agent "runtime-oauth.md#invoke-agent") in the OAuth guide,
-you can use that token to establish WebSocket connections.
+Once you have completed the OAuth setup and obtained a bearer token following [Step 4: Use bearer token to invoke your agent](runtime-oauth.md#oauth-invoke-agent "runtime-oauth.md#oauth-invoke-agent") in the OAuth guide, you can use that token to establish WebSocket connections.
 
 ##### Python client with OAuth
 
@@ -450,12 +427,9 @@ Received: {"echo":{"inputText":"Hello!"}}
 
 ##### Browser JavaScript client with OAuth
 
-The browser's native WebSocket API does not provide a method to set custom headers during the handshake.
-To support OAuth authentication from browsers, AgentCore Runtime accepts the bearer token embedded in the `Sec-WebSocket-Protocol` header
-during the WebSocket handshake.
+The browser’s native WebSocket API does not provide a method to set custom headers during the handshake. To support OAuth authentication from browsers, AgentCore Runtime accepts the bearer token embedded in the `Sec-WebSocket-Protocol` header during the WebSocket handshake.
 
-The token must be base64url-encoded and prefixed with `base64UrlBearerAuthorization.`, followed by the sentinel
-subprotocol `base64UrlBearerAuthorization`.
+The token must be base64url-encoded and prefixed with `base64UrlBearerAuthorization.` , followed by the sentinel subprotocol `base64UrlBearerAuthorization`.
 
 The following example shows how to establish a WebSocket connection from browser JavaScript using OAuth:
 
@@ -492,9 +466,7 @@ The following example shows how to establish a WebSocket connection from browser
 
 ###### Note
 
-This authentication method is for browser-based clients where setting custom headers is not possible.
-For non-browser clients (Python, Node.js servers, etc.), use OAuth header authentication shown in
-[Python client with OAuth](#websocket-oauth-python "#websocket-oauth-python").
+This authentication method is for browser-based clients where setting custom headers is not possible. For non-browser clients (Python, Node.js servers, etc.), use OAuth header authentication shown in [Python client with OAuth](#websocket-oauth-python "#websocket-oauth-python").
 
 ###### Note
 
@@ -506,32 +478,30 @@ This is a reference example. It is not recommended to hardcode tokens in product
 
 ## Session management
 
-Providing a `session_id` (`X-Amzn-Bedrock-AgentCore-Runtime-Session-Id`) on the WebSocket connection (as either a URL query parameter or request header)
-routes the connection to an isolated runtime session. The agent can access conversation context stored within that session,
-to implement continuity for a conversation by referencing previous interactions. Different session IDs
-access separate isolated contexts, ensuring complete isolation between users or conversations.
+Providing a `session_id` ( `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` ) on the WebSocket connection (as either a URL query parameter or request header) routes the connection to an isolated runtime session. The agent can access conversation context stored within that session, to implement continuity for a conversation by referencing previous interactions. Different session IDs access separate isolated contexts, ensuring complete isolation between users or conversations.
 
-For comprehensive session lifecycle management including tracking, cleanup, and error handling,
-see [Use isolated sessions for agents](runtime-sessions.md "runtime-sessions.md").
+For comprehensive session lifecycle management including tracking, cleanup, and error handling, see [Use isolated sessions for agents](runtime-sessions.md "runtime-sessions.md").
 
 ### Using sessions with WebSocket connections
 
-To use sessions with WebSocket connections, generate a unique session ID
-for each user or conversation and pass it when establishing the connection:
+To use sessions with WebSocket connections, generate a unique session ID for each user or conversation and pass it when establishing the connection:
+
+###### Example
 
 SigV4 Headers
 
-```
-from bedrock_agentcore.runtime import AgentCoreRuntimeClient
-import websockets
-import asyncio
-import json
-import os
+1. ```
+   from bedrock_agentcore.runtime import AgentCoreRuntimeClient
+   import websockets
+   import asyncio
+   import json
+   import os
+   ```
 
 async def websocket_with_session():
-    client = AgentCoreRuntimeClient(region="us-west-2")
-    session_id = "user-123-conversation-456"
-    runtime_arn = os.getenv('AGENT_ARN')
+client = AgentCoreRuntimeClient(region="us-west-2")
+session_id = "user-123-conversation-456"
+runtime_arn = os.getenv('AGENT_ARN')
 
     ws_url, headers = client.generate_ws_connection(
         runtime_arn=runtime_arn,
@@ -551,11 +521,13 @@ async def websocket_with_session():
         print(f"Connection failed: {e}")
 
 asyncio.run(websocket_with_session())
-```
+
+````
+
 
 SigV4 Pre-signed URL
 
-```
+1. ```
 from bedrock_agentcore.runtime import AgentCoreRuntimeClient
 import websockets
 import asyncio
@@ -586,22 +558,23 @@ async def websocket_with_session():
         print(f"Connection failed: {e}")
 
 asyncio.run(websocket_with_session())
-```
+````
 
 OAuth
 
-```
-from bedrock_agentcore.runtime import AgentCoreRuntimeClient
-import websockets
-import asyncio
-import json
-import os
+1. ```
+   from bedrock_agentcore.runtime import AgentCoreRuntimeClient
+   import websockets
+   import asyncio
+   import json
+   import os
+   ```
 
 async def websocket_with_session():
-    client = AgentCoreRuntimeClient(region="us-west-2")
-    session_id = "user-123-conversation-456"
-    runtime_arn = os.getenv('AGENT_ARN')
-    bearer_token = os.getenv('BEARER_TOKEN')
+client = AgentCoreRuntimeClient(region="us-west-2")
+session_id = "user-123-conversation-456"
+runtime_arn = os.getenv('AGENT_ARN')
+bearer_token = os.getenv('BEARER_TOKEN')
 
     ws_url, headers = client.generate_ws_connection_oauth(
         runtime_arn=runtime_arn,
@@ -622,143 +595,199 @@ async def websocket_with_session():
         print(f"Connection failed: {e}")
 
 asyncio.run(websocket_with_session())
+
 ```
+
+
 
 ###### Tip
 
-For best results, use a UUID or other unique identifier for your session IDs to avoid
-collisions between different users or conversations.
+For best results, use a UUID or other unique identifier for your session IDs to avoid collisions between different users or conversations.
 
-By using the same session ID for related WebSocket connections, you ensure that context is
-maintained across the same conversation, allowing your agent to provide coherent responses that
-build on previous interactions.
+
+By using the same session ID for related WebSocket connections, you ensure that context is maintained across the same conversation, allowing your agent to provide coherent responses that build on previous interactions.
+
 
 ### Session lifecycle with WebSocket connections
 
-For WebSocket connections, the session's idle timeout is reset each time there is message
-activity between the client and agent. This includes any WebSocket message exchange such as
-sending data from client to agent, receiving responses from agent to client, or WebSocket
-ping/pong frames. This means that active WebSocket conversations will keep the session alive
-as long as messages continue to flow, preventing premature session termination during ongoing
-interactions.
 
-For more information about configuring lifecycle settings, see [Configure Amazon Bedrock AgentCore lifecycle settings](runtime-lifecycle-settings.md "runtime-lifecycle-settings.md"). For more direct control of session
-lifecycle through agent health status, see [Runtime session lifecycle management](runtime-long-run.md#runtime-long-run-session-lifecycle "runtime-long-run.md#runtime-long-run-session-lifecycle").
+For WebSocket connections, the session’s idle timeout is reset each time there is message activity between the client and agent. This includes any WebSocket message exchange such as sending data from client to agent, receiving responses from agent to client, or WebSocket ping/pong frames. This means that active WebSocket conversations will keep the session alive as long as messages continue to flow, preventing premature session termination during ongoing interactions.
+
+
+For more information about configuring lifecycle settings, see [Configure Amazon Bedrock AgentCore lifecycle settings](runtime-lifecycle-settings.md "runtime-lifecycle-settings.md") . For more direct control of session lifecycle through agent health status, see [Runtime session lifecycle management](runtime-long-run.md#runtime-long-run-session-lifecycle "runtime-long-run.md#runtime-long-run-session-lifecycle").
+
 
 ### Stop runtime session
 
-To stop a running session before the configurable `IdleRuntimeSessionTimeout`
-(defaulted at 15 minutes), see [Stop a running session](runtime-stop-session.md "runtime-stop-session.md").
+
+To stop a running session before the configurable `IdleRuntimeSessionTimeout` (defaulted at 15 minutes), see [Stop a running session](runtime-stop-session.md "runtime-stop-session.md").
+
 
 ## Observability
 
-[Amazon Bedrock AgentCore Observability](observability.md "observability.md") helps you trace, debug, and monitor agents
-that you host in Amazon Bedrock AgentCore Runtime. First enable CloudWatch Transaction Search
-by following the instructions at [Enabling Amazon Bedrock AgentCore runtime observability](observability-configure.md#observability-configure-builtin "observability-configure.md#observability-configure-builtin"). To observe your agent,
-see [View observability data for your Amazon Bedrock AgentCore agents](observability-view.md "observability-view.md").
+
+
+[Amazon Bedrock AgentCore Observability](observability.md "observability.md") helps you trace, debug, and monitor agents that you host in Amazon Bedrock AgentCore Runtime. First enable CloudWatch Transaction Search by following the instructions at [Enabling Amazon Bedrock AgentCore runtime observability](observability-configure.md#observability-configure-builtin "observability-configure.md#observability-configure-builtin") . To observe your agent, see [View observability data for your Amazon Bedrock AgentCore agents](observability-view.md "observability-view.md").
+
 
 For WebSocket connections, a trace represents the complete connection session rather than individual message exchanges.
 
+
 ## Custom Headers
 
-Custom headers let you pass contextual information from your application directly to your
-agent code on the initial WebSocket connection. For complete information about custom header support, configuration, and limitations, see [Pass custom headers to Amazon Bedrock AgentCore Runtime](runtime-header-allowlist.md "runtime-header-allowlist.md").
+
+Custom headers let you pass contextual information from your application directly to your agent code on the initial WebSocket connection. For complete information about custom header support, configuration, and limitations, see [Pass custom headers to Amazon Bedrock AgentCore Runtime](runtime-header-allowlist.md "runtime-header-allowlist.md").
+
 
 Additionally, headers prefixed with `X-Amzn-Bedrock-AgentCore-Runtime-Custom-` can be passed as URL query parameters in WebSocket connections.
 
+
 For example, you can pass custom headers as query parameters in the WebSocket URL:
 
+
+
 ```
+
 wss://bedrock-agentcore.<region>.amazonaws.com/runtimes/<agentRuntimeArn>/ws?X-Amzn-Bedrock-AgentCore-Runtime-Custom-TestHeader=query-param-test-value
+
 ```
 
 The agent application container will receive these as headers:
 
+
+
 ```
+
 "headers": {
-    "x-amzn-bedrock-agentcore-runtime-custom-testheader": "query-param-test-value"
-  }
+"x-amzn-bedrock-agentcore-runtime-custom-testheader": "query-param-test-value"
+}
+
 ```
 
 ## Appendix
 
+
 ###### Topics
 
-- [Security considerations](#security-considerations "#security-considerations")
-- [Troubleshooting](#websocket-troubleshooting "#websocket-troubleshooting")
-- [WebSocket vs other protocols](#websocket-vs-other-protocols "#websocket-vs-other-protocols")
-- [Additional getting started examples](#websocket-additional-examples "#websocket-additional-examples")
+* [Security considerations](#security-considerations "#security-considerations")
+* [Troubleshooting](#websocket-troubleshooting "#websocket-troubleshooting")
+* [WebSocket vs other protocols](#websocket-vs-other-protocols "#websocket-vs-other-protocols")
+* [Additional getting started examples](#websocket-additional-examples "#websocket-additional-examples")
 
 ### Security considerations
+
+
+
 
 Authentication
 
 All WebSocket connections require proper AWS authentication through SigV4 or OAuth 2.0
 
+
+
 Session Isolation
 
 Each session runs in isolated execution environments with dedicated resources
+
+
 
 Transport Security
 
 All connections use WSS (WebSocket Secure) over HTTPS for encrypted communication
 
+
+
 Access Control
 
 IAM policies control WebSocket connection permissions and access to specific agents
 
+
+
+
 ### Troubleshooting
+
 
 #### Common WebSocket-specific issues
 
+
 The following are common issues you might encounter:
+
+
+
 
 Connection failures
 
 Verify that your agent application processes connection requests at `/ws`
 
+
+
+
 Authentication method mismatch
 
 Ensure your client uses the same authentication method (OAuth or SigV4) that the agent was configured with
+
+
 
 Connection closed due to limit exceeded
 
 Connections are automatically closed if limits are exceeded, such as message frame rate or message frame size limits. For complete limit information, see [Quotas for Amazon Bedrock AgentCore](bedrock-agentcore-limits.md "bedrock-agentcore-limits.md")
 
+
+
+
 Message frame size exceeded
 
 Configure message frame fragmentation or implement chunking to stay below the 32KB frame size limit. Split large messages into smaller chunks before sending
 
+
+
 Health check failures
 
-Ensure your agent container implements the `/ping` endpoint as specified in [HTTP protocol contract](runtime-http-protocol-contract.md "runtime-http-protocol-contract.md"). This endpoint verifies that your agent is operational and ready to handle requests, enabling service monitoring and automated recovery
+Ensure your agent container implements the `/ping` endpoint as specified in [HTTP protocol contract](runtime-http-protocol-contract.md "runtime-http-protocol-contract.md") . This endpoint verifies that your agent is operational and ready to handle requests, enabling service monitoring and automated recovery
+
+
+
 
 #### Error handling
 
+
 WebSocket connections use standard close codes for error communication. Common close codes include:
 
-- `1000` - Normal closure
-- `1001` - Going away
-- `1008` - Policy violated (limit exceeded)
-- `1009` - Message too big (message frame size limit exceeded)
-- `1011` - Server error
+
+
+* `1000` - Normal closure
+* `1001` - Going away
+* `1008` - Policy violated (limit exceeded)
+* `1009` - Message too big (message frame size limit exceeded)
+* `1011` - Server error
 
 ### WebSocket vs other protocols
 
-**When to use WebSocket**:
 
-- Real-time voice conversations with immediate audio streaming for natural conversation flow
-- Bidirectional audio/text/binary data flow (streaming data chunks from client to agent and vice versa)
-- Interrupt handling (user can interrupt agent mid-conversation)
 
-**When to use HTTP**:
+**When to use WebSocket** :
 
-- HTTP for request-response patterns without bidirectional streaming needs
+
+
+* Real-time voice conversations with immediate audio streaming for natural conversation flow
+* Bidirectional audio/text/binary data flow (streaming data chunks from client to agent and vice versa)
+* Interrupt handling (user can interrupt agent mid-conversation)
+
+
+**When to use HTTP** :
+
+
+
+* HTTP for request-response patterns without bidirectional streaming needs
 
 ### Additional getting started examples
 
-For additional examples using WebSocket bidirectional streaming with AgentCore Runtime, see the [WebSocket bidirectional streaming GitHub samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/06-bi-directional-streaming "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/06-bi-directional-streaming"):
 
-- **Sonic implementation (Python)**: Native Amazon Nova Sonic WebSocket implementation with real-time audio conversations, voice selection, and interruption support
-- **Strands implementation (Python)**: Framework-based implementation using the Strands BidiAgent for simplified real-time audio conversations with automatic session management and tool integration
-- **Echo implementation (Python)**: Simple echo server for testing WebSocket connectivity and authentication
+For additional examples using WebSocket bidirectional streaming with AgentCore Runtime, see the [WebSocket bidirectional streaming GitHub samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/06-bi-directional-streaming "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/01-AgentCore-runtime/06-bi-directional-streaming") :
+
+
+
+* **Sonic implementation (Python)** : Native Amazon Nova Sonic WebSocket implementation with real-time audio conversations, voice selection, and interruption support
+* **Strands implementation (Python)** : Framework-based implementation using the Strands BidiAgent for simplified real-time audio conversations with automatic session management and tool integration
+* **Echo implementation (Python)** : Simple echo server for testing WebSocket connectivity and authentication
+```

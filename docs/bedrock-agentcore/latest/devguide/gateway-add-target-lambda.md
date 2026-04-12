@@ -18,20 +18,13 @@ Review the key considerations and limitations to help you decide whether a Lambd
 
 ## Key considerations and limitations
 
-When working with Lambda targets, be aware of the following limitations and
-considerations:
+When working with Lambda targets, be aware of the following limitations and considerations:
 
-- Tool name prefixes will need to be manually stripped off from the toolname in
-  your AWS Lambda function. For more information, see [Understand how AgentCore Gateway tools are named](gateway-tool-naming.md "gateway-tool-naming.md").
-- If you are using an existing AWS Lambda function and import it as a tool into
-  the gateway, you will need to change the function code to account for a schema
-  change for event and context objects
-- The Lambda function must return a valid JSON response that can be parsed by the
-  gateway
-- Lambda function timeouts should be configured appropriately to handle the
-  expected processing time of your tools
-- Consider implementing error handling in your LLambda function to provide
-  meaningful error messages to the client
+- Tool name prefixes will need to be manually stripped off from the toolname in your AWS Lambda function. For more information, see [Understand how AgentCore Gateway tools are named](gateway-tool-naming.md "gateway-tool-naming.md").
+- If you are using an existing AWS Lambda function and import it as a tool into the gateway, you will need to change the function code to account for a schema change for event and context objects
+- The Lambda function must return a valid JSON response that can be parsed by the gateway
+- Lambda function timeouts should be configured appropriately to handle the expected processing time of your tools
+- Consider implementing error handling in your LLambda function to provide meaningful error messages to the client
 
 ## Lambda function tool schema
 
@@ -55,23 +48,23 @@ When you add a Lambda function as a gateway target, you provide a [ToolDefinitio
 
 ```
 {
-    "name": "`string`",
-    "description": "`string`",
+    "name": "string",
+    "description": "string",
     "inputSchema": {
         "type": "object",
-        "description" "`string`",
+        "description" "string",
         "properties": {
-            "`string`": SchemaDefinition
+            "string": SchemaDefinition
         },
-        "required": ["`string`"]
+        "required": ["string"]
     },
     "outputSchema": {
         "type": "object",
-        "description" "`string`",
+        "description" "string",
         "properties": {
-            "`string`": SchemaDefinition
+            "string": SchemaDefinition
         },
-        "required": ["`string`"]
+        "required": ["string"]
     }
 }
 ```
@@ -83,7 +76,7 @@ The tool definition contains the following fields:
 - **inputSchema** (required) – A JSON object that defines the structure of the input that the tool accepts.
 - **outputSchema** (optional) – A JSON object that defines the structure of the output that the tool produces.
 
-The `inputSchema` and `outputSchema` fields both map to an object-type [SchemaDefinition](../../../bedrock-agentcore-control/latest/APIReference/API_SchemaDefinition.md "../../../bedrock-agentcore-control/latest/APIReference/API_SchemaDefinition.md"), described in the following section.
+The `inputSchema` and `outputSchema` fields both map to an object-type [SchemaDefinition](../../../bedrock-agentcore-control/latest/APIReference/API_SchemaDefinition.md "../../../bedrock-agentcore-control/latest/APIReference/API_SchemaDefinition.md") , described in the following section.
 
 ### Top level schema definition for input and output schemas
 
@@ -92,11 +85,11 @@ The `inputSchema` and `outputSchema` fields at the top level of the tool definit
 ```
 {
     "type": "object",
-    "description": "`string`",
+    "description": "string",
     "properties": {
-        "`string`": SchemaDefinition
+        "string": SchemaDefinition
     },
-    "required": ["`string`"]
+    "required": ["string"]
 }
 ```
 
@@ -111,53 +104,60 @@ If you include a `properties` field to define arguments for the tool, you provid
 
 Each property in the top level `SchemaDefinition` maps to a [SchemaDefinition](../../../bedrock-agentcore-control/latest/APIReference/API_SchemaDefinition.md "../../../bedrock-agentcore-control/latest/APIReference/API_SchemaDefinition.md") object that has slightly different requirements from the top level schema definition. The available fields depend on the `type` for the property. To see the shape of the `SchemaDefinition` for a type, select from the following tabs:
 
+###### Example
+
 String
-The `SchemaDefinition` for a string property has the following structure:
+
+1. The `SchemaDefinition` for a string property has the following structure:
 
 ```
 {
     "type": "string",
-    "description": "`string`"
+    "description": "string"
 }
 ```
 
 Number
-The `SchemaDefinition` for a number property has the following structure:
+
+1. The `SchemaDefinition` for a number property has the following structure:
 
 ```
 {
     "type": "number",
-    "description": "`string`"
+    "description": "string"
 }
 ```
 
 Integer
-The `SchemaDefinition` for a integer property has the following structure:
+
+1. The `SchemaDefinition` for a integer property has the following structure:
 
 ```
 {
     "type": "integer",
-    "description": "`string`"
+    "description": "string"
 }
 ```
 
 Boolean
-The `SchemaDefinition` for a boolean property has the following structure:
+
+1. The `SchemaDefinition` for a boolean property has the following structure:
 
 ```
 {
     "type": "boolean",
-    "description": "`string`"
+    "description": "string"
 }
 ```
 
 Array
-The `SchemaDefinition` for an array property has the following structure:
+
+1. The `SchemaDefinition` for an array property has the following structure:
 
 ```
 {
     "type": "array",
-    "description": "`string`",
+    "description": "string",
     "items": SchemaDefinition
 }
 ```
@@ -165,16 +165,17 @@ The `SchemaDefinition` for an array property has the following structure:
 The value of the `items` field is a `SchemaDefinition` that defines the structure of each item in the array.
 
 Object
-The `SchemaDefinition` for an object property has the following structure and matches the top level property schema definition.
+
+1. The `SchemaDefinition` for an object property has the following structure and matches the top level property schema definition.
 
 ```
 {
     "type": "object",
-    "description": "`string`",
+    "description": "string",
     "properties": {
-        "`string`": SchemaDefinition
+        "string": SchemaDefinition
     },
-    "required": ["`string`"]
+    "required": ["string"]
 }
 ```
 
@@ -184,8 +185,11 @@ If you include another object-type property, you will recursively add another `S
 
 Select a tab to see example tool definitions that you can include in your Lambda function.
 
+###### Example
+
 Weather tool
-The following `get_weather` tool requires a `location` string argument and can be used to return the weather for that location:
+
+1. The following `get_weather` tool requires a `location` string argument and can be used to return the weather for that location:
 
 ```
 {
@@ -207,7 +211,8 @@ The following `get_weather` tool requires a `location` string argument and can b
 ```
 
 Time tool
-The following `get_time` tool requires a `timezone` string argument and can be used to return the time for that timezone:
+
+1. The following `get_time` tool requires a `timezone` string argument and can be used to return the time for that timezone:
 
 ```
 {
@@ -231,9 +236,9 @@ The following `get_time` tool requires a `timezone` string argument and can be u
 
 When an Amazon Bedrock AgentCore gateway invokes a Lambda function, it passes an `event` object and a `context` object to the function. The Lambda event handler that you write can access values in these objects.
 
-###### Event object
+**Event object**
 
-A map of `properties` from the `inputSchema` to their values, as returned by the tool. For example, if your input schema contains the properties `keywords` and `category`, the event object could be the following:
+A map of `properties` from the `inputSchema` to their values, as returned by the tool. For example, if your input schema contains the properties `keywords` and `category` , the event object could be the following:
 
 ```
 {
@@ -242,7 +247,7 @@ A map of `properties` from the `inputSchema` to their values, as returned by the
 }
 ```
 
-###### Context object
+**Context object**
 
 Contains the following metadata:
 
@@ -251,18 +256,20 @@ Contains the following metadata:
 - bedrockAgentCoreMcpMessageId – The ID of the message sent to the MCP server.
 - bedrockAgentCoreGatewayId – The ID of the gateway that was invoked.
 - bedrockAgentCoreTargetId – The ID of the gateway target that was invoked.
-- bedrockAgentCoreToolName– The name of the tool that was called. The tool name is in the format `${target_name}`\_\_\_`${tool_name}`.
+- bedrockAgentCoreToolName– The name of the tool that was called. The tool name is in the format `${target_name}`
+  _\__
+  `${tool_name}`.
 
 The format of the context object is as follows:
 
 ```
 {
   "bedrockAgentCoreMessageVersion": "1.0",
-  "bedrockAgentCoreAwsRequestId": "`string`",
-  "bedrockAgentCoreMcpMessageId": "`string`",
-  "bedrockAgentCoreGatewayId": "`string`",
-  "bedrockAgentCoreTargetId": "`string`",
-  "bedrockAgentCoreToolName": "`string`"
+  "bedrockAgentCoreAwsRequestId": "string",
+  "bedrockAgentCoreMcpMessageId": "string",
+  "bedrockAgentCoreGatewayId": "string",
+  "bedrockAgentCoreTargetId": "string",
+  "bedrockAgentCoreToolName": "string"
 }
 ```
 

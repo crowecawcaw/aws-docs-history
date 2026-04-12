@@ -1,18 +1,10 @@
 # Use interface VPC endpoints (AWS PrivateLink) to create a private connection between your VPC and your Amazon Bedrock AgentCore resources
 
-You can use AWS PrivateLink to create a private connection between your VPC and
-Amazon Bedrock AgentCore. You can access AgentCore as if it were in your VPC, without the use of an
-internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC
-don't need public IP addresses to access AgentCore.
+You can use AWS PrivateLink to create a private connection between your VPC and Amazon Bedrock AgentCore. You can access AgentCore as if it were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don’t need public IP addresses to access AgentCore.
 
-You establish this private connection by creating an _interface
-endpoint_, powered by AWS PrivateLink. We create an endpoint network interface
-in each subnet that you enable for the interface endpoint. These are requester-managed
-network interfaces that serve as the entry point for traffic destined for AgentCore.
+You establish this private connection by creating an _interface endpoint_ , powered by AWS PrivateLink. We create an endpoint network interface in each subnet that you enable for the interface endpoint. These are requester-managed network interfaces that serve as the entry point for traffic destined for AgentCore.
 
-For more information, see [Access AWS services
-through AWS PrivateLink](../../../vpc/latest/privatelink/privatelink-access-aws-services.md "../../../vpc/latest/privatelink/privatelink-access-aws-services.md") in the
-_AWS PrivateLink Guide_.
+For more information, see [Access AWS services through AWS PrivateLink](../../../vpc/latest/privatelink/privatelink-access-aws-services.md "../../../vpc/latest/privatelink/privatelink-access-aws-services.md") in the _AWS PrivateLink Guide_.
 
 ## Considerations for AgentCore
 
@@ -20,88 +12,65 @@ Before you set up an interface endpoint for AgentCore, review [Considerations](.
 
 AgentCore provides three AWS PrivateLink endpoints:
 
-- **Data plane endpoint** - `com.amazonaws.`region`.bedrock-agentcore`
-- **Control plane endpoint** - `com.amazonaws.`region`.bedrock-agentcore-control`
-- **Gateway endpoint** - `com.amazonaws.`region`.bedrock-agentcore.gateway`
+- **Data plane endpoint** - `com.amazonaws.region.bedrock-agentcore`
+- **Control plane endpoint** - `com.amazonaws.region.bedrock-agentcore-control`
+- **Gateway endpoint** - `com.amazonaws.region.bedrock-agentcore.gateway`
 
 The following table shows AWS PrivateLink support status for each AgentCore primitive:
 
-| AWS PrivateLink support by primitive            | Primitive         | Data plane | Control plane |
-| ----------------------------------------------- | ----------------- | ---------- | ------------- |
-| Runtime                                         | Supported         | Supported  |
-| Memory                                          | Supported         | Supported  |
-| Built-in Tools (Code Interpreter, Browser Tool) | Supported         | Supported  |
-| Identity                                        | Supported         | Supported  |
-| Gateway                                         | Supported         | Supported  |
-| Evaluations                                     | Not yet supported | Supported  |
-| Policy                                          | Supported         | Supported  |
+| Primitive                                       | Data plane        | Control plane |
+| ----------------------------------------------- | ----------------- | ------------- |
+| Runtime                                         | Supported         | Supported     |
+| Memory                                          | Supported         | Supported     |
+| Built-in Tools (Code Interpreter, Browser Tool) | Supported         | Supported     |
+| Identity                                        | Supported         | Supported     |
+| Gateway                                         | Supported         | Supported     |
+| Evaluations                                     | Not yet supported | Supported     |
+| Policy                                          | Supported         | Supported     |
 
-For a list of AWS Regions in which AgentCore interface endpoints are available, see
-[Supported AWS Regions](agentcore-regions.md "agentcore-regions.md").
+For a list of AWS Regions in which AgentCore interface endpoints are available, see [Supported AWS Regions](agentcore-regions.md "agentcore-regions.md").
 
-###### Authorization considerations for data plane APIs
+###### Important
 
-The data plane APIs support both AWS Signature Version 4 (SigV4) headers for
-authentication and Bearer Token (OAuth) authentication. VPC endpoint policies can
-only restrict callers based on IAM principals and not OAuth users. For OAuth-based
-requests to succeed through the VPC endpoint, the principal must be set to
-`*` in the endpoint policy. Otherwise, only SigV4 allowlisted callers
-can make successful calls over the VPC endpoint.
+The data plane APIs support both AWS Signature Version 4 (SigV4) headers for authentication and Bearer Token (OAuth) authentication. VPC endpoint policies can only restrict callers based on IAM principals and not OAuth users. For OAuth-based requests to succeed through the VPC endpoint, the principal must be set to \* in the endpoint policy. Otherwise, only SigV4 allowlisted callers can make successful calls over the VPC endpoint.
 
-AWS IAM global condition context keys are supported. By default, full access to
-AgentCore is allowed through the interface endpoint. You can control access by attaching
-an endpoint policy to the interface endpoint or by associating a security group with the
-endpoint network interfaces.
+AWS IAM global condition context keys are supported. By default, full access to AgentCore is allowed through the interface endpoint. You can control access by attaching an endpoint policy to the interface endpoint or by associating a security group with the endpoint network interfaces.
 
 ## Create an interface endpoint for AgentCore
 
-You can create an interface endpoint for AgentCore using either the Amazon VPC console or
-the AWS Command Line Interface (AWS CLI). For more information, see [Create an interface endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") in the
-_AWS PrivateLink Guide_.
+You can create an interface endpoint for AgentCore using either the Amazon VPC console or the AWS Command Line Interface (AWS CLI). For more information, see [Create an interface endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") in the _AWS PrivateLink Guide_.
 
-Create an interface endpoint for AgentCore using the following service name
-format:
+Create an interface endpoint for AgentCore using the following service name format:
 
-- All data plane primitives (Runtime, Built-in Tools, Memory, Identity):
-  `com.amazonaws.`region`.bedrock-agentcore`
-- For AgentCore Gateway:
-  `com.amazonaws.`region`.bedrock-agentcore.gateway`
-- For control plane operations (Runtime and Memory management):
-  `com.amazonaws.`region`.bedrock-agentcore-control`
+- All data plane primitives (Runtime, Built-in Tools, Memory, Identity): `com.amazonaws.region.bedrock-agentcore`
+- For AgentCore Gateway: `com.amazonaws.region.bedrock-agentcore.gateway`
+- For control plane operations (Runtime and Memory management): `com.amazonaws.region.bedrock-agentcore-control`
 
-If you enable private DNS for the interface endpoint, you can make API requests to
-AgentCore using its default Regional DNS name. For example,
-`bedrock-agentcore.us-east-1.amazonaws.com`.
+If you enable private DNS for the interface endpoint, you can make API requests to AgentCore using its default Regional DNS name. For example, `bedrock-agentcore.us-east-1.amazonaws.com`.
 
 ## Create an endpoint policy for your interface endpoint
 
-An endpoint policy is an IAM resource that you can attach to an interface endpoint.
-The default endpoint policy allows full access to AgentCore through the interface
-endpoint. To control the access allowed to AgentCore from your VPC, attach a custom
-endpoint policy to the interface endpoint.
+An endpoint policy is an IAM resource that you can attach to an interface endpoint. The default endpoint policy allows full access to AgentCore through the interface endpoint. To control the access allowed to AgentCore from your VPC, attach a custom endpoint policy to the interface endpoint.
 
 An endpoint policy specifies the following information:
 
-- The principals that can perform actions (AWS accounts, IAM users, and
-  IAM roles).
-  - For AgentCore Gateway, if your gateway ingress isn't [AWS
-    Signature Version 4 (SigV4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md")-based (for example, if you use
-    OAuth instead), you must specify the `Principal` field as the
-    wildcard `*`. SigV4 -based authentication allows you to
-    define the `Principal` as a specific AWS identity. This also applies to AgentCore Runtime.
+- The principals that can perform actions (AWS accounts, IAM users, and IAM roles).
+  - For AgentCore Gateway, if your gateway ingress isn’t [AWS Signature Version 4 (SigV4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md") -based (for example, if you use OAuth instead), you must specify the `Principal` field as the wildcard \* . SigV4 -based authentication allows you to define the `Principal` as a specific AWS identity. This also applies to AgentCore Runtime.
 
 - The actions that can be performed.
 - The resources on which the actions can be performed.
 
-For more information, see [Control access to services using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the
-_AWS PrivateLink Guide_.
+For more information, see [Control access to services using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the _AWS PrivateLink Guide_.
 
-###### Endpoint policies for various primitives
+**Endpoint policies for various primitives**
 
 The following examples show endpoint policies for different AgentCore components:
 
+###### Example
+
 Runtime
-The following endpoint policy allows specific IAM principals to invoke agent runtime resources.
+
+1. The following endpoint policy allows specific IAM principals to invoke agent runtime resources.
 
 ```
 {
@@ -109,18 +78,18 @@ The following endpoint policy allows specific IAM principals to invoke agent run
       {
          "Effect": "Allow",
          "Principal": {
-            "AWS": "arn:aws::iam::`ACCOUNT_ID`:user/`USERNAME`"
+            "AWS": "arn:aws::iam::ACCOUNT_ID:user/USERNAME"
          },
          "Action": [
             "bedrock-agentcore:InvokeAgentRuntime"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:`ACCOUNT_ID`:runtime/`RUNTIME_ID`"
+         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:runtime/RUNTIME_ID"
       }
    ]
 }
 ```
 
-###### Mixed IAM and OAuth authentication
+**Mixed IAM and OAuth authentication**
 
 The `InvokeAgentRuntime` API supports two modes of VPC endpoint authorization. The following example policy allows both IAM principals and OAuth callers to access different agent runtime resources.
 
@@ -130,12 +99,12 @@ The `InvokeAgentRuntime` API supports two modes of VPC endpoint authorization. T
       {
          "Effect": "Allow",
          "Principal": {
-            "AWS": "arn:aws::iam::`ACCOUNT_ID`:root"
+            "AWS": "arn:aws::iam::ACCOUNT_ID:root"
          },
          "Action": [
             "bedrock-agentcore:InvokeAgentRuntime"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:`ACCOUNT_ID`:runtime/`customAgent1`"
+         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:runtime/customAgent1"
       },
       {
          "Effect": "Allow",
@@ -143,16 +112,17 @@ The `InvokeAgentRuntime` API supports two modes of VPC endpoint authorization. T
          "Action": [
             "bedrock-agentcore:InvokeAgentRuntime"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:`ACCOUNT_ID`:runtime/`customAgent2`"
+         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:runtime/customAgent2"
       }
    ]
 }
 ```
 
-The above policy allows only the IAM principal to make `InvokeAgentRuntime` calls to `customAgent1`. It also allows both IAM principals and OAuth callers to make `InvokeAgentRuntime` calls to `customAgent2`.
+The above policy allows only the IAM principal to make `InvokeAgentRuntime` calls to `customAgent1` . It also allows both IAM principals and OAuth callers to make `InvokeAgentRuntime` calls to `customAgent2`.
 
 Code Interpreter Tool
-The following endpoint policy allows specific IAM principals to invoke Code Interpreter resources.
+
+1. The following endpoint policy allows specific IAM principals to invoke Code Interpreter resources.
 
 ```
 {
@@ -160,12 +130,12 @@ The following endpoint policy allows specific IAM principals to invoke Code Inte
       {
          "Effect": "Allow",
          "Principal": {
-            "AWS": "arn:aws::iam::`ACCOUNT_ID`:root"
+            "AWS": "arn:aws::iam::ACCOUNT_ID:root"
          },
          "Action": [
             "bedrock-agentcore:InvokeCodeInterpreter"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:`ACCOUNT_ID`:code-interpreter/`CODE_INTERPRETER_ID`"
+         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:code-interpreter/CODE_INTERPRETER_ID"
       }
    ]
 }
@@ -173,10 +143,9 @@ The following endpoint policy allows specific IAM principals to invoke Code Inte
 
 Memory
 
-###### All data plane operations
+1. ====== All data plane operations
 
-The following endpoint policy allows specific IAM principals to access us-east-1 data plane operations
-for a specific AgentCore Memory.
+The following endpoint policy allows specific IAM principals to access us-east-1 data plane operations for a specific AgentCore Memory.
 
 ```
 {
@@ -184,7 +153,7 @@ for a specific AgentCore Memory.
       {
          "Effect": "Allow",
          "Principal": {
-            "AWS": "arn:aws::iam::`ACCOUNT_ID`:root"
+            "AWS": "arn:aws::iam::ACCOUNT_ID:root"
          },
          "Action": [
             "bedrock-agentcore:CreateEvent",
@@ -201,13 +170,13 @@ for a specific AgentCore Memory.
             "bedrock-agentcore:BatchDeleteMemoryRecords",
             "bedrock-agentcore:BatchUpdateMemoryRecords"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:`ACCOUNT_ID`:memory/`MEMORY_ID`"
+         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:memory/MEMORY_ID"
       }
    ]
 }
 ```
 
-###### Access to all memories
+**Access to all memories**
 
 The following endpoint policy allows specific IAM principals access to all memories.
 
@@ -217,7 +186,7 @@ The following endpoint policy allows specific IAM principals access to all memor
       {
          "Effect": "Allow",
          "Principal": {
-            "AWS": "arn:aws::iam::`ACCOUNT_ID`:root"
+            "AWS": "arn:aws::iam::ACCOUNT_ID:root"
          },
          "Action": [
             "bedrock-agentcore:CreateEvent",
@@ -234,16 +203,15 @@ The following endpoint policy allows specific IAM principals access to all memor
             "bedrock-agentcore:BatchDeleteMemoryRecords",
             "bedrock-agentcore:BatchUpdateMemoryRecords"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:`ACCOUNT_ID`:memory/*"
+         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:memory/*"
       }
    ]
 }
 ```
 
-###### Access restriction by APIs
+**Access restriction by APIs**
 
-The following endpoint policy grants permission for a specific IAM principal to create events in a
-specific AgentCore Memory resource.
+The following endpoint policy grants permission for a specific IAM principal to create events in a specific AgentCore Memory resource.
 
 ```
 {
@@ -251,19 +219,20 @@ specific AgentCore Memory resource.
       {
          "Effect": "Allow",
          "Principal": {
-            "AWS": "arn:aws::iam::`ACCOUNT_ID`:root"
+            "AWS": "arn:aws::iam::ACCOUNT_ID:root"
          },
          "Action": [
             "bedrock-agentcore:CreateEvent"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:`ACCOUNT_ID`:memory/`MEMORY_ID`"
+         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:memory/MEMORY_ID"
       }
    ]
 }
 ```
 
 Browser Tool
-The following endpoint policy allows specific IAM principals to connect to Browser Tool resources.
+
+1. The following endpoint policy allows specific IAM principals to connect to Browser Tool resources.
 
 ```
 {
@@ -271,19 +240,20 @@ The following endpoint policy allows specific IAM principals to connect to Brows
       {
          "Effect": "Allow",
          "Principal": {
-            "AWS": "arn:aws::iam::`ACCOUNT_ID`:root"
+            "AWS": "arn:aws::iam::ACCOUNT_ID:root"
          },
          "Action": [
             "bedrock-agentcore:ConnectBrowserAutomationStream"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1:`ACCOUNT_ID`:browser/`BROWSER_ID`"
+         "Resource": "arn:aws::bedrock-agentcore:us-east-1:ACCOUNT_ID:browser/BROWSER_ID"
       }
    ]
 }
 ```
 
 Gateway
-The following is an example of a custom endpoint policy. When you attach this policy to your interface endpoint, it allows all principals to invoke the gateway specified in the `Resource` field.
+
+1. The following is an example of a custom endpoint policy. When you attach this policy to your interface endpoint, it allows all principals to invoke the gateway specified in the `Resource` field.
 
 ```
 {
@@ -294,14 +264,15 @@ The following is an example of a custom endpoint policy. When you attach this po
          "Action": [
             "bedrock:InvokeGateway"
          ],
-         "Resource": "arn:aws::bedrock-agentcore:us-east-1::gateway/`my-gateway`"
+         "Resource": "arn:aws::bedrock-agentcore:us-east-1::gateway/my-gateway"
       }
    ]
 }
 ```
 
 Identity
-The following endpoint policy allows access to Identity resources.
+
+1. The following endpoint policy allows access to Identity resources.
 
 ```
 {
@@ -312,7 +283,7 @@ The following endpoint policy allows access to Identity resources.
          "Action": [
             "*"
          ],
-         "Resource": "arn:aws:bedrock-agentcore:us-east-1:`ACCOUNT_ID`:workload-identity-directory/default/workload-identity/`WORKLOAD_IDENTITY_ID`"
+         "Resource": "arn:aws:bedrock-agentcore:us-east-1:ACCOUNT_ID:workload-identity-directory/default/workload-identity/WORKLOAD_IDENTITY_ID"
       }
    ]
 }

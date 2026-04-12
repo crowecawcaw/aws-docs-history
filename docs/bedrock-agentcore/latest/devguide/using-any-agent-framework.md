@@ -1,7 +1,6 @@
 # Use any agent framework
 
-You can use open source AI frameworks to create an agent or tool.
-This topic shows examples for a variety of frameworks, including Strands Agents, LangGraph, and Google ADK.
+You can use open source AI frameworks to create an agent or tool. This topic shows examples for a variety of frameworks, including Strands Agents, LangGraph, and Google ADK.
 
 ###### Topics
 
@@ -20,7 +19,6 @@ from strands import Agent
 from strands_tools import file_read, file_write, editor
 
 agent = Agent(tools=[file_read, file_write, editor])
-
 
 from bedrock_agentcore.runtime import BedrockAgentCoreApp
 app = BedrockAgentCoreApp()
@@ -127,7 +125,6 @@ async def call_agent_async(query, user_id, session_id):
 
     return final_response
 
-
 from bedrock_agentcore.runtime import BedrockAgentCoreApp
 app = BedrockAgentCoreApp()
 
@@ -204,5 +201,4 @@ async def agent_invocation(payload, context):
 # Run the app when imported
 if __name__== "__main__":
     app.run()
-
 ```

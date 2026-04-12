@@ -2,9 +2,7 @@
 
 You can use the following tutorials to get started with Amazon Bedrock AgentCore Runtime.
 
-The [AgentCore CLI](https://github.com/aws/agentcore-cli "https://github.com/aws/agentcore-cli") is a Command Line Interface (CLI) that
-simplifies the infrastructure setup for containerizing and deploying an agent to an
-AgentCore Runtime.
+The [AgentCore CLI](https://github.com/aws/agentcore-cli "https://github.com/aws/agentcore-cli") is a Command Line Interface (CLI) that simplifies the infrastructure setup for containerizing and deploying an agent to an AgentCore Runtime.
 
 ###### Topics
 

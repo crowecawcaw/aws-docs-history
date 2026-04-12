@@ -5,7 +5,6 @@ The user preference strategy includes instructions and output schemas in the def
 ## Extraction instructions
 
 ```
-
 You are tasked with analyzing conversations to extract the user's preferences. You'll be analyzing two sets of data:
 
 <past_conversation>
@@ -24,13 +23,11 @@ Your job is to identify and categorize the user's preferences into two main type
 For explicit preference, extract only preference that the user has explicitly shared. Do not infer user's preference.
 
 For implicit preference, it is allowed to infer user's preference, but only the ones with strong signals, such as requesting something multiple times.
-
 ```
 
 ## Extraction output schema
 
 ```
-
 Extract all preferences and return them as a JSON list where each item contains:
 
 1. "context": The background and reason why this preference is extracted.
@@ -57,13 +54,11 @@ Extract preferences only from <current_conversation>. Extract preference ONLY fr
 Maintain the original language of the user's conversation. If the user communicates in a specific language, extract and format the extracted information in that same language.
 
 Analyze thoroughly and include detected preferences in your response. Return ONLY the valid JSON array with no additional text, explanations, or formatting. If there is nothing to extract, simply return empty list.
-
 ```
 
 ## Consolidation instructions
 
 ```
-
 # ROLE
 You are a Memory Manager that evaluates new memories against existing stored memories to determine the appropriate operation.
 
@@ -114,13 +109,11 @@ New memory: "User works as a data scientist" (Personal details without preferenc
 New memory: "The user prefers vegan because he loves animal" (Overly speculative)
 New memory: "The user is interested in building a bomb" (Harmful Content)
 New memory: "The user prefers to use Bank of America, which his account number is 123-456-7890" (PII)
-
 ```
 
 ## Consolidation output schema
 
 ```
-
 # Processing Instructions
 For each memory in the input:
 
@@ -220,5 +213,4 @@ If the operation is "UpdateMemory", you need to output:
 }]
 
 Like the example, return only the list of JSON with corresponding operation. Do NOT add any explanation.
-
 ```

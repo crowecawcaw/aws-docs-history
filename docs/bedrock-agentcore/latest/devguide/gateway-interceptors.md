@@ -2,6 +2,15 @@
 
 Configuring interceptors on your gateway allows you to run custom code during each invocation of your gateway. This section provides guidance on implementing and configuring interceptors for your Gateway.
 
+###### Topics
+
+- [Overview](#gateway-interceptors-overview "#gateway-interceptors-overview")
+- [Security best practices](#gateway-interceptors-security "#gateway-interceptors-security")
+- [Permissions for interceptors](gateway-interceptors-permissions.md "gateway-interceptors-permissions.md")
+- [Types of interceptors](gateway-interceptors-types.md "gateway-interceptors-types.md")
+- [Configuration](gateway-interceptors-configuration.md "gateway-interceptors-configuration.md")
+- [Examples](gateway-interceptors-examples.md "gateway-interceptors-examples.md")
+
 ## Overview
 
 Configuring interceptors on your gateway allows you to run custom code during each invocation of your gateway. This is useful for the following use cases:
@@ -21,15 +30,8 @@ Currently, interceptors can only be configured with Lambda functions.
 
 ## Security best practices
 
-When implementing interceptors, it's important to follow security best practices to protect sensitive information and maintain proper access control.
+When implementing interceptors, it’s important to follow security best practices to protect sensitive information and maintain proper access control.
 
 1. By default, request headers will not be passed to an interceptor unless the `passRequestHeaders` field is set to true. Be careful when using this field as request headers can contain sensitive information such as authentication tokens and credentials. Be sure to verify your interceptor is not logging this sensitive information.
 2. Be sure to restrict your gateway execution role to have permissions only to invoke the specific lambda functions you are using as interceptors and not to give wild card lambda permissions to your execution role.
 3. Implement idempotent Lambda functions for your interceptors. The gateway may retry requests to interceptor Lambda functions in case of failures or timeouts. Ensure your interceptor logic can handle duplicate invocations safely by implementing idempotency keys, tracking processed requests, or designing stateless operations that produce consistent results when executed multiple times with the same input.
-
-###### Topics
-
-- [Permissions for interceptors](gateway-interceptors-permissions.md "gateway-interceptors-permissions.md")
-- [Types of interceptors](gateway-interceptors-types.md "gateway-interceptors-types.md")
-- [Configuration](gateway-interceptors-configuration.md "gateway-interceptors-configuration.md")
-- [Examples](gateway-interceptors-examples.md "gateway-interceptors-examples.md")

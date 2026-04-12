@@ -1,7 +1,6 @@
 # Use any foundation model
 
-You can use any foundation model with AgentCore Runtime The following are examples for
-Amazon Bedrock, Open AI, Gemini and Fireworks AI:
+You can use any foundation model with AgentCore Runtime The following are examples for Amazon Bedrock, Open AI, Gemini and Fireworks AI:
 
 ###### Topics
 
@@ -37,7 +36,6 @@ model = OpenAIModel(
         "temperature": 0.7,
 }
 )
-
 
 from strands import Agent
 from strands_tools import python_repl
@@ -95,5 +93,4 @@ def strands_agent_fireworks_ai(payload):
 
 if __name__ == "__main__":
     app.run()
-
 ```

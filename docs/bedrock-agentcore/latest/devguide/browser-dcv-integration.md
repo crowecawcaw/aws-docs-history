@@ -1,92 +1,34 @@
 # Live View
 
-Amazon Bedrock AgentCore's live view is powered by **AWS DCV**.
-Each browser session launches a dedicated DCV server that streams the browser interface and
-enables real-time user interaction.
+Amazon Bedrock AgentCore’s Live View is powered by [AWS DCV](../../../dcv.md "../../../dcv.md"). Each browser session launches a dedicated DCV server that streams the browser interface and enables real-time user interaction.
 
-To render the live view, you must use the **AWS DCV Web
-Client**, which supports interactive display within a browser. Authentication is
-handled via **IAM SigV4-signed query parameters**, which must be
-appended to the live view URL to authorize access.
+To embed the Live View into your web application, use the BrowserLiveView React component from the [Amazon Bedrock AgentCore TypeScript SDK](https://github.com/aws/bedrock-agentcore-sdk-typescript "https://github.com/aws/bedrock-agentcore-sdk-typescript"). The component wraps the [AWS DCV Web Client](../../../dcv/latest/websdkguide/what-is.md "../../../dcv/latest/websdkguide/what-is.md") internally and handles connection setup, SigV4 authentication, and video rendering, so you can integrate a live browser stream with minimal code while retaining full control over your UI.
 
-The example SDK includes a lightweight **web server** that
-hosts the DCV Web Client and connects to the live view, enabling an end-to-end interactive
-experience out of the box.
+## Using the BrowserLiveView component
 
-If you want to directly integrate the live view experience into their own web
-applications, they can embed the **DCV Web Client** and generate
-the signed connection URL using the SDK's helper methods. This allows full customization of
-the UI while leveraging Amazon Bedrock AgentCore's Browser Tool capabilities.
+The BrowserLiveView component requires a SigV4-presigned Live View URL. After starting a browser session (see [Managing browser sessions](browser-managing-sessions.md "browser-managing-sessions.md")), generate the presigned URL using the [generateLiveViewUrl](https://github.com/aws/bedrock-agentcore-sdk-typescript/blob/main/src/tools/browser/client.ts#L380 "https://github.com/aws/bedrock-agentcore-sdk-typescript/blob/main/src/tools/browser/client.ts#L380") method from the TypeScript SDK’s Browser class. The method signs the Live View stream endpoint with SigV4 credentials and returns a time-limited URL that you pass to the BrowserLiveView component.
 
-## Using Callbacks to Customize URL Parameters
-
-The DCV Web SDK supports custom callbacks that you can use to modify the URLs used
-during authentication and session establishment. This feature enables advanced integration
-scenarios, including the ability to append custom query parameters and add AWS Signature
-Version 4 (SigV4) signed values to secure and authorize connections through external
-systems.
-
-### Customizing Authentication and connection URL:`httpExtraSearchParamsCallback`
-
-The `authenticate` method supports a callback parameter,
-`httpExtraSearchParamsCallback`. Before initiating the request, you can use
-this callback to inject custom query parameters into the authentication URL.
-
-When establishing a WebSocket connection to the DCV server, you can use the
-`httpExtraSearchParamsCallback` in the `connect` method to
-customize the URL used.
-
-The following example shows how to use these callbacks:
+Install the Amazon Bedrock AgentCore TypeScript SDK:
 
 ```
-
-async function startAndConnect() {
-  const response = await fetch('/presigned-url');
-  const { sessionId, presignedUrl: url } = await response.json();
-  presignedUrl = url; // Set global variable
-
-  dcv.setLogLevel(dcv.LogLevel.INFO);
-  auth = dcv.authenticate(presignedUrl, {
-    promptCredentials: onPromptCredentials,
-    error: onError,
-    success: (auth, result) => {
-      const { sessionId, authToken } = result[0];
-      connect(presignedUrl, sessionId, authToken);
-    },
-    httpExtraSearchParams: httpExtraSearchParamsCb
-  });
-}
-
-
-function connect(serverUrl, sessionId, authToken) {
-  dcv.connect({
-    url: serverUrl,
-    sessionId,
-    authToken,
-    divId: 'dcv-display',
-    observers: {
-      httpExtraSearchParams: httpExtraSearchParamsCb,
-      displayLayout: displayLayoutCallbackCb,
-    }
-  })
-    .then((conn) => {
-      console.log('Connection established');
-      connection = conn;
-    })
-    .catch((error) => {
-      console.error('Connection failed:', error.message);
-    });
-}
-
-function httpExtraSearchParamsCb(method, url, body) {
-  const presignedUrl = getPresignedUrlForLiveViewEndpoint();
-  const searchParams = new URL(presignedUrl).searchParams;
-
-  return searchParams;
-}
-
+npm install bedrock-agentcore
 ```
 
-These callbacks offer fine-grained control over the URL and headers used by the SDK
-during key stages of session negotiation and connection, supporting advanced use cases and
-integration with existing security infrastructure.
+Import the BrowserLiveView component and render it with the presigned URL. The component handles WebSocket connection, DCV protocol negotiation, video stream decoding, and frame rendering. It auto-scales to fit its parent container while preserving aspect ratio.
+
+```
+import { BrowserLiveView }
+  from 'bedrock-agentcore/browser/live-view'
+
+<BrowserLiveView
+  signedUrl={presignedUrl}
+  remoteWidth={1920}
+  remoteHeight={1080}
+/>
+```
+
+The remoteWidth and remoteHeight must match the viewport configured for the browser session. Mismatched values cause cropping or black bars.
+
+The Live View begins streaming as soon as the presigned URL is valid and the browser session is active. If the container remains empty, verify that the presigned URL has not expired and that the browser session is still running.
+
+For a complete walkthrough including a sample React application, see [Embed a live AI browser agent in your React app with Amazon Bedrock AgentCore](https://aws.amazon.com/blogs/machine-learning/embed-a-live-ai-browser-agent-in-your-react-app-with-amazon-bedrock-agentcore/ "https://aws.amazon.com/blogs/machine-learning/embed-a-live-ai-browser-agent-in-your-react-app-with-amazon-bedrock-agentcore/").

@@ -4,9 +4,7 @@ The AgentCore Code Interpreter provides two types of resources:
 
 System ARNs
 
-System ARNs are default resources pre-created for ease of use. These ARNs have
-default configuration with the most restrictive options and are available for all
-regions where Amazon Bedrock AgentCore is available.
+System ARNs are default resources pre-created for ease of use. These ARNs have default configuration with the most restrictive options and are available for all regions where Amazon Bedrock AgentCore is available.
 
 | Field       | Value                                                                          |
 | ----------- | ------------------------------------------------------------------------------ |
@@ -18,9 +16,14 @@ regions where Amazon Bedrock AgentCore is available.
 
 Custom ARNs
 
-Custom ARNs allow you to configure a code interpreter with your own settings. You
-can choose network settings (Sandbox or Public), and the execution role that defines
-what AWS resources the code interpreter can access.
+Custom ARNs allow you to configure a code interpreter with your own settings. You can choose network settings (Sandbox or Public), and the execution role that defines what AWS resources the code interpreter can access.
+
+###### Topics
+
+- [Network settings](#code-interpreter-network-settings "#code-interpreter-network-settings")
+- [Creating an AgentCore Code Interpreter](code-interpreter-create.md "code-interpreter-create.md")
+- [Listing AgentCore Code Interpreter tools](code-interpreter-list.md "code-interpreter-list.md")
+- [Deleting an AgentCore Code Interpreter](code-interpreter-delete.md "code-interpreter-delete.md")
 
 ## Network settings
 
@@ -28,24 +31,14 @@ The AgentCore Code Interpreter supports the following network modes:
 
 Sandbox mode
 
-Provides limited external network access. In Sandbox mode, the code interpreter
-can access Amazon S3 for data operations and perform DNS resolution.
+Provides limited external network access. In Sandbox mode, the code interpreter can access Amazon S3 for data operations and perform DNS resolution.
 
 Public network mode
 
-Allows the tool to access public internet resources. This option enables
-integration with external APIs and services but introduces potential security
-considerations.
+Allows the tool to access public internet resources. This option enables integration with external APIs and services but introduces potential security considerations.
 
 VPC mode
 
 Connects the tool to your Virtual Private Cloud (VPC), allowing access to private resources within your AWS environment such as databases, internal APIs, and other services while maintaining network isolation from the public internet. This option requires additional VPC configuration.
 
-The following topics show you how to create and manage Code Interpreters, start and stop
-sessions, and how to execute code.
-
-###### Topics
-
-- [Creating an AgentCore Code Interpreter](code-interpreter-create.md "code-interpreter-create.md")
-- [Listing AgentCore Code Interpreter tools](code-interpreter-list.md "code-interpreter-list.md")
-- [Deleting an AgentCore Code Interpreter](code-interpreter-delete.md "code-interpreter-delete.md")
+The following topics show you how to create and manage Code Interpreters, start and stop sessions, and how to execute code.

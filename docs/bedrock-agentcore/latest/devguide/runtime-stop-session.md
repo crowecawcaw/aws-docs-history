@@ -1,40 +1,34 @@
 # Stop a running session
 
-The `StopRuntimeSession` operation lets you immediately terminate active agent
-AgentCore Runtime sessions for proper resource cleanup and session lifecycle management.
+The `StopRuntimeSession` operation lets you immediately terminate active agent AgentCore Runtime sessions for proper resource cleanup and session lifecycle management.
 
-When called, this operation instantly terminates the specified session and stops any
-ongoing streaming responses. This lets system resources be properly released and prevents
-accumulation of orphaned sessions.
+When called, this operation instantly terminates the specified session and stops any ongoing streaming responses. This lets system resources be properly released and prevents accumulation of orphaned sessions.
 
 Use `StopRuntimeSession` in these scenarios:
 
-- **User-initiated end**: When users explicitly
-  conclude their conversation
-- **Application shutdown**: Proactive cleanup
-  before application termination
-- **Error handling**: Force termination of
-  unresponsive or stalled sessions
-- **Quota management**: Stay within session limits
-  by closing unused sessions
-- **Timeout handling**: Clean up sessions that
-  exceed expected duration
+- **User-initiated end** : When users explicitly conclude their conversation
+- **Application shutdown** : Proactive cleanup before application termination
+- **Error handling** : Force termination of unresponsive or stalled sessions
+- **Quota management** : Stay within session limits by closing unused sessions
+- **Timeout handling** : Clean up sessions that exceed expected duration
 
 ## Prerequisites
 
-To use [StopRuntimeSession](../APIReference/API_StopRuntimeSession.md "../APIReference/API_StopRuntimeSession.md"), you need:
+To use [StopRuntimeSession](../APIReference/API_StopRuntimeSession.md "../APIReference/API_StopRuntimeSession.md") , you need:
 
 - `bedrock-agentcore:StopRuntimeSession` IAM permission
 - A valid agent AgentCore Runtime ARN
 - The ID of an active session to terminate
 
+###### Example
+
 AWS SDK
-You can use the AWS SDK to stop AgentCore Runtime sessions programmatically.
+
+1. You can use the AWS SDK to stop AgentCore Runtime sessions programmatically.
 
 Python example using boto3 to stop a AgentCore Runtime session.
 
 ```
-
 import boto3
 
 # Initialize the AgentCore client
@@ -57,13 +51,13 @@ except client.exceptions.AccessDeniedException:
     print("Insufficient permissions to stop session")
 except Exception as e:
     print(f"Error stopping session: {str(e)}")
-
 ```
 
-HTTPS request For applications using OAuth authentication, make direct HTTPS requests:
+HTTPS request
+
+1. For applications using OAuth authentication, make direct HTTPS requests:
 
 ```
-
 import requests
 import urllib.parse
 
@@ -105,42 +99,37 @@ stop_session_with_oauth(
     session_id="your-session-id",
     bearer_token="your-oauth-token"
 )
-
 ```
 
 ## Response format
 
-Expected response format for successful `StopRuntimeSession`
-operations.
+Expected response format for successful `StopRuntimeSession` operations.
 
 ```
-
 {
     "ResponseMetadata": {
         "RequestId": "12345678-1234-1234-1234-123456789012",
         "HTTPStatusCode": 200
     }
 }
-
 ```
 
 ## Error handling
 
 Common error responses:
 
-| Error responses | Status Code               | Error                                   | Description |
-| --------------- | ------------------------- | --------------------------------------- | ----------- |
-| 404             | ResourceNotFoundException | Session not found or already terminated |
-| 403             | AccessDeniedException     | Insufficient permissions                |
-| 400             | ValidationException       | Invalid parameters                      |
-| 500             | InternalServerException   | Service error                           |
+| Status Code | Error                     | Description                             |
+| ----------- | ------------------------- | --------------------------------------- |
+| 404         | ResourceNotFoundException | Session not found or already terminated |
+| 403         | AccessDeniedException     | Insufficient permissions                |
+| 400         | ValidationException       | Invalid parameters                      |
+| 500         | InternalServerException   | Service error                           |
 
 ## Best practices
 
 ### Session lifecycle management
 
 ```
-
 class SessionManager:
     def __init__(self, client, agent_arn):
         self.client = client
@@ -167,7 +156,7 @@ class SessionManager:
             self.client.stop_runtime_session(
                 agentRuntimeArn=self.agent_arn,
                 runtimeSessionId=session_id,
-                qualifier=`endpoint_name`
+                qualifier=endpoint_name
             )
             self.active_sessions.discard(session_id)
             print(f"Session {session_id} stopped")
@@ -178,18 +167,12 @@ class SessionManager:
         """Stop all tracked sessions"""
         for session_id in list(self.active_sessions):
             self.stop_session(session_id)
-
 ```
 
 ### Recommendations
 
-- **Always handle exceptions** when stopping
-  sessions
-- **Track active sessions** in your application
-  for cleanup
-- **Set timeouts** for stop requests to avoid
-  hanging
-- **Log session terminations** for debugging
-  and monitoring
-- **Use session managers** for complex
-  applications with multiple sessions
+- **Always handle exceptions** when stopping sessions
+- **Track active sessions** in your application for cleanup
+- **Set timeouts** for stop requests to avoid hanging
+- **Log session terminations** for debugging and monitoring
+- **Use session managers** for complex applications with multiple sessions
