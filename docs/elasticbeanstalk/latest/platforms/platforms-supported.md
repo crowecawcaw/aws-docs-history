@@ -40,10 +40,10 @@ _AWS Elastic Beanstalk Developer Guide_ for more information about the Docker pl
 
 | Platform Version and _Solution Stack Name_                                           | AMI              | ECS Agent | Docker  | Docker Compose | Proxy Server |
 | ------------------------------------------------------------------------------------ | ---------------- | --------- | ------- | -------------- | ------------ |
-| **Docker AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running Docker_ | 2023.10.20260325 |           | 25.0.14 | 5.1.1          | nginx 1.28.2 |
-| **ECS AL2023 version 4.6.0**<br>_64bit Amazon Linux 2023 v4.6.0 running ECS_         | 2023.10.20260325 | 1.102.0   | 25.0.14 |                |              |
-| **Docker AL2 version 4.7.0**<br>_64bit Amazon Linux 2 v4.7.0 running Docker_         | 2.0.20260302     |           | 25.0.14 | 5.1.0          | nginx 1.28.2 |
-| **ECS AL2 version 3.8.0**<br>_64bit Amazon Linux 2 v3.8.0 running ECS_               | 2.0.20260302     | 1.101.3   | 25.0.14 |                |              |
+| **Docker AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running Docker_ | 2023.11.20260406 |           | 25.0.14 | 5.1.1          | nginx 1.28.2 |
+| **ECS AL2023 version 4.6.1**<br>_64bit Amazon Linux 2023 v4.6.1 running ECS_         | 2023.11.20260406 | 1.102.1   | 25.0.14 |                |              |
+| **Docker AL2 version 4.8.0**<br>_64bit Amazon Linux 2 v4.8.0 running Docker_         | 2.0.20260406     |           | 25.0.14 | 5.1.1          | nginx 1.28.2 |
+| **ECS AL2 version 3.9.0**<br>_64bit Amazon Linux 2 v3.9.0 running ECS_               | 2.0.20260406     | 1.102.1   | 25.0.14 |                |              |
 
 For information
 about platform versions scheduled for retirement as published in [Platform Support
@@ -56,8 +56,8 @@ Elastic Beanstalk supports the following Go platform versions.
 
 | Platform Version and _Solution Stack Name_                                     | AMI              | Language  | AWS X-Ray | Proxy Server |
 | ------------------------------------------------------------------------------ | ---------------- | --------- | --------- | ------------ |
-| **Go 1 AL2023 version 4.8.0**<br>_64bit Amazon Linux 2023 v4.8.0 running Go 1_ | 2023.10.20260325 | Go 1.25.8 | 3.6.2     | nginx 1.28.2 |
-| **Go 1 AL2 version 3.17.0**<br>_64bit Amazon Linux 2 v3.17.0 running Go 1_     | 2.0.20260302     | Go 1.26.1 | 3.6.2     | nginx 1.28.2 |
+| **Go 1 AL2023 version 4.8.1**<br>_64bit Amazon Linux 2023 v4.8.1 running Go 1_ | 2023.11.20260406 | Go 1.25.8 | 3.6.2     | nginx 1.28.2 |
+| **Go 1 AL2 version 3.18.0**<br>_64bit Amazon Linux 2 v3.18.0 running Go 1_     | 2.0.20260406     | Go 1.26.2 | 3.6.2     | nginx 1.28.2 |
 
 For information about platform
 versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
@@ -70,14 +70,14 @@ Elastic Beanstalk supports the following Java SE platform versions.
 
 | Platform Version and _Solution Stack Name_                                                     | AMI              | Language             | Tools                                    | AWS X-Ray | Proxy Server |
 | ---------------------------------------------------------------------------------------------- | ---------------- | -------------------- | ---------------------------------------- | --------- | ------------ |
-| **Corretto 25 AL2023 version 4.11.0**<br>_64bit Amazon Linux 2023 v4.11.0 running Corretto 25_ | 2023.10.20260325 | Corretto 25.0.2.10.1 | Ant 1.10.15, Gradle 9.4.1, Maven 3.9.14  | 3.6.2     | nginx 1.28.2 |
-| **Corretto 21 AL2023 version 4.11.0**<br>_64bit Amazon Linux 2023 v4.11.0 running Corretto 21_ | 2023.10.20260325 | Corretto 21.0.10.7.1 | Ant 1.10.15, Gradle 9.4.1, Maven 3.9.14  | 3.6.2     | nginx 1.28.2 |
-| **Corretto 17 AL2023 version 4.11.0**<br>_64bit Amazon Linux 2023 v4.11.0 running Corretto 17_ | 2023.10.20260325 | Corretto 17.0.18.9.1 | Ant 1.10.15, Gradle 9.4.1, Maven 3.9.14  | 3.6.2     | nginx 1.28.2 |
-| **Corretto 11 AL2023 version 4.11.0**<br>_64bit Amazon Linux 2023 v4.11.0 running Corretto 11_ | 2023.10.20260325 | Corretto 11.0.30.7.1 | Ant 1.10.15, Gradle 8.14.4, Maven 3.9.14 | 3.6.2     | nginx 1.28.2 |
-| **Corretto 8 AL2023 version 4.11.0**<br>_64bit Amazon Linux 2023 v4.11.0 running Corretto 8_   | 2023.10.20260325 | Corretto 8.482.08.1  | Ant 1.10.15, Gradle 8.14.4, Maven 3.9.14 | 3.6.2     | nginx 1.28.2 |
-| **Corretto 17 version 3.12.0**<br>_64bit Amazon Linux 2 v3.12.0 running Corretto 17_           | 2.0.20260302     | Corretto 17.0.18.9.1 | Ant 1.10.15, Gradle 8.14.4, Maven 3.9.13 | 3.6.2     | nginx 1.28.2 |
-| **Corretto 11 version 3.12.0**<br>_64bit Amazon Linux 2 v3.12.0 running Corretto 11_           | 2.0.20260302     | Corretto 11.0.30.7.1 | Ant 1.10.15, Gradle 8.14.4, Maven 3.9.13 | 3.6.2     | nginx 1.28.2 |
-| **Corretto 8 version 3.12.0**<br>_64bit Amazon Linux 2 v3.12.0 running Corretto 8_             | 2.0.20260302     | Corretto 8.482.08.1  | Ant 1.10.15, Gradle 8.14.4, Maven 3.9.13 | 3.6.2     | nginx 1.28.2 |
+| **Corretto 25 AL2023 version 4.11.1**<br>_64bit Amazon Linux 2023 v4.11.1 running Corretto 25_ | 2023.11.20260406 | Corretto 25.0.2.10.1 | Ant 1.10.16, Gradle 9.4.1, Maven 3.9.14  | 3.6.2     | nginx 1.28.2 |
+| **Corretto 21 AL2023 version 4.11.1**<br>_64bit Amazon Linux 2023 v4.11.1 running Corretto 21_ | 2023.11.20260406 | Corretto 21.0.10.7.1 | Ant 1.10.16, Gradle 9.4.1, Maven 3.9.14  | 3.6.2     | nginx 1.28.2 |
+| **Corretto 17 AL2023 version 4.11.1**<br>_64bit Amazon Linux 2023 v4.11.1 running Corretto 17_ | 2023.11.20260406 | Corretto 17.0.18.9.1 | Ant 1.10.16, Gradle 9.4.1, Maven 3.9.14  | 3.6.2     | nginx 1.28.2 |
+| **Corretto 11 AL2023 version 4.11.1**<br>_64bit Amazon Linux 2023 v4.11.1 running Corretto 11_ | 2023.11.20260406 | Corretto 11.0.30.7.1 | Ant 1.10.16, Gradle 8.14.4, Maven 3.9.14 | 3.6.2     | nginx 1.28.2 |
+| **Corretto 8 AL2023 version 4.11.1**<br>_64bit Amazon Linux 2023 v4.11.1 running Corretto 8_   | 2023.11.20260406 | Corretto 8.482.08.1  | Ant 1.10.16, Gradle 8.14.4, Maven 3.9.14 | 3.6.2     | nginx 1.28.2 |
+| **Corretto 17 version 3.13.0**<br>_64bit Amazon Linux 2 v3.13.0 running Corretto 17_           | 2.0.20260406     | Corretto 17.0.18.9.1 | Ant 1.10.16, Gradle 8.14.4, Maven 3.9.14 | 3.6.2     | nginx 1.28.2 |
+| **Corretto 11 version 3.13.0**<br>_64bit Amazon Linux 2 v3.13.0 running Corretto 11_           | 2.0.20260406     | Corretto 11.0.30.7.1 | Ant 1.10.16, Gradle 8.14.4, Maven 3.9.14 | 3.6.2     | nginx 1.28.2 |
+| **Corretto 8 version 3.13.0**<br>_64bit Amazon Linux 2 v3.13.0 running Corretto 8_             | 2.0.20260406     | Corretto 8.482.08.1  | Ant 1.10.16, Gradle 8.14.4, Maven 3.9.14 | 3.6.2     | nginx 1.28.2 |
 
 For information about platform
 versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
@@ -90,16 +90,16 @@ Elastic Beanstalk supports the following Tomcat platform versions.
 
 | Platform Version and _Solution Stack Name_                                                                              | AMI              | Language             | AWS X-Ray | Application Server | Proxy Server                          |
 | ----------------------------------------------------------------------------------------------------------------------- | ---------------- | -------------------- | --------- | ------------------ | ------------------------------------- |
-| **Corretto 25 with Tomcat 11 AL2023 version 5.13.0**<br>_64bit Amazon Linux 2023 v5.13.0 running Tomcat 11 Corretto 25_ | 2023.10.20260325 | Corretto 25.0.2.10.1 | 3.6.2     | Tomcat 11.0.20     | nginx 1.28.2 (default), Apache 2.4.66 |
-| **Corretto 21 with Tomcat 11 AL2023 version 5.13.0**<br>_64bit Amazon Linux 2023 v5.13.0 running Tomcat 11 Corretto 21_ | 2023.10.20260325 | Corretto 21.0.10.7.1 | 3.6.2     | Tomcat 11.0.20     | nginx 1.28.2 (default), Apache 2.4.66 |
-| **Corretto 17 with Tomcat 11 AL2023 version 5.13.0**<br>_64bit Amazon Linux 2023 v5.13.0 running Tomcat 11 Corretto 17_ | 2023.10.20260325 | Corretto 17.0.18.9.1 | 3.6.2     | Tomcat 11.0.20     | nginx 1.28.2 (default), Apache 2.4.66 |
-| **Corretto 21 with Tomcat 10 AL2023 version 5.13.0**<br>_64bit Amazon Linux 2023 v5.13.0 running Tomcat 10 Corretto 21_ | 2023.10.20260325 | Corretto 21.0.10.7.1 | 3.6.2     | Tomcat 10.1.53     | nginx 1.28.2 (default), Apache 2.4.66 |
-| **Corretto 17 with Tomcat 10 AL2023 version 5.13.0**<br>_64bit Amazon Linux 2023 v5.13.0 running Tomcat 10 Corretto 17_ | 2023.10.20260325 | Corretto 17.0.18.9.1 | 3.6.2     | Tomcat 10.1.53     | nginx 1.28.2 (default), Apache 2.4.66 |
-| **Corretto 17 with Tomcat 9 AL2023 version 5.13.0**<br>_64bit Amazon Linux 2023 v5.13.0 running Tomcat 9 Corretto 17_   | 2023.10.20260325 | Corretto 17.0.18.9.1 | 3.6.2     | Tomcat 9.0.115     | nginx 1.28.2 (default), Apache 2.4.66 |
-| **Corretto 11 with Tomcat 9 AL2023 version 5.13.0**<br>_64bit Amazon Linux 2023 v5.13.0 running Tomcat 9 Corretto 11_   | 2023.10.20260325 | Corretto 11.0.30.7.1 | 3.6.2     | Tomcat 9.0.115     | nginx 1.28.2 (default), Apache 2.4.66 |
-| **Corretto 8 with Tomcat 9 AL2023 version 5.13.0**<br>_64bit Amazon Linux 2023 v5.13.0 running Tomcat 9 Corretto 8_     | 2023.10.20260325 | Corretto 8.482.08.1  | 3.6.2     | Tomcat 9.0.116     | nginx 1.28.2 (default), Apache 2.4.66 |
-| **Corretto 11 with Tomcat 9 AL2 version 4.12.0**<br>_64bit Amazon Linux 2 v4.12.0 running Tomcat 9 Corretto 11_         | 2.0.20260302     | Corretto 11.0.30.7.1 | 3.6.2     | Tomcat 9.0.110     | nginx 1.28.2 (default), Apache 2.4.66 |
-| **Corretto 8 with Tomcat 9 AL2 version 4.12.0**<br>_64bit Amazon Linux 2 v4.12.0 running Tomcat 9 Corretto 8_           | 2.0.20260302     | Corretto 8.482.08.1  | 3.6.2     | Tomcat 9.0.110     | nginx 1.28.2 (default), Apache 2.4.66 |
+| **Corretto 25 with Tomcat 11 AL2023 version 5.13.1**<br>_64bit Amazon Linux 2023 v5.13.1 running Tomcat 11 Corretto 25_ | 2023.11.20260406 | Corretto 25.0.2.10.1 | 3.6.2     | Tomcat 11.0.21     | nginx 1.28.2 (default), Apache 2.4.66 |
+| **Corretto 21 with Tomcat 11 AL2023 version 5.13.1**<br>_64bit Amazon Linux 2023 v5.13.1 running Tomcat 11 Corretto 21_ | 2023.11.20260406 | Corretto 21.0.10.7.1 | 3.6.2     | Tomcat 11.0.21     | nginx 1.28.2 (default), Apache 2.4.66 |
+| **Corretto 17 with Tomcat 11 AL2023 version 5.13.1**<br>_64bit Amazon Linux 2023 v5.13.1 running Tomcat 11 Corretto 17_ | 2023.11.20260406 | Corretto 17.0.18.9.1 | 3.6.2     | Tomcat 11.0.21     | nginx 1.28.2 (default), Apache 2.4.66 |
+| **Corretto 21 with Tomcat 10 AL2023 version 5.13.1**<br>_64bit Amazon Linux 2023 v5.13.1 running Tomcat 10 Corretto 21_ | 2023.11.20260406 | Corretto 21.0.10.7.1 | 3.6.2     | Tomcat 10.1.54     | nginx 1.28.2 (default), Apache 2.4.66 |
+| **Corretto 17 with Tomcat 10 AL2023 version 5.13.1**<br>_64bit Amazon Linux 2023 v5.13.1 running Tomcat 10 Corretto 17_ | 2023.11.20260406 | Corretto 17.0.18.9.1 | 3.6.2     | Tomcat 10.1.54     | nginx 1.28.2 (default), Apache 2.4.66 |
+| **Corretto 17 with Tomcat 9 AL2023 version 5.13.1**<br>_64bit Amazon Linux 2023 v5.13.1 running Tomcat 9 Corretto 17_   | 2023.11.20260406 | Corretto 17.0.18.9.1 | 3.6.2     | Tomcat 9.0.115     | nginx 1.28.2 (default), Apache 2.4.66 |
+| **Corretto 11 with Tomcat 9 AL2023 version 5.13.1**<br>_64bit Amazon Linux 2023 v5.13.1 running Tomcat 9 Corretto 11_   | 2023.11.20260406 | Corretto 11.0.30.7.1 | 3.6.2     | Tomcat 9.0.115     | nginx 1.28.2 (default), Apache 2.4.66 |
+| **Corretto 8 with Tomcat 9 AL2023 version 5.13.1**<br>_64bit Amazon Linux 2023 v5.13.1 running Tomcat 9 Corretto 8_     | 2023.11.20260406 | Corretto 8.482.08.1  | 3.6.2     | Tomcat 9.0.117     | nginx 1.28.2 (default), Apache 2.4.66 |
+| **Corretto 11 with Tomcat 9 AL2 version 4.13.0**<br>_64bit Amazon Linux 2 v4.13.0 running Tomcat 9 Corretto 11_         | 2.0.20260406     | Corretto 11.0.30.7.1 | 3.6.2     | Tomcat 9.0.115     | nginx 1.28.2 (default), Apache 2.4.66 |
+| **Corretto 8 with Tomcat 9 AL2 version 4.13.0**<br>_64bit Amazon Linux 2 v4.13.0 running Tomcat 9 Corretto 8_           | 2.0.20260406     | Corretto 8.482.08.1  | 3.6.2     | Tomcat 9.0.115     | nginx 1.28.2 (default), Apache 2.4.66 |
 
 For information about platform
 versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
@@ -112,10 +112,10 @@ Elastic Beanstalk supports the following .NET Core on Linux platform versions.
 
 | Platform Version and _Solution Stack Name_                                                | Framework                    | Proxy Server | AMI              | AWS X-Ray |
 | ----------------------------------------------------------------------------------------- | ---------------------------- | ------------ | ---------------- | --------- |
-| **.NET 10 on AL2023 version 3.10.0**<br>_64bit Amazon Linux 2023 v3.10.0 running .NET 10_ | .NET 10.0.5, supports 10.0.5 | nginx 1.28.2 | 2023.10.20260325 | 3.6.2     |
-| **.NET 9 on AL2023 version 3.10.0**<br>_64bit Amazon Linux 2023 v3.10.0 running .NET 9_   | .NET 9.0.14, supports 9.0.14 | nginx 1.28.2 | 2023.10.20260325 | 3.6.2     |
-| **.NET 8 on AL2023 version 3.10.0**<br>_64bit Amazon Linux 2023 v3.10.0 running .NET 8_   | .NET 8.0.25, supports 8.0.25 | nginx 1.28.2 | 2023.10.20260325 | 3.6.2     |
-| **.NET Core on AL2 version 2.14.0**<br>_64bit Amazon Linux 2 v2.14.0 running .NET Core_   | .NET 8.0.24, supports 8.0.24 | nginx 1.28.2 | 2.0.20260302     | 3.6.2     |
+| **.NET 10 on AL2023 version 3.10.1**<br>_64bit Amazon Linux 2023 v3.10.1 running .NET 10_ | .NET 10.0.5, supports 10.0.5 | nginx 1.28.2 | 2023.11.20260406 | 3.6.2     |
+| **.NET 9 on AL2023 version 3.10.1**<br>_64bit Amazon Linux 2023 v3.10.1 running .NET 9_   | .NET 9.0.14, supports 9.0.14 | nginx 1.28.2 | 2023.11.20260406 | 3.6.2     |
+| **.NET 8 on AL2023 version 3.10.1**<br>_64bit Amazon Linux 2023 v3.10.1 running .NET 8_   | .NET 8.0.25, supports 8.0.25 | nginx 1.28.2 | 2023.11.20260406 | 3.6.2     |
+| **.NET Core on AL2 version 2.15.0**<br>_64bit Amazon Linux 2 v2.15.0 running .NET Core_   | .NET 8.0.25, supports 8.0.25 | nginx 1.28.2 | 2.0.20260406     | 3.6.2     |
 
 For information about
 platform versions scheduled for retirement as published in [Platform Support
@@ -185,9 +185,9 @@ Elastic Beanstalk supports the following Node.js platform versions.
 
 | Platform Version and _Solution Stack Name_                                                   | AMI              | Node.js versions (npm versions)                | Proxy Server                          | Git    | AWS X-Ray |
 | -------------------------------------------------------------------------------------------- | ---------------- | ---------------------------------------------- | ------------------------------------- | ------ | --------- |
-| **Node.js 24 AL2023 version 6.10.0**<br>_64bit Amazon Linux 2023 v6.10.0 running Node.js 24_ | 2023.10.20260325 | 24.14.1 (11.11.0)<br>Default version: v24.14.1 | nginx 1.28.2 (default), Apache 2.4.66 | 2.50.1 | 3.6.2     |
-| **Node.js 22 AL2023 version 6.10.0**<br>_64bit Amazon Linux 2023 v6.10.0 running Node.js 22_ | 2023.10.20260325 | 22.22.2 (10.9.7)<br>Default version: v22.22.2  | nginx 1.28.2 (default), Apache 2.4.66 | 2.50.1 | 3.6.2     |
-| **Node.js 20 AL2023 version 6.10.0**<br>_64bit Amazon Linux 2023 v6.10.0 running Node.js 20_ | 2023.10.20260325 | 20.20.1 (10.8.2)<br>Default version: 20.20.1   | nginx 1.28.2 (default), Apache 2.4.66 | 2.50.1 | 3.6.2     |
+| **Node.js 24 AL2023 version 6.10.1**<br>_64bit Amazon Linux 2023 v6.10.1 running Node.js 24_ | 2023.11.20260406 | 24.14.1 (11.11.0)<br>Default version: v24.14.1 | nginx 1.28.2 (default), Apache 2.4.66 | 2.50.1 | 3.6.2     |
+| **Node.js 22 AL2023 version 6.10.1**<br>_64bit Amazon Linux 2023 v6.10.1 running Node.js 22_ | 2023.11.20260406 | 22.22.2 (10.9.7)<br>Default version: v22.22.2  | nginx 1.28.2 (default), Apache 2.4.66 | 2.50.1 | 3.6.2     |
+| **Node.js 20 AL2023 version 6.10.1**<br>_64bit Amazon Linux 2023 v6.10.1 running Node.js 20_ | 2023.11.20260406 | 20.20.1 (10.8.2)<br>Default version: 20.20.1   | nginx 1.28.2 (default), Apache 2.4.66 | 2.50.1 | 3.6.2     |
 
 For information about platform
 versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
@@ -214,14 +214,14 @@ avoid needing to create a new environment:
 
 Elastic Beanstalk supports the following PHP platform versions.
 
-| Platform Version and _Solution Stack Name_                                             | AMI              | Language   | Package Manager            | Proxy Server                          |
-| -------------------------------------------------------------------------------------- | ---------------- | ---------- | -------------------------- | ------------------------------------- |
-| **PHP 8.5 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running PHP 8.5_ | 2023.10.20260325 | PHP 8.5.4  | Composer 2.9.5, PIE 1.3.10 | nginx 1.28.2 (default), Apache 2.4.66 |
-| **PHP 8.4 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running PHP 8.4_ | 2023.10.20260325 | PHP 8.4.19 | Composer 2.9.5, PIE 1.3.10 | nginx 1.28.2 (default), Apache 2.4.66 |
-| **PHP 8.3 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running PHP 8.3_ | 2023.10.20260325 | PHP 8.3.30 | Composer 2.9.5, PIE 1.3.10 | nginx 1.28.2 (default), Apache 2.4.66 |
-| **PHP 8.2 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running PHP 8.2_ | 2023.10.20260325 | PHP 8.2.30 | Composer 2.9.5, PIE 1.3.10 | nginx 1.28.2 (default), Apache 2.4.66 |
-| **PHP 8.1 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running PHP 8.1_ | 2023.10.20260325 | PHP 8.1.34 | Composer 2.9.5, PIE 1.3.10 | nginx 1.28.2 (default), Apache 2.4.66 |
-| **PHP 8.1 AL2 version 3.14.0**<br>_64bit Amazon Linux 2 v3.14.0 running PHP 8.1_       | 2.0.20260302     | PHP 8.1.33 | Composer 2.9.5             | nginx 1.28.2 (default), Apache 2.4.66 |
+| Platform Version and _Solution Stack Name_                                             | AMI              | Language   | Package Manager           | Proxy Server                          |
+| -------------------------------------------------------------------------------------- | ---------------- | ---------- | ------------------------- | ------------------------------------- |
+| **PHP 8.5 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running PHP 8.5_ | 2023.11.20260406 | PHP 8.5.4  | Composer 2.9.5, PIE 1.4.0 | nginx 1.28.2 (default), Apache 2.4.66 |
+| **PHP 8.4 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running PHP 8.4_ | 2023.11.20260406 | PHP 8.4.19 | Composer 2.9.5, PIE 1.4.0 | nginx 1.28.2 (default), Apache 2.4.66 |
+| **PHP 8.3 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running PHP 8.3_ | 2023.11.20260406 | PHP 8.3.30 | Composer 2.9.5, PIE 1.4.0 | nginx 1.28.2 (default), Apache 2.4.66 |
+| **PHP 8.2 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running PHP 8.2_ | 2023.11.20260406 | PHP 8.2.30 | Composer 2.9.5, PIE 1.4.0 | nginx 1.28.2 (default), Apache 2.4.66 |
+| **PHP 8.1 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running PHP 8.1_ | 2023.11.20260406 | PHP 8.1.34 | Composer 2.9.5, PIE 1.4.0 | nginx 1.28.2 (default), Apache 2.4.66 |
+| **PHP 8.1 AL2 version 3.15.0**<br>_64bit Amazon Linux 2 v3.15.0 running PHP 8.1_       | 2.0.20260406     | PHP 8.1.33 | Composer 2.9.5, PIE 1.4.0 | nginx 1.28.2 (default), Apache 2.4.66 |
 
 For information about platform
 versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
@@ -234,11 +234,11 @@ Elastic Beanstalk supports the following Python platform versions.
 
 | Platform Version and _Solution Stack Name_                                                     | AMI              | Language       | Package Manager             | AWS X-Ray | Proxy Server                          |
 | ---------------------------------------------------------------------------------------------- | ---------------- | -------------- | --------------------------- | --------- | ------------------------------------- |
-| **Python 3.14 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running Python 3.14_ | 2023.10.20260325 | Python 3.14.3  | pip 26.0.1, pipenv 2026.4.0 | 3.6.2     | nginx 1.28.2 (default), Apache 2.4.66 |
-| **Python 3.13 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running Python 3.13_ | 2023.10.20260325 | Python 3.13.12 | pip 26.0.1, pipenv 2026.4.0 | 3.6.2     | nginx 1.28.2 (default), Apache 2.4.66 |
-| **Python 3.12 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running Python 3.12_ | 2023.10.20260325 | Python 3.12.13 | pip 26.0.1, pipenv 2026.4.0 | 3.6.2     | nginx 1.28.2 (default), Apache 2.4.66 |
-| **Python 3.11 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running Python 3.11_ | 2023.10.20260325 | Python 3.11.14 | pip 26.0.1, pipenv 2026.4.0 | 3.6.2     | nginx 1.28.2 (default), Apache 2.4.66 |
-| **Python 3.9 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running Python 3.9_   | 2023.10.20260325 | Python 3.9.25  | pip 26.0.1, pipenv 2025.0.4 | 3.6.2     | nginx 1.28.2 (default), Apache 2.4.66 |
+| **Python 3.14 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running Python 3.14_ | 2023.11.20260406 | Python 3.14.4  | pip 26.0.1, pipenv 2026.5.2 | 3.6.2     | nginx 1.28.2 (default), Apache 2.4.66 |
+| **Python 3.13 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running Python 3.13_ | 2023.11.20260406 | Python 3.13.13 | pip 26.0.1, pipenv 2026.5.2 | 3.6.2     | nginx 1.28.2 (default), Apache 2.4.66 |
+| **Python 3.12 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running Python 3.12_ | 2023.11.20260406 | Python 3.12.13 | pip 26.0.1, pipenv 2026.5.2 | 3.6.2     | nginx 1.28.2 (default), Apache 2.4.66 |
+| **Python 3.11 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running Python 3.11_ | 2023.11.20260406 | Python 3.11.14 | pip 26.0.1, pipenv 2026.5.2 | 3.6.2     | nginx 1.28.2 (default), Apache 2.4.66 |
+| **Python 3.9 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running Python 3.9_   | 2023.11.20260406 | Python 3.9.25  | pip 26.0.1, pipenv 2025.0.4 | 3.6.2     | nginx 1.28.2 (default), Apache 2.4.66 |
 
 For information about platform
 versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
@@ -251,10 +251,10 @@ Elastic Beanstalk supports the following Ruby platform versions.
 
 | Platform Version and _Solution Stack Name_                                               | AMI              | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
 | ---------------------------------------------------------------------------------------- | ---------------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
-| **Ruby 4.0 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running Ruby 4.0_ | 2023.10.20260325 | Ruby 4.0.2-p0    | RubyGems 4.0.6  | Puma 7.2.0         | 3.6.2     | nginx 1.28.2 |
-| **Ruby 3.4 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running Ruby 3.4_ | 2023.10.20260325 | Ruby 3.4.9-p82   | RubyGems 3.6.9  | Puma 7.2.0         | 3.6.2     | nginx 1.28.2 |
-| **Ruby 3.3 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running Ruby 3.3_ | 2023.10.20260325 | Ruby 3.3.11-p205 | RubyGems 3.5.22 | Puma 7.2.0         | 3.6.2     | nginx 1.28.2 |
-| **Ruby 3.2 AL2023 version 4.12.0**<br>_64bit Amazon Linux 2023 v4.12.0 running Ruby 3.2_ | 2023.10.20260325 | Ruby 3.2.8       | RubyGems 3.4.19 | Puma 7.2.0         | 3.6.2     | nginx 1.28.2 |
+| **Ruby 4.0 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running Ruby 4.0_ | 2023.11.20260406 | Ruby 4.0.2-p0    | RubyGems 4.0.6  | Puma 7.2.0         | 3.6.2     | nginx 1.28.2 |
+| **Ruby 3.4 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running Ruby 3.4_ | 2023.11.20260406 | Ruby 3.4.9-p82   | RubyGems 3.6.9  | Puma 7.2.0         | 3.6.2     | nginx 1.28.2 |
+| **Ruby 3.3 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running Ruby 3.3_ | 2023.11.20260406 | Ruby 3.3.11-p205 | RubyGems 3.5.22 | Puma 7.2.0         | 3.6.2     | nginx 1.28.2 |
+| **Ruby 3.2 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running Ruby 3.2_ | 2023.11.20260406 | Ruby 3.2.8       | RubyGems 3.4.19 | Puma 7.2.0         | 3.6.2     | nginx 1.28.2 |
 
 For information about platform
 versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
