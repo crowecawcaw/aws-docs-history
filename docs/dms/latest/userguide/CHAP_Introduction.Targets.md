@@ -138,11 +138,11 @@ For information about supported source databases, see [Source data providers for
 You can use the following data providers as targets for homogeneous data migrations.
 
 - Amazon Aurora MySQL version 5.7 and 8.0
-- Amazon Aurora PostgreSQL version 10.4 to 16.x
+- Amazon Aurora PostgreSQL version 10.4 to 17.x
 - Amazon Aurora Serverless v2
 - Amazon RDS for MySQL version 5.7 and 8.0
 - Amazon RDS for MariaDB version 10.2x
-- Amazon RDS for PostgreSQL version 10.4 to 16.x
+- Amazon RDS for PostgreSQL version 10.4 to 17.x
 - Amazon DocumentDB version 4.0, 5.0 and DocumentDB Elastic cluster
 
 For information about working with a specific target, see [Creating and setting a target database to work with AWS DMS schema conversion](dm-data-providers-target.md "dm-data-providers-target.md").

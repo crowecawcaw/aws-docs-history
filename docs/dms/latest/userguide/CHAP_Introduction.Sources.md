@@ -180,7 +180,7 @@ You can use the following data providers as sources for homogeneous data migrati
 
 - MySQL version 5.7 and 8.0
 - MariaDB version 10.2x
-- PostgreSQL version 10.4 to 16.x.
+- PostgreSQL version 10.4 to 17.x.
 - MongoDB version 4.x, 5.x, 6.0, 7.0, 8.0
 - Amazon DocumentDB version 3.6, 4.0, 5.0
 
