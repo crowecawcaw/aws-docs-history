@@ -40,6 +40,12 @@ console. If you want to use the AWS CLI instead, see [Step 6: Create a connector
    following information:
    - **URL** – Enter the URL for outbound
      connections.
+   - **IP addressing mode** – Choose
+     **IPv4 only** (default) to use IPv4 addresses
+     exclusively, or **Dual-stack** to support both
+     IPv6 and IPv4. In dual-stack mode, the connector prefers IPv6
+     when DNS resolution returns IPv6 results, and uses IPv4
+     when only IPv4 DNS results are returned.
    - **Access role** – Choose the Amazon
      Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to use. Make sure
      that this role provides read and write access to the parent

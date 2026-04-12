@@ -63,6 +63,26 @@ _With Egress Type = VPC Lattice, connectivity to privately hosted servers is
 supported using existing networks in your VPC, such as AWS Direct Connect or
 VPN._
 
+## Choosing IP addressing mode
+
+When you create an SFTP connector with service-managed egress, you can choose
+between two IP addressing modes:
+
+- **IPv4 only** (default): The connector
+  uses IPv4 addresses exclusively to connect to the remote SFTP server.
+  This is the default mode when creating connectors through the console,
+  AWS CLI, or API.
+- **Dual-stack**: The connector supports
+  both IPv6 and IPv4 addresses. In dual-stack mode, the connector prefers
+  IPv6 when DNS resolution returns IPv6 results, and uses IPv4
+  when only IPv4 DNS results are returned.
+
+###### Note
+
+IP addressing mode applies only to connectors with service-managed egress
+type. Connectors that use VPC Lattice egress do not support this
+setting.
+
 ###### Topics
 
 - [Store authentication credentials for SFTP connectors in Secrets Manager](sftp-connector-secret-procedure.md "sftp-connector-secret-procedure.md")

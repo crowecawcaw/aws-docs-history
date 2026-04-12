@@ -71,3 +71,31 @@ For authentication access, the pane is populated as follows.
 
 Make sure to set up a Cross-origin resource sharing (CORS) policy for all of
 the buckets that are accessed from the web app endpoint.
+
+## IP addressing
+
+Transfer Family web apps use dual-stack endpoints, supporting both IPv4 and
+IPv6 connectivity. For authentication, web apps use AWS IAM Identity Center, which also supports
+IPv6 through dual-stack endpoints.
+
+If your account had web apps in a Region when dual-stack IAM Identity Center endpoint support
+launched, all web apps in that account and Region continue to use the IPv4-only
+IAM Identity Center endpoint for backwards compatibility. This applies to both existing and newly
+created web apps. Accounts that did not have web apps at the time of launch use
+the IAM Identity Center dual-stack endpoint. If you need to change which IAM Identity Center endpoint your
+web app uses, contact AWS Support.
+
+###### Note
+
+To determine which endpoint your web app uses, inspect the URL when you are
+redirected to the IAM Identity Center sign-in page:
+
+- IPv4-only: `[Region].signin.aws.amazon.com`
+- Dual-stack: `[Region].sso.signin.aws`
+
+If your organization uses firewalls or network gateways, allowlist both the
+existing IPv4 and the new dual-stack IAM Identity Center endpoints to ensure uninterrupted access
+regardless of which endpoint your web apps use. For the full list of domains
+and URL endpoints to allowlist, see [Update firewalls and gateways to allow access to the AWS access
+portal](../../../singlesignon/latest/userguide/enable-identity-center-portal-access.md "../../../singlesignon/latest/userguide/enable-identity-center-portal-access.md") in the _IAM Identity Center User
+Guide_.

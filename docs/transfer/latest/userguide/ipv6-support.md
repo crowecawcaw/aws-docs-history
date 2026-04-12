@@ -21,7 +21,6 @@ AWS Transfer Family supports dual-stack (IPv4 and IPv6) endpoints for the follow
 The following Transfer Family resources do not currently support IPv6:
 
 - VPC-Internet endpoints
-- Web apps
 - VPC_ENDPOINT endpoint type (deprecated)
 
 The FTPS protocol supports the PASV and EPSV commands for requesting an open data port
