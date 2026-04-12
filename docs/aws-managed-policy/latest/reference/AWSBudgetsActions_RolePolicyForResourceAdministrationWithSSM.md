@@ -12,13 +12,13 @@ You can attach `AWSBudgetsActions_RolePolicyForResourceAdministrationWithSSM` to
 
 - **Type**: AWS managed policy
 - **Creation time**: May 25, 2022, 19:03 UTC
-- **Edited time:** May 25, 2022, 19:03 UTC
+- **Edited time:** April 07, 2026, 19:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSBudgetsActions_RolePolicyForResourceAdministrationWithSSM`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -54,6 +54,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ssm:StartAutomationExecution"
       ],
       "Resource" : [
+        "arn:aws:ssm:*:*:document/AWS-StartEC2Instance",
+        "arn:aws:ssm:*:*:document/AWS-StopEC2Instance",
+        "arn:aws:ssm:*:*:document/AWS-StartRdsInstance",
+        "arn:aws:ssm:*:*:document/AWS-StopRdsInstance",
+        "arn:aws:ssm:*:*:automation-execution/*",
         "arn:aws:ssm:*:*:automation-definition/AWS-StartEC2Instance:*",
         "arn:aws:ssm:*:*:automation-definition/AWS-StopEC2Instance:*",
         "arn:aws:ssm:*:*:automation-definition/AWS-StartRdsInstance:*",

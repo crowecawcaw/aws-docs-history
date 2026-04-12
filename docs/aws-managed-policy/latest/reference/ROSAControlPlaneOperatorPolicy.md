@@ -12,13 +12,13 @@ You can attach `ROSAControlPlaneOperatorPolicy` to your users, groups, and roles
 
 - **Type**: Service role policy
 - **Creation time**: April 24, 2023, 23:02 UTC
-- **Edited time:** February 12, 2026, 17:59 UTC
+- **Edited time:** April 10, 2026, 16:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/ROSAControlPlaneOperatorPolicy`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -175,7 +175,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DeleteVpcEndpoints"
       ],
       "Resource" : [
-        "arn:aws:ec2:*:*:vpc-endpoint/*"
+        "arn:aws:ec2:*:*:vpc-endpoint/*",
+        "arn:aws:ec2:*:*:security-group/*"
       ],
       "Condition" : {
         "StringEquals" : {
@@ -184,7 +185,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ModifyVPCEndpoingNoCondition",
+      "Sid" : "ModifyVPCEndpointNoCondition",
       "Effect" : "Allow",
       "Action" : [
         "ec2:ModifyVpcEndpoint"
@@ -209,6 +210,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "CreateVpcEndpoint",
             "CreateSecurityGroup"
           ]
+        }
+      }
+    },
+    {
+      "Sid" : "AddTagsToRedHatManagedSecurityGroups",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateTags"
+      ],
+      "Resource" : "arn:aws:ec2:*:*:security-group/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/red-hat-managed" : "true"
         }
       }
     }

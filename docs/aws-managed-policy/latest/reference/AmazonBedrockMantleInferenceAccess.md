@@ -12,13 +12,13 @@ You can attach `AmazonBedrockMantleInferenceAccess` to your users, groups, and r
 
 - **Type**: AWS managed policy
 - **Creation time**: December 04, 2025, 07:19 UTC
-- **Edited time:** February 12, 2026, 17:57 UTC
+- **Edited time:** April 09, 2026, 04:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonBedrockMantleInferenceAccess`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -46,6 +46,20 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "bedrock-mantle:CallWithBearerToken"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "MarketplaceOperationsFromBedrockMantleFor3pModels",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:Subscribe",
+        "aws-marketplace:ViewSubscriptions"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:CalledViaLast" : "bedrock-mantle.amazonaws.com"
+        }
+      }
     }
   ]
 }

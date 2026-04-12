@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectUserRolePolicy` to your users, groups, and
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:59 UTC
-- **Edited time:** March 25, 2026, 21:12 UTC
+- **Edited time:** April 07, 2026, 21:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePolicy`
 
 ## Policy version
 
-**Policy version:** v64 (default)
+**Policy version:** v65 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -577,7 +577,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "GlueJobCloudwatchPutMetricActions",
+      "Sid" : "GlueJobCWPutMetricActions",
       "Effect" : "Allow",
       "Action" : [
         "cloudwatch:PutMetricData"
@@ -728,7 +728,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AirflowListDomainS3BucketPermissions",
+      "Sid" : "AirflowListDomainS3Permissions",
       "Effect" : "Allow",
       "Action" : [
         "s3:ListBucket"
@@ -744,7 +744,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ListDomainBucketFromAthenaFederatedCatalog",
+      "Sid" : "ListDomainBucketFromAthenaCatalog",
       "Effect" : "Allow",
       "Action" : [
         "s3:ListBucket"
@@ -762,7 +762,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AccessDomainS3BucketPermissions",
+      "Sid" : "DomainS3BucketPermissions",
       "Effect" : "Allow",
       "Action" : [
         "s3:GetObject*",
@@ -828,7 +828,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AccessDomainS3BucketKmsPermissions",
+      "Sid" : "DomainS3BucketKmsPermissions",
       "Effect" : "Allow",
       "Action" : [
         "kms:GenerateDataKey",
@@ -973,7 +973,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "DefaultAthenaDataCatalogPermissions",
+      "Sid" : "AthenaDataCatalogPermissions",
       "Effect" : "Allow",
       "Action" : [
         "athena:GetDatabase",
@@ -1323,7 +1323,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "FederatedDataConnectionPermissions",
+      "Sid" : "GlueConnectionPermissions",
       "Effect" : "Allow",
       "Action" : [
         "glue:GetConnection",
@@ -1338,7 +1338,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "UnRestrictedAccessForGlueEntities",
+      "Sid" : "UnrestrictedAccessGlueEntities",
       "Effect" : "Allow",
       "Action" : [
         "glue:ListConnectionTypes",
@@ -1664,7 +1664,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
-      "Sid" : "EMRGetClusterSessionCredentials",
+      "Sid" : "EMRGetClusterSessionCreds",
       "Effect" : "Allow",
       "Action" : [
         "elasticmapreduce:GetClusterSessionCredentials"
@@ -2167,7 +2167,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "IamPassRoleToBedrockPermissions",
+      "Sid" : "IamPassRoleToBedrock",
       "Effect" : "Allow",
       "Action" : "iam:PassRole",
       "Resource" : [
@@ -2269,7 +2269,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AccessSecretPermissionsForAmazonBedrockIDE",
+      "Sid" : "SecretPermissionsForBedrockIDE",
       "Effect" : "Allow",
       "Action" : [
         "secretsmanager:DescribeSecret",
@@ -2299,7 +2299,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AccessSecretKmsPermissionsForAmazonBedrockIDE",
+      "Sid" : "SecretKmsPermissionsForBedrockIDE",
       "Effect" : "Allow",
       "Action" : [
         "kms:GenerateDataKey",
@@ -2341,7 +2341,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "InvokeFunctionPermissionsForAmazonBedrockIDE",
+      "Sid" : "InvokeFunctionForAmazonBedrockIDE",
       "Effect" : "Allow",
       "Action" : "lambda:InvokeFunction",
       "Resource" : "arn:aws:lambda:*:*:function:amazon-bedrock-ide-*",
@@ -2354,7 +2354,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "LambdaInvokeFunctionViaBedrockPermissions",
+      "Sid" : "LambdaInvokeFunctionViaBedrock",
       "Effect" : "Allow",
       "Action" : "lambda:InvokeFunction",
       "Resource" : "arn:aws:lambda:*:*:function:amazon-bedrock*",
@@ -2367,7 +2367,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "GetDataZoneEnvironmentCloudFormationStackPermissions",
+      "Sid" : "GetDataZoneEnvironmentCFNStackPermissions",
       "Effect" : "Allow",
       "Action" : [
         "cloudformation:GetTemplate",
@@ -2382,7 +2382,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "CloudFormationGetDataZoneEnvironmentStackPermissions",
+      "Sid" : "CFNGetDataZoneEnvironmentStack",
       "Effect" : "Allow",
       "Action" : [
         "cloudformation:DescribeStacks",
@@ -2397,7 +2397,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "GetGlueUserDefinedFuncLakeFormationPermissions",
+      "Sid" : "GetGlueUserDefinedFuncLF",
       "Effect" : "Allow",
       "Action" : [
         "glue:GetUserDefinedFunction",
@@ -2416,7 +2416,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "GetGlueUserDefinedFuncPermissions",
+      "Sid" : "GlueGetUserDefinedFunc",
       "Effect" : "Allow",
       "Action" : [
         "glue:GetUserDefinedFunction",
@@ -2432,12 +2432,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "FederatedConnectionGetSecretPermissions",
+      "Sid" : "DataConnectionAllProjectResources",
       "Effect" : "Allow",
       "Action" : [
-        "secretsmanager:GetSecretValue"
+        "secretsmanager:GetSecretValue",
+        "glue:GetConnections"
       ],
-      "Resource" : "arn:*:secretsmanager:*:*:secret:*",
+      "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceTag/for-use-with-all-datazone-projects" : "true"
@@ -2445,7 +2446,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "FederatedConnectionLambdaLogsPermissions",
+      "Sid" : "DataConnectionLambdaLogs",
       "Effect" : "Allow",
       "Action" : [
         "logs:CreateLogGroup",
@@ -2455,15 +2456,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:logs:*:*:log-group:/aws/lambda/athenafederatedcatalog*"
     },
     {
-      "Sid" : "FederatedConnectionDDBPermissions",
+      "Sid" : "UnrestrictedDataConnectionPermissions",
       "Effect" : "Allow",
       "Action" : [
-        "dynamodb:ListTables"
+        "dynamodb:ListTables",
+        "glue:ManagedConnector"
       ],
       "Resource" : "*"
     },
     {
-      "Sid" : "FederatedConnectionEC2Permissions",
+      "Sid" : "DataConnectionEC2",
       "Effect" : "Allow",
       "Action" : [
         "ec2:CreateNetworkInterface",
@@ -2478,7 +2480,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "FederatedConnectionDeleteENIPermissions",
+      "Sid" : "DataConnectionDeleteENI",
       "Effect" : "Allow",
       "Action" : "ec2:DeleteNetworkInterface",
       "Resource" : "arn:aws:ec2:*:*:*/*",
@@ -2489,7 +2491,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "FederatedConnectionDescribeENIPermissions",
+      "Sid" : "DataConnectionDescribeENI",
       "Effect" : "Allow",
       "Action" : [
         "ec2:DescribeNetworkInterfaces"
@@ -2568,7 +2570,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "LakeformationResourceSharingPermissions",
+      "Sid" : "LFResourceSharingPermissions",
       "Effect" : "Allow",
       "Action" : [
         "lakeformation:BatchGrantPermissions",

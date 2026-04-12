@@ -12,13 +12,13 @@ You can attach `AWSTransformCustomFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: December 05, 2025, 15:19 UTC
-- **Edited time:** February 12, 2026, 18:01 UTC
+- **Edited time:** April 07, 2026, 21:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSTransformCustomFullAccess`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -38,6 +38,21 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "*"
       ]
+    },
+    {
+      "Sid" : "AllowCreateServiceLinkedRole",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateServiceLinkedRole"
+      ],
+      "Resource" : [
+        "arn:aws:iam::*:role/aws-service-role/transform-custom.amazonaws.com/AWSServiceRoleForAWSTransformCustom"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "transform-custom.amazonaws.com"
+        }
+      }
     }
   ]
 }

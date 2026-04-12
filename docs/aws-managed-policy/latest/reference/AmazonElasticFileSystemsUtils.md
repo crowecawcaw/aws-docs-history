@@ -12,13 +12,13 @@ You can attach `AmazonElasticFileSystemsUtils` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: September 29, 2020, 15:16 UTC
-- **Edited time:** September 29, 2020, 15:16 UTC
+- **Edited time:** April 07, 2026, 13:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonElasticFileSystemsUtils`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -97,6 +97,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "logs:PutRetentionPolicy"
       ],
       "Resource" : "*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "cloudwatch:PutMetricData",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "cloudwatch:namespace" : [
+            "efs-utils/S3Files",
+            "efs-utils/EFS"
+          ]
+        }
+      }
     }
   ]
 }

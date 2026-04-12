@@ -12,13 +12,13 @@ You can attach `AWSWAFConsoleReadOnlyAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: April 06, 2020, 18:43 UTC
-- **Edited time:** February 12, 2026, 17:57 UTC
+- **Edited time:** April 08, 2026, 22:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSWAFConsoleReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v19 (default)
+**Policy version:** v20 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -146,10 +146,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
+      "Sid" : "AllowGetActionsForALB",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticloadbalancing:GetLoadBalancerWebACL"
+      ],
+      "Resource" : "arn:aws:elasticloadbalancing:*:*:loadbalancer/app/*/*"
+    },
+    {
       "Sid" : "AllowListActionsForALB",
       "Effect" : "Allow",
       "Action" : [
-        "elasticloadbalancing:DescribeLoadBalancers"
+        "elasticloadbalancing:DescribeLoadBalancers",
+        "elasticloadbalancing:DescribeWebACLAssociation"
       ],
       "Resource" : "*"
     },
@@ -162,11 +171,20 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:apigateway:*::/*"
     },
     {
+      "Sid" : "AllowGetActionsForAppSync",
+      "Effect" : "Allow",
+      "Action" : [
+        "appsync:GetWebACLForResource"
+      ],
+      "Resource" : "arn:aws:appsync:*:*:apis/*"
+    },
+    {
       "Sid" : "AllowListActionsForAppSync",
       "Effect" : "Allow",
       "Action" : [
         "appsync:ListGraphqlApis",
-        "appsync:ListApis"
+        "appsync:ListApis",
+        "appsync:ListResourcesForWebACL"
       ],
       "Resource" : "*"
     },

@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: March 24, 2023, 19:39 UTC
-- **Edited time:** March 29, 2024, 22:13 UTC
+- **Edited time:** April 09, 2026, 18:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForCodeWhispererPolicy`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -93,6 +93,38 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "cloudwatch:namespace" : [
             "AWS/CodeWhisperer"
           ]
+        }
+      }
+    },
+    {
+      "Sid" : "AllowKmsAccessViaIdentityCenter",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ArnLike" : {
+          "kms:EncryptionContext:aws:sso:instance-arn" : "arn:*:sso:::instance/*"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "sso.*.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowKmsAccessViaIdentityStore",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ArnLike" : {
+          "kms:EncryptionContext:aws:identitystore:identitystore-arn" : "arn:*:identitystore::*:identitystore/*"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "identitystore.*.amazonaws.com"
         }
       }
     }

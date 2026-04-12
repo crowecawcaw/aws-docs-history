@@ -12,13 +12,13 @@ You can attach `AWSWAFReadOnlyAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: October 06, 2015, 20:43 UTC
-- **Edited time:** February 12, 2026, 18:01 UTC
+- **Edited time:** April 08, 2026, 22:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSWAFReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v11 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -154,6 +154,38 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "amplify:ListResourcesForWebACL"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowGetActionsForAppSync",
+      "Effect" : "Allow",
+      "Action" : [
+        "appsync:GetWebACLForResource"
+      ],
+      "Resource" : "arn:aws:appsync:*:*:apis/*"
+    },
+    {
+      "Sid" : "AllowListActionsForAppSync",
+      "Effect" : "Allow",
+      "Action" : [
+        "appsync:ListResourcesForWebACL"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowGetActionsForELB",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticloadbalancing:GetLoadBalancerWebACL"
+      ],
+      "Resource" : "arn:aws:elasticloadbalancing:*:*:loadbalancer/app/*/*"
+    },
+    {
+      "Sid" : "AllowListActionsForELB",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticloadbalancing:DescribeWebACLAssociation"
       ],
       "Resource" : "*"
     }

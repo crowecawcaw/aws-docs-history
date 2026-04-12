@@ -1,24 +1,24 @@
-# AmazonBedrockMantleFullAccess
+# AmazonS3FilesClientReadOnlyAccess
 
-**Description**: Provides full access to Amazon Bedrock Mantle as well as limited access to related services that are required by it
+**Description**: Provides read only client access to an S3 Files file system.
 
-`AmazonBedrockMantleFullAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AmazonS3FilesClientReadOnlyAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AmazonBedrockMantleFullAccess` to your users, groups, and roles.
+You can attach `AmazonS3FilesClientReadOnlyAccess` to your users, groups, and roles.
 
 ## Policy details
 
 - **Type**: AWS managed policy
-- **Creation time**: December 04, 2025, 07:19 UTC
-- **Edited time:** April 09, 2026, 04:42 UTC
+- **Creation time**: April 07, 2026, 12:57 UTC
+- **Edited time:** April 07, 2026, 12:57 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AmazonBedrockMantleFullAccess`
+  `arn:aws:iam::aws:policy/AmazonS3FilesClientReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -30,26 +30,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "BedrockMantleAll",
+      "Sid" : "S3FilesPermissions",
       "Effect" : "Allow",
       "Action" : [
-        "bedrock-mantle:*"
+        "s3files:ClientMount"
       ],
       "Resource" : "*"
-    },
-    {
-      "Sid" : "MarketplaceOperationsFromBedrockMantleFor3pModels",
-      "Effect" : "Allow",
-      "Action" : [
-        "aws-marketplace:Subscribe",
-        "aws-marketplace:ViewSubscriptions"
-      ],
-      "Resource" : "*",
-      "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaLast" : "bedrock-mantle.amazonaws.com"
-        }
-      }
     }
   ]
 }

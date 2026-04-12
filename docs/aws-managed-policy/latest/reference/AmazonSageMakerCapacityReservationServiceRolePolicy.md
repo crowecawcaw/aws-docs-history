@@ -1,8 +1,8 @@
-# AWSServiceRolePolicyForWorkspacesInstances
+# AmazonSageMakerCapacityReservationServiceRolePolicy
 
-**Description**: This managed policy provides administrative access to Amazon WorkSpaces to manage EC2 instances in your AWS account
+**Description**: This policy grants permissions to Amazon SageMaker Capacity Reservations to publish CloudWatch metrics into customer accounts for utilization visibility.
 
-`AWSServiceRolePolicyForWorkspacesInstances` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AmazonSageMakerCapacityReservationServiceRolePolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
@@ -12,14 +12,14 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 ## Policy details
 
 - **Type**: Service-linked role policy
-- **Creation time**: June 11, 2025, 20:37 UTC
-- **Edited time:** April 07, 2026, 17:27 UTC
+- **Creation time**: April 08, 2026, 20:27 UTC
+- **Edited time:** April 08, 2026, 20:27 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForWorkspacesInstances`
+  `arn:aws:iam::aws:policy/aws-service-role/AmazonSageMakerCapacityReservationServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -31,28 +31,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
+      "Sid" : "CloudwatchPutMetricDataAccess",
       "Effect" : "Allow",
       "Action" : [
-        "ec2:DescribeInstances",
-        "ec2:DescribeInstanceStatus",
-        "ec2:DescribeTags",
-        "ec2:DescribeVolumes"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Effect" : "Allow",
-      "Action" : [
-        "ec2:CreateTags",
-        "ec2:TerminateInstances",
-        "ec2:DeleteVolume",
-        "ec2:StopInstances",
-        "ec2:StartInstances"
+        "cloudwatch:PutMetricData"
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringLike" : {
-          "ec2:ManagedResourceOperator" : "workspaces-instances.amazonaws.com"
+        "StringEquals" : {
+          "cloudwatch:namespace" : "aws/sagemaker/CapacityReservations"
         }
       }
     }

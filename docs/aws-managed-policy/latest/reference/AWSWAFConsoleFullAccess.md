@@ -12,13 +12,13 @@ You can attach `AWSWAFConsoleFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: April 06, 2020, 18:38 UTC
-- **Edited time:** February 12, 2026, 18:03 UTC
+- **Edited time:** April 08, 2026, 22:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSWAFConsoleFullAccess`
 
 ## Policy version
 
-**Policy version:** v20 (default)
+**Policy version:** v21 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -165,7 +165,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "AllowActionsForALB",
       "Effect" : "Allow",
       "Action" : [
-        "elasticloadbalancing:SetWebAcl"
+        "elasticloadbalancing:SetWebAcl",
+        "elasticloadbalancing:CreateWebACLAssociation",
+        "elasticloadbalancing:DeleteWebACLAssociation",
+        "elasticloadbalancing:GetLoadBalancerWebACL"
       ],
       "Resource" : "arn:aws:elasticloadbalancing:*:*:loadbalancer/app/*/*"
     },
@@ -173,7 +176,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "AllowListActionsForALB",
       "Effect" : "Allow",
       "Action" : [
-        "elasticloadbalancing:DescribeLoadBalancers"
+        "elasticloadbalancing:DescribeLoadBalancers",
+        "elasticloadbalancing:DescribeWebACLAssociation"
       ],
       "Resource" : "*"
     },
@@ -197,7 +201,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "AllowActionsForAppSync",
       "Effect" : "Allow",
       "Action" : [
-        "appsync:SetWebACL"
+        "appsync:SetWebACL",
+        "appsync:AssociateWebACL",
+        "appsync:DisassociateWebACL",
+        "appsync:GetWebACLForResource"
       ],
       "Resource" : "arn:aws:appsync:*:*:apis/*"
     },
@@ -206,7 +213,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "appsync:ListGraphqlApis",
-        "appsync:ListApis"
+        "appsync:ListApis",
+        "appsync:ListResourcesForWebACL"
       ],
       "Resource" : "*"
     },

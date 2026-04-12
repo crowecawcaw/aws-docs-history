@@ -12,13 +12,13 @@ You can attach `ConsoleFullAccessFromVercel` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: December 11, 2025, 16:49 UTC
-- **Edited time:** February 12, 2026, 18:00 UTC
+- **Edited time:** April 09, 2026, 18:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/ConsoleFullAccessFromVercel`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -128,6 +128,51 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "rds:DatabaseEngine" : "aurora-postgresql"
         }
       }
+    },
+    {
+      "Sid" : "OpenSearchServerless",
+      "Effect" : "Allow",
+      "Action" : [
+        "aoss:APIAccessAll",
+        "aoss:DashboardsAccessAll",
+        "aoss:BatchGetCollection",
+        "aoss:BatchGetCollectionGroup",
+        "aoss:CreateIndex",
+        "aoss:DeleteIndex",
+        "aoss:GetAccessPolicy",
+        "aoss:GetIndex",
+        "aoss:GetSecurityPolicy",
+        "aoss:ListAccessPolicies",
+        "aoss:ListCollectionGroups",
+        "aoss:ListCollections",
+        "aoss:ListSecurityPolicies",
+        "aoss:ListSecurityConfigs",
+        "aoss:ListTagsForResource",
+        "aoss:TagResource",
+        "aoss:UntagResource",
+        "aoss:AddCollectionToCollectionGroup",
+        "aoss:UpdateAccessPolicy",
+        "aoss:UpdateCollection",
+        "aoss:UpdateCollectionGroup",
+        "aoss:UpdateIndex",
+        "aoss:UpdateSecurityPolicy"
+      ],
+      "Resource" : [
+        "*"
+      ]
+    },
+    {
+      "Sid" : "OpenSearchApplications",
+      "Effect" : "Allow",
+      "Action" : [
+        "es:GetApplication",
+        "es:UpdateApplication",
+        "es:ListApplications",
+        "es:GetDefaultApplicationSetting"
+      ],
+      "Resource" : [
+        "*"
+      ]
     },
     {
       "Sid" : "Observability",
