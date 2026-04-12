@@ -49,7 +49,7 @@ We recommend the following applications that currently support viewing PDF attac
 Download the latest version of Adobe Acrobat Reader from the Adobe website at [https://get.adobe.com/reader/](https://get.adobe.com/reader/ "https://get.adobe.com/reader/").
 
 For instructions on how to view PDF attachments in Acrobat Reader, see
-[Links and attachments in PDFs](https://helpx.adobe.com/in/acrobat/using/links-attachments-pdfs.html "https://helpx.adobe.com/in/acrobat/using/links-attachments-pdfs.html")
+[Links and attachments in PDFs](https://helpx.adobe.com/in/acrobat/desktop/edit-documents/use-links-and-attachments/open-attachment.html "https://helpx.adobe.com/in/acrobat/desktop/edit-documents/use-links-and-attachments/open-attachment.html")
 on the Adobe Support website.
 
 ###### Firefox Browser
