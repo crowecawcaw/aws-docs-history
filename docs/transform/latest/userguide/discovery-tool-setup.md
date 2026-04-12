@@ -4,27 +4,56 @@
 
 ### Prerequisites
 
-These are the prerequisites for using AWS Transform discovery tool:
+The following are the prerequisites for using the AWS Transform discovery tool:
 
-- VMware vCenter Server version 6.5, 6.7, 7.0 or 8.0
-- You should have permissions to deploy an OVA into your VMware vCenter
-- For VMware vCenter Server setup, make sure that you can provide vCenter credentials with Read and View permissions set for the System group
-- The tool requires 4 vCPU, 16GB of RAM, and a 35GB hard disk
-- DHCP must be available in the network for the discovery tool VM
-- The tool collects data using a centralized approach. VMs that are in scope must allow inbound connectivity from the discovery tool VM (default ports, custom port configuration is supported):
+**General prerequisites**
+
+- The tool requires 4 vCPU, 16 GB of RAM, and a 35 GB hard disk.
+- DHCP must be available in the network for the discovery tool VM.
+- The tool collects data by using a centralized approach. Servers in scope must allow inbound connectivity from the discovery tool VM (default ports, custom port configuration is supported):
   - Linux – SSH TCP/22
   - Windows – TCP/5985 for HTTP, TCP/5986 for HTTPS
-  - SNMP – UDP/161
+  - SNMP – UDP/161 (used for network collection only, not OS metrics)
 
-- For Linux, user accounts that can SSH into the server. For SSH discovery, the tool uses ss -tnap.
-- The SSH user must be able to execute the ss command using sudo. If ss is not available, the tool will fall back to netstat.
+- For Linux, user accounts that can use SSH to connect to the server. The discovery tool runs various commands over SSH for network collection and OS metrics. Some commands require sudo access: `ss` or `netstat` (network collection), `dmidecode` (server provisioning), and `lvdisplay` (storage provisioning). Each of these commands has a graceful fallback if sudo is not available, but without sudo the discovery tool might not collect all available data. We recommend configuring passwordless sudo for the SSH user to ensure complete data collection.
+
+**VMware prerequisites**
+
+- VMware vCenter Server version 6.5, 6.7, 7.0, or 8.0.
+- Permissions to deploy an OVA into your VMware vCenter.
+- For VMware vCenter Server setup, vCenter credentials with Read and View permissions set for the System group.
+
+**Hyper-V prerequisites**
+
+- Windows Server with the Hyper-V role enabled.
+- WinRM enabled on Hyper-V hosts.
+- A user account with Hyper-V management permissions.
+- Supported authentication: NTLM (HTTPS only) and Kerberos (HTTP or HTTPS).
+
+**Bare metal prerequisites**
+
+- A CSV file with server hostnames or IP addresses and the credential names (optional) that map to the friendly names of the OS credentials configured or to be configured on the discovery tool. The CSV must use the following headers:
+
+```
+hostname_or_ip,credential_name
+```
+
+- Servers must be reachable from the discovery tool VM on the appropriate ports (SSH port 22 for Linux, WinRM port 5985/5986 for Windows).
 
 ### Download the discovery tool
+
+###### VMware installation
 
 1. Sign in to vCenter as a VMware administrator and switch to the directory where you want to download the discovery tool OVA file.
 2. Download the OVA file from this URL: https://s3.us-east-1.amazonaws.com/atx.discovery.collector.bundle/releases/latest/AWS-Transform-discovery-tool.ova
 
+###### Hyper-V installation
+
+- Download the VHD file from this URL: https://s3.us-east-1.amazonaws.com/atx.discovery.collector.bundle/releases/latest/AWS-Transform-discovery-tool.vhd
+
 ### Deploy the discovery tool
+
+#### Deploy on VMware
 
 1.  Sign in to vCenter as a VMware administrator.
 2.  Use one of these ways to install the OVA file:
@@ -48,20 +77,35 @@ These are the prerequisites for using AWS Transform discovery tool:
 3.  Locate the deployed discovery tool in your vCenter. Right-click the VM, and then choose **Power**, **Power On**.
 4.  After a few minutes, the IP address of the discovery tool displays in vCenter. You use this IP address to connect to the discovery tool.
 
-#### Discovery tool virtual machine specifications
+##### VMware virtual machine specifications
 
 - **Operating System** – Amazon Linux 2023
 - **RAM** – 16 GB
 - **CPU** – 4 cores
-- **Disks** - 35 GB
+- **Disks** – 35 GB
 - **VMware requirements** – See [VMware host requirements for running AL2023 on VMware](../../../linux/al2023/ug/vmware-supported-configurations.md#vmware-host-requirements "../../../linux/al2023/ug/vmware-supported-configurations.md#vmware-host-requirements")
+
+#### Deploy on Hyper-V
+
+1. Copy the VHD file to the Windows Server machine that has the Hyper-V role enabled.
+2. Open Hyper-V Manager.
+3. Choose **New**, and then choose **Virtual Machine**.
+4. Complete the setup wizard. On the **Specify Generation** page, select **Generation 1**. Generation 2 virtual machines do not support the VHD format. On the **Assign Memory** page, allocate at least 16384 MB. On the **Connect Virtual Hard Disk** page, choose **Use an existing virtual hard disk** and select the VHD file that you copied.
+5. Start the VM. After a few minutes, check the **Networking** tab of the VM in Hyper-V Manager to find the IP address, or connect to the VM console and run `ip addr`. You use this IP address to connect to the discovery tool.
+
+##### Hyper-V virtual machine specifications
+
+- **Operating System** – Amazon Linux 2023
+- **RAM** – We recommend allocating at least 16 GB
+- **CPU** – We recommend allocating at least 4 cores
+- **Disks** – 35 GB (included in the VHD)
+- **Hyper-V requirements** – See [Hyper-V host requirements for running AL2023 on Hyper-V](../../../linux/al2023/ug/hyperv-supported-configurations.md#hyperv-host-requirements "../../../linux/al2023/ug/hyperv-supported-configurations.md#hyperv-host-requirements")
 
 ### Accessing the discovery tool VM
 
 - The discovery tool VM comes by default with a username and password ("discovery", "password").
-  For strong security users are highly encouraged to update the password using
-  `sudo passwd discovery` after logging into the VM through vSphere
-  Client → Discovery Tool VM → "Launch Web Console".
+  For strong security, we recommend that you update the password by using
+  `sudo passwd discovery` after logging into the VM through your hypervisor's console (for example, vSphere Client for VMware or Hyper-V Manager for Hyper-V).
 - SSH access is disabled by default. Users can use preconfigured `enablessh` and
   `disablessh` aliases to enable/disable SSH access to the
   discovery tool VM. Users can SSH into the VM via `ssh
@@ -74,45 +118,165 @@ discovery@<VM-IP>` after enabling SSH access. Users are
   switching to `ec2-user` by running `sudo su
 ec2-user`.
 
-## Configure krb5.conf For Kerberos Authentication Protocol (optional)
+## Configure Kerberos authentication
 
-krb5.conf configuration may not be required if your environment has proper DNS SRV records configured for Kerberos service discovery. However, explicit configuration is recommended for: Environments without DNS-based Kerberos discovery, Custom or non-standard Kerberos setups.
+Kerberos authentication is the recommended method for connecting to Windows servers
+from the discovery tool. The discovery tool VM uses native Amazon Linux 2023 Kerberos
+libraries to authenticate against your Active Directory domain.
 
-To configure the Kerberos authentication protocol on your discovery tool VM:
+The following are key points about Kerberos authentication on the discovery tool VM:
 
-1. SSH to Discovery tool VM
-2. Open krb5.conf configuration file in the `/etc` folder. To do so, you can use the following example `sudo nano /etc/krb5.conf`
-3. Update the krb5.conf configuration file with at least the following information.
+- Use the `kinit` command to obtain a Kerberos ticket and
+  `klist` to verify the ticket.
+- The Kerberos configuration file is located at
+  `/etc/krb5.conf`.
+- Before you configure the discovery tool, verify that `kinit`
+  succeeds from the CLI on the discovery tool VM.
+
+### Kerberos prerequisites
+
+Before you configure Kerberos authentication, verify that you have the following
+information and network connectivity.
+
+1. Obtain the following information from your Active Directory
+   administrator:
+   - The Kerberos realm name (typically your domain name in
+     uppercase, for example, `EXAMPLE.COM`).
+   - The hostname or IP address of the Key Distribution Center (KDC),
+     which is typically a domain controller (for example,
+     `dc01.example.com`).
+   - A service account with permissions to authenticate against the
+     target Windows servers.
+
+2. Verify that the discovery tool VM has network connectivity to the
+   following:
+   - The KDC on port 88 (TCP and UDP) for Kerberos
+     authentication.
+   - The target Windows servers on WinRM ports (5985 for HTTP,
+     5986 for HTTPS).
+
+### Configure Kerberos
+
+Complete the following steps to configure Kerberos authentication on the discovery
+tool VM.
+
+1. SSH to the discovery tool VM.
 
 ```
+ssh discovery@<discovery-tool-vm-ip>
+```
+
+2. Edit the Kerberos configuration file at
+   `/etc/krb5.conf`.
+
+```
+sudo nano /etc/krb5.conf
+```
+
+Add the following configuration, replacing the placeholder values with your
+environment details.
+
+```
+[libdefaults]
+    default_realm = EXAMPLE.COM
+    dns_lookup_realm = false
+    dns_lookup_kdc = true
 
 [realms]
-<KERBEROS_REALM> = {
-kdc = <KDC_hostname>
-default_domain = <domain_name>
-}
-[domain_realm]
-.<domain_name> = <KERBEROS_REALM>
-<domain_name> = <KERBEROS_REALM>
+    EXAMPLE.COM = {
+        kdc = dc01.example.com
+    }
 
+[domain_realm]
+    .example.com = EXAMPLE.COM
+    example.com = EXAMPLE.COM
 ```
 
-Replace the placeholders with your actual values:
+###### Important
 
-- `<KERBEROS_REALM>` - Your Kerberos realm (all uppercase, e.g.,
-  TOOL.EXAMPLE.COM)
-- `<KDC_hostname>` - Hostname or IP address of your Key Distribution Center (e.g., domain-controller.example.com)
-- `<domain_name>` - Your domain name (e.g., example.com)
+Kerberos is case-sensitive. The realm name must be in uppercase
+(for example, `EXAMPLE.COM`, not `example.com`). The
+domain name in the `[domain_realm]` section must be in
+lowercase. 3. Verify that you can obtain a Kerberos ticket by running the
+`kinit` command.
 
-For detailed configuration options, refer to [the MIT Kerberos krb5.conf
-documentation](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html "https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html") and [Sample krb5.conf file](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html#sample-krb5-conf-file "https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html#sample-krb5-conf-file")
+```
+kinit username@REALM.COM
+```
 
-Verify kerberos setup is working in the discovery tool VM by running `kinit
- <principal>` and `klist` to obtain and view the ticket.
-`<principal>` = username@DOMAIN (DOMAIN in all caps) e.g.,
-testuser@EXAMPLE.COM).
+Enter the password when prompted. If the command completes without errors,
+authentication succeeded. 4. Verify the ticket by running the `klist` command.
 
-Upon verifying, provide the principal and password in the discovery tool UI.
+```
+klist
+```
+
+The expected output is similar to the following.
+
+```
+Ticket cache: FILE:/tmp/krb5cc_1000
+Default principal: username@REALM.COM
+
+Valid starting       Expires              Service principal
+01/01/2025 12:00:00  01/01/2025 22:00:00  krbtgt/REALM.COM@REALM.COM
+```
+
+5. Configure the discovery tool with the same case-sensitive principal that
+   you used with `kinit` (for example,
+   `username@REALM.COM`).
+
+An explicit `krb5.conf` configuration might not be required if your
+environment has DNS SRV records configured for Kerberos service discovery. For more
+information about Kerberos configuration options, see the [MIT
+Kerberos krb5.conf documentation](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html "https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html") and the [sample
+krb5.conf file](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html#sample-krb5-conf-file "https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html#sample-krb5-conf-file").
+
+### Find Kerberos configuration from domain-joined machines
+
+If you don't have the Kerberos configuration details, you can retrieve them from a
+Windows machine that is joined to the domain. Run the following commands from a
+command prompt on the domain-joined machine.
+
+To find the domain name, run the following command.
+
+```
+echo %USERDNSDOMAIN%
+```
+
+Example output:
+
+```
+EXAMPLE.COM
+```
+
+To find the domain controller hostname, run the following command.
+
+```
+nltest /dsgetdc:EXAMPLE.COM
+```
+
+Example output:
+
+```
+           DC: \\dc01.example.com
+      Address: \\10.0.1.100
+     Dom Guid: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+     Dom Name: EXAMPLE.COM
+  Forest Name: example.com
+ Dc Site Name: Default-First-Site-Name
+Our Site Name: Default-First-Site-Name
+        Flags: 0xe00033fd
+The command completed successfully
+```
+
+Map the output to your `krb5.conf` configuration as follows:
+
+- **Realm** – Use the value from
+  `%USERDNSDOMAIN%` in uppercase (for example,
+  `EXAMPLE.COM`).
+- **KDC** – Use the DC hostname
+  from the `nltest` output (for example,
+  `dc01.example.com`).
 
 ## Import a self-signed certificate authority into the discovery tool (Optional)
 
@@ -133,9 +297,9 @@ To import a self-signed certificate authority on the discovery tool VM:
 
 See [Installation and configuration for Windows Remote Management](https://learn.microsoft.com/en-us/windows/win32/winrm/installation-and-configuration-for-windows-remote-management "https://learn.microsoft.com/en-us/windows/win32/winrm/installation-and-configuration-for-windows-remote-management")
 
-## Configure discovery tool access to vCenter
+## Configure discovery tool access
 
-###### To configure discovery tool to access VCenter
+###### Setup discovery tool
 
 1. In a web browser access: `https://`ip_address`:5000`,
    where `ip_address` is the IP address of the discovery tool from
@@ -144,12 +308,40 @@ See [Installation and configuration for Windows Remote Management](https://learn
 
 ###### Important
 
-Remember this password - there is no password recovery mechanism. 3. On the **Discovery tool** page, under **Step 1. Set up vCenter access**, choose **Set up access**. 4. On the **Set up vCenter access** page, provide the **vCenter URL/IP**, the **vCenter username** and **vCenter password** and choose **Set up and connect**.
+Remember this password - there is no password recovery mechanism.
+
+###### To configure discovery tool to access VCenter
+
+1. On the **Discovery tool** page, under **Step 1. Configure discovery sources**, choose **Configure sources**.
+2. On the **Configure discovery sources** page, provide the **vCenter URL/IP**, the **vCenter username** and **vCenter password** and choose **Save configuration**.
 
 The discovery tool begins to collect vCenter information, as described in
-[Discovered VMware Inventory](discovery-tool-data-collection.md#discovery-tool-inventory "discovery-tool-data-collection.md#discovery-tool-inventory").
+[Discovered Inventory](discovery-tool-data-collection.md#discovery-tool-inventory "discovery-tool-data-collection.md#discovery-tool-inventory").
 
 After initial configuration choose **Edit vCenter access** in the **Discovery tool status** frame to change your vCenter access settings.
+
+###### To configure Hyper-V access
+
+1. On the **Discovery tool** page, under **Step 1. Configure discovery sources**, choose **Configure sources**.
+2. On the **Configure discovery sources** page, provide a **friendly name**, the **host FQDN or IP address**, the **authentication type (NTLM or Kerberos)**, the **WinRM username**, and the **WinRM password**. Choose **Save configuration**.
+
+The discovery tool begins to collect Hyper-V information, as described in
+[Discovered inventory](discovery-tool-data-collection.md#discovery-tool-inventory "discovery-tool-data-collection.md#discovery-tool-inventory").
+
+Collection begins automatically after you save the credentials.
+
+For Hyper-V failover clusters, you can add multiple hosts in the same cluster. The tool automatically deduplicates VMs that appear on more than one host.
+
+###### To import bare metal servers
+
+1. Navigate to the **Import servers** page from the Discovery tool homepage.
+2. Prepare a CSV file with the following columns: `hostname_or_ip` (required) and `credential_name` (optional).
+   - The `hostname_or_ip` value must be a valid IPv4 address or a fully qualified domain name (FQDN).
+   - The `credential_name` value, if provided, must match the friendly name of an OS credential that you already configured (SSH or WinRM).
+
+3. Upload the CSV file. The tool validates all rows and rejects the file if any row is invalid.
+
+After a successful import, the tool automatically begins database, network and OS metrics collection for the imported servers, if OS credentials are configured. If you upload another CSV file, existing records are updated without creating duplicates and new records are merged into the inventory.
 
 ## Configure the discovery tool for OS access
 
@@ -161,7 +353,7 @@ Configure OS access so that the discovery tool can:
 ###### Enable discovery tool OS Access
 
 1. Navigate to the **Set up OS access** page to provide Windows and Linux credentials.
-2. Choose a protocol from the dropdown menu.
+2. Choose a protocol that you want to add credentials for.
 3. Provide the required credentials for the selected protocol.
 4. Select **Auto-connect** to enable the discovery tool to try all provided credentials on discovered servers until matching credentials are found for each server.
 
@@ -214,9 +406,9 @@ For database (SQL Server) collection, a Windows account (local or domain) belong
 
 ### Set up SSH
 
-- Port 22 must be open between the discovery tool and target servers
-- For SSH network collection to work properly, provide a user configured for passwordless sudo
-- Ensure either the `ss` or `netstat` command are available on the machines (should come installed by default)
+- Port 22 must be open between the discovery tool and target servers.
+- For SSH network collection to work properly, provide a user configured for passwordless sudo.
+- Ensure that the following commands are available on target Linux servers (installed by default on most distributions): `ss` or `netstat` for network collection, and `lsblk`, `iostat`, `dmidecode`, `smartctl`, `top`, `ps`, `free`, `ip`, and `df` for OS metrics collection.
 
 ### Set up SNMP
 
@@ -239,10 +431,14 @@ patches.
 
 ###### To manually update the tool
 
-1. Obtain the latest discovery tool Open Virtualization Archive (OVA) file by downloading it from the provided link.
-2. (Optional) We recommend that you delete the previous discovery tool OVA file, before you deploy the latest one.
-3. Follow the steps in the Deploy discovery tool section to deploy the updated version.
+1. Download the latest discovery tool image file (OVA for VMware or VHD for Hyper-V) from the provided link.
+2. (Optional) We recommend that you delete the previous discovery tool image file before you deploy the latest one.
+3. Follow the steps in the Deploy the discovery tool section to deploy the updated version.
 
-## Revoking vCenter access
+## Revoking access
 
-Editing vCenter access to change only the **vCenter URL/IP** or to choose **Revoke access** deletes all of the data discovered by the discovery tool, including OS access configuration and discovered inventory.
+You can revoke access for each discovery source independently. When you revoke access for one source, data from other sources is not affected.
+
+- **Revoking vCenter access** – Deletes vCenter credentials and VMware-collected data. Does not delete Hyper-V data, bare metal data, or OS credentials.
+- **Revoking Hyper-V access** – Deletes Hyper-V credentials and Hyper-V-collected data only.
+- **Deleting bare metal servers** – Removes imported servers from inventory. Downstream collection data (network, database) that was collected from those servers is retained.

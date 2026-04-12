@@ -68,7 +68,7 @@ issuer=/CN=CA/DC=vsphere/DC=local/C=US/ST=California/O=vcsa.onpremsim.env/OU=VMw
 
 ## WinRM Troubleshooting
 
-If you're experiencing connectivity issues with WinRM, follow these steps to test the connection:
+If you're experiencing connectivity issues with WinRM, follow these steps to test the connection. These steps also apply to Hyper-V connectivity issues, because the discovery tool uses WinRM to communicate with Hyper-V hosts.
 
 Test basic WinRM connectivity using ports 5985 (HTTP) and 5986 (HTTPS). We need to make sure that connectivity works on port 5986 (HTTPS)
 
@@ -92,6 +92,116 @@ $cred = Get-Credential
 $so = New-PsSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck
 Enter-PSSession -ComputerName <HOST> -Credential $cred -Port 5985 -SessionOption $so
 ```
+
+## Kerberos troubleshooting
+
+If you experience Kerberos authentication failures when collecting data from Windows servers, use the following sections to diagnose and resolve common issues.
+
+### Verify network requirements
+
+Before you troubleshoot Kerberos authentication, verify that the discovery tool can reach the required network endpoints.
+
+###### To verify network requirements for Kerberos
+
+1. Verify DNS resolution to the domain controller. Run the following command from the discovery tool VM:
+
+```
+nslookup dc01.example.com
+```
+
+Alternatively, you can use `dig`:
+
+```
+dig dc01.example.com
+```
+
+If DNS resolution fails, verify that the discovery tool VM is configured to use a DNS server that can resolve your Active Directory domain. Check `/etc/resolv.conf` and confirm that the nameserver entries point to your domain DNS servers. 2. Verify connectivity to the Key Distribution Center (KDC) on port 88. Run the following command:
+
+```
+nc -zv dc01.example.com 88
+```
+
+Expected output:
+
+```
+Connection to dc01.example.com 88 port [tcp/kerberos] succeeded!
+```
+
+If the connection fails, verify that no firewall rules block traffic from the discovery tool VM to the domain controller on port 88. 3. Verify connectivity to the target Windows servers on WinRM ports. Run the following commands:
+
+```
+nc -zv <windows-server> 5985
+nc -zv <windows-server> 5986
+```
+
+If the connection fails, verify that WinRM is enabled on the target server and that firewall rules allow inbound traffic on ports 5985 and 5986.
+
+### Common Kerberos issues
+
+The following are common Kerberos issues and their solutions.
+
+**Case sensitivity errors**
+
+Symptom: You receive a "Server not found in Kerberos database" error during authentication.
+
+This error typically occurs when the Kerberos realm name is not in uppercase. Kerberos realms must be specified in uppercase in your `krb5.conf` file. For example, use `EXAMPLE.COM` instead of `example.com`.
+
+**Account lockout prevention**
+
+The discovery tool uses a backoff mechanism to prevent account lockouts from repeated failed authentication attempts. If your service account becomes locked out, you can reset the collection process by stopping and then starting the collection module through the discovery tool web UI at `https://<discovery-tool-vm-ip>:5000`.
+
+**kinit fails from CLI**
+
+The following table lists common `kinit` errors and their solutions.
+
+| Error                                  | Cause                                                                                           | Solution                                                                                                                                             |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cannot find KDC for realm              | The KDC hostname or IP address is not reachable, or the realm is not configured in `krb5.conf`. | Verify that the `krb5.conf` file contains the correct KDC hostname and realm. Confirm DNS resolution and network connectivity to the KDC on port 88. |
+| Preauthentication failed               | The password for the service account is incorrect.                                              | Verify the password and try again. If the account is locked out, unlock it in Active Directory before you retry.                                     |
+| Client not found in Kerberos database  | The principal name does not match any account in Active Directory.                              | Verify that the principal name matches the account name exactly, including case. Use the format `username@REALM` with the realm in uppercase.        |
+| Cannot resolve network address for KDC | DNS cannot resolve the KDC hostname.                                                            | Verify DNS configuration in `/etc/resolv.conf`. Confirm that the DNS server can resolve the KDC hostname. Test with `nslookup` or `dig`.             |
+
+**Collection fails despite successful kinit**
+
+If `kinit` succeeds but data collection still fails, check the following:
+
+1. Verify that the principal name used for collection matches the case used during `kinit` exactly.
+2. Verify that the service account has the required permissions on the target servers.
+3. Verify that WinRM is enabled on the target servers.
+4. Verify that the hostname used for collection matches the hostname registered in Active Directory.
+
+**Kerberos works for some servers but not others**
+
+If Kerberos authentication succeeds for some servers but fails for others, investigate the following areas:
+
+Compare the WinRM configuration on a working server with a failing server. Run the following command on each server:
+
+```
+winrm get winrm/config
+```
+
+Test connectivity with Remote Desktop to isolate the issue. The discovery tool uses the format `username@DOMAIN`, while Remote Desktop uses the format `DOMAIN\username`.
+
+Verify that the service account is a member of the local Administrators group on the failing server. Run the following command on the target server:
+
+```
+net localgroup Administrators
+```
+
+WMI requires local administrator privileges to access operating system information. SQL Server collection also requires that the service account has local administrator access on the target server.
+
+### Kerberos configuration checklist
+
+Use the following checklist to verify your Kerberos configuration before you start data collection.
+
+- The `krb5.conf` file exists on the discovery tool VM.
+- The realm name is in uppercase in `krb5.conf`.
+- Running `kinit` with the service account succeeds without errors.
+- Running `klist` shows a valid, non-expired ticket.
+- The principal name matches the Active Directory account name exactly.
+- DNS resolution works for the KDC hostname.
+- Network connectivity to the KDC on port 88 is confirmed.
+- Network connectivity to target Windows servers on ports 5985 and 5986 is confirmed.
 
 ## SNMP Troubleshooting
 
@@ -146,6 +256,24 @@ sudo vi -f /etc/sudoers.d/<username>
 ```
 
 3. After this change, running `sudo ss -tnap` and `sudo netstat -tnap` should execute without prompting for a password
+
+### Network collection ran without sudo
+
+If you see the following warning on the **Discovered inventory** page:
+
+```
+Network collection ran without sudo. Process-level connection data may be missing.
+```
+
+This warning indicates that the SSH user account does not have sudo access on the target server. Without sudo, the discovery tool can still collect network connection data, but it cannot determine which process owns each connection. To collect complete process-level connection data, ensure the SSH user has sudo access on the target server.
+
+## OS metrics collection errors
+
+### Missing server UUID for Linux bare metal servers
+
+If the discovery tool is unable to collect the server UUID (showing as empty or missing) for Linux bare metal servers, verify that the SSH credentials configured for those servers have sudo privileges. The tool uses `dmidecode` to read the server UUID. If `dmidecode` is not installed, the tool falls back to reading `/sys/class/dmi/id/product_uuid`, which also requires sudo access. Without sudo, neither method can retrieve the UUID.
+
+**Resolution:** Ensure the SSH user account provided to the discovery tool has sudo access on the target Linux servers.
 
 ## Access issues in Discovered inventory
 

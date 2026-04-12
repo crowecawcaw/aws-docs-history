@@ -42,9 +42,16 @@ The discovery tool VM comes with a default login password "password" for user
 - We recommend that you create a dedicated service account with minimal required permissions.
 - Avoid using domain administrator or local administrator accounts when Database (SQL Server) Collection is not needed.
 
+**Hyper-V credentials**
+
+- Use dedicated service accounts with minimal Hyper-V management permissions.
+- Avoid using domain administrator accounts.
+- Hyper-V credentials support NTLM (HTTPS only) and Kerberos authentication.
+- The discovery tool stores credentials encrypted at rest by using SQLCipher.
+
 ## Using Auto-Connect Feature With Caution
 
-The discovery tool uses two mechanisms to assign credentials to servers during _OS level collection_ (Network and Database modules, need to connect to individual server (VM)): auto-connect and manual.
+The discovery tool uses two mechanisms to assign credentials to servers during _OS-level collection_: auto-connect and manual. OS-level collection includes the Network, Database, and OS metrics modules. These modules connect to individual servers from all sources, including VMware VMs, Hyper-V VMs, and bare metal servers.
 
 **Manual**: a server can be manually associated with a specific credential. In this case, the discovery tool will use that credential only, failure or success. The user has to manually monitor collection status for that server and make adjustment.
 
@@ -73,3 +80,21 @@ Follow these guidelines:
 - Make sure that the discovery tool password is properly secured and known only to authorized actors
 - Ensure proper credentials are entered for the environment if lockout policies are in place. We recommend only configure known, working credentials even if account lockout policies are absent to ensure minimal operational load on individual VMs.
 - "Auto-connect" is an opt-in feature. Do not select it and use manual credential assignment if account lockouts is a concern to the environment.
+
+## Bare Metal CSV Import Security
+
+When you import bare metal servers by using a CSV file, consider the following security implications:
+
+- The CSV file might contain hostnames or IP addresses of internal servers. Treat it as sensitive data.
+- The `credential_name` column references preconfigured or to be configured credentials by friendly name. The CSV does not contain secrets.
+- All-or-nothing validation: if any row in the CSV is invalid, the entire upload is rejected. This prevents partial imports that could create a confusing state.
+- Imported servers are immediately visible in the inventory and eligible for collection. Ensure that OS credentials are correctly scoped before you import.
+
+## Revoking Access Considerations
+
+When you revoke access, deletion is scoped to the specific source:
+
+- Revoking vCenter access deletes only vCenter data. It does not affect Hyper-V or bare metal data.
+- Revoking Hyper-V access deletes only Hyper-V data. It does not affect VMware or bare metal data.
+- Deleting bare metal servers removes them from inventory, but downstream collection data (network, database, OS metrics) is retained.
+- To remove all source-specific inventory data, you must revoke or delete each source independently. Downstream collection data (network, database, OS metrics) is retained even after all sources are revoked.
