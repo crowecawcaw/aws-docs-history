@@ -2,10 +2,14 @@
 
 AWS Cost Explorer is a tool that enables you to view and analyze your costs and usage. You can
 explore your usage and costs using the main graph, the Cost Explorer cost and usage
-reports, or the Cost Explorer RI reports. You can view data for up to the last 13 months,
-forecast how much you're likely to spend for the next 18 months, and get recommendations for
-what Reserved Instances to purchase. You can use Cost Explorer to identify areas that need
-further inquiry and see trends that you can use to understand your costs.
+reports, or the Cost Explorer RI reports. You can also ask questions about your costs
+using suggested prompts or the **Ask question** button to ask in your own words, and receive
+detailed insights in **Amazon Q Developer** while Cost Explorer automatically updates its charts,
+tables, and report parameters including filters, groupings, and dates to reflect the analysis.
+You can view data for up to the last 13 months, forecast how much you're likely to spend for
+the next 18 months, and get recommendations for what Reserved Instances to purchase. You can
+use Cost Explorer to identify areas that need further inquiry and see trends that you can
+use to understand your costs.
 
 You can view your costs and usage using the Cost Explorer user interface free of charge.
 You can also access your data programmatically using the Cost Explorer API. Each paginated
@@ -36,6 +40,7 @@ comma-separated value (CSV) file.
 - [Enabling Cost Explorer](ce-enable.md "ce-enable.md")
 - [Getting started with Cost Explorer](ce-getting-started.md "ce-getting-started.md")
 - [Exploring your data using Cost Explorer](ce-exploring-data.md "ce-exploring-data.md")
+- [Asking questions about your costs using Amazon Q Developer](ce-nlq.md "ce-nlq.md")
 - [Comparing your costs between time periods](ce-cost-comparison.md "ce-cost-comparison.md")
 - [Exploring more data for advanced cost analysis](ce-advanced-cost-analysis.md "ce-advanced-cost-analysis.md")
 - [Using the AWS Cost Explorer API](ce-api.md "ce-api.md")

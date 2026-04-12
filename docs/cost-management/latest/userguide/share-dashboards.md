@@ -10,6 +10,11 @@ parameters. For example, if you have widgets filtered to show data for specific 
 account numbers will be visible to recipients in the filter configurations. Similarly, any tag
 keys and values used in your dashboard will be visible in the shared configuration.
 
+When a dashboard is shared with "Can view" permissions, recipients can view the dashboard,
+export PDFs, and schedule their own email delivery configurations for the shared dashboard.
+Scheduled report configurations are managed independently by each user and are not shared as
+part of the dashboard configuration.
+
 ###### To share a dashboard
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

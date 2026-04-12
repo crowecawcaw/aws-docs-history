@@ -90,7 +90,11 @@ For a list of quotas and restrictions for features in the AWS Billing console, s
 
 ## AWS Billing and Cost Management Dashboards
 
-|                                          |     |
-| ---------------------------------------- | --- |
-| Maximum number of widgets per dashboard  | 20  |
-| Maximum number of dashboards per account | 50  |
+|                                                 |                           |
+| ----------------------------------------------- | ------------------------- |
+| Maximum number of widgets per dashboard         | 20                        |
+| Maximum number of dashboards per account        | 50                        |
+| Maximum number of scheduled reports per account | 100                       |
+| Minimum schedule frequency                      | Hourly                    |
+| Maximum schedule period (endTime)               | 3 years from current time |
+| Pre-signed URL expiry (report download link)    | 15 days                   |

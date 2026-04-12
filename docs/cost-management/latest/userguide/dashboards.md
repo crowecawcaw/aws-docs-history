@@ -14,6 +14,9 @@ Key features of Dashboards:
   information.
 - Share dashboards securely with accounts within or outside your AWS Organization.
 - Pin frequently-used dashboards as favorites for quick access.
+- Export dashboards as PDF reports for offline viewing and sharing with stakeholders.
+- Schedule automated email delivery of dashboard PDF reports to stakeholders on a daily,
+  weekly, or monthly basis.
   Common use cases for Dashboards include:
 
 - Analyzing spending trends across services, Regions, and teams to identify cost
@@ -23,6 +26,7 @@ Key features of Dashboards:
 - Establishing standardized cost reporting practices to maintain consistency across your
   organization.
 - Creating targeted financial reports for specific teams, projects, or business units.
+- Automating distribution of cost reports to executives, finance teams, and other stakeholders who need regular visibility into cloud costs.
 
 ###### Important
 
@@ -44,5 +48,6 @@ Key features of Dashboards:
 - [Creating custom dashboards](create-custom-dashboards.md "create-custom-dashboards.md")
 - [Adding widgets to dashboards](add-widgets-to-dashboards.md "add-widgets-to-dashboards.md")
 - [Exporting dashboards](export-dashboards.md "export-dashboards.md")
+- [Scheduling email delivery of dashboard reports](schedule-dashboard-reports.md "schedule-dashboard-reports.md")
 - [Sharing dashboards](share-dashboards.md "share-dashboards.md")
 - [Managing dashboards](manage-dashboards.md "manage-dashboards.md")

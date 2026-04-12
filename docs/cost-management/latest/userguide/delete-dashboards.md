@@ -13,6 +13,12 @@ across your organization, ensure all affected teams are notified in advance.
 While deleting a dashboard removes the visualization configuration, it does not affect the
 underlying cost and usage data or other dashboards that might show similar data.
 
+###### Note
+
+If the dashboard you are deleting has active scheduled reports configured, those
+scheduled reports will also stop generating. Ensure you notify any report recipients before
+deleting a dashboard with active scheduled deliveries.
+
 ###### To delete a dashboard
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

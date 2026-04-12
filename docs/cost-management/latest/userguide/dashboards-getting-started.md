@@ -19,6 +19,11 @@ Before creating or using dashboards, ensure you have:
   dashboards within your organization. For more information, see [How AWS RAM
   works with IAM](../../../ram/latest/userguide/security-iam-policies.md "../../../ram/latest/userguide/security-iam-policies.md") in the _AWS Resource Access Manager User
   Guide_.
+- (Optional) If you plan to schedule email delivery of dashboard reports, ensure you
+  have permissions to create a [service-linked role](schedule-dashboard-reports.md#schedule-dashboard-reports-slr "schedule-dashboard-reports.md#schedule-dashboard-reports-slr")
+  (`iam:CreateServiceLinkedRole`). This is a one-time opt-in per
+  account.
+- (Optional) If you are setting up email delivery for a scheduled report for a user for the first time, the user will need to verify their email address through a one time verification email before they can start receiving scheduled reports.
 
 ###### Note
 
@@ -54,6 +59,12 @@ Required dashboard permissions include:
 - `UpdateDashboard` - Modify existing dashboards
 - `DeleteDashboard` - Remove dashboards
 - `ListDashboards` - View available dashboards
+- `CreateScheduledReport` - Create scheduled email report configurations
+- `GetScheduledReport` - View scheduled report details
+- `UpdateScheduledReport` - Modify scheduled report configurations
+- `DeleteScheduledReport` - Remove scheduled report configurations
+- `ListScheduledReports` - View available scheduled reports
+- `ExecuteScheduledReport` - Triggers immediate execution of a scheduled report
 
 The following is an example IAM policy that grants all dashboard permissions:
 
@@ -82,3 +93,18 @@ JSON
 When working with dashboards, users need permissions to access the dashboard resource
 itself and permissions to access the underlying cost and usage data APIs. For shared
 dashboards, permissions are managed through AWS RAM.
+
+###### Note
+
+To schedule email delivery of dashboard reports, you also need the following
+permissions:
+
+- `iam:CreateServiceLinkedRole` – Allows AWS to create a service-linked
+  role on your behalf that enables automated report generation and delivery. This is a
+  one-time requirement per account. For more information, see [Service-linked roles for scheduled reports](schedule-dashboard-reports.md#schedule-dashboard-reports-slr "schedule-dashboard-reports.md#schedule-dashboard-reports-slr").
+- `iam:PassRole` – Required for passing the IAM execution role to the
+  API.
+- `bcm-dashboards:GetDashboard` – Required for retrieving the dashboard
+  used by the scheduled report.
+- `ce:*` – Required for retrieving data for widgets on the
+  dashboard.

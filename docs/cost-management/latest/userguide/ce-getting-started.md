@@ -12,3 +12,5 @@ After you enable Cost Explorer, you can launch it from the AWS Cost Management c
 - A graph of your daily costs
 - Your five top cost trends
 - A list of reports that you recently viewed
+- Suggested prompts for one-click analysis of your cost questions, powered by **Amazon Q Developer**
+- An **Ask question** button for typing custom cost questions in your own words, powered by **Amazon Q Developer**
