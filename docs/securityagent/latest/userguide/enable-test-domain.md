@@ -62,3 +62,7 @@ This method proves domain ownership by placing a unique token on your web server
 ###### Note
 
 If your domain is registered in multiple agent spaces and you are using HTTP route validation, you can place the tokens for both agent spaces in the same `tokens` array.
+
+## Bypass domain ownership verification
+
+Customers who have authorization to perform penetration testing on an endpoint but cannot complete ownership verification can request manual verification from us. Please open a customer support case to make this request. Your request must include your business use case and your justification for manual ownership verification (i.e., why you are authorized to perform penetration testing on the endpoint).
