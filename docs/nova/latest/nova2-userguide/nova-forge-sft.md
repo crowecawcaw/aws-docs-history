@@ -176,7 +176,7 @@ data_mixing:
   - Note that this command will list all SMHP clusters in your account
 
 - Confirm that your training, and optionally validation data, is available in an S3 bucket that is accessible by the execution role of your SMHP cluster. For data preparation, refer to next section.
-- Have setup completed. If you have not completed the setup, please follow below [guide](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md").
+- Have AWS CLI setup completed. If you have not completed the setup, please follow below [guide](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md").
 - **Verification**: After completing the setup, confirm you can successfully run below commands
 
 ```
@@ -652,9 +652,9 @@ For job completion replace Starting SFT Job with SFT Job completed
 
 Then you can click through the results and pick the one that says "Epoch 0" since that will be your master node.
 
-### C) Using the aws cli
+### C) Using the AWS CLI
 
-You may choose to tail your logs using the . Before doing so, please check your aws cli version using aws --version. It is also recommended to use this utility script that helps in live log tracking in your terminal
+You may choose to tail your logs using the AWS CLI. Before doing so, please check your AWS CLI version using `aws --version`. It is also recommended to use this utility script that helps in live log tracking in your terminal
 
 for V1:
 

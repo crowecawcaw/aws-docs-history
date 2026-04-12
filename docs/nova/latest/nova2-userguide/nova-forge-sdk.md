@@ -73,11 +73,16 @@ formatted data and get started immediately.
 
 ```
 from amzn_nova_forge.dataset.dataset_loader import JSONLDatasetLoader
-from amzn_nova_forge.model.model_enums import Model, TrainingMethod
+from amzn_nova_forge.model.model_enums import Model, TrainingMethod, TransformMethod
 
-loader = JSONLDatasetLoader(question="input", answer="output")
+loader = JSONLDatasetLoader()
 loader.load("s3://your-bucket/training-data.jsonl")
-loader.transform(method=TrainingMethod.SFT_LORA, model=Model.NOVA_LITE)
+loader.transform(
+    method=TransformMethod.SCHEMA,
+    training_method=TrainingMethod.SFT_LORA,
+    model=Model.NOVA_LITE_2,
+    column_mappings={"question": "input", "answer": "output"},
+)
 ```
 
 ### 2. Configure Your Infrastructure
