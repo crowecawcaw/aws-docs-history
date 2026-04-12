@@ -19,9 +19,9 @@ using on-demand indexing.
 Before you get started, make sure that you have reviewed the following
 documentation:
 
-- [Limitations for Amazon Security Lake](direct-query-limitations.md#security-lake-limitations "direct-query-limitations.md#security-lake-limitations")
-- [Security Lake recommendations](direct-query-recommendations.md#security-lake-recommendations "direct-query-recommendations.md#security-lake-recommendations")
-- [Quotas for Security Lake](direct-query.md#direct-query-security-lake-quotas-table "direct-query.md#direct-query-security-lake-quotas-table")
+- [Limitations](direct-query-security-lake-overview.md#direct-query-security-lake-limitations "direct-query-security-lake-overview.md#direct-query-security-lake-limitations")
+- [Recommendations](direct-query-security-lake-overview.md#direct-query-security-lake-recommendations "direct-query-security-lake-overview.md#direct-query-security-lake-recommendations")
+- [Quotas](direct-query-security-lake-overview.md#direct-query-security-lake-quotas "direct-query-security-lake-overview.md#direct-query-security-lake-quotas")
 
 Before you can create a data source, take the following actions in
 Security Lake:

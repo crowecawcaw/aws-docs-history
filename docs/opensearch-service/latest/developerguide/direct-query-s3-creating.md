@@ -17,9 +17,9 @@ that represent Amazon S3 buckets.
 Before you get started, make sure that you have reviewed the following
 documentation:
 
-- [Limitations for Amazon S3](direct-query-limitations.md#s3-limitations "direct-query-limitations.md#s3-limitations")
-- [Amazon S3 recommendations](direct-query-recommendations.md#s3-recommendations "direct-query-recommendations.md#s3-recommendations")
-- [Quotas for Amazon S3](direct-query.md#direct-query-s3-quotas-table "direct-query.md#direct-query-s3-quotas-table")
+- [Limitations](direct-query-s3-overview.md#direct-query-s3-limitations "direct-query-s3-overview.md#direct-query-s3-limitations")
+- [Recommendations](direct-query-s3-overview.md#direct-query-s3-recommendations "direct-query-s3-overview.md#direct-query-s3-recommendations")
+- [Quotas](direct-query-s3-overview.md#direct-query-s3-quotas "direct-query-s3-overview.md#direct-query-s3-quotas")
 
 Before you can create a data source, you must have the following resources in
 your AWS account:

@@ -106,4 +106,4 @@ templates, so you can start exploring and analyzing your data right away.
 ## Troubleshooting
 
 There might be instances when results don’t return as expected. If you
-experience any issues, make sure that you're following the [Recommendations for using direct queries in Amazon OpenSearch Service](direct-query-recommendations.md "direct-query-recommendations.md").
+experience any issues, make sure that you're following the [Recommendations](direct-query-security-lake-overview.md#direct-query-security-lake-recommendations "direct-query-security-lake-overview.md#direct-query-security-lake-recommendations").

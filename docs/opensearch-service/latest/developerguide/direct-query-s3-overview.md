@@ -13,3 +13,103 @@ AWS Glue Data Catalog roles and configuring access controls in OpenSearch Dashbo
 
 - [Creating an Amazon S3 data source integration in OpenSearch Service](direct-query-s3-creating.md "direct-query-s3-creating.md")
 - [Configuring and querying an S3 data source in OpenSearch Dashboards](direct-query-s3-configure.md "direct-query-s3-configure.md")
+- [Pricing](#direct-query-s3-pricing "#direct-query-s3-pricing")
+- [Limitations](#direct-query-s3-limitations "#direct-query-s3-limitations")
+- [Recommendations](#direct-query-s3-recommendations "#direct-query-s3-recommendations")
+- [Quotas](#direct-query-s3-quotas "#direct-query-s3-quotas")
+- [Supported AWS Regions](#direct-query-s3-regions "#direct-query-s3-regions")
+
+## Pricing
+
+Amazon OpenSearch Service offers OpenSearch Compute Unit (OCU) pricing for Amazon S3 direct queries. As you run direct queries, you incur charges for OCUs per hour, listed as DirectQuery OCU usage type on your bill. You will also incur separate charges from Amazon S3 for data storage.
+
+Direct queries are of two types—interactive and indexed view queries.
+
+- _Interactive queries_ are used to populate the data selector and perform analytics on your data in Amazon S3. When you run a new query from Discover, OpenSearch Service starts a new session that lasts for a minimum of three minutes. OpenSearch Service keeps this session active to ensure that subsequent queries run quickly.
+- _Indexed view queries_ use compute to maintain indexed views in OpenSearch Service. These queries usually take longer because they ingest a varying amount of data into a named index. For Amazon S3 data sources, the indexed data is stored in a domain based on an instance type purchased.
+
+For more information, see the Direct Query and Serverless sections within [Amazon OpenSearch Service Pricing](https://aws.amazon.com/opensearch-service/pricing/ "https://aws.amazon.com/opensearch-service/pricing/").
+
+## Limitations
+
+The following limitations apply to direct queries in Amazon S3:
+
+- Direct query for S3 is only available on OpenSearch Service domains running OpenSearch
+  version 2.13 or later, and requires access to AWS Glue Data Catalog. Existing
+  AWS Glue Data Catalog tables must be recreated using SQL in OpenSearch Query
+  Workbench.
+- Direct query for S3 requires you to specify a checkpoint bucket on Amazon S3.
+  This bucket maintains the state of your indexed views, including the last
+  refresh time and the most recently ingested data.
+- Your OpenSearch domain and AWS Glue Data Catalog must be in the same AWS account.
+  Your S3 bucket can be in a different account (requires condition to be added
+  to your IAM policy), but must be in the same AWS Region as your
+  domain.
+- OpenSearch Service direct queries with S3 only support Spark tables generated from Query
+  Workbench. Tables generated within AWS Glue Data Catalog or Athena are not supported
+  by Spark streaming, which is needed to maintain indexed views.
+- OpenSearch instance types have networked payload limitations of either 10
+  MiB or 100 MiB, depending on the specific instance type you choose.
+- Some data types aren't supported. Supported data types are limited to
+  Parquet, CSV, and JSON.
+- If the structure of your data changes over time, you will need to update
+  your indexed views or out-of-the-box integrations to account for the data
+  structure changes.
+- AWS CloudFormation templates aren't supported yet.
+- OpenSearch SQL and OpenSearch PPL statements have different limitations when
+  working with OpenSearch indexes compared to using direct query. Direct query
+  supports advanced commands such as JOINs, subqueries, and lookups, while
+  support for these commands on OpenSearch indexes is limited or nonexistent.
+  For more information, see [Supported SQL and PPL commands](direct-query-supported-commands.md "direct-query-supported-commands.md").
+
+## Recommendations
+
+We recommend the following when using direct queries in Amazon S3:
+
+- Ingest data into Amazon S3 using partition formats of year, month, day, hour to
+  speed up queries.
+- When you build skipping indexes, use Bloom filters for fields with high
+  cardinality and min/max indexes for fields with large value ranges. For
+  high-cardinality fields, consider using a value-based approach to improve
+  query efficiency.
+- Use Index State Management to maintain storage for materialized views and
+  covering indexes.
+- Use the `COALESCE SQL` function to handle missing columns
+  and ensure results are returned.
+- Use limits on your queries to make sure you aren't pulling too much data back.
+
+## Quotas
+
+Each time you initiate a query to an Amazon S3 data source, OpenSearch Service opens a
+_session_ and keeps it alive for at least three minutes. This
+reduces query latency by removing session start-up time in subsequent
+queries.
+
+| Description                            | Maximum | Can override |
+| -------------------------------------- | ------- | ------------ |
+| Connections per domain                 | 10      | Yes          |
+| Data sources per domain                | 20      | Yes          |
+| Indexes per domain                     | 5       | Yes          |
+| Concurrent sessions per data source    | 10      | Yes          |
+| Maximum OCU per query                  | 60      | Yes          |
+| Maximum query execution time (minutes) | 30      | Yes          |
+| Maximum OCUs per acceleration          | 20      | Yes          |
+| Maximum ephemeral storage              | 20      | Yes          |
+
+## Supported AWS Regions
+
+The following AWS Regions are supported for direct queries in Amazon S3:
+
+- Asia Pacific (Hong Kong)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Seoul)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
+- Asia Pacific (Tokyo)
+- Canada (Central)
+- Europe (Frankfurt)
+- Europe (Ireland)
+- Europe (Stockholm)
+- US East (N. Virginia)
+- US East (Ohio)
+- US West (Oregon)

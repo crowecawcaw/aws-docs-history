@@ -131,5 +131,5 @@ After you export your data to a pipeline, you can [query it](searching.md "searc
 pipeline. The following resources can help you get started:
 
 - [Observability in Amazon OpenSearch Service](observability.md "observability.md")
-- [Traces](observability-analyze-traces.md "observability-analyze-traces.md")
+- [Discover Traces](observability-analyze-traces.md "observability-analyze-traces.md")
 - [Observability in Amazon OpenSearch Service](observability.md "observability.md")

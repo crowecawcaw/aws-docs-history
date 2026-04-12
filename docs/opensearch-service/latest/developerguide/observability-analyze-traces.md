@@ -1,94 +1,124 @@
-# Traces
+# Discover Traces
 
-Amazon OpenSearch Service provides comprehensive distributed tracing capabilities that help you understand
-application performance and diagnose issues across your microservices architecture. By [ingesting OpenTelemetry (OTel) trace data with OpenSearch Ingestion](configure-client-otel.md "configure-client-otel.md"), OpenSearch Service automatically
-processes and structures your telemetry information, giving you end-to-end visibility into request flows through
-your distributed systems.
+The Discover Traces page provides a dedicated interface for exploring distributed trace
+data in your OpenSearch Service observability workspace. You can view RED metrics (rate, error rate,
+duration) for your services, browse trace spans with faceted filtering, and drill into
+individual spans and traces to diagnose performance issues. The page also supports
+correlating traces with related log data.
 
-## Trace Data Processing and Ingestion
+## To access the Traces page
 
-OpenSearch Ingestion provides specialized processors that normalize and enrich your trace data during
-ingestion, ensuring your telemetry follows consistent patterns and is ready for analysis. Key processors
-for trace data include:
+In your observability workspace, expand **Discover** in the left
+navigation and choose **Traces**.
 
-- `service_map` – Automatically builds service dependency graphs from span relationships,
-  showing how requests flow between services.
-- `trace_group` – Aggregates related spans into logical trace groups based on entry span
-  attributes like HTTP method and path.
-- `otel_trace_raw` – Processes raw OpenTelemetry trace data and extracts span attributes,
-  resource attributes, and instrumentation scope information into searchable fields.
+![](images/discover-traces/discover-traces.png)
 
-## OpenSearch UI and Observability Workspace
+## Configuring trace datasets
 
-After your trace data is ingested into Amazon OpenSearch Service, you use the tools provided by the Amazon
-OpenSearch Service observability workspace in OpenSearch UI to analyze it. The observability workspace provides
-specialized visualizations and analysis tools designed to help you understand service performance, identify bottlenecks,
-and troubleshoot issues across your distributed architecture.
+Before you can explore trace data, you must configure a traces dataset. You can
+create a dataset automatically or manually.
 
-The observability workspace includes a Services view that displays RED metrics (rate, error rate, duration)
-for all instrumented services, along with an interactive service map showing dependencies and communication patterns.
-The Traces view allows you to search for specific traces using trace IDs or span IDs, then drill down into detailed
-waterfall charts and span analysis to understand the complete request journey through your system.
+### Automatic dataset creation
 
-## Key Features
+When you navigate to the Discover Traces page for the first time and trace data
+exists in your domain, the page prompts you to create a dataset automatically.
+Choose **Create dataset** to accept the default configuration.
 
-### Services View
+![](images/discover-traces/trace-auto-create.png)
 
-The Services view provides a comprehensive overview of your application's health and performance through:
+### Manual dataset creation
 
-- **RED metrics dashboard** – Monitor the rate (requests per second), error rate
-  (percentage of failed requests), and duration (latency percentiles) for each service in your distributed system.
-  These metrics give you immediate insight into service health and help you quickly identify performance degradation.
-- **Interactive service map** – Visualize how your services communicate with each
-  other through an automatically generated dependency graph. The service map shows request flows between services,
-  helping you understand your system architecture and identify bottlenecks or cascading failures.
-- **Service health indicators** – Quickly identify problematic services based on
-  error rates and latency thresholds. Services are color-coded to highlight those requiring immediate attention, making
-  it easy to prioritize troubleshooting efforts.
-- **Service correlation dialog** – Drill down from any service to analyze related logs and traces.
-  This integrated view connects service-level metrics with detailed trace data and associated log entries, enabling faster root
-  cause analysis without switching between different tools.
+To manually create a traces dataset, follow the steps in
+[To create a traces dataset](observability-datasets.md#observability-datasets-create-traces "observability-datasets.md#observability-datasets-create-traces"). Manual creation gives you
+control over the index pattern, timestamp field, and dataset name.
 
-![](images/ta-services-view.png)
+## Exploring trace data
 
-### Traces View
+The Discover Traces page provides the following components for exploring your
+trace data.
 
-The Traces view enables deep investigation of individual requests through your distributed system:
+- **RED metrics** – View rate (requests per
+  second), error rate (percentage of failed requests), and duration (latency
+  percentiles) for the selected dataset. These metrics update based on your
+  time filter.
+- **Faceted fields** – Filter trace spans
+  by service name, operation, status code, and other span attributes. Select
+  values in the faceted fields panel to narrow your results.
+- **Span table** – Browse individual spans
+  with columns for trace ID, span ID, service name, operation, duration, and
+  status. You can sort by any column and expand rows to see span details.
 
-- **Trace grouping by HTTP method and path** – Automatically organizes traces into logical groups based
-  on API endpoints, showing aggregate metrics like average latency, error rate, and performance trends over time. This helps you identify
-  which endpoints are experiencing issues and track performance improvements.
-- **Trace ID and span ID search** – Quickly locate specific traces using trace identifiers or span
-  identifiers. This is particularly useful when investigating issues reported by users or correlating with error logs that contain trace
-  context.
-- **Waterfall charts** – Visualize the complete timeline of a request as it flows through your services.
-  The waterfall view shows span timing and duration, making it easy to identify slow operations, sequential vs. parallel processing, and
-  where time is being spent in your distributed system.
-- **Tree view with hierarchical span breakdown** – Navigate the parent-child relationships between spans
-  to understand the call hierarchy within a trace. This view helps you see how a request branches across services and identify which service
-  calls are contributing to overall latency.
-- **Associated logs panel** – View logs that occurred during the same timeframe as your trace, filtered by
-  relevant service and trace context. This correlation between traces and logs significantly improves troubleshooting by providing both the
-  request flow and detailed application logs in a single interface.
+## Viewing a specific span
 
-![](images/ta-traces-view.png)
+To view details for a specific span, choose the span row in the span table. A
+flyout panel opens with the span attributes, resource attributes, and event
+information.
 
-### Advanced Capabilities
+![](images/discover-traces/trace-details-flyout.png)
 
-- **Correlation analysis** – Seamlessly link traces, spans, and services with corresponding logs.
-  The observability workspace automatically correlates telemetry data using trace context, allowing you to pivot between different
-  views of the same request without losing context.
-- **Custom index names and cross-cluster support** – Configure OpenSearch Service to read trace
-  data from custom index patterns or across multiple OpenSearch clusters. This flexibility supports complex deployment scenarios and
-  allows you to organize your telemetry data according to your operational needs.
-- **Configurable service map limits** – Adjust the number of services and connections displayed
-  in the service map to handle large-scale topologies. For systems with hundreds of services, you can filter the map to focus on
-  specific service subsets or adjust rendering limits to maintain performance.
-- **Mini-map navigation for Gantt charts** – Navigate large trace waterfall charts efficiently
-  using the mini-map overview. This feature is especially helpful when analyzing traces with many spans, allowing you to quickly jump
-  to different sections of the timeline.
+## Trace detail page
 
-![](images/ta-span-view.png)
+To view the complete trace, choose the trace ID link in the span table or flyout
+panel. The trace detail page displays a waterfall chart showing all spans in the
+trace, their timing relationships, and the overall trace duration. You can expand
+individual spans to view their attributes and identify bottlenecks.
 
-Traces provides at-a-glance visibility into application performance based on OpenTelemetry (OTel) protocol data. It helps you understand how
-requests flow through your distributed system by tracking their end-to-end journey across services.
+![](images/discover-traces/trace-detail-page.png)
+
+## Correlating traces with logs
+
+When you configure a correlation between a traces dataset and a logs dataset, you
+can view related log entries directly from the Discover Traces page. For information
+about creating correlations, see [Correlations](observability-correlations.md "observability-correlations.md").
+
+### Viewing related logs
+
+In the span details flyout or trace detail page, choose the
+**Related logs** tab to view log entries that match the span's
+trace ID, service name, and time range. This correlation helps you understand
+what happened in your application during the span execution.
+
+![](images/discover-traces/related-logs.png)
+
+### Log redirection with context
+
+You can navigate from a trace span directly to the Discover Logs page with the
+relevant context preserved. Choose **View in Logs** from the
+related logs panel to open the Discover Logs page with the query pre-populated
+to filter by the span's trace ID and time range.
+
+![](images/discover-traces/logs-redirection.png)
+
+## Querying traces using PPL
+
+You can use PPL to query trace data directly. PPL chains commands using the pipe
+character to filter, transform, and aggregate span data.
+
+The following example finds the 10 slowest traces:
+
+```
+source = otel-v1-apm-span-*
+| where durationInNanos > 5000000000
+| fields traceId, serviceName, name, durationInNanos
+| sort - durationInNanos
+| head 10
+```
+
+The following example counts errors by service:
+
+```
+source = otel-v1-apm-span-*
+| where status.code = 2
+| stats count() as errorCount by serviceName
+| sort - errorCount
+```
+
+The following example finds traces for a specific service:
+
+```
+source = otel-v1-apm-span-*
+| where serviceName = 'checkout-service'
+| where parentSpanId = ''
+| sort - startTime
+| head 20
+```

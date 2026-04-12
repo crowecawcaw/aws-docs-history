@@ -73,7 +73,7 @@ authentication and authorization in the Amazon OpenSearch Service console:
    - **Roles key** - choose one of GroupId
      (default) and GroupName to use corresponding attribute values as backend
      role for [fine-grained-access-control](fgac.md "fgac.md") for all
-     the groups associated with the IdC principal.
+     the groups associated with the IAM Identity Center principal.
 
 After you've made your changes, save your domain.
 
@@ -82,7 +82,7 @@ After you've made your changes, save your domain.
 Once you have enabled IAM Identity Center option on your OpenSearch domain, you can configure
 access to IAM Identity Center principals by [creating role mapping to the
 backend role](fgac.md#fgac-mapping "fgac.md#fgac-mapping"). The backend role value for
-the principal is based on the IdC principal’s group membership and the RolesKey
+the principal is based on the IAM Identity Center principal’s group membership and the RolesKey
 configuration of GroupId or GroupName.
 
 ###### Note
@@ -112,7 +112,7 @@ To disable IAM Identity Center on your OpenSearch domain:
    IAM Identity Center**.
 3. Choose **Save changes**.
 4. After the domain finishes processing, remove [role
-   mappings](fgac.md "fgac.md") added for IdC principals
+   mappings](fgac.md "fgac.md") added for IAM Identity Center principals
 
 To disable IAM Identity Center through CLI, you can use following
 

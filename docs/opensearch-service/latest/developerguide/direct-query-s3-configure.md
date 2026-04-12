@@ -113,4 +113,4 @@ to query your data given that you’ve indexed it within.
 ## Troubleshooting
 
 There might be instances when results don’t return as expected. If you
-experience any issues, make sure that you're following the [Recommendations for using direct queries in Amazon OpenSearch Service](direct-query-recommendations.md "direct-query-recommendations.md").
+experience any issues, make sure that you're following the [Recommendations](direct-query-s3-overview.md#direct-query-s3-recommendations "direct-query-s3-overview.md#direct-query-s3-recommendations").

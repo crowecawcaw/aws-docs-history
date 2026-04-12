@@ -28,9 +28,9 @@ the AWS Management Console.
 Before you get started, make sure that you have reviewed the following
 documentation:
 
-- [Limitations for Amazon CloudWatch Logs](direct-query-limitations.md#cloudwatch-logs-limitations "direct-query-limitations.md#cloudwatch-logs-limitations")
-- [CloudWatch Logs Recommendations](direct-query-recommendations.md#cloudwatch-logs-recommendations "direct-query-recommendations.md#cloudwatch-logs-recommendations")
-- [Quotas for CloudWatch Logs](direct-query.md#direct-query-cloudwatch-logs-quotas-table "direct-query.md#direct-query-cloudwatch-logs-quotas-table")
+- [Limitations](direct-query-cloudwatch-logs-overview.md#direct-query-cloudwatch-logs-limitations "direct-query-cloudwatch-logs-overview.md#direct-query-cloudwatch-logs-limitations")
+- [Recommendations](direct-query-cloudwatch-logs-overview.md#direct-query-cloudwatch-logs-recommendations "direct-query-cloudwatch-logs-overview.md#direct-query-cloudwatch-logs-recommendations")
+- [Quotas](direct-query-cloudwatch-logs-overview.md#direct-query-cloudwatch-logs-quotas "direct-query-cloudwatch-logs-overview.md#direct-query-cloudwatch-logs-quotas")
 
 Before you can create a data source, you must have the following resources in
 your AWS account:

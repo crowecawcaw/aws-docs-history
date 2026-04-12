@@ -1,127 +1,132 @@
-# Logs
+# Discover Logs
 
-OpenSearch Ingestion can transform unstructured log data into a structured format during
-ingestion. OpenSearch Ingestion provides processors that normalize and enrich your data
-before it is indexed. Examples of helpful processors are:
+The Discover Logs page provides a dedicated interface for exploring and analyzing log
+data in your OpenSearch Service observability workspace. You can write PPL queries to filter and
+aggregate log data, create visualizations directly from query results, and add those
+visualizations to dashboards. The page also provides natural language query assistance
+powered by the OpenSearch AI assistant.
 
-- `grok` – Parses and structures unstructured text data
-  such as web server access logs, into distinct fields.
-- `date` – Parses a date from a log field and sets it as
-  the event's timestamp.
-- `parse_json` – Parses a string field that contains a JSON
-  object.
-  **Note** – To make getting started easier, we’ve created a new [Get Started](https://us-east-1.console.aws.amazon.com/aos/home#/opensearch/getting-started "https://us-east-1.console.aws.amazon.com/aos/home#/opensearch/getting-started") workflow for logs in the Amazon OpenSearch Service console which will
-  set up a new Otel tailored ingestion pipeline, point it to an existing OpenSearch cluster, and
-  create a new OpenSearch UI application with an observability workspace created. All you have to
-  do is point your Otel agents to the new ingestion endpoint.
+## To access the Logs page
 
-## OpenSearch UI and observability workspace
+In your observability workspace, expand **Discover** in the left
+navigation and choose **Logs**.
 
-After your logs data is ingested into Amazon OpenSearch Service, you use the tools provided by the Amazon
-OpenSearch Service observability workspace in OpenSearch UI to analyze it. The observability workspace provides
-specialized tools designed to extract meaningful insights in Discover and Dashboards.
+## Exploring log data
 
-The observability workspace comes with a new Discover experience which uses [piped processing language](https://docs.opensearch.org/latest/sql-and-ppl/ppl/index/ "https://docs.opensearch.org/latest/sql-and-ppl/ppl/index/") (PPL) complemented with a natural language assistant powered by Amazon Q Developer for Business.
-The language assistance makes it simple for anyone to get started with piped languages.
-After refining your query, create visualizations and dashboards right from new Discover without
-jumping to other parts of the tool. To query your data using [DQL](https://docs.opensearch.org/latest/dashboards/dql/ "https://docs.opensearch.org/latest/dashboards/dql/") or [SQL](https://github.com/opensearch-project/sql/blob/main/docs/user/index.rst "https://github.com/opensearch-project/sql/blob/main/docs/user/index.rst"), switch to the old Discover experience.
+The Discover Logs interface provides the following components for exploring your
+log data.
 
-![](images/discover-logs.png)
+![](images/discover-logs/discover-logs-interface.png)
 
-## Querying your logs using PPL
+- **Dataset selector** – Choose the logs
+  dataset that you want to query. Each dataset maps to one or more indexes in
+  your OpenSearch Service domain.
+- **Query editor** – Write PPL queries to
+  filter, aggregate, and transform your log data. The editor provides
+  autocomplete suggestions and syntax highlighting.
+- **Time filter** – Specify the time range
+  for your query results. You can choose a relative range or specify absolute
+  start and end times.
+- **Results panel** – View query results as
+  a table of log events. You can expand individual events to see all fields.
+- **Histogram** – View the distribution of
+  log events over time. The histogram updates automatically based on your query
+  and time filter.
+- **Fields panel** – Browse available fields
+  in your dataset and add them as columns to the results table.
 
-You have several options for querying your logs to gather insights into the
-operation of your application or service.
+## Querying logs using PPL
 
-Piped processing language (PPL) is a query language with pipe-based
-(|) syntax for chaining commands. You can use it to build powerful
-expressions to analyze your logs.
+Piped processing language (PPL) is a query language that uses pipe-based (`|`)
+syntax for chaining commands. You can use PPL to filter, aggregate, and transform your
+log data.
 
-**Note**: To unlock newer PPL commands/functions in OpenSearch 2.19,
-you’ll need to change a feature flag in OpenSearch Developer Tools using the following query
-(not required for OpenSearch 3.3):
+### Basic queries
 
-```
-PUT /_plugins/_query/settings { "transient" : { "plugins.calcite.enabled" : true } }
-```
-
-### Find the hosts with the most errors
-
-This example analyzes you logs to determine the service hosts with
-the most total errors.
+To retrieve all log events from a dataset, use the `source` command:
 
 ```
-source = my-index |
-    where level = "ERROR" |
-    stats count() as error_count by host |
-    sort -error_count |
-    head 5
+source = my-logs-dataset
 ```
 
-### Calculate average request time
-
-This example analyzes your logs to calculate the average request
-time for each status code in the log.
+To limit the number of results, use the `head` command:
 
 ```
-source = my-index |
-    stats avg(request_time) by status_code
+source = my-logs-dataset | head 20
 ```
 
-For more information about PPL, see the [PPL reference manual](https://docs.opensearch.org/latest/sql-and-ppl/ppl/index/ "https://docs.opensearch.org/latest/sql-and-ppl/ppl/index/") on opensearch.org.
+### Filtering with WHERE
 
-## Querying your logs using AI
-
-This example analyzes your logs to show the errors logged in the
-last 5 minutes.
+Use the `where` clause to filter log events based on field values:
 
 ```
-Show me all of the error logs from the last 5 minutes
+source = my-logs-dataset | where severity_text = 'ERROR'
 ```
 
-![](images/ppl-ai-query.png)
-
-## Querying your logs using SQL
-
-SQL provides a familiar way to query log data.
-
-This example analyzes your logs to show errors by
-timestamp.
+You can combine multiple conditions:
 
 ```
-SELECT timestamp, severity_text, body, service_name
-FROM opentelemetry_logs
-WHERE severity_text = 'ERROR' AND service_name = 'my-service'
-ORDER BY timestamp DESC;
+source = my-logs-dataset |
+    where severity_text = 'ERROR' and service_name = 'payment-service'
 ```
 
-For more information about SQL, see the [SQL reference manual](https://github.com/opensearch-project/sql/blob/main/docs/user/index.rst "https://github.com/opensearch-project/sql/blob/main/docs/user/index.rst") on GitHub.
+### Managing queries
 
-## Querying your logs using DQL
+You can save frequently used queries for reuse. To save a query, choose
+**Save** in the query editor toolbar and enter a name for the
+query. To load a saved query, choose **Open** and select the
+query from the list.
 
-DQL is good for quick searching and filtering.
+For the complete list of PPL commands and functions, see the [Piped Processing Language reference](https://observability.opensearch.org/docs/ppl/ "https://observability.opensearch.org/docs/ppl/").
 
-This example analyzes your logs and returns errors and
-exceptions.
+## Creating visualizations from logs
+
+You can create visualizations directly from your PPL query results. Use the
+`stats` command to aggregate data for visualization:
 
 ```
-error OR exception
+source = my-logs-dataset |
+    stats count() as error_count by service_name, span(timestamp, 1h)
 ```
 
-For more information about DQL, see the [DQL reference manual](https://docs.opensearch.org/latest/dashboards/dql/ "https://docs.opensearch.org/latest/dashboards/dql/") on opensearch.org.
+After you run a `stats` query, choose the **Visualization**
+tab to see the results as a chart.
 
-## Dashboards and alerts for logs
+![](images/discover-logs/discover-logs-visualization.png)
 
-In the new Discover experience with PPL, you can create visualizations from the visualizations
-tab within Discover. Choose from 12 visualization types and edit on the fly before adding them to a dashboard.
-In the old Discover experience, you’ll browse to Visualize in the left navigation to create a new visualization
-and to Dashboards to add the visualizations to your dashboards.
+### Visualization types
 
-![](images/discover-logs-dashboards.png)
+The following table describes the visualization types that you can use.
 
-You can define alert monitors using PPL or the OpenSearch Service query DSL to run scheduled
-queries. A trigger condition, such as a specific number of error logs, fires an
-alert. You can send notifications through channels such Amazon Simple Notification Service or
-webhooks.
+| Type           | Description                                                                                             |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| Line           | Displays data points connected by lines, useful for showing trends over time.                           |
+| Area           | Similar to a line chart with the area under the line filled in, useful for showing volume over time.    |
+| Bar            | Displays data as vertical or horizontal bars, useful for comparing values across categories.            |
+| Metric         | Displays a single numeric value, useful for showing key performance indicators.                         |
+| State timeline | Displays state changes over time as colored bands, useful for monitoring status transitions.            |
+| Heatmap        | Displays data as a matrix of colored cells, useful for showing density and patterns.                    |
+| Bar gauge      | Displays a single value as a filled bar within a range, useful for showing progress toward a threshold. |
+| Pie            | Displays data as proportional slices of a circle, useful for showing composition.                       |
 
-For more information about alerting, see the [alerting documentation](https://docs.opensearch.org/latest/observing-your-data/alerting/index/ "https://docs.opensearch.org/latest/observing-your-data/alerting/index/") on opensearch.org.
+![](images/discover-logs/discover-logs-viz-types.png)
+
+### Visualization settings
+
+When the **Visualization** tab is active, a settings panel
+appears on the right side of the screen. Use this panel to configure the chart
+type, map fields to axes, and customize visual styles such as colors and
+legends.
+
+To switch the axes of a visualization, use the axis configuration in the
+settings panel.
+
+![](images/discover-logs/discover-logs-switch-axes.png)
+
+## Adding visualizations to dashboards
+
+After you create a visualization, you can add it to a dashboard for ongoing
+monitoring. Choose **Save to dashboard** in the visualization toolbar,
+then select an existing dashboard or create a new one. The visualization is saved with
+its underlying PPL query so that it refreshes automatically when you open the
+dashboard.
