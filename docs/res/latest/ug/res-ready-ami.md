@@ -114,6 +114,12 @@ phases:
             - "tar -xf res-installation-scripts.tar.gz"
             - "cd scripts/virtual-desktop-host/linux"
             - "/bin/bash install.sh -g {{ GPUFamily }}"
+      - name: RebootAfterInstall
+        action: Reboot
+        onFailure: Abort
+        maxAttempts: 3
+        inputs:
+            delaySeconds: 0
       - name: RunInstallPostRebootScript
         action: ExecuteBash
         onFailure: Abort
