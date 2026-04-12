@@ -30,6 +30,10 @@ Under certain conditions, RDS for PostgreSQL uses logical replication instead of
 replication to keep the green environment in sync with the blue environment. For more
 information, see [PostgreSQL replication methods for blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
 
+Amazon RDS Blue/Green Deployments support Amazon RDS Proxy and smart drivers. These solutions reduce writer node upgrade downtime during
+switchover by detecting the topology change and redirecting connections to the new production
+environment without waiting for DNS propagation.
+
 ###### Topics
 
 - [Region and version availability](#blue-green-deployments-region-version-availability "#blue-green-deployments-region-version-availability")

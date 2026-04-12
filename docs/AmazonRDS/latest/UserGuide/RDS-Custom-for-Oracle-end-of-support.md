@@ -224,7 +224,7 @@ The directory structure depends on your database architecture:
 
 ```
 # Non-CDB directories
-mkdir -p /u01/app/oracle/oradata/ORCL/controlfile
+mkdir -p /u01/app/oracle/oradata/ORCL/controlfile/
 mkdir -p /u01/app/oracle/oradata/ORCL/datafile
 mkdir -p /u01/app/oracle/oradata/ORCL/onlinelog
 mkdir -p /u01/app/oracle/oradata/ORCL/arch
@@ -240,7 +240,7 @@ chown -R oracle:oinstall /u01/app/oracle/backup
 
 ```
 # CDB directories
-mkdir -p /u01/app/oracle/oradata/ORCL/controlfile
+mkdir -p /u01/app/oracle/oradata/ORCL/controlfile/
 mkdir -p /u01/app/oracle/oradata/ORCL/cdb/datafile
 mkdir -p /u01/app/oracle/oradata/ORCL/pdbseed/datafile
 mkdir -p /u01/app/oracle/oradata/ORCL/onlinelog

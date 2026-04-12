@@ -32,16 +32,16 @@ RDS for MariaDB.
 | Asia Pacific (Hong Kong)   | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Hyderabad)   | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Jakarta)     | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
-| Asia Pacific (Malaysia)    | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          |
+| Asia Pacific (Malaysia)    | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Melbourne)   | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Mumbai)      | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
-| Asia Pacific (New Zealand) | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          |
+| Asia Pacific (New Zealand) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Osaka)       | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Seoul)       | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Singapore)   | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Sydney)      | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
-| Asia Pacific (Taipei)      | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          |
-| Asia Pacific (Thailand)    | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          |
+| Asia Pacific (Taipei)      | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
+| Asia Pacific (Thailand)    | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Tokyo)       | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Canada (Central)           | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Canada West (Calgary)      | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
@@ -56,7 +56,7 @@ RDS for MariaDB.
 | Europe (Stockholm)         | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Europe (Zurich)            | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Israel (Tel Aviv)          | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
-| Mexico (Central)           | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          |
+| Mexico (Central)           | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Middle East (Bahrain)      | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Middle East (UAE)          | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | South America (São Paulo)  | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
@@ -78,16 +78,16 @@ RDS for MySQL.
 | Asia Pacific (Hong Kong)   | All available versions | All available versions | All available versions                         |
 | Asia Pacific (Hyderabad)   | All available versions | All available versions | All available versions                         |
 | Asia Pacific (Jakarta)     | All available versions | All available versions | All available versions                         |
-| Asia Pacific (Malaysia)    | Not available          | Not available          | Not available                                  |
+| Asia Pacific (Malaysia)    | All available versions | All available versions | All available versions                         |
 | Asia Pacific (Melbourne)   | All available versions | All available versions | All available versions                         |
 | Asia Pacific (Mumbai)      | All available versions | All available versions | All available versions                         |
-| Asia Pacific (New Zealand) | Not available          | Not available          | Not available                                  |
+| Asia Pacific (New Zealand) | All available versions | All available versions | All available versions                         |
 | Asia Pacific (Osaka)       | All available versions | All available versions | All available versions                         |
 | Asia Pacific (Seoul)       | All available versions | All available versions | All available versions                         |
 | Asia Pacific (Singapore)   | All available versions | All available versions | All available versions                         |
 | Asia Pacific (Sydney)      | All available versions | All available versions | All available versions                         |
-| Asia Pacific (Taipei)      | Not available          | Not available          | Not available                                  |
-| Asia Pacific (Thailand)    | Not available          | Not available          | Not available                                  |
+| Asia Pacific (Taipei)      | All available versions | All available versions | All available versions                         |
+| Asia Pacific (Thailand)    | All available versions | All available versions | All available versions                         |
 | Asia Pacific (Tokyo)       | All available versions | All available versions | All available versions                         |
 | Canada (Central)           | All available versions | All available versions | All available versions                         |
 | Canada West (Calgary)      | All available versions | All available versions | All available versions                         |
@@ -102,7 +102,7 @@ RDS for MySQL.
 | Europe (Stockholm)         | All available versions | All available versions | All available versions                         |
 | Europe (Zurich)            | All available versions | All available versions | All available versions                         |
 | Israel (Tel Aviv)          | All available versions | All available versions | All available versions                         |
-| Mexico (Central)           | Not available          | Not available          | Not available                                  |
+| Mexico (Central)           | All available versions | All available versions | All available versions                         |
 | Middle East (Bahrain)      | All available versions | All available versions | All available versions                         |
 | Middle East (UAE)          | All available versions | All available versions | All available versions                         |
 | South America (São Paulo)  | All available versions | All available versions | All available versions                         |
@@ -124,16 +124,16 @@ RDS for PostgreSQL.
 | Asia Pacific (Hong Kong)   | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Hyderabad)   | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Jakarta)     | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
-| Asia Pacific (Malaysia)    | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          |
+| Asia Pacific (Malaysia)    | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Melbourne)   | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Mumbai)      | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
-| Asia Pacific (New Zealand) | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          |
+| Asia Pacific (New Zealand) | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Osaka)       | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Seoul)       | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Singapore)   | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Sydney)      | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
-| Asia Pacific (Taipei)      | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          |
-| Asia Pacific (Thailand)    | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          |
+| Asia Pacific (Taipei)      | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
+| Asia Pacific (Thailand)    | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Asia Pacific (Tokyo)       | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Canada (Central)           | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Canada West (Calgary)      | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
@@ -148,7 +148,7 @@ RDS for PostgreSQL.
 | Europe (Stockholm)         | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Europe (Zurich)            | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Israel (Tel Aviv)          | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
-| Mexico (Central)           | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          | Not available          |
+| Mexico (Central)           | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Middle East (Bahrain)      | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | Middle East (UAE)          | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |
 | South America (São Paulo)  | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions | All available versions |

@@ -2,7 +2,7 @@
 
 ###### Warning
 
-Deleting a database instance permanently removes all its data and can affect related resources. Ensure that you have backed up any important data before proceeding.
+Deleting a database instance removes all its data and can affect related resources. Ensure that you have backed up any important data before proceeding.
 
 You can delete a DB instance using the AWS Management Console, the AWS CLI, or the RDS API. If you want to delete
 a DB instance in an Aurora DB cluster, see [Deleting Aurora DB clusters and DB instances](../AuroraUserGuide/USER_DeleteCluster.md "../AuroraUserGuide/USER_DeleteCluster.md").
@@ -84,6 +84,9 @@ replica status. Consider the following issues:
   status remains in a deleting state until all operations are complete. To reduce
   the time required to delete the DB instance, we recommend that you take a manual
   snapshot before deleting the DB instance.
+- If you need to restore an unintentionally deleted instance, contact the AWS Support team
+  immediately. Recovery might be possible for up to six days after the deletion
+  request.
 
 ## Deleting a DB instance
 

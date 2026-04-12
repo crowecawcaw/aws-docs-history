@@ -19,6 +19,7 @@ and the blue/green deployment enters a state of **Invalid configuration**.
 - [Switchover timeout](#blue-green-deployments-switching-timeout "#blue-green-deployments-switching-timeout")
 - [Switchover guardrails](#blue-green-deployments-switching-guardrails "#blue-green-deployments-switching-guardrails")
 - [Switchover actions](#blue-green-deployments-switching-actions "#blue-green-deployments-switching-actions")
+- [Switchover when using Amazon RDS Proxy](#blue-green-deployments-switching-rds-proxy "#blue-green-deployments-switching-rds-proxy")
 - [Switchover best practices](#blue-green-deployments-switching-best-practices "#blue-green-deployments-switching-best-practices")
 - [Verifying CloudWatch metrics before switchover](#blue-green-deployments-switching-over-cloudwatch "#blue-green-deployments-switching-over-cloudwatch")
 - [Monitoring replica lag prior to switchover](#blue-green-deployments-monitor-replica-lag "#blue-green-deployments-monitor-replica-lag")
@@ -128,6 +129,37 @@ overwritten during this process. For more information about tags, see [Tagging A
 
 If the switchover starts and then stops before finishing for any reason, then any changes are rolled back,
 and no changes are made to either environment.
+
+## Switchover when using Amazon RDS Proxy
+
+In addition to the above mentioned switchover actions, if the blue cluster is a target
+of an Amazon RDS Proxy, the following behavior applies during switchover:
+
+- Switchover Guardrails
+  - Amazon RDS runs additional guardrail checks to validate that the proxy can
+    successfully reach both blue and green environments and is ready for
+    switchover.
+
+- Application Traffic Routing During Switchover
+  - During switchover, the Blue database enters read-only mode before Green
+    environment is promoted. Amazon RDS Proxy continues routing connections to the blue
+    database during this transitional period.
+  - Write operations on RDS for MySQL and RDS for MariaDB during this period may return read-only errors. For example,
+    `1290 (HY000): The MySQL server is running with the --read-only option`
+    so it cannot execute this statement. On RDS for PostgreSQL, read and write queries
+    will return `AdminShutdown: terminating connection due to administrator command`.
+  - Once the switchover is detected, the proxy routes traffic to the newly promoted
+    green environment.
+  - When the Green environment is promoted as the new writer, existing connections to
+    the proxy are dropped. Applications must re-establish connections after the promotion
+    is complete.
+  - You can review CloudWatch logs for Amazon RDS Proxy to see when this transitional behavior
+    occurred.
+
+- RDS Proxy API Behavior
+  - Proxy APIs such as `describe-db-proxy-targets` reflect the updated
+    targets only after the switchover is fully complete, even though traffic routing
+    occurs earlier.
 
 ## Switchover best practices
 

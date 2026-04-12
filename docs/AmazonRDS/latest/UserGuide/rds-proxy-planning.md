@@ -40,3 +40,7 @@ RDS Proxy. To do so, consider these factors:
   to reduce failover times by up to 66% for Amazon RDS Multi-AZ DB instances.
   RDS Proxy also automatically routes traffic to a new database instance while preserving application connections. This makes failovers more transparent
   for applications.
+- When updating your databases using Blue/Green Deployments, you can use RDS Proxy to
+  minimize switchover downtime. During switchover, RDS Proxy maintains awareness of the
+  transition and automatically redirects connections to the Green environment once it becomes
+  the new production environment, eliminating DNS propagation delays.

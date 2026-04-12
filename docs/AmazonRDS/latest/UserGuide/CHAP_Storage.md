@@ -20,6 +20,15 @@ For more information about instance storage pricing, see [Amazon RDS pricing](ht
 - [Monitoring database performance](#Concepts.Storage.Metrics "#Concepts.Storage.Metrics")
 - [Factors that affect database performance](#CHAP_Storage.Other.Factors "#CHAP_Storage.Other.Factors")
 
+###### Important
+
+Amazon RDS is deprecating magnetic storage on April 30, 2026. We recommend that you
+upgrade your magnetic storage volumes to gp3 or io2 before April 29, 2026. After
+April 29, 2026, Amazon RDS will begin forced migration of magnetic storage volumes to gp3
+storage volumes. In addition, the default storage type when restoring snapshots of
+magnetic volumes will be changed to gp3 by June 1, 2026. You can override this
+default with your preferred storage type.
+
 ## Amazon RDS storage types
 
 Amazon RDS provides three storage types: Provisioned IOPS SSD (also known as io1 and io2
@@ -382,6 +391,17 @@ type, see [Supported instance
 types](../../../AWSEC2/latest/UserGuide/ebs-optimized.md#ebs-optimization-support "../../../AWSEC2/latest/UserGuide/ebs-optimized.md#ebs-optimization-support") in the _Amazon EC2 User Guide for Linux Instances_.
 
 ## Magnetic storage (legacy, not recommended)
+
+###### Warning
+
+Amazon RDS is deprecating magnetic storage on April 30, 2026. We recommend that you
+upgrade your magnetic storage volumes to the latest SSD-based storage volumes (gp3 or
+io2) before April 29, 2026. After April 29, 2026, Amazon RDS will begin forced migration
+of magnetic storage volumes to gp3 storage volumes.
+
+In addition, the default storage type when restoring snapshots of magnetic volumes
+will be changed to gp3 by June 1, 2026. You can override this default with your
+preferred storage type.
 
 Amazon RDS also supports magnetic storage for backward compatibility. We recommend that you
 use General Purpose SSD or Provisioned IOPS SSD for any new storage needs. The following

@@ -78,6 +78,23 @@ Graviton4 processors**
 | db.m8g.xlarge   | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
 | db.m8g.large    | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
 
+**db.m8i – general-purpose instance classes powered by
+Intel Xeon 6 processors**
+
+| Instance class    | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle                             | PostgreSQL |
+| ----------------- | --- | ------- | -------------------- | ----- | ---------------------------------- | ---------- |
+| db.m8i.48xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
+| db.m8i.24xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
+| db.m8i.16xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
+| db.m8i.12xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
+| db.m8i.8xlarge    | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
+| db.m8i.4xlarge    | No  | No      | No                   | No    | BYOL only, all editions            | No         |
+| db.m8i.2xlarge    | No  | No      | No                   | No    | BYOL only, all editions            | No         |
+| db.m8i.xlarge     | No  | No      | No                   | No    | BYOL only, all editions            | No         |
+| db.m8i.large      | No  | No      | No                   | No    | BYOL only, all editions            | No         |
+| db.m8i.metal-96xl | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
+| db.m8i.metal-48xl | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
+
 **db.m7i – general-purpose instance classes powered by 4th
 generation Intel Xeon Scalable processors**
 
@@ -341,6 +358,23 @@ processors**
 | db.r8g.2xlarge  | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
 | db.r8g.xlarge   | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
 | db.r8g.large    | No  | MariaDB 11.8.3 and higher, 11.4.3 and higher, 10.11.7 and higher, 10.6.13 and higher, 10.5.20 and higher, and 10.4.29 and higher | No                   | MySQL 8.0.32 and higher | No     | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+
+**db.r8i – memory-optimized instance classes powered by
+Intel Xeon 6 processors**
+
+| Instance class    | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle                             | PostgreSQL |
+| ----------------- | --- | ------- | -------------------- | ----- | ---------------------------------- | ---------- |
+| db.r8i.48xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
+| db.r8i.24xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
+| db.r8i.16xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
+| db.r8i.12xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
+| db.r8i.8xlarge    | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
+| db.r8i.4xlarge    | No  | No      | No                   | No    | BYOL only, all editions            | No         |
+| db.r8i.2xlarge    | No  | No      | No                   | No    | BYOL only, all editions            | No         |
+| db.r8i.xlarge     | No  | No      | No                   | No    | BYOL only, all editions            | No         |
+| db.r8i.large      | No  | No      | No                   | No    | BYOL only, all editions            | No         |
+| db.r8i.metal-96xl | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
+| db.r8i.metal-48xl | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
 
 **db.r7i – memory-optimized instance classes preconfigured for high memory,
 storage, and I/O**

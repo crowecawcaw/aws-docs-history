@@ -81,9 +81,11 @@ Backups managed by AWS Backup are considered manual DB snapshots, but don't coun
 see the [_AWS Backup Developer Guide_](../../../aws-backup/latest/devguide.md "../../../aws-backup/latest/devguide.md").
 
 Note that the default quota for cross-Region
-automated backups is 20 for an AWS account, and the default quota for the number of
+automated backups is 20 for an AWS account, the default quota for the number of
 concurrent snapshot copy requests is 20 for each Region for an
-AWS account.
+AWS account, and the default quota for the number of concurrent
+cross-Region read replica requests is 20 for each
+Region for an AWS account.
 
 If you use any RDS API operations and exceed the default quota for the number of calls
 per second, the Amazon RDS API issues an error like the following one.
