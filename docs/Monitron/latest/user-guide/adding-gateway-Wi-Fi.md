@@ -43,7 +43,7 @@ see [Troubleshooting Bluetooth pairing](troubleshooting-Bluetooth-pairing-wirele
 It can take a few moments for Amazon Monitron to connect to the new
 gateway.
 
-![Smartphone connecting to AWS service via Bluetooth, represented by icons and symbols.](/images/Monitron/latest/user-guide/images/gs-gateway-bluetooth.png)
+![Smartphone connecting to AWS service via Bluetooth, represented by icons and symbols.](images/gs-gateway-bluetooth.png)
 
 If the mobile app continues to try to connect to the gateway without
 success, see [Troubleshooting Wi-Fi gateway detection](gateway-failure-Wi-Fi.md "gateway-failure-Wi-Fi.md"). 8. After it connects to the gateway, Amazon Monitron scans for Wi-Fi
