@@ -97,7 +97,7 @@ the CLI can automatically pick up.
 Connect the SageMaker HyperPod CLI to your cluster before running any jobs:
 
 ```
-export AWS_REGION=us-east-1 &&  SageMaker HyperPod  connect-cluster --cluster-name <your-cluster-name> --region us-east-1
+export AWS_REGION=us-east-1 &&  hyperpod connect-cluster --cluster-name <your-cluster-name> --region us-east-1
 ```
 
 ###### Important
@@ -245,10 +245,10 @@ For job completion replace `Starting CPT Job` with `CPT Job
 Then you can click through the results and pick the one that says "Epoch 0" since that
 will be your master node.
 
-###### Using the AWS AWS CLI
+###### Using the AWS CLI
 
 You may choose to tail your logs using the AWS CLI. Before doing so, please check
-your aws cli version using `aws --version`. It is also recommended to use this
+your AWS CLI version using `aws --version`. It is also recommended to use this
 utility script that helps in live log tracking in your terminal
 
 **for V1**:

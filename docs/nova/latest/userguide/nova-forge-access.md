@@ -53,15 +53,15 @@ Flow: The account user must reach out to the account admin to request admin acce
 
 - Once admin access is granted, follow the steps in Flow 2.
 
-### Flow 2. Amazon Web Services account w/ admin access
+### Flow 2. Amazon Web Services account with admin access
 
 - Add forge-subscription tag to account through IAM. See Steps in Appendix A
 
 ### Appendix A. Add forge-subscription policy to Amazon Web Services account
 
-1. Go to the Amazon Web Services IAM Dashboard. Click on Roles on the left. Search for admin and click on the admin role
+1. Go to the Amazon Web Services IAM Dashboard. Click on Roles on the left. Search for a role with Admin permissions and select it.
 
-![](images/add-forge-sub-policy.png) 2. Select <AssumedRoleToUse> (e.g., libsAdminAccess). Click on the Tags tab.
+![](images/add-forge-sub-policy.png) 2. Select <AssumedRoleToUse>. Click on the Tags tab.
 
 ![](images/add-forge-sub-policy-2.png) 3. Click on Manage tabs. Add new tag. Type "forge-subscription" under Key and click on save changes
 
