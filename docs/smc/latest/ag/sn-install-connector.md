@@ -14,7 +14,7 @@ Download and install a certified version of the connector for no additional cost
 the following locations:
 
 - [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/f0b117a3db32320093a7d7a0cf961912/ "https://store.servicenow.com/sn_appstore_store.do#!/store/application/f0b117a3db32320093a7d7a0cf961912/")
-- [ServiceNow update set](https://servicecatalogconnector.s3.amazonaws.com/AWSSMCConnectorV513.xml "https://servicecatalogconnector.s3.amazonaws.com/AWSSMCConnectorV513.xml"): AWS Service Management Connector offers an update set for
+- [ServiceNow update set](https://servicecatalogconnector.s3.amazonaws.com/AWS_SC_update_set_5.1.12.zip "https://servicecatalogconnector.s3.amazonaws.com/AWS_SC_update_set_5.1.12.zip"): AWS Service Management Connector offers an update set for
   users who want to install the connector application in a ServiceNow Personal
   Developer Instance (PDI) or sandbox environment.
   If you don't already have a ServiceNow instance, start with the following first
