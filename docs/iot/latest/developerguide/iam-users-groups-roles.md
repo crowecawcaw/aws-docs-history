@@ -14,8 +14,30 @@ For message broker connections over HTTP, AWS IoT authenticates users, groups, a
 roles using the Signature Version 4 signing process. For information, see [Signing AWS API
 Requests](../../../general/latest/gr/signing_aws_api_requests.md "../../../general/latest/gr/signing_aws_api_requests.md").
 
-When using AWS Signature Version 4 with AWS IoT, clients must support the
-following in their TLS implementation:
+When authenticating requests using query parameters with
+[temporary security
+credentials provided by AWS Security Token Service (AWS STS)](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md"),
+do not include `X-Amz-Security-Token` in the canonical query string
+when calculating the signature. Instead, append `X-Amz-Security-Token`
+as a query parameter after the signature has been computed. This differs from some
+other AWS services that require the security token to be part of the canonical
+request. For more information, see
+[Signing requests with temporary security credentials](../../../IAM/latest/UserGuide/reference_sigv-create-signed-request.md#temporary-security-credentials "../../../IAM/latest/UserGuide/reference_sigv-create-signed-request.md#temporary-security-credentials").
+
+###### Note
+
+The AWS IoT Device SDKs handle this signing behavior automatically. If you
+are implementing custom signing code, refer to the SDK source for reference:
+
+- [AWS
+  IoT Device SDK for Python v2](https://github.com/aws/aws-iot-device-sdk-python-v2/blob/main/awsiot/mqtt_connection_builder.py "https://github.com/aws/aws-iot-device-sdk-python-v2/blob/main/awsiot/mqtt_connection_builder.py") — see
+  `websockets_with_default_aws_signing()`, which sets
+  `omit_session_token=True`
+- [AWS
+  IoT Device SDK for Java v2](https://github.com/aws/aws-iot-device-sdk-java-v2/blob/main/sdk/src/main/java/software/amazon/awssdk/iot/AwsIotMqttConnectionBuilder.java "https://github.com/aws/aws-iot-device-sdk-java-v2/blob/main/sdk/src/main/java/software/amazon/awssdk/iot/AwsIotMqttConnectionBuilder.java") — see
+  `setOmitSessionToken(true)`
+  When using AWS Signature Version 4 with AWS IoT, clients must support the
+  following in their TLS implementation:
 
 - TLS 1.2
 - SHA-256 RSA certificate signature validation

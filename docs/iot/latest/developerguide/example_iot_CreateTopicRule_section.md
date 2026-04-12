@@ -2,6 +2,11 @@
 
 The following code examples show how to use `CreateTopicRule`.
 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in
+context in the following code example:
+
+- [Learn the basics](example_iot_Scenario_section.md "example_iot_Scenario_section.md")
+
 .NET
 
 **SDK for .NET (v4)**

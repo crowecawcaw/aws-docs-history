@@ -1507,6 +1507,23 @@ public class IoTWrapper
 
 ```
 
+- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+  - [AttachThingPrincipal](../../../goto/DotNetSDKV4/iot-2015-05-28/AttachThingPrincipal.md "../../../goto/DotNetSDKV4/iot-2015-05-28/AttachThingPrincipal.md")
+  - [CreateKeysAndCertificate](../../../goto/DotNetSDKV4/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/DotNetSDKV4/iot-2015-05-28/CreateKeysAndCertificate.md")
+  - [CreateThing](../../../goto/DotNetSDKV4/iot-2015-05-28/CreateThing.md "../../../goto/DotNetSDKV4/iot-2015-05-28/CreateThing.md")
+  - [CreateTopicRule](../../../goto/DotNetSDKV4/iot-2015-05-28/CreateTopicRule.md "../../../goto/DotNetSDKV4/iot-2015-05-28/CreateTopicRule.md")
+  - [DeleteCertificate](../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteCertificate.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteCertificate.md")
+  - [DeleteThing](../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteThing.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteThing.md")
+  - [DeleteTopicRule](../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteTopicRule.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteTopicRule.md")
+  - [DescribeEndpoint](../../../goto/DotNetSDKV4/iot-2015-05-28/DescribeEndpoint.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DescribeEndpoint.md")
+  - [DescribeThing](../../../goto/DotNetSDKV4/iot-2015-05-28/DescribeThing.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DescribeThing.md")
+  - [DetachThingPrincipal](../../../goto/DotNetSDKV4/iot-2015-05-28/DetachThingPrincipal.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DetachThingPrincipal.md")
+  - [ListCertificates](../../../goto/DotNetSDKV4/iot-2015-05-28/ListCertificates.md "../../../goto/DotNetSDKV4/iot-2015-05-28/ListCertificates.md")
+  - [ListThings](../../../goto/DotNetSDKV4/iot-2015-05-28/ListThings.md "../../../goto/DotNetSDKV4/iot-2015-05-28/ListThings.md")
+  - [SearchIndex](../../../goto/DotNetSDKV4/iot-2015-05-28/SearchIndex.md "../../../goto/DotNetSDKV4/iot-2015-05-28/SearchIndex.md")
+  - [UpdateIndexingConfiguration](../../../goto/DotNetSDKV4/iot-2015-05-28/UpdateIndexingConfiguration.md "../../../goto/DotNetSDKV4/iot-2015-05-28/UpdateIndexingConfiguration.md")
+  - [UpdateThing](../../../goto/DotNetSDKV4/iot-2015-05-28/UpdateThing.md "../../../goto/DotNetSDKV4/iot-2015-05-28/UpdateThing.md")
+
 C++
 
 **SDK for C++**
@@ -2326,6 +2343,23 @@ bool AwsDoc::IoT::deleteThing(const Aws::String &thingName,
 
 
 ```
+
+- For API details, see the following topics in _AWS SDK for C++ API Reference_.
+  - [AttachThingPrincipal](../../../goto/SdkForCpp/iot-2015-05-28/AttachThingPrincipal.md "../../../goto/SdkForCpp/iot-2015-05-28/AttachThingPrincipal.md")
+  - [CreateKeysAndCertificate](../../../goto/SdkForCpp/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/SdkForCpp/iot-2015-05-28/CreateKeysAndCertificate.md")
+  - [CreateThing](../../../goto/SdkForCpp/iot-2015-05-28/CreateThing.md "../../../goto/SdkForCpp/iot-2015-05-28/CreateThing.md")
+  - [CreateTopicRule](../../../goto/SdkForCpp/iot-2015-05-28/CreateTopicRule.md "../../../goto/SdkForCpp/iot-2015-05-28/CreateTopicRule.md")
+  - [DeleteCertificate](../../../goto/SdkForCpp/iot-2015-05-28/DeleteCertificate.md "../../../goto/SdkForCpp/iot-2015-05-28/DeleteCertificate.md")
+  - [DeleteThing](../../../goto/SdkForCpp/iot-2015-05-28/DeleteThing.md "../../../goto/SdkForCpp/iot-2015-05-28/DeleteThing.md")
+  - [DeleteTopicRule](../../../goto/SdkForCpp/iot-2015-05-28/DeleteTopicRule.md "../../../goto/SdkForCpp/iot-2015-05-28/DeleteTopicRule.md")
+  - [DescribeEndpoint](../../../goto/SdkForCpp/iot-2015-05-28/DescribeEndpoint.md "../../../goto/SdkForCpp/iot-2015-05-28/DescribeEndpoint.md")
+  - [DescribeThing](../../../goto/SdkForCpp/iot-2015-05-28/DescribeThing.md "../../../goto/SdkForCpp/iot-2015-05-28/DescribeThing.md")
+  - [DetachThingPrincipal](../../../goto/SdkForCpp/iot-2015-05-28/DetachThingPrincipal.md "../../../goto/SdkForCpp/iot-2015-05-28/DetachThingPrincipal.md")
+  - [ListCertificates](../../../goto/SdkForCpp/iot-2015-05-28/ListCertificates.md "../../../goto/SdkForCpp/iot-2015-05-28/ListCertificates.md")
+  - [ListThings](../../../goto/SdkForCpp/iot-2015-05-28/ListThings.md "../../../goto/SdkForCpp/iot-2015-05-28/ListThings.md")
+  - [SearchIndex](../../../goto/SdkForCpp/iot-2015-05-28/SearchIndex.md "../../../goto/SdkForCpp/iot-2015-05-28/SearchIndex.md")
+  - [UpdateIndexingConfiguration](../../../goto/SdkForCpp/iot-2015-05-28/UpdateIndexingConfiguration.md "../../../goto/SdkForCpp/iot-2015-05-28/UpdateIndexingConfiguration.md")
+  - [UpdateThing](../../../goto/SdkForCpp/iot-2015-05-28/UpdateThing.md "../../../goto/SdkForCpp/iot-2015-05-28/UpdateThing.md")
 
 Java
 
@@ -3223,6 +3257,23 @@ public class IotActions {
 
 ```
 
+- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+  - [AttachThingPrincipal](../../../goto/SdkForJavaV2/iot-2015-05-28/AttachThingPrincipal.md "../../../goto/SdkForJavaV2/iot-2015-05-28/AttachThingPrincipal.md")
+  - [CreateKeysAndCertificate](../../../goto/SdkForJavaV2/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/SdkForJavaV2/iot-2015-05-28/CreateKeysAndCertificate.md")
+  - [CreateThing](../../../goto/SdkForJavaV2/iot-2015-05-28/CreateThing.md "../../../goto/SdkForJavaV2/iot-2015-05-28/CreateThing.md")
+  - [CreateTopicRule](../../../goto/SdkForJavaV2/iot-2015-05-28/CreateTopicRule.md "../../../goto/SdkForJavaV2/iot-2015-05-28/CreateTopicRule.md")
+  - [DeleteCertificate](../../../goto/SdkForJavaV2/iot-2015-05-28/DeleteCertificate.md "../../../goto/SdkForJavaV2/iot-2015-05-28/DeleteCertificate.md")
+  - [DeleteThing](../../../goto/SdkForJavaV2/iot-2015-05-28/DeleteThing.md "../../../goto/SdkForJavaV2/iot-2015-05-28/DeleteThing.md")
+  - [DeleteTopicRule](../../../goto/SdkForJavaV2/iot-2015-05-28/DeleteTopicRule.md "../../../goto/SdkForJavaV2/iot-2015-05-28/DeleteTopicRule.md")
+  - [DescribeEndpoint](../../../goto/SdkForJavaV2/iot-2015-05-28/DescribeEndpoint.md "../../../goto/SdkForJavaV2/iot-2015-05-28/DescribeEndpoint.md")
+  - [DescribeThing](../../../goto/SdkForJavaV2/iot-2015-05-28/DescribeThing.md "../../../goto/SdkForJavaV2/iot-2015-05-28/DescribeThing.md")
+  - [DetachThingPrincipal](../../../goto/SdkForJavaV2/iot-2015-05-28/DetachThingPrincipal.md "../../../goto/SdkForJavaV2/iot-2015-05-28/DetachThingPrincipal.md")
+  - [ListCertificates](../../../goto/SdkForJavaV2/iot-2015-05-28/ListCertificates.md "../../../goto/SdkForJavaV2/iot-2015-05-28/ListCertificates.md")
+  - [ListThings](../../../goto/SdkForJavaV2/iot-2015-05-28/ListThings.md "../../../goto/SdkForJavaV2/iot-2015-05-28/ListThings.md")
+  - [SearchIndex](../../../goto/SdkForJavaV2/iot-2015-05-28/SearchIndex.md "../../../goto/SdkForJavaV2/iot-2015-05-28/SearchIndex.md")
+  - [UpdateIndexingConfiguration](../../../goto/SdkForJavaV2/iot-2015-05-28/UpdateIndexingConfiguration.md "../../../goto/SdkForJavaV2/iot-2015-05-28/UpdateIndexingConfiguration.md")
+  - [UpdateThing](../../../goto/SdkForJavaV2/iot-2015-05-28/UpdateThing.md "../../../goto/SdkForJavaV2/iot-2015-05-28/UpdateThing.md")
+
 Kotlin
 
 **SDK for Kotlin**
@@ -3741,6 +3792,23 @@ suspend fun createIoTThing(thingNameVal: String) {
 
 
 ```
+
+- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+  - [AttachThingPrincipal](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [CreateKeysAndCertificate](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [CreateThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [CreateTopicRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DeleteCertificate](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DeleteThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DeleteTopicRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DescribeEndpoint](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DescribeThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DetachThingPrincipal](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [ListCertificates](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [ListThings](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [SearchIndex](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [UpdateIndexingConfiguration](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [UpdateThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
 
 Python
 
@@ -4422,6 +4490,23 @@ class IoTScenario:
 
 
 ```
+
+- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+  - [AttachThingPrincipal](../../../goto/boto3/iot-2015-05-28/AttachThingPrincipal.md "../../../goto/boto3/iot-2015-05-28/AttachThingPrincipal.md")
+  - [CreateKeysAndCertificate](../../../goto/boto3/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/boto3/iot-2015-05-28/CreateKeysAndCertificate.md")
+  - [CreateThing](../../../goto/boto3/iot-2015-05-28/CreateThing.md "../../../goto/boto3/iot-2015-05-28/CreateThing.md")
+  - [CreateTopicRule](../../../goto/boto3/iot-2015-05-28/CreateTopicRule.md "../../../goto/boto3/iot-2015-05-28/CreateTopicRule.md")
+  - [DeleteCertificate](../../../goto/boto3/iot-2015-05-28/DeleteCertificate.md "../../../goto/boto3/iot-2015-05-28/DeleteCertificate.md")
+  - [DeleteThing](../../../goto/boto3/iot-2015-05-28/DeleteThing.md "../../../goto/boto3/iot-2015-05-28/DeleteThing.md")
+  - [DeleteTopicRule](../../../goto/boto3/iot-2015-05-28/DeleteTopicRule.md "../../../goto/boto3/iot-2015-05-28/DeleteTopicRule.md")
+  - [DescribeEndpoint](../../../goto/boto3/iot-2015-05-28/DescribeEndpoint.md "../../../goto/boto3/iot-2015-05-28/DescribeEndpoint.md")
+  - [DescribeThing](../../../goto/boto3/iot-2015-05-28/DescribeThing.md "../../../goto/boto3/iot-2015-05-28/DescribeThing.md")
+  - [DetachThingPrincipal](../../../goto/boto3/iot-2015-05-28/DetachThingPrincipal.md "../../../goto/boto3/iot-2015-05-28/DetachThingPrincipal.md")
+  - [ListCertificates](../../../goto/boto3/iot-2015-05-28/ListCertificates.md "../../../goto/boto3/iot-2015-05-28/ListCertificates.md")
+  - [ListThings](../../../goto/boto3/iot-2015-05-28/ListThings.md "../../../goto/boto3/iot-2015-05-28/ListThings.md")
+  - [SearchIndex](../../../goto/boto3/iot-2015-05-28/SearchIndex.md "../../../goto/boto3/iot-2015-05-28/SearchIndex.md")
+  - [UpdateIndexingConfiguration](../../../goto/boto3/iot-2015-05-28/UpdateIndexingConfiguration.md "../../../goto/boto3/iot-2015-05-28/UpdateIndexingConfiguration.md")
+  - [UpdateThing](../../../goto/boto3/iot-2015-05-28/UpdateThing.md "../../../goto/boto3/iot-2015-05-28/UpdateThing.md")
 
 For a complete list of AWS SDK developer guides and code examples, see
 [Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
