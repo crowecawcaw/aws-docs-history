@@ -18,11 +18,11 @@ To download the credential helper tool, use the following links. Releases for Da
 
 | Platform | Architecture | Download URL                                                                                                                                                                                                                                                                                                     | SHA256 checksum                                                  |
 | -------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| Linux    | x86-64       | [https://rolesanywhere.amazonaws.com/releases/1.8.0/X86_64/Linux/Amzn2023/aws_signing_helper](https://rolesanywhere.amazonaws.com/releases/1.8.0/X86_64/Linux/Amzn2023/aws_signing_helper "https://rolesanywhere.amazonaws.com/releases/1.8.0/X86_64/Linux/Amzn2023/aws_signing_helper")                         | 4ec587c4b2a7a4b2980f0fb084c3fabd99a862ce1091341ba514ae3c0923b905 |
-| Windows  | x86-64       | [https://rolesanywhere.amazonaws.com/releases/1.8.0/X86_64/Windows/Server2022/aws_signing_helper.exe](https://rolesanywhere.amazonaws.com/releases/1.8.0/X86_64/Windows/Server2022/aws_signing_helper.exe "https://rolesanywhere.amazonaws.com/releases/1.8.0/X86_64/Windows/Server2022/aws_signing_helper.exe") | 0ca06826638b1d3e8046b583c4b4c2a9f56be738eb6edbdc44d8771a3cc2366b |
-| Darwin   | x86-64       | [https://rolesanywhere.amazonaws.com/releases/1.8.0/X86_64/MacOS/Sonoma/aws_signing_helper](https://rolesanywhere.amazonaws.com/releases/1.8.0/X86_64/MacOS/Sonoma/aws_signing_helper "https://rolesanywhere.amazonaws.com/releases/1.8.0/X86_64/MacOS/Sonoma/aws_signing_helper")                               | 514d021df32b39c78d565fbf04d9a7ed9693926824bbf3d4fa8b8f3ad6b52f13 |
-| Linux    | Aarch64      | [https://rolesanywhere.amazonaws.com/releases/1.8.0/Aarch64/Linux/Amzn2023/aws_signing_helper](https://rolesanywhere.amazonaws.com/releases/1.8.0/Aarch64/Linux/Amzn2023/aws_signing_helper "https://rolesanywhere.amazonaws.com/releases/1.8.0/Aarch64/Linux/Amzn2023/aws_signing_helper")                      | eb1c70b8ef8b02326cd0f177572285d605361920ff22ae0876bb4172e936f968 |
-| Darwin   | Aarch64      | [https://rolesanywhere.amazonaws.com/releases/1.8.0/Aarch64/MacOS/Sonoma/aws_signing_helper](https://rolesanywhere.amazonaws.com/releases/1.8.0/Aarch64/MacOS/Sonoma/aws_signing_helper "https://rolesanywhere.amazonaws.com/releases/1.8.0/Aarch64/MacOS/Sonoma/aws_signing_helper")                            | a13d8b6be18b2031b3b900e4349ecb8d301276b190988a1b599e1d70d8067ab0 |
+| Linux    | x86-64       | [https://rolesanywhere.amazonaws.com/releases/1.8.1/X86_64/Linux/Amzn2023/aws_signing_helper](https://rolesanywhere.amazonaws.com/releases/1.8.1/X86_64/Linux/Amzn2023/aws_signing_helper "https://rolesanywhere.amazonaws.com/releases/1.8.1/X86_64/Linux/Amzn2023/aws_signing_helper")                         | 89f8574965fe3c38b9803af981e95db74996d6cc1f31d53e1eb7ec33d06be70f |
+| Windows  | x86-64       | [https://rolesanywhere.amazonaws.com/releases/1.8.1/X86_64/Windows/Server2022/aws_signing_helper.exe](https://rolesanywhere.amazonaws.com/releases/1.8.1/X86_64/Windows/Server2022/aws_signing_helper.exe "https://rolesanywhere.amazonaws.com/releases/1.8.1/X86_64/Windows/Server2022/aws_signing_helper.exe") | b7e8ae02013126abab40fd886f9e918d3a0809309c4c3cb813d55b36a92e6116 |
+| Darwin   | x86-64       | [https://rolesanywhere.amazonaws.com/releases/1.8.1/X86_64/MacOS/Sonoma/aws_signing_helper](https://rolesanywhere.amazonaws.com/releases/1.8.1/X86_64/MacOS/Sonoma/aws_signing_helper "https://rolesanywhere.amazonaws.com/releases/1.8.1/X86_64/MacOS/Sonoma/aws_signing_helper")                               | f1279c50f0de0924b208c4c495e3a2ac5b02fb8724147d29c59ec6fd4eecebe4 |
+| Linux    | Aarch64      | [https://rolesanywhere.amazonaws.com/releases/1.8.1/Aarch64/Linux/Amzn2023/aws_signing_helper](https://rolesanywhere.amazonaws.com/releases/1.8.1/Aarch64/Linux/Amzn2023/aws_signing_helper "https://rolesanywhere.amazonaws.com/releases/1.8.1/Aarch64/Linux/Amzn2023/aws_signing_helper")                      | bd9b33e6cb0917f3e9b6e8292fd490dbe8bc821aada8832154e6a77e890bba3e |
+| Darwin   | Aarch64      | [https://rolesanywhere.amazonaws.com/releases/1.8.1/Aarch64/MacOS/Sonoma/aws_signing_helper](https://rolesanywhere.amazonaws.com/releases/1.8.1/Aarch64/MacOS/Sonoma/aws_signing_helper "https://rolesanywhere.amazonaws.com/releases/1.8.1/Aarch64/MacOS/Sonoma/aws_signing_helper")                            | 9a6397fa3c63957f39b48f43594b259720e09af81c5d846c91ca4cd4d0d83a14 |
 
 ###### Important
 
@@ -649,6 +649,10 @@ To specify your Roles Anywhere enabled profile for use with JavaScript, see
 [Loading Credentials in Node.js from the Shared Credentials File](../../../sdk-for-javascript/v2/developer-guide/loading-node-credentials-shared.md "../../../sdk-for-javascript/v2/developer-guide/loading-node-credentials-shared.md")
 
 ## Credential Helper Changelog
+
+### CredentialHelper version 1.8.1
+
+On April 8, 2026, AWS IAM Roles Anywhere released Credential Helper version 1.8.1. As a part of this release, some security vulnerabilities were patched.
 
 ### CredentialHelper version 1.8.0
 
