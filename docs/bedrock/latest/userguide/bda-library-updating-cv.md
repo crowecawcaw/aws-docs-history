@@ -24,17 +24,17 @@ aws bedrock-data-automation-data-automation invoke-data-automation-library-inges
 ## AWS Console Example:
 
 1. Navigate to the "Library details" page for your library
-2. Click into the desired entity from the "Custom vocabulary lists"
+2. Select the desired entity from the "Custom vocabulary lists"
 3. Make the desired modifications:
    1. Update:
-      1. Click into desired phrase
+      1. Select the desired phrase
       2. Update the phrase
-      3. Click the check mark to the right of the phrase
+      3. Choose the check mark to the right of the phrase
 
    2. Delete
-      1. Click the checkbox to the left of the desired phrase(s)
-      2. Click "Delete phrases"
+      1. Select the checkbox to the left of the desired phrase(s)
+      2. Choose "Delete phrases"
 
-4. Click "Save updates"
+4. Choose "Save updates"
 
 ![](images/bda/library-update-cv-console.png)

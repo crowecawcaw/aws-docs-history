@@ -2,12 +2,13 @@
 
 **Inference APIs supported**
 
-Amazon Bedrock provide four main API patterns to perform [inference](inference.md "inference.md") in Amazon Bedrock.
+Amazon Bedrock provide five main API patterns to perform [inference](inference.md "inference.md") in Amazon Bedrock.
 
 | **API method**                                                           | **Service endpoint**                                                   | **Use-case best suited for**         | **Key feature**                                                                                                                                                                                                          |
 | ------------------------------------------------------------------------ | ---------------------------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Responses API](bedrock-mantle.md "bedrock-mantle.md") (recommended)     | `bedrock-mantle.<suffix>`                                              | Stateful conversations               | Use the Responses API for modern, agentic applications requiring built-in tool use (search, code interpreter), multimodal inputs, and stateful conversations                                                             |
 | [Chat completions](bedrock-mantle.md "bedrock-mantle.md")                | `bedrock-mantle.<suffix>` (recommended) and `bedrock-runtime.<suffix>` | Stateless multi-turn chat            | Use the [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md") for lightweight, stateless, text-focused tasks where you need full control over chat history management and lower latency. |
+| Messages API                                                             | `bedrock-mantle.<suffix>`                                              | Anthropic-native interface           | Use the Messages API for direct access to Anthropic models using the Anthropic-native request and response format via the bedrock-mantle endpoint.                                                                       |
 | [Converse method](conversation-inference.md "conversation-inference.md") | `bedrock-runtime.<suffix>`                                             | Multi-turn chat/standardizing        | The [Converse API](conversation-inference.md "conversation-inference.md") provides a unified interface for interacting with all models in Amazon Bedrock.                                                                |
 | [Invoke method](inference-invoke.md "inference-invoke.md")               | `bedrock-runtime.<suffix>`                                             | Single transactions / Large payloads | The Invoke API provides direct access to models with more ability to control the request and response format.                                                                                                            |
 
@@ -29,4 +30,4 @@ The API you use depends on your use-case.
 
 **Models supported by each API and endpoint**
 
-First, browse our [models](models.md "models.md") to decide on the model you want to use. Once you decide on the model you want to use, you can see the APIs it supports and based on that you choose which endpoint to use. The `bedrock-mantle` supports the Responses and Chat Completions API. The `bedrock-runtime` supports the Invoke and Converse API.
+First, browse our [models](models.md "models.md") to decide on the model you want to use. Once you decide on the model you want to use, you can see the APIs it supports and based on that you choose which endpoint to use. The `bedrock-mantle` supports the Responses, Chat Completions, and Messages API. The `bedrock-runtime` supports the Invoke and Converse API.

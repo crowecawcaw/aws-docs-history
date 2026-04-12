@@ -222,6 +222,10 @@ Now, let us look at Regional availability across all the models supported by Ama
 
 ## Anthropic
 
+| [Claude Mythos Preview](model-card-anthropic-claude-mythos-preview.md "model-card-anthropic-claude-mythos-preview.md") | Region | In-Region | Geo | Global |
+| ---------------------------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                                              | Yes    | No        | No  |
+
 | [Claude Sonnet 4](model-card-anthropic-claude-sonnet-4.md "model-card-anthropic-claude-sonnet-4.md") | Region | In-Region | Geo | Global |
 | ---------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
 | `us-east-1` (N. Virginia)                                                                            | No     | Yes       | Yes |

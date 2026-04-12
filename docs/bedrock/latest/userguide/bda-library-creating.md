@@ -25,7 +25,7 @@ aws bedrock-data-automation create-data-automation-library \
 ## AWS Console Example:
 
 1. Navigate to "Manage libraries" page in BDA Console
-2. Click "Create library"
+2. Choose "Create library"
 
 ![](images/bda/library-create-console.png)
 

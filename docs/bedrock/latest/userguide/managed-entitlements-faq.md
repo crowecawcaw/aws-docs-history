@@ -74,7 +74,7 @@ A: No. Deleting a grant is permanent and cannot be undone. However, you can crea
 
 **Q: What happens to granted licenses in linked accounts when the parent subscription expires in the management account?**
 
-A: The linked accounts will continue to have model access when parent subscription expires in the management account. However, they will be billed at public rates rather than any negotiated private offer pricing.
+A: The linked accounts will lose access to the model when the parent subscription expires in the management account.
 
 ## Special configurations
 

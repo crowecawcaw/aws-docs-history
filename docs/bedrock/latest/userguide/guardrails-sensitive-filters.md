@@ -217,6 +217,24 @@ context is crucial for accurate identification.
 
 ###### Note
 
+PII masking applies only to content that is sent to the inference model (input
+prompts) and content that is returned from the inference model (model responses). It
+does not apply to the following:
+
+- **Model invocation logs** — If you
+  enabled [Monitor model invocation using CloudWatch Logs and Amazon S3](model-invocation-logging.md "model-invocation-logging.md"), the
+  `input` field in Amazon CloudWatch Logs always contains the original,
+  unmodified request regardless of guardrail intervention. To protect
+  sensitive information in your logs, use [Amazon CloudWatch log data protection](../../../AmazonCloudWatch/latest/logs/mask-sensitive-log-data.md "../../../AmazonCloudWatch/latest/logs/mask-sensitive-log-data.md").
+- **Guardrails trace output** — The
+  `match` field in [GuardrailPiiEntityFilter](../APIReference/API_runtime_GuardrailPiiEntityFilter.md "../APIReference/API_runtime_GuardrailPiiEntityFilter.md") that is returned in API responses
+  (such as the `trace` object of the Converse API) contains the
+  original PII value, not the masked output. This behavior is by design so
+  that your application can use the detection result for its own
+  logic.
+
+###### Note
+
 A custom regex filter of sensitive information filters does not support a regex
 lookaround match.
 

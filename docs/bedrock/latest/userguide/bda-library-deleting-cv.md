@@ -61,5 +61,5 @@ aws bedrock-data-automation invoke-data-automation-library-ingestion-job \
 ## AWS Console Example:
 
 1. Navigate to the "Library details" page for your library
-2. Click desired entity from the "Custom vocabulary lists"
-3. Click "Delete custom vocabulary list"
+2. Choose the desired entity from the "Custom vocabulary lists"
+3. Choose "Delete custom vocabulary list"

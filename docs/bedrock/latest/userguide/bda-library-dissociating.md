@@ -15,6 +15,6 @@ aws bedrock-data-automation update-data-automation-project \
 1. Navigate to the "Library details" page for your library
 2. Expand "Associated projects"
 3. Choose the desired project
-4. Click "Dissociate project"
+4. Choose "Dissociate project"
 
 ![](images/bda/library-dissociate-console.png)

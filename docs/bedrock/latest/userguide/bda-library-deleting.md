@@ -23,8 +23,8 @@ aws bedrock-data-automation delete-data-automation-library \
 ## AWS Console Example:
 
 1. Navigate to "Manage libraries" page in BDA Console
-2. Click the desired library from the list of libraries
-3. Click "Delete library"
+2. Choose the desired library from the list of libraries
+3. Choose "Delete library"
 
 ![](images/bda/library-delete-console.png)
 

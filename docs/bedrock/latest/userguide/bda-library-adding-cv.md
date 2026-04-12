@@ -62,7 +62,7 @@ aws bedrock-data-automation-data-automation invoke-data-automation-library-inges
 **AWS Console Example:**
 
 1. Navigate to "Library details" page
-2. Click "Add custom vocabulary list"
+2. Choose "Add custom vocabulary list"
 3. Choose "Upload/select manifest"
 4. Choose whether to upload the manifest file directly or from a S3 location
 
@@ -98,7 +98,7 @@ aws bedrock-data-automation-data-automation invoke-data-automation-library-inges
 **AWS Console Example:**
 
 1. Navigate to "Library details" page
-2. Click "Add custom vocabulary list"
+2. Choose "Add custom vocabulary list"
 3. Choose "Add manually"
 
 ![](images/bda/library-add-cv-inline-console.png)

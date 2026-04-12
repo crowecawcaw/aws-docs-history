@@ -1,6 +1,6 @@
 # Models at a glance
 
-Amazon Bedrock provides access to **102** foundation models
+Amazon Bedrock provides access to **103** foundation models
 from **17** providers. Each model card below includes the
 following details to help you evaluate and integrate a model into your application:
 
