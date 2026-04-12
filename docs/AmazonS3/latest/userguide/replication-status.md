@@ -44,7 +44,9 @@ values for the object's replication status: `PENDING`,
 
 If object replication fails after you upload an object, you can't retry
 replication. You must upload the object again, or you must use
-S3 Batch Replication to replicate any failed objects. For more information
+S3 Batch Replication to replicate any failed objects. S3 Lifecycle blocks
+expiration and transition actions on objects with `PENDING` or
+`FAILED` replication status. For more information
 about using Batch Replication, see [Replicating existing objects with Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
 
 Objects transition to a `FAILED` state for issues such as
@@ -65,8 +67,11 @@ Before deleting an object from a source bucket that has replication enabled, che
 the object's replication status to make sure that the object has been replicated.
 
 If an S3 Lifecycle configuration is enabled on the source bucket, Amazon S3 suspends
-lifecycle actions until it marks the objects' status as either
-`COMPLETED` or `FAILED`.
+lifecycle actions until it marks the object's replication status as
+`COMPLETED`. If replication status is `FAILED`,
+S3 Lifecycle continues to block expiration and transition actions on the object
+until you resolve the underlying replication issue. For more information, see
+[S3 Lifecycle and](lifecycle-and-other-bucket-config.md#lifecycle-and-replication "lifecycle-and-other-bucket-config.md#lifecycle-and-replication").
 
 ## Replication status if replicating to multiple destination buckets
 

@@ -1,0 +1,54 @@
+# Mounting S3 file systems on Amazon EKS
+
+You can attach an S3 file system to an Amazon EKS cluster by using the Amazon EFS Container
+Storage Interface (CSI) driver, which supports both dynamic provisioning and static
+provisioning. This involves installing the efs-csi-driver, which is the CSI driver for both
+Amazon EFS and S3 Files.
+
+![Diagram showing the data flow between an S3 bucket, S3 file system, and Amazon EKS cluster.](images/S3Files_EKS_dataflow.png)
+
+## Prerequisites
+
+Before you mount an S3 file system on an EKS cluster, make sure that you have the
+following:
+
+- You have an S3 file system that has at least one mount target
+  available.
+- You have configured the required [Security groups](s3-files-prereq-policies.md#s3-files-prereq-security-groups "s3-files-prereq-policies.md#s3-files-prereq-security-groups").
+- Your EKS cluster must be in the same VPC as your mount
+  target.
+- The Amazon EFS CSI driver needs AWS Identity and Access Management
+  (IAM) permissions to connect to and interact with S3 file systems. For details,
+  see [IAM role for attaching your file system to AWS compute resources](s3-files-prereq-policies.md#s3-files-prereq-iam-compute-role "s3-files-prereq-policies.md#s3-files-prereq-iam-compute-role").
+- AWS suggests using EKS Pod Identities. For more information, see
+  [Overview of setting up EKS
+  Pod Identities](../../../eks/latest/userguide/pod-identities.md "../../../eks/latest/userguide/pod-identities.md").
+- For information about IAM roles for service accounts and setting up an
+  IAM OpenID Connect (OIDC) provider for your cluster, see [Create
+  an IAM OIDC provider for your cluster](../../../eks/latest/userguide/enable-iam-roles-for-service-accounts.md "../../../eks/latest/userguide/enable-iam-roles-for-service-accounts.md").
+- The `kubectl` command line tool is installed on your device or
+  AWS CloudShell. The version can be the same as or up to one minor version
+  earlier or later than the Kubernetes version of your cluster. For example, if
+  your cluster version is 1.29, you can use `kubectl` version 1.28,
+  1.29, or 1.30 with it. To install or upgrade `kubectl`, see [Set up kubectl and
+  eksctl](../../../eks/latest/userguide/install-kubectl.md "../../../eks/latest/userguide/install-kubectl.md").
+
+## How to mount your S3 file system on an EKS cluster
+
+The Amazon EFS CSI driver requires IAM permissions to interact with your file system.
+Create an IAM role and attach the `AmazonS3FilesCSIDriverPolicy` managed
+policy to it. Add the EFS CSI driver to your EKS cluster and specify the IAM role to
+allow your CSI driver to access AWS APIs and the file system. You can use the AWS
+Management Console or the AWS API. For details, see [Using S3 file system storage with Amazon
+EKS](../../../eks/latest/userguide/s3files-csi.md "../../../eks/latest/userguide/s3files-csi.md").
+
+You can also use S3 file systems with AWS Batch on Amazon EKS. To attach S3 file
+system volume to your AWS Batch on Amazon EKS job, you can use Amazon EKS pods with
+persistent volume claim. For more details see [persistentVolumeClaim](../../../batch/latest/APIReference/API_EksVolume.md#Batch-Type-EksVolume-persistentVolumeClaim "../../../batch/latest/APIReference/API_EksVolume.md#Batch-Type-EksVolume-persistentVolumeClaim") section of [Register Job
+Definitions](../../../batch/latest/APIReference/API_RegisterJobDefinition.md "../../../batch/latest/APIReference/API_RegisterJobDefinition.md") and [EKS Persistent
+Volume Claim](../../../batch/latest/APIReference/API_EksPersistentVolumeClaim.md "../../../batch/latest/APIReference/API_EksPersistentVolumeClaim.md") pages of the _AWS Batch API Reference
+Guide_.
+
+You can monitor your file system storage, performance, client connections, and
+synchronization errors using [Amazon
+CloudWatch](s3-files-monitoring-cloudwatch.md "s3-files-monitoring-cloudwatch.md").

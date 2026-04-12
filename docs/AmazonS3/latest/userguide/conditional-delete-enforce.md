@@ -20,8 +20,12 @@ to use the `If-Match` HTTP header.
 
 You can use this bucket policy to only allow conditional deletes using
 `DeleteObject` and `DeleteObjects` requests that include
-the `If-Match` header with the `ETag` value. All
-non-conditional deletes would be denied and conditional deletes would pass.
+the `If-Match` header with the `ETag` value. The
+`Null` condition ensures the `If-Match` header is present,
+and the `s3:GetObject` permission is granted because conditional deletes
+with a specific ETag value require both `s3:DeleteObject` and
+`s3:GetObject` permissions. All non-conditional deletes would be
+denied and conditional deletes would pass.
 
 ```
 {
@@ -58,8 +62,13 @@ non-conditional deletes would be denied and conditional deletes would pass.
 
 You can use this bucket policy to only allow conditional deletes using
 `DeleteObject` and `DeleteObjects` requests that
-include the `If-Match` header with `*` value. All
-non-conditional deletes would be denied and conditional deletes would pass.
+include the `If-Match` header with the `*` value. The
+`Null` condition ensures the `If-Match` header is
+present. Because `s3:GetObject` is not granted, conditional deletes
+with a specific ETag value will fail – only `If-Match: *`
+(which checks object existence and requires only `s3:DeleteObject`
+permission) will succeed. All non-conditional deletes would be denied, and
+only `If-Match: *` conditional deletes would succeed.
 
 ```
 {

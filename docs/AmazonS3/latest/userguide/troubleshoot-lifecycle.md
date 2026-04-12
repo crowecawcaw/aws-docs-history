@@ -212,7 +212,7 @@ handles the Expiration action:
   the current version.
 - Amazon S3 doesn't take any action on noncurrent versions of objects that have S3 Object Lock
   applied.
-- For objects with a `PENDING` replication status, Amazon S3 doesn't take any action current
+- For objects with a `PENDING` or `FAILED` replication status, Amazon S3 doesn't take any action on current
   or noncurrent versions of objects.
 
 Lifecycle storage class transitions have the following constraints:
@@ -221,7 +221,7 @@ Lifecycle storage class transitions have the following constraints:
 - Objects must be stored for at least 30 days before transitioning to S3 Standard-IA or
   S3 One Zone-IA.
 - For versioning enabled or versioning suspended buckets, objects with a `PENDING`
-  replication status can't be transitioned.
+  or `FAILED` replication status can't be transitioned.
 
 ## How can I exclude a prefix from my lifecycle rule?
 

@@ -28,6 +28,14 @@ Amazon S3 follows these general rules:
   S3 Glacier Flexible Retrieval transition.
   For examples, see [Examples of overlapping filters and conflicting lifecycle actions](lifecycle-conflicts.md#lifecycle-config-conceptual-ex5 "lifecycle-conflicts.md#lifecycle-config-conceptual-ex5").
 
+## S3 Lifecycle and
+
+When you have both and S3 Lifecycle enabled on a bucket, S3 Lifecycle blocks expiration and transition actions on objects with `PENDING` or `FAILED` replication status. This ensures that Lifecycle does not act on objects until they have successfully replicated to their destination bucket.
+
+Objects transition to a `FAILED` replication state for issues such as missing replication role permissions, AWS Key Management Service (AWS KMS) permissions, or bucket permissions. For more information, see [Troubleshooting replication](replication-troubleshoot.md "replication-troubleshoot.md").
+
+Objects with `FAILED` replication status will continue to incur storage costs past their Lifecycle expiration or transition eligibility date until the replication issue is resolved. Once you fix the underlying replication configuration or IAM permissions, new objects will replicate automatically. However, objects that already have `FAILED` replication status will not automatically retry—you must use S3 Batch Replication to replicate them, or delete them using S3 Batch Operations with AWS Lambda if no longer needed. After objects successfully replicate (or are deleted), Lifecycle will resume processing them according to your configured rules. To identify objects with `FAILED` replication status, you can use Amazon CloudWatch metrics (`OperationFailedReplication`) to monitor failure counts and trends at the bucket level, or use Amazon S3 Inventory reports, Amazon S3 API (`HeadObject` or `GetObject`), or Amazon S3 Event Notifications for object-level details.
+
 ## S3 Lifecycle configuration on MFA-enabled buckets
 
 S3 Lifecycle configuration on multi-factor authentication buckets configured for MFA delete

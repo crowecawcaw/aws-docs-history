@@ -193,7 +193,7 @@ in Amazon Athena. For query examples, see [Querying Amazon S3 Inventory with Ama
 
 - **Lifecycle Expiration Date** – Set to the lifecycle expiration
   timestamp of the object. This field will only be populated, if the object is to be expired by
-  an applicable lifecycle rule. In other cases, the field will be empty. For more information,
+  an applicable lifecycle rule. In other cases, the field will be empty. Objects with `FAILED` replication status will not have an expiration date populated, as S3 Lifecycle prevents expiration and transition actions on these objects until replication has succeeded. For more information,
   see [Expiring objects](lifecycle-expire-general-considerations.md "lifecycle-expire-general-considerations.md").
 
 ###### Note

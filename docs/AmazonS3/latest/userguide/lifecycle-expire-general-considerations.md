@@ -45,7 +45,7 @@ on which [S3 Versioning](Versioning.md "Versioning.md") state the bucket is in:
   `NoncurrentVersionExpiration` action element, see [Elements to describe lifecycle actions](intro-lifecycle-rules.md#intro-lifecycle-rules-actions "intro-lifecycle-rules.md#intro-lifecycle-rules-actions").
 - Amazon S3 doesn't take any action on noncurrent versions of objects that have the
   S3 Object Lock configuration applied.
-- For objects with a `Pending` replication status, Amazon S3 doesn't take
+- For objects with a `Pending` or `Failed` replication status, Amazon S3 doesn't take
   any action on current or non-current versions of objects.
   For more information, see [Retaining multiple versions of objects with S3 Versioning](Versioning.md "Versioning.md").
 

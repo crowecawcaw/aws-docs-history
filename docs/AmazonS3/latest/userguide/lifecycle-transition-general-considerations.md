@@ -49,7 +49,7 @@ using an S3 Lifecycle configuration.
 
 ###### Note
 
-For versioning enabled or versioning suspended buckets, you can't transition objects with a `Pending` replication status.
+For versioning enabled or versioning suspended buckets, you can't transition objects with a `Pending` or `Failed` replication status.
 
 ## Constraints and considerations for transitions
 

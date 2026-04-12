@@ -2,19 +2,23 @@
 
 ###### Important
 
-Starting in April 2026, AWS will disable server-side encryption with customer-provided keys (SSE-C) for all new buckets. In addition, SSE-C encryption will be disabled for all existing buckets in AWS accounts that do not have any SSE-C encrypted data. With these changes, the few applications that need SSE-C encryption must deliberately enable the use SSE-C via the [PutBucketEncryption](../API/API_PutBucketEncryption.md "../API/API_PutBucketEncryption.md") API after creating the bucket. In these cases, you might need to update automation scripts, CloudFormation templates, or other infrastructure configuration tools to configure these settings. For more information, see the [AWS Storage Blog post](https://aws.amazon.com/blogs/storage/advanced-notice-amazon-s3-to-disable-the-use-of-sse-c-encryption-by-default-for-all-new-buckets-and-select-existing-buckets-in-april-2026/ "https://aws.amazon.com/blogs/storage/advanced-notice-amazon-s3-to-disable-the-use-of-sse-c-encryption-by-default-for-all-new-buckets-and-select-existing-buckets-in-april-2026/").
+As [announced on November 19, 2025](https://aws.amazon.com/blogs/storage/advanced-notice-amazon-s3-to-disable-the-use-of-sse-c-encryption-by-default-for-all-new-buckets-and-select-existing-buckets-in-april-2026/ "https://aws.amazon.com/blogs/storage/advanced-notice-amazon-s3-to-disable-the-use-of-sse-c-encryption-by-default-for-all-new-buckets-and-select-existing-buckets-in-april-2026/"), Amazon Simple Storage Service is deploying a new default bucket security setting that automatically disables server-side encryption with customer-provided keys (SSE-C) for all new general purpose buckets. For existing buckets in AWS accounts with no SSE-C encrypted objects, Amazon S3 will also disable SSE-C for all new write requests. For AWS accounts with SSE-C usage, Amazon S3 will not change the bucket encryption configuration on any of the existing buckets in those accounts. This deployment started on April 6, 2026, and will complete over the next few weeks in 37 AWS Regions, including the AWS China and AWS GovCloud (US) Regions.
+
+With these changes, applications that need SSE-C encryption must deliberately enable SSE-C by using the [PutBucketEncryption](../API/API_PutBucketEncryption.md "../API/API_PutBucketEncryption.md") API operation after creating a new bucket.
 
 The following sections answer questions about this update.
 
 **1. In April 2026, will the new SSE-C setting take effect for all newly created buckets?**
 
-Yes. During April 2026, the
-new default setting will gradually be rolled out across all AWS Regions.
+Yes. This deployment started on April 6, 2026, and will complete over the next few weeks in 37 AWS Regions, including the AWS China and AWS GovCloud (US) Regions.
+
+###### Note
+
+After the deployment is complete, newly created buckets in all AWS Regions except Middle East (Bahrain) and Middle East (UAE) will have SSE-C disabled by default.
 
 **2. How long will it take before this rollout covers all AWS Regions?**
 
-This update will take several weeks to roll out. We will publish a What's New post
-when we start to deploy this update.
+The deployment started on April 6, 2026, and will complete in a few weeks.
 
 **3. How will I know that the update is complete?**
 

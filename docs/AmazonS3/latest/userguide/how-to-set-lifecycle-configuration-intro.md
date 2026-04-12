@@ -32,9 +32,14 @@ rule is completed. For example, suppose that a set of objects is expired by a li
 rule on January 1. Even though the expiration rule has been satisfied on January 1, Amazon S3
 might not actually delete these objects until days or even weeks later. This delay
 occurs because S3 Lifecycle queues objects for transitions or expirations asynchronously.
+When you add or modify a Lifecycle rule, S3 Lifecycle may begin processing eligible objects immediately or with some delay. When S3 Lifecycle creates a delete marker or transitions an object, the timestamp is set to midnight UTC on the day the action occurred, regardless of the actual time the action was taken.
 However, changes in billing are usually applied when the lifecycle rule is satisfied,
 even if the action isn't complete. For more information, see [Changes in billing](#lifecycle-billing "#lifecycle-billing"). To monitor the effect of
 updates made by active lifecycle rules, see [How do I monitor the actions taken by my lifecycle rules?](troubleshoot-lifecycle.md#troubleshoot-lifecycle-2 "troubleshoot-lifecycle.md#troubleshoot-lifecycle-2")
+
+###### Note
+
+When a lifecycle rule is created or modified, objects that already meet the eligibility criteria may be processed immediately.
 
 ###### Updating, disabling, or deleting lifecycle rules
 
