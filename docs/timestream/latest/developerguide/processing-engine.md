@@ -281,6 +281,106 @@ Plugins Repository](https://github.com/influxdata/influxdb3_plugins/tree/main/in
 
 ## Available plugins
 
+### Timestream for LiveAnalytics migration plugin
+
+#### Migrate a database from Timestream for LiveAnalytics to Timestream for InfluxDB
+
+- **Trigger types**: HTTP
+- **Use cases**: Migrating a time series database from Timestream for LiveAnalytics to Timestream for InfluxDB.
+- **GitHub**: [Timestream for LiveAnalytics migration plugin Documentation](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/tools/python/liveanalytics_influxdb3_migration_plugin "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/tools/python/liveanalytics_influxdb3_migration_plugin")
+
+**How it works**: The Timestream for LiveAnalytics migration
+plugin works in unison with the [Timestream for LiveAnalytics migration
+client](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/tools/python/liveanalytics_influxdb3_migration_plugin/liveanalytics_migration_client "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/tools/python/liveanalytics_influxdb3_migration_plugin/liveanalytics_migration_client"). The client executes a
+[Timestream
+for LiveAnalytics UNLOAD command](supported-sql-constructs.UNLOAD.md "supported-sql-constructs.UNLOAD.md") to export a LiveAnalytics database to an S3 bucket in Parquet format.
+After the data is exported the client generates [presigned URLs](../../../AmazonS3/latest/userguide/ShareObjectPreSignedURL.md "../../../AmazonS3/latest/userguide/ShareObjectPreSignedURL.md")
+for the Parquet files, and invokes the migration plugin with the presigned URLs. During plugin execution the S3 objects are
+retrieved from the S3 bucket and transformed to InfluxDB line protocol, and written to an InfluxDB 3 database.
+
+**Best practices**: The Timestream for LiveAnalytics migration plugin must be run on a single InfluxDB 3 Enterprise node. Ensure the InfluxDB 3 endpoint used with the plugin client is a process node endpoint rather than the cluster endpoint. The cluster performing the migration should not undertake ingestion or queries while the migration plugin is running, as this could lead to out of memory errors.
+
+Migration performance depends on the resources available to the InfluxDB 3 node and the characteristics of the data being migrated. In our testing, we observed a throughput of 30,000,000 LiveAnalytics records migrated per hour. Your actual performance may vary based on several factors.
+
+**Data mapping**: The following table shows how Timestream for LiveAnalytics data is mapped to line protocol data.
+
+| Timestream for LiveAnalytics Concept                                                                              | Line Protocol Concept                                                                                                                                                                    |
+| ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Table](API_Table.md "API_Table.md")                                                                              | [Measurement](https://docs.influxdata.com/influxdb/v2/reference/syntax/line-protocol/#measurement "https://docs.influxdata.com/influxdb/v2/reference/syntax/line-protocol/#measurement") |
+| [Dimensions](API_Dimension.md "API_Dimension.md")                                                                 | [Tags](https://docs.influxdata.com/influxdb/v2/reference/syntax/line-protocol/#tag-set "https://docs.influxdata.com/influxdb/v2/reference/syntax/line-protocol/#tag-set")                |
+| [Measure name](data-modeling.md#data-modeling-measurenamemulti "data-modeling.md#data-modeling-measurenamemulti") | Tag                                                                                                                                                                                      |
+| [Measures](API_MeasureValue.md "API_MeasureValue.md")                                                             | [Fields](https://docs.influxdata.com/influxdb/v2/reference/syntax/line-protocol/#field-set "https://docs.influxdata.com/influxdb/v2/reference/syntax/line-protocol/#field-set")          |
+| [Time](writes.md#writes.data-types "writes.md#writes.data-types")                                                 | [Timestamp](https://docs.influxdata.com/influxdb/v2/reference/syntax/line-protocol/#timestamp "https://docs.influxdata.com/influxdb/v2/reference/syntax/line-protocol/#timestamp")       |
+
+**Single-measure record transformation**: The following is a single-measure record in Timestream for LiveAnalytics in the table `example_table`:
+
+| host  | region    | request_id    | measure_name | time                          | measure_value::double |
+| ----- | --------- | ------------- | ------------ | ----------------------------- | --------------------- |
+| host1 | us-west-2 | saio3242ovnfk | cpu_usage    | 2025-04-17 16:42:54.702394001 | 0.66                  |
+
+This record will be transformed to:
+
+```
+example_table,host=host1,region=us-west-2,request_id=saio3242ovnfk,measure_name=cpu_usage measure_value::double=0.66 1744908174702394001
+```
+
+**Multi-measure record transformation**: The following is a multi-measure record in Timestream for LiveAnalytics in the table `example_table` with everything to the right of `time` being measures:
+
+| host  | region    | request_id    | measure_name | time                          | cpu_usage | memory_usage |
+| ----- | --------- | ------------- | ------------ | ----------------------------- | --------- | ------------ |
+| host1 | us-west-2 | saio3242ovnfk | metrics      | 2025-04-17 16:42:54.702394001 | 0.66      | 0.21         |
+
+This record will be transformed to:
+
+```
+example_table,host=host1,region=us-west-2,request_id=saio3242ovnfk,measure_name=metrics cpu_usage=0.66,memory_usage=0.21 1744908174702394001
+```
+
+###### Important
+
+The presigned URLs that the plugin uses to retrieve the LiveAnalytics data in S3 expire when either their set expiration occurs or the IAM credentials used to generate them expire (maximum 7 days). We recommend running the migration client on an EC2 instance (a `t3.medium` instance is sufficient) because the EC2 instance rotates IAM credentials automatically, removing the presigned URL time constraints during the migration. If you do not use an EC2 instance, migrations can be resumed and large datasets may require multiple resume invocations.
+
+The Timestream for LiveAnalytics migration plugin is recommended for migrations with under 1 billion records or 125GB within a single LiveAnalytics database.
+
+The migration plugin should only be used on a single process node in the cluster. You can determine the process node by using [list-db-instances-for-cluster](../../../cli/latest/reference/timestream-influxdb/list-db-instances-for-cluster.md "../../../cli/latest/reference/timestream-influxdb/list-db-instances-for-cluster.md") and setting the `INFLUXDB3_HOST_URL` to the endpoint of one of the database instances that has an instance mode of type `PROCESS`, or you can use the Timestream console and select your cluster to find the process node.
+
+**Key features:**
+
+- Exports the time series data from Timestream for LiveAnalytics to an S3 bucket using the UNLOAD command.
+- Generates presigned URLs for each S3 object being migrated.
+- Tracks the migration process for each S3 object.
+- Cleans up S3 objects after a successful migration.
+- Supports resuming a failed migration in the event of presigned URL expiration.
+
+**Example usage:**
+
+```
+# Migrate a LiveAnalytics database to InfluxDB 3
+export INFLUXDB3_HOST_URL="https://<your InfluxDB 3 URL>:<your InfluxDB 3 port>"
+export INFLUXDB3_AUTH_TOKEN="<your InfluxDB 3 token>"
+export INFLUXDB3_DATABASE_NAME="<your InfluxDB 3 target database>"
+
+aws s3api create-bucket --bucket <your S3 bucket name> \
+    --object-lock-enabled-for-bucket --region <your region> \
+    --create-bucket-configuration LocationConstraint=<your region>
+
+```
+
+###### Note
+
+Update the S3 bucket policy with the example bucket policy in the README. For more
+information, see [Prerequisites](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/tools/python/liveanalytics_influxdb3_migration_plugin#prerequisites "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/tools/python/liveanalytics_influxdb3_migration_plugin#prerequisites").
+
+```
+python3 liveanalytics_influxdb3_migration_client.py \
+    --live-analytics-database-name <your LiveAnalytics database name> \
+    --s3-bucket-name <your S3 bucket name>
+
+```
+
+**Output:** Timestream for LiveAnalytics database is transformed
+to line protocol and Ingested to InfluxDB 3 database.
+
 ### Anomaly detection plugins
 
 #### MAD-based anomaly detection
@@ -507,52 +607,6 @@ influxdb3 create trigger \
 
 **Output:** Creates multiple tables (system_cpu,
 system_memory, system_disk_io, etc.) with detailed metrics for each subsystem.
-
-### Predictive analytics plugins
-
-#### Prophet forecasting
-
-- **Trigger types**: Scheduled, HTTP
-- **Use cases**: Demand forecasting, capacity planning,
-  trend analysis, seasonal pattern detection.
-- **GitHub**: [Prophet Forecasting Documentation](https://github.com/influxdata/influxdb3_plugins/tree/main/influxdata/prophet_forecasting "https://github.com/influxdata/influxdb3_plugins/tree/main/influxdata/prophet_forecasting")
-
-**How it works:** Uses Facebook's Prophet library to build
-time-series forecasting models. Can train models on historical data and generate
-predictions for future time periods. Models account for trends, seasonality, holidays, and
-changepoints. Supports model persistence for consistent predictions.
-
-**Key features:**
-
-- Automatic seasonality detection (daily, weekly, yearly).
-- Holiday calendar support (built-in and custom).
-- Changepoint detection for trend shifts.
-- Model persistence and versioning.
-- Confidence intervals for predictions.
-- Validation with MSRE thresholds.
-
-**Example usage:**
-
-```
-# Train and forecast temperature data
-influxdb3 create trigger \
-  --database weather \
-  --plugin-filename "prophet_forecasting/prophet_forecasting.py" \
-  --trigger-spec "every:1d" \
-  --trigger-arguments 'measurement=temperature,field=value,window=90d,forecast_horizont=7d,tag_values="location:seattle",target_measurement=temperature_forecast,model_mode=train,unique_suffix=seattle_v1,seasonality_mode=additive' \
-  temp_forecast
-# Validate temperature predictions with MAE
-influxdb3 create trigger \
-  --database weather \
-  --plugin-filename "forecast_error_evaluator/forecast_error_evaluator.py" \
-  --trigger-spec "every:1h" \
-  --trigger-arguments 'forecast_measurement=temp_forecast,actual_measurement=temp_actual,forecast_field=predicted,actual_field=temperature,error_metric=mae,error_thresholds=WARN-"2.0":ERROR-"5.0",window=6h,rounding_freq=5min,senders=discord' \
-  temp_forecast_check
-
-```
-
-**Output:** Sends notifications when forecast error exceeds
-thresholds, including the error metric value and affected time range.
 
 ## Common configuration patterns
 

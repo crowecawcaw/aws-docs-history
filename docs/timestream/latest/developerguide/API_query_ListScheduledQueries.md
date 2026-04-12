@@ -95,7 +95,7 @@ Type: Array of [ScheduledQuery](API_query_ScheduledQuery.md "API_query_Scheduled
 
 ## Errors
 
-For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md "CommonErrors.md").
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md "CommonErrors.md").
 
 **AccessDeniedException**
 
