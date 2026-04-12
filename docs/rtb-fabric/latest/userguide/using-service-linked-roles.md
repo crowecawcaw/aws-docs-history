@@ -94,12 +94,12 @@ again.
    aws rtbfabric delete-requester-gateway --gateway-id `rtb-gw-abc123xyz789`
    ```
 
-   The response returns a status of `DELETING`:
+   The response returns a status of `PENDING_DELETION`:
 
    ```
    {
    "gatewayId": "rtb-gw-abc123xyz789",
-   "status": "DELETING"
+   "status": "PENDING_DELETION"
    }
    ```
 

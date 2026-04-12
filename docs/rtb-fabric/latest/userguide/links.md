@@ -47,6 +47,10 @@ Links between RTB Fabric users can be created through the AWS Management Console
 
 Contact your RTB Fabric partner to obtain their gateway ID. AWS does not provide gateway IDs. 10. Choose **Create link** to send the link request. 11. The link is created with a **Requested** status and sent to the target gateway for approval. The target gateway owner must accept the link request before it becomes active.
 
+###### Important
+
+Links that are not accepted within 7 days of requesting will time out, and will need to be re-initiated.
+
 Once the target gateway accepts the link request, the link status changes to **Active** and begins facilitating communication between your gateways. You can monitor link performance and make configuration changes as needed.
 
 Use the following command to create a link between gateways using the AWS Command Line Interface (AWS CLI).
@@ -160,7 +164,7 @@ The following example shows the response from creating an outbound external link
 {
   "gatewayId": `"rtb-gw-source123"`,
   "linkId": `"link-uvw123"`,
-  "status": "Active"
+  "status": "PENDING_CREATION"
 }
 ```
 
@@ -172,11 +176,24 @@ External links leverage the AWS Global Network where possible but may require pu
 
 ### Creating inbound external links
 
-Inbound external links allow external partners (e.g., SSPs) to send traffic to your responder gateway over the public internet. When you create an inbound external link, RTB Fabric provides a public domain name that external partners can use to reach your gateway. Creating inbound external links is supported through the RTB Fabric API, the AWS CLI, and AWS CloudFormation. The following examples show how to create an inbound external link using the RTB Fabric API. For complete specifications, see [CreateInboundExternalLink](../api/API_CreateInboundExternalLink.md "../api/API_CreateInboundExternalLink.md") in the _RTB Fabric API Reference_.
+Inbound external links allow external partners (such as SSPs) to send traffic to your responder gateway over the public internet. To create new inbound external links, use the `CreateInboundExternalLink` API on an external responder gateway. Both use cases produce the same result — an inbound external link — but differ in the returned endpoint format. `CreateResponderGateway` with `gatewayType` as `EXTERNAL` returns an external inbound endpoint (e.g. "rtb-gw-target123.123456789012.gateway.rtbfabric.us-east-1.amazonaws.com"), while `CreateInboundExternalLink` on an internal responder gateway returns a domain name as link endpoint.
 
-Use the following command to create an inbound external link using the AWS Command Line Interface (AWS CLI).
+Creating inbound external links is supported through the RTB Fabric API, the AWS CLI, and AWS CloudFormation. For complete specifications, see [CreateInboundExternalLink](../api/API_CreateInboundExternalLink.md "../api/API_CreateInboundExternalLink.md") in the _RTB Fabric API Reference_.
 
-**Create an inbound external link**
+Use the following command to create an inbound external link on an external responder gateway using the AWS Command Line Interface (AWS CLI).
+
+**Create an inbound external link (recommended using external gateway id)**
+
+```
+`$` `aws rtbfabric create-inbound-external-link \
+--gateway-id `rtb-gw-target123` \
+--log-settings `'{"applicationLogs":{"sampling":{"errorLog":100.0,"filterLog":0}}}'` \
+--tags `'{"Name": "Team Inbound External Link"}'` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
+```
+
+**Create an inbound external link (deprecated using internal gateway id)**
 
 ```
 `$` `aws rtbfabric create-inbound-external-link \
@@ -189,18 +206,17 @@ Use the following command to create an inbound external link using the AWS Comma
 
 #### Response
 
-The following example shows the response from creating an inbound external link:
+The following example shows the response from creating an inbound external link using `CreateInboundExternalLink` on an external responder gateway:
 
 ```
 {
   "gatewayId": `"rtb-gw-target123"`,
   "linkId": `"link-xyz789"`,
-  "status": "Active",
-  "domainName": "`link-xyz789`.`123456789012`.gateway.`rtbfabric`.us-east-1.amazonaws.com"
+  "status": "PENDING_CREATION"
 }
 ```
 
-The `domainName` in the response is the public endpoint that external partners should use to send traffic to your responder gateway.
+To find the external inbound endpoint that external partners should use to send traffic to your external responder gateway, see the `externalInboundEndpoint` in the response of `CreateResponderGateway` API.
 
 RTB Fabric sets a DNS TTL (time to live) of 60 seconds for provided domain names. External partners should configure their DNS clients to respect this TTL value to ensure proper failover and load balancing behavior.
 
@@ -241,6 +257,10 @@ Once you accept a link request, the requesting gateway can send bid requests to 
 ###### Note
 
 You can also choose **View details** to see more information about the link request before making your decision. The links table also includes action buttons for **Accept**, **Reject**, and **Delete** operations.
+
+###### Important
+
+Links that are not accepted within 7 days of requesting will time out, and will need to be re-initiated.
 
 Use the following commands to accept or reject link requests using the AWS Command Line Interface (AWS CLI).
 

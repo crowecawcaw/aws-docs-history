@@ -29,5 +29,4 @@ to monitor and secure your RTB Fabric resources.
 
 - [Identity and access management for AWS RTB Fabric](security-iam.md "security-iam.md")
 - [Data protection in AWS RTB Fabric](data-protection.md "data-protection.md")
-- [Incident response for AWS RTB Fabric](incident-response.md "incident-response.md")
 - [Compliance validation for AWS RTB Fabric](compliance-validation.md "compliance-validation.md")

@@ -1,13 +1,13 @@
 # Requester gateways
 
-Requester gateways are RTB Fabric infrastructure components that serve as connection points for customer applications. Requester gateways receive requests from requester applications and forward them through links to responder gateways. Gateways operate colocated with your VPC and provide routing, load balancing, and processing capabilities. You maintain full control over your bidding logic, data, and auction decisions, while RTB Fabric provides the secure infrastructure for connectivity. Requester gateways are typically used by supply-side platforms (SSPs).
+Requester gateways are RTB Fabric infrastructure components that serve as connection points for customer gateways. Requester gateways receive requests from requester gateways and forward them through links to responder gateways. Gateways operate colocated with your VPC and provide routing, load balancing, and processing capabilities. You maintain full control over your bidding logic, data, and auction decisions, while RTB Fabric provides the secure infrastructure for connectivity. Requester gateways are typically used by supply-side platforms (SSPs).
 
 ###### Topics
 
 - [Creating a requester gateway](#creating-requester-gateway "#creating-requester-gateway")
 - [Searching for requester gateways](#searching-requester-gateways "#searching-requester-gateways")
 - [Viewing associated links](#viewing-associated-links "#viewing-associated-links")
-- [Deleting requester gateways](#deleting-applications "#deleting-applications")
+- [Deleting requester gateways](#deleting-gateways "#deleting-gateways")
 
 ## Creating a requester gateway
 
@@ -66,13 +66,13 @@ You can update the gateway description using the RTB Fabric API. For more inform
 
 ## Searching for requester gateways
 
-Use the search functionality in the console to locate specific gateways associated with your account. The applications table displays key information including application ID, status, name, creation date, and associated resources.
+Use the search functionality in the console to locate specific gateways associated with your account. The gateways table displays key information including gateway ID, status, name, creation date, and associated resources.
 
 ###### To search for requester gateways
 
 1. In the **Find requester gateways** search box, enter your search criteria.
 2. You can search across requester gateway ID, status, name, or creation date.
-3. The table automatically filters to show matching applications as you type.
+3. The table automatically filters to show matching gateways as you type.
 4. If no gateways exist, the console displays **No requester gateways** with an option to create a gateway.
 
 Use the following command to get details for a specific requester gateway using the AWS Command Line Interface (AWS CLI).
@@ -88,23 +88,23 @@ Use the following command to get details for a specific requester gateway using 
 
 ## Viewing associated links
 
-Each requester gateway can have associated links that connect it to responder applications. You can view these links directly from the applications table and see detailed connection information.
+Each requester gateway can have associated links that connect it to responder gateways. You can view these links directly from the gateways table and see detailed connection information.
 
-###### To view associated links for an application
+###### To view associated links for an gateway
 
-1. In the **Requester gateways** table, locate the application whose links you want to view.
-2. Select the radio button for the application row.
-3. The application details expand below the table, showing the application ID with a collapsible section.
+1. In the **Requester gateways** table, locate the gateway whose links you want to view.
+2. Select the radio button for the gateway row.
+3. The gateway details expand below the table, showing the gateway ID with a collapsible section.
 4. In the expanded section, view the **Links associated with this requester gateway** section, which displays the total number of links in parentheses.
-5. Review the links table, which shows detailed information for each associated link including link ID, status, creation date, requester application name, and responder application ID.
+5. Review the links table, which shows detailed information for each associated link including link ID, status, creation date, requester gateway name, and responder gateway ID.
 
 The links table includes the following columns:
 
 - **Link ID** – Unique identifier for the link.
 - **Link status** – Current operational status of the link.
 - **Link creation date (UTC)** – When the link was created.
-- **Requester gateway name** – Name of the requesting application.
-- **Responder Gateway ID** – ID of the responding application.
+- **Requester gateway name** – Name of the requesting gateway.
+- **Responder Gateway ID** – ID of the responding gateway.
 
 Use the following command to list all links associated with a specific requester gateway using the AWS Command Line Interface (AWS CLI).
 
@@ -130,7 +130,7 @@ Use the following command to list all links associated with a specific requester
 
 ## Deleting requester gateways
 
-When you no longer need a requester gateway, you can delete it from your environment. This action is irreversible and will terminate all bidding activities associated with the application.
+When you no longer need a requester gateway, you can delete it from your environment. This action is irreversible and will terminate all bidding activities associated with the gateway.
 
 We recommend deleting unused requester gateways to optimize resource usage and costs. AWS may delete unused gateways after 30 days of inactivity to manage infrastructure resources.
 
@@ -140,10 +140,10 @@ Deleting a requester gateway is permanent and cannot be undone. Check your gatew
 
 ###### To delete a requester gateway
 
-1. On the **Requester gateways** page, select the radio button next to the application you want to delete.
+1. On the **Requester gateways** page, select the radio button next to the gateway you want to delete.
 2. Choose **Delete** from the action buttons at the top of the page.
-3. If the gateway has associated links, a dialog appears with the message "To delete this application, you must first delete all of its associated links. You can delete links on the Links table." Follow the provided instructions to delete associated links first, then return to delete the application. For more information, see [Deleting links](links.md#deleting-rtb-links "links.md#deleting-rtb-links").
-4. If the application has no associated links, a confirmation dialog appears. Verify that you want to delete the selected application.
+3. If the gateway has associated links, a dialog appears with the message "To delete this gateway, you must first delete all of its associated links. You can delete links on the Links table." Follow the provided instructions to delete associated links first, then return to delete the gateway. For more information, see [Deleting links](links.md#deleting-rtb-links "links.md#deleting-rtb-links").
+4. If the gateway has no associated links, a confirmation dialog appears. Verify that you want to delete the selected gateway.
 5. Choose **Delete** to confirm the deletion.
 
 Use the following command to delete a requester gateway using the AWS Command Line Interface (AWS CLI).
