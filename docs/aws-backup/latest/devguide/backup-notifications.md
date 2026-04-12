@@ -70,8 +70,10 @@ AWS Backup for S3 supports two additional events:
 - `S3_RESTORE_OBJECT_FAILED` notifies you of any S3 object that AWS Backup
   failed to restore during a restore job.
 
-AWS Backup for EKS supports two additional events:
+AWS Backup for EKS supports three additional events:
 
+- `EKS_BACKUP_OBJECT_FAILED` notifies you of any EKS objects that AWS Backup
+  failed to back up during a backup job.
 - `EKS_RESTORE_OBJECT_FAILED` notifies you of any EKS objects that AWS Backup
   failed to restore during a restore job.
 - `EKS_RESTORE_OBJECT_SKIPPED` notifies you of any EKS objects that AWS Backup
@@ -184,7 +186,95 @@ AWS Backup for EKS supports two additional events:
               "AccountId" : {"Type":"String","Value":"123456789012"},
               "IndexStatus" : {"Type":"String","Value":"ACTIVE"},
               "IsIndexingContinuous" : {"Type":"String","Value":"false"},
-               "RecoveryPointArn" : {"Type":"String","Value":"arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"}
+              "RecoveryPointArn" : {"Type":"String","Value":"arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"}
+            }
+        }
+    }]
+}
+```
+
+###### Example: EKS backup object failed
+
+```
+{
+    "Records": [{
+        "EventSource": "aws:sns",
+        "EventVersion": "1.0",
+        "EventSubscriptionArn": "arn:aws:sns:...-a3802aa1ed45",
+        "Sns": {
+            "Type": "Notification",
+            "MessageId": "12345678-abcd-123a-def0-abcd1a234567",
+            "TopicArn": "arn:aws:sns:us-west-1:123456789012:backup-2sqs-sns-topic",
+            "Subject": "Notification from AWS Backup",
+            "Message": "A Kubernetes resource failed to backup from your Amazon EKS Backup. Resource: example.resource.io/v1. EKS Cluster Name: eks-cluster-name. BackupJob ID: 1b2345b2-f22c-4dab-5eb6-bbc7890ed123",
+            "Timestamp": "2025-05-25T18:46:02.788Z",
+            ...
+            "MessageAttributes" : {
+              "eventType" : {"Type":"String","Value":"EKS_BACKUP_OBJECT_FAILED"},
+              "backupJobId" : {"Type":"String","Value":"1b2345b2-f22c-4dab-5eb6-bbc7890ed123"},
+              "clusterName" : {"Type":"String","Value":"eks-cluster-name"},
+              "reason" : {"Type":"String","Value":"Example failure reason."},
+              "resourceName" : {"Type":"String","Value":"example.resource.io/v1"}
+            }
+        }
+    }]
+}
+```
+
+###### Example: EKS restore object failed
+
+```
+{
+    "Records": [{
+        "EventSource": "aws:sns",
+        "EventVersion": "1.0",
+        "EventSubscriptionArn": "arn:aws:sns:...-a3802aa1ed45",
+        "Sns": {
+            "Type": "Notification",
+            "MessageId": "12345678-abcd-123a-def0-abcd1a234567",
+            "TopicArn": "arn:aws:sns:us-west-1:123456789012:backup-2sqs-sns-topic",
+            "Subject": "Notification from AWS Backup",
+            "Message": "A Kubernetes resource failed to restore from your Amazon EKS Backup. Resource: apiextensions.k8s.io/v1/customresourcedefinitions. Resource Name: exampleresource. Destination EKS Cluster Name: eks-restore-target-cluster-name. RestoreJob ID: 1b2345b2-f22c-4dab-5eb6-bbc7890ed123",
+            "Timestamp": "2025-05-25T18:46:02.788Z",
+            ...
+            "MessageAttributes" : {
+              "eventType" : {"Type":"String","Value":"EKS_RESTORE_OBJECT_FAILED"},
+              "clusterName" : {"Type":"String","Value":"eks-restore-target-cluster-name"},
+              "parentRestoreJobId" : {"Type":"String","Value":"12345678-abcd-123a-def0-abcd1a234567"},
+              "reason" : {"Type":"String","Value":"Example failure reason."},
+              "resourceName" : {"Type":"String","Value":"exampleresourceio"},
+              "resourceType" : {"Type":"String","Value":"apiextensions.k8s.io/v1/customresourcedefinitions"},
+              "restoreJobId" : {"Type":"String","Value":"1b2345b2-f22c-4dab-5eb6-bbc7890ed123"}
+            }
+        }
+    }]
+}
+```
+
+###### Example: EKS restore object skipped
+
+```
+{
+    "Records": [{
+        "EventSource": "aws:sns",
+        "EventVersion": "1.0",
+        "EventSubscriptionArn": "arn:aws:sns:...-a3802aa1ed45",
+        "Sns": {
+            "Type": "Notification",
+            "MessageId": "12345678-abcd-123a-def0-abcd1a234567",
+            "TopicArn": "arn:aws:sns:us-west-1:123456789012:backup-2sqs-sns-topic",
+            "Subject": "Notification from AWS Backup",
+            "Message": "A Kubernetes resource was skipped from restore from your Amazon EKS Backup. This Kubernetes resource already exists in your target EKS cluster. Resource: apiextensions.k8s.io/v1/customresourcedefinitions. Resource Name: exampleresource. Destination EKS Cluster Name: eks-restore-target-cluster-name. RestoreJob ID: 1b2345b2-f22c-4dab-5eb6-bbc7890ed123",
+            "Timestamp": "2025-05-25T18:46:02.788Z",
+            ...
+            "MessageAttributes" : {
+              "eventType" : {"Type":"String","Value":"EKS_RESTORE_OBJECT_SKIPPED"},
+              "clusterName" : {"Type":"String","Value":"eks-restore-target-cluster-name"},
+              "parentRestoreJobId" : {"Type":"String","Value":"12345678-abcd-123a-def0-abcd1a234567"},
+              "reason" : {"Type":"String","Value":"Already exists."},
+              "resourceName" : {"Type":"String","Value":"exampleresource"},
+              "resourceType" : {"Type":"String","Value":"apiextensions.k8s.io/v1/customresourcedefinitions"},
+              "restoreJobId" : {"Type":"String","Value":"1b2345b2-f22c-4dab-5eb6-bbc7890ed123"}
             }
         }
     }]

@@ -115,6 +115,7 @@ Each Amazon EKS backup creates a parent backup job for the composite recovery po
 - A completed backup job means your entire Amazon EKS cluster and the resources within it are protected by AWS Backup.
 - A failed status indicates that the backup job was unsuccessful; you should create the backup again once the issue that caused the failure is corrected.
 - A `Partial` status means that not all the resources in the cluster were backed up. This may happen if one or more of the backup jobs belonging to resources within the cluster (nested resources) have statuses other than `Completed`. You can manually create an on-demand backup to rerun any resources that resulted in a status other than `Completed`.
+- A `Completed with issues` status means that not all the resources in the cluster were backed up. This can happen when we fail to backup some Kubernetes objects in the cluster. You can subscribe to **Notification Events** for failed objects for backup. For more information, see [Notification options with AWS Backup.](backup-notifications.md "backup-notifications.md")
 
 Each nested resource within the composite recovery point has its own individual recovery point, each with its own status (either `Completed` or `Failed`). Nested recovery points with a status of `Completed` can be restored.
 
@@ -178,6 +179,23 @@ Amazon EKS backups support all copy types:
 - Amazon FSx via CSI driver is not supported via EKS Backups.
 - AWS Backup does not support Amazon EKS on AWS Outposts.
 - Subject to [backup and restore quotas](aws-backup-limits.md "aws-backup-limits.md").
+
+## Backup Jobs Completed with Issues
+
+When backing up an Amazon EKS cluster, some Kubernetes objects may fail to be retrieved.
+In this case, the backup job will complete with a `Completed with issues` status
+rather than failing entirely, with the following status message:
+
+- Some Kubernetes Objects failed to be backed up. To get notified of these failures, [enable SNS event notifications](backup-notifications.md "backup-notifications.md").
+
+The following Kubernetes object types may be skipped during a backup job due to
+[Amazon EKS Metrics Server Add On](../../../eks/latest/userguide/metrics-server.md "../../../eks/latest/userguide/metrics-server.md") unavailability issues
+resulting in a 503 Service Unavailable error. See here for [troubleshooting guidance](https://repost.aws/knowledge-center/eks-resolve-http-503-errors-kubernetes "https://repost.aws/knowledge-center/eks-resolve-http-503-errors-kubernetes").
+
+- `metrics.k8s.io`
+- `custom.metrics.k8s.io`
+- `external.metrics.k8s.io`
+- `metrics.eks.amazonaws.com`
 
 ## Frequently Asked Questions
 
