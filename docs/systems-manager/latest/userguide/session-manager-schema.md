@@ -139,7 +139,13 @@ Linux and macOS managed nodes when the
 `runAsEnabled` input is set to `true`.
 The user account you specify for this input must exist on the
 managed nodes you will be connecting to; otherwise, sessions
-will fail to start.
+will fail to start. When determining which OS user account to
+use, Session Manager checks in the following order: the
+`SSMSessionRunAs` tag on the IAM user's
+session tags, then the `SSMSessionRunAs` tag on the
+assumed IAM role, and finally this
+`runAsDefaultUser` value from session
+preferences. For more information, see [Turn on Run As support for Linux and macOS managed nodes](session-preferences-run-as.md "session-preferences-run-as.md").
 
 Type: String
 

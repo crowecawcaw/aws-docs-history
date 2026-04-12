@@ -35,7 +35,7 @@ Linux & macOS
 
 ```
 aws ssm update-service-setting \
-    --setting-id /ssm/automation/throttling-retry-time-limit \
+    --setting-id /ssm/automation/throttled-retry-time-limit \
     --setting-value `3600`
 ```
 
@@ -43,7 +43,7 @@ Windows
 
 ```
 aws ssm update-service-setting ^
-    --setting-id /ssm/automation/throttling-retry-time-limit ^
+    --setting-id /ssm/automation/throttled-retry-time-limit ^
     --setting-value `3600`
 ```
 
@@ -51,6 +51,6 @@ PowerShell
 
 ```
 Update-SSMServiceSetting `
-    -SettingId "/ssm/automation/throttling-retry-time-limit" `
+    -SettingId "/ssm/automation/throttled-retry-time-limit" `
     -SettingValue "`3600`"
 ```

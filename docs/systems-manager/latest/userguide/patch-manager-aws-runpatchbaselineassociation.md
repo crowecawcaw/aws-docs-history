@@ -335,6 +335,13 @@ however, patches in the `InstallOverrideList` patch list are
 applied _only_ if they also match the patch
 baseline rules.
 
+On Linux & macOS managed nodes, patches specified in the
+`InstallOverrideList` are applied only as updates to
+packages that are already installed on the node. If the
+`InstallOverrideList` includes patches for packages that are
+not currently installed on the node, those patches are not
+installed.
+
 Be aware that compliance reports reflect patch states according to what’s
 specified in the patch baseline, not what you specify in an
 `InstallOverrideList` list of patches. In other words, Scan

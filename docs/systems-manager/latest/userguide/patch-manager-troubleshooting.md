@@ -86,7 +86,9 @@ returning an error message.
 marked as failed even though patches were successfully installed. This can occur if the system initiates
 an unexpected reboot during the patching operation (for example, to apply updates to firmware or
 features like SecureBoot). The SSM Agent cannot persist and resume the document execution state
-across external reboots, resulting in the execution being reported as failed.
+across external reboots, resulting in the execution being reported as failed. This can occur with the
+`AWS-RunPatchBaseline`, `AWS-RunPatchBaselineAssociation`, `AWS-RunPatchBaselineWithHooks`,
+and `AWS-InstallWindowsUpdates` documents.
 
 **Solution**: To verify patch installation status after a failed execution,
 run a `Scan` patching operations, then check the patch compliance data in Patch Manager
