@@ -66,7 +66,7 @@ JSON
 
 ```
 
-The following is an example IAM policy to describe replicator. Either the `kafka:DescribeReplicator` action or `kafka:ListTagsForResource` action is needed, not both.
+The following is an example IAM policy to describe replicator.
 
 JSON
 
