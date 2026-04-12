@@ -1964,14 +1964,12 @@ made using a VPC endpoint is not preserved in FAS requests.
 IP addresses. For a list of AWS services that support IPv6, see [AWS services that support IPv6](../../../vpc/latest/userguide/aws-ipv6-support.md "../../../vpc/latest/userguide/aws-ipv6-support.md") in the
 _Amazon VPC User Guide_.
 
-The `aws:VpcSourceIp` condition key should always be used in
-conjunction with either the `aws:SourceVpc` or the
-`aws:SourceVpce` condition keys. Otherwise, it is possible for
-API calls from an unexpected VPC that uses the same or overlapping IP CIDR to be
-permitted by a policy. This can occur because the IP CIDRs from the two
-unrelated VPCs can be the same or overlap. Instead, VPC IDs or VPC Endpoints IDs
-should be used in the policy as they have globally unique identifiers. These
-unique identifiers ensure that unexpected results will not occur.
+Always use the `aws:VpcSourceIp` condition key with the
+`aws:SourceVpc`, `aws:SourceVpce`, or
+`aws:SourceVpcArn` condition keys. If you don't, a policy
+might permit API calls from an unexpected VPC that uses the same or
+overlapping IP CIDR. This can happen because IP CIDRs from two
+unrelated VPCs can be the same or overlap.
 
 ###### Note
 

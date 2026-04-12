@@ -58,5 +58,5 @@ The following topics provide information about service-specific credentials.
 
 ###### Topics
 
-- [API keys for Amazon Bedrock and Amazon CloudWatch Logs](id_credentials_bedrock_cloudwatchlogs.md "id_credentials_bedrock_cloudwatchlogs.md")
+- [API keys for AWS services](id_credentials_api_keys_for_aws_services.md "id_credentials_api_keys_for_aws_services.md")
 - [Use IAM with Amazon Keyspaces (for Apache Cassandra)](id_credentials_keyspaces.md "id_credentials_keyspaces.md")
