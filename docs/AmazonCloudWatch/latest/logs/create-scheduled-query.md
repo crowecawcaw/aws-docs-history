@@ -66,33 +66,50 @@ Console
 7. In the **Post query results to S3 -
    optional** section (if using S3
    destination):
-   1. For **Amazon S3 URI**, enter the Amazon S3
+   1. For **S3 bucket**, select
+      **This account** if the destination
+      bucket is in the same AWS account, or select
+      **Another account** if the bucket is
+      in a different AWS account and provide the account ID
+      of the bucket-owning account as input.
+   2. For **Amazon S3 URI**, enter the Amazon S3
       bucket and prefix where results will be stored (for
       example,
-      `s3://my-bucket/query-results/`).
-   2. Choose **View Amazon S3** to open the Amazon S3
-      console in a new tab and verify the bucket
-      configuration.
-   3. Choose **Browse Amazon S3** to select an
-      existing Amazon S3 location using the Amazon S3 browser.
+      `s3://my-bucket/query-results/`). If you
+      selected **This account**, you can
+      choose **Browse Amazon S3** to navigate and
+      select an existing Amazon S3 location.
+   3. (Optional) For **KMS key ARN**,
+      enter the ARN of a customer managed AWS KMS key to
+      encrypt the query results using SSE-KMS. The key must
+      be in the same AWS Region as the destination Amazon S3
+      bucket.
 
 8. In the **IAM role for posting query results to
-   Amazon S3** section:
-   1. For **Select an IAM role**, choose
-      an existing IAM role with the required policies, or
-      choose **create a new role in IAM
-      console** to create a new role.
-   2. Use the search field to find and select the
-      appropriate IAM role from the list.
+   Amazon S3** section, choose one of the following
+   options:
+   1. Choose **Auto-create a new role with default
+      permissions** to automatically set up an IAM
+      role with the permissions required for CloudWatch Logs to deliver
+      query results to Amazon S3.
+   2. Choose **Use an existing role** to
+      select an existing IAM role with the required policies
+      for CloudWatch Logs to deliver query results to Amazon S3. Use the
+      search field to find and select the appropriate IAM
+      role from the list.
 
 9. In the **IAM role for scheduled query
-   execution** section:
-   1. For **Select an IAM role**, choose
-      an existing IAM role with the required policies, or
-      choose **create a new role in IAM
-      console** to create a new role.
-   2. Use the search field to find and select the
-      appropriate IAM role from the list.
+   execution** section, choose one of the following
+   options:
+   1. Choose **Auto-create a new role with default
+      permissions** to automatically set up an IAM
+      role with the permissions required for CloudWatch Logs to execute
+      scheduled queries.
+   2. Choose **Use an existing role** to
+      select an existing IAM role with the required policies
+      for CloudWatch Logs to execute scheduled queries. Use the search
+      field to find and select the appropriate IAM role from
+      the list.
 
 10. Choose **Create schedule** to create the
     scheduled query.
