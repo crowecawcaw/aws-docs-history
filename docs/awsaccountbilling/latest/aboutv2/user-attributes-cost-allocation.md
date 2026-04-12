@@ -1,14 +1,14 @@
-# Using User Attributes for Cost Allocation
+# Using user attributes for cost allocation
 
 ## Overview
 
 AWS supports cost allocation based on user attributes for Amazon Q Business, Amazon Q Developer, and Amazon QuickSight. This feature enables organizations to automatically track and allocate costs according to their internal organizational structure using existing workforce user attributes such as cost center, division, organization, and department.
 
-## How User-Based Cost Allocation Works
+## How user-based cost allocation works
 
 Once you enable user attributes for cost allocation, when employees use AWS applications that charge per user, their usage and associated costs are automatically recorded with their organizational attributes. This helps you eliminate the need for manual cost allocation processes and provides accurate visibility into how different teams and departments are driving AWS costs.
 
-## Key Benefits
+## Key benefits
 
 Once you enable user attributes for cost allocation, you can map usage to internal organizational structures.
 You can use user attributes to see which teams, departments, or cost centers are consuming AWS services and at what rate,
@@ -26,9 +26,9 @@ Before you can use user attributes for cost allocation, ensure you have:
 - **User Attributes:** Cost center, division, organization, or department attributes in your identity system
 - **Permissions:** Access to IAM Identity Center and Billing and Cost Management consoles
 
-## Setting Up User Attributes for Cost Allocation
+## Setting up user attributes for cost allocation
 
-### Step 1: Import User Attributes in IAM Identity Center
+### Step 1: Import user attributes in IAM Identity Center
 
 1. Import these attributes during the next synchronization with your Identity Provider. Attributes will be imported for both new and existing users. The import process typically completes within 24 hours. For more information about mapping user attributes, see [Attribute mapping between IAM Identity Center and External Identity Providers directory](../../../singlesignon/latest/userguide/attributemappingsconcept.md "../../../singlesignon/latest/userguide/attributemappingsconcept.md") and [Enable automatic provisioning](../../../singlesignon/latest/userguide/provision-automatically.md "../../../singlesignon/latest/userguide/provision-automatically.md").
 
@@ -36,7 +36,7 @@ Before you can use user attributes for cost allocation, ensure you have:
 
 By enabling User-Based Cost Allocation, user attributes stored in AWS IAM Identity Center will be included as user attribute cost allocation tags in AWS cost management products such as Cost and Usage Report 2.0 and Cost Explorer. Such tags do not constitute your content, and we recommend you do not include sensitive, confidential, or personally identifiable information in them.
 
-### Step 2: Select User Attributes for Cost Allocation
+### Step 2: Select user attributes for cost allocation
 
 1. Open the AWS Management Console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the left panel, under Preferences and Settings, select **Cost Management Preferences**
@@ -49,7 +49,7 @@ By enabling User-Based Cost Allocation, user attributes stored in AWS IAM Identi
 1. Return to IAM Identity Center Settings and verify that selected attributes show as "Imported". Confirm attribute data is populated for your users.
 2. In Billing and Cost Management console, under Cost Organization, select Cost Allocation Tags. Verify tags show as "Active".
 
-## Viewing User Attributes in Cost and Usage Reports
+## Viewing user attributes in cost and usage reports
 
 After completing the setup, user attributes will appear in your Cost and Usage Report 2.0 (CUR 2.0) alongside other cost allocation tags.
 When viewing cost data in CUR 2.0, tags from different sources (resources, user attributes, accounts, and cost categories) are

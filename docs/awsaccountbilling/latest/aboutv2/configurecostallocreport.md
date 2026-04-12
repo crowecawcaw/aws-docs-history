@@ -99,7 +99,7 @@ report, the user-defined tag keys have the prefix `user`, such as
 have the prefix `aws`. The keys are column headings identifying each
 tagged line item's value, such as "78925".
 
-![Keys in the Downloadable Report](/images/awsaccountbilling/latest/aboutv2/images/CostAllocationPartExampleReport.png)
+![Keys in the Downloadable Report](images/CostAllocationPartExampleReport.png)
 
 Pick your keys carefully so that you have a consistent hierarchy of values.
 Otherwise, your report won't group costs effectively, and you will have many line
