@@ -248,7 +248,7 @@ In this example command:
 ``$` openssl enc -id-aes256-wrap-pad \
  -K "$(xxd -p < `aes-key.bin` | tr -d '\n')" \
  -iv A65959A6 \
- -in `PlaintextKeyMaterial.bin`\
+ -in `PlaintextKeyMaterial.bin` \
  -out key-material-wrapped.bin`
 ```
 
@@ -345,7 +345,7 @@ In this example command:
 ``$` openssl enc -id-aes256-wrap-pad \
  -K "$(xxd -p < `aes-key.bin` | tr -d '\n')" \
  -iv A65959A6 \
- -in `PlaintextKeyMaterial.bin`\
+ -in `PlaintextKeyMaterial.bin` \
  -out key-material-wrapped.bin`
 ```
 
