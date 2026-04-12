@@ -413,6 +413,7 @@ If the **Type** column specifies a "List of …" one of the simple types, then y
 - [AWS RTB Fabric](list_awsrtbfabric.md "list_awsrtbfabric.md")
 - [Amazon S3](list_amazons3.md "list_amazons3.md")
 - [Amazon S3 Express](list_amazons3express.md "list_amazons3express.md")
+- [Amazon S3 Files](list_amazons3files.md "list_amazons3files.md")
 - [Amazon S3 Glacier](list_amazons3glacier.md "list_amazons3glacier.md")
 - [Amazon S3 Object Lambda](list_amazons3objectlambda.md "list_amazons3objectlambda.md")
 - [Amazon S3 on Outposts](list_amazons3onoutposts.md "list_amazons3onoutposts.md")
