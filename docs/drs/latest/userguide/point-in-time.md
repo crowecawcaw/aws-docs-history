@@ -8,6 +8,15 @@ You can select to save PIT snapshots for 1 up to 365 days. Saving PIT snapshots
 for more days allows you more recovery options, but also results in increased
 costs. [Learn more about Point in time.](CloudEndure-Concepts.md#point-in-time-faq "CloudEndure-Concepts.md#point-in-time-faq")
 
+###### Important
+
+The PIT policy must contain exactly three rules: one for MINUTE, one for HOUR,
+and one for DAY. The snapshot frequency intervals and retention durations for the
+MINUTE rule (`interval=10`, `retentionDuration=60`) and
+HOUR rule (`interval=1`, `retentionDuration=24`) are fixed
+and cannot be modified. Only the DAY rule's `retentionDuration` is
+configurable, with a value from 1 to 365 days.
+
 DRS Console
 
 ###### Adjusting PIT Retention Rate
