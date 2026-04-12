@@ -61,8 +61,17 @@ processes and distribute system resources between them. Control Groups are used
 extensively to implement a container runtime, and by `systemd`.
 
 The Amazon ECS agent, Docker, and containerd all support both cgroupv1 and cgroupv2.
-Amazon ECS agent and the container runtime manage cgroups for you, so Amazon ECS customers do
-not need to make any changes for this underlying cgroup upgrade.
+cgroupv2 changes how container memory usage is calculated. In cgroupv1 (Amazon Linux 2),
+container memory utilization as reported by the container runtime typically
+excludes page cache. In cgroupv2 (Amazon Linux 2023), page cache is included in the
+reported memory usage. The same workload may report higher memory utilization
+on Amazon Linux 2023 compared to Amazon Linux 2, even when actual application memory consumption
+has not changed.
+
+We recommend benchmarking memory usage on Amazon Linux 2023 instances before migrating
+production workloads, and adjusting task and container memory limits if needed.
+You can use [Container Insights](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md") to compare memory utilization between Amazon Linux 2
+and Amazon Linux 2023.
 
 For further details on cgroupv2, see [Control groups v2 in Amazon Linux 2023](../../../linux/al2023/ug/cgroupv2.md "../../../linux/al2023/ug/cgroupv2.md") in
 the _Amazon Linux 2023 User Guide_.

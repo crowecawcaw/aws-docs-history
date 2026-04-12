@@ -301,9 +301,15 @@ with a minimum of 50 GiB.
                 "useLocalStorage": true
             },
             "instanceRequirements": {
+                "vCpuCount": {
+                    "min": 0
+                },
+                "memoryMiB": {
+                    "min": 0
+                },
                 "localStorage": "REQUIRED",
                 "totalLocalStorageGB": {
-                    "Min": 50
+                    "min": 50
                 },
                 "localStorageTypes": ["ssd"]
             }
