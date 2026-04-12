@@ -2,8 +2,7 @@
 
 Use the `UpdateImageSetMetadata` action to update image set [metadata](getting-started-concepts.md#concept-metadata "getting-started-concepts.md#concept-metadata") in AWS HealthImaging. You can use this asynchronous process
 to add, update, and remove image set metadata attributes, which are manifestations of [DICOM normalization elements](metadata-normalization.md "metadata-normalization.md") that are created during
-import. Using the `UpdateImageSetMetadata` action, you can also remove Series and SOP
-Instances to keep image sets in sync with external systems and to de-identify image set
+import. Using the `UpdateImageSetMetadata` action, you can remove individual SOP Instances to keep image sets in sync with external systems and to de-identify image set
 metadata. For more information, see [`UpdateImageSetMetadata`](../APIReference/API_UpdateImageSetMetadata.md "../APIReference/API_UpdateImageSetMetadata.md") in the _AWS HealthImaging API
 Reference_.
 
@@ -12,6 +11,9 @@ Reference_.
 Real-world DICOM imports require updating, adding, and removing attributes from the image
 set metadata. Keep the following points in mind when updating image set metadata:
 
+- Pass in the `--include-study-image-sets` flag to update all the primary
+  image sets that share the same Study Instance UID as the requested image set. This is an atomic operation, and the versions of all affected image sets will be incremented.
+  Note: the `--include-study-image-sets` flag is not supported with `revertToVersionId` operations, as revert restores a previous version and does not apply attribute changes.
 - Updating image set metadata creates a new version in the image set history. For more
   information, see [Listing image set versions](list-image-set-versions.md "list-image-set-versions.md"). To revert to a previous image set version ID,
   use the optional [`revertToVersionId`](../APIReference/API_UpdateImageSetMetadata.md#healthimaging-UpdateImageSetMetadata-request-revertToVersionId "../APIReference/API_UpdateImageSetMetadata.md#healthimaging-UpdateImageSetMetadata-request-revertToVersionId") parameter.
@@ -22,8 +24,7 @@ set metadata. Keep the following points in mind when updating image set metadata
   the [`message`](../APIReference/API_UpdateImageSetMetadata.md#healthimaging-UpdateImageSetMetadata-response-message "../APIReference/API_UpdateImageSetMetadata.md#healthimaging-UpdateImageSetMetadata-response-message") response element to see [`common errors`.](../APIReference/CommonErrors.md "../APIReference/CommonErrors.md")
 - DICOM element constraints are applied to metadata updates. The [`force`](../APIReference/API_UpdateImageSetMetadata.md#API_UpdateImageSetMetadata_RequestParameters "../APIReference/API_UpdateImageSetMetadata.md#API_UpdateImageSetMetadata_RequestParameters") request parameter allows you to update elements of non-primary [image sets](getting-started-concepts.md#concept-image-set "getting-started-concepts.md#concept-image-set") in cases
   where you want to override [DICOM metadata constraints](dicom-metadata-constraints.md "dicom-metadata-constraints.md").
-- The Patient and Series level metadata elements can not be updated for primary [image sets](getting-started-concepts.md#concept-image-set "getting-started-concepts.md#concept-image-set").
-  The UpdateImageSet will not support --`force` to update StudyInstanceUID, SeriesInstanceUID, and
+- The UpdateImageSet will not support --`force` to update StudyInstanceUID, SeriesInstanceUID, and
   SOPInstanceUID for primary [image sets](getting-started-concepts.md#concept-image-set "getting-started-concepts.md#concept-image-set").
 - Set the [`force`](../APIReference/API_UpdateImageSetMetadata.md#API_UpdateImageSetMetadata_RequestParameters "../APIReference/API_UpdateImageSetMetadata.md#API_UpdateImageSetMetadata_RequestParameters") request parameter to force completion of the
   `UpdateImageSetMetadata` action on non-primary [image sets](getting-started-concepts.md#concept-image-set "getting-started-concepts.md#concept-image-set"). Setting this parameter allows the following
@@ -33,7 +34,11 @@ set metadata. Keep the following points in mind when updating image set metadata
     `Tag.StudyID` attributes
   - Adding, removing, or updating instance level private DICOM data elements
 
+- To remove an instance from an image set, the `--force` parameter must be
+  provided to the `UpdateImageSetMetadata` request.
 - The action of promoting an image set to primary will change the image set ID.
+- When updating a VR=SQ attribute, the entire sequence attribute will be updated. This
+  API does not support partial sequence attribute updates.
   The following diagram represents image set metadata being updated in HealthImaging.
 
 ![Diagram showing what updating image set metadata looks like in HealthImaging.](images/image-set-example-update-metadata.png)
