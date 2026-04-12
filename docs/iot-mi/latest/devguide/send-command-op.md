@@ -214,6 +214,17 @@ through the SendConnectorEvent API. This means that until Managed integrations f
 event from prior step 3, regardless of whether or not your connector invocation
 response denotes success, the device state will not be updated.
 
+###### Important
+
+Do not include attributes in the DEVICE_COMMAND_RESPONSE payload unless the device
+has confirmed that the state change was actually applied. A DEVICE_COMMAND_RESPONSE
+without attributes serves as an acknowledgment that the command was dispatched to the
+third party, and results in a DEVICE_COMMAND notification. To report that attribute
+values have been updated on the device, send a separate DEVICE_EVENT with the updated
+attributes. This distinction prevents false positives where a command appears to
+succeed but the device never received the state change, for example, when a device was
+recently disconnected.
+
 ## Interpreting matter 'endpoints' included in AWS.SendCommand request
 
 Managed integrations will use the device capabilities reported during device discovery to

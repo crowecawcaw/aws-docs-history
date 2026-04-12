@@ -1,0 +1,11 @@
+# Supported resource types
+
+Each resource type corresponds to specific managed integrations workflows:
+
+| Resource type          | Workflows                                                                          |
+| ---------------------- | ---------------------------------------------------------------------------------- |
+| `managed-thing`        | Provisioning, commands, event processing                                           |
+| `credential-locker`    | Credential locker operations                                                       |
+| `provisioning-profile` | Provisioning profile operations                                                    |
+| `ota-task`             | OTA update tasks                                                                   |
+| `account-association`  | Third-party discovery failures, OAuth callback failures, token refresh<br>failures |
