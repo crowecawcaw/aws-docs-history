@@ -56,7 +56,7 @@ To learn how to build **serverless solutions**, check out the [Serverless Develo
 **Connect and integrate seamlessly:**
 
 - [VPC networks](configuration-vpc.md "configuration-vpc.md") secure sensitive resources and internal services.
-- [File system](configuration-filesystem.md "configuration-filesystem.md") integration that shares persistent data and manage stateful operations across function invocations.
+- [File systems](configuration-filesystem.md "configuration-filesystem.md") integration that shares persistent data and manage stateful operations across function invocations.
 - [Function URLs](urls-configuration.md "urls-configuration.md") create public-facing APIs and endpoints without additional services.
 - [Lambda extensions](lambda-extensions.md "lambda-extensions.md") augment functions with monitoring, security, and operational tools.
 

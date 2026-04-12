@@ -29,6 +29,9 @@ For a list of error types that the `Invoke` operation can return, see [Invoke](.
 - [EFS: Function could not mount the EFS file system](#troubleshooting-invocation-efsmount "#troubleshooting-invocation-efsmount")
 - [EFS: Function could not connect to the EFS file system](#troubleshooting-invocation-efsconnect "#troubleshooting-invocation-efsconnect")
 - [EFS: Function could not mount the EFS file system due to timeout](#troubleshooting-invocation-efstimeout "#troubleshooting-invocation-efstimeout")
+- [S3 Files: Function could not mount the S3 file system](#troubleshooting-invocation-s3filesmount "#troubleshooting-invocation-s3filesmount")
+- [S3 Files: Function could not connect to the S3 file system](#troubleshooting-invocation-s3filesconnect "#troubleshooting-invocation-s3filesconnect")
+- [S3 Files: Function could not mount the S3 file system due to timeout](#troubleshooting-invocation-s3filestimeout "#troubleshooting-invocation-s3filestimeout")
 - [Lambda: Lambda detected an IO process that was taking too long](#troubleshooting-invocation-ioprocess "#troubleshooting-invocation-ioprocess")
 - [Container: CodeArtifactUserException errors](#troubleshooting-deployment-container-artifact "#troubleshooting-deployment-container-artifact")
 - [Container: InvalidEntrypoint errors](#troubleshooting-deployment-container-entrypoint "#troubleshooting-deployment-container-entrypoint")
@@ -216,7 +219,7 @@ For more information about Node.js exit codes and process termination, see the [
 _EFSMountFailureException: The function could not mount the EFS file system with access point
 arn:aws:elasticfilesystem:us-east-2:123456789012:access-point/fsap-015cxmplb72b405fd._
 
-The mount request to the function's [file system](configuration-filesystem.md "configuration-filesystem.md") was rejected.
+The mount request to the function's file system was rejected.
 Check the function's permissions, and confirm that its file system and access point exist and are ready for
 use.
 
@@ -227,8 +230,8 @@ _EFSMountConnectivityException: The function couldn't connect to the Amazon EFS 
 arn:aws:elasticfilesystem:us-east-2:123456789012:access-point/fsap-015cxmplb72b405fd. Check your network
 configuration and try again._
 
-The function couldn't establish a connection to the function's [file
-system](configuration-filesystem.md "configuration-filesystem.md") with the NFS protocol (TCP port 2049). Check the [security group and routing configuration](../../../efs/latest/ug/network-access.md "../../../efs/latest/ug/network-access.md") for the VPC's subnets.
+The function couldn't establish a connection to the function's file
+system with the NFS protocol (TCP port 2049). Check the [security group and routing configuration](../../../AmazonS3/latest/userguide/s3-files-prereq-policies.md "../../../AmazonS3/latest/userguide/s3-files-prereq-policies.md") for the VPC's subnets.
 
 If you get these errors after updating your function's VPC configuration settings, try unmounting and
 remounting the file system.
@@ -240,7 +243,40 @@ _EFSMountTimeoutException: The function could not mount the EFS file system with
 {arn:aws:elasticfilesystem:us-east-2:123456789012:access-point/fsap-015cxmplb72b405fd} due to mount time
 out._
 
-The function could connect to the function's [file system](configuration-filesystem.md "configuration-filesystem.md"), but
+The function could connect to the function's file system, but
+the mount operation timed out. Try again after a short time and consider limiting the function's [concurrency](configuration-concurrency.md "configuration-concurrency.md") to reduce load on the file system.
+
+## S3 Files: Function could not mount the S3 file system
+
+**Error:**
+_S3FilesMountFailureException: The function could not mount the Amazon S3 file system with access point
+arn:aws:s3files:us-east-2:123456789012:access-point/fsap-123456789abcde._
+
+The mount request to the function's file system was rejected.
+Check the function's permissions, and confirm that its file system and access point exist and are ready for
+use.
+
+## S3 Files: Function could not connect to the S3 file system
+
+**Error:**
+_S3FilesMountConnectivityException: The function couldn't connect to the Amazon S3 file system with access point
+arn:aws:s3files:us-east-2:123456789012:access-point/fsap-123456789abcde. Check your network
+configuration and try again._
+
+The function couldn't establish a connection to the function's file
+system with the NFS protocol (TCP port 2049). Check the [security group and routing configuration](../../../AmazonS3/latest/userguide/s3-files-prereq-policies.md "../../../AmazonS3/latest/userguide/s3-files-prereq-policies.md") for the VPC's subnets.
+
+If you get these errors after updating your function's VPC configuration settings, try unmounting and
+remounting the file system.
+
+## S3 Files: Function could not mount the S3 file system due to timeout
+
+**Error:**
+_S3FilesMountTimeoutException: The function could not mount the S3 file system with access point
+{arn:aws:s3files:us-east-2:123456789012:access-point/fsap-123456789abcde} due to mount time
+out._
+
+The function could connect to the function's file system, but
 the mount operation timed out. Try again after a short time and consider limiting the function's [concurrency](configuration-concurrency.md "configuration-concurrency.md") to reduce load on the file system.
 
 ## Lambda: Lambda detected an IO process that was taking too long
