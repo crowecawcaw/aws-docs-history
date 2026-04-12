@@ -12,6 +12,13 @@ The following conditions apply when you reimport a certificate:
 - If **Key Usage** extensions are present in the
   originally imported certificate, you can add new extension values, but you
   cannot remove existing values.
+
+**Exception:** You can remove the
+`keyEncipherment` Key Usage from ECDSA certificates. This
+accommodates [RFC 5480 Section
+3](https://www.rfc-editor.org/rfc/rfc5480#section-3 "https://www.rfc-editor.org/rfc/rfc5480#section-3"), which does not include `keyEncipherment` as a permitted
+Key Usage for ECDSA keys.
+
 - If **Extended Key Usage** extensions are present
   in the originally imported certificate, you can add new extension values, but
   you cannot remove existing values.

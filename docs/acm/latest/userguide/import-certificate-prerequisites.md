@@ -39,15 +39,22 @@ size. ACM supports the following algorithms (API name in parentheses):
 - All of the required certificate materials (certificate, private key, and
   certificate chain) must be PEM–encoded. Uploading DER–encoded
   materials results in an error. For more information and examples, see [Certificate and key format for importing](import-certificate-format.md "import-certificate-format.md").
-- When you renew (reimport) a certificate, you cannot add a
-  `KeyUsage` or `ExtendedKeyUsage` extension if the
-  extension was not present in the previously imported certificate
+- When you renew (reimport) a certificate, you cannot remove a
+  `KeyUsage` or `ExtendedKeyUsage` extension that
+  was present in the previously imported certificate.
 
-**Exception:** You can reimport a certificate
-missing the Client Authentication ExtendedKeyUsage when compared to the previous
-certificate. This accommodates industry changes where certificate authorities no
-longer issue certificates with ClientAuth EKU to comply with Chrome's root
-program requirements.
+The following exceptions apply:
+
+    + You can reimport a certificate missing the Client Authentication
+     ExtendedKeyUsage when compared to the previous certificate. This
+     accommodates industry changes where certificate authorities no longer
+     issue certificates with ClientAuth EKU to comply with Chrome's root
+     program requirements.
+    + You can remove the `keyEncipherment` Key Usage from
+     ECDSA certificates. This accommodates [RFC 5480
+     Section 3](https://www.rfc-editor.org/rfc/rfc5480#section-3 "https://www.rfc-editor.org/rfc/rfc5480#section-3"), which does not include
+     `keyEncipherment` as a permitted Key Usage for ECDSA
+     keys.
 
 ###### Important
 

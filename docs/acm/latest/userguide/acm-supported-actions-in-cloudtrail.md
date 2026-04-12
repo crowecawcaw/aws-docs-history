@@ -27,6 +27,7 @@ operations.
 - [Requesting a certificate (RequestCertificate)](#ct-acm-request "#ct-acm-request")
 - [Resending validation email (ResendValidationEmail)](#ct-acm-resendmail "#ct-acm-resendmail")
 - [Retrieving a certificate (GetCertificate)](#ct-acm-get "#ct-acm-get")
+- [Searching certificates (SearchCertificates)](#ct-acm-search "#ct-acm-search")
 
 ## Adding tags to a certificate ([AddTagsToCertificate](../APIReference/API_AddTagsToCertificate.md "../APIReference/API_AddTagsToCertificate.md"))
 
@@ -622,6 +623,46 @@ The following CloudTrail example shows the results of a call to the [GetCertific
          },
          "requestID":"744dd891-ec9c-11e5-ac34-d1e4dfe1a11b",
          "eventID":"7aa4f909-00dd-478a-9a00-b2709bcad2bb",
+         "eventType":"AwsApiCall",
+         "recipientAccountId":"123456789012"
+      }
+   ]
+}
+```
+
+## Searching certificates ([SearchCertificates](../APIReference/API_SearchCertificates.md "../APIReference/API_SearchCertificates.md"))
+
+The following CloudTrail example shows the results of a call to the [SearchCertificates](../APIReference/API_SearchCertificates.md "../APIReference/API_SearchCertificates.md") API.
+
+```
+{
+
+   "Records":[
+      {
+         "eventVersion":"1.04",
+         "userIdentity":{
+            "type":"IAMUser",
+            "principalId":"AIDACKCEVSQ6C2EXAMPLE",
+            "arn":"arn:aws:iam::123456789012:user/Alice",
+            "accountId":"123456789012",
+            "accessKeyId":"AKIAIOSFODNN7EXAMPLE",
+            "userName":"Alice"
+         },
+         "eventTime":"2016-04-06T13:53:53Z",
+         "eventSource":"acm.amazonaws.com",
+         "eventName":"SearchCertificates",
+         "awsRegion":"us-east-1",
+         "sourceIPAddress":"192.0.2.0",
+         "userAgent":"aws-cli/1.10.16",
+         "readOnly":true,
+         "requestParameters":{
+            "maxResults":10,
+            "sortBy":"CREATED_AT",
+            "sortOrder":"DESCENDING"
+         },
+         "responseElements":null,
+         "requestID":"01234567-89ab-cdef-0123-456789abcdef",
+         "eventID":"01234567-89ab-cdef-0123-456789abcdef",
          "eventType":"AwsApiCall",
          "recipientAccountId":"123456789012"
       }

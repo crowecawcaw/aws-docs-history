@@ -1,15 +1,74 @@
-# List certificates managed by AWS Certificate Manager
+# Search certificates managed by AWS Certificate Manager
 
-You can use the ACM console or AWS CLI to list the certificates managed by ACM. The
-console can list up to 500 certificates in a page, and the CLI up to 1000.
+With the ACM console or AWS CLI, you can search for certificates in your account.
+The [SearchCertificates](../APIReference/API_SearchCertificates.md "../APIReference/API_SearchCertificates.md")
+operation provides advanced filtering capabilities. You can filter certificates by ARN,
+X.509 attributes, and ACM specific properties like certificate status, type and renewal eligibility. You can also combine filters with AND, OR, and
+NOT logical operators.
 
-###### To list your certificates using the console
+###### Note
+
+The [ListCertificates](../APIReference/API_ListCertificates.md "../APIReference/API_ListCertificates.md")
+operation still exists for basic listing with limited filtering options such as key
+type, key usage, and certificate status.
+
+###### Filter categories
+
+You can filter certificates using the following categories:
+
+- **Certificate ARN** – Filter by the
+  Amazon Resource Name of the certificate.
+- **X.509 attributes** – Filter by subject
+  common name, subject alternative name, extended key usage,
+  key usage, key algorithm, serial number, expiration date range (NotAfter), or
+  validity start date range (NotBefore). Date range filters are inclusive of both
+  the start and end dates. For example, to find all certificates for a specific domain, use the
+  common name and DNS filters together with an OR operator.
+- **ACM metadata** – Filter by status,
+  type, in-use, exported, export option, managed-by, validation method, renewal
+  status, or renewal eligibility.
+  String filters support the CONTAINS and EQUALS comparison operators. You can combine
+  multiple filters using AND, OR, and NOT logical operators.
+
+###### Sorting
+
+You can sort results by the following fields:
+
+- `CREATED_AT`
+- `NOT_AFTER`
+- `STATUS`
+- `RENEWAL_STATUS`
+- `EXPORTED`
+- `IN_USE`
+- `NOT_BEFORE`
+- `KEY_ALGORITHM`
+- `TYPE`
+- `CERTIFICATE_ARN`
+- `COMMON_NAME`
+- `REVOKED_AT`
+- `RENEWAL_ELIGIBILITY`
+- `ISSUED_AT`
+- `MANAGED_BY`
+- `EXPORT_OPTION`
+- `VALIDATION_METHOD`
+- `IMPORTED_AT`
+  Sort order can be `ASCENDING` or `DESCENDING`.
+
+###### Pagination
+
+Results are paginated. The `MaxResults` parameter defaults to 100 and
+accepts a maximum value of 500. Use the `NextToken` parameter to retrieve
+additional pages of results.
+
+###### To search your certificates using the console
 
 1. Open the ACM console at [https://console.aws.amazon.com/acm/](https://console.aws.amazon.com/acm/ "https://console.aws.amazon.com/acm/").
-2. Review the information in the certificate list. You can navigate through
-   multiple pages of certificates using the page numbers at upper-right. Each
-   certificate occupies a row with the following columns displayed by default for
-   each certificate:
+2. Use the property filter bar to search and filter certificates. You can
+   filter by properties such as common name, status, type, key algorithm, and
+   more. Combine filters with AND or OR operators to narrow your results.
+3. Review the information in the certificate list. You can navigate through
+   multiple pages of certificates by using the page numbers. Each
+   certificate occupies a row. The following columns are displayed by default:
 
 - **Domain name** – The fully qualified domain name
   (FQDN) for the certificate.
@@ -28,8 +87,8 @@ console can list up to 500 certificates in a page, and the CLI up to 1000.
   be renewed automatically by ACM when it approaches expiration. Possible values
   are: **Eligible** | **Ineligible**. For
   eligibility rules, see [Managed certificate renewal in AWS Certificate Manager](managed-renewal.md "managed-renewal.md").
-  By choosing the settings icon in the upper-right corner of the console, you can
-  customize the number of certificates shown on a page, specify the line-wrapping behavior
+  To customize the certificate list display, choose the settings icon. You can
+  change the number of certificates shown on a page, specify the line-wrapping behavior
   of cell contents, and display additional information fields. The following optional
   fields are available:
 
@@ -65,57 +124,69 @@ returned on each console page.
 
 For more information about the available certificate details, see [View AWS Certificate Manager certificate details](gs-acm-describe.md "gs-acm-describe.md").
 
-**To list your certificates using the AWS CLI**
+###### To search your certificates using the AWS CLI
 
-Use the [list-certificates](../../../cli/latest/reference/acm/list-certificates.md "../../../cli/latest/reference/acm/list-certificates.md")
-command to list your ACM-managed certificates as shown in the following
-example:
+- Use the [search-certificates](../../../cli/latest/reference/acm/search-certificates.md "../../../cli/latest/reference/acm/search-certificates.md")
+  command to search for ACM-managed certificates. The following example filters for
+  certificates with a status of `ISSUED`:
 
 ```
-`$` aws acm list-certificates --max-items `10`
+`$` aws acm search-certificates \
+    --filter-statement '{"Filter": {"AcmCertificateMetadataFilter": {"Status": "ISSUED"}}}' \
+    --max-results 10
 ```
 
 The command returns information similar to the following:
 
 ```
 {
-    "CertificateSummaryList": [
+    "Results": [
         {
             "CertificateArn": "arn:aws:acm:`Region`:`444455556666`:certificate/`certificate_ID`",
-            "DomainName": "example.com"
-		"SubjectAlternativeNameSummaries": [
-                "example.com",
-                "other.example.com"
-            ],
-            "HasAdditionalSubjectAlternativeNames": false,
-            "Status": "ISSUED",
-            "Type": "IMPORTED",
-            "KeyAlgorithm": "RSA-2048",
-            "KeyUsages": [
-                "DIGITAL_SIGNATURE",
-                "KEY_ENCIPHERMENT"
-            ],
-            "ExtendedKeyUsages": [
-                "NONE"
-            ],
-            "InUse": false,
-            "RenewalEligibility": "INELIGIBLE",
-            "NotBefore": "2022-06-14T23:42:49+00:00",
-            "NotAfter": "2032-06-11T23:42:49+00:00",
-            "CreatedAt": "2022-08-25T19:28:05.531000+00:00",
-            "ImportedAt": "2022-08-25T19:28:05.544000+00:00"
-        },...
-    ]
+            "X509Attributes": {
+                "Issuer": {
+                    "CommonName": "Example CA",
+                    "Country": "US",
+                    "Organization": "Example Corp"
+                },
+                "Subject": {
+                    "CommonName": "example.com"
+                },
+                "SubjectAlternativeNames": [
+                    {
+                        "DnsName": "example.com"
+                    },
+                    {
+                        "DnsName": "www.example.com"
+                    }
+                ],
+                "ExtendedKeyUsages": [
+                    "TLS_WEB_SERVER_AUTHENTICATION",
+                    "TLS_WEB_CLIENT_AUTHENTICATION"
+                ],
+                "KeyAlgorithm": "RSA_2048",
+                "KeyUsages": [
+                    "DIGITAL_SIGNATURE",
+                    "KEY_ENCIPHERMENT"
+                ],
+                "SerialNumber": "`serial_number`",
+                "NotAfter": "2025-02-14T23:59:59+00:00",
+                "NotBefore": "2024-01-15T00:00:00+00:00"
+            },
+            "CertificateMetadata": {
+                "AcmCertificateMetadata": {
+                    "CreatedAt": "2024-01-15T12:00:00+00:00",
+                    "IssuedAt": "2024-01-15T12:05:00+00:00",
+                    "Exported": false,
+                    "InUse": true,
+                    "RenewalEligibility": "ELIGIBLE",
+                    "Status": "ISSUED",
+                    "Type": "AMAZON_ISSUED",
+                    "ValidationMethod": "DNS"
+                }
+            }
+        }
+    ],
+    "NextToken": "`nextToken`"
 }
-```
-
-By default, only certificates with **keyTypes**
-`RSA_1024` or `RSA_2048` and with at least one specified domain
-are returned. To see other certificates that you control, such as domainless
-certificates or certificates using a different algorithm or bit size, provide the
-`--includes` parameter as shown in the following example. The parameter
-allows you to specify a member of the [Filters](../APIReference/API_Filters.md "../APIReference/API_Filters.md") structure.
-
-```
-`$` aws acm list-certificates --max-items `10` --includes keyTypes=`RSA_4096`
 ```

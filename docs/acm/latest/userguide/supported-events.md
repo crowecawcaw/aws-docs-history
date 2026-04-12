@@ -199,7 +199,7 @@ Health events are generated in two scenarios:
 
 - On successful renewal of a public or private certificate.
 - When a customer must take action for a renewal to occur. This may mean
-  clicking a link in an email message (for email-validated certificates),
+  choosing a link in an email message (for email-validated certificates),
   or resolving an error. One of the following event codes is included with
   each event. The codes are exposed as variables that you can use for
   filtering.

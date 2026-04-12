@@ -57,6 +57,7 @@ operation**
 | `RenewCertificate`          | 5                   |
 | `RequestCertificate`        | 5                   |
 | `ResendValidationEmail`     | 1                   |
+| `SearchCertificates`        | 5                   |
 | `UpdateCertificateOptions`  | 5                   |
 
 For more information, see [AWS Certificate Manager API Reference](../APIReference.md "../APIReference.md").
