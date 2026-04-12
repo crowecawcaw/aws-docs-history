@@ -7,6 +7,22 @@ Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-clas
 To help you keep track of the ongoing updates and improvements to Wickr, we publish
 release notices that describe recent changes.
 
+## March 2026
+
+- Accessibility has been improved throughout the admin console, including
+  updates to ATAK help panels, SSO configuration, and network creation
+  flows.
+
+## December 2025
+
+- Device suspend and unsuspend actions have been removed from the admin console.
+  Administrators can continue to reset user devices.
+
+## November 2025
+
+- Improved UI and UX for network and security group tables, along with console
+  metrics for page load and API call monitoring.
+
 ## August 2025
 
 - Email templates for AWS Wickr and AWS WickrGov have been updated to
