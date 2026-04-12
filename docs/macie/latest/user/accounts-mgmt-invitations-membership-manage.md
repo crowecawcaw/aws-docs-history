@@ -82,7 +82,7 @@ Amazon Macie console.
    following:
    - To accept the invitation, turn on
      **Accept** (
-     ![A toggle switch with a gray background and the toggle positioned to the left.](/images/macie/latest/user/images/tgl-gray-off.png)
+     ![A toggle switch with a gray background and the toggle positioned to the left.](images/tgl-gray-off.png)
      ) next to the invitation. Then choose
      **Accept invitation** or
      **Update**, depending on whether you
