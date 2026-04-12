@@ -31,6 +31,10 @@ Regional NAT gateways support two modes:
 - **Automatic mode** – In this mode, AWS automatically manages IP addresses and Availability Zone expansion (recommended). If you want to use your own IP addresses in this mode and you use Amazon VPC IPAM, see [Define public IPv4 allocation strategy with IPAM policies](../../../ipam/define-public-ipv4-allocation-strategy-with-ipam-policies.xml.md "../../../ipam/define-public-ipv4-allocation-strategy-with-ipam-policies.xml.md") in the _Amazon VPC IPAM User Guide_.
 - **Manual mode** – In this mode, you manually manage IP addresses and control network address translation for each Availability Zone. In manual mode, you are responsible for expanding and contracting your NAT gateway across Availability Zones.
 
+###### Important
+
+Regional NAT gateways support AWS Transit Gateway as a valid route in the regional NAT gateway route table. Regional NAT gateways do not support private NAT. If you need private NAT, use zonal NAT gateways instead.
+
 ## Pricing
 
 For pricing information, see [Amazon VPC Pricing](https://aws.amazon.com/vpc/pricing/ "https://aws.amazon.com/vpc/pricing/").
