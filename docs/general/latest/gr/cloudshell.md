@@ -37,6 +37,7 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Paris)            | eu-west-3      | cloudshell.eu-west-3.amazonaws.com      | HTTPS    |
 | Europe (Spain)            | eu-south-2     | cloudshell.eu-south-2.amazonaws.com     | HTTPS    |
 | Europe (Stockholm)        | eu-north-1     | cloudshell.eu-north-1.amazonaws.com     | HTTPS    |
+| Europe (Zurich)           | eu-central-2   | cloudshell.eu-central-2.amazonaws.com   | HTTPS    |
 | Israel (Tel Aviv)         | il-central-1   | cloudshell.il-central-1.amazonaws.com   | HTTPS    |
 | Middle East (Bahrain)     | me-south-1     | cloudshell.me-south-1.amazonaws.com     | HTTPS    |
 | Middle East (UAE)         | me-central-1   | cloudshell.me-central-1.amazonaws.com   | HTTPS    |

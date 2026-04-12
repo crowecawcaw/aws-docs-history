@@ -27,6 +27,7 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Seoul)      | ap-northeast-2 | cloudhsmv2.ap-northeast-2.amazonaws.com<br>cloudhsmv2.ap-northeast-2.api.aws                                        | HTTPS<br>HTTPS          |
 | Asia Pacific (Singapore)  | ap-southeast-1 | cloudhsmv2.ap-southeast-1.amazonaws.com<br>cloudhsmv2.ap-southeast-1.api.aws                                        | HTTPS<br>HTTPS          |
 | Asia Pacific (Sydney)     | ap-southeast-2 | cloudhsmv2.ap-southeast-2.amazonaws.com<br>cloudhsmv2.ap-southeast-2.api.aws                                        | HTTPS<br>HTTPS          |
+| Asia Pacific (Thailand)   | ap-southeast-7 | cloudhsmv2.ap-southeast-7.amazonaws.com<br>cloudhsmv2.ap-southeast-7.api.aws                                        | HTTPS<br>HTTPS          |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | cloudhsmv2.ap-northeast-1.amazonaws.com<br>cloudhsmv2.ap-northeast-1.api.aws                                        | HTTPS<br>HTTPS          |
 | Canada (Central)          | ca-central-1   | cloudhsmv2.ca-central-1.amazonaws.com<br>cloudhsmv2.ca-central-1.api.aws<br>cloudhsmv2-fips.ca-central-1.api.aws    | HTTPS<br>HTTPS<br>HTTPS |
 | Canada West (Calgary)     | ca-west-1      | cloudhsmv2.ca-west-1.amazonaws.com<br>cloudhsmv2.ca-west-1.api.aws<br>cloudhsmv2-fips.ca-west-1.api.aws             | HTTPS<br>HTTPS<br>HTTPS |
