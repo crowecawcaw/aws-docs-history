@@ -1,4 +1,9 @@
-AWS IoT FleetWise will no longer be open to new customers starting April 30, 2026. If you would like to use AWS IoT FleetWise, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS IoT FleetWise availability change](iotfleetwise-availability-change.md "iotfleetwise-availability-change.md").
+AWS IoT FleetWise will no longer be open to new customers as of April 30, 2026. Existing
+AWS IoT FleetWise customers can continue using the service. The
+[Guidance
+for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/ "https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/") provides guidance on how to develop and deploy modular
+services for connected mobility solutions that can be used to achieve equivalent capabilities
+as AWS IoT FleetWise.
 
 # Collect AWS IoT FleetWise data with campaigns
 

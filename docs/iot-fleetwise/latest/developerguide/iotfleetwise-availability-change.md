@@ -1,4 +1,9 @@
-AWS IoT FleetWise will no longer be open to new customers starting April 30, 2026. If you would like to use AWS IoT FleetWise, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS IoT FleetWise availability change](iotfleetwise-availability-change.md "iotfleetwise-availability-change.md").
+AWS IoT FleetWise will no longer be open to new customers as of April 30, 2026. Existing
+AWS IoT FleetWise customers can continue using the service. The
+[Guidance
+for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/ "https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/") provides guidance on how to develop and deploy modular
+services for connected mobility solutions that can be used to achieve equivalent capabilities
+as AWS IoT FleetWise.
 
 # AWS IoT FleetWise availability change
 
@@ -26,24 +31,26 @@ If you have additional questions, contact
 
 ## Frequently asked questions
 
-What does this mean for the service (are you going to shut the service down)?
+**What does this mean for the service (are you going to shut the
+service down)**?
 
 AWS IoT FleetWise will stop accepting new customers starting April 30, 2026. The
 service will continue to operate for existing customers but there will be no new
 feature development on the service.
 
-How will existing customers be impacted?
+**How will existing customers be impacted?**
 
 Existing customers will not experience any disruption to their workloads. They
 can continue using AWS IoT FleetWise as normal and security updates will continue to
 be deployed to maintain service reliability.
 
-On April 30, 2026, how can I get help if I have issues?
+**On April 30, 2026, how can I get help if I have
+issues?**
 
 If you're experiencing issues, contact
 [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support").
 
-What are alternatives to AWS IoT FleetWise?
+**What are alternatives to AWS IoT FleetWise?**
 
 We recommend you use the
 [Guidance
