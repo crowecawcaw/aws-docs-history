@@ -20,8 +20,10 @@ AWS uses the following prefixes to distinguish between different tag sources:
 2. userAttribute/ - User attributes imported from IAM Identity Center.
 3. accountTag/ - Tags applied at the AWS account level.
 4. costCategory/ - Tags derived from AWS Cost Categories.
+5. iamPrincipal/- Tags applied to [IAM principals](../../../IAM/latest/UserGuide/id_roles.md#id_roles_additional-resources "../../../IAM/latest/UserGuide/id_roles.md#id_roles_additional-resources").
 
 **Example: Overlapping Tag Keys**
+
 Consider a scenario where multiple tagging mechanisms use the same tag keys. Here's how AWS
 handles them:
 

@@ -1,25 +1,48 @@
 # Setting up an Amazon S3 bucket for data exports
 
-You must have an Amazon S3 bucket in your AWS account to receive and store your data
-exports. When creating an export in the console, you can select an existing S3 bucket that you
+To receive and store your data exports, you must have an Amazon S3 bucket in your AWS account or in a designated destination AWS account.
+When creating an export in the console, if you want the export in your own bucket, you can select an existing S3 bucket that you
 own, or you can create a new bucket. In either case, you need to review and confirm the
-application of the following default S3 bucket policy. Editing this policy in the Amazon S3
-console or changing the S3 bucket owner after you’ve created an export prevents Data Exports from
-delivering your exports. Storing the exports data in your S3 bucket is billed at standard
+application of the following default S3 bucket policy.
+If you want your export to be delivered to a bucket owned by another AWS account, you can specify the bucket owner and the bucket name during the Data Exports creation process.
+Editing the bucket policy or changing the S3 bucket owner after you’ve created an export may prevent Data Exports from
+delivering your exports. Storing the exports data in any S3 bucket is billed at standard
 Amazon S3 rates. For more information, see [Quotas and
 restrictions](dataexports-quotas.md "dataexports-quotas.md").
 
-###### Note
+The following policy must be applied to every S3 bucket, whether owned by you or a different AWS account, when creating a data export:
 
-The account that creates the export must also own the S3 bucket that AWS sends the
-exports to. You cannot configure an export to deliver to an S3 bucket owned by another
-account.
-
-The following policy is applied to every S3 bucket when creating a data export:
+```
+{
+    "Statement": [
+    {
+      "Sid": "EnableAWSDataExportsToWriteToS3",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
+          "bcm-data-exports.amazonaws.com"
+        ]
+      },
+      "Action": [
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::{bucket-name}/*",
+      "Condition": {
+        "StringLike": {
+          "aws:SourceArn": [
+            "arn:aws:bcm-data-exports:us-east-1:{source-account-id}:export/*"
+          ],
+          "aws:SourceAccount": "{source-account-id}"
+        }
+      }
+    }
+  ]
+   }
+```
 
 This S3 bucket policy ensures that Data Exports can only deliver exports to the S3 bucket on
 behalf of the account that created the export. It also allows Data Exports to verify that the S3
-bucket is still owned by the account that created the export.
+bucket is still owned by the account specified during export creation.
 
 - To deliver exports to your S3 bucket, AWS needs write permissions for that S3
   bucket. To do this, the S3 bucket policy grants the Data Exports service

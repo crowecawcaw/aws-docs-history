@@ -9,6 +9,7 @@ There are the following limits on the number of exports you can create per table
 - **Cost and Usage Report 2.0 (CUR 2.0)**: 5 exports
 - **Cost optimization recommendations**: 2 exports
 - **FOCUS 1.0 with AWS columns**: 2 exports
+- **FOCUS 1.2 with AWS columns**: 2 exports
 - **Cost and usage dashboard**: 2 exports
 - **Carbon emissions**: 2 exports
   For more information, see [Quotas and restrictions](dataexports-quotas.md "dataexports-quotas.md").
