@@ -70,7 +70,7 @@ Learn more about [How to display a map](how-to-display-a-map.md "how-to-display-
 
 ###### Note
 
-For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`, supported request and response fields may differ. Refer to the
+For customers in `ap-southeast-1` and `ap-southeast-5`, supported request and response fields may differ. Refer to the
 [GetStyleDescriptor API Reference](../APIReference/API_geomaps_GetStyleDescriptor.md "../APIReference/API_geomaps_GetStyleDescriptor.md") for details.
 
 The request supports parameters like `ColorScheme`, `Key`,

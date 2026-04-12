@@ -8,7 +8,13 @@ The traffic layer provides real-time visualization of traffic conditions, includ
 
 Use the `traffic` parameter in your API request to display real-time traffic information. This includes data on road congestion, construction areas, and incidents, helping users make informed and efficient routing decisions. See [how to show real-time traffic on a map](how-to-set-real-time-traffic-map.md "how-to-set-real-time-traffic-map.md").
 
-![](/images/location/latest/developerguide/images/map-traffic.gif)
+All
+
+![](/images/location/latest/developerguide/images/zoom-traffic-all.gif)
+
+Congestion
+
+![](/images/location/latest/developerguide/images/zoom-traffic-congestion.gif)
 
 ## Travel modes
 

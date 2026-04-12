@@ -50,7 +50,7 @@ Calculate routes](calculate-routes-how-to.md "calculate-routes-how-to.md").
 
 ###### Note
 
-For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`, supported request and response fields may differ. Refer to the
+For customers in `ap-southeast-1` and `ap-southeast-5`, supported request and response fields may differ. Refer to the
 [CalculateRoutes API Reference](../APIReference/API_CalculateRoutes.md "../APIReference/API_CalculateRoutes.md") for details.
 
 The request requires `Origin` and `Destination` parameters,

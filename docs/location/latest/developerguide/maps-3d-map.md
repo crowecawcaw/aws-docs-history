@@ -8,7 +8,13 @@ The 3D Terrain feature renders elevation data of the Earth’s surface as a thre
 
 Use the `terrain` parameter in your API request to enable three-dimensional terrain visualization. This feature provides an immersive perspective of topographic features, making it particularly useful for understanding spatial relationships in mountainous or varied terrain.
 
-Combine 3D terrain with `contour-density` parameter in your API request for enhanced elevation precision and visual context. See [how to show 3D features on a map](how-to-show-3d-features-map.md "how-to-show-3d-features-map.md").
+Combine 3D terrain with `contour-density` parameter in your API request for enhanced elevation precision and visual context. See [Create a 3D map](how-to-create-a-3d-map.md "how-to-create-a-3d-map.md").
+
+Satellite
+
+![](/images/location/latest/developerguide/images/zoom-hybrid-3d-terrain.gif)
+
+Standard
 
 ![](/images/location/latest/developerguide/images/zoom-3d-terrain.gif)
 
@@ -16,6 +22,14 @@ Combine 3D terrain with `contour-density` parameter in your API request for enha
 
 The 3D Buildings feature renders building footprints as three-dimensional structures with height and volume, allowing users to visualize urban environments from multiple angles and perspectives. By controlling the viewing angle, users can more easily understand building density, height relationships, and spatial context within cities and developed areas.
 
-Use the `buildings` parameter in your API request to enable three-dimensional building visualization. This feature provides an immersive perspective of urban landscapes, making it particularly useful for understanding city layouts, identifying landmarks, and navigating complex urban environments.See [how to show 3D features on a map](how-to-show-3d-features-map.md "how-to-show-3d-features-map.md").
+Use the `buildings` parameter in your API request to enable three-dimensional building visualization. This feature provides an immersive perspective of urban landscapes, making it particularly useful for understanding city layouts, identifying landmarks, and navigating complex urban environments.See [Create a 3D map](how-to-create-a-3d-map.md "how-to-create-a-3d-map.md").
 
 ![](/images/location/latest/developerguide/images/zoom-3d-buildings.gif)
+
+## Globe View
+
+The Globe View feature provides a spherical representation of the Earth, allowing users to visualize geographic data on a three-dimensional globe. This perspective offers a natural and intuitive way to understand global spatial relationships, continental layouts, and the curvature of the Earth's surface.
+
+Use Globe View to display maps with realistic Earth curvature and global perspective. See [Create a 3D map](how-to-create-a-3d-map.md "how-to-create-a-3d-map.md").
+
+![](/images/location/latest/developerguide/images/zoom-globe-view.gif)

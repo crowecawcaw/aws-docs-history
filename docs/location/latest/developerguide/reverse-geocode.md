@@ -34,7 +34,7 @@ Reverse Geocode](reverse-geocode-how-to.md "reverse-geocode-how-to.md").
 
 ###### Note
 
-For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`, supported request and response fields may differ. Refer to the
+For customers in `ap-southeast-1` and `ap-southeast-5`, supported request and response fields may differ. Refer to the
 [ReverseGeocode API Reference](../APIReference/API_geoplaces_ReverseGeocode.md "../APIReference/API_geoplaces_ReverseGeocode.md") for details.
 
 The Reverse Geocode API request accepts a combination of required and optional

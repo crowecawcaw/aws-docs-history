@@ -37,7 +37,7 @@ GetPlace](get-place-how-to.md "get-place-how-to.md").
 
 ###### Note
 
-For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`, supported
+For customers in `ap-southeast-1` and `ap-southeast-5`, supported
 request and response fields may differ. Refer to the
 [GetPlace API Reference](../APIReference/API_geoplaces_GetPlace.md "../APIReference/API_geoplaces_GetPlace.md") for details.
 

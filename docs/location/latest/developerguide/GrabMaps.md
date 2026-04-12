@@ -2,9 +2,7 @@
 
 Grab is the leading superapp in Southeast Asia with the largest delivery and ride-hailing organization
 in the region. Their subsidiary, [GrabMaps](https://grabmaps.grab.com/ "https://grabmaps.grab.com/"), curates up-to-date and locally relevant
-data for Maps, Places, and Routing APIs across Southeast Asian markets, for their own use, and others.
-Amazon Location Service uses GrabMaps' location services to help AWS customers in Southeast Asia use maps,
-search for points of interest, and calculate routes effectively. GrabMaps' location services are built to provide high-quality,
+data for Maps, Places, and Routing APIs across Southeast Asian markets, for their own use, and others. GrabMaps' location services are built to provide high-quality,
 authoritative, and ready-to-use location data, specifically for Southeast Asian countries.
 
 ## Enhanced accuracy with GrabMaps data
@@ -19,7 +17,6 @@ consisting of over 1,000 members and 200+ specialists, ensures maps are accurate
 Features include local language search, traffic congestion models, and rich map displays. By respecting
 the differences between each country and learning from locals, GrabMaps provides an authentic and familiar
 experience.
-
 GrabMaps' comprehensive points of interest database and optimized routing
 reflect local road conditions, up-to-date locations that keep pace with constant urban change,
 and regional navigation preferences, enabling you to build applications that provide reliable
@@ -33,8 +30,7 @@ Southeast Asian regions:
 - Asia Pacific (Singapore): `ap-southeast-1`
 - Asia Pacific (Malaysia): `ap-southeast-5`
 
-All API calls to the service in these regions will use exclusively GrabMaps data. Find the
-endpoints for these regions [here](../../../general/latest/gr/location.md "../../../general/latest/gr/location.md").
+You can find the endpoints for these regions [here](../../../general/latest/gr/location.md "../../../general/latest/gr/location.md").
 
 ## GrabMaps data coverage
 

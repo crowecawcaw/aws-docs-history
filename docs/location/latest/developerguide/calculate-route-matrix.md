@@ -37,7 +37,7 @@ Calculate route matrix](calculate-route-matrix-how-to.md "calculate-route-matrix
 
 ###### Note
 
-For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`, supported request and response fields may differ. Refer to the
+For customers in `ap-southeast-1` and `ap-southeast-5`, supported request and response fields may differ. Refer to the
 [CalculateRouteMatrix API Reference](../APIReference/API_CalculateRouteMatrix.md "../APIReference/API_CalculateRouteMatrix.md") for details.
 
 The request includes **Origins** and **Destinations** for route calculations, with optional parameters
