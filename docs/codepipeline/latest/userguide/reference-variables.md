@@ -380,14 +380,28 @@ action in the pipeline.
 
 #### CodeStarSourceConnection action output variables
 
-| `CodeStarSourceConnection` variables (Bitbucket Cloud, GitHub, GitHub Enterprise Repository, and GitLab.com) | Variable key                                                                | Example value                           | Example variable syntax |
-| ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- | --------------------------------------- | ----------------------- |
-| `AuthorDate`                                                                                                 | 2019-10-29T03:32:21Z                                                        | `#{SourceVariables.AuthorDate}`         |
-| `BranchName`                                                                                                 | development                                                                 | `#{SourceVariables.BranchName}`         |
-| `CommitId`                                                                                                   | exampleb01f91b31                                                            | `#{SourceVariables.CommitId}`           |
-| `CommitMessage`                                                                                              | Fixed a bug (100 KB maximum size)                                           | `#{SourceVariables.CommitMessage}`      |
-| `ConnectionArn`                                                                                              | arn:aws:codestar-connections:region:`account-id`:connection/`connection-id` | `#{SourceVariables.ConnectionArn}`      |
-| `FullRepositoryName`                                                                                         | username/GitHubRepo                                                         | `#{SourceVariables.FullRepositoryName}` |
+The output variables available depend on the trigger type (push, pull request, or
+tag). Variables in the following table marked as _All_ are produced for
+every trigger type. Variables marked with a specific trigger type are only produced when
+the pipeline execution is started by that trigger.
+
+| `CodeStarSourceConnection` variables (Bitbucket Cloud, GitHub, GitHub Enterprise Repository, and GitLab.com) | Variable key                                                                | Example value                              | Example variable syntax | Trigger type |
+| ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- | ------------------------------------------ | ----------------------- | ------------ |
+| `AuthorDate`                                                                                                 | 2019-10-29T03:32:21Z                                                        | `#{SourceVariables.AuthorDate}`            | All                     |
+| `AuthorDisplayName`                                                                                          | Jane Doe                                                                    | `#{SourceVariables.AuthorDisplayName}`     | All                     |
+| `AuthorEmail`                                                                                                | jane.doe@example.com                                                        | `#{SourceVariables.AuthorEmail}`           | All                     |
+| `AuthorId`                                                                                                   | janedoe                                                                     | `#{SourceVariables.AuthorId}`              | All                     |
+| `BranchName`                                                                                                 | development                                                                 | `#{SourceVariables.BranchName}`            | Push, Tag               |
+| `CommitId`                                                                                                   | exampleb01f91b31                                                            | `#{SourceVariables.CommitId}`              | All                     |
+| `CommitMessage`                                                                                              | Fixed a bug (100 KB maximum size)                                           | `#{SourceVariables.CommitMessage}`         | All                     |
+| `ConnectionArn`                                                                                              | arn:aws:codestar-connections:region:`account-id`:connection/`connection-id` | `#{SourceVariables.ConnectionArn}`         | All                     |
+| `DestinationBranchName`                                                                                      | main                                                                        | `#{SourceVariables.DestinationBranchName}` | Pull request            |
+| `FullRepositoryName`                                                                                         | username/GitHubRepo                                                         | `#{SourceVariables.FullRepositoryName}`    | All                     |
+| `ProviderType`                                                                                               | GitHub                                                                      | `#{SourceVariables.ProviderType}`          | All                     |
+| `PullRequestId`                                                                                              | 1                                                                           | `#{SourceVariables.PullRequestId}`         | Pull request            |
+| `PullRequestTitle`                                                                                           | Add new feature                                                             | `#{SourceVariables.PullRequestTitle}`      | Pull request            |
+| `SourceBranchName`                                                                                           | feature-branch                                                              | `#{SourceVariables.SourceBranchName}`      | Pull request            |
+| `TagName`                                                                                                    | v1.0.0                                                                      | `#{SourceVariables.TagName}`               | Tag                     |
 
 #### GitHub action output variables (GitHub (via OAuth app) action)
 
