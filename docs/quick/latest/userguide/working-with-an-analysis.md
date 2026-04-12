@@ -10,6 +10,7 @@ Use the following sections to learn how to interact with a Quick Sight analysis.
 ###### Topics
 
 - [Starting an analysis in Quick Sight](creating-an-analysis.md "creating-an-analysis.md")
+- [Generating an analysis with natural language prompts](generating-an-analysis.md "generating-an-analysis.md")
 - [Adding a title and description to an analysis](adding-a-title-and-description.md "adding-a-title-and-description.md")
 - [Sharing Quick Sight analyses](sharing-analyses.md "sharing-analyses.md")
 - [Renaming an analysis](renaming-an-analysis.md "renaming-an-analysis.md")

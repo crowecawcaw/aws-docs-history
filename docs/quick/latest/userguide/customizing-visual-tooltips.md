@@ -107,6 +107,8 @@ a sheet tooltip that shows a trend line of monthly sales, a KPI of
 year-over-year growth, and a text box with the category name, all filtered to
 whichever category the viewer hovers over.
 
+![Animated image showing a sheet tooltip appearing when hovering over data points in a visual.](images/sheet-tooltip-preview.gif)
+
 ### Sheet tooltip limits
 
 The following limits apply to sheet tooltips:
@@ -134,16 +136,15 @@ Use the following procedure to create a sheet tooltip for a visual.
    **Tooltip**.
 4. For **Type**, choose **Sheet
    tooltip**.
-5. Choose **Create tooltip sheet**. You will
-   automatically navigate to a tooltip sheet editing experience. A tooltip
-   name is auto-generated and you can edit it by choosing the tab
-   title.
-6. Add visuals, text boxes, or images to the tooltip sheet. Arrange them
-   using the free-form layout.
-7. When you are finished, return to the source sheet by choosing the
-   **Back** button located to the left of the sheet
-   tooltip title. To preview the tooltip, hover over any data points in
-   the visual.
+
+![The Properties pane showing the Sheet tooltip option selected in the Type dropdown.](images/sheet-tooltip-properties-pane.png) 5. Choose **Create tooltip sheet**. You will
+automatically navigate to a tooltip sheet editing experience. A tooltip
+name is auto-generated and you can edit it by choosing the tab
+title. 6. Add visuals, text boxes, or images to the tooltip sheet. Arrange them
+using the free-form layout. 7. When you are finished, return to the source sheet by choosing the
+**Back** button located to the left of the sheet
+tooltip title. To preview the tooltip, hover over any data points in
+the visual.
 
 ### Assigning a tooltip sheet to a visual
 
@@ -172,6 +173,8 @@ Use the following procedure to edit an existing sheet tooltip.
    tooltip sheet name to navigate to it.
 4. Make your changes to the visuals, text boxes, or images on the
    tooltip sheet.
+
+![Animated image showing how to edit a tooltip sheet.](images/sheet-tooltip-editing.gif)
 
 ### Switching between tooltip types
 
@@ -211,6 +214,7 @@ Keep the following in mind when working with sheet tooltips:
   analysis cannot consist of only tooltip sheets.
 - Layer map visuals cannot be placed inside a tooltip sheet.
 - Tooltips on tooltip sheets are not supported.
+- Sheet tooltips are not supported on the following chart types: Sankey, Waterfall, KPI, Radar, Wordcloud, Custom content, and Highcharts.
 
 These limits ensure tooltip sheets load quickly and maintain a focused,
 scannable experience for viewers. For more complex analysis, consider using

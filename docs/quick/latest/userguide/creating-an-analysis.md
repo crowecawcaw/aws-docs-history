@@ -73,3 +73,6 @@ Use the following procedure to create a new analysis.
     After you are done creating the analysis, you can iterate on it by modifying the
     visual, adding more visuals, adding scenes to the default story, or adding more
     stories.
+
+You can also generate a complete multi-sheet analysis from a natural language prompt.
+For more information, see [Generating an analysis with natural language prompts](generating-an-analysis.md "generating-an-analysis.md").

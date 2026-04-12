@@ -127,7 +127,7 @@ login.microsoftonline.com/`Tenant ID`/v2.0
 
 ###### Note
 
-The issuer URL should be the OIDC discovery endpoint of your identity without the well-known document URI path. If you include the well-known document URI path, this will not work. See Trusted token issuer configuration settings. 5. Choose **Email** as the Identity Provider attribute and IAM Identity Center attribute.
+The issuer URL should be the OIDC discovery endpoint of your identity without the well-known document URI path. If you include the well-known document URI path, this will not work. See Trusted token issuer configuration settings. 5. Choose **Email** as the Identity Provider attribute and IAM Identity Center attribute. 6. Note the trusted token issuer ARN. You will need this in a later step.
 
 After completing these Entra ID-specific steps, proceed to the [Complete AWS Configuration (all providers)](#complete-aws-config-slack "#complete-aws-config-slack") section below.
 
@@ -176,7 +176,7 @@ https://{`yourOktaDomain`}/oauth2/default
 
 ###### Note
 
-The issuer URL should be the OIDC discovery endpoint of your identity without the well-known document URI path. If you include the well-known document URI path, this will not work. See Trusted token issuer configuration settings. 5. Choose **Email** as the Identity Provider attribute and IAM Identity Center attribute.
+The issuer URL should be the OIDC discovery endpoint of your identity without the well-known document URI path. If you include the well-known document URI path, this will not work. See Trusted token issuer configuration settings. 5. Choose **Email** as the Identity Provider attribute and IAM Identity Center attribute. 6. Note the trusted token issuer ARN. You will need this in a later step.
 
 After completing these Okta-specific steps, proceed to the [Complete AWS Configuration (all providers)](#complete-aws-config-slack "#complete-aws-config-slack") section below.
 
@@ -260,18 +260,24 @@ Now you can follow these steps to create a new extension access configuration th
 3. From the drop-down menu, choose **Manage account**.
 4. Under **Permissions**, choose **Extension access**.
 5. In the top right, choose **New extension access**.
-6. Select **Slack**. Then, choose **Next**.
-7. Configure the following fields:
-   - **Name** - A name for your extension is pre-filled for you. You can edit this and enter a descriptive name for the Slack extension (maximum 512 alphanumeric characters, hyphens allowed but no spaces).
-   - **Description (optional)** - A description for your extension is pre-filled for you. You can edit this and enter a new description to provide additional context about this extension configuration (maximum 1000 characters).
-   - **Slack Workspace ID** - Enter your Slack workspace identifier. Workspace IDs must
+6. If this is your first time setting up extension access, you are prompted to complete the **Trusted Token Issuer Setup**. Configure the following fields and then choose **Next**:
+   - **Trusted Token Issuer ARN** – Enter the trusted token issuer ARN that you noted from the earlier steps.
+   - **Aud claim** – Enter the client ID from your app registration (Entra ID) or app integration (Okta) that you saved from the earlier steps.
+
+###### Note
+
+This is a one-time setup that establishes a trusted identity source for all extensions. Once completed, you won't need to do this again for other extension accesses. 7. Select **Slack**. Then, choose **Next**. 8. Configure the following fields:
+
+    * **Name** - A name for your extension is pre-filled for you. You can edit this and enter a descriptive name for the Slack extension (maximum 512 alphanumeric characters, hyphens allowed but no spaces).
+    * **Description (optional)** - A description for your extension is pre-filled for you. You can edit this and enter a new description to provide additional context about this extension configuration (maximum 1000 characters).
+    * **Slack Workspace ID** - Enter your Slack workspace identifier. Workspace IDs must
      start with 'T' and be between 1 and 256 alphanumeric characters.
-   - **Secrets Role ARN** - Paste the ARN of the IAM role you created from the previous steps.
-   - **Secrets ARN** - Paste the ARN of the Secrets Manager secret you created from the previous steps.
+    * **Secrets Role ARN** - Paste the ARN of the IAM role you created from the previous steps.
+    * **Secrets ARN** - Paste the ARN of the Secrets Manager secret you created from the previous steps.
 
-8. Choose **Add** to save the new access configuration.
+9. Choose **Add** to save the new access configuration.
 
-A success message will open up on the top right of your screen. 9. From the success message, choose **View extensions** to finish installing your extension.
+A success message will open up on the top right of your screen. 10. From the success message, choose **View extensions** to finish installing your extension.
 
 ###### Note
 
