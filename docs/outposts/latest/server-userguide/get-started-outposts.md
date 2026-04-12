@@ -6,4 +6,5 @@ launch an Amazon EC2 instance and configure connectivity to your on-premises net
 ###### Tasks
 
 - [Create an Outpost and order Outpost capacity](order-outpost-capacity.md "order-outpost-capacity.md")
+- [Install Outpost servers](install-outpost-servers.md "install-outpost-servers.md")
 - [Launch an instance on your Outposts server](launch-instance.md "launch-instance.md")
