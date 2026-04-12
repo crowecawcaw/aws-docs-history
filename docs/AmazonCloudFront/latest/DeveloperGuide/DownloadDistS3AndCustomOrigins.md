@@ -38,6 +38,7 @@ as the origin for a CloudFront distribution.
 - [Use an Amazon S3 bucket that's configured as a website endpoint](#concept_S3Origin_website "#concept_S3Origin_website")
 - [Add CloudFront to an existing Amazon S3 bucket](#adding-cloudfront-to-s3 "#adding-cloudfront-to-s3")
 - [Move an Amazon S3 bucket to a different AWS Region](#move-s3-bucket-different-region "#move-s3-bucket-different-region")
+- [Use an Amazon S3 Multi-Region Access Point](#using-s3-mrap-as-origin "#using-s3-mrap-as-origin")
 
 ### Use a standard Amazon S3 bucket
 
@@ -519,6 +520,19 @@ field on the **General** tab in the CloudFront console. When you
 update a distribution, CloudFront immediately checks the Region that your bucket is
 in. Propagation of the change to all edge locations should take only a few
 minutes.
+
+### Use an Amazon S3 Multi-Region Access Point
+
+You can also use an Amazon S3 Multi-Region Access Point as a CloudFront origin. Amazon S3 Multi-Region Access
+Points provide a global endpoint that automatically routes
+requests to the closest Amazon S3 bucket based on network latency. When you use an Amazon S3 Multi-Region Access
+Point as an origin, specify the Multi-Region Access Point
+hostname as the origin domain name:
+
+``multi-region-access-point-alias`.accesspoint.s3-global.amazonaws.com`
+
+To restrict access to the S3 Multi-Region Access Point so that it's only
+accessible through your CloudFront distribution, see [Restrict access to an Amazon S3 Multi-Region Access Point origin](private-content-restricting-access-to-s3-mrap.md "private-content-restricting-access-to-s3-mrap.md").
 
 ## Use a MediaStore container or a MediaPackage channel
 

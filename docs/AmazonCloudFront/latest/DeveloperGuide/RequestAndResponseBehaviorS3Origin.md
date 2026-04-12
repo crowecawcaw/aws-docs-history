@@ -154,14 +154,16 @@ full list of HTTP request headers and how CloudFront processes them, see [HTTP r
 ### Maximum length of a request and maximum length of a URL
 
 The maximum length of a request, including the path, the query string (if
-any), and headers, is 20,480 bytes.
+any), and headers, is 32,768 bytes.
 
 CloudFront constructs a URL from the request. The maximum length of this URL is 8192
 bytes.
 
-If a request or a URL exceeds the maximum length, CloudFront returns the HTTP status
-code 413 (Request Entity Too Large), to the viewer, and then terminates the TCP
-connection to the viewer.
+If a URL exceeds the maximum length, CloudFront returns HTTP status code
+414 (URI Too Long) to the viewer. If a request exceeds the maximum length
+because the header size is exceeded, CloudFront returns HTTP status code 494 to the
+viewer. In both cases, CloudFront then terminates the TCP connection to the
+viewer.
 
 ### OCSP stapling
 

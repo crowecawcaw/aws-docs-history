@@ -81,7 +81,7 @@ The following diagram illustrates how origin failover works.
    secondary.
 7. Enter a name for the origin group.
 8. Choose the HTTP status codes to use as failover criteria. You can choose
-   any combination of the following status codes: 400, 403, 404, 416, 500, 502,
+   any combination of the following status codes: 400, 403, 404, 416, 429, 500, 502,
    503, or 504. When CloudFront receives a response with one of the status codes that
    you specify, it fails over to the secondary origin.
 
