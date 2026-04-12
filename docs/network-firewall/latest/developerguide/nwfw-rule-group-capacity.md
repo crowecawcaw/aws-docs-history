@@ -74,4 +74,4 @@ it during its lifetime. You can't change this setting after you create the rule
 group.
 
 The maximum capacity setting for a stateful rule group is
-50,000.
+30,000.
