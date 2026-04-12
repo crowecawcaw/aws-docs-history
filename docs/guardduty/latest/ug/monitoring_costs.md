@@ -102,6 +102,25 @@ The following protection plans include a 30-day free trial:
 - Lambda Protection
 - Malware Protection for EC2 (only for GuardDuty-initiated scans when enabled with Foundational Threat Detection)
 
+### Using AWS Pricing Calculator
+
+You can use the [AWS Pricing Calculator](https://aws.amazon.com/calculator/ "https://aws.amazon.com/calculator/") to estimate your monthly GuardDuty costs based on your observed usage patterns. To create an estimate for GuardDuty:
+
+1. Open the [AWS Pricing Calculator](https://aws.amazon.com/calculator/ "https://aws.amazon.com/calculator/").
+2. Choose **Create estimate**.
+3. On the **Add service** page, search for **Amazon GuardDuty** and choose **Configure**.
+4. Select the AWS Region where GuardDuty is enabled.
+5. In the **Service settings** section, enter your estimated usage for each protection plan based on the usage metrics observed in Amazon CloudWatch or the GuardDuty console.
+6. Choose **Add to my estimate** to view the projected monthly cost.
+
+###### Note
+
+Some GuardDuty usage metrics are reported in bytes. When entering values in the AWS Pricing Calculator, you may need to convert bytes to the appropriate unit (MB, GB, or TB). Use the following conversions:
+
+- 1 MB = 1,048,576 bytes
+- 1 GB = 1,073,741,824 bytes
+- 1 TB = 1,099,511,627,776 bytes
+
 ### Security Hub Customers
 
 Security Hub offers a simplified pricing model for GuardDuty Threat Detection with its add-on Threat Analytics plan, consolidating metering of multiple GuardDuty DataSources. When using Security Hub Threat Analytics plan (Security Hub with GuardDuty):

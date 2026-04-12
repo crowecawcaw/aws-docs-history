@@ -33,10 +33,25 @@ add-on manually or update the existing add-on settings.
 
 **CPU settings**
 
-| Parameters | Default value | Configurable range                      |
-| ---------- | ------------- | --------------------------------------- |
-| Requests   | 200m          | Between 200m and 10000m, both inclusive |
-| Limits     | 1000m         |
+| Parameters         | Default value | Configurable range                      |
+| ------------------ | ------------- | --------------------------------------- |
+| Requests           | 200m          | Between 200m and 10000m, both inclusive |
+| Limits             | 1000m         | Between 200m and 10000m, both inclusive |
+| `disableCpuLimits` | `false`       | `true` or `false`                       |
+
+The `disableCpuLimits` parameter is available for GuardDuty security agent
+version 1.12.1-eksbuild.3 and later. On earlier versions, the add-on does not support
+this parameter, and the Amazon EKS add-on APIs (`CreateAddon`, `UpdateAddon`)
+return a validation error if you specify it.
+
+When you set `disableCpuLimits` to `true`, the security agent
+pod does not enforce a CPU limit. Other resource settings are unaffected.
+
+To disable CPU limits, use the following configuration:
+
+```
+{"resources":{"disableCpuLimits":true}}
+```
 
 **Memory settings**
 
