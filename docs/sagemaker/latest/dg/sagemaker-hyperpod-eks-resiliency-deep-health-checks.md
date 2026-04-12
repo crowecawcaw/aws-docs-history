@@ -1,11 +1,12 @@
 # Deep health checks
 
 SageMaker HyperPod performs _deep health checks_ on cluster instances
-during the creation and update of HyperPod clusters. The deep health checks
-ensure the reliability and stability of the SageMaker HyperPod clusters by thoroughly testing
-the underlying hardware and infrastructure components before allowing the clusters to be
-used for training machine learning models. This proactive approach helps identify and
-mitigate potential issues early in the cluster lifecycle.
+during the creation and update of HyperPod clusters. You can also request
+deep health checks on-demand for a SageMaker HyperPod cluster using
+[StartClusterHealthCheck](../APIReference/API_StartClusterHealthCheck.md "../APIReference/API_StartClusterHealthCheck.md")
+API. The deep health checks ensure the reliability and stability of the SageMaker HyperPod
+clusters by testing the underlying hardware and infrastructure components. This proactive
+approach helps identify and mitigate potential issues early in the cluster lifecycle.
 
 ## List of deep health checks done by SageMaker HyperPod
 

@@ -11,7 +11,7 @@ following:
 2. Choose the **Automations** tab.
 3. Choose the **Configuration** tab.
 4. For your auto update configuration, choose the **More options** icon (
-   ![Vertical ellipsis icon representing a menu or more options.](/images/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)
+   ![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
    ).
 5. In the dropdown menu, choose **Update configuration**.
    You are taken to the **Auto updates** tab of the

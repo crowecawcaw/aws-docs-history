@@ -1,8 +1,8 @@
 # Advanced access control
 
 Amazon SageMaker AI supports [attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") to achieve fine-grained access
-control for remote Visual Studio Code connections using ABAC policies. The following are
-example ABAC policies for remote VS Code connections.
+control for Remote IDE connections using ABAC policies. The following are
+example ABAC policies for Remote IDE connections.
 
 ###### Topics
 

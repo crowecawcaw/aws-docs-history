@@ -18,8 +18,7 @@ PBC.
 
 1.  If you don't have an RStudio license, you may purchase one from the AWS Marketplace or from RStudio PBC directly.
 
-        * To purchase a subscription from the AWS Marketplace, complete the steps to [subscribe with a SaaS contract](../../../marketplace/latest/buyerguide/buyer-saas-products.md "../../../marketplace/latest/buyerguide/buyer-saas-products.md") by searching for **Posit Platform
-         (RStudio on SageMaker)**. To fulfill the license, you will be redirected to
+        * To purchase a subscription from the AWS Marketplace, complete the steps to [subscribe with a SaaS contract](../../../marketplace/latest/buyerguide/buyer-saas-products.md "../../../marketplace/latest/buyerguide/buyer-saas-products.md") by searching for **Posit Team**. To fulfill the license, you will be redirected to
          an external form outside the AWS Marketplace. You must provide additional information,
          including your company name and email address. If you can’t access that form to provide
          a company name and a contact email, create a ticket with Posit Support at [https://support.posit.co/hc/en-us/requests/new](https://support.posit.co/hc/en-us/requests/new "https://support.posit.co/hc/en-us/requests/new") with details about your

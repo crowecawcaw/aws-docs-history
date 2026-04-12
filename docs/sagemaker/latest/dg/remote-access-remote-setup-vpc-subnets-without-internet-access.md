@@ -1,6 +1,6 @@
 # Set up Studio to run with subnets without internet access within a VPC
 
-This guide shows you how to connect to Amazon SageMaker Studio spaces from Visual Studio Code
+This guide shows you how to connect to Amazon SageMaker Studio spaces from your Remote IDE
 when your Amazon SageMaker AI domain runs in private subnets without internet access. You’ll
 learn about connectivity requirements and setup options to establish secure remote
 connections in isolated network environments.
@@ -12,6 +12,21 @@ VPC. To enable external communications while maintaining security, use VPC endpo
 for AWS services and configure VPC PrivateLink for required AWS
 dependencies.
 
+**IDE support for private subnet connections**
+
+The following table shows the supported connection methods for each Remote IDE when
+connecting to Studio spaces in private subnets without internet access.
+
+| Connection method                         | VS Code   | Kiro          | Cursor        |
+| ----------------------------------------- | --------- | ------------- | ------------- |
+| HTTP Proxy support                        | Supported | Supported     | Not supported |
+| Pre-packaged remote server and extensions | Supported | Not supported | Not supported |
+
+###### Important
+
+Cursor is not supported for connecting to Studio spaces in private subnets
+without outbound internet access.
+
 ###### Topics
 
 - [Studio remote access network requirements](#remote-access-remote-setup-vpc-subnets-without-internet-access-network-requirements "#remote-access-remote-setup-vpc-subnets-without-internet-access-network-requirements")
@@ -21,7 +36,7 @@ dependencies.
 
 **VPC mode limitations** Studio in VPC mode
 only supports private subnets. Studio cannot work with subnets directly
-attached with an Internet Gateway (IGW). Remote VS Code connections share the
+attached with an Internet Gateway (IGW). Remote IDE connections share the
 same limitations as SageMaker AI. For more information, see [Connect
 Studio notebooks in a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md").
 
@@ -120,18 +135,33 @@ requirements. The following is a summary of the requirements:
   downloading their specific dependencies. See the extension’s
   documentation for their specific connectivity requirements.
 
+**Kiro specific network requirements**
+
+Remote Kiro connection requires Kiro remote development, which needs
+specific network access to install the remote server and extensions. For
+firewall and proxy server configuration, see [Kiro firewall
+configuration](https://kiro.dev/docs/privacy-and-security/firewalls/ "https://kiro.dev/docs/privacy-and-security/firewalls/"). The requirements are similar to VS Code:
+
+- Access to Kiro server endpoints is needed to install
+  and update the Kiro remote server.
+- Access to extension marketplace and related CDN endpoints is required for
+  installing Kiro extensions through the extension panel.
+- Some extensions may require access to additional endpoints for
+  downloading their specific dependencies. See the extension’s
+  documentation for their specific connectivity requirements.
+
 ## Setup Studio remote access network
 
-Your have two options to connect your local Visual Studio Code to Studio spaces
+You have the following options to connect your Remote IDE to Studio spaces
 in private subnets:
 
-- HTTP Proxy
-- Pre-packaged VS Code remote server and extensions
+- HTTP Proxy (supported for VS Code and Kiro)
+- Pre-packaged remote server and extensions (VS Code only)
 
 ### Set up HTTP Proxy with controlled allow-listing
 
 When your Studio space is behind a firewall or proxy, allow access to
-VS Code server and extension-related CDNs and endpoints.
+your IDE server and extension-related CDNs and endpoints.
 
 1. Set up a public subnet to run the HTTP proxy (such as Squid),
    where you can configure which websites to allow. Ensure that the
@@ -140,7 +170,11 @@ VS Code server and extension-related CDNs and endpoints.
    or in separate VPC peered with all the VPCs used by
    Amazon SageMaker AI domains.
 
-### Set up Pre-packaged Visual Studio Code remote server and extensions
+### Set up Pre-packaged remote server and extensions (VS Code only)
+
+###### Note
+
+This option is only available for Visual Studio Code. Kiro and Cursor do not support pre-packaged remote server setup.
 
 When your Studio spaces can’t access external endpoints to download
 VS Code remote server and extensions, you can pre-package them. With this

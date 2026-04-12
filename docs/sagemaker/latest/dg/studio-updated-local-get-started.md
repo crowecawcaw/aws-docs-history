@@ -113,8 +113,6 @@ that routes traffic through your VPC. This provides enhanced security and allows
 additional Docker registries. The key differences with `RootlessDocker`
 are:
 
-- Container ports are accessible using the Docker gateway IP (`172.17.0.1`)
-  instead of localhost.
 - Your VPC configuration determines which registries are accessible for Docker
   operations. `VpcOnlyTrustedAccounts` is ignored and Docker traffic routes
   through your VPC configuration.

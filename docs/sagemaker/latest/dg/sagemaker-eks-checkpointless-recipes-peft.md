@@ -15,7 +15,7 @@ Before you start setting up your environment, make sure you have:
   - ARROW
 
 - Pick a supported checkpointless training recipe for Llama 70B or GPT-OSS 120B from the [source](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection").
-- [Download the hugging face model weights](sagemaker-eks-checkpointless-release-notes.md "sagemaker-eks-checkpointless-release-notes.md") and covert to [Nemo supported format](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/features/hf-integration.html#importing-from-hugging-face "https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/features/hf-integration.html#importing-from-hugging-face").
+- [Download the hugging face model weights](https://huggingface.co/docs/hub/models-downloading "https://huggingface.co/docs/hub/models-downloading") and covert to [Nemo supported format](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/features/hf-integration.html#importing-from-hugging-face "https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/features/hf-integration.html#importing-from-hugging-face").
 - Setup your environment
 
 ## Kubernetes environment setup

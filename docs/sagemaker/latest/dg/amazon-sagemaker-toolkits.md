@@ -20,20 +20,20 @@ container's `/opt/ml` directory.
 
 ```
 /opt/ml
-├── input
-│   ├── config
-│   │   ├── hyperparameters.json
-│   │   └── resourceConfig.json
-│   └── data
-│       └── <channel_name>
-│           └── <input data>
-├── model
-│
-├── code
-│
-├── output
-│
-└── failure
+тФЬтФАтФА input
+тФВ   тФЬтФАтФА config
+тФВ   тФВ   тФЬтФАтФА hyperparameters.json
+тФВ   тФВ   тФФтФАтФА resourceConfig.json
+тФВ   тФФтФАтФА data
+тФВ       тФФтФАтФА <channel_name>
+тФВ           тФФтФАтФА <input data>
+тФЬтФАтФА model
+тФВ
+тФЬтФАтФА code
+тФВ
+тФЬтФАтФА output
+тФВ
+тФФтФАтФА failure
 ```
 
 When you run a model _training_ job, the SageMaker AI container uses the
@@ -56,8 +56,8 @@ folder to which they were written during training.
 
 ```
 /opt/ml/model
-│
-└── <model files>
+тФВ
+тФФтФАтФА <model files>
 ```
 
 For more information, see [Containers with custom inference code](your-algorithms-inference-main.md "your-algorithms-inference-main.md").

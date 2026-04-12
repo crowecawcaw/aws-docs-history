@@ -3,6 +3,12 @@
 You can create use an algorithm resource to create a training job by using
 the Amazon SageMaker AI console, the low-level Amazon SageMaker API, or the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
 
+###### Note
+
+Your execution role must have `sagemaker:DescribeAlgorithm` permission
+for the algorithm resource that you specify. For more information about execution
+role permissions, see [CreateTrainingJob API: Execution Role Permissions](sagemaker-roles.md#sagemaker-roles-createtrainingjob-perms "sagemaker-roles.md#sagemaker-roles-createtrainingjob-perms").
+
 ###### Topics
 
 - [Use an Algorithm to Run a Training Job (Console)](#sagemaker-mkt-algo-train-console "#sagemaker-mkt-algo-train-console")

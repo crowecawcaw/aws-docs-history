@@ -8,6 +8,88 @@ Amazon SageMaker HyperPod platform releases, updates, and improvements, see [Ama
 For information about SageMaker HyperPod Inference capabilities and deployment options, see
 [Deploying models on Amazon SageMaker HyperPod](sagemaker-hyperpod-model-deployment.md "sagemaker-hyperpod-model-deployment.md").
 
+## SageMaker HyperPod Inference release notes: v3.1
+
+**Release Date:** April 3, 2026
+
+**Summary**
+
+Inference Operator v3.1 introduces custom Kubernetes pod configuration, custom
+certificate support, and per-pod request limits.
+
+**Key Features**
+
+- **Custom Kubernetes Pod Configuration** – Added
+  a new `kubernetes` field to the `InferenceEndpointConfig`
+  CRD that allows users to customize inference pod configurations:
+  - **Custom init containers** – Run
+    user-defined init containers before the inference server starts (for example,
+    cache warming, GDS setup). Init containers are injected after the
+    operator's prefetch container.
+  - **Custom volumes** – Add additional
+    volumes (`emptyDir`, `hostPath`,
+    `configMap`, etc.) to the pod spec, which can be referenced
+    by init containers via `volumeMounts`.
+  - **Custom scheduler name** – Specify a
+    custom Kubernetes scheduler for pod placement.
+
+- **Custom Certificates** – Use your own ACM
+  certificates for inference endpoints instead of operator-generated self-signed
+  certificates, configured via `customCertificateConfig`. Supports
+  publicly trusted ACM certificates, AWS Private CA certificates, and
+  certificates imported from external CAs. The operator monitors certificate
+  health and supports automatic renewal detection.
+- **Request Limits** – Control request handling
+  per pod via the new `RequestLimits` configuration under
+  `Worker`, with the following configurable fields:
+  - `maxConcurrentRequests` – Maximum concurrent in-flight
+    requests per pod.
+  - `maxQueueSize` – Requests to queue when the concurrency
+    limit is reached before rejecting.
+  - `overflowStatusCode` – HTTP status code returned when
+    limits are exceeded (default: 429).
+
+For detailed information including prerequisites and upgrade instructions, see the
+sections below.
+
+### Prerequisites
+
+To use the Custom Certificates feature, add the following permissions to your
+Inference Operator execution role:
+
+```
+{
+    "Sid": "ACMCertificateAccess",
+    "Effect": "Allow",
+    "Action": [
+        "acm:DescribeCertificate",
+        "acm:GetCertificate"
+    ],
+    "Resource": "arn:aws:acm:*:*:certificate/*"
+}
+```
+
+### Upgrade to v3.1
+
+If you already have the Inference Operator installed via Helm, use the following
+commands to upgrade:
+
+```
+helm get values -n kube-system hyperpod-inference-operator \
+> current-values.yaml
+
+cd sagemaker-hyperpod-cli/helm_chart/HyperPodHelmChart/\
+charts/inference-operator
+
+helm upgrade hyperpod-inference-operator . -n kube-system \
+  -f current-values.yaml --set image.tag=v3.1
+
+# Verification
+kubectl get deployment hyperpod-inference-operator-controller-manager \
+  -n hyperpod-inference-system \
+  -o jsonpath='{.spec.template.spec.containers[0].image}'
+```
+
 ## SageMaker HyperPod Inference release notes: v3.0
 
 **Release Date:** February 23, 2026

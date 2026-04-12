@@ -1326,6 +1326,20 @@ If `CreateTrainingJob.AlgorithSpecifications.TrainingImage` needs to
 access other data sources, such as DynamoDB or Amazon RDS resources, add relevant
 permissions to this policy.
 
+If you specify an algorithm resource by using the
+`AlgorithmSpecification.AlgorithmArn` parameter, the execution role
+must also have the following permission:
+
+```
+{
+    "Effect": "Allow",
+    "Action": [
+        "sagemaker:DescribeAlgorithm"
+    ],
+    "Resource": "arn:aws:sagemaker:*:*:algorithm/*"
+}
+```
+
 In the preceding policy, you scope the policy as follows:
 
 - Scope the `s3:ListBucket` permission to a specific bucket that

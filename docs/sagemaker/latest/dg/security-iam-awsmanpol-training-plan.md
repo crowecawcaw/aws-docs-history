@@ -8,6 +8,7 @@ including your [SageMaker AI execution role](sagemaker-roles.md "sagemaker-roles
 ###### Topics
 
 - [AWS managed policy: AmazonSageMakerTrainingPlanCreateAccess](#security-iam-awsmanpol-AmazonSageMakerTrainingPlanCreateAccess "#security-iam-awsmanpol-AmazonSageMakerTrainingPlanCreateAccess")
+- [AWS managed policy: AmazonSageMakerCapacityReservationServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerCapacityReservationServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerCapacityReservationServiceRolePolicy")
 - [Amazon SageMaker AI updates to SageMaker training plans managed policies](#security-iam-awsmanpol-training-plan-updates "#security-iam-awsmanpol-training-plan-updates")
 
 ## AWS managed policy: AmazonSageMakerTrainingPlanCreateAccess
@@ -92,12 +93,62 @@ JSON
 
 ```
 
+## AWS managed policy: AmazonSageMakerCapacityReservationServiceRolePolicy
+
+This policy is used by the service-linked role named
+AWSServiceRoleForSageMakerCapacityReservation to publish CloudWatch metrics for
+Reserved Capacity utilization into customer accounts. The service-linked role is
+created by the service principal
+capacityreservation.sagemaker.amazonaws.com.
+
+###### Note
+
+This is a service-linked role policy. You cannot attach this policy to your
+IAM identities. SageMaker AI creates this policy and attaches it to a service-linked
+role that allows SageMaker AI to perform actions on your behalf.
+
+**Permissions details**
+
+This policy includes the following permissions.
+
+- `cloudwatch` – Allows publishing metric data to CloudWatch.
+  This permission is scoped to the
+  `aws/sagemaker/CapacityReservations` namespace using a
+  condition key.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "CloudwatchPutMetricDataAccess",
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:PutMetricData"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "cloudwatch:namespace": "aws/sagemaker/CapacityReservations"
+                }
+            }
+        }
+    ]
+}
+```
+
+For more information, see [AmazonSageMakerCapacityReservationServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonSageMakerCapacityReservationServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonSageMakerCapacityReservationServiceRolePolicy.md") in the AWS
+Managed Policy Reference Guide.
+
 ## Amazon SageMaker AI updates to SageMaker training plans managed policies
 
 View details about updates to AWS managed policies for Amazon SageMaker AI since this service
 began tracking these changes.
 
-| Policy                                                      | Version | Change                                                                                                                                            | Date             |
-| ----------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| AmazonSageMakerTrainingPlanCreateAccess<br>• updated policy | 2       | Updated policy to add permissions to retrieve information about a<br>specific reserved capacity and list all UltraServers in a reserved capacity. | July 29, 2024    |
-| AmazonSageMakerTrainingPlanCreateAccess<br>• New<br>policy  | 1       | Initial policy                                                                                                                                    | December 4, 2024 |
+| Policy                                                                                                                                                                                                                        | Version | Change                                                                                                                                            | Date             |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| [AmazonSageMakerCapacityReservationServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerCapacityReservationServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerCapacityReservationServiceRolePolicy") – New policy | 1       | Initial policy                                                                                                                                    | March 5, 2026    |
+| AmazonSageMakerTrainingPlanCreateAccess<br>• updated policy                                                                                                                                                                   | 2       | Updated policy to add permissions to retrieve information about a<br>specific reserved capacity and list all UltraServers in a reserved capacity. | July 29, 2024    |
+| AmazonSageMakerTrainingPlanCreateAccess<br>• New<br>policy                                                                                                                                                                    | 1       | Initial policy                                                                                                                                    | December 4, 2024 |
