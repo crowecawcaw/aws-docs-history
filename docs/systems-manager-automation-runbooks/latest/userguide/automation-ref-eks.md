@@ -20,3 +20,4 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 - [AWSSupport-SetupK8sApiProxyForEKS](automation-awssupport-setupk8sapiproxyforeks.md "automation-awssupport-setupk8sapiproxyforeks.md")
 - [AWSSupport-TroubleshootEbsCsiDriversForEks](automation-awssupport-troubleshoot-ebs-csi-drivers-for-eks.md "automation-awssupport-troubleshoot-ebs-csi-drivers-for-eks.md")
 - [AWSSupport-TroubleshootEKSALBControllerIssues](automation-awssupport-troubleshoot-eks-alb-controller-issues.md "automation-awssupport-troubleshoot-eks-alb-controller-issues.md")
+- [AWSSupport-TroubleshootEKSDNSFailure](automation-awssupport-troubleshooteksdnsfailure.md "automation-awssupport-troubleshooteksdnsfailure.md")

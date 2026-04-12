@@ -4,6 +4,14 @@
 
 Create an issue in Jira.
 
+###### Note
+
+For better control and validation, we recommend [cloning](../../../systems-manager/latest/userguide/documents-creating-content.md#cloning-ssm-document "../../../systems-manager/latest/userguide/documents-creating-content.md#cloning-ssm-document") the `AWS-CreateJiraIssue` runbook to create your own private version. In your cloned runbook, add
+[validation logic](../../../systems-manager/latest/userguide/documents-schemas-features.md#parameter-security-best-practices "../../../systems-manager/latest/userguide/documents-schemas-features.md#parameter-security-best-practices") for the
+`JiraURL` parameter to ensure it matches your approved Jira instances before execution. Then use your cloned runbook
+in place of the AWS-managed one and restrict IAM permissions for executing `AWS-CreateJiraIssue`. This approach gives
+you more flexibility and ensures the parameter meets your organization's security and compliance requirements.
+
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateJiraIssue "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateJiraIssue")
 
 **Document type**

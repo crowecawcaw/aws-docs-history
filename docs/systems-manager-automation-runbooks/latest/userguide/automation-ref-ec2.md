@@ -33,6 +33,7 @@ see [View runbook content](automation-runbook-reference.md#view-automation-json 
 - [AWSPremiumSupport-ChangeInstanceTypeIntelToAMD](automation-aws-changeinstancetypeinteltoamd.md "automation-aws-changeinstancetypeinteltoamd.md")
 - [AWSSupport-CheckXenToNitroMigrationRequirements](automation-awssupport-checkxentonitromigrationrequirements.md "automation-awssupport-checkxentonitromigrationrequirements.md")
 - [AWSSupport-CloneXenEC2InstanceAndMigrateToNitro](automation-awssupport-clonexenec2instanceandmigratetonitro.md "automation-awssupport-clonexenec2instanceandmigratetonitro.md")
+- [AWSSupport-CollectSAPHANALogs](automation-awssupport-collectsaphanalogs.md "automation-awssupport-collectsaphanalogs.md")
 - [AWSSupport-ConfigureEC2Metadata](automation-awssupport-configureec2metadata.md "automation-awssupport-configureec2metadata.md")
 - [AWSSupport-ContainEC2Instance](automation-awssupport-containec2instance.md "automation-awssupport-containec2instance.md")
 - [AWSSupport-CopyEC2Instance](automation-awssupport-copyec2instance.md "automation-awssupport-copyec2instance.md")
