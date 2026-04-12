@@ -47,7 +47,7 @@ database to remove.
 
 An example of an assessment report summary is shown following.
 
-![Assessment report summary](/images/SchemaConversionTool/latest/userguide/images/summary_tab.png) 7. Choose the **Summary** tab, and then
+![Assessment report summary](images/summary_tab.png) 7. Choose the **Summary** tab, and then
 choose **Save to PDF**.
 The database migration assessment report is saved as a PDF file.
 The PDF file contains both the summary
