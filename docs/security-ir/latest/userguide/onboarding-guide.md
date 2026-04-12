@@ -1,36 +1,5 @@
 # Onboarding guide
 
-The onboarding guide walks you through prerequisites and AWS Security Incident Response onboarding and containment actions.
+AWS Security Incident Response helps you prepare for, respond to, and recover from security events such as account takeovers, data breaches, and ransomware attacks. The service triages findings from Amazon GuardDuty and AWS Security Hub CSPM, escalates security events, and manages cases that require your attention. You also have access to the AWS Security Incident Response team (SIRT), who investigates impacted resources and provides guidance throughout the incident lifecycle.
 
-###### Important
-
-Prerequisites
-
-1. The only deployment prerequisite is enabling [AWS Organizations](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md").
-2. While not required, we recommend enabling [Amazon GuardDuty](../../../guardduty/latest/ug/what-is-guardduty.md "../../../guardduty/latest/ug/what-is-guardduty.md") and [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-are-securityhub-services.md "../../../securityhub/latest/userguide/what-are-securityhub-services.md") across all accounts and active AWS Regions to maximize
-   Security Incident Response benefits.
-3. Review GuardDuty and Security Incident Response.
-4. Review [GuardDuty
-   best practices guide](../../../guardduty/latest/ug/what-is-guardduty.md "../../../guardduty/latest/ug/what-is-guardduty.md").
-   AWS Security Hub CSPM ingests findings from 3rd party endpoint detection and
-   response (EDR) vendors (CrowdStrike, FortinetCNAPP (Lacework) and Trend Micro, among
-   others). If these findings are ingested into Security Hub CSPM, they are auto-triaged
-   by Security Incident Response for proactive case creation. To setup 3rd party
-   EDR with Security Hub CSPM, see [Detect and Analyze](detect-and-analyze.md "detect-and-analyze.md").
-
-To setup 3rd party EDR with Security Hub CSPM:
-
-1. Navigate to the Security Hub CSPM Integrations page to validate the 3rd party integration
-   exists
-2. From the console, navigate to the Security Hub CSPM service page.
-3. Choose **Integrations** (using Wiz.IO as an
-   example):
-
-![Security Hub CSPM integrations page showing available third-party integrations.](images/Security_Hub_CSPM.png) 4. Search for the vendor you would like to integrate
-
-![Search interface for finding and selecting third-party vendor integrations.](images/Integrations.png)
-
-###### Note
-
-When prompted, provide your account or subscription information. After you provide this information, Security Incident Response
-ingests 3rd party findings. To review pricing for the 3rd party findings ingestion, see the **Integrations** page in Security Hub CSPM.
+For a full overview of the service, see [What is AWS Security Incident Response?](what-is.md "what-is.md")

@@ -1,22 +1,17 @@
-# Appendix A: Points of contact
+# Appendix A: Points of contact and critical information
 
-Providing your metadata upfront to our Security Incident Response engineers, can help accelerate the profile creation time, improving the confidence in our triaging technology out of the gate. This helps reduce the upfront false positives identified when we begin to ingest your threat findings and create your "known good world."
+Complete the following table and provide it to your AWS account team before deployment. This information enables AWS SIRT to reach the right people quickly during a security event.
 
 | IR and SOC Personnel Contact Information | Entry                                         | IR      | SOC Personnel: Role, Name, Email | Primary, Secondary Escalation Contacts | Internal, Known CIDR Ranges | External, Known CIDR Ranges | Additional Cloud Service Providers | Working AWS Regions                   | DNS Server IPs (if other than Amazon Route 53 Resolver) | VPN        | Remote Access Solutions and IPs | Critical Application Names | Account Numbers | Uncommon Ports Commonly Used | EDR | AV  | Vulnerability Management Tools Used | IDP | Locations |
 | ---------------------------------------- | --------------------------------------------- | ------- | -------------------------------- | -------------------------------------- | --------------------------- | --------------------------- | ---------------------------------- | ------------------------------------- | ------------------------------------------------------- | ---------- | ------------------------------- | -------------------------- | --------------- | ---------------------------- | --- | --- | ----------------------------------- | --- | --------- |
 | 1                                        | SOC Commander, John Smith, jsmith@example.com | Primary | 10.0.0.0/16                      | 5.5.60.0/20 (Azure)                    | Azure                       | us-east-1, us-east-2        | N/A                                | Direct Connect, Public VIF 116.32.8.7 | Nginx Webserver (Example Critical)                      | 1234567890 | 8080                            | CrowdStrike Falcon         | Entra, Azure    |
-|                                          |                                               |         |                                  |                                        |                             |                             |                                    |                                       |                                                         |            |                                 |                            |
-|                                          |                                               |         |                                  |                                        |                             |                             |                                    |                                       |                                                         |            |                                 |                            |
-|                                          |                                               |         |                                  |                                        |                             |                             |                                    |                                       |                                                         |            |                                 |                            |
 
-To submit metadata information for your environment, create an [AWS Support case](https://repost.aws/knowledge-center/get-aws-technical-support "https://repost.aws/knowledge-center/get-aws-technical-support").
+###### To submit this inforamtion, complete the following steps:
 
-###### To submit metadata
-
-1. Complete the metadata table with your environment information.
-2. Create an AWS Support case with the following details:
+1. Complete the preceding metadata table with your environment information.
+2. Create an [AWS Support case](https://repost.aws/knowledge-center/get-aws-technical-support "https://repost.aws/knowledge-center/get-aws-technical-support") with the following details:
    - **Case type:** Technical
-   - **Service:** Security Incident Response Service
+   - **Service:** Security Incident Response
    - **Category:** Other
 
 3. Attach the completed metadata table to the case.
