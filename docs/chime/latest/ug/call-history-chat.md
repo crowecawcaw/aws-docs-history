@@ -12,7 +12,7 @@ You can message those contacts directly from your call history.
 4. Enter your message.
 5. (Optional) Choose **Attach a file** (
 
-![An icon showing a paperclip.](images/icon-attach-file.png)
+![An icon showing a paperclip.](/images/chime/latest/ug/images/icon-attach-file.png)
 
 ) to attach a file to the message. You can attach files of
 up to 50 MB. 6. (Optional) Choose **Pick an emoji** (

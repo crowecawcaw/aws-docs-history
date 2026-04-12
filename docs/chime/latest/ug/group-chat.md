@@ -65,7 +65,7 @@ The following steps apply to the desktop client and web app.
 
 Choose the phone icon in the upper-right corner of the chat window (
 
-![Line drawing of a phone receiver.](images/icon-chat-call.png)
+![Line drawing of a phone receiver.](/images/chime/latest/ug/images/icon-chat-call.png)
 
 ).
 

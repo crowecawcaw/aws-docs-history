@@ -25,7 +25,7 @@ section.
 ) to attach a file to the message. You can attach files of
 up to 50 MB. 5. (Optional) Choose **Pick an emoji** (
 
-![An icon showing a smiley face.](/images/chime/latest/ug/images/icon-add-emoji.png)
+![An icon showing a smiley face.](images/icon-add-emoji.png)
 
 ) to add an emoji.
 
@@ -34,6 +34,6 @@ up to 50 MB. 5. (Optional) Choose **Pick an emoji** (
 You can also add emoji codes to a message, such as `:-)` or
 `:(`. The emojis appear after you send the message. 6. Choose send (
 
-![An arrow pointed to the right.](images/icon-send-msg.png)
+![An arrow pointed to the right.](/images/chime/latest/ug/images/icon-send-msg.png)
 
 ) or press **Enter**.
