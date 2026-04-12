@@ -33,4 +33,4 @@ displayed.
 following screenshot of the performance dashboard where you can click to the
 return to the model page.
 
-![Two example images from test results with predicted labels and confidence scores, and a breadcrumb link to return to the model page.](/images/rekognition/latest/customlabels-dg/images/get-started-image-test-results.jpg)
+![Two example images from test results with predicted labels and confidence scores, and a breadcrumb link to return to the model page.](images/get-started-image-test-results.jpg)
