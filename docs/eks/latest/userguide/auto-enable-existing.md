@@ -68,7 +68,7 @@ The Cluster IAM role of an EKS Cluster cannot be changed after the cluster is cr
 
 ### Prerequisites
 
-- The Cluster IAM Role of the existing EKS Cluster must include sufficent permissiosn for EKS Auto Mode, such as the following policies:
+- The Cluster IAM Role of the existing EKS Cluster must include sufficient permissions for EKS Auto Mode, such as the following policies:
   - `AmazonEKSComputePolicy`
   - `AmazonEKSBlockStoragePolicy`
   - `AmazonEKSLoadBalancingPolicy`
@@ -76,7 +76,7 @@ The Cluster IAM role of an EKS Cluster cannot be changed after the cluster is cr
   - `AmazonEKSClusterPolicy`
 
 - The Cluster IAM Role must have an updated trust policy including the `sts:TagSession` action. For more information on creating a Cluster IAM Role, see [Create an EKS Auto Mode Cluster with the AWS CLI](automode-get-started-cli.md "automode-get-started-cli.md").
-- `aws` CLI installed, logged in, and a sufficent version. You must have permission to manage IAM, EKS, and EC2 resources. For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
+- `aws` CLI installed, logged in, and a sufficient version. You must have permission to manage IAM, EKS, and EC2 resources. For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
 
 ### Procedure
 

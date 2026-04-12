@@ -216,7 +216,7 @@ kubectl describe clusterrolebinding eks:node-manager
 
 If present, compare the output to the previous `ClusterRoleBinding` example.
 
-If you’ve identified a missing or broken `ClusterRole` or `ClusterRoleBinding` as the cause of an `AcessDenied` error while requesting managed node group operations, you can restore them. Save the following contents to a file named `eks-node-manager-role.yaml`.
+If you’ve identified a missing or broken `ClusterRole` or `ClusterRoleBinding` as the cause of an `AccessDenied` error while requesting managed node group operations, you can restore them. Save the following contents to a file named `eks-node-manager-role.yaml`.
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1

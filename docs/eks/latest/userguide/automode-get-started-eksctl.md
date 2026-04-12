@@ -14,7 +14,7 @@ You must install version `0.195.0` or greater of eksctl. For more information, s
 
 ## Create an EKS Auto Mode cluster with a CLI command
 
-You must have the `aws` and `eksctl` tools installed. You must be logged into the AWS CLI with sufficent permissions to manage AWS resources including: EC2 instances, EC2 networking, EKS clusters, and IAM roles. For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
+You must have the `aws` and `eksctl` tools installed. You must be logged into the AWS CLI with sufficient permissions to manage AWS resources including: EC2 instances, EC2 networking, EKS clusters, and IAM roles. For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
 
 Run the following command to create a new EKS Auto Mode cluster with
 
@@ -24,7 +24,7 @@ eksctl create cluster --name=<cluster-name> --enable-auto-mode
 
 ## Create an EKS Auto Mode cluster with a YAML file
 
-You must have the `aws` and `eksctl` tools installed. You must be logged into the AWS CLI with sufficent permissions to manage AWS resources including: EC2 instances, EC2 networking, EKS clusters, and IAM roles. For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
+You must have the `aws` and `eksctl` tools installed. You must be logged into the AWS CLI with sufficient permissions to manage AWS resources including: EC2 instances, EC2 networking, EKS clusters, and IAM roles. For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
 
 Review the EKS Auto Mode configuration options in the sample ClusterConfig resource below. For the full ClusterConfig specification, see the [eksctl documentation](https://eksctl.io/usage/creating-and-managing-clusters/ "https://eksctl.io/usage/creating-and-managing-clusters/").
 

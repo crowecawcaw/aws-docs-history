@@ -32,7 +32,7 @@ Enabling at least one built-in NodePool is required for EKS to provision the "de
 ### Prerequisites
 
 - The latest version of the AWS Command Line Interface (AWS CLI) installed and configured on your device. To check your current version, use `aws --version`. To install the latest version, see [Installing](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") and [Quick configuration](../../../cli/latest/userguide/cli-chap-configure.md#cli-configure-quickstart-config "../../../cli/latest/userguide/cli-chap-configure.md#cli-configure-quickstart-config") with aws configure in the AWS Command Line Interface User Guide.
-  - Login to the CLI with sufficent IAM permissions to create AWS resources including IAM Policies, IAM Roles, and EKS Clusters.
+  - Login to the CLI with sufficient IAM permissions to create AWS resources including IAM Policies, IAM Roles, and EKS Clusters.
 
 ### Enable with AWS CLI
 

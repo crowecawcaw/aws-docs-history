@@ -17,7 +17,7 @@ You can use the [AWS Load Balancer Controller](aws-load-balancer-controller.md "
 ### Considerations
 
 - See [Route application and HTTP traffic with Application Load Balancers](alb-ingress.md "alb-ingress.md") and [Install AWS Load Balancer Controller with Helm](lbc-helm.md "lbc-helm.md") for more information on AWS Application Load Balancer and AWS Load Balancer Controller.
-- See [Best Practices for Load Balancing](../best-practices/load-balacing.md "../best-practices/load-balacing.md") for information on how to choose between AWS Application Load Balancer and AWS Network Load Balancer.
+- See [Best Practices for Load Balancing](../best-practices/load-balancing.md "../best-practices/load-balancing.md") for information on how to choose between AWS Application Load Balancer and AWS Network Load Balancer.
 - See [AWS Load Balancer Controller Ingress annotations](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/ingress/annotations/ "https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/ingress/annotations/") for the list of annotations that can be configured for Ingress resources with AWS Application Load Balancer.
 
 ### Prerequisites
@@ -290,7 +290,7 @@ spec:
   infrastructure:
     annotations:
       service.beta.kubernetes.io/...
-      service.kuberentes.io/...
+      service.kubernetes.io/...
   addresses:
   - type: IPAddress
     value: <LoadBalancer IP address>
@@ -489,8 +489,8 @@ kind: Ingress
 metadata:
   name: my-ingress
   annotations:
-    service.beta.kuberentes.io/...
-    service.kuberentes.io/...
+    service.beta.kubernetes.io/...
+    service.kubernetes.io/...
 spec:
   ingressClassName: cilium
   rules:

@@ -113,7 +113,7 @@ If you want to prevent an OIDC identity provider from being associated with a cl
 }
 ```
 
-The following example policy allows OIDC identity provider association if the `clientID` is `kubernetes` and the `issuerUrl` is `https://cognito-idp.us-west-2amazonaws.com/*`.
+The following example policy allows OIDC identity provider association if the `clientID` is `kubernetes` and the `issuerUrl` is `https://cognito-idp.us-west-2.amazonaws.com/*`.
 
 ```
 {

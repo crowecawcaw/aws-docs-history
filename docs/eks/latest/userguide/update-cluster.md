@@ -136,7 +136,7 @@ Continue to [Step 4: Update cluster components](#step4 "#step4").
 
 ```
 aws eks update-cluster-version --name <cluster-name> \
-  --kubernetes-version <verion-number> --region <region-code>
+  --kubernetes-version <version-number> --region <region-code>
 ```
 
 An example output is as follows.

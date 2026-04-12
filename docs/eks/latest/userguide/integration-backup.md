@@ -13,7 +13,7 @@ An Amazon EKS backup will create a composite recovery point, where a child recov
   To get started via the EKS console, AWS Backup console or CLI ensure that your IAM role has the following permissions:
 
 - These can be found in AWS Backup’s Managed policy [AWSBackupServiceRolePolicyForBackup](../../../aws-backup/latest/devguide/security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForBackup "../../../aws-backup/latest/devguide/security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForBackup"). This contains the required permissions to backup your Amazon EKS cluster and EBS and EFS persistent storage
-- If your EKS Cluster contains an S3 bucket you will need to ensure the following policies and prequisites for your S3 bucket are added and enabled as documented:
+- If your EKS Cluster contains an S3 bucket you will need to ensure the following policies and prerequisites for your S3 bucket are added and enabled as documented:
 - [AWSBackupServiceRolePolicyForS3Backup](../../../aws-backup/latest/devguide/security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForS3Backup "../../../aws-backup/latest/devguide/security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForS3Backup")
 - Prerequisites for [S3 Backups](../../../aws-backup/latest/devguide/s3-backups.md#s3-backup-prerequisites#AWSBackupServiceRolePolicyForS3Backup "../../../aws-backup/latest/devguide/s3-backups.md#s3-backup-prerequisites#AWSBackupServiceRolePolicyForS3Backup")
   Ensure your EKS Clusters have the following settings:

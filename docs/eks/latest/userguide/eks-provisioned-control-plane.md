@@ -99,7 +99,7 @@ plane maintains the limits corresponding to that tier. The
 limits of control plane scaling tiers vary by Kubernetes version,
 as shown in the following tables.
 
-### EKS v1.30 and later
+### EKS v1.30 to v1.33
 
 | Provisioned Control Plane Scaling Tier | API request concurrency (seats) | Pod scheduling rate (pods/sec) | Cluster database size (GB) | SLA (measured in 1-minute intervals) |
 | -------------------------------------- | ------------------------------- | ------------------------------ | -------------------------- | ------------------------------------ |
@@ -107,6 +107,15 @@ as shown in the following tables.
 | 2XL                                    | 3400                            | 283                            | 16                         | 99.99%                               |
 | 4XL                                    | 6800                            | 400                            | 16                         | 99.99%                               |
 | 8XL                                    | 13600                           | 400                            | 16                         | 99.99%                               |
+
+### EKS v1.34 and later
+
+| Provisioned Control Plane Scaling Tier | API request concurrency (seats) | Pod scheduling rate (pods/sec) | Cluster database size (GB) | SLA (measured in 1-minute intervals) |
+| -------------------------------------- | ------------------------------- | ------------------------------ | -------------------------- | ------------------------------------ |
+| XL                                     | 2000                            | 167                            | 16                         | 99.99%                               |
+| 2XL                                    | 4000                            | 283                            | 16                         | 99.99%                               |
+| 4XL                                    | 8000                            | 400                            | 16                         | 99.99%                               |
+| 8XL                                    | 16000                           | 400                            | 16                         | 99.99%                               |
 
 ### Monitoring control plane scaling tier utilization
 

@@ -60,7 +60,7 @@ The **AWS Fargate** service in the Service Quotas console lists several service 
 
 New AWS accounts might have lower initial quotas that can increase over time. Fargate constantly monitors the account usage within each AWS Region, and then automatically increases the quotas based on the usage. You can also request a quota increase for values that are shown as adjustable. For more information, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
 
-AWS recomends using the AWS Management Console to view your current quotas. For more information, see [View EKS service quotas in the AWS Management Console](#service-quotas-console "#service-quotas-console").
+AWS recommends using the AWS Management Console to view your current quotas. For more information, see [View EKS service quotas in the AWS Management Console](#service-quotas-console "#service-quotas-console").
 
 To view default AWS Fargate on EKS service quotas, see [Fargate service quotas](../../../general/latest/gr/eks.md#service-quotas-eks-fargate "../../../general/latest/gr/eks.md#service-quotas-eks-fargate") in the _AWS General Reference_.
 

@@ -109,7 +109,7 @@ kubectl get nodeclass network-policy-config
 
 ![Illustration of workflow when a DNS-based policy is applied in EKS Auto](images/apply-dns-policy-1.png)
 
-![llustration of workflow when a DNS-based policy is applied in EKS Auto](images/apply-dns-policy-2.png)
+![Illustration of workflow when a DNS-based policy is applied in EKS Auto](images/apply-dns-policy-2.png)
 
 1. The platform team applies a DNS-based policy to the EKS cluster.
 2. The Network Policy Controller is responsible for monitoring the creation of policies within the cluster and then reconciling policy endpoints. In this use case, the network policy controller instructs the node agent to filter DNS requests based on the allow-listed domains in the created policy. Domain names are allow-listed using the FQDN or a domain names that matches a pattern defined in the Kubernetes resource configuration.
@@ -164,11 +164,11 @@ spec:
 
 At the Kubernetes network level, this would allow egress from any pods in the "galaxy" namespace labelled with `role: backend` to connect to the domain name **myapp.mydomain.com** on TCP port 8080. In addition, you would need to setup the network connectivity for egress traffic from your VPC to your corporate data center.
 
-![llustration of workload in EKS Auto communicating with applications on prem](images/eks-auto-to-on-prem.png)
+![Illustration of workload in EKS Auto communicating with applications on prem](images/eks-auto-to-on-prem.png)
 
 ### Admin (or cluster) network policy
 
-![llustration of the evaluation order for network policies in EKS](images/evaluation-order.png)
+![Illustration of the evaluation order for network policies in EKS](images/evaluation-order.png)
 
 #### Using the Cluster Network Policy
 

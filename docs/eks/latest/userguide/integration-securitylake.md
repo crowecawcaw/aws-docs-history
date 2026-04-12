@@ -8,9 +8,9 @@ Amazon Security Lake is a fully managed security data lake service that allows y
 
 ###### Note
 
-For more information about using Security Lake with Amazon EKS and setting up data sources, refer to the [Amazon Security Lake documentation](../../../security-lake/latest/userguide/internal-sources.md#eks-eudit-logs "../../../security-lake/latest/userguide/internal-sources.md#eks-eudit-logs").
+For more information about using Security Lake with Amazon EKS and setting up data sources, refer to the [Amazon Security Lake documentation](../../../security-lake/latest/userguide/internal-sources.md#eks-audit-logs "../../../security-lake/latest/userguide/internal-sources.md#eks-audit-logs").
 
-## Benefits of using Security Lake with Amazon Amazon EKS
+## Benefits of using Security Lake with Amazon EKS
 
 **Centralized security data** — Security Lake automatically collects and centralizes security data from your Amazon EKS clusters, along with data from other AWS services, SaaS providers, on-premises sources, and third-party sources. This provides a comprehensive view of your security posture across your entire organization.
 

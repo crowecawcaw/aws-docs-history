@@ -26,7 +26,7 @@ Do you need x86 or Arm? Before deploying Arm instances, review [Amazon EKS optim
 
 **Maximum number of Pods**
 
-Since each Pod is assigned its own IP address, the number of IP addresses supported by an instance type is a factor in determining the number of Pods that can run on the instance. To manually determine how many Pods an instance type supports, see .
+Since each Pod is assigned its own IP address, the number of IP addresses supported by an instance type is a factor in determining the number of Pods that can run on the instance. To understand how the maximum number of Pods is determined for an instance type, see [How maxPods is determined](#max-pods-precedence "#max-pods-precedence").
 
 [AWS Nitro System](https://aws.amazon.com/ec2/nitro/ "https://aws.amazon.com/ec2/nitro/") instance types optionally support significantly more IP addresses than non-Nitro System instance types. However, not all IP addresses assigned for an instance are available to Pods. To assign a significantly larger number of IP addresses to your instances, you must have version `1.9.0` or later of the Amazon VPC CNI add-on installed in your cluster and configured appropriately. For more information, see [Assign more IP addresses to Amazon EKS nodes with prefixes](cni-increase-ip-addresses.md "cni-increase-ip-addresses.md"). To assign the largest number of IP addresses to your instances, you must have version `1.10.1` or later of the Amazon VPC CNI add-on installed in your cluster and deploy the cluster with the `IPv6` family.
 

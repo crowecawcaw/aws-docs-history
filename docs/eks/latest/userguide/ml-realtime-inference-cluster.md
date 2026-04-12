@@ -508,7 +508,7 @@ EOF
 The expected output should look like this:
 
 ```
-pod/gpu-ndivia-smi created
+pod/gpu-nvidia-smi created
 ```
 
 Give it a minute then check if the Pod has a "Pending," "ContainerCreating," "Running," then a "Completed" status:

@@ -9,7 +9,7 @@ In this tutorial, you’ll learn how to deploy a sample workload to an EKS Auto 
 ## Prerequisites
 
 - An Amazon EKS Auto Mode cluster. Note the name and AWS region of the cluster.
-- An IAM principal, such as a user or role, with sufficent permissions to manage networking, compute, and EKS resources.
+- An IAM principal, such as a user or role, with sufficient permissions to manage networking, compute, and EKS resources.
   - For more information, see [Creating roles and attaching policies in the IAM User Guide](../../../IAM/latest/UserGuide/access_policies_job-functions_create-policies.md "../../../IAM/latest/UserGuide/access_policies_job-functions_create-policies.md") in the IAM User Guide.
 
 - `aws` CLI installed and configured with an IAM identity.

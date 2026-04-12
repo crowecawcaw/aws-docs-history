@@ -43,6 +43,12 @@ The scale up phase has these steps:
         + `eks.amazonaws.com/sourceLaunchTemplateId=$launchTemplateId`
         + `eks.amazonaws.com/sourceLaunchTemplateVersion=$launchTemplateVersion`
 
+
+
+        ###### Note
+
+        When an update or upgrade is initiated without changes to the scaling configuration, the workflow uses the live Auto Scaling group values as the starting point, not the node group’s stored scaling configuration. For more information, see [Managed node groups concepts](managed-node-groups.md#managed-node-group-concepts "managed-node-groups.md#managed-node-group-concepts").
+
 3.  It marks nodes as unschedulable to avoid scheduling new Pods. It also labels nodes with `node.kubernetes.io/exclude-from-external-load-balancers=true` to remove the old nodes from load balancers before terminating the nodes.
 
 The following are known reasons which lead to a `NodeCreationFailure` error in this phase:
@@ -108,3 +114,11 @@ Once every Pod is evicted, it’s expected for the node to be empty because the 
 The scale down phase decrements the Auto Scaling group maximum size and desired size by one to return to values before the update started.
 
 If the Upgrade workflow determines that the Cluster Autoscaler is scaling up the node group during the scale down phase of the workflow, it exits immediately without bringing the node group back to its original size.
+
+###### Note
+
+```
+If your node group has a warm pool enabled, warm pool instances are drained before the scale-up operation begins. This is because warm pool instances have not been updated to the new launch template configuration — during the scale-up phase, they would be pulled into the Auto Scaling Group instead of launching new instances with the updated configuration, which would break the upgrade process. Draining the warm pool ensures that only new instances with the updated configuration are launched. Once the scale-down operation completes, the warm pool is restored, and the new instances in the warm pool are launched with the updated launch template configuration.
+```
+
+For more information about warm pools, see [Decrease latency for applications with long boot times using warm pools with managed node groups](warm-pools-managed-node-groups.md "warm-pools-managed-node-groups.md").

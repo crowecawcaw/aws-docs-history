@@ -66,7 +66,7 @@ spec:
 
 ###### Note
 
-If you receive an error loading the image `public.ecr.aws/l6m2t8p7/docker-2048:latest`, confirm your Node IAM role has sufficent permissions to pull images from ECR. For more information, see [Node IAM role](auto-learn-iam.md#auto-learn-node-iam-role "auto-learn-iam.md#auto-learn-node-iam-role"). Also, the `docker-2048` image in the example is an `x86_64` image and will not run on other architectures.
+If you receive an error loading the image `public.ecr.aws/l6m2t8p7/docker-2048:latest`, confirm your Node IAM role has sufficient permissions to pull images from ECR. For more information, see [Node IAM role](auto-learn-iam.md#auto-learn-node-iam-role "auto-learn-iam.md#auto-learn-node-iam-role"). Also, the `docker-2048` image in the example is an `x86_64` image and will not run on other architectures.
 
 **Key components:**
 

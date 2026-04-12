@@ -6,7 +6,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 You can see style feedback as you type. This helps identify awkward writing and typos.
 
-!["View style feedback in VS Code](images/contribute-style-local.png)
+![View style feedback in VS Code](images/contribute-style-local.png)
 
 **Overview:**
 

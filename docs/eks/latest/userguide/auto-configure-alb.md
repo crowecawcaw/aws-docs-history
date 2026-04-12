@@ -222,7 +222,7 @@ The table below is a quick reference for commonly used configuration options.
 
 - You cannot use Annotations on an IngressClass to configure load balancers with EKS Auto Mode. IngressClass configuration should be done through IngressClassParams. However, you can use annotations on individual Ingress resources to configure load balancer behavior (such as `alb.ingress.kubernetes.io/security-group-prefix-lists` or `alb.ingress.kubernetes.io/conditions.*`).
 - You cannot set [ListenerAttribute](../../../elasticloadbalancing/latest/APIReference/API_ListenerAttribute.md "../../../elasticloadbalancing/latest/APIReference/API_ListenerAttribute.md") with EKS Auto Mode.
-- You must update the Cluster IAM Role to enable tag propagation from Kubernetes to AWS Load Balancer resources. For more information, see [Custom AWS tags for EKS Auto resources](auto-learn-iam.md#tag-prop "auto-learn-iam.md#tag-prop").
+- You must update the Cluster IAM Role to enable tag propagation from Kubernetes to AWS Load Balancer resources. For more information, see [Custom AWS tags for EKS Auto resources](auto-cluster-iam-role.md#tag-prop "auto-cluster-iam-role.md#tag-prop").
 - For information about associating resources with either EKS Auto Mode or the self-managed AWS Load Balancer Controller, see [Migration reference](migrate-auto.md#migration-reference "migrate-auto.md#migration-reference").
 - For information about fixing issues with load balancers, see [Troubleshoot EKS Auto Mode](auto-troubleshoot.md "auto-troubleshoot.md").
 - For more considerations about using the load balancing capability of EKS Auto Mode, see [Load balancing](auto-networking.md#auto-lb-consider "auto-networking.md#auto-lb-consider").

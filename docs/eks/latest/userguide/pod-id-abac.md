@@ -66,7 +66,7 @@ AWS compresses inline session policies, managed policy ARNs, and session tags in
 
 ## Cross-account tags
 
-All of the session tags that are added by EKS Pod Identity are _transitive_; the tag keys and values are passed to any `AssumeRole` actions that your workloads use to switch roles into another account. You can use these tags in policies in other accounts to limit access in cross-account scenarios. For more infromation, see [Chaining roles with session tags](../../../IAM/latest/UserGuide/id_session-tags.md#id_session-tags_role-chaining "../../../IAM/latest/UserGuide/id_session-tags.md#id_session-tags_role-chaining") in the _IAM User Guide_.
+All of the session tags that are added by EKS Pod Identity are _transitive_; the tag keys and values are passed to any `AssumeRole` actions that your workloads use to switch roles into another account. You can use these tags in policies in other accounts to limit access in cross-account scenarios. For more information, see [Chaining roles with session tags](../../../IAM/latest/UserGuide/id_session-tags.md#id_session-tags_role-chaining "../../../IAM/latest/UserGuide/id_session-tags.md#id_session-tags_role-chaining") in the _IAM User Guide_.
 
 ## Custom tags
 

@@ -160,7 +160,7 @@ The block storage capability of EKS Auto Mode is different from the EBS CSI Driv
 
 - Custom Tags on Dynamically Provisioned Volumes
   - You cannot use the extra-tag CLI flag to configure custom tags on dynamically provisioned EBS volumes
-  - You can use `StorageClass` tagging to add custom tags. EKS Auto Mode will add tags to the associated AWS resources. You will need to update the Cluster IAM Role for custom tags. For more information, see [Custom AWS tags for EKS Auto resources](auto-learn-iam.md#tag-prop "auto-learn-iam.md#tag-prop").
+  - You can use `StorageClass` tagging to add custom tags. EKS Auto Mode will add tags to the associated AWS resources. You will need to update the Cluster IAM Role for custom tags. For more information, see [Custom AWS tags for EKS Auto resources](auto-cluster-iam-role.md#tag-prop "auto-cluster-iam-role.md#tag-prop").
 
 - EBS Detailed Performance Metrics
   - You cannot access Prometheus metrics for EBS detailed performance

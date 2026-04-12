@@ -28,7 +28,7 @@ If any managed Security Group is not deleted at the end of this process, you can
 
 Use the following command to disable EKS Auto Mode on an existing cluster.
 
-You need to have the `aws` CLI installed, and be logged in with sufficent permissions to manage EKS clusters. For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
+You need to have the `aws` CLI installed, and be logged in with sufficient permissions to manage EKS clusters. For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
 
 ###### Note
 

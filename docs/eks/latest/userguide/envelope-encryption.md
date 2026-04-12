@@ -101,7 +101,7 @@ If you have an existing customer managed key (CMK) in KMS that was used to envel
 ### Is there any additional cost to running an EKS cluster with default envelope encryption?
 
 There is no additional cost associated with the managed Kubernetes control plane if you are using an [Amazon Web Services owned key](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk") for the default envelope encryption.
-By default, every EKS cluster running Kubernetes version 1.28 or later uses an [Amazon Web Service owned key](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk").
+By default, every EKS cluster running Kubernetes version 1.28 or later uses an [Amazon Web Services owned key](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk").
 However, if you use your own AWS KMS key, normal [KMS pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/") will apply.
 
 ### How much does it cost to use my own AWS KMS key to encrypt Kubernetes API data in my cluster?

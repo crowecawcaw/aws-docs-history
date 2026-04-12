@@ -14,6 +14,111 @@ Before you can create Amazon EKS clusters, you must create an IAM role with the 
 - [AmazonEKSNetworkingPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSNetworkingPolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSNetworkingPolicy")
 - [AmazonEKSClusterPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-amazoneksclusterpolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-amazoneksclusterpolicy")
 
+## Custom AWS tags for EKS Auto resources
+
+By default, the managed policies related to EKS Auto Mode do not permit applying user defined tags to Auto Mode provisioned AWS resources. If you want to apply user defined tags to AWS resources, you must attach additional permissions to the Cluster IAM Role with sufficient permissions to create and modify tags on AWS resources. Below is an example of a policy that will allow unrestricted tagging access:
+
+```
+{
+    "Version":"2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Compute",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateFleet",
+                "ec2:RunInstances",
+                "ec2:CreateLaunchTemplate"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/eks:eks-cluster-name": "${aws:PrincipalTag/eks:eks-cluster-name}"
+                },
+                "StringLike": {
+                    "aws:RequestTag/eks:kubernetes-node-class-name": "*",
+                    "aws:RequestTag/eks:kubernetes-node-pool-name": "*"
+                }
+            }
+        },
+        {
+            "Sid": "Storage",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateVolume",
+                "ec2:CreateSnapshot"
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:*:volume/*",
+                "arn:aws:ec2:*:*:snapshot/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/eks:eks-cluster-name": "${aws:PrincipalTag/eks:eks-cluster-name}"
+                }
+            }
+        },
+        {
+            "Sid": "Networking",
+            "Effect": "Allow",
+            "Action": "ec2:CreateNetworkInterface",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/eks:eks-cluster-name": "${aws:PrincipalTag/eks:eks-cluster-name}"
+                },
+                "StringLike": {
+                    "aws:RequestTag/eks:kubernetes-cni-node-name": "*"
+                }
+            }
+        },
+        {
+            "Sid": "LoadBalancer",
+            "Effect": "Allow",
+            "Action": [
+                "elasticloadbalancing:CreateLoadBalancer",
+                "elasticloadbalancing:CreateTargetGroup",
+                "elasticloadbalancing:CreateListener",
+                "elasticloadbalancing:CreateRule",
+                "ec2:CreateSecurityGroup"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/eks:eks-cluster-name": "${aws:PrincipalTag/eks:eks-cluster-name}"
+                }
+            }
+        },
+        {
+            "Sid": "ShieldProtection",
+            "Effect": "Allow",
+            "Action": [
+                "shield:CreateProtection"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/eks:eks-cluster-name": "${aws:PrincipalTag/eks:eks-cluster-name}"
+                }
+            }
+        },
+        {
+            "Sid": "ShieldTagResource",
+            "Effect": "Allow",
+            "Action": [
+                "shield:TagResource"
+            ],
+            "Resource": "arn:aws:shield::*:protection/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/eks:eks-cluster-name": "${aws:PrincipalTag/eks:eks-cluster-name}"
+                }
+            }
+        }
+    ]
+}
+```
+
 ## Check for an existing cluster role
 
 You can use the following procedure to check and see if your account already has the Amazon EKS cluster role.

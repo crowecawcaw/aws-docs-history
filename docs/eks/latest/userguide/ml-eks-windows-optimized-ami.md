@@ -38,7 +38,7 @@ To enable GPU acceleration for your Windows containers on Amazon EKS, you’ll n
 - Provision Windows nodes in the G-family of instance types, such as [G4](https://aws.amazon.com/ec2/instance-types/g4/ "https://aws.amazon.com/ec2/instance-types/g4/") or [G5](https://aws.amazon.com/ec2/instance-types/g5/ "https://aws.amazon.com/ec2/instance-types/g5/").
 - Provision Windows nodes with a container runtime with containerd `1.7.x` or `2.x.x`. (See [Retrieve Windows AMI version information](eks-ami-versions-windows.md "eks-ami-versions-windows.md") to verify the containerd version in your Amazon EKS Optimized AMI.)
 
-## Install the GPU driver on each Windows Windows node
+## Install the GPU driver on each Windows node
 
 To install the NVIDIA GRID drivers on your EKS worker nodes, follow the steps outlined in [NVIDIA drivers for your Amazon EC2 instance](../../../AWSEC2/latest/UserGuide/install-nvidia-driver.md "../../../AWSEC2/latest/UserGuide/install-nvidia-driver.md").
 Navigate to [Installation options - Option 3: GRID drivers](../../../AWSEC2/latest/UserGuide/install-nvidia-driver.md#nvidia-GRID-driver "../../../AWSEC2/latest/UserGuide/install-nvidia-driver.md#nvidia-GRID-driver") and follow the installation steps.
@@ -98,7 +98,7 @@ kubectl apply -f "https://raw.githubusercontent.com/TensorWorks/directx-device-p
 
 ### Verifying the device plugin deployment
 
-After you have deployed the device plugin, replace `<namespace>` and run the following command to verify the DirectX Device Plugin is running correctly on your all your Windows nodes.
+After you have deployed the device plugin, replace `<namespace>` and run the following command to verify the DirectX Device Plugin is running correctly on all your Windows nodes.
 
 ```
 kubectl get ds device-plugin-wddm -n <namespace>

@@ -17,7 +17,7 @@ Amazon Elastic Kubernetes Service (EKS) provides a fully managed Kubernetes serv
 - Improve security through AWS integration and automated updates
 - Choose between standard EKS or fully automated EKS Auto Mode
 
-Amazon Elastic Kubernetes Service (Amazon EKS) is the premiere platform for running [Kubernetes](https://kubernetes.io/docs/concepts/overview/ "https://kubernetes.io/docs/concepts/overview/") clusters, both in the Amazon Web Services (AWS) cloud and in your own data centers ([EKS Anywhere](https://anywhere.eks.amazonaws.com/ "https://anywhere.eks.amazonaws.com/") and [Amazon EKS Hybrid Nodes](hybrid-nodes-overview.md "hybrid-nodes-overview.md")).
+Amazon Elastic Kubernetes Service (Amazon EKS) is the premier platform for running [Kubernetes](https://kubernetes.io/docs/concepts/overview/ "https://kubernetes.io/docs/concepts/overview/") clusters, both in the Amazon Web Services (AWS) cloud and in your own data centers ([EKS Anywhere](https://anywhere.eks.amazonaws.com/ "https://anywhere.eks.amazonaws.com/") and [Amazon EKS Hybrid Nodes](hybrid-nodes-overview.md "hybrid-nodes-overview.md")).
 
 Amazon EKS simplifies building, securing, and maintaining Kubernetes clusters. It can be more cost effective at providing enough resources to meet peak demand than maintaining your own data centers. Two of the main approaches to using Amazon EKS are as follows:
 
@@ -67,7 +67,7 @@ For [compute resources](eks-compute.md "eks-compute.md"), EKS allows the full ra
 **Storage**
 
 EKS Auto Mode automatically creates storage classes using [EBS volumes](create-storage-class.md "create-storage-class.md").
-Using Container Storage Interface (CSI) drivers, you can also use Amazon S3, Amazon EFS, Amazon FSX, and Amazon File Cache for your application storage needs. For more information, see [Use application data storage for your cluster](storage.md "storage.md").
+Using Container Storage Interface (CSI) drivers, you can also use Amazon S3, Amazon S3 Files, Amazon EFS, Amazon FSX, and Amazon File Cache for your application storage needs. For more information, see [Use application data storage for your cluster](storage.md "storage.md").
 
 **Security**
 

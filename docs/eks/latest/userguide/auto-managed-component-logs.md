@@ -33,13 +33,13 @@ Setting up logging requires three steps:
 2. Create a delivery destination using PutDeliveryDestination
 3. Create a delivery to connect the source and destination using CreateDelivery
 
-You can configure the details of the destination for Auto Mode’s logs using the deliveryDestinationConfiguration object in the CloudWatch PutDeliveryDestination API. It takes the ARN of either a CloudWatch log group, S3 bucket, or Kinesis Data Firehose delivery stream.
+You can configure the details of the destination for Auto Mode’s logs using the deliveryDestinationConfiguration object in the CloudWatch PutDeliveryDestination API. It takes the ARN of either a CloudWatch log group, S3 bucket, or Amazon Data Firehose delivery stream.
 
 You can configure a single Auto Mode capability (delivery source) to send logs to multiple destinations by creating multiple deliveries. You can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.
 
 ### IAM permissions
 
-Depending on the destination selected, you may need to configure IAM Policies or Roles for the CloudWatch log group, S3 bucket, and Kinesis Data Firehose to ensure successful log delivery. Additionally, if you’re sending logs across AWS accounts, you’ll need to use the PutDeliveryDestinationPolicy API to configure an IAM policy that allows delivery to the destination. See the [CloudWatch Vended Logs permissions documentation](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-V2-CloudWatchLogs "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-V2-CloudWatchLogs") for additional information.
+Depending on the destination selected, you may need to configure IAM Policies or Roles for the CloudWatch log group, S3 bucket, and Amazon Data Firehose to ensure successful log delivery. Additionally, if you’re sending logs across AWS accounts, you’ll need to use the PutDeliveryDestinationPolicy API to configure an IAM policy that allows delivery to the destination. See the [CloudWatch Vended Logs permissions documentation](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-V2-CloudWatchLogs "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-V2-CloudWatchLogs") for additional information.
 
 ## Viewing your logs
 

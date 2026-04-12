@@ -167,7 +167,7 @@ For a list of attributes, look in the `../attributes.txt` file.
 Format step-by-step procedures:
 
 ```
-To create an Amaozon EKS cluster. do the following steps.
+To create an Amazon EKS cluster. do the following steps.
 
 . Sign in to the {aws} Management Console.
 . Open the Amazon EKS console.

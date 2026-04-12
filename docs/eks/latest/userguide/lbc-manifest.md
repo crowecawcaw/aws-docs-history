@@ -290,7 +290,7 @@ curl -Lo v2.14.1_ingclass.yaml https://github.com/kubernetes-sigs/aws-load-balan
 5. Apply the manifest to your cluster.
 
 ```
-kubectl apply -f v2_14_1_ingclass.yaml
+kubectl apply -f v2.14.1_ingclass.yaml
 ```
 
 ## Step 4: Verify that the controller is installed

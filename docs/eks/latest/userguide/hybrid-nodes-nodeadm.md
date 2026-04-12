@@ -253,7 +253,7 @@ When running `nodeadm init`, the following files and file locations are configur
 | Kubelet env file                                  | /etc/eks/kubelet/environment                          |
 | Kubelet Certs                                     | /etc/kubernetes/pki/ca.crt                            |
 | Containerd config                                 | /etc/containerd/config.toml                           |
-| Containerd kernel modules config                  | /etc/modules-load.d/contianerd.conf                   |
+| Containerd kernel modules config                  | /etc/modules-load.d/containerd.conf                   |
 | AWS config file                                   | /etc/aws/hybrid/config                                |
 | AWS credentials file (if enable credentials file) | /eks-hybrid/.aws/credentials                          |
 | AWS signing helper system unit                    | /etc/systemd/system/aws_signing_helper_update.service |

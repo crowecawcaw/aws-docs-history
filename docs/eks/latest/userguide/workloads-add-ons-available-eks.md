@@ -15,6 +15,7 @@ You can use any of the following Amazon EKS add-ons.
 | Maintain network rules on each Amazon EC2 node                                                                                                                                                                                                        | [Kube-proxy](#add-ons-kube-proxy "#add-ons-kube-proxy")                                                                                  | EC2, EKS Hybrid Nodes                         |
 | Provide Amazon EBS storage for your cluster                                                                                                                                                                                                           | [Amazon EBS CSI driver](#add-ons-aws-ebs-csi-driver "#add-ons-aws-ebs-csi-driver")                                                       | EC2                                           |
 | Provide Amazon EFS storage for your cluster                                                                                                                                                                                                           | [Amazon EFS CSI driver](#add-ons-aws-efs-csi-driver "#add-ons-aws-efs-csi-driver")                                                       | EC2, EKS Auto Mode                            |
+| Provide Amazon S3 Files storage for your cluster                                                                                                                                                                                                      | [Amazon EFS CSI driver](#add-ons-aws-efs-csi-driver "#add-ons-aws-efs-csi-driver")                                                       | EC2, EKS Auto Mode                            |
 | Provide Amazon FSx for Lustre storage for your cluster                                                                                                                                                                                                | [Amazon FSx CSI driver](#add-ons-aws-fsx-csi-driver "#add-ons-aws-fsx-csi-driver")                                                       | EC2, EKS Auto Mode                            |
 | Provide Amazon S3 storage for your cluster                                                                                                                                                                                                            | [Mountpoint for Amazon S3 CSI Driver](#mountpoint-for-s3-add-on "#mountpoint-for-s3-add-on")                                             | EC2, EKS Auto Mode                            |
 | Detect additional node health issues                                                                                                                                                                                                                  | [Node monitoring agent](#add-ons-eks-node-monitoring-agent "#add-ons-eks-node-monitoring-agent")                                         | EC2, EKS Hybrid Nodes                         |
@@ -134,14 +135,21 @@ To learn more about the add-on, see [Use Kubernetes volume storage with Amazon E
 
 ## Amazon EFS CSI driver
 
-The Amazon EFS CSI driver Amazon EKS add-on is a Kubernetes Container Storage Interface (CSI) plugin that provides Amazon EFS storage for your cluster.
+The Amazon EFS CSI driver Amazon EKS add-on is a Kubernetes Container Storage Interface (CSI) plugin that provides Amazon EFS and Amazon S3 Files storage for your cluster.
 
 The Amazon EKS add-on name is `aws-efs-csi-driver`.
 
 ### Required IAM permissions
 
-**Required IAM permissions** – This add-on utilizes the IAM roles for service accounts capability of Amazon EKS. For more information, see [IAM roles for service accounts](iam-roles-for-service-accounts.md "iam-roles-for-service-accounts.md"). The permissions in the [AmazonEFSCSIDriverPolicy](../../../aws-managed-policy/latest/reference/AmazonEFSCSIDriverPolicy.md "../../../aws-managed-policy/latest/reference/AmazonEFSCSIDriverPolicy.md")
-AWS managed policy are required. You can create an IAM role and attach the managed policy to it with the following commands. Replace `my-cluster` with the name of your cluster and `AmazonEKS_EFS_CSI_DriverRole` with the name for your role. These commands require that you have [eksctl](https://eksctl.io "https://eksctl.io") installed on your device. If you need to use a different tool, see [Step 1: Create an IAM role](efs-csi.md#efs-create-iam-resources "efs-csi.md#efs-create-iam-resources").
+This add-on utilizes the IAM roles for service accounts capability of Amazon EKS. For more information, see [IAM roles for service accounts](iam-roles-for-service-accounts.md "iam-roles-for-service-accounts.md").
+
+The specific AWS managed policy you need depends on which file system type you want to use:
+
+- **For Amazon EFS file systems only**: Attach the [AmazonEFSCSIDriverPolicy](../../../aws-managed-policy/latest/reference/AmazonEFSCSIDriverPolicy.md "../../../aws-managed-policy/latest/reference/AmazonEFSCSIDriverPolicy.md") managed policy.
+- **For Amazon S3 file system only**: Attach the `AmazonS3FilesCSIDriverPolicy` managed policy.
+- **For both Amazon EFS and Amazon S3 file systems**: Attach both the `AmazonEFSCSIDriverPolicy` and `AmazonS3FilesCSIDriverPolicy` managed policies.
+
+You can create an IAM role and attach the managed policy to it with the following commands. Replace `my-cluster` with the name of your cluster and `AmazonEKS_EFS_CSI_DriverRole` with the name for your role. The following example attaches the `AmazonEFSCSIDriverPolicy` for Amazon EFS file systems. If you’re using an Amazon S3 file system, replace the policy ARN with `arn:aws:iam::aws:policy/service-role/AmazonS3FilesCSIDriverPolicy`. If you’re using both file system types, add an additional `--attach-policy-arn` flag with the second policy ARN. These commands require that you have [eksctl](https://eksctl.io "https://eksctl.io") installed on your device. If you need to use a different tool, see [Step 1: Create an IAM role](efs-csi.md#efs-create-iam-resources "efs-csi.md#efs-create-iam-resources") for Amazon EFS or [Step 1: Create an IAM role](s3files-csi.md#s3files-create-iam-resources "s3files-csi.md#s3files-create-iam-resources") for Amazon S3 Files.
 
 ```
 export cluster_name=my-cluster
@@ -158,6 +166,10 @@ TRUST_POLICY=$(aws iam get-role --output json --role-name $role_name --query 'Ro
     sed -e 's/efs-csi-controller-sa/efs-csi-*/' -e 's/StringEquals/StringLike/')
 aws iam update-assume-role-policy --role-name $role_name --policy-document "$TRUST_POLICY"
 ```
+
+###### Note
+
+The above example only configures `efs-csi-controller-sa`. If you are using Amazon S3 file systems, you also need to configure `efs-csi-node-sa`. See [Step 1: Create an IAM role](s3files-csi.md#s3files-create-iam-resources "s3files-csi.md#s3files-create-iam-resources") for the complete S3 Files IAM setup.
 
 ### Additional information
 

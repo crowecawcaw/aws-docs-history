@@ -13,7 +13,7 @@ You can delete a cluster with `eksctl`, the AWS Management Console, or the AWS C
 - If you receive an error because the cluster creator has been removed, see [this article](https://aws.amazon.com/premiumsupport/knowledge-center/eks-api-server-unauthorized-error "https://aws.amazon.com/premiumsupport/knowledge-center/eks-api-server-unauthorized-error") to resolve.
 - Amazon Managed Service for Prometheus resources are outside of the cluster lifecycle and need to be maintained independent of the cluster. When you delete your cluster, make sure to also delete any applicable scrapers to stop applicable costs. For more information, see [Find and delete scrapers](../../../prometheus/latest/userguide/AMP-collector-how-to.md#AMP-collector-list-delete "../../../prometheus/latest/userguide/AMP-collector-how-to.md#AMP-collector-list-delete") in the _Amazon Managed Service for Prometheus User Guide_.
 - To remove a connected cluster, see [Deregister a Kubernetes cluster from the Amazon EKS console](deregister-connected-cluster.md "deregister-connected-cluster.md")
-- Before you can delete a cluster, make sure deletion protection is diabled for your cluster.
+- Before you can delete a cluster, make sure deletion protection is disabled for your cluster.
 
 ### Considerations for EKS Auto Mode
 

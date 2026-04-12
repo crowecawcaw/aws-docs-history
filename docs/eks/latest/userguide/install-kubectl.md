@@ -216,7 +216,7 @@ Procedure:
    ```
 
 2. (Optional) Verify the downloaded binary with the `SHA-256` checksum for your binary.
-   1. Download the `SHA-256` checksum for your cluster’s Kubernetes version from Amazon S3using the command for your device’s hardware platform.
+   1. Download the `SHA-256` checksum for your cluster’s Kubernetes version from Amazon S3 using the command for your device’s hardware platform.
       - Kubernetes `1.35`
 
       ```
@@ -339,7 +339,7 @@ Procedure:
    ```
 
 2. (Optional) Verify the downloaded binary with the `SHA-256` checksum for your binary.
-   1. Download the `SHA-256` checksum for your cluster’s Kubernetes version from Amazon S3using the command for your device’s hardware platform.
+   1. Download the `SHA-256` checksum for your cluster’s Kubernetes version from Amazon S3 using the command for your device’s hardware platform.
       - Kubernetes `1.35`
 
       ```
