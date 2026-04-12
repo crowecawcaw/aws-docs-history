@@ -19,16 +19,16 @@ Core documentation.
 The following example file structure defines a single application that uses a .NET Core runtime that Elastic Beanstalk provides.
 
 ```
-├── appsettings.Development.json
-├── appsettings.json
-├── dotnetcoreapp.deps.json
-├── dotnetcoreapp.dll
-├── dotnetcoreapp.pdb
-├── dotnetcoreapp.runtimeconfig.json
-├── web.config
-├── Procfile
-├── .ebextensions
-├── .platform
+тФЬтФАтФА appsettings.Development.json
+тФЬтФАтФА appsettings.json
+тФЬтФАтФА dotnetcoreapp.deps.json
+тФЬтФАтФА dotnetcoreapp.dll
+тФЬтФАтФА dotnetcoreapp.pdb
+тФЬтФАтФА dotnetcoreapp.runtimeconfig.json
+тФЬтФАтФА web.config
+тФЬтФАтФА Procfile
+тФЬтФАтФА .ebextensions
+тФЬтФАтФА .platform
 ```
 
 You can include multiple applications in your source bundle. The following example defines two applications to run on the same web server. To run
@@ -36,35 +36,35 @@ multiple applications, you must include a [Procfile](dotnet-linux-procfile.md "d
 see [dotnet-core-linux-multiple-apps.zip](samples/dotnet-core-linux-multiple-apps.zip.md "samples/dotnet-core-linux-multiple-apps.zip.md").
 
 ```
-├── DotnetMultipleApp1
-│   ├── Amazon.Extensions.Configuration.SystemsManager.dll
-│   ├── appsettings.Development.json
-│   ├── appsettings.json
-│   ├── AWSSDK.Core.dll
-│   ├── AWSSDK.Extensions.NETCore.Setup.dll
-│   ├── AWSSDK.SimpleSystemsManagement.dll
-│   ├── DotnetMultipleApp1.deps.json
-│   ├── DotnetMultipleApp1.dll
-│   ├── DotnetMultipleApp1.pdb
-│   ├── DotnetMultipleApp1.runtimeconfig.json
-│   ├── Microsoft.Extensions.PlatformAbstractions.dll
-│   ├── Newtonsoft.Json.dll
-│   └── web.config
-├── DotnetMultipleApp2
-│   ├── Amazon.Extensions.Configuration.SystemsManager.dll
-│   ├── appsettings.Development.json
-│   ├── appsettings.json
-│   ├── AWSSDK.Core.dll
-│   ├── AWSSDK.Extensions.NETCore.Setup.dll
-│   ├── AWSSDK.SimpleSystemsManagement.dll
-│   ├── DotnetMultipleApp2.deps.json
-│   ├── DotnetMultipleApp2.dll
-│   ├── DotnetMultipleApp2.pdb
-│   ├── DotnetMultipleApp2.runtimeconfig.json
-│   ├── Microsoft.Extensions.PlatformAbstractions.dll
-│   ├── Newtonsoft.Json.dll
-│   └── web.config
-├── Procfile
-├── .ebextensions
-├── .platform
+тФЬтФАтФА DotnetMultipleApp1
+тФВ┬а┬а тФЬтФАтФА Amazon.Extensions.Configuration.SystemsManager.dll
+тФВ┬а┬а тФЬтФАтФА appsettings.Development.json
+тФВ┬а┬а тФЬтФАтФА appsettings.json
+тФВ┬а┬а тФЬтФАтФА AWSSDK.Core.dll
+тФВ┬а┬а тФЬтФАтФА AWSSDK.Extensions.NETCore.Setup.dll
+тФВ┬а┬а тФЬтФАтФА AWSSDK.SimpleSystemsManagement.dll
+тФВ┬а┬а тФЬтФАтФА DotnetMultipleApp1.deps.json
+тФВ┬а┬а тФЬтФАтФА DotnetMultipleApp1.dll
+тФВ┬а┬а тФЬтФАтФА DotnetMultipleApp1.pdb
+тФВ┬а┬а тФЬтФАтФА DotnetMultipleApp1.runtimeconfig.json
+тФВ┬а┬а тФЬтФАтФА Microsoft.Extensions.PlatformAbstractions.dll
+тФВ┬а┬а тФЬтФАтФА Newtonsoft.Json.dll
+тФВ┬а┬а тФФтФАтФА web.config
+тФЬтФАтФА DotnetMultipleApp2
+тФВ┬а┬а тФЬтФАтФА Amazon.Extensions.Configuration.SystemsManager.dll
+тФВ┬а┬а тФЬтФАтФА appsettings.Development.json
+тФВ┬а┬а тФЬтФАтФА appsettings.json
+тФВ┬а┬а тФЬтФАтФА AWSSDK.Core.dll
+тФВ┬а┬а тФЬтФАтФА AWSSDK.Extensions.NETCore.Setup.dll
+тФВ┬а┬а тФЬтФАтФА AWSSDK.SimpleSystemsManagement.dll
+тФВ┬а┬а тФЬтФАтФА DotnetMultipleApp2.deps.json
+тФВ┬а┬а тФЬтФАтФА DotnetMultipleApp2.dll
+тФВ┬а┬а тФЬтФАтФА DotnetMultipleApp2.pdb
+тФВ┬а┬а тФЬтФАтФА DotnetMultipleApp2.runtimeconfig.json
+тФВ┬а┬а тФЬтФАтФА Microsoft.Extensions.PlatformAbstractions.dll
+тФВ┬а┬а тФЬтФАтФА Newtonsoft.Json.dll
+тФВ┬а┬а тФФтФАтФА web.config
+тФЬтФАтФА Procfile
+тФЬтФАтФА .ebextensions
+тФЬтФАтФА .platform
 ```

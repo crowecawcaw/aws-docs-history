@@ -121,7 +121,7 @@ for each cookie.
 You can use the **Sessions** section on the **Load Balancer** tab to specify whether or not the load balancer for
 your application allows session stickiness.
 
-![Elastic Beanstalk Elastic Load Balancing configuration - sessions](/images/elasticbeanstalk/latest/dg/images/aeb-vs-loadbalancer-sessions.png)
+![Elastic Beanstalk Elastic Load Balancing configuration - sessions](images/aeb-vs-loadbalancer-sessions.png)
 
 For more information on Elastic Load Balancing, go to the [Elastic Load
 Balancing Developer Guide](../../../ElasticLoadBalancing/latest/DeveloperGuide.md "../../../ElasticLoadBalancing/latest/DeveloperGuide.md").
