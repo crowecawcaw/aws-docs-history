@@ -28,7 +28,7 @@ The responses from generative SQL might not match your results using the same pr
 1. In the **Editor**, connect to a cluster or workgroup that contains the TICKIT
    sample data.
 2. Create an empty notebook and choose the
-   ![Generative SQL](images/qev2-amazon-q.png)
+   ![Generative SQL](/images/redshift/latest/mgmt/images/qev2-amazon-q.png)
    Generative SQL icon to open the chat panel.
 3. Enter the following prompt to generate SQL to verify the number of records in
    the `VENUE` table:

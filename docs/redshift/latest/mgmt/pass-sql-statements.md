@@ -116,10 +116,45 @@ The following is an example of the response.
 }
 ```
 
-## Run a SQL statement with parameters
+## Run multiple SQL statements
 
-To run a SQL statement, use the `aws redshift-data
- execute-statement` AWS CLI command.
+To run multiple SQL statements with one command, use the `aws
+ redshift-data batch-execute-statement` AWS CLI command.
+
+The following AWS CLI command runs three SQL statements against a cluster and
+returns an identifier to fetch the results. This example uses the temporary
+credentials authentication method.
+
+```
+
+aws redshift-data batch-execute-statement
+    --db-user myuser
+    --cluster-identifier mycluster-test
+    --database dev
+    --sqls "set timezone to BST" "select * from mytable" "select * from another_table"
+
+```
+
+The following is an example of the response.
+
+```
+{
+    "ClusterIdentifier": "mycluster-test",
+    "CreatedAt": 1598306924.632,
+    "Database": "dev",
+    "DbUser": "myuser",
+    "Id": "d9b6c0c9-0747-4bf4-b142-e8883122f766"
+}
+```
+
+## Run statements with parameters
+
+You can use named parameters with both the
+`execute-statement` and `batch-execute-statement`
+operations. When using `batch-execute-statement`, parameters are
+shared across all SQL statements in the batch. Each SQL statement can reference a
+subset of the provided parameters, but every parameter must be used by at least
+one SQL statement.
 
 The following AWS CLI command runs a SQL statement against a cluster and returns
 an identifier to fetch the results. This example uses the AWS Secrets Manager
@@ -370,14 +405,11 @@ Provides the following results:
 
 ```
 
-## Run multiple SQL statements
-
-To run multiple SQL statements with one command, use the `aws
- redshift-data batch-execute-statement` AWS CLI command.
-
-The following AWS CLI command runs three SQL statements against a cluster and
-returns an identifier to fetch the results. This example uses the temporary
-credentials authentication method.
+The following AWS CLI command runs two SQL statements with shared named
+parameters against a cluster using `batch-execute-statement`. The SQL
+text has named parameters `id` and `name`. The first SQL
+statement uses the `id` parameter and the second uses the
+`name` parameter.
 
 ```
 
@@ -385,7 +417,35 @@ aws redshift-data batch-execute-statement
     --db-user myuser
     --cluster-identifier mycluster-test
     --database dev
-    --sqls "set timezone to BST" "select * from mytable" "select * from another_table"
+    --sqls "SELECT * FROM mytable WHERE id = :id" "SELECT * FROM mytable WHERE name = :name"
+    --parameters "[{\"name\": \"id\", \"value\": \"1\"},{\"name\": \"name\", \"value\": \"Alice\"}]"
+
+```
+
+The following is an example of the response.
+
+```
+{
+    "ClusterIdentifier": "mycluster-test",
+    "CreatedAt": 1598306924.632,
+    "Database": "dev",
+    "DbUser": "myuser",
+    "Id": "d9b6c0c9-0747-4bf4-b142-e8883122f766"
+}
+```
+
+The following AWS CLI command runs two SQL statements where the same parameter
+is used across both statements. The parameter named `id` is used in
+an INSERT statement and a SELECT statement.
+
+```
+
+aws redshift-data batch-execute-statement
+    --db-user myuser
+    --cluster-identifier mycluster-test
+    --database dev
+    --sqls "INSERT INTO mytable VALUES(:id, :name, :address)" "SELECT * FROM mytable WHERE id = :id"
+    --parameters "[{\"name\": \"id\", \"value\": \"1\"},{\"name\": \"name\", \"value\": \"Alice\"},{\"name\": \"address\", \"value\": \"Seattle\"}]"
 
 ```
 

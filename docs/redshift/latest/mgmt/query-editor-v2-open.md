@@ -22,7 +22,7 @@ The query editor page has a navigator menu where you choose a view as
 follows:
 
 **Editor
-![Horizontal lines representing redacted or censored text.](/images/redshift/latest/mgmt/images/qev2-align-left.png)**
+![Horizontal lines representing redacted or censored text.](images/qev2-align-left.png)**
 
 You manage and query your data organized as tables and contained in a
 database. The database can contain stored data or contain a reference to
@@ -66,7 +66,7 @@ tables, and functions.
 for the editor.
 
 - A
-  ![The more actions icon used in the AWS Console.](/images/redshift/latest/mgmt/images/qev2-more.png)
+  ![The more actions icon used in the AWS Console.](images/qev2-more.png)
 
 **More** icon to display more actions in the
 editor. Such as:

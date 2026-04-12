@@ -206,7 +206,7 @@ flexible way to pass in parameters without hardcoding them in the SQL text. They
 you reuse SQL text and avoid SQL injection problems.
 
 The following example shows the named parameters of a `parameters` field of
-an `execute-statement` AWS CLI command.
+an `execute-statement` or `batch-execute-statement` AWS CLI command.
 
 ```
 --parameters "[{\"name\": \"id\", \"value\": \"1\"},{\"name\": \"address\", \"value\": \"Seattle\"}]"
@@ -277,8 +277,12 @@ attr >= :val1`, `WHERE attr BETWEEN :val1 AND
   Data API follows the rule of the JDBC `PreparedStatement`.
 - The output of the `describe-statement` operation returns the query
   parameters of a SQL statement.
-- Only the `execute-statement` operation supports SQL statements with
-  parameters.
+- Both the `execute-statement` and
+  `batch-execute-statement` operations support SQL statements with
+  parameters. When using `batch-execute-statement`, parameters are
+  shared across all SQL statements in the batch. Each SQL statement can reference a
+  subset of the provided parameters, but every parameter must be used by at least
+  one SQL statement.
 
 ## Running SQL statements with an idempotency token when calling the Amazon Redshift Data API
 
