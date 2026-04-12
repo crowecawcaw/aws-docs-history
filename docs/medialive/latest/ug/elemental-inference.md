@@ -8,7 +8,8 @@ classification, and insights generation.
 MediaLive implements the following features of AWS Elemental Inference:
 
 - Smart crop, which lets you produce channel video outputs that are a different
-  aspect ratio from the video source. For more information, see [Smart crop video using Elemental Inference](elemental-inference-smart-crop.md "elemental-inference-smart-crop.md").
+  aspect ratio and/or orientation from the video source. For more information, see
+  [Smart cropping video using Elemental Inference](elemental-inference-smart-crop.md "elemental-inference-smart-crop.md").
 - Event clipping, which lets you produce file clips from the channel video source.
   For more information, see [Clipping video using AWS Elemental Inference](elemental-inference-event-clip.md "elemental-inference-event-clip.md").
 

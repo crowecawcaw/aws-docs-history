@@ -28,9 +28,14 @@ MediaLive continually probes the current source for an embedded timecode. Whenev
 doesn't detect the timecode, it temporarily suspends the attempt to lock
 pipelines.
 
-## Requirements for video aligned pipeline locking
+## Requirements for video aligned locking
 
-When you use video aligned pipeline locking (**Pipeline locking
+###### Note
+
+Video aligned locking is available only when the output locking mode is set to
+**PIPELINE_LOCKING** (not **EPOCH_LOCKING**).
+
+When you use video aligned locking (**Pipeline locking
 method** set to **VIDEO_ALIGNMENT**), embedded timecodes
 are not required.
 
@@ -43,12 +48,12 @@ alignment:
 - HLS inputs (URL_PULL with HLS content)
 - RTMP_PULL inputs
 
-When an incompatible input type is active, video aligned pipeline locking runs
+When an incompatible input type is active, video aligned locking runs
 in "open loop" mode (unlocked) but continues processing. No validation error is
 raised, which supports input switching workflows where some inputs may be
 incompatible.
 
-For all other input types, video aligned pipeline locking uses visual signature
+For all other input types, video aligned locking uses visual signature
 comparison to synchronize the pipelines. Both pipelines must receive the same
 video content for successful synchronization.
 

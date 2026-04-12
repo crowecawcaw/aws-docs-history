@@ -36,11 +36,11 @@ synchronized.
 
 ###### Note
 
-This metric also applies when you have enabled [video aligned pipeline
-locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs"). Video aligned pipeline locking is an advanced configuration
+This metric also applies when you have enabled [video aligned
+locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs"). Video aligned locking is an advanced configuration
 option that uses visual signature comparison instead of embedded timecodes for
 synchronization. The PipelinesLocked metric reports the same synchronization
-status regardless of whether standard pipeline locking or video aligned pipeline
+status regardless of whether standard pipeline locking or video aligned
 locking is in use.
 
 If
@@ -58,10 +58,10 @@ the metric doesn't apply, the metric is always 0.
 
 ## Input video aligned
 
-Indicates whether video aligned pipeline locking has successfully aligned the input video content between pipelines
+Indicates whether video aligned locking has successfully aligned the input video content between pipelines
 in the same pipeline locking pool.
 
-In a video aligned pipeline locking pool, one pipeline serves as the reference and will always show a value
+In a video aligned locking pool, one pipeline serves as the reference and will always show a value
 of 1 for this metric. All other pipelines will only show 1 when they are successfully aligned with the
 reference pipeline.
 
@@ -84,6 +84,6 @@ with the reference pipeline in the pipeline locking pool. This may be due to:
 - Name: InputVideoAligned
 - Units: Not applicable.
 - Meaning of zero: False (Video alignment cannot be established or has been lost).
-- Meaning of no datapoints: Video aligned pipeline locking is not configured, or the pipeline has not processed any video frames since the channel started.
+- Meaning of no datapoints: Video aligned locking is not configured, or the pipeline has not processed any video frames since the channel started.
 - Supported dimension sets: ChannelId, Pipeline
 - Recommended statistic: Minimum

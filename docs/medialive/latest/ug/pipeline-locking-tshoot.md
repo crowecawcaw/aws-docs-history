@@ -44,26 +44,26 @@ troubleshooting steps:
 - Make sure that you set up the segmentation marker type that your downstream
   system expects.
 
-## Troubleshooting video aligned pipeline locking
+## Troubleshooting video aligned locking
 
-If you are using video aligned pipeline locking (**Pipeline locking
+If you are using video aligned locking (**Pipeline locking
 method** set to **VIDEO_ALIGNMENT**) and experience
 synchronization issues, check the following in addition to the general
 troubleshooting steps:
 
 - Verify that the current input type is compatible. HLS, RTMP_PULL, and
-  file inputs cause video aligned pipeline locking to run in open loop
+  file inputs cause video aligned locking to run in open loop
   mode (unlocked). See
-  [Requirements for video aligned pipeline locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs").
+  [Requirements for video aligned locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs").
 - Check the **InputVideoAligned** CloudWatch metric.
   A value of 1 indicates pipeline locking has successfully aligned the
   input video content between pipelines. If the value is 0:
   - Ensure both pipelines are receiving the same video content. Video
-    aligned pipeline locking compares visual signatures between encoders
+    aligned locking compares visual signatures between encoders
     and cannot lock if the content differs.
 
 - Check the **PipelinesLocked** CloudWatch metric. Video
-  aligned pipeline locking reports its locked status through this same
+  aligned locking reports its locked status through this same
   metric. A value of 1 indicates successful synchronization.
 - If synchronization is intermittent, verify that your network
   connectivity to both pipelines is stable. Visual signature comparison

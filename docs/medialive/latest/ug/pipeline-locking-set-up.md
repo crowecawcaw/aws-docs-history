@@ -57,7 +57,7 @@ follows:
      [Inputs must include embedded timecode (source timecode method)](pipeline-locking-verify-input.md#pipeline-locking-embedded-tcode "pipeline-locking-verify-input.md#pipeline-locking-embedded-tcode").
    - **VIDEO_ALIGNMENT**: Uses visual signature
      comparison between encoders. Does not require embedded timecodes.
-     See [Requirements for video aligned pipeline locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs") for
+     See [Requirements for video aligned locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs") for
      input compatibility.
 
 6. (Optional) For CMAF Ingest and MediaPackage V2 output groups, you can

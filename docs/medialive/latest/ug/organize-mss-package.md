@@ -51,4 +51,4 @@ bitrates.
 This diagram illustrates a Microsoft Smooth output group with an audio rendition
 group.
 
-![Output group containing six outputs: two V, two A, and two C, arranged in a row.](images/output14-ABR-2V-2Asep-2C.png)
+![Output group containing six outputs: two V, two A, and two C, arranged in a row.](/images/medialive/latest/ug/images/output14-ABR-2V-2Asep-2C.png)
