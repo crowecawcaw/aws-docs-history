@@ -110,3 +110,7 @@ needed. For more information, see this blog post on [Storage optimization of Apa
 - All files written by Firehose are computed using the partition that is present in
   the record. This also applies to deleted files. Global deletes, such as writing
   unpartitioned delete files for a partitioned table, is not supported.
+- Firehose does not currently support bloom filter properties when delivering data
+  to Apache Iceberg tables. When bloom filter properties are configured on Iceberg
+  tables, Firehose will ignore these properties during data delivery
+  operations.

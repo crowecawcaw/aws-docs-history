@@ -1124,44 +1124,46 @@ If your Splunk platform is in a VPC, it must be publicly accessible with a publi
 address. Also, grant Amazon Data Firehose access to your Splunk platform by unblocking the Amazon Data Firehose IP
 addresses. Amazon Data Firehose currently uses the following CIDR blocks.
 
-| Region                    | CIDR blocks                                                 |
-| ------------------------- | ----------------------------------------------------------- |
-| US East (Ohio)            | `18.216.68.160/27, 18.216.170.64/27,<br>18.216.170.96/27`\  |
-| US East (N. Virginia)     | `34.238.188.128/26, 34.238.188.192/26,<br>34.238.195.0/26`  |
-| US West (N. California)   | `13.57.180.0/26`                                            |
-| US West (Oregon)          | `34.216.24.32/27, 34.216.24.192/27,<br>34.216.24.224/27`    |
-| AWS GovCloud (US-East)    | `18.253.138.192/26`                                         |
-| AWS GovCloud (US-West)    | `52.61.204.192/26`                                          |
-| Asia Pacific (Hong Kong)  | `18.162.221.64/26`                                          |
-| Asia Pacific (Mumbai)     | `13.232.67.64/26`                                           |
-| Asia Pacific (Seoul)      | `13.209.71.0/26`                                            |
-| Asia Pacific (Singapore)  | `13.229.187.128/26`                                         |
-| Asia Pacific (Sydney)     | `13.211.12.0/26`                                            |
-| Asia Pacific (Thailand)   | `43.208.112.128/26`                                         |
-| Asia Pacific (Tokyo)      | `13.230.21.0/27, 13.230.21.32/27`                           |
-| Canada (Central)          | `35.183.92.64/26`                                           |
-| Canada West (Calgary)     | `40.176.98.128/26`                                          |
-| Europe (Frankfurt)        | `18.194.95.192/27, 18.194.95.224/27,<br>18.195.48.0/27`     |
-| Europe (Ireland)          | `34.241.197.32/27, 34.241.197.64/27,<br>34.241.197.96/27`   |
-| Europe (London)           | `18.130.91.0/26`                                            |
-| Europe (Paris)            | `35.180.112.0/26`                                           |
-| Europe (Spain)            | `18.100.194.0/26`                                           |
-| Europe (Stockholm)        | `13.53.191.0/26`                                            |
-| Middle East (Bahrain)     | `15.185.91.64/26`                                           |
-| Mexico (Central)          | `78.12.207.64/26`                                           |
-| South America (São Paulo) | `18.228.1.192/26`                                           |
-| Europe (Milan)            | `15.161.135.192/26`                                         |
-| Africa (Cape Town)        | `13.244.165.128/26`                                         |
-| Asia Pacific (Osaka)      | `13.208.217.0/26`                                           |
-| China (Beijing)           | `52.81.151.64/26`                                           |
-| China (Ningxia)           | `161.189.23.128/26`                                         |
-| Asia Pacific (Jakarta)    | `108.136.221.128/26`                                        |
-| Middle East (UAE)         | `3.28.159.64/26`                                            |
-| Israel (Tel Aviv)         | `51.16.102.64/26`                                           |
-| Europe (Zurich)           | `16.62.183.64/26`                                           |
-| Asia Pacific (Hyderabad)  | `18.60.192.192/26`                                          |
-| Asia Pacific (Melbourne)  | `16.50.161.192/26`                                          |
-| Asia Pacific (Malaysia)   | `43.216.44.192/26`                                          |
+| Region                     | CIDR blocks                                                 |
+| -------------------------- | ----------------------------------------------------------- |
+| US East (Ohio)             | `18.216.68.160/27, 18.216.170.64/27,<br>18.216.170.96/27`\  |
+| US East (N. Virginia)      | `34.238.188.128/26, 34.238.188.192/26,<br>34.238.195.0/26`  |
+| US West (N. California)    | `13.57.180.0/26`                                            |
+| US West (Oregon)           | `34.216.24.32/27, 34.216.24.192/27,<br>34.216.24.224/27`    |
+| AWS GovCloud (US-East)     | `18.253.138.192/26`                                         |
+| AWS GovCloud (US-West)     | `52.61.204.192/26`                                          |
+| Asia Pacific (Hong Kong)   | `18.162.221.64/26`                                          |
+| Asia Pacific (Taipei)      | `43.212.53.192/26`                                          |
+| Asia Pacific (Mumbai)      | `13.232.67.64/26`                                           |
+| Asia Pacific (Seoul)       | `13.209.71.0/26`                                            |
+| Asia Pacific (Singapore)   | `13.229.187.128/26`                                         |
+| Asia Pacific (Sydney)      | `13.211.12.0/26`                                            |
+| Asia Pacific (Thailand)    | `43.208.112.128/26`                                         |
+| Asia Pacific (Tokyo)       | `13.230.21.0/27, 13.230.21.32/27`                           |
+| Canada (Central)           | `35.183.92.64/26`                                           |
+| Canada West (Calgary)      | `40.176.98.128/26`                                          |
+| Europe (Frankfurt)         | `18.194.95.192/27, 18.194.95.224/27,<br>18.195.48.0/27`     |
+| Europe (Ireland)           | `34.241.197.32/27, 34.241.197.64/27,<br>34.241.197.96/27`   |
+| Europe (London)            | `18.130.91.0/26`                                            |
+| Europe (Paris)             | `35.180.112.0/26`                                           |
+| Europe (Spain)             | `18.100.194.0/26`                                           |
+| Europe (Stockholm)         | `13.53.191.0/26`                                            |
+| Middle East (Bahrain)      | `15.185.91.64/26`                                           |
+| Mexico (Central)           | `78.12.207.64/26`                                           |
+| South America (São Paulo)  | `18.228.1.192/26`                                           |
+| Europe (Milan)             | `15.161.135.192/26`                                         |
+| Africa (Cape Town)         | `13.244.165.128/26`                                         |
+| Asia Pacific (Osaka)       | `13.208.217.0/26`                                           |
+| China (Beijing)            | `52.81.151.64/26`                                           |
+| China (Ningxia)            | `161.189.23.128/26`                                         |
+| Asia Pacific (Jakarta)     | `108.136.221.128/26`                                        |
+| Middle East (UAE)          | `3.28.159.64/26`                                            |
+| Israel (Tel Aviv)          | `51.16.102.64/26`                                           |
+| Europe (Zurich)            | `16.62.183.64/26`                                           |
+| Asia Pacific (Hyderabad)   | `18.60.192.192/26`                                          |
+| Asia Pacific (Melbourne)   | `16.50.161.192/26`                                          |
+| Asia Pacific (Malaysia)    | `43.216.44.192/26`                                          |
+| Asia Pacific (New Zealand) | `3.102.119.128/26`                                          |
 
 ## Ingest VPC flow logs into Splunk using Amazon Data Firehose
 
