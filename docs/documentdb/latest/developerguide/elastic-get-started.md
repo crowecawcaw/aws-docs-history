@@ -74,7 +74,7 @@ To create an elastic cluster configuration using the AWS Management Console:
 1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
 2. On the **Amazon DocumentDB Management Console**, under **Clusters**, choose **Create**.
 
-![Elastic cluster table showing no clusters as a starting point.](images/ec-gs-start.png) 3. On the **Create Amazon DocumentDB cluster** page, in the **Cluster type** section, choose **Elastic cluster**.
+![Elastic cluster table showing no clusters as a starting point.](/images/documentdb/latest/developerguide/images/ec-gs-start.png) 3. On the **Create Amazon DocumentDB cluster** page, in the **Cluster type** section, choose **Elastic cluster**.
 
 ![Elastic cluster Cluster type dialog displaying a choice of Instance-based clusters and Elastic clusters.](images/ec-gs-type.png) 4. In the **Configuration** section, configure the following:
 

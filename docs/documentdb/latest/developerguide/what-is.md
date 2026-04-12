@@ -102,7 +102,7 @@ For a complete list of instance types supported by Amazon DocumentDB in each ins
 | China (Beijing)                      |           | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | China (Ningxia)                      |           |                  | Supported | Supported |           | Supported | Supported | Supported  |
 | Israel (Tel Aviv)                    |           |                  | Supported | Supported |           | Supported | Supported | Supported  |
-| AWS GovCloud (US-West)               | Supported | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
+| AWS GovCloud (US-West)               | Supported | Supported        | Supported | Supported |           |           | Supported | Supported  |
 | AWS GovCloud (US-East)               |           | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 
 ## Regions and availability zones

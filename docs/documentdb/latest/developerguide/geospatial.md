@@ -178,6 +178,12 @@ like this
 { "_id" : ObjectId("611f3dae85009a81ad38e74c"), "state" : "Washington", "city" : "Seattle", "name" : "Curry House", "rating" : 4.8, "location" : { "type" : "Point", "coordinates" : [ -121.4517, 47.6229 ] }, "DistanceKilometers" : 67.52845344856914 }
 ```
 
+###### Note
+
+The `limit` and `num` options for the `$geoNear` stage,
+as well as the default limit of 100 documents, are deprecated in Amazon DocumentDB 8.0 (Engine patch Version 4.0.5748) and later.
+The following examples using `limit` and `num` apply only to Amazon DocumentDB 8.0 (Engine patch Version 4.0.4448) and earlier versions.
+
 To limit the number of results in a query, use the `limit` or `num` option.
 
 `limit`:
@@ -223,12 +229,6 @@ db.usarestaurants.aggregate([
    }
 ])
 ```
-
-###### Note
-
-`$geoNear` stage supports the `limit` and `num` options to specify maximum number of documents to return.
-`$geoNear` returns a maximum of 100 documents by default if the `limit` or `num` options are not specified.
-This is overridden by the value of the `$limit` stage if present and the value is less than 100.
 
 ### Example 2
 
