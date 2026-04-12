@@ -18,6 +18,7 @@ The Deadline Cloud monitor also helps you monitor usage and manage costs. For mo
 
 ###### Topics
 
+- [Create monitors in additional Regions](monitors-additional-regions.md "monitors-additional-regions.md")
 - [Share the Deadline Cloud monitor URL](share-monitor-url.md "share-monitor-url.md")
 - [Open the Deadline Cloud monitor](open-deadline-cloud-monitor.md "open-deadline-cloud-monitor.md")
 - [Submit a job bundle](submit-job-bundle-monitor.md "submit-job-bundle-monitor.md")

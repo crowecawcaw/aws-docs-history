@@ -11,7 +11,7 @@ Foundry Nuke is a node-based digital compositing and visual effects application 
 Nuke is supported by the following components:
 
 - **Submitter**: Integrated submitter plugin for direct job submission from Nuke with automatic scene and asset detection.
-- **Conda packages**: Packages to install nuke versions 15 and 16 are available on the Deadline Cloud conda channel for service-managed fleets.
+- **Conda packages**: Packages to install nuke versions 15, 16, and 17 are available on the Deadline Cloud conda channel for service-managed fleets.
 - **Adaptor**: Middleware for efficient rendering with sticky sessions and additional monitoring.
 - **Cross-platform compatibility**: Submitter support for Windows, macOS, and Linux with worker support for Linux only with automatic path mapping.
 
@@ -23,6 +23,7 @@ The following table shows current support levels for Nuke versions:
 | ------------- | --------------------- | ------------- |
 | 15            | Windows, macOS, Linux | Linux         |
 | 16            | Windows, macOS, Linux | Linux         |
+| 17            | Windows, macOS, Linux | Linux         |
 
 ## Deadline Cloud Conda Channel
 
@@ -32,6 +33,7 @@ The following table lists conda packages applicable to Nuke available to Service
 | ----- | ----------- | ------- | ------------------------------------ |
 | Linux | nuke        | 15      | Includes built-in compositing engine |
 | Linux | nuke        | 16      | Includes built-in compositing engine |
+| Linux | nuke        | 17      | Includes built-in compositing engine |
 | Linux | nuke-openjd |         | Includes the Nuke Adaptor            |
 
 ## Getting started
@@ -87,8 +89,8 @@ Deadline Cloud only supports and tests the workstation and worker software versi
 
 If you require an unsupported version of Nuke, you have the following options:
 
-- When submitting the job from Nuke, you may override the CondaPackages queue parameter to specify a supported version to use on the worker (for example, `nuke=16, nuke-openjd=*`). This may or may not work, depending on the features used by your composition and how Nuke works with compositions from your workstation version.
-- You may build a custom conda recipe and channel for your desired version to be installed on the worker. Use the conda recipe for a supported version linked below as a starting point, and package your desired version in a custom conda channel. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
+- When submitting the job from Nuke, you can override the CondaPackages queue parameter to specify a supported version to use on the worker (for example, `nuke=17, nuke-openjd=*`). This might or might not work, depending on the features used by your composition and how Nuke works with compositions from your workstation version.
+- You can build a custom conda recipe and channel for your desired version to be installed on the worker. Use the conda recipe for a supported version linked below as a starting point, and package your desired version in a custom conda channel. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
 
 ### Custom Nuke executable
 
@@ -109,6 +111,7 @@ Nuke's compositing engine provides comprehensive support for:
 | Multiple Views   | Stereo and multi-view rendering    | Proper handling of view-specific outputs |
 | Color Management | OpenColorIO integration            | Automatic OCIO configuration detection   |
 | Path Mapping     | Cross-platform path translation    | Seamless Windows/Linux compatibility     |
+| CopyCat          | ML-based paint and rotoscoping     | Requires Nuke 14.0 or later              |
 
 Compositing features are automatically detected and configured by the Nuke integrated submitter. The submitter maintains proper dependency handling and asset management for complex compositions.
 
