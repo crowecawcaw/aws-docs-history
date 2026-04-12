@@ -10,7 +10,7 @@ From the Silk browser, tap the menu icon. If you see this menu, you have the lat
 of Silk. Use the following procedure for remote debugging. If your menu looks different, you may
 have an older version of Silk. Follow the procedure in [Remote Debugging for Older Versions of Silk](#remote-debugging-2 "#remote-debugging-2").
 
-![Amazon Silk browser menu options including Private Browsing, Bookmarks, History, Downloads, Settings, and Help & Support.](images/Silk_shared-menu.png)
+![Amazon Silk browser menu options including Private Browsing, Bookmarks, History, Downloads, Settings, and Help & Support.](/images/silk/latest/developerguide/images/Silk_shared-menu.png)
 
 ###### To remote debug your device
 
