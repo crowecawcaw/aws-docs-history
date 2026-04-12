@@ -55,7 +55,9 @@ ResponseData = namedtuple("ResponseData",
 # response
 AUDIO_FORMATS = {"ogg_vorbis": "audio/ogg",
                  "mp3": "audio/mpeg",
-                 "pcm": "audio/wave; codecs=1"}
+                 "pcm": "audio/wave; codecs=1",
+                 "mulaw": "audio/mulaw",
+                 "alaw": "audio/alaw"}
 CHUNK_SIZE = 1024
 HTTP_STATUS = {"OK": ResponseStatus(code=200, message="OK"),
                "BAD_REQUEST": ResponseStatus(code=400, message="Bad request"),

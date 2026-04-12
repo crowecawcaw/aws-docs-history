@@ -18,7 +18,7 @@ Console
 
 ###### Note
 
-Downloading MP3, OGG, or PCM formats will not generate speech marks. 10. For **File Format**, choose **Speech marks**. 11. For **Speech mark types**, choose the types of speech marks to generate. The option to choose **SSML** metadata is only available when **SSML** is on. For more information on using SSML with Amazon Polly see [Generating speech from SSML documents](ssml.md "ssml.md"). 12. Choose **Download**.
+Downloading MP3, OGG, PCM, Mu-law, or A-law formats will not generate speech marks. 10. For **File Format**, choose **Speech marks**. 11. For **Speech mark types**, choose the types of speech marks to generate. The option to choose **SSML** metadata is only available when **SSML** is on. For more information on using SSML with Amazon Polly see [Generating speech from SSML documents](ssml.md "ssml.md"). 12. Choose **Download**.
 
 AWS CLI
 In addition to the input text, the following elements are required to return this

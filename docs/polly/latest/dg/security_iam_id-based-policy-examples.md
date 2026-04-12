@@ -16,6 +16,7 @@ For details about actions and resource types defined by Amazon Polly, including 
 - [Using the Amazon Polly console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
 - [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [AWS managed (predefined) policies for Amazon Polly](#access-policy-aws-managed-policies "#access-policy-aws-managed-policies")
+- [Amazon Polly updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 - [Customer-managed policy examples](#access-policy-customer-managed-examples "#access-policy-customer-managed-examples")
 
 ## Policy best practices
@@ -126,8 +127,15 @@ are specific to Amazon Polly:
   read-only access to resources, allows listing lexicons, fetching lexicons, listing
   available voices and synthesizing speech (including, applying lexicons to the
   synthesized speech).
+
+To view more details about the policy, including the latest version of the JSON policy
+document, see [AmazonPollyReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonPollyReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonPollyReadOnlyAccess.md") in the _AWS Managed Policy Reference Guide_.
+
 - **AmazonPollyFullAccess** –
   Grants full access to resources and all the supported operations.
+
+To view more details about the policy, including the latest version of the JSON policy
+document, see [AmazonPollyFullAccess](../../../aws-managed-policy/latest/reference/AmazonPollyFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonPollyFullAccess.md") in the _AWS Managed Policy Reference Guide_.
 
 ###### Note
 
@@ -137,6 +145,15 @@ and searching for specific policies there.
 You can also create your own custom IAM policies to allow permissions for
 Amazon Polly actions and resources. You can attach these custom policies to the
 IAM users or groups that require those permissions.
+
+## Amazon Polly updates to AWS managed policies
+
+View details about updates to AWS managed policies for Amazon Polly since this service
+began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed on the Amazon Polly Document History page.
+
+| Amazon Polly updates to AWS managed policies | Policy                                                                                                                                                | Change         | Date |
+| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---- |
+| AmazonPollyReadOnlyAccess                    | Updated managed policy<br>• Added permission for `polly:StartSpeechSynthesisStream` to support bidirectional streaming speech synthesis capabilities. | March 19, 2026 |
 
 ## Customer-managed policy examples
 

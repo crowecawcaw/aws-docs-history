@@ -33,7 +33,9 @@ This section provides the code for the HTML5 client described in [Python example
         var AUDIO_FORMATS = {
             'ogg_vorbis': 'audio/ogg',
             'mp3': 'audio/mpeg',
-            'pcm': 'audio/wave; codecs=1'
+            'pcm': 'audio/wave; codecs=1',
+            'mulaw': 'audio/mulaw',
+            'alaw': 'audio/alaw'
         };
 
         /**

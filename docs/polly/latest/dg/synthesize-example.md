@@ -22,7 +22,8 @@ He was caught up in the game. In the middle of the 10/3/2014 W3C meeting he shou
    1. Choose **Download**.
    2. To change to a different file format, expand **Additional
       settings**, turn on **Speech file format
-      settings**, choose the file format that you want, and
+      settings**, choose the file format that you want (such as MP3, OGG, PCM,
+      Mu-law, or A-law), and
       then choose **Download**.
 
 AWS CLI

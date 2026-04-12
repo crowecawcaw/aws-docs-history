@@ -93,7 +93,7 @@ When pcm is used, the content returned is audio/pcm in a signed
 
 Type: String
 
-Valid Values: `json | mp3 | ogg_opus | ogg_vorbis | pcm`
+Valid Values: `json | mp3 | ogg_opus | ogg_vorbis | pcm | mulaw | alaw`
 
 Required: Yes
 

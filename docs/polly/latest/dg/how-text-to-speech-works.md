@@ -24,7 +24,8 @@ then synthesizes the provided text into a high-quality speech audio stream.
   synthesized speech in multiple formats. You can select the audio format that suits
   your needs. For example, you might request the speech in the MP3 or Ogg Vorbis
   format for consumption by web and mobile applications. Or, you might request the PCM
-  output format for consumption by AWS IoT devices and telephony solutions.
+  output format for consumption by AWS IoT devices and telephony solutions. For telephony
+  applications, you can use Mu-law or A-law formats.
 
 ###### Note
 

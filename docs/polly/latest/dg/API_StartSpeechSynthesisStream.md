@@ -68,7 +68,7 @@ Pattern: `[0-9A-Za-z]{1,20}`
 
 The audio format for the synthesized speech. Currently, Amazon Polly does not support JSON speech marks.
 
-Valid Values: `json | mp3 | ogg_opus | ogg_vorbis | pcm`
+Valid Values: `json | mp3 | ogg_opus | ogg_vorbis | pcm | mulaw | alaw`
 
 Required: Yes
 
