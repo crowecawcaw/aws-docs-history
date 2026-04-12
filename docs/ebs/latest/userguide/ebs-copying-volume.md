@@ -1,7 +1,7 @@
 # Copy an Amazon EBS volume
 
 You can create an instant point-in-time copy of an Amazon EBS volume within the same
-Availability Zone. A volume copy begins as a crash-consistent, point in time copy of
+Availability Zone. A volume copy begins as a crash-consistent, point-in-time copy of
 the source volume. It includes all the data blocks written to the source volume at the
 time the volume copy initialization begins. The volume copy gets its own unique volume
 ID. Volume copies are created immediately and can be attached to an Amazon EC2 instance
@@ -33,7 +33,7 @@ The volume copy can exceed the baseline performance when the following criteria 
 1. Both the source volume and volume copy are provisioned with more than 3,000 IOPS and
    125 MiB/s.
 2. The source volume has unutilized performance capacity (driven performance is less than
-   provisioned performance)
+   provisioned performance).
 
 For example, if the source volume is provisioned with 10,000 IOPS and your workload is
 currently driving only 5,000 IOPS, and the volume copy is provisioned with 10,000 IOPS, the
@@ -85,7 +85,7 @@ the source volume. You can't copy unencrypted volumes.
 
 ## Pricing
 
-When you initiate volume copy operation, you are charged a one-time fee per GiB of data
+When you initiate a volume copy operation, you are charged a one-time fee per GiB of data
 blocks written to the volume copy. After the volume copy is created, it is charged the same
 way as any other Amazon EBS volume in your account. For more information, see [Amazon EBS pricing](https://aws.amazon.com/ebs/pricing/ "https://aws.amazon.com/ebs/pricing/").
 
