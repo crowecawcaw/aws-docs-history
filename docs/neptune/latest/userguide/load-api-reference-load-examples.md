@@ -10,20 +10,90 @@ The response includes the load ID, which can be used to track the progress of th
 The following is a request sent via HTTP POST using the `curl` command.
 It loads a file in the Neptune CSV format. For more information, see [Gremlin load data format](bulk-load-tutorial-format-gremlin.md "bulk-load-tutorial-format-gremlin.md").
 
+AWS CLI
+
 ```
-curl -X POST \
-    -H 'Content-Type: application/json' \
-    https://`your-neptune-endpoint`:`port`/loader -d '
-    {
-      "source" : "s3://`bucket-name`/`object-key-name`",
-      "format" : "csv",
-      "iamRoleArn" : "`ARN for the IAM role you are using`",
-      "region" : "`region`",
-      "failOnError" : "`FALSE`",
-      "parallelism" : "`MEDIUM`",
-      "updateSingleCardinalityProperties" : "`FALSE`",
-      "queueRequest" : "`FALSE`"
-    }'
+aws neptunedata start-loader-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --source "s3://`bucket-name`/`object-key-name`" \
+  --format "csv" \
+  --iam-role-arn "`ARN for the IAM role you are using`" \
+  --s3-bucket-region "`region`" \
+  --no-fail-on-error \
+  --parallelism "MEDIUM" \
+  --no-update-single-cardinality-properties \
+  --no-queue-request
+```
+
+For more information, see [start-loader-job](../../../cli/latest/reference/neptunedata/start-loader-job.md "../../../cli/latest/reference/neptunedata/start-loader-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.start_loader_job(
+    source='s3://`bucket-name`/`object-key-name`',
+    format='csv',
+    iamRoleArn='`ARN for the IAM role you are using`',
+    s3BucketRegion='`region`',
+    failOnError=False,
+    parallelism='MEDIUM',
+    updateSingleCardinalityProperties=False,
+    queueRequest=False
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/loader \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "source" : "s3://`bucket-name`/`object-key-name`",
+        "format" : "csv",
+        "iamRoleArn" : "`ARN for the IAM role you are using`",
+        "region" : "`region`",
+        "failOnError" : "FALSE",
+        "parallelism" : "MEDIUM",
+        "updateSingleCardinalityProperties" : "FALSE",
+        "queueRequest" : "FALSE"
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl -X POST https://`your-neptune-endpoint`:`port`/loader \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "source" : "s3://`bucket-name`/`object-key-name`",
+        "format" : "csv",
+        "iamRoleArn" : "`ARN for the IAM role you are using`",
+        "region" : "`region`",
+        "failOnError" : "FALSE",
+        "parallelism" : "MEDIUM",
+        "updateSingleCardinalityProperties" : "FALSE",
+        "queueRequest" : "FALSE"
+      }'
 ```
 
 ###### Example Response

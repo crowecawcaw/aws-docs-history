@@ -151,8 +151,67 @@ you can also chain multiple IAM roles if the Neptune DB instance and the Amazon 
 are located in different AWS Accounts. In this case, `iamRoleArn` contains
 a comma-separated list of role ARNs, as described in [Chaining IAM roles in Amazon Neptune](bulk-load-tutorial-chain-roles.md "bulk-load-tutorial-chain-roles.md"). For example:
 
+AWS CLI
+
 ```
-curl -X POST https://localhost:8182/loader \
+aws neptunedata start-loader-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --source "s3://`(the target bucket name)`/`(the target date file name)`" \
+  --format "csv" \
+  --iam-role-arn "arn:aws:iam::`(Account A ID)`:role/`(RoleA)`,arn:aws:iam::`(Account B ID)`:role/`(RoleB)`,arn:aws:iam::`(Account C ID)`:role/`(RoleC)`" \
+  --s3-bucket-region "`us-east-1`"
+```
+
+For more information, see [start-loader-job](../../../cli/latest/reference/neptunedata/start-loader-job.md "../../../cli/latest/reference/neptunedata/start-loader-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.start_loader_job(
+    source='s3://`(the target bucket name)`/`(the target date file name)`',
+    format='csv',
+    iamRoleArn='arn:aws:iam::`(Account A ID)`:role/`(RoleA)`,arn:aws:iam::`(Account B ID)`:role/`(RoleB)`,arn:aws:iam::`(Account C ID)`:role/`(RoleC)`',
+    s3BucketRegion='`us-east-1`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/loader \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "source" : "s3://`(the target bucket name)`/`(the target date file name)`",
+        "iamRoleArn" : "arn:aws:iam::`(Account A ID)`:role/`(RoleA)`,arn:aws:iam::`(Account B ID)`:role/`(RoleB)`,arn:aws:iam::`(Account C ID)`:role/`(RoleC)`",
+        "format" : "csv",
+        "region" : "us-east-1"
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl -X POST https://`your-neptune-endpoint`:`port`/loader \
   -H 'Content-Type: application/json' \
   -d '{
         "source" : "s3://`(the target bucket name)`/`(the target date file name)`",
@@ -439,20 +498,86 @@ the loader has no way of detecting duplicate relationships.
 
 Here is an example of an openCypher load command:
 
+AWS CLI
+
+```
+aws neptunedata start-loader-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --source "s3://`bucket-name`/`object-key-name`" \
+  --format "opencypher" \
+  --user-provided-edge-ids \
+  --iam-role-arn "arn:aws:iam::`account-id`:role/`role-name`" \
+  --s3-bucket-region "`region`" \
+  --no-fail-on-error \
+  --parallelism "MEDIUM"
 ```
 
+For more information, see [start-loader-job](../../../cli/latest/reference/neptunedata/start-loader-job.md "../../../cli/latest/reference/neptunedata/start-loader-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.start_loader_job(
+    source='s3://`bucket-name`/`object-key-name`',
+    format='opencypher',
+    userProvidedEdgeIds=True,
+    iamRoleArn='arn:aws:iam::`account-id`:role/`role-name`',
+    s3BucketRegion='`region`',
+    failOnError=False,
+    parallelism='MEDIUM'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/loader \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "source" : "s3://`bucket-name`/`object-key-name`",
+        "format" : "opencypher",
+        "userProvidedEdgeIds": "TRUE",
+        "iamRoleArn" : "arn:aws:iam::`account-id`:role/`role-name`",
+        "region" : "`region`",
+        "failOnError" : "FALSE",
+        "parallelism" : "MEDIUM"
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
 curl -X POST https://`your-neptune-endpoint`:`port`/loader \
-     -H 'Content-Type: application/json' \
-     -d '
-     {
-       "source" : "s3://`bucket-name`/`object-key-name`",
-       "format" : "**opencypher**",
-       **"userProvidedEdgeIds": "TRUE"**,
-       "iamRoleArn" : "arn:aws:iam::`account-id`:role/`role-name`",
-       "region" : "`region`",
-       "failOnError" : "FALSE",
-       "parallelism" : "MEDIUM",
-     }'
+  -H 'Content-Type: application/json' \
+  -d '{
+        "source" : "s3://`bucket-name`/`object-key-name`",
+        "format" : "opencypher",
+        "userProvidedEdgeIds": "TRUE",
+        "iamRoleArn" : "arn:aws:iam::`account-id`:role/`role-name`",
+        "region" : "`region`",
+        "failOnError" : "FALSE",
+        "parallelism" : "MEDIUM"
+      }'
 ```
 
 The loader response is the same as normal. For example:

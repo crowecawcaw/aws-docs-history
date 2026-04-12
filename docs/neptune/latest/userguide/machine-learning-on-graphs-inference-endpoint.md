@@ -10,12 +10,64 @@ you delete it.
 ## Managing inference endpoints for Neptune ML
 
 After you have completed model training on data that you exported from Neptune,
-you can create an inference endpoint using a `curl` (or `awscurl`)
-command like the following:
+you can create an inference endpoint using a command like the following:
+
+AWS CLI
+
+```
+aws neptunedata create-ml-endpoint \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(a unique ID for the new endpoint)`" \
+  --ml-model-training-job-id "`(the model-training job-id of a completed job)`"
+```
+
+For more information, see [create-ml-endpoint](../../../cli/latest/reference/neptunedata/create-ml-endpoint.md "../../../cli/latest/reference/neptunedata/create-ml-endpoint.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.create_ml_endpoint(
+    id='`(a unique ID for the new endpoint)`',
+    mlModelTrainingJobId='`(the model-training job-id of a completed job)`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/endpoints \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "id" : "`(a unique ID for the new endpoint)`",
+        "mlModelTrainingJobId": "`(the model-training job-id of a completed job)`"
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
 
 ```
 curl \
-  -X POST https://`(your Neptune endpoint)`/ml/endpoints
+  -X POST https://`your-neptune-endpoint`:`port`/ml/endpoints \
   -H 'Content-Type: application/json' \
   -d '{
         "id" : "`(a unique ID for the new endpoint)`",
@@ -26,9 +78,62 @@ curl \
 You can also create an inference endpoint from a model created by a completed model
 transform job, in much the same way:
 
+AWS CLI
+
+```
+aws neptunedata create-ml-endpoint \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(a unique ID for the new endpoint)`" \
+  --ml-model-transform-job-id "`(the model-transform job-id of a completed job)`"
+```
+
+For more information, see [create-ml-endpoint](../../../cli/latest/reference/neptunedata/create-ml-endpoint.md "../../../cli/latest/reference/neptunedata/create-ml-endpoint.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.create_ml_endpoint(
+    id='`(a unique ID for the new endpoint)`',
+    mlModelTransformJobId='`(the model-transform job-id of a completed job)`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/endpoints \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "id" : "`(a unique ID for the new endpoint)`",
+        "mlModelTransformJobId": "`(the model-transform job-id of a completed job)`"
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
 ```
 curl \
-  -X POST https://`(your Neptune endpoint)`/ml/endpoints
+  -X POST https://`your-neptune-endpoint`:`port`/ml/endpoints \
   -H 'Content-Type: application/json' \
   -d '{
         "id" : "`(a unique ID for the new endpoint)`",

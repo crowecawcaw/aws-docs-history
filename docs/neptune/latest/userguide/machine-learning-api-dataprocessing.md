@@ -8,12 +8,68 @@ check its status, stop it, or list all active data-processing jobs.
 A typical Neptune ML `dataprocessing` command for creating a new job
 looks like this:
 
+AWS CLI
+
 ```
-curl \
-  -X POST https://`(your Neptune endpoint)`/ml/dataprocessing \
+aws neptunedata start-ml-data-processing-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --input-data-s3-location "s3://`(S3 bucket name)`/`(path to your input folder)`" \
+  --id "`(a job ID for the new job)`" \
+  --processed-data-s3-location "s3://`(S3 bucket name)`/`(path to your output folder)`"
+```
+
+For more information, see [start-ml-data-processing-job](../../../cli/latest/reference/neptunedata/start-ml-data-processing-job.md "../../../cli/latest/reference/neptunedata/start-ml-data-processing-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.start_ml_data_processing_job(
+    inputDataS3Location='s3://`(S3 bucket name)`/`(path to your input folder)`',
+    id='`(a job ID for the new job)`',
+    processedDataS3Location='s3://`(S3 bucket name)`/`(path to your output folder)`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/dataprocessing \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
   -H 'Content-Type: application/json' \
   -d '{
-        "inputDataS3Location" : "s3://`(Amazon S3 bucket name)`/`(path to your input folder)`",
+        "inputDataS3Location" : "s3://`(S3 bucket name)`/`(path to your input folder)`",
+        "id" : "`(a job ID for the new job)`",
+        "processedDataS3Location" : "s3://`(S3 bucket name)`/`(path to your output folder)`"
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl \
+  -X POST https://`your-neptune-endpoint`:`port`/ml/dataprocessing \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "inputDataS3Location" : "s3://`(S3 bucket name)`/`(path to your input folder)`",
         "id" : "`(a job ID for the new job)`",
         "processedDataS3Location" : "s3://`(S3 bucket name)`/`(path to your output folder)`"
       }'
@@ -21,16 +77,75 @@ curl \
 
 A command to initiate incremental re-processing looks like this:
 
+AWS CLI
+
 ```
-curl \
-  -X POST https://`(your Neptune endpoint)`/ml/dataprocessing \
+aws neptunedata start-ml-data-processing-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --input-data-s3-location "s3://`(S3 bucket name)`/`(path to your input folder)`" \
+  --id "`(a job ID for this job)`" \
+  --processed-data-s3-location "s3://`(S3 bucket name)`/`(path to your output folder)`" \
+  --previous-data-processing-job-id "`(the job ID of a previously completed job to update)`"
+```
+
+For more information, see [start-ml-data-processing-job](../../../cli/latest/reference/neptunedata/start-ml-data-processing-job.md "../../../cli/latest/reference/neptunedata/start-ml-data-processing-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.start_ml_data_processing_job(
+    inputDataS3Location='s3://`(S3 bucket name)`/`(path to your input folder)`',
+    id='`(a job ID for this job)`',
+    processedDataS3Location='s3://`(S3 bucket name)`/`(path to your output folder)`',
+    previousDataProcessingJobId='`(the job ID of a previously completed job to update)`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/dataprocessing \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
   -H 'Content-Type: application/json' \
   -d '{
-        "inputDataS3Location" : "s3://`(Amazon S3 bucket name)`/`(path to your input folder)`",
+        "inputDataS3Location" : "s3://`(S3 bucket name)`/`(path to your input folder)`",
         "id" : "`(a job ID for this job)`",
-        "processedDataS3Location" : "s3://`(S3 bucket name)`/`(path to your output folder)`"
+        "processedDataS3Location" : "s3://`(S3 bucket name)`/`(path to your output folder)`",
         "previousDataProcessingJobId" : "`(the job ID of a previously completed job to update)`"
-}'
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl \
+  -X POST https://`your-neptune-endpoint`:`port`/ml/dataprocessing \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "inputDataS3Location" : "s3://`(S3 bucket name)`/`(path to your input folder)`",
+        "id" : "`(a job ID for this job)`",
+        "processedDataS3Location" : "s3://`(S3 bucket name)`/`(path to your output folder)`",
+        "previousDataProcessingJobId" : "`(the job ID of a previously completed job to update)`"
+      }'
 ```
 
 ###### Parameters for `dataprocessing` job creation
@@ -154,9 +269,55 @@ _Type_: string. _Default_: _none_.
 
 A sample Neptune ML `dataprocessing` command for the status of a job looks like this:
 
+AWS CLI
+
+```
+aws neptunedata get-ml-data-processing-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(the job ID)`"
+```
+
+For more information, see [get-ml-data-processing-job](../../../cli/latest/reference/neptunedata/get-ml-data-processing-job.md "../../../cli/latest/reference/neptunedata/get-ml-data-processing-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.get_ml_data_processing_job(
+    id='`(the job ID)`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/dataprocessing/`(the job ID)` \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X GET
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
 ```
 curl -s \
-  "https://`(your Neptune endpoint)`/ml/dataprocessing/`(the job ID)`" \
+  "https://`your-neptune-endpoint`:`port`/ml/dataprocessing/`(the job ID)`" \
   | python -m json.tool
 ```
 
@@ -178,16 +339,81 @@ listed in your DB cluster parameter group or an error will occur.
 
 A sample Neptune ML `dataprocessing` command for stopping a job looks like this:
 
+AWS CLI
+
+```
+aws neptunedata cancel-ml-data-processing-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(the job ID)`"
+```
+
+To also clean up Amazon S3 artifacts:
+
+```
+aws neptunedata cancel-ml-data-processing-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(the job ID)`" \
+  --clean
+```
+
+For more information, see [cancel-ml-data-processing-job](../../../cli/latest/reference/neptunedata/cancel-ml-data-processing-job.md "../../../cli/latest/reference/neptunedata/cancel-ml-data-processing-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.cancel_ml_data_processing_job(
+    id='`(the job ID)`',
+    clean=True
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/dataprocessing/`(the job ID)` \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X DELETE
+```
+
+To also clean up Amazon S3 artifacts:
+
+```
+awscurl "https://`your-neptune-endpoint`:`port`/ml/dataprocessing/`(the job ID)`?clean=true" \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X DELETE
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
 ```
 curl -s \
-  -X DELETE "https://`(your Neptune endpoint)`/ml/dataprocessing/`(the job ID)`"
+  -X DELETE "https://`your-neptune-endpoint`:`port`/ml/dataprocessing/`(the job ID)`"
 ```
 
 Or this:
 
 ```
 curl -s \
-  -X DELETE "https://`(your Neptune endpoint)`/ml/dataprocessing/`(the job ID)`?clean=true"
+  -X DELETE "https://`your-neptune-endpoint`:`port`/ml/dataprocessing/`(the job ID)`?clean=true"
 ```
 
 ###### Parameters for `dataprocessing` stop job
@@ -214,14 +440,76 @@ _Type_: Boolean. _Default_: `FALSE`.
 
 A sample Neptune ML `dataprocessing` command for listing active jobs looks like this:
 
+AWS CLI
+
 ```
-curl -s "https://`(your Neptune endpoint)`/ml/dataprocessing"
+aws neptunedata list-ml-data-processing-jobs \
+  --endpoint-url https://`your-neptune-endpoint`:`port`
+```
+
+To limit the number of results:
+
+```
+aws neptunedata list-ml-data-processing-jobs \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --max-items 3
+```
+
+For more information, see [list-ml-data-processing-jobs](../../../cli/latest/reference/neptunedata/list-ml-data-processing-jobs.md "../../../cli/latest/reference/neptunedata/list-ml-data-processing-jobs.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.list_ml_data_processing_jobs(
+    maxItems=3
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/dataprocessing \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X GET
+```
+
+To limit the number of results:
+
+```
+awscurl "https://`your-neptune-endpoint`:`port`/ml/dataprocessing?maxItems=3" \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X GET
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl -s "https://`your-neptune-endpoint`:`port`/ml/dataprocessing"
 ```
 
 Or this:
 
 ```
-curl -s "https://`(your Neptune endpoint)`/ml/dataprocessing?maxItems=3"
+curl -s "https://`your-neptune-endpoint`:`port`/ml/dataprocessing?maxItems=3"
 ```
 
 ###### Parameters for `dataprocessing` list jobs

@@ -14,15 +14,73 @@ and transformations:
 ## Managing the data-processing step for Neptune ML
 
 After you have exported the data from Neptune that you want to use for model training,
-you can start a data-processing job using a `curl` (or `awscurl`)
-command like the following:
+you can start a data-processing job using a command like the following:
+
+AWS CLI
+
+```
+aws neptunedata start-ml-data-processing-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --input-data-s3-location "s3://`(S3 bucket name)`/`(path to your input folder)`" \
+  --id "`(a job ID for the new job)`" \
+  --processed-data-s3-location "s3://`(S3 bucket name)`/`(path to your output folder)`" \
+  --config-file-name "training-job-configuration.json"
+```
+
+For more information, see [start-ml-data-processing-job](../../../cli/latest/reference/neptunedata/start-ml-data-processing-job.md "../../../cli/latest/reference/neptunedata/start-ml-data-processing-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.start_ml_data_processing_job(
+    inputDataS3Location='s3://`(S3 bucket name)`/`(path to your input folder)`',
+    id='`(a job ID for the new job)`',
+    processedDataS3Location='s3://`(S3 bucket name)`/`(path to your output folder)`',
+    configFileName='training-job-configuration.json'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/dataprocessing \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "inputDataS3Location" : "s3://`(S3 bucket name)`/`(path to your input folder)`",
+        "id" : "`(a job ID for the new job)`",
+        "processedDataS3Location" : "s3://`(S3 bucket name)`/`(path to your output folder)`",
+        "configFileName" : "training-job-configuration.json"
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
 
 ```
 curl \
-  -X POST https://`(your Neptune endpoint)`/ml/dataprocessing \
+  -X POST https://`your-neptune-endpoint`:`port`/ml/dataprocessing \
   -H 'Content-Type: application/json' \
   -d '{
-        "inputDataS3Location" : "s3://`(Amazon S3 bucket name)`/`(path to your input folder)`",
+        "inputDataS3Location" : "s3://`(S3 bucket name)`/`(path to your input folder)`",
         "id" : "`(a job ID for the new job)`",
         "processedDataS3Location" : "s3://`(S3 bucket name)`/`(path to your output folder)`",
         "configFileName" : "training-job-configuration.json"
@@ -41,16 +99,77 @@ This is required when you want to get predictions for updated graph data in Nept
 either by retraining the old model on the new data, or by recomputing the model artifacts
 on the new data.
 
-You do this by using a `curl` (or `awscurl`) command like this:
+You do this by using a command like this:
+
+AWS CLI
+
+```
+aws neptunedata start-ml-data-processing-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --input-data-s3-location "s3://`(Amazon S3 bucket name)`/`(path to your input folder)`" \
+  --id "`(a job ID for the new job)`" \
+  --processed-data-s3-location "s3://`(Amazon S3 bucket name)`/`(path to your output folder)`" \
+  --previous-data-processing-job-id "`(the job ID of the previous data-processing job)`"
+```
+
+For more information, see [start-ml-data-processing-job](../../../cli/latest/reference/neptunedata/start-ml-data-processing-job.md "../../../cli/latest/reference/neptunedata/start-ml-data-processing-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.start_ml_data_processing_job(
+    inputDataS3Location='s3://`(Amazon S3 bucket name)`/`(path to your input folder)`',
+    id='`(a job ID for the new job)`',
+    processedDataS3Location='s3://`(Amazon S3 bucket name)`/`(path to your output folder)`',
+    previousDataProcessingJobId='`(the job ID of the previous data-processing job)`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/dataprocessing \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "inputDataS3Location" : "s3://`(Amazon S3 bucket name)`/`(path to your input folder)`",
+        "id" : "`(a job ID for the new job)`",
+        "processedDataS3Location" : "s3://`(Amazon S3 bucket name)`/`(path to your output folder)`",
+        "previousDataProcessingJobId" : "`(the job ID of the previous data-processing job)`"
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
 
 ```
 curl \
-  -X POST https://`(your Neptune endpoint)`/ml/dataprocessing \
+  -X POST https://`your-neptune-endpoint`:`port`/ml/dataprocessing \
   -H 'Content-Type: application/json' \
-  -d '{ "inputDataS3Location" : "s3://`(Amazon S3 bucket name)`/`(path to your input folder)`",
+  -d '{
+        "inputDataS3Location" : "s3://`(Amazon S3 bucket name)`/`(path to your input folder)`",
         "id" : "`(a job ID for the new job)`",
         "processedDataS3Location" : "s3://`(Amazon S3 bucket name)`/`(path to your output folder)`",
-        "previousDataProcessingJobId", "`(the job ID of the previous data-processing job)`"}'
+        "previousDataProcessingJobId" : "`(the job ID of the previous data-processing job)`"
+      }'
 ```
 
 Set the value of the `previousDataProcessingJobId` parameter to the

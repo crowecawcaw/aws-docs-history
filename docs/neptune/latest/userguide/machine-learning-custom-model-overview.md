@@ -65,14 +65,88 @@ _Default_: `transform.py`.
 
 For example:
 
+AWS CLI
+
 ```
-curl \
-  -X POST https://`(your Neptune endpoint)`/ml/modeltraining
+aws neptunedata start-ml-model-training-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(a unique model-training job ID)`" \
+  --data-processing-job-id "`(the data-processing job-id of a completed job)`" \
+  --train-model-s3-location "s3://`(your Amazon S3 bucket)`/neptune-model-graph-autotrainer" \
+  --model-name "custom" \
+  --custom-model-training-parameters '{
+    "sourceS3DirectoryPath": "s3://`(your Amazon S3 bucket)`/`(path to your Python module)`",
+    "trainingEntryPointScript": "`(your training script entry-point name in the Python module)`",
+    "transformEntryPointScript": "`(your transform script entry-point name in the Python module)`"
+  }'
+```
+
+For more information, see [start-ml-model-training-job](../../../cli/latest/reference/neptunedata/start-ml-model-training-job.md "../../../cli/latest/reference/neptunedata/start-ml-model-training-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.start_ml_model_training_job(
+    id='`(a unique model-training job ID)`',
+    dataProcessingJobId='`(the data-processing job-id of a completed job)`',
+    trainModelS3Location='s3://`(your Amazon S3 bucket)`/neptune-model-graph-autotrainer',
+    modelName='custom',
+    customModelTrainingParameters={
+        'sourceS3DirectoryPath': 's3://`(your Amazon S3 bucket)`/`(path to your Python module)`',
+        'trainingEntryPointScript': '`(your training script entry-point name in the Python module)`',
+        'transformEntryPointScript': '`(your transform script entry-point name in the Python module)`'
+    }
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/modeltraining \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
   -H 'Content-Type: application/json' \
   -d '{
         "id" : "`(a unique model-training job ID)`",
         "dataProcessingJobId" : "`(the data-processing job-id of a completed job)`",
-        "trainModelS3Location" : "s3://`(your Amazon S3 bucket)`/neptune-model-graph-autotrainer"
+        "trainModelS3Location" : "s3://`(your Amazon S3 bucket)`/neptune-model-graph-autotrainer",
+        "modelName": "custom",
+        "customModelTrainingParameters" : {
+          "sourceS3DirectoryPath": "s3://`(your Amazon S3 bucket)`/`(path to your Python module)`",
+          "trainingEntryPointScript": "`(your training script entry-point name in the Python module)`",
+          "transformEntryPointScript": "`(your transform script entry-point name in the Python module)`"
+        }
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl \
+  -X POST https://`your-neptune-endpoint`:`port`/ml/modeltraining \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "id" : "`(a unique model-training job ID)`",
+        "dataProcessingJobId" : "`(the data-processing job-id of a completed job)`",
+        "trainModelS3Location" : "s3://`(your Amazon S3 bucket)`/neptune-model-graph-autotrainer",
         "modelName": "custom",
         "customModelTrainingParameters" : {
           "sourceS3DirectoryPath": "s3://`(your Amazon S3 bucket)`/`(path to your Python module)`",
@@ -102,14 +176,82 @@ _Default_: `transform.py`.
 
 For example:
 
+AWS CLI
+
 ```
-curl \
-  -X POST https://`(your Neptune endpoint)`/ml/modeltransform
+aws neptunedata start-ml-model-transform-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(a unique model-transform job ID)`" \
+  --training-job-name "`(name of a completed SageMaker training job)`" \
+  --model-transform-output-s3-location "s3://`(your Amazon S3 bucket)`/neptune-model-transform/" \
+  --custom-model-transform-parameters '{
+    "sourceS3DirectoryPath": "s3://`(your Amazon S3 bucket)`/`(path to your Python module)`",
+    "transformEntryPointScript": "`(your transform script entry-point name in the Python module)`"
+  }'
+```
+
+For more information, see [start-ml-model-transform-job](../../../cli/latest/reference/neptunedata/start-ml-model-transform-job.md "../../../cli/latest/reference/neptunedata/start-ml-model-transform-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.start_ml_model_transform_job(
+    id='`(a unique model-transform job ID)`',
+    trainingJobName='`(name of a completed SageMaker training job)`',
+    modelTransformOutputS3Location='s3://`(your Amazon S3 bucket)`/neptune-model-transform/',
+    customModelTransformParameters={
+        'sourceS3DirectoryPath': 's3://`(your Amazon S3 bucket)`/`(path to your Python module)`',
+        'transformEntryPointScript': '`(your transform script entry-point name in the Python module)`'
+    }
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/modeltransform \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
   -H 'Content-Type: application/json' \
   -d '{
-        "id" : "`(a unique model-training job ID)`",
-        "trainingJobName" : "`(name of a completed SageMaker AI training job)`",
-        "modelTransformOutputS3Location" : "s3://`(your Amazon S3 bucket)`/neptune-model-transform/"
+        "id" : "`(a unique model-transform job ID)`",
+        "trainingJobName" : "`(name of a completed SageMaker training job)`",
+        "modelTransformOutputS3Location" : "s3://`(your Amazon S3 bucket)`/neptune-model-transform/",
+        "customModelTransformParameters" : {
+          "sourceS3DirectoryPath": "s3://`(your Amazon S3 bucket)`/`(path to your Python module)`",
+          "transformEntryPointScript": "`(your transform script entry-point name in the Python module)`"
+        }
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl \
+  -X POST https://`your-neptune-endpoint`:`port`/ml/modeltransform \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "id" : "`(a unique model-transform job ID)`",
+        "trainingJobName" : "`(name of a completed SageMaker training job)`",
+        "modelTransformOutputS3Location" : "s3://`(your Amazon S3 bucket)`/neptune-model-transform/",
         "customModelTransformParameters" : {
           "sourceS3DirectoryPath": "s3://`(your Amazon S3 bucket)`/`(path to your Python module)`",
           "transformEntryPointScript": "`(your transform script entry-point name in the Python module)`"

@@ -81,8 +81,57 @@ indicates a specific query to be canceled.
 - **Request for the status of all queries, including
   those waiting:**
 
+AWS CLI
+
 ```
-curl https://`server`:`port`/openCypher/status \
+aws neptunedata get-open-cypher-query-status \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --include-waiting
+```
+
+For more information, see [get-open-cypher-query-status](../../../cli/latest/reference/neptunedata/get-open-cypher-query-status.md "../../../cli/latest/reference/neptunedata/get-open-cypher-query-status.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.get_open_cypher_query_status(
+    includeWaiting=True
+)
+
+print(response)
+```
+
+For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md "access-graph-opencypher-sdk.md").
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/openCypher/status \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -d "includeWaiting=true"
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl https://`your-neptune-endpoint`:`port`/openCypher/status \
   --data-urlencode "includeWaiting=true"
 ```
 
@@ -99,8 +148,52 @@ _Response:_
 - **Request for the status of running queries,
   **not** including those waiting:**:
 
+AWS CLI
+
 ```
-curl https://`server`:`port`/openCypher/status
+aws neptunedata get-open-cypher-query-status \
+  --endpoint-url https://`your-neptune-endpoint`:`port`
+```
+
+For more information, see [get-open-cypher-query-status](../../../cli/latest/reference/neptunedata/get-open-cypher-query-status.md "../../../cli/latest/reference/neptunedata/get-open-cypher-query-status.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.get_open_cypher_query_status()
+
+print(response)
+```
+
+For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md "access-graph-opencypher-sdk.md").
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/openCypher/status \
+  --region `us-east-1` \
+  --service neptune-db
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl https://`your-neptune-endpoint`:`port`/openCypher/status
 ```
 
 _Response:_
@@ -115,9 +208,58 @@ _Response:_
 
 - **Request for the status of a single query:**
 
+AWS CLI
+
 ```
-curl https://`server`:`port`/openCypher/status \
- --data-urlencode "queryId=eadc6eea-698b-4a2f-8554-5270ab17ebee"
+aws neptunedata get-open-cypher-query-status \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --query-id `eadc6eea-698b-4a2f-8554-5270ab17ebee`
+```
+
+For more information, see [get-open-cypher-query-status](../../../cli/latest/reference/neptunedata/get-open-cypher-query-status.md "../../../cli/latest/reference/neptunedata/get-open-cypher-query-status.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.get_open_cypher_query_status(
+    queryId='`eadc6eea-698b-4a2f-8554-5270ab17ebee`'
+)
+
+print(response)
+```
+
+For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md "access-graph-opencypher-sdk.md").
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/openCypher/status \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -d "queryId=`eadc6eea-698b-4a2f-8554-5270ab17ebee`"
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl https://`your-neptune-endpoint`:`port`/openCypher/status \
+  --data-urlencode "queryId=`eadc6eea-698b-4a2f-8554-5270ab17ebee`"
 ```
 
 _Response:_
@@ -136,45 +278,77 @@ _Response:_
 
 - **Requests to cancel a query**
 
+AWS CLI
+
+```
+aws neptunedata cancel-open-cypher-query \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --query-id `f43ce17b-db01-4d37-a074-c76d1c26d7a9`
+```
+
+For more information, see [cancel-open-cypher-query](../../../cli/latest/reference/neptunedata/cancel-open-cypher-query.md "../../../cli/latest/reference/neptunedata/cancel-open-cypher-query.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.cancel_open_cypher_query(
+    queryId='`f43ce17b-db01-4d37-a074-c76d1c26d7a9`'
+)
+
+print(response)
+```
+
+For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md "access-graph-opencypher-sdk.md").
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/openCypher/status \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -d "cancelQuery" \
+  -d "queryId=`f43ce17b-db01-4d37-a074-c76d1c26d7a9`"
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
 1. Using `POST`:
 
 ```
-curl -X POST https://`server`:`port`/openCypher/status \
+curl -X POST https://`your-neptune-endpoint`:`port`/openCypher/status \
   --data-urlencode "cancelQuery" \
-  --data-urlencode "queryId=f43ce17b-db01-4d37-a074-c76d1c26d7a9"
-```
-
-_Response:_
-
-```
-{
-  "status" : "200 OK",
-  "payload" : true
-}
+  --data-urlencode "queryId=`f43ce17b-db01-4d37-a074-c76d1c26d7a9`"
 ```
 
 2. Using `GET`:
 
 ```
-curl -X GET https://`server`:`port`/openCypher/status \
+curl -X GET https://`your-neptune-endpoint`:`port`/openCypher/status \
   --data-urlencode "cancelQuery" \
-  --data-urlencode "queryId=588af350-cfde-4222-bee6-b9cedc87180d"
-```
-
-_Response:_
-
-```
-{
-  "status" : "200 OK",
-  "payload" : true
-}
+  --data-urlencode "queryId=`588af350-cfde-4222-bee6-b9cedc87180d`"
 ```
 
 3. Using `DELETE`:
 
 ```
 curl -X DELETE \
-  -s "https://`server`:`port`/openCypher/status?queryId=b9a516d1-d25c-4301-bb80-10b2743ecf0e"
+  "https://`your-neptune-endpoint`:`port`/openCypher/status?queryId=`b9a516d1-d25c-4301-bb80-10b2743ecf0e`"
 ```
 
 _Response:_

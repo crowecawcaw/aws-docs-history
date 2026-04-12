@@ -8,9 +8,62 @@ check its status, delete it, or list existing inference endpoints.
 A Neptune ML `endpoints` command for creating an inference endpoint
 from a model created by a training job looks like this:
 
+AWS CLI
+
+```
+aws neptunedata create-ml-endpoint \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(a unique ID for the new endpoint)`" \
+  --ml-model-training-job-id "`(the model-training job-id of a completed job)`"
+```
+
+For more information, see [create-ml-endpoint](../../../cli/latest/reference/neptunedata/create-ml-endpoint.md "../../../cli/latest/reference/neptunedata/create-ml-endpoint.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.create_ml_endpoint(
+    id='`(a unique ID for the new endpoint)`',
+    mlModelTrainingJobId='`(the model-training job-id of a completed job)`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/endpoints \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "id" : "`(a unique ID for the new endpoint)`",
+        "mlModelTrainingJobId": "`(the model-training job-id of a completed job)`"
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
 ```
 curl \
-  -X POST https://`(your Neptune endpoint)`/ml/endpoints
+  -X POST https://`your-neptune-endpoint`:`port`/ml/endpoints \
   -H 'Content-Type: application/json' \
   -d '{
         "id" : "`(a unique ID for the new endpoint)`",
@@ -21,9 +74,65 @@ curl \
 A Neptune ML `endpoints` command for updating an existing inference endpoint
 from a model created by a training job looks like this:
 
+AWS CLI
+
+```
+aws neptunedata create-ml-endpoint \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(a unique ID for the new endpoint)`" \
+  --update \
+  --ml-model-training-job-id "`(the model-training job-id of a completed job)`"
+```
+
+For more information, see [create-ml-endpoint](../../../cli/latest/reference/neptunedata/create-ml-endpoint.md "../../../cli/latest/reference/neptunedata/create-ml-endpoint.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.create_ml_endpoint(
+    id='`(a unique ID for the new endpoint)`',
+    update=True,
+    mlModelTrainingJobId='`(the model-training job-id of a completed job)`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/endpoints \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "id" : "`(a unique ID for the new endpoint)`",
+        "update" : "true",
+        "mlModelTrainingJobId": "`(the model-training job-id of a completed job)`"
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
 ```
 curl \
-  -X POST https://`(your Neptune endpoint)`/ml/endpoints
+  -X POST https://`your-neptune-endpoint`:`port`/ml/endpoints \
   -H 'Content-Type: application/json' \
   -d '{
         "id" : "`(a unique ID for the new endpoint)`",
@@ -35,27 +144,136 @@ curl \
 A Neptune ML `endpoints` command for creating an inference endpoint
 from a model created by a model-transform job looks like this:
 
+AWS CLI
+
 ```
-curl \
-  -X POST https://`(your Neptune endpoint)`/ml/endpoints
+aws neptunedata create-ml-endpoint \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(a unique ID for the new endpoint)`" \
+  --ml-model-transform-job-id "`(the model-transform job-id of a completed job)`"
+```
+
+For more information, see [create-ml-endpoint](../../../cli/latest/reference/neptunedata/create-ml-endpoint.md "../../../cli/latest/reference/neptunedata/create-ml-endpoint.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.create_ml_endpoint(
+    id='`(a unique ID for the new endpoint)`',
+    mlModelTransformJobId='`(the model-transform job-id of a completed job)`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/endpoints \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
   -H 'Content-Type: application/json' \
   -d '{
         "id" : "`(a unique ID for the new endpoint)`",
-        "mlModelTransformJobId": "`(the model-training job-id of a completed job)`"
+        "mlModelTransformJobId": "`(the model-transform job-id of a completed job)`"
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl \
+  -X POST https://`your-neptune-endpoint`:`port`/ml/endpoints \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "id" : "`(a unique ID for the new endpoint)`",
+        "mlModelTransformJobId": "`(the model-transform job-id of a completed job)`"
       }'
 ```
 
 A Neptune ML `endpoints` command for updating an existing inference endpoint
 from a model created by a model-transform job looks like this:
 
+AWS CLI
+
 ```
-curl \
-  -X POST https://`(your Neptune endpoint)`/ml/endpoints
+aws neptunedata create-ml-endpoint \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(a unique ID for the new endpoint)`" \
+  --update \
+  --ml-model-transform-job-id "`(the model-transform job-id of a completed job)`"
+```
+
+For more information, see [create-ml-endpoint](../../../cli/latest/reference/neptunedata/create-ml-endpoint.md "../../../cli/latest/reference/neptunedata/create-ml-endpoint.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.create_ml_endpoint(
+    id='`(a unique ID for the new endpoint)`',
+    update=True,
+    mlModelTransformJobId='`(the model-transform job-id of a completed job)`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/endpoints \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
   -H 'Content-Type: application/json' \
   -d '{
         "id" : "`(a unique ID for the new endpoint)`",
         "update" : "true",
-        "mlModelTransformJobId": "`(the model-training job-id of a completed job)`"
+        "mlModelTransformJobId": "`(the model-transform job-id of a completed job)`"
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl \
+  -X POST https://`your-neptune-endpoint`:`port`/ml/endpoints \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "id" : "`(a unique ID for the new endpoint)`",
+        "update" : "true",
+        "mlModelTransformJobId": "`(the model-transform job-id of a completed job)`"
       }'
 ```
 
@@ -136,9 +354,55 @@ _Type_: string. _Default_: _none_.
 A sample Neptune ML `endpoints` command for the status of an instance
 endpoint looks like this:
 
+AWS CLI
+
+```
+aws neptunedata get-ml-endpoint \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(the inference endpoint ID)`"
+```
+
+For more information, see [get-ml-endpoint](../../../cli/latest/reference/neptunedata/get-ml-endpoint.md "../../../cli/latest/reference/neptunedata/get-ml-endpoint.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.get_ml_endpoint(
+    id='`(the inference endpoint ID)`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/endpoints/`(the inference endpoint ID)` \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X GET
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
 ```
 curl -s \
-  "https://`(your Neptune endpoint)`/ml/endpoints/`(the inference endpoint ID)`" \
+  "https://`your-neptune-endpoint`:`port`/ml/endpoints/`(the inference endpoint ID)`" \
   | python -m json.tool
 ```
 
@@ -161,16 +425,81 @@ listed in your DB cluster parameter group or an error will be thrown.
 A sample Neptune ML `endpoints` command for deleting an instance
 endpoint looks like this:
 
+AWS CLI
+
+```
+aws neptunedata delete-ml-endpoint \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(the inference endpoint ID)`"
+```
+
+To also clean up related artifacts:
+
+```
+aws neptunedata delete-ml-endpoint \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(the inference endpoint ID)`" \
+  --clean
+```
+
+For more information, see [delete-ml-endpoint](../../../cli/latest/reference/neptunedata/delete-ml-endpoint.md "../../../cli/latest/reference/neptunedata/delete-ml-endpoint.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.delete_ml_endpoint(
+    id='`(the inference endpoint ID)`',
+    clean=True
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/endpoints/`(the inference endpoint ID)` \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X DELETE
+```
+
+To also clean up related artifacts:
+
+```
+awscurl "https://`your-neptune-endpoint`:`port`/ml/endpoints/`(the inference endpoint ID)`?clean=true" \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X DELETE
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
 ```
 curl -s \
-  -X DELETE "https://`(your Neptune endpoint)`/ml/endpoints/`(the inference endpoint ID)`"
+  -X DELETE "https://`your-neptune-endpoint`:`port`/ml/endpoints/`(the inference endpoint ID)`"
 ```
 
 Or this:
 
 ```
 curl -s \
-  -X DELETE "https://`(your Neptune endpoint)`/ml/endpoints/`(the inference endpoint ID)`?clean=true"
+  -X DELETE "https://`your-neptune-endpoint`:`port`/ml/endpoints/`(the inference endpoint ID)`?clean=true"
 ```
 
 ###### Parameters for `endpoints` deleting an inference endpoint
@@ -198,15 +527,77 @@ _Type_: Boolean. _Default_: `FALSE`.
 A Neptune ML `endpoints` command for listing inference
 endpoints looks like this:
 
+AWS CLI
+
 ```
-curl -s "https://`(your Neptune endpoint)`/ml/endpoints" \
+aws neptunedata list-ml-endpoints \
+  --endpoint-url https://`your-neptune-endpoint`:`port`
+```
+
+To limit the number of results:
+
+```
+aws neptunedata list-ml-endpoints \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --max-items 3
+```
+
+For more information, see [list-ml-endpoints](../../../cli/latest/reference/neptunedata/list-ml-endpoints.md "../../../cli/latest/reference/neptunedata/list-ml-endpoints.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.list_ml_endpoints(
+    maxItems=3
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/endpoints \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X GET
+```
+
+To limit the number of results:
+
+```
+awscurl "https://`your-neptune-endpoint`:`port`/ml/endpoints?maxItems=3" \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X GET
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl -s "https://`your-neptune-endpoint`:`port`/ml/endpoints" \
   | python -m json.tool
 ```
 
 Or this:
 
 ```
-curl -s "https://`(your Neptune endpoint)`/ml/endpoints?maxItems=3" \
+curl -s "https://`your-neptune-endpoint`:`port`/ml/endpoints?maxItems=3" \
   | python -m json.tool
 ```
 

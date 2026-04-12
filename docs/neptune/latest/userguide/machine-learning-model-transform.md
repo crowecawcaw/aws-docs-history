@@ -7,18 +7,77 @@ like node embeddings on processed graph data using pre-trained model parameters.
 
 In the [incremental model
 inference workflow](machine-learning-overview-evolving-data-incremental.md#machine-learning-overview-incremental "machine-learning-overview-evolving-data-incremental.md#machine-learning-overview-incremental"), after you have processed the updated graph data that you
-exported from Neptune you can start a model transform job using a curl (or awscurl)
-command like the following:
+exported from Neptune you can start a model transform job using a command like
+the following:
+
+AWS CLI
+
+```
+aws neptunedata start-ml-model-transform-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(a unique model-transform job ID)`" \
+  --data-processing-job-id "`(the data-processing job-id of a completed job)`" \
+  --ml-model-training-job-id "`(the ML model training job-id)`" \
+  --model-transform-output-s3-location "s3://`(your S3 bucket)`/neptune-model-transform/"
+```
+
+For more information, see [start-ml-model-transform-job](../../../cli/latest/reference/neptunedata/start-ml-model-transform-job.md "../../../cli/latest/reference/neptunedata/start-ml-model-transform-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.start_ml_model_transform_job(
+    id='`(a unique model-transform job ID)`',
+    dataProcessingJobId='`(the data-processing job-id of a completed job)`',
+    mlModelTrainingJobId='`(the ML model training job-id)`',
+    modelTransformOutputS3Location='s3://`(your S3 bucket)`/neptune-model-transform/'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/modeltransform \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "id" : "`(a unique model-transform job ID)`",
+        "dataProcessingJobId" : "`(the data-processing job-id of a completed job)`",
+        "mlModelTrainingJobId": "`(the ML model training job-id)`",
+        "modelTransformOutputS3Location" : "s3://`(your S3 bucket)`/neptune-model-transform/"
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
 
 ```
 curl \
-  -X POST https://`(your Neptune endpoint)`/ml/modeltransform
+  -X POST https://`your-neptune-endpoint`:`port`/ml/modeltransform \
   -H 'Content-Type: application/json' \
   -d '{
-        "id" : "`(a unique model-training job ID)`",
+        "id" : "`(a unique model-transform job ID)`",
         "dataProcessingJobId" : "`(the data-processing job-id of a completed job)`",
         "mlModelTrainingJobId": "`(the ML model training job-id)`",
-        "modelTransformOutputS3Location" : "s3://`(your Amazon S3 bucket)`/neptune-model-transform/"
+        "modelTransformOutputS3Location" : "s3://`(your S3 bucket)`/neptune-model-transform/"
       }'
 ```
 
@@ -37,14 +96,70 @@ based on any of those SageMaker AI training jobs.
 
 For example:
 
+AWS CLI
+
 ```
-curl \
-  -X POST https://`(your Neptune endpoint)`/ml/modeltransform
+aws neptunedata start-ml-model-transform-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --id "`(a unique model-transform job ID)`" \
+  --training-job-name "`(name of a completed SageMaker training job)`" \
+  --model-transform-output-s3-location "s3://`(your S3 bucket)`/neptune-model-transform/"
+```
+
+For more information, see [start-ml-model-transform-job](../../../cli/latest/reference/neptunedata/start-ml-model-transform-job.md "../../../cli/latest/reference/neptunedata/start-ml-model-transform-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.start_ml_model_transform_job(
+    id='`(a unique model-transform job ID)`',
+    trainingJobName='`(name of a completed SageMaker training job)`',
+    modelTransformOutputS3Location='s3://`(your S3 bucket)`/neptune-model-transform/'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/ml/modeltransform \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
   -H 'Content-Type: application/json' \
   -d '{
-        "id" : "`(a unique model-training job ID)`",
-        "trainingJobName" : "`(name a completed SageMaker AI training job)`",
-        "modelTransformOutputS3Location" : "s3://`(your Amazon S3 bucket)`/neptune-model-transform/"
+        "id" : "`(a unique model-transform job ID)`",
+        "trainingJobName" : "`(name of a completed SageMaker training job)`",
+        "modelTransformOutputS3Location" : "s3://`(your S3 bucket)`/neptune-model-transform/"
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl \
+  -X POST https://`your-neptune-endpoint`:`port`/ml/modeltransform \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "id" : "`(a unique model-transform job ID)`",
+        "trainingJobName" : "`(name of a completed SageMaker training job)`",
+        "modelTransformOutputS3Location" : "s3://`(your S3 bucket)`/neptune-model-transform/"
       }'
 ```
 

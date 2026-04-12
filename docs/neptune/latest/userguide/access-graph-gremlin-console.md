@@ -21,7 +21,7 @@ than the instructions here.
 ###### To install the Gremlin Console and connect to Neptune
 
 1. The Gremlin Console binaries require Java 8 or Java 11. These instructions assume
-   usage of Java 11. You can install Java 11 on your EC2 instance as follow:
+   usage of Java 11. You can install Java 11 on your EC2 instance as follows:
    - If you're using [Amazon
      Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2 "https://aws.amazon.com/amazon-linux-2"):
 
@@ -57,7 +57,7 @@ sudo /usr/sbin/alternatives --config java
 When prompted, enter the number for Java 11. 3. Download the appropriate version of the Gremlin Console from the Apache
 web site. You can check the
 [Accessing a Neptune graph with Gremlin](access-graph-gremlin.md "access-graph-gremlin.md")
-determine which Gremlin version your version of Neptune supports. For example, if you need version
+to determine which Gremlin version your version of Neptune supports. For example, if you need version
 3.7.2, you can download the [Gremlin console](https://archive.apache.org/dist/tinkerpop/3.7.2/apache-tinkerpop-gremlin-console-3.7.2-bin.zip "https://archive.apache.org/dist/tinkerpop/3.7.2/apache-tinkerpop-gremlin-console-3.7.2-bin.zip") from the [Apache Tinkerpop](https://tinkerpop.apache.org/download.html "https://tinkerpop.apache.org/download.html") website onto your EC2 instance like this:
 
 ```

@@ -8,6 +8,59 @@ overall status, and detailed error logs.
 
 This a request sent via HTTP `GET` using `curl`:
 
+AWS CLI
+
+```
+aws neptunedata get-loader-job-status \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --load-id `0a237328-afd5-4574-a0bc-c29ce5f54802` \
+  --details \
+  --errors \
+  --errors-per-page 3 \
+  --page 1
+```
+
+For more information, see [get-loader-job-status](../../../cli/latest/reference/neptunedata/get-loader-job-status.md "../../../cli/latest/reference/neptunedata/get-loader-job-status.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.get_loader_job_status(
+    loadId='`0a237328-afd5-4574-a0bc-c29ce5f54802`',
+    details=True,
+    errors=True,
+    errorsPerPage=3,
+    page=1
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl 'https://`your-neptune-endpoint`:`port`/loader/`0a237328-afd5-4574-a0bc-c29ce5f54802`?details=true&errors=true&page=1&errorsPerPage=3' \
+  --region `us-east-1` \
+  --service neptune-db
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
 ```
 curl -X GET 'https://`your-neptune-endpoint`:`port`/loader/`0a237328-afd5-4574-a0bc-c29ce5f54802`?details=true&errors=true&page=1&errorsPerPage=3'
 ```

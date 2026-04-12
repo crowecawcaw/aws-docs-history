@@ -4,6 +4,14 @@ Neptune provides you with the ability to set a timeout for your queries using th
 parameter group option `neptune_query_timeout` (see [Parameters](parameters.md "parameters.md")). You can also override the global timeout, with code
 like this:
 
+###### Note
+
+Query timeout settings apply only to query evaluation. Bytecode-based
+transaction control operations such as `tx().commit()` and
+`tx().rollback()` are not subject to query timeouts. For more
+information, see
+[Timeout behavior for bytecode commit and rollback](access-graph-gremlin-transactions.md#access-graph-gremlin-transactions-commit-rollback-timeout "access-graph-gremlin-transactions.md#access-graph-gremlin-transactions-commit-rollback-timeout").
+
 ```
   final Cluster cluster = Cluster.build("localhost")
                                  .port(8182)

@@ -2,8 +2,7 @@
 
 This query looks for relationships between two anonymous nodes with type
 `route`, and returns at most 10. Again, the `explain` mode is
-`details` and the output format is the default ASCII format. Here is the
-`explain` output:
+`details` and the output format is the default ASCII format.
 
 Here, `DFEPipelineScan` scans for edges that start from anonymous node
 `?anon_node7` and end at another anonymous node `?anon_node21`, with a
@@ -15,8 +14,69 @@ corresponds to `[p:route]` in the query string.
 its `Arguments` column. `DFEDrain` terminates once the limit is
 reached or the all solutions are produced, whichever happens first.
 
+To invoke `explain` for this query:
+
+AWS CLI
+
 ```
-curl -d "query=MATCH ()-[p:route]->() RETURN p LIMIT 10" -k https://localhost:8182/openCypher -d "explain=details"                                                                                              ~
+aws neptunedata execute-open-cypher-explain-query \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --open-cypher-query "MATCH ()-[p:route]->() RETURN p LIMIT 10" \
+  --explain-mode details
+```
+
+For more information, see [execute-open-cypher-explain-query](../../../cli/latest/reference/neptunedata/execute-open-cypher-explain-query.md "../../../cli/latest/reference/neptunedata/execute-open-cypher-explain-query.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.execute_open_cypher_explain_query(
+    openCypherQuery='MATCH ()-[p:route]->() RETURN p LIMIT 10',
+    explainMode='details'
+)
+
+print(response['results'].read().decode('utf-8'))
+```
+
+For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md "access-graph-opencypher-sdk.md").
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/openCypher \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -d "query=MATCH ()-[p:route]->() RETURN p LIMIT 10" \
+  -d "explain=details"
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl https://`your-neptune-endpoint`:`port`/openCypher \
+  -d "query=MATCH ()-[p:route]->() RETURN p LIMIT 10" \
+  -d "explain=details"
+```
+
+The `explain` output:
+
+```
 Query:
 MATCH ()-[p:route]->() RETURN p LIMIT 10
 

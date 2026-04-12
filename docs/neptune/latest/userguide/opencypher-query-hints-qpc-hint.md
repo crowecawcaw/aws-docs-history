@@ -5,16 +5,92 @@ Query plan cache behavior can be overridden on a per-query (parameterized or not
 `enabled` or `disabled` as a value. For more information on query plan cache, see
 [Query plan cache in Amazon Neptune](access-graph-qpc.md "access-graph-qpc.md").
 
-```
-# Forcing plan to be cached or reused
-% curl -k https://<endpoint>:<port>/opencypher \
-  -d "query=Using QUERY:PLANCACHE \"enabled\" MATCH(n) RETURN n LIMIT 1"
+AWS CLI
+Forcing plan to be cached or reused:
 
-% curl -k https://<endpoint>:<port>/opencypher \
+```
+aws neptunedata execute-open-cypher-query \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --open-cypher-query "Using QUERY:PLANCACHE \"enabled\" MATCH(n) RETURN n LIMIT 1"
+```
+
+With parameters:
+
+```
+aws neptunedata execute-open-cypher-query \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --open-cypher-query "Using QUERY:PLANCACHE \"enabled\" RETURN \$arg" \
+  --parameters '{"arg": 123}'
+```
+
+Forcing plan to be neither cached nor reused:
+
+```
+aws neptunedata execute-open-cypher-query \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --open-cypher-query "Using QUERY:PLANCACHE \"disabled\" MATCH(n) RETURN n LIMIT 1"
+```
+
+For more information, see [execute-open-cypher-query](../../../cli/latest/reference/neptunedata/execute-open-cypher-query.md "../../../cli/latest/reference/neptunedata/execute-open-cypher-query.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+# Forcing plan to be cached or reused
+response = client.execute_open_cypher_query(
+    openCypherQuery='Using QUERY:PLANCACHE "enabled" MATCH(n) RETURN n LIMIT 1'
+)
+
+print(response['results'])
+```
+
+For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md "access-graph-opencypher-sdk.md").
+
+awscurl
+Forcing plan to be cached or reused:
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/openCypher \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -d "query=Using QUERY:PLANCACHE \"enabled\" MATCH(n) RETURN n LIMIT 1"
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+Forcing plan to be cached or reused:
+
+```
+curl https://`your-neptune-endpoint`:`port`/openCypher \
+  -d "query=Using QUERY:PLANCACHE \"enabled\" MATCH(n) RETURN n LIMIT 1"
+```
+
+With parameters:
+
+```
+curl https://`your-neptune-endpoint`:`port`/openCypher \
   -d "query=Using QUERY:PLANCACHE \"enabled\" RETURN \$arg" \
   -d "parameters={\"arg\": 123}"
+```
 
-# Forcing plan to be neither cached nor reused
-% curl -k https://<endpoint>:<port>/opencypher \
+Forcing plan to be neither cached nor reused:
+
+```
+curl https://`your-neptune-endpoint`:`port`/openCypher \
   -d "query=Using QUERY:PLANCACHE \"disabled\" MATCH(n) RETURN n LIMIT 1"
 ```

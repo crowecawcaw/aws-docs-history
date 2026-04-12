@@ -143,21 +143,94 @@ Amazon Neptune is available in the following AWS Regions:
     * AWS GovCloud (US-West):   `us-gov-west-1`
     * AWS GovCloud (US-East):   `us-gov-east-1`
 
+AWS CLI
+
 ```
-curl -X POST \
-    -H 'Content-Type: application/json' \
-    https://`your-neptune-endpoint`:`port`/loader -d '
-    {
-      "source" : "s3://`bucket-name`/`object-key-name`",
-      "format" : "`format`",
-      "iamRoleArn" : "arn:aws:iam::`account-id`:role/`role-name`",
-      "region" : "`region`",
-      "failOnError" : "FALSE",
-      "parallelism" : "MEDIUM",
-      "updateSingleCardinalityProperties" : "FALSE",
-      "queueRequest" : "TRUE",
-      "dependencies" : [`"load_A_id", "load_B_id"`]
-    }'
+aws neptunedata start-loader-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --source "s3://`bucket-name`/`object-key-name`" \
+  --format "`format`" \
+  --iam-role-arn "arn:aws:iam::`account-id`:role/`role-name`" \
+  --s3-bucket-region "`region`" \
+  --no-fail-on-error \
+  --parallelism "MEDIUM" \
+  --no-update-single-cardinality-properties \
+  --queue-request \
+  --dependencies "`load_A_id`" "`load_B_id`"
+```
+
+For more information, see [start-loader-job](../../../cli/latest/reference/neptunedata/start-loader-job.md "../../../cli/latest/reference/neptunedata/start-loader-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.start_loader_job(
+    source='s3://`bucket-name`/`object-key-name`',
+    format='`format`',
+    iamRoleArn='arn:aws:iam::`account-id`:role/`role-name`',
+    s3BucketRegion='`region`',
+    failOnError=False,
+    parallelism='MEDIUM',
+    updateSingleCardinalityProperties=False,
+    queueRequest=True,
+    dependencies=['`load_A_id`', '`load_B_id`']
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/loader \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "source" : "s3://`bucket-name`/`object-key-name`",
+        "format" : "`format`",
+        "iamRoleArn" : "arn:aws:iam::`account-id`:role/`role-name`",
+        "region" : "`region`",
+        "failOnError" : "FALSE",
+        "parallelism" : "MEDIUM",
+        "updateSingleCardinalityProperties" : "FALSE",
+        "queueRequest" : "TRUE",
+        "dependencies" : ["`load_A_id`", "`load_B_id`"]
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl -X POST https://`your-neptune-endpoint`:`port`/loader \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "source" : "s3://`bucket-name`/`object-key-name`",
+        "format" : "`format`",
+        "iamRoleArn" : "arn:aws:iam::`account-id`:role/`role-name`",
+        "region" : "`region`",
+        "failOnError" : "FALSE",
+        "parallelism" : "MEDIUM",
+        "updateSingleCardinalityProperties" : "FALSE",
+        "queueRequest" : "TRUE",
+        "dependencies" : ["`load_A_id`", "`load_B_id`"]
+      }'
 ```
 
 For information about creating and associating an IAM role with a Neptune cluster,
@@ -216,6 +289,51 @@ or cancel the loading process; for example:
 4. Enter the following to get the status of the load with the `loadId` from
    **Step 3**:
 
+AWS CLI
+
+```
+aws neptunedata get-loader-job-status \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --load-id `ef478d76-d9da-4d94-8ff1-08d9d4863aa5`
+```
+
+For more information, see [get-loader-job-status](../../../cli/latest/reference/neptunedata/get-loader-job-status.md "../../../cli/latest/reference/neptunedata/get-loader-job-status.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.get_loader_job_status(
+    loadId='`ef478d76-d9da-4d94-8ff1-08d9d4863aa5`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl 'https://`your-neptune-endpoint`:`port`/loader/`ef478d76-d9da-4d94-8ff1-08d9d4863aa5`' \
+  --region `us-east-1` \
+  --service neptune-db
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
 ```
 curl -G 'https://`your-neptune-endpoint`:`port`/loader/`ef478d76-d9da-4d94-8ff1-08d9d4863aa5`'
 ```
@@ -225,6 +343,52 @@ list of the errors. For more information and examples, see [Neptune Loader Get-S
 
 Enter the following to `Delete` the loader job with the job `id`
 from **Step 3**:
+
+AWS CLI
+
+```
+aws neptunedata cancel-loader-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --load-id `ef478d76-d9da-4d94-8ff1-08d9d4863aa5`
+```
+
+For more information, see [cancel-loader-job](../../../cli/latest/reference/neptunedata/cancel-loader-job.md "../../../cli/latest/reference/neptunedata/cancel-loader-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.cancel_loader_job(
+    loadId='`ef478d76-d9da-4d94-8ff1-08d9d4863aa5`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl 'https://`your-neptune-endpoint`:`port`/loader/`ef478d76-d9da-4d94-8ff1-08d9d4863aa5`' \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X DELETE
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
 
 ```
 curl -X DELETE 'https://`your-neptune-endpoint`:`port`/loader/`ef478d76-d9da-4d94-8ff1-08d9d4863aa5`'

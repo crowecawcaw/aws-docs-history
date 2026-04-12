@@ -195,8 +195,67 @@ Although you'll mostly only need to have two roles in a chain, it is certainly
 possible to chain three or more together. For example, this loader command chains
 three roles:
 
+AWS CLI
+
 ```
-curl -X POST https://localhost:8182/loader \
+aws neptunedata start-loader-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --source "s3://`(the target bucket name)`/`(the target date file name)`" \
+  --format "csv" \
+  --iam-role-arn "arn:aws:iam::`(Account A ID)`:role/`(RoleA)`,arn:aws:iam::`(Account B ID)`:role/`(RoleB)`,arn:aws:iam::`(Account C ID)`:role/`(RoleC)`" \
+  --s3-bucket-region "`us-east-1`"
+```
+
+For more information, see [start-loader-job](../../../cli/latest/reference/neptunedata/start-loader-job.md "../../../cli/latest/reference/neptunedata/start-loader-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.start_loader_job(
+    source='s3://`(the target bucket name)`/`(the target date file name)`',
+    format='csv',
+    iamRoleArn='arn:aws:iam::`(Account A ID)`:role/`(RoleA)`,arn:aws:iam::`(Account B ID)`:role/`(RoleB)`,arn:aws:iam::`(Account C ID)`:role/`(RoleC)`',
+    s3BucketRegion='`us-east-1`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/loader \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "source" : "s3://`(the target bucket name)`/`(the target date file name)`",
+        "iamRoleArn" : "arn:aws:iam::`(Account A ID)`:role/`(RoleA)`,arn:aws:iam::`(Account B ID)`:role/`(RoleB)`,arn:aws:iam::`(Account C ID)`:role/`(RoleC)`",
+        "format" : "csv",
+        "region" : "us-east-1"
+      }'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl -X POST https://`your-neptune-endpoint`:`port`/loader \
   -H 'Content-Type: application/json' \
   -d '{
         "source" : "s3://`(the target bucket name)`/`(the target date file name)`",

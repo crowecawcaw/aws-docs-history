@@ -66,6 +66,52 @@ active` (HTTP 404)   –   The load was not found. Check the
 The following is a request sent via HTTP `DELETE` using the
 `curl` command.
 
+AWS CLI
+
+```
+aws neptunedata cancel-loader-job \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --load-id `0a237328-afd5-4574-a0bc-c29ce5f54802`
+```
+
+For more information, see [cancel-loader-job](../../../cli/latest/reference/neptunedata/cancel-loader-job.md "../../../cli/latest/reference/neptunedata/cancel-loader-job.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.cancel_loader_job(
+    loadId='`0a237328-afd5-4574-a0bc-c29ce5f54802`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl 'https://`your-neptune-endpoint`:`port`/loader/`0a237328-afd5-4574-a0bc-c29ce5f54802`' \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X DELETE
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
 ```
 curl -X DELETE 'https://`your-neptune-endpoint`:`port`/loader/`0a237328-afd5-4574-a0bc-c29ce5f54802`'
 ```

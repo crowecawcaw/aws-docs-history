@@ -16,19 +16,94 @@ only when latency is lower than the threshold of **100ms**. This behavior can be
 on a per-query (parameterized or not) basis by the query-level Query Hint `QUERY:PLANCACHE`. It needs to be used
 with the `USING` clause. The query hint accepts `enabled` or `disabled` as a value.
 
-```
-# Forcing plan to be cached or reused
-% curl -k https://<endpoint>:<port>/opencypher \
-  -d "query=Using QUERY:PLANCACHE \"enabled\" MATCH(n) RETURN n LIMIT 1"
+AWS CLI
+Forcing plan to be cached or reused:
 
-% curl -k https://<endpoint>:<port>/opencypher \
+```
+aws neptunedata execute-open-cypher-query \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --open-cypher-query "Using QUERY:PLANCACHE \"enabled\" MATCH(n) RETURN n LIMIT 1"
+```
+
+With parameters:
+
+```
+aws neptunedata execute-open-cypher-query \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --open-cypher-query "Using QUERY:PLANCACHE \"enabled\" RETURN \$arg" \
+  --parameters '{"arg": 123}'
+```
+
+Forcing plan to be neither cached nor reused:
+
+```
+aws neptunedata execute-open-cypher-query \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --open-cypher-query "Using QUERY:PLANCACHE \"disabled\" MATCH(n) RETURN n LIMIT 1"
+```
+
+For more information, see [execute-open-cypher-query](../../../cli/latest/reference/neptunedata/execute-open-cypher-query.md "../../../cli/latest/reference/neptunedata/execute-open-cypher-query.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+# Forcing plan to be cached or reused
+response = client.execute_open_cypher_query(
+    openCypherQuery='Using QUERY:PLANCACHE "enabled" MATCH(n) RETURN n LIMIT 1'
+)
+
+print(response['results'])
+```
+
+For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md "access-graph-opencypher-sdk.md").
+
+awscurl
+Forcing plan to be cached or reused:
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/openCypher \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -d "query=Using QUERY:PLANCACHE \"enabled\" MATCH(n) RETURN n LIMIT 1"
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+Forcing plan to be cached or reused:
+
+```
+curl https://`your-neptune-endpoint`:`port`/openCypher \
+  -d "query=Using QUERY:PLANCACHE \"enabled\" MATCH(n) RETURN n LIMIT 1"
+```
+
+With parameters:
+
+```
+curl https://`your-neptune-endpoint`:`port`/openCypher \
   -d "query=Using QUERY:PLANCACHE \"enabled\" RETURN \$arg" \
   -d "parameters={\"arg\": 123}"
+```
 
-# Forcing plan to be neither cached nor reused
-% curl -k https://<endpoint>:<port>/opencypher \
+Forcing plan to be neither cached nor reused:
+
+```
+curl https://`your-neptune-endpoint`:`port`/openCypher \
   -d "query=Using QUERY:PLANCACHE \"disabled\" MATCH(n) RETURN n LIMIT 1"
-
 ```
 
 ## How to determine if a plan is cached or not
@@ -36,11 +111,67 @@ with the `USING` clause. The query hint accepts `enabled` or `disabled` as a val
 For HTTP READ, if the query was submitted and the plan was cached, `explain` would show details relevant to
 query plan cache.
 
-```
-% curl -k https://<endpoint>:<port>/opencypher \
-  -d "query=Using QUERY:PLANCACHE \"enabled\" MATCH(n) RETURN n LIMIT 1" \
-  -d "explain=[static|details]"
+AWS CLI
 
+```
+aws neptunedata execute-open-cypher-explain-query \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --open-cypher-query "Using QUERY:PLANCACHE \"enabled\" MATCH(n) RETURN n LIMIT 1" \
+  --explain-mode details
+```
+
+For more information, see [execute-open-cypher-explain-query](../../../cli/latest/reference/neptunedata/execute-open-cypher-explain-query.md "../../../cli/latest/reference/neptunedata/execute-open-cypher-explain-query.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.execute_open_cypher_explain_query(
+    openCypherQuery='Using QUERY:PLANCACHE "enabled" MATCH(n) RETURN n LIMIT 1',
+    explainMode='details'
+)
+
+print(response['results'].read().decode('utf-8'))
+```
+
+For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md "access-graph-opencypher-sdk.md").
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/openCypher \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -d "query=Using QUERY:PLANCACHE \"enabled\" MATCH(n) RETURN n LIMIT 1" \
+  -d "explain=details"
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl https://`your-neptune-endpoint`:`port`/openCypher \
+  -d "query=Using QUERY:PLANCACHE \"enabled\" MATCH(n) RETURN n LIMIT 1" \
+  -d "explain=details"
+```
+
+If the plan was cached, the `explain` output shows:
+
+```
 Query: <QUERY STRING>
 Plan cached by request: <REQUEST ID OF FIRST TIME EXECUTION>
 Plan cached at: <TIMESTAMP OF FIRST TIME EXECUTION>
@@ -79,11 +210,11 @@ Query plan cache would not be used under the following conditions:
 5. If the query parameter is a composite type, such as a `list` or a `map`.
 
 ```
-curl -k https://<endpoint>:<port>/opencypher \
+curl https://`your-neptune-endpoint`:`port`/openCypher \
   -d "query=Using QUERY:PLANCACHE \"enabled\" RETURN \$arg" \
   -d "parameters={\"arg\": [1, 2, 3]}"
 
-curl -k https://<endpoint>:<port>/opencypher \
+curl https://`your-neptune-endpoint`:`port`/openCypher \
   -d "query=Using QUERY:PLANCACHE \"enabled\" RETURN \$arg" \
   -d "parameters={\"arg\": {\"a\": 1}}"
 ```

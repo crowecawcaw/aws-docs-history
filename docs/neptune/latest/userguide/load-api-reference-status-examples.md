@@ -10,6 +10,51 @@ status information for a specific load.
 The following is a request sent via HTTP `GET` using the
 `curl` command.
 
+AWS CLI
+
+```
+aws neptunedata get-loader-job-status \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --load-id `loadId (a UUID)`
+```
+
+For more information, see [get-loader-job-status](../../../cli/latest/reference/neptunedata/get-loader-job-status.md "../../../cli/latest/reference/neptunedata/get-loader-job-status.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.get_loader_job_status(
+    loadId='`loadId (a UUID)`'
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl 'https://`your-neptune-endpoint`:`port`/loader/`loadId (a UUID)`' \
+  --region `us-east-1` \
+  --service neptune-db
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
 ```
 curl -X GET 'https://`your-neptune-endpoint`:`port`/loader/`loadId (a UUID)`'
 ```
@@ -46,6 +91,51 @@ curl -X GET 'https://`your-neptune-endpoint`:`port`/loader/`loadId (a UUID)`'
 The following is a request sent via HTTP `GET` using the
 `curl` command.
 
+AWS CLI
+
+```
+aws neptunedata list-loader-jobs \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --limit 3
+```
+
+For more information, see [list-loader-jobs](../../../cli/latest/reference/neptunedata/list-loader-jobs.md "../../../cli/latest/reference/neptunedata/list-loader-jobs.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.list_loader_jobs(
+    limit=3
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl 'https://`your-neptune-endpoint`:`port`/loader?limit=3' \
+  --region `us-east-1` \
+  --service neptune-db
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
 ```
 curl -X GET 'https://`your-neptune-endpoint`:`port`/loader?limit=3'
 ```
@@ -69,6 +159,53 @@ curl -X GET 'https://`your-neptune-endpoint`:`port`/loader?limit=3'
 
 The following is a request sent via HTTP `GET` using the
 `curl` command.
+
+AWS CLI
+
+```
+aws neptunedata get-loader-job-status \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --load-id `loadId (a UUID)` \
+  --details
+```
+
+For more information, see [get-loader-job-status](../../../cli/latest/reference/neptunedata/get-loader-job-status.md "../../../cli/latest/reference/neptunedata/get-loader-job-status.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.get_loader_job_status(
+    loadId='`loadId (a UUID)`',
+    details=True
+)
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl 'https://`your-neptune-endpoint`:`port`/loader/`loadId (a UUID)`?details=true' \
+  --region `us-east-1` \
+  --service neptune-db
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
 
 ```
 curl -X GET 'https://`your-neptune-endpoint`:`port`/loader/`loadId (a UUID)`?details=true'
