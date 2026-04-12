@@ -365,6 +365,16 @@ The following instance types are available in Mexico (Central).
 - **Memory Optimized:** R6g | R6i | R6id | R7g | R7gd | R7i | R8g
 - **Storage Optimized:** I3en | I4i | I7ie
 
+## Middle East (Bahrain) — `me-south-1`
+
+The following instance types are available in Middle East (Bahrain).
+
+- **General Purpose:** M5 | M5d | M6g | M6gd | M6i | M7g | M8g | T3 | T4g
+- **Compute Optimized:** C5 | C5a | C5ad | C5d | C5n | C6g | C6gn | C6i | C6in | C7g
+- **Memory Optimized:** R5 | R5d | R6g | R6i | R7g | X2idn
+- **Storage Optimized:** D2 | I3 | I3en | I4i
+- **Accelerated Computing:** G4dn | Inf1
+
 ## Middle East (UAE) — `me-central-1`
 
 The following instance types are available in Middle East (UAE).
