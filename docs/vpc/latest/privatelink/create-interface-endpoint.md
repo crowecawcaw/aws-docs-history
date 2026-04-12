@@ -107,8 +107,9 @@ specify them for your endpoint network interfaces. 10. For **IP address type**, 
 
 ## Shared subnets
 
-You can't create, describe, modify, or delete VPC endpoints in subnets that are shared
-with you. However, you can use the VPC endpoints in subnets that are shared with you.
+You can't create, describe, modify, or delete VPC endpoints in subnets that are shared with you.
+VPC endpoints that are managed by an AWS service (service managed VPC endpoints) can be created
+by the service in a shared subnet.
 
 ## ICMP
 
