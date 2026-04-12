@@ -26,10 +26,69 @@ releases, see [Babelfish for Aurora PostgreSQL reference](../AuroraUserGuide/USE
 
 ###### Version updates
 
+- [Babelfish for Aurora PostgreSQL 5.5](#AuroraBabelfish.Updates.55X "#AuroraBabelfish.Updates.55X")
 - [Babelfish for Aurora PostgreSQL 5.4](#AuroraBabelfish.Updates.54X "#AuroraBabelfish.Updates.54X")
 - [Babelfish for Aurora PostgreSQL 5.3](#AuroraBabelfish.Updates.53X "#AuroraBabelfish.Updates.53X")
 - [Babelfish for Aurora PostgreSQL 5.2](#AuroraBabelfish.Updates.52X "#AuroraBabelfish.Updates.52X")
 - [Babelfish for Aurora PostgreSQL 5.1](#AuroraBabelfish.Updates.51X "#AuroraBabelfish.Updates.51X")
+
+### Babelfish for Aurora PostgreSQL 5.5
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.9. For more
+information about the improvements in Aurora PostgreSQL 17.9, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
+5.5 adds several new features, enhancements, and fixes. For more information about
+Babelfish for Aurora PostgreSQL, see [Working with
+Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+#### Aurora Babelfish release 5.5.0, April 6, 2026
+
+**New Features**
+
+- Added support for Polygon instances for geography/geometry datatype.
+- Added support for implicit cast from (n)varchar/(n)char to datetimeoffset datatype.
+- Added support for sys.fn_varbintohexstr system object.
+
+**Security enhancements**
+
+- Babelfish cross-database queries will now respect Dynamic data masking policies so that tables show masked data according to the policies defined for the current login.
+
+**Critical enhancements**
+
+- Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
+- Fixed an issue where update with output clause may skip rows during concurrent updates.
+- DROP LOGIN now correctly returns an error when attempting to drop a login that is the owner of a database.
+
+**High Priority stability enhancements**
+
+- Fixed incorrect return datatype in UNION queries involving datetimeoffset, (n)varchar and datetime types.
+- Fixed issue in coalesce involving datetimeoffset and (n)varchar types.
+- Fixed UNION and CASE expressions with varbinary and string literals to correctly resolve to varchar instead of varbinary.
+- Restricted ownership change of Babelfish objects from PG port.
+- Fixed an issue in procedure calls leading to incorrect lifecycle handling of temp tables.
+- Restricted users from altering Babelfish objects in sys schema.
+- Fixed the scale/precision handling for MIN/MAX functions on CHAR/NCHAR datatypes.
+- Fixed high CPU utilization during concurrent connection establishment for pyODBC connections.
+- Fixed inconsistent index scans for binary/varbinary comparison operators and added cross-type support.
+- Blocked ALTER AUTHORIZATION on database when the new owner is a database role, fixed server role, or sysadmin.
+- Fixed an issue in nested procedure calls that caused temp table cleanup failures and parser errors.
+
+**Additional improvements and enhancements**
+
+- Fixed an issue where casting string values to sqlvariant may cause client to hang.
+- Fixed cast and convert functions between datatypes (n)char & (var)binary.
+- Added fix to handle UDT datatypes in DATEADD() function.
+- Fixed handling for white space characters in the ISNUMERIC() function to match T-SQL behavior.
+- Fixed an issue in SELECT queries with reserved keywords used as column aliases.
+- Fixed output format when casting datetime and smalldatetime to (n)varchar/(n)char.
+- Fixed handling of scale/precision for empty string casting to binary.
+- Fixed concatenation of binaries to produce expected results.
+- Fixed an issue where primary key information was not being sent in TDS response for ADO.NET FillSchema() operations.
+- Fixed scale/precision handling for concatenated results of binaries.
+- Fixed a rare issue where parallel query runs into unexpected error when table OID reaches to certain limit.
+- Fixed an issue where MONEY type conversion incorrectly rejected few valid ASCII and special characters.
+- Fixed convert function to properly apply style parameter when converting SMALLMONEY to string types, ensuring correct formatting for styles 0, 1, 2, and 126 matching with T-SQL behavior.
+- Fixed trailing blanks being incorrectly treated as insignificant in LIKE operator in case of exact pattern matching.
+- Fixed multiple convert function issues for MONEY/SMALLMONEY type to string conversions, including proper handling of negative style parameters and invalid style value.
 
 ### Babelfish for Aurora PostgreSQL 5.4
 
@@ -444,6 +503,7 @@ For more information about relevant permission management and access control set
 
 ###### Version updates
 
+- [Babelfish for Aurora PostgreSQL 4.9](#AuroraBabelfish.Updates.49X "#AuroraBabelfish.Updates.49X")
 - [Babelfish for Aurora PostgreSQL 4.8](#AuroraBabelfish.Updates.48X "#AuroraBabelfish.Updates.48X")
 - [Babelfish for Aurora PostgreSQL 4.7](#AuroraBabelfish.Updates.47X "#AuroraBabelfish.Updates.47X")
 - [Babelfish for Aurora PostgreSQL 4.6](#AuroraBabelfish.Updates.46X "#AuroraBabelfish.Updates.46X")
@@ -453,6 +513,60 @@ For more information about relevant permission management and access control set
 - [Babelfish for Aurora PostgreSQL 4.2](#AuroraBabelfish.Updates.42X "#AuroraBabelfish.Updates.42X")
 - [Babelfish for Aurora PostgreSQL 4.1](#AuroraBabelfish.Updates.41X "#AuroraBabelfish.Updates.41X")
 - [Babelfish for Aurora PostgreSQL 4.0](#AuroraBabelfish.Updates.40X "#AuroraBabelfish.Updates.40X")
+
+### Babelfish for Aurora PostgreSQL 4.9
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.13. For more
+information about the improvements in Aurora PostgreSQL 16.13, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
+4.9 adds several new features, enhancements, and fixes. For more information about
+Babelfish for Aurora PostgreSQL, see [Working with
+Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+#### Aurora Babelfish release 4.9.0, April 6, 2026
+
+**New Features**
+
+- Added support for implicit cast from (n)varchar/(n)char to datetimeoffset datatype.
+- Added support for sys.fn_varbintohexstr system object.
+
+**Security enhancements**
+
+- Babelfish cross-database queries will now respect Dynamic data masking policies so that tables show masked data according to the policies defined for the current login.
+
+**Critical enhancements**
+
+- Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
+- Fixed an issue where update with output clause may skip rows during concurrent updates.
+- DROP LOGIN now correctly returns an error when attempting to drop a login that is the owner of a database.
+
+**High Priority stability enhancements**
+
+- Fixed incorrect return datatype in UNION queries involving datetimeoffset, (n)varchar and datetime types.
+- Fixed issue in coalesce involving datetimeoffset and (n)varchar types.
+- Fixed UNION and CASE expressions with varbinary and string literals to correctly resolve to varchar instead of varbinary.
+- Restricted ownership change of Babelfish objects from PG port.
+- Fixed an issue in procedure calls leading to incorrect lifecycle handling of temp tables.
+- Restricted users from altering Babelfish objects in sys schema.
+- Fixed the scale/precision handling for MIN/MAX functions on CHAR/NCHAR datatypes.
+- Blocked ALTER AUTHORIZATION on database when the new owner is a database role, fixed server role, or sysadmin.
+- Fixed high CPU utilization during concurrent connection establishment for pyODBC connections.
+
+**Additional improvements and enhancements**
+
+- Fixed an issue where casting string values to sqlvariant may cause client to hang.
+- Fixed cast and convert functions between datatypes (n)char & (var)binary.
+- Added fix to handle UDT datatypes in DATEADD() function.
+- Fixed handling for white space characters in the ISNUMERIC() function to match T-SQL behavior.
+- Fixed an issue in SELECT queries with reserved keywords used as column aliases.
+- Fixed output format when casting datetime and smalldatetime to (n)varchar/(n)char.
+- Fixed handling of scale/precision for empty string casting to binary.
+- Fixed concatenation of binaries to produce expected results.
+- Fixed scale/precision handling for concatenated results of binaries.
+- Fixed a rare issue where parallel query runs into unexpected error when table OID reaches to certain limit.
+- Fixed an issue where MONEY type conversion incorrectly rejected few valid ASCII and special characters.
+- Fixed convert function to properly apply style parameter when converting SMALLMONEY to string types, ensuring correct formatting for styles 0, 1, 2, and 126 matching with T-SQL behavior.
+- Fixed trailing blanks being incorrectly treated as insignificant in LIKE operator in case of exact pattern matching.
+- Fixed multiple convert function issues for MONEY/SMALLMONEY type to string conversions, including proper handling of negative style parameters and invalid style value.
 
 ### Babelfish for Aurora PostgreSQL 4.8
 
@@ -1396,6 +1510,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Version updates
 
+- [Babelfish for Aurora PostgreSQL 3.13](#AuroraBabelfish.Updates.313X "#AuroraBabelfish.Updates.313X")
 - [Babelfish for Aurora PostgreSQL 3.12](#AuroraBabelfish.Updates.312X "#AuroraBabelfish.Updates.312X")
 - [Babelfish for Aurora PostgreSQL 3.11](#AuroraBabelfish.Updates.311 "#AuroraBabelfish.Updates.311")
 - [Babelfish for Aurora PostgreSQL 3.10](#AuroraBabelfish.Updates.310 "#AuroraBabelfish.Updates.310")
@@ -1408,6 +1523,23 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - [Babelfish for Aurora PostgreSQL 3.3](#AuroraBabelfish.Updates.33X "#AuroraBabelfish.Updates.33X")
 - [Babelfish for Aurora PostgreSQL 3.2](#AuroraBabelfish.Updates.32X "#AuroraBabelfish.Updates.32X")
 - [Babelfish for Aurora PostgreSQL 3.1 (Deprecated)](#AuroraBabelfish.Updates.31X "#AuroraBabelfish.Updates.31X")
+
+### Babelfish for Aurora PostgreSQL 3.13
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.17. For more
+information about the improvements in Aurora PostgreSQL 15.17, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). For more information about
+Babelfish for Aurora PostgreSQL, see [Working with
+Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+#### Aurora Babelfish release 3.13.0, April 6, 2026
+
+**Critical enhancements**
+
+- Fixed an issue where update with output clause may skip rows during concurrent updates.
+
+**High Priority stability enhancements**
+
+- Blocked GRANT/REVOKE/DROP operations on Babelfish roles from PostgreSQL endpoint.
 
 ### Babelfish for Aurora PostgreSQL 3.12
 
@@ -2437,6 +2569,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Version updates
 
+- [Babelfish for Aurora PostgreSQL 2.16](#AuroraBabelfish.Updates.216X "#AuroraBabelfish.Updates.216X")
 - [Babelfish for Aurora PostgreSQL 2.14](#AuroraBabelfish.Updates.214X "#AuroraBabelfish.Updates.214X")
 - [Babelfish for Aurora PostgreSQL 2.13](#AuroraBabelfish.Updates.213X "#AuroraBabelfish.Updates.213X")
 - [Babelfish for Aurora PostgreSQL 2.12](#AuroraBabelfish.Updates.212X "#AuroraBabelfish.Updates.212X")
@@ -2451,6 +2584,19 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - [Babelfish for Aurora PostgreSQL 2.3 (Deprecated)](#AuroraBabelfish.Updates.23X "#AuroraBabelfish.Updates.23X")
 - [Babelfish for Aurora PostgreSQL 2.2](#AuroraBabelfish.Updates.22X "#AuroraBabelfish.Updates.22X")
 - [Babelfish for Aurora PostgreSQL 2.1](#AuroraBabelfish.Updates.21X "#AuroraBabelfish.Updates.21X")
+
+### Babelfish for Aurora PostgreSQL 2.16
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.22. For more
+information about the improvements in Aurora PostgreSQL 14.22, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). For more information about
+Babelfish for Aurora PostgreSQL, see [Working with
+Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+#### Aurora Babelfish release 2.16.0, April 6, 2026
+
+**Critical enhancements**
+
+- Fixed an issue where update with output clause may skip rows during concurrent updates.
 
 ### Babelfish for Aurora PostgreSQL 2.14
 

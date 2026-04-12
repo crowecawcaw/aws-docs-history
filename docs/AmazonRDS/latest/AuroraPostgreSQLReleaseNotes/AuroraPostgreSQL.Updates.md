@@ -137,11 +137,73 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 18.1. For more i
 
 ###### Version updates
 
+- [PostgreSQL 17.9](#aurorapostgresql-versions-version179x "#aurorapostgresql-versions-version179x")
 - [PostgreSQL 17.7](#aurorapostgresql-versions-version177x "#aurorapostgresql-versions-version177x")
 - [PostgreSQL 17.6](#aurorapostgresql-versions-version176x "#aurorapostgresql-versions-version176x")
 - [PostgreSQL 17.5](#aurorapostgresql-versions-version175x "#aurorapostgresql-versions-version175x")
 - [PostgreSQL 17.4](#aurorapostgresql-versions-version174x "#aurorapostgresql-versions-version174x")
 - [PostgreSQL 17.0](#AuroraPostgreSQL.Updates.170X "#AuroraPostgreSQL.Updates.170X")
+
+### PostgreSQL 17.9
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 17.9. For more information about
+the improvements in PostgreSQL 17.9, see [PostgreSQL release
+17.9](https://www.postgresql.org/docs/17/release-17-9.html "https://www.postgresql.org/docs/17/release-17-9.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 17.9, April 6, 2026](#aurorapostgresql-versions-version179x-179 "#aurorapostgresql-versions-version179x-179")
+
+#### Aurora PostgreSQL 17.9, April 6, 2026
+
+**New features**
+
+- Enhanced Aurora patch version upgrades to minimize downtime through reliable, simplified connection transfer and accelerated connection restoration.
+
+**Critical stability enhancements**
+
+- Fixed an issue which can lead to an unnecessary storage checkpoint during database startup leading to prolonged database startup time.
+- Fixed a race condition that could prevents failovers from completing to intended failover target.
+- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability.
+- Fixed an issue that may cause non-failover target reader instances to restart when they attempt to connect to the new writer instance following a failover.
+
+**High priority enhancements**
+
+- Fixed an issue in cache initialization that could cause a crash during database startup..
+- Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of availability when enhanced logical replication is enabled.
+- Fixed an issue in global databases planned switchover that would cause the switchover to be stuck waiting for a volume growth.
+- Back-ported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://www.postgresql.org/support/security/CVE-2026-2003/ "https://www.postgresql.org/support/security/CVE-2026-2003/")
+  - [CVE-2026-2004](https://www.postgresql.org/support/security/CVE-2026-2004/ "https://www.postgresql.org/support/security/CVE-2026-2004/")
+  - [CVE-2026-2005](https://www.postgresql.org/support/security/CVE-2026-2005/ "https://www.postgresql.org/support/security/CVE-2026-2005/")
+  - [CVE-2026-2006](https://www.postgresql.org/support/security/CVE-2026-2006/ "https://www.postgresql.org/support/security/CVE-2026-2006/")
+  - [CVE-2026-2007](https://www.postgresql.org/support/security/CVE-2026-2007/ "https://www.postgresql.org/support/security/CVE-2026-2007/")
+
+**General enhancements**
+
+- Updated the following extensions:
+  - aws_s3 to version 2.0.
+  - pg_bigm to version 1.2_20250903.
+  - pg_hint_plan to version 1.7.1.
+  - tds_fdw to version 2.0.5.
+  - mysql_fdw to version REL-2_9_3.
+  - pg_cron to version 1.6.7.
+  - orafce to version 4.16.3.
+  - hypopg to version 1.4.2.
+  - pglogical to version 2.4.6.
+  - pgvector to version 0.8.1.
+  - pg_repack to version 1.5.3.
+  - oracle_fdw to version 2.8.0.
+
+- Fixed small memory leaks during database startup and replication.
+- Fixed an issue that could cause file handles to not be properly released after upgrade.
+- Fixed max_wal_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
+- Improved Aurora Replica availability by reducing buffer cache contention during write-ahead-log replay.
+- Fixed an issue where the pg_hint_plan SET hint cannot set GUCs marked as PGC_RDSSUSET.
+- Fixed an issue in the orafce extension which, in rare cases, can cause database unavailability.
+- Fixed ANALYZE operations to work correctly on tables containing large LOB data.
+- Fixed an issue where infinite recursion within a plv8 procedure could cause database unavailability.
+- Fixed an issue where ALTER FUNCTION could fail with "routine name is not unique".
 
 ### PostgreSQL 17.7
 
@@ -793,6 +855,7 @@ persisted to Aurora storage.
 
 ###### Version updates
 
+- [PostgreSQL 16.13](#aurorapostgresql-versions-version1613x "#aurorapostgresql-versions-version1613x")
 - [PostgreSQL 16.11](#aurorapostgresql-versions-version1611x "#aurorapostgresql-versions-version1611x")
 - [PostgreSQL 16.10](#aurorapostgresql-versions-version1610x "#aurorapostgresql-versions-version1610x")
 - [PostgreSQL 16.9](#aurorapostgresql-versions-version169x "#aurorapostgresql-versions-version169x")
@@ -802,6 +865,67 @@ persisted to Aurora storage.
 - [PostgreSQL 16.3](#aurorapostgresql-versions-version163x "#aurorapostgresql-versions-version163x")
 - [PostgreSQL 16.2](#AuroraPostgreSQL.Updates.20180305.162X "#AuroraPostgreSQL.Updates.20180305.162X")
 - [PostgreSQL 16.1](#AuroraPostgreSQL.Updates.20180305.161X "#AuroraPostgreSQL.Updates.20180305.161X")
+
+### PostgreSQL 16.13
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 16.13. For more information about
+the improvements in PostgreSQL 16.13, see [PostgreSQL release
+16.13](https://www.postgresql.org/docs/16/release-16-13.html "https://www.postgresql.org/docs/16/release-16-13.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 16.13, April 6, 2026](#aurorapostgresql-versions-version1613x-1613 "#aurorapostgresql-versions-version1613x-1613")
+
+#### Aurora PostgreSQL 16.13, April 6, 2026
+
+**New features**
+
+- Enhanced Aurora patch version upgrades to minimize downtime through reliable, simplified connection transfer and accelerated connection restoration.
+
+**Critical stability enhancements**
+
+- Fixed an issue which can lead to an unnecessary storage checkpoint during database startup leading to prolonged database startup time.
+- Fixed a race condition that could prevents failovers from completing to intended failover target.
+- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability.
+- Fixed an issue that may cause non-failover target reader instances to restart when they attempt to connect to the new writer instance following a failover.
+
+**High priority enhancements**
+
+- Fixed an issue in cache initialization that could cause a crash during database startup..
+- Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of availability when enhanced logical replication is enabled.
+- Fixed an issue in global databases planned switchover that would cause the switchover to be stuck waiting for a volume growth.
+- Back-ported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://www.postgresql.org/support/security/CVE-2026-2003/ "https://www.postgresql.org/support/security/CVE-2026-2003/")
+  - [CVE-2026-2004](https://www.postgresql.org/support/security/CVE-2026-2004/ "https://www.postgresql.org/support/security/CVE-2026-2004/")
+  - [CVE-2026-2005](https://www.postgresql.org/support/security/CVE-2026-2005/ "https://www.postgresql.org/support/security/CVE-2026-2005/")
+  - [CVE-2026-2006](https://www.postgresql.org/support/security/CVE-2026-2006/ "https://www.postgresql.org/support/security/CVE-2026-2006/")
+  - [CVE-2026-2007](https://www.postgresql.org/support/security/CVE-2026-2007/ "https://www.postgresql.org/support/security/CVE-2026-2007/")
+
+**General enhancements**
+
+- Updated the following extensions:
+  - aws_s3 to version 2.0.
+  - pg_bigm to version 1.2_20250903.
+  - pg_hint_plan to version 1.6.2.
+  - tds_fdw to version 2.0.5.
+  - mysql_fdw to version REL-2_9_3.
+  - pg_cron to version 1.6.7.
+  - orafce to version 4.16.3.
+  - hypopg to version 1.4.2.
+  - pglogical to version 2.4.6.
+  - pgvector to version 0.8.1.
+  - pg_repack to version 1.5.3.
+  - oracle_fdw to version 2.8.0.
+
+- Fixed small memory leaks during database startup and replication.
+- Fixed an issue that could cause file handles to not be properly released after upgrade.
+- Fixed max_wal_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
+- Improved Aurora Replica availability by reducing buffer cache contention during write-ahead-log replay.
+- Fixed an issue where the pg_hint_plan SET hint cannot set GUCs marked as PGC_RDSSUSET.
+- Fixed an issue in the orafce extension which, in rare cases, can cause database unavailability.
+- Fixed ANALYZE operations to work correctly on tables containing large LOB data.
+- Fixed an issue where infinite recursion within a plv8 procedure could cause database unavailability.
+- Fixed an issue where ALTER FUNCTION could fail with "routine name is not unique".
 
 ### PostgreSQL 16.11
 
@@ -2297,6 +2421,7 @@ For information about extensions and modules, see [Extensions supported for Auro
 
 ###### Version updates
 
+- [PostgreSQL 15.17](#aurorapostgresql-versions-version1517x "#aurorapostgresql-versions-version1517x")
 - [PostgreSQL 15.15](#aurorapostgresql-versions-version1515x "#aurorapostgresql-versions-version1515x")
 - [PostgreSQL 15.14](#aurorapostgresql-versions-version1514x "#aurorapostgresql-versions-version1514x")
 - [PostgreSQL 15.13](#aurorapostgresql-versions-version1513x "#aurorapostgresql-versions-version1513x")
@@ -2309,6 +2434,67 @@ For information about extensions and modules, see [Extensions supported for Auro
 - [PostgreSQL 15.4](#AuroraPostgreSQL.Updates.20180305.154X "#AuroraPostgreSQL.Updates.20180305.154X")
 - [PostgreSQL 15.3](#AuroraPostgreSQL.Updates.20180305.153X "#AuroraPostgreSQL.Updates.20180305.153X")
 - [PostgreSQL 15.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.152X "#AuroraPostgreSQL.Updates.20180305.152X")
+
+### PostgreSQL 15.17
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 15.17. For more information about
+the improvements in PostgreSQL 15.17, see [PostgreSQL release
+15.17](https://www.postgresql.org/docs/15/release-15-17.html "https://www.postgresql.org/docs/15/release-15-17.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 15.17, April 6, 2026](#aurorapostgresql-versions-version1517x-1517 "#aurorapostgresql-versions-version1517x-1517")
+
+#### Aurora PostgreSQL 15.17, April 6, 2026
+
+**New features**
+
+- Enhanced Aurora patch version upgrades to minimize downtime through reliable, simplified connection transfer and accelerated connection restoration.
+
+**Critical stability enhancements**
+
+- Fixed an issue which can lead to an unnecessary storage checkpoint during database startup leading to prolonged database startup time.
+- Fixed a race condition that could prevents failovers from completing to intended failover target.
+- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability.
+- Fixed an issue that may cause non-failover target reader instances to restart when they attempt to connect to the new writer instance following a failover.
+
+**High priority enhancements**
+
+- Fixed an issue in cache initialization that could cause a crash during database startup..
+- Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of availability when enhanced logical replication is enabled.
+- Fixed an issue in global databases planned switchover that would cause the switchover to be stuck waiting for a volume growth.
+- Back-ported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://www.postgresql.org/support/security/CVE-2026-2003/ "https://www.postgresql.org/support/security/CVE-2026-2003/")
+  - [CVE-2026-2004](https://www.postgresql.org/support/security/CVE-2026-2004/ "https://www.postgresql.org/support/security/CVE-2026-2004/")
+  - [CVE-2026-2005](https://www.postgresql.org/support/security/CVE-2026-2005/ "https://www.postgresql.org/support/security/CVE-2026-2005/")
+  - [CVE-2026-2006](https://www.postgresql.org/support/security/CVE-2026-2006/ "https://www.postgresql.org/support/security/CVE-2026-2006/")
+  - [CVE-2026-2007](https://www.postgresql.org/support/security/CVE-2026-2007/ "https://www.postgresql.org/support/security/CVE-2026-2007/")
+
+**General enhancements**
+
+- Updated the following extensions:
+  - aws_s3 to version 2.0.
+  - pg_bigm to version 1.2_20250903.
+  - pg_hint_plan to version 1.5.3.
+  - tds_fdw to version 2.0.5.
+  - mysql_fdw to version REL-2_9_3.
+  - pg_cron to version 1.6.7.
+  - orafce to version 4.16.3.
+  - hypopg to version 1.4.2.
+  - pglogical to version 2.4.6.
+  - pgvector to version 0.8.1.
+  - pg_repack to version 1.5.3.
+  - oracle_fdw to version 2.8.0.
+
+- Fixed small memory leaks during database startup and replication.
+- Fixed an issue that could cause file handles to not be properly released after upgrade.
+- Fixed max_wal_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
+- Improved Aurora Replica availability by reducing buffer cache contention during write-ahead-log replay.
+- Fixed an issue where the pg_hint_plan SET hint cannot set GUCs marked as PGC_RDSSUSET.
+- Fixed an issue in the orafce extension which, in rare cases, can cause database unavailability.
+- Fixed ANALYZE operations to work correctly on tables containing large LOB data.
+- Fixed an issue where infinite recursion within a plv8 procedure could cause database unavailability.
+- Fixed an issue where ALTER FUNCTION could fail with "routine name is not unique".
 
 ### PostgreSQL 15.15
 
@@ -4395,6 +4581,7 @@ and prefetching during WAL recovery. In addition, sequences can be specified as 
 
 ###### Version updates
 
+- [PostgreSQL 14.22](#aurorapostgresql-versions-version1422x "#aurorapostgresql-versions-version1422x")
 - [PostgreSQL 14.20](#aurorapostgresql-versions-version1420x "#aurorapostgresql-versions-version1420x")
 - [PostgreSQL 14.19](#aurorapostgresql-versions-version1419x "#aurorapostgresql-versions-version1419x")
 - [PostgreSQL 14.18](#aurorapostgresql-versions-version1418x "#aurorapostgresql-versions-version1418x")
@@ -4411,6 +4598,68 @@ and prefetching during WAL recovery. In addition, sequences can be specified as 
 - [PostgreSQL 14.5 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.145X "#AuroraPostgreSQL.Updates.20180305.145X")
 - [PostgreSQL 14.4 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.144X "#AuroraPostgreSQL.Updates.20180305.144X")
 - [PostgreSQL 14.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.143X "#AuroraPostgreSQL.Updates.20180305.143X")
+
+### PostgreSQL 14.22
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 14.22. For more information about
+the improvements in PostgreSQL 14.22, see [PostgreSQL release
+14.22](https://www.postgresql.org/docs/14/release-14-22.html "https://www.postgresql.org/docs/14/release-14-22.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 14.22, April 6, 2026](#aurorapostgresql-versions-version1422x-1422 "#aurorapostgresql-versions-version1422x-1422")
+
+#### Aurora PostgreSQL 14.22, April 6, 2026
+
+**New features**
+
+- Enhanced Aurora patch version upgrades to minimize downtime through reliable, simplified connection transfer and accelerated connection restoration.
+
+**Critical stability enhancements**
+
+- Fixed an issue which can lead to an unnecessary storage checkpoint during database startup leading to prolonged database startup time.
+- Fixed a race condition that could prevents failovers from completing to intended failover target.
+- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability.
+- Fixed an issue that may cause non-failover target reader instances to restart when they attempt to connect to the new writer instance following a failover.
+
+**High priority enhancements**
+
+- Fixed an issue in cache initialization that could cause a crash during database startup..
+- Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of availability when enhanced logical replication is enabled.
+- Fixed an issue in global databases planned switchover that would cause the switchover to be stuck waiting for a volume growth.
+- Back-ported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://www.postgresql.org/support/security/CVE-2026-2003/ "https://www.postgresql.org/support/security/CVE-2026-2003/")
+  - [CVE-2026-2004](https://www.postgresql.org/support/security/CVE-2026-2004/ "https://www.postgresql.org/support/security/CVE-2026-2004/")
+  - [CVE-2026-2005](https://www.postgresql.org/support/security/CVE-2026-2005/ "https://www.postgresql.org/support/security/CVE-2026-2005/")
+  - [CVE-2026-2006](https://www.postgresql.org/support/security/CVE-2026-2006/ "https://www.postgresql.org/support/security/CVE-2026-2006/")
+  - [CVE-2026-2007](https://www.postgresql.org/support/security/CVE-2026-2007/ "https://www.postgresql.org/support/security/CVE-2026-2007/")
+
+**General enhancements**
+
+- Updated the following extensions:
+  - aws_s3 to version 2.0.
+  - pg_bigm to version 1.2_20250903.
+  - pg_hint_plan to version 1.4.4.
+  - tds_fdw to version 2.0.5.
+  - mysql_fdw to version REL-2_9_3.
+  - pg_cron to version 1.6.7.
+  - orafce to version 4.16.3.
+  - hypopg to version 1.4.2.
+  - pglogical to version 2.4.6.
+  - pgvector to version 0.8.1.
+  - pg_repack to version 1.5.3.
+  - oracle_fdw to version 2.8.0.
+
+- Fixed small memory leaks during database startup and replication.
+- Fixed an issue that could cause file handles to not be properly released after upgrade.
+- Fixed max_wal_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
+- Improved Aurora Replica availability by reducing buffer cache contention during write-ahead-log replay.
+- Fixed an issue where the pg_hint_plan SET hint cannot set GUCs marked as PGC_RDSSUSET.
+- Fixed an issue in the orafce extension which, in rare cases, can cause database unavailability.
+- Fixed ANALYZE operations to work correctly on tables containing large LOB data.
+- Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
+- Fixed an issue where infinite recursion within a plv8 procedure could cause database unavailability.
+- Fixed an issue where ALTER FUNCTION could fail with "routine name is not unique".
 
 ### PostgreSQL 14.20
 
