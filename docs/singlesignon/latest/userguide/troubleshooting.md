@@ -385,7 +385,7 @@ following:
   **Action** and then choose **Manage Authentication**.
   If the IdP and IAM Identity Center certificates do not match, import a new certificate to IAM Identity Center.
 - Ensure the NameID format in your identity provider's metadata file is the following:
-  - `urn:oasis:name:tc:SAML:1.1:nameid-format:emailAddress`
+  - `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`
 
 - If you are using AD Connector from AWS Directory Service as your identity provider, verify that
   the credentials for the service account are correct and have not expired. See [Update your
