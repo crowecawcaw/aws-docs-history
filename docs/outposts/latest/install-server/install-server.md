@@ -20,4 +20,4 @@ You must have an Outposts server at your site. For more information, see [Site r
 ###### Tip
 
 We recommend that you view the [Installing AWS Outposts Servers](https://explore.skillbuilder.aws/learn/course/8828/play/41533/installing-aws-outposts-servers "https://explore.skillbuilder.aws/learn/course/8828/play/41533/installing-aws-outposts-servers") training video before and during the installation process.
-To access the training, you must sign in or create an account on [AWS Skill Builder](https://explore.skillbuilder.aws/learn "https://explore.skillbuilder.aws/learn").
+To access the training, you must sign in or create an account on [AWS Skill Builder](https://explore.skillbuilder.aws/learn "https://explore.skillbuilder.aws/learn"). For troubleshooting, see [How do I troubleshoot an AWS Outposts server installation?](https://repost.aws/knowledge-center/outposts-server-failing "https://repost.aws/knowledge-center/outposts-server-failing")

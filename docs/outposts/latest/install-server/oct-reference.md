@@ -7,6 +7,7 @@ provides the following commands.
 
 - [clear-dns](oct-clear-dns.md "oct-clear-dns.md")
 - [clear-service-link-static-ip](oct-clear-service-link-static-ip.md "oct-clear-service-link-static-ip.md")
+- [describe-device](oct-describe-device.md "oct-describe-device.md")
 - [describe-ip](oct-describe-ip.md "oct-describe-ip.md")
 - [describe-links](oct-describe-links.md "oct-describe-links.md")
 - [describe-reachability](oct-describe-reachability.md "oct-describe-reachability.md")
