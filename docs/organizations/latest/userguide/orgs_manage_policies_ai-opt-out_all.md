@@ -66,4 +66,5 @@ The following is a list of AWS services supported by the AI services opt-out pol
 - [Amazon Transcribe](../../../transcribe.md "../../../transcribe.md")
 - [AWS Transform](../../../transform/latest/userguide/what-is.md "../../../transform/latest/userguide/what-is.md")
 - [Amazon Translate](../../../translate.md "../../../translate.md")
+- [Amazon WorkSpaces](../../../workspaces.md "../../../workspaces.md")
 - [AWS Security Hub](../../../securityhub.md "../../../securityhub.md")

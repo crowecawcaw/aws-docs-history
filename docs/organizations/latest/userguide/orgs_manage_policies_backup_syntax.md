@@ -153,6 +153,7 @@ Organizations supports the following resource types for the `resource_types` and
 
 - AWS Backup gateway virtual machines: `"arn:aws:backup-gateway:*:*:vm/*"`
 - AWS CloudFormation stacks: `"arn:aws:cloudformation:*:*:stack/*"`
+- Aurora DSQL clusters: `"arn:aws:dsql:*:*:cluster/*"`
 - Amazon DynamoDB tables: `"arn:aws:dynamodb:*:*:table/*"`
 - Amazon EC2 instances: `"arn:aws:ec2:*:*:instance/*"`
 - Amazon EBS volumes: `"arn:aws:ec2:*:*:volume/*"`
@@ -161,6 +162,7 @@ Organizations supports the following resource types for the `resource_types` and
   `"arn:aws:rds:*:*:cluster:*"`
 - Amazon RDS databases: `"arn:aws:rds:*:*:db:*"`
 - Amazon Redshift clusters: `"arn:aws:redshift:*:*:cluster:*"`
+- Amazon Redshift Serverless namespaces: `"arn:aws:redshift-serverless:*:*:namespace/*"`
 - Amazon S3: `"arn:aws:s3:::*"`
 - AWS Systems Manager for SAP HANA databases: `"arn:aws:ssm-sap:*:*:HANA/*"`
 - AWS Storage Gateway gateways: `"arn:aws:storagegateway:*:*:gateway/*"`

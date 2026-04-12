@@ -120,6 +120,7 @@ elements:
     	- `transcribe`
     	- `transform`
     	- `translate`
+    	- `workspaces`
     	- `securityhub`
     Each policy statement identified by a service name key can contain the
      following elements:
