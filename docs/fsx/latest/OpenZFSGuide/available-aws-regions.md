@@ -17,6 +17,7 @@ Amazon FSx for OpenZFS is available in the following AWS Regions, with deploymen
 | Asia Pacific (Singapore)\* | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
 | Asia Pacific (Sydney)      | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
 | Asia Pacific (Jakarta)     | ✓                            |                              |                          |                          | ✓                     |                                       |
+| Asia Pacific (Melbourne)   | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | Asia Pacific (Malaysia)    | ✓                            |                              |                          |                          | ✓                     |                                       |
 | Asia Pacific (Mumbai)      | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
 | Asia Pacific (Hyderabad)   | ✓                            |                              |                          |                          | ✓                     |                                       |
