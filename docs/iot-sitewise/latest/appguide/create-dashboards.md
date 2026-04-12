@@ -29,7 +29,7 @@ unsaved changes, you're prompted to save them.
 ![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project in which you want to
 create a dashboard.
 
-![The "Projects" page with "Wind Farm 3" highlighted.](images/projects-portal-admin-choose-project-console.png) 3. In the **Dashboards** section, choose **Create
+![The "Projects" page with "Wind Farm 3" highlighted.](/images/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png) 3. In the **Dashboards** section, choose **Create
 dashboard**.
 
 ![The dashboards list on the project details page with "Create dashboard" highlighted.](images/project-create-dashboard-console.png) 4. In the dashboard editor, change the dashboard name from the default, `New
