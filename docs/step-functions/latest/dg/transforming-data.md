@@ -146,6 +146,22 @@ $timeout %}` will fail if `$timeout` returns a string.
 - **Failure to return a result** - JSON cannot
   represent an undefined value expression, so the expression `{%
 $data.thisFieldDoesNotExist %}` would result in an error.
+- **Memory limit exceeded** - A JSONata expression
+  that consumes too much memory during evaluation will fail with an
+  `Expression evaluation memory limit exceeded` error. This can occur
+  with expressions that process or transform large amounts of data. To work around
+  this limitation, consider moving the data transformation to a Lambda
+  function.
+- **Expression timeout** - A JSONata expression that
+  takes longer than 1 second to evaluate will fail with an
+  `Expression evaluation timeout` error. This can occur with
+  expressions that contain infinite loops or very expensive operations.
+- **Stack overflow** - A JSONata expression that
+  exceeds the maximum recursion depth will fail with a
+  `Stack overflow error`. If the recursion is non-terminating, ensure
+  the function has a correct base case or termination condition. If the recursion
+  terminates but the call stack grows too deep, consider rewriting the function as
+  tail-recursive to reduce stack depth.
 
 In each case, the interpreter will throw the error: `States.QueryEvaluationError`. Your Task, Map, and Parallel states can provide a `Catch` field to catch the error, and a `Retry` field to retry on the error.
 
