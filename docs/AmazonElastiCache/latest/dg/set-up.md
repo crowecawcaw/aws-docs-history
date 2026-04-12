@@ -173,7 +173,7 @@ If you're using ElastiCache for Redis OSS with redis-cli, consider switching to 
 ```
 sudo amazon-linux-extras install epel -y
 sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel -y
-wget https://github.com/valkey-io/valkey/archive/refs/tags/8.0.0.tar.gz
+wget -O valkey-8.0.0.tar.gz https://github.com/valkey-io/valkey/archive/refs/tags/8.0.0.tar.gz
 tar xvzf valkey-8.0.0.tar.gz
 cd valkey-8.0.0
 make BUILD_TLS=yes

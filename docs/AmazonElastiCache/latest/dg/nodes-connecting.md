@@ -67,7 +67,7 @@ For Ubuntu systems, before running `make`, run `make
  distclean`.
 
 ```
-wget https://github.com/valkey-io/valkey/archive/refs/tags/8.0.0.tar.gz
+wget -O valkey-8.0.0.tar.gz https://github.com/valkey-io/valkey/archive/refs/tags/8.0.0.tar.gz
 tar xvzf valkey-8.0.0.tar.gz
 cd valkey-8.0.0
 make distclean      # ubuntu systems only

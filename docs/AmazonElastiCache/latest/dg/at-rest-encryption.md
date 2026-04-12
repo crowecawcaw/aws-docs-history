@@ -51,8 +51,9 @@ your implementation of ElastiCache encryption at-rest:
 
   For more information, see [Supported node types](CacheNodes.SupportedTypes.md "CacheNodes.SupportedTypes.md")
 
-- At-rest encryption is enabled by explicitly setting the parameter `AtRestEncryptionEnabled`
-  to `true`.
+- At-rest encryption is enabled by setting the parameter `AtRestEncryptionEnabled`
+  to `true`. For Valkey, this parameter defaults to `true`
+  if not specified.
 - You can enable at-rest encryption on a replication group only when creating the replication group.
   You cannot toggle at-rest encryption on and off by modifying a replication group. For
   information on implementing at-rest encryption on an existing replication group, see

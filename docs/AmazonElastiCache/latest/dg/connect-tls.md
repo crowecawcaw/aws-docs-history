@@ -16,7 +16,7 @@ If using Amazon Linux 2, enter this:
 
 ```
 sudo yum -y install openssl-devel gcc
-wget https://github.com/valkey-io/valkey/archive/refs/tags/7.2.6.tar.gz
+wget -O valkey-7.2.6.tar.gz https://github.com/valkey-io/valkey/archive/refs/tags/7.2.6.tar.gz
 tar xvzf valkey-7.2.6.tar.gz
 cd valkey-7.2.6
 make distclean
@@ -30,7 +30,7 @@ If using Amazon Linux, enter this:
 
 ```
 sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel clang wget
-wget https://github.com/valkey-io/valkey/archive/refs/tags/8.0.0.tar.gz
+wget -O valkey-8.0.0.tar.gz https://github.com/valkey-io/valkey/archive/refs/tags/8.0.0.tar.gz
 tar xvzf valkey-8.0.0.tar.gz
 cd valkey-8.0.0
 make valkey-cli CC=clang BUILD_TLS=yes
