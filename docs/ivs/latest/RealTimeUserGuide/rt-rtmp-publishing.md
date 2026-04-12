@@ -189,3 +189,34 @@ Amazon VPC or from Direct Connect, by using an interface VPC endpoint. This enab
 private connection between your VPC and IVS, keeping ingest traffic within the AWS
 network. To set up and configure an interface VPC endpoint for IVS, see [IVS Private Ingest](../LowLatencyUserGuide/private-ingest-ll.md "../LowLatencyUserGuide/private-ingest-ll.md") in the _IVS Low-Latency Streaming User
 Guide_.
+
+## Redundant Ingest
+
+Redundant ingest enables streaming from two separate encoders simultaneously to a single stage, with automated failover
+for the same source media. This helps protect against source encoder failures and first-mile network issues. Redundant ingest
+is supported for RTMP(S) and E-RTMP(S) streams.
+
+To enable redundant ingest, set `redundantIngest` to `true` when creating your ingest configuration
+via [CreateIngestConfiguration](../RealTimeAPIReference/API_CreateIngestConfiguration.md "../RealTimeAPIReference/API_CreateIngestConfiguration.md").
+IVS provides two RTMP stream keys. Configure two separate encoders using the same ingest endpoint with their respective stream keys.
+
+Each physical stream appears as a separate participant in participant APIs (e.g., ListParticipants). However, subscribers can
+subscribe to only one virtual participant, identified by the top-level `participantId` in the ingest configuration. IVS automatically
+controls which physical stream is used for the virtual participant. If you enable individual participant recording, each physical
+participant is recorded separately. If you enable server-side composition, only the virtual participant appears in the composition.
+
+Redundant ingest also enables continuous 24/7 streaming. IVS limits individual publishers to 24 hours, but with redundant ingest,
+IVS staggers the connection timeouts between the two physical streams and automatically switches which stream is used for the
+virtual participant, allowing subscribers to experience uninterrupted 24/7 streaming.
+
+### Requirements
+
+- Streams must be genlocked and must maintain matching encoding parameters (including resolution and frame rate)
+  to ensure uninterrupted switchover.
+
+### Recommendations
+
+- Use independent network connections with diverse network paths (e.g., different ISPs) for each encoder,
+  to maximize protection against first-mile network issues and avoid single points of failure.
+- Maintain active streams from both encoders.
+- Test failover scenarios before production use.

@@ -13,8 +13,8 @@ supports the following operations:
 - Manage and monitor video and audio published to the stage
 - Get WebRTC statistics for each peer connection
 - All operations from the IVS low-latency streaming Web broadcast SDK
-  **Latest version of Web broadcast SDK:** 1.33.0 ([Release
-  Notes](release-notes.md#mar12-26-broadcast-web-rt "release-notes.md#mar12-26-broadcast-web-rt"))
+  **Latest version of Web broadcast SDK:** 1.34.0 ([Release
+  Notes](release-notes.md#apr09-26-broadcast-web-rt "release-notes.md#apr09-26-broadcast-web-rt"))
 
 **Reference documentation:** For information on the most
 important methods available in the Amazon IVS Web Broadcast SDK, see [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference"). Make sure
