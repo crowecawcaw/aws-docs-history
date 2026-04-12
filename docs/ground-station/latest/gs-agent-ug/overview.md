@@ -2,7 +2,7 @@
 
 ## What is the AWS Ground Station Agent?
 
-With the AWS Ground Station Agent, available as an RPM, you can receive (downlink) synchronous Wideband Digital Intermediate Frequency (DigIF) dataflows during AWS Ground Station contacts.
+With the AWS Ground Station Agent, available as an RPM, you can receive (downlink) synchronous Digital Intermediate Frequency (DigIF) dataflows, including both narrowband and wideband, during AWS Ground Station contacts.
 You can select two options for data delivery:
 
 1. **Data delivery to an EC2 instance** - Data delivery to an EC2 instance that you own. You manage the AWS Ground Station Agent.
@@ -26,7 +26,7 @@ with your Software-Defined Radio (SDR) or similar listener.
 
 The AWS Ground Station Agent receives Digital Intermediate Frequency (DigIF) downlink data and egresses decrypted data that enables the following:
 
-- DigIF downlink capability from 40 MHz to 400 MHz of bandwidth.
+- DigIF downlink capability up to 400 MHz of bandwidth, including narrowband (≤40 MHz) and wideband (>40 MHz) dataflows.
 - High rate, low jitter DigIF data delivery to any public IP (AWS Elastic IP) on the AWS network.
 - Reliable data delivery using Forward Error Correction (FEC).
 - Secure data delivery using a customer managed AWS KMS key for encryption.

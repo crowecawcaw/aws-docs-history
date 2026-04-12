@@ -40,11 +40,32 @@ The Max DigIF aggregate bandwidth column shows the maximum supported aggregate b
 The AWS Ground Station Agent requires dedicated processor cores that share L3 cache for each dataflow.
 The agent is designed to leverage Hyper-threaded (HT) CPU pairs and requires HT pairs to be reserved for its use.
 A hyper-threaded pair is a pair of virtual CPUs (vCPU) that are contained within a single core.
-The following table provides a mapping of dataflow data rate to the required number of cores reserved for the agent for a single dataflow.
-This table assumes Cascade Lake or newer CPUs and is valid for any supported instance type.
-If your bandwidth is between entries in the table, select the next highest.
+The following tables provide a mapping of dataflow data rate to the required number of cores reserved for the agent for a single dataflow.
+These tables assume Cascade Lake or newer CPUs and are valid for any supported instance type.
+If your bandwidth is between entries in a table, select the next highest.
 
-The agent needs an additional reserved core for management and coordination, so the total cores required will be the sum of the cores needed (from the below chart) for each dataflow plus **a single additional core (2 vCPUs)**.
+AWS Ground Station uses two different delivery strategies depending on the bandwidth of the dataflow:
+
+- **Narrowband** – Bandwidths of 40 MHz and below.
+- **Wideband** – Bandwidths above 40 MHz.
+
+These strategies have different core requirements. Notably, narrowband dataflows may require more cores than wideband dataflows at comparable or even higher bandwidths.
+The strategy is selected automatically based on the configured AntennaDownlink bandwidth.
+
+###### Important
+
+Each dataflow requires its own dedicated set of cores. If you have multiple dataflows, look up the core requirement for each dataflow independently using the appropriate table (narrowband or wideband) and sum them. Do not share cores between dataflows. The agent needs an additional reserved core for management and coordination, so the total cores required will be the sum of the cores needed for each dataflow plus **a single additional core (2 vCPUs)**.
+
+**Narrowband core requirements (≤40 MHz)**
+
+| AntennaDownlink Bandwidth (MHz) | Expected VITA-49.2 DigIF Data Rate (Mb/s) | Number of Cores (HT CPU Pairs) | Total vCPU |
+| ------------------------------- | ----------------------------------------- | ------------------------------ | ---------- |
+| ≤25                             | ≤500                                      | 3                              | 6          |
+| 30                              | 600                                       | 4                              | 8          |
+| 35                              | 700                                       | 4                              | 8          |
+| 40                              | 800                                       | 4                              | 8          |
+
+**Wideband core requirements (>40 MHz)**
 
 | AntennaDownlink Bandwidth (MHz) | Expected VITA-49.2 DigIF Data Rate (Mb/s) | Number of Cores (HT CPU Pairs) | Total vCPU |
 | ------------------------------- | ----------------------------------------- | ------------------------------ | ---------- |
