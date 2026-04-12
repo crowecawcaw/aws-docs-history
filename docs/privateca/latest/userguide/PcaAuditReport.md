@@ -4,6 +4,11 @@ You can create an audit report to list all of the certificates
 that your private CA has issued or revoked. The report is saved in a new or existing
 S3 bucket that you specify on input.
 
+###### Note
+
+Audit report generation is not supported for certificate authorities that
+have issued more than 100 million certificates.
+
 For information about adding encryption protection to your audit reports, see
 [Encrypting your audit reports](#audit-report-encryption "#audit-report-encryption").
 

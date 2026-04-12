@@ -88,16 +88,26 @@ control how administrators turn CloudTrail logging on and off. For more informat
 Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md"). Go to [Logging AWS Private Certificate Authority API calls using AWS CloudTrail](logging-using-cloudtrail-pca.md "logging-using-cloudtrail-pca.md") to see
 example trails for AWS Private CA operations.
 
-## Rotate the CA private key
+## Manage CA keys and certificates
 
-It is a best practice to periodically update the private key for your private CA. You
-can update a key by importing a new CA certificate, or you can replace the private CA
-with a new CA.
+You can manage the lifecycle of your private CA by extending its validity period or by
+rotating the CA key.
+
+### Extend the CA validity period
+
+You can extend the validity period of your CA by importing a new CA certificate
+with a longer expiration date.
+
+### Rotate the CA key
+
+Periodically rotate your CA key by replacing the private CA with a new CA. After you create the new CA, update all references to
+the CA ARN in your applications and services to the newly created CA ARN, and update
+trust stores across your infrastructure with the new CA certificate.
 
 ###### Note
 
-If you replace the CA itself, be aware that the ARN of the CA changes. This would
-cause automation relying on a hard-coded ARN to fail.
+If you replace the CA itself, be aware that the ARN of the CA changes.
+Hard-coded ARN references in your automation will break.
 
 ## Delete unused CAs
 

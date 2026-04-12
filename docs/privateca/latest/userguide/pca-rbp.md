@@ -49,12 +49,12 @@ cases, the following command pattern is used to apply a policy:
 
 In addition to specifying the ARN of a CA, the administrator provides an AWS
 account ID or an AWS Organizations ID that will be granted access to the CA. The JSON of
-each of the following polices is formatted as a file for readability, but can
+each of the following policies is formatted as a file for readability, but can
 also be supplied as an inline CLI arguments.
 
 ###### Note
 
-The structure of the JSON resource-based polices shown below must be
+The structure of the JSON resource-based policies shown below must be
 followed precisely. Only the ID fields for the principals (the AWS account
 number or the AWS Organizations ID) and the CA ARNs can be configured by
 customers.

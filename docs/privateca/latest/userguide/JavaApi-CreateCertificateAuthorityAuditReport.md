@@ -6,6 +6,12 @@ The operation creates an audit report that lists every time a certificate is iss
 revoked. The report is saved in the Amazon S3 bucket that you specify on input. You can generate a
 new report once every 30 minutes.
 
+###### Note
+
+Audit report generation is not supported for certificate authorities that have issued
+more than 100 million certificates. If you call this operation for such a CA, the service
+returns a `LimitExceededException`.
+
 ```
 package com.amazonaws.samples;
 
@@ -28,6 +34,7 @@ import com.amazonaws.services.acmpca.model.InvalidArgsException;
 import com.amazonaws.services.acmpca.model.InvalidArnException;
 import com.amazonaws.services.acmpca.model.ResourceNotFoundException;
 import com.amazonaws.services.acmpca.model.InvalidStateException;
+import com.amazonaws.services.acmpca.model.LimitExceededException;
 
 public class CreateCertificateAuthorityAuditReport {
 
@@ -82,6 +89,8 @@ public class CreateCertificateAuthorityAuditReport {
       } catch (InvalidArgsException ex) {
          throw ex;
       } catch (InvalidStateException ex) {
+         throw ex;
+      } catch (LimitExceededException ex) {
          throw ex;
       }
 

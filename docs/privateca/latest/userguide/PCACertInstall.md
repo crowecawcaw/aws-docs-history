@@ -210,14 +210,15 @@ Certificate Request:
 
 ###### Note
 
-If you are using AWS CLI version 1.6.3 or later, use the prefix
-`fileb://` when specifying the required input file. This ensures
-that AWS Private CA parses the Base64-encoded data correctly.
+The examples below use the prefix `fileb://` to load
+required input files, ensuring that AWS Private CA parses
+Base64-encoded data correctly. If you are using AWS CLI
+version older than 1.6.3, use `file://` instead.
 
 ```
 `$` `aws acm-pca issue-certificate \
  --certificate-authority-arn arn:aws:acm-pca:`region`:`account`:certificate-authority/`CA_ID` \
- --csr file://ca.csr \
+ --csr fileb://ca.csr \
  --signing-algorithm SHA256WITHRSA \
  --template-arn arn:aws:acm-pca:::template/RootCACertificate/V1 \
  --validity Value=365,Type=DAYS`
@@ -333,14 +334,15 @@ Certificate:
 
 ###### Note
 
-If you are using AWS CLI version 1.6.3 or later, use the prefix
-`fileb://` when specifying the required input file. This ensures
-that AWS Private CA parses the Base64-encoded data correctly.
+The examples below use the prefix `fileb://` to load
+required input files, ensuring that AWS Private CA parses
+Base64-encoded data correctly. If you are using AWS CLI
+version older than 1.6.3, use `file://` instead.
 
 ```
 `$` `aws acm-pca import-certificate-authority-certificate \
  --certificate-authority-arn arn:aws:acm-pca:`region`:`account`:certificate-authority/`CA_ID` \
- --certificate file://cert.pem`
+ --certificate fileb://cert.pem`
 ```
 
 Inspect the new status of the CA.

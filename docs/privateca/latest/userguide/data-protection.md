@@ -32,7 +32,7 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 ## Storage and security compliance of AWS Private CA private keys
 
 The private keys for private CAs are stored in AWS managed hardware security
-modules (HSMs). The HSMs comply with FIPS PUB 140-2 Level 3 Security Requirements
+modules (HSMs). The HSMs comply with FIPS PUB 140-3 Level 3 Security Requirements
 for Cryptographic Modules.
 
 ## Data encryption in AWS Private CA Connector for Active Directory
