@@ -106,6 +106,7 @@ about the Regions available for Lightsail, see [Regions and Availability Zones f
 | US East (N. Virginia)    | us-east-1      | lightsail.us-east-1.amazonaws.com<br>lightsail.us-east-1.api.aws           | HTTPS<br>HTTPS |
 | US West (Oregon)         | us-west-2      | lightsail.us-west-2.amazonaws.com<br>lightsail.us-west-2.api.aws           | HTTPS<br>HTTPS |
 | Asia Pacific (Jakarta)   | ap-southeast-3 | lightsail.ap-southeast-3.amazonaws.com<br>lightsail.ap-southeast-3.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Malaysia)  | ap-southeast-5 | lightsail.ap-southeast-5.amazonaws.com<br>lightsail.ap-southeast-5.api.aws | HTTPS<br>HTTPS |
 | Asia Pacific (Mumbai)    | ap-south-1     | lightsail.ap-south-1.amazonaws.com<br>lightsail.ap-south-1.api.aws         | HTTPS<br>HTTPS |
 | Asia Pacific (Seoul)     | ap-northeast-2 | lightsail.ap-northeast-2.amazonaws.com<br>lightsail.ap-northeast-2.api.aws | HTTPS<br>HTTPS |
 | Asia Pacific (Singapore) | ap-southeast-1 | lightsail.ap-southeast-1.amazonaws.com<br>lightsail.ap-southeast-1.api.aws | HTTPS<br>HTTPS |

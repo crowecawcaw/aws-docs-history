@@ -37,6 +37,7 @@ Lightsail is available in the following Regions.
 - US East (Ohio) (us-east-2)
 - US West (Oregon) (us-west-2)
 - Asia Pacific (Jakarta) (ap-southeast-3) \*
+- Asia Pacific (Malaysia) (ap-southeast-5) \*
 - Asia Pacific (Mumbai) (ap-south-1)
 - Asia Pacific (Seoul) (ap-northeast-2)
 - Asia Pacific (Singapore) (ap-southeast-1)

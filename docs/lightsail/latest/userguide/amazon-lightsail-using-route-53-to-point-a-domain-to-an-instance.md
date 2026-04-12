@@ -31,8 +31,8 @@ Complete the following prerequisites if you haven’t already done so:
 
 ## Point a domain to a Lightsail instance using Route 53
 
-Complete the following steps to configure the two most common DNS records, address and
-canonical name, in Route 53 to point your domain to a Lightsail instance.
+Complete the following steps to create an address (A) record in Route 53 to point your domain
+to a Lightsail instance.
 
 ###### Note
 
@@ -54,52 +54,14 @@ The **Quick create record** page appears.
 
 If you see the **Choose routing policy** page, then choose
 **Switch to quick create** to switch to the quick create wizard
-before continuing with the following steps. 5. For **Record type**, choose one of the following options:
+before continuing with the following steps. 5. Keep the **Record name** text box empty to point the apex of your
+domain, such as `example.com`, to an IP address, or enter a subdomain. 6. For **Record type**, choose **A - Routes traffic to an IPv4
+address and some AWS resources**. 7. Enter the static IP address (public IP address) of your Lightsail instance in the
+**Value** text box. 8. Keep the TTL of 300, and the routing policy as **Simple
+routing**.
 
-**A - Routes traffic to an IPv4 address and some AWS resources**
-
-An address (A) record maps a domain, such as `example.com`, or a
-subdomain, such as `blog.example.com`, to a web server’s IP address, such
-as `192.0.2.255`.
-
-    1. Keep the **Record name** text box empty to point the apex
-     of your domain, such as `example.com`, to an IP address, or enter a
-     subdomain.
-    2. Choose **A - Routes traffic to an IPv4 address and some AWS
-     resources** in the **Record type** drop-down
-     menu.
-    3. Enter the static IP address (public IP address) of your Lightsail instance
-     in the **Value** text box.
-    4. Keep the TTL of 300, and the routing policy as **Simple
-     routing**.
-
-
-
-    ![Address record example in a Route 53 hosted zone.](images/amazon-lightsail-route-53-hosted-zone-a-record.png)
-
-**CNAME - Routes traffic to another domain name and to some AWS resources**
-
-A canonical name (CNAME) record maps an alias or subdomain, such as
-`www.example.com`, to a domain, such as `example.com`, or a
-subdomain, such as `www2.example.com`. A CNAME record redirects one
-domain to another.
-
-    1. Enter a subdomain in the **Record name** text box.
-    2. Choose **CNAME - Routes traffic to another domain name and to some
-     AWS resources** in the **Record type** drop-down
-     menu.
-    3. Enter a domain (i.e., `example.com`) or subdomain (i.e.,
-     `another.example.com`) in the **Value** text
-     box.
-    4. Keep the TTL of 300, and the routing policy as **Simple
-     routing**.
-
-
-
-    ![Canonical name record example in a Route 53 hosted zone.](images/amazon-lightsail-route-53-hosted-zone-cname-record.png)
-
-6. Choose **Create records** to add the record to your hosted
-   zone.
+![Address record example in a Route 53 hosted zone.](images/amazon-lightsail-route-53-hosted-zone-a-record.png) 9. Choose **Create records** to add the record to your hosted
+zone.
 
 ###### Note
 

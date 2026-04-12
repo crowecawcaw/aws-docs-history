@@ -128,6 +128,14 @@ problem.
 Similar to how each alarm is always in one of three states, each specific data point
 reported falls under one of three categories:
 
+- **Breaching** — The data point is outside of the
+  threshold.
+
+For example, if you choose a **greater than** comparison operator,
+the data point will be `Breaching` when it is greater than the specified
+threshold. If you choose a **less than** comparison operator, the data
+point will be `Breaching` when it is less than the specified threshold.
+
 - **Not breaching** — The data point is within the
   threshold.
 
@@ -137,24 +145,16 @@ threshold. If you choose a **less than** comparison operator, the data
 point will be `Not breaching` when it is greater than the specified
 threshold.
 
-- **Breaching** — The data point is outside of the
-  threshold.
-
-For example, if you choose a **greater than** comparison operator,
-the data point will be `Breaching` when it is greater than the specified
-threshold. If you choose a **less than** comparison operator, the data
-point will be `Breaching` when it is less than the specified threshold.
-
 - **Missing** — The behavior for missing data points
   is specified by the `treat missing data` parameter.
 
 For each alarm, you can specify Lightsail to treat missing data points as any of the
 following:
 
-- **Not breaching** — Missing data points are
-  treated as "good" and within the threshold.
 - **Breaching** — Missing data points are treated as
   "bad" and breaching the threshold.
+- **Not breaching** — Missing data points are
+  treated as "good" and within the threshold.
 - **Ignore** — The current alarm state is
   maintained.
 - **Missing** — The alarm doesn't consider missing
@@ -169,6 +169,23 @@ you might want to treat missing data as not breaching.
 
 Choosing the best option for your alarm prevents unnecessary and misleading alarm
 condition changes. It also more accurately indicates the health of your system.
+
+###### Note
+
+On the Lightsail console, you can configure how alarms treat missing data under
+**Advanced settings** when adding or editing an alarm on the
+**Metrics** tab of your resource. The missing data options are labelled differently on the console as:
+
+- **Breaching** corresponds to **Assume the
+  missing data is not within the threshold**.
+- **Not breaching** corresponds to **Assume the
+  missing data is within the threshold**.
+- **Ignore** corresponds to **Ignore the missing
+  data**.
+- **Missing** corresponds to **Do not evaluate the
+  missing data**.
+
+![Missing data options on the Lightsail console.](images/amazon-lightsail-alarms-missing-data.png)
 
 ## How alarm state is evaluated when data is missing
 

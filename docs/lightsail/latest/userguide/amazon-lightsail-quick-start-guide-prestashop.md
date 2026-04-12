@@ -357,4 +357,4 @@ the snapshot.
 You can work with snapshots on your instance's management page on the **Snapshots** tab.
 For more information, see [Snapshots in Amazon Lightsail](understanding-snapshots-in-amazon-lightsail.md "understanding-snapshots-in-amazon-lightsail.md").
 
-![Create an instance snapshot in the Lightsail console](/images/lightsail/latest/userguide/images/quick-start-instance-snapshots.png)
+![Create an instance snapshot in the Lightsail console](images/quick-start-instance-snapshots.png)

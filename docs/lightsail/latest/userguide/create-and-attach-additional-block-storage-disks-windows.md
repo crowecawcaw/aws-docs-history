@@ -53,7 +53,7 @@ Resource names:
    Key-value tags can only be added one at a time before saving. To add more than one
    key-value tag, repeat the previous steps.
 
-   ![Key-value tags in the Lightsail console.](images/amazon-lightsail-key-value-tag.png)
+   ![Key-value tags in the Lightsail console.](/images/lightsail/latest/userguide/images/amazon-lightsail-key-value-tag.png)
 
 ###### Note
 

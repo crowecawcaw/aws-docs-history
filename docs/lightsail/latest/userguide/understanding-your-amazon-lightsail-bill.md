@@ -102,6 +102,7 @@ type, region is replaced with one of the following abbreviations:
 - **APS2:** Asia Pacific (Sydney) (ap-southeast-2)
 - **APS3:** Asia Pacific (Mumbai) (ap-south-1)
 - **APS4:** Asia Pacific (Jakarta) (ap-southeast-3)
+- **APS7:** Asia Pacific (Malaysia) (ap-southeast-5)
 - **CAN1:** Canada (Central) (ca-central-1)
 - **EU:** EU (Ireland) (eu-west-1)
 - **EUC1:** EU (Frankfurt) (eu-central-1)

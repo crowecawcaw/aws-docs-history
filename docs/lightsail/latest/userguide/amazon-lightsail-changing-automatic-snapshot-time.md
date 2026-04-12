@@ -75,6 +75,7 @@ the AWS Region where your instance or block storage disk is located:
 - Asia Pacific (Singapore) (ap-southeast-1): 14:00 UTC
 - Asia Pacific (Sydney) (ap-southeast-2): 12:00 UTC
 - Asia Pacific (Jakarta) (ap-southeast-3): 08:00 UTC
+- Asia Pacific (Malaysia) (ap-southeast-5): 08:00 UTC
 - Asia Pacific (Tokyo) (ap-northeast-1): 13:00 UTC
 - Canada (Central) (ca-central-1): 06:00 UTC
 - EU (Frankfurt) (eu-central-1): 20:00 UTC

@@ -87,8 +87,11 @@ welcome message. Copy this URL and open it in a new browser tab.
 field. 5. Back in the SSH terminal, copy the **Access Token** displayed. 6. Paste the copied access token into the **Gateway Token** field in the
 OpenClaw dashboard, then click **Connect**.
 
-![Entering a token for the OpenClaw Gateway using sample data](images/openclaw/gateway_access.png) 7. Return to the SSH terminal. When prompted, press `y` to continue
-with device pairing. 8. Press `a` to approve the device pairing request.
+![Entering a token for the OpenClaw Gateway using sample data](images/openclaw/gateway_access.png) 7. Return to the SSH terminal. When prompted, press `y` to approve the OpenClaw CLI.
+This will allow the SSH terminal to manage OpenClaw running on your instance.
+
+![Approve OpenClaw CLI with a sample data](images/openclaw/cli_approval.png) 8. Then, press `y` again when prompted, to continue
+with device pairing. 9. Press `a` to approve the device pairing request.
 
 When pairing is complete, the status in the OpenClaw dashboard will show
 **OK**. Your browser is now connected to your OpenClaw instance.
@@ -433,13 +436,11 @@ AllowedOrigin is a security setting that controls which web addresses (origins) 
 To update your OpenClaw gateway to the latest version:
 
 - SSH into your OpenClaw instance
-- Run the update command: `sudo openclaw update`
+- Run the update command: `sudo openclaw update --no-restart && openclaw gateway restart`
 
 **Important notes:**
 
 - The OpenClaw blueprint installs the gateway globally on the instance, which is why sudo privileges are required
-- After the update command completes, it will attempt to start the gateway as the root user, but this will fail because the gateway must run as the `ubuntu` user
-- You must manually restart the gateway after updating: `openclaw gateway restart`
 - The "Update" button in the OpenClaw control UI dashboard will not work because it doesn't have `sudo` privileges
 
 **What happens to device pairing when I attach a static IP address?**

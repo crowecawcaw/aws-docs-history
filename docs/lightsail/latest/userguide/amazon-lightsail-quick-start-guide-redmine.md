@@ -292,7 +292,7 @@ On the instance management page, under the **Snapshot** tab, choose
 **Create a snapshot** or choose to enable automatic
 snapshots.
 
-![Create an instance snapshot in the Lightsail console](/images/lightsail/latest/userguide/images/quick-start-instance-snapshots.png)
+![Create an instance snapshot in the Lightsail console](images/quick-start-instance-snapshots.png)
 
 For more information, see Creating a snapshot of your [Linux or Unix instance
 in Amazon Lightsail](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md") or [Enabling or disabling

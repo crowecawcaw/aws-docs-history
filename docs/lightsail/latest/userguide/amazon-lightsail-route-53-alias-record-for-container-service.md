@@ -68,6 +68,8 @@ Lightsail container service.
 
 **Asia Pacific (Jakarta) (ap-southeast-3)**: Z03072883T5HFTY4T7CDL
 
+**Asia Pacific (Malaysia) (ap-southeast-5)**: Z09430204C5DXNNO314Y
+
 **Asia Pacific (Mumbai) (ap-south-1)**: Z10460781IQMISS0I0VVY
 
 **Asia Pacific (Sydney) (ap-southeast-2)**: Z09597943PQQZATPFE96E
