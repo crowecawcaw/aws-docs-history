@@ -106,7 +106,7 @@ SELECT resourceId, resourceType, configuration, tags, compliance
  AND resourceId = '`i-xxxxxxxxx`'
 ```
 
-- **Export:** Click "Run" and then "Export results"
+- **Export:** Choose "Run" and then "Export results"
   to CSV.
 - **Best for:** Curated reports on a subset of
   resources.
