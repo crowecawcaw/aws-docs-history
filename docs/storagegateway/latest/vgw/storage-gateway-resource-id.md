@@ -22,18 +22,17 @@ resources are Amazon EC2 resources that are used in Storage Gateway.
 
 When you create a resource, Storage Gateway assigns the resource a unique resource ID.
 This resource ID is part of the resource ARN. A resource ID takes the form of a resource
-identifier, followed by a hyphen, and a unique combination of eight letters and numbers.
-For example, a gateway ID is of the form `sgw-12A3456B` where
-`sgw` is the resource identifier for gateways. A volume ID takes the form
-`vol-3344CCDD` where `vol` is the resource identifier for
-volumes.
+identifier, followed by a hyphen, and a unique combination of eight letters and
+numbers, or 17 numbers and letters for a volume or
+snapshot. For example, a gateway ID is of the form
+`sgw-12A3456B` where `sgw` is the resource identifier for
+gateways, while a volume ID takes the form
+`vol-112233AABBCCDDEEF` where `vol` is the resource
+identifier for volumes.
 
-For virtual tapes, you can prepend a up to a four character prefix to the barcode ID
-to help you organize your tapes.
-
-Storage Gateway resource IDs are in uppercase. However, when you use these resource IDs with
+Storage Gateway resource IDs are in uppercase. However, if you use these resource IDs with
 the Amazon EC2 API, Amazon EC2 expects resource IDs in lowercase. You must change your resource ID
 to lowercase to use it with the EC2 API. For example, in Storage Gateway the ID for a
-volume might be `vol-1122AABB`. When you use this ID with the EC2 API, you
-must change it to `vol-1122aabb`. Otherwise, the EC2 API might not behave as
-expected.
+volume might be `vol-112233AABBCCDDEEF`. If you use this ID with the EC2
+API, you must change it to `vol-112233aabbccddeef`. Otherwise, the EC2 API
+might not behave as expected.
