@@ -83,7 +83,7 @@ to remove shuffle files no longer in use, which enables faster decommissioning o
 
 - Amazon S3 Select availability – Amazon S3 Select does not support cross-region queries for Presto and Trino. For more information about specific features available for Presto and Trino releases,
   see [Presto and Trino](emr-presto.md "emr-presto.md").
-- Apache Ranger is not supported by Amazon EMR Release 7.4.
+- Amazon EMR release 7.4 and later don't support Apache Ranger.
 - Apache Sqoop is not compatible with Apache Hadoop 3.4 because of a known issue SQOOP-3485. Amazon EMR Release 7.4 includes but does not support
   Apache Sqoop. Apache Sqoop will be removed from Amazon EMR Release 7.5 and higher releases.
 - When managed scaling is enabled, the YARN ResourceManager (RM) experiences a critical deadlock issue, causing it to become unresponsive, when transitioning from the

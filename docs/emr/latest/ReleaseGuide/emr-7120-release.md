@@ -82,6 +82,7 @@ The following release notes include information for Amazon EMR release 7.12.0.
     - `hoodie.storage.class=org.apache.spark.sql.hudi.storage.HoodieCredentialedHadoopStorage`
 
   - Hudi FTA write support works only with the default Hudi configurations. Custom or non-default Hudi settings may not be fully supported and could result in unexpected behavior. Clustering for Hudi Merge-On-Read (MOR) tables is also not supported under FTA write mode.
+  - **Missing step and container logs** - From Amazon EMR 7.9 to Amazon EMR 7.12, there is a bug where step logs and/or container logs may not get uploaded to S3 if the step or application is running longer for than 3 hours. Please upgrade to Amazon EMR 7.13 to resolve this issue.
 
 - **Changes, enhancements, and resolved issues**
   - Starting EMR 7.12.0, EMR supports KMS Key ARN for service-hosted spark logs through persistent spark history server. Previous EMR versions only supported KeyID.

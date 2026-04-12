@@ -71,6 +71,9 @@ The following release notes include information for Amazon EMR release 7.11.0.
 
   - **Long-running sessions with corporate identities** - Amazon SageMaker Unified Studio now supports long-running sessions with corporate identities through IAM Identity Center's Trusted Identity Propagation (TIP). Users can launch interactive notebooks and data processing sessions on Amazon EMR and AWS Glue that persist using corporate credentials, even when logged off or sessions expire. Sessions run for up to 90 days (default 7 days) while maintaining identity permissions and consistent security controls.
 
+- **Known issues and limitations**
+  - **Missing step and container logs** - From Amazon EMR 7.9 to Amazon EMR 7.12, there is a bug where step logs and/or container logs may not get uploaded to S3 if the step or application is running for longer than 3 hours. Please upgrade to Amazon EMR 7.13 to resolve this issue.
+
 ## 7.11.0 default Java versions
 
 Amazon EMR release 7.11.0 ships with Amazon Corretto 17 (built on OpenJDK) by default for applications that support Corretto 17 (JDK 17), with the exception of Apache Livy.

@@ -88,6 +88,7 @@ to all regions. There is no need to disable KMS encryption at rest.
 - **Tez UI** – From EMR-7.3 to EMR-7.10, there is a bug where accessing Tez UI through YARN Resource Manager Web UI fails when
   in-transit encryption is enabled. This occurs because YARN proxy attempts to use HTTP protocol while Tez UI requires HTTPS. Please modify the `tez.tez-ui.history-url.base` configuration
   in `tez-site` from `http` to `https` to resolve this issue.
+- **Missing step and container logs** - From Amazon EMR 7.9 to Amazon EMR 7.12, there is a bug where step logs and/or container logs may not get uploaded to S3 if the step or application is running for longer than 3 hours. Please upgrade to Amazon EMR 7.13 to resolve this issue.
 
 ###### Changes, enhancements, and resolved issues
 
