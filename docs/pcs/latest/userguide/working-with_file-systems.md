@@ -112,8 +112,7 @@ runcmd:
 - mkdir -p /`mount-point-directory`
 - mount -t lustre `filesystem-id`.fsx.`region-code`.amazonaws.com@tcp:/`mount-name` /`mount-point-directory`
 
---==MYBOUNDARY==
-
+--==MYBOUNDARY==--
 ```
 
 **File system setup**
@@ -154,7 +153,7 @@ runcmd:
 - mkdir -p /`mount-point-directory`
 - mount -t nfs `svm-id`.`filesystem-id`.fsx.`region-code`.amazonaws.com:/`volume-name` /`mount-point-directory`
 
---==MYBOUNDARY==
+--==MYBOUNDARY==--
 ```
 
 **File system setup**
@@ -191,7 +190,7 @@ runcmd:
 - mkdir -p /`mount-point-directory`
 - mount -t nfs -o noatime,nfsvers=4.2,sync,rsize=1048576,wsize=1048576 `filesystem-id`.fsx.`region-code`.amazonaws.com:/fsx/ /`mount-point-directory`
 
---==MYBOUNDARY==
+--==MYBOUNDARY==--
 ```
 
 **File system setup**
@@ -230,5 +229,5 @@ runcmd:
 - mkdir -p /`mount-point-directory`
 - mount -t lustre -o relatime,flock `cache-dns-name`@tcp:/`mount-name` /`mount-point-directory`
 
---==MYBOUNDARY==
+--==MYBOUNDARY==--
 ```
