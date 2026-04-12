@@ -82,10 +82,6 @@ For events that generate multiple updates (such as weather disruptions or system
 
 _Example_: If severe weather affects 320 agents in your IT support queue, send an initial alert with the impact. Five minutes later, update with current status: "170 agents remain without access." Continue with meaningful updates at defined intervals.
 
-###### Important
-
-Notifications refresh each time the user navigates pages or refreshes their browser.
-
 ###### When to use alternatives
 
 Consider alternatives to notifications in these scenarios:

@@ -162,3 +162,10 @@ Reports have a 200,000 cell limit (data cells, not total rows \* columns in the 
     * Reduce the number of metrics in your report
     * Apply filters to narrow the data scope
     * Split large reports into multiple smaller reports
+
+3. My scheduled report is affected after a Daylight Saving transition?
+
+When you create a daily scheduled report, the selected start time is saved as a fixed UTC time and the schedule will always run at that same UTC time. It does not automatically adjust when Daylight Savings Time begins or ends.
+
+    * To avoid this, we recommend configuring your schedule using UTC timezone, which never observes Daylight Saving Time and will produce consistent results year-round.
+    * If you prefer to use a Daylight Savings Time-aware timezone, we recommend recreating the schedule with same configuration after each Daylight Saving Time transition to realign it with your intended local time.

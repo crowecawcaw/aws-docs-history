@@ -15,6 +15,14 @@ US West (Oregon), Asia Pacific (Osaka), Asia Pacific (Tokyo), Europe (Frankfurt)
 - You can only create a replica in Asia Pacific (Osaka) Region if your source is Asia Pacific (Tokyo).
   To obtain access to this feature, contact your Amazon Connect Solutions Architect or Technical Account Manager.
 
+###### Important
+
+Amazon Connect Global Resiliency (ACGR) is the only AWS-supported solution for multi-region
+resiliency in Amazon Connect. AWS does not support third-party or custom-built alternatives for
+achieving global resiliency. Deploying unsupported solutions may result in denied or
+reduced service limits on the secondary instance and could impact SLA coverage if
+downtime is attributed to the unsupported deployment.
+
 Amazon Connect Global Resiliency enables you to provide customer service anywhere in the world with
 the highest reliability, performance, and efficiency. With its distributed telephony
 features, your contact center can meet international regulatory requirements.
