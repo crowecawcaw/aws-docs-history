@@ -13,7 +13,7 @@ You can't restore a snapshot to a DB engine version that has passed its Aurora e
 You can only access a database after it successfully upgrades to a supported version.
 For more information on supported Aurora DB engine versions, see [Amazon RDS Extended Support with Amazon Aurora](extended-support.md "extended-support.md").
 
-If an upgrade to a supported version for your cluster fails, the cluster status changes to `upgrade_failed` and Aurora creates a final snapshot with the prefix `rds-final`.
+If an upgrade to a supported version for your cluster fails, the cluster status changes to `upgrade-failed` and Aurora creates a final snapshot with the prefix `rds-final`.
 For access to your restored database on the deprecated version after an upgrade failure, contact AWS Support.
 
 You can use the restored DB cluster as soon as its status is

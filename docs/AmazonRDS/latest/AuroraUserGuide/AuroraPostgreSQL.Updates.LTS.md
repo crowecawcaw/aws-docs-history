@@ -34,6 +34,8 @@ features and bug fixes. LTS releases are intended for clusters with the followin
 
 The current LTS releases for Aurora PostgreSQL are as follows:
 
+- PostgreSQL 17.7. It was released on March 25, 2026. For more information, see
+  [PostgreSQL 17.7](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version177x "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version177x") in the _Release Notes for Aurora PostgreSQL_.
 - PostgreSQL 16.8. It was released on April 07, 2025. For more information, see
   [PostgreSQL 16.8](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version168x "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version168x") in the _Release Notes for Aurora PostgreSQL_.
 - PostgreSQL 15.10. It was released on December 27, 2024. For more information, see

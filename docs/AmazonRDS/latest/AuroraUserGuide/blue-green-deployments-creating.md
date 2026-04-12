@@ -52,6 +52,10 @@ In addition, we recommend changing the binary log retention period to a value ot
 `NULL` to prevent binary log files from being purged. For more information, see
 [Setting and showing binary log configuration](mysql-stored-proc-configuring.md "mysql-stored-proc-configuring.md").
 
+If you use Amazon RDS Proxy, your blue cluster must already be a target of the proxy before
+you create the blue/green deployment. You cannot register a blue cluster as a target to an Amazon RDS Proxy
+after a blue/green deployment has been created for that cluster.
+
 ### Preparing an Aurora PostgreSQL DB cluster for a blue/green deployment
 
 Before you create a blue/green deployment for an Aurora PostgreSQL DB cluster, make sure to do the
@@ -79,6 +83,9 @@ information, see [Rebooting a DB instance within an Aurora cluster](aurora-reboo
 - Make sure that all tables in the DB cluster have a primary key. PostgreSQL logical
   replication doesn't allow UPDATE or DELETE operations on tables that don't have a
   primary key.
+- If you use Amazon RDS Proxy, your blue cluster must already be a target of the proxy
+  before you create the blue/green deployment. You cannot add a blue cluster to an Amazon RDS
+  Proxy after a blue/green deployment has been created for that cluster.
 
 ### Preparing an Aurora Global Database DB cluster for a blue/green deployment
 

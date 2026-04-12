@@ -13,6 +13,7 @@ Exporting cluster data to S3 is available in the following AWS Regions:
 - Asia Pacific (Hong Kong)
 - Asia Pacific (Hyderabad)
 - Asia Pacific (Jakarta)
+- Asia Pacific (Malaysia)
 - Asia Pacific (Melbourne)
 - Asia Pacific (Mumbai)
 - Asia Pacific (New Zealand)
@@ -20,6 +21,8 @@ Exporting cluster data to S3 is available in the following AWS Regions:
 - Asia Pacific (Seoul)
 - Asia Pacific (Singapore)
 - Asia Pacific (Sydney)
+- Asia Pacific (Taipei)
+- Asia Pacific (Thailand)
 - Asia Pacific (Tokyo)
 - Canada (Central)
 - Canada West (Calgary)
@@ -33,6 +36,7 @@ Exporting cluster data to S3 is available in the following AWS Regions:
 - Europe (Zurich)
 - Israel (Tel Aviv)
 - Middle East (UAE)
+- Mexico (Central)
 - South America (São Paulo)
 
 ###### Topics

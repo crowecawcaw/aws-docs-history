@@ -49,8 +49,12 @@ The following general limitations apply to blue/green deployments:
   corresponding green DB cluster.
 - The resources in the blue environment and green environment must be in the same
   AWS account.
+- If you use Amazon RDS Proxy, you must register your blue cluster with the proxy before
+  creating a blue/green deployment. If a blue/green deployment already exists for a given
+  blue cluster, registering that blue cluster to Amazon RDS Proxy will be blocked.
+- Amazon RDS Proxy with blue/green deployments is not supported for Aurora Global
+  Databases.
 - Blue/green deployments aren't supported for the following features:
-  - Amazon RDS Proxy
   - Cross-Region read replicas
   - Aurora Serverless v1 DB clusters
   - CloudFormation

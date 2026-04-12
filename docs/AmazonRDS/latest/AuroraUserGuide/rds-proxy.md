@@ -42,6 +42,7 @@ code changes. For a list of supported engine versions, see [Supported Regions an
 - [RDS Proxy command-line examples](rds-proxy.examples.md "rds-proxy.examples.md")
 - [Troubleshooting for RDS Proxy](rds-proxy.troubleshooting.md "rds-proxy.troubleshooting.md")
 - [Using RDS Proxy with AWS CloudFormation](rds-proxy-cfn.md "rds-proxy-cfn.md")
+- [Using RDS Proxy with Blue/Green Deployments](rds-proxy-blue-green.md "rds-proxy-blue-green.md")
 - [Using RDS Proxy with Aurora global databases](rds-proxy-gdb.md "rds-proxy-gdb.md")
 
 ## Region and version availability

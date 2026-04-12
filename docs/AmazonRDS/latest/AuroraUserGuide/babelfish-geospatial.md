@@ -11,6 +11,7 @@ Starting with versions 3.5.0 and 4.1.0, Babelfish includes support for the follo
 - Geospatial data types are supported in various database objects such as views, procedures, and tables.
 - Supports point data type to store location data as points defined by latitude, longitude, and a valid Spatial Reference System Identifier (SRID). A point may contain Z (elevation), M (measure) values and can be empty.
 - Supports linestring data type (from version 5.4.0) defined by a sequence of points and the line segments connecting them and a valid Spatial Reference System Identifier (SRID). A linestring may contain points with Z (elevation), M (measure) values and can be empty.
+- Supports polygon data type (from version 5.5.0 and 6.0.0). A Polygon is a two-dimensional surface stored as a sequence of points defining an exterior bounding ring and zero or more interior rings.
 - Applications connecting to Babelfish through drivers like JDBC, ODBC, DOTNET, and PYTHON can utilize this Geospatial feature.
 
 ### Geometry data type functions supported in Babelfish
@@ -68,6 +69,11 @@ Starting with versions 5.4.0, Babelfish includes support for the following spati
 - STLineFromText (`linestring_tagged_text`, SRID ) –
   Creates a linestring instance using WKT representation.
 
+Starting with versions 5.5.0 and 6.0.0, Babelfish includes support for the following spatial data function:
+
+- STPolyFromText (`polygon_tagged_text`, SRID ) –
+  Creates a polygon instance using WKT representation.
+
 ### Geography data type functions supported in Babelfish
 
 - STGeomFromText (`geography_tagged_text`, SRID ) –
@@ -123,12 +129,16 @@ Starting with versions 5.4.0, Babelfish includes support for the following spati
 - STLineFromText (`linestring_tagged_text`, SRID ) –
   Creates a linestring instance using WKT representation.
 
+Starting with versions 5.5.0 and 6.0.0, Babelfish includes support for the following spatial data function:
+
+- STPolyFromText (`polygon_tagged_text`, SRID ) –
+  Creates a polygon instance using WKT representation.
+
 ## Limitations in Babelfish for Geospatial data types
 
-- Geometry and Geography types other than point and linestring instances aren't currently supported:
+- Geometry and Geography types other than point, linestring and polygon instances aren't currently supported:
   - CircularString
   - CompoundCurve
-  - Polygon
   - CurvePolygon
   - MultiPoint
   - MultiLineString
