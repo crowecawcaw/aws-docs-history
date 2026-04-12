@@ -50,16 +50,20 @@ If you didn't follow the previous steps, but you already have a service account
 for the CloudWatch agent that you want to use, you must ensure that it has the following
 rules. Additionally, in the rest of the steps in the Container Insights
 installation, you must use the name of that service account instead of
-`cloudwatch-agent`.
+`cloudwatch-agent`. The CloudWatch agent requires a ClusterRole for cluster-wide access and a
+namespace-scoped role for ConfigMap operations in the `amazon-cloudwatch`
+namespace.
+
+**ClusterRole (cluster-scoped permissions):**
 
 ```
 rules:
   - apiGroups: [""]
     resources: ["pods", "nodes", "endpoints"]
     verbs: ["list", "watch"]
-  - apiGroups: [ "" ]
-    resources: [ "services" ]
-    verbs: [ "list", "watch" ]
+  - apiGroups: [""]
+    resources: ["services"]
+    verbs: ["list", "watch", "get"]
   - apiGroups: ["apps"]
     resources: ["replicasets", "daemonsets", "deployments", "statefulsets"]
     verbs: ["list", "watch"]
@@ -70,17 +74,26 @@ rules:
     resources: ["nodes/proxy"]
     verbs: ["get"]
   - apiGroups: [""]
-    resources: ["nodes/stats", "configmaps", "events"]
+    resources: ["nodes/stats", "events"]
     verbs: ["create", "get"]
   - apiGroups: [""]
     resources: ["configmaps"]
-    resourceNames: ["cwagent-clusterleader"]
-    verbs: ["get","update"]
+    verbs: ["get"]
   - nonResourceURLs: ["/metrics"]
     verbs: ["get", "list", "watch"]
-  - apiGroups: [ "discovery.k8s.io" ]
-    resources: [ "endpointslices" ]
-    verbs: [ "list", "watch", "get" ]
+  - apiGroups: ["discovery.k8s.io"]
+    resources: ["endpointslices"]
+    verbs: ["list", "watch", "get"]
+
+```
+
+**Role (namespace-scoped permissions for amazon-cloudwatch namespace):**
+
+```
+rules:
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    verbs: ["create", "update"]
 
 ```
 

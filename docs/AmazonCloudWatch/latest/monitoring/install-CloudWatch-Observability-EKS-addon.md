@@ -44,12 +44,13 @@ this:
 - [Option 1: Install using EKS Pod Identity](#install-CloudWatch-Observability-EKS-pod-identity "#install-CloudWatch-Observability-EKS-pod-identity")
 - [Option 2: Install with IAM permissions on worker nodes](#install-CloudWatch-Observability-EKS-addon-workernodes "#install-CloudWatch-Observability-EKS-addon-workernodes")
 - [Option 3: Install using IAM service account role (applies only to using the add-on)](#install-CloudWatch-Observability-EKS-addon-serviceaccountrole "#install-CloudWatch-Observability-EKS-addon-serviceaccountrole")
-- [Considerations for Amazon EKS Hybrid Nodes](#install-CloudWatch-Observability-EKS-addon-hybrid "#install-CloudWatch-Observability-EKS-addon-hybrid")
 - [(Optional) Additional configuration](#install-CloudWatch-Observability-EKS-addon-configuration "#install-CloudWatch-Observability-EKS-addon-configuration")
 - [Collect Java Management Extensions (JMX) metrics](#install-CloudWatch-Observability-EKS-addon-JMX-metrics "#install-CloudWatch-Observability-EKS-addon-JMX-metrics")
 - [Enable Kueue metrics](#enable-Kueue-metrics "#enable-Kueue-metrics")
 - [Appending OpenTelemetry collector configuration files](#install-CloudWatch-Observability-EKS-addon-OpenTelemetry "#install-CloudWatch-Observability-EKS-addon-OpenTelemetry")
 - [Enabling APM through Application Signals for your Amazon EKS cluster](#Container-Insights-setup-EKS-appsignalsconfiguration "#Container-Insights-setup-EKS-appsignalsconfiguration")
+- [Considerations for large Kubernetes clusters](#install-CloudWatch-Observability-EKS-addon-large-clusters "#install-CloudWatch-Observability-EKS-addon-large-clusters")
+- [Considerations for Amazon EKS Hybrid Nodes](#install-CloudWatch-Observability-EKS-addon-hybrid "#install-CloudWatch-Observability-EKS-addon-hybrid")
 - [Troubleshooting the Amazon CloudWatch Observability EKS add-on or the Helm chart](#Container-Insights-setup-EKS-addon-troubleshoot "#Container-Insights-setup-EKS-addon-troubleshoot")
 - [Opt out of Application Signals](#Opting-out-App-Signals "#Opting-out-App-Signals")
 
@@ -450,50 +451,6 @@ Amazon EKS console
  see your installed add-on.
 
 
-
-## Considerations for Amazon EKS Hybrid Nodes
-
-
-Node-level metrics aren't available for hybrid nodes because [Container Insights](ContainerInsights.md "ContainerInsights.md") depends on the
- availability of the [EC2 Instance Metadata Service](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md") (IMDS) for node-level
- metrics. Cluster, workload, Pod, and container-level metrics are available
- for hybrid nodes.
-
-
-After you install the add-on by following the steps in the previous sections, you must
- update the add-on manifest so that the agent can run successfully on hybrid nodes. Edit
- the `amazoncloudwatchagents` resource in the cluster to add the
- `RUN_WITH_IRSA` environment variable to match the following.
-
-
-
-```
-
-kubectl edit amazoncloudwatchagents -n amazon-cloudwatch cloudwatch-agent
-
-```
-
-
-```
-
-apiVersion: v1
-items: - apiVersion: cloudwatch.aws.amazon.com/v1alpha1
-kind: AmazonCloudWatchAgent
-metadata:
-...
-name: cloudwatch-agent
-namespace: amazon-cloudwatch
-...
-spec:
-...
-env: - name: RUN_WITH_IRSA # <-- Add this
-value: "True" # <-- Add this - name: K8S_NODE_NAME
-valueFrom:
-fieldRef:
-fieldPath: spec.nodeName
-...
-
-```
 
 ## (Optional) Additional configuration
 
@@ -1529,6 +1486,147 @@ deployments: ["python-apps/sample-python-app"]
 exclude:
 java:
 namespaces: ["python-apps"]
+
+```
+
+## Considerations for large Kubernetes clusters
+
+
+If you run large Kubernetes clusters, you might need additional configuration
+ to ensure the CloudWatch agent runs reliably. The following sections describe common issues
+ and recommended configurations for large clusters.
+
+
+**Separate agent installations for cluster-level and node-level metrics**
+
+
+###### Note
+
+This section applies only if you have [Container Insights with enhanced
+ observability](container-insights-detailed-metrics.md "container-insights-detailed-metrics.md") enabled. If you use [Container Insights with OpenTelemetry metrics](container-insights-otel-metrics.md "container-insights-otel-metrics.md")
+ exclusively, the default installation already deploys separate agent
+ installations.
+
+
+By default, the CloudWatch agent runs as a daemonset on each node in your cluster.
+ One agent Pod is elected as a leader to collect cluster-level metrics. These metrics include
+ control plane metrics and workload status metrics. On large clusters, this
+ leader Pod may be terminated with an out-of-memory (OOM) error because it performs additional work while sharing
+ the same resource limits as all other agent Pods.
+
+
+To determine if you are experiencing this issue, check for agent Pods
+ in a failed state with exit code `137` and reason `OOMKilled`. A common symptom
+ is that one agent Pod (the leader) crashes, a new leader is elected, and that
+ Pod also crashes, creating a recurring cycle. To confirm this behavior,
+ inspect the leader election ConfigMap by running the following command.
+
+
+
+```
+
+kubectl describe configmap cwagent-clusterleader -n amazon-cloudwatch
+
+```
+
+If the ConfigMap shows frequent changes to the leader entry, this indicates
+ that a new leader is being elected repeatedly, which confirms the issue.
+
+
+To avoid this issue, you can separate the agent into two installations:
+
+
+
+* A daemonset for node-level metrics and Application Signals
+* A deployment for cluster-level metrics
+
+This separation lets you manage and scale each installation independently.
+
+
+To enable this configuration, use the advanced configuration to define two entries
+ in the `agents` section:
+
+
+
+1. Set the `CWAGENT_ROLE` environment
+ variable to `NODE` on the daemonset agent.
+2. Set the `CWAGENT_ROLE` environment
+ variable to `LEADER` on the deployment agent.
+
+###### Important
+
+The deployment agent configuration must enable only Container Insights.
+ Don't enable Application Signals on the deployment agent. Both installations run with
+ `hostNetwork` by default, and enabling Application Signals on both
+ causes port binding conflicts.
+
+
+The following example shows an advanced configuration that separates the agent
+ into two installations.
+
+
+
+```
+
+agents:
+
+- name: cloudwatch-agent
+  env:
+  - name: CWAGENT_ROLE
+    value: NODE
+- name: cloudwatch-agent-ci-leader
+  mode: deployment
+  config:
+  {
+  "logs": {
+  "metrics_collected": {
+  "kubernetes": {
+  "enhanced_container_insights": true
+  }
+  }
+  }
+  }
+  env:
+  - name: CWAGENT_ROLE
+    value: LEADER
+    resources:
+    limits:
+    memory: 10Gi
+    cpu: 2000m
+
+```
+
+In this example, besides setting the `CWAGENT_ROLE` environment variable
+ on each agent installation, it overrides the default mode, configuration, and resource
+ limits for the deployment agent only. The base `cloudwatch-agent` installation
+ uses the defaults.
+
+
+You can further customize each agent installation by adding
+ `nodeSelector`, `tolerations`, or `nodeAffinity`
+ fields to schedule the leader Pod on a specific node. The resource limits
+ shown in the preceding example are illustrative. Adjust these values based on your
+ cluster size and the number of metrics that the leader Pod collects.
+
+
+## Considerations for Amazon EKS Hybrid Nodes
+
+
+Node-level metrics aren't available for hybrid nodes because [Container Insights](ContainerInsights.md "ContainerInsights.md") depends on the
+ availability of the [EC2 Instance Metadata Service](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md") (IMDS) for node-level
+ metrics. Cluster, workload, Pod, and container-level metrics are available
+ for hybrid nodes.
+
+
+After you install the add-on, patch the `amazoncloudwatchagents` resource
+ to add the `RUN_WITH_IRSA` environment variable so the agent runs successfully
+ on hybrid nodes:
+
+
+
+```
+
+kubectl patch amazoncloudwatchagents cloudwatch-agent -n amazon-cloudwatch --type=json -p '[{"op":"add","path":"/spec/env/-","value":{"name":"RUN_WITH_IRSA","value":"True"}}]'
 
 ```
 

@@ -4,6 +4,20 @@
 
 For information about general CloudWatch service quotas that apply to alarms, see [CloudWatch service quotas](cloudwatch_limits.md "cloudwatch_limits.md").
 
+## Limits that apply to alarms based on metric math expressions
+
+Alarms based on metric math expressions can reference a maximum of 10 metrics. This is a
+hard limit that cannot be increased. If you need to monitor more than 10 metrics in a single
+alarm, consider one of the following approaches:
+
+- If the metrics are in the same namespace, use a Metrics Insights query in your alarm
+  instead of a metric math expression. Metrics Insights can aggregate across many metrics
+  with a single query.
+- Pre-aggregate metrics into custom metrics using a Lambda function, then reference the
+  aggregated metrics in your alarm expression.
+- Split your logic across multiple alarms and combine them using a composite
+  alarm.
+
 ## Limits that apply to alarms based on Metrics Insights queries
 
 When working with CloudWatch Metrics Insights alarms, be aware of these functional
