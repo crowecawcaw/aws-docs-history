@@ -22,3 +22,9 @@ Natively integrating Amazon EMR with Apache Ranger provides the following key be
   System.
 - The ability to use CloudWatch Logs for centralized auditing.
 - Amazon EMR installs and manages the Apache Ranger plugins on your behalf.
+
+###### Important
+
+Amazon EMR does not support Apache Ranger integration starting with Amazon EMR
+release 7.4. For more information, see [Amazon EMR
+release 7.4.0](../ReleaseGuide/emr-740-release.md "../ReleaseGuide/emr-740-release.md").
