@@ -124,10 +124,21 @@ To use PQ TLS, use this SDK on an operating system distribution that has at leas
 The AWS SDK for Ruby relies on system libssl/libcrypto.
 To use PQ TLS, use this SDK on an operating system distribution that has at least OpenSSL 3.5 installed.
 
+### AWS SDK for .NET
+
+On Linux, AWS SDK for .NET relies on system libssl/libcrypto.
+To use PQ TLS, use this SDK on an operating system distribution that has at least OpenSSL 3.5 installed.
+On Windows and MacOS, PQ TLS is available starting in
+[.NET 10](https://devblogs.microsoft.com/dotnet/post-quantum-cryptography-in-dotnet/ "https://devblogs.microsoft.com/dotnet/post-quantum-cryptography-in-dotnet/") and
+[Windows 11](https://techcommunity.microsoft.com/blog/microsoft-security-blog/post-quantum-cryptography-apis-now-generally-available-on-microsoft-platforms/4469093 "https://techcommunity.microsoft.com/blog/microsoft-security-blog/post-quantum-cryptography-apis-now-generally-available-on-microsoft-platforms/4469093").
+On MacOS, TLS 1.3 support (a prerequisite for PQ TLS) can be enabled by opting-in to Apple's Network.framework as described
+[here](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10/libraries#tls-13-for-macos-client "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10/libraries#tls-13-for-macos-client").
+Assuming a minimum .NET version of 10, PQ TLS should then be enabled.
+
 ## AWS SDKs and tools not planning to support PQ TLS
 
 There are currently no plans to support the following language SDKs and tools:
 
-- AWS SDK for .NET
+- AWS SDK for SAP
 - AWS SDK for Swift
 - AWS Tools for Windows PowerShell

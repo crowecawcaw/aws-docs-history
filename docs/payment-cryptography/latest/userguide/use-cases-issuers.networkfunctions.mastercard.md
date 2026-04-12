@@ -167,7 +167,7 @@ If AWS Payment Cryptography is able to validate the ARQC, an http/200 is returne
 
 ## 3DS SPA2 AAV
 
-SPA2 AAV (Account Authentication Value) is used for Mastercard 3DS
+SPA2(Secure Payment Application) AAV (Account Authentication Value) is used for Mastercard 3DS
 transactions (also known as Mastercard Idenity Check). It provides cryptographic authentication for e-commerce transactions
 using HMAC-based MAC generation. The AAV is generated using transaction-specific data and a shared secret key.
 
