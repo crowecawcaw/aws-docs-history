@@ -785,6 +785,20 @@ public class SitewiseActions {
 
 ```
 
+- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+  - [BatchPutAssetPropertyValue](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/BatchPutAssetPropertyValue.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/BatchPutAssetPropertyValue.md")
+  - [CreateAsset](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAsset.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAsset.md")
+  - [CreateAssetModel](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAssetModel.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAssetModel.md")
+  - [CreateGateway](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateGateway.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateGateway.md")
+  - [DeleteAsset](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteAsset.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteAsset.md")
+  - [DeleteAssetModel](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteAssetModel.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteAssetModel.md")
+  - [DeleteGateway](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteGateway.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteGateway.md")
+  - [DescribeAssetModel](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DescribeAssetModel.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DescribeAssetModel.md")
+  - [DescribeGateway](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DescribeGateway.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DescribeGateway.md")
+  - [GetAssetPropertyValue](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/GetAssetPropertyValue.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/GetAssetPropertyValue.md")
+  - [ListAssetModelProperties](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/ListAssetModelProperties.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/ListAssetModelProperties.md")
+  - [ListAssetModels](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/ListAssetModels.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/ListAssetModels.md")
+
 JavaScript
 
 **SDK for JavaScript (v3)**
@@ -1489,6 +1503,20 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 
 
 ```
+
+- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+  - [BatchPutAssetPropertyValue](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/BatchPutAssetPropertyValueCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/BatchPutAssetPropertyValueCommand.md")
+  - [CreateAsset](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetCommand.md")
+  - [CreateAssetModel](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetModelCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetModelCommand.md")
+  - [CreateGateway](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateGatewayCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateGatewayCommand.md")
+  - [DeleteAsset](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteAssetCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteAssetCommand.md")
+  - [DeleteAssetModel](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteAssetModelCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteAssetModelCommand.md")
+  - [DeleteGateway](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteGatewayCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteGatewayCommand.md")
+  - [DescribeAssetModel](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DescribeAssetModelCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DescribeAssetModelCommand.md")
+  - [DescribeGateway](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DescribeGatewayCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DescribeGatewayCommand.md")
+  - [GetAssetPropertyValue](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/GetAssetPropertyValueCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/GetAssetPropertyValueCommand.md")
+  - [ListAssetModelProperties](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/ListAssetModelPropertiesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/ListAssetModelPropertiesCommand.md")
+  - [ListAssetModels](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/ListAssetModelsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/ListAssetModelsCommand.md")
 
 Python
 
@@ -2328,6 +2356,20 @@ class IoTSitewiseWrapper:
 
 
 ```
+
+- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+  - [BatchPutAssetPropertyValue](../../../goto/boto3/iotsitewise-2019-12-02/BatchPutAssetPropertyValue.md "../../../goto/boto3/iotsitewise-2019-12-02/BatchPutAssetPropertyValue.md")
+  - [CreateAsset](../../../goto/boto3/iotsitewise-2019-12-02/CreateAsset.md "../../../goto/boto3/iotsitewise-2019-12-02/CreateAsset.md")
+  - [CreateAssetModel](../../../goto/boto3/iotsitewise-2019-12-02/CreateAssetModel.md "../../../goto/boto3/iotsitewise-2019-12-02/CreateAssetModel.md")
+  - [CreateGateway](../../../goto/boto3/iotsitewise-2019-12-02/CreateGateway.md "../../../goto/boto3/iotsitewise-2019-12-02/CreateGateway.md")
+  - [DeleteAsset](../../../goto/boto3/iotsitewise-2019-12-02/DeleteAsset.md "../../../goto/boto3/iotsitewise-2019-12-02/DeleteAsset.md")
+  - [DeleteAssetModel](../../../goto/boto3/iotsitewise-2019-12-02/DeleteAssetModel.md "../../../goto/boto3/iotsitewise-2019-12-02/DeleteAssetModel.md")
+  - [DeleteGateway](../../../goto/boto3/iotsitewise-2019-12-02/DeleteGateway.md "../../../goto/boto3/iotsitewise-2019-12-02/DeleteGateway.md")
+  - [DescribeAssetModel](../../../goto/boto3/iotsitewise-2019-12-02/DescribeAssetModel.md "../../../goto/boto3/iotsitewise-2019-12-02/DescribeAssetModel.md")
+  - [DescribeGateway](../../../goto/boto3/iotsitewise-2019-12-02/DescribeGateway.md "../../../goto/boto3/iotsitewise-2019-12-02/DescribeGateway.md")
+  - [GetAssetPropertyValue](../../../goto/boto3/iotsitewise-2019-12-02/GetAssetPropertyValue.md "../../../goto/boto3/iotsitewise-2019-12-02/GetAssetPropertyValue.md")
+  - [ListAssetModelProperties](../../../goto/boto3/iotsitewise-2019-12-02/ListAssetModelProperties.md "../../../goto/boto3/iotsitewise-2019-12-02/ListAssetModelProperties.md")
+  - [ListAssetModels](../../../goto/boto3/iotsitewise-2019-12-02/ListAssetModels.md "../../../goto/boto3/iotsitewise-2019-12-02/ListAssetModels.md")
 
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
