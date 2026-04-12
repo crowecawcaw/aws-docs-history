@@ -9,7 +9,7 @@ The FileMatch rule allows you to compare files against other files or checksums.
 This rule gathers one metric: the number of files that were scanned by the rule.
 
 ```
-{"Dataset.*.FileCount":1}
+Dataset.*.FileCount: 1
 ```
 
 **Validate file with a checksum:**

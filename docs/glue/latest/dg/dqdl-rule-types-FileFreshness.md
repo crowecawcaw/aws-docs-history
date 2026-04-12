@@ -9,7 +9,7 @@ This rule gathers two metrics:
 - The number of files that were scanned by the rule
 
 ```
-{"Dataset.*.FileFreshness.Compliance":1,"Dataset.*.FileCount":1}
+Dataset.*.FileFreshness.Compliance: 1, Dataset.*.FileCount: 1
 ```
 
 Anomaly detection does not consider these metrics.
@@ -27,7 +27,7 @@ FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/tickets.parquet" 
 The following rule passes if all files in the folder were created or modified in past 24 hours.
 
 ```
-FileFreshness "s3://bucket/" >= (now() -1 days)
+FileFreshness "s3://bucket/" >= (now() - 1 days)
 FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" >= (now() - 24 hours)
 ```
 
@@ -36,7 +36,7 @@ FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" >= (now() - 24 
 The following rule passes if 10% of the files in the folder “tickets“ were created or modified in the past 10 days.
 
 ```
-FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" < (now() - 10 days) with threshold > 0.1
+FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" > (now() - 10 days) with threshold > 0.1
 ```
 
 **Checking files or folders with specific dates**
@@ -53,14 +53,14 @@ FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" between "2023-0
 You can use FileFreshness to ensure that files have arrived based on certain times.
 
 ```
-FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" between now() and (now() - 45 minutes)
+FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" between (now() - 45 minutes) and now()
 FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" between "9:30 AM" and "9:30 PM"
 FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" > (now() - 10 minutes)
 FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" > now()
 FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" between (now() - 2 hours) and (now() + 15 minutes)
 FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" between (now() - 3 days) and (now() + 15 minutes)
 FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" between "2001-02-07" and (now() + 15 minutes)
-FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" > "21:45""
+FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" > "21:45"
 FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" > "2024-01-01"
 FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" between "02:30" and "04:30"
 FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" between "9:30 AM" and "22:15"
@@ -68,7 +68,7 @@ FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" between "9:30 A
 
 Key considerations:
 
-- FileFreshness can evaluate files using days, hours, and minute units
+- FileFreshness can evaluate files using days, hours, and minutes units
 - For times, it supports AM / PM and 24-hour
 - Times are calculated in UTC unless an override is specified
 - Dates are calculated in UTC at time 00:00
@@ -80,7 +80,7 @@ FileFreshness "s3://amzn-s3-demo-bucket/artifacts/file/tickets/" > "21:45"
 ```
 
 - First, the time “21:45” is combined with today’s date in UTC format to create a date-time field
-- Next, the date-time is converted to a timezone that you have specified
+- Next, if a timezone override is specified, the date-time is converted to that timezone (otherwise UTC is used)
 - Finally, the rule is evaluated
 
 **Optional File-based Rule Tags:**

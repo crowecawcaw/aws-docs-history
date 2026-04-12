@@ -52,6 +52,9 @@ available to the job, as specified in the following table.
 | 4.0              | • Spark 3.3.0<br>• Python 3.10      |
 | 3.0              | • Spark 3.1.1<br>• Python 3.7       |
 
+Jobs that are created without specifying a AWS Glue version default to AWS Glue
+5.1.
+
 **Language**
 
 The code in the ETL script defines your job's logic. The script can be

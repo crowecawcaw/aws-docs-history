@@ -17,6 +17,7 @@ see [Considerations](using-connectors-unified-connections.md#using-connectors-un
 - [Creating a Snowflake connection](creating-snowflake-connection.md "creating-snowflake-connection.md")
 - [Creating a Snowflake source node](creating-snowflake-source-node.md "creating-snowflake-source-node.md")
 - [Creating a Snowflake target node](creating-snowflake-target-node.md "creating-snowflake-target-node.md")
+- [Set up the Authorization Code flow for Snowflake](snowflake-setup-authorization-code-flow.md "snowflake-setup-authorization-code-flow.md")
 - [Advanced options](#creating-snowflake-connection-advanced-options "#creating-snowflake-connection-advanced-options")
 
 ## Advanced options

@@ -262,7 +262,7 @@ and corresponding Spark and Python versions, see [Glue version](add-job.md "add-
 guide.
 
 Jobs that are created without specifying a Glue version default to Glue
-0.9.
+5.1.
 
 - `DPUSeconds` – Number (double).
 

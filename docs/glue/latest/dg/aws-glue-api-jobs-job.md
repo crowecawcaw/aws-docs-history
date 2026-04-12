@@ -230,7 +230,7 @@ and corresponding Spark and Python versions, see [Glue version](add-job.md "add-
 guide.
 
 Jobs that are created without specifying a Glue version default to Glue
-0.9.
+5.1.
 
 - `CodeGenConfigurationNodes` – A map array of key-value pairs.
 
@@ -521,8 +521,8 @@ For more information about the available AWS Glue versions
 and corresponding Spark and Python versions, see [Glue version](add-job.md "add-job.md") in the developer
 guide.
 
-Jobs that are created without specifying a Glue version default to Glue
-0.9.
+If not provided in the update request, the Glue version retains the value
+from the existing job definition.
 
 - `CodeGenConfigurationNodes` – A map array of key-value pairs.
 
@@ -805,7 +805,7 @@ and corresponding Spark and Python versions, see [Glue version](add-job.md "add-
 guide.
 
 Jobs that are created without specifying a Glue version default to Glue
-0.9.
+5.1.
 
 - `NumberOfWorkers` – Number (integer).
 

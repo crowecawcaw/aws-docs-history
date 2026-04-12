@@ -8,7 +8,7 @@ It gathers the following data statistics:
 2. The Uniqueness Ratio of the files
 
 ```
-Dataset.*.FileUniquenessRatio: 1.00, Dataset.*.FileCount: 8.00
+Dataset.*.FileUniquenessRatio: 1.00, Dataset.*.FileCount: 8
 ```
 
 **Find duplicate files in a folder:**

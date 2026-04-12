@@ -13,10 +13,7 @@ FileSize gathers the following metrics:
 4. Maximum file size in bytes
 
 ```
-Dataset.*.FileSize.Compliance: 1.00,
-Dataset.*.FileCount: 8.00,
-Dataset.*.MaximumFileSize: 327413121.00,
-Dataset.*.MinimumFileSize: 204558920.00
+Dataset.*.FileSize.Compliance: 1, Dataset.*.FileCount: 8, Dataset.*.MaximumFileSize: 327413121, Dataset.*.MinimumFileSize: 204558920
 ```
 
 Anomaly detection is not supported for these metrics.
@@ -29,12 +26,11 @@ This rule will pass when file.dat is greater than 2 MB.
 FileSize "s3://amzn-s3-demo-bucket/file.dat" > 2 MB
 ```
 
-The supported unites include B(bytes), MB(mega bytes), GB(giga bytes) and TB(terra bytes).
+The supported units include B (bytes), KB (kilobytes), MB (megabytes), GB (gigabytes) and TB (terabytes).
 
 **Validate size of files in folders**
 
 ```
-
 FileSize "s3://bucket/" > 5 B
 FileSize "s3://bucket/" < 2 GB
 ```
@@ -42,7 +38,7 @@ FileSize "s3://bucket/" < 2 GB
 This rule will pass if 70% of the files in s3://amzn-s3-demo-bucket is between 2 GB and 1 TB.
 
 ```
-FileSize "s3://amzn-s3-demo-bucket/" between 2 GB and 1 TB  with threshold > 0.7
+FileSize "s3://amzn-s3-demo-bucket/" between 2 GB and 1 TB with threshold > 0.7
 ```
 
 **Inferring file names directly from data frames**

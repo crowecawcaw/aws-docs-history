@@ -1,9 +1,9 @@
 # Snowflake connections
 
 You can use AWS Glue for Spark to read from and write to tables in Snowflake in AWS Glue 4.0 and later versions.
-You can read from Snowflake with a SQL query. You can connect to Snowflake using a user and password.
-You can refer to Snowflake credentials stored in AWS Secrets Manager through the AWS Glue Data Catalog.
-Data Catalog Snowflake credentials for AWS Glue for Spark are stored separately from Data Catalog Snowflake credentials for
+You can read from Snowflake with a SQL query. You can connect to Snowflake using one of three methods - basic authentication (using username and password), OAuth authentication, or key-pair authentication.
+You can refer to Snowflake credentials stored in AWS Secrets Manager through the AWS Glue Data connections.
+Data connection Snowflake credentials for AWS Glue for Spark are stored separately from Data Catalog Snowflake credentials for
 crawlers. You must choose a `SNOWFLAKE`
 type connection and not a `JDBC` type connection configured to connect to Snowflake.
 
@@ -19,24 +19,30 @@ Optionally, you can perform the following configuration to manage your connectio
 
 ###### To manage your connection credentials with AWS Glue
 
-1. In Snowflake, generate a user, `snowflakeUser` and password, `snowflakePassword`.
-2. In AWS Secrets Manager, create a secret using your Snowflake credentials.
+1. In AWS Secrets Manager, create a secret using your Snowflake credentials.
    To create a secret in Secrets Manager, follow the tutorial available in
    [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md#create_secret_cli "../../../secretsmanager/latest/userguide/create_secret.md#create_secret_cli") in the AWS Secrets Manager documentation.
    After creating the secret, keep the Secret name, `secretName` for the next step.
-   - When selecting **Key/value pairs**, create a pair for
-     `snowflakeUser` with the key `USERNAME`.
-   - When selecting **Key/value pairs**, create a pair for
-     `snowflakePassword` with the key `PASSWORD`.
+   - For OAuth authentication:
+     - When selecting **Key/value pairs**, create a pair for `snowflakeUser` with the key `sfUser`
+     - When selecting **Key/value pairs**, create a pair for `OAUTH_CLIENT_SECRET` with the key `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET`
+
+   - For Key-pair authentication:
+     - When selecting **Key/value pairs**, create a pair for `snowflakeUser` with the key `sfUser`
+     - When selecting **Key/value pairs**, create a pair for `private key` with the key `pem_private_key`
+
+   - For basic authentication:
+     - When selecting **Key/value pairs**, create a pair for `snowflakeUser` with the key `USERNAME`
+     - When selecting **Key/value pairs**, create a pair for `snowflakePassword` with the key `PASSWORD`
+
    - When selecting **Key/value pairs**, you can provide your Snowflake
      warehouse with the key `sfWarehouse`.
    - When selecting **Key/value pairs**, you can provide additional Snowflake connection properties using their corresponding Spark property names as keys. Supported properties include:
      - `sfDatabase` - Snowflake database name
      - `sfSchema` - Snowflake schema name
      - `sfRole` - Snowflake role name
-     - `pem_private_key` - Private key for key-pair authentication
 
-3. In the AWS Glue Data Catalog, create a connection by choosing **Connections**, then **Create connection**. Following the steps in the connection wizard
+2. In the AWS Glue Studio Console, create a connection by choosing **Data Connections**, then **Create connection**. Following the steps in the connection wizard
    to complete the process:
    - When selecting a **Data source**, select Snowflake, then choose **Next**.
    - Enter the connection details such as host and port. When entering the host **Snowflake URL**, provide the URL of your Snowflake instance.
@@ -46,42 +52,30 @@ Optionally, you can perform the following configuration to manage your connectio
      if VPC is specified.
    - When selecting an **AWS Secret**, provide `secretName`.
 
-4. In the next step in the wizard, set properties for your Snowflake connection.
-5. In the final step in the wizard, review your settings and then complete the process to create your connection.
+3. In the next step in the wizard, set properties for your Snowflake connection.
+4. In the final step in the wizard, review your settings and then complete the process to create your connection.
 
-In the following situations, you may require the following:
+For Snowflake hosted on AWS in an Amazon VPC, you may require the following:
 
-- For Snowflake hosted on AWS in an Amazon VPC
-  - You will need appropriate Amazon VPC configuration for Snowflake. For more information on how
-    to configure your Amazon VPC, consult [AWS PrivateLink
-    & Snowflake](https://docs.snowflake.com/en/user-guide/admin-security-privatelink "https://docs.snowflake.com/en/user-guide/admin-security-privatelink") in the Snowflake documentation.
-  - You will need appropriate Amazon VPC configuration for AWS Glue. [Configuring interface VPC endpoints (AWS PrivateLink) for AWS Glue (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
-  - You will need to create a AWS Glue Data Catalog connection that provides Amazon VPC connection
-    information (in addition to the id of an AWS Secrets Manager secret that defines your Snowflake
-    security credentials). Your URL will change when using AWS PrivateLink, as described in the
-    Snowflake documentation linked in a previous item.
-  - You will need your job configuration in include the Data Catalog connection as an **Additional network
-    connection**.
+- You will need appropriate Amazon VPC configuration for Snowflake. For more information on how
+  to configure your Amazon VPC, consult [AWS PrivateLink
+  & Snowflake](https://docs.snowflake.com/en/user-guide/admin-security-privatelink "https://docs.snowflake.com/en/user-guide/admin-security-privatelink") in the Snowflake documentation.
+- You will need appropriate Amazon VPC configuration for AWS Glue. [Configuring interface VPC endpoints (AWS PrivateLink) for AWS Glue (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
+- You will need to create a AWS Glue Data Catalog connection that provides Amazon VPC connection
+  information (in addition to the id of an AWS Secrets Manager secret that defines your Snowflake
+  security credentials). Your URL will change when using AWS PrivateLink, as described in the
+  Snowflake documentation linked in a previous item.
+- You will need your job configuration in include the Data Catalog connection as an **Additional network
+  connection**.
 
 ## Reading from Snowflake tables
 
 **Prerequisites:** A Snowflake table you would like to read from. You will
-need the Snowflake table name, `tableName`. You will
-need your Snowflake url `snowflakeUrl`, username
-`snowflakeUser` and password `snowflakePassword`.
+need the Snowflake table name, `tableName`.
 If your Snowflake user does not have a default namespace set,
 you will need the Snowflake database name, `databaseName` and the schema name `schemaName`.
 Additionally, if your Snowflake user does not have a default warehouse set, you will need a warehouse name
-`warehouseName`.
-
-For example:
-
-**Additional Prerequisites:** Complete the steps _To
-manage your connection credentials with AWS Glue_ to configure
-`snowflakeUrl`, `snowflakeUsername` and
-`snowflakePassword`. To review these steps, see [Configuring Snowflake connections](#aws-glue-programming-etl-connect-snowflake-configure "#aws-glue-programming-etl-connect-snowflake-configure"), the previous section. To select which
-**Additional network connection** to connect with, we will use the
-`connectionName` parameter.
+`warehouseName`. To select which **Additional network connection** to connect with, the `connectionName` parameter will be used.
 
 ```
 snowflake_read = glueContext.create_dynamic_frame.from_options(
@@ -119,22 +113,13 @@ snowflake_node = glueContext.create_dynamic_frame.from_options(
 ## Writing to Snowflake tables
 
 **Prerequisites:** A Snowflake database you would like to write to. You will
-need a current or desired table name, `tableName`. You will
-need your Snowflake url `snowflakeUrl`, username
-`snowflakeUser` and password `snowflakePassword`.
+need a current or desired table name, `tableName`.
 If your Snowflake user does not have a default namespace set,
 you will need the Snowflake database name, `databaseName` and the schema name `schemaName`.
 Additionally, if your Snowflake user does not have a default warehouse set, you will need a warehouse name
-`warehouseName`.
-
-For example:
-
-**Additional Prerequisites:** Complete the steps _To manage your
-connection credentials with AWS Glue_ to configure
-`snowflakeUrl`, `snowflakeUsername` and
-`snowflakePassword`. To review these steps, see [Configuring Snowflake connections](#aws-glue-programming-etl-connect-snowflake-configure "#aws-glue-programming-etl-connect-snowflake-configure"), the previous section. To select which
-**Additional network connection** to connect with, we will use the
-`connectionName` parameter.
+`warehouseName`. To select which
+**Additional network connection** to connect with, the
+`connectionName` parameter will be used.
 
 ```
 glueContext.write_dynamic_frame.from_options(
@@ -153,24 +138,25 @@ glueContext.write_dynamic_frame.from_options(
 
 The Snowflake connection type takes the following connection options:
 
-You can retrieve some of the parameters in this section from a Data Catalog connection (`sfUrl`,
+You can retrieve some of the parameters in this section from a AWS Glue connection (`sfUrl`,
 `sfUser`, `sfPassword`), in which case you are not required to provide them. You can
 do this by providing the parameter `connectionName`.
 
 You can retrieve connection parameters from AWS Secrets Manager secrets using the `secretId` parameter. When using Secrets Manager, the following Spark properties can be automatically retrieved if present in the secret:
 
 - `sfUser` (using key `USERNAME` or `sfUser`)
-- `sfPassword` (using key `PASSWORD` or `sfPassword`)
+- `sfPassword` (using key `PASSWORD` or `sfPassword`, when using basic authentication)
 - `sfWarehouse` (using key `sfWarehouse`)
 - `sfDatabase` (using key `sfDatabase`)
 - `sfSchema` (using key `sfSchema`)
 - `sfRole` (using key `sfRole`)
-- `pem_private_key` (using key `pem_private_key`)
+- `pem_private_key` (using key `pem_private_key`, when using key-pair authentication)
+- `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` (when using OAuth authentication)
 
 **Property Precedence Order:** When the same property is specified in multiple locations, AWS Glue uses the following precedence order (highest to lowest):
 
 1. Explicitly provided connection options in your job code
-2. Data Catalog connection properties
+2. Glue connection properties
 3. AWS Secrets Manager secret values (when `secretId` is specified)
 4. Snowflake user defaults
 
@@ -184,11 +170,14 @@ The following parameters are used generally when connecting to Snowflake.
   account in the following format: ``account_identifier`.snowflakecomputing.com`. For more information
   about account identifiers, see [Account Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier "https://docs.snowflake.com/en/user-guide/admin-account-identifier") in the Snowflake documentation.
 - `sfUser` — (Required) Used for Read/Write. Login name for the Snowflake user.
-- `sfPassword` — (Required unless `pem_private_key` provided) Used for Read/Write. Password for the Snowflake user.
+- `sfPassword` — (Required when using basic authnetication) Used for Read/Write. Password for the Snowflake user.
 - `dbtable` — Required when working with full tables. Used for Read/Write. The name of the table to be read or the table to which data is written. When reading, all columns and records are retrieved.
-- `pem_private_key` — Used for Read/Write. An unencrypted b64-encoded private key
+- `pem_private_key` — (Required when using key-pair authentication) Used for Read/Write. An unencrypted b64-encoded private key
   string. The private key for the Snowflake user. It is common to copy this out of a PEM file. For more information, see [Key-pair authentication and key-pair
   rotation](https://docs.snowflake.com/en/user-guide/key-pair-auth "https://docs.snowflake.com/en/user-guide/key-pair-auth") in the Snowflake documentation.
+- `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` — (Required when using OAuth Authentication) Used for both read and write operations.
+  This value corresponds to the OAUTH_CLIENT_SECRET, which can be obtained from the Snowflake security integration configured to enable OAuth-based authentication for your account.
+  For more details, refer to your Snowflake OAuth security integration setup documentation - [Configure Snowflake OAuth for custom clients](https://docs.snowflake.com/en/user-guide/oauth-custom "https://docs.snowflake.com/en/user-guide/oauth-custom").
 - `query` — Required when reading with a query. Used for Read. The exact query (`SELECT` statement) to run
 
 The following options are used to configure specific behaviors during the process of connecting to Snowflake.
@@ -213,10 +202,36 @@ in the Snowflake documentation.
 
 AWS Glue supports the following authentication methods for connecting to Snowflake:
 
-- **Username and Password Authentication:** Provide `sfUser` and `sfPassword` parameters.
-- **Key-Pair Authentication:** Provide `sfUser` and `pem_private_key` parameters. When using key-pair authentication, the `sfPassword` parameter is not required.
+- **Basic authentication:** Provide `sfUser` and `sfPassword` parameters.
+- **Key-pair authentication:** Provide `sfUser` and `pem_private_key` parameters. When using key-pair authentication, the `sfPassword` parameter is not required.
+- **OAuth authentication:** The Snowflake Connector supports the AUTHORIZATION_CODE grant type to request access to your Snowflake data.
+  This grant type is referred to as “3-legged OAuth”, as it involves redirecting users to a third-party authorization server where they can authenticate and approve access.
+  This method is used when creating a connection through the AWS Glue Console.
+  - **Prerequisite:** To use this authentication method, ensure the following setup is complete:
+    - **Configure Snowflake OAuth for a custom client** by following the official Snowflake documentation:
+      [Configure Snowflake OAuth for custom clients.](https://docs.snowflake.com/en/user-guide/oauth-custom "https://docs.snowflake.com/en/user-guide/oauth-custom")
+    - **Set the correct redirect URI** when creating the Snowflake security integration. For example:
+      If you are creating the connection in the DUB (eu-west-1) region, your redirect URI should be: `https://eu-west-1.console.aws.amazon.com/gluestudio/oauth`
+    - After creating the security integration, retain the following information for use when creating the Glue connection:
+      - OAUTH_CLIENT_ID: This value should be provided as User Managed Client Application Client ID on the Glue connection creation page.
+      - OAUTH_CLIENT_SECRET: This value should be stored in the AWS Secret used for the connection, under the key USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET.
 
-Both authentication methods are fully supported and can be configured using any combination of connection options, Data Catalog connections, or AWS Secrets Manager secrets.
+  - OAuth Scopes — (Optional) Defines the specific permissions or levels of access requested from the Snowflake account. For example, a scope might limit access to a particular resource or operation.
+    - This value can be specified in the following format: `session:role:Snowflake_Role_Name`
+    - Example: `session:role:ANALYST_ROLE`
+
+  - Authorization Code URL — (Required) The endpoint where the user is redirected to log in and grant authorization.
+    - Example: `https://host/oauth/authorize`
+
+  - Authorization Token URL — (Required) The endpoint used to exchange the authorization code for an access token.
+    - Example: `https://host/oauth/token-request`
+
+  - User Managed Client Application Client Id — (Required) The unique identifier for your registered OAuth client application in Snowflake
+  - AWS Secret — (Required) Refers to an AWS Secrets Manager secret containing the following key-value pairs:
+    - sfUser - The Snowflake username
+    - USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET - The client secret associated with the OAuth client application
+
+All three authentication methods are fully supported and can be configured using any combination of connection options, Glue connections, or AWS Secrets Manager secrets.
 
 ## Snowflake connector limitations
 
@@ -225,7 +240,7 @@ Connecting to Snowflake with AWS Glue for Spark is subject to the following limi
 - This connector does not support job bookmarks. For more information about job bookmarks, see [Tracking processed data using job bookmarks](monitor-continuations.md "monitor-continuations.md").
 - This connector does not support Snowflake reads and writes through tables in the AWS Glue Data Catalog using
   the `create_dynamic_frame.from_catalog` and `write_dynamic_frame.from_catalog` methods.
-- This connector supports username/password authentication and key-pair authentication. Other authentication methods (such as OAuth or SAML) are not currently supported.
+- This connector supports basic authentication, key-pair authentication, and OAuth authentication. Other authentication methods (such as SAML) are not currently supported.
 - This connector is not supported within streaming jobs.
 - This connector supports `SELECT` statement based queries when retrieving information (such as with the
   `query` parameter). Other kind of queries (such as `SHOW`, `DESC`,
