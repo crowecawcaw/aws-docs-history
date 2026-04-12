@@ -1,16 +1,10 @@
 # AWS Config Resource Compliance Dashboard
 
-## Authors
+## Introduction
 
-- Luca Casarini, Senior Technical Account Manager, AWS
+AWS Config is a fully managed service that provides you with resource inventory, configuration history, and configuration change notifications for security and governance.
 
-## Contributors
-
-- Iakov Gan, Ex-Amazonian
-
-## Feedback & Support
-
-Follow [Feedback & Support](feedback-support.md "feedback-support.md") guide.
+The Amazon Web Services (AWS) Config Resource Compliance Dashboard (CRCD) shows the inventory of your AWS resources, along with their compliance status, across multiple AWS accounts and Regions by leveraging your AWS Config data.
 
 ## Links
 
@@ -21,14 +15,6 @@ Get more familiar with the dashboard using the live, interactive demo dashboard 
 ### GitHub Project
 
 See the source code and the changelog at our GitHub [project](https://github.com/aws-samples/config-resource-compliance-dashboard "https://github.com/aws-samples/config-resource-compliance-dashboard").
-
-## Introduction
-
-AWS Config is a fully managed service that provides you with resource inventory, configuration history, and configuration change notifications for security and governance.
-
-The Amazon Web Services (AWS) Config Resource Compliance Dashboard (CRCD) shows the inventory of your AWS resources, along with their compliance status, across multiple AWS accounts and Regions by leveraging your AWS Config data.
-
-![CRCD Dashboard](images/images/dashboards/crcd-compliance-1.png)
 
 ## Advantages
 
@@ -106,3 +92,15 @@ These dashboards and their content: (a) are for informational purposes only, (b)
 ## Update instructions
 
 If you already have installed the AWS Config Dasboard, you can check our [GitHub repository upgrade page](https://github.com/aws-samples/config-resource-compliance-dashboard/blob/main/documentation/upgrade.md "https://github.com/aws-samples/config-resource-compliance-dashboard/blob/main/documentation/upgrade.md") to see if there are instructions on how to upgrade to the latest version.
+
+## Authors
+
+- Luca Casarini, Senior Technical Account Manager, AWS
+
+## Contributors
+
+- Iakov Gan, Ex-Amazonian
+
+## Feedback Support
+
+Follow [Feedback & Support](feedback-support.md "feedback-support.md") guide.

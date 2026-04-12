@@ -1,5 +1,7 @@
 # FOCUS Dashboard
 
+## Introduction
+
 [The FinOps Cost and Usage Specification](https://focus.finops.org/ "https://focus.finops.org/")
 (FOCUS) is an open-source specification that defines clear requirements
 for cloud vendors to produce consistent cost and usage datasets.

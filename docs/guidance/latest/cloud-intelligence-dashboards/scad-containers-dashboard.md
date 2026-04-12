@@ -1,5 +1,7 @@
 # SCAD Containers Cost Allocation Dashboard
 
+## Introduction
+
 The SCAD Containers Cost Allocation Dashboard provides insights into EKS
 and ECS in-cluster cost based on data from CUR’s Split Cost Allocation
 Data (SCAD) feature.

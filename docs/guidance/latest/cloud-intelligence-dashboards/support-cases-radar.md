@@ -1,5 +1,7 @@
 # Support Cases Radar Dashboard
 
+## Introduction
+
 AWS Support Cases Radar Dashboard provides a centralized platform to
 consolidate, monitor and analyze
 [AWS
