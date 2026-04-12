@@ -41,6 +41,8 @@ control, choose the control.
 
 [[APIGateway.10] API Gateway V2 integrations should use HTTPS for private connections](apigateway-controls.md#apigateway-10 "apigateway-controls.md#apigateway-10")
 
+[[APIGateway.11] API Gateway domain names should use recommended security policies](apigateway-controls.md#apigateway-11 "apigateway-controls.md#apigateway-11")
+
 [[AppSync.1] AWS AppSync API caches should be encrypted at rest](appsync-controls.md#appsync-1 "appsync-controls.md#appsync-1")
 
 [[AppSync.2] AWS AppSync should have field-level logging enabled](appsync-controls.md#appsync-2 "appsync-controls.md#appsync-2")
@@ -173,7 +175,7 @@ control, choose the control.
 
 [[DynamoDB.7] DynamoDB Accelerator clusters should be encrypted in transit](dynamodb-controls.md#dynamodb-7 "dynamodb-controls.md#dynamodb-7")
 
-[[EC2.1] Amazon EBS snapshots should not be publicly restorable](ec2-controls.md#ec2-1 "ec2-controls.md#ec2-1")
+[[EC2.1] Amazon EBS snapshots should not be configured to be publicly restorable](ec2-controls.md#ec2-1 "ec2-controls.md#ec2-1")
 
 [[EC2.2] VPC default security groups should not allow inbound or outbound traffic](ec2-controls.md#ec2-2 "ec2-controls.md#ec2-2")
 
@@ -235,7 +237,9 @@ control, choose the control.
 
 [[EC2.181] EC2 launch templates should enable encryption for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 
-[[EC2.182] Amazon EBS Snapshots should not be publicly accessible](ec2-controls.md#ec2-182 "ec2-controls.md#ec2-182")
+[[EC2.182] Block public access settings should be enabled for Amazon EBS snapshots](ec2-controls.md#ec2-182 "ec2-controls.md#ec2-182")
+
+[[EC2.183] EC2 VPN connections should use IKEv2 protocol](ec2-controls.md#ec2-183 "ec2-controls.md#ec2-183")
 
 [[ECR.1] ECR private repositories should have image scanning configured](ecr-controls.md#ecr-1 "ecr-controls.md#ecr-1")
 
@@ -292,6 +296,8 @@ control, choose the control.
 [[EKS.3] EKS clusters should use encrypted Kubernetes secrets](eks-controls.md#eks-3 "eks-controls.md#eks-3")
 
 [[EKS.8] EKS clusters should have audit logging enabled](eks-controls.md#eks-8 "eks-controls.md#eks-8")
+
+[[EKS.9] EKS node groups should run on a supported Kubernetes version](eks-controls.md#eks-9 "eks-controls.md#eks-9")
 
 [[ElastiCache.1] ElastiCache (Redis OSS) clusters should have automatic backups enabled](elasticache-controls.md#elasticache-1 "elasticache-controls.md#elasticache-1")
 
@@ -678,6 +684,10 @@ control, choose the control.
 [[SageMaker.14] SageMaker monitoring schedules should have network isolation enabled](sagemaker-controls.md#sagemaker-14 "sagemaker-controls.md#sagemaker-14")
 
 [[SageMaker.15] SageMaker model bias job definitions should have inter-container traffic encryption enabled](sagemaker-controls.md#sagemaker-15 "sagemaker-controls.md#sagemaker-15")
+
+[[SageMaker.16] SageMaker models should use private registry in VPC for primary containers](sagemaker-controls.md#sagemaker-16 "sagemaker-controls.md#sagemaker-16")
+
+[[SageMaker.17] SageMaker feature group offline stores should be encrypted with AWS KMS keys](sagemaker-controls.md#sagemaker-17 "sagemaker-controls.md#sagemaker-17")
 
 [[SecretsManager.1] Secrets Manager secrets should have automatic rotation enabled](secretsmanager-controls.md#secretsmanager-1 "secretsmanager-controls.md#secretsmanager-1")
 

@@ -3,7 +3,7 @@
 These AWS Security Hub CSPM controls evaluate the Amazon Elastic Compute Cloud (Amazon EC2) service and resources. The
 controls might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [EC2.1] Amazon EBS snapshots should not be publicly restorable
+## [EC2.1] Amazon EBS snapshots should not be configured to be publicly restorable
 
 **Related requirements:** PCI DSS v3.2.1/1.2.1,PCI DSS
 v3.2.1/1.3.1,PCI DSS v3.2.1/1.3.4,PCI DSS v3.2.1/7.2.1, NIST.800-53.r5 AC-21,
@@ -27,8 +27,9 @@ configuration
 
 **Parameters:** None
 
-This control checks whether Amazon Elastic Block Store snapshots are not public. The control fails if
-Amazon EBS snapshots are restorable by anyone.
+This control checks whether Amazon Elastic Block Store snapshots are configured to be publicly
+restorable. The control fails if Amazon EBS snapshots are configured to be restorable by
+all.
 
 EBS snapshots are used to back up the data on your EBS volumes to Amazon S3 at a specific
 point in time. You can use the snapshots to restore previous states of EBS volumes. It
@@ -2848,7 +2849,7 @@ of the default version when it launches the instance. For more information, see
 a launch template](../../../AWSEC2/latest/UserGuide/manage-launch-template-versions.md "../../../AWSEC2/latest/UserGuide/manage-launch-template-versions.md") in the _Amazon EC2 User
 Guide_.
 
-## [EC2.182] Amazon EBS Snapshots should not be publicly accessible
+## [EC2.182] Block public access settings should be enabled for Amazon EBS snapshots
 
 **Category:** Protect > Secure network configuration > Resources not publicly accessible
 
@@ -2864,7 +2865,9 @@ Guide_.
 
 **Parameters:** None
 
-The control checks whether block public access is enabled to block all sharing of Amazon EBS snapshots. The control fails if block public access is not enabled to block all sharing for all Amazon EBS snapshots.
+This control checks whether account level block public access is enabled to prevent
+sharing of Amazon EBS snapshots to all. The control fails if block public access is not
+enabled to block sharing of Amazon EBS snapshots to all.
 
 To prevent public sharing of your Amazon EBS snapshots, you can enable block public access for snapshots. Once block public access for snapshots is enabled in a Region, any attempt to publicly share snapshots in that Region is automatically blocked.
 This helps improve the security of the snapshots and protect the snapshot data from unauthorized or unintended access.
@@ -2874,3 +2877,38 @@ This helps improve the security of the snapshots and protect the snapshot data f
 To enable block public access for snapshots, see
 [Configure block public access for Amazon EBS snapshots](../../../ebs/latest/userguide/block-public-access-snapshots-enable.md "../../../ebs/latest/userguide/block-public-access-snapshots-enable.md") in the _Amazon EBS User
 Guide_. For **Block public access**, choose **Block all public access**.
+
+## [EC2.183] EC2 VPN connections should use IKEv2 protocol
+
+**Category:** Protect > Data Protection > Encryption of data-in-transit
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::EC2::VPNConnection`
+
+**AWS Config rule:**
+[ec2-vpn-connection-ike-version-check](../../../config/latest/developerguide/ec2-vpn-connection-ike-version-check.md "../../../config/latest/developerguide/ec2-vpn-connection-ike-version-check.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an AWS Site-to-Site VPN connection is configured to
+use IKEv2 protocol. The control fails if a Site-to-Site VPN connection allows IKEv1
+protocol or does not explicitly restrict to IKEv2 on all VPN tunnels.
+
+IKEv2 provides stronger cryptographic algorithms and improved security features
+compared to the legacy IKEv1 protocol, including built-in protection against
+denial-of-service attacks and enhanced authentication mechanisms. IKEv1 has known
+vulnerabilities and weaknesses in its key exchange process that can be exploited by
+attackers to compromise VPN tunnel security. By enforcing IKEv2-only connections, you
+reduce your attack surface and ensure VPN communications use modern, industry-standard
+encryption protocols that better protect data in transit.
+
+### Remediation
+
+To update the IKE version for a VPN tunnel on an EC2 VPN connection, see
+[Modify AWS
+Site-to-Site VPN tunnel options](../../../vpn/latest/s2svpn/modify-vpn-tunnel-options.md "../../../vpn/latest/s2svpn/modify-vpn-tunnel-options.md") in the _AWS
+Site-to-Site VPN User Guide_.

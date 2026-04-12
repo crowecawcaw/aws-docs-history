@@ -256,3 +256,43 @@ CloudWatch Logs, you can record operations for audit and diagnostic purposes in 
 ### Remediation
 
 To enable audit logs for your EKS cluster, see [Enabling and disabling control plane logs](../../../eks/latest/userguide/control-plane-logs.md#enabling-control-plane-log-export "../../../eks/latest/userguide/control-plane-logs.md#enabling-control-plane-log-export") in the **Amazon EKS User Guide**.
+
+## [EKS.9] EKS node groups should run on a supported Kubernetes version
+
+**Category:** Identify > Vulnerability, patch, and
+version management
+
+**Severity:** High
+
+**Resource type:**
+`AWS::EKS::Nodegroup`
+
+**AWS Config rule:**
+[eks-nodegroup-supported-version-check](../../../config/latest/developerguide/eks-nodegroup-supported-version-check.md "../../../config/latest/developerguide/eks-nodegroup-supported-version-check.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
+- `oldestVersionSupported`: `1.33` (not
+  customizable)
+
+This control checks whether an Amazon EKS node group runs on a supported Kubernetes
+version. The control fails if the EKS node group runs on an unsupported
+version.
+
+Running EKS node groups on unsupported Kubernetes versions means those nodes no
+longer receive security patches, bug fixes, or compatibility updates from AWS.
+Unsupported versions may contain known vulnerabilities that have been addressed in newer
+releases, and they may experience compatibility issues with updated AWS services,
+container images, and third-party tools in the Kubernetes ecosystem. If your application
+doesn't require a specific version of Kubernetes, we recommend that you use the latest
+available Kubernetes version that's supported by Amazon EKS for your node groups. For more
+information, see [Amazon EKS Kubernetes release calendar](../../../eks/latest/userguide/kubernetes-versions.md#kubernetes-release-calendar "../../../eks/latest/userguide/kubernetes-versions.md#kubernetes-release-calendar") and [Understand each phase
+of node updates](../../../eks/latest/userguide/managed-node-update-behavior.md "../../../eks/latest/userguide/managed-node-update-behavior.md") in the **Amazon EKS User Guide**.
+
+### Remediation
+
+To update an EKS node group, see [Update a managed node
+group for your cluster](../../../eks/latest/userguide/update-managed-node-group.md "../../../eks/latest/userguide/update-managed-node-group.md") in the
+**Amazon EKS User Guide**.

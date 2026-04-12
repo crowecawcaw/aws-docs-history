@@ -610,10 +610,12 @@ SI-7(6)
 **Schedule type:** Change triggered
 
 **Parameters:**
-`sslPolicies`: `ELBSecurityPolicy-TLS13-1-2-2021-06,
- ELBSecurityPolicy-TLS13-1-2-FIPS-2023-04, ELBSecurityPolicy-TLS13-1-3-2021-06,
+`sslPolicies`: `ELBSecurityPolicy-TLS13-1-3-2021-06,
  ELBSecurityPolicy-TLS13-1-3-FIPS-2023-04, ELBSecurityPolicy-TLS13-1-2-Res-2021-06,
- ELBSecurityPolicy-TLS13-1-2-Res-FIPS-2023-04` (not customizable)
+ ELBSecurityPolicy-TLS13-1-2-Res-FIPS-2023-04,
+ ELBSecurityPolicy-TLS13-1-2-Res-PQ-2025-09, ELBSecurityPolicy-TLS13-1-3-PQ-2025-09,
+ ELBSecurityPolicy-TLS13-1-2-Res-FIPS-PQ-2025-09,
+ ELBSecurityPolicy-TLS13-1-3-FIPS-PQ-2025-09` (not customizable)
 
 This control checks whether the HTTPS listener for an Application Load Balancer or the TLS listener for a
 Network Load Balancer is configured to encrypt data in transit by using a recommended security policy.

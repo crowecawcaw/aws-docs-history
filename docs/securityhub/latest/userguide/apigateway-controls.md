@@ -286,3 +286,42 @@ see [Update
 a private integration](../../../apigateway/latest/developerguide/set-up-private-integration.md#set-up-private-integration-update "../../../apigateway/latest/developerguide/set-up-private-integration.md#set-up-private-integration-update") in the _Amazon API Gateway Developer Guide_.
 Configure [TLS
 configuration](../../../apigatewayv2/latest/api-reference/apis-apiid-integrations-integrationid.md#apis-apiid-integrations-integrationid-model-tlsconfig "../../../apigatewayv2/latest/api-reference/apis-apiid-integrations-integrationid.md#apis-apiid-integrations-integrationid-model-tlsconfig") so that the private integration uses HTTPS protocol.
+
+## [APIGateway.11] API Gateway domain names should use recommended security policies
+
+**Category:** Protect > Encryption of data-in-transit
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::ApiGateway::DomainName`
+
+**AWS Config rule:**
+[apigateway-domain-name-tls-check](../../../config/latest/developerguide/apigateway-domain-name-tls-check.md "../../../config/latest/developerguide/apigateway-domain-name-tls-check.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
+- `allowedSecurityPolicies`:
+  `SecurityPolicy_TLS13_1_3_2025_09, SecurityPolicy_TLS13_1_3_FIPS_2025_09,
+SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09, SecurityPolicy_TLS13_2025_EDGE,
+SecurityPolicy_TLS12_PFS_2025_EDGE` (not customizable)
+
+This control checks whether an API Gateway domain name is configured to encrypt data
+in transit by using a recommended security policy. The control fails if the API Gateway
+domain name isn't configured to use a recommended security policy.
+
+A security policy is a predefined combination of minimum TLS version and cipher
+suites offered by API Gateway. When your clients establish a TLS handshake to your API or
+custom domain name, the security policy enforces the TLS version and cipher suite
+accepted by API Gateway. Security policies protect your APIs and custom domain names from
+network security problems such as tampering and eavesdropping between a client and
+server. Using a recommended security policy helps ensure that API Gateway domain names use
+modern, secure TLS configurations that protect data in transit between clients and your
+API.
+
+### Remediation
+
+To update the TLS security policy for an API Gateway domain name, see [How to change a security policy](../../../apigateway/latest/developerguide/apigateway-security-policies-update.md "../../../apigateway/latest/developerguide/apigateway-security-policies-update.md") in the
+_Amazon API Gateway Developer Guide_.

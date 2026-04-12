@@ -538,3 +538,67 @@ uses multiple compute instances. For information about protecting communications
 instances, see [Protect
 Communications Between ML Compute Instances in a Distributed Training Job](../../../sagemaker/latest/dg/train-encrypt.md "../../../sagemaker/latest/dg/train-encrypt.md") in the
 _Amazon SageMaker AI Developer Guide_.
+
+## [SageMaker.16] SageMaker models should use private registry in VPC for primary containers
+
+**Category:** Protect > Secure network
+configuration > Resources within VPC
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::Model`
+
+**AWS Config rule:**
+[sagemaker-model-private-registry-required](../../../config/latest/developerguide/sagemaker-model-private-registry-required.md "../../../config/latest/developerguide/sagemaker-model-private-registry-required.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Amazon SageMaker AI model pulls container image from a private
+registry in a VPC for the primary container. The control fails if the image is not
+configured or repository access mode is `Platform`.
+
+Using a private Docker registry in a VPC for SageMaker model containers ensures container
+images are pulled from trusted, controlled sources within your VPC. Also, it ensures
+container images are accessed through VPC endpoints, without traversing the public
+internet.
+
+### Remediation
+
+To configure private docker registries for SageMaker AI real-time inference containers,
+see [Use
+a Private Docker Registry for Real-Time Inference Containers](../../../sagemaker/latest/dg/your-algorithms-containers-inference-private.md "../../../sagemaker/latest/dg/your-algorithms-containers-inference-private.md") in the
+_Amazon SageMaker AI Developer Guide_.
+
+## [SageMaker.17] SageMaker feature group offline stores should be encrypted with AWS KMS keys
+
+**Category:** Protect > Data Protection > Encryption of data-at-rest
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::FeatureGroup`
+
+**AWS Config rule:**
+[sagemaker-featuregroup-encryption-at-rest](../../../config/latest/developerguide/sagemaker-featuregroup-encryption-at-rest.md "../../../config/latest/developerguide/sagemaker-featuregroup-encryption-at-rest.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Amazon SageMaker offline store for a feature group is encrypted
+at rest with an AWS KMS key. The control fails if the offline store S3 storage for
+a feature group is not encrypted with a KMS key.
+
+Using customer-managed AWS KMS keys for encryption at rest of SageMaker feature group offline
+stores provide enhanced security. Customer-managed KMS keys provide you full control
+over encryption key lifecycle and key policies. Additionally, all encryption key usage
+can be logged and monitored through AWS CloudTrail for auditability.
+
+### Remediation
+
+For information on enabling encryption at rest for SageMaker Feature Store offline
+stores using AWS KMS customer-managed keys, see [Security and access control](../../../sagemaker/latest/dg/feature-store-security.md#feature-store-authorizing-use-cmk-offline-store "../../../sagemaker/latest/dg/feature-store-security.md#feature-store-authorizing-use-cmk-offline-store") in the _Amazon SageMaker AI
+Developer Guide_.

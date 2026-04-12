@@ -48,7 +48,7 @@ details of a control, choose the control.
 
 [[DMS.1] Database Migration Service replication instances should not be public](dms-controls.md#dms-1 "dms-controls.md#dms-1")
 
-[[EC2.1] Amazon EBS snapshots should not be publicly restorable](ec2-controls.md#ec2-1 "ec2-controls.md#ec2-1")
+[[EC2.1] Amazon EBS snapshots should not be configured to be publicly restorable](ec2-controls.md#ec2-1 "ec2-controls.md#ec2-1")
 
 [[EC2.2] VPC default security groups should not allow inbound or outbound traffic](ec2-controls.md#ec2-2 "ec2-controls.md#ec2-2")
 

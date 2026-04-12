@@ -160,7 +160,7 @@ requirement.
 - [[DynamoDB.4] DynamoDB tables should be present in a backup plan](dynamodb-controls.md#dynamodb-4 "dynamodb-controls.md#dynamodb-4")
 - [[DynamoDB.6] DynamoDB tables should have deletion protection enabled](dynamodb-controls.md#dynamodb-6 "dynamodb-controls.md#dynamodb-6")
 - [[DynamoDB.7] DynamoDB Accelerator clusters should be encrypted in transit](dynamodb-controls.md#dynamodb-7 "dynamodb-controls.md#dynamodb-7")
-- [[EC2.1] Amazon EBS snapshots should not be publicly restorable](ec2-controls.md#ec2-1 "ec2-controls.md#ec2-1")
+- [[EC2.1] Amazon EBS snapshots should not be configured to be publicly restorable](ec2-controls.md#ec2-1 "ec2-controls.md#ec2-1")
 - [[EC2.2] VPC default security groups should not allow inbound or outbound traffic](ec2-controls.md#ec2-2 "ec2-controls.md#ec2-2")
 - [[EC2.3] Attached Amazon EBS volumes should be encrypted at-rest](ec2-controls.md#ec2-3 "ec2-controls.md#ec2-3")
 - [[EC2.4] Stopped EC2 instances should be removed after a specified time period](ec2-controls.md#ec2-4 "ec2-controls.md#ec2-4")
