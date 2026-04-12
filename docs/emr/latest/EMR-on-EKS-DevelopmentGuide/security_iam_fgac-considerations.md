@@ -6,6 +6,11 @@ Note the following considerations and limitations when you use Lake Formation wi
   formats include Parquet, ORC, and xSV.
 - `DynamicResourceAllocation` is enabled by default, and you can't turn off `DynamicResourceAllocation` for Lake Formation jobs. As DRA `spark.dynamicAllocation.maxExecutors` configuration's
   default value is infinity, please configure an appropriate value based on your workload.
+- By default, `spark.dynamicAllocation.preallocateExecutors` is enabled in Amazon EMR Spark, which
+  can cause excessive container churn when `spark.dynamicAllocation.initialExecutors` and
+  `spark.dynamicAllocation.minExecutors` are not set. For recommended configurations to manage executor
+  preallocation, see the [Performance](best-practices.md#performance "best-practices.md#performance") section in
+  [Links to Amazon EMR on EKS best practices guides on GitHub](best-practices.md "best-practices.md").
 - Lake Formation-enabled jobs don’t support usage of customized EMR on EKS Images in System Driver and System Executors.
 - You can only use Lake Formation with Spark jobs.
 - EMR on EKS with Lake Formation only supports a single Spark session throughout a job.

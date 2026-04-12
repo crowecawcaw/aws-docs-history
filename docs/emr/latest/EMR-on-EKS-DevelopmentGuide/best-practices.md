@@ -66,6 +66,18 @@ cases.
 
 [Using Dynamic Resource Allocation (DRA)](https://aws.github.io/aws-emr-containers-best-practices/performance/docs/dra/ "https://aws.github.io/aws-emr-containers-best-practices/performance/docs/dra/").
 
+By default, `spark.dynamicAllocation.preallocateExecutors` is enabled in Amazon EMR Spark. When
+`spark.dynamicAllocation.initialExecutors` and `spark.dynamicAllocation.minExecutors` are
+not set, Spark may request a large number of executors at startup based on estimated task counts, even for small
+workloads. To avoid excessive container churn, use one of the following approaches:
+
+- Set `spark.dynamicAllocation.initialExecutors` or
+  `spark.dynamicAllocation.minExecutors` to a value appropriate for your workload size.
+- Set `spark.dynamicAllocation.preallocateExecutors.maxEstimatedTasks` to a lower value
+  to limit the number of executors requested at startup.
+- Set `spark.dynamicAllocation.preallocateExecutors` to `false` to disable
+  executor preallocation entirely.
+
 [EKS best practices](https://aws.github.io/aws-emr-containers-best-practices/best-practices-and-recommendations/eks-best-practices/ "https://aws.github.io/aws-emr-containers-best-practices/best-practices-and-recommendations/eks-best-practices/") for the Amazon VPC Container Network Interface plugin (CNI),
 Cluster Autoscaler, and Core DNS.
 

@@ -281,3 +281,7 @@ eksctl create iamidentitymapping \
         - ... <other previously existing role entries, if there's any>.
     ```
     3. Save the file and exit your text editor.
+
+## Enable cluster access for Amazon SageMaker Unified Studio
+
+Amazon EMR on EKS and Amazon SageMaker Unified Studio require access to an Amazon EKS cluster. Please follow the steps at [Enable EKS cluster access for EMR on EKS and SageMaker Unified Studio](../../../sagemaker-unified-studio/latest/adminguide/enable-eks-cluster-access-for-emr-on-eks-and-sagemaker-unified-studio.md "../../../sagemaker-unified-studio/latest/adminguide/enable-eks-cluster-access-for-emr-on-eks-and-sagemaker-unified-studio.md") to provide access.
