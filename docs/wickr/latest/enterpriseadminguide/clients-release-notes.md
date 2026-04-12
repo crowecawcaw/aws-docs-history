@@ -26,3 +26,4 @@ Wickr Enterprise.
 - [Clients 6.58 release](clients-release-notes-6.58.md "clients-release-notes-6.58.md")
 - [Clients 6.62 release](clients-release-notes-6.62.md "clients-release-notes-6.62.md")
 - [Clients 6.66 release](clients-release-notes-6.66.md "clients-release-notes-6.66.md")
+- [Clients 6.70 release](clients-release-notes-6.70.md "clients-release-notes-6.70.md")
