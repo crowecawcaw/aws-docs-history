@@ -60,7 +60,7 @@ You can then expand each requestURI to see Kubernetes subject (service accounts 
 
 Expand the subject to see which IPs that subject used to make the API call.
 
-![View of the Resource tab of the Overall API call volume panel, with an entry expanded to show the hierarchy of AKIDs, IP addresses, and API calls grouped by service.](images/screen_profile_panel_drilldown_api_resource.png)
+![View of the Resource tab of the Overall API call volume panel, with an entry expanded to show the hierarchy of AKIDs, IP addresses, and API calls grouped by service.](/images/detective/latest/userguide/images/screen_profile_panel_drilldown_api_resource.png)
 
 ## Sorting the activity details
 
