@@ -6,6 +6,15 @@ Enterprise, which is the on-premises version of Wickr, see [Enterprise Administr
 To help you keep track of the ongoing updates and improvements to Wickr, we publish
 release notices that describe recent changes.
 
+## April 2026
+
+- Enhancements
+  - Users can now customize their app theme from Appearance
+    settings.
+  - Password complexity requirements are now displayed during account
+    creation and password changes.
+  - Performance improvements and bug fixes.
+
 ## December 2025
 
 - Enhancements
@@ -15,7 +24,8 @@ release notices that describe recent changes.
     forwarding in the Wickr client](message-forwarding.md "message-forwarding.md").
   - General enhancements and bug fixes.
 
-The AWS Wickr client is now only available from the Play Store for users 18 or older.
+The AWS Wickr client is now only available from the Play Store for users 18 or
+older.
 
 ## November 2025
 
