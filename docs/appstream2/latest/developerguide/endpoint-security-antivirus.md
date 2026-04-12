@@ -82,6 +82,7 @@ the software must not interfere with the following folders:
     C:\Program Files\NICE\*
     C:\ProgramData\NICE\*
     C:\AppStream\*
+    C:\Program Files\WindowsPowerShell\Modules\AWSPowerShell\*
 
 
 ```

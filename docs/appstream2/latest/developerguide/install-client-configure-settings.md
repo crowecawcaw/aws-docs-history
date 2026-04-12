@@ -418,7 +418,7 @@ These values are case sensitive.
 | `HardwareRenderingEnabled`            | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to `true` to enable hardware<br>rendering in the WorkSpaces Applications client.                                                                                                                                            | `true`/`false`                                                                       |
 | `FileRedirectionCustomDefaultFolders` | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to include at least one folder path for file<br>system redirection. Separate multiple folder paths by using '                                                                                                               | '.<br>By default, the following folder paths are specified:<br>%USERPROFILE%\Desktop | %USERPROFILE%\Documents | %USERPROFILE%\Downloads | `Valid folder path` |
 | `OpenIdpUrlInSystemBrowser`           | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to `true` to enable the WorkSpaces Applications<br>client to open the IdP URL in a system default browser. This<br>feature is supported on client version 1.1.1360 and<br>later.                                            | `true`/`false`                                                                       |
-| `DataLossIndicator`                   | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to SHOW_ON_LOSSY to include a red warning indicator when there is streaming data loss. Set this value to SHOW_ON_LOSSLESS to include a green healthy indicator when there is no streaming data loss.                        | `DISABLED/SHOW_ON_LOSSY/SHOW_ON_LOSSLESS`                                            |
+| `DataLossIndicator`                   | `HKLM\Software\Amazon\Appstream Client` | String | Set this value to SHOW_ON_LOSSY to include a red warning indicator when there is streaming data loss. Set this value to SHOW_ON_LOSSLESS to include a green healthy indicator when there is no streaming data loss.                        | `DISABLED/SHOW_ON_LOSSY/SHOW_ON_LOSSLESS`                                            |
 
 After the WorkSpaces Applications client is installed, you can run the following PowerShell script to
 create these registry keys. If you don’t want to create all of the registry keys,
@@ -440,6 +440,23 @@ New-ItemProperty -Path $registryPath -Name "USBDriverOptIn" -Value "true" -Prope
 New-ItemProperty -Path $registryPath -Name "HardwareRenderingEnabled" -Value "true" -PropertyType String -Force | Out-Null
 New-ItemProperty -Path $registryPath -Name "FileRedirectionCustomDefaultFolders" -Value "%USERPROFILE%\Desktop|%USERPROFILE%\Documents|%USERPROFILE%\Downloads" -PropertyType String -Force | Out-Null
 New-ItemProperty -Path $registryPath -Name "OpenIdpUrlInSystemBrowser" -Value "true" -PropertyType String -Force | Out-Null
+```
+
+To set the `DataLossIndicator` registry value, run the following
+PowerShell script. This value is stored in the HKLM registry path and requires
+Administrator permissions.
+
+###### Note
+
+To run this script, you must be logged in to the applicable computer with
+Administrator permissions. You can also run the script remotely under the System
+account on startup.
+
+```
+$registryPath="HKLM:\Software\Amazon\AppStream Client"
+New-Item -Path "HKLM:\Software\Amazon" -Name "AppStream Client" -Force
+
+New-ItemProperty -Path $registryPath -Name "DataLossIndicator" -Value "SHOW_ON_LOSSY" -PropertyType String -Force | Out-Null
 ```
 
 ## Using Group Policy to Customize WorkSpaces Applications Client Experience
