@@ -8,6 +8,7 @@ Amazon WorkSpaces is a managed, secure cloud desktop service. You can use Amazon
 - The Web Access client (from browser) does not support PCoIP WorkSpaces.
 - The cross-Region redirection feature is not supported.
 - The **Forgot Password** option and the **Welcome Email** feature are not supported in the AWS GovCloud (US) Regions. Users cannot reset their own passwords and users with new WorkSpaces will not receive a welcome email.
+- Amazon WorkSpaces Advisor is not supported.
 
 ## Documentation for Amazon WorkSpaces
 

@@ -4,7 +4,7 @@ Red Hat OpenShift Service on AWS (ROSA) is a managed service that you can use to
 
 ###### Note
 
-Red Hat OpenShift Service on AWS has achieved an agency Authority to Operate (ATO) at the FedRAMP High Baseline.
+Red Hat OpenShift Service on AWS has achieved FedRAMP High Authorization for classic and hosted control plane architectures.
 
 ## How Red Hat OpenShift Service on AWS differs for AWS GovCloud (US)
 
@@ -13,7 +13,7 @@ Red Hat OpenShift Service on AWS has achieved an agency Authority to Operate (AT
 - Red Hat support cases are managed through ServiceNow. ServiceNow has a Provisional Authority to Operate (P-ATO) at the FedRAMP High benchmark. Red Hat personnel that manage ROSA support cases through ServiceNow are U.S. persons. For more information, see [ServiceNow’s FedRAMP authorization details](https://marketplace.fedramp.gov/products/F1305072116 "https://marketplace.fedramp.gov/products/F1305072116") on the FedRAMP Marketplace.
   - Customers set up access to ServiceNow during the onboarding process.
 
-- ROSA with hosted control planes (HCP) is not yet available in the AWS GovCloud (US) Regions. Only ROSA classic is supported.
+- ROSA classic and ROSA with Hosted Control Planes (HCP) are both supported.
 - The AWS
   ROSA console is not yet available in AWS GovCloud (US) Regions.
 - Only ROSA clusters that use AWS PrivateLink can be deployed in AWS GovCloud (US).
@@ -38,29 +38,30 @@ For AWS Organizations users, repeat these steps for each member account that req
 2. Create an AWS standard account. AWS recommends creating a new AWS standard account that will only be used for AWS GovCloud (US) sign-up and billing.
 3. Log in to the AWS standard account.
 4. Go to the [ROSA console](https://console.aws.amazon.com/rosa "https://console.aws.amazon.com/rosa") and enable ROSA.
-5. Sign up for an AWS GovCloud (US) account. For more information, see [AWS GovCloud (US) Sign Up](getting-started-sign-up.md "getting-started-sign-up.md").
+5. Link your AWS standard account to your [Red Hat account](https://docs.redhat.com/en/documentation/red_hat_openshift_service_on_aws/4/html/tutorials/rosa-activation-and-account-linking "https://docs.redhat.com/en/documentation/red_hat_openshift_service_on_aws/4/html/tutorials/rosa-activation-and-account-linking").
+6. Sign up for an AWS GovCloud (US) account. For more information, see [AWS GovCloud (US) Sign Up](getting-started-sign-up.md "getting-started-sign-up.md").
 
 ###### Note
 
-Before creating accounts in the AWS GovCloud (US) Regions, make sure that you meet specific U.S. regulatory requirements as described in [AWS GovCloud (US) Sign Up](getting-started-sign-up.md "getting-started-sign-up.md"). 6. Link your AWS GovCloud account to your AWS standard account. 7. Complete the [ROSA FedRAMP access request form](https://console.redhat.com/openshift/create/rosa/govcloud "https://console.redhat.com/openshift/create/rosa/govcloud") to initiate onboarding to AWS GovCloud (US). Upon submission, this form will be processed by Red Hat. If Red Hat requires further information, you will receive a follow-up email, or you will receive instructions on how to access the service.
+Before creating accounts in the AWS GovCloud (US) Regions, make sure that you meet specific U.S. regulatory requirements as described in [AWS GovCloud (US) Sign Up](getting-started-sign-up.md "getting-started-sign-up.md"). 7. Link your AWS GovCloud account to your AWS standard account. 8. Complete the [ROSA FedRAMP access request form](https://console.redhat.com/openshift/create/rosa/govcloud "https://console.redhat.com/openshift/create/rosa/govcloud") to initiate onboarding to AWS GovCloud (US). Upon submission, this form will be processed by Red Hat. If Red Hat requires further information, you will receive a follow-up email, or you will receive instructions on how to access the service.
 
 ###### Note
 
 You can use the Red Hat Hybrid Cloud Console on AWS GovCloud (US) to deploy ROSA to multiple AWS GovCloud (US) accounts.
 
-## Creating and deploying a ROSA classic cluster into the AWS GovCloud (US) Regions
+## Creating and deploying a ROSA cluster into the AWS GovCloud (US) Regions
 
-After enabling ROSA for AWS GovCloud (US), you can create and deploy ROSA classic clusters into the AWS GovCloud (US) Regions.
+After enabling ROSA for AWS GovCloud (US), you can create and deploy ROSA clusters into the AWS GovCloud (US) Regions.
 
 ### Prerequisites
 
-To deploy ROSA classic clusters into the AWS GovCloud (US) Regions, the following prerequisites must be met.
+To deploy ROSA clusters into the AWS GovCloud (US) Regions, the following prerequisites must be met.
 
 - You have access to the Red Hat Hybrid Cloud Console on AWS GovCloud (US).
 - You have an AWS GovCloud (US) account linked to an AWS standard account.
 - You configured the AWS CLI on your local machine to use your AWS GovCloud (US) account. For more information, see [Configure your Account using AWS CLI](configure-using-cli.md "configure-using-cli.md").
 - You created your own Amazon VPC architecture to deploy your clusters into. For more information, see [Create Amazon VPC architecture for the cluster](../../../ROSA/latest/userguide/getting-started-private-link.md#getting-started-private-link-step-2 "../../../ROSA/latest/userguide/getting-started-private-link.md#getting-started-private-link-step-2") in the _ROSA User Guide_.
-- You completed the prerequisite actions documented in [Getting started with ROSA classic using AWS PrivateLink](../../../rosa/latest/userguide/getting-started-private-link.md#getting-started-private-link-prereqs "../../../rosa/latest/userguide/getting-started-private-link.md#getting-started-private-link-prereqs").
+- You completed the prerequisite actions documented in [Getting started with ROSA](../../../rosa/latest/userguide/getting-started.md "../../../rosa/latest/userguide/getting-started.md").
 
 ### Log in to your AWS GovCloud (US) and Red Hat Hybrid Cloud Console on AWS GovCloud (US) accounts
 
@@ -87,11 +88,11 @@ If you cannot sign in to your AWS GovCloud (US) account or Red Hat Hybrid Cloud 
 
       3. Open a terminal session and run the command.
 
-### Create and deploy a ROSA classic cluster that uses AWS PrivateLink
+### Create and deploy a ROSA cluster that uses AWS PrivateLink
 
-Once logged in to your AWS GovCloud (US) and Red Hat Hybrid Cloud Console on AWS GovCloud (US) accounts, you can create a ROSA classic cluster that uses AWS PrivateLink and deploys into the AWS GovCloud (US) Regions.
+Once logged in to your AWS GovCloud (US) and Red Hat Hybrid Cloud Console on AWS GovCloud (US) accounts, you can create a ROSA cluster that uses AWS PrivateLink and deploys into the AWS GovCloud (US) Regions.
 
-The procedure is the same for deploying a ROSA classic cluster in AWS GovCloud (US) Regions and AWS standard Regions. For more information, see [Getting started with ROSA using AWS PrivateLink](../../../ROSA/latest/userguide/getting-started-private-link.md#getting-started-private-link-step-3 "../../../ROSA/latest/userguide/getting-started-private-link.md#getting-started-private-link-step-3") in the _ROSA User Guide_.
+The procedure is the same for deploying a ROSA cluster in AWS GovCloud (US) Regions and AWS standard Regions. For more information, see [Getting started with ROSA](../../../rosa/latest/userguide/getting-started.md "../../../rosa/latest/userguide/getting-started.md") in the _ROSA User Guide_.
 
 ## Documentation for Red Hat OpenShift Service on AWS
 
