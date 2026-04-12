@@ -43,6 +43,13 @@ aws ec2 create-capacity-manager-data-export \
 
 ```
 
+###### Note
+
+The `--tag-specifications` parameter in the command above applies resource tags to the data export resource
+itself (for example, for cost allocation or organization). These are separate from monitored tag keys, which determine the
+tag columns included in your exported data. For more information about monitored tag keys, see
+[Managing monitored tag keys](managing-monitored-tag-keys.md "managing-monitored-tag-keys.md").
+
 PowerShell
 
 ###### To create a data export
@@ -63,3 +70,15 @@ New-EC2CapacityManagerDataExport `
         })
     })
 ```
+
+## Tag columns in data exports
+
+Newly created data exports include tag values as additional columns for activated monitored tag keys and Capacity Manager-provided
+tags. For more information, see [Tags in data exports](managing-monitored-tag-keys.md#tags-in-data-exports "managing-monitored-tag-keys.md#tags-in-data-exports") in
+[Managing monitored tag keys](managing-monitored-tag-keys.md "managing-monitored-tag-keys.md").
+
+###### Note
+
+If you have not activated any monitored tag keys, your exports will still include columns for Capacity Manager-provided tags
+(for example, `aws:autoscaling:groupName`, `aws:eks:cluster-name`, `eks:kubernetes-node-pool-name`,
+and `karpenter.sh/nodepool`).

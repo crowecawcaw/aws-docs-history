@@ -59,6 +59,14 @@ consistent identifier for an Availability Zone across all AWS accounts. For
 example, `use1-az1` is an AZ ID for the `us-east-1` Region and
 it is the same location in every AWS account.
 
+When you share a Capacity Reservation with another account, the Capacity Reservation is associated with a specific
+location identified by its AZ ID. The consumer account can use the shared Capacity Reservation only
+in the Availability Zone that maps to the same AZ ID in their account. For example,
+if you create a Capacity Reservation in `us-east-1a` (AZ ID `use1-az1`), the
+consumer must launch instances in the Availability Zone that maps to
+`use1-az1` in their account. That Availability Zone might have a
+different name, such as `us-east-1b`.
+
 ###### To view the AZ IDs for the Availability Zones in your account
 
 1. Open the AWS RAM console at [https://console.aws.amazon.com/ram/home](https://console.aws.amazon.com/ram/home "https://console.aws.amazon.com/ram/home").

@@ -59,7 +59,7 @@ Console
    associated with your Amazon EC2 instances and volumes, organized by
    Region.
 
-![Scheduled events](/images/AWSEC2/latest/UserGuide/images/dashboard-scheduled-events.png) 3. If you have an instance with a scheduled event listed, select its link below the
+![Scheduled events](images/dashboard-scheduled-events.png) 3. If you have an instance with a scheduled event listed, select its link below the
 Region name to go to the **Events** page. 4. The **Events** page lists all resources that have events
 associated with them. To view instances that are scheduled for retirement,
 select **Instance resources** from the first filter list,

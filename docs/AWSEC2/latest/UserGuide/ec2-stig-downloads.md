@@ -12,40 +12,9 @@ with AWS resources. We require TLS 1.2 and recommend TLS 1.3.
 
 ###### Topics
 
-- [IAM prerequisites for STIG downloads](#ec2-stig-download-iam-prereq "#ec2-stig-download-iam-prereq")
 - [STIG download bundle details](#ec2-stig-download-details "#ec2-stig-download-details")
 - [Linux STIG version history](#ec2-linux-version-hist "#ec2-linux-version-hist")
 - [Windows STIG version history](#ec2-windows-version-hist "#ec2-windows-version-hist")
-
-## IAM prerequisites for STIG downloads
-
-The IAM role that you associate with your instance profile must have
-`s3:GetObject` permissions to download the script bundles from Amazon S3.
-You can add the following example policy to your instance profile role.
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "DownloadSTIGScriptBundles",
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::aws-windows-downloads*/STIG/*.zip",
-                "arn:aws:s3:::aws-windows-downloads*/STIG/*.tgz"
-            ]
-        }
-    ]
-}
-```
-
-To add the STIG download policy example to your instance profile role as an inline
-policy, follow the [Update the permissions policy for a role](../../../IAM/latest/UserGuide/id_roles_update-role-permissions.md#id_roles_update-role-permissions-policy "../../../IAM/latest/UserGuide/id_roles_update-role-permissions.md#id_roles_update-role-permissions-policy") process in the
-_AWS Identity and Access Management User Guide_. For more information about instance profile roles, see
-[Use instance profiles](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md").
 
 ## STIG download bundle details
 
@@ -115,9 +84,23 @@ This section logs version history for Linux script bundles that are updated quar
 To see the changes and published versions for a quarter, choose the title to expand the
 information. If there are no changes for the quarter, you'll see that reflected in the title.
 
-Added support for the SUSE Linux Enterprise Server (SLES) operating system and
-Amazon Linux 2023. Updated the following STIG versions and applied STIGS for the
-2025 third quarter release for all compliance levels (low/medium/high):
+Added support for the RHEL 10 operating system and updated the following STIG versions and applied STIGS for the
+2026 first quarter release for all compliance levels (low/medium/high):
+
+###### STIG-Build-Linux version 1.0.x
+
+- RHEL 8 STIG Version 2 Release 6
+- RHEL 9 STIG Version 2 Release 7
+- RHEL 10 STIG Version 1 Release 1
+- Amazon Linux 2023 STIG Version 1 Release 2
+- SLES 12 STIG Version 3 Release 4
+- SLES 15 STIG Version 2 Release 6
+- Ubuntu 20.04 STIG Version 2 Release 4
+- Ubuntu 22.04 STIG Version 2 Release 7
+- Ubuntu 24.04 STIG Version 1 Release 4
+  Added support for the SUSE Linux Enterprise Server (SLES) operating system and
+  Amazon Linux 2023. Updated the following STIG versions and applied STIGS for the
+  2025 third quarter release for all compliance levels (low/medium/high):
 
 ###### STIG-Build-Linux version 1.0.x
 
@@ -470,7 +453,19 @@ This section logs version history for Windows script bundles that are updated qu
 To see the changes and published versions for a quarter, choose the title to expand the
 information. If there are no changes for the quarter, you'll see that reflected in the title.
 
-### 2025 Q3 changes - 9/04/2025 (no changes):
+Adding support for the Windows Server 2025 operating system and updated the following STIG versions and applied STIGS for the
+2026 first quarter release for all compliance levels (low/medium/high):
+
+###### STIG-Build-Windows version 1.0.x
+
+- Windows Server 2025 STIG Version 1 Release 1
+- Windows Server 2022 STIG Version 2 Release 7
+- Windows Server 2019 STIG Version 3 Release 7
+- Microsoft .NET Framework 4.0 STIG Version 2 Release 7
+- Windows Firewall STIG Version 2 Release 2
+- Internet Explorer 11 STIG Version 2 Release 6
+- Microsoft Edge STIG Version 2 Release 4 (Windows Server 2022 and 2025 only)
+  There were no changes for Windows component STIGS for the 2025 fourth quarter release.
 
 There were no changes for Windows component STIGS for the 2025 third quarter release.
 

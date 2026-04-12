@@ -18,10 +18,18 @@ Without Organizations integration, Capacity Manager only monitors resources with
 
 ## Key Features
 
-- **Centralized dashboard:** View capacity usage across all accounts and regions with new data points refreshed every hour
-- **Cross-account visibility:** Organization-level view for admin accounts
-- **Data exports:** Export capacity data to Amazon S3
-- **APIs:** Programmatic access to capacity metrics and data
-- **Flexible analysis:** Dynamic date selector for exploring capacity usage across different time periods from the past 90 days
-- **Comprehensive metrics and dimensions:** Access to more than 30 metrics across multiple measurement units (vCPUs, instances, estimated costs)
-  with extensive filtering capabilities including Account ID, Region, Instance Family, Availability Zone, Instance Type, Platform, Tenancy, and reservation-specific dimensions
+- **Dashboard** — Provides a high-level overview of all On-Demand Capacity Reservations,
+  On-Demand and Spot usage, including key metrics to help improve your capacity posture.
+- **Cross-account and cross-region aggregation** — View capacity usage across all member accounts in your
+  organization from a single dashboard. Capacity Manager aggregates data from all Regions in the partition into the single Region where you have
+  enabled Capacity Manager, including tag data. For cross-account data, Capacity Manager also provides the account name as a dimension.
+- **Tag-based grouping and filtering** — Activate tag keys from your Amazon EC2 resources (for example,
+  `environment` or `team`) to use as dimensions when grouping and filtering your capacity metrics. Capacity Manager-provided
+  tags for EC2 Auto Scaling Groups, EKS cluster names, EKS Kubernetes node pools, and Karpenter node pools are included by default. For more
+  information, see [Managing monitored tag keys](managing-monitored-tag-keys.md "managing-monitored-tag-keys.md").
+- **Data exports** — Export capacity data to Amazon S3 in CSV or Parquet format for further analysis and custom reporting.
+- **APIs** — Query capacity metrics programmatically using `GetCapacityManagerMetricData`
+  and `GetCapacityManagerMetricDimensions`.
+- **Date selector** — Analyze capacity data across date ranges from one hour to 90 days.
+- **30+ metrics** — Track capacity across Capacity Reservations, On-Demand Instances, and Spot Instances
+  with over 30 metrics.

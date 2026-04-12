@@ -3,7 +3,7 @@
 The Capacity Manager console is organized into tabs that provide different views of your capacity data:
 
 - **Dashboard** — Provides a high-level overview of all On-Demand Capacity Reservations,
-  On-Demand and Spot usage, including key metrics and top alerts to help improve your capacity posture.
+  On-Demand and Spot usage, including key metrics to help improve your capacity posture.
 - **Usage** — Provides an overview of your instance usage patterns for On-Demand and Spot instances.
   Analyze coverage by Capacity Reservations and identify optimization opportunities through flexible grouping and filtering.
 - **Reservations** — Provides analysis of Capacity Reservation utilization,
@@ -12,8 +12,10 @@ The Capacity Manager console is organized into tabs that provide different views
   across accounts and Regions.
 - **Data exports** — Manages data export configuration to Amazon S3, including scheduling,
   formatting, and template selection.
-- **Settings** — Provides service configuration options including organization access
-  and regional settings.
+- **Settings** — Provides service configuration options including organization access,
+  regional settings, and monitored tag key management. You can activate tag keys from your Amazon EC2 resources to use as dimensions
+  when grouping and filtering capacity metrics. For more information, see
+  [Managing monitored tag keys](managing-monitored-tag-keys.md "managing-monitored-tag-keys.md").
   Within the Usage and Reservations tabs, Capacity Manager provides a hierarchical navigation structure that allows you to drill down
   from high-level overviews to detailed resource information. Understanding this navigation pattern helps you analyze your
   capacity data efficiently and identify optimization opportunities.

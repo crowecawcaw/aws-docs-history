@@ -81,7 +81,7 @@ For EBS volumes, you also specify the following information:
   volume supports. (Used only with `io1` and `io2` volumes.)
 - Some instance types support more than one EBS card. You can select the EBS card for
   the volume to be attached to by specifying the EBS card index. For more information,
-  see [EBS cards](ebs_cards.md#ebs_cards.title "ebs_cards.md#ebs_cards.title").
+  see [EBS cards](ebs_cards.md "ebs_cards.md").
 
 ### Block device mapping instance store caveats
 

@@ -19,7 +19,17 @@ Dimensions are name-value pairs that help you categorize and identify different 
 dimension in Capacity Manager is AccountID, where the value is the actual account ID. Capacity Manager provides dimensions to segment
 and group your data such as Instance Family, Reservation ARN, Reservation type, and Tenancy.
 
-For the full list of dimensions, see [EC2 Capacity Manager metrics](cm-metrics-units.md "cm-metrics-units.md").
+In addition to built-in dimensions, you can activate tag keys from your Amazon EC2 resources to use as custom dimensions. For example,
+if your instances are tagged with `environment` or `team`, you can activate those tag keys and then group and
+filter your capacity metrics by their values.
+
+Capacity Manager also provides Capacity Manager-provided tags — such as EC2 Auto Scaling Group
+(`aws:autoscaling:groupName`), EKS cluster name (`aws:eks:cluster-name`), EKS Kubernetes node pool
+(`eks:kubernetes-node-pool-name`), and Karpenter node pool (`karpenter.sh/nodepool`) — that are
+available by default without counting toward your tag key limit.
+
+For the full list of dimensions, see [EC2 Capacity Manager metrics](cm-metrics-units.md "cm-metrics-units.md"). For information
+about activating and managing tag dimensions, see [Managing monitored tag keys](managing-monitored-tag-keys.md "managing-monitored-tag-keys.md").
 
 **Date range and period**
 
@@ -32,3 +42,4 @@ The period must be an interval of one hour and divide evenly into the date range
 
 - [EC2 Capacity Manager metrics](cm-metrics-units.md "cm-metrics-units.md")
 - [Grouping and filtering data](grouping-filtering-data.md "grouping-filtering-data.md")
+- [Managing monitored tag keys](managing-monitored-tag-keys.md "managing-monitored-tag-keys.md")

@@ -11,11 +11,13 @@ The metric names in Capacity Manager use four different prefixes to categorize t
 - `Spot` — Specifically for Spot Instance usage, including runtime and estimated costs. These metrics are separate from reservation-based capacity.
   The following table also provides the _Dimensions available_ for each metric. The dimension categories are broken down as follows:
 
-- **General capacity dimensions** — Account ID, Region, Instance Family, Availability
+- **General capacity dimensions** — Account ID, Account Name, Region, Instance Family, Availability
   Zone, Instance Type, Platform, and Tenancy
 - **Capacity Reservation dimensions** — Reservation ID (Capacity Reservation ID), Reservation
   ARN, Unused Financial Owner, Reservation Type (ODCR/Capacity Block), Create timestamp, Start timestamp, End timestamp, State, and Instance match criteria.
 - **Reserved usage dimensions** — Reservation ID (CRID), Reservation ARN, Reservation type
+- **Tag dimensions** — Customer-managed tag keys and Capacity Manager-provided tags. You must activate a tag key before you can use
+  it as a dimension. For more information, see [Managing monitored tag keys](managing-monitored-tag-keys.md "managing-monitored-tag-keys.md").
 
 | Metric                                | Description                                                                                                                                                                                                                                   | Dimensions available                                 | Units available |
 | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | --------------- |
@@ -53,3 +55,35 @@ The metric names in Capacity Manager use four different prefixes to categorize t
 ###### Note
 
 If you include instances in your units, we recommend including the instance type in your dimensions.
+
+## Tag dimensions
+
+In addition to the built-in dimensions in the preceding section, Capacity Manager supports tag dimensions. Tag dimensions allow you to
+group and filter metrics using tag keys from your Amazon EC2 resources.
+
+**Customer-managed tag dimensions**
+
+You can activate up to five tag keys to use as dimensions. After activation and in `activated` status,
+tag dimensions are available for metrics that support General capacity dimensions. For the full list of dimension
+categories, see [EC2 Capacity Manager metrics](cm-metrics-units.md "cm-metrics-units.md").
+
+| Dimension    | Description                                                | Example values                       |
+| ------------ | ---------------------------------------------------------- | ------------------------------------ |
+| Tag key name | A customer-managed tag key from your Amazon EC2 resources. | `environment`, `team`, `cost-center` |
+
+**Capacity Manager-provided tag dimensions**
+
+Capacity Manager provides the following Capacity Manager-provided tags by default. Capacity Manager-provided tags are always
+available and do not count toward your tag key limit.
+
+| Dimension                           | Description                                                          |
+| ----------------------------------- | -------------------------------------------------------------------- |
+| `tag:aws:autoscaling:groupName`     | The name of the EC2 Auto Scaling group associated with the instance. |
+| `tag:aws:eks:cluster-name`          | The name of the EKS cluster associated with the instance.            |
+| `tag:eks:kubernetes-node-pool-name` | The EKS Kubernetes node pool associated with the instance.           |
+| `tag:karpenter.sh/nodepool`         | The Karpenter node pool associated with the instance.                |
+
+###### Note
+
+When you group by a tag dimension, resources that do not have a value for that tag are included in a separate bucket with
+an empty string value. This ensures that totals account for all resources.

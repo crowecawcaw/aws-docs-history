@@ -7,6 +7,10 @@ You can export your data in CSV or Parquet format. In the following sections, yo
 
 Capacity Manager only allows one data export per AWS account.
 
+###### Note
+
+In the rare case that a data export needs to be redriven due to a data issue, the new file overwrites the existing file for that hour.
+
 ###### Topics
 
 - [Setting up an Amazon S3 bucket for Capacity Manager data exports](cm-set-up-s3-export.md "cm-set-up-s3-export.md")
