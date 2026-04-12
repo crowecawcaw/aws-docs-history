@@ -377,6 +377,7 @@ You can also search the AWS documentation website for a product's API reference.
 - [Data retrieval APIs for AWS RTB Fabric](awsrtbfabric.md "awsrtbfabric.md")
 - [Data retrieval APIs for Amazon S3](amazons3.md "amazons3.md")
 - [Data retrieval APIs for Amazon S3 Express](amazons3express.md "amazons3express.md")
+- [Data retrieval APIs for Amazon S3 Files](amazons3files.md "amazons3files.md")
 - [Data retrieval APIs for Amazon S3 Glacier](amazons3glacier.md "amazons3glacier.md")
 - [Data retrieval APIs for Amazon S3 Object Lambda](amazons3objectlambda.md "amazons3objectlambda.md")
 - [Data retrieval APIs for Amazon S3 on Outposts](amazons3onoutposts.md "amazons3onoutposts.md")
