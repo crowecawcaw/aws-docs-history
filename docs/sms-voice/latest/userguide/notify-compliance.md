@@ -77,7 +77,7 @@ opt-in flow that obtains explicit consent from your end users. The opt-in flow m
 following requirements:
 
 - End users must actively consent to receive messages (for example, by
-  checking a checkbox, clicking a button, or providing verbal confirmation).
+  selecting a checkbox, choosing a button, or providing verbal confirmation).
 - The opt-in must clearly state that the user will receive verification
   messages.
 - The opt-in must include the disclosures: "Message and data rates may apply.
