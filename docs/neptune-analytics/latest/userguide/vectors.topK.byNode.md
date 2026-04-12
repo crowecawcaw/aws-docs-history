@@ -48,7 +48,7 @@ For each source node:
   A node whose embedding is at one of the `topK` nearest distances from
   the source node's embedding.
 - **score**   –  
-  The distance between the source node's embedding and the embedding of the close node.
+  The squared Euclidean distance between the source node's embedding and the embedding of the close node.
 
 ## `.vectors.topK.byNode`  query example
 

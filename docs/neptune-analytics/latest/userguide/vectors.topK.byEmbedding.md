@@ -214,7 +214,7 @@ For each node returned:
   A node whose embedding is at one of the `topK` nearest distances from
   the input embedding.
 - **score**   –  
-  The distance between the input embedding and the embedding of this node.
+  The squared Euclidean distance between the input embedding and the embedding of this node.
 
 ## `.vectors.topK.byEmbedding`  query example
 

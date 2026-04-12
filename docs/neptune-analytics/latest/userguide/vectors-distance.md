@@ -51,7 +51,7 @@ The distance metric to use for distance computation.
 
 
 
-    	![L2-Squared: Squared Euclidean distance between two vectors.](images/vectors-distance/L2Squared.png)
+    	![L2-Squared: Squared Euclidean distance between two vectors.](/images/neptune-analytics/latest/userguide/images/vectors-distance/L2Squared.png)
 
 
     	 For more information on L2-Squared, see
@@ -71,7 +71,7 @@ The distance metric to use for distance computation.
 
 
 
-    	![Dot Product: Inner dot product of two vectors.](images/vectors-distance/dot1.png)
+    	![Dot Product: Inner dot product of two vectors.](/images/neptune-analytics/latest/userguide/images/vectors-distance/dot1.png)
 
 
     	 For more information on Dot Product, see

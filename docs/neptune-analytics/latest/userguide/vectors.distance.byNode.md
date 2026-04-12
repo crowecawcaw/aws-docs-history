@@ -96,7 +96,7 @@ The distance metric to use for distance computation.
 
 
 
-    	![Cosine Distance: Opposite of cosine similarity (lower value means more similar).](/images/neptune-analytics/latest/userguide/images/vectors-distance/cosdist1.png)
+    	![Cosine Distance: Opposite of cosine similarity (lower value means more similar).](images/vectors-distance/cosdist1.png)
 
 
     	 Range: [0, 2]
