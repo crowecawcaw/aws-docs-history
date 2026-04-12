@@ -96,23 +96,206 @@ with creating the right set of alerts for understanding the state of your system
 
 For more information about alerting in Amazon Managed Service for Prometheus, see [Managing and forwarding alerts in Amazon Managed Service for Prometheus with alert manager](AMP-alert-manager.md "AMP-alert-manager.md").
 
-## What metrics can I use to monitor my costs?
-
-Monitor `IngestionRate` in Amazon CloudWatch to track your ingestion costs.
-
-###### Note
-
-`IngestionRate` provides an estimated value and might not exactly match
-your final billing charges.
-
-For more information about monitoring Amazon Managed Service for Prometheus metrics in CloudWatch, see [Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus resources](AMP-CW-usage-metrics.md "AMP-CW-usage-metrics.md").
-
 ## Can I check my bill at any time?
 
 The AWS Cost and Usage Report tracks your AWS usage and provides estimated charges associated with
 your account within a billing period. For more information, see [What are AWS Cost
 and Usage Reports?](../../../cur/latest/userguide/what-is-cur.md "../../../cur/latest/userguide/what-is-cur.md") in the _AWS Cost and Usage Reports User
 Guide_
+
+## What metrics can I use to monitor my costs?
+
+Metric samples you ingest are the primary cost driver for Amazon Managed Service for Prometheus. The number of
+samples ingested directly determines your monthly charges, making it essential to
+monitor and understand your ingestion patterns.
+
+[AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md") is the source of truth for monitoring your Amazon Managed Service for Prometheus costs. You
+can monitor Cost Explorer for historical and day-by-day trends for cost on Amazon Managed Service for Prometheus
+across multiple dimensions including ingested samples. [AWS Cost Anomaly Detection](../../../cost-management/latest/userguide/getting-started-ad.md "../../../cost-management/latest/userguide/getting-started-ad.md") can
+also provide you the ability to monitor unexpected changes in your spending
+patterns.
+
+Using `IngestionRate` metrics provides an auxiliary method to monitor
+trends in ingestion that are directly correlated to cost. The advantages of using
+`IngestionRate` as an additional metric include:
+
+- **Workspace-level tracking** – Monitor
+  ingestion on a per-workspace basis rather than only at the account level.
+- **Granular visibility** – Track ingestion
+  patterns on an hourly or even minute-by-minute basis for real-time
+  insights.
+- **Proactive monitoring** – Set CloudWatch
+  alarms to detect usage spikes before they appear in billing.
+
+###### Note
+
+`IngestionRate` can be used to estimate costs and trends or attribute
+cost per workspace, but it is not 100% accurate. Because `IngestionRate`
+reports an average rate sampled at 1-minute intervals, multiplying this rate by time
+provides an approximation rather than an exact count of samples ingested.
+Additionally, Amazon CloudWatch's data retention policy affects the granularity available
+for historical queries, with data older than 63 days limited to 1-hour
+intervals.
+
+For more information about monitoring Amazon Managed Service for Prometheus metrics in CloudWatch, see [Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus resources](AMP-CW-usage-metrics.md "AMP-CW-usage-metrics.md").
+
+## How do I view my costs in AWS Cost Explorer?
+
+As your source of truth for Amazon Managed Service for Prometheus costs, AWS Cost Explorer provides your actual
+billed usage and charges for Amazon Managed Service for Prometheus samples ingested, including historical billing
+data by month and region. Use Cost Explorer for your final billed amounts and day-by-day
+cost trends.
+
+To view your Amazon Managed Service for Prometheus costs:
+
+###### Access AWS Cost Explorer
+
+1. Sign in to the AWS Management Console.
+2. Navigate to the Billing and Cost Management dashboard.
+3. Select **Cost Explorer** from the left navigation
+   menu.
+4. Choose **Launch Cost Explorer** (if this is your
+   first time using it).
+
+###### Configure the report
+
+1. Set your time range to the desired billing period (for example, March 2025 -
+   February 2026).
+2. Under **Filters**, select:
+   - **Service**: Choose
+     "Amazon Managed Service for Prometheus".
+   - **Usage Type**: Filter for
+     "MetricSampleCount" to isolate sample ingestion
+     charges.
+
+###### Group and view data
+
+1. Under **Group by**, select **Region** to view cost and usage data per region.
+2. Choose your preferred visualization (bar chart, line chart, or table).
+3. Choose **Apply** to generate the report.
+
+###### Export data (optional)
+
+1. Choose **Download CSV** in the top right corner to
+   export the data.
+2. The CSV file will contain: billing period, region, usage type, billed amount,
+   and usage quantity (number of samples billed).
+
+###### Note
+
+Cost Explorer data typically has a 24-hour delay. For the most current billing
+period, data may not be available until the following day.
+
+## How do I calculate the number of samples ingested in a month?
+
+You can calculate the approximate number of samples ingested using Amazon CloudWatch's
+`IngestionRate` metrics with the AWS Command Line Interface. This is useful for reviewing
+monthly bills and understanding usage patterns across workspaces.
+
+To retrieve ingestion data:
+
+```
+aws cloudwatch get-metric-data \
+    --region `your-region` \
+    --start-time `start-timestamp` \
+    --end-time `end-timestamp` \
+    --metric-data-queries '[
+        {
+            "Id": "e1",
+            "Expression": "SUM(METRICS())",
+            "Period": 3600
+        },
+        {
+            "Id": "ws1",
+            "MetricStat": {
+                "Metric": {
+                    "Namespace": "AWS/Usage",
+                    "MetricName": "ResourceCount",
+                    "Dimensions": [
+                        {"Name": "Service",    "Value": "Prometheus"},
+                        {"Name": "Resource",   "Value": "IngestionRate"},
+                        {"Name": "Type",       "Value": "Resource"},
+                        {"Name": "Class",      "Value": "None"},
+                        {"Name": "ResourceId", "Value": "`YOUR_AMP_WORKSPACE_ID`"}
+                    ]
+                },
+                "Period": 3600,
+                "Stat": "Average"
+            }
+        }
+    ]'
+```
+
+The command returns hourly average `IngestionRate` values, measured in
+samples per second. To calculate the approximate number of samples ingested in a month,
+multiply each hourly data point by 3600 (seconds per hour) to get the samples ingested
+in that hour, then sum all hourly totals across the month:
+
+```
+Monthly samples ≈ Σ (hourly IngestionRate average × 3600)
+```
+
+For example, if a single hour returns an average `IngestionRate` of 500
+samples per second, that hour contributed approximately 500 × 3600 = 1,800,000 samples.
+Repeat this for every hour in the month and sum the results to get your approximate
+monthly ingestion count.
+
+Key parameters:
+
+- `Period`: 3600 (1 hour in seconds)
+- `StartTime`: Beginning of your month (for example,
+  `2026-02-01T00:00:00Z`)
+- `EndTime`: End of your month (for example,
+  `2026-03-01T00:00:00Z`)
+- `Stat`: Average
+
+To find your workspace IDs:
+
+```
+aws amp list-workspaces --region `your-region`
+```
+
+Use the workspace ID to filter the metrics to show data only for the specified
+workspace, rather than aggregating across all Prometheus resources in the
+region.
+
+## What data granularity is available for historical cost analysis?
+
+Amazon CloudWatch's data retention policy affects the granularity available for historical
+queries:
+
+- **Data less than 15 days old**: Query at 1-minute
+  intervals (`Period`: 60)
+- **Data 15–63 days old**: Query at 5-minute
+  intervals (`Period`: 300)
+- **Data older than 63 days**: Limited to 1-hour
+  intervals (`Period`: 3600)
+
+For historical analysis beyond 63 days, CloudWatch automatically downsamples data to a
+minimum 1-hour period. When reviewing billing for months older than 63 days, you must
+use hourly aggregated data. The monthly sample calculation uses these hourly-averaged
+data points, summing each value multiplied by 3600 across the entire month.
+
+This reduced granularity further contributes to why `IngestionRate`
+provides estimates rather than exact counts for older data—always refer to Cost Explorer
+for your authoritative billed amounts.
+
+For more details on CloudWatch metric retention, see [Metrics retention](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric") in the _Amazon CloudWatch User
+Guide_.
+
+## What are best practices for monitoring Amazon Managed Service for Prometheus costs?
+
+To effectively manage and optimize your Amazon Managed Service for Prometheus spending, consider implementing the
+following monitoring practices:
+
+- Monitor Cost Explorer regularly to track actual spending trends and identify
+  cost anomalies across multiple dimensions including ingested samples.
+- Enable AWS Cost Anomaly Detection to receive alerts for unexpected cost
+  increases in your Amazon Managed Service for Prometheus spending.
+- Set up CloudWatch alarms on `IngestionRate` for workspace-level
+  monitoring and early detection of ingestion spikes.
+- Export Cost Explorer data regularly for long-term cost analysis and
+  reporting.
 
 ## Why is my bill higher at the beginning of the month than at the end of the month?
 
