@@ -244,7 +244,7 @@ is associated with a different network function group.
 {
    "version": "0",
    "id": "13143a7e-806e-a904-300b-ef874c56eaac",
-   "detail-type": "Network Function Group Update",
+   "detail-type": "Network Manager Network Function Group Update",
    "source": "aws.networkmanager",
    "account": "111122223333",
    "time": "2024-06-12T12:00:00Z",
