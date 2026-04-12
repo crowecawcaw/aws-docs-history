@@ -1,14 +1,28 @@
-# Integrating router outputs with MediaLive inputs
+# Integrating router I/Os with MediaLive
 
-You set up a router output in AWS Elemental MediaConnect so that it can send content to AWS Elemental MediaLive. With
-this setup, your router output can serve as an upstream input for a MediaLive channel,
-enabling MediaLive to process your video stream.
+You can integrate your AWS Elemental MediaLive channels with your router I/Os in AWS Elemental MediaConnect. This
+enables you to combine the flexibility of the router with the processing and encoding
+capabilities of MediaLive.
 
-This setup is useful when you want to:
+You can connect MediaLive to your router setup in two ways:
 
-- Send routed content to MediaLive for processing
-- Incorporate MediaLive channels into your routing workflow
-- Maintain flexible routing control over MediaLive inputs
+1. **Use a MediaLive input as a destination for a router output**
+
+When you connect a router output to a MediaLive input, you can send routed content to
+MediaLive for processing. This is useful when you want to:
+
+    * Incorporate MediaLive channels into your routing workflow
+    * Dynamically switch which routed content is sent to MediaLive for processing
+
+2. **Use a MediaLive channel output as a source for a router input**
+
+When you connect a MediaLive channel output to a router input, you can route processed
+content for global distribution. This is useful when you want to:
+
+    * Use MediaLive processing features like content normalization, SCTE-35 processing,
+     and clip replay before routing
+    * Distribute MediaLive output across regions using the router's cross-region
+     capabilities
 
 ## Prerequisites
 
@@ -23,133 +37,166 @@ This page describes the process from the MediaConnect perspective, assuming
 coordination with an operator managing MediaLive. One operator can perform both roles if
 they have the necessary permissions.
 
+- Your MediaLive operator has configured the necessary permissions for MediaLive to
+  interact with MediaConnect. They can choose their preferred approach:
+  - **Simple option**
+
+  Use the `MediaLiveAccessRole`, which includes all necessary
+  permissions for MediaLive to work with MediaConnect. This is the simplest option, and we
+  recommend it for most use cases. For instructions, see
+  [Create the
+  trusted entity - simple option](../../../medialive/latest/ug/setup-trusted-entity-simple.md "../../../medialive/latest/ug/setup-trusted-entity-simple.md").
+  - **Complex option**
+
+  Create your own IAM policy and role if you need more specific custom
+  permissions. For instructions, see [Create the
+  trusted entity - complex option](../../../medialive/latest/ug/setup-trusted-entity-complex.md "../../../medialive/latest/ug/setup-trusted-entity-complex.md").
+
 Keep in mind the following important considerations when using this feature:
 
-- You can't update or delete the MediaLive input while it's connected to a router
-  output in MediaConnect
-- The MediaLive input must not be already attached to another router output in
-  MediaConnect
+- The router I/O and the MediaLive pipeline must be in the same Availability Zone
+  and AWS Region.
+- The encryption scheme on the router side must match the encryption scheme on
+  the MediaLive side.
+- You can't delete connected resources. You must disconnect them first.
+- A MediaLive resource (input or channel output) can only be connected to one
+  router I/O at a time.
+- You need the appropriate MediaLive permission on the target resource
+  (`medialive:UpdateInput` for inputs,
+  `medialive:UpdateChannel` for channels).
+
+## Encryption options
+
+You can use the following encryption options for content
+moving between MediaConnect and MediaLive:
+
+Automatic encryption key
+
+MediaConnect and MediaLive handle encryption automatically with no manual key management
+required. This is the simplest option, and we recommend it for most use
+cases.
+
+AWS Secrets Manager encryption key
+
+Use this option if you must manage your own
+encryption keys. To use this option, provide the following:
+
+- **Role ARN** – The ARN of the IAM role that allows the
+  service to access your encryption keys.
+- **Secret ARN** – The ARN of the secret in Secrets Manager
+  that contains your encryption key.
+
+###### Important
+
+The content of the secret must be an AES-256 key in hexadecimal format. The
+key must have 64 digits.
+
+###### Note
+
+If you use AWS Secrets Manager encryption, make sure the encryption configuration
+matches on both the MediaConnect and MediaLive sides. Both services must be authorized
+to access the secret.
 
 ## Procedure
 
+Follow the steps for the direction of integration that you want to set up.
+
 ###### To connect a router output to a MediaLive input
 
-1. **Verify MediaLive permissions**
+1. **Create an input in MediaLive**
 
-Check with your MediaLive operator that they have the necessary permissions for
-MediaLive to interact with MediaConnect. They can choose their preferred
-approach:
+Ask your MediaLive operator to create an input with the following settings:
 
-    * **Simple option (recommended)**
-
-
-    Use the `MediaLiveAccessRole`, which includes all necessary
-     permissions for MediaLive to work with MediaConnect. For instructions, see
-     [Create the trusted
-     entity - simple option.](../../../medialive/latest/ug/setup-trusted-entity-simple.md "../../../medialive/latest/ug/setup-trusted-entity-simple.md")
-    * **Complex option**
-
-
-    Create your own IAM policy and role if you need more specific custom
-     permissions. Alternatively, you can add these specific MediaConnect permissions
-     to an existing custom IAM policy and role. For instructions, see [Create the trusted
-     entity - complex option](../../../medialive/latest/ug/setup-trusted-entity-complex.md "../../../medialive/latest/ug/setup-trusted-entity-complex.md").
-
-2. **Create an input in MediaLive**
-
-Ask your MediaLive operator to create an input with the following
-settings:
-
-    * The input type must be **MediaConnect
-     router**
-    * They must specify an Availability Zone for each pipeline
+    * The input type must be **MediaConnect router**.
+    * They must specify an Availability Zone for each pipeline.
 
 
 
 
-    	+ For a single-pipeline input, specify one Availability Zone
-    	+ For a standard (dual-pipeline) input, specify two Availability Zones
-    * The pipeline ID must be either 0 or 1
+    	+ For a single-pipeline input, specify one Availability Zone.
+    	+ For a standard (dual-pipeline) input, specify two Availability Zones.
+    * The pipeline ID must be either 0 or 1.
+    * Choose the encryption type. For more information, see
+     [Encryption options](#eml-router-encryption "#eml-router-encryption").
 
-After creation, the MediaLive input will appear in the MediaConnect console as
-an an available destination for your router output. 3. **Create a router output in MediaConnect**
+After creation, the MediaLive input appears in the MediaConnect console as an available
+destination for your router output. 2. **Create a router output in MediaConnect**
 
 Create or update a router output with the following settings:
 
     * Choose **MediaLive input** as the output type.
-    * Specify the ARN of the MediaLive input that was created in step 2.
-    * Choose how to encrypt the content as it moves from the router output to the
-     MediaLive input.
+    * Specify the ARN of the MediaLive input from step 1.
+    * Specify the pipeline ID (0 or 1).
+    * Choose the encryption type to match the MediaLive input. For more information,
+     see [Encryption options](#eml-router-encryption "#eml-router-encryption").
 
+3. **Create a channel in MediaLive**
 
+The MediaLive operator must create a MediaLive channel and attach the MediaLive input
+from step 1. With this setup in place, you can send video from the MediaConnect router
+to MediaLive.
 
+###### To connect a MediaLive channel output to a router input
 
-    	+ **Automatic encryption key** - Choose this if you want
-    	 automatic key management (recommended in most cases). With this option,
-    	 MediaConnect will privately provide the key to MediaLive.
-    	+ **AWS Secrets Manager encryption key** - Choose this if your
-    	 security requirements require you to use your own encryption keys. Then, do
-    	 the following:
+1. **Create a MediaConnect Router output group in MediaLive**
 
+Ask your MediaLive operator to configure the channel with a MediaConnect Router output
+group with the following settings:
 
+    * Specify an Availability Zone for each pipeline.
+    * Add one or more outputs to the output group.
+    * Choose the encryption type. For more information, see
+     [Encryption options](#eml-router-encryption "#eml-router-encryption").
 
+2. **Create a router input in MediaConnect**
 
-    		- For **Role ARN**, enter the ARN of the IAM role
-    		 that allows MediaConnect to access your encryption keys.
-    		- For Secret ARN, enter the ARN of the secret in Secrets Manager that
-    		 contains your encryption key.
+Create or update a router input with the following settings:
 
+    * Choose **MediaLive channel** as the input type.
+    * Specify the ARN of the MediaLive channel from step 1.
+    * Specify the pipeline ID (0 or 1).
+    * Specify the output name from the Router output group.
+    * Choose the decryption type to match the MediaLive channel output. For more
+     information, see [Encryption options](#eml-router-encryption "#eml-router-encryption").
 
-    		###### Important
+###### Note
 
+You can create the router input in a disconnected state and connect it to
+the MediaLive channel output later. 3. **Start the channel and router input**
 
-    		 The content of the secret must be an AES-256 key in hexadecimal format.
-    		 The key must have 64 digits.
-
-
-
-    		###### Note
-
-    		When using AWS Secrets Manager encryption, you'll need to coordinate with
-    		 your MediaLive team:
-
-
-
-    			* The MediaLive input must use a matching Key Type and Secret
-    			 ARN
-    			* Both MediaConnect and MediaLive services must have
-    			 authorization to access the customer-managed secret
-
-4. **Create a channel in MediaLive**
-
-As the final step, the MediaLive operator must also create a MediaLive channel
-and attach the MediaLive input that was created in step 2. With this setup in place,
-you can now send video from the MediaConnect router to MediaLive.
+Start both the MediaLive channel and the router input. With this setup in place,
+you can send processed content from MediaLive to the MediaConnect router.
 
 ## Troubleshooting
 
 If you encounter issues with this workflow, use this checklist to identify and resolve
 common problems:
 
-- The MediaLive input that you specified exists in your AWS account
-- You have permissions to view resources in both MediaConnect and MediaLive
-- The MediaLive input is of the correct type (it must be a MediaConnect router input
-  type)
-- The MediaLive input and pipeline are not already attached to another router output
-- The pipeline ID is 0 or 1
+- The MediaLive resource (input or channel) that you specified exists in your
+  AWS account.
+- The MediaLive resource is the correct type (MediaConnect router input type for inputs, or a
+  channel with a MediaConnect Router output group configured).
+- The router I/O and the MediaLive pipeline are in the same Availability Zone and
+  AWS Region.
+- The encryption scheme on the router side matches the encryption scheme on the
+  MediaLive side.
+- You have the appropriate MediaLive permission on the target resource
+  (`medialive:UpdateInput` for inputs,
+  `medialive:UpdateChannel` for channels).
+- The MediaLive resource is not already connected to another router I/O.
 
 ## Additional resources
 
 Connection management is focused on the router. You use the router API operations to
-select a flow output to feed into your router input, or a flow source to receive content
-from your router output.
+create router inputs and outputs that connect to MediaLive channels and inputs.
 
-To connect flows to router I/Os programmatically, see the following pages in the _MediaConnect API Reference_:
+To connect MediaLive resources to router I/Os programmatically, see the following pages in the
+_MediaConnect API Reference_:
 
 - [CreateRouterInput](../api/API_CreateRouterInput.md "../api/API_CreateRouterInput.md")
 - [CreateRouterOutput](../api/API_CreateRouterOutput.md "../api/API_CreateRouterOutput.md")
 - [UpdateRouterInput](../api/API_UpdateRouterInput.md "../api/API_UpdateRouterInput.md")
 - [UpdateRouterOutput](../api/API_UpdateRouterOutput.md "../api/API_UpdateRouterOutput.md")
 
-This includes information about how to use thesee operations and parameters in one of the
-language-specific AWS SDKs.
+This includes information about how to use these operations and parameters in one of
+the language-specific AWS SDKs.

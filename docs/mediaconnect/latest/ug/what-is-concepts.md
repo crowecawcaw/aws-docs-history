@@ -1,38 +1,13 @@
 # MediaConnect concepts and terminology
 
-To help you get started with AWS Elemental MediaConnect, and to understand how it works, refer to the follow key concepts and terminology
+To help you get started with AWS Elemental MediaConnect, and to understand how it works, refer to the following key concepts and terminology.
 
-ARN
+Allowlist CIDR
 
-An [Amazon Resource Name](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md"), which is a unique identifier for any
-AWS resource.
-
-Availability Zone
-
-A specific location where AWS Cloud computing resources are hosted.
-Availability Zones within an AWS Region are connected to each other with
-low latency, high throughput, and highly redundant networking. In addition,
-they are physically separated and isolated from each other. You can choose
-to create MediaConnect flows in different Availability Zones for
-redundancy.
-
-AWS Region
-
-A geographic area where one or more Availability Zones are located. Each
-AWS Region is independent from the other Regions. You can create
-MediaConnect flows in different Regions to distribute content to receivers
-in different locations around the world. For more information about AWS
-Regions and their Availability Zones, see [AWS Global
-Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
-
-CDI flow
-
-A MediaConnect flow that transports high-quality content that has been
-lightly compressed using JPEG XS. The content is demuxed into separate media
-streams for audio, video, or ancillary data. Each CDI flow can use multiple
-media streams for the source and multiple media streams for each output.
-MediaConnect uses AWS Cloud Digital Interface (AWS CDI) network technology to ingest content
-that adheres to the SMPTE 2110, part 22 transport standard.
+A range of Classless Inter-Domain Routing (CIDR) IP addresses permitted
+to contribute content to your MediaConnect flow or router input. In the
+MediaConnect API, this value is specified using the
+`WhitelistCidr` parameter.
 
 Contribution encoder
 
@@ -40,148 +15,115 @@ An encoder that receives a live video feed and encodes the stream into a
 single, high-quality mezzanine stream for transportation or further
 processing into an adaptive bitrate (ABR) stream.
 
-Distribution
+Destination
 
-The result of creating outputs that point to MediaConnect flows in other
-AWS Regions, for the purpose of delivering content to different
-geographical locations.
+A physical or virtual connection point in your downstream environment
+that receives content from MediaConnect. A destination might be an
+affiliate, a cloud encoder, an on-premises decoder, another MediaConnect
+flow, a MediaConnect router input, or a MediaLive input. In flows, you
+define destinations by adding outputs. In the router, you create router
+outputs that connect to your destination endpoints.
 
 Entitlement
 
-A permission that is granted to allow an AWS account to access the
+A permission that allows an AWS account (the subscriber) to access the
 content in a specific MediaConnect flow. The content originator grants an
-entitlement to a specific AWS account (the subscriber). Once an
-entitlement is granted, the subscriber can create a flow using the
-originator's flow as the source. You can only grant entitlements to
-transport stream flows.
+entitlement to the subscriber account, which can then create a flow using
+the originator's content as the source.
 
 Flow
 
 A connection between one or more video sources and one or more outputs.
-For each flow, you specify the transport protocol to use, encryption
-information, and details about the source. MediaConnect returns an ingest
-endpoint where you can send your live video as a single unicast stream. The
-service replicates and distributes the video to every output that you
-specify, whether inside or outside the AWS Cloud. There are two types of
-flows: transport stream and JPEG XS.
+For each flow, you specify the protocol to use, encryption information,
+and details about the source. The service replicates and distributes the
+video to every output that you specify, whether inside or outside the
+AWS Cloud.
+
+Input
+
+A connection point in MediaConnect that receives content from a source.
+In flows, the flow's source configuration acts as the input. In the
+router, a router input is a dedicated resource that receives content and
+can be routed to multiple outputs simultaneously.
 
 Media stream
 
-A single track or stream of media that contains video, audio, or ancillary
-data. After you add a media stream to a flow, you can associate it with
-sources and outputs on that flow, as long as they use the CDI protocol or
-the ST 2110 JPEG XS protocol. Each source or output can consist of one or
-many media streams.
+A single track of video, audio, or ancillary data. Media streams are
+used with CDI and ST 2110 JPEG XS flows, where content is demuxed into
+separate tracks. Each source or output can consist of one or many media
+streams.
 
 Mezzanine stream
 
 A lightly compressed video stream that takes up less space than a full
-resolution uncompressed stream. The quality of a mezzanine stream is high
-enough to use as a source for creating final encodes that are delivered to
-consumer devices.
+resolution uncompressed stream. The quality is high enough to use as a
+source for creating final encodes delivered to consumer devices.
+
+NDI (Network Device Interface)
+
+A standard developed by NewTek (now Vizrt) that enables video-compatible
+products to communicate, deliver, and receive high-definition video over a
+standard Ethernet network. NDI allows multiple video systems to share
+video across a network in real time with low latency. MediaConnect
+supports NDI as both a source and output type for flows, enabling
+integration with NDI-based production environments.
+
+Network interface
+
+The network configuration that determines how MediaConnect resources
+connect to other resources. In flows, a VPC interface provides private
+connectivity between a flow and your Amazon VPC. Flows use public networking
+by default. In the router, a network interface can be either public (for
+connecting over the internet) or VPC (for connecting to resources within
+your VPC), and is associated with one or more router I/Os.
 
 Offering
 
-A discount that MediaConnect offers in exchange for a commitment to use a
-certain amount of outbound bandwidth each month. When you purchase an
+A discount that MediaConnect offers in exchange for a commitment to use
+a certain amount of outbound bandwidth each month. When you purchase an
 offering, it becomes a reservation.
-
-Originator account
-
-An AWS account that was used to create a flow with at least one
-entitlement.
 
 Output
 
-The destination where you want MediaConnect to send ingested video. An
-output can have the same protocol or a different protocol from the
-source.
-
-Policy
-
-An [IAM policy](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md"), which is used to manage access in AWS.
+A connection point in MediaConnect that sends content to a destination.
+In flows, an output defines where and how the service delivers video. In
+the router, a router output is a dedicated resource that sends content
+and can receive from only one input at a time.
 
 Protocol
 
-A set of rules used for file transmission. MediaConnect provides protocol
-options (such as Zixi, RTP, and RTP-FEC) that implement a quality of service
-(QoS) layer to enable the service to work with mezzanine-quality live
-video.
-
-Receiver
-
-The recipient of a stream from MediaConnect. A receiver is any entity,
-inside or outside of the AWS Cloud, that can receive RTP or Zixi streams.
-This might be an affiliate, a cloud encoder, or another MediaConnect
-flow.
+A set of rules used for video and audio transmission. MediaConnect
+provides protocol options (such as SRT, RTP, RTP-FEC, RIST, Zixi, and
+NDI) that implement a quality of service (QoS) layer for
+mezzanine-quality live video. Supported protocols differ between flows
+and the router.
 
 Reservation
 
 A commitment to use a specific amount of outbound bandwidth each month
-over the course of a specified duration. In return, you pay a discounted
-hourly rate for that bandwidth. When you purchase an offering, it becomes a
-reservation.
+over a specified duration. In return, you pay a discounted hourly rate.
+Reservations are created by purchasing an offering.
 
-Replication
+Route
 
-The result of creating a flow with more than one output. The source is
-replicated to produce multiple outputs. Replication is useful when you want
-to distribute your video streams to multiple workflows within your own
-account or share your content with other AWS accounts.
+The complete end-to-end path from an input to an output within the
+router. Routes are defined by input-to-output assignments.
 
-Resource
+Router
 
-An entity in AWS that you can work with. Each AWS resource is assigned
-an Amazon Resource Name (ARN) that acts as a unique identifier. In
-MediaConnect, these are the resources and their ARN formats:
-
-- Entitlement:
-  `aws:mediaconnect:`region`:`account-id`:entitlement:`resourceID`:`resourceName``
-- Flow:
-  `aws:mediaconnect:`region`:`account-id`:flow:`resourceID`:`resourceName``
-- Output:
-  `aws:mediaconnect:`region`:`account-id`:output:`resourceID`:`resourceName``
-- Source:
-  `aws:mediaconnect:`region`:`account-id`:source:`resourceID`:`resourceName``
-
-Sharing
-
-Allowing another AWS account to access the content of your flow. To
-share your content, you (the originator) grant an entitlement to another
-AWS account (the subscriber).
+A MediaConnect capability that provides dynamic, software-defined
+signal routing for live video in the cloud. A router can accept multiple
+inputs simultaneously and route any input to any output on demand.
+Routers are designed for use cases such as master control, live cloud
+production, playout, and contribution workflows.
 
 Source
 
-External video content that includes configuration information (encryption
-and source type) and a network address. Each flow has at least one source. A
-standard source comes from a source other than another MediaConnect flow,
-such as an on-premises encoder. An entitled source comes from an
-MediaConnect flow that is owned by another AWS account and has granted an
-entitlement to your account.
-
-Subscriber account
-
-An AWS account that been granted access to content from an
-AWS Elemental MediaConnect flow that is owned by another AWS account (the
-originator account). This permission is granted when the originator sets up
-an entitlement for the subscriber. The entitlement permits the subscriber to
-create a flow that uses the originator's content as the source.
-
-Transport stream flow
-
-A MediaConnect flow that transports compressed content. Audio, video, and
-ancillary data must be combined, or _muxed_, into a single stream. The quality is high enough to use
-as a source for creating final encodes that are delivered to consumer
-devices. You can add outputs to indicate where you want the content to be
-sent and how you want it transported. You can also grant entitlements to
-allow another AWS account to access the content.
-
-VPC interface
-
-A connection between a flow and a virtual private cloud (VPC) that was
-created using the Amazon Virtual Private Cloud (Amazon VPC) service.
-
-Whitelisting
-
-Allowing a block of Classless Inter-Domain Routing (CIDR) IP addresses to
-serve as a source to your MediaConnect flow.
+A physical or virtual connection point in your upstream environment that
+transmits content into MediaConnect. A source might be an on-premises
+contribution encoder, an NDI device, another MediaConnect flow, or a
+MediaLive channel output. In flows, you configure sources when you create or
+update a flow. A standard source comes from outside of MediaConnect,
+while an entitled source comes from a flow owned by another AWS account
+that has granted an entitlement to your account. In the router, you
+connect sources to router inputs.

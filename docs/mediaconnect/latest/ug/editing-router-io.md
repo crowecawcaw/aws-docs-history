@@ -13,7 +13,10 @@ configuration parameters at any time.
 - If you want to connect your router I/O to a MediaConnect flow, your flow must be
   set up for router integration. For more information, see [Integrating router I/Os with MediaConnect flows](integrate-flow-with-router.md "integrate-flow-with-router.md").
 - If you want to connect your router output to a MediaLive input, your MediaLive
-  input must be set up for router integration. For more information, see [Integrating router outputs with MediaLive inputs](integrate-eml-with-router.md "integrate-eml-with-router.md").
+  input must be set up for router integration. For more information, see [Integrating router I/Os with MediaLive](integrate-eml-with-router.md "integrate-eml-with-router.md").
+- If you want to connect your router input to, or disconnect it from, a MediaLive
+  channel output, your MediaLive channel must have a MediaConnect Router output group configured.
+  For more information, see [Integrating router I/Os with MediaLive](integrate-eml-with-router.md "integrate-eml-with-router.md").
 
 ## Procedure
 

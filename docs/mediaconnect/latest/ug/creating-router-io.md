@@ -49,7 +49,10 @@ global, which allows cross-Region routing (additional data transfer costs might 
 - If you want to connect your router I/O to a MediaConnect flow, your flow must be
   set up for router integration. For more information, see [Integrating router I/Os with MediaConnect flows](integrate-flow-with-router.md "integrate-flow-with-router.md").
 - If you want to connect your router output to a MediaLive input, your MediaLive
-  input must be set up for router integration. For more information, see [Integrating router outputs with MediaLive inputs](integrate-eml-with-router.md "integrate-eml-with-router.md").
+  input must be set up for router integration. For more information, see [Integrating router I/Os with MediaLive](integrate-eml-with-router.md "integrate-eml-with-router.md").
+- If you want to connect your router input to a MediaLive channel output, your
+  MediaLive channel must have a MediaConnect Router output group configured. For more
+  information, see [Integrating router I/Os with MediaLive](integrate-eml-with-router.md "integrate-eml-with-router.md").
 
 ## Procedure
 
@@ -237,7 +240,33 @@ Follow these procedures to create a router input or a router output.
         		 The content of the secret must be an AES-256 key in hexadecimal format.
         		 The key must have 64 digits.
 
-    3.  **Failover** - For failover configuration, follow these steps:
+    3. **MediaLive channel** - To receive content from a
+       MediaLive channel output, follow these steps.
+
+    ###### Note
+
+    This option requires a MediaLive channel with a MediaConnect Router
+    output group. For more information, see [Integrating router I/Os with MediaLive](integrate-eml-with-router.md "integrate-eml-with-router.md").
+
+    If you want to create the router input and connect the channel at a
+    later time, select the **Do not connect to a MediaLive
+    channel** option and then select the Availability Zone where the
+    router input will be placed in. Both the router input and the MediaLive
+    channel pipeline must be in the same Availability Zone.
+
+        1. Under **MediaLive channel ARN**, specify the channel
+         that you want to connect to.
+        2. Under **Pipeline**, specify the pipeline ID of the
+         channel output.
+        3. Under **Output name**, specify the name of the
+         channel output within the MediaConnect Router output group.
+        4. Under **Source transit decryption key type**, choose
+         how to decrypt content as it moves from the MediaLive channel to the
+         router input. This must match the encryption type configured on the
+         MediaLive channel output. For details about the available options, see
+         [Encryption options](integrate-eml-with-router.md#eml-router-encryption "integrate-eml-with-router.md#eml-router-encryption").
+
+    4.  **Failover** - For failover configuration, follow these steps:
         1. Under **Failover router input configuration**, select the network interface
            and the protocol. For public network interfaces, select the availability
            zone where the router input will be placed in. For VPC network interfaces, the
@@ -370,7 +399,7 @@ Follow these procedures to create a router input or a router output.
              source if the primary source is not available, and will switch back to the primary
              source as soon as data returns.
 
-    4.  **Merge** - For merge configuration, follow these steps:
+    5.  **Merge** - For merge configuration, follow these steps:
         1. Under **Merge router input configuration**, select the network interface and
            the protocol, and define a recovery window in milliseconds.
 
@@ -627,7 +656,7 @@ output and destination.
     ###### Note
 
     This option requires a MediaLive input that's been set up for router
-    integration. For more information, see [Integrating router outputs with MediaLive inputs](integrate-eml-with-router.md "integrate-eml-with-router.md").
+    integration. For more information, see [Integrating router I/Os with MediaLive](integrate-eml-with-router.md "integrate-eml-with-router.md").
 
     If you want to create the router output and connect the MediaLive input at a later time,
     select the **Do not connect to a MediaLive input** option

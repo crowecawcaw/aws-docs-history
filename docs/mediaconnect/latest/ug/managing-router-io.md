@@ -27,5 +27,5 @@ This chapter shows you everything you need to know about working with router I/O
 - [Deleting a router I/O in MediaConnect](deleting-router-io.md "deleting-router-io.md")
 - [MediaConnect router I/O states](io-state-changes.md "io-state-changes.md")
 - [Integrating router I/Os with MediaConnect flows](integrate-flow-with-router.md "integrate-flow-with-router.md")
-- [Integrating router outputs with MediaLive inputs](integrate-eml-with-router.md "integrate-eml-with-router.md")
+- [Integrating router I/Os with MediaLive](integrate-eml-with-router.md "integrate-eml-with-router.md")
 - [Source failover and merge for router inputs in MediaConnect](router-input-failover.md "router-input-failover.md")

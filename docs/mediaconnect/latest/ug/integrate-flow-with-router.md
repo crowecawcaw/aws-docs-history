@@ -66,9 +66,9 @@ Before you start, review these important considerations:
 
 ###### To connect a router output to a flow source
 
-1. [Create](outputs-add.md "outputs-add.md") or [update](flows-update.md "flows-update.md") a flow, making sure that the flow soure has **Router
+1. [Create](outputs-add.md "outputs-add.md") or [update](flows-update.md "flows-update.md") a flow, making sure that the flow source has **Router
    integration** enabled.
-2. [Create](creating-router-io.md "creating-router-io.md") or [update](editing-router-io.md "editing-router-io.md") a router input with the following
+2. [Create](creating-router-io.md "creating-router-io.md") or [update](editing-router-io.md "editing-router-io.md") a router output with the following
    settings:
    - Choose **Flow** as the configuration type
    - Specify the desired flow source from step 1
@@ -90,5 +90,5 @@ To connect flows to router I/Os programmatically, see the following pages in the
 - [UpdateRouterInput](../api/API_UpdateRouterInput.md "../api/API_UpdateRouterInput.md")
 - [UpdateRouterOutput](../api/API_UpdateRouterOutput.md "../api/API_UpdateRouterOutput.md")
 
-This includes information about how to use thesee operations and parameters in one of the
+This includes information about how to use these operations and parameters in one of the
 language-specific AWS SDKs.

@@ -57,6 +57,10 @@ types of router input:
 
 
     A router input that can receive content from a MediaConnect flow.
+    + **MediaLive channel input**
+
+
+    A router input that can receive content from a MediaLive channel output.
 
 **Destination and output components**
 
@@ -180,6 +184,7 @@ can:
 - Freely mix and match endpoint types as needed
 - Connect existing MediaConnect flows to your router inputs and outputs
 - Use MediaLive inputs as a destination for your router outputs
+- Use MediaLive channel outputs as a source for your router inputs
 - Use failover inputs with manual or automatic switching between two sources
 - Use merge inputs that can combine content from two sources with configurable merge
   window timing
@@ -215,7 +220,7 @@ As you plan your router implementation, keep these points in mind.
 | Router input capacity              | You can create up to 20 router inputs in each AWS Region.<br>You can connect one input to up to 10 outputs simultaneously.<br>Each input supports up to 50 Mbps.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | Router output capacity             | You can create up to 20 router outputs in each AWS Region.<br>Each output supports up to 50 Mbps.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Source failover and merge          | The MediaConnect router supports both automatic failover between redundant sources and<br>merged content from two source endpoints.<br>Supported protocols:<br>• Failover: RTP, RIST, SRT-listener, SRT-caller<br>• Merge: RTP, RIST<br>Both sources must:<br>• Use the same protocol configuration<br>• Use the same network configuration (VPC or public)<br>• Use different port numbers<br>Merge inputs include configurable merge window timing.<br>Converting between failover and merge types requires recreating the<br>input.                                                                                                                                                                       |
-| MediaLive integration              | The MediaConnect router supports integration with MediaLive inputs. For more<br>details, see [Integrating router outputs with MediaLive inputs](integrate-eml-with-router.md "integrate-eml-with-router.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| MediaLive integration              | The MediaConnect router supports routing to or from MediaLive. You can send<br>content from router outputs to MediaLive inputs, or receive content from MediaLive channel<br>outputs into router inputs. For more details, see [Integrating router I/Os with MediaLive](integrate-eml-with-router.md "integrate-eml-with-router.md").                                                                                                                                                                                                                                                                                                                                                                        |
 | Flow integration                   | The MediaConnect router supports routing to or from MediaConnect flows.<br>For more details on flow integration considerations, see [Integrating router I/Os with MediaConnect flows](integrate-flow-with-router.md "integrate-flow-with-router.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Maintenance schedule updates       | Unlike flows, router resources must be in standby mode before you can make any<br>maintenance schedule changes. Once a router I/O is started, the schedule remains<br>fixed until the next restart.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
@@ -240,7 +245,7 @@ guide.
   - [Deleting a router I/O in MediaConnect](deleting-router-io.md "deleting-router-io.md")
   - [MediaConnect router I/O states](io-state-changes.md "io-state-changes.md")
   - [Integrating router I/Os with MediaConnect flows](integrate-flow-with-router.md "integrate-flow-with-router.md")
-  - [Integrating router outputs with MediaLive inputs](integrate-eml-with-router.md "integrate-eml-with-router.md")
+  - [Integrating router I/Os with MediaLive](integrate-eml-with-router.md "integrate-eml-with-router.md")
   - [Source failover and merge for router inputs in MediaConnect](router-input-failover.md "router-input-failover.md")
 
 - [Managing routes in MediaConnect](assigning-route.md "assigning-route.md")
