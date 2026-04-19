@@ -153,7 +153,7 @@ Requirements condition expressions:
 - `a` **>=** `b` true if `a` is greater than or equal to `b`
 - `a` **<** `b` true if `a` is less than `b`
 - `a` **<=** `b` true if `a` is less than or equal to `b`
-- `a` **=** `b` true if `a` contains the string `b`
+- `a` **:=** `b` true if `a` contains the string `b`
 
 Requirements boolean operators:
 
