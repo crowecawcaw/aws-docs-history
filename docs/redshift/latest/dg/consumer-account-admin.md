@@ -21,7 +21,9 @@ namespaces in your account. For more information, see [Associating a datashare f
 After the AWS account or specific namespaces are associated, the datashares
 become available for consumption. You can also change datashare association at any
 time. When changing association from individual namespaces to an AWS account,
-Amazon Redshift overwrites the namespaces with the AWS account information. When
-changing association from an AWS account to specific namespaces, Amazon Redshift
-overwrites the AWS account information with the namespace information. All
-namespaces in the account get access to the data.
+Amazon Redshift overwrites the namespaces with the AWS account information. All namespaces
+in the account get access to the data, including any namespaces created after the
+association. When changing association from an AWS account to specific namespaces,
+Amazon Redshift overwrites the AWS account information with the namespace information.
+Namespaces which had access previously will lose access if not specified in the
+new association.

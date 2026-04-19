@@ -324,4 +324,4 @@ Following is the result of the query.
 
 Following is an organization chart for John's department.
 
-![A diagram of an organization chart for John's department.](/images/redshift/latest/dg/images/org-chart.png)
+![A diagram of an organization chart for John's department.](images/org-chart.png)
