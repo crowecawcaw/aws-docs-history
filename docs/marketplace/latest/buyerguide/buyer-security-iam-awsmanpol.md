@@ -109,8 +109,18 @@ You can attach the `AWSMarketplaceProcurementSystemAdminFullAccess` policy
 to your IAM identities.
 
 This policy grants admin permissions that allow managing all aspects of an AWS Marketplace
-eProcurement integration, including listing the accounts in your organization. For more
-information about eProcurement integrations, see [Integrating AWS Marketplace with procurement systems](procurement-system-integration.md "procurement-system-integration.md") .
+eProcurement integration, including listing the accounts in your organization and
+managing procurement portal preferences. For more information about eProcurement
+integrations, see [Integrating AWS Marketplace with procurement systems](procurement-system-integration.md "procurement-system-integration.md") .
+
+The permissions are organized into the following groups:
+
+- `aws-marketplace` – Allows managing AWS Marketplace procurement
+  system configuration.
+- `organizations` – Allows listing and describing accounts
+  and organizational structure in AWS Organizations.
+- `invoicing` – Allows creating, retrieving, and listing
+  procurement portal preferences.
 
 To view the permissions for this policy, see [AWSMarketplaceProcurementSystemAdminFullAccess](../../../aws-managed-policy/latest/reference/AWSMarketplaceProcurementSystemAdminFullAccess.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceProcurementSystemAdminFullAccess.md") in the
 _AWS Managed Policy Reference_.
@@ -260,6 +270,7 @@ equal to a seller for the purposes of this guide.
 
 | Change                                                                                                                                                                                                                                                                                                                        | Description                                                                                                                                                                                                                         | Date              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [AWSMarketplaceProcurementSystemAdminFullAccess](#security-iam-awsmanpol-awsmarketplaceprocurementsystemadminfullaccess "#security-iam-awsmanpol-awsmarketplaceprocurementsystemadminfullaccess") — updates to<br>existing policy                                                                                             | AWS Marketplace added permissions for creating, retrieving, and listing procurement portal preferences.                                                                                                                             | April 7, 2026     |
 | [AWSMarketplaceRead-only](#security-iam-awsmanpol-awsmarketplaceread-only "#security-iam-awsmanpol-awsmarketplaceread-only") — updates to<br>existing policy                                                                                                                                                                  | AWS Marketplace added permissions for listing and viewing agreement cancellation requests.                                                                                                                                          | March 31, 2026    |
 | [AWSMarketplaceManageSubscriptions](#security-iam-awsmanpol-awsmarketplacemanagesubscriptions "#security-iam-awsmanpol-awsmarketplacemanagesubscriptions") — updates to<br>existing policy                                                                                                                                    | AWS Marketplace added permissions for managing agreement cancellation requests, including listing, retrieving, accepting, rejecting cancellation requests, and directly canceling agreements.                                       | March 31, 2026    |
 | [AWSMarketplaceManageSubscriptions](#security-iam-awsmanpol-awsmarketplacemanagesubscriptions "#security-iam-awsmanpol-awsmarketplacemanagesubscriptions") — updates to<br>existing policy                                                                                                                                    | AWS Marketplace added permissions for buyers to access Express Private Offers.                                                                                                                                                      | November 30, 2025 |
