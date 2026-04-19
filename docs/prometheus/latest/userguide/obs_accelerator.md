@@ -2,14 +2,22 @@
 
 AWS provides observability tools, including monitoring, logging, alerting, and
 dashboards, for your Amazon Elastic Kubernetes Service (Amazon EKS) projects. This includes Amazon Managed Service for Prometheus, [Amazon Managed Grafana](../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md "../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md"), [AWS Distro for
-OpenTelemetry](https://aws-otel.github.io/ "https://aws-otel.github.io/"), and other tools. To help you use these tools together, AWS
-provides Terraform modules that configure observability with these services, called the
-[AWS Observability Accelerator](https://github.com/aws-observability/terraform-aws-observability-accelerator "https://github.com/aws-observability/terraform-aws-observability-accelerator").
+OpenTelemetry](https://aws-otel.github.io/ "https://aws-otel.github.io/"), and other tools. To help you use these tools together, AWS provides Terraform modules
+that configure observability with these services, called the [AWS Observability Accelerator](https://github.com/aws-observability/terraform-aws-observability-accelerator "https://github.com/aws-observability/terraform-aws-observability-accelerator").
 
-AWS Observability Accelerator provides examples for monitoring infrastructure, [NGINX](https://nginx.org/en/ "https://nginx.org/en/") deployements, and other scenarios. This
-section gives an example of monitoring infrastructure within your Amazon EKS cluster.
+AWS Observability Accelerator provides two collector profiles for Amazon Managed Service for Prometheus:
 
-The Terraform templates and detailed instructions can be found on the [AWS Observability Accelerator for Terraform GitHub page](https://github.com/aws-observability/terraform-aws-observability-accelerator "https://github.com/aws-observability/terraform-aws-observability-accelerator"). You can also read the [blog post announcing AWS Observability Accelerator](https://aws.amazon.com/blogs/mt/announcing-aws-observability-accelerator-to-configure-comprehensive-observability-for-amazon-eks/ "https://aws.amazon.com/blogs/mt/announcing-aws-observability-accelerator-to-configure-comprehensive-observability-for-amazon-eks/").
+- **Managed metrics (agentless)** – Uses the
+  [Amazon Managed Service for Prometheus
+  collector](AMP-collector.md "AMP-collector.md"), a fully managed, agentless scraper that runs outside your cluster.
+  No collector pods to manage. Metrics only.
+- **Self-managed** – Deploys an
+  OpenTelemetry Collector via Helm in your cluster. Supports metrics, traces
+  (AWS X-Ray), and logs (Amazon CloudWatch).
+  This section walks through both options, starting with the recommended agentless
+  approach.
+
+The Terraform templates and detailed instructions can be found on the [AWS Observability Accelerator for Terraform GitHub page](https://github.com/aws-observability/terraform-aws-observability-accelerator "https://github.com/aws-observability/terraform-aws-observability-accelerator").
 
 ## Prerequisites
 
@@ -20,22 +28,20 @@ prerequisites:
   – used to call AWS functionality from the command line.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/ "https://kubernetes.io/docs/tasks/tools/") –
   used to control your EKS cluster from the command line.
-- [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli "https://learn.hashicorp.com/tutorials/terraform/install-cli") – used to automate creation of the resources for
-  this solution. You must have the AWS provider setup with an IAM role that
-  has access to create and manage Amazon Managed Service for Prometheus, Amazon Managed Grafana, and IAM within your
-  AWS account. For more information about how to configure the AWS provider
-  for Terraform, see [AWS provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs "https://registry.terraform.io/providers/hashicorp/aws/latest/docs") in the _Terraform
+- [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli "https://learn.hashicorp.com/tutorials/terraform/install-cli") (>= 1.5.0) – used to automate creation of the
+  resources for this solution. You must have the AWS provider set up with an
+  IAM role that has access to create and manage Amazon Managed Service for Prometheus, Amazon Managed Grafana, and IAM
+  within your AWS account. For more information about how to configure the AWS
+  provider for Terraform, see [AWS provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs "https://registry.terraform.io/providers/hashicorp/aws/latest/docs") in the _Terraform
   documentation_.
 
-## Using the infrastructure monitoring example
+## Using the managed metrics (agentless) example
 
-AWS Observability Accelerator provides example templates that use the included Terraform modules to set
-up and configure observability for your Amazon EKS cluster. This example demonstrates using
-AWS Observability Accelerator to set up infrastructure monitoring. For more details about using this
-template and additional capabilities that it includes, see [Existing Cluster with the AWS Observability Accelerator base and Infrastructure monitoring](https://github.com/aws-observability/terraform-aws-observability-accelerator/tree/main/examples/existing-cluster-with-base-and-infra "https://github.com/aws-observability/terraform-aws-observability-accelerator/tree/main/examples/existing-cluster-with-base-and-infra")
-page on GitHub.
+This example uses the Amazon Managed Service for Prometheus collector to scrape Prometheus metrics from your
+Amazon EKS cluster without deploying any collector pods. The collector requires at
+least two subnets in two distinct Availability Zones. For more details, see the [eks-amp-managed](https://github.com/aws-observability/terraform-aws-observability-accelerator/tree/main/examples/eks-amp-managed "https://github.com/aws-observability/terraform-aws-observability-accelerator/tree/main/examples/eks-amp-managed") example on GitHub.
 
-###### To use the infrastructure monitoring Terraform module
+###### To use the agentless infrastructure monitoring Terraform module
 
 1. From the folder you want to create your project in, clone the repo using the
    following command.
@@ -47,13 +53,15 @@ git clone https://github.com/aws-observability/terraform-aws-observability-accel
 2. Initialize Terraform with the following commands.
 
 ```
-cd examples/existing-cluster-with-base-and-infra
+cd examples/eks-amp-managed
 
 terraform init
 ```
 
 3. Create a new `terraform.tfvars` file, as in the following example.
-   Use the AWS Region and cluster ID for your Amazon EKS cluster.
+   Use the AWS Region, cluster ID, and VPC networking details for your Amazon EKS
+   cluster. The collector requires at least two subnets in two distinct
+   Availability Zones.
 
 ```
 # (mandatory) AWS Region where your resources will be located
@@ -61,6 +69,12 @@ aws_region = "`eu-west-1`"
 
 # (mandatory) EKS Cluster name
 eks_cluster_id = "`my-eks-cluster`"
+
+# (mandatory) Subnets for the managed scraper (>= 2 AZs)
+scraper_subnet_ids = ["`subnet-aaa`", "`subnet-bbb`"]
+
+# (mandatory) Security group allowing scraper access to the EKS API
+scraper_security_group_ids = ["`sg-xxx`"]
 ```
 
 4. Create an Amazon Managed Grafana workspace, if you don't already have one that you want to
@@ -97,17 +111,65 @@ This will create resources in your AWS account, including the following:
 
 - A new Amazon Managed Service for Prometheus workspace (unless you opted to use an existing
   workspace).
-- Alert manager configuration, alerts, and rules in your Prometheus
-  workspace.
-- New Amazon Managed Grafana data source and dashboards in your current workspace. The data
-  source will be called `aws-observability-accelerator`. The dashboards
-  will be listed under **Observability Accelerator
-  Dashboards**.
-- An [AWS Distro for
-  OpenTelemetry](https://aws.amazon.com/otel/ "https://aws.amazon.com/otel/") operator set up in the provided Amazon EKS cluster, to send
-  metrics to your Amazon Managed Service for Prometheus workspace.
+- An Amazon Managed Service for Prometheus collector (agentless scraper) configured to scrape Prometheus
+  metrics from your Amazon EKS cluster.
+- Prometheus recording and alerting rules in your Amazon Managed Service for Prometheus workspace.
+- kube-state-metrics and node-exporter deployed in your Amazon EKS cluster for
+  infrastructure metrics.
+- New Amazon Managed Grafana data source and dashboards in your current workspace. The
+  dashboards will be listed under **EKS Monitoring**.
+
+## Alternative: Self-managed OpenTelemetry Collector
+
+If you need traces, logs, or full control over the collection pipeline, use the
+self-managed profile. This deploys an OpenTelemetry Collector via Helm in your Amazon EKS
+cluster, configured to scrape Prometheus metrics and remote-write to Amazon Managed Service for Prometheus. It also
+supports traces (AWS X-Ray) and logs (Amazon CloudWatch). For more details, see the [eks-amp-otel](https://github.com/aws-observability/terraform-aws-observability-accelerator/tree/main/examples/eks-amp-otel "https://github.com/aws-observability/terraform-aws-observability-accelerator/tree/main/examples/eks-amp-otel") example on GitHub.
+
+###### To use the self-managed Terraform module
+
+1. Clone the repo and initialize Terraform.
+
+```
+git clone https://github.com/aws-observability/terraform-aws-observability-accelerator.git
+cd examples/eks-amp-otel
+terraform init
+```
+
+2. Create a new `terraform.tfvars` file, as in the following
+   example.
+
+```
+# (mandatory) AWS Region where your resources will be located
+aws_region = "`eu-west-1`"
+
+# (mandatory) EKS Cluster name
+eks_cluster_id = "`my-eks-cluster`"
+```
+
+3. Set up your Amazon Managed Grafana workspace and API key using the same steps as the
+   managed metrics example (steps 4–6 above).
+4. Deploy the solution with the following command.
+
+```
+terraform apply -var-file=terraform.tfvars
+```
+
+This will create the following resources in your AWS account (unlike the
+agentless approach, the collector runs inside your cluster):
+
+- An Amazon Managed Service for Prometheus workspace (if not provided).
+- An Amazon Managed Grafana workspace with data source and dashboards.
+- An OpenTelemetry Collector deployed via Helm in your Amazon EKS cluster, configured
+  to scrape Prometheus metrics and remote-write to Amazon Managed Service for Prometheus.
+- An IAM role for service accounts (IRSA) for the OpenTelemetry Collector.
+- Traces pipeline to AWS X-Ray (enabled by default).
+- Logs pipeline to Amazon CloudWatch (enabled by default).
+
+## Viewing dashboards
 
 To view your new dashboards, open the specific dashboard in your Amazon Managed Grafana workspace.
-For more information about using Amazon Managed Grafana, see [Working in
+The infrastructure dashboards are provisioned automatically by Terraform. For more
+information about using Amazon Managed Grafana, see [Working in
 your Grafana workspace](../../../grafana/latest/userguide/AMG-working-with-Grafana-workspace.md "../../../grafana/latest/userguide/AMG-working-with-Grafana-workspace.md"), in the _Amazon Managed Grafana User
 Guide_.
