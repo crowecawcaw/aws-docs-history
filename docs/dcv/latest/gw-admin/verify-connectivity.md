@@ -19,3 +19,7 @@ Use the following command:
 ```
 `$` nc -uvz dcv.gateway.domain 8443
 ```
+
+###### Note
+
+**Note:** The `nc -uvz` command can only confirm UDP connectivity failure when an explicit ICMP error (e.g., "Connection refused") is returned. If packets are silently dropped (e.g., by security groups or firewalls), the command may still report success. A successful result from this command does not guarantee that UDP traffic can reach the DCV Connection Gateway.

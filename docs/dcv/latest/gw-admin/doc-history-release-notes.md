@@ -15,6 +15,7 @@ frequently to address the feedback that you send us.
 
 ###### Topics
 
+- [2025.0-886— April 1, 2026](#gw-2025-0-886 "#gw-2025-0-886")
 - [2025.0-870— October 22, 2025](#gw-2025-0-870 "#gw-2025-0-870")
 - [2024.0-848— May 16, 2025](#gw-2024-0-848 "#gw-2024-0-848")
 - [2024.0-777— October 31, 2024](#gw-2024-0-777 "#gw-2024-0-777")
@@ -29,6 +30,12 @@ frequently to address the feedback that you send us.
 - [2022.0-322— March 23, 2022](#gw-2022-0-322 "#gw-2022-0-322")
 - [2022.0-310— February 23, 2022](#gw-2022-0-310 "#gw-2022-0-310")
 - [2021.3-251— December 20, 2021](#gw-2021-3-251 "#gw-2021-3-251")
+
+### 2025.0-886— April 1, 2026
+
+| Build numbers | New features                                                                                                  | Changes and bug fixes                         |
+| ------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| 886           | Add domain name support for StatsD metrics endpoints (IPv4 only supported, IPv6 addresses will log a warning) | • Bug fixes related to connection negotiation |
 
 ### 2025.0-870— October 22, 2025
 
