@@ -99,6 +99,20 @@ You can also install within the Cursor application:
 The plugin should appear under **Plugins** >
 **Installed**.
 
+## For Codex users
+
+Our plugin hasn't been added to the official Codex marketplace yet, so you'll need
+to install it from the
+[agent-plugins](https://github.com/awslabs/agent-plugins "https://github.com/awslabs/agent-plugins") marketplace:
+
+1. Clone the [agent-plugins](https://github.com/awslabs/agent-plugins "https://github.com/awslabs/agent-plugins")
+   repository locally.
+2. Open the repository in Codex so it can discover
+   `.agents/plugins/marketplace.json`.
+3. Open the plugins with `/plugins`.
+4. Navigate to **Amazon Location Service**.
+5. Press Enter and choose **Install plugin**.
+
 ## For other AI coding agents
 
 For AI coding agents that support the [Agent Skills](https://agentskills.io "https://agentskills.io")

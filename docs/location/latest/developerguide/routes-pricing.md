@@ -9,17 +9,22 @@ has three pricing buckets: Core, Advanced, and Premium.
 
 **Core**
 
-This price bucket supports the travel modes Car, Truck, and
-Pedestrian, without toll cost calculation.
+This pricing bucket supports the travel modes `Car`, `Truck`, and
+`Pedestrian`, without toll cost calculation.
 
 **Advanced**
 
-This price bucket supports alternative travel modes such as Scooter,
+This pricing bucket supports alternative travel modes such as `Scooter`,
 without toll cost calculation.
+
+###### Note
+
+For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`,
+the `Scooter` travel mode is part of the Core pricing bucket.
 
 **Premium**
 
-This price bucket supports toll cost calculation. You will be charged
+This pricing bucket supports toll cost calculation. You will be charged
 at Premium price when you request toll cost calculation by setting the
 request parameters `LegAdditionalFeatures["Tolls"]` or
 `SpanAdditionalFeatures["TollSystems"]`, regardless of
@@ -44,13 +49,17 @@ accordingly.
 
 **Core**
 
-This price bucket supports travel modes Car, Truck, and
-Pedestrian.
+This pricing bucket supports the travel modes `Car`, `Truck`, and
+`Pedestrian`.
 
 **Advanced**
 
-This price bucket supports alternative travel modes, such as
-Scooter.
+This pricing bucket supports alternative travel modes such as `Scooter`.
+
+###### Note
+
+For [GrabMaps](GrabMaps.md "GrabMaps.md") customers in `ap-southeast-1` and `ap-southeast-5`,
+the `Scooter` travel mode is part of the Core pricing bucket.
 
 ## Optimize Waypoint
 
