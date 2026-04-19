@@ -2,7 +2,7 @@
 
 ###### Note
 
-X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see
+X-Ray SDK/Daemon Maintenance Notice тАУ On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see
 [X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md "xray-sdk-daemon-timeline.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
 
 The X-Ray SDK for Node.js is a library for Express web applications and Node.js Lambda functions that provides classes
@@ -50,7 +50,7 @@ to record information about the AWS compute resources on which your application 
 Record additional information about requests and the work that your application does in [annotations and metadata](xray-sdk-nodejs-segment.md "xray-sdk-nodejs-segment.md"). Annotations are simple key-value pairs that are
 indexed for use with [filter expressions](xray-console-filters.md "xray-console-filters.md"), so that you can search for
 traces that contain specific data. Metadata entries are less restrictive and can record entire objects and arrays
-— anything that can be serialized into JSON.
+тАФ anything that can be serialized into JSON.
 
 ###### Annotations and Metadata
 
@@ -72,43 +72,43 @@ Reference](../../../xray-sdk-for-nodejs/latest/reference.md "../../../xray-sdk-f
 
 The X-Ray SDK for Node.js requires Node.js and the following libraries:
 
-- `atomic-batcher` – 1.0.2
-- `cls-hooked` – 4.2.2
-- `pkginfo` – 0.4.0
-- `semver` – 5.3.0
+- `atomic-batcher` тАУ 1.0.2
+- `cls-hooked` тАУ 4.2.2
+- `pkginfo` тАУ 0.4.0
+- `semver` тАУ 5.3.0
 
 The SDK pulls these libraries in when you install it with NPM.
 
 To trace AWS SDK clients, the X-Ray SDK for Node.js requires a minimum version of the AWS SDK for JavaScript in Node.js.
 
-- `aws-sdk` – 2.7.15
+- `aws-sdk` тАУ 2.7.15
 
 ## Dependency management
 
 The X-Ray SDK for Node.js is available from NPM.
 
-- **Package** – [`aws-xray-sdk`](https://www.npmjs.com/package/aws-xray-sdk "https://www.npmjs.com/package/aws-xray-sdk")
+- **Package** тАУ [`aws-xray-sdk`](https://www.npmjs.com/package/aws-xray-sdk "https://www.npmjs.com/package/aws-xray-sdk")
 
 For local development, install the SDK in your project directory with npm.
 
 ```
 ~/nodejs-xray$ `npm install aws-xray-sdk`
 aws-xray-sdk@3.3.3
-  ├─┬ aws-xray-sdk-core@3.3.3
-  │ ├── @aws-sdk/service-error-classification@3.15.0
-  │ ├── @aws-sdk/types@3.15.0
-  │ ├─┬ @types/cls-hooked@4.3.3
-  │ │ └── @types/node@15.3.0
-  │ ├── atomic-batcher@1.0.2
-  │ ├─┬ cls-hooked@4.2.2
-  │ │ ├─┬ async-hook-jl@1.7.6
-  │ │ │ └── stack-chain@1.3.7
-  │ │ └─┬ emitter-listener@1.1.2
-  │ │   └── shimmer@1.2.1
-  │ └── semver@5.7.1
-  ├── aws-xray-sdk-express@3.3.3
-  ├── aws-xray-sdk-mysql@3.3.3
-  └── aws-xray-sdk-postgres@3.3.3
+  тФЬтФАтФм aws-xray-sdk-core@3.3.3
+  тФВ тФЬтФАтФА @aws-sdk/service-error-classification@3.15.0
+  тФВ тФЬтФАтФА @aws-sdk/types@3.15.0
+  тФВ тФЬтФАтФм @types/cls-hooked@4.3.3
+  тФВ тФВ тФФтФАтФА @types/node@15.3.0
+  тФВ тФЬтФАтФА atomic-batcher@1.0.2
+  тФВ тФЬтФАтФм cls-hooked@4.2.2
+  тФВ тФВ тФЬтФАтФм async-hook-jl@1.7.6
+  тФВ тФВ тФВ тФФтФАтФА stack-chain@1.3.7
+  тФВ тФВ тФФтФАтФм emitter-listener@1.1.2
+  тФВ тФВ   тФФтФАтФА shimmer@1.2.1
+  тФВ тФФтФАтФА semver@5.7.1
+  тФЬтФАтФА aws-xray-sdk-express@3.3.3
+  тФЬтФАтФА aws-xray-sdk-mysql@3.3.3
+  тФФтФАтФА aws-xray-sdk-postgres@3.3.3
 ```
 
 Use the `--save` option to save the SDK as a dependency in your application's
