@@ -12,7 +12,10 @@ attribute-based access control (ABAC). In the IAM Identity Center permission set
 policy that grants users access only when the **Department**
 attribute matches the department tag that you assigned to your S3 buckets. IAM Identity Center
 passes the user's department attribute to the account being accessed. The attribute
-is then used to determine access based on the policy. For more information about
+is then used to determine access based on the policy. When IAM Identity Center passes these
+attributes to the account, they are sent as session tags that you can reference
+using the `aws:PrincipalTag/`tag-key``
+condition key in all relevant AWS IAM policy types. For more information about
 ABAC, see [Attribute-based access control](abac.md "abac.md").
 
 ## Getting started
@@ -49,9 +52,42 @@ to the user attributes in your AWS Managed Microsoft AD directory, see [Default 
 When you configure IAM Identity Center with an external identity provider (IdP) as your
 identity source, there are two ways to use attributes for ABAC.
 
-- You can configure your IdP to send the attributes through SAML
-  assertions. In this case, IAM Identity Center passes the attribute name and value
-  from the IdP through for policy evaluation.
+- **Configure attribute mappings in the IAM Identity Center
+  console.** You can map attributes from the IAM Identity
+  Center directory to session tags on the **Attributes for
+  access control** page in the IAM Identity Center console. The
+  attribute values that you choose here are sourced from the Identity
+  Center directory and replace the values for any matching attributes
+  that come from an IdP through a SAML assertion. Depending on whether
+  you are using SCIM, consider the following:
+  - If using SCIM, the IdP automatically synchronizes the
+    attribute values into IAM Identity Center. You can then select these
+    synchronized attributes on the **Attributes for
+    access control** page to use them as session
+    tags.
+  - If you are not using SCIM, you must manually add the users
+    and set their attributes just as if you were using IAM Identity Center as
+    an identity source. Next, navigate to the
+    **Attributes for access control** page
+    and choose the attributes you want to use in policies.
+
+- **Pass attributes from your IdP through SAML
+  assertions.** You can configure your IdP to send
+  attributes as session tags through SAML assertions. To do this,
+  configure your IdP to send SAML assertions with the attribute name
+  set to
+  `https://aws.amazon.com/SAML/Attributes/AccessControl:`TagKey``,
+replacing `TagKey` with the session tag key
+  you want to populate. IAM Identity Center passes the attribute name and value from
+  the IdP through for policy evaluation.
+
+It is not necessary to configure an ABAC attribute mapping on the
+**Attributes for access control** page for
+attributes that you pass in through SAML assertions from your
+external IdP. However, if you configure an ABAC mapping for the same
+attribute on the **Attributes for access control**
+page, the mapping from the Identity Center directory takes precedence
+and replaces the value sent by your IdP in the SAML assertion.
 
 ###### Note
 
@@ -61,31 +97,10 @@ will have to know these attributes in advance and add them to
 access control rules when you author policies. If you decide to
 trust your external IdPs for attributes, then these attributes
 will always be passed when users federate into AWS accounts.
-In scenarios where the same attributes are coming to IAM Identity Center
-through SAML and SCIM, the SCIM attributes value take precedence
-in access control decisions.
-
-- You can configure which attributes you use from the
-  **Attributes for access control** page in the
-  IAM Identity Center console. The attributes values that you choose here replace
-  the values for any matching attributes that come from an IdP through
-  an assertion. Depending on whether you are using SCIM, consider the
-  following:
-  - If using SCIM, the IdP automatically synchronizes the
-    attribute values into IAM Identity Center. Additional attributes that are
-    required for access control might not be present in the list
-    of SCIM attributes. In that case, consider collaborating
-    with the IT admin in your IdP to send such attributes to
-    IAM Identity Center via SAML assertions using the required
-    `https://aws.amazon.com/SAML/Attributes/AccessControl:`
-    prefix. For information about how to configure user
-    attributes for access control in your IdP to send through
-    SAML assertions, see the [IAM Identity Center identity source tutorials](tutorials.md "tutorials.md") for your IdP.
-  - If you are not using SCIM, you must manually add the users
-    and set their attributes just as if you were using IAM Identity Center as
-    an identity source. Next, navigate to the
-    **Attributes for access control** page
-    and choose the attributes you want to use in policies.
+For information about how to configure user attributes for
+access control in your IdP to send through SAML assertions, see
+the [IAM Identity Center identity source tutorials](tutorials.md "tutorials.md") for
+your IdP.
 
 For a complete list of supported attributes for user attributes in IAM Identity Center to
 the user attributes in your external IdPs, see [Supported external identity provider attributes](attributemappingsconcept.md#supportedidpattributes "attributemappingsconcept.md#supportedidpattributes").

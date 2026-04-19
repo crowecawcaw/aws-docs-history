@@ -3,6 +3,14 @@
 Use the following procedure to set up attributes for your ABAC
 configuration.
 
+###### Note
+
+This procedure applies only when you want to map attributes from your
+IAM Identity Center directory for use as session tags. If you are passing
+attributes from an external identity provider (IdP) through SAML
+assertions, you do not need to configure attribute mappings here. For
+more information, see [Choosing attributes when using an external identity provider as your identity source](attributesforaccesscontrol.md#abac-getting-started-idp "attributesforaccesscontrol.md#abac-getting-started-idp"). Values set in the mapping from the Identity Center directory overwrite values set in SAML assertions.
+
 ###### To select your attributes using the IAM Identity Center console
 
 1. Open the [IAM Identity Center console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon").

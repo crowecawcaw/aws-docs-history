@@ -4,16 +4,6 @@ IAM Identity Center supports automatic provisioning (synchronization) of user in
 CyberArk Directory Platform into IAM Identity Center. This provisioning uses the System
 for Cross-domain Identity Management (SCIM) v2.0 protocol. For more information, see [Using SAML and SCIM identity federation with external identity providers](other-idps.md "other-idps.md").
 
-###### Note
-
-CyberArk doesn’t currently support SAML multiple assertion consume service (ACS) URLs
-in the AWS IAM Identity Center application. This SAML feature is required to fully take advantage of [multi-Region support](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md") in IAM Identity Center. If
-you plan to replicate IAM Identity Center to additional Regions, be aware that using a single ACS URL
-may affect the user experience in those additional Regions. Your primary Region will
-continue to function normally. We recommend that you work with your IdP vendor to enable
-this feature. For more information about the user experience in additional Regions with
-a single ACS URL, see [Using AWS managed applications without multiple ACS URLs](multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls "multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls") and [AWS account access resiliency without multiple ACS URLs](multi-region-failover.md#account-access-resiliency-without-multiple-acs-url "multi-region-failover.md#account-access-resiliency-without-multiple-acs-url").
-
 Before you begin deploying SCIM, we recommend that you first review the [Considerations for using automatic provisioning](provision-automatically.md#auto-provisioning-considerations "provision-automatically.md#auto-provisioning-considerations"). Then continue reviewing
 additional considerations in the next section.
 

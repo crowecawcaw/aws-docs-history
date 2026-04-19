@@ -53,6 +53,17 @@ JSON
 
 ```
 
+When users federate into an AWS account through IAM Identity Center, the
+configured access control attributes are passed as session tags. You can
+reference these session tags in your policies using the
+`aws:PrincipalTag/`tag-key``
+condition key. This condition key is supported in all relevant AWS IAM policy types
+where you can use conditions, including identity-based policies,
+resource-based policies, permissions boundaries, service control policies
+(SCPs), and VPC endpoint policies. This enables you to make fine-grained
+access control decisions based on user attributes across your entire AWS
+environment.
+
 For more information, see [aws:PrincipalTag](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principaltag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principaltag") and [EC2: Start or stop instances based on matching principal and resource
 tags](../../../IAM/latest/UserGuide/reference_policies_examples_ec2-start-stop-match-tags.md "../../../IAM/latest/UserGuide/reference_policies_examples_ec2-start-stop-match-tags.md") in the _IAM User Guide_.
 
