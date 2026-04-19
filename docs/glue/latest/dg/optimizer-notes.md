@@ -19,6 +19,10 @@ delete manifest and data files that are still referenced by active snapshots. If
 bucket has lifecycle expiration rules, ensure they exclude the Iceberg table storage
 path.
 
+## Known issues
+
+The [Catalog-level table optimizers](catalog-level-optimizers.md "catalog-level-optimizers.md") documentation states that "tables without their own optimizer configurations will inherit the disabled state from the catalog level." There is a known issue where some tables without their own optimizer configuration may not correctly inherit the disabled state from the catalog-level configuration. Use the AWS Glue console and optimizer execution logs to verify which optimizers are currently enabled and running in your account, and disable any that you do not require.
+
 ## Supported formats and limitations for managed data compaction
 
 Data compaction supports a variety of data types and compression formats for reading and writing data, including reading data from encrypted tables.
