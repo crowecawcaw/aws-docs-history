@@ -44,8 +44,7 @@ Run the following command:
 iam update-account-password-policy`
 
 API
-To create an alias for your AWS Management Console
-sign-in page URL, call the following operation:
+To update the account password policy, call the following operation:
 
 - `UpdateAccountPasswordPolicy`
 

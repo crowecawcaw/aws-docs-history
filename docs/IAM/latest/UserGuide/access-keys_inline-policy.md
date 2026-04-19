@@ -127,7 +127,7 @@ for the user.
 You could also apply this policy as a service control policy (SCP) across multiple AWS
 accounts in AWS Organizations, we recommend using an additional condition,
 `aws:PrincipalArn` to make this policy statement only apply to IAM users
-within the AWS accounts subject to this SCP. The following policy is includes that
+within the AWS accounts subject to this SCP. The following policy includes that
 update:
 
 JSON

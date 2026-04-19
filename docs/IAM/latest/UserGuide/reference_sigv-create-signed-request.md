@@ -464,7 +464,7 @@ if (c < 255) {
 ## Calculate the signature
 
 Once you have derived the signing key, calculate the signature to add to your request.
-This procedure varies based on the siganture version you use.
+This procedure varies based on the signature version you use.
 
 ###### To calculate a signature for SigV4
 

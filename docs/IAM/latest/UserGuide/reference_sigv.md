@@ -60,7 +60,7 @@ For more information, see [Elements of an AWS API request signature](reference_s
 ## How AWS SigV4a works
 
 SigV4a uses asymmetric signatures based on public-private key cryptography. SigV4a
-goes through a similar scoped credentials derivation process as SigV4, except Sigv4a
+goes through a similar scoped credentials derivation process as SigV4, except SigV4a
 uses the same key to sign all requests without needing to derive a distinct signing key
 based on the date, service, and region. An [Elliptic Curve Digital Signature
 Algorithm](https://csrc.nist.gov/glossary/term/ecdsa "https://csrc.nist.gov/glossary/term/ecdsa") (ECDSA) keypair can be derived from your existing AWS secret
@@ -81,10 +81,10 @@ The following steps describe the general process of computing a signature with S
 2. The **signing key** is derived from an AWS
    secret access key through a series of calculations, with the result of each step
    fed into the next. The final step produces the keypair.
-3. When an AWS service receives a request signed with Sigv4a, AWS verifies
+3. When an AWS service receives a request signed with SigV4a, AWS verifies
    the signature using only the public half of the keypair. If the signature is
    valid, the request is authenticated and the service processes the request.
-   Requests with invalid signatures is rejected.
+   Requests with invalid signatures are rejected.
 
 For more information about SigV4a for multi-Region API requests, see the [sigv4a-signing-examples](https://github.com/aws-samples/sigv4a-signing-examples "https://github.com/aws-samples/sigv4a-signing-examples") project on GitHub.
 

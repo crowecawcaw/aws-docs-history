@@ -30,7 +30,7 @@ networks specific to your company and your use of AWS services.
 Data perimeter controls should be treated as any other security control within the
 information security and risk management program. This means that you should perform a
 threat analysis to identify potential risks within your cloud environment, and then, based
-on your own risk acceptance criteria, select and implement appropriated data perimeter
+on your own risk acceptance criteria, select and implement appropriate data perimeter
 controls. To better inform the iterative risk-based approach to data perimeter
 implementation, you need to understand what security risks and threat vectors are addressed
 by data perimeter controls as well as your security priorities.
@@ -184,8 +184,8 @@ CIDR range and your VPCs.
   condition key to ensure requests come through VPC endpoints owned by the
   specified AWS account.
 - [aws:VpceOrgPaths](reference_policies_condition-keys.md#condition-keys-vpceorgpaths "reference_policies_condition-keys.md#condition-keys-vpceorgpaths") – You can use this
-  condition key to ensure that IAM principals making the request belong to
-  the specified organizational unit (OU) in AWS Organizations.
+  condition key to ensure that requests come through VPC endpoints owned by
+  accounts that belong to the specified organizational unit (OU) in AWS Organizations.
 - [aws:VpceOrgID](reference_policies_condition-keys.md#condition-keys-vpceorgid "reference_policies_condition-keys.md#condition-keys-vpceorgid") – You can use this
   condition key to ensure requests come through VPC endpoints owned by
   accounts in the specified organization in AWS Organizations.

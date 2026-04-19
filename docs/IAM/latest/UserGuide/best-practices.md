@@ -54,7 +54,7 @@ using an AWS SDK will discover and use these temporary credentials to access AWS
 resources, and there is no need to distribute long lived credentials for an IAM user to your
 workloads running on AWS.
 
-Workloads that run on outside of AWS, such as your on-premises servers, servers from
+Workloads that run outside of AWS, such as your on-premises servers, servers from
 other cloud providers, or managed continuous integration and continuous delivery (CI/CD)
 platforms, can still use temporary credentials. However, you'll need to deliver these
 temporary credentials to your workload. The following are ways you can deliver temporary
@@ -62,10 +62,10 @@ credentials to your workloads:
 
 - You can use IAM Roles Anywhere to request temporary AWS credentials for your
   workload using an X.509 Certificate from your public key infrastructure (PKI).
-- You can call the AWS AWS STS`AssumeRoleWithSAML` API to request temporary
+- You can call the AWS STS `AssumeRoleWithSAML` API to request temporary
   AWS credentials for your workload using a SAML assertion from an external identity
   provider (IdP) that is configured within your AWS account.
-- You can call the AWS AWS STS `AssumeRoleWithWebIdentity` API to request
+- You can call the AWS STS `AssumeRoleWithWebIdentity` API to request
   temporary AWS credentials for your workload using a JSON web token (JWT) from an IdP
   that is configured within your AWS account.
 - You can request temporary AWS credentials from your IoT device using Mutual

@@ -68,13 +68,13 @@ IAM groups for easier permissions management.
 IAM users or IAM groups can have multiple policies attached to them that grant
 different permissions. In that case, the combination of policies determines the effective
 permissions for the principal. If the principal doesn't have explicit `Allow`
-permission for both an action and a resource, the principal doesn't have those permissions, .
+permission for both an action and a resource, the principal doesn't have those permissions.
 
 ## Federated user sessions and roles
 
 Federated principals don't have permanent identities in your AWS account the way that IAM
 users do. To assign permissions to federated principals, you can create an entity referred to as a
-_role_ and define permissions for the role. When a SAMl or OIDC federated principal signs
+_role_ and define permissions for the role. When a SAML or OIDC federated principal signs
 in to AWS, the user is associated with the role and is granted the permissions that are
 defined in the role. For more information, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md").
 

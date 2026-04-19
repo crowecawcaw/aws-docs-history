@@ -115,7 +115,7 @@ JSONJSON
     policies** list, select the policy you created, then
     choose **Attach policies**.
 14. You are returned to the **Role**
-    details page. there are two policies attached the role, your
+    details page. There are two policies attached to the role, your
     previous AWS managed policy, such as **PowerUserAccess**, and your new policy. Select the
     checkbox for the AWS managed policy and then choose **Remove**. When asked to confirm removal,
     choose **Remove**.

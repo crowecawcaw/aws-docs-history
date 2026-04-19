@@ -8,7 +8,7 @@ IAM group, manually review your policies to find any policies that mention the g
 name. For example, John, the Test Team manager, has a policy attached to his IAM user entity
 that lets him add and remove users from the Test user group. If an administrator deletes the
 group, the administrator must also delete the policy attached to John. Otherwise, if the
-administrator recreates the deleted group and give it the same name, John's permissions remain
+administrator recreates the deleted group and gives it the same name, John's permissions remain
 in place, even if he left the Test Team.
 
 In contrast, when you use the CLI, SDK, or API to delete a user group, you remove the users

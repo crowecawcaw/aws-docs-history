@@ -2,6 +2,12 @@
 
 The following code examples show how to use `RemoveRoleFromInstanceProfile`.
 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in
+context in the following code examples:
+
+- [Getting started with Amazon MSK](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
+- [Run CPU stress tests on EC2 instances using FIS](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
+
 CLI
 
 **AWS CLI**

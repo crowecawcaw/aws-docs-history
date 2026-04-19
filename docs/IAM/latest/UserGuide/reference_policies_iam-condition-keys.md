@@ -844,7 +844,7 @@ specify in the policy. You can use the `sub` key with the
 `aud` key for the same identity provider.
 
 In the following role trust policy, the `sub` condition key
-limits the role to the GitHib branch named `demo`.
+limits the role to the GitHub branch named `demo`.
 
 JSONJSON
 

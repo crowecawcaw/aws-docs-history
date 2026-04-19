@@ -52,7 +52,7 @@ _identity broker_ that performs the following steps:
 
         + Your `SessionDuration` cannot be greater than or equal to the
          maximum session duration setting for the role you're assuming. For example,
-         you're set the maximum session duration for the role you want to assume to 5
+         you've set the maximum session duration for the role you want to assume to 5
          hours. Your `SessionDuration` parameter can be 16524 seconds or 4 hours
          and 59 seconds.
         + Do not use the `SessionDuration` HTTP parameter when you get
@@ -189,7 +189,7 @@ federation endpoint.
 ###### Note
 
     * Your `SessionDuration` cannot be greater than or equal to the maximum
-     session duration setting for the role you're assuming. For example, you're
+     session duration setting for the role you're assuming. For example, you've
      set the maximum session duration for the role you want to assume to 5 hours. Your
      `SessionDuration` parameter can be 16524 seconds or 4 hours and 59
      seconds.
@@ -282,7 +282,7 @@ gives users direct access to the AWS Management Console. There are two examples:
 - Federate via GET requests to AWS
 - Federate via POST requests to AWS
 
-Both examples use the the [AWS SDK for Python (Boto3)](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/")
+Both examples use the [AWS SDK for Python (Boto3)](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/")
 and [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") API to obtain temporary
 security credentials.
 

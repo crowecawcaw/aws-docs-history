@@ -128,7 +128,7 @@ purposes.
 ## Restrict access to account recovery mechanisms
 
 Ensure you develop a process to manage root user credential recovery mechanisms in case you
-need access to it during emergency such as takeover of your administrative account.
+need access to it during an emergency such as takeover of your administrative account.
 
 - Ensure you have access to your root user email inbox so that you can [reset a lost or
   forgotten root user password](reset-root-password.md "reset-root-password.md").

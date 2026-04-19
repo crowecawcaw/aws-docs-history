@@ -160,7 +160,7 @@ access:
   [AWS
   global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md").
 - **VPCE Account** – To filter by VPCE Account, type all
-  or part of the 12-digit AWS account ID that owns the the VPC endpoint external
+  or part of the 12-digit AWS account ID that owns the VPC endpoint external
   entities and allows external entities access to resources. To learn more, see
   [AWS
   global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md").

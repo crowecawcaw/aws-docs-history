@@ -161,7 +161,7 @@ Console
 7. Confirm that you want to set a custom password policy by choosing **Set
    custom**.
 
-The console displays a status message informing you that password requirements for IAM users have been updated..
+The console displays a status message informing you that password requirements for IAM users have been updated.
 
 ## To change a password policy (console)
 

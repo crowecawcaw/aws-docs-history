@@ -55,7 +55,7 @@ allow only specific AWS services to make FAS requests, use
 When a FAS request is made after an initial request is made through a VPC
 endpoint, the condition key values for `aws:SourceVpce`, `aws:SourceVpc`, and `aws:VpcSourceIp` from the initial request
 are not used in FAS requests. When writing policies using
-`aws:VPCSourceIP` or `aws:SourceVPCE` to conditionally
+`aws:VpcSourceIp` or `aws:SourceVpce` to conditionally
 grant access, you must also use `aws:ViaAWSService` or
 `aws:CalledVia` to allow FAS requests. When a FAS request is made
 after an initial request is received by a public AWS service endpoint, subsequent

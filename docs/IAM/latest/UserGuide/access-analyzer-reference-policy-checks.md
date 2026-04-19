@@ -696,14 +696,14 @@ Update the key in the principal key-value pair to use a supported principal key.
 In the AWS Management Console, the finding for this check includes the following message:
 
 ```
-Invalid Region: The Region {{region}} is not valid. Update the condition value to a suported Region.
+Invalid Region: The Region {{region}} is not valid. Update the condition value to a supported Region.
 
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
 
 ```
-"findingDetails": "The Region {{region}} is not valid. Update the condition value to a suported Region."
+"findingDetails": "The Region {{region}} is not valid. Update the condition value to a supported Region."
 ```
 
 **Resolving the error**
@@ -3603,13 +3603,13 @@ AWS Organizations resource control policies (RCPs) can impact IAM roles, users, 
 In the AWS Management Console, the finding for this check includes the following message:
 
 ```
-RCP missing service condition key null check: The specified service may have a service integration that does not require the use of the the {{conditionKeyName}} condition key. To prevent unintended impact to services acting on your behalf using a service principal, an additional statement should be added to the Condition block "Null": { "aws:SourceAccount": "false"} or "Null": { "aws:SourceArn": "false"} whenever the key {{conditionKeyName}} is used.
+RCP missing service condition key null check: The specified service may have a service integration that does not require the use of the {{conditionKeyName}} condition key. To prevent unintended impact to services acting on your behalf using a service principal, an additional statement should be added to the Condition block "Null": { "aws:SourceAccount": "false"} or "Null": { "aws:SourceArn": "false"} whenever the key {{conditionKeyName}} is used.
 ```
 
 In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
 
 ```
-"findingDetails": "The specified service may have a service integration that does not require the use of the the {{conditionKeyName}} condition key. To prevent unintended impact to services acting on your behalf using a service principal, an additional statement should be added to the Condition block "Null": { "aws:SourceAccount": "false"} or "Null": { "aws:SourceArn": "false"} whenever the key {{conditionKeyName}} is used."
+"findingDetails": "The specified service may have a service integration that does not require the use of the {{conditionKeyName}} condition key. To prevent unintended impact to services acting on your behalf using a service principal, an additional statement should be added to the Condition block "Null": { "aws:SourceAccount": "false"} or "Null": { "aws:SourceArn": "false"} whenever the key {{conditionKeyName}} is used."
 ```
 
 **Resolving the general warning**

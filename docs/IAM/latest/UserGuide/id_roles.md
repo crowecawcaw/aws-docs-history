@@ -188,7 +188,7 @@ policy_ grants the user of the role the needed permissions to carry out the
 intended tasks on the resource. The _trust policy_
 specifies which trusted account members are allowed to assume the role.
 
-When you create a trust policy, you cannot specify a wildcard (\*) as part of and ARN
+When you create a trust policy, you cannot specify a wildcard (\*) as part of an ARN
 in the principal element. The trust policy is attached to the role in the trusting
 account, and is one-half of the permissions. The other half is a permissions policy
 attached to the user in the trusted account that [allows that user to switch to, or assume

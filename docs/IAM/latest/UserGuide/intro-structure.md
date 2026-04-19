@@ -5,7 +5,7 @@ for your AWS account.
 
 First, a human user or an application uses their sign-in credentials to authenticate with
 AWS. IAM matches the sign-in credentials to a principal (an IAM user, AWS STS federated user principal,
-IAM role, or application) trusted by the AWS account and authenticates permission to access
+IAM role, or application) trusted by the AWS account and authenticates the principal to access
 AWS.
 
 Next, IAM makes a request to grant the principal access to resources. IAM grants or
@@ -31,7 +31,7 @@ sends a _request_ to AWS. The request includes the following
 information:
 
 - **Actions or operations** – The actions or
-  operations that the principal wants to perform., such as an action in the AWS Management Console, or an
+  operations that the principal wants to perform, such as an action in the AWS Management Console, or an
   operation in the AWS CLI or AWS API.
 - **Resources** – The AWS resource object upon
   which the principal requests to perform an action or operation.

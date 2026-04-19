@@ -134,7 +134,7 @@ For details about creating a role for a SAML IdP, see [Create a role for SAML 2.
 Notify your SAML IdP that AWS is your service provider by installing the
 `saml-metadata.xml` file found at
 `https://`region-code`.signin.aws.amazon.com/static/saml-metadata.xml`
-or `https://signin.aws.amazon.com/static/saml-metadata.xml`. If SAMl encryption is
+or `https://signin.aws.amazon.com/static/saml-metadata.xml`. If SAML encryption is
 required, the file is found at
 `https://`region-code`.signin.aws.amazon.com/static/saml/`SAMLSP4SHN3UIS2D558H46`/saml-metadata.xml`.
 

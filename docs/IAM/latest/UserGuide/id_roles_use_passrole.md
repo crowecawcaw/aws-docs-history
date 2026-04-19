@@ -169,7 +169,7 @@ create a service role to give Amazon RDS permissions to monitor and write metric
    policy allows.
 
 The user that you want to access Enhanced Monitoring needs a policy that includes a
-statement that allows the user to to list the RDS roles and a statement that allows the user to
+statement that allows the user to list the RDS roles and a statement that allows the user to
 pass the role, like the following. Use your account number and replace the role name with the
 name you provided in step 6.
 

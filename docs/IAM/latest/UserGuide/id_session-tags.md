@@ -512,7 +512,7 @@ aws sts assume-role \
 You then use the credentials for that session to assume `Role2`. The command
 attaches the tag `Sun` = `2` to the second role and applies as a
 principal tag when you use the second session. The `Heart` and `Star`
-tags inherits the transitive session tags in the first session. The second session resulting
+tags inherit the transitive session tags in the first session. The second session resulting
 principal tags are `Heart` = `1`, `Star` = `1`,
 and `Sun` = `2`. `Heart` and `Star` continue to be
 transitive. The `Sun` tag attached to `Role2` is not marked as
@@ -541,7 +541,7 @@ overrides the role matching the `ResourceTag` value after the evaluation of the
 role trust policy. In this example, if `Role3` uses `Star` as a
 `ResourceTag` in the role trust policy, and sets `ResourceTag` value
 to the transitive tag value from the calling role session. The role `Lightning` tag
-also applies to the third session, and not set as transitive.
+also applies to the third session, and is not set as transitive.
 
 ![Assuming the third role in a role chain](images/session-tags-chaining-role3.png)
 

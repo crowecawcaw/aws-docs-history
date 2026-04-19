@@ -65,7 +65,7 @@ These claims provide detailed information about your AWS account, organization s
 
 ### Session context claims
 
-These claims provide information about the compute environment and session where the token request originated. AWS AWS STS automatically includes these claims when applicable based on the requesting principal's session context.
+These claims provide information about the compute environment and session where the token request originated. AWS STS automatically includes these claims when applicable based on the requesting principal's session context.
 
 | Claim                            | Description                                                                | Maps to Condition Key                                                                                                                                                                                                                                     | Example Value                                                  |
 | -------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
@@ -90,7 +90,7 @@ Example request:
 ```
 response = sts_client.get_web_identity_token(
     Audience=['https://api.example.com'],
-    SigningAlgorithm='ES384'
+    SigningAlgorithm='ES384',
     Tags=[
         {'Key': 'team', 'Value': 'data-engineering'},
         {'Key': 'cost-center', 'Value': 'analytics'},

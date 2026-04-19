@@ -7,7 +7,7 @@ It significantly enhances security by making it much harder for attackers to gai
 unauthorized access, even if a user's password is compromised. MFA is widely adopted as a
 best practice for securing access to online accounts, cloud services, and other sensitive
 resources. AWS supports MFA for root user, IAM users, users in IAM Identity Center, Builder ID, and federated
-users. For additional security, you can create policies that requires MFA be configured
+users. For additional security, you can create policies that require MFA be configured
 before allowing a user to access resources or take specific actions and attach these
 policies to your IAM roles. IAM Identity Center comes preconfigured with MFA turned on by default so
 that all users in IAM Identity Center must sign in with MFA in addition to their user name and

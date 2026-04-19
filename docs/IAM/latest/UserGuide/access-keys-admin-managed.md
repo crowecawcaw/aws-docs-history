@@ -11,7 +11,6 @@ which have access keys and locate which IAM user has a specific access key.
 - [To activate an access key for an IAM user](#admin-activate-access-key "#admin-activate-access-key")
 - [To delete an access key for an IAM user](#admin-delete-access-key "#admin-delete-access-key")
 - [To list the access keys for an IAM user](#admin-list-access-key "#admin-list-access-key")
-- [To list the access keys for an IAM user](#admin-list-access-key "#admin-list-access-key")
 - [To display all the access key IDs for users in your account](#admin-list-all-access-keys "#admin-list-all-access-keys")
 - [To use an access key ID to find a user](#admin-find-user-access-keys "#admin-find-user-access-keys")
 - [To find the most recent use of an access key ID](#admin-find-most-recent-use-access-keys "#admin-find-most-recent-use-access-keys")
@@ -149,32 +148,6 @@ API
 Call the following operation:
 
 - [`DeleteAccessKey`](../APIReference/API_DeleteAccessKey.md "../APIReference/API_DeleteAccessKey.md")
-
-## To list the access keys for an IAM user
-
-You can view a list of the access key IDs associated with an IAM user.
-
-Console
-
-1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, choose **Users**.
-3. Choose the user name to go to the user details page.
-4. On **Security credentials** tab, the
-   the **Access keys** section lists the access keys for
-   the user.
-
-Each IAM user can have two access keys.
-
-AWS CLI
-Run the following command:
-
-- [`aws iam
-list-access-keys`](../../../cli/latest/reference/iam/list-access-keys.md "../../../cli/latest/reference/iam/list-access-keys.md")
-
-API
-Call the following operation:
-
-- [`ListAccessKeys`](../APIReference/API_ListAccessKeys.md "../APIReference/API_ListAccessKeys.md")
 
 ## To list the access keys for an IAM user
 

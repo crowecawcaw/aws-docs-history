@@ -659,7 +659,7 @@ the IdP configuration to verify the OIDC IdP server certificate.
 For requests to the AWS Security Token Service (AWS STS) global endpoint
 (`https://sts.amazonaws.com`), AWS STS includes additional AWS CloudTrail log fields:
 `endpointType` and `awsServingRegion`. These fields appear under the
-`addtionalEventData`
+`additionalEventData`
 `RequestDetails` element to log the serving AWS Region and endpoint type being
 called. The `endpointType` field can have a value of `global` or
 `regional` to indicate the type of global endpoint that served the request. For

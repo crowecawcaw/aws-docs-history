@@ -18,7 +18,7 @@ The response must include exactly one `SubjectConfirmation` element with a
 `SubjectConfirmationData` element that includes both the
 `NotOnOrAfter` attribute and a `Recipient` attribute. The Recipient
 attribute must include a value that matches the AWS sign-in endpoint URL. Your IdP may use
-the the term `ACS`, `Recipient`, or `Target` to refer to this
+the term `ACS`, `Recipient`, or `Target` to refer to this
 attribute.
 
 If SAML encryption is required, the sign-in URL must include the unique identifier AWS
@@ -163,7 +163,7 @@ case-sensitive. It must be set to
 ## `SessionDuration` SAML attribute
 
 (Optional) You can use an `Attribute` element with the `Name`
-attribute set to `https://aws.amazon.com/SAML/Attributes/SessionDuration"`. This element
+attribute set to `https://aws.amazon.com/SAML/Attributes/SessionDuration`. This element
 contains one `AttributeValue` element that specifies how long the user can access
 the AWS Management Console before having to request new temporary credentials. The value is an integer
 representing the number of seconds for the session. The value can range from 900 seconds (15

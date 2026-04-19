@@ -62,7 +62,7 @@ particular account: choose **Resource Owner Account**, and then choose
 Continue to define criteria to customize the rule as appropriate for your environment, and
 then choose **Create rule**.
 
-If you are create a new rule and add multiple criteria, you can remove a single criterion
+If you are creating a new rule and add multiple criteria, you can remove a single criterion
 from the rule by choosing **Remove this criterion**. You can remove a value
 added for a criterion by choosing **Remove value**.
 

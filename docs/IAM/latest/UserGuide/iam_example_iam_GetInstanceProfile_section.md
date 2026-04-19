@@ -2,6 +2,11 @@
 
 The following code examples show how to use `GetInstanceProfile`.
 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in
+context in the following code example:
+
+- [Getting started with Amazon MSK](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
+
 CLI
 
 **AWS CLI**

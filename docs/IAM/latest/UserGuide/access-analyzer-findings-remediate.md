@@ -86,7 +86,7 @@ scenarios:
 4. In the **Recommendations** section, if there are policies
    listed in the **Recommended policy** column, choose
    **Preview policy** to view the existing policy with the
-   recommended policy to replace the existing policy. If there are mutliple
+   recommended policy to replace the existing policy. If there are multiple
    recommended policies, you can choose **Next policy** and
    **Previous policy** to view each existing and
    recommended policy.
@@ -96,7 +96,7 @@ scenarios:
    more information, see [Changing permissions for a user (console)](id_users_change-permissions.md#users_change_permissions-change-console "id_users_change-permissions.md#users_change_permissions-change-console") and [Modifying a role permissions policy (console)](roles-managingrole-editing-console.md#roles-modify_permissions-policy "roles-managingrole-editing-console.md#roles-modify_permissions-policy").
 7. Remove the policies listed in the **Existing permissions
    policy** column from the IAM user or role. For more
-   information, see [Removing a permissions from a user (console)](id_users_change-permissions.md#users_change_permissions-remove-policy-console "id_users_change-permissions.md#users_change_permissions-remove-policy-console") and [Modifying a role permissions policy (console)](roles-managingrole-editing-console.md#roles-modify_permissions-policy "roles-managingrole-editing-console.md#roles-modify_permissions-policy").
+   information, see [Removing permissions from a user (console)](id_users_change-permissions.md#users_change_permissions-remove-policy-console "id_users_change-permissions.md#users_change_permissions-remove-policy-console") and [Modifying a role permissions policy (console)](roles-managingrole-editing-console.md#roles-modify_permissions-policy "roles-managingrole-editing-console.md#roles-modify_permissions-policy").
 
 ### Resolving unused role findings
 

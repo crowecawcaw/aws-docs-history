@@ -101,7 +101,7 @@ Next you attach the policy you just created to your test IAM user.
 1. In the IAM console, in the navigation pane, choose
    **Policies**.
 2. At the top of the policy list, in the search box, start typing
-   `UsersReadOnlyAccesstoIAMConsole` until you can see your policy.
+   `UsersReadOnlyAccessToIAMConsole` until you can see your policy.
    Then choose the radio
    button
    next

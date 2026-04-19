@@ -141,7 +141,7 @@ aws iam create-user \
 ###### Note
 
 If the password you provided in the JSON file violates your account's password
-policy, you will receive a `PassworPolicyViolation` error. If this
+policy, you will receive a `PasswordPolicyViolation` error. If this
 happens, review the [password policy](id_credentials_passwords_account-policy.md#default-policy-details "id_credentials_passwords_account-policy.md#default-policy-details") for your account and update the password in the JSON
 file to comply with the requirements. 3. Create the `EmergencyAccessGroup`, attach the AWS managed
 policy `AdministratorAccess` to the group, and add the

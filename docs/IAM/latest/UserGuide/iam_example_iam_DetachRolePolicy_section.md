@@ -6,7 +6,22 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md "iam_example_iam_Scenario_CreateUserAssumeRole_section.md")
+- [Configure Amazon ECS Service Connect](iam_example_ecs_ServiceConnect_085_section.md "iam_example_ecs_ServiceConnect_085_section.md")
+- [Create a REST API with Lambda proxy integration](iam_example_api_gateway_GettingStarted_087_section.md "iam_example_api_gateway_GettingStarted_087_section.md")
+- [Creating a CloudWatch dashboard with function name as a variable](iam_example_cloudwatch_GettingStarted_031_section.md "iam_example_cloudwatch_GettingStarted_031_section.md")
+- [Creating an Amazon Managed Grafana workspace](iam_example_iam_GettingStarted_044_section.md "iam_example_iam_GettingStarted_044_section.md")
+- [Creating your first Lambda function](iam_example_lambda_GettingStarted_019_section.md "iam_example_lambda_GettingStarted_019_section.md")
+- [Getting started with Amazon EKS](iam_example_eks_GettingStarted_034_section.md "iam_example_eks_GettingStarted_034_section.md")
+- [Getting started with Amazon MSK](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
+- [Getting started with Amazon SageMaker Feature Store](iam_example_iam_GettingStarted_028_section.md "iam_example_iam_GettingStarted_028_section.md")
+- [Getting started with Config](iam_example_config_service_GettingStarted_053_section.md "iam_example_config_service_GettingStarted_053_section.md")
+- [Getting Started with IoT Device Defender](iam_example_iot_GettingStarted_079_section.md "iam_example_iot_GettingStarted_079_section.md")
+- [Getting started with Step Functions](iam_example_iam_GettingStarted_080_section.md "iam_example_iam_GettingStarted_080_section.md")
 - [Manage roles](iam_example_iam_Scenario_RoleManagement_section.md "iam_example_iam_Scenario_RoleManagement_section.md")
+- [Moving hardcoded secrets to Secrets Manager](iam_example_secrets_manager_GettingStarted_073_section.md "iam_example_secrets_manager_GettingStarted_073_section.md")
+- [Run CPU stress tests on EC2 instances using FIS](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
+- [Setting up Systems Manager](iam_example_iam_GettingStarted_046_section.md "iam_example_iam_GettingStarted_046_section.md")
+- [Using property variables in CloudWatch dashboards to monitor multiple Lambda functions](iam_example_iam_GettingStarted_032_section.md "iam_example_iam_GettingStarted_032_section.md")
 
 .NET
 

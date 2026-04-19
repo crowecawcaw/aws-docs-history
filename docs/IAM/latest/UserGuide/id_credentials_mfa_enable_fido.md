@@ -133,10 +133,10 @@ about using MFA with the AWS Management Console, see [MFA enabled sign-in](conso
 
 ## Enable a passkey or security key for another IAM user (console)
 
-You can enable a passkey or security for another IAM user from the AWS Management Console only, not
+You can enable a passkey or security key for another IAM user from the AWS Management Console only, not
 from the AWS CLI or AWS API.
 
-###### To enable a passkey or security for another IAM user (console)
+###### To enable a passkey or security key for another IAM user (console)
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Users**.

@@ -7,7 +7,11 @@ context in the following code examples:
 
 - [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md "iam_example_iam_Scenario_CreateUserAssumeRole_section.md")
 - [Create read-only and read-write users](iam_example_iam_Scenario_UserPolicies_section.md "iam_example_iam_Scenario_UserPolicies_section.md")
+- [Creating an Amazon Managed Grafana workspace](iam_example_iam_GettingStarted_044_section.md "iam_example_iam_GettingStarted_044_section.md")
+- [Getting started with Amazon MSK](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
+- [Getting started with Step Functions](iam_example_iam_GettingStarted_080_section.md "iam_example_iam_GettingStarted_080_section.md")
 - [Manage policies](iam_example_iam_Scenario_PolicyManagement_section.md "iam_example_iam_Scenario_PolicyManagement_section.md")
+- [Setting up Systems Manager](iam_example_iam_GettingStarted_046_section.md "iam_example_iam_GettingStarted_046_section.md")
 
 .NET
 

@@ -203,7 +203,7 @@ messages.
 
 ```
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: codecommit:ListRepositories
-because no service control policy allows the codecommit:ListRespositories action
+because no service control policy allows the codecommit:ListRepositories action
 ```
 
 ### Access denied due to a service control policy – explicit denial
@@ -431,7 +431,7 @@ User: arn:aws:iam::123456789012:role/HR is not authorized to perform: codecommit
 because no identity-based policy allows the codecommit:ListRepositories action
 ```
 
-### Access is denied due to identity-based policies – explicit denial
+### Access denied due to identity-based policies – explicit denial
 
 1. If a policy ARN is provided in the error message, check for a `Deny`
    statement for the action in the specified policy. In the example below, the action

@@ -8,7 +8,7 @@ You can create a policy with an exception to allow for AWS managed IAM policies.
 service-managed account outside of your AWS Organizations owns Managed IAM Policies. There are
 four IAM actions that list and retrieve AWS-managed policies. Use these actions in the
 [`NotAction`](reference_policies_elements_notaction.md "reference_policies_elements_notaction.md") element of the statement.
-`AllowAccessToS3ResourcesInSpecificAccountsAndSpecificService1` in the
+`AllowAccessToResourcesInSpecificAccountsAndSpecificService1` in the
 policy.
 
 JSON

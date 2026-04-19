@@ -346,8 +346,11 @@ arn:aws:iam::123456789012:u*
 When you specify an incomplete ARN (one with fewer than the standard six fields) in an
 identity-based policy, AWS automatically completes the ARN by adding wildcard characters
 (\*) to all missing fields. For example, specifying `arn:aws:sqs` is equivalent
-to `arn:aws:sqs:*:*:*`, which grants access to all Amazon SQS resources across all
-regions and accounts.
+to `arn:aws:sqs:*:*:*`, which grants access to all Amazon Amazon SQS resources
+across all regions and accounts. However, session policies passed to AWS STS AssumeRole,
+AssumeRoleWithWebIdentity, and AssumeRoleWithSAML requests, do not support incomplete
+ARNs. Using an incomplete ARN in a session policy will result in a
+`MalformedPolicyDocumentException` error.
 
 ###### Example use of paths and ARNs for a project-based user group
 

@@ -132,7 +132,7 @@ amzn-s3-demo-bucket. Some folders that would match this include
 arn:aws:s3:::amzn-s3-demo-bucket/????-test
 ```
 
-You can also use wildcards in the different sections of an ARN, deliminated by a
+You can also use wildcards in the different sections of an ARN, delimited by a
 colon “`:`”. In the following example, two wildcards are used to match
 all Amazon Q applications and resources within the applications in all regions for
 account 123456789012:
@@ -170,8 +170,10 @@ arn:aws:lambda:us-east-2:123456789012:functi*:my-function <== not allowed
 When you specify an incomplete ARN (one with fewer than the standard six
 fields) in an identity-based policy, AWS automatically completes the ARN by adding wildcard
 characters (\*) to all missing fields. For example, specifying `arn:aws:sqs` is equivalent to
-`arn:aws:sqs:*:*:*`, which grants access to all Amazon SQS resources
-across all regions and accounts.
+`arn:aws:sqs:*:*:*`, which grants access to all Amazon Amazon SQS resources
+across all regions and accounts. However, session policies passed to AWS STS AssumeRole,
+AssumeRoleWithWebIdentity, and AssumeRoleWithSAML requests, do not support incomplete ARNs.
+Using an incomplete ARN in a session policy will result in a `MalformedPolicyDocumentException` error.
 
 You also cannot use a wildcard in the prefix ARN, or have a wildcard in the
 partition section of an ARN.

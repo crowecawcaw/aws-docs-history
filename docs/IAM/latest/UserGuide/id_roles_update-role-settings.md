@@ -125,7 +125,7 @@ are valid for one hour.
     - [GetRole](../APIReference/API_GetRole.md "../APIReference/API_GetRole.md")
 
 2.  To update a role's maximum session duration setting, call the
-    following operation with the `max-sessionduration` CLI
+    following operation with the `max-session-duration` CLI
     parameter or the `MaxSessionDuration` API parameter:
 
         * [UpdateRole](../APIReference/API_UpdateRole.md "../APIReference/API_UpdateRole.md")

@@ -86,7 +86,7 @@ Check the following:
   profile has a role. Empty instance profiles will fail with an `AccessDenied`
   error. For more information about creating a role, see [IAM role creation](id_roles_create.md "id_roles_create.md").
 
-For more information about the permissions necessary to work with roles, see see [How do I get started?](id_roles_use_switch-role-ec2.md#roles-usingrole-ec2instance-get-started "id_roles_use_switch-role-ec2.md#roles-usingrole-ec2instance-get-started"). For information about adding
+For more information about the permissions necessary to work with roles, see [How do I get started?](id_roles_use_switch-role-ec2.md#roles-usingrole-ec2instance-get-started "id_roles_use_switch-role-ec2.md#roles-usingrole-ec2instance-get-started"). For information about adding
 permissions to a user, see [Manage IAM policies](access_policies_manage.md "access_policies_manage.md").
 
 ## I can't access the temporary security credentials on my EC2 instance

@@ -73,7 +73,7 @@ You can request an increase to default quotas for adjustable IAM quotas. Request
 the [maximum quota](#autoapproved "#autoapproved") are automatically approved and
 completed within a few minutes.
 
-The following table lists the resources for which quota increases area can be
+The following table lists the resources for which quota increases can be
 automatically approved.
 
 | Resource                              | Default quota   | Maximum quota   |

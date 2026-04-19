@@ -52,7 +52,7 @@ For more information about external identity providers, see [Identity providers 
 
 - **OpenID Connect (OIDC) federation** – You can
   let users sign in using a well-known third-party identity provider such as Login with
-  Amazon, Facebook, Google, or any OIDC 2.0 compatible provider for your mobile or web
+  Amazon, Facebook, Google, or any OIDC-compatible provider. For your mobile or web
   application, you don't need to create custom sign-in code or manage your own user
   identities. Using OIDC federation helps you keep your AWS account secure, because you
   don't have to distribute long-term security credentials, such as IAM user access keys,
@@ -122,7 +122,7 @@ can use AWS STS to manage temporary security credentials, you can download the f
 applications that implement complete example scenarios:
 
 - [Enabling Federation to AWS Using Windows Active Directory, ADFS, and SAML
-  2.0](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/ "https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/"). Demonstrates how to delgate access using enterprise federation to AWS using
+  2.0](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/ "https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/"). Demonstrates how to delegate access using enterprise federation to AWS using
   Windows Active Directory (AD), Active Directory Federation Services (ADFS) 2.0, and SAML
   (Security Assertion Markup Language) 2.0.
 - [Enable custom identity broker access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md"). Demonstrates how to
@@ -134,7 +134,7 @@ applications that implement complete example scenarios:
 
 ### Samples for OIDC federation
 
-The following sample applications illustrate how to use OIDCfederation with providers
+The following sample applications illustrate how to use OIDC federation with providers
 like Login with Amazon, Amazon Cognito, Facebook, or Google. You can trade authentication from these
 providers for temporary AWS security credentials to access AWS services.
 

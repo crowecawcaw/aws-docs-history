@@ -642,7 +642,7 @@ identity.
   value may look like:
   `arn:aws:iam::`111122223333`:oidc-provider/oidc.eks.`region`.amazonaws.com/id/`OIDC_Provider_ID``.
 
-For more information on external IdPs and `AssumeRoleWithWebIDentity`,
+For more information on external IdPs and `AssumeRoleWithWebIdentity`,
 see [Common scenarios](id_federation_common_scenarios.md "id_federation_common_scenarios.md"). For more information, see
 [Role session principals](reference_policies_elements_principal.md#principal-role-session "reference_policies_elements_principal.md#principal-role-session").
 
@@ -977,7 +977,7 @@ Amazon EC2 instance credentials can be used from.
 
 The following example is a service control policy (SCP) that denies access to all
 resources unless the request arrives via a VPC Endpoint in the same VPC as the as
-the role credentals. In this example, `aws:Ec2InstanceSourcePrivateIPv4`
+the role credentials. In this example, `aws:Ec2InstanceSourcePrivateIPv4`
 limits the credential source to a particular instance based on the source IP.
 
 JSON
@@ -1151,7 +1151,7 @@ generated.
 - **Data type** – [ARN](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN")
 - **Value type** – Single-valued
 - **Example value** –
-  arn:aws::ec2:us-west-2:111111111111:instance/instance-id
+  arn:aws:ec2:us-west-2:111111111111:instance/instance-id
 
 For policy examples, see [Allow a specific instance to view resources in other AWS
 services](../../../AWSEC2/latest/UserGuide/ExamplePolicies_EC2.md#iam-example-source-instance "../../../AWSEC2/latest/UserGuide/ExamplePolicies_EC2.md#iam-example-source-instance").
@@ -1338,7 +1338,7 @@ profile.
 - **Data type** – [ARN](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN")
 - **Value type** – Single-valued
 - **Example value** –
-  arn:aws::ec2:us-west-2:111111111111:instance/instance-id
+  arn:aws:ec2:us-west-2:111111111111:instance/instance-id
 
 ### identitystore:UserId
 

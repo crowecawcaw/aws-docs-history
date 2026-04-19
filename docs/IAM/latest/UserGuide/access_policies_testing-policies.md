@@ -191,12 +191,12 @@ JSON
 
 ### Permissions required for using the policy simulator API
 
-The policy simulator API operations [GetContextKeyForCustomPolicy](../APIReference/API_GetContextKeyForCustomPolicy.md "../APIReference/API_GetContextKeyForCustomPolicy.md") and [SimulateCustomPolicy](../APIReference/API_SimulateCustomPolicy.md "../APIReference/API_SimulateCustomPolicy.md") allow you to
+The policy simulator API operations [GetContextKeysForCustomPolicy](../APIReference/API_GetContextKeysForCustomPolicy.md "../APIReference/API_GetContextKeysForCustomPolicy.md") and [SimulateCustomPolicy](../APIReference/API_SimulateCustomPolicy.md "../APIReference/API_SimulateCustomPolicy.md") allow you to
 test policies that are not yet attached to a user, user group, or role. To test such
 policies, you pass the policies as strings to the API. These policies are used only in the
 simulation and do not disclose sensitive information. You can also use the API to test
 policies that are attached to IAM users, IAM groups, or roles in your AWS account. To
-do that, you must provide users with permissions to call [GetContextKeyForPrincipalPolicy](../APIReference/API_GetContextKeyForPrincipalPolicy.md "../APIReference/API_GetContextKeyForPrincipalPolicy.md") and [SimulatePrincipalPolicy](../APIReference/API_SimulatePrincipalPolicy.md "../APIReference/API_SimulatePrincipalPolicy.md").
+do that, you must provide users with permissions to call [GetContextKeysForPrincipalPolicy](../APIReference/API_GetContextKeysForPrincipalPolicy.md "../APIReference/API_GetContextKeysForPrincipalPolicy.md") and [SimulatePrincipalPolicy](../APIReference/API_SimulatePrincipalPolicy.md "../APIReference/API_SimulatePrincipalPolicy.md").
 
 To view an example policy that allows using the policy simulator API for attached and
 unattached policies in the current AWS account, see [IAM: Access the policy simulator API](reference_policies_examples_iam_policy-sim.md "reference_policies_examples_iam_policy-sim.md").

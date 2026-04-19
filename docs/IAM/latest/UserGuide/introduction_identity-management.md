@@ -67,7 +67,7 @@ _Workloads_ are a collection of resources and code
 that delivers business value, such as an application, process, operational tools, and
 other components.
 
-_Federated princiapls_ are users whose identity and
+_Federated principals_ are users whose identity and
 credentials are managed by another identity provider, such as Active Directory, Okta, or
 Microsoft Entra.
 

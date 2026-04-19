@@ -164,4 +164,4 @@ owned by third parties.
 - To learn how to allow others to perform actions in your AWS account, see [Create a role using custom trust policies](id_roles_create_for-custom.md "id_roles_create_for-custom.md").
 - To learn how to grant permission to switch to a role, see [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md")
 - To learn how to create and provide trusted users with temporary security credentials,
-  [Permissions for temporary security credentials](id_credentials_temp_control-access.md "id_credentials_temp_control-access.md").
+  see [Permissions for temporary security credentials](id_credentials_temp_control-access.md "id_credentials_temp_control-access.md").

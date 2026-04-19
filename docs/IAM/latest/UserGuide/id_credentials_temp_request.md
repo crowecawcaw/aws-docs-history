@@ -68,7 +68,7 @@ https://sts.amazonaws.com/
 ?Version=2011-06-15
 &Action=AssumeRole
 &RoleSessionName=John-session
-&RoleArn=arn:aws::iam::123456789012:role/demo
+&RoleArn=arn:aws:iam::123456789012:role/demo
 &Policy=%7B%22Version%22%3A%222012-10-17%22%2C%22Statement%22%3A%5B%7B%22Sid%22%3A%20%22Stmt1%22%2C%22Effect%22%3A%20%22Allow%22%2C%22Action%22%3A%20%22s3%3A*%22%2C%22Resource%22%3A%20%22*%22%7D%5D%7D
 &DurationSeconds=1800
 &Tags.member.1.Key=Project

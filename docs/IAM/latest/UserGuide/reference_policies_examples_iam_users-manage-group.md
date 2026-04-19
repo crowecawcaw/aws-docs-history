@@ -16,7 +16,7 @@ What does this policy do?
   not a group resource type. For more information about the resource types that you can
   specify for an IAM action, see [Actions, Resources, and Condition Keys for AWS Identity and Access Management](list_identityandaccessmanagement.md#identityandaccessmanagement-actions-as-permissions "list_identityandaccessmanagement.md#identityandaccessmanagement-actions-as-permissions").
 - The `LimitGroupManagementAccessToSpecificUsers` statement denies users with
-  the specified names access to write and permissions managment group actions. When a user
+  the specified names access to write and permissions management group actions. When a user
   specified in the policy attempts to make changes to the group, this statement does not deny
   the request. That request is allowed by the
   `AllowAllUsersToViewAndManageThisGroup` statement. If other users attempt to

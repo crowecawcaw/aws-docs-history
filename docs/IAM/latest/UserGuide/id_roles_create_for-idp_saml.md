@@ -123,7 +123,7 @@ federation.
          supports for AWS sign-in.
       3. For **Sign-in URLs to include unique identifiers**, select
          whether the sign-in endpoints include the unique identifiers AWS assigns to your
-         SAML identity provider. This option is required for encryped SAML assertions. For
+         SAML identity provider. This option is required for encrypted SAML assertions. For
          more information, see [SAML 2.0 federation](id_roles_providers_saml.md "id_roles_providers_saml.md").
 
 7.  To add more attribute-related conditions to the trust policy, choose
