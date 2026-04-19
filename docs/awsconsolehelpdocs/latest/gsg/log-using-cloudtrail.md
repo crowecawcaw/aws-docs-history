@@ -31,47 +31,53 @@ of the AWS User Experience Customization control plane operations that UXC logs 
 An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
 
 The following example shows a CloudTrail event that demonstrates the
-operation.
+`GetAccountCustomizations` operation.
 
 ```
 {
-  "eventVersion" : "1.09",
-  "userIdentity" : {
-    "type" : "AssumedRole",
-    "principalId" : "AIDACKCEVSQ6C2EXAMPLE:jdoe",
-    "arn" : "arn:aws:sts::111122223333:assumed-role/user/jdoe",
-    "accountId" : "111122223333",
-    "accessKeyId" : "AKIAIOSFODNN7EXAMPLE",
-    "sessionContext" : {
-      "sessionIssuer" : {
-        "type" : "Role",
-        "principalId" : "AIDACKCEVSQ6C2EXAMPLE",
-        "arn" : "arn:aws:iam::111122223333:role/user",
-        "accountId" : "111122223333",
-        "userName" : "jdoe"
+  "eventVersion": "1.09",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AIDACKCEVSQ6C2EXAMPLE:jdoe",
+    "arn": "arn:aws:sts::111122223333:assumed-role/MyRole/jdoe",
+    "accountId": "111122223333",
+    "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AIDACKCEVSQ6C2EXAMPLE",
+        "arn": "arn:aws:iam::111122223333:role/MyRole",
+        "accountId": "111122223333",
+        "userName": "MyRole"
       },
-      "webIdFederationData" : { },
-      "attributes" : {
-        "creationDate" : "2022-12-09T23:48:51Z",
-        "mfaAuthenticated" : "false"
+      "attributes": {
+        "creationDate": "2026-03-06T15:15:16Z",
+        "mfaAuthenticated": "false"
       }
     }
   },
-  "eventTime" : "2022-12-09T23:50:03Z",
-  "eventSource" : "uxc.amazonaws.com",
-  "eventName" : "GetAccountColor",
-  "awsRegion" : "us-east-2",
-  "sourceIPAddress" : "10.24.34.3",
-  "userAgent" : "PostmanRuntime/7.43.4",
-  "requestParameters" : null,
-  "responseElements" : null,
-  "requestID" : "543db7ab-b4b2-11e9-8925-d139e92a1fe8",
-  "eventID" : "5b2805a5-3e06-4437-a7a2-b5fdb5cbb4e2",
-  "readOnly" : true,
-  "eventType" : "AwsApiCall",
-  "managementEvent" : true,
-  "recipientAccountId" : "111122223333",
-  "eventCategory" : "Management"
+  "eventTime": "2026-03-06T15:36:13Z",
+  "eventSource": "uxc.amazonaws.com",
+  "eventName": "GetAccountCustomizations",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "10.24.34.0",
+  "userAgent": "aws-sdk-java/2.41.27",
+  "requestParameters": null,
+  "responseElements": null,
+  "requestID": "543db7ab-b4b2-11e9-8925-d139e92a1fe8",
+  "eventID": "5b2805a5-3e06-4437-a7a2-b5fdb5cbb4e2",
+  "readOnly": true,
+  "resources": [
+    {
+      "accountId": "111122223333",
+      "type": "AWS::UXC::AccountCustomization",
+      "ARN": "arn:aws:uxc::111122223333:account-customizations"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": false,
+  "recipientAccountId": "111122223333",
+  "eventCategory": "Data"
 }
 ```
 

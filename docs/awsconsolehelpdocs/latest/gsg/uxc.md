@@ -16,5 +16,6 @@ The `visibleServices` and `visibleRegions` settings control only the appearance 
 ###### Topics
 
 - [Getting started with AWS User Experience Customization](getting-started-uxc.md "getting-started-uxc.md")
+- [UXC API Reference](uxc-api-reference.md "uxc-api-reference.md")
 - [Logging AWS User Experience Customization API calls using AWS CloudTrail](log-using-cloudtrail.md "log-using-cloudtrail.md")
 - [Security in AWS User Experience Customization](security.md "security.md")
