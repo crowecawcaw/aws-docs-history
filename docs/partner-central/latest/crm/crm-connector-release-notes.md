@@ -4,6 +4,7 @@ This section contains the release history for the AWS Partner Customer Relations
 
 ###### Topics
 
+- [Version 3.18 (April 16, 2026)](#3.18 "#3.18")
 - [Version 3.17 (March 31, 2026)](#3.17 "#3.17")
 - [Version 3.16 (February 26, 2026)](#3.16 "#3.16")
 - [Version 3.15 (February 6, 2026)](#3.15 "#3.15")
@@ -24,6 +25,29 @@ This section contains the release history for the AWS Partner Customer Relations
 - [Version 1.6 (January 13, 2023)](#1.6 "#1.6")
 - [Version 1.5 (January 13, 2023)](#1.5 "#1.5")
 - [Version 1.4 (December 7, 2022)](#1.4 "#1.4")
+
+## Version 3.18 (April 16, 2026)
+
+AWS Partner CRM Connector version 3.18 contains the following bug fix and
+known issue.
+
+### Bug fixes
+
+- Fixed an issue where duplicate ACE Opportunity records were intermittently created when the **Solution offered** field was populated during opportunity creation, either via flow or manual entry. The duplicate record's name was set to the original record's ID, and the original record was not linked to AWS Partner Central. This issue affected connector versions 3.14–3.17
+
+### Known issues
+
+**Validation rules remain active after upgrading from connector versions 3.14–3.17**
+
+The validation rules `ACEOppNew_PreventUpdatesWhenPOSubmitted`, `ACEOpp_PreventUpdatesWhenPOSubmitted`, and `ACEOppNew_MandatorySolutionOffered` were originally shipped as active in a previous connector version. These rules were changed to inactive in the package source, but Salesforce managed package upgrades do not overwrite the active property on validation rules. This is expected Salesforce behavior — the `active` property is classified as subscriber-and-developer editable, meaning it is set only on initial install and is not updated during upgrades.
+
+Any customer who installed the connector when these validation rules were active will still have them active after upgrading. This can cause `FIELD_CUSTOM_VALIDATION_EXCEPTION` errors that block updates and **Refresh from AWS** on ACE Opportunity records when ownership is Partner Referral and status is Submitted.
+
+To resolve this issue, manually deactivate the validation rules in your Salesforce organization:
+
+1. Navigate to **Setup** → **Object Manager** → **ACE Opportunity** → **Validation Rules**
+2. Locate `ACEOppNew_PreventUpdatesWhenPOSubmitted`, `ACEOpp_PreventUpdatesWhenPOSubmitted`, and `ACEOppNew_MandatorySolutionOffered`
+3. Edit each rule and uncheck **Active**, then save
 
 ## Version 3.17 (March 31, 2026)
 
