@@ -17,7 +17,7 @@ your support case:
 
 - [Agent log locations and status](#agent-log-locations "#agent-log-locations")
 - [Error: Installation Failed](#Error-Installtion-Failed "#Error-Installtion-Failed")
-- [This app cant run on your PC error – Windows](#this-app-error "#this-app-error")
+- [This app can't run on your PC error – Windows](#this-app-error "#this-app-error")
 - [Is having a mounted '/tmp' directory a requirement for the Agent?](#Agent-TMP "#Agent-TMP")
 - [Installation Failed – Old Agent](#Installation-Failed-Old "#Installation-Failed-Old")
 - [Installation Failed on Linux Server](#Installation-Failed-Linux "#Installation-Failed-Linux")
@@ -98,7 +98,7 @@ and therefore the server will not appear on the AWS Elastic Disaster Recovery Co
 issue that caused the installation to fail, you need to rerun the Agent Installer
 file to install the Agent.
 
-## This app cant run on your PC error – Windows
+## This app can't run on your PC error – Windows
 
 If you encounter the following error "This app can't run on your PC", when trying to
 install the AWS Replication Agent on your Windows 10 source machine, try the following.
@@ -434,8 +434,8 @@ botocore.exceptions.ClientError: An error occurred (InvalidSignatureException) w
 
 ```
 
-Attempt to rerun the installer with power shell instead of CMD. At times, when the
-installer is ran in CMD, the AWS Secret Key does not get pasted properly into the installer and
+Attempt to rerun the installer with PowerShell instead of CMD. At times, when the
+installer is run in CMD, the AWS Secret Key does not get pasted properly into the installer and
 causes installation to fail.
 
 ## Error – driver was compiled for a different kernel not loading

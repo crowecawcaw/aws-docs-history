@@ -173,7 +173,7 @@ you have source volumes amounting to a total of 1 TiB of storage, then DRS will 
 
 ### Replication and Launch Subnets
 
-When using DRS with Outposts it is imperative that the subnet in replication setting and launch settings
+When using DRS with Outposts it is imperative that the subnet in replication settings and launch settings
 are on the same Outpost. If the subnets are not on the same Outpost, it may result in a failure during
 recovery.
 

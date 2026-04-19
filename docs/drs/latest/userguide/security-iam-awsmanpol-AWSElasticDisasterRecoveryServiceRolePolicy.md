@@ -11,7 +11,7 @@ This policy includes permissions to do the following:
 
 - ec2 – Retrieve and modify resources needed to support failover and failback of source servers
   and source networks.
-- cloudwtach – Retrieve disk usage to allow cost optimization
+- cloudwatch – Retrieve disk usage to allow cost optimization
 - iam – Acquire the permissions required for recovery
 - kms – Allow using encrypted volumes
 - drs – Retrieve tags and set tags for DRS resources, create DRS

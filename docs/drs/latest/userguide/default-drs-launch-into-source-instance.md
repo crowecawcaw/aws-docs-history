@@ -15,9 +15,9 @@ is not met:
 
 1. The instance to launch into must have the required tag with key _AWSDRS_
    and value _AllowLaunchingIntoThisInstance_.
-2. The instance to launch into must have the same operating systems platform (Linux or Windows) as that of the recovery instance the
+2. The instance to launch into must have the same operating system platform (Linux or Windows) as that of the recovery instance the
    **Start reversed replication** or **Protect recovered instance** was called on.
-3. If the instance to launch into is a Linux it must have the BIOS boot mode and if this Windows, it must have the same
+3. If the instance to launch into is Linux, it must have the BIOS boot mode, and if this is Windows, it must have the same
    boot mode as that of the recovery instance the **Start reversed replication** or
    **Protect recovered instance** was called on.
 4. The instance to launch into must have the x86_64 architecture, HVM virtualization and an EBS root device.
@@ -35,7 +35,7 @@ to go back to the first region will have their source servers in the first regio
 **Launch into instance ID** to the instance ID of the instance in the first region they initially launched from.
 
 Using the diagram below as an example, the setting applies to source servers such as Source Server **S1**
-and automatically set the **Launch into instance ID** to the instance ID of EC2 instance
+and automatically sets the **Launch into instance ID** to the instance ID of EC2 instance
 **EI1** (marked by the dotted green arrow in the diagram).
 
 This only happens if:
@@ -61,7 +61,7 @@ will have the source server automatically set **Launch into instance ID** to the
 instance ID of the instance in the first availability zone.
 
 Using the diagram below as an example, the setting applies to source servers such as Source Server **S**
-and automatically set the **Launch into instance ID** to the instance ID of EC2 instance
+and automatically sets the **Launch into instance ID** to the instance ID of EC2 instance
 **EI1** (marked by the dotted green arrow in the diagram).
 
 This only happens if:

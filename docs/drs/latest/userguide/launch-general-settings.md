@@ -80,8 +80,8 @@ private IP. The IP will be shown in brackets next to the option.
     + If you choose **Yes**, ensure
      that the IP range of the subnet you set in the EC2 launch
      template includes the private IP address.
-    + If the both the source server and the drill or recovery instance
-     share the same subnet though a VPN, then the source private IP is
+    + If both the source server and the drill or recovery instance
+     share the same subnet through a VPN, then the source private IP is
      already in use, and the **Copy private IP** option should not be used.
     + Removing a private IP from a specific server's settings does not remove it from the launch template.
 
@@ -124,7 +124,7 @@ already launched instance.
 
 - **Launch into instance ID** - Configure an existing instance ID to launch into,
   instead of creating a new instance.
-  This field allows to select an EC2 instance from the list of EC2 instances available in this region.
+  This field allows you to select an EC2 instance from the list of EC2 instances available in this region.
   The EC2 instance to launch into must have a tag with key _AWSDRS_ and value
   _AllowLaunchingIntoThisInstance_ to appear in the list, and it must be stopped
   prior to launching into it. When this value is set, the **Transfer server tags** and
@@ -133,7 +133,7 @@ already launched instance.
 
 ###### Note
 
-For the instance to appear and perform as a recovery instance in DRS and allow to run post-launch actions on it, it needs to
+For the instance to appear and perform as a recovery instance in DRS and allow you to run post-launch actions on it, it needs to
 have an instance profile that includes the policies **AWSElasticDisasterRecoveryRecoveryInstancePolicy**
 and **AmazonSSMManagedInstanceCore**.
 The role **AWSElasticDisasterRecoveryRecoveryInstanceWithLaunchActionsRole**, installed from the
@@ -145,7 +145,7 @@ are not met:
     1. The instance to launch into must have the required tag with key
      *AWSDRS* and value *AllowLaunchingIntoThisInstance*.
     2. The instance to launch into has been stopped.
-    3. The instance to launch into must have the same operating systems
+    3. The instance to launch into must have the same operating system
      platform (Linux or Windows) as that of the server it is protecting.
     4. If the instance to launch into is a Linux it must have the BIOS
      boot mode, and if Windows it must have the same boot mode as that of

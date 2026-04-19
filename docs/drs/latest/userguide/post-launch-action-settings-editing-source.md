@@ -2,11 +2,11 @@
 
 You can activate, deactivate and edit actions available for this source server.
 Activating an action ensures it runs after launching a recovery instance. Likewise,
-deactivating it, prevents it from being run after launching a recovery instance. The
+deactivating it prevents it from being run after launching a recovery instance. The
 default settings are not affected by activating, deactivating or editing an action for a
 source server. Editing an action for a source server updates it for that source server.
 These changes are not reflected on the action, if it exists in the default post-launch
-actions settings. Changes to actions in the default settings, as to apply to newly added
+actions settings. Changes to actions in the default settings, so as to apply to newly added
 source servers, can be done from the **Settings → Default post-launch
 actions** page.
 
@@ -24,7 +24,7 @@ Choose the action’s card to select it, and then choose the **Edit** button.
 To activate the action, make sure the **Activate this action setting** is checked and click the **Save** button.
 To deactivate, make sure the **Activate this action** setting is un-checked and click the **Save** button.
 
-The edit page allow you to change the value of some of the parameters for
+The edit page allows you to change the value of some of the parameters for
 both pre-defined actions and custom actions. Some parameters can only be edited if the
 action is a custom action. See below for specific information.
 
@@ -36,10 +36,10 @@ The parameters that appear on the edit page:
   the launch of a recovery instance.
 - **Mark launch as successful only if this action finishes
   running successfully** – This checkbox dictates whether or not the launch is
-  marked as successful, based on the successful run of this action. Instances launches
+  marked as successful, based on the successful run of this action. Instance launches
   progress normally regardless of the success of the action.
-- **System Manager document name** – Editable for custom actions. Select any Systems Manager document that is available to be used in this account.
-- **View in Systems Manager** – Click to open **System Managers** and view additional information about the document.
+- **Systems Manager document name** – Editable for custom actions. Select any Systems Manager document that is available to be used in this account.
+- **View in Systems Manager** – Click to open **Systems Manager** and view additional information about the document.
 - **Description** – Editable for custom actions. Add a description or keep the default.
 - **Document version** – Editable for custom actions. Select which SSM document version to run. AWS DRS can run a default version, the latest version, or a specific version, according to your preferences.
 - **Category** – Editable for custom actions. Select from various available categories including monitoring, validation, security and more.

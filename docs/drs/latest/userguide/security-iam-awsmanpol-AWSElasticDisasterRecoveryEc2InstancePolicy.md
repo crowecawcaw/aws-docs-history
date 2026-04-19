@@ -7,4 +7,4 @@ an EC2 Instance Profile) to the EC2 Instances.
 
 **Permissions details**
 
-To view the policy permission details see [AWSElasticDisasterRecoveryEc2InstancePolicy](../../../aws-managed-policy/latest/reference/AWSElasticDisasterRecoveryEc2InstancePolicy.md "../../../aws-managed-policy/latest/reference/AWSElasticDisasterRecoveryEc2InstancePolicy.md") in the AWS Managed Policy Reference Guide.
+To view the policy permission details, see [AWSElasticDisasterRecoveryEc2InstancePolicy](../../../aws-managed-policy/latest/reference/AWSElasticDisasterRecoveryEc2InstancePolicy.md "../../../aws-managed-policy/latest/reference/AWSElasticDisasterRecoveryEc2InstancePolicy.md") in the AWS Managed Policy Reference Guide.

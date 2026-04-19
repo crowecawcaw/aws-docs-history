@@ -1,7 +1,7 @@
 # Configuring launch settings in AWS Elastic Disaster Recovery
 
 Launch settings determine how your drill and recovery instances are launched in AWS. They
-are composed of DRS launch settings and EC2 launch template, allowing you to fully customize
+are composed of DRS launch settings and an EC2 launch template, allowing you to fully customize
 your drill and recovery instances by configuring key metrics, such as the subnet within
 which the instance will be launched, the instance type to be used, license transfers,
 replication status, and a variety of other settings. AWS Elastic Disaster Recovery ensures that your drill and

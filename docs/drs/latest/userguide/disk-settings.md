@@ -33,7 +33,7 @@ the EBS volume disk type:
    of EBS volume to use for the disk or group of disks.
 3. Select the **AUTO** option if your volume's size is greater than 125 GiB and you want AWS Elastic Disaster Recovery to automatically
    select the most cost-effective EBS volume disk type for each
-   disk based on the disk size and type based on the option you defined in the **Replication settings** (either the default **Lower cost, Throughput Optimized HDD (st1)** option or the **Faster, General Purpose SSD (gp2) or (gp3)** s option).
+   disk based on the disk size and type based on the option you defined in the **Replication settings** (either the default **Lower cost, Throughput Optimized HDD (st1)** option or the **Faster, General Purpose SSD (gp2) or (gp3)** option).
 
 AWS Elastic Disaster Recovery uses a single Replication Server per 15 source disks. Selecting the **Auto** option ensures that the fewest number of replication servers
 are used, resulting in increased cost savings.

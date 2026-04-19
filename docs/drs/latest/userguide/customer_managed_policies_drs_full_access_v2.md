@@ -6,7 +6,7 @@ Allows full administrative access to AWS Elastic Disaster Recovery (AWS DRS) Con
 
 This policy includes permissions to do the following:
 
-- `drs` – All apis.
+- `drs` – All APIs.
 - `kms` – List aliases and describe keys.
 - `ec2` – Describe account attributes, availability zones, images,
   instance (including types, statuses, type offerings), subnets, volumes, ebs encryption by default, ebs default kms key id,
@@ -19,7 +19,7 @@ This policy includes permissions to do the following:
 - `license manager` – List license
   configurations.
 - `resource groups` – List groups.
-- `elastic load balancing` – Describe load balancers..
+- `elastic load balancing` – Describe load balancers.
 - `iam` – List instance profiles and roles, passRole.
 - `cloudformation` – Describe and list stacks.
 - `s3` – Get bucket location and list all my buckets.

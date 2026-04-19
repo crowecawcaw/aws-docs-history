@@ -75,7 +75,7 @@ to disk. The Agent holds a buffer which is large enough to map all volume's bloc
 ~250 MB in memory.
 
 The Agent then acts as a sort of write filter and will replicate changed blocks
-directly from memory to the replication server. In cases where the data no longer in
+directly from memory to the replication server. In cases where the data is no longer in
 memory, the Agent will read the block from the volume directly. This is the case
 where you may see backlog in the Elastic Disaster Recovery Console. The cause of
 this is the volume of change is greater than the bandwidth available.
@@ -113,12 +113,12 @@ Throttling can be activated by selecting the specific server and selecting the *
 
 The Agent can replicate up to 50 disks from a single server. Ensure that the replication server instance type supports at least the number of disks being replicated.
 
-## Is it possible to add a disk to replication without a complete resync of any disks that have already been replicated??
+## Is it possible to add a disk to replication without a complete resync of any disks that have already been replicated?
 
 When you add a disk to a source server, AWS Elastic Disaster Recovery will automatically identify it
 and add it to the **Disk settings** tab in the console.
 
-This feature is activated automatically for newly added servers. [Learn how to deactivate or reactivated this feature.](volumes-drs.md#auto-replicate "volumes-drs.md#auto-replicate")
+This feature is activated automatically for newly added servers. [Learn how to deactivate or reactivate this feature.](volumes-drs.md#auto-replicate "volumes-drs.md#auto-replicate")
 
 ## Which Windows and Linux OSs support no-rescan upon reboot?
 
@@ -130,7 +130,7 @@ A rescan is similar to the initial sync but is faster because only blocks that a
 transmitted.
 
 Rescans can still happen following a hard reboot, crashes, or when you add or remove disks to or from
-the source server. In addition, a rescan will occur if the underline Storage types do not use static [DUIDs](https://learn.microsoft.com/en-us/windows-hardware/drivers/storage/device-unique-identifiers--duids--for-storage-devices "https://learn.microsoft.com/en-us/windows-hardware/drivers/storage/device-unique-identifiers--duids--for-storage-devices") (such as 3PARdata).
+the source server. In addition, a rescan will occur if the underlying Storage types do not use static [DUIDs](https://learn.microsoft.com/en-us/windows-hardware/drivers/storage/device-unique-identifiers--duids--for-storage-devices "https://learn.microsoft.com/en-us/windows-hardware/drivers/storage/device-unique-identifiers--duids--for-storage-devices") (such as 3PARdata).
 Supported OSs include:
 
 **Windows Server**

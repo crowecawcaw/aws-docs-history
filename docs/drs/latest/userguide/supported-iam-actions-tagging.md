@@ -1,7 +1,7 @@
 # Grant permission to tag resources during creation
 
 Some resource-creating Amazon DRS API actions allow you to specify tags when you
-create the resource. You can use resource tags to implement attribute-based control
+create the resource. You can use resource tags to implement attribute-based access control
 (ABAC).
 
 To allow users to tag resources on creation, they must have permissions to use the
@@ -10,7 +10,7 @@ action that creates the resource, such as:
 - `drs:CreateSourceServerForDrs` – for creating a source server
 - `drs:CreateRecoveryInstanceForDrs` – for creating a Recovery instance
 - `drs:TagResource` – if tags are specified in the resource-creating action
-  If tags are specified in the resource-creating action, Amazon performs
+  If tags are specified in the resource-creating action, Amazon DRS performs
   additional authorization on the `drs:TagResource` action to verify that
   users have permissions to create tags. Therefore, users must also have explicit
   permissions to use the `drs:TagResource` action.

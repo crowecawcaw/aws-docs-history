@@ -11,7 +11,7 @@ AWS tags in [this Amazon EC2 article](../../../AWSEC2/latest/UserGuide/Using_Tag
 resources created by AWS DRS (replication servers, EBS volumes, EBS snapshots, Conversion
 servers).
 
-Choose **Manage tags** to open **Manage
+Choose **Manage tags** to open the **Manage
 tags** page to add or remove tags.
 
 - Choose **Add new tag** to add a new tag. Add a tag **Key** and an optional tag **Value**.

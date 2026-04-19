@@ -3,7 +3,7 @@
 In order to replicate network configurations between different accounts, you need to go
 to the source account and create the **Network role** from the
 **Trusted accounts** page. This will automatically create the
-role and attached the required policies.
+role and attach the required policies.
 
 ###### Note
 

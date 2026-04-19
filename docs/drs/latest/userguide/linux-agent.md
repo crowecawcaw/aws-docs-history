@@ -1,7 +1,7 @@
 # Installing the AWS Replication Agent on Linux
 
 To install the agent on a Linux source server, you should ensure that your source meets
-all the requirements list in the [supported Linux operating systems](Supported-Operating-Systems-Linux.md "Supported-Operating-Systems-Linux.md")
+all the requirements listed in the [supported Linux operating systems](Supported-Operating-Systems-Linux.md "Supported-Operating-Systems-Linux.md")
 documentation.
 
 Before installing, please ensure that you are aware of the following:
@@ -51,9 +51,9 @@ If you need to validate the installer hash, the correct hash is here:
 
 `https://aws-elastic-disaster-recovery-hashes-<REGION>.s3.<REGION>.amazonaws.com/latest/linux/aws-replication-installer-init.sha512`
 
-Replace `<REGION>` with the AWS Region into which you are replicating
+Replace `<REGION>` with the AWS Region into which you are replicating.
 
-For example, when using the **us-east-1** Region
+For example, when using the **us-east-1** Region:
 
 `https://aws-elastic-disaster-recovery-hashes-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/aws-replication-installer-init.sha512`
 
@@ -62,13 +62,7 @@ For example, when using the **us-east-1** Region
 AWS Regions that are not opt-in also support the shorter installer path:
 
 `https://aws-elastic-disaster-recovery-<REGION>.s3.amazonaws.com/latest/linux/aws-replication-installer-init`. Replace
-`<REGION>` with the AWS Region into which you are replicating.
-
-###### Note
-
-If you are using a Windows Servers of versions 2016 or older, and are using PowerShell to download the installer,
-you need to enable TLS 1.2:
-`[System.Net.ServicePointManager]::SecurityProtocol = 'TLS12'` 2. Use this command on your source server in order to run the installation script.
+`<REGION>` with the AWS Region into which you are replicating. 2. Use this command on your source server in order to run the installation script.
 
 ```
 chmod +x aws-replication-installer-init; sudo ./aws-replication-installer-init
@@ -92,7 +86,7 @@ started.
    Name**, the **AWS Access Key ID** and
    **AWS Secret Access Key** that you previously
    generated. Enter the complete AWS Region name (for example, eu-central-1), the
-   full AWS Access Key ID and the full AWS Secret Access Key.
+   full AWS Access Key ID and the full AWS Secret Access Key. If you are using temporary credentials, you also need to specify the session token.
 
 ```
 `$` `chmod +x aws-replication-installer-init; sudo ./aws-replication-installer-init``The installation of the AWS Replication Agent has started.
@@ -110,16 +104,16 @@ example: `chmod +x aws-replication-installer-init; sudo
  ./aws-replication-installer-init --region regionname --aws-access-key-id
  AKIAIOSFODNN71EXAMPLE --aws-secret-access-key
  wJalrXUtnFEMI/K71MDENG/bPxRfiCYEXAMPLEKEY`) 4. Once you have entered your credentials, the installer identifies volumes for
-replication. The installer displays the identified disks and prompt you to choose
+replication. The installer displays the identified disks and prompts you to choose
 the disks you want to replicate.
 
 ```
 `$` `chmod +x aws-replication-installer-init; sudo ./aws-replication-installer-init``...
 AWS Secret Access Key: wJalrXUtnFEMI/K71MDENG/bPxRfiCYEXAMPLEKEY
 Identifying volumes for replication.
-Choose the disks you want to replication. Your disks are: /dev/sda,/dev/xvda
-To replication some of the disks, type the path of the disks, separated with a comma (for example, /dev/sda,/dev/sdb).
-To replication all disks, press Enter:`
+Choose the disks you want to replicate. Your disks are: /dev/sda,/dev/xvda
+To replicate some of the disks, type the path of the disks, separated with a comma (for example, /dev/sda,/dev/sdb).
+To replicate all disks, press Enter:`
 ```
 
 To replicate some of the disks, type the path of the disks, separated by a comma, as
@@ -129,8 +123,8 @@ size.
 
 ```
 `$` `chmod +x aws-replication-installer-init; sudo ./aws-replication-installer-init``...
-To replication some of the disks, type the path of the disks, separated with a comma (for example, /dev/sda,/dev/sdb).
-To replication all disks, press Enter:
+To replicate some of the disks, type the path of the disks, separated with a comma (for example, /dev/sda,/dev/sdb).
+To replicate all disks, press Enter:
 Identified volume for replication: /dev/xvda of size 8 GiB`
 ```
 
@@ -139,7 +133,7 @@ The installer confirms that all disks were successfully identified.
 ```
 `$` `chmod +x aws-replication-installer-init; sudo ./aws-replication-installer-init``...
 Identified volume for replication: /dev/xvda of size 8 GiB
-`All volumes for replication were successfully identified.``
+All volumes for replication were successfully identified.`
 ```
 
 ###### Note
@@ -148,7 +142,7 @@ When identifying specific disks for replication, do not use apostrophes, bracket
 disk paths that do not exist. Type only existing disk paths. Each disk you selected for
 replication is displayed with the caption **Disk to replicate
 identified**. However, the displayed list of identified disks for replication may
-differ from the data you entered. This difference can due to several reasons:
+differ from the data you entered. This difference can be due to several reasons:
 
     * The root disk of the source server is always replicated, whether you select it or
      not. Therefore, it always appears on the list of identified disks for replication.
@@ -177,9 +171,9 @@ server.
 ```
 `$` `chmod +x aws-replication-installer-init; sudo ./aws-replication-installer-init``...
 Identified volume for replication: /dev/xvda of size 8 GiB
-`All volumes for replication were successfully identified.`
-Downloading the AWS Replication Agent onto the source server... `Finished`
-Installing the AWS Replication Agent onto the source server... `Finished``
+All volumes for replication were successfully identified.
+Downloading the AWS Replication Agent onto the source server... Finished
+Installing the AWS Replication Agent onto the source server... Finished`
 ```
 
 6. Once the AWS Replication Agent is installed, the server is added to the AWS Elastic Disaster Recovery
@@ -188,10 +182,10 @@ Installing the AWS Replication Agent onto the source server... `Finished``
 
 ```
 `$` `chmod +x aws-replication-installer-init; sudo ./aws-replication-installer-init``...
-Installing the AWS Replication Agent onto the source server... `Finished`
-Syncing the source server with the AWS Elastic Disaster Recovery console... `Finished
+Installing the AWS Replication Agent onto the source server... Finished
+Syncing the source server with the AWS Elastic Disaster Recovery console... Finished
 The following is the source server ID: s-3146f90b19example
-The AWS Replication Agent was successfully installed.`
+The AWS Replication Agent was successfully installed.
 `$``
 ```
 

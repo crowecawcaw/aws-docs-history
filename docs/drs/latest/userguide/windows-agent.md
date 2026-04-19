@@ -1,7 +1,7 @@
 # Installing the AWS Replication Agent on Windows
 
 To install the AWS Replication Agent on a Windows source server, you should ensure
-that your source meets all the requirements list in the [supported Windows operating systems](Supported-Operating-Systems-Windows.md "Supported-Operating-Systems-Windows.md")
+that your source meets all the requirements listed in the [supported Windows operating systems](Supported-Operating-Systems-Windows.md "Supported-Operating-Systems-Windows.md")
 documentation.
 
 Prior to installing the AWS Replication Agent, please ensure that you are aware of the
@@ -11,8 +11,11 @@ following:
   server.
 - We recommend using Windows PowerShell, which supports the 'Ctrl+V' shortcut for
   pasting. Windows Command Prompt (cmd) does not support this functionality.
-  Before installing the AWS Replication Agent, `AWSReplicationWindowsInstaller.exe`, it needs to be downloaded. Copy or distribute the downloaded agent installer to each Windows source
-  server that you want to add to AWS Elastic Disaster Recovery.
+
+## Downloading the installer
+
+Before installing the AWS Replication Agent, `AwsReplicationWindowsInstaller.exe`, it needs to be downloaded. Copy or distribute the downloaded agent installer to each Windows source
+server that you want to add to AWS Elastic Disaster Recovery.
 
 The agent installer follows the following format:
 
@@ -22,18 +25,22 @@ The agent installer follows the following format:
 
 Replace `<REGION>` with the AWS Region into which you are replicating.
 
-The following is an example URL for downloading the installer file from the us-east-1 region :
+The following is an example command for downloading the installer file from the us-east-1 region:
+
+###### Note
+
+If you are using Windows Server 2016 or older, you may need to enable TLS 1.2 in PowerShell before downloading:
+`[System.Net.ServicePointManager]::SecurityProtocol = 'TLS12'`
 
 ```
-https://aws-elastic-disaster-recovery-us-east-1.s3.us-east-1.amazonaws.com/latest/windows/AwsReplicationWindowsInstaller.exe
+Invoke-WebRequest "https://aws-elastic-disaster-recovery-us-east-1.s3.us-east-1.amazonaws.com/latest/windows/AwsReplicationWindowsInstaller.exe" -OutFile .\AwsReplicationWindowsInstaller.exe
 ```
+
+The command line indicates when the installer has been successfully downloaded.
 
 ###### Note
 
 - AWS Regions that are not opt-in also support the shorter installer path: `https://aws-elastic-disaster-recovery-<REGION>.s3.amazonaws.com/latest/windows/AwsReplicationWindowsInstaller.exe` . Replace `<REGION>` with the AWS Region into which you are replicating.
-- If you are using a Windows Servers of versions 2016 or older, and are using PowerShell to download the installer,
-  you need to enable TLS 1.2:
-  `[System.Net.ServicePointManager]::SecurityProtocol = 'TLS12'`
 - Microsoft Windows Server versions 2008 and 2008 R2 use a version of the AWS
   Replication Agent that is only valid for those versions - `AwsReplicationWindowsLegacyInstaller.exe`. DO NOT use this installer file to
   install the agent on any other OS types. You can download it from
@@ -48,8 +55,8 @@ https://aws-elastic-disaster-recovery-us-east-1.s3.us-east-1.amazonaws.com/lates
   . Replace `<REGION>` with the AWS Region into which you are replicating.
 
 If you need to validate the installer hash, the correct hash is here:
-`https://aws-elastic-disaster-recovery-hashes-<region>.s3.amazonaws.com/latest/windows_legacy/AwsReplicationWindows2012LegacyInstaller.exe.sha512`
-(replace <region> with the AWS Region into which you are replicating.
+`https://aws-elastic-disaster-recovery-hashes-<REGION>.s3.<REGION>.amazonaws.com/latest/windows_legacy/windows_2012_legacy/AwsReplicationWindows2012LegacyInstaller.exe.sha512`
+(replace <REGION> with the AWS Region into which you are replicating.)
 
 | Region name               | Region identity | Download Link                                                                                                                          |
 | ------------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -265,7 +272,13 @@ us-east-1:
 | South America (São Paulo) | sa-east-1       | https://aws-elastic-disaster-recovery-hashes-sa-east-1.s3.sa-east-1.amazonaws.com/latest/windows\_legacy/windows\_2012\_legacy/AwsReplicationWindows2012LegacyInstaller.exe.sha512           |
 | Africa (Cape Town)        | af-south-1      | https://aws-elastic-disaster-recovery-hashes-af-south-1.s3.af-south-1.amazonaws.com/latest/windows\_legacy/windows\_2012\_legacy/AwsReplicationWindows2012LegacyInstaller.exe.sha512         |
 
-1. Run the agent installer file `AWSReplicationWindowsInstaller.exe` as an Administrator.
+## Installing the agent
+
+1. Run the agent installer file `AwsReplicationWindowsInstaller.exe` as an Administrator.
+
+```
+.\AwsReplicationWindowsInstaller.exe
+```
 
 The installer confirms that the installation of the AWS Replication Agent has
 started.
@@ -274,11 +287,13 @@ started.
 `The installation of the AWS Replication Agent has started.`
 ```
 
-2. The installer prompts you to enter your **AWS Region
-   Name**, the **AWS Access Key ID** and the
-   **AWS Secret Access Key** that you previously
-   generated. Enter the complete AWS Region name (for example: eu-central-1), and
-   the full AWS Access Key ID and AWS Secret Access Key. If you are using temporary credentials, you also need to specify the session token.
+###### Note
+
+To install the agent on a secured network, [learn about the additional required configurations](installing-agent-blocked.md "installing-agent-blocked.md"). 2. The installer prompts you to enter your **AWS Region
+Name**, the **AWS Access Key ID** and the
+**AWS Secret Access Key** that you previously
+generated. Enter the complete AWS Region name (for example: eu-central-1), and
+the full AWS Access Key ID and AWS Secret Access Key. If you are using temporary credentials, you also need to specify the session token.
 
 ```
 `The installation of the AWS Replication Agent has started.
@@ -292,9 +307,9 @@ AWS Secret Access Key: wJalrXUtnFEMI/K71MDENG/bPxRfiCYEXAMPLEKEY`
 You can also enter these values as part of the installation script command
 parameters. If you do not enter these parameters as part of the installation
 script, you are prompted to enter them one by one as described above. (for
-example: `AwsReplicationWindowsInstaller.exe --region regionname
+example: `.\AwsReplicationWindowsInstaller.exe --region regionname
  --aws-access-key-id AKIAIOSFODNN7EXAMPLE --aws-secret-access-key
- wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY)`
+ wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`)
 
 If you require additional customization, you can add a variety of parameters to the installation script in order to manipulate the way the Agent is installed on your server.
 See the [Installer Parameters](installer-parameters.md "installer-parameters.md") for more information. 3. Once you have entered your credentials, the installer verifies that the source server
@@ -308,9 +323,9 @@ AWS Secret Access Key: wJalrXUtnFEMI/K71MDENG/bPxRfiCYEXAMPLEKEY
 Verifying that the source server has enough free disk space to install the AWS Replication Agent.
 (a minimum of 2GB of free disk space is required)
 Identifying volumes for replication.
-Choose the disks you want to replication. Your disks are: c:
-To replication some of the disks, type the path of the disks, separated with a comma (for example, C:,D:).
-To replication all disks, press Enter:`
+Choose the disks you want to replicate. Your disks are: c:
+To replicate some of the disks, type the path of the disks, separated with a comma (for example, C:,D:).
+To replicate all disks, press Enter:`
 ```
 
 To replicate some of the disks, type the path of the disks, separated by a comma, as
@@ -321,10 +336,10 @@ selected disks and prints their size.
 ```
 `...
 Identifying volumes for replication.
-Choose the disks you want to replication. Your disks are: c:
-To replication some of the disks, type the path of the disks, separated with a comma (for example, C:,D:).
-To replication all disks, press Enter:
-Disk to replciate identified: c:0 of size 30GiB`
+Choose the disks you want to replicate. Your disks are: c:
+To replicate some of the disks, type the path of the disks, separated with a comma (for example, C:,D:).
+To replicate all disks, press Enter:
+Disk to replicate identified: c:0 of size 30GiB`
 ```
 
 The installer confirms that all of the disks were successfully identified.
@@ -332,10 +347,10 @@ The installer confirms that all of the disks were successfully identified.
 ```
 `...
 Identifying volumes for replication.
-Choose the disks you want to replication. Your disks are: c:
-To replication some of the disks, type the path of the disks, separated with a comma (for example, C:,D:).
-To replication all disks, press Enter:
-Disk to replciate identified: c:0 of size 30GiB
+Choose the disks you want to replicate. Your disks are: c:
+To replicate some of the disks, type the path of the disks, separated with a comma (for example, C:,D:).
+To replicate all disks, press Enter:
+Disk to replicate identified: c:0 of size 30GiB
 All volumes for replication were successfully identified`
 ```
 
@@ -345,7 +360,7 @@ When identifying specific disks for replication, do not use apostrophes, bracket
 disk paths that do not exist. Type only existing disk paths. Each disk that you selected
 for replication is displayed with the caption **Disk to replicate
 identified**. However, the displayed list of identified disks for replication may
-differ from the data you entered. This difference can due to several reasons:
+differ from the data you entered. This difference can be due to several reasons:
 
     * The root disk of the source server is always replicated, whether you select it or
      not. Therefore, it always appears on the list of identified disks for replication.
@@ -360,7 +375,7 @@ differ from the data you entered. This difference can due to several reasons:
 
 If disks are disconnected from a server, AWS Elastic Disaster Recovery can no longer
 replicate them, so they are removed from the list of replicated disks. When they are
-re-connected, the AWS Replication Agent cannot know that these were the same disks that
+reconnected, the AWS Replication Agent cannot know that these were the same disks that
 were disconnected and therefore does not add them automatically. To add the disks after
 they are reconnected, rerun the AWS Replication Agent installer on the server.
 
@@ -378,8 +393,7 @@ Downloading the AWS Replication Agent onto the source server... Finished
 Installing the AWS Replication Agent onto the source server... Finished`
 ```
 
-5. Once the AWS Replication Agent is installed, the server is added to the Elastic
-   Disaster Recovery Console and undergoes the initial sync process. The installer
+5. Once the AWS Replication Agent is installed, the server is added to the AWS Elastic Disaster Recovery console and undergoes the initial sync process. The installer
    provides the source server's ID.
 
 ```

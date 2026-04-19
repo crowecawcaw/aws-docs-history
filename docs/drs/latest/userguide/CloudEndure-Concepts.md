@@ -109,7 +109,7 @@ your [Recovery Point Objective](#What-is-RPO "#What-is-RPO") (RPO). After Source
 maintain **Healthy** replication status,
 Point in Time states are automatically created and stored in accordance to your snapshot retention policy.
 
-Each PIT Snapshot for a Source Server consists one or more EBS Snapshots;
+Each PIT Snapshot for a Source Server consists of one or more EBS Snapshots;
 one EBS snapshot for each volume being replicated. See below for where the EBS snapshots are stored:
 
 | Replication Strategy | Replication Target | EBS Snapshot S3 Region            | EBS Snapshot Account |
@@ -138,7 +138,7 @@ The frequency (i.e. how often) that AWS Elastic Disaster Recovery creates snapsh
 
 ### What is "Use most recent data"?
 
-"**Use most recent data**" is feature available when selecting a PIT Snapshot from the AWS Elastic Disaster Recovery console
+"**Use most recent data**" is a feature available when selecting a PIT Snapshot from the AWS Elastic Disaster Recovery console
 during a **Recovery Drill** or **Recovery**.
 It is implicitly used when a **Recovery Drill**
 or **Recovery** is started programmatically (e.g. AWS CLI) without specifying a PIT Snapshot.
@@ -150,13 +150,13 @@ DRS requires an active network connection to the Source Server to successfully c
 AWS Elastic Disaster Recovery may be unable to create this PIT Snapshot for various reasons, and will wait for up to 10 minutes for this
 new PIT Snapshot to be created. If DRS is unable to create this PIT Snapshot, it will use a snapshot based on the
 last consistent state from data on the Replication Server.
-Reasons why "**Use most recent data**" may fail to successfuly create a PIT Snapshot include:
+Reasons why "**Use most recent data**" may fail to successfully create a PIT Snapshot include:
 
 - Unable to communicate with the Source Server.
 - Unable to transfer all changes present on the Source Server within the timeout window.
 
 As "**Use most recent data**" requires an active network connection to the Source Server to create a new PIT Snapshot,
-there may be circumstances (e.g Source Server is offline) where your RTO will be shortned by selecting an existing PIT Snapshot
+there may be circumstances (e.g Source Server is offline) where your RTO will be shortened by selecting an existing PIT Snapshot
 rather than waiting for "**Use most recent data**" to timeout.
 
 ### What is "Any" and "All" in Point in Time Snapshot selection?

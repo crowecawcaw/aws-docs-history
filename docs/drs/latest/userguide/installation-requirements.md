@@ -49,7 +49,7 @@ to installing the AWS Replication Agent:
   - At least 4 GB of free disk space on the
     root directory (/) of your source server for the installation. To check the available
     disk space on the root directory, run the `df -h /` command.
-  - At least 500 MB of free diskspace on the _/tmp_ directory for the
+  - At least 500 MB of free disk space on the _/tmp_ directory for the
     duration of the installation process. To check the available disk
     space on the /tmp directory run the `df -h
 /tmp` command.
@@ -71,10 +71,10 @@ to installing the AWS Replication Agent:
 To verify that the /tmp directory is mounted without the noexec option, run the
 `sudo mount | grep '/tmp'` command.
 
-If the result is similar to the example, i the issue exists in
+If the result is similar to the example, the issue exists in
 your OS: /dev/xvda1 on /tmp type ext4 (rw,noexec)
 
-|To fix and remove the noexec option from the mounted /tmp directory, run the `sudo mount -o remount,exec /tmp` command.
+To fix and remove the noexec option from the mounted /tmp directory, run the `sudo mount -o remount,exec /tmp` command.
 
 **Example of the troubleshooting procedure:**
 

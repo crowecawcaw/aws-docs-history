@@ -76,7 +76,7 @@ about installing the agent on a blocked network.](installing-agent-blocked.md "i
 
 ###### Note
 
-We do not recommend using this flag when installing the AWS Elastic Disaster Recovery Agent on an EC2 Instance, as it can prevent successful failback from occuring.
+We do not recommend using this flag when installing the AWS Elastic Disaster Recovery Agent on an EC2 Instance, as it can prevent successful failback from occurring.
 We recommend ensuring DNS automatically resolves the `{region}.drs.amazonaws.com`
 entry to the Private Link endpoint rather than leveraging this parameter.
 
@@ -98,6 +98,21 @@ has the trailing forward slash (/).
 
 **--exclude-instance-store-volumes**
 
-_Linux Installer only._
-
 Use this parameter to exclude instance store volumes from replication.
+
+**--dualstack**
+
+Use this parameter to configure the agent to use Elastic Disaster Recovery dual-stack API endpoints.
+When you specify this parameter, the agent communicates with Elastic Disaster Recovery through
+`drs.{region}.api.aws` instead of `drs.{region}.amazonaws.com`,
+and with Amazon S3 through `s3.dualstack.{region}.amazonaws.com` instead of
+`s3.{region}.amazonaws.com`.
+
+###### Note
+
+This parameter enables IPv6 support for API communication between the agent and
+AWS services, with IPv4 as a fallback. This parameter does not set the
+**IP version** in the replication configuration settings,
+which determines the Internet Protocol version used for data replication. For more
+information about the **IP version** setting, see
+[IP version](data-routing.md#ip-version "data-routing.md#ip-version").

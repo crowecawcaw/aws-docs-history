@@ -31,7 +31,7 @@ need to be able to send data over TCP port 443 to the AWS Elastic Disaster Recov
 https://drs.{region}.amazonaws.com/. Replace “{region}” with the AWS Region code you are
 replicating to, for example “us-east-1” .
 
-The source servers on which the AWS Replication Agent is installed need be able to send
+The source servers on which the AWS Replication Agent is installed need to be able to send
 data over TCP port 1500 to the Replication Servers in the staging area subnet. They also need to
 be able to send data to AWS DRS's API endpoint at
 https://drs.{region}.amazonaws.com/. Replace “{region}” with the AWS Region code you are

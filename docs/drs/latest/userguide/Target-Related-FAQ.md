@@ -27,7 +27,7 @@ A third approach would be to do so from the post-launch script.
 
 AWS DRS installs EC2Launch (Windows 2016 only). Customers need to
 configure EC2Launch based on the specific requirements explained [here](../../../AWSEC2/latest/WindowsGuide/ec2launch.md#ec2launch-config "../../../AWSEC2/latest/WindowsGuide/ec2launch.md#ec2launch-config"). This configuration step needs to be performed post Recovery using the
-wizard in C:\Program Data\Amazon\EC2-Windows\Launch\Settings\Ec2LaunchSettings.exe on the
+wizard in C:\ProgramData\Amazon\EC2-Windows\Launch\Settings\Ec2LaunchSettings.exe on the
 drill or recovery instance.
 
 ## How long does it take to copy a disk from the AWS Elastic Disaster Recovery staging area to production?
@@ -41,7 +41,7 @@ Replication servers run on Linux and conversion servers (for Windows machines) r
 on Windows.
 
 The conversion is done by AWS Elastic Disaster Recovery automatically bringing up a
-vanilla Windows conversion server machines in the same subnet with the replication
+vanilla Windows conversion server machine in the same subnet with the replication
 servers as part of the launch job.
 
 Both conversion and replication servers have Public IPs
@@ -52,7 +52,7 @@ server.
 The conversion servers must be able to access the AWS Elastic Disaster Recovery
 Service Manager.
 
-The conversion servers machines, just like the Replication servers are managed
+The conversion server machines, just like the Replication servers are managed
 automatically by Elastic Disaster Recovery. Any attempt to disrupt their automated
 functionality will result in failed conversions.
 
@@ -88,8 +88,8 @@ recovery times are of importance.
   system is dependent on the OS itself. While Linux servers typically boot
   quickly, Windows servers may take additional time, due to the nature of the
   Windows OS. If opportunity permits, drill the boot time of the source
-  server. If Linux OS takes a long time to boot ensure to check that dhclient
-  (Dynamic Host Configuration Protocol Client) is installed and the system so
+  server. If Linux OS takes a long time to boot, ensure to check that dhclient
+  (Dynamic Host Configuration Protocol Client) is installed on the system so
   it can pull an IP.
 - Scheduled Windows Updates - If the Windows server has pending patches, ensure those are
   installed prior to launching the drill or recovery instance. If pending patches remain,
@@ -120,7 +120,7 @@ You can use this connection to allow AWS Elastic Disaster Recovery to communicat
 your resources on your VPC without going through the public internet.
 
 Amazon VPC is an AWS service that you can use to launch AWS resources in a virtual
-network that you define. With a VPC, you have control over your network settings, such the
+network that you define. With a VPC, you have control over your network settings, such as the
 IP address range, subnets, route tables, and network gateways. With VPC endpoints, the
 routing between the Amazon VPC and AWS services is handled by the AWS network, and you can use IAM
 policies to control access to service resources.
@@ -141,7 +141,7 @@ For more information, see [Getting
 Started](../../../vpc/latest/userguide/GetStarted.md "../../../vpc/latest/userguide/GetStarted.md") in the _Amazon VPC User Guide_.
 
 If the AWS replication agents are installed with a principal using
-[AWSElasticDisasterRecoveryAgentInstallationPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.md#security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.title "security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.md#security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.title") and a VPCE policy is used (to scope down access), add the following statement to your policy:
+[AWSElasticDisasterRecoveryAgentInstallationPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.md") and a VPCE policy is used (to scope down access), add the following statement to your policy:
 
 ```
 `{
@@ -155,7 +155,7 @@ If the AWS replication agents are installed with a principal using
 ## Will AWS Elastic Disaster Recovery reserve EC2 capacity for recovery?
 
 AWS Elastic Disaster Recovery relies on Amazon EC2 On-Demand pools by default. If a specific Amazon EC2 instance type is
-unavailable to support your recovery, DRS will automatically attempt scale up the
+unavailable to support your recovery, DRS will automatically attempt to scale up the
 instance repeatedly until an available instance type is found, but in extreme
 circumstances, instances may not always be available. To ensure the availability of
 the required instance types you need for your most critical applications, you may

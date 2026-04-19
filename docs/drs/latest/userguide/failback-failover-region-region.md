@@ -1,6 +1,6 @@
 # Performing a cross-Region failback
 
-AWS Elastic Disaster Recovery (AWS DRS) allows you to perform failover and failback your EC2-based
+AWS Elastic Disaster Recovery (AWS DRS) allows you to perform failover and failback on your EC2-based
 applications from one AWS Region to another AWS Region. The failover process is the same as failing
 over into an
 AWS Region from a source outside of AWS, but the failback process is different.
@@ -196,7 +196,7 @@ Consider removing them.
     If you have started reversed replication for the recovery instance (A3), you will not be able
      to disconnect it. To remove the recovery instances (A3) in
      the source region, simply delete the server. This will
-     ensure that the newly launched failed-back instances (A4) remains
+     ensure that the newly launched failed-back instances (A4) remain
      protected.
     5. **Remove the source servers (A2) in the
      source region.**
@@ -215,7 +215,7 @@ and then perform a different cleanup process as described below.
 
 ###### Note
 
-1. Do not to stop the source server (B1) in the recovery AWS region as recommended
+1. Do not stop the source server (B1) in the recovery AWS region as recommended
    in the note of step 1-e.
 2. Do not perform step 3, Protecting the failed back instances would affect your
    production data.

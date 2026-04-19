@@ -41,7 +41,7 @@ of the overall source server status, including:
 
 - **Replication progress** – The percentage of the server's
   storage that was successfully replicated.
-- **Rescan progress** – In the event of of a rescan, the
+- **Rescan progress** – In the event of a rescan, the
   percentage of the server's storage that was rescanned.
 - **Total replicated storage** – The total amount of storage
   replicated (in GiB).
@@ -121,7 +121,7 @@ actions:
 - **Add servers** – Choosing this option redirects you to
   the AWS Replication Agent installation instructions.
 - **Edit replication settings** – Choose this option to edit
-  the replication settings for the selected server or group of servers through on the
+  the replication settings for the selected server or group of servers on the
   **Edit replication settings** tab.
 - **Edit launch settings** – Choose this option to enter the
   source server's **Server details view > Launch
@@ -161,7 +161,7 @@ about the entire failback and failover process with AWS Elastic Disaster Recover
   group of servers for the purpose of testing your recovery solution. You should
   perform periodic drills in order to ensure that you are ready for recovery. [Learn more about launching drill instances in
   AWS Elastic Disaster Recovery.](preparing-failover.md#recovery-drill-overview "preparing-failover.md#recovery-drill-overview")
-- **Initiate recovery** – Choose the **Initiate recovery** option to launch a recovery instances for this
+- **Initiate recovery** – Choose the **Initiate recovery** option to launch a recovery instance for this
   server or group of servers for the purpose of recovering the server in the event of
   a disaster. [Learn more about launching
   recovery instances in AWS Elastic Disaster Recovery.](failback-preparing-failover.md#failback-launching-instances "failback-preparing-failover.md#failback-launching-instances")

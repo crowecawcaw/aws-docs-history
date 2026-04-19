@@ -8,9 +8,9 @@ To edit these settings, follow these steps:
 
 1. Select **Default launch** from the
    left-hand navigation menu (under **Settings**).
-2. select **Edit** in the **Default DRS launch settings** section.
+2. Select **Edit** in the **Default DRS launch settings** section.
 3. Change the settings according to your preferences.
-4. select **Save**.
+4. Select **Save**.
 
 ## Launch settings parameters
 
@@ -20,14 +20,14 @@ AWS Elastic Disaster Recovery (AWS DRS) launch settings include:
   Allow the service to automatically update the instance type on the
   EC2 launch template, based on the CPU and RAM of the source server.
   If this setting is active (default), any modification you make to
-  the instance type in the EC2 launch template are overwritten by the
+  the instance type in the EC2 launch template is overwritten by the
   service.
 - **Start instance upon launch –**
   Configure how the EC2 recovery instance should be launched – running
   or in a stopped state.
 - **Copy private IP –** Define whether
   the private IP should be copied from the source server’s primary
-  network interface to EC2 launch template. If this setting is on,
+  network interface to the EC2 launch template. If this setting is on,
   make sure that the subnet defined in the EC2 launch template
   includes that IP in its range.
 - **Transfer server tags –** Define if
@@ -65,4 +65,4 @@ contains this policy and can be used as an instance profile.
   Bring Your Own License (BYOL). Linux servers and Windows Home are
   automatically launched as BYOL. If you launch a Windows Server or
   Windows Home as BYOL, you must select Dedicated host for the Tenancy
-  setting in the advance settings of the EC2 launch template.
+  setting in the advanced settings of the EC2 launch template.

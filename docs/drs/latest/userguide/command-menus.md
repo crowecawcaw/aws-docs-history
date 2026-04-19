@@ -21,7 +21,7 @@ actions:
   AWS Replication Agent installation instructions.
 - **Create extended source servers** – Choose this to start a wizard to create extended source servers from source servers replicating into staging accounts, in multi-account setups.
 - **Edit DRS launch settings** – Choose this option to edit a single or multiple selected source servers for their DRS launch settings.
-- **Edit EC2 launch template** – Choose this option to enter edit a single or multiple selected source servers for their EC2 launch template.
+- **Edit EC2 launch template** – Choose this option to edit a single or multiple selected source servers for their EC2 launch template.
 - **Edit post-launch action settings** – Choose this option to activate or deactivate post-launch actions for a single or multiple selected source servers.
 - **View server details** – Choose this option to enter the
   source server's **Server details view.**
@@ -48,8 +48,8 @@ When the **Delete X servers** dialog appears, click
 **Permanently delete**. Then, if the servers have associated recovery instances,
 you can either:
 
-    + delete them, keeping the EC2 instances intact),
-    + terminate them, which deletes the EC2 instances).
+    + delete them, keeping the EC2 instances intact,
+    + terminate them, which deletes the EC2 instances.
 
 ## Initiate recovery job menu
 
@@ -65,7 +65,7 @@ failover with AWS Elastic Disaster Recovery documentation](failback.md "failback
   recovery. [Learn more about launching Drill
   instances in AWS Elastic Disaster Recovery](preparing-failover.md#recovery-drill-overview "preparing-failover.md#recovery-drill-overview").
 - **Initiate recovery** – Choose this option to launch a
-  Recovery instances for this server or group of servers for the purpose of recovering
+  Recovery instance for this server or group of servers for the purpose of recovering
   the server in the event of a disaster. [Learn more about launching Recovery instances in AWS Elastic Disaster Recovery](failback-preparing-failover.md#failback-launching-instances "failback-preparing-failover.md#failback-launching-instances").
 
 ## Replication menu

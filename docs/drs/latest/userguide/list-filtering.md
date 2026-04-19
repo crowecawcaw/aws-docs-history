@@ -3,7 +3,7 @@
 You can customize the **Source servers** page through
 filtering by recovery readiness.
 
-In the **Filter source servers....** field choose the
+In the **Filter source servers....** field, choose the
 filtering property from the menu.
 
 You can filter by a variety of properties, including:

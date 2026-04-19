@@ -3,7 +3,7 @@
 AWS Elastic Disaster Recovery lets you control how data is routed from your source servers to the
 replication servers on AWS through the **Data routing and
 throttling** settings. By default, data is sent from the source
-servers to the replication servers over the public internet, using the public IP
+servers to the replication servers over the public internet, using the public IPv4 address
 that was automatically assigned to the replication servers. Transferred data is
 always encrypted in transit. Choose **Use private IP for
 data replication...** if you want to route the replicated data from
@@ -35,6 +35,61 @@ if you want to:
 - When you select the **Use private IP** option, you choose to
   **Create public IP**. Public IPs are used by default.
 
+## IP version
+
+The **IP version** setting controls the Internet
+Protocol version that AWS Elastic Disaster Recovery uses for data replication and for communication
+between your source servers and the staging area. You can choose between
+**IPv4** (default) and
+**IPv6**.
+
+When you select **IPv6**, the following
+changes apply:
+
+- Data replication from the AWS Replication Agent to the replication
+  server uses IPv6.
+- The replication server receives an IPv6 address and does not receive
+  a public IPv4 address.
+- Communication during drills and recoveries uses IPv6.
+
+###### Important
+
+Before you select **IPv6**, verify the
+following prerequisites:
+
+- Your staging area subnet must have an IPv6 CIDR block.
+- Your replication server instance type must support IPv6.
+  There is no automatic fallback to IPv4 for data replication. If IPv6
+  connectivity between your source servers and the replication servers is
+  unavailable, data replication fails.
+
+###### Note
+
+When you select **IPv6**, other IP-related
+options (such as **Use private IP** and
+**Create public IP**) are hidden in the
+console. Your prior IPv4 configurations are preserved and take effect if
+you switch back to **IPv4**.
+
+###### Note
+
+The **IP version** setting does not affect
+recovery instance networking. Recovery instances use the networking
+configuration defined in your launch settings.
+
+###### Note
+
+If you use the Failback Client for failback to on-premises infrastructure,
+the Failback Client currently supports IPv4 only. In-AWS failback uses the
+configured IP version.
+
+The **IP version** setting is separate from the
+`--dualstack` installer parameter. The `--dualstack`
+parameter controls which API endpoints the agent uses to communicate with AWS
+services, and does not change the IP version used for data replication. For more
+information, see [AWS Replication Agent
+Installer parameters](installer-parameters.md "installer-parameters.md").
+
 ## Throttle network bandwidth
 
 You can control the amount of network bandwidth used for data replication per server. By
@@ -44,4 +99,4 @@ concurrent connections.
 Choose **Throttle network
 bandwidth...** to control the transfer rate of data sent from your
 source servers to the replication servers over TCP Port 1500.
-Enter the bandwidth in Mpbs in the bandwidth field
+Enter the bandwidth in Mbps in the bandwidth field

@@ -57,7 +57,7 @@ provides an overview of the reversed direction launch process, including:
 - **Launch target** – the server into which
   the recovery instance is launching. This indicates whether the recovery
   instance is launching into the original server or to a new server. Note
-  that for in-AWS flows this value is always a new server, unless your are using the **Launch into existing instance** capability.
+  that for in-AWS flows this value is always a new server, unless you are using the **Launch into existing instance** capability.
 - **Last job ID** – the ID of the last
   failback job started for the recovery instance.
 - **Last job started** – the date and time
@@ -87,7 +87,7 @@ state for the recovery instance, including:
 - **Failback client last seen** – the date
   and time connectivity was last established between the recovery instance
   and the Failback client.
-- **Replication start time** – and date and
+- **Replication start time** – the date and
   time replication was started for the recovery instance.
 
 ### Events and metrics
@@ -143,7 +143,7 @@ server. By default, Elastic Disaster Recovery uses all available network
 bandwidth on five concurrent connections. Choose **Throttle
 bandwidth** if you want to control the transfer rate over TCP Port
 1500 of data sent from your recovery instances to your source servers during
-failback. On the the **Throttle network bandwidth (per
+failback. On the **Throttle network bandwidth (per
 instance, in Mbps)** enter the bandwidth in Mbps.
 
 Otherwise, choose **Do not throttle

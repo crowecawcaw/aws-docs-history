@@ -50,7 +50,7 @@ https://al2023-repos-<REGION>-de612dc2.s3.<REGION>.amazonaws.com/
 
 ###### Note
 
-- Agent installation and replication server components require Amazon S3
+- Agent installation and replication server components require an Amazon S3
   bucket for service functionality.
 - Ensure the relevant VPC endpoint policy includes access to all the
   required Amazon S3 buckets.
@@ -108,8 +108,8 @@ These are the main operations performed through TCP port 443:
   their replication status.
 - Monitoring the source servers for internal troubleshooting and the use of resource
   consumption metrics (such as CPU, RAM).
-- Reporting source server-related events (for example, a removal of resizing of a disk).
-- Transmit source server-related information to the AWS DRS Console
+- Reporting source server-related events (for example, a removal or resizing of a disk).
+- Transmitting source server-related information to the AWS DRS Console
   (including hardware information, running services, installed applications and packages,
   and more).
 - Preparing the source servers for drill or recovery.
@@ -157,7 +157,7 @@ the documentation of any third-party local firewall you use to learn how to enab
 2. On the console, select the **Outbound Rules** option from
    the tree.
 
-![Outbound Rules table showing network configurations, with BranchCache entries highlighted.](images/network-requirements-1-re.png) 3. On the **Outbound Rules**table,
+![Outbound Rules table showing network configurations, with BranchCache entries highlighted.](images/network-requirements-1-re.png) 3. On the **Outbound Rules** table,
 select the rule that relates to the connectivity to Remote Port - 443. Check if the **Enabled** status is
 **Yes**.
 

@@ -26,8 +26,8 @@ parameters:
   running successfully** – This checkbox dictates whether or not the launch is
   marked as successful, based on the successful run of this action. Instance launches
   progress normally regardless of the success of the action.
-- **System Manager document name** – Select any Systems Manager document that is available to be used in this account.
-- **View in Systems Manager** – Click to open **System Managers** and view additional information about the document.
+- **Systems Manager document name** – Select any Systems Manager document that is available to be used in this account.
+- **View in Systems Manager** – Click to open **Systems Manager** and view additional information about the document.
 - **Description** – Add a description or keep the default.
 - **Document version** – Select which SSM document version to run. AWS DRS can run a default version, the latest version, or a specific version, according to your preferences.
 - **Category** – Select from various available categories including monitoring, validation, security and more.
@@ -48,7 +48,7 @@ AWS Elastic Disaster Recovery (AWS DRS) places **AWSElasticDisasterRecoveryRecov
 If you add an SSM command action that requires additional permissions in the launch instance,
 you must ensure that the instance profile has the right policies or the right permissions.
 In order to do so, create a role that has the required permissions as per the policies above or has a policy or policies with those permissions attached to it.
-Go to **Launch settings** > **EC2 launch template** > **Modify** > **Advance** > **IAM instance profile**.
+Go to **Launch settings** > **EC2 launch template** > **Modify** > **Advanced** > **IAM instance profile**.
 Use an existing profile or create a new one using the **Create new IAM profile** link.
 
 ###### Note

@@ -39,13 +39,13 @@ located in an on-premises environment.
 
 ![Network architecture showing on-premises servers replicating to AWS Cloud via DRS, EC2, and S3 services.](images/drs-network-arc.png)
 
-## AWS Cloud to AWS Cloud via VPN
+## AWS Cloud to AWS Cloud via VPC Peering
 
-This diagram shows the network architecture of DRS protecting source servers
-located in an on-premises environment. Communication between the on-premise
-environment and DRS is performed through a VPN connection.
+This diagram shows the network architecture of AWS DRS protecting source servers located in an AWS VPC.
+Data replication between the source VPC and the target staging area, along with communication with
+the AWS DRS service, flows through a VPC peering connection.
 
-![AWS Elastic Disaster Recovery architecture using VPN connection between on-premises and AWS Cloud regions.](images/drs-vpn-connection-communication.png)
+![](images/drs-vpc-peering-communication.png)
 
 ## On-Prem to Outposts
 
@@ -66,7 +66,7 @@ about protecting source servers using Outposts.](outposts.md "outposts.md")
 ## On-Premises to AWS Local Zone
 
 This diagram shows the network architecture of DRS protecting source servers located in an on-premises environment.
-The staging area is located in an AWS Region and the and recovery is in an AWS Local Zone.
+The staging area is located in an AWS Region and the recovery is in an AWS Local Zone.
 
 ![Network architecture diagram showing DRS protecting on-premises servers with AWS Cloud staging and recovery areas.](images/On-premises-to-local-zones.png)
 
@@ -88,6 +88,6 @@ Region and the recovery environment is in another AWS Local Zone.
 ## AWS Failback to On-Prem
 
 This diagram shows the network architecture of DRS performing Failback to an
-on-premise environment after performing a recovery into AWS.
+on-premises environment after performing a recovery into AWS.
 
 ![AWS DRS failback replication architecture showing data flow between AWS Cloud and on-premises data center.](images/drs-failback-arc.png)

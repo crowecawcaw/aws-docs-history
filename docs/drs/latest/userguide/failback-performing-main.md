@@ -8,7 +8,7 @@ Failback is only supported to AWS and non-AWS environments that can boot
 up from an ISO. For non-AWS environments which do not support ISO boot, we recommend
 that you convert the ISO to a suitable format. Examples - [Building a disaster recovery site on AWS for workloads on Microsoft Azure](https://aws.amazon.com/blogs/storage/building-a-disaster-recovery-site-on-aws-for-workloads-on-microsoft-azure/ "https://aws.amazon.com/blogs/storage/building-a-disaster-recovery-site-on-aws-for-workloads-on-microsoft-azure/")
 and [Building a disaster recovery site on AWS for workloads on Google Cloud](https://aws.amazon.com/blogs/storage/building-a-disaster-recovery-site-on-aws-for-workloads-on-google-cloud-part-1/ "https://aws.amazon.com/blogs/storage/building-a-disaster-recovery-site-on-aws-for-workloads-on-google-cloud-part-1/").
-These blog posts are not maintained or supported by &AWS; Premium Support and
+These blog posts are not maintained or supported by &AWS; Premium Support, and
 guidance for these are provided on a best effort basis.
 
 Before performing a failback, make sure that any data that was written to your

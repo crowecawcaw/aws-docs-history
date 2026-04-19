@@ -4,9 +4,9 @@ To edit the default EC2 launch template, follow these steps:
 
 1. Select **Default launch** from the
    left-hand navigation menu (under **Settings**).
-2. select **Edit** in the **Default EC2 launch template** section.
+2. Select **Edit** in the **Default EC2 launch template** section.
 3. Change the settings according to your preferences.
-4. select **Save**.
+4. Select **Save**.
 
 ## Amazon EC2 launch template parameters
 
@@ -69,7 +69,7 @@ Instance Types](flexible-instance-types.md "flexible-instance-types.md")
 
 Advanced settings include additional parameters that add specific features
 to the EC2 template. If you choose not to include these parameters in the
-template, the specific capabilities are be added.
+template, the specific capabilities are not added.
 
 The advanced settings include:
 
@@ -105,7 +105,7 @@ so by editing the EC2 launch template via the Amazon EC2 console:
 
 Every time you modify an EC2 launch template on the Amazon EC2 console, a
 new version is created. AWS DRS uses the version that is marked as the
-default. if you prefer to use the EC2 launch template you just modified,
+default. If you prefer to use the EC2 launch template you just modified,
 make sure to mark it as the default. Changes made through the AWS DRS
 console are automatically set as the default version.
 

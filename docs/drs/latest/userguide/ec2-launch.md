@@ -26,7 +26,7 @@ added to AWS DRS upon the installation of the AWS Replication Agent.
   To edit the EC2 template for a single server, take the following steps:
 
 1. Go to the **Source servers** page.
-2. Select a source servers to update.
+2. Select a source server to update.
 3. Under the **Actions** menu, select **Edit EC2 launch settings** and you will be navigated to
    the **Edit EC2 launch template** page within the
    AWS DRS console.
@@ -121,7 +121,7 @@ template via the Amazon EC2 console:
 
 ###### Important
 
-Every time you modify an EC2 launch template on the Amazon EC2 console, a new version is created. AWS DRS uses the version that is marked as the default. if you prefer to use the EC2 launch template you just modified, make sure
+Every time you modify an EC2 launch template on the Amazon EC2 console, a new version is created. AWS DRS uses the version that is marked as the default. If you prefer to use the EC2 launch template you just modified, make sure
 to mark it as the default. Changes made through the AWS DRS console are automatically set as the default version.
 
 **EC2 launch template tags –** In addition to the basic

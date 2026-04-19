@@ -27,8 +27,8 @@ the current AWS Region and Availability Zone, EC2 fleets will attempt to launch 
 It is expected each attempt will take up to a few minutes, so if most of the instance types are not available, it could have an impact on your
 [Recovery Time Objective (RTO)](What-is-RTO.md "What-is-RTO.md").
 
-A large and diverse list of possible instance types listed in _Preview matching instance
-types_ increases the chances of finding an available instance type.
+A large and diverse list of possible instance types listed in **Preview matching instance
+types** increases the chances of finding an available instance type.
 
 ## How to use
 
@@ -86,5 +86,5 @@ in **Preview matching instance types**, even if the DRS console will not display
 ###### Note
 
 Note: Flexible instance types cannot be used if
-**instance type right-right sizing** is active, or if
+**instance type right sizing** is active, or if
 the subnet selected for launch is on an AWS Outpost rack.

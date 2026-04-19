@@ -12,7 +12,7 @@ AWS Elastic Disaster Recovery can assume its roles. The defined permissions incl
 the permissions policy, and that permissions policy cannot be attached to any other
 IAM entity.
 
-You can delete a service-linked role only after first deleting their related
+You can delete a service-linked role only after first deleting its related
 resources. This protects your AWS Elastic Disaster Recovery resources because you can't inadvertently
 remove permission to access the resources.
 

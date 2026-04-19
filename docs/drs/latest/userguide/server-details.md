@@ -17,7 +17,7 @@ You can also perform a variety of actions, control replication, and launch Recov
 instances for the individual server from the server details view.
 
 The **Overview** box provides a basic overview of the server's
-status, including the whether the server is ready for recovery, any pending actions, the last
+status, including whether the server is ready for recovery, any pending actions, the last
 recovery result (if any), and a link to the Recovery instance (if one was launched for the
 server).
 

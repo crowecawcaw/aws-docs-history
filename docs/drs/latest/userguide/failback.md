@@ -50,7 +50,7 @@ and Recovery Time Objectives (RTO). Learn more about how AWS Elastic Disaster Re
 ### Understanding recovery
 
 Recovery allows you to orchestrate launch of your workload within AWS EC2 Instances. After initial sync is completed,
-you are able to customize the configuration of recovery environment in preparation of a business continuity event.
+you are able to customize the configuration of the recovery environment in preparation of a business continuity event.
 
 AWS Elastic Disaster Recovery allows you to launch Drill and Recovery instances for
 your source servers in AWS once they are in **Continuous Data Protection**. While
@@ -59,8 +59,8 @@ During normal operations, we recommend periodically testing your ability to reco
 
 ### Understanding failback
 
-Failback allows you to restore your Recovery Instances back to your source infrastructure. Depending on the source infrasture,
-performing a failback uses differing mechanisms
+Failback allows you to restore your Recovery Instances back to your source infrastructure. Depending on the source infrastructure,
+performing a failback uses differing mechanisms.
 
 | Source Infrastructure  | Failback Mechanism                                                                | More Information                                                                                  |
 | ---------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |

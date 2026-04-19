@@ -116,7 +116,7 @@ arn:aws:iam::`account-id`:role/service-role/DRSCrossAccountReplicationRole`_trus
 
 The **DRSCrossAccountReplicationRole** contains the
 following trust policy. If you plan to use the policy as a template, replace the
-`account-id` the Trusted AWS Account ID.
+`account-id` with the Trusted AWS Account ID.
 
 The **DRSCrossAccountReplicationRole** has the AWS
 Managed Policy **AWSElasticDisasterRecoveryCrossAccountReplicationPolicy** attached.

@@ -1,6 +1,6 @@
 # Performing a cross-account failback
 
-AWS Elastic Disaster Recovery (AWS DRS) allows you to perform failover and failback your EC2-based
+AWS Elastic Disaster Recovery (AWS DRS) allows you to perform failover and failback on your EC2-based
 applications from one AWS account to another AWS account. The failover process is the same as failing
 over into an AWS account from a source outside of AWS, but the failback process is different.
 The instructions below describe the complete cross-account failover and failback process.
@@ -84,7 +84,7 @@ assuming DRS has been initialized in the source account and region.
 After the **Reversed direction launch
 state** is marked as **Ready**, take these steps to complete the failback:
 
-    1. Find the relevant source servers (A2) in the source account and region by
+    1. Find the relevant source servers (A2) in the source account and region by using
      information in the **Replicating to source
      server** and **Replicating to account**
      columns of the recovery instance (B2)
@@ -197,7 +197,7 @@ Consider removing them.
     If you have started reversed replication for the recovery instance (A3),
      you will not be able to disconnect it. To remove the recovery instances (A3) in
      the source account and region, simply delete the server. This will
-     ensure that the newly launched failed-back instances (A4) remains
+     ensure that the newly launched failed-back instances (A4) remain
      protected.
     5. **Remove the source servers (A2) in the
      source account and region**

@@ -104,7 +104,7 @@ _Minimal bandwidth = the sum of the write speed of all Source
 machines_
 
 For example, suppose you are replicating two Source machines. One has a write speed of 5
-MBps (meaning it 5 megabytes of data every second), while the other has 7 MBps. In this case,
+MBps (meaning it writes 5 megabytes of data every second), while the other has 7 MBps. In this case,
 the recommended bandwidth should be at least 12 MBps.
 
 ### Finding the Write Speed of Your source servers
@@ -115,7 +115,7 @@ write speed of your source servers:
 
 #### Linux
 
-Use the iostat command-line utility, located in the systat package. The iostat utility
+Use the iostat command-line utility, located in the sysstat package. The iostat utility
 monitors system input/output device loading and generates statistical reports.
 
 The iostat utility is installed with yum (RHEL/CentOS), via [apt-get](https://www.howtoforge.com/tutorial/how-to-install-and-use-iostat-on-ubuntu-1604/ "https://www.howtoforge.com/tutorial/how-to-install-and-use-iostat-on-ubuntu-1604/") (Ubuntu), and via [zypper](https://unix.stackexchange.com/questions/281094/install-iotop-iostat-via-zypper-or-anything-else-on-a-suse-sles-12-virual-ma?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa "https://unix.stackexchange.com/questions/281094/install-iotop-iostat-via-zypper-or-anything-else-on-a-suse-sles-12-virual-ma?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa") (SUSE).
@@ -145,7 +145,7 @@ on a Windows system.
 [Installing
 DiskMon](https://docs.microsoft.com/en-us/sysinternals/downloads/diskmon "https://docs.microsoft.com/en-us/sysinternals/downloads/diskmon")
 
-DiskMon presents read and write offsets are presented in terms of sectors (512 bytes).
+DiskMon presents read and write offsets in terms of sectors (512 bytes).
 Events can be either timed for their duration (in microseconds), or stamped with the absolute
 time that they were initiated.
 

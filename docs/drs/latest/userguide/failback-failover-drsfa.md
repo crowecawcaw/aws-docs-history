@@ -47,7 +47,7 @@ DRSFA client:
 The installation procedure shown below uses Ubuntu 20.04
 running Python 3.9.4. 10. The server on which the DRSFA client is run requires these tools
 for DRSFA Client installation. The installer will attempt to install
-them if they are not already present::
+them if they are not already present:
 
 build-essential curl genisoimage git libbz2-dev libffi-dev liblzma-dev libncurses5-dev
 libncursesw5-dev libreadline-dev libsqlite3-dev libssl-dev llvm make tk-dev unzip wget
@@ -96,7 +96,7 @@ These are security best practices for using the DRSFA Client:
    that you are using the latest version upon startup.
 3. You should not provide any additional permissions to the DRSFA
    Client other than the ones listed in the prerequisites.
-4. Ensure that you follow the[AWS recommended password policy](../../../IAM/latest/UserGuide/id_credentials_passwords_account-policy.md "../../../IAM/latest/UserGuide/id_credentials_passwords_account-policy.md") when setting the password for the VM that hosts
+4. Ensure that you follow the [AWS recommended password policy](../../../IAM/latest/UserGuide/id_credentials_passwords_account-policy.md "../../../IAM/latest/UserGuide/id_credentials_passwords_account-policy.md") when setting the password for the VM that hosts
    the DRS Failback Client when generating the drs_failback_automation_seed.iso file.
 5. Ensure that you manually verify the DRSFA client hashes when automatic hash
    verification
@@ -173,7 +173,7 @@ command as sudo.
 
 The DRSFA client has a one-time installation. The DRSFA client will be
 installed in the `drs_failback_automation_client` directory. Once
-you've successfully ran the command above and installed the client, you can
+you've successfully run the command above and installed the client, you can
 delete the DRSFA client installer from your server by running this
 command:
 
@@ -189,7 +189,7 @@ the seed.iso file:
 `bash drs_failback_automation_seed_creator.sh`
 
 You will be prompted to enter a password. Ensure that you enter a unique
-password that following the [AWS recommended password policy](../../../IAM/latest/UserGuide/id_credentials_passwords_account-policy.md "../../../IAM/latest/UserGuide/id_credentials_passwords_account-policy.md").
+password that follows the [AWS recommended password policy](../../../IAM/latest/UserGuide/id_credentials_passwords_account-policy.md "../../../IAM/latest/UserGuide/id_credentials_passwords_account-policy.md").
 
 ![Terminal window showing HTTP request, file saving, and password prompt for generating an ISO file.](images/drsfa14.png)
 
@@ -237,14 +237,14 @@ To create temporary credentials:
 Once your credentials are generated, you should create a logGroup for CloudWatch logging
 named **DRS_Mass_Failback_Automation**. If this log group is not
 created or if it's created with the wrong name, the DRSFA client will still work, but logs will
-not be sent to CloudWatch. Learn more about working with log groups in the[Amazon CloudWatch Logs documentation](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md").
+not be sent to CloudWatch. Learn more about working with log groups in the [Amazon CloudWatch Logs documentation](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md").
 
 ## Running the DRSFA client
 
 Once you have installed the DRSFA client, you can run it by following these instructions:
 
 `cd` into the `drs_failback_automation_client`
-directory and enter these parameters in a single line or settings the
+directory and enter these parameters in a single line or setting the
 environment variables one by one, replace the defaults with your specific
 parameters and paths followed by the `python
  drs_failback_automation_init.pyc` command and press enter.
@@ -327,7 +327,7 @@ Console.
 
 ![Console output showing server replication progress over time in the eu-west-1 region.](images/drsfa24.png)
 
-Once the failback has been complete, the DRSFA client displays the results
+Once the failback has been completed, the DRSFA client displays the results
 of the failback, including the number of servers for which replication has
 successfully been initiated and the number of servers for which the failback
 operation failed.
@@ -428,7 +428,7 @@ There are three formats supported:
 
 1. Classic CE format of key-value CSV string as one line.
 
-You may use either ":" or "=" as CSV fields separator which is more sutable for Windows drive letters. Examples are:
+You may use either ":" or "=" as CSV fields separator which is more suitable for Windows drive letters. Examples are:
 
 ```
 "DEVICE_MAPPING": "recovery_device1=local_device1,recovery_device2=local_device2,recovery_device3=EXCLUDE"
@@ -508,7 +508,7 @@ AWS DRS Console.
 
 ![Console output showing server replication progress over time in the eu-west-1 region.](images/drsfa24.png)
 
-Once the failback has been complete, the DRSFA client displays the
+Once the failback has been completed, the DRSFA client displays the
 results of the failback, including the number of servers for which
 replication has successfully been initiated and the number of servers
 for which the failback operation failed.

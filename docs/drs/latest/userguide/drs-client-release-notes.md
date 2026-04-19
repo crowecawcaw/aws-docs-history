@@ -13,4 +13,4 @@ AWS Elastic Disaster Recovery releases can contain changes of varying scale, imp
 - **miscellaneous security enhancements** - provide tangible security enhancements
   that address vulnerabilities within the software package or subcomponents/dependencies.
 - **miscellaneous performance enhancements** - provide non-material improvements to component responsiveness, reliability,
-  and/or reslience.
+  and/or resilience.

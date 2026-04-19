@@ -21,6 +21,7 @@ can be modified in bulk for multiple Source Servers through the AWS Elastic Disa
 | Dedicated instance for replication server | Small pause while reconnecting Source Server to new Replicator.                                                                                       | Supported    |
 | EBS encryption                            | Full Sync may be required.                                                                                                                            | Supported    |
 | Data Routing (Private IP)                 | No impact.                                                                                                                                            | Supported    |
+| IP Version                                | Small pause while reconnecting Source Server to new Replicator.                                                                                       | Supported    |
 | Network Bandwidth Throttling              | No impact.                                                                                                                                            | Supported    |
 | Point in time (PIT) policy                | Replication server is disconnected as a safety measure. This ensures proper handling of retention policy changes that might affect replication state. | Supported    |
 | MAP program tagging                       | No impact.                                                                                                                                            | Supported    |
@@ -33,14 +34,14 @@ Replication Servers are AWS EC2 Instances automatically launched by AWS Elastic 
 ### Staging area subnet
 
 The **Staging area subnet** setting defines which
-VPC Subnet that the a Replication Server for a Source Server uses. A Source
+VPC Subnet that the Replication Server for a Source Server uses. A Source
 Server must be able to successfully initialize connections to the subnet
 configured within its **Staging area subnet**
 setting. The best practice is to create a single dedicated, separate subnet
 for recovery in your AWS Account. Learn more about creating subnets in
 [this AWS VPC article](../../../vpc/latest/userguide/working-with-vpcs.md "../../../vpc/latest/userguide/working-with-vpcs.md"). Unless [Use private ip](../../../index.md "../../../index.md") is enabled and valid
 routing within the VPC exists, Replication Servers must be in a [Public
-subnet](../../../vpc/latest/userguide/configure-subnets.md#subnet-types "../../../vpc/latest/userguide/configure-subnets.md#subnet-types"). By default, a Replication Servers assigns itself a
+subnet](../../../vpc/latest/userguide/configure-subnets.md#subnet-types "../../../vpc/latest/userguide/configure-subnets.md#subnet-types"). By default, a Replication Server assigns itself a
 [Public IPv4](../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#concepts-public-addresses "../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#concepts-public-addresses") without any additional configuration needed.
 
 DRS Console
@@ -59,7 +60,7 @@ Command Line
 
 ###### Updating the Staging area subnet
 
-- Updating the Staging area subnet via commandline
+- Updating the Staging area subnet via command line
   - [describe-recovery-instances](../../../cli/latest/reference/drs/describe-recovery-instances.md "../../../cli/latest/reference/drs/describe-recovery-instances.md") (AWS CLI)
 
   ```
@@ -86,8 +87,8 @@ EBSWriteBytes or EBSWriteOps, which may indicate the
 **Replication server instance type** is improperly sized to protect your source server.
 
 AWS Elastic Disaster Recovery supports replicating Source Servers with up to 60 volumes, however the
-**Replication server instance type** must also support and equal or greater
-number of EBS Volume attachements. We recommend reviewing the
+**Replication server instance type** must also support an equal or greater
+number of EBS Volume attachments. We recommend reviewing the
 [Dedicated Amazon EBS volume limit Documentation](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit") to ensure an appropriately sized EC2 Instance Type is selected.
 
 DRS Console
@@ -106,7 +107,7 @@ Command Line
 
 ###### Modifying Dedicated instance for replication server
 
-- Updating the Replication server instance type via commandline
+- Updating the Replication server instance type via command line
   - [update-replication-configuration](../../../cli/latest/reference/drs/update-replication-configuration.md "../../../cli/latest/reference/drs/update-replication-configuration.md") (AWS CLI)
 
   ```
@@ -122,7 +123,7 @@ Command Line
 ### Dedicated instance for replication server
 
 The **Dedicated instance for replication server**
-setting specifies whether or not the Source Server's can use to a
+setting specifies whether or not the Source Server can use a
 Replication Server shared with other Source Servers. By default, AWS Elastic Disaster Recovery
 attempts to consolidate as many Source Servers as possible onto a single
 Replication Server, based on a variety of factors. Setting **Dedicated instance for replication server** to
@@ -151,7 +152,7 @@ Command Line
 
 ###### Modifying Dedicated instance for replication server
 
-1. Enabling Dedicated instance for replication server via commandline
+1. Enabling Dedicated instance for replication server via command line
    - [update-replication-configuration](../../../cli/latest/reference/drs/update-replication-configuration.md "../../../cli/latest/reference/drs/update-replication-configuration.md") (AWS CLI)
 
    ```

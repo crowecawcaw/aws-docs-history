@@ -2,11 +2,11 @@
 
 You can now add EC2 instances as source servers in DRS, starting from the EC2 console.
 New or existing instances can be added by selecting the appropriate action on the EC2 console,
-sending you to the AWS focused page allowing to install the AWS replication agent used by DRS on the selected instances.
+sending you to the AWS focused page allowing you to install the AWS replication agent used by DRS on the selected instances.
 
 ## Add instances
 
-You can protect your EC2 instances using AWS Elastic Disaster Recovery (DRS) in the chosen AWS Region, by adding to them to AWS DRS as source servers.
+You can protect your EC2 instances using AWS Elastic Disaster Recovery (DRS) in the chosen AWS Region, by adding them to AWS DRS as source servers.
 Utilize AWS Systems Manager (SSM) if present on your instance to install the AWS replication agent,
 a step needed to start replicating data from your instance to AWS.
 Only instances managed by AWS Systems Manager would be able to have the AWS replication agent installed on them.
@@ -40,7 +40,7 @@ compatible operating system ([or preinstalled in the AMI](../../../systems-manag
 (as defined in the [AmazonSSMManagedInstanceCore](../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md "../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md") and the [AWSElasticDisasterRecoveryEC2InstancePolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryEc2InstancePolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryEc2InstancePolicy.md") policies). To update the instance
 profiles, the **Instance profile role installation** section
 allows you to create the default instance profile (with the two policies mentioned above)
-if needed. The **Instance profiles** section allow you to
+if needed. The **Instance profiles** section allows you to
 assign instance profiles to instances, and automatically assigns the default instance
 profile to all instances that do not have any instance profile attached to them. Use the
 **Attach profiles to all instances** button to attach the

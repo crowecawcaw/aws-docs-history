@@ -12,7 +12,7 @@ You can sort your recovery instances alphabetically in descending or ascending o
 by choosing the arrow next to the various category headers (with the exception of data
 replication status).
 
-You can filter the recovery instances page by the properties in the **Filter by property of value** box.
+You can filter the recovery instances page by the properties in the **Filter by property or value** box.
 
 ## Recovery instance categories
 
@@ -120,7 +120,7 @@ tab.
 
 ### Last launch results
 
-This category indicated the results of the last launch. Possible values include:
+This category indicates the results of the last launch. Possible values include:
 
 - Launch successful
 - Failback successful
@@ -164,7 +164,7 @@ instance details view.](recovery-instances-details.md "recovery-instances-detail
 
 Select one or more recovery instances and choose the **Edit failback replication settings** option under the
 **Actions** menu to edit the failback
-replication settings the selected recovery instances. The failback
+replication settings for the selected recovery instances. The failback
 replication settings configure the replication to the on-premises servers
 during an on-premises failback process. This does not apply to in-AWS
 replication, which is managed on the **replicating to
@@ -173,7 +173,7 @@ more about Failback replication settings.](recovery-instances-details.md#recover
 
 #### Stop failback
 
-Select one or more recovery instances that are in the **Synchronizing** state and choose the **Stop**option under the **Actions** menu to stop the failback process for the selected
+Select one or more recovery instances that are in the **Synchronizing** state and choose the **Stop** option under the **Actions** menu to stop the failback process for the selected
 recovery instance or instances. This returns the instances' **Reversed replication launch state** to **Not started** and stops any ongoing failback
 process. The Failback client indicates that the failback has been stopped.
 To restart failback, reboot the machine in the Failback Client. Note that

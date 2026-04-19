@@ -14,7 +14,7 @@ Each Elastic Disaster Recovery page opens in the right pane.
 ## Source servers page
 
 The Source Servers page lists all of the source servers you added to AWS Elastic Disaster Recovery and allows
-you to interact with your servers and perform a actions. [Learn more about the Source servers page.](source-servers.md "source-servers.md")
+you to interact with your servers and perform actions. [Learn more about the Source servers page.](source-servers.md "source-servers.md")
 
 Control your source servers in the AWS Elastic Disaster Recovery console through the **Actions**, **Replication**, and **Initiate recovery job**
 menus.
@@ -64,7 +64,7 @@ When some commands are initiated AWS Elastic Disaster Recovery displays informat
 **Source servers** page. AWS Elastic Disaster Recovery color codes
 these messages for clarity. A green message means that a command was completed
 successfully. A red message means that a command was not completed successfully.
-Each message provids details and links to supplemental information.
+Each message provides details and links to supplemental information.
 
 AWS Elastic Disaster Recovery allows you to interact with and manage each server. Choose the server hostname to
 be redirected to the server details view.

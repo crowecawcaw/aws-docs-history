@@ -130,7 +130,7 @@ Basic configurable options include:
 - Instance type
 - EBS volume type
 
-You only need to change advance configurable options in specific operational scenarios.
+You only need to change advanced configurable options in specific operational scenarios.
 They include:
 
 - IAM instance profile
@@ -244,7 +244,7 @@ to the Recovery instances that were launched during the test.
 - Take into consideration that once a drill instance is launched, actual resources are
   used in your AWS account and you will be billed for these resources. You
   can terminate the operation of launched Recovery instances once you
-  verify that they are working properly without impact in order to data
+  verify that they are working properly without impact to data
   replication.
 
 [Learn more about launching drill instances

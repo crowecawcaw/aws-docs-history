@@ -30,7 +30,7 @@ The columns include:
     Servers that have one or more marketplace licenses assigned to them may not be able to
     launch if there was an error reading their license information.
 - **Data replication status** – This column shows the current
-  status of data replication for the server :
+  status of data replication for the server:
   - **Initiating** – The server has just been added to AWS Elastic Disaster Recovery and replication is being initiated.
   - **Initial sync** – The server is undergoing the initial
     sync process. The console displays the percentage of the server data that has been synced

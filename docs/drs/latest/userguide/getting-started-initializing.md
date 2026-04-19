@@ -57,7 +57,7 @@ You need to [create the replication settings template](../APIReference/API_Creat
 service.
 
 To initialize AWS Elastic Disaster Recovery manually, create the following IAM roles through
-the [IAM CreateRoleAPI](../../../IAM/latest/APIReference/API_CreateRole.md "../../../IAM/latest/APIReference/API_CreateRole.md"). Learn more about [creating IAM roles in the AWS IAM documentation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md").
+the [IAM CreateRole API](../../../IAM/latest/APIReference/API_CreateRole.md "../../../IAM/latest/APIReference/API_CreateRole.md"). Learn more about [creating IAM roles in the AWS IAM documentation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md").
 
 Creation of each role must include the following parameters:
 

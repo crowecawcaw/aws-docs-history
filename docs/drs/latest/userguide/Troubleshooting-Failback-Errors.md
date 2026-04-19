@@ -106,7 +106,7 @@ connected to AWS Elastic Disaster Recovery. In this case, verify that:
 2. The server is connected to the internet or the NAT gateway
 
 If after performing the steps above you did not identify any agent or connectivity issues,
-reinstall the agent as recovery instance and try again.
+reinstall the agent as a recovery instance and try again.
 
 ## Error message: botocore.exceptions.CredentialRetrievalError: Error when retrieving credentials from cert
 

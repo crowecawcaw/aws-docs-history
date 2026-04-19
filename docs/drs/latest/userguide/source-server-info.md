@@ -16,11 +16,11 @@ hardware, and network information:
   hostname is the best identifier, as it is what is used throughout the console as the name of
   the source server. If you need to validate which external server this is referring to in your
   data center, you can use one of the additional fields: Fully qualified domain name, VMware
-  virtual machine identifier (only if source is VMWare), AWS instance ID (only is source is
+  virtual machine identifier (only if source is VMware), AWS instance ID (only if source is
   running on AWS).
 - **Hardware and operating system**: the CPUs, RAM, disks, and
   network interfaces on the external server, as well as the type and full name of the operating
-  system running on that server. The disks shown are all the disk on the source server, and may
+  system running on that server. The disks shown are all the disks on the source server, and may
   include disks not being replicated.
 - **Recommended instance type**: this is the EC2 instance type
   the service is auto-recommending to use for the launched recovery instance. This is

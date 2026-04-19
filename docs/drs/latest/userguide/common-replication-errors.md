@@ -271,7 +271,7 @@ aws drs get-replication-configuration \
 ## Failed to create staging disks
 
 This error message (Failed to create staging disks) may indicate that your AWS
-account is configured to encrypted EBS disks but the IAM user does not have the
+account is configured to encrypt EBS disks but the IAM user does not have the
 required permissions to encrypt using the selected KMS key. Ensure that the IAM
 prerequisites are met.
 
@@ -413,7 +413,7 @@ several steps you can take to attempt to mitigate the issue:
 
 - Check connectivity.
 - Check throttling.
-- Check performance issue on the replication server.
+- Check for performance issues on the replication server.
 - Check the network bandwidth between the agent and the replication
   server.
 - [Check the replication agent

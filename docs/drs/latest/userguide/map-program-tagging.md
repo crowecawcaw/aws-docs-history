@@ -10,7 +10,7 @@ ongoing cost of protecting your servers.
 
 Select **Add MAP tag to Launched Instances option**, if you want
 Application Migration Service to automatically tag your launched instances with
-the tag key and value combination required for MAP program. Then, specify the
+the tag key and value combination required for the MAP program. Then, specify the
 MAP tag value that is used in your MAP tagging. Application Migration Service
 automatically tags your migrated resources with the key: “map-migrated”, and the
 value of the tag that you provided. For more details about the tag value that
@@ -41,14 +41,14 @@ tag key "map-migrated” and the value of the tag that you provide.
 To add tags to all newly added source servers and replication sources:
 
 - Select **Settings** from the left-hand menu.
-- select **Edit** to change the default replication
+- Select **Edit** to change the default replication
   settings.
 - Check the box to the left of **Add MAP tag to the source servers and replication resources** option.
 - Specify the MAP tag value that is used in your MAP tagging.
-- select **Save changes**.
+- Select **Save changes**.
 
 AWS Elastic Disaster Recovery automatically tags every newly-added source server and replication
-resources with the tag key “map-migrated” and the value of the tag, that you
+resources with the tag key “map-migrated” and the value of the tag that you
 provide.
 
 For more details about the tag value that should be used here, please refer to the MAP tagging guide provided in your MAP term.

@@ -4,7 +4,7 @@ AWS Elastic Disaster Recovery allows you to select the number of days for which 
 snapshots are retained through the **Point in time (PIT)
 policy** field.
 
-You can select to save PIT snapshots for 1 up to 365 days. Saving PIT snapshots
+You can select to save PIT snapshots for 1 to 365 days. Saving PIT snapshots
 for more days allows you more recovery options, but also results in increased
 costs. [Learn more about Point in time.](CloudEndure-Concepts.md#point-in-time-faq "CloudEndure-Concepts.md#point-in-time-faq")
 

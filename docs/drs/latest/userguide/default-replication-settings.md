@@ -21,6 +21,7 @@ Most Replication Settings can be configured through the Default replication sett
 | Security Group                                          | Supported           |
 | Dedicated instance for replication server               | Unsupported         |
 | Data Routing (Private IP)                               | Supported           |
+| IP Version                                              | Supported           |
 | Create public IP                                        | Supported           |
 | Network Bandwidth Throttling                            | Supported           |
 | Point in time (PIT) policy                              | Supported           |

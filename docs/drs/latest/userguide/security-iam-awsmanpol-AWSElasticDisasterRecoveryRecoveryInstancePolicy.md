@@ -2,7 +2,7 @@
 
 This policy is attached to the instance role of AWS Elastic Disaster Recovery's recovery instance.
 
-This policy allows the AWS Elastic Disaster Recovery (AWS DRS) recovery instance, which are EC2
+This policy allows the AWS Elastic Disaster Recovery (AWS DRS) recovery instances, which are EC2
 instances launched by AWS DRS - to communicate with the AWS DRS service, and to
 be able to failback to their original source infrastructure. An IAM role with
 this policy is attached (as an Amazon EC2 Instance Profile) by AWS DRS to the AWS DRS

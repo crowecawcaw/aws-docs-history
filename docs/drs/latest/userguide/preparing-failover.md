@@ -16,7 +16,7 @@ phase.
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | DRS Launch Settings | • Automated Instance type right-sizing.<br>• Start instance on launch.<br>• Operating System Licensing.                       | [DRS Launch Settings](default-drs-launch-settings.md "default-drs-launch-settings.md")                   |
 | EC2 Launch Template | • Instance profile (IAM role attached to the instance).<br>• Recovery Instance VPC, Subnet, and Security Group configuration. | [EC2 Launch Template](default-ec2-launch-template.md "default-ec2-launch-template.md")                   |
-| Post Launch Actions | • Install CloudWatch agent Validate HTTP/HTTPS connectivity.                                                                  | [Post Launch Actions](post-launch-action-settings-overview.md "post-launch-action-settings-overview.md") |
+| Post Launch Actions | • Install CloudWatch agent. Validate HTTP/HTTPS connectivity.                                                                 | [Post Launch Actions](post-launch-action-settings-overview.md "post-launch-action-settings-overview.md") |
 
 ## Recovery drill overview
 
@@ -41,7 +41,7 @@ Recovery Objectives during a failover event. Some Recovery Objectives can includ
   another.
 - Ensuring users can interact successfully with the application.
 
-Frequent and successful Recovery Drills will ensure your team can meet RTO/RPO goals during a failover event. We recommend performing drill on at least a quarterly basis;
+Frequent and successful Recovery Drills will ensure your team can meet RTO/RPO goals during a failover event. We recommend performing a drill on at least a quarterly basis;
 individual compliance needs may necessitate more frequent drills.
 
 ## Performing recovery drills
@@ -71,7 +71,7 @@ Command Line
 
 ###### Performing a Recovery Drill
 
-Recovery Drills can be started via commandline
+Recovery Drills can be started via command line.
 
 1. (optional) Obtain Recovery (PIT) Snapshot to recover to:
    - [describe-recovery-snapshots](../../../cli/latest/reference/drs/describe-recovery-snapshots.md "../../../cli/latest/reference/drs/describe-recovery-snapshots.md") (AWS CLI)
@@ -137,9 +137,9 @@ DRS Console
 
 Command Line
 
-###### Cleaning up Drill Recovery Drill
+###### Cleaning up Recovery Drill
 
-Cleaning up Drills can be started via commandline
+Cleaning up Drills can be started via command line.
 
 1. Identify any Recovery Instances.
    - [describe-recovery-instances](../../../cli/latest/reference/drs/describe-recovery-instances.md "../../../cli/latest/reference/drs/describe-recovery-instances.md") (AWS CLI)

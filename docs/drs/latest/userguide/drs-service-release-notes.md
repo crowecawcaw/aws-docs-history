@@ -129,7 +129,7 @@
 ## April 2023
 
 - Introducing a new feature: Launch settings management, allowing to configure default launch settings
-  that apply to newly add source servers and the ability to update multiple servers’ settings.
+  that apply to newly added source servers and the ability to update multiple servers’ settings.
 - [AWS managed policy updates](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
   AWSElasticDisasterRecoveryAgentPolicy and
   AWSElasticDisasterRecoveryConsoleFullAccess.

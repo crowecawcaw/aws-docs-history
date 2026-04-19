@@ -1,11 +1,11 @@
 # Replicating your network configurations in Elastic Disaster Recovery
 
-Once you install your agent and created the required role, go to the **Source networks** page and take the following steps:
+Once you install your agent and create the required role, go to the **Source networks** page and take the following steps:
 
 1. Select the network you want to replicate from the list.
 2. Click **Actions** and select **Start
    replication** from the drop-down menu.
-3. Click **Select S3 bucket**. This will allow to save the
+3. Click **Select S3 bucket**. This will allow you to save the
    CloudFormation stack in your account’s S3 bucket. You must specify the S3 bucket before
    you initiate network recovery. It is recommended that you employ S3 bucket security and
    access management policies.

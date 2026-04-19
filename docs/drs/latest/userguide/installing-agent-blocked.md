@@ -1,11 +1,11 @@
 # Installing the agent on a secured network
 
 The AWS DRS AWS Replication Agent installer needs network access to
-AWS Elastic Disaster Recovery and S3 endpoints. If your on premise network is not open to Elastic
+AWS Elastic Disaster Recovery and S3 endpoints. If your on-premises network is not open to Elastic
 Disaster Recovery and S3 endpoints, then you can install the Agent with the aid of
 PrivateLink.
 
-You can connect your on premise network to the subnet in your staging area VPC using AWS
+You can connect your on-premises network to the subnet in your staging area VPC using AWS
 VPN or DirectConnect. To use the AWS VPN or DirectConnect, you must activate private IP in
 the replication settings.
 
@@ -21,7 +21,7 @@ used exclusively for management traffic; replication data is transmitted directl
 between the source and replication servers. For more information, see [Creating an Interface Endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html") in the Amazon VPC User Guide.
 
 If the AWS replication agents are installed with a principal using
-[AWSElasticDisasterRecoveryAgentInstallationPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.md#security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.title "security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.md#security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.title") and a VPCE policy is used (to scope down access), add the following statement to your policy:
+[AWSElasticDisasterRecoveryAgentInstallationPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.md") and a VPCE policy is used (to scope down access), add the following statement to your policy:
 
 ```
 `{
@@ -46,7 +46,7 @@ connect to AWS Elastic Disaster Recovery via the endpoint over your VPN/DirectCo
 Example of an interface endpoint DNS name:
 vpce-0123456789-abcdef.drs.<REGION>.vpce.amazonaws.com
 
-## Create a S3 Endpoint for AWS Elastic Disaster Recovery
+## Create an S3 Endpoint for AWS Elastic Disaster Recovery
 
 To allow the AWS Replication Agent installer to communicate with S3, create an
 interface S3 endpoint for AWS Elastic Disaster Recovery in your staging area subnet. For more information,

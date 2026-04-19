@@ -7,7 +7,7 @@ The following are sample events for Elastic Disaster Recovery:
 ### Source server data replication status
 
 These events are triggered when source servers' data replication state changes from
-Stalled (replication not functioning properly) and not stalled (replication is functioning
+Stalled (replication not functioning properly) and Not Stalled (replication is functioning
 as expected).
 
 **STALLED**
@@ -213,7 +213,7 @@ You create EventBridge rules that capture events coming from your Elastic Disast
 When you use the AWS Management Console to create an event rule, the console automatically adds the IAM
 permissions necessary to grant EventBridge Event permissions to call your desired target type. If
 you are creating an event rule using the AWS CLI, you must grant permissions explicitly. For
-more information, see [Event Patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") in the*Amazon EventBridge User Guide*.
+more information, see [Event Patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") in the _Amazon EventBridge User Guide_.
 
 ###### To create Amazon EventBridge rules
 
@@ -272,7 +272,7 @@ more information, see [Event Patterns](../../../eventbridge/latest/userguide/eb-
         		]
         	}
         	```
-        * For **Target types**, choose**AWS service**, and
+        * For **Target types**, choose **AWS service**, and
          for
          **Select a target**
          choose your desired target.
@@ -280,4 +280,4 @@ more information, see [Event Patterns](../../../eventbridge/latest/userguide/eb-
     For details about creating rules, see
     [Creating Amazon EventBridge rules that react
     to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md")
-    in the**Amazon EventBridge User Guide**.
+    in the **Amazon EventBridge User Guide**.

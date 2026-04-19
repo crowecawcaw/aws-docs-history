@@ -91,8 +91,8 @@ them in the target account.
 
 ###### Note
 
-Commercial AWS accounts can only be extended to other Commercial AWS accounts and Gov Cloud AWS
-accounts can only be extended to other Gov Cloud AWS accounts.
+Commercial AWS accounts can only be extended to other Commercial AWS accounts and GovCloud AWS
+accounts can only be extended to other GovCloud AWS accounts.
 
 Under trusted accounts settings, you will find the **Existing trusted
 accounts** pane. Here, you can manage existing staging account IAM

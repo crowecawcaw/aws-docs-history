@@ -6,7 +6,7 @@ Elastic Disaster Recovery Console.
 
 ## Uninstalling the Agent through the AWS Elastic Disaster Recovery console
 
-To uninstall the AWS Replication Agent though the AWS Elastic Disaster Recovery console.
+To uninstall the AWS Replication Agent through the AWS Elastic Disaster Recovery console.
 
 Navigate to the **Source servers** page.
 

@@ -28,7 +28,7 @@ and these failback-specific requirements:
 - Ensure that the volumes on the server you are failing back to are the same size, or
   larger, than the Recovery instance.
 - The Failback Client must be able to communicate with the Recovery
-  instance on TCP 1500, this can be done either by via a private route
+  instance on TCP 1500, this can be done either via a private route
   (VPN/DX) or a public route (public IP assigned to the recovery
   instance)
 - TCP Port 1500 inbound and TCP Port 443 outbound must be open on
@@ -50,7 +50,7 @@ and these failback-specific requirements:
   Instance.
 - Be sure to deactivate secure boot on the server on which the
   Failback Client is run.
-- Ensure the hardware clock the on the server on which the Failback Client
+- Ensure the hardware clock on the server on which the Failback Client
   is run is set to UTC rather than Local Time.
 
 ### Failback AWS credentials
@@ -119,7 +119,7 @@ Replication from the source instance to the source server (in the target AWS Reg
    2. Failback Client ISO hash link:
       `https://aws-elastic-disaster-recovery-hashes-{REGION}.s3.{REGION}.amazonaws.com/latest/failback_livecd/aws-failback-livecd-64bit.iso.sha512`
 
-4. Boot the Failback Client ISO on the server you want fail back to.
+4. Boot the Failback Client ISO on the server you want to fail back to.
    This can be the original source server that is paired with the
    recovery instance, or a different server.
 
@@ -140,7 +140,7 @@ recovery instance.
      Failback Client with the same boot mode (BIOS or UEFI)
      as the Windows source server.
 
-5. If you plan on using a static IP for the Failback Client, run following once the
+5. If you plan on using a static IP for the Failback Client, run the following once the
    Failback Client ISO boots:
 
 `IPADDR="enter IPv4 address" NETMASK="subnet mask" GATEWAY="default gateway"
@@ -294,7 +294,7 @@ There are three formats supported:
 
 1. Classic CE format of key-value CSV string as one line.
 
-You may use either ":" or "=" as CSV fields separator which is more sutable for Windows drive letters. Examples are:
+You may use either ":" or "=" as CSV fields separator which is more suitable for Windows drive letters. Examples are:
 
 ```
 recovery_device1=local_device1,recovery_device2=local_device2,recovery_device3=EXCLUDE, . . .
@@ -347,7 +347,7 @@ lrwxrwxrwx 1 root root  9 Jun 27 12:25 pci-0000:00:10.0-scsi-0:0:3:0 -> ../../sd
 
 ```
 
-To use block device SCSI identifies like 'pci-0000:00:10.0-scsi-0:0:0:0'
+To use block device SCSI identifiers like 'pci-0000:00:10.0-scsi-0:0:0:0'
 you need to add to command line:`--dm-value-format by-path`
 
 The examples of valid --device-mapping for `--dm-value-format by-path` are:
@@ -368,7 +368,7 @@ or EXCLUDE for each Recovery Instance device.
 When using the failback client, you can fail back to the original source
 server or a different source server using AWS Elastic Disaster Recovery.
 
-Te ensure that the original source server has not been deleted and still
+To ensure that the original source server has not been deleted and still
 exists, check its status in the AWS DRS console. Source servers that have been
 deleted or no longer exist will show as having **Lag** and being **Stalled**.
 
@@ -381,4 +381,4 @@ If the original source server is healthy and you decide to fail back to it, it
 will undergo a rescan until it reaches the **Ready** status.
 
 You can tell whether you are failing back to the original or a new source
-servers in the recovery instance details view under **Failback status**.
+server in the recovery instance details view under **Failback status**.

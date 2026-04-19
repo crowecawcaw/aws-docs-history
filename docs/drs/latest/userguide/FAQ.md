@@ -11,7 +11,7 @@ cloud providers.
 ## How do I upgrade from CloudEndure Disaster Recovery to AWS Elastic Disaster Recovery?
 
 You can use the CEDR to DRS Upgrade Assessment Tool and the Server Upgrade Tool
-and to move your source servers from CloudEndure Disaster Recovery (CEDR) to
+to move your source servers from CloudEndure Disaster Recovery (CEDR) to
 AWS Elastic Disaster Recovery (DRS). [Learn more in the CloudEndure documentation](https://docs.cloudendure.com/#Configuring_and_Running_Disaster_Recovery/Upgrade_CEDR_to_DRS/Upgrade_CEDR_to_DRS.htm#Upgrading_from_CEDR_to_AWS%C2%A0DRS%3FTocPath%3DNavigation%7CConfiguring%2520and%2520Running%2520Disaster%2520Recovery%7CUpgrading%2520from%2520CEDR%2520to%2520AWS%25C2%25A0DRS%7C_____0 "https://docs.cloudendure.com/#Configuring_and_Running_Disaster_Recovery/Upgrade_CEDR_to_DRS/Upgrade_CEDR_to_DRS.htm#Upgrading_from_CEDR_to_AWS%C2%A0DRS%3FTocPath%3DNavigation%7CConfiguring%2520and%2520Running%2520Disaster%2520Recovery%7CUpgrading%2520from%2520CEDR%2520to%2520AWS%25C2%25A0DRS%7C_____0").
 
 AWS Elastic Disaster Recovery (Elastic Disaster Recovery) is the next generation of CloudEndure Disaster Recovery (CEDR)
@@ -32,7 +32,7 @@ but physical ones as well.
 
 ## What data is stored on and transmitted through AWS Elastic Disaster Recovery servers?
 
-AWS Elastic Disaster Recovery store only configuration and log data on the AWS Elastic Disaster Recovery Console's
+AWS Elastic Disaster Recovery stores only configuration and log data on the AWS Elastic Disaster Recovery Console's
 encrypted database. Replicated data is always stored on the customer’s own cloud
 VPC. The replicated data is encrypted in transit.
 
@@ -105,7 +105,7 @@ disks exclusively and attach them to a new machine with an upgraded OS.
 
 ## What are the private APIs used by AWS DRS to define actions in the IAM Policy?
 
-AWS Elastic Disaster Recovery (AWS DRS)utilizes the following private API resources as actions in the
+AWS Elastic Disaster Recovery (AWS DRS) utilizes the following private API resources as actions in the
 IAM Policy. Learn more about actions, resources, and condition keys for Elastic Disaster Recovery.
 
 - BatchCreateVolumeSnapshotGroupForDRS – Grants permission to create volume
@@ -205,7 +205,7 @@ You can then set this launch template as your default version.
 ###### Important
 
 You can now use the CEDR to DRS Upgrade Assessment Tool and the Server Upgrade
-Tool and to move your source servers from CloudEndure Disaster Recovery (CEDR)
+Tool to move your source servers from CloudEndure Disaster Recovery (CEDR)
 to AWS Elastic Disaster Recovery (AWS DRS). [Learn more in the CloudEndure documentation](https://docs.cloudendure.com/#Configuring_and_Running_Disaster_Recovery/Upgrade_CEDR_to_DRS/Upgrade_CEDR_to_DRS.htm#Upgrading_from_CEDR_to_AWS%C2%A0DRS%3FTocPath%3DNavigation%7CConfiguring%2520and%2520Running%2520Disaster%2520Recovery%7CUpgrading%2520from%2520CEDR%2520to%2520AWS%25C2%25A0DRS%7C_____0 "https://docs.cloudendure.com/#Configuring_and_Running_Disaster_Recovery/Upgrade_CEDR_to_DRS/Upgrade_CEDR_to_DRS.htm#Upgrading_from_CEDR_to_AWS%C2%A0DRS%3FTocPath%3DNavigation%7CConfiguring%2520and%2520Running%2520Disaster%2520Recovery%7CUpgrading%2520from%2520CEDR%2520to%2520AWS%25C2%25A0DRS%7C_____0").
 
 AWS Elastic Disaster Recovery (AWS DRS) is the next generation of CloudEndure Disaster Recovery (CEDR)
@@ -231,15 +231,15 @@ The following are the manual instructions for upgrading:
 Until the server is ready on DRS, CloudEndure will still be your way to
 launch Recovery instances should you need them. That is why you must make
 sure that recovery using CloudEndure is working as expected for the server/s
-you are about to transition to DRS. 3. [Pause data replication](https://docs.cloudendure.com/#Getting_Started_with_CloudEndure/Exploring_the_CloudEndure_Console/Machines/Machines.htm#MACHINE_ACTIONS_Menu%3FTocPath%3DNavigation%7CGetting%2520Started%2520with%2520CloudEndure%7CExploring%2520the%2520CloudEndure%2520User%2520Console%7CMachines%2520Page%7C_____3 "https://docs.cloudendure.com/#Getting_Started_with_CloudEndure/Exploring_the_CloudEndure_Console/Machines/Machines.htm#MACHINE_ACTIONS_Menu%3FTocPath%3DNavigation%7CGetting%2520Started%2520with%2520CloudEndure%7CExploring%2520the%2520CloudEndure%2520User%2520Console%7CMachines%2520Page%7C_____3")for this server in CloudEndure. 4. [Manually uninstall the CloudEndure agent from your source
+you are about to transition to DRS. 3. [Pause data replication](https://docs.cloudendure.com/#Getting_Started_with_CloudEndure/Exploring_the_CloudEndure_Console/Machines/Machines.htm#MACHINE_ACTIONS_Menu%3FTocPath%3DNavigation%7CGetting%2520Started%2520with%2520CloudEndure%7CExploring%2520the%2520CloudEndure%2520User%2520Console%7CMachines%2520Page%7C_____3 "https://docs.cloudendure.com/#Getting_Started_with_CloudEndure/Exploring_the_CloudEndure_Console/Machines/Machines.htm#MACHINE_ACTIONS_Menu%3FTocPath%3DNavigation%7CGetting%2520Started%2520with%2520CloudEndure%7CExploring%2520the%2520CloudEndure%2520User%2520Console%7CMachines%2520Page%7C_____3") for this server in CloudEndure. 4. [Manually uninstall the CloudEndure agent from your source
 servers](https://docs.cloudendure.com/#FAQ/FAQ/Agent_Related.htm#How_do_I_manually_uninstall_the_CloudEndure_Agent_from_a_Source_or_Target_mac...%3FTocPath%3DNavigation%7CFAQ%25C2%25A0and%25C2%25A0Troubleshooting%7CFAQ%7CAgent%2520Related%7C_____14 "https://docs.cloudendure.com/#FAQ/FAQ/Agent_Related.htm#How_do_I_manually_uninstall_the_CloudEndure_Agent_from_a_Source_or_Target_mac...%3FTocPath%3DNavigation%7CFAQ%25C2%25A0and%25C2%25A0Troubleshooting%7CFAQ%7CAgent%2520Related%7C_____14").
 
 ###### Important
 
-Do **_not_** do use the **Remove from
+Do **_not_** use the **Remove from
 console** option available from the CloudEndure user
 console. By keeping this server’s records in CloudEndure, you also
-maintain it’s Point In Time recovery points, allowing you to launch a
+maintain its Point In Time recovery points, allowing you to launch a
 recovery instance using CloudEndure, should you need such a recovery
 instance before this server is ready on Elastic Disaster Recovery. 5. [Install the AWS Replication Agent on your source server.](adding-servers.md "adding-servers.md") 6. Configure [Replication settings](replication-settings-template.md "replication-settings-template.md") and [Launch settings](launching-target-servers.md "launching-target-servers.md") for this server in AWS Elastic Disaster Recovery (AWS DRS). 7. Wait for initial sync to be complete until your source server's [data replication status](recovery-dashboard.md#data-replication-stat "recovery-dashboard.md#data-replication-stat") has reached the **Healthy** state in the AWS DRS console. 8. Use DRS to[launch a drill instance](failback-preparing.md#recovery-drill-overview "failback-preparing.md#recovery-drill-overview") for your source server and make sure it
 works as desired. 9. Wait for the number of recovery days you want to have [Points In Time](failback-overview.md#point-in-time-faq "failback-overview.md#point-in-time-faq") for to pass. For example, if you have

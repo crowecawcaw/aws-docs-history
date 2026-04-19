@@ -61,7 +61,7 @@ Due to Amazon EBS limits on the rate at which EBS snapshots can be taken, the ma
 servers that can be replicated using DRS in a single AWS account is limited to 300.
 To replicate more than the maximum number of servers, use multiple AWS accounts,
 or multiple target AWS Regions (you need to set up DRS separately for each account/
-Region.
+Region).
 
 You can also use multiple staging or target accounts, as described in [Using multiple staging accounts with AWS DRS](multi-account.md "multi-account.md").
 
@@ -91,7 +91,7 @@ the role](../../../IAM/latest/UserGuide/id_roles_use.md "../../../IAM/latest/Use
    installation, and more.
 2. Users who install the agents [assumes that role](../../../IAM/latest/UserGuide/id_roles_use.md "../../../IAM/latest/UserGuide/id_roles_use.md") (must be a user of an AWS account, either
    yours, or another; you configure who the role is for in step 1). This
-   creates temporary IAM credentials for that users which are used for [agent installation](agent-installation.md "agent-installation.md"). These credentials are limited to only the
+   creates temporary IAM credentials for that user which are used for [agent installation](agent-installation.md "agent-installation.md"). These credentials are limited to only the
    permissions required for agent installation (and further limited by the
    permission boundaries you defined), yet are associated with the user (for
    example, so their usage can be tracked using CloudTrail).
@@ -114,7 +114,7 @@ the role](../../../IAM/latest/UserGuide/id_roles_use.md "../../../IAM/latest/Use
    selecting the instances, and from the **Actions** menu choosing **Instance
    settings, change termination protection**, and choosing
    **Yes, Enable.** You should document this
-   step in you recovery plan. [Learn more about termination protection](../../../AWSEC2/latest/WindowsGuide/terminating-instances.md#Using_ChangingDisableAPITermination "../../../AWSEC2/latest/WindowsGuide/terminating-instances.md#Using_ChangingDisableAPITermination").
+   step in your recovery plan. [Learn more about termination protection](../../../AWSEC2/latest/WindowsGuide/terminating-instances.md#Using_ChangingDisableAPITermination "../../../AWSEC2/latest/WindowsGuide/terminating-instances.md#Using_ChangingDisableAPITermination").
 3. **Understanding failover costs:** Your EC2 recovery
    instances are created according to the [launch settings](launch-settings.md "launch-settings.md") you have configured for each source server.
    Recovery instances accrue EC2 and EBS charges as per AWS rates for your
@@ -125,7 +125,7 @@ the role](../../../IAM/latest/UserGuide/id_roles_use.md "../../../IAM/latest/Use
    real recovery event. Performing a disconnect terminates all replication
    resources related to these source servers, including your Point-In-Time
    (PIT) recovery points. You may need these PITs while you are in failover
-   state, for regulatory reasons, or to re-launch a Recovery instances for any
+   state, for regulatory reasons, or to re-launch Recovery instances for any
    reason (for instance if you discover that the PIT from which you launched
    includes corrupt or malicious data, and you want to relaunch from an earlier
    PIT). While you use your Recovery instances as your primary, and new data is
