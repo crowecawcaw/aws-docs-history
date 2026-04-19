@@ -111,6 +111,9 @@ Standby worker count
 
 ![Diagram showing how standby worker count maintains a fixed number of idle workers, launching replacements as they pick up jobs.](images/auto-scaling-standby-worker-count.png)
 
+To automatically adjust your standby worker count on a schedule, use the
+sample AWS CloudFormation (CloudFormation) template at [fleet_standby_scheduling](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling") on GitHub.
+
 ## Configuring auto scaling settings
 
 You can configure auto scaling settings when you create a fleet or update an

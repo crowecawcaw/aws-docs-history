@@ -57,10 +57,6 @@ section in the _AWS SDKs and Tools Reference Guide_.
 
 Deadline Cloud also requires endpoints for the following AWS service endpoints:
 
-- Deadline Cloud uses AWS STS to authenticate workers so that they can access job assets.
-  For more information about AWS STS, see [Temporary security
-  credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") in the _AWS Identity and Access Management User
-  Guide_.
 - If you set up your customer-managed fleet in a subnet with no internet
   connection you must create a VPC endpoint for Amazon CloudWatch Logs so that workers can
   write logs. For more information, see [Monitoring
@@ -95,12 +91,6 @@ Deadline Cloud using its default Regional DNS name. For example,
 worker operations, or
 `management.deadline.us-east-1.amazonaws.com` for all
 other operations.
-
-You must also create an endpoint for AWS STS using the following service name:
-
-```
-com.amazonaws.`region`.sts
-```
 
 If your customer-managed fleet is on a subnet without an internet connection, you must
 create a CloudWatch Logs endpoint using the following service name:
