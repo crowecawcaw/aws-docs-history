@@ -60,4 +60,10 @@ Specifies if AWS SDK logging is enabled. Specify 1 to enable, 0 to disable.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| UseAwsLogger               | Optional           | `0`               | `UseAwsLogger=1;`             |
+| UseAwsLogger               | Optional           | `0`               | `UseAwsLogger=0;`             |
+
+###### Note
+
+Logs may log sensitive information when `UseAwsLogger` is enabled
+and `LogLevel` is set to `DEBUG` or `TRACE`.
+`UseAwsLogger` is recommended only for troubleshooting purposes.
