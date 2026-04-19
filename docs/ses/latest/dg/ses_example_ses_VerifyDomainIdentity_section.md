@@ -6,6 +6,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Copy email and domain identities across Regions](ses_example_ses_Scenario_ReplicateIdentities_section.md "ses_example_ses_Scenario_ReplicateIdentities_section.md")
+- [Setting up Amazon Simple Email Service (SES)](ses_example_ses_GettingStarted_033_section.md "ses_example_ses_GettingStarted_033_section.md")
 - [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md "ses_example_ses_Scenario_SendEmail_section.md")
 
 CLI

@@ -87,9 +87,15 @@ apply:
     	* *local@\*.domain1.com to
     	 local@\*.domain8.domain7...domain1.com*
 
-6. **For bulk upload** – Select
-   **Choose file** and choose a CSV or JSON file from your
-   computer containing the addresses to be uploaded.
+Wildcards can be used to match email addresses regardless of
+subaddress extensions (plus addressing). For example, adding
+`user*@example.com` to an address list will match
+any address whose local part starts with `user`,
+including `user@example.com`,
+`user+tag@example.com`,
+`username@example.com`, etc. 6. **For bulk upload** – Select
+**Choose file** and choose a CSV or JSON file from your
+computer containing the addresses to be uploaded.
 
 Use the format shown in the example for each file type:
 

@@ -29,8 +29,8 @@ creating an ingress endpoint should be in the following order:
 
 ## Configuring your environment to use an ingress endpoint
 
-SES supports both public endpoints and Amazon Virtual Private Cloud (VPC) endpoints for ingress endpoints
-to accept incoming email. The following sections explain how to configure your
+SES supports both public endpoints and Amazon Virtual Private Cloud (VPC) endpoints for ingress
+endpoints to accept incoming email. The following sections explain how to configure your
 ingress endpoint to use either of these options.
 
 ###### Topics
@@ -182,6 +182,17 @@ Configuration requirements:
     + Authentication uses the same base64-encoded username and password
      mechanism as public authenticated endpoints.
 
+- mTLS ingress endpoint – Mail sent to your
+  domain must come from clients that present a TLS client certificate signed
+  by one of the CAs in the ingress endpoint's trust store. See [Mutual TLS (mTLS) authentication for ingress endpoints](#eb-ingress-mtls "#eb-ingress-mtls").
+
+Configuration requirements:
+
+    + Create a private mTLS ingress endpoint by associating it with a VPC
+     endpoint ID you own.
+    + Supported ports: 25, 587
+    + Supports STARTTLS: Yes
+
 ###### VPC endpoint requirements
 
 To use a VPC endpoint with an SES ingress endpoint, the following requirements
@@ -196,11 +207,15 @@ must be met:
     `com.amazonaws.`region`.mail-manager-smtp.open`
   - Authenticated ingress endpoint –
     `com.amazonaws.`region`.mail-manager-smtp.auth`
+  - mTLS ingress endpoint –
+    `com.amazonaws.`region`.mail-manager-smtp.mtls`
   - FIPS open ingress endpoint –
     `com.amazonaws.`region`.mail-manager-smtp.open.fips`
   - FIPS authenticated ingress endpoint
     –
     `com.amazonaws.`region`.mail-manager-smtp.auth.fips`
+  - FIPS mTLS ingress endpoint –
+    `com.amazonaws.`region`.mail-manager-smtp.mtls.fips`
 
 ###### Important configuration notes
 
@@ -267,8 +282,7 @@ Not all TLS policy values are valid for every combination of ingress endpoint ty
 network configuration:
 
 - FIPS – Can be used with all ingress endpoint
-  types (open, authenticated, and mTLS) on public networks, and with open and
-  authenticated ingress endpoints on private networks, but
+  types (open, authenticated, and mTLS) on both public and private networks, but
   only in US and Canada regions. Once set, `FIPS` cannot be changed to
   another value through an update. If you need a different TLS policy, you must
   create a new ingress endpoint.
@@ -276,7 +290,7 @@ network configuration:
   ingress endpoint types in all regions. However, for authenticated and mTLS ingress endpoints
   on public networks, `REQUIRED` can only be set at creation
   time—it cannot be changed through an update. For open ingress endpoints (public
-  or private) and authenticated ingress endpoints on private networks,
+  or private) and authenticated or mTLS ingress endpoints on private networks,
   `REQUIRED` can be set at creation time and changed through an
   update. Note that `REQUIRED` is not available for authenticated or
   mTLS ingress endpoints on public networks in US and Canada regions, where
@@ -304,10 +318,6 @@ Mutual TLS (mTLS) authentication requires connecting SMTP clients to present a
 TLS client certificate signed by one of the certificate authorities (CAs) in the
 ingress endpoint's trust store. Only clients with trusted certificates can send email to
 your endpoint.
-
-###### Important
-
-mTLS authentication is only available for public ingress endpoints. Amazon VPC endpoints do not support mTLS authentication.
 
 To create an mTLS ingress endpoint, choose `MTLS` as the ingress endpoint type and
 provide a `TlsAuthConfiguration` containing a `TrustStore` in the

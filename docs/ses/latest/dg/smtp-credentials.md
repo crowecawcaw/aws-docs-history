@@ -22,15 +22,18 @@ _AWS General Reference_.
 An IAM user can create SES SMTP credentials, but the user's policy must
 give them permission to use IAM itself, because SES SMTP credentials are
 created by using IAM. Your IAM policy must allow you to perform the following
-IAM actions: `iam:ListUsers`, `iam:CreateUser`,
-`iam:CreateAccessKey`, and `iam:PutUserPolicy`. If you try
+IAM actions: `iam:CreateUser`, `iam:CreateGroup`,
+`iam:PutGroupPolicy`, `iam:AddUserToGroup`,
+and `iam:CreateAccessKey`. If you try
 to create SES SMTP credentials using the console and your IAM user doesn't
-have these permissions, you see an error that states that your account is
-_"not authorized to perform iam:ListUsers."_
+have these permissions, you may see an error or the SMTP credentials may be created
+without the proper policy settings.
 
 ###### Important
 
-The IAM actions referenced above have the [Permission management](../../../IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.md#access_policies_access-level "../../../IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.md#access_policies_access-level") access level which is the highest IAM level
+Some of the IAM actions referenced above, specifically
+`iam:PutGroupPolicy` and `iam:AddUserToGroup`, have the
+[Permission management](../../../IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.md#access_policies_access-level "../../../IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.md#access_policies_access-level") access level which is the highest IAM level
 because it gives permission to grant or modify resource permissions in the service.
 Therefore, to improve the security of your AWS account, it is highly recommended
 that you restrict or regularly monitor these policies that include the Permissions

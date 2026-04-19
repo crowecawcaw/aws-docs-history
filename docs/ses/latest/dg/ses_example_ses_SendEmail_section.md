@@ -3,8 +3,9 @@
 The following code examples show how to use `SendEmail`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+context in the following code examples:
 
+- [Setting up Amazon Simple Email Service (SES)](ses_example_ses_GettingStarted_033_section.md "ses_example_ses_GettingStarted_033_section.md")
 - [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md "ses_example_ses_Scenario_SendEmail_section.md")
 
 .NET

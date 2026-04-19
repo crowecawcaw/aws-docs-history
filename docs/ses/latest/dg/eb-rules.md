@@ -173,6 +173,23 @@ all the available operators and valid values for that property.
 | TLS<br>TLS wrapped<br>Read receipt<br>Vade Advanced Email Security [(if subscribed)](eb-addons.md "eb-addons.md")<br>• Is passed<br>Trend Micro Virus Scanning [(if<br>subscribed)](eb-addons.md "eb-addons.md")<br>• Is passed                                                                                                                                                                                                                                                                                                            | [_Valid operators and values for boolean<br>expressions_](../../../sesmailmanager/latest/APIReference/API_RuleBooleanExpression.md "../../../sesmailmanager/latest/APIReference/API_RuleBooleanExpression.md") |
 | DMARC policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [_Valid operators and values for DMARC<br>expressions_](../../../sesmailmanager/latest/APIReference/API_RuleDmarcExpression.md "../../../sesmailmanager/latest/APIReference/API_RuleDmarcExpression.md")       |
 
+###### Recipient address matching and subaddressing
+
+The _Recipient address_ property uses the full SMTP
+envelope recipient address exactly as received, including any subaddress
+extension (also known as "plus addressing"). For example, if a message is
+sent to `user+tag@example.com`, the recipient address evaluated
+in the rule condition is `user+tag@example.com`, not
+`user@example.com`.
+
+This means that an `EQUALS` or `CONTAINS` rule
+targeting `user@example.com` will not match
+`user+tag@example.com`. If you need to match all subaddressed
+variants of an address, consider using an address list with wildcard
+entries (e.g., `user*@example.com`). Alternatively,
+`ENDS_WITH` with the domain (e.g., `@example.com`)
+can be used for broader domain-level matching.
+
 ###### Rule actions
 
 The following reference table lists all the rule actions that can be taken when a

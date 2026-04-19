@@ -46,6 +46,7 @@ This topic also includes information about getting started and details about pre
     - [Detect objects in images](ses_example_cross_RekognitionPhotoAnalyzer_section.md "ses_example_cross_RekognitionPhotoAnalyzer_section.md")
     - [Detect people and objects in a video](ses_example_cross_RekognitionVideoDetection_section.md "ses_example_cross_RekognitionVideoDetection_section.md")
     - [Generate credentials to connect to an SMTP endpoint](ses_example_ses_Scenario_GenerateSmtpCredentials_section.md "ses_example_ses_Scenario_GenerateSmtpCredentials_section.md")
+    - [Setting up Amazon Simple Email Service (SES)](ses_example_ses_GettingStarted_033_section.md "ses_example_ses_GettingStarted_033_section.md")
     - [Use Step Functions to invoke Lambda functions](ses_example_cross_ServerlessWorkflows_section.md "ses_example_cross_ServerlessWorkflows_section.md")
     - [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md "ses_example_ses_Scenario_SendEmail_section.md")
 
