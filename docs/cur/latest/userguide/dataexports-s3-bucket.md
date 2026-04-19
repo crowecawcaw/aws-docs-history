@@ -14,6 +14,7 @@ The following policy must be applied to every S3 bucket, whether owned by you or
 
 ```
 {
+    "Version":"2012-10-17",
     "Statement": [
     {
       "Sid": "EnableAWSDataExportsToWriteToS3",
@@ -28,12 +29,12 @@ The following policy must be applied to every S3 bucket, whether owned by you or
       ],
       "Resource": "arn:aws:s3:::{bucket-name}/*",
       "Condition": {
-        "StringLike": {
-          "aws:SourceArn": [
-            "arn:aws:bcm-data-exports:us-east-1:{source-account-id}:export/*"
-          ],
+        "ArnLike": {
+          "aws:SourceArn": "arn:aws:bcm-data-exports:us-east-1:{source-account-id}:export/*"
+        },
+        "StringEquals": {
           "aws:SourceAccount": "{source-account-id}"
-        }
+          }
       }
     }
   ]

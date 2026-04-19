@@ -74,7 +74,7 @@ different table configurations to add data to your export.
     	5. For **Time granularity**, choose between hourly, daily, or
     	 monthly to have the line items in the export aggregated by that time
     	 granularity.
-    2. For **FOCUS 1.0 with AWS columns**, there are no
+    2. For **FOCUS with AWS columns**, there are no
      table configurations.
     3. For **Carbon emissions**, there are no table
      configurations.
@@ -126,22 +126,27 @@ different table configurations to add data to your export.
       billing period). Creating new export versions allows you to track the changes in cost
       and usage data over time.
 
-11. Under **Data export storage settings**, for **S3
-    bucket** name, choose **Configure**.
-12. In the **Configure S3 bucket** dialog box, do one of the
-    following:
-    - Select existing bucket.
-    - Choose **Create a bucket**, enter an **S3 bucket
-      name**, and then choose the **Region** where you want to
-      create a new bucket.
+11. Under **Data export storage settings**, choose whether you want your export delivered to the S3 bucket of:
+    - This account
+    - Another account
 
-13. Review the **Bucket policy**. If you're selecting an existing bucket,
-    you need to acknowledge that Data Exports will overwrite you existing S3 bucket policy. The new
-    policy will allow both CUR and Data Exports to deliver exports.
+12. If you choose **This Account** for **S3 bucket** name, choose **Configure** and do one of the following:
+    - Select existing bucket.
+    - Choose **Create a bucket** enter **S3 bucket name** and then choose the **Region** where you want to create a new bucket
+    - Review the **Bucket policy**. If you are selecting an existing bucket, you need to acknowledge that Data Exports will
+      overwrite your existing S3 bucket policy. The new
+      policy will allow both CUR and Data Exports to deliver exports.
+
+13. If you choose **Another account** enter **S3 bucket**, **S3 bucket owner**,
+    which is the AWS account that owns the bucket, and **Region**
 14. For **S3 path prefix**, enter a name for the directory that will be
     created in your S3 bucket to store all the export data.
-15. Under **Tags**, you can choose to add up to 50 tags in order to
-    search and filter your resources or track your AWS costs.
+
+###### Note
+
+If your export is delivered to the S3 bucket of Another account, we recommend using S3 path prefix that is
+unique to your account to prevent multiple accounts with identical path prefix and report name accidentally over-writing one another's data. 15. Under **Tags**, you can choose to add up to 50 tags in order to
+search and filter your resources or track your AWS costs.
 
 ###### Note
 
