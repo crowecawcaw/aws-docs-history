@@ -22,7 +22,7 @@ and then sends the result to the service.
 The following illustration shows how message data is secured and processed as
 it moves from the wireless device to an AWS service.
 
-![Image showing how AWS IoT Core for LoRaWAN data is passed from a wireless device to AWS IoT and other services.](/images/iot-wireless/latest/developerguide/images/iot-lorawan-data-flow.png)
+![Image showing how AWS IoT Core for LoRaWAN data is passed from a wireless device to AWS IoT and other services.](images/iot-lorawan-data-flow.png)
 
 1. The LoRaWAN wireless device encrypts its binary messages using AES128
    CTR mode before it transmits them.
