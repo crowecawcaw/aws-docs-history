@@ -31,7 +31,7 @@ JSON
  "kms:EncryptionContext:aws:logs:arn": [
  "arn:aws:logs:us-east-1:111122223333:log-group:datazone-*",
  "arn:aws:logs:us-east-1:111122223333:log-group:airflow-*",
- "arn:aws:logs:us-east-1:111122223333:log-group:aws/mwaa-serverless*"
+ "arn:aws:logs:us-east-1:111122223333:log-group:/aws/mwaa-serverless*"
  ]
  }
  }
