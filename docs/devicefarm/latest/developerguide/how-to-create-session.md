@@ -23,9 +23,10 @@ Console
 4. On the **Remote access** tab, choose **Create remote access session**.
 5. Choose a device for your session. You can choose from the list of available devices or search for a
    device using the search bar at the top of the list.
-6. _(Optional)_ Include an app and auxiliary apps as part of the session. These can be newly uploaded apps, or apps previously uploaded in this project from the past 30 days (after 30 days, app uploads [will expire](data-protection.md#data-protection-retention "data-protection.md#data-protection-retention")).
-7. In **Session name**, enter a name for the session.
-8. Choose **Confirm and start session**.
+6. In **Session name**, enter a name for the session.
+7. _(Optional)_ Under **Select applications**, include your own app or choose the Device Farm Sample App as part of the session. These can be newly uploaded apps, or apps previously uploaded in this project from the past 30 days (after 30 days, app uploads [will expire](data-protection.md#data-protection-retention "data-protection.md#data-protection-retention")).
+8. _(Optional)_ Under **Advanced Configuration**, you can add a http/s **Device Proxy** which will get set for the duration of your session.
+9. Choose **Confirm and start session**.
 
 AWS CLI
 _Note: these instructions focus only on creating a remote access session. For instructions on how to upload an app for use during your session, please see [automating app uploads.](api-ref.md#upload-example "api-ref.md#upload-example")_
@@ -558,7 +559,7 @@ end
 
 ## Next steps
 
-Device Farm starts the session as soon as the requested device and infrastructure is available, typically within a few minutes. The
+Device Farm starts the session as soon as the requested device and infrastructure are available, typically within a few minutes. The
 **Device Requested** dialog box appears until the session starts. To cancel the session
 request, choose **Cancel request**.
 

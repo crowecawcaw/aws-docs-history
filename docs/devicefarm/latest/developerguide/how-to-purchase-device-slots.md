@@ -1,17 +1,26 @@
 # Purchasing a device slot in Device Farm
 
-You can use the Device Farm console, AWS Command Line Interface (AWS CLI), or Device Farm API to purchase a device slot.
+Device farm has two billing methods for testing on public mobile devices: metered and unmetered. With metered
+billing, you pay-as-you-go based on device minutes. To learn more about metered, pay-as-you-go pricing, visit here:
+[https://aws.amazon.com/device-farm/pricing/](https://aws.amazon.com/device-farm/pricing/ "https://aws.amazon.com/device-farm/pricing/"). With
+unmetered billing, you reserve device concurrency through Device slots, which are billed at a flat monthly rate. This
+page covers unmetered, device slot billing.
 
-## Purchase device slots (console)
+Device slots correspond to your concurrency in Device Farm, determining how many test jobs (devices) or remote access
+sessions you can run simultaneously with unmetered billing. Device slots are specific to testing type (automated
+testing or remote access) and device platform (android or ios). Slots are not tied to any specific device make or model.
+You can use the Device Farm console, AWS Command Line Interface (AWS CLI), or Device Farm API to purchase device slots.
+
+## Purchase device slots
+
+Console
 
 1. Sign in to the Device Farm console at [https://console.aws.amazon.com/devicefarm](https://console.aws.amazon.com/devicefarm "https://console.aws.amazon.com/devicefarm").
 2. In the navigation pane, choose **Mobile Device Testing**, and then choose
    **Device slots**.
-3. On the **Purchase and manage device slots** page, you can create your own custom package
-   by choosing the number of slots of **Automated testing** and **Remote
-   access** devices that you want to purchase.
-   Specify slot
-   amounts for both the current and next billing periods.
+3. On the **Device slots** page, you can choose the number of **Automated testing** and **Remote
+   access** device slots per platform that you want to purchase.
+   Specify slot amounts in the **Desired slots** column.
 
 As you change the slot amount, the text dynamically updates with the billing amount. For more information,
 see [AWS Device Farm pricing](https://aws.amazon.com/device-farm/pricing/ "https://aws.amazon.com/device-farm/pricing/").
@@ -29,17 +38,15 @@ each device type that you want to purchase and for which billing cycle.
 
 Changes to the device slots apply to your entire account and affect all projects.
 
-![Purchase and manage device slots page on the Device Farm console](images/aws-device-farm-console-device-slots-menu.png) 4. Choose **Purchase**. A **Confirm purchase** window will appear. Review
-the information and then choose **Confirm** to complete the transaction.
+![Device slots page on the Device Farm console](images/aws-device-farm-console-device-slots-default-view.png) 4. Choose **Purchase**. A **Confirm purchase** window will appear. Review
+the information. When you are ready, type `confirm` and then choose **Confirm** to complete the transaction.
 
-![Purchase confirmation page on the Device Farm console](images/aws-device-farm-console-device-purchase-confirm.png)
+![Purchase confirmation page on the Device Farm console](images/aws-device-farm-console-device-slots-purchase-confirm.png)
 
-On the **Purchase and manage device slots** page, you can see the number of device slots that
-you currently have. If you increased or decreased the number of slots, you'll see the number of slots that you'll
-have one month after the date you made the change.
+On the **Device slots** page, you can see the number of device slots that
+you currently have, as well as the number of device slots you will have for your next billing period.
 
-## Purchase a device slot (AWS CLI)
-
+AWS CLI
 You can run the **purchase-offering** command to purchase the offering.
 
 To list your Device Farm account settings, including the maximum number of device slots that you can purchase and
@@ -217,7 +224,7 @@ similar to the following:
 The **renew-offering** and **list-offering-transactions** commands are also
 available for this feature. For more information, see the [AWS CLI reference](cli-ref.md "cli-ref.md").
 
-## Purchase a device slot (API)
+API
 
 1. Call the [GetAccountSettings](../APIReference/API_GetAccountSettings.md "../APIReference/API_GetAccountSettings.md")
    operation to list your account settings.
@@ -227,12 +234,12 @@ available for this feature. For more information, see the [AWS CLI reference](cl
 
 ###### Note
 
-This command returns only promotions that you haven't yet purchased. As soon as you purchase one or more
+This operation returns only promotions that you haven't yet purchased. As soon as you purchase one or more
 slots using an offering promotion, that promotion no longer appears in the results. 4. Call the [PurchaseOffering](../APIReference/API_PurchaseOffering.md "../APIReference/API_PurchaseOffering.md")
 operation to purchase an offering. 5. Call the [GetOfferingStatus](../APIReference/API_GetOfferingStatus.md "../APIReference/API_GetOfferingStatus.md")
 operation to get the offering status.
 
-The [RenewOffering](../APIReference/API_RenewOffering.md "../APIReference/API_RenewOffering.md") and [ListOfferingTransactions](../APIReference/API_ListOfferingTransactions.md "../APIReference/API_ListOfferingTransactions.md") commands are
+The [RenewOffering](../APIReference/API_RenewOffering.md "../APIReference/API_RenewOffering.md") and [ListOfferingTransactions](../APIReference/API_ListOfferingTransactions.md "../APIReference/API_ListOfferingTransactions.md") operations are
 also available for this feature.
 
 For information about using the Device Farm API, see [Automating Device Farm](api-ref.md "api-ref.md").

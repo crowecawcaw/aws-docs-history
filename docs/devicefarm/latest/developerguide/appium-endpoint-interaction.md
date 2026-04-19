@@ -6,14 +6,37 @@ For example, you can start by running a test using your local Appium code from y
 The session can last up to [150-minutes](limits.md#service-limits "limits.md#service-limits"), however, if there is no activity for over 5 minutes
 (either through the interactive console or through the Appium endpoint), the session will time out.
 
-## Using Apps for testing with your Appium session
+## Using apps for testing with your Appium session
 
-Device Farm allows you to use your app(s) as a part of your remote access session creation request, or to install apps during the remote access session itself.
-These apps are automatically installed onto the device under test and are injected as default capabilities for any Appium session requests.
-When you create a remote access session, you have the option to pass in an app ARN, which will be used by default as the `appium:app`
-capability for all subsequent Appium sessions, as well as auxiliary app ARNs, which will be used as the `appium:otherApps` capability.
+There are several ways to provide an app for use with your Appium session:
 
-For example, if you create a remote access session using an app `com.aws.devicefarm.sample` as your app, and `com.aws.devicefarm.other.sample` as one of your auxiliary apps, then when you go to create an Appium session, it will have capabilities similar to the following:
+- Upload an app to Device Farm and install it in the session.
+- Specify an HTTPS URL or Amazon S3 URI as the `appium:app` capability.
+- Reference an already-installed app by its package name (using `appium:appPackage` on Android or `appium:bundleId` on iOS).
+- Test a web app by specifying the `browserName` capability (`Chrome` on Android, `Safari` on iOS).
+
+Standard [app size limits](limits.md#file-limits "limits.md#file-limits") (4 GB) apply to all app sources.
+
+###### Note
+
+Device Farm does not support passing a local filesystem path in `appium:app` during a remote access session.
+
+### Uploading, installing, and using apps
+
+To use an uploaded app with your Appium session, follow these steps:
+
+1. ###### Upload and install your app
+
+There are two ways to upload and install an app onto the device under test:
+
+    * Include the app ARN in your [`CreateRemoteAccessSession`](../APIReference/API_CreateRemoteAccessSession.md "../APIReference/API_CreateRemoteAccessSession.md") request. The app is automatically installed onto the device when the session starts. You can also include auxiliary app ARNs, which will be installed alongside the primary app.
+    * Install the app during an active session using the [`InstallToRemoteAccessSession`](../APIReference/API_InstallToRemoteAccessSession.md "../APIReference/API_InstallToRemoteAccessSession.md") API, or by uploading it through the Device Farm console. This allows you to change the app under test without creating a new session.
+
+2. ###### Use the installed app
+
+Once installed, the app is automatically injected as the default `appium:app` capability for any subsequent Appium sessions. If you included auxiliary apps, they are set as the `appium:otherApps` capability.
+
+For example, if you create a remote access session using `com.aws.devicefarm.sample` as your app, and `com.aws.devicefarm.other.sample` as one of your auxiliary apps, then when you go to create an Appium session, it will have capabilities similar to the following:
 
 ```
 {
@@ -30,9 +53,9 @@ For example, if you create a remote access session using an app `com.aws.devicef
 }
 ```
 
-During your session, you can install additional apps (either within the console, or using the [`InstallToRemoteAccessSession`](../APIReference/API_InstallToRemoteAccessSession.md "../APIReference/API_InstallToRemoteAccessSession.md") API). These will override any existing apps previously used as the `appium:app` capability. If those previously used apps have a distinct package name, they will stay on the device and be used as a part of the `appium:otherApps` capability.
+If you install a new app during the session, it replaces the current `appium:app` capability. If the previously installed app has a distinct package name, it remains on the device and moves to the `appium:otherApps` capability.
 
-For example, if you initially use an app `com.aws.devicefarm.sample` when creating your remote access session, but then install a new app named `com.aws.devicefarm.other.sample` during the session, then your Appium sessions will have capabilities similar to the following:
+For example, if you initially use `com.aws.devicefarm.sample` when creating your remote access session, but then install `com.aws.devicefarm.other.sample` during the session, then your Appium sessions will have capabilities similar to the following:
 
 ```
 {
@@ -49,15 +72,141 @@ For example, if you initially use an app `com.aws.devicefarm.sample` when creati
 }
 ```
 
-If you'd prefer, you can explicitly specify the capabilities for your app using the app name (using the `appium:appPackage` or `appium:bundleId` capabilities for Android and iOS respectively).
-
-If you are testing a web app, specify the `browserName` capability for your Appium session creation request. The `Chrome` browser is available on all Android devices, and the `Safari` browser is available on all iOS devices.
-
-Device Farm does not support passing a remote URL or local filesystem path in `appium:app` during a remote access session. Upload apps to Device Farm and include them in the session instead.
-
 ###### Note
 
 For more information about automatically uploading apps as a part of your remote access session, please see [automating app uploads.](api-ref.md#upload-example "api-ref.md#upload-example")
+
+### Using an HTTPS URL
+
+You can specify a publicly accessible HTTPS URL as the `appium:app` desired capability when creating an Appium session. The URL must point directly to a downloadable app file (for example, an `.apk` or `.ipa` file). Device Farm downloads the app from the specified URL and installs it onto the device under test.
+
+###### Important
+
+Only HTTPS URLs are supported. Plain HTTP URLs are rejected.
+
+For example, the following Appium session creation request downloads an app from an HTTPS URL:
+
+```
+{
+    "capabilities":
+    {
+        "alwaysMatch": {},
+        "firstMatch":
+        [
+            {
+                "appium:app": "https://example.com/path/to/MyApp.apk"
+            }
+        ]
+    }
+}
+```
+
+### Using an Amazon S3 URI
+
+You can specify an Amazon S3 URI (for example, `s3://my-bucket/path/to/MyApp.ipa`) as the `appium:app` desired capability when creating an Appium session. Device Farm downloads the app from the specified S3 location and installs it onto the device under test.
+
+To use an S3 URI, the following requirements must be met:
+
+- The remote access session must be started from a project that has an [IAM execution role](custom-test-environments-iam-roles.md "custom-test-environments-iam-roles.md") configured.
+- The IAM execution role must have a maximum session duration of at least 150 minutes, because the role is assumed for the duration of the remote access session.
+- The IAM execution role must have permission to call `s3:GetObject` on the S3 object specified in the URI. We also recommend granting `s3:HeadObject` permission on the same object, which allows Device Farm to validate the object's existence before attempting the download.
+
+For example, the following Appium session creation request downloads an app from an S3 URI:
+
+```
+{
+    "capabilities":
+    {
+        "alwaysMatch": {},
+        "firstMatch":
+        [
+            {
+                "appium:app": "s3://my-test-bucket/apps/MyApp.ipa"
+            }
+        ]
+    }
+}
+```
+
+The following is an example IAM permissions policy that grants the recommended access for downloading an app from Amazon S3, including the optional `s3:HeadObject` permission. For more information about configuring IAM execution roles, see [Access AWS resources using an IAM Execution Role](custom-test-environments-iam-roles.md "custom-test-environments-iam-roles.md").
+
+###### Example
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:HeadObject"
+      ],
+      "Resource": "arn:aws:s3:::my-test-bucket/apps/*"
+    }
+  ]
+}
+```
+
+### Using an already-installed app
+
+If the app you want to test is already installed on the device, you can reference it directly by its package name instead of uploading it. Use the `appium:appPackage` and `appium:appActivity` capabilities on Android, or the `appium:bundleId` capability on iOS.
+
+For example, the following Appium session creation request launches an already-installed Android app:
+
+```
+{
+    "capabilities":
+    {
+        "alwaysMatch": {},
+        "firstMatch":
+        [
+            {
+                "appium:appPackage": "com.example.myapp",
+                "appium:appActivity": "com.example.myapp.MainActivity"
+            }
+        ]
+    }
+}
+```
+
+On iOS, use `appium:bundleId` instead:
+
+```
+{
+    "capabilities":
+    {
+        "alwaysMatch": {},
+        "firstMatch":
+        [
+            {
+                "appium:bundleId": "com.example.myapp"
+            }
+        ]
+    }
+}
+```
+
+### Testing a web app
+
+To test a web app, specify the `browserName` capability in your Appium session creation request. Use `Chrome` on Android devices or `Safari` on iOS devices.
+
+For example, the following request opens Chrome on an Android device:
+
+```
+{
+    "capabilities":
+    {
+        "alwaysMatch": {},
+        "firstMatch":
+        [
+            {
+                "browserName": "Chrome"
+            }
+        ]
+    }
+}
+```
 
 ## How to use the Appium endpoint
 
