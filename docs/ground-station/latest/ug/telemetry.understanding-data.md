@@ -133,8 +133,18 @@ precision.
 
 trackingStatus
 
-Current tracking status of the antenna. Possible values include `TRACKING`,
-`ACQUIRING`, and `MASKED`.
+Current tracking status of the antenna. Possible values are:
+
+- `TRACKING` — The antenna has successfully locked onto a signal
+  that matches the mission profile and is actively following it across the sky. This
+  is the nominal operational state during a contact.
+- `ACQUIRING` — The antenna is in the process of locating and
+  locking onto the signal. The system is currently using programmatic tracking,
+  pointing based on ephemeris data.
+- `MASKED` — The satellite's predicted position is behind an
+  autotrack mask, meaning the antenna cannot reliably utilize autotrack at that
+  specific pointing direction. This typically occurs at areas of high RF interference
+  such as low elevations.
 
 trackingErrorAzimuth
 

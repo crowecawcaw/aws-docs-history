@@ -35,42 +35,42 @@ AWS Ground Station processes OEM Customer Provided Ephemerides according to the 
 restrictions. OEM files should be in KVN format. The following table outlines the different
 fields in an OEM and how AWS Ground Station differs from the CCSDS standard.
 
-| Section              | Field            | CCSDS required  | AWS Ground Station required                                                        | Notes               |
-| -------------------- | ---------------- | --------------- | ---------------------------------------------------------------------------------- | ------------------- |
-| Header               | CCSDS_OEM_VERS   | Yes             | Yes                                                                                | Required value: 2.0 |
-| COMMENT              | No               | No              |                                                                                    |
-| CLASSIFICATION       | No               | No              |                                                                                    |
-| CREATION_DATE        | Yes              | Yes             |                                                                                    |
-| ORIGINATOR           | Yes              | Yes             |                                                                                    |
-| MESSAGE_ID           | No               | No              |                                                                                    |
-| Metadata             | META_START       | Yes             | Yes                                                                                |                     |
-| COMMENT              | No               | No              |                                                                                    |
-| OBJECT_NAME          | Yes              | Yes             |                                                                                    |
-| OBJECT_ID            | Yes              | Yes             |                                                                                    |
-| CENTER_NAME          | Yes              | Yes             | Required value: Earth                                                              |
-| REF_FRAME            | Yes              | Yes             | Accepted values: EME2000, ITRF2000                                                 |
-| REF_FRAME_EPOCH      | No               | Not supported\* | Not needed because the accepted REF_FRAMEs have an implicit epoch                  |
-| TIME_SYSTEM          | Yes              | Yes             | Required value: UTC                                                                |
-| START_TIME           | Yes              | Yes             |                                                                                    |
-| USEABLE_START_TIME   | No               | No              |                                                                                    |
-| USEABLE_STOP_TIME    | No               | No              |                                                                                    |
-| STOP_TIME            | Yes              | Yes             |                                                                                    |
-| INTERPOLATION        | No               | Yes             | Required so AWS Ground Station can generate accurate pointing angles for contacts. |
-| INTERPOLATION_DEGREE | No               | Yes             | Required so AWS Ground Station can generate accurate pointing angles for contacts. |
-| META_STOP            | Yes              | Yes             |                                                                                    |
-| Data                 | X                | Yes             | Yes                                                                                | Represented in `km` |
-| Y                    | Yes              | Yes             | Represented in `km`                                                                |
-| Z                    | Yes              | Yes             | Represented in `km`                                                                |
-| X_DOT                | Yes              | Yes             | Represented in `km/s`                                                              |
-| Y_DOT                | Yes              | Yes             | Represented in `km/s`                                                              |
-| Z_DOT                | Yes              | Yes             | Represented in `km/s`                                                              |
-| X_DDOT               | No               | No              | Represented in `km/s^2`                                                            |
-| Y_DDOT               | No               | No              | Represented in `km/s^2`                                                            |
-| Z_DDOT               | No               | No              | Represented in `km/s^2`                                                            |
-| Covariance matrix    | COVARIANCE_START | No              | No                                                                                 |                     |
-| EPOCH                | No               | No              |                                                                                    |
-| COV_REF_FRAME        | No               | No              |                                                                                    |
-| COVARIANCE_STOP      | No               | No              |                                                                                    |
+| Section              | Field            | CCSDS required  | AWS Ground Station required                                                                                                                                                                                         | Notes               |
+| -------------------- | ---------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| Header               | CCSDS_OEM_VERS   | Yes             | Yes                                                                                                                                                                                                                 | Required value: 2.0 |
+| COMMENT              | No               | No              |                                                                                                                                                                                                                     |
+| CLASSIFICATION       | No               | No              |                                                                                                                                                                                                                     |
+| CREATION_DATE        | Yes              | Yes             |                                                                                                                                                                                                                     |
+| ORIGINATOR           | Yes              | Yes             |                                                                                                                                                                                                                     |
+| MESSAGE_ID           | No               | No              |                                                                                                                                                                                                                     |
+| Metadata             | META_START       | Yes             | Yes                                                                                                                                                                                                                 |                     |
+| COMMENT              | No               | No              |                                                                                                                                                                                                                     |
+| OBJECT_NAME          | Yes              | Yes             |                                                                                                                                                                                                                     |
+| OBJECT_ID            | Yes              | Yes             |                                                                                                                                                                                                                     |
+| CENTER_NAME          | Yes              | Yes             | Required value: Earth                                                                                                                                                                                               |
+| REF_FRAME            | Yes              | Yes             | Accepted values: EME2000, ITRF2000                                                                                                                                                                                  |
+| REF_FRAME_EPOCH      | No               | Not supported\* | Not needed because the accepted REF_FRAMEs have an implicit epoch                                                                                                                                                   |
+| TIME_SYSTEM          | Yes              | Yes             | Required value: UTC                                                                                                                                                                                                 |
+| START_TIME           | Yes              | Yes             |                                                                                                                                                                                                                     |
+| USEABLE_START_TIME   | No               | No              |                                                                                                                                                                                                                     |
+| USEABLE_STOP_TIME    | No               | No              |                                                                                                                                                                                                                     |
+| STOP_TIME            | Yes              | Yes             |                                                                                                                                                                                                                     |
+| INTERPOLATION        | No               | Yes             | Required so AWS Ground Station can generate accurate pointing angles for contacts.                                                                                                                                  |
+| INTERPOLATION_DEGREE | No               | Yes             | Required so AWS Ground Station can generate accurate pointing angles for contacts. The<br>specified degree will be used if possible, but a lower degree will be used if there is<br>not enough data in the segment. |
+| META_STOP            | Yes              | Yes             |                                                                                                                                                                                                                     |
+| Data                 | X                | Yes             | Yes                                                                                                                                                                                                                 | Represented in `km` |
+| Y                    | Yes              | Yes             | Represented in `km`                                                                                                                                                                                                 |
+| Z                    | Yes              | Yes             | Represented in `km`                                                                                                                                                                                                 |
+| X_DOT                | Yes              | Yes             | Represented in `km/s`                                                                                                                                                                                               |
+| Y_DOT                | Yes              | Yes             | Represented in `km/s`                                                                                                                                                                                               |
+| Z_DOT                | Yes              | Yes             | Represented in `km/s`                                                                                                                                                                                               |
+| X_DDOT               | No               | No              | Represented in `km/s^2`                                                                                                                                                                                             |
+| Y_DDOT               | No               | No              | Represented in `km/s^2`                                                                                                                                                                                             |
+| Z_DDOT               | No               | No              | Represented in `km/s^2`                                                                                                                                                                                             |
+| Covariance matrix    | COVARIANCE_START | No              | No                                                                                                                                                                                                                  |                     |
+| EPOCH                | No               | No              |                                                                                                                                                                                                                     |
+| COV_REF_FRAME        | No               | No              |                                                                                                                                                                                                                     |
+| COVARIANCE_STOP      | No               | No              |                                                                                                                                                                                                                     |
 
 \* If any rows that aren't supported by AWS Ground Station are included in the provided OEM, the OEM
 will fail validation.
@@ -84,6 +84,11 @@ The important deviations from the CCSDS standard for AWS Ground Station are:
 - `TIME_SYSTEM` is required to be `UTC`.
 - `INTERPOLATION` and `INTERPOLATION_DEGREE` are both
   required for AWS Ground Station customer provided ephemeris.
+- AWS Ground Station deviates from CCSDS 5.2.4.7 by allowing OEM data blocks that do not
+  contain enough ephemeris data records to perform interpolation at the specified
+  `INTERPOLATION_DEGREE`. In this case, AWS Ground Station will use the highest
+  interpolation degree possible that is less than or equal to the specified
+  `INTERPOLATION_DEGREE`.
 
 ## Example OEM ephemeris in KVN format
 

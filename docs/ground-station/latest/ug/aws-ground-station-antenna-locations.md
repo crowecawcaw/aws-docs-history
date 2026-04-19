@@ -39,3 +39,69 @@ regions and their associated endpoints at the [AWS Ground Station endpoints and 
 
 [Use the AWS Ground Station digital twin feature](digital-twin.md "digital-twin.md") is available in all [AWS Regions](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") where AWS Ground Station is available. Digital twin ground stations are
 exact copies of production ground stations with a modifying prefix to Ground Station Name of “Digital Twin ”. For example, "Digital Twin Ohio 1" is a digital twin ground station that is an exact copy of the "Ohio 1" production ground station.
+
+## Dedicated Antennas
+
+In addition to the publicly available ground station locations listed above, AWS Ground Station offers
+Dedicated Antennas. A Dedicated Antenna is a custom-built antenna system that AWS manages
+on your behalf. A Dedicated Antenna is not restricted to existing AWS Ground Station ground station locations and can
+be built with capabilities beyond those of public ground stations as described in
+[AWS Ground Station Site Capabilities](locations.capabilities.md "locations.capabilities.md"). The
+locations and capabilities of Dedicated Antennas are not publicly disclosed.
+
+For more information about Dedicated Antennas, see
+[AWS Ground Station Dedicated Antennas](dedicated-antennas.md "dedicated-antennas.md"). To
+learn more or to get started with Dedicated Antennas, contact AWS Support through the
+[AWS Support Center Console](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
+
+## Viewing antennas at a ground station
+
+Each ground station location has one or more antennas. You can view the antennas at a ground
+station by using the [ListAntennas](../APIReference/API_ListAntennas.md "../APIReference/API_ListAntennas.md") API. This API returns the
+antennas at a specified ground station, including each antenna's name.
+
+Antenna information is useful when combined with the [ListGroundStationReservations](../APIReference/API_ListGroundStationReservations.md "../APIReference/API_ListGroundStationReservations.md")
+API to understand capacity and availability at a ground station. For more information about
+viewing reservations, see [View ground station reservations](locations.reservations.md "locations.reservations.md").
+
+To call `ListAntennas`, you must have a satellite onboarded to the ground station
+or have azimuth elevation ephemeris permissions for the ground station. For more information,
+see [Provide azimuth elevation ephemeris data](providing-azimuth-elevation-ephemeris-data.md "providing-azimuth-elevation-ephemeris-data.md").
+
+### Example: List antennas at a ground station
+
+The following example lists all antennas at a ground station using the AWS SDK for
+Python (Boto3).
+
+```
+import boto3
+
+# Create AWS Ground Station client
+ground_station_client = boto3.client("groundstation")
+
+# The ground station ID to list antennas for.
+# Use the ListGroundStations API to find available ground station IDs.
+ground_station_id = "Ohio 1"
+
+# List all antennas at a ground station.
+# This is useful for understanding the capacity of a ground station
+# and for planning multi-antenna operations.
+print(f"Listing antennas for ground station '{ground_station_id}'...")
+
+paginator = ground_station_client.get_paginator("list_antennas")
+page_iterator = paginator.paginate(
+    groundStationId=ground_station_id,
+    PaginationConfig={
+        "MaxItems": 100,
+        "PageSize": 20,
+    },
+)
+
+for page in page_iterator:
+    for antenna in page["antennaList"]:
+        print(f"  Antenna: {antenna['antennaName']}")
+        print(f"    Ground Station: {antenna['groundStationName']}")
+        print(f"    Region: {antenna['region']}")
+        print()
+
+```

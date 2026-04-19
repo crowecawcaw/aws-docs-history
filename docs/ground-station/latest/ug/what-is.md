@@ -11,6 +11,11 @@ Using AWS's low-latency, high-bandwidth global fiber network, you can begin proc
 satellite data within seconds of reception at the antenna system. This enables you to turn raw
 data into processed information or analyzed knowledge within a matter of seconds.
 
+For organizations with specialized requirements, AWS Ground Station also offers
+[AWS Ground Station Dedicated Antennas](dedicated-antennas.md "dedicated-antennas.md") —
+custom-built antenna systems that AWS manages on your behalf, providing dedicated access
+to antennas built to your specifications.
+
 ## Common use cases
 
 ![Common use cases for AWS Ground Station include the following: onboard and schedule, command, control, and downlink, receive data, and process and distribute data.](images/what-is-gs.png)
