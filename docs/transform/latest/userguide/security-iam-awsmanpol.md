@@ -21,6 +21,7 @@ View details about updates to AWS managed policies for AWS Transform since March
 
 | Change                                                                                                                                                                                                 | Description                                                                                                                                                                                                                | Date               |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [AWSTransformCustomFullAccess](#security-iam-awsmanpol-AWSTransformCustomFullAccess "#security-iam-awsmanpol-AWSTransformCustomFullAccess") – Updated policy                                           | Added permission to create the AWS Transform custom service-linked role (`AWSServiceRoleForAWSTransformCustom`) to enable CloudWatch metrics emission to customer accounts.                                                | April 7, 2026      |
 | [AWSServiceRoleForAWSTransformCustom](#security-iam-awsmanpol-AWSServiceRoleForAWSTransformCustom "#security-iam-awsmanpol-AWSServiceRoleForAWSTransformCustom") – New policy                          | Added a new AWS managed policy for the AWS Transform custom service-linked role. This policy allows AWS Transform custom to publish CloudWatch metrics to your account.                                                    | March 23, 2026     |
 | [DBModProvisioningAndMigration](#security-iam-awsmanpol-DBModProvisioningAndMigration "#security-iam-awsmanpol-DBModProvisioningAndMigration") – New policy                                            | This policy grants database provisioning and migration capabilities.                                                                                                                                                       | March 24, 2026     |
 | [DBModDiscoveryAndAssessment](#security-iam-awsmanpol-DBModDiscoveryAndAssessment "#security-iam-awsmanpol-DBModDiscoveryAndAssessment") – New policy                                                  | Added a new AWS managed policy that provides comprehensive database modernization discovery and assessment capabilities.                                                                                                   | March 24, 2026     |
@@ -137,6 +138,11 @@ This policy provides full access to AWS Transform custom.
 This policy includes the following permissions:
 
 - **AWS Transform Custom** – Allows all actions on all AWS Transform custom resources. This provides complete administrative access to the service.
+- **AWS Identity and Access Management (IAM)** – Allows creating the AWS Transform custom
+  [service-linked role](using-service-linked-roles.md#using-service-linked-roles-custom "using-service-linked-roles.md#using-service-linked-roles-custom")
+  (`AWSServiceRoleForAWSTransformCustom`). This role is required for AWS Transform
+  custom to emit CloudWatch metrics to your account. The permission is scoped to only allow
+  creating this specific service-linked role.
 
 **Permissions details**
 

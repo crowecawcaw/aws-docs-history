@@ -16,8 +16,9 @@ The AWS Transform WebApp uses two network paths:
   webapp (starting jobs, viewing workspaces, and so on), the browser sends API
   requests to
   `api.transform.`region`.on.aws`. With
-  AWS PrivateLink configured, these requests resolve to a private IP address in your
-  VPC and never leave the AWS network.
+  the `com.amazonaws.`region`.api.transform`
+  VPC endpoint and private DNS enabled, these requests resolve to a private IP
+  address in your VPC and never leave the AWS network.
 - **Static content** – The webapp's HTML,
   JavaScript, and CSS files are served through CloudFront via
   ``tenant-id`.transform.`region`.on.aws`.
@@ -73,7 +74,11 @@ Before you begin, ensure you have:
   and NAT Gateways.
 - A VPC with a private subnet where your instances or workloads run.
 - An internet gateway attached to the VPC (or permissions to create one).
-- A AWS Transform VPC endpoint configured. For instructions, see [AWS Transform and interface endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
+- A AWS Transform VPC endpoint for
+  `com.amazonaws.`region`.api.transform`
+  with private DNS enabled. This is the endpoint used by the WebApp browser
+  client. For instructions on creating endpoints,
+  see [AWS Transform and interface endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 
 ## Setting up controlled internet egress
 
@@ -409,6 +414,29 @@ curl -v --connect-timeout 15 'https://www.example.com'
 ```
 
 ## Troubleshooting
+
+API calls to api.transform are blocked by your firewall
+
+The domain
+`api.transform.`region`.on.aws`
+should resolve to a private IP address via the VPC endpoint and should not
+reach your internet firewall.
+
+- Verify you have created the
+  `com.amazonaws.`region`.api.transform`
+  endpoint.
+- Verify private DNS is enabled on the endpoint:
+
+```
+
+aws ec2 describe-vpc-endpoints \
+  --filters "Name=service-name,Values=com.amazonaws.`region`.api.transform" \
+  --query 'VpcEndpoints[*].[State,PrivateDnsEnabled]' \
+  --output table
+
+```
+
+Expected output: `available | True`
 
 The webapp does not load (connection timeout)
 

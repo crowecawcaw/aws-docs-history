@@ -85,26 +85,14 @@ aws_secret_access_key = your_secret_key
 
 ### IAM Permissions
 
-Your AWS credentials must have permissions to call the AWS Transform service. At minimum, you need `transform-custom:*` permissions.
+Your AWS credentials must have permissions to call the AWS Transform custom service. We recommend attaching the [AWSTransformCustomFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformCustomFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformCustomFullAccess") AWS managed policy to your IAM user or role. This policy provides full access to AWS Transform custom, including the permission to create the [service-linked role](using-service-linked-roles.md#using-service-linked-roles-custom "using-service-linked-roles.md#using-service-linked-roles-custom") required for CloudWatch metrics emission to your account.
 
-The following IAM policy provides full access to AWS Transform custom:
+For more granular control, AWS Transform custom also provides the following AWS managed policies:
 
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "transform-custom:*"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-```
+- [AWSTransformCustomExecuteTransformations](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations") – Provides access to execute transformations.
+- [AWSTransformCustomManageTransformations](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformCustomManageTransformations "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformCustomManageTransformations") – Provides access to create, update, read, and delete transformation resources, as well as execute transformations.
 
-For more granular control, please refer to the [AWS Transform Custom IAM Service Authorization Reference Guide](../../../service-authorization/latest/reference/list_awstransformcustom.md "../../../service-authorization/latest/reference/list_awstransformcustom.md")
+For more information about these policies, see [AWS managed policies for AWS Transform](security-iam-awsmanpol.md "security-iam-awsmanpol.md"). For custom IAM policies with resource-level permissions, refer to the [AWS Transform Custom IAM Service Authorization Reference Guide](../../../service-authorization/latest/reference/list_awstransformcustom.md "../../../service-authorization/latest/reference/list_awstransformcustom.md").
 
 ###### Note
 

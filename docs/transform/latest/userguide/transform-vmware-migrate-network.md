@@ -11,7 +11,7 @@ To migrate your network, follow these steps:
 4. Select security groups mapping strategy
 5. Review the generated VPC configurations
 6. Generate a network diagram (optional)
-7. Tag your network resources (optional)
+7. Configure resource tagging
 8. Deploy your network
 
 ###### Note
@@ -133,31 +133,50 @@ After reviewing the generated VPC configurations, you can optionally generate a 
 - **Mermaid code (.mmd):** A text-based diagram definition file that can be rendered using Mermaid-compatible tools.
 - **Image (.png):** A rendered image of your network topology.
 
-## Step 7: Tag your network resources (optional)
+## Step 7: Configure resource tagging
 
-AWS Transform automatically tags all generated resources with `"CreatedBy": "AWSTransform"` along with definition and execution IDs for tracking purposes. You can also add custom tags to network resources during migration.
+AWS Transform tags your network resources for launch and replication, and supports custom tags and AWS Migration Acceleration Program (MAP) tags.
 
-If your migration is part of the **AWS Migration Acceleration Program (MAP 2.0)**, AWS Transform applies a MAP tag to your resources. If you provided your MPE ID earlier in the migration process, the tag is applied automatically. Otherwise, AWS Transform asks whether you have a MAP agreement and prompts you to provide your MPE ID — a 10-character code using uppercase letters and digits (for example, ABCDE12345). The applied tag uses the format:
+### Automatic tags for launch and replication
 
-- **Key:** `map-migrated` **Value:** `mig`MPE_ID``
+AWS Transform automatically tags migrated network resources (VPCs, subnets, security groups, and route tables) with the following tags:
 
-You can apply custom tags at two levels:
+- **Key:** `CreatedBy` **Value:** `AWSApplicationMigrationService`
+- **Key:** `ATWorkspace` **Value:** `workspace-id`
 
-- **Job-level tags:** Applied to all resources created during the migration job, including VPCs, subnets, security groups, and route tables.
-- **VPC-level tags:** Applied to specific VPC resources and their associated components. Tags automatically cascade to all VPC resources.
+These tags allow using the VPC and subnet for launching test and cutover instances in AWS.
+
+###### Note
+
+Network migration generates network segments without internet connectivity, so migrated VPCs and subnets are not suitable as staging areas for replication by default.
+
+To also use the VPC and subnet as a staging area (replication), manually add the following tags:
+
+- **Key:** `CreatedFor` **Value:** `AWSTransform`
+- **Key:** `ATWorkspace` **Value:** `workspace-id`
+
+You can also apply these tags to any existing AWS network resource to make it available for replication.
+
+Find your workspace ID in the AWS Transform web app URL: https://... /workspace/`workspace-id`/job/job-id
+
+### Custom tags
+
+In addition to the tags applied automatically by AWS Transform, you can add custom tags to organize, track costs, and manage compliance for your migrated network resources. You can apply custom tags at two levels:
+
+- **Job-level tags:** Apply to all resources created by this job, including all VPCs, subnets, security groups, and route tables.
+- **VPC-level tags:** Apply to a specific VPC and automatically cascade to all its associated resources (subnets, security groups, route tables).
 
 ###### Note
 
 Maximum 40 tags per request. Each tag requires a key and value. AWS tagging conventions apply.
 
-AWS Transform applies these tags during network deployment.
+AWS Transform applies these tags when generating the Infrastructure as Code templates.
 
-To use existing AWS network resources not created by AWS Transform, you must tag the resources (including VPCs and subnets) with the following tags:
+### AWS Migration Acceleration Program
 
-- **Key:** `CreatedFor` **Value:** `AWSTransform`
-- **Key:** `ATWorkspace` **Value:** `workspace-id`
+If your migration is part of the **AWS Migration Acceleration Program (MAP 2.0)**, AWS Transform applies a MAP tag to your resources. If you provided your MPE ID earlier in the migration process, the tag is applied automatically. Otherwise, after you finish reviewing the generated VPC configurations, AWS Transform asks whether you have a MAP agreement and prompts you to provide your MPE ID — a 10-character code using uppercase letters and digits (for example, ABCDE12345). The applied tag uses the format:
 
-Find your workspace ID in the AWS Transform web app URL: https://... /workspace/`workspace-id`/job/job-id
+- **Key:** `map-migrated` **Value:** `mig`MPE_ID``
 
 ## Step 8: Deploy network
 
