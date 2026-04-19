@@ -27,7 +27,11 @@ for your use case, this SDK provides everything you need in one unified interfac
 
 ## Requirements
 
-The SDK requires at least Python 3.12.
+**Supported Python Versions**
+
+Nova Forge SDK is tested on:
+
+- Python 3.12
 
 ## Installation
 
