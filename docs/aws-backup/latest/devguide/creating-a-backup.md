@@ -56,7 +56,13 @@ maintains the necessary reference data from day 1 to do so.
 Backups of resources which are fully managed by AWS Backup can only be incremental
 if the vault in which the backup is created also contains an earlier backup (incremental or full); other
 resource types (not fully managed by AWS Backup) can have incremental backups
-as long as a vault within the same _Region_ has an earlier backup.
+as long as there is a previous backup of the resource within the same _Region_.
+
+###### Note
+
+Not all resource types support incremental backups. Some resources, such as Amazon Aurora, offer incremental backup only through continuous backups
+and point-in-time restore (PITR), not through snapshot-based backups. For a full list of
+which resources support incremental backups, see the [Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource") table.
 
 ## Access to source resources
 

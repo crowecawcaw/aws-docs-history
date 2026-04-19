@@ -41,7 +41,7 @@ The following information can help you troubleshoot problems with creating
 backups.
 
 - In general, **AWS database** services cannot start backups 1 hour before or during their maintenance window
-  or automatic backup window. **Amazon FSx** cannot start backups 4 hours
+  or automatic backup window. **Amazon FSx** cannot start backups 3 hours
   before or during the maintenance window or automatic backup window
   (Amazon Aurora is exempt from both the maintenance window restriction and the automatic backup window restriction).
   Snapshot backups scheduled during those times will fail. One exception: when you opt in to using

@@ -37,13 +37,30 @@ window, it transitions to the `RUNNING` state.
 
 If issues persist beyond the 2-hour retry period, the AWS Backup service team is
 automatically alerted. The team then investigates and addresses any underlying problems.
-Once resolved, they manually retry the copy request, ensuring that the copy jobs are
+After the issue is resolved, they manually retry the copy request, ensuring that the copy jobs are
 completed as requested.
 
 The copy job retry process differs from backup job retry process, which uses a defined
 start window with regular retry attempts until either success or expiration. The copy job
 mechanism provides an additional layer of reliability by incorporating direct service team
 intervention for persistent issues.
+
+## Copy job concurrency
+
+Only one backup or copy job can run at a time for a given resource. Additional
+copy jobs for the same resource remain in `CREATED` status until the running
+job completes. For more information about concurrency limits, see [AWS Backup quotas](aws-backup-limits.md "aws-backup-limits.md").
+
+Copy jobs for large resources can take several hours to complete, which can
+result in additional copy jobs waiting in `CREATED` status. For resource types
+that support incremental copies, a short retention period can lead to situations where
+the only recovery point in the destination vault expires. If no recovery point exists in the destination
+vault, then the next copy must be a full copy instead of an incremental copy. To avoid this,
+set the copy retention period to at least one week. For more information, see [Metering, costs, and billing](metering-and-billing.md "metering-and-billing.md"). To determine which resource types support
+incremental copies, see [Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource").
+
+If copy jobs continue to queue in `CREATED` status for the same resource,
+reduce the copy frequency.
 
 ###### Contents
 

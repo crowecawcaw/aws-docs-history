@@ -85,7 +85,7 @@ Continuous backups and point-in-time restore (PITR) reference the changes record
 period of time; therefore, they cannot be scheduled with a time or cron expression.
 
 In general, AWS database services cannot start backups 1 hour before or during their
-maintenance window and Amazon FSx cannot start backups 4 hours before
+maintenance window and Amazon FSx cannot start backups 3 hours before
 or during their maintenance window or automatic backup window (Amazon Aurora is exempt from
 this maintenance window restriction). Snapshot backups
 scheduled during those times will fail. An exception occurs when you opt in to using AWS Backup

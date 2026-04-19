@@ -1,9 +1,11 @@
 # Changing your retention period
 
-You can use AWS Backup to increase or decrease the retention period for your existing
-continuous backup rule. The minimum retention period is 1 day. The maximum retention period
-is 35 days. The change in retention period will take effect when the next backup is completed
-following this change.
+You must use your backup plan to increase or decrease the retention period for your
+existing continuous backup rule. The minimum retention period is 1 day. The maximum retention
+period is 35 days. The change in retention period will take effect when the next backup is
+completed following this change. You cannot use the
+`UpdateRecoveryPointLifecycle` API or CLI to update the retention period of any
+continuous backup.
 
 ## Retention period by service
 
@@ -19,6 +21,13 @@ continuous recovery point with the altered retention settings will be created.
 ###### Amazon Aurora and Amazon RDS
 
 For recovery points of Aurora and Amazon RDS resources, only one recovery point is
+possible at a time. No new recovery points are created when a retention period is
+changed; instead, AWS Backup updates the existing recovery point with the retention
+specifications within the backup plan.
+
+###### SAP HANA on Amazon EC2
+
+For recovery points of SAP HANA on EC2 resources, only one recovery point is
 possible at a time. No new recovery points are created when a retention period is
 changed; instead, AWS Backup updates the existing recovery point with the retention
 specifications within the backup plan.

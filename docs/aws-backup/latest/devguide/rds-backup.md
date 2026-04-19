@@ -55,10 +55,8 @@ AWS Backup backs up and supports Amazon RDS for MySQL and for PostgreSQL Multi-A
 (Availability Zone) deployment options with one primary and two readable standby
 database instances.
 
-Multi-Availability Zone backups are available in the following regions:
-Asia Pacific (Sydney) Region, Asia Pacific (Tokyo) Region, Europe (Ireland) Region, US East (Ohio) Region,
-US West (Oregon) Region, Europe (Stockholm) Region, Asia Pacific (Singapore) Region, US East (N. Virginia) Region,
-and Europe (Frankfurt) Region.
+For a list of Regions where Multi-Availability Zone backups are available, see the
+Amazon RDS Multi-AZ column in [Supported services by AWS Region](backup-feature-availability.md#supported-services-by-region "backup-feature-availability.md#supported-services-by-region").
 
 The Multi-AZ deployment option optimizes write transactions and is ideal when your
 workloads require additional read capacity, lower write transaction latency,

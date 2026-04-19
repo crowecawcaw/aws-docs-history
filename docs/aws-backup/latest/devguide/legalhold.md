@@ -183,6 +183,45 @@ The following are the possible status values.
 | CANCELLING | Legal holds are in the process of being removed, and delete requests of<br>recovery points under the hold may succeed.                                                         |
 | CANCELED   | Legal hold is fully released and no longer has any effect. Recovery<br>points can be deleted.                                                                                  |
 
+## View recovery points in legal holds
+
+You can see recovery points in legal holds in the AWS Backup console or programmatically.
+
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
+2. Using the left part of the dashboard, under
+   **My account**, click **Legal holds**.
+3. Select a legal hold, then you can view
+   **Legal hold details**,
+   **Resources selected for this hold**,
+   **Recovery points on hold**, and
+   **Tags** for this hold.
+   To view recovery points in a legal hold programmatically, you can use the
+   [ListRecoveryPointsByLegalHold](API_ListRecoveryPointsByLegalHold.md "API_ListRecoveryPointsByLegalHold.md") API call.
+
+The following is an example request and response for `ListRecoveryPointsByLegalHold`.
+
+```
+GET /legal-holds/{legalHoldId}/recovery-points HTTP/1.1
+
+Request
+
+empty body
+
+Response
+
+{
+  "RecoveryPoints": [
+    {
+      "RecoveryPointArn": "string",
+      "ResourceArn": "string",
+      "ResourceType": "string",
+      "BackupVaultName": "string"
+    }
+  ],
+  "NextToken": "string"
+}
+```
+
 ## Release a legal hold
 
 Legal holds remain in effect until they are removed by a user with sufficient permissions.
