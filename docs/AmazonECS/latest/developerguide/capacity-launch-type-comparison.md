@@ -104,6 +104,33 @@ Launch type to launch type updates are not supported:
 
 Instead of migrating between launch types, migrate to the equivalent capacity provider for enhanced functionality and future compatibility.
 
+### Capacity provider to launch type
+
+Capacity provider to launch type updates are not supported. If you
+originally created a service with a launch type and then updated the
+service to use capacity providers, you can revert the service to its
+original launch type. To revert, pass an empty list as the
+`capacityProviderStrategy` when you call
+`UpdateService`.
+
+JSON:
+
+```
+"capacityProviderStrategy": []
+```
+
+AWS CLI:
+
+```
+--capacity-provider-strategy '[]'
+```
+
 ###### Note
 
-Task definitions must pass compatibility validation for the target capacity provider. If the `requiresCompatibilities` check fails for the task definition version, the `UpdateService` call will fail.
+This only reverts the service to the launch type specified when the
+service was originally created. You cannot use this method to switch
+a service to a different launch type.
+
+###### Note
+
+Task definitions must pass compatibility validation for the target capacity provider. If the `requiresCompatibilities` check fails for the task definition version, the `UpdateService` call fails.

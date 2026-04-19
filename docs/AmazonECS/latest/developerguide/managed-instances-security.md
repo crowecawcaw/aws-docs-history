@@ -48,9 +48,11 @@ Enabling privileged Linux capabilities may expose your tasks to additional secur
 Amazon ECS Managed Instances maintains the same compliance posture as Amazon ECS:
 
 - **Compliance programs** - Amazon ECS Managed Instances is in scope of the same AWS Assurance Programs as Amazon ECS, including PCI-DSS, HIPAA, and FedRAMP.
-- **FIPS endpoints** - Amazon ECS Managed Instances respects
-  your account-level setting for using FIPS endpoints in the AWS Regions to help
-  achieve FedRAMP compliance.
+- **FIPS endpoints** - Amazon ECS Managed Instances supports
+  FIPS endpoint configuration at the capacity provider level. Unlike Fargate,
+  which uses an account-level setting, Amazon ECS Managed Instances uses a per-capacity-provider
+  setting because FIPS is a per-instance configuration. You configure FIPS when
+  creating or updating a capacity provider.
 - **Customer Managed Keys** - It supports security features required for achieving compliance, such as Customer Managed Keys for encryption.
 
 ## Amazon ECS Managed Instances FIPS-140 Considerations

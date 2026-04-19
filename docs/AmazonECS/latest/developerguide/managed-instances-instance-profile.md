@@ -7,7 +7,18 @@ ECS service.
 
 ###### Important
 
-If you are using Amazon ECS Managed Instances with the AWS-managed Infrastructure policy, the instance profile must be named `ecsInstanceRole`. If you are using a custom policy for the Infrastructure role, the instance profile can have an alternative name.
+If you use Amazon ECS Managed Instances with the
+`AmazonECSInfrastructureRolePolicyForManagedInstances` managed policy,
+the instance role name must start with `ecsInstanceRole`. The policy
+scopes `iam:PassRole` to
+`arn:aws:iam::*:role/ecsInstanceRole*`, so a mismatched name causes
+an authorization error at task launch. This is common with CloudFormation when you omit
+`RoleName`, because CloudFormation auto-generates names like
+`MyStack-InstanceRole-ABC123`.
+
+If you use a custom infrastructure role policy instead, the instance role can have
+any name as long as your policy includes an `iam:PassRole` grant
+targeting the instance role ARN.
 
 ## Create the role with the trust policy
 
@@ -89,3 +100,112 @@ Verify the profile was created successfully:
 ```
 aws iam get-instance-profile --instance-profile-name ecsInstanceRole
 ```
+
+## Create the instance profile using CloudFormation
+
+You can use AWS CloudFormation to create the instance role and instance profile. Choose
+one of the following options based on whether you use the AWS-managed
+infrastructure policy or a custom policy.
+
+### Option 1: Use the ecsInstanceRole naming convention (recommended)
+
+When you use the AWS-managed infrastructure policy, you must explicitly
+set `RoleName` to a value that starts with
+`ecsInstanceRole`. If you omit `RoleName`, CloudFormation
+auto-generates a name that does not match the managed policy's
+`iam:PassRole` condition, and tasks fail to launch.
+
+```
+Resources:
+  EcsInstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: ecsInstanceRole
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonECSInstanceRolePolicyForManagedInstances
+
+  EcsInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      InstanceProfileName: ecsInstanceRole
+      Roles:
+        - !Ref EcsInstanceRole
+```
+
+### Option 2: Use a custom role name
+
+If you prefer to let CloudFormation generate the role name, or you use a custom name
+that does not start with `ecsInstanceRole`, you must add an
+inline policy on your infrastructure role that grants
+`iam:PassRole` for the instance role.
+
+```
+Resources:
+  EcsInstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      # No RoleName — CFN auto-generates
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonECSInstanceRolePolicyForManagedInstances
+
+  EcsInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref EcsInstanceRole
+
+  EcsInfrastructureRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ecs.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonECSInfrastructureRolePolicyForManagedInstances
+      Policies:
+        - PolicyName: PassInstanceRoleToEC2
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: iam:PassRole
+                Resource: !GetAtt EcsInstanceRole.Arn
+                Condition:
+                  StringLike:
+                    iam:PassedToService: "ec2.*"
+```
+
+## Troubleshooting
+
+### Tasks fail with iam:PassRole authorization error
+
+If your tasks fail with a `ResourceInitializationError` that
+mentions `iam:PassRole`, verify that your instance role name
+starts with `ecsInstanceRole`. You can check the auto-generated
+name in the CloudFormation console under your stack's
+**Resources** tab. If the name does not match,
+either:
+
+- Add `RoleName: ecsInstanceRole` to your
+  `AWS::IAM::Role` resource.
+- Add an explicit `iam:PassRole` inline policy to your
+  infrastructure role. For more information, see
+  [Option 2: Use a custom role name](#create-instance-profile-cfn-custom "#create-instance-profile-cfn-custom").

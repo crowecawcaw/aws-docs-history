@@ -167,8 +167,8 @@ workloads:
   network monitoring and observability solutions.
 
 Amazon ECS Managed Instances support the same compliance programs as Amazon ECS, including PCI-DSS,
-HIPAA, and FedRAMP. In supported regions, Amazon ECS Managed Instances respects your account-level
-FIPS endpoint settings to help achieve FedRAMP compliance.
+HIPAA, and FedRAMP. In supported regions, you can configure FIPS endpoints
+at the capacity provider level to help achieve FedRAMP compliance.
 
 ## Networking
 
