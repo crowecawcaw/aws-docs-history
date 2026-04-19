@@ -60,11 +60,11 @@ client-side encryption](../../../AmazonS3/latest/userguide/UsingClientSideEncryp
 
 Most [AWS services that integrate with
 AWS KMS](https://aws.amazon.com/kms/features/ "https://aws.amazon.com/kms/features/") for encryption at rest or digital signatures currently treat multi-Region
-keys as though they were single-Region keys. They might re-wrap or re-encrypt data moved
-between Regions. For example, Amazon S3 cross-Region replication decrypts and re-encrypts data
-under a KMS key in the destination Region, even when replicating objects protected by a
-multi-Region key. Refer to service-specific documentation to understand how a service
-replicates encrypted data and if it treats multi-Region keys differently.
+keys as though they were single-Region keys. For example, Amazon S3 cross-Region replication
+decrypts and re-encrypts the data keys used to encrypt object data under the KMS key in
+the destination Region, even when the KMS key in both Regions is a related multi-Region key. Refer
+to service-specific documentation to understand how a service replicates encrypted data and
+if it treats multi-Region keys differently.
 
 Multi-Region keys are not global. You create a multi-Region primary key and then replicate
 it into Regions that you select within an [AWS partition](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md"). Then you manage

@@ -1620,7 +1620,7 @@ JSON
 
 The `kms:MessageType` condition key controls access to the [Sign](../APIReference/API_Sign.md "../APIReference/API_Sign.md") and [Verify](../APIReference/API_Verify.md "../APIReference/API_Verify.md") operations based on the value of the
 `MessageType` parameter in the request. Valid values for
-`MessageType` are `RAW` and `DIGEST`.
+`MessageType` are `RAW`, `DIGEST` and `EXTERNAL_MU`.
 
 For example, the following key policy statement uses the `kms:MessageType`
 condition key to to use an asymmetric KMS key to sign a message, but not a message

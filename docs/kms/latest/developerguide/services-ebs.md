@@ -20,7 +20,7 @@ I/O, and snapshots created from the volume are all encrypted. The encryption occ
 servers that host Amazon EC2 instances.
 
 This feature is supported on all [Amazon EBS volume
-types](../../../ebs-encryption-requirements.md#ebs-encryption-volume-types "../../../ebs-encryption-requirements.md#ebs-encryption-volume-types"). You access encrypted volumes the same way you access other volumes;
+types](../../../ebs/latest/userguide/ebs-encryption-requirements.md#ebs-encryption-volume-types "../../../ebs/latest/userguide/ebs-encryption-requirements.md#ebs-encryption-volume-types"). You access encrypted volumes the same way you access other volumes;
 encryption and decryption are handled transparently and they require no additional action from
 you, your EC2 instance, or your application. Snapshots of encrypted volumes are automatically
 encrypted, and volumes that are created from encrypted snapshots are also automatically
