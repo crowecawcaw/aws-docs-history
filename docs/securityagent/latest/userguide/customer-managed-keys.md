@@ -2,7 +2,7 @@
 
 By default, AWS Security Agent encrypts all data at rest using AWS-managed encryption keys. You can optionally use a customer managed key from AWS Key Management Service (AWS KMS) to encrypt your data, giving you full control over the encryption keys that protect your resources.
 
-AWS Security Agent supports resource-level customer managed keys. When you create a top-level resource such as an Agent Space or integration, you can specify a KMS key to encrypt all data belonging to that resource and its subresources. For example, specifying a customer managed key when creating an Agent Space encrypts all data associated with that Agent Space, including Agent Space configurations, penetration test configurations, jobs, and execution details, security findings, discovered endpoints, and screenshots.
+AWS Security Agent supports resource-level customer managed keys. When you create a top-level resource such as an Agent Space or integration, you can specify a KMS key to encrypt all data belonging to that resource and its subresources. For example, specifying a customer managed key when creating an Agent Space encrypts all data associated with that Agent Space, including Agent Space configurations, penetration test configurations, jobs, and execution details, security findings, discovered endpoints, and screenshots. You can also provide AWS resources that are already encrypted with your own customer managed key, such as S3 buckets, CloudWatch Logs log groups, or Secrets Manager secrets. For the required KMS permissions, see [Required KMS permissions](#cmk-required-permissions "#cmk-required-permissions").
 
 ## How customer managed keys work
 
@@ -19,7 +19,11 @@ AWS Security Agent uses encryption context in all cryptographic operations with 
 
 The encryption context key follows the format `aws:securityagent:_<resource-type>_`, where `*<resource-type>*` is the type of resource being encrypted (for example, `agent-space` or `integration`). The value is the Amazon Resource Name (ARN) of the resource.
 
-You can use the encryption context to scope down your KMS key policy to specific resource types. For more information, see [Configure a KMS key policy](#cmk-key-policy "#cmk-key-policy").
+###### Note
+
+For integrations, the encryption context key includes the `aws-crypto-ec:` prefix, resulting in the format `aws-crypto-ec:aws:securityagent:integration`.
+
+You can use the encryption context to scope down your KMS key policy to specific resource types. For more information, see [Required KMS permissions](#cmk-required-permissions "#cmk-required-permissions").
 
 ### Default encryption
 
@@ -45,21 +49,29 @@ Before you configure a customer managed key, complete the following prerequisite
 
   For instructions, see [Creating keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the _AWS Key Management Service Developer Guide_.
 
-- Configure the KMS key policy to grant AWS Security Agent the required permissions. For details, see [Configure a KMS key policy](#cmk-key-policy "#cmk-key-policy").
+- Configure the KMS key policy and IAM policies to grant AWS Security Agent the required permissions. For details, see [Required KMS permissions](#cmk-required-permissions "#cmk-required-permissions").
 
-## Configure a KMS key policy
+## Required KMS permissions
 
-Your KMS key policy must grant AWS Security Agent permission to use the key for cryptographic operations. The required permissions depend on which resource types you plan to encrypt.
+AWS Security Agent requires KMS permissions in two scenarios:
+
+- **Encrypting data within AWS Security Agent** – When you specify a customer managed key for an Agent Space or integration, the service needs permissions to use that key for cryptographic operations on your data.
+- **Using CMK-encrypted AWS resources** – When you provide AWS resources encrypted with a customer managed key (such as S3 buckets, CloudWatch Logs log groups, or Secrets Manager secrets), the service needs permissions to use those keys to access the encrypted resources.
 
 AWS Security Agent accesses your KMS key using different identities depending on the operation:
 
-- **AWS Management Console operations** – When administrators create or manage resources in the AWS Console (for example, creating an Agent Space or updating an application), the service uses your IAM credentials to call AWS KMS.
-- **Web application operations** – When users access data through the AWS Security Agent web application (for example, viewing penetration test results or starting a penetration test), the service uses the application role created during AWS Security Agent setup to call AWS KMS.
+- **AWS Management Console operations** – When administrators create or manage resources in the AWS Management Console (for example, creating an Agent Space or updating an application), the service uses the administrator role to call AWS KMS.
+- **Web application operations** – When IAM Identity Center users access data through the AWS Security Agent web application (for example, viewing penetration test results or starting a penetration test), the service uses the application role created during AWS Security Agent setup to call AWS KMS.
+- **Accessing customer-provided resources** – When the service accesses customer-provided AWS resources during penetration testing (such as S3 buckets, CloudWatch Logs log groups, and Secrets Manager secrets), it uses the penetration test service role to call AWS KMS.
 - **Asynchronous workflows** – For background operations that run outside of any user session (for example, penetration testing execution, code review processing, and branch key rotation), the service uses its own service principal (`securityagent.amazonaws.com`) to call AWS KMS on your behalf.
 
-Your key policy must include statements for all three identities.
+The following sections describe the required permissions for each identity.
 
-### Key policy for Agent Spaces
+### Key policy
+
+Your KMS key policy must grant AWS Security Agent permission to use the key for cryptographic operations. The required key policy statements depend on which resource types you plan to encrypt and which CMK-encrypted AWS resources you provide to the service.
+
+#### Key policy for Agent Spaces
 
 The following key policy grants AWS Security Agent the permissions required to encrypt and decrypt Agent Space data, including penetration test results and screenshots.
 
@@ -160,9 +172,15 @@ Replace the following placeholder values in the policy:
 
 To rotate branch keys, your KMS key policy must grant `kms:GenerateDataKeyWithoutPlaintext` and `kms:ReEncrypt*` permissions to the AWS Security Agent service principal (`securityagent.amazonaws.com`), or branch key rotation will fail. For more information about the required permissions, see [Rotate a branch key](../../../database-encryption-sdk/latest/devguide/rotate-branch-key.md "../../../database-encryption-sdk/latest/devguide/rotate-branch-key.md").
 
-### Key policy for integrations
+#### Key policy for integrations
 
 The following key policy grants AWS Security Agent the permissions required to encrypt and decrypt integration data, including code review findings.
+
+Replace the following placeholder values in the policy:
+
+- `*111122223333*` – Your AWS account ID
+- `*MyRole*` – The IAM role you use to manage AWS Security Agent in the console
+- `*us-east-1*` – The AWS Region where you use AWS Security Agent
 
 ```
 {
@@ -229,7 +247,150 @@ The following key policy grants AWS Security Agent the permissions required to e
 
 You can combine the Agent Space and integration key policy statements into a single key policy if you want to use the same KMS key for both resource types.
 
-### IAM policy for the application role
+#### Key policy for CMK-encrypted AWS resources
+
+If you provide AWS resources encrypted with a customer managed key to AWS Security Agent, you must update the key policy on each resource’s KMS key to grant the necessary permissions. This applies to the following resources:
+
+- **S3 buckets** – If you provide learning resources from an S3 bucket encrypted with a customer managed key (SSE-KMS), the key policy must allow the penetration test service role to decrypt objects.
+- **Secrets Manager secrets** – If your penetration test credentials are stored in Secrets Manager secrets encrypted with a customer managed key, the key policy must allow the penetration test service role to decrypt those secrets. If the web application creates secrets on your behalf, the key policy must also allow the application role to encrypt those secrets.
+- **CloudWatch Logs log groups** – If the CloudWatch Logs log group used for storing penetration test execution logs is encrypted with a customer managed key, the key policy must allow CloudWatch Logs to validate the KMS key through the service role and allow the CloudWatch Logs service principal to perform cryptographic operations.
+
+###### Important
+
+AWS Security Agent may also create CloudWatch Logs log groups and Secrets Manager secrets on your behalf. When configuring your KMS key policy, include the corresponding statements for these service-created resources as well.
+
+The following key policy statements grant the required permissions for CMK-encrypted resources. Include only the statements that apply to your configuration. If a resource uses the same KMS key you specified for your Agent Space, add these statements to that key’s policy. If a resource uses a different KMS key, add these statements to that key’s policy instead.
+
+Replace the following placeholder values in the policy:
+
+- `*111122223333*` – Your AWS account ID
+- `*MyApplicationRole*` – The application role created during AWS Security Agent setup
+- `*MyPenTestServiceRole*` – The penetration test service role
+- `*us-east-1*` – The AWS Region where you use AWS Security Agent
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowKmsKeyAccessForCreatingSecrets",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:role/MyApplicationRole"
+      },
+      "Action": [
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceAccount": "111122223333"
+        },
+        "StringLike": {
+          "kms:ViaService": "secretsmanager.*.amazonaws.com",
+          "kms:EncryptionContext:SecretARN": "arn:aws:secretsmanager:us-east-1:111122223333:secret:*"
+        }
+      }
+    },
+    {
+      "Sid": "AllowKmsKeyDecryptionForS3Objects",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:role/MyPenTestServiceRole"
+      },
+      "Action": [
+        "kms:Decrypt"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceAccount": "111122223333"
+        },
+        "StringLike": {
+          "kms:ViaService": "s3.*.amazonaws.com",
+          "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3:::YOUR-BUCKET-NAME*"
+        }
+      }
+    },
+    {
+      "Sid": "AllowKmsKeyDecryptionForSecretsManagerSecrets",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:role/MyPenTestServiceRole"
+      },
+      "Action": [
+        "kms:Decrypt"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceAccount": "111122223333"
+        },
+        "StringLike": {
+          "kms:ViaService": "secretsmanager.*.amazonaws.com",
+          "kms:EncryptionContext:SecretARN": "arn:aws:secretsmanager:us-east-1:111122223333:secret:YOUR-SECRET-NAME*"
+        }
+      }
+    },
+    {
+      "Sid": "AllowKmsKeyValidationForCloudWatchLogsLogGroups",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:role/MyPenTestServiceRole"
+      },
+      "Action": [
+        "kms:DescribeKey"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceAccount": "111122223333"
+        },
+        "StringLike": {
+          "kms:ViaService": "logs.*.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid": "AllowKmsKeyAccessForCloudWatchLogsLogGroups",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "logs.us-east-1.amazonaws.com"
+      },
+      "Action": [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceAccount": "111122223333"
+        },
+        "StringLike": {
+          "kms:EncryptionContext:aws:logs:arn": "arn:aws:logs:us-east-1:111122223333:log-group:YOUR-LOG-GROUP-NAME*"
+        }
+      }
+    }
+  ]
+}
+```
+
+###### Note
+
+- The `AllowKmsKeyDecryptionForS3Objects` statement is required only if you provide learning resources from S3 buckets encrypted with a customer managed key. For more information about configuring SSE-KMS for S3, see [Protecting data with SSE-KMS](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md").
+- The `AllowKmsKeyDecryptionForSecretsManagerSecrets` statement is required only if your penetration test credentials are stored in Secrets Manager secrets encrypted with a customer managed key. The service role needs access to decrypt secrets during penetration testing. For more information about secret encryption, see [Secret encryption and decryption in Secrets Manager](../../../secretsmanager/latest/userguide/security-encryption.md "../../../secretsmanager/latest/userguide/security-encryption.md").
+- The `AllowKmsKeyValidationForCloudWatchLogsLogGroups` statement grants the service role `kms:DescribeKey` so that CloudWatch Logs can validate the KMS key through the service role when associating it with a log group.
+- The `AllowKmsKeyAccessForCreatingSecrets` statement is required if the web application creates Secrets Manager secrets on your behalf using a customer managed key. The application role needs `kms:GenerateDataKey` and `kms:Decrypt` to encrypt the secret with your KMS key.
+- The `AllowKmsKeyAccessForCloudWatchLogsLogGroups` statement grants the CloudWatch Logs service principal (`logs.*us-east-1*.amazonaws.com`) the permissions it requires to encrypt and decrypt log data. This statement is also required if AWS Security Agent creates a log group on your behalf when you don’t provide an existing one. For more information, see [Encrypt log data in CloudWatch Logs using AWS KMS](../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md "../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md").
+- If multiple resources share the same KMS key, you can combine the statements into a single key policy.
+
+### Administrator role
+
+No additional IAM policy is required for the administrator role (the IAM role you use to manage AWS Security Agent in the console).
+
+### Application role
 
 In addition to the KMS key policy, attach the following IAM policy to the application role specified during AWS Security Agent setup. This policy grants the role permissions to use your customer managed keys for encrypting and decrypting Agent Space data and creating secrets in AWS Secrets Manager.
 
@@ -293,17 +454,15 @@ Replace the following placeholder values in the policy:
 
 The application role is an IAM role that you specify or that the console creates during AWS Security Agent setup. The web application assumes this role to retrieve penetration test execution logs and create Secrets Manager secrets on your behalf.
 
-The `AllowKmsKeyAccessForCreatingSecrets` statement is required if you configure authentication resources for penetration tests and choose to enter credentials directly instead of specifying an existing secret. The web application creates a secret on your behalf, and the application role needs the permissions in this statement to encrypt the secret with the customer managed key specified for your Agent Space. Update the `Resource` ARNs in this statement to match the KMS key used for your Agent Space.
+- The `AllowKmsKeyAccessForCreatingSecrets` statement is required if you configure authentication resources for penetration tests and choose to enter credentials directly instead of specifying an existing secret. The web application creates a secret on your behalf, and the application role needs the permissions in this statement to encrypt the secret with the customer managed key specified for your Agent Space. Update the `Resource` ARNs in this statement to match the KMS key used for your Agent Space.
 
-If your CloudWatch Logs log group for storing penetration test execution logs is encrypted with a customer managed key, you must update the KMS key policy to allow CloudWatch Logs to decrypt log events. Otherwise, the web application cannot display log events. For instructions, see [Encrypt log data in CloudWatch Logs using AWS KMS](../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md "../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md").
-
-### IAM policy for the penetration test service role
+### Service role
 
 During penetration testing, AWS Security Agent assumes the penetration test service role to access your AWS resources. If any of these resources are encrypted with a customer managed key, you must grant the service role permissions to use the corresponding KMS keys. This applies to the following resources:
 
 - **S3 buckets** – If you provide learning resources (such as API documents, threat models, or source code) from an S3 bucket encrypted with a customer managed key, the service role needs permissions to decrypt objects in that bucket. For more information about configuring SSE-KMS for S3, see [Protecting data with SSE-KMS](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md").
 - **Secrets Manager secrets** – If your penetration test credentials are stored in Secrets Manager secrets encrypted with a customer managed key, the service role needs permissions to decrypt those secrets. For more information about secret encryption, see [Secret encryption and decryption in Secrets Manager](../../../secretsmanager/latest/userguide/security-encryption.md "../../../secretsmanager/latest/userguide/security-encryption.md").
-- **CloudWatch Logs log groups** – If the CloudWatch Logs log group used for storing penetration test execution logs is encrypted with a customer managed key, the service role needs permissions to encrypt and decrypt log data. For more information about encrypting log data, see [Encrypt log data in CloudWatch Logs using AWS KMS](../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md "../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md").
+- **CloudWatch Logs log groups** – If the CloudWatch Logs log group used for storing penetration test execution logs is encrypted with a customer managed key (including log groups created by AWS Security Agent on your behalf), the service role needs `kms:DescribeKey` permission to validate the key. The CloudWatch Logs service principal handles the actual encryption and decryption of log data, and those permissions are granted through the key policy (see [Key policy](#cmk-key-policy "#cmk-key-policy")). For more information about encrypting log data, see [Encrypt log data in CloudWatch Logs using AWS KMS](../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md "../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md").
 
 ###### Important
 
@@ -355,35 +514,22 @@ Replace the following placeholder values in the policy:
         },
         "StringLike": {
           "kms:ViaService": "secretsmanager.*.amazonaws.com",
-          "kms:EncryptionContext:SecretARN": "arn:aws:secretsmanager:us-east-1:111122223333:secret:MyAppCredentials-*"
+          "kms:EncryptionContext:SecretARN": "arn:aws:secretsmanager:us-east-1:111122223333:secret:YOUR-SECRET-NAME*"
         }
       }
     },
     {
-      "Sid": "AllowKmsKeyValidationForCloudWatchLogs",
+      "Sid": "AllowKmsKeyValidationForCloudWatchLogsLogGroups",
       "Effect": "Allow",
       "Action": [
         "kms:DescribeKey"
       ],
       "Resource": [
-        "arn:aws:kms:us-east-1:111122223333:key/EXAMPLE-LOGS-KEY-ID"
-      ]
-    },
-    {
-      "Sid": "AllowKmsAccessForEncryptedCloudWatchLogs",
-      "Effect": "Allow",
-      "Action": [
-        "kms:Encrypt",
-        "kms:Decrypt",
-        "kms:GenerateDataKey"
-      ],
-      "Resource": [
-        "arn:aws:kms:us-east-1:111122223333:key/EXAMPLE-LOGS-KEY-ID"
+        "arn:aws:kms:us-east-1:111122223333:key/EXAMPLE-CLOUDWATCH-LOGS-KEY-ID"
       ],
       "Condition": {
         "StringEquals": {
-          "aws:ResourceAccount": "111122223333",
-          "kms:EncryptionContext:aws:logs:arn": "arn:aws:logs:us-east-1:111122223333:log-group:MY-LOG-GROUP"
+          "aws:ResourceAccount": "111122223333"
         },
         "StringLike": {
           "kms:ViaService": "logs.*.amazonaws.com"
@@ -396,11 +542,9 @@ Replace the following placeholder values in the policy:
 
 ###### Note
 
-The penetration test service role is the IAM role you specify when configuring penetration testing for an Agent Space. AWS Security Agent assumes this role to access your AWS resources during testing.
-
-- The `AllowKmsAccessForEncryptedS3Buckets` statement is required only if you provide learning resources from S3 buckets encrypted with a customer managed key. Update the `Resource` ARN to match the KMS key used to encrypt your S3 bucket.
-- The `AllowKmsAccessForEncryptedSecrets` statement is required only if your penetration test credentials are stored in Secrets Manager secrets encrypted with a customer managed key. Update the `Resource` ARN to match the KMS key used to encrypt your secrets.
-- The `AllowKmsAccessForEncryptedCloudWatchLogs` statement is required only if your CloudWatch Logs log group is encrypted with a customer managed key. Update the `Resource` ARN to match the KMS key used to encrypt your log group.
+- The `AllowKmsAccessForEncryptedS3Buckets` statement is required only if you provide learning resources from S3 buckets encrypted with a customer managed key. Update the `Resource` ARN to match the KMS key used to encrypt your S3 bucket, and update the `kms:EncryptionContext:aws:s3:arn` value to match your bucket name.
+- The `AllowKmsAccessForEncryptedSecrets` statement is required only if your penetration test credentials are stored in Secrets Manager secrets encrypted with a customer managed key. Update the `Resource` ARN to match the KMS key used to encrypt your secrets, and update the `kms:EncryptionContext:SecretARN` value to match your secret name.
+- The `AllowKmsKeyValidationForCloudWatchLogsLogGroups` statement is required only if your CloudWatch Logs log group is encrypted with a customer managed key, including log groups created by AWS Security Agent on your behalf. Update the `Resource` ARN to match the KMS key used to encrypt your log group.
 - If multiple resources share the same KMS key, you can combine the statements and list the shared key ARN once in the `Resource` field.
 
 ## Create a resource with a customer managed key
@@ -471,5 +615,5 @@ Keep the following in mind when using customer managed keys with AWS Security Ag
 - **Customer managed keys are specified at creation time.** You specify the KMS key when creating a resource. You cannot add or change the KMS key for an existing resource.
 - **Multiple KMS keys are supported.** You can use different KMS keys for different resources. For example, you can use one key for production Agent Spaces and a different key for development Agent Spaces.
 - **Disabling or deleting a KMS key makes data inaccessible.** If you disable or schedule deletion of a KMS key, AWS Security Agent cannot decrypt data encrypted under that key. Affected resources become inaccessible until the key is re-enabled. Deleting a KMS key permanently prevents access to all data encrypted under that key.
-- **Key policy permissions are required.** If you remove the required permissions from your KMS key policy, AWS Security Agent cannot access encrypted data. Ensure that the key policy grants permissions for your IAM role, the web application role, and the service principal as described in [Configure a KMS key policy](#cmk-key-policy "#cmk-key-policy").
+- **Key policy permissions are required.** If you remove the required permissions from your KMS key policy, AWS Security Agent cannot access encrypted data. Ensure that the key policy grants permissions for the administrator role (used to manage the service in the AWS Console), the application role (used by the web application), the penetration test service role (assumed by agents to run penetration tests), and the AWS Security Agent service principal as described in [Required KMS permissions](#cmk-required-permissions "#cmk-required-permissions").
 - **AWS KMS quotas apply.** Cryptographic operations against your KMS key count toward your AWS KMS request quotas. Under normal usage, the hierarchical keyring architecture minimizes KMS calls through branch key caching. For more information, see [Request quotas](../../../kms/latest/developerguide/requests-per-second.md "../../../kms/latest/developerguide/requests-per-second.md") in the _AWS Key Management Service Developer Guide_.

@@ -4,10 +4,6 @@ When viewing the findings for a penetration test, you can request AWS Security A
 
 You must enable finding remediation in the AWS Management Console. (See [Enable users to start remediation of penetration test findings](enable-remediate-findings.md "enable-remediate-findings.md").) Users can start remediation for a specific finding from the AWS Security Agent Web App.
 
-###### Note
-
-Code remediation is currently available in only us-east-1.
-
 ## Prerequisites
 
 Before you begin, ensure you have:
