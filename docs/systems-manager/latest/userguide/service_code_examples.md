@@ -6,6 +6,8 @@ _Basics_ are code examples that show you how to perform the essential operations
 
 _Actions_ are code excerpts from larger programs and must be run in context. While actions show you how to call individual service functions, you can see actions in context in their related scenarios.
 
+_Scenarios_ are code examples that show you how to accomplish specific tasks by calling multiple functions within a service or combined with other AWS services.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
@@ -111,3 +113,8 @@ This topic also includes information about getting started and details about pre
     - [UpdateManagedInstanceRole](example_ssm_UpdateManagedInstanceRole_section.md "example_ssm_UpdateManagedInstanceRole_section.md")
     - [UpdateOpsItem](example_ssm_UpdateOpsItem_section.md "example_ssm_UpdateOpsItem_section.md")
     - [UpdatePatchBaseline](example_ssm_UpdatePatchBaseline_section.md "example_ssm_UpdatePatchBaseline_section.md")
+
+- [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+  - [Creating an Amazon ECS service for the EC2 launch type](example_ecs_GettingStarted_018_section.md "example_ecs_GettingStarted_018_section.md")
+  - [Getting started with Amazon EC2](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
+  - [Setting up Systems Manager](example_iam_GettingStarted_046_section.md "example_iam_GettingStarted_046_section.md")

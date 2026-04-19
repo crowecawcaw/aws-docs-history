@@ -4,6 +4,11 @@ The following code examples demonstrate how to perform individual Systems Manage
 actions with AWS SDKs. Each example includes
 a link to GitHub, where you can find instructions for setting up and running the code.
 
+These excerpts call the Systems Manager API and
+are code excerpts from larger programs that must be run in context.
+You can see actions in context in
+[Scenarios for Systems Manager using AWS SDKs](service_code_examples_scenarios.md "service_code_examples_scenarios.md").
+
 The following examples include only the most commonly used actions.
 For a complete list, see the
 [AWS Systems Manager API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").

@@ -28,8 +28,10 @@ you can specify any of the following:
 - CVE IDs, in the format
   `CVE-2018-1234567`
 - Advisory IDs, in formats such as
-  `RHSA-2017:0864` and
-  `ALAS-2018-123`
+  `RHSA-2017:0864`,
+  `ALAS-2018-123`,
+  `ALAS2023-2025-123`, and
+  `ELSA-2025-123`
 - Package names that are constructed using one or more of the
   available components for package naming. To illustrate, for the
   package named

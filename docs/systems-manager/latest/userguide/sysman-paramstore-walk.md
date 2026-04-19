@@ -1,7 +1,7 @@
 # Parameter Store walkthroughs
 
 The walkthrough in this section shows you how to create, store, and run parameters
-with Parameter Store, a tool in AWS Systems Manager, in a test environment. This walkthrough shows you
+with Parameter Store in a test environment. This walkthrough shows you
 how to use Parameter Store with other Systems Manager tools. You can also use Parameter Store with other
 AWS services. For more information, see [What is a parameter?](systems-manager-parameter-store.md#what-is-a-parameter "systems-manager-parameter-store.md#what-is-a-parameter").
 
