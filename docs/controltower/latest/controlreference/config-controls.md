@@ -30,6 +30,16 @@ controls. For more information about these controls, see [List of AWS Config
 managed rules](../../../config/latest/developerguide/managed-rules-by-aws-config.md "../../../config/latest/developerguide/managed-rules-by-aws-config.md") in the _AWS Config Developer Guide_, or view them
 in the AWS Control Tower console.
 
+###### Important
+
+AWS Control Tower doesn't support parameter configuration for detective controls.
+If a control relies on optional parameters, it deploys without them. This can
+result in more restrictive evaluation behavior. For example, the
+`CONFIG.EC2.DT.17` control evaluates all internet gateway attachments
+as `NON_COMPLIANT` when you deploy it without the
+`AuthorizedVpcIds` parameter. To deploy these types of controls with parameters,
+create the corresponding AWS Config rule directly in AWS Config.
+
 ## Change in drift behavior with service-linked AWS Config rules
 
 Before the introduction of service-linked Config rules in AWS Control Tower, you could modify AWS Config rule configurations or add remediations outside of AWS Control Tower. With the release of service-linked Config rules, this behavior has changed:
