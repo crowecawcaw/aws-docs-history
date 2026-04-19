@@ -241,7 +241,7 @@ redirection to be configured. These are the options available:
 
 Your selections should look like the following example.
 
-![Website redirection options](/images/lightsail/latest/userguide/images/bncert-enable-disable-redirection.png) 10. The changes that are going to be made are listed. Type `Y` and
+![Website redirection options](images/bncert-enable-disable-redirection.png) 10. The changes that are going to be made are listed. Type `Y` and
 press **Enter** to confirm and continue.
 
 ![Confirming the changes](images/bncert-confirm-changes.png) 11. Enter your email address to associate with your Let's Encrypt certificate and
@@ -256,7 +256,7 @@ The actions are performed to enable HTTPS on your instance, including
 requesting the certificate and configuring the redirections you
 specified.
 
-![Actions being performed](/images/lightsail/latest/userguide/images/bncert-performing-actions.png)
+![Actions being performed](images/bncert-performing-actions.png)
 
 Your certificate is successfully issued and validated, and the redirections
 are successfully configured on your instance if you see a message similar to the

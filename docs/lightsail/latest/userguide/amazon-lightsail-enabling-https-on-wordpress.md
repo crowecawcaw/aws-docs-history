@@ -250,7 +250,7 @@ from which you are using the `bncert` tool to enable HTTPS on the instance.
 This confirms that you own the domain, and serves as the validation for your
 certificate.
 
-![Entering the primary and alternate domain names](/images/lightsail/latest/userguide/images/bncert-domain-names.png) 3. The `bncert` tool will ask you how you want your website's redirection to
+![Entering the primary and alternate domain names](images/bncert-domain-names.png) 3. The `bncert` tool will ask you how you want your website's redirection to
 be configured. These are the options available:
 
     * **Enable HTTP to HTTPS redirection** - Specifies
@@ -281,7 +281,7 @@ Your selections should look like the following example.
 ![Website redirection options](images/bncert-enable-disable-redirection.png) 4. The changes that are going to be made are listed. Type `Y` and press
 **Enter** to confirm and continue.
 
-![Confirming the changes](/images/lightsail/latest/userguide/images/bncert-confirm-changes.png) 5. Enter your email address to associate with your Let's Encrypt certificate and press
+![Confirming the changes](images/bncert-confirm-changes.png) 5. Enter your email address to associate with your Let's Encrypt certificate and press
 **Enter**.
 
 ![Associating your email address with your Let's Encrypt certificate](images/bncert-email-address.png) 6. Review the Let's Encrypt Subscriber Agreement. Type `Y` and press
