@@ -40,6 +40,123 @@ For detailed instructions, see [Link monitoring accounts with source accounts](.
 - Open the [AgentCore Observability console](https://console.aws.amazon.com/cloudwatch/home#gen-ai-observability "https://console.aws.amazon.com/cloudwatch/home#gen-ai-observability") in your monitoring account.
 - The console automatically displays data from all linked source accounts.
 
+## Set up cross-account monitoring using infrastructure as code
+
+You can use AWS CloudFormation to configure cross-account observability programmatically using [CloudWatch Observability Access Manager (OAM)](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.md") resources.
+
+For the required IAM permissions to create sinks and links, see [Necessary permissions](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-permissions-setup "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-permissions-setup").
+
+### Monitoring account: Create a sink
+
+In your monitoring account, create an OAM sink that accepts telemetry from source accounts.
+
+You can scope the sink policy in one of the following ways:
+
+- **By organization (recommended)** – Use `aws:PrincipalOrgID` to allow all accounts in your AWS Organizations organization. This is the simplest approach and automatically includes new accounts added to the organization.
+- **By individual account IDs** – List specific source account IDs as principals. Use this approach if you need fine-grained control over which accounts can link.
+
+**Option 1: Allow all accounts in an organization**
+
+Replace `<your-org-id>` with your AWS Organizations organization ID (for example, `o-a1b2c3d4e5`).
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Description: OAM Sink for cross-account AgentCore Observability (organization-wide)
+
+Resources:
+  ObservabilitySink:
+    Type: AWS::Oam::Sink
+    Properties:
+      Name: AgentCoreObservabilitySink
+      Policy:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: '*'
+            Action:
+              - 'oam:CreateLink'
+              - 'oam:UpdateLink'
+            Resource: '*'
+            Condition:
+              StringEquals:
+                aws:PrincipalOrgID: '<your-org-id>'
+              ForAllValues:StringEquals:
+                oam:ResourceTypes:
+                  - 'AWS::Logs::LogGroup'
+                  - 'AWS::CloudWatch::Metric'
+      Tags:
+        Purpose: AgentCoreObservability
+
+Outputs:
+  SinkArn:
+    Value: !GetAtt ObservabilitySink.Arn
+    Description: Share this ARN with source accounts to create links
+```
+
+**Option 2: Allow specific source accounts**
+
+Replace `<source-account-id-1>` and `<source-account-id-2>` with the AWS account IDs of your source accounts.
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Description: OAM Sink for cross-account AgentCore Observability (specific accounts)
+
+Resources:
+  ObservabilitySink:
+    Type: AWS::Oam::Sink
+    Properties:
+      Name: AgentCoreObservabilitySink
+      Policy:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS:
+                - '<source-account-id-1>'
+                - '<source-account-id-2>'
+            Action:
+              - 'oam:CreateLink'
+              - 'oam:UpdateLink'
+            Resource: '*'
+            Condition:
+              ForAllValues:StringEquals:
+                oam:ResourceTypes:
+                  - 'AWS::Logs::LogGroup'
+                  - 'AWS::CloudWatch::Metric'
+      Tags:
+        Purpose: AgentCoreObservability
+
+Outputs:
+  SinkArn:
+    Value: !GetAtt ObservabilitySink.Arn
+    Description: Share this ARN with source accounts to create links
+```
+
+### Source account: Create a link
+
+In each source account, create an OAM link to the monitoring account’s sink. Replace `<sink-arn-from-monitoring-account>` with the sink ARN from the previous step.
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Description: OAM Link for cross-account AgentCore Observability
+
+Resources:
+  ObservabilityLink:
+    Type: AWS::Oam::Link
+    Properties:
+      LabelTemplate: '$AccountName'
+      ResourceTypes:
+        - 'AWS::Logs::LogGroup'
+        - 'AWS::CloudWatch::Metric'
+      SinkIdentifier: '<sink-arn-from-monitoring-account>'
+      Tags:
+        Purpose: AgentCoreObservability
+```
+
+To deploy this link across all member accounts in your organization, use AWS CloudFormation StackSets. For instructions, see [Link monitoring accounts with source accounts](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.md").
+
+For more information about OAM resources, see the [AWS CloudFormation OAM resource reference](../../../AWSCloudFormation/latest/UserGuide/AWS_Oam.md "../../../AWSCloudFormation/latest/UserGuide/AWS_Oam.md").
+
 ## Filtering cross-account data
 
 You can filter data by account in the sessions and traces tables:

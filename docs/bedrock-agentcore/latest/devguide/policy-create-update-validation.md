@@ -4,9 +4,12 @@ When creating or updating policies directly (not through generation), validation
 
 ## How it works
 
-1. The policy is validated against the Cedar schema for **all gateways** associated with the policy engine
-2. Analysis runs in the context of the **entire policy engine**
-3. The validation mode determines whether creation fails on findings. For more information about validation modes, see [Add policies to the Policy Engine](add-policies-to-engine.md "add-policies-to-engine.md")
+1. The policy is checked against the Cedar schema for **all gateways** associated with the policy engine. Schema checks always run regardless of the validation mode.
+2. If the validation mode is set to `FAIL_ON_ANY_FINDINGS`, semantic validation runs in the context of the **entire policy engine**, checking for overly permissive, overly restrictive, and ineffective policies. If either schema checks or semantic validation produces findings, the policy is rejected. For details on each check, see [Validation and analysis overview](policy-validation-overview.md "policy-validation-overview.md").
+
+###### Note
+
+With `IGNORE_ALL_FINDINGS`, only schema checks run. Policies are accepted as long as they pass the schema checks. For more information, see [Add policies to the Policy Engine](add-policies-to-engine.md "add-policies-to-engine.md").
 
 ## Example: Create a policy with validation
 

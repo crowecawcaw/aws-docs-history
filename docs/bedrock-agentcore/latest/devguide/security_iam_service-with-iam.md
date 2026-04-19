@@ -40,11 +40,11 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 
 Amazon Bedrock AgentCore supports resource-based policies for Agent Runtime and Gateway resources. These policies are attached directly to your resources and define which principals can perform actions on them.
 
-To learn how to create and manage resource-based policies for Amazon Bedrock AgentCore resources, see [Resource-based policies for Amazon Bedrock AgentCore](security.md#resource-based-policies "security.md#resource-based-policies").
+To learn how to create and manage resource-based policies for Amazon Bedrock AgentCore resources, see [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md "resource-based-policies.md").
 
 ### Resource-based policy examples within AgentCore
 
-To view examples of AgentCore resource-based policies, see [Common use cases and examples](security.md#resource-based-policies-examples "security.md#resource-based-policies-examples").
+To view examples of AgentCore resource-based policies, see [Common use cases and examples](resource-based-policies.md#resource-based-policies-examples "resource-based-policies.md#resource-based-policies-examples").
 
 ## Policy actions for AgentCore
 

@@ -22,7 +22,7 @@ The following example creates a private MCP server target using managed Lattice:
 {
   "name": "my-private-mcp-target",
   "privateEndpoint": {
-    "managedLatticeResource": {
+    "managedVpcResource": {
       "vpcIdentifier": "vpc-0abc123def456",
       "subnetIds": ["subnet-0abc123", "subnet-0def456"],
       "endpointIpAddressType": "IPV4",
@@ -125,7 +125,7 @@ The following example creates a private OpenAPI target using managed Lattice:
 {
   "name": "my-private-openapi-target",
   "privateEndpoint": {
-    "managedLatticeResource": {
+    "managedVpcResource": {
       "vpcIdentifier": "vpc-0abc123def456",
       "subnetIds": ["subnet-0abc123", "subnet-0def456"],
       "endpointIpAddressType": "IPV4",
@@ -245,7 +245,7 @@ API Gateway targets with private endpoints are not natively supported. However, 
 {
   "name": "my-private-apigw-target",
   "privateEndpoint": {
-    "managedLatticeResource": {
+    "managedVpcResource": {
       "vpcIdentifier": "vpc-0123456789abcdef0",
       "subnetIds": ["subnet-0123456789abcdef0", "subnet-0abcdef1234567890"],
       "endpointIpAddressType": "IPV4",

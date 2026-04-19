@@ -13,6 +13,7 @@ To request a quota increase, contact AWS support.
 - [AgentCore Browser Service Quotas](#browser-service-limits "#browser-service-limits")
 - [AgentCore Code Interpreter Service Quotas](#code-interpreter-service-limits "#code-interpreter-service-limits")
 - [AgentCore Evaluations Service Quotas](#evaluation-service-limits "#evaluation-service-limits")
+- [AgentCore Policy Service Quotas](#policy-service-limits "#policy-service-limits")
 - [AgentCore Resource Based Policies](#resource-based-policies-quotas "#resource-based-policies-quotas")
 - [AWS Agent Registry Service Quotas](#registry-limits "#registry-limits")
 
@@ -329,6 +330,42 @@ The following table describes the service quotas for AgentCore Evaluations:
 | 200,000                                             | No                                             | Spans evaluated per sampled session | 1000                                           |
 | No                                                  | Size of all spans in a sampled session (in MB) | 15                                  | No                                             |
 | Active online evaluation configurations per account | 100                                            | No                                  | Evaluators per online evaluation configuration |
+
+## AgentCore Policy Service Quotas
+
+When working with AgentCore Policy, you need to be aware of the service limits that apply to your account. These limits help ensure service stability and availability for all users.
+
+### Resource limits
+
+| Quota                                                       | Default value | Adjustable | Notes                                                             |
+| ----------------------------------------------------------- | ------------- | ---------- | ----------------------------------------------------------------- |
+| Policy engines per account per Region                       | 1,000         | No         |                                                                   |
+| Policies per policy engine                                  | 1,000         | No         |                                                                   |
+| Generated policies (7-day rolling window) per policy engine | 50,000        | No         |                                                                   |
+| Maximum policy size                                         | 10 KB         | No         | Per individual policy                                             |
+| Maximum total policy size per resource                      | 200 KB        | No         | Combined size of all policies per resource within a policy engine |
+| Cedar schema size                                           | 100 KB        | No         | Per policy engine schema                                          |
+
+### Throttling limits
+
+The following table describes the rate limits for AgentCore Policy APIs after which you will be throttled.
+
+| Limit                               | Value | Adjustable | Notes                               |
+| ----------------------------------- | ----- | ---------- | ----------------------------------- |
+| CreatePolicyEngine API rate         | 1 TPS | No         | Transactions per second per account |
+| GetPolicyEngine API rate            | 5 TPS | No         | Transactions per second per account |
+| UpdatePolicyEngine API rate         | 1 TPS | No         | Transactions per second per account |
+| ListPolicyEngines API rate          | 5 TPS | No         | Transactions per second per account |
+| DeletePolicyEngine API rate         | 1 TPS | No         | Transactions per second per account |
+| CreatePolicy API rate               | 5 TPS | No         | Transactions per second per account |
+| GetPolicy API rate                  | 5 TPS | No         | Transactions per second per account |
+| UpdatePolicy API rate               | 5 TPS | No         | Transactions per second per account |
+| ListPolicies API rate               | 5 TPS | No         | Transactions per second per account |
+| DeletePolicy API rate               | 5 TPS | No         | Transactions per second per account |
+| StartPolicyGeneration API rate      | 1 TPS | No         | Transactions per second per account |
+| GetPolicyGeneration API rate        | 5 TPS | No         | Transactions per second per account |
+| ListPolicyGenerations API rate      | 5 TPS | No         | Transactions per second per account |
+| ListPolicyGenerationAssets API rate | 5 TPS | No         | Transactions per second per account |
 
 ## AgentCore Resource Based Policies
 

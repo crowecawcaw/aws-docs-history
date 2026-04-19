@@ -92,13 +92,13 @@ Before creating a gateway target with a managed private endpoint, ensure the fol
 
 ### Create a target with a managed private endpoint
 
-To create a resource with a managed private endpoint, include the `privateEndpoint.managedLatticeResource` block in your create request.
+To create a resource with a managed private endpoint, include the `privateEndpoint.managedVpcResource` block in your create request.
 
 ```
 {
   ...
   "privateEndpoint": {
-    "managedLatticeResource": {
+    "managedVpcResource": {
       "vpcIdentifier": "vpc-0abc123def456",
       "subnetIds": ["subnet-0abc123", "subnet-0def456"],
       "endpointIpAddressType": "IPV4",
@@ -109,7 +109,7 @@ To create a resource with a managed private endpoint, include the `privateEndpoi
 }
 ```
 
-The `managedLatticeResource` block accepts the following fields:
+The `managedVpcResource` block accepts the following fields:
 
 `vpcIdentifier` (required)
 
@@ -144,7 +144,7 @@ After the resource is created, call the relevant Get API (for example, `GetGatew
   ...
   "status": "READY",
   "privateEndpoint": {
-    "managedLatticeResource": {
+    "managedVpcResource": {
       "vpcIdentifier": "vpc-0abc123def456",
       "subnetIds": ["subnet-0abc123", "subnet-0def456"],
       "endpointIpAddressType": "IPV4",
@@ -307,7 +307,7 @@ The following example shows how to create a gateway target for a private API Gat
 {
   "name": "my-private-apigw-target",
   "privateEndpoint": {
-    "managedLatticeResource": {
+    "managedVpcResource": {
       "vpcIdentifier": "vpc-0123456789abcdef0",
       "subnetIds": ["subnet-0123456789abcdef0", "subnet-0abcdef1234567890"],
       "endpointIpAddressType": "IPV4",
@@ -326,7 +326,7 @@ The following example shows how to create a gateway target for a private API Gat
 
 ###### Note
 
-The `routingDomain` field is only available for the `managedLatticeResource` option. For self-managed Lattice, configure the routing domain directly in your resource configuration when you create it.
+The `routingDomain` field is only available for the `managedVpcResource` option. For self-managed Lattice, configure the routing domain directly in your resource configuration when you create it.
 
 ## Workaround for private certificates: ALB
 
@@ -399,7 +399,7 @@ Use the ALB DNS name as the `routingDomain` and the public cert domain as the ta
 {
   ...
   "privateEndpoint": {
-    "managedLatticeResource": {
+    "managedVpcResource": {
       "vpcIdentifier": "<vpc-id>",
       "subnetIds": ["<subnet-id-1>", "<subnet-id-2>"],
       "endpointIpAddressType": "IPV4",
@@ -414,7 +414,7 @@ The target URL in your target configuration should use `https://my-server.my-com
 
 ## Service-linked role for VPC egress
 
-When you create a gateway target with a managed private endpoint ( `managedLatticeResource` ), AgentCore uses the `AWSServiceRoleForBedrockAgentCoreGatewayNetwork` service-linked role to create and manage VPC Lattice resource gateways in your account. This role is created automatically the first time you create a managed private endpoint target, provided your IAM principal has the required `iam:CreateServiceLinkedRole` permission.
+When you create a gateway target with a managed private endpoint ( `managedVpcResource` ), AgentCore uses the `AWSServiceRoleForBedrockAgentCoreGatewayNetwork` service-linked role to create and manage VPC Lattice resource gateways in your account. This role is created automatically the first time you create a managed private endpoint target, provided your IAM principal has the required `iam:CreateServiceLinkedRole` permission.
 
 The service-linked role has the following key characteristics:
 

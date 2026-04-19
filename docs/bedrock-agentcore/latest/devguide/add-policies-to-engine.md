@@ -4,7 +4,7 @@ You can create one or more policies in your policy engine to control how agents 
 
 ###### Note
 
-Use the policy engine ID from the previous step. The validation mode determines how policy validation findings are handled: `FAIL_ON_ANY_FINDINGS` will reject policies with validation issues, while `IGNORE_ALL_FINDINGS` will accept them. For more information about validation and the types of findings, see [Validate and test policies](policy-validate-policies.md "policy-validate-policies.md").
+Use the policy engine ID from the previous step. The validation mode controls how findings are handled. Schema checks always run regardless of the validation mode. `FAIL_ON_ANY_FINDINGS` runs both schema checks and semantic validation, rejecting the policy if either produces findings. `IGNORE_ALL_FINDINGS` runs only schema checks, and policies are accepted as long as they pass. For more information about validation and the types of findings, see [Validate and test policies](policy-validate-policies.md "policy-validate-policies.md").
 
 Select one of the following methods:
 

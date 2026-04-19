@@ -274,7 +274,7 @@ The service-linked role is used to support the managed private endpoint feature 
 
 When you create a gateway target with a managed private endpoint:
 
-1. You specify the VPC, subnets, and optional security groups for the private endpoint in the `managedLatticeResource` configuration
+1. You specify the VPC, subnets, and optional security groups for the private endpoint in the `managedVpcResource` configuration
 2. AgentCore creates the service-linked role automatically if it does not already exist
 3. AgentCore uses the role to create a managed VPC Lattice resource gateway in your account, tagged with `BedrockAgentCoreGatewayManaged`
 4. AgentCore sets up the necessary VPC Lattice resources to enable private connectivity
@@ -290,7 +290,7 @@ You don’t need to manually create service-linked roles. AgentCore creates them
 
 - **Network service-linked role** : Created when you create an AgentCore Runtime, Code Interpreter, or Browser resources with VPC configuration
 - **Identity service-linked role** : Created when you create or update an AgentCore Runtime on or after **October 13, 2025**
-- **Gateway service-linked role** : Created when you create a AgentCore Gateway target with a managed private endpoint ( `managedLatticeResource` ) configuration
+- **Gateway service-linked role** : Created when you create a AgentCore Gateway target with a managed private endpoint ( `managedVpcResource` ) configuration
 
 If you delete a service-linked role and then need to create it again, you can use the same process to re-create the role in your account. When you create the appropriate AgentCore resources, AgentCore creates the service-linked role for you again.
 
@@ -356,7 +356,7 @@ If you no longer need to use a feature or service that requires a service-linked
 
 - **Network service-linked role** : Delete all AgentCore Runtime, Code Interpreter, and Browser resources with VPC configuration
 - **Identity service-linked role** : Delete all AgentCore Runtime resources
-- **Gateway service-linked role** : Delete all AgentCore Gateway targets that use managed private endpoints ( `managedLatticeResource` configuration)
+- **Gateway service-linked role** : Delete all AgentCore Gateway targets that use managed private endpoints ( `managedVpcResource` configuration)
 
 ### Cleaning up a service-linked role
 
