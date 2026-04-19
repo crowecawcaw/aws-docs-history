@@ -10,3 +10,4 @@ Scenarios target an intermediate level of experience to help you understand serv
 ###### Examples
 
 - [Create an Aurora Serverless work item tracker](example_cross_RDSDataTracker_section.md "example_cross_RDSDataTracker_section.md")
+- [Creating an Amazon RDS DB instance](example_rds_GettingStarted_036_section.md "example_rds_GettingStarted_036_section.md")

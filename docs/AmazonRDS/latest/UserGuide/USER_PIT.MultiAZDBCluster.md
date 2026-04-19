@@ -52,7 +52,7 @@ Times are shown in your local time zone, which is indicated by an offset from Co
 (UTC). For example, UTC-5 is Eastern Standard Time/Central Daylight Time. 6. For **DB cluster identifier**, enter the name for your
 restored Multi-AZ DB cluster. 7. In **Availability and durability**, choose **Multi-AZ DB cluster**.
 
-![Multi-AZ DB cluster choice](images/multi-az-db-cluster-create.png) 8. In **DB instance class**, choose a DB instance class.
+![Multi-AZ DB cluster choice](/images/AmazonRDS/latest/UserGuide/images/multi-az-db-cluster-create.png) 8. In **DB instance class**, choose a DB instance class.
 
 Currently, Multi-AZ DB clusters only support db.m6gd and db.r6gd DB instance classes.
 For more information about DB instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md"). 9. For the remaining sections, specify your DB cluster settings. For information about each setting, see

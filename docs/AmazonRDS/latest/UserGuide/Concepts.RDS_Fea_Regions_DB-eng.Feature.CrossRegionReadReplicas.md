@@ -1,13 +1,9 @@
 # Supported Regions and DB engines for cross-Region read replicas in Amazon RDS
 
 By using cross-Region read replicas in Amazon RDS, you can create a MariaDB, MySQL, Oracle,
-PostgreSQL, or SQL Server read replica in a different Region from the source DB instance. For
+PostgreSQL, SQL Server, or Db2 read replica in a different Region from the source DB instance. For
 more information about cross-Region read replicas, including source and destination Region
 considerations, see [Creating a read replica in a different AWS Region](USER_ReadRepl.XRgn.md "USER_ReadRepl.XRgn.md").
-
-Cross-Region read replicas are not available for the following engines:
-
-- RDS for Db2
 
 ###### Topics
 
@@ -16,6 +12,7 @@ Cross-Region read replicas are not available for the following engines:
 - [Cross-Region read replicas with RDS for Oracle](#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.ora "#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.ora")
 - [Cross-Region read replicas with RDS for PostgreSQL](#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.pg "#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.pg")
 - [Cross-Region read replicas with RDS for SQL Server](#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.sq "#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.sq")
+- [Cross-Region read replicas with RDS for Db2](#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.db2 "#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.db2")
 
 ## Cross-Region read replicas with RDS for MariaDB
 
@@ -72,3 +69,9 @@ Microsoft SQL Server Enterprise Edition:
 - RDS for SQL Server 2019 (Version 15.00.4073.23 and higher)
 - RDS for SQL Server 2017 (Version 14.00.3281.6 and higher)
 - RDS for SQL Server 2016 (Version 13.00.6300.2 and higher)
+
+## Cross-Region read replicas with RDS for Db2
+
+Cross-Region read replicas with RDS for Db2 are available in all Regions for the following versions:
+
+- RDS for Db2 11.5.9 (All available versions)
