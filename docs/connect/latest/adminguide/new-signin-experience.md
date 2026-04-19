@@ -12,7 +12,6 @@ The new sign-in experience applies only to instances that use Amazon Connect Man
 
 The enhanced sign-in experience introduces the following features:
 
-- IPv6 compatibility for modern network environments
 - Comprehensive AWS CloudTrail event logging for sign-in activities
 - Enhanced accessibility features for all users
 - Additional security measures to protect your instance

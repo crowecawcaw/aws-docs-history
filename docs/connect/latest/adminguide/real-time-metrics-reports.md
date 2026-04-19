@@ -38,7 +38,5 @@ by teams of agents.
   routing profile](agents-grouped-by-routing-profile.md "agents-grouped-by-routing-profile.md")
 - [Sort agents by
   activity](rtm-sort-by-agent-activity.md "rtm-sort-by-agent-activity.md")
-- [Change an agent's
-  activity status](rtm-change-agent-activity-state.md "rtm-change-agent-activity-state.md")
 - [Download real-time
   metrics](download-real-time-metrics-report.md "download-real-time-metrics-report.md")

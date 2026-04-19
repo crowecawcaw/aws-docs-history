@@ -31,6 +31,7 @@ to create custom flows for your specific scenario.
 - [Live media streaming of customer
   audio](customer-voice-streams.md "customer-voice-streams.md")
 - [Encrypt customer input](encrypt-data.md "encrypt-data.md")
+- [Touchtone buffering](touchtone-buffering.md "touchtone-buffering.md")
 - [Monitor flow
   performance](monitor-flow-performance.md "monitor-flow-performance.md")
 - [Track events in flows](about-contact-flow-logs.md "about-contact-flow-logs.md")

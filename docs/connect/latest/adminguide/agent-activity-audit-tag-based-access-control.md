@@ -14,10 +14,6 @@ agents:**
 limited set of agents:**
 
 ![By using tag-based access controls, you can see a limited set of agents.](images/agent-activity-audit-tag-based-access-control-after.png)
-Tag-based access controls are available for real-time metrics; however, they
-are not applicable to other historical metric reports or the login/logout
-report. For more information, please see [Real-time metrics tag-based access control in Amazon Connect](rtm-tag-based-access-control.md "rtm-tag-based-access-control.md").
-
 Tag-based access controls enable you to configure granular access to specific
 resources based on assigned resource tags. You can configure tag based access
 controls by using the API/SDK or the Amazon Connect admin website (for supported resources). You must

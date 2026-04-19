@@ -47,7 +47,6 @@ You can configure tag-based access controls by using the Amazon Connect admin we
 - The drill-down button is disabled within tables except for
   **View queue graphs**. For example, you cannot
   choose **View agents** in a Queue table.
-- Access to the homepage service level dashboard is disabled.
 - Access to view **Agent Queues** is disabled.
 - The **Agent Adherence** table is not
   supported.

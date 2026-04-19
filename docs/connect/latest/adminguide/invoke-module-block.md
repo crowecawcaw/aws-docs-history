@@ -24,10 +24,12 @@ specified channel.
 
 ## Flow types
 
-You can use this block in the following [flow
-types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"):
+You can use this block across all [flow types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"). If your module contains blocks that are not supported by the specific flow type, this incompatibility might cause interruptions in the flow execution.
 
-- Inbound flow
+###### Note
+
+- Whisper flows that use a **TransferToQueue** block within a module might cause interruption during the flow execution.
+- **CustomerQueue** flow with a **LoopPrompt** block invoking a module using **EndFlow** block might cause interruption during the flow execution.
 
 ## Properties
 

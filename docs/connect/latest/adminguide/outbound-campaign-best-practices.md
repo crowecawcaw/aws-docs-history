@@ -10,6 +10,7 @@ of your phone numbers.
 - [Agent staffing best practices for voice communication](#agent-staffing-vc "#agent-staffing-vc")
 - [Connection latency best practices](#call-latency-oc "#call-latency-oc")
 - [Best practices for answering machine detection](#machine-detection-oc "#machine-detection-oc")
+- [Using sorted segments with outbound campaigns and journeys](#sorted-segments-best-practices "#sorted-segments-best-practices")
 
 ## Choose the right mode for voice communication
 
@@ -312,3 +313,32 @@ Use case 4: AMD is off and agents can leave a prerecorded voicemail
   leaving a voicemail.
 - **Best uses** – Calling consumers or businesses and
   leaving generic voicemails.
+
+## Using sorted segments with outbound campaigns and journeys
+
+When you create segments, you can optionally sort them by up to 10 profile attributes.
+Outbound campaigns and journeys respect this sort order during execution, processing and
+dialing profiles in the order specified by the segment at the time the campaign or journey
+runs. When used in a recurring campaign or journey, a sorted segment's order is evaluated
+every time the campaign or journey repeats and when new profiles are added to a
+segment.
+
+Sorted segments are useful when you want to:
+
+- Prioritize high-value customers by sorting on attributes such as lifetime value or
+  account tier.
+- Contact customers with upcoming appointments first by sorting on appointment date.
+- Process time-sensitive communications in a specific order.
+
+###### Note
+
+- The segment sort order applies only to voice campaigns and voice activities in
+  journeys. Other communication channels process profiles in an unsorted order.
+- Sorted segments are split into 100 batches. Each batch is processed according to the
+  specified sort order. This results in an execution order that is within 1% of the defined
+  segment order.
+- Initial dial attempts take precedence over any reattempts that are defined in a
+  campaign. In a journey, earlier send communication blocks are prioritized over later
+  ones.
+
+For more information about creating and sorting segments, see [Build customer segments in Amazon Connect](customer-segments-building-segments.md "customer-segments-building-segments.md").

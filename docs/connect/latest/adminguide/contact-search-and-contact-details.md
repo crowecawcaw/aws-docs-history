@@ -13,10 +13,10 @@ sub-domain with the format
  For example, if your ACGR instance is deployed in US East (N.
  Virginia) and US West (Oregon) with source alias configured as
  `source.my.connect.aws`and replica alias as
-`replica.my.connect.aws`, after onboarding your Amazon Connect instances to this feature, you will use
- `us-east-1.source.my.connect.aws`and
-`us-west-2.source.my.connect.aws`. Please ensure you update your
-firewall rules and third-party integrations to consume these new sub-domains.
+`replica.my.connect.aws`, after onboarding your Amazon Connect instances to this feature, the new sub-domains will be 
+ `us-east-1.source.my.connect.aws`and`us-west-2.source.my.connect.aws`.
+
+Additionally, supervisors and admins must be authenticated using the [global sign-in endpoint](integrate-idp.md "integrate-idp.md") instead of regional endpoints.
 
 When you access the Contact Search page, you see contacts from your paired Amazon Connect
 Global Resiliency (ACGR) instances by default, giving you a complete view of customer

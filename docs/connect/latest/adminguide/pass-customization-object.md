@@ -12,6 +12,8 @@ You can add the following optional customizations to your chat user interface:
   customers intend to actually end the chat session. You can customize the
   confirmation dialog, title, message, and button text.
 - Override the attachment rejection message.
+- Display a **Minimize** button in the chat
+  header.
 
 ## Configure the customization object
 
@@ -33,6 +35,7 @@ amazon_connect('customizationObject', {
         header: {
             dropdown: true,
             dynamicHeader: true,
+            minimizeChatHeaderButton: true,
         },
         transcript: {
             hideDisplayNames: false,
@@ -98,6 +101,7 @@ constraints.
 | `header.dropdown`                                  | Boolean | Renders the header dropdown menu instead of the default<br>footer<br>NoteWhen you set this option to `true`, the<br>\*_Transcript download_<br>• button appears<br>and remains visible until you set the option to<br>`false`, or until you remove the<br>option.                                                                                                                                                                                                                                |
 | `header.dynamicHeader`                             | Boolean | Dynamically sets the header title to "Chatting with<br>Bot/AgentName".                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `header.hideTranscriptDownloadButton`              | Boolean | Hide the [download<br>transcript](chat-widget-download-transcript.md "chat-widget-download-transcript.md") button in the header dropdown menu. The<br>default value is `false`.                                                                                                                                                                                                                                                                                                                  |
+| `header.minimizeChatHeaderButton`                  | Boolean | Displays a \*Minimize<br>• button in the chat<br>header. The default value is `false`.                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `transcript.hideDisplayNames`                      | Boolean | Hides all display names, will apply default name masks if<br>`eventNames` is not provided.                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `transcript.eventNames.customer`                   | String  | Masks the display name of customer.                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `transcript.eventNames.agent`                      | String  | Masks the display name of agent.                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |

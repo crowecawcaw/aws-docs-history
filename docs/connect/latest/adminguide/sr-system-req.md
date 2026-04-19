@@ -56,3 +56,36 @@ recommended resource availability for each concurrent session.
      Amazon.Connect.Client.RecordingSession.
     + In ChromeOS, the Amazon Connect Client is the combination of Isolated Web
      App and Browser extension.
+
+## Browser enterprise policy for local network access
+
+Starting with Google Chrome version 147 (released April 7, 2026) and
+Microsoft Edge version 147 (released April 10, 2026), Chromium-based browsers
+enforce Local Network Access (LNA) restrictions on WebSocket connections. This
+restriction blocks the local WebSocket connection between the Contact Control
+Panel and the Amazon Connect Client Application, causing screen recordings to fail.
+
+To ensure screen recording works on Chrome 147 or later and Edge 147 or
+later, deploy the **LoopbackNetworkAllowedForUrls**
+enterprise policy to your agents' workstations. This policy pre-grants
+loopback network access permission for your Contact Control Panel domain, so
+agents are not blocked or prompted. Configure this policy with your Amazon Connect
+Contact Control Panel URL. Example policy value:
+`[*.]my.connect.aws`
+
+- For Google Chrome, see [LoopbackNetworkAllowedForUrls](https://chromeenterprise.google/policies/#LoopbackNetworkAllowedForUrls "https://chromeenterprise.google/policies/#LoopbackNetworkAllowedForUrls") in the Chrome enterprise
+  policy documentation.
+- For Microsoft Edge, see [LoopbackNetworkAllowedForUrls](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-browser-policies/loopbacknetworkallowedforurls "https://learn.microsoft.com/en-us/deployedge/microsoft-edge-browser-policies/loopbacknetworkallowedforurls") in the Edge enterprise
+  policy documentation.
+
+The following example commands set the registry policy for the domain
+`[*.]my.connect.aws` on Windows:
+
+```
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\LoopbackNetworkAllowedForUrls" /v 1 /t REG_SZ /d "[*.]my.connect.aws"
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\LoopbackNetworkAllowedForUrls" /v 1 /t REG_SZ /d "[*.]my.connect.aws"
+```
+
+For more details on this browser change, see [New permission
+prompt for Local Network Access](https://developer.chrome.com/blog/local-network-access "https://developer.chrome.com/blog/local-network-access") in the Chrome developer
+documentation.

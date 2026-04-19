@@ -27,6 +27,17 @@ The [SendMessage](../../../connect-participant/latest/APIReference/API_SendMessa
 All other field limits must be followed for the message to be successfully
 sent.
 
+###### Image URL requirements for Apple Messages for Business
+
+When using interactive messages with the [Apple Messages for Business](apple-messages-for-business.md "apple-messages-for-business.md") channel, image URLs
+(`imageData`) must be Amazon S3 object URLs. Other publicly accessible
+URLs are not supported. In addition, the following requirements apply:
+
+- The S3 bucket must grant read access to the
+  `connect.amazonaws.com` service principal, or the S3 object
+  must be publicly accessible.
+- The image size must not exceed 200 KB.
+
 ## Message display templates
 
 Amazon Connect provides the following message display templates. Use them to render information

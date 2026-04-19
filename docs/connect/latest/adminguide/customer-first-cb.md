@@ -22,6 +22,7 @@ first callback mode or customer first callback mode.
 ###### Contents
 
 - [The lifecycle of a customer first callback](#queued-callback-customer-first-callback-contact-lifecycle "#queued-callback-customer-first-callback-contact-lifecycle")
+- [Retries](#customer-first-callback-retries "#customer-first-callback-retries")
 - [Metrics for customer first callbacks](#customer-first-callback-metrics "#customer-first-callback-metrics")
 - [Example contact records](#customer-first-callback-contact-lifecycle-contact-model "#customer-first-callback-contact-lifecycle-contact-model")
 - [Sample flows](#customer-first-callback-contact-lifecycle-sample-flows "#customer-first-callback-contact-lifecycle-sample-flows")
@@ -79,6 +80,120 @@ Following is a description of each contact.
 
 - When you set the final working queue for the callback at any point in the
   contact's lifecycle (step C1, C2, or C3), the following stages inherit it.
+
+## Retries for customer first callbacks
+
+Retry behavior for customer first callbacks differs significantly from agent first
+callbacks. Retries are configured on the dialed callback contact (C3), not on the
+queued callback contact (C2).
+
+### How retries work
+
+- C2 does not support retries. The **Maximum number of
+  retries** and **Minimum time between
+  attempts** settings in the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block are only available for
+  agent first callbacks.
+- For customer first callbacks, retries are configured in the outbound
+  callback flow specified for C3.
+- When a retry is needed (for example, voicemail is detected), a new dialed
+  callback contact – C4 – is created. C4 inherits the
+  user-defined attributes set on C3.
+
+### Configure retries with Check Call Progress
+
+Use the [Check call progress](check-call-progress.md "check-call-progress.md") block in the C3 outbound flow to
+detect whether a human or voicemail answered the call. Based on the output,
+configure the flow as follows:
+
+- **Voicemail detected**
+  (`VOICEMAIL_BEEP`, `VOICEMAIL_NO_BEEP`) – Set
+  a `retry` attribute on C3, then recreate the callback contact
+  (C4).
+- **Human detected**
+  (`HUMAN_ANSWERED`) – Transfer to queue so an agent can
+  join the call.
+- **Other or unresolved states** –
+  Configure fallback handling as needed.
+
+The `AnsweringMachineDetectionStatus` field on the C3 contact record
+captures the full answering machine detection result. Possible values
+include:
+
+`HUMAN_ANSWERED` | `VOICEMAIL_BEEP` |
+`VOICEMAIL_NO_BEEP` | `AMD_UNANSWERED` |
+`AMD_UNRESOLVED` | `AMD_NOT_APPLICABLE` |
+`SIT_TONE_BUSY` | `SIT_TONE_INVALID_NUMBER` |
+`SIT_TONE_DETECTED` | `FAX_MACHINE_DETECTED` |
+`AMD_ERROR`
+
+### Adjust priority for retry contacts
+
+To ensure retry contacts are routed appropriately, use the callback creation flow
+that runs when the C4 contact is created. The recommended approach is:
+
+1. **Set a retry attribute on C3** –
+   Before recreating the callback contact, use a **Set
+   contact attributes** block in the C3 outbound flow to add a
+   user-defined attribute (for example, `retry = true`).
+2. **C4 inherits C3's user-defined
+   attributes** – When the C4 contact is created, it
+   automatically inherits all user-defined attributes from C3, including the
+   `retry` attribute.
+3. **Check for the retry attribute in C4's callback
+   creation flow** – In the callback creation flow
+   configured for C4, use a **Check contact
+   attributes** block to evaluate whether the `retry`
+   attribute is present.
+4. **Adjust routing priority if retrying**
+   – If the `retry` attribute is present, use a [Set routing criteria](set-routing-criteria.md "set-routing-criteria.md") or [Change routing priority /
+   age](change-routing-priority.md "change-routing-priority.md") block to enqueue the
+   contact with an adjusted priority before it enters the working
+   queue.
+
+This approach allows you to differentiate first-attempt callbacks from retries and
+apply custom prioritization logic without relying on external state.
+
+###### Note
+
+Retry contacts (C4) are placed at the back of the queue – they do not
+retain their original position. You can compensate for this by adjusting routing
+priority or routing age in C4's callback creation flow as described
+above.
+
+###### Note
+
+The [Set routing criteria](set-routing-criteria.md "set-routing-criteria.md") block can be used in the
+outbound flow to dynamically increase priority across retry attempts (for
+example, priority 5 to 3 to 1 using a retry counter attribute). Priority
+changes take effect at the point the contact re-enters the queue.
+
+### Control retry timing
+
+By default, retry timing is not system-controlled for customer first callbacks
+– you have full control over when a retry is initiated.
+
+To introduce a delay between retry attempts, use the **Initial
+delay** parameter in the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block when recreating the callback
+contact (C4) in the C3 outbound flow. This is the recommended approach
+because it:
+
+- Allows the flow to disconnect from the customer's voicemail once a retry
+  decision has been made, avoiding long silent voicemails or the voicemail
+  disconnecting the call and ending the flow prematurely.
+- Allows you to track scheduled retries under the
+  `CONTACTS_SCHEDULED` metric.
+
+A typical retry flow with timing control looks like:
+
+1. [Check call progress](check-call-progress.md "check-call-progress.md") – voicemail
+   detected.
+2. **Set contact attributes** – set
+   `retry = true` (and optionally increment a retry
+   counter).
+3. **Create callback** – recreate the
+   contact as C4 using the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block with the
+   **Initial delay** set to the desired interval (for
+   example, 5 minutes).
 
 ## Metrics for customer first callbacks
 

@@ -21,14 +21,12 @@ logic across your flows, and create common functions. For example:
 
 ## Where you can use modules
 
-You can use modules in any flow that is [type](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types")
-**Inbound flow**.
+You can use modules across all [flow types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types").
 
-The following types of flows do not support modules: **Customer
-queue**, **Customer hold**, **Customer
-whisper**, **Outbound whisper**, **Agent
-hold**, **Agent whisper**, **Transfer to
-agent**, **Transfer to queue**.
+###### Note
+
+- Whisper flows that use a **TransferToQueue** block within a module might cause interruption during the flow execution.
+- **CustomerQueue** flow with a **LoopPrompt** block invoking a module using an **EndFlow** block might cause interruption during the flow execution.
 
 ## Limitations
 
@@ -41,7 +39,8 @@ agent**, **Transfer to queue**.
   - Queue metrics
   - Stored customer input
 
-- Modules do not allow invoking another module.
+- When using one module to invoke other modules: A module being used as a tool can only invoke other modules used as tools.
+- If your module contains blocks that are not supported by the specific flow type, this incompatibility may lead the blocks to take the error branch.
 
 To pass any data to a module, or to get any data from a module, you
 need to pass and retrieve attributes.
@@ -51,6 +50,22 @@ a decision. Your Lambda identifies whether the customer
 is a VIP member. You need that information inside the module because if they are a VIP
 member, you want to play a prompt thanking them for their membership. Since default Lambda is not available inside a module, you use attributes to pass and
 retrieve data.
+
+## Use module within module
+
+You can invoke modules within other modules, supporting up to five levels of nesting with a stack limit to prevent recursive invocations. This feature promotes code reuse, supports complex modular designs, and improves the organization of large-scale solutions, leading to more efficient and maintainable workflows.
+
+### Example of nested modules
+
+This module shows how to check call back number from customers and allows them to update the call back number by invoking a sub module. Flows that invoke this module can set and update customer call back number.
+
+Following is an image of the customer call back module that invokes the sub module for setting the call back number:
+
+![](images/module-nested-call-back-number-example.png)
+
+Following is an image of the set call back number sub module::
+
+![](images/module-nested-call-back-number-sub-example.png)
 
 ## Security profile permissions for modules
 

@@ -16,12 +16,15 @@ Asia Pacific (Tokyo) Region.
 - **Direct Inward Dialing (DID) numbers**—DID
   numbers are also referred to as local numbers.
   - 050 prefix numbers.
-  - 03 prefix for numbers in Tokyo. Amazon Connect does not offer phone numbers for
-    other cities in Japan at this time.
+  - 03 prefix for numbers in Tokyo.
+  - 06 prefix for numbers in Osaka.
 
 - **Toll Free numbers**
-  - 0120 prefix numbers.
-  - 0800 prefix numbers.
+
+      + 0120 prefix numbers.
+      + 0800 prefix numbers.
+
+  Amazon Connect does not offer phone numbers for other cities in Japan at this time.
 
 ###### Note
 

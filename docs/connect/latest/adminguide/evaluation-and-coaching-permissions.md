@@ -3,6 +3,8 @@
 To allow users to create, automate, and access evaluation forms, assign the following
 **Analytics and optimization** security profile permissions:
 
+- **Evaluation forms - manage form definitions**: Allows admins
+  and managers to [create](create-evaluation-forms.md "create-evaluation-forms.md") and [manage](evaluationform-audit-trail.md "evaluationform-audit-trail.md") evaluation forms.
 - **Evaluation forms - perform contact evaluations**: Allows a user,
   such as a Quality Assurance team member, to use an evaluation form to review a
   contact. For an example image, see [Evaluate agent and self-service interaction performance in Amazon Connect](evaluations.md "evaluations.md").
@@ -11,19 +13,22 @@ This permission allows users to [search](search-evaluations.md "search-evaluatio
 date/range, evaluator, and status. It also allows them to view the evaluation
 form audit trail.
 
-    + **View** permissions enable users to view submitted
-     evaluations. You can grant this permissions to users who perform
-     evaluations (such as managers) and users (such as agents) who need to
-     view evaluations.
-    + **Create** permissions enable users to create new
-     evaluations, view and edit draft evaluations.
-    + **Edit** permissions enable users to edit submitted
-     evaluations.
-    + **Delete** permissions enable users to delete both
-     draft and submitted evaluations.
+    + **View** permission enables users to view submitted
+     evaluations. This permission enables users to see evaluations on any
+     contacts they have access to (unless
+     [restricted by tag-based access control](tag-based-access-control-performance-evaluations.md "tag-based-access-control-performance-evaluations.md")).
+     You can grant this permission to users who perform evaluations (such as managers).
+    + **Create** permission enables users to create new evaluations,
+     view and edit draft evaluations.
+    + **Edit** permission enables users to edit submitted evaluations.
+    + **Delete** permission enables users to delete both draft and submitted evaluations.
 
-- **Evaluation forms - manage form definitions**: Allows admins
-  and managers to [create](create-evaluation-forms.md "create-evaluation-forms.md") and [manage](evaluationform-audit-trail.md "evaluationform-audit-trail.md") evaluation forms.
+- **Evaluation forms - view my received evaluations**:
+  Allows agents to search for and view completed evaluations that they have received.
+  This does not grant access to evaluations in draft,
+  under review or part of calibrations.
+  Access to an evaluation will be subject
+  to [tag-based access control](tag-based-access-control-performance-evaluations.md "tag-based-access-control-performance-evaluations.md") .
 - **Rules**: Permissions to create, view, edit, and delete
   rules are required to [automatically categorize
   contacts](rules.md "rules.md") based on certain agent behaviors and customer outcomes.

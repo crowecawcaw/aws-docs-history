@@ -5,9 +5,9 @@ users, queues, and routing profiles for historical metrics. For example, you can
 control who has access to view specific users, queues, and routing profile
 historical metrics.
 
-Amazon Connect also supports tag-based access controls for real-time metrics and the agent
-activity audit, but it does not support dashboards and the login/logout report. For
-more information, see [Real-time metrics tag-based access control in Amazon Connect](rtm-tag-based-access-control.md "rtm-tag-based-access-control.md") and [Agent activity audit tag-based access control in Amazon Connect](agent-activity-audit-tag-based-access-control.md "agent-activity-audit-tag-based-access-control.md").
+Amazon Connect also supports tag-based access controls for real-time metrics, agent
+activity audit, dashboards and the login/logout report. For more information, see
+[Apply tag-based access controls to dashboards and reports in Amazon Connect](dashboard-tag-based-access-control.md "dashboard-tag-based-access-control.md").
 
 Tag-based access controls enable you to configure granular access to specific
 resources based on assigned resource tags. You can configure tag-based access
@@ -57,7 +57,6 @@ historical metrics:
 - You can't group by agent hierarchy, phone numbers, or email address.
   You can't filter by agent hierarchy, phone numbers, email address, or
   agent queues.
-- Access to the homepage service level dashboard is disabled.
 
 ## How to transition to tag-based access control
 

@@ -17,3 +17,4 @@ resolving CCP issues with their operations support teams.
 - [Problem using the CCP: Agents can't make outbound calls in the Contact Control Panel (CCP)](ts-ccp-outbound-call.md "ts-ccp-outbound-call.md")
 - [Internal firewall or missing CORS policy prevents access to chat, email, or case attachments](ts-agent-attachments.md "ts-agent-attachments.md")
 - [Humming sound in the agent's audio device: Verify the headset and browser sample rates](verify-sample-rate.md "verify-sample-rate.md")
+- [Troubleshoot agent screen recording issues](troubleshoot-screen-recording.md "troubleshoot-screen-recording.md")

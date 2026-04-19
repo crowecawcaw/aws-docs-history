@@ -3,6 +3,12 @@
 The Region where your instance is created determines which countries you can call by
 default.
 
+###### Note
+
+Amazon Connect country allowlisting supports a default deny model; unless you have
+specifically been allowed to call countries you will be blocked when attempting to
+call.
+
 For a list of all the countries available for outbound calling, see [Amazon Connect pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 
 If you already have an instance, the countries that you are allowed to call may be

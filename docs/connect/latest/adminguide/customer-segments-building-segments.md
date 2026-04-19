@@ -24,54 +24,6 @@
   segments in one of the ways, you move that segment to the other and would have
   to start again.
 
-## Segments powered by Spark SQL
-
-Segments powered by Spark SQL enables you to use complete Customer Profile data and expanded functionality to define segments. You can use standard profile object attributes and custom object attributes. You can also used SQL-based functionality such as joining standard and custom objects together to use data from various objects, filtering segments with statistics such as percentiles and standardizing date fields to make comparisons.
-
-You can start by entering in a natural language prompt into Segment Assistant AI. Segment AI assistant will define the segment including its translation into Spark SQL. Segment Assistant AI will provide the steps it took to define the segment and you can validate it matches what you were aiming to create. You can also view the SQL, the SQL steps in natural language and a AI-generated summary of the Spark SQL to further help validate. If you want to make changes, you can update your natural language prompt or make edits to the Spark SQL directly.
-
-You also have the option to create the Spark SQL segment directly.
-
-**Like Classic segmentation, segments powered by Spark SQL can be used in segment membership calls, Flow blocks and and Outbound Campaigns.**
-
-**When you use a Spark SQL segment in a segment membership call, Flow block or Outbound Campaign initiated by a customer event, it uses the last exported segment (segment snapshot). The segment snapshot used for membership expires 1 year after creation. If you receive a 4XX error, ensure you have exported the segment (segment snapshot).**
-
-**Outbound campaigns initiated by a customer segment does not require you to export the segment (segment snapshot).**
-
-### Step 1: Build a new segment
-
-In the Segment AI assistant, select "How to create a segment" for more guidance on creating valuable segments or "I want to generate a segment" to enter a natural language prompt to create the segment.
-
-Alternatively, use SQL to define a new segment in the query editor.
-
-**Note - if you want to create a timezone based Outbound campaign, you must ensure the timezone attribute is part of the output of the segment**
-
-**Note - if you want to use the segment in Outbound Campaigns, you must ensure the profile IDs in the segment output are unique**
-
-### Step 2: Specify a name and description
-
-For Name, enter a name for the customer segment to make it easy to recognize later.
-
-**Note -** The Amazon Connect admin website uses the entered name as the `DisplayName` of the segment, and generates an identifier based on it. The generated identifier is used as the `SegmentDefinitionName` when you access the segment by using Customer Profiles APIs.
-
-For Description, optionally enter a description for the customer segment.
-
-### Step 3: Review and validate the segment
-
-Review the data the Segment AI assistant used and the steps the AI model it took to generate your segment. You can also review the SQL it created to define the segment in the query editor. If it was not able to create the segment, address the feedback it provided to help it create an accurate segment. Once it has generated a segment, Customer Profiles will automatically create a segment estimate for you.
-
-If you want to make edits, you can provide a new prompt by clicking "New conversation" or create/edit SQL in the query editor.
-
-If you are not using the Segment AI assistant, you can validate the query and create the estimate by clicking on the "Validate and estimate query" button below the query editor.
-
-**Note - segments powered by Spark SQL will take time depending on the amount of profile data you use in the segment and the SQL used, similar to other query engines (e.g., multiple joins across objects takes time).**
-
-### Step 4: Create segment
-
-Once you have build a segment and are satisfied, select "Create segment" button on the top right. Once you have created the segment, you can select Actions - exporting to .csv, using the segment in Flows and using the segment in Outbound Campaigns.
-
-**Note - if you use the segment in Outbound Campaigns or Flow blocks, it will check segment membership based on when the segment was last created. If you need real-time segment membership checks as the Flow or campaign is being executed, use Classic segmentation.**
-
 ## Classic segmentation with audience groups and filters
 
 When you create a customer segment, you choose starting audiences and refine that
@@ -119,6 +71,7 @@ The following steps describe creating and configuring a customer segment:
 - Step 3: Choose the starting audiences to include in audience group 1
 - Step 4: Choose and configure the filter groups (optional)
 - Step 5: Add audience group 2 (optional)
+- Step 6: Enable Sorting (optional)
 
 ### Step 1: Build a new segment
 
@@ -368,6 +321,41 @@ you can now use the segment in outbound campaigns or flows.
 
 ![A message that the segment was successfully created.](images/step-5-add-the-second-audience-group-optional-2.png)
 
+### Step 6: Enable Sorting (optional)
+
+Optionally configure sorting for your segment results. Sorting allows you
+to control the order in which profiles appear in your segment output. You
+can sort by up to 10 attributes. Attributes are evaluated from top to
+bottom. When multiple profiles share the same value for an attribute, the
+next attribute in the list is used as a tiebreaker, and so on.
+
+Outbound campaigns and journeys respect this sort order when executing,
+which means profiles are processed and dialed in the order defined by the segment.
+For more information about using sorted segments with outbound campaigns, see [Outbound campaign best practices](outbound-campaign-best-practices.md "outbound-campaign-best-practices.md"). Sorting segments is useful when
+you want to:
+
+- Prioritize high-value customers by sorting on attributes such as
+  lifetime value or account tier.
+- Contact customers with upcoming appointments first by sorting on
+  appointment date.
+- Process time-sensitive communications in a specific order.
+
+###### Note
+
+Segment sort order is respected only for voice campaigns and voice
+activities in journeys. Other communication channels process profiles
+in an unsorted order.
+
+###### To enable sorting
+
+1. Enter the attribute name you want to sort by. You can use an
+   attribute from either standard or calculated attributes.
+2. Specify the sort order: choose either **Ascending** or **Descending**.
+3. (Optional) Specify the data type by choosing **String**, **Numeric**, or **Date**. If you do not specify a type, it is
+   automatically inferred based on sampled data.
+
+![The Enable Sorting configuration for segment results.](images/customer-profiles-enable-segment-sorting.png)
+
 ## Creating segments powered by Spark SQL
 
 Segments powered by Spark SQL enables you to use complete Customer Profile
@@ -387,10 +375,18 @@ update your natural language prompt or make edits to the Spark SQL directly.
 
 You also have the option to create the Spark SQL segment directly.
 
-Segments powered by Spark SQL can be used in segment membership calls, Flow
-blocks and Outbound Campaigns. They check the segment as of the last time the
-segment was created (segment snapshot). If you receive a 4XX error, you will
-have execute the segment snapshot.
+Like Classic segmentation, segments powered by Spark SQL can be
+used in segment membership calls, Flow blocks, and Outbound
+Campaigns.
+
+When you use a Spark SQL segment in a segment membership call, Flow
+block, or Outbound Campaign initiated by a customer event, it uses the
+last exported segment (segment snapshot). The segment snapshot used for
+membership expires 1 year after creation. If you receive a 4XX error,
+ensure you have exported the segment (segment snapshot).
+
+Outbound campaigns initiated by a customer segment do not require
+you to export the segment (segment snapshot).
 
 ###### Note
 

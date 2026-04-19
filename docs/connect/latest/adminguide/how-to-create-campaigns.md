@@ -483,19 +483,6 @@ have no exception**.
 
 ![Configuration panel for setting exceptions to standard communication time rules.](images/exceptions-to-communication-time-optional-1.png)
 
-## Review and publish
-
-Take a moment to review your campaign prior to publishing.
-
-###### Important
-
-These settings cannot be changed once your campaign has been published.
-
-Once you have reviewed you campaign, choose **Publish** to
-**Schedule** your campaign.
-
-![Review and publish screen showing campaign configuration summary before final publication.](images/review-and-publish-1.png)
-
 ## Schedule campaign
 
 Specify when you want your campaign to begin:
@@ -506,20 +493,25 @@ Specify when you want your campaign to begin:
 - **Expiry Date and Time**: The date and time at which Amazon Connect Outbound campaigns should end the campaign. An expired campaign appears with a
   **Completed** status a few moments after expiry time.
 
-The start and end times of a campaign that starts now or a campaign that starts later are
-based on your local time zone.
+The start and end times of a campaign are based on your local time zone.
 
-![Campaign scheduling options showing start now, start later, and expiry date/time settings.](images/schedule-campaign-1.png)
+![Campaign schedule wizard step showing Start now and Start later options, expiry date and time fields, and the Refresh campaign section with an unchecked Refresh checkbox.](images/campaign-schedule-page-1.png)
 
-**Repeats**
+### Refresh - (optional)
 
-![Campaign frequency configuration with repeating schedule options and publish button.](images/schedule-campaign-2.png)
+If you want your campaign to periodically re-evaluate the segment to find newly eligible
+profiles and enroll them, select the **Refresh** checkbox.
 
-If you want your campaign to repeat running, select the **Repeats** radio button and choose a **Frequency**. 
-Amazon Connect Outbound campaigns will then refresh profiles in the segment specified for this
-campaign at the same frequency you select.  For example, if you schedule your campaign to start
-at 7:03AM EST and use a Daily Frequency, then profiles will be refreshed in the segment daily at
-7:03AM EST.
+When refresh is enabled, the following settings become available:
+
+- **Refresh frequency**: How often the segment is checked for
+  new or updated profiles. Specify a numeric value and select a time unit
+  (**hours** or **days**). The minimum refresh frequency
+  is 1 hour.
+
+For example, if you schedule your campaign to start at 7:00 AM EST and set a refresh
+frequency of 1 hour, the segment is re-evaluated every hour starting at 7:00 AM
+EST.
 
 ###### Important
 
@@ -531,9 +523,46 @@ at 7:03AM EST and use a Daily Frequency, then profiles will be refreshed in the
   they are allowed to enter, regardless of whether they have previously gone through the
   campaign.
 
-**Publish**
+![Refresh campaign section with Refresh enabled, refresh frequency set to 1 hour, Customize entry limits unchecked, showing default values of Entry limit Unlimited and Entry interval limit None.](images/campaign-schedule-page-2.png)
 
-Choose **Publish** to schedule your campaign.
+**Entry limits**: Entry limits control how many times and how
+often the same profile can enter the campaign. By default, profiles can enter the campaign
+unlimited times with no interval restriction. To customize entry limits, select the
+**Customize entry limits** checkbox.
+
+The following entry limit fields are available:
+
+- **Entry limit**: The maximum number of times the same profile
+  can enter the campaign. Set to 0 for unlimited entries.
+- **Entry interval limit**: The minimum time that must pass
+  before a profile can enter the campaign again. Specify a numeric value and select a time
+  unit (hours or days). Set to 0 for no minimum interval. If the entry interval limit is
+  shorter than the refresh frequency, the refresh frequency takes precedence.
+
+**Example**: Consider a campaign that targets profiles whose
+subscription expires within 7 days. With a refresh frequency of 1 hour, an entry limit of 3,
+and an entry interval of 3 hours:
+
+- The segment is re-evaluated every hour.
+- Each profile can enter the campaign up to 3 times.
+- A profile won't enter again for at least 3 hours, even though the campaign refreshes
+  hourly.
+
+![Refresh campaign section with Refresh enabled, refresh frequency set to 1 day, Customize entry limits checked, showing Entry limit and Entry interval limit input fields.](images/campaign-schedule-page-3.png)
+
+## Review and publish
+
+Take a moment to review your campaign prior to publishing. The Review page displays a
+summary of all campaign settings, including the schedule and refresh configuration.
+
+###### Important
+
+These settings cannot be changed once your campaign has been published.
+
+Once you have reviewed your campaign, choose **Publish** to
+publish your campaign.
+
+![Review and publish page showing campaign configuration summary including schedule and refresh settings before final publication.](images/campaign-review-1.png)
 
 ## Campaign states
 

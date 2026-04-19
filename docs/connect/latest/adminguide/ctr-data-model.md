@@ -691,6 +691,12 @@ reasons:
   number currently faces blocking based on network level
   blocks.
 
+BlockReason – If the call is formally blocked using the 603+
+"Network Blocked", the [FCC-mandated standard](https://docs.fcc.gov/public/attachments/FCC-25-15A1.pdf "https://docs.fcc.gov/public/attachments/FCC-25-15A1.pdf") that provides a uniform informative
+message that you can process and seek correction with the end
+customers carrier if you believe the traffic is blocked for invalid
+reasons, see [Segment attributes](connect-attrib-list.md#attribs-segment-attributes "connect-attrib-list.md#attribs-segment-attributes") for detail.
+
 ###### Note
 
 Amazon Connect helps customers flag spam blocking based on its

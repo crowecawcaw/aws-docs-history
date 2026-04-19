@@ -20,8 +20,8 @@ session that user was logged in to Amazon Connect.
 - [Share a Login/Logout report](#loginlogout-report-share "#loginlogout-report-share")
 - [Schedule a Login/Logout report](#loginlogout-report-schedule "#loginlogout-report-schedule")
 - [Delete a Saved Login/Logout report](#loginlogout-report-delete "#loginlogout-report-delete")
-- [Not supported:
-  Tag-based access control](#login-logout-tag-based-access-control "#login-logout-tag-based-access-control")
+- [Tag-based access
+  controls](#login-logout-tag-based-access-control "#login-logout-tag-based-access-control")
 
 ## Why your Login/Logout report may appear incorrect
 
@@ -255,6 +255,13 @@ files created from a scheduled report are removed from your S3 bucket.
    **Delete** icon.
 4. Choose **Delete** again.
 
-## Not supported: Tag-based access control
+## Tag-based access controls on the Login/Logout report
 
-Amazon Connect does not support tag-based access controls for login/logout reports.
+To use tags to control access to users on the agent Login/Logout report, you must
+first configure user and routing profile resource tags, resource permissions, and tag
+based access controls, see [Apply tag-based access controls to dashboards and reports in Amazon Connect](dashboard-tag-based-access-control.md "dashboard-tag-based-access-control.md"). For more information on
+tagging resources and tag-based access control in Amazon Connect, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md") and [Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+
+After your resource tags, access control tags, and permissions have been appropriately
+configured, you will have access controls applied to users for the Login/Logout
+report.
