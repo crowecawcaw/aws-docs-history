@@ -16,7 +16,7 @@ AWS Incident Detection and Response - `workload_name` 7. Enter a **Description**
 
 The following is an example of the **Additional contacts - optional** section.
 
-![Enter contacts in the highlighted Additional contacts - optional section.](images/workload-change-request2.png)
+![Enter contacts in the highlighted Additional contacts - optional section.](/images/IDR/latest/userguide/images/workload-change-request2.png)
 
 ###### Important
 
@@ -24,7 +24,7 @@ Failure to add email IDs in the **Additional contacts - optional** section might
 
 After you submit the change request, you can add additional emails from your organization. To add emails, choose **Reply** in **Case details**, as shown in the following example:
 
-![The Details page showing the Reply button highlighted.](/images/IDR/latest/userguide/images/workload-change-request3.png)
+![The Details page showing the Reply button highlighted.](images/workload-change-request3.png)
 
 Then, add the email IDs in the **Additional contacts - optional** section.
 

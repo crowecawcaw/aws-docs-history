@@ -45,7 +45,7 @@ The following is an example of the **Reply** button and the **Additional contact
 
 ![Additional contacts - optional section example](images/workload-change-request3.png)
 
-![Additional contacts - option section example](/images/IDR/latest/userguide/images/workload-change-request4.png)
+![Additional contacts - option section example](images/workload-change-request4.png)
 After you create a support case for the subscription request, prepare the following document to proceed with the workload onboarding process:
 
 - [Workload onboarding and alarm ingestion questionnaires in Incident Detection and Response](idr-gs-questionnaire.md "idr-gs-questionnaire.md"): Complete all information in the questionnaire that's related to the workload that you're onboarding. If you have multiple workloads to be onboarded, then create a new onboarding questionnaire for each workload. If you have questions about completing the onboarding questionnaire, then contact your Technical Account Manager (TAM).
