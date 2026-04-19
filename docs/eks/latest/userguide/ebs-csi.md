@@ -51,7 +51,7 @@ The following procedure shows you how to create an IAM role and attach the AWS m
 
 ###### Note
 
-You can create a self-managed policy with scoped-down permissions. Review [`AmazonEBSCSIDriverPolicy`](../../../aws-managed-policy/latest/reference/AmazonEBSCSIDriverPolicy.md "../../../aws-managed-policy/latest/reference/AmazonEBSCSIDriverPolicy.md") and create a custom IAM Policy with reduced permissions.
+You can create a self-managed policy with further scoped-down permissions. Review [`AmazonEBSCSIDriverPolicyV2`](../../../aws-managed-policy/latest/reference/AmazonEBSCSIDriverPolicyV2.md "../../../aws-managed-policy/latest/reference/AmazonEBSCSIDriverPolicyV2.md") and create a custom IAM Policy with reduced permissions. If migrating from `AmazonEBSCSIDriverPolicy`, please see [EBS CSI Driver policy migration](https://github.com/kubernetes-sigs/aws-ebs-csi-driver/issues/2918 "https://github.com/kubernetes-sigs/aws-ebs-csi-driver/issues/2918").
 
 ###### Note
 
@@ -68,7 +68,7 @@ eksctl create iamserviceaccount \
         --cluster my-cluster \
         --role-name AmazonEKS_EBS_CSI_DriverRole \
         --role-only \
-        --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
+        --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicyV2 \
         --approve
 ```
 
@@ -136,8 +136,8 @@ eksctl create iamserviceaccount \
    4. Choose **Next**.
 
 5. On the **Add permissions** page, do the following:
-   1. In the **Filter policies** box, enter `AmazonEBSCSIDriverPolicy`.
-   2. Select the check box to the left of the `AmazonEBSCSIDriverPolicy` returned in the search.
+   1. In the **Filter policies** box, enter `AmazonEBSCSIDriverPolicyV2`.
+   2. Select the check box to the left of the `AmazonEBSCSIDriverPolicyV2` returned in the search.
    3. Choose **Next**.
 
 6. On the **Name, review, and create** page, do the following:
@@ -260,7 +260,7 @@ https://oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE
 
 ```
 aws iam attach-role-policy \
-      --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
+      --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicyV2 \
       --role-name AmazonEKS_EBS_CSI_DriverRole
 ```
 

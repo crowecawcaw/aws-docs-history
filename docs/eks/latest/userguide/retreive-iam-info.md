@@ -83,7 +83,7 @@ Review the following output. Note the `recommendedManagedPolicies`.
     {
         "serviceAccount": "ebs-csi-controller-sa",
         "recommendedManagedPolicies": [
-            "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
+            "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicyV2"
         ]
     }
 ]

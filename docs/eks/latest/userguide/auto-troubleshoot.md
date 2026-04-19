@@ -9,6 +9,7 @@ With EKS Auto Mode, AWS assumes more responsibility for EC2 Instances in your AW
 You must use AWS and Kubernetes APIs to troubleshoot nodes. You can:
 
 - Use a Kubernetes `NodeDiagnostic` resource to retrieve node logs by using the [Node monitoring agent](#auto-node-monitoring-agent "#auto-node-monitoring-agent"). For more steps, see [Retrieve node logs for a managed node using kubectl and S3](auto-get-logs.md "auto-get-logs.md").
+- Use a Kubernetes `NodeDiagnostic` resource to capture network traffic on a node. For more steps, see [Capture network traffic on a managed node using kubectl and S3](auto-get-tcpdump.md "auto-get-tcpdump.md").
 - Use the AWS EC2 CLI command `get-console-output` to retrieve console output from nodes. For more steps, see [Get console output from an EC2 managed instance by using the AWS EC2 CLI](#auto-node-console "#auto-node-console").
 - Use Kubernetes _debugging containers_ to retrieve node logs. For more steps, see [Get node logs by using debug containers and the kubectl CLI](#auto-node-debug-logs "#auto-node-debug-logs").
 

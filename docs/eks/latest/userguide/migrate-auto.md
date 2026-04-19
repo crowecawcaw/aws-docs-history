@@ -19,7 +19,7 @@ You can enable EKS Auto Mode on existing EKS Clusters.
 
 - Migrating load balancers from the AWS Load Balancer Controller to EKS Auto Mode
 
-You can install the AWS Load Balancer Controller on an Amazon EKS Auto Mode cluster. Use the `IngressClass` or `loadBalancerClass` options to associate Service and Ingress resources with either the Load Balancer Controller or EKS Auto Mode.
+You can install the AWS Load Balancer Controller on an Amazon EKS Auto Mode cluster. Use the `IngressClass` or `loadBalancerClass` options to associate Service and Ingress resources with either the Load Balancer Controller or EKS Auto Mode. For a prescriptive guidance, refer to [`Migrate NGINX Ingress Controllers when enabling Amazon EKS Auto Mode`](../../../prescriptive-guidance/latest/patterns/migrate-nginx-ingress-controller-eks-auto-mode.md "../../../prescriptive-guidance/latest/patterns/migrate-nginx-ingress-controller-eks-auto-mode.md")
 
 - Migrating EKS clusters with alternative CNIs or other unsupported networking configurations
 

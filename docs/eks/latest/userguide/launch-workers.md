@@ -186,7 +186,7 @@ kubectl describe configmap -n kube-system aws-auth
         ```
         3. Save the file and exit your text editor.
 
-3.  If you received an error stating "`Error from server (NotFound): configmaps "aws-auth" not found`, then apply the stock `ConfigMap`.
+3.  If you received an error stating "`Error from server (NotFound): configmaps "aws-auth" not found`, then apply the stack `ConfigMap`.
     1. Download the configuration map.
 
     ```
