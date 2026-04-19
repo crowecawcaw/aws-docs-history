@@ -9,7 +9,7 @@ content of a CodeCommit repository.
 For active CodeCommit users, there is no charge for browsing code from the CodeCommit console. For
 information about when charges might apply, see [Pricing](http://aws.amazon.com/codecommit/pricing/ "http://aws.amazon.com/codecommit/pricing/").
 
-![A view of the contents of a file in the CodeCommit console](/images/codecommit/latest/userguide/images/codecommit-code-browse-file.png)
+![A view of the contents of a file in the CodeCommit console](images/codecommit-code-browse-file.png)
 
 ## Browse a CodeCommit repository
 
