@@ -1124,7 +1124,30 @@ The following limitations apply when using an Oracle database as a source for
 AWS DMS:
 
 - AWS DMS supports Oracle Extended data types in AWS DMS version 3.5.0 and higher.
-- AWS DMS does not support long object names (over 30 bytes).
+- AWS DMS does not support Oracle identifiers longer than 30 bytes during CDC replication.
+  This limitation applies regardless of whether the Oracle source version supports extended
+  identifiers.
+
+During full load, AWS DMS migrates objects with long identifiers successfully. However,
+during CDC, events for objects with identifiers exceeding 30 bytes are silently skipped
+without stopping the task. This can result in missing data on the target.
+
+This limitation applies to all identifier types in the migration scope, such as schemas,
+tables, views, columns, constraints, and primary keys.
+
+###### Note
+
+The 30-byte limit is measured in bytes, not characters. Identifiers that use multibyte
+character sets, such as UTF-8 encoded CJK characters, can exceed 30 bytes with fewer than
+30 characters. For example, a 15-character Japanese identifier encoded in UTF-8 can require
+up to 45 bytes.
+
+To avoid data loss during CDC replication, verify that all identifiers in the migration
+scope are within the 30-byte limit. To check the byte length of an object name, use the
+Oracle built-in function `LENGTHB('`object-name`')`.
+Alternatively, run a premigration assessment to validate all objects in the migration scope.
+For more information, see [Validate the length of the object name included in the task scope](CHAP_Tasks.AssessmentReport.Oracle.md#CHAP_Tasks.AssessmentReport.Oracle.30ByteLimit "CHAP_Tasks.AssessmentReport.Oracle.md#CHAP_Tasks.AssessmentReport.Oracle.30ByteLimit").
+
 - AWS DMS does not support function-based indexes.
 - If you manage supplemental logging and carry out transformations on any of
   the columns, make sure that supplemental logging is activated for all fields
