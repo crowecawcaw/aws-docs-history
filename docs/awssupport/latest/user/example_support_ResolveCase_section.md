@@ -3,9 +3,10 @@
 The following code examples show how to use `ResolveCase`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+context in the following code examples:
 
 - [Learn the basics](example_support_Scenario_GetStartedSupportCases_section.md "example_support_Scenario_GetStartedSupportCases_section.md")
+- [Getting started with Support](example_support_GettingStarted_062_section.md "example_support_GettingStarted_062_section.md")
 
 .NET
 

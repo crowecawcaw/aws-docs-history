@@ -6,6 +6,8 @@ _Basics_ are code examples that show you how to perform the essential operations
 
 _Actions_ are code excerpts from larger programs and must be run in context. While actions show you how to call individual service functions, you can see actions in context in their related scenarios.
 
+_Scenarios_ are code examples that show you how to accomplish specific tasks by calling multiple functions within a service or combined with other AWS services.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using AWS Support with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
@@ -30,3 +32,6 @@ This topic also includes information about getting started and details about pre
     - [DescribeTrustedAdvisorChecks](example_support_DescribeTrustedAdvisorChecks_section.md "example_support_DescribeTrustedAdvisorChecks_section.md")
     - [RefreshTrustedAdvisorCheck](example_support_RefreshTrustedAdvisorCheck_section.md "example_support_RefreshTrustedAdvisorCheck_section.md")
     - [ResolveCase](example_support_ResolveCase_section.md "example_support_ResolveCase_section.md")
+
+- [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+  - [Getting started with Support](example_support_GettingStarted_062_section.md "example_support_GettingStarted_062_section.md")

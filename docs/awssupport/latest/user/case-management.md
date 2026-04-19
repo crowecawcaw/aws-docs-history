@@ -105,6 +105,13 @@ in Japanese may be available as follows:
   during business hours in Korea defined as 09:00 AM to 06:00 PM Korean Standard Time (GMT+9),
   excluding holidays and weekends.
 - If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, technical support is available all day, every day in Korean.
+  If you choose Turkish as your preferred contact language for support cases, support in Turkish may be
+  available as follows:
+
+- If you need customer service for non-technical support cases, support in Turkish is available
+  during business hours in Türkiye defined as 09:00 AM to 06:00 PM (GMT+3), excluding holidays and
+  weekends.
+- If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, technical support is available all day, every day in English.
 
 ## Changing the severity level of your support case
 
