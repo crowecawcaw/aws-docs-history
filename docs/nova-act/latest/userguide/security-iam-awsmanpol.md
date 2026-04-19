@@ -53,6 +53,10 @@ For example:
 }
 ```
 
+###### Note
+
+If you use the `exportConfig` parameter in `CreateWorkflowDefinition` to export Agent Trajectory Data to an S3 bucket, the calling identity requires additional S3 permissions. For details, see [Configure access to an Amazon S3 bucket for data export](security-iam-s3-export-permissions.md "security-iam-s3-export-permissions.md").
+
 ## AWS managed policy updates
 
 View details about updates to AWS managed policies for Amazon Nova Act since this service began tracking these changes.

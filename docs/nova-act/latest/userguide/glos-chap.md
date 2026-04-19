@@ -10,7 +10,7 @@ An `act()` call that creates a new AI task within a session that can interact wi
 
 agent trajectory data
 
-The data that Nova Act temporarily stores to maintain historical context while executing a workflow, including the input prompt, screenshots, and agent response. You can opt into persisting agent trajectory data indefinitely by configuring the service to write this data to an Amazon S3 bucket that you own and control. For more information, see [WorkflowExportConfig](../APIReference/API_WorkflowExportConfig.md "../APIReference/API_WorkflowExportConfig.md") in the _Amazon Nova Act API Reference_.
+The data that Nova Act temporarily stores to maintain historical context while executing a workflow, including the input prompt, screenshots, and agent response. You can opt into persisting agent trajectory data indefinitely by configuring the service to write this data to an Amazon S3 bucket that you own and control. For more information, see [WorkflowExportConfig](../APIReference/API_WorkflowExportConfig.md "../APIReference/API_WorkflowExportConfig.md") in the _Amazon Nova Act API Reference_. To learn about the required S3 permissions, see [Configure access to an Amazon S3 bucket for data export](security-iam-s3-export-permissions.md "security-iam-s3-export-permissions.md").
 
 agentic loop
 
