@@ -26,8 +26,8 @@ To update the CA certificate for your database, use the following methods:
 
 Consider the following situations before rotating your certificate:
 
-- Amazon RDS Proxy and Aurora Serverless v1
-  use
+- Amazon RDS Proxy
+  uses
 
 certificates from the AWS Certificate Manager (ACM). If you're using RDS Proxy, when
 you rotate your SSL/TLS certificate, you don't need to update
@@ -35,9 +35,6 @@ applications that use RDS Proxy connections. For more information, see
 [Using TLS/SSL with RDS Proxy](rds-proxy.howitworks.md#rds-proxy-security.tls "rds-proxy.howitworks.md#rds-proxy-security.tls")
 .
 
-- If you're using Aurora Serverless v1, downloading Amazon RDS certificates
-  isn't required. For more information, see [Using TLS/SSL with Aurora Serverless v1](aurora-serverless.md#aurora-serverless.tls "aurora-serverless.md#aurora-serverless.tls")
-  .
 - If you're using a Go version 1.15 application with a DB instance
   that was created
   or updated to the rds-ca-2019 certificate prior to July 28, 2020,

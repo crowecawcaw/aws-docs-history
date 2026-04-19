@@ -112,7 +112,6 @@ The following limitations currently apply to Aurora Global Database:
   If your engine versions require identical patch levels, you can perform the failover manually by following the steps in
   [Performing manual failovers for Aurora global databases](aurora-global-database-disaster-recovery.md#aurora-global-database-failover.manual-unplanned "aurora-global-database-disaster-recovery.md#aurora-global-database-failover.manual-unplanned").
 - Aurora Global Database currently doesn't support the following Aurora features:
-  - Aurora Serverless v1
   - Backtracking in Aurora
 
 - For limitations with using the RDS Proxy feature with Aurora Global Database, see [Limitations for RDS Proxy with global databases](rds-proxy-gdb.md#rds-proxy-gdb.limitations "rds-proxy-gdb.md#rds-proxy-gdb.limitations").

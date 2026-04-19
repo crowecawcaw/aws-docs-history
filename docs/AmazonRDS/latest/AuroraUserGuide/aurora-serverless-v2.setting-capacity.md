@@ -4,8 +4,7 @@ The following procedures and examples show how you can set the capacity range fo
 and their associated DB instances. You can also use procedures following to monitor how busy your DB instances
 are. Then you can use your findings to determine if you need to adjust the capacity range upward or downward.
 
-Before you use these procedures, make sure that you are familiar with how Aurora Serverless v2 scaling works. The
-scaling mechanism is different than in Aurora Serverless v1. For details, see
+Before you use these procedures, make sure that you are familiar with how Aurora Serverless v2 scaling works. For details, see
 [Aurora Serverless v2 scaling](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.scaling "aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.scaling").
 
 ###### Contents
@@ -595,9 +594,7 @@ Aurora Serverless v2 DB instances:
   provisioned DB instances. In this case, you might specify some different parameters for the provisioned DB
   instances by using a custom DB parameter group.
 - For Aurora Serverless v2, you can use all the parameters that have the value `provisioned` in the
-  `SupportedEngineModes` attribute in the parameter group. In Aurora Serverless v1, you can only use
-  the subset of parameters that have `serverless` in the `SupportedEngineModes`
-  attribute.
+  `SupportedEngineModes` attribute in the parameter group.
 
 ###### Topics
 
@@ -816,8 +813,8 @@ can determine where to focus your efforts for optimizing the efficiency of your 
 - `ServerlessDatabaseCapacity`. As an instance-level metric, it reports the number of ACUs
   represented by the current DB instance capacity. As a cluster-level metric, it represents the average of
   the `ServerlessDatabaseCapacity` values of all the Aurora Serverless v2 DB instances in the
-  cluster. This metric is only a cluster-level metric in Aurora Serverless v1. In Aurora Serverless v2,
-  it's available at the DB instance level and at the cluster level.
+  cluster.
+  It's available at the DB instance level and at the cluster level.
 - `ACUUtilization`. This metric is new in Aurora Serverless v2. This value is represented as a
   percentage. It's calculated as the value of the `ServerlessDatabaseCapacity` metric
   divided by the maximum ACU value of the DB cluster. Consider the following guidelines to interpret this

@@ -24,62 +24,62 @@ The following example runs a SQL query.
 ```
 import boto3
 
-rdsData = boto3.client('rds-data')
+	rdsData = boto3.client('rds-data')
 
-cluster_arn = '`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`'
-secret_arn = '`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`'
+	cluster_arn = '`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`'
+	secret_arn = '`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`'
 
-response1 = rdsData.execute_statement(
-            resourceArn = cluster_arn,
-            secretArn = secret_arn,
-            database = '`mydb`',
-            sql = '`select * from employees limit 3`')
+	response1 = rdsData.execute_statement(
+	            resourceArn = cluster_arn,
+	            secretArn = secret_arn,
+	            database = '`mydb`',
+	            sql = '`select * from employees limit 3`')
 
-print (response1['records'])
-[
-    [
-        {
-            'longValue': 1
-        },
-        {
-            'stringValue': 'ROSALEZ'
-        },
-        {
-            'stringValue': 'ALEJANDRO'
-        },
-        {
-            'stringValue': '2016-02-15 04:34:33.0'
-        }
-    ],
-    [
-        {
-            'longValue': 1
-        },
-        {
-            'stringValue': 'DOE'
-        },
-        {
-            'stringValue': 'JANE'
-        },
-        {
-            'stringValue': '2014-05-09 04:34:33.0'
-        }
-    ],
-    [
-        {
-            'longValue': 1
-        },
-        {
-            'stringValue': 'STILES'
-        },
-        {
-            'stringValue': 'JOHN'
-        },
-        {
-            'stringValue': '2017-09-20 04:34:33.0'
-        }
-    ]
-]
+	print (response1['records'])
+	[
+	    [
+	        {
+	            'longValue': 1
+	        },
+	        {
+	            'stringValue': 'ROSALEZ'
+	        },
+	        {
+	            'stringValue': 'ALEJANDRO'
+	        },
+	        {
+	            'stringValue': '2016-02-15 04:34:33.0'
+	        }
+	    ],
+	    [
+	        {
+	            'longValue': 1
+	        },
+	        {
+	            'stringValue': 'DOE'
+	        },
+	        {
+	            'stringValue': 'JANE'
+	        },
+	        {
+	            'stringValue': '2014-05-09 04:34:33.0'
+	        }
+	    ],
+	    [
+	        {
+	            'longValue': 1
+	        },
+	        {
+	            'stringValue': 'STILES'
+	        },
+	        {
+	            'stringValue': 'JOHN'
+	        },
+	        {
+	            'stringValue': '2017-09-20 04:34:33.0'
+	        }
+	    ]
+	]
 ```
 
 ## Running a DML SQL statement
@@ -99,23 +99,23 @@ parameters.
 ```
 import boto3
 
-cluster_arn = '`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`'
-secret_arn = '`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`'
+	cluster_arn = '`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`'
+	secret_arn = '`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`'
 
-rdsData = boto3.client('rds-data')
+	rdsData = boto3.client('rds-data')
 
 
-param1 = {'name':'firstname', 'value':{'stringValue': '`JACKSON`'}}
-param2 = {'name':'lastname', 'value':{'stringValue': '`MATEO`'}}
-paramSet = [param1, param2]
+	param1 = {'name':'firstname', 'value':{'stringValue': '`JACKSON`'}}
+	param2 = {'name':'lastname', 'value':{'stringValue': '`MATEO`'}}
+	paramSet = [param1, param2]
 
-response2 = rdsData.execute_statement(resourceArn=cluster_arn,
-                                      secretArn=secret_arn,
-                                      database='`mydb`',
-                                      sql='`insert into employees(first_name, last_name) VALUES(:firstname, :lastname)`',
-                                      parameters = paramSet)
+	response2 = rdsData.execute_statement(resourceArn=cluster_arn,
+	                                      secretArn=secret_arn,
+	                                      database='`mydb`',
+	                                      sql='`insert into employees(first_name, last_name) VALUES(:firstname, :lastname)`',
+	                                      parameters = paramSet)
 
-print (response2["numberOfRecordsUpdated"])
+	print (response2["numberOfRecordsUpdated"])
 ```
 
 ## Running a SQL transaction
@@ -138,33 +138,33 @@ table.
 ```
 import boto3
 
-rdsData = boto3.client('rds-data')
+	rdsData = boto3.client('rds-data')
 
-cluster_arn = '`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`'
-secret_arn = '`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`'
+	cluster_arn = '`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`'
+	secret_arn = '`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`'
 
-tr = rdsData.begin_transaction(
-     resourceArn = cluster_arn,
-     secretArn = secret_arn,
-     database = '`mydb`')
+	tr = rdsData.begin_transaction(
+	     resourceArn = cluster_arn,
+	     secretArn = secret_arn,
+	     database = '`mydb`')
 
-response3 = rdsData.execute_statement(
-     resourceArn = cluster_arn,
-     secretArn = secret_arn,
-     database = '`mydb`',
-     sql = '`insert into employees(first_name, last_name) values('XIULAN', 'WANG')`',
-     transactionId = tr['transactionId'])
+	response3 = rdsData.execute_statement(
+	     resourceArn = cluster_arn,
+	     secretArn = secret_arn,
+	     database = '`mydb`',
+	     sql = '`insert into employees(first_name, last_name) values('XIULAN', 'WANG')`',
+	     transactionId = tr['transactionId'])
 
-cr = rdsData.commit_transaction(
-     resourceArn = cluster_arn,
-     secretArn = secret_arn,
-     transactionId = tr['transactionId'])
+	cr = rdsData.commit_transaction(
+	     resourceArn = cluster_arn,
+	     secretArn = secret_arn,
+	     transactionId = tr['transactionId'])
 
-cr['transactionStatus']
-'Transaction Committed'
+	cr['transactionStatus']
+	'Transaction Committed'
 
-response3['numberOfRecordsUpdated']
-1
+	response3['numberOfRecordsUpdated']
+	1
 ```
 
 ###### Note

@@ -29,7 +29,6 @@ without configuring a query tool to access Aurora in a VPC. For more information
 - [Region and version availability for the Amazon RDS Data API](data-api.regions.md "data-api.regions.md")
 - [Using IPv6 with Amazon RDS Data API](data-api.ipv6.md "data-api.ipv6.md")
 - [Limitations for the Amazon RDS Data API](data-api.limitations.md "data-api.limitations.md")
-- [Comparing Amazon RDS Data API behaviors for Aurora Serverless v2 and provisioned clusters with Aurora Serverless v1 clusters](data-api.differences.md "data-api.differences.md")
 - [Authorizing access to the Amazon RDS Data API](data-api.access.md "data-api.access.md")
 - [Enabling the Amazon RDS Data API](data-api.enabling.md "data-api.enabling.md")
 - [Creating an Amazon VPC endpoint for the Amazon RDS Data API (AWS PrivateLink)](data-api.vpc-endpoint.md "data-api.vpc-endpoint.md")

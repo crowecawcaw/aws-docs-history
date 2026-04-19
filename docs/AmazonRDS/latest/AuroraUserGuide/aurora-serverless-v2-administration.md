@@ -324,7 +324,7 @@ example, Aurora Serverless v2 DB instances require that the cluster be running c
 Suppose that you are converting a running provisioned cluster to take advantage of Aurora Serverless v2. In that
 case, you can minimize downtime by converting a DB instance to Aurora Serverless v2 as the first step in the
 switchover process. For the full procedure, see
-[Switching from a provisioned cluster to Aurora Serverless v2](aurora-serverless-v2.upgrade.md#aurora-serverless-v2.switch-from-provisioned "aurora-serverless-v2.upgrade.md#aurora-serverless-v2.switch-from-provisioned").
+Converting a provisioned writer or reader to Aurora Serverless v2.
 
 If the DB instance that you convert is the first Aurora Serverless v2 DB instance in the cluster, you choose the
 capacity range for the cluster as part of the **Modify** operation. This capacity range applies
@@ -366,7 +366,7 @@ Aurora Serverless v2 DB instance to a provisioned one, see
 
 If you are converting the writer DB instance of your cluster from Aurora Serverless v2 to provisioned, you can
 follow the procedure in
-[Switching from a provisioned cluster to Aurora Serverless v2](aurora-serverless-v2.upgrade.md#aurora-serverless-v2.switch-from-provisioned "aurora-serverless-v2.upgrade.md#aurora-serverless-v2.switch-from-provisioned")
+[Converting a provisioned writer or reader to Aurora Serverless v2](#aurora-serverless-v2-converting-from-provisioned "#aurora-serverless-v2-converting-from-provisioned")
 but in reverse. Switch one of the reader DB instances in the cluster from Aurora Serverless v2 to provisioned.
 Then perform a failover to make that provisioned DB instance into the writer.
 
@@ -593,8 +593,7 @@ cluster, so that it's available to choose when you create a database on the cons
 
 ###### Note
 
-For Aurora Serverless v2, you can create both DB cluster and DB parameter groups. This contrasts with
-Aurora Serverless v1, where you can only create DB cluster parameter groups.
+For Aurora Serverless v2, you can create both DB cluster and DB parameter groups.
 
 ### Viewing Aurora Serverless v2 logs in Amazon CloudWatch
 

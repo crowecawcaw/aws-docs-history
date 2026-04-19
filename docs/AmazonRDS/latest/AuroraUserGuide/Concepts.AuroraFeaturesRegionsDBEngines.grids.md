@@ -28,7 +28,6 @@ Amazon RDS Proxy, are supported by both Amazon Aurora and Amazon RDS.
 - [RDS Proxy](Concepts.Aurora_Fea_Regions_DB-eng.Feature.RDS_Proxy.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.RDS_Proxy.md")
 - [Secrets Manager integration](Concepts.Aurora_Fea_Regions_DB-eng.Feature.SecretsManager.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.SecretsManager.md")
 - [Aurora Serverless v2](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md")
-- [Aurora Serverless v1](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV1.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV1.md")
 - [RDS Data API](Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.md")
 - [Zero-downtime patching (ZDP)](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ZDP.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.ZDP.md")
 - [Aurora PostgreSQL Limitless Database](Concepts.Aurora_Fea_Regions_DB-eng.Feature.AuroraLimitless.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.AuroraLimitless.md")

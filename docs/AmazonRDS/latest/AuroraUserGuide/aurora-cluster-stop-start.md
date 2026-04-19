@@ -71,8 +71,8 @@ Some Aurora clusters can't be stopped and started:
 - You can only stop and start a cluster that's part of an [Aurora global database](aurora-global-database.md "aurora-global-database.md") if it's the only cluster in the global database.
 - You can't stop and start a cluster that has a cross-Region read replica.
 - You can't stop and start a cluster that is part of a [blue/green deployment](blue-green-deployments.md "blue-green-deployments.md").
-- You can't stop and start an [Aurora Serverless v1 cluster](aurora-serverless.md "aurora-serverless.md").
-  With [Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md"), you can stop and start the cluster.
+- With
+  [Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md"), you can stop and start the cluster.
 
 ## Stopping an Aurora DB cluster
 

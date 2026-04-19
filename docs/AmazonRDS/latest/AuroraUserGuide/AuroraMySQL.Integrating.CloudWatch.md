@@ -32,17 +32,7 @@ service-linked roles for Amazon RDS, see [Using service-linked roles for Amazon 
 
 - If you don't want to export audit logs to CloudWatch Logs, make sure that all methods of exporting audit logs are disabled. These methods are the
   AWS Management Console, the AWS CLI, the RDS API, and the `server_audit_logs_upload` parameter.
-- The procedure is slightly different for Aurora Serverless v1 DB clusters than
-  for DB clusters with provisioned or Aurora Serverless v2 DB instances.
-  Aurora Serverless v1 clusters automatically upload all of the logs that you enable
-  through configuration parameters.
-
-Therefore, you turn on or turn off log upload for Aurora Serverless v1 DB
-clusters by turning different log types on and off in the DB cluster parameter
-group. You don't modify the settings of the cluster itself through the
-AWS Management Console, AWS CLI, or RDS API. For information about turning on and off MySQL
-logs for Aurora Serverless v1 clusters, see [Parameter groups for Aurora Serverless v1](aurora-serverless-v1.how-it-works.md#aurora-serverless.parameter-groups "aurora-serverless-v1.how-it-works.md#aurora-serverless.parameter-groups").
-You can publish Aurora MySQL logs for provisioned clusters to CloudWatch Logs with the console.
+  You can publish Aurora MySQL logs for provisioned clusters to CloudWatch Logs with the console.
 
 ###### To publish Aurora MySQL logs from the console
 

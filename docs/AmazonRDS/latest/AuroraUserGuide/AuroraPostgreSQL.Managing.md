@@ -199,7 +199,7 @@ the total NVMe size. For more information, see [Improving query performance for 
 
 You can monitor the temporary storage available for a DB instance with the
 `FreeLocalStorage` CloudWatch metric,
--->
+
 described in [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md "Aurora.AuroraMonitoring.Metrics.md"). (This doesn't apply to
 Aurora Serverless v2.)
 

@@ -14,7 +14,7 @@ information from a specific DB instance in your Aurora DB cluster for specialize
 
 For Aurora Serverless DB clusters, you connect to the database endpoint rather than to the DB instance. You can find
 the database endpoint for an Aurora Serverless DB cluster on the **Connectivity & security**
-tab of the AWS Management Console. For more information, see [Using Amazon Aurora Serverless v1](aurora-serverless.md "aurora-serverless.md").
+tab of the AWS Management Console. .
 
 Regardless of the Aurora DB engine and specific tools you use to work with the DB cluster or
 instance, the endpoint must be accessible. An Aurora DB cluster can be created only in a

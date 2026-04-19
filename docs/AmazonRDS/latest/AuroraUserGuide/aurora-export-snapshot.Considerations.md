@@ -7,7 +7,6 @@ Exporting DB snapshot data to Amazon S3 has the following limitations:
 - You can't run multiple export tasks for the same DB cluster snapshot simultaneously. This applies to both full and
   partial exports.
 - You can have up to five concurrent DB snapshot export tasks in progress per AWS account.
-- You can't export snapshot data from Aurora Serverless v1 DB clusters to S3.
 - Exports to S3 don't support S3 prefixes containing a colon (:).
 - The following characters in the S3 file path are converted to underscores (\_) during export:
 

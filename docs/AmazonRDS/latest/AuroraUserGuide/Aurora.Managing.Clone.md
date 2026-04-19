@@ -64,18 +64,6 @@ Aurora cloning currently has the following limitations:
   Zones.
 - You can create an Aurora provisioned clone from a provisioned Aurora DB cluster.
 - Clusters with Aurora Serverless v2 instances follow the same rules as provisioned clusters.
-- For Aurora Serverless v1:
-  - You can create a provisioned clone from an Aurora Serverless v1 DB cluster.
-  - You can create an Aurora Serverless v1 clone from an Aurora Serverless v1 or provisioned DB cluster.
-  - You can't create an Aurora Serverless v1 clone from an unencrypted, provisioned Aurora DB cluster.
-  - Cross-account cloning currently doesn't support cloning Aurora Serverless v1 DB clusters. For more
-    information, see [Limitations of cross-account cloning](Aurora.Managing.Clone.Cross-Account.md#Aurora.Managing.Clone.CrossAccount.Limitations "Aurora.Managing.Clone.Cross-Account.md#Aurora.Managing.Clone.CrossAccount.Limitations").
-  - A cloned Aurora Serverless v1 DB cluster has the same behavior and limitations as any Aurora Serverless v1 DB
-    cluster. For more information, see [Using Amazon Aurora Serverless v1](aurora-serverless.md "aurora-serverless.md").
-  - Aurora Serverless v1 DB clusters are always encrypted. When you clone an Aurora Serverless v1 DB
-    cluster into a provisioned Aurora DB cluster, the provisioned Aurora DB cluster is encrypted. You can choose the
-    encryption key, but you can't disable the encryption. To clone from a provisioned Aurora DB cluster to an
-    Aurora Serverless v1, you must start with an encrypted provisioned Aurora DB cluster.
 
 ## How Aurora cloning works
 
@@ -194,14 +182,10 @@ instead.
 
 The Create clone page opens, where you can configure **Settings**, **Connectivity**,
 and other options for the Aurora DB cluster clone. 4. For **DB instance identifier**, enter the name that you want to give to your cloned Aurora DB
-cluster. 5. For Aurora Serverless v1 DB clusters, choose **Provisioned** or **Serverless** for **Capacity
-type**.
-
-You can choose **Serverless** only if the source Aurora DB cluster is an Aurora
-Serverless v1 DB cluster or is a provisioned Aurora DB cluster that is encrypted. 6. For Aurora Serverless v2 or provisioned DB clusters, choose either **Aurora I/O-Optimized** or
+cluster. 5. For Aurora Serverless v2 or provisioned DB clusters, choose either **Aurora I/O-Optimized** or
 **Aurora Standard** for **Cluster storage configuration**.
 
-For more information, see [Storage configurations for Amazon Aurora DB clusters](Aurora.Overview.StorageReliability.md#aurora-storage-type "Aurora.Overview.StorageReliability.md#aurora-storage-type"). 7. Choose the DB instance size or DB cluster capacity:
+For more information, see [Storage configurations for Amazon Aurora DB clusters](Aurora.Overview.StorageReliability.md#aurora-storage-type "Aurora.Overview.StorageReliability.md#aurora-storage-type"). 6. Choose the DB instance size or DB cluster capacity:
 
     * For a provisioned clone, choose a **DB instance class**.
 
@@ -211,7 +195,7 @@ For more information, see [Storage configurations for Amazon Aurora DB clusters]
 
     You can accept the provided setting, or you can use a different DB instance class for your
      clone.
-    * For an Aurora Serverless v1 or Aurora Serverless v2 clone, choose the **Capacity
+    * For an Aurora Serverless v2 clone, choose the **Capacity
      settings**.
 
 
@@ -220,9 +204,9 @@ For more information, see [Storage configurations for Amazon Aurora DB clusters]
 
     You can accept the provided settings, or you can change them for your clone.
 
-8. Choose other settings as needed for your clone. To learn more about Aurora DB cluster and instance settings,
+7. Choose other settings as needed for your clone. To learn more about Aurora DB cluster and instance settings,
    see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
-9. Choose **Create clone**.
+8. Choose **Create clone**.
    When the clone is created, it's listed with your other Aurora DB clusters in the
    console **Databases** section and displays its current state. Your clone
    is ready to use when its state is **Available**.
@@ -263,7 +247,7 @@ CLI command to create the initial clone cluster.
 - Use the
   `restore-db-cluster-to-point-in-time`
   CLI command. Specify values for the following parameters. In this typical case, the clone uses the same
-  engine mode as the original cluster, either provisioned or Aurora Serverless v1.
+  engine mode as the original cluster, either provisioned or Aurora Serverless v2.
   - `--db-cluster-identifier` – Choose a meaningful name for your clone. You name the
     clone when you use the
     [restore-db-cluster-to-point-in-time](../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md")
@@ -346,80 +330,6 @@ didn't use Aurora Serverless v2.
 
 ```
 
-###### To create a clone with a different engine mode from the source Aurora DB cluster
-
-- This procedure only applies to older engine versions that support Aurora Serverless v1. Suppose that you
-  have an Aurora Serverless v1 cluster and you want to create a clone that's a provisioned cluster. In
-  that case, use the
-  `restore-db-cluster-to-point-in-time`
-  CLI command and specify values similar parameter values as in the previous example, plus these additional
-  parameters:
-  - `--engine-mode` – Use this parameter only to create clones that are of a different
-    engine mode from the source Aurora DB cluster. This parameter only applies to the older engine versions
-    that support Aurora Serverless v1. Choose the value to pass with `--engine-mode` as follows:
-    - Use `--engine-mode provisioned` to create a provisioned Aurora DB cluster clone from an
-      Aurora Serverless DB cluster.
-
-    ###### Note
-
-    If you intend to use Aurora Serverless v2 with a cluster that was cloned from Aurora Serverless v1,
-    you still specify the engine mode for the clone as `provisioned`. Then you perform
-    additional upgrade and migration steps afterward.
-    - Use `--engine-mode serverless` to create an Aurora Serverless v1 clone from a provisioned
-      Aurora DB cluster. When you specify the `serverless` engine mode, you can also choose
-      the `--scaling-configuration`.
-
-  - `--scaling-configuration` – (Optional) Use with `--engine-mode
-serverless` to configure the minimum and maximum capacity for an Aurora Serverless v1 clone. If
-    you don't use this parameter, Aurora creates an Aurora Serverless v1 clone using the default
-    Aurora Serverless v1 capacity values for the DB engine.
-
-The following example creates a provisioned clone named `my-clone`, from an Aurora Serverless v1 DB
-cluster named `my-source-cluster`.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds restore-db-cluster-to-point-in-time \
-    --source-db-cluster-identifier `my-source-cluster` \
-    --db-cluster-identifier `my-clone` \
-    --engine-mode provisioned \
-    --restore-type copy-on-write \
-    --use-latest-restorable-time
-
-```
-
-For Windows:
-
-```
-aws rds restore-db-cluster-to-point-in-time ^
-    --source-db-cluster-identifier `my-source-cluster` ^
-    --db-cluster-identifier `my-clone` ^
-    --engine-mode provisioned ^
-    --restore-type copy-on-write ^
-    --use-latest-restorable-time
-
-```
-
-These commands return the JSON object containing details of the clone that you need to create the DB instance.
-You can't do that until the status of the clone (the empty Aurora DB cluster) has the status
-**Available**.
-
-###### Note
-
-The
-[restore-db-cluster-to-point-in-time](../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md")
-AWS CLI command only restores the DB cluster, not the DB instances for that DB cluster. You run the
-[create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") command to create DB
-instances for the restored DB cluster. With that command, you specify the identifier of the restored DB
-cluster as the `--db-cluster-identifier` parameter. You can create DB instances only after the
-`restore-db-cluster-to-point-in-time` command has completed and the DB cluster is available.
-
-Suppose that you start with an Aurora Serverless v1 cluster and intend to migrate it to an Aurora Serverless v2
-cluster. You create a provisioned clone of the Aurora Serverless v1 cluster as the initial step in the
-migration. For the full procedure, including any required version upgrades, see
-[Upgrading from an Aurora Serverless v1 cluster to Aurora Serverless v2](aurora-serverless-v2.upgrade.md#aurora-serverless-v2.upgrade-from-serverless-v1-procedure "aurora-serverless-v2.upgrade.md#aurora-serverless-v2.upgrade-from-serverless-v1-procedure").
-
 #### Checking the status and getting clone details
 
 You can use the following command to check the status of your newly created clone cluster.
@@ -462,8 +372,7 @@ This query returns output similar to the following.
 #### Creating the Aurora DB instance for your clone
 
 Use the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") CLI command to create
-the DB instance for your Aurora Serverless v2 or provisioned clone. You don't create a DB instance for an
-Aurora Serverless v1 clone.
+the DB instance for your Aurora Serverless v2 or provisioned clone.
 
 The DB instance inherits the `--master-username` and `--master-user-password` properties
 from the source DB cluster.
@@ -522,15 +431,13 @@ aws rds create-db-instance ^
 The following table summarizes the various parameters used with
 `restore-db-cluster-to-point-in-time` to clone Aurora DB clusters.
 
-| Parameter                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--source-db-cluster-identifier`        | Use the name of the source Aurora DB cluster that you want to clone.                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `--db-cluster-identifier`               | Choose a meaningful name for your clone when you create it with the<br>`restore-db-cluster-to-point-in-time` command. Then you pass this name to the<br>`create-db-instance` command.                                                                                                                                                                                                                                                                                                                                             |
-| `--restore-type`                        | Specify `copy-on-write` as the `--restore-type` to create a clone of the<br>source DB cluster rather than restoring the source Aurora DB cluster.                                                                                                                                                                                                                                                                                                                                                                                 |
-| `--use-latest-restorable-time`          | This value points to the latest restorable volume data for the source DB cluster. Use it to create<br>clones.                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `--serverless-v2-scaling-configuration` | (Newer versions that support Aurora Serverless v2) Use this parameter to configure the minimum and<br>maximum capacity for an Aurora Serverless v2 clone. If you don't specify this parameter, you<br>can't create any Aurora Serverless v2 instances in the clone cluster until you modify the cluster<br>to add this attribute.                                                                                                                                                                                                 |
-| `--engine-mode`                         | (Older versions that support Aurora Serverless v1 only) Use this parameter to create clones that are<br>of a different type from the source Aurora DB cluster, with one of the following values:<br>• Use `provisioned` to create a provisioned clone from an Aurora Serverless v1 DB<br>cluster.<br>• Use `serverless` to create an Aurora Serverless v1 clone from a provisioned or<br>Aurora Serverless v2 DB cluster.<br>When you specify the `serverless` engine mode, you can also choose the<br>`--scaling-configuration`. |
-| `--scaling-configuration`               | (Older versions that support Aurora Serverless v1 only) Use this parameter to configure the minimum<br>and maximum capacity for an Aurora Serverless v1 clone. If you don't specify this parameter,<br>Aurora creates the clone using the default capacity values for the DB engine.                                                                                                                                                                                                                                              |
+| Parameter                               | Description                                                                                                                                                                                                                                                                                                                       |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--source-db-cluster-identifier`        | Use the name of the source Aurora DB cluster that you want to clone.                                                                                                                                                                                                                                                              |
+| `--db-cluster-identifier`               | Choose a meaningful name for your clone when you create it with the<br>`restore-db-cluster-to-point-in-time` command. Then you pass this name to the<br>`create-db-instance` command.                                                                                                                                             |
+| `--restore-type`                        | Specify `copy-on-write` as the `--restore-type` to create a clone of the<br>source DB cluster rather than restoring the source Aurora DB cluster.                                                                                                                                                                                 |
+| `--use-latest-restorable-time`          | This value points to the latest restorable volume data for the source DB cluster. Use it to create<br>clones.                                                                                                                                                                                                                     |
+| `--serverless-v2-scaling-configuration` | (Newer versions that support Aurora Serverless v2) Use this parameter to configure the minimum and<br>maximum capacity for an Aurora Serverless v2 clone. If you don't specify this parameter, you<br>can't create any Aurora Serverless v2 instances in the clone cluster until you modify the cluster<br>to add this attribute. |
 
 For information about cross-VPC and cross-account cloning, see the following sections.
 

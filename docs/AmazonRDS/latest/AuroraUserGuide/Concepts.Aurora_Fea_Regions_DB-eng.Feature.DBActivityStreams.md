@@ -5,7 +5,6 @@ auditing activity in your Aurora database. For more information, see [Monitoring
 
 Database activity streams aren't supported for the following features:
 
-- Aurora Serverless v1
 - Aurora Serverless v2
 - Babelfish for Aurora PostgreSQL
 

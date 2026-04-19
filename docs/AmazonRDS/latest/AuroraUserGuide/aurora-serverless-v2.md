@@ -19,7 +19,6 @@ test systems, and other environments with highly variable and unpredictable work
 - [Managing Aurora Serverless v2 DB clusters](aurora-serverless-v2-administration.md "aurora-serverless-v2-administration.md")
 - [Performance and scaling for Aurora Serverless v2](aurora-serverless-v2.setting-capacity.md "aurora-serverless-v2.setting-capacity.md")
 - [Scaling to Zero ACUs with automatic pause and resume for Aurora Serverless v2](aurora-serverless-v2-auto-pause.md "aurora-serverless-v2-auto-pause.md")
-- [Migrating to Aurora Serverless v2](aurora-serverless-v2.upgrade.md "aurora-serverless-v2.upgrade.md")
 
 ## Aurora Serverless v2 use cases
 
@@ -39,9 +38,7 @@ Aurora Serverless v2 is especially useful for the following use cases:
   needed.
 
 The granularity of scaling in Aurora Serverless v2 helps you to match capacity closely to your database's
-needs. For a provisioned cluster, scaling up requires adding a whole new DB instance. For an
-Aurora Serverless v1 cluster, scaling up requires doubling the number of Aurora capacity units (ACUs) for the
-cluster, such as from 16 to 32 or 32 to 64. In contrast, Aurora Serverless v2 can add half an ACU when only a
+needs. For a provisioned cluster, scaling up requires adding a whole new DB instance. Aurora Serverless v2 can add half an ACU when only a
 little more capacity is needed. It can add 0.5, 1, 1.5, 2, or additional half-ACUs based on the additional
 capacity needed to handle an increase in workload. And it can remove 0.5, 1, 1.5, 2, or additional half-ACUs
 when the workload decreases and that capacity is no longer needed.
@@ -105,7 +102,7 @@ You can use the Aurora failover mechanism to promote an Aurora Serverless v2 DB 
 check how it handles the read/write workload. That way, you can switch over with minimal downtime and without
 changing the endpoint that your client applications use. For details on the procedure to convert existing
 clusters to Aurora Serverless v2, see
-[Migrating to Aurora Serverless v2](aurora-serverless-v2.upgrade.md "aurora-serverless-v2.upgrade.md").
+[Converting a provisioned writer or reader to Aurora Serverless v2](aurora-serverless-v2-administration.md#aurora-serverless-v2-converting-from-provisioned "aurora-serverless-v2-administration.md#aurora-serverless-v2-converting-from-provisioned").
 
 ## Advantages of Aurora Serverless v2
 
@@ -122,39 +119,34 @@ instance classes. Aurora Serverless v2 provides the following advantages to help
   or your overall workload. The ability to use reader DB instances with Aurora Serverless v2 helps you to take
   advantage of horizontal scaling in addition to vertical scaling. The ability to use Aurora global databases
   means that you can spread your Aurora Serverless v2 read workload across multiple AWS Regions. This
-  capability is more convenient than the scaling mechanisms for provisioned clusters. It's also faster
-  and more granular than the scaling capabilities in Aurora Serverless v1.
+  capability is more convenient than the scaling mechanisms for provisioned clusters.
 - **Cost-effective during periods of low activity** – Aurora Serverless v2
   helps you to avoid overprovisioning your DB instances. Aurora Serverless v2 adds resources in granular
   increments when DB instances scale up. You pay only for the database resources that you consume.
   Aurora Serverless v2 resource usage is measured on a per-second basis. That way, when a DB instance scales
   down, the reduced resource usage is registered right away.
 - **Greater feature parity with provisioned** – You can use many Aurora
-  features with Aurora Serverless v2 that aren't available for Aurora Serverless v1. For example, with
+  features with Aurora Serverless v2 oFor example, with
   Aurora Serverless v2 you can use reader DB instances, global databases, AWS Identity and Access Management (IAM) database
-  authentication, and Performance Insights. You can also use many more configuration parameters than with
-  Aurora Serverless v1.
+  authentication, and Performance Insights.
 
 In particular, with Aurora Serverless v2 you can take advantage of the following features from provisioned
 clusters:
 
     + **Reader DB instances** – Aurora Serverless v2 can take advantage of reader DB instances
      to scale horizontally. When a cluster contains one or more reader DB instances, the cluster can fail over
-     immediately in case of problems with the writer DB instance. This is a capability that isn't available with
-     Aurora Serverless v1.
+     immediately in case of problems with the writer DB instance.
     + **Multi-AZ clusters** – You can distribute the Aurora Serverless v2 DB instances
      of a cluster across multiple Availability Zones (AZs). Setting up a Multi-AZ cluster helps to ensure business
-     continuity even in the rare case of issues that affect an entire AZ. This is a capability that isn't available
-     with Aurora Serverless v1.
+     continuity even in the rare case of issues that affect an entire AZ.
     + **Global databases** – You can use Aurora Serverless v2 in combination with Aurora global
      databases to create additional read-only copies of your cluster in other AWS Regions for disaster recovery
      purposes.
     + **RDS Proxy** – You can use Amazon RDS Proxy to allow your applications to pool and
      share database connections to improve their ability to scale.
 
-- **Faster, more granular, less disruptive scaling than Aurora Serverless v1**
+- **Faster, more granular, less disruptive scaling**
   – Aurora Serverless v2 can scale up and down faster. Scaling can change capacity by as little as 0.5
   ACUs, instead of doubling or halving the number of ACUs. Scaling typically happens with no pause in
-  processing at all. Scaling doesn't involve an event that you have to be aware of, as with
-  Aurora Serverless v1. Scaling can happen while SQL statements are running and transactions are open, without
+  processing at all. Scaling doesn't involve an event that you have to be aware of. Scaling can happen while SQL statements are running and transactions are open, without
   the need to wait for a quiet point.

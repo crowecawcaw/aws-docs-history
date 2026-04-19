@@ -39,7 +39,6 @@ billed storage space depends on the version of your Aurora cluster.
 | Aurora MySQL         | + Version 3 (compatible with MySQL 8.0): all<br>supported versions<br>+ Version 2 (compatible with MySQL 5.7): 2.11 and<br>higher |
 | Aurora PostgreSQL    | All supported versions                                                                                                            |
 | Aurora Serverless v2 | All supported versions                                                                                                            |
-| Aurora Serverless v1 | Not available                                                                                                                     |
 
 - In Aurora versions lower than those in the preceding list, the cluster volume
   can reuse space that's freed up when you remove data, but the volume itself

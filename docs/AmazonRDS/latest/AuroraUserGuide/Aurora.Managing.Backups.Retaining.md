@@ -9,10 +9,6 @@ instance class, which are required to restore it to an active cluster.
 
 You can restore or remove retained automated backups using the AWS Management Console, RDS API, and AWS CLI.
 
-###### Note
-
-You can't retain automated backups for Aurora Serverless v1 DB clusters.
-
 ###### Topics
 
 - [Retention period](#Aurora.Managing.Backups.Retaining.Period "#Aurora.Managing.Backups.Retaining.Period")

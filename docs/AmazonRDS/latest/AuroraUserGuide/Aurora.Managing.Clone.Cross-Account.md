@@ -44,7 +44,6 @@ or the clone. Charges for storage are then applied at that time. If the source c
 
 Aurora cross-account cloning has the following limitations:
 
-- You can't clone an Aurora Serverless v1 cluster across AWS accounts.
 - You can't view or accept invitations to shared resources with the AWS Management Console. Use
   the AWS CLI, the Amazon RDS API, or the AWS RAM console to view and accept invitations to shared
   resources.

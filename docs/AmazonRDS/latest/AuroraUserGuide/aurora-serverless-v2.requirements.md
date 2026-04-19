@@ -6,8 +6,8 @@ When you create a cluster where you intend to use Aurora Serverless v2 DB instan
 
 - [Region and version availability](#aurora-serverless-v2-Availability "#aurora-serverless-v2-Availability")
 - [Clusters that use Aurora Serverless v2 must have a capacity range specified](#aurora-serverless-v2.requirements.capacity-range "#aurora-serverless-v2.requirements.capacity-range")
+- [Incompatible scaling configuration](#aurora-serverless-v2.requirements.incompatible-scaling-config "#aurora-serverless-v2.requirements.incompatible-scaling-config")
 - [Some provisioned features aren't supported in Aurora Serverless v2](#aurora-serverless-v2.limitations "#aurora-serverless-v2.limitations")
-- [Some Aurora Serverless v2 aspects are different from Aurora Serverless v1](#aurora-serverless-v2.requirements.v1-v2-differences "#aurora-serverless-v2.requirements.v1-v2-differences")
 
 ## Region and version availability
 
@@ -51,6 +51,86 @@ detailed discussion of how to pick minimum and maximum capacity values and how t
 database parameters, see
 [Choosing the Aurora Serverless v2 capacity range for an Aurora cluster](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-examples-setting-capacity-range-for-cluster "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-examples-setting-capacity-range-for-cluster").
 
+## Incompatible scaling configuration
+
+When you modify your Aurora PostgreSQL cluster with a lower maximum capacity,
+each instance will be scaled down to match the new configuration. If Aurora detects
+that any of your instances are having trouble scaling down, it may cancel and roll
+back the scaling configuration update. As a result, the instances will scale back
+up to their previous configuration. This issue may occur if the new maximum
+capacity is insufficient to handle the current workload or if the custom parameters
+applied to the cluster's or instances' database parameter group
+are set too high.
+
+When the rollback starts, you will be notified via an Amazon RDS event containing
+information about instances that could not apply your desired scaling configuration.
+After the rollback completes, the scaling configuration's maximum capacity
+will return to its original higher value. Due to the roll back, you may observe that
+the Aurora Serverless database capacity across all of your cluster's instances
+may also increase, leading to higher costs.
+
+For example, you have an Aurora PostgreSQL Aurora Serverless cluster with a single
+instance and the scaling configuration is set to `minCapacity=0.5`,
+`maxCapacity=128`, and `secondsUntilAutopause=null`.
+In addition, the database parameter `track_activity_query_size` is set
+to a custom value of 40960. If you then modify the cluster's scaling
+configuration to have a maximum capacity of 1 ACU, you may notice that after a couple of
+hours, the modification has not completed. The high value of the
+`track_activity_query_size` parameter requires more resources
+than the new maximum capacity can provide. As a result, even with no workload,
+the instance's `ServerlessDatabaseCapacity` cannot scale down
+to match the new maximum capacity of 1 ACU. Aurora Serverless v2 will then cancel
+the scaling configuration modification and will reapply the previous scaling
+configuration of `minCapacity=0.5`, `maxCapacity=128`,
+`secondsUntilAutopause=null`. The instance will then scale up to
+match the previous scaling configuration, ending the cluster's
+modification. An Amazon RDS event is published notifying you that an incompatible
+scaling configuration update was detected, canceled, and rolled back to the
+previous configuration.
+
+### Issues and Remediations
+
+**New scaling configuration is incompatible with workload**
+
+The new Aurora Serverless v2 scaling configuration's maximum capacity
+is too low to handle the current workload.
+
+Recommendations:
+
+- Reduce your workload before reapplying the lower maximum capacity.
+- If reducing the workload is not an option, reevaluate the desired
+  maximum capacity. To pick an appropriate maximum capacity, check the maximum
+  `ServerlessDatabaseCapacity` CloudWatch metric for your
+  Aurora PostgreSQL cluster before the scaling configuration update was cancelled
+  and rolled back. Then set your new scaling configuration's maximum
+  capacity to be at least the observed ServerlessDatabaseCapacity value.
+  For more guidance on choosing a maximum capacity, see
+  [Choosing the Aurora Serverless v2 capacity range for an Aurora cluster](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-examples-setting-capacity-range-for-cluster "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-examples-setting-capacity-range-for-cluster").
+
+**New scaling configuration is incompatible with
+custom database parameters**
+
+Your cluster's or instances' custom database parameter groups
+require additional resources that exceed the new scaling configuration's
+maximum capacity.
+
+Potential incompatible Aurora PostgreSQL database parameters:
+
+- max_connections
+- track_activity_query_size
+- min_dynamic_shared_memory
+
+Recommendations:
+
+- To pick an appropriate database parameter value, check the default
+  parameter values for each of the parameters listed above. If your
+  configured value exceeds the default values, reduce the parameters
+  to their default values before modifying the scaling configuration
+  with the same reduced maximum capacity.
+- If reducing the database parameters is not an option, follow
+  the same steps to pick an appropriate maximum capacity outlined
+  above in: [New scaling configuration is incompatible with workload](#aurora-serverless-v2.requirements.incompatible-scaling-config.workload "#aurora-serverless-v2.requirements.incompatible-scaling-config.workload").
+
 ## Some provisioned features aren't supported in Aurora Serverless v2
 
 The following features from Aurora provisioned DB instances currently aren't available for Amazon Aurora Serverless v2:
@@ -69,9 +149,3 @@ For troubleshooting information if your database encounters out-of-memory errors
 Aurora Auto Scaling isn't supported. This type of scaling adds new readers to handle additional read-intensive workload, based on CPU usage. However, scaling based on
 CPU usage isn't meaningful for Aurora Serverless v2. As an alternative, you can create Aurora Serverless v2 reader DB instances in advance and leave them scaled down to low
 capacity. That's a faster and less disruptive way to scale a cluster's read capacity than adding new DB instances dynamically.
-
-## Some Aurora Serverless v2 aspects are different from Aurora Serverless v1
-
-If you are an Aurora Serverless v1 user and this is your first time using Aurora Serverless v2, consult the
-[differences between Aurora Serverless v2 and Aurora Serverless v1 requirements](aurora-serverless-v2.upgrade.md#Serverless.v1-v2-requirements "aurora-serverless-v2.upgrade.md#Serverless.v1-v2-requirements") to understand how requirements
-are different between Aurora Serverless v1 and Aurora Serverless v2.

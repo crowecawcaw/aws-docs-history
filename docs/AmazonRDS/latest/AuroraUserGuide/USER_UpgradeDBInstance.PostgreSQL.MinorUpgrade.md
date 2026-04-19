@@ -146,8 +146,6 @@ The following limitations apply to zero-downtime patching:
     is supported with TLSv1.3 connections.
 
 - ZDP isn't supported in the following cases:
-  - When Aurora PostgreSQL DB clusters are configured as
-    Aurora Serverless v1.
   - During the upgrade of any Aurora reader instances.
   - During the upgrade of any Aurora reader instances that are part of
     an Aurora Global Database cluster in a secondary Region.

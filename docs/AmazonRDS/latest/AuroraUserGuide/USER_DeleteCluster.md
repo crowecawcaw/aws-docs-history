@@ -47,11 +47,6 @@ DB instances. 3. Delete the DB cluster.
     	+ Create a final snapshot of the cluster volume. The default setting is to create a final
     	 snapshot.
     	+ Retain automated backups. The default setting is not to retain automated backups.
-
-
-    	###### Note
-
-    	Automated backups for Aurora Serverless v1 DB clusters aren't retained.
     Aurora also requires you to confirm that you intend to delete the cluster.
     * **CLI and API** – Call the `delete-db-cluster` CLI command or
      `DeleteDBCluster` API operation. You can choose the following options to preserve the data from
@@ -62,11 +57,6 @@ DB instances. 3. Delete the DB cluster.
 
     	+ Create a final snapshot of the cluster volume.
     	+ Retain automated backups.
-
-
-    	###### Note
-
-    	Automated backups for Aurora Serverless v1 DB clusters aren't retained.
 
 ###### Topics
 

@@ -200,18 +200,13 @@ CA certificates to your trust store as this might cause connection issues when R
 
 ###### Note
 
-Amazon RDS Proxy and Aurora Serverless v1
-use
+Amazon RDS Proxy
+uses
 
 certificates from the AWS Certificate Manager (ACM). If you're using RDS Proxy, you
 don't need to download Amazon RDS certificates or update
 applications that use RDS Proxy connections. For more information, see
 [Using TLS/SSL with RDS Proxy](rds-proxy.howitworks.md#rds-proxy-security.tls "rds-proxy.howitworks.md#rds-proxy-security.tls")
-.
-
-If you're using Aurora Serverless v1, downloading
-Amazon RDS certificates isn't required. For more information, see
-[Using TLS/SSL with Aurora Serverless v1](aurora-serverless.md#aurora-serverless.tls "aurora-serverless.md#aurora-serverless.tls")
 .
 
 To download a certificate bundle for an AWS Region, select the link

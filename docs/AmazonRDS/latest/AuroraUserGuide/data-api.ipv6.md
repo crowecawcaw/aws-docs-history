@@ -54,22 +54,22 @@ For Linux, macOS, or Unix:
 
 ```
 aws rds-data execute-statement \
-    --endpoint-url https://rds-data.us-east-1.api.aws \
-    --resource-arn "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster" \
-    --secret-arn "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-secret" \
-    --database "mydb" \
-    --sql "SELECT * FROM users LIMIT 10"
+	    --endpoint-url https://rds-data.us-east-1.api.aws \
+	    --resource-arn "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster" \
+	    --secret-arn "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-secret" \
+	    --database "mydb" \
+	    --sql "SELECT * FROM users LIMIT 10"
 ```
 
 For Windows:
 
 ```
 aws rds-data execute-statement ^
-    --endpoint-url https://rds-data.us-east-1.api.aws ^
-    --resource-arn "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster" ^
-    --secret-arn "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-secret" ^
-    --database "mydb" ^
-    --sql "SELECT * FROM users LIMIT 10"
+	    --endpoint-url https://rds-data.us-east-1.api.aws ^
+	    --resource-arn "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster" ^
+	    --secret-arn "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-secret" ^
+	    --database "mydb" ^
+	    --sql "SELECT * FROM users LIMIT 10"
 ```
 
 Configure AWS SDKs to use dual-stack endpoints:
@@ -79,46 +79,46 @@ Python
 ```
 import boto3
 
-# Create RDS Data API client with IPv6 dual-stack endpoint
-client = boto3.client(
-    'rds-data',
-    endpoint_url='https://rds-data.us-east-1.api.aws'
-)
+	# Create RDS Data API client with IPv6 dual-stack endpoint
+	client = boto3.client(
+	    'rds-data',
+	    endpoint_url='https://rds-data.us-east-1.api.aws'
+	)
 
-# Execute a SQL statement
-response = client.execute_statement(
-    resourceArn='arn:aws:rds:us-east-1:123456789012:cluster:my-cluster',
-    secretArn='arn:aws:secretsmanager:us-east-1:123456789012:secret:my-secret',
-    database='mydb',
-    sql='SELECT * FROM users LIMIT 10'
-)
+	# Execute a SQL statement
+	response = client.execute_statement(
+	    resourceArn='arn:aws:rds:us-east-1:123456789012:cluster:my-cluster',
+	    secretArn='arn:aws:secretsmanager:us-east-1:123456789012:secret:my-secret',
+	    database='mydb',
+	    sql='SELECT * FROM users LIMIT 10'
+	)
 
-print(response['records'])
+	print(response['records'])
 ```
 
 Java
 
 ```
 import software.amazon.awssdk.services.rdsdata.RdsDataClient;
-import software.amazon.awssdk.services.rdsdata.model.ExecuteStatementRequest;
-import software.amazon.awssdk.services.rdsdata.model.ExecuteStatementResponse;
-import java.net.URI;
+	import software.amazon.awssdk.services.rdsdata.model.ExecuteStatementRequest;
+	import software.amazon.awssdk.services.rdsdata.model.ExecuteStatementResponse;
+	import java.net.URI;
 
-// Create RDS Data API client with IPv6 dual-stack endpoint
-RdsDataClient client = RdsDataClient.builder()
-    .endpointOverride(URI.create("https://rds-data.us-east-1.api.aws"))
-    .build();
+	// Create RDS Data API client with IPv6 dual-stack endpoint
+	RdsDataClient client = RdsDataClient.builder()
+	    .endpointOverride(URI.create("https://rds-data.us-east-1.api.aws"))
+	    .build();
 
-// Execute a SQL statement
-ExecuteStatementRequest request = ExecuteStatementRequest.builder()
-    .resourceArn("arn:aws:rds:us-east-1:123456789012:cluster:my-cluster")
-    .secretArn("arn:aws:secretsmanager:us-east-1:123456789012:secret:my-secret")
-    .database("mydb")
-    .sql("SELECT * FROM users LIMIT 10")
-    .build();
+	// Execute a SQL statement
+	ExecuteStatementRequest request = ExecuteStatementRequest.builder()
+	    .resourceArn("arn:aws:rds:us-east-1:123456789012:cluster:my-cluster")
+	    .secretArn("arn:aws:secretsmanager:us-east-1:123456789012:secret:my-secret")
+	    .database("mydb")
+	    .sql("SELECT * FROM users LIMIT 10")
+	    .build();
 
-ExecuteStatementResponse response = client.executeStatement(request);
-System.out.println(response.records());
+	ExecuteStatementResponse response = client.executeStatement(request);
+	System.out.println(response.records());
 ```
 
 JavaScript
@@ -126,21 +126,21 @@ JavaScript
 ```
 const { RDSDataClient, ExecuteStatementCommand } = require("@aws-sdk/client-rds-data");
 
-// Create RDS Data API client with IPv6 dual-stack endpoint
-const client = new RDSDataClient({
-    endpoint: "https://rds-data.us-east-1.api.aws"
-});
+	// Create RDS Data API client with IPv6 dual-stack endpoint
+	const client = new RDSDataClient({
+	    endpoint: "https://rds-data.us-east-1.api.aws"
+	});
 
-// Execute a SQL statement
-const command = new ExecuteStatementCommand({
-    resourceArn: "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster",
-    secretArn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-secret",
-    database: "mydb",
-    sql: "SELECT * FROM users LIMIT 10"
-});
+	// Execute a SQL statement
+	const command = new ExecuteStatementCommand({
+	    resourceArn: "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster",
+	    secretArn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-secret",
+	    database: "mydb",
+	    sql: "SELECT * FROM users LIMIT 10"
+	});
 
-const response = await client.send(command);
-console.log(response.records);
+	const response = await client.send(command);
+	console.log(response.records);
 ```
 
 ## Using AWS PrivateLink with IPv6

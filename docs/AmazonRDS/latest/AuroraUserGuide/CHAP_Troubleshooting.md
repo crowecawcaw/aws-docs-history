@@ -290,9 +290,6 @@ reader DB instances to the cluster. That way, the read-only part of the workload
 spread across more DB instances, reducing the memory usage on each reader DB instance.
 For more information, see [Important Amazon CloudWatch metrics for Aurora Serverless v2](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring").
 
-For Aurora Serverless v1, you can change the capacity range to use
-more ACUs. For more information, see [Modifying an Aurora Serverless v1 DB cluster](aurora-serverless.modifying.md "aurora-serverless.modifying.md").
-
 ## Amazon Aurora MySQL replication issues
 
 Some MySQL replication issues also apply to Aurora MySQL. You can

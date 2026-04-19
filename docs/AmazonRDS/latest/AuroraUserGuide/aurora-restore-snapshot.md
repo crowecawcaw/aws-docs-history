@@ -70,7 +70,7 @@ change the VPC settings by modifying the DB cluster. For more information, see [
 With Aurora, you restore a DB cluster snapshot to a DB cluster.
 
 With both Aurora MySQL and Aurora PostgreSQL, you can also restore a DB cluster snapshot to
-an Aurora Serverless DB cluster. For more information, see [Restoring an Aurora Serverless v1 DB cluster](aurora-serverless.restorefromsnapshot.md "aurora-serverless.restorefromsnapshot.md").
+an Aurora Serverless DB cluster.
 
 With Aurora MySQL, you can restore a DB cluster snapshot from a cluster without parallel
 query to a cluster with parallel query. Because parallel query is typically used with

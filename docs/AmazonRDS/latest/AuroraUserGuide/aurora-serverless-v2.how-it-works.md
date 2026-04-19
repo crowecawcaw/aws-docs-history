@@ -61,8 +61,7 @@ For details about that mechanism, see
 
 ###### Important
 
-With Aurora Serverless v1, your cluster has a single measure of compute capacity that can scale between the
-minimum and maximum capacity values. With Aurora Serverless v2, your cluster can contain readers in addition
+With Aurora Serverless v2, your cluster can contain readers in addition
 to the writer. Each Aurora Serverless v2 writer and reader can scale between the minimum and maximum capacity
 values. Thus, the total capacity of your Aurora Serverless v2 cluster depends on both the capacity range that
 you define for your DB cluster and the number of writers and readers in the cluster. At any specific time,
@@ -88,7 +87,7 @@ engine versions require starting with a provisioned writer and replacing it with
 For the procedures to create a new DB cluster with Aurora Serverless v2 or to switch an existing DB cluster to
 Aurora Serverless v2, see
 [Creating an Aurora Serverless v2 DB cluster](aurora-serverless-v2.create.md#aurora-serverless-v2.create-cluster "aurora-serverless-v2.create.md#aurora-serverless-v2.create-cluster") and
-[Switching from a provisioned cluster to Aurora Serverless v2](aurora-serverless-v2.upgrade.md#aurora-serverless-v2.switch-from-provisioned "aurora-serverless-v2.upgrade.md#aurora-serverless-v2.switch-from-provisioned").
+[Converting a provisioned writer or reader to Aurora Serverless v2](aurora-serverless-v2-administration.md#aurora-serverless-v2-converting-from-provisioned "aurora-serverless-v2-administration.md#aurora-serverless-v2-converting-from-provisioned").
 
 If you don't use Aurora Serverless v2 at all in a DB cluster, all the writers and readers in the DB cluster
 are _provisioned_. This is the oldest and most common kind of DB cluster that most users
@@ -202,7 +201,6 @@ ACUs. Aurora Serverless v2 scales a writer or reader up to a higher capacity whe
 low to handle the load. It scales the writer or reader down to a lower capacity when its current capacity is
 higher than needed.
 
-Unlike Aurora Serverless v1, which scales by doubling the capacity each time the DB cluster reaches a threshold,
 Aurora Serverless v2 can increase capacity incrementally. When your workload demand begins to reach the current
 database capacity of a writer or reader, Aurora Serverless v2 increases the number of ACUs for that writer or
 reader. Aurora Serverless v2 scales capacity in the increments required to provide the best performance for the
@@ -210,7 +208,7 @@ resources consumed. Scaling happens in increments as small as 0.5 ACUs. The larg
 larger the scaling increment and thus the faster scaling can happen.
 
 Because Aurora Serverless v2 scaling is so frequent, granular, and nondisruptive, it doesn't cause discrete
-events in the AWS Management Console the way that Aurora Serverless v1 does. Instead, you can measure the Amazon CloudWatch metrics
+events in the AWS Management Console. Instead, you can measure the Amazon CloudWatch metrics
 such as `ServerlessDatabaseCapacity` and `ACUUtilization` and track their minimum,
 maximum, and average values over time. To learn more about Aurora metrics, see
 [Monitoring metrics in an Amazon Aurora cluster](MonitoringAurora.md "MonitoringAurora.md"). For tips about monitoring
@@ -233,8 +231,7 @@ writer. You do so by specifying the promotion tier for that reader.
 For details about promotion tiers, see
 [Choosing the promotion tier for an Aurora Serverless v2 reader](aurora-serverless-v2-administration.md#aurora-serverless-v2-choosing-promotion-tier "aurora-serverless-v2-administration.md#aurora-serverless-v2-choosing-promotion-tier").
 
-The notions of scaling points and associated timeout periods from Aurora Serverless v1 don't apply in
-Aurora Serverless v2. Aurora Serverless v2 scaling can happen while database connections are open, while SQL
+Aurora Serverless v2 scaling can happen while database connections are open, while SQL
 transactions are in process, while tables are locked, and while temporary tables are in use.
 Aurora Serverless v2 doesn't wait for a quiet point to begin scaling. Scaling doesn't disrupt any
 database operations that are underway.
@@ -264,8 +261,6 @@ For information about how to use it effectively, see
 In older Aurora MySQL and Aurora PostgreSQL versions, idle Aurora Serverless v2 writers and readers can scale down to the
 minimum ACU value that you specified for the cluster, but not all the way to zero ACUs.
 In that case, zero ACUs isn't available as a choice when you set the capacity range.
-That behavior is different than Aurora Serverless v1, which can pause after a period of idleness, but then
-takes some time to resume when you open a new connection.
 
 When your DB cluster with Aurora Serverless v2 capacity isn't needed for some time, you can also stop and start
 the entire cluster, the same as with provisioned DB clusters. This technique is most appropriate for development
@@ -287,7 +282,7 @@ idle. For details about how Aurora works with AWS Regions and Availability Zones
 [High availability for Aurora DB instances](Concepts.AuroraHighAvailability.md#Concepts.AuroraHighAvailability.Instances "Concepts.AuroraHighAvailability.md#Concepts.AuroraHighAvailability.Instances").
 
 The Aurora Serverless v2 Multi-AZ capability uses _readers_ in addition to the writer.
-Support for readers is new for Aurora Serverless v2 compared to Aurora Serverless v1. You can add up to 15
+Support for readers is new for Aurora Serverless v2. You can add up to 15
 Aurora Serverless v2 readers spread across 3 AZs to an Aurora DB cluster.
 
 For business-critical applications that must remain available even in case of an issue that affects your

@@ -32,7 +32,6 @@ PostgreSQL documentation for the actual default value.
 Unless otherwise noted, parameters listed in the following tables are valid for Aurora MySQL versions 2 and 3.
 
 For more information about DB parameter groups, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
-For rules and restrictions for Aurora Serverless v1 clusters, see [Parameter groups for Aurora Serverless v1](aurora-serverless-v1.how-it-works.md#aurora-serverless.parameter-groups "aurora-serverless-v1.how-it-works.md#aurora-serverless.parameter-groups").
 
 ###### Topics
 

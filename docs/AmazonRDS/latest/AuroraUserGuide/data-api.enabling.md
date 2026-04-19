@@ -6,15 +6,14 @@ enable Data API when you create or modify the DB cluster.
 ###### Note
 
 Whether Data API is available for your cluster depends on your Aurora version, database engine, and AWS Region.
-For older Aurora versions, Data API only works with Aurora Serverless v1 clusters.
-For newer Aurora versions, Data API works with clusters that use both provisioned and Aurora Serverless v2 instances.
+For Aurora, Data API works with clusters that use both provisioned and Aurora Serverless v2 instances.
 To check whether your cluster can use Data API, see
 [Supported Regions and Aurora DB engines for RDS Data API](Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.md").
 
 ###### Topics
 
 - [Enabling RDS Data API when you create a database](#data-api.enabling.creating "#data-api.enabling.creating")
-- [Enabling RDS Data API on an existing database](#data-api.enabling.modifying "#data-api.enabling.modifying")
+- [Enabling or disabling RDS Data API on an existing database](#data-api.enabling.modifying "#data-api.enabling.modifying")
 
 ## Enabling RDS Data API when you create a database
 
@@ -32,7 +31,6 @@ For instructions on how to create an Aurora DB cluster that can use the RDS Data
 following:
 
 - For Aurora Serverless v2 and provisioned clusters – [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md")
-- For Aurora Serverless v1 – [Creating an Aurora Serverless v1 DB cluster](aurora-serverless.create.md "aurora-serverless.create.md")
   To enable Data API while you're creating an Aurora DB cluster, run the
   [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md") AWS CLI command with the
   `--enable-http-endpoint` option.
@@ -44,25 +42,25 @@ For Linux, macOS, or Unix:
 
 ```
 aws rds create-db-cluster \
-    --db-cluster-identifier `my_pg_cluster` \
-    --engine aurora-postgresql \
-    --enable-http-endpoint
+	    --db-cluster-identifier `my_pg_cluster` \
+	    --engine aurora-postgresql \
+	    --enable-http-endpoint
 ```
 
 For Windows:
 
 ```
 aws rds create-db-cluster ^
-    --db-cluster-identifier `my_pg_cluster` ^
-    --engine aurora-postgresql ^
-    --enable-http-endpoint
+	    --db-cluster-identifier `my_pg_cluster` ^
+	    --engine aurora-postgresql ^
+	    --enable-http-endpoint
 ```
 
 To enable Data API while you're creating an Aurora DB cluster, use the
 [CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md") operation with the
 value of the `EnableHttpEndpoint` parameter set to `true`.
 
-## Enabling RDS Data API on an existing database
+## Enabling or disabling RDS Data API on an existing database
 
 You can modify a DB cluster that supports RDS Data API (Data API) to enable or
 disable this feature.
@@ -70,19 +68,18 @@ disable this feature.
 ###### Topics
 
 - [Enabling or disabling Data API (Aurora Serverless v2 and provisioned)](#data-api.enabling.modifying.all "#data-api.enabling.modifying.all")
-- [Enabling or disabling Data API (Aurora Serverless v1 only)](#data-api.enabling.modifying.sv1 "#data-api.enabling.modifying.sv1")
 
 ### Enabling or disabling Data API (Aurora Serverless v2 and provisioned)
 
 Use the following procedures to enable or disable Data API on Aurora Serverless v2 and provisioned databases.
-To enable or disable Data API on Aurora Serverless v1 databases, use the procedures in [Enabling or disabling Data API (Aurora Serverless v1 only)](#data-api.enabling.modifying.sv1 "#data-api.enabling.modifying.sv1").
 
 You can enable or disable Data API by using the RDS console for a
 DB cluster that supports this feature. To do so, open the cluster
 details page of the database on which you want to enable or disable Data
-API, and on the **Connectivity & security** tab, go
-to the **RDS Data API** section. This section displays
-the status of Data API, and allows you to enable or disable it.
+API, and select **Enable RDS Data API** or
+**Disable RDS Data API** from the
+**Actions** dropdown menu. This will allow you to
+enable or disable the RDS Data API for your cluster.
 
 The following screenshot shows that the **RDS Data
 API** isn't enabled.
@@ -99,61 +96,16 @@ For Linux, macOS, or Unix:
 
 ```
 aws rds enable-http-endpoint \
-    --resource-arn `cluster_arn`
+	    --resource-arn `cluster_arn`
 ```
 
 For Windows:
 
 ```
 aws rds enable-http-endpoint ^
-    --resource-arn `cluster_arn`
+	    --resource-arn `cluster_arn`
 ```
 
 To enable or disable Data API on an existing database, use the
 [EnableHttpEndpoint](../APIReference/API_EnableHttpEndpoint.md "../APIReference/API_EnableHttpEndpoint.md") and
 [DisableHttpEndpoint](../APIReference/API_DisableHttpEndpoint.md "../APIReference/API_DisableHttpEndpoint.md") operations.
-
-### Enabling or disabling Data API (Aurora Serverless v1 only)
-
-Use the following procedures to enable or disable Data API on existing
-Aurora Serverless v1 databases. To enable or disable Data API on Aurora Serverless v2 and provisioned databases,
-use the procedures in [Enabling or disabling Data API (Aurora Serverless v2 and provisioned)](#data-api.enabling.modifying.all "#data-api.enabling.modifying.all").
-
-When you modify an Aurora Serverless v1 DB cluster, you enable Data
-API in the RDS console's **Connectivity**
-section.
-
-The following screenshot shows the enabled **Data
-API** when modifying an Aurora DB cluster.
-
-![The Connectivity section on the Modify DB Cluster page, the Data API checkbox is selected.](images/data-api-modify-serverlessv1.png)
-For instructions on how to modify an Aurora Serverless
-v1 DB cluster, see [Modifying an Aurora Serverless v1 DB cluster](aurora-serverless.modifying.md "aurora-serverless.modifying.md").
-
-To enable or disable Data API, run the
-[modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") AWS CLI command, with the
-`--enable-http-endpoint` or
-`--no-enable-http-endpoint`, as applicable.
-
-The following example enables Data API on
-`sample-cluster`.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds modify-db-cluster \
-    --db-cluster-identifier sample-cluster \
-    --enable-http-endpoint
-```
-
-For Windows:
-
-```
-aws rds modify-db-cluster ^
-    --db-cluster-identifier sample-cluster ^
-    --enable-http-endpoint
-```
-
-To enable Data API, use the [ModifyDBCluster](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md")
-operation, and set the value of `EnableHttpEndpoint` to
-`true` or `false`, as applicable.

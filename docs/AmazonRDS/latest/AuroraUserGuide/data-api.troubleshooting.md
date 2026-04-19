@@ -85,11 +85,6 @@ To solve this issue, wait until the previous request finishes and then retry the
 the error no longer occurs, or the application receives some different kind of error.
 
 This condition can happen with Data API for Aurora Serverless v2 and provisioned instances.
-In Data API for Aurora Serverless v1, subsequent requests for the same transaction ID automatically
-wait for the previous request to finish. However, that older behavior potentially could encounter timeouts
-due to the previous request taking too long. If you are porting an older Data API application that
-makes concurrent requests, modify your exception handling logic to account for this new kind
-of error.
 
 ## Unsupported result exception
 
@@ -101,8 +96,8 @@ For example:
 
 ```
 SELECT custom_type::TEXT FROM my_table;
--- OR
-SELECT CAST(custom_type AS TEXT) FROM my_table;
+	-- OR
+	SELECT CAST(custom_type AS TEXT) FROM my_table;
 ```
 
 ## Multi-statements aren't supported

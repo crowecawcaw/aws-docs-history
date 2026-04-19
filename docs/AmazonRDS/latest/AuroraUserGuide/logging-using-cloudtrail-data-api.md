@@ -105,46 +105,6 @@ aws cloudtrail put-event-selectors --trail-name `trail_name` --advanced-event-se
 You can configure advanced event selectors to additionally filter on the `readOnly`, `eventName,` and `resources.ARN` fields.
 For more information on these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md").
 
-### Excluding Data API events from an AWS CloudTrail trail (Aurora Serverless v1 only)
-
-For Aurora Serverless v1, Data API events are management events. By default, all Data API
-events are included in an AWS CloudTrail trail. However, because Data API can generate a large
-number of events, you might want to exclude these events from your CloudTrail trail. The
-**Exclude Amazon RDS Data API events** setting excludes all Data API events
-from the trail. You can't exclude specific Data API events.
-
-To exclude Data API events from a trail, do the following:
-
-- In the CloudTrail console, choose the **Exclude Amazon RDS Data API events**
-  setting when you [create a
-  trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.md") or [update
-  a trail](../../../awscloudtrail/latest/userguide/cloudtrail-update-a-trail-console.md "../../../awscloudtrail/latest/userguide/cloudtrail-update-a-trail-console.md").
-- In the CloudTrail API, use the [PutEventSelectors](../../../awscloudtrail/latest/APIReference/API_PutEventSelectors.md "../../../awscloudtrail/latest/APIReference/API_PutEventSelectors.md")
-  operation. If you're using advanced event selectors, you can exclude Data API events by setting the
-  `eventSource` field not equal to `rdsdata.amazonaws.com`. If you're using basic
-  event selectors, you can exclude Data API events by setting the value of the `ExcludeManagementEventSources`
-  attribute to `rdsdata.amazonaws.com`. For more
-  information, see [Logging events with the AWS Command Line Interface](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#creating-mgmt-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#creating-mgmt-event-selectors-with-the-AWS-CLI") in the _AWS CloudTrail User Guide_.
-
-###### Warning
-
-Excluding Data API events from a CloudTrail log can obscure Data API actions. Be cautious
-when giving principals the `cloudtrail:PutEventSelectors` permission that is
-required to perform this operation.
-
-You can turn off this exclusion at any time by changing the console setting or the
-event selectors for a trail. The trail will then start recording Data API events.
-However, it can't recover Data API events that occurred while the exclusion was
-effective.
-
-When you exclude Data API events by using the console or API, the resulting CloudTrail
-`PutEventSelectors` API operation is also logged in your CloudTrail logs. If Data API events
-don't appear in your CloudTrail logs, look for a `PutEventSelectors` event with the
-`ExcludeManagementEventSources` attribute set to
-`rdsdata.amazonaws.com`.
-
-For more information, see [Logging management events for trails](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md") in the _AWS CloudTrail User Guide_.
-
 ## Understanding Data API log file entries
 
 A _trail_ is a configuration that enables delivery of

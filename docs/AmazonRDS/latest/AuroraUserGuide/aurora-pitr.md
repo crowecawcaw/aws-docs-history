@@ -27,9 +27,6 @@ specified time](../UserGuide/USER_PIT.md "../UserGuide/USER_PIT.md").
 
 For more information about backing up and restoring an Aurora DB cluster, see [Overview of backing up and restoring an Aurora DB cluster](Aurora.Managing.Backups.md "Aurora.Managing.Backups.md").
 
-For Aurora MySQL, you can restore a provisioned DB cluster to an Aurora Serverless DB cluster. For more
-information, see [Restoring an Aurora Serverless v1 DB cluster](aurora-serverless.restorefromsnapshot.md "aurora-serverless.restorefromsnapshot.md").
-
 You can also use AWS Backup to manage backups of Amazon Aurora DB clusters. If your DB cluster is associated with a backup plan in
 AWS Backup, that backup plan is used for point-in-time recovery. For information, see [Restoring a DB cluster to a specified time using AWS Backup](aurora-pitr-bkp.md "aurora-pitr-bkp.md").
 

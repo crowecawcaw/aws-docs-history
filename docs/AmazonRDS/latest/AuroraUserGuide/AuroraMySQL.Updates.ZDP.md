@@ -15,8 +15,6 @@ ZDP doesn't apply to the following:
 - Major version upgrades
   ZDP is available for all supported Aurora MySQL versions and DB instance classes.
 
-ZDP isn't supported for Aurora Serverless v1 or Aurora global databases.
-
 ###### Note
 
 We recommend using the T DB instance classes only for development and test servers, or other non-production servers. For more

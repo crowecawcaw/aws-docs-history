@@ -189,5 +189,3 @@ with Aurora PostgreSQL.
 Aurora Serverless v2 supports Performance Insights for all MySQL-compatible and
 PostgreSQL-compatible versions. We recommend that you set the minimum capacity to at
 least 2 Aurora capacity units (ACUs).
-
-Aurora Serverless v1 doesn't support Performance Insights.

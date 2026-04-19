@@ -21,10 +21,10 @@ following:
 
 ```
 <dependency>
-   <groupId>software.amazon.rdsdata</groupId>
-   <artifactId>rds-data-api-client-library-java</artifactId>
-   <version>2.0.0</version>
-</dependency>
+	   <groupId>software.amazon.rdsdata</groupId>
+	   <artifactId>rds-data-api-client-library-java</artifactId>
+	   <version>2.0.0</version>
+	</dependency>
 
 ```
 
@@ -33,10 +33,10 @@ following:
 
 ```
 <dependency>
-    <groupId>software.amazon.rdsdata</groupId>
-    <artifactId>rds-data-api-client-library-java</artifactId>
-    <version>1.0.8</version>
-</dependency>
+	    <groupId>software.amazon.rdsdata</groupId>
+	    <artifactId>rds-data-api-client-library-java</artifactId>
+	    <version>1.0.8</version>
+	</dependency>
 
 ```
 
@@ -49,10 +49,10 @@ following data transfer object (DTO).
 
 ```
 public class Account {
-    int accountId;
-    String name;
-    // getters and setters omitted
-}
+	    int accountId;
+	    String name;
+	    // getters and setters omitted
+	}
 ```
 
 The client library enables you to pass DTOs as input parameters. The following example shows how customer DTOs are
@@ -60,10 +60,10 @@ mapped to input parameters sets.
 
 ```
 var account1 = new Account(1, "John");
-var account2 = new Account(2, "Mary");
-client.forSql("INSERT INTO accounts(accountId, name) VALUES(:accountId, :name)")
-         .withParamSets(account1, account2)
-         .execute();
+	var account2 = new Account(2, "Mary");
+	client.forSql("INSERT INTO accounts(accountId, name) VALUES(:accountId, :name)")
+	         .withParamSets(account1, account2)
+	         .execute();
 ```
 
 In some cases, it's easier to work with simple values as input
@@ -71,17 +71,17 @@ parameters. You can do so with the following syntax.
 
 ```
 client.forSql("INSERT INTO accounts(accountId, name) VALUES(:accountId, :name)")
-         .withParameter("accountId", 3)
-         .withParameter("name", "Zhang")
-         .execute();
+	         .withParameter("accountId", 3)
+	         .withParameter("name", "Zhang")
+	         .execute();
 ```
 
 The following is another example that works with simple values as input parameters.
 
 ```
 
-client.forSql("INSERT INTO accounts(accountId, name) VALUES(?, ?)", 4, "Carlos")
-         .execute();
+	client.forSql("INSERT INTO accounts(accountId, name) VALUES(?, ?)", 4, "Carlos")
+	         .execute();
 
 ```
 
@@ -91,12 +91,12 @@ your DTOs.
 
 ```
 List<Account> result = client.forSql("SELECT * FROM accounts")
-          .execute()
-          .mapToList(Account.class);
+	          .execute()
+	          .mapToList(Account.class);
 
-Account result = client.forSql("SELECT * FROM accounts WHERE account_id = 1")
-          .execute()
-          .mapToSingle(Account.class);
+	Account result = client.forSql("SELECT * FROM accounts WHERE account_id = 1")
+	          .execute()
+	          .mapToSingle(Account.class);
 ```
 
 In many cases, the database result set contains only a single value. In order to simplify
@@ -104,8 +104,8 @@ retrieving such results, the client library offers the following API:
 
 ```
 int numberOfAccounts = client.forSql("SELECT COUNT(*) FROM accounts")
-          .execute()
-          .singleValue(Integer.class);
+	          .execute()
+	          .singleValue(Integer.class);
 ```
 
 ###### Note

@@ -14,9 +14,6 @@ see [Loading data into an Amazon Aurora MySQL DB cluster from text files in an A
 
 ###### Note
 
-This feature isn't supported for Aurora Serverless v1 DB clusters. It is supported
-for Aurora Serverless v2 DB clusters.
-
 You can also save DB cluster data and DB cluster snapshot data to Amazon S3 using the
 AWS Management Console, AWS CLI, or Amazon RDS API. For more information, see [Exporting DB cluster data to Amazon S3](export-cluster-data.md "export-cluster-data.md") and [Exporting DB cluster snapshot data to Amazon S3](aurora-export-snapshot.md "aurora-export-snapshot.md").
 
