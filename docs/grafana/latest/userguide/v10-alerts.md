@@ -4,6 +4,9 @@ This documentation topic is designed
 for Grafana workspaces that support **Grafana version
 10.x**.
 
+For Grafana workspaces that support Grafana version 12.x, see
+[Working in Grafana version 12](using-grafana-v12.md "using-grafana-v12.md").
+
 For Grafana workspaces that support Grafana version 9.x, see
 [Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md").
 
@@ -136,6 +139,13 @@ notifications?**
   retrieve rules from all available Amazon Managed Service for Prometheus, Prometheus, Loki, and Alertmanager
   data sources. It might not be able to fetch rules from other supported data
   sources.
+
+###### Important
+
+Amazon Managed Grafana has an alert evaluation timeout of 30 seconds. Queries made by alerts have
+a maximum duration of 30 seconds due to the high volume of queries the alert engine
+can generate. This timeout is not configurable. For more information, see [Amazon Managed Grafana
+service quotas](../../../general/latest/gr/grafana-service.md#grafana-quotas "../../../general/latest/gr/grafana-service.md#grafana-quotas") in the _AWS General Reference_.
 
 ###### Topics
 

@@ -4,6 +4,9 @@ This documentation topic is designed
 for Grafana workspaces that support **Grafana version
 9.x**.
 
+For Grafana workspaces that support Grafana version 12.x, see
+[Working in Grafana version 12](using-grafana-v12.md "using-grafana-v12.md").
+
 For Grafana workspaces that support Grafana version 10.x, see
 [Working in Grafana version 10](using-grafana-v10.md "using-grafana-v10.md").
 
@@ -231,19 +234,3 @@ If the selected data source implements logs sample, and supports both log and
 metric queries, then for metric queries you will be able to automatically see
 samples of log lines that contributed to visualized metrics. This feature is
 currently supported by Loki data sources.
-
-**Live tailing**
-
-Use the Live tailing feature to see real-time logs on supported data
-sources.
-
-Select the **Live** button in the Explore toolbar
-to switch to Live tail view.
-
-While in Live tail view new logs will come from the bottom of the screen and
-will have fading contrasting background so you can keep track of what is new.
-Select the **Pause** button or scroll the logs view
-to pause the Live tailing and explore previous logs without interruption. Select
-**Resume** button to resume the Live tailing or
-select **Stop** button to exit Live tailing and go
-back to standard Explore view.

@@ -31,3 +31,5 @@ Additionally, Amazon Managed Grafana has the following quotas within each worksp
 | Network access control:<br>Prefix lists                                                                                                | No         | 5 per workspace.                                  |
 | Network access control:<br>IP address ranges                                                                                           | No         | 100 per prefix list.                              |
 | Network access control:<br>VPC endpoints                                                                                               | No         | 5 per workspace.                                  |
+| Annotations<br>Applies to workspaces running Grafana version 12 and later.                                                             | No         | 3,000,000 per workspace.                          |
+| Alert rule evaluation results<br>Applies to workspaces running Grafana version 12 and later.                                           | No         | 500 per alert rule evaluation.                    |

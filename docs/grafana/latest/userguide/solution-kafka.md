@@ -204,7 +204,7 @@ kubectl annotate deployment foo instrumentation.opentelemetry.io/inject-java=tru
 ```
 
 5. Create a service account token with ADMIN access for calling
-   Grafana HTTP APIs. For details, see [Use service accounts to authenticate with the Grafana HTTP APIs](service-accounts.md "service-accounts.md"). You can use the AWS CLI with the following
+   Grafana HTTP APIs. For details, see [Using service accounts](v12-authenticating-grafana-apis.md#v12-service-accounts "v12-authenticating-grafana-apis.md#v12-service-accounts"). You can use the AWS CLI with the following
    commands to create the token. You will need to replace the
    `GRAFANA_ID` with the ID of your Grafana workspace (it
    will be in the form `g-123example`). This key will expire after

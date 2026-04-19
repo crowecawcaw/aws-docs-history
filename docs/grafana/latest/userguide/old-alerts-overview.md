@@ -1,9 +1,9 @@
 # Classic dashboard alerts
 
 This documentation topic discusses
-legacy alerting in Grafana. This will not be supported in future versions
-of Amazon Managed Grafana. You can migrate to Grafana alerting to use the latest
-alerting features. For more information, see one of the following
+legacy alerting in Grafana. Legacy alerting is removed in Amazon Managed Grafana
+version 12. You must migrate to Grafana alerting before upgrading to
+v12. For more information, see one of the following
 topics.
 
 For Grafana workspaces that support Grafana version 10.x, see
@@ -20,9 +20,6 @@ For Grafana workspaces that support Grafana version 8.x, see
 This section describes the classic dashboard alerts system in Grafana. To learn about
 migrating to, and using, the new Grafana alerting, which is designed to view Prometheus
 Alertmanager alerts along with Grafana alerts, see [Alerts in Grafana version 10](v10-alerts.md "v10-alerts.md").
-
-GrafanaLabs has announced the removal of classic dashboard alerts in version 11 of
-Grafana.
 
 Classic dashboard alerts consist of two parts:
 

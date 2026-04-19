@@ -4,6 +4,9 @@ This documentation topic is designed
 for Grafana workspaces that support **Grafana version
 10.x**.
 
+For Grafana workspaces that support Grafana version 12.x, see
+[Working in Grafana version 12](using-grafana-v12.md "using-grafana-v12.md").
+
 For Grafana workspaces that support Grafana version 9.x, see
 [Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md").
 
@@ -25,7 +28,7 @@ You can annotate visualizations in three ways:
   supports this.
 
 This section explains the first and third options; for information about using the
-Grafana HTTP API, refer to [Annotations API](Grafana-API-Annotations.md "Grafana-API-Annotations.md").
+Grafana HTTP API, refer to [Annotations API](v10-Grafana-API-Annotations.md "v10-Grafana-API-Annotations.md").
 
 Annotations are supported for the following visualization types:
 

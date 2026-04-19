@@ -8,7 +8,7 @@ information.
 ###### Note
 
 If you are trying to connect to your workspace programmatically, you must use
-API tokens. For more information, see [Authenticate with tokens](authenticating-grafana-apis.md "authenticating-grafana-apis.md").
+API tokens. For more information, see [Authenticate with service accounts](v12-authenticating-grafana-apis.md "v12-authenticating-grafana-apis.md").
 
 ###### To sign in to your Grafana workspace
 

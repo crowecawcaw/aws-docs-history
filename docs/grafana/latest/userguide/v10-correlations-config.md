@@ -4,6 +4,9 @@ This documentation topic is designed
 for Grafana workspaces that support **Grafana version
 10.x**.
 
+For Grafana workspaces that support Grafana version 12.x, see
+[Working in Grafana version 12](using-grafana-v12.md "using-grafana-v12.md").
+
 For Grafana workspaces that support Grafana version 9.x, see
 [Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md").
 
@@ -34,8 +37,8 @@ The target query run when a link is clicked.
 
 **Transformations**
 
-Optional manipulations to the source data included passed to the target
-query.
+Optional manipulations applied to the source data before it is passed
+to the target query.
 
 For details about creating a correlation, see [Create a correlation](v10-correlations-create.md "v10-correlations-create.md").
 

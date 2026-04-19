@@ -4,6 +4,9 @@ This documentation topic is designed
 for Grafana workspaces that support **Grafana version
 10.x**.
 
+For Grafana workspaces that support Grafana version 12.x, see
+[Working in Grafana version 12](using-grafana-v12.md "using-grafana-v12.md").
+
 For Grafana workspaces that support Grafana version 9.x, see
 [Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md").
 
@@ -102,7 +105,7 @@ created.
 ## Grafana alerting vs legacy dashboard alerting
 
 Introduced in Grafana 8, Grafana alerting has several enhancements over
-legacy dashboard alerting.
+classic dashboard alerting.
 
 ### Multi-dimensional alerting
 

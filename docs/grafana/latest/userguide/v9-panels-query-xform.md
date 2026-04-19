@@ -4,6 +4,9 @@ This documentation topic is designed
 for Grafana workspaces that support **Grafana version
 9.x**.
 
+For Grafana workspaces that support Grafana version 12.x, see
+[Working in Grafana version 12](using-grafana-v12.md "using-grafana-v12.md").
+
 For Grafana workspaces that support Grafana version 10.x, see
 [Working in Grafana version 10](using-grafana-v10.md "using-grafana-v10.md").
 
@@ -129,10 +132,6 @@ You can limit the number of points to improve query performance or smooth the
 visualized line. The default value is the width (or number of pixels) of the
 graph, because you can only visualize as many data points as the graph panel has
 room to display.
-
-With streaming data, Grafana uses the max data points value for the rolling
-buffer. Streaming is a continuous flow of data, and buffering divides the stream
-into chunks. For example, Loki streams data in its live tailing mode.
 
 - **Min interval** – Sets a minimum limit
   for the automatically calculated interval, which is typically the minimum scrape

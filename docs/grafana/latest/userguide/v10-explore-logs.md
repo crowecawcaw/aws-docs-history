@@ -4,6 +4,9 @@ This documentation topic is designed
 for Grafana workspaces that support **Grafana version
 10.x**.
 
+For Grafana workspaces that support Grafana version 12.x, see
+[Working in Grafana version 12](using-grafana-v12.md "using-grafana-v12.md").
+
 For Grafana workspaces that support Grafana version 9.x, see
 [Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md").
 
@@ -241,50 +244,3 @@ information.
 
 This is only supported in Loki and other data sources that provide an
 `id` field.
-
-## Live tailing
-
-To view real-time logs from supported data sources, you can leverage the Live
-tailing feature in Explore.
-
-###### To view logs in real-time with live tailing
-
-1. Choose the **Live** button in the Explore toolbar to
-   switch to Live tail view.
-2. While in Live tail view, new logs will appear from the bottom of the
-   screen, and they will have a fading contrasting background, allowing you to
-   easily track what’s new.
-3. If you wish to pause the Live tailing and explore previous logs without
-   any interruptions, you can do so by choosing the **Pause**
-   button or simply scrolling through the logs view.
-4. To clear the view and remove all logs from the display, choose the
-   **Clear logs** button. This action will reset the log view
-   and provide you with a clean slate to continue your log analysis.
-5. To resume Live tailing and continue viewing real-time logs, choose the
-   **Resume** button.
-6. If you want to exit Live tailing and return to the standard Explore view,
-   choose the **Stop** button.
-
-Using the Live tailing feature, you can keep a close eye on the latest logs as
-they come in, making it easier to monitor real-time events and detect issues
-promptly.
-
-**Logs sample**
-
-If the selected data source implements logs sample, and supports both log and
-metric queries, then for metric queries you will be able to automatically see
-samples of log lines that contributed to visualized metrics. This feature is
-currently supported by Loki data sources.
-
-**Switch from metrics to logs**
-
-If you are coming from a metrics data source that implements
-`DataSourceWithQueryExportSupport` (such as Prometheus) to
-a logging data source that supports `DataSourceWithQueryImportSupport`
-(such as Loki), then it will keep the labels from your query that exist in the logs
-and use those to query the log streams.
-
-For example, the following Prometheus query
-`grafana_alerting_active_alerts{job='grafana'}` after switching to the
-Loki data source, will change to `{job='grafana'}`. This will return a
-chunk of logs in the selected time range that can be grepped/text searched.

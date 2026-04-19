@@ -4,6 +4,9 @@ This documentation topic is designed
 for Grafana workspaces that support **Grafana version
 10.x**.
 
+For Grafana workspaces that support Grafana version 12.x, see
+[Working in Grafana version 12](using-grafana-v12.md "using-grafana-v12.md").
+
 For Grafana workspaces that support Grafana version 9.x, see
 [Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md").
 
@@ -76,7 +79,7 @@ You can use the command palette to do the following:
 - Locate pages within Grafana.
 - Change the theme to dark or light.
 
-Top open the command palette, enter `ctrl+k` (`cmd+k` in
+To open the command palette, enter `ctrl+k` (`cmd+k` in
 MacOS). You can also select the search input in the Grafana navigation bar.
 
 ###### Note

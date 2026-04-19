@@ -50,9 +50,9 @@ The same options are available to you when you first create your workspace.
 
    ###### Note
 
-   Classic dashboard alerts will be removed in version 11. In Grafana
-   version 10 workspaces, you can preview the Grafana alerting feature.
-   For more information, see [Migrating classic dashboard alerts to Grafana alerting](v10-alerting-use-grafana-alerts.md "v10-alerting-use-grafana-alerts.md").
+   Classic dashboard alerts have been removed in Grafana version 12.
+   In version 12 workspaces, Grafana alerting is always enabled and
+   the toggle is no longer available. For more information, see [Migrating classic dashboard alerts to Grafana alerting](v10-alerting-use-grafana-alerts.md "v10-alerting-use-grafana-alerts.md").
    - **Plugin management**
 
    To turn on plugin management, select the check box to **Turn

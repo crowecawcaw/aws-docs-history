@@ -21,6 +21,7 @@ from one version to another, see [Update your workspace version](AMG-workspace-v
 - [Create your first dashboard](getting-started-grafanaui.md "getting-started-grafanaui.md")
 - [Extend your workspace with plugins](grafana-plugins.md "grafana-plugins.md")
 - [Connect to data sources](AMG-data-sources.md "AMG-data-sources.md")
+- [Working in Grafana version 12](using-grafana-v12.md "using-grafana-v12.md")
 - [Working in Grafana version 10](using-grafana-v10.md "using-grafana-v10.md")
 - [Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md")
 - [Working in Grafana version 8](using-grafana-v8.md "using-grafana-v8.md")

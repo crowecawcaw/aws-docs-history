@@ -1,9 +1,9 @@
 # Troubleshooting alerts
 
 This documentation topic discusses
-legacy alerting in Grafana. This will not be supported in future versions
-of Amazon Managed Grafana. You can migrate to Grafana alerting to use the latest
-alerting features. For more information, see one of the following
+legacy alerting in Grafana. Legacy alerting is removed in Amazon Managed Grafana
+version 12. You must migrate to Grafana alerting before upgrading to
+v12. For more information, see one of the following
 topics.
 
 For Grafana workspaces that support Grafana version 10.x, see

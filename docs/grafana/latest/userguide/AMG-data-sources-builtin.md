@@ -16,6 +16,7 @@ here. For more information about managing plugins, see [Extend your workspace wi
 - [AWS IoT SiteWise](using-iotsitewise-in-AMG.md "using-iotsitewise-in-AMG.md")
 - [AWS IoT TwinMaker](AMG-iot-twinmaker.md "AMG-iot-twinmaker.md")
 - [Prometheus](prometheus-data-source.md "prometheus-data-source.md")
+- [Amazon Managed Service for Prometheus](amazon-prometheus-data-source.md "amazon-prometheus-data-source.md")
 - [Amazon Timestream](timestream-datasource.md "timestream-datasource.md")
 - [Amazon Athena](AWS-Athena.md "AWS-Athena.md")
 - [Amazon Redshift](AWS-Redshift.md "AWS-Redshift.md")
