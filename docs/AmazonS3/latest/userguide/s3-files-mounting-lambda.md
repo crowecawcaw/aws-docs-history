@@ -45,7 +45,7 @@ following:
 - Specify the local mount path.
 - If you have more than one access points, select an access
   point.
-- Click **Attach**. Your file system will now
+- Choose **Attach**. Your file system will now
   be attached the next time you invoke your Lambda
   function.
 

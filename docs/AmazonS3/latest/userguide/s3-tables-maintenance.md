@@ -138,16 +138,40 @@ references only to that table. References to these objects from outside the tabl
 
 ###### Note
 
-Snapshot management does not support retention values you configure as Iceberg
-table properties in the `metadata.json` file or through an
-`ALTER TABLE SET TBLPROPERTIES` SQL command, including branch or
-tag-based retention. Snapshot management is disabled when you
-configure a branch or tag-based retention policy, or configure a retention policy on
-the `metadata.json` file that is longer than the values
-configured through the `PutTableMaintenanceConfiguration` API. In these
-cases S3 will not expire or remove snapshots and you will need to manually delete
-snapshots or remove the properties from your Iceberg table to avoid storage
-charges.
+Snapshot management does not support retention values that you configure as
+Apache Iceberg table properties in the `metadata.json` file or
+through an `ALTER TABLE SET TBLPROPERTIES` SQL command. If any of the
+following conditions exist, snapshot management will fail for the entire table and
+Amazon S3 will not expire or remove any snapshots:
+
+- **User-defined tags or branches** –
+  If any user-defined tag or branch exists on the table, snapshot management
+  will fail for the entire table. This applies even if the tag or branch has
+  a short retention period. To restore automated snapshot expiration, remove
+  all user-defined tags and branches from the table.
+- **Iceberg snapshot retention table properties**
+  – If the `history.expire.max-snapshot-age-ms` or
+  `history.expire.min-snapshots-to-keep` property is set as an
+  Apache Iceberg table property, snapshot management will fail for the entire
+  table regardless of the configured value. To restore automated snapshot
+  expiration, remove these properties:
+
+```
+ALTER TABLE `mydb`.`mytable` UNSET TBLPROPERTIES ('history.expire.max-snapshot-age-ms');
+ALTER TABLE `mydb`.`mytable` UNSET TBLPROPERTIES ('history.expire.min-snapshots-to-keep');
+```
+
+To diagnose snapshot management failures, use the
+`GetTableMaintenanceJobStatus` API or run the following AWS CLI command.
+If snapshot management has failed, the response includes a `FAILED`
+status with a message that describes the cause of the failure.
+
+```
+aws s3tables get-table-maintenance-job-status \
+    --table-bucket-arn arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/`amzn-s3-demo-table-bucket` \
+    --namespace `my_namespace` \
+    --name `my_table`
+```
 
 You can only configure snapshot management at the table level. For more information,
 see the pricing information in the [Amazon S3

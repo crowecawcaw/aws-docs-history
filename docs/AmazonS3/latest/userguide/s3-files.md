@@ -26,13 +26,16 @@ efficient S3 requests on your behalf. Many read operations bypass the file syste
 entirely, with data served directly from S3.
 
 You can configure the file size threshold for what gets loaded onto the
-high-performance storage (default 128 KB), as latencies matter most for small files. Data
-that does not meet this threshold is read directly from S3. For reads of 128 KB or larger
-on data that has already been synchronized to S3, S3 Files streams directly from S3 even
-if the data resides on the high-performance storage, since S3 is optimized for high
-throughput while the file system's high performance storage layer is optimized for
-low-latency small-file access. Recently modified data that has not yet been synchronized
-to S3 is always served from the file system. For more information, see [Customizing synchronization for S3 Files](s3-files-synchronization-customizing.md "s3-files-synchronization-customizing.md").
+high-performance storage (default <128 KiB), as latencies matter most for small files. S3
+Files streams file reads directly from your S3 bucket in two cases: when the file's data
+is not stored in the file system's high-performance storage, and for large reads >= 1
+MiB, even when the data also resides on the file system's high-performance storage. The
+S3 bucket is optimized for high throughput while the file system's high-performance
+storage layer is optimized for low-latency access. S3 Files asynchronously imports data
+for small files (< 128 KiB by default) to the file system's high-performance storage
+for low latency access on subsequent reads. Recently modified data that has not yet been
+synchronized to S3 is always served from the file system. For more information, see
+[Customizing synchronization for S3 Files](s3-files-synchronization-customizing.md "s3-files-synchronization-customizing.md").
 
 Data that has not been read within a configurable window (1 to 365 days, default 30)
 automatically expires from the high-performance storage. Your authoritative data always
@@ -144,15 +147,17 @@ consistency, file locking, and POSIX permissions.
 
 You pay a storage rate for the fraction of active data resident on the
 high-performance storage, and you pay file system access charges for reading from and
-writing to your file system's high performance storage. For reads of 128 KB or larger on
-data that has already been synchronized to S3, S3 Files streams directly from S3 even if
-the data resides on the high-performance storage, since S3 is optimized for high
-throughput while the file system's high performance storage layer is optimized for
-low-latency small-file access. These reads incur only standard S3 GET request cost with
-no file system access charge. The file system access charges apply to synchronization
-operations: importing data onto the file system incurs write charges, and exporting
-changes back to S3 incurs read charges. For more information, see [How S3 Files is metered](s3-files-metering.md "s3-files-metering.md"). For current
-pricing, see the [S3 Files pricing
+writing to your file system's high performance storage. S3 Files streams file reads
+directly from your S3 bucket in two cases: when the file's data is not stored in the
+file system's high-performance storage, and for large reads >= 1 MiB, even when the data
+also resides on the file system's high-performance storage. The S3 bucket is optimized
+for high throughput while the file system's high-performance storage layer is optimized
+for low-latency access. S3 Files asynchronously imports data for small files (< 128
+KiB by default) to the file system's high-performance storage for low latency access on
+subsequent reads. These reads incur only standard S3 GET request cost with no file system
+access charge. The file system access charges apply to synchronization operations:
+importing data onto the file system incurs write charges, and exporting changes back to
+S3 incurs read charges. For more information, see [How S3 Files is metered](s3-files-metering.md "s3-files-metering.md"). For current pricing, see the [S3 Files pricing
 page](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
 ###### Topics

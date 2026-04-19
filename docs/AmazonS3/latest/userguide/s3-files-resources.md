@@ -62,6 +62,14 @@ resources to help organize, identify, and manage them.
 
 - [Tagging S3 Files resources](s3-files-tagging.md "s3-files-tagging.md")
 
+## CloudFormation template
+
+You can also use CloudFormation templates to create and manage S3 Files resources. See
+[Amazon Simple
+Storage Service Files (Amazon S3 Files)](../../../AWSCloudFormation/latest/TemplateReference/AWS_S3Files.md "../../../AWSCloudFormation/latest/TemplateReference/AWS_S3Files.md") in the _AWS
+CloudFormation User Guide_ for all available S3 Files resource
+types.
+
 ###### Topics
 
 - [Creating file systems](s3-files-file-systems-creating.md "s3-files-file-systems-creating.md")

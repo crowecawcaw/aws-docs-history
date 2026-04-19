@@ -33,32 +33,37 @@ S3 Files meters every file system operation as either a read or a write. Each
 operation has a minimum metered size.
 
 **Data reads** such as reading a file's contents are
-metered at the size of the data read, with a minimum of 32 KB per read operation. There
+metered at the size of the data read, with a minimum of 32 KiB per read operation. There
 are also cases when a read is served directly from your S3 bucket (see below) for
 performance optimization, and such operations are not metered for data read and are only
-metered for a 4 KB metadata read.
+metered for a 4 KiB metadata read.
 
 **Data writes** such as writing or appending to a file
-are metered at the size of the data written, with a minimum of 32 KB per write
+are metered at the size of the data written, with a minimum of 32 KiB per write
 operation.
 
 **Metadata operations** such as listing a directory,
 viewing file attributes, creating or deleting files and directories, renaming, and
-changing permissions are metered as reads at 4 KB per operation. The commit operation
+changing permissions are metered as 4 KiB metadata read operation. The commit operation
 (triggered by `fsync` or closing file after write) is the only metadata
-operation metered as a write, at 4 KB.
+operation metered as a metadata write, at 4 KiB. Note that a metadata read operation is
+charged same as a data read operation and a metadata write operation is charged the same
+as a data write operation.
 
-All metered sizes are rounded up to the next 1 KB boundary.
+All metered sizes are rounded up to the next 1 KiB boundary.
 
 ## How reads are metered when served directly from Amazon S3
 
-For reads of 128 KB or larger on data that has already been synchronized to S3, S3 Files
-automatically streams directly from S3 even if the data resides on the high-performance
-storage, since S3 is optimized for high throughput while the file system's high
-performance storage is optimized for low-latency small-file access.
+S3 Files streams file reads directly from your S3 bucket in two cases: when the
+file's data is not stored in the file system's high-performance storage, and for large
+reads >= 1 MiB, even when the data also resides on the file system's high-performance
+storage. The S3 bucket is optimized for high throughput while the file system's
+high-performance storage layer is optimized for low-latency access. S3 Files
+asynchronously imports data for small files (< 128 KiB by default) to the file
+system's high-performance storage for low latency access on subsequent reads.
 
 In such cases, you pay for S3 GET requests instead of file system data reads. S3 Files
-meters only a 4 KB metadata read operation for such reads.
+meters only a 4 KiB metadata read operation for such reads.
 
 ## How synchronization is metered
 
@@ -91,7 +96,7 @@ and do not support atomic renames. As a result, when you rename or move a file, 
 must write the data to a new object with the updated key (metered as an S3 PUT request)
 and delete the original. The synchronization of rename operations also meters as a file
 system read for any data read from the file system. If the file's data was never copied
-onto the file system's high performance storage, the file system meters only for a 4 KB
+onto the file system's high performance storage, the file system meters only for a 4 KiB
 metadata read operation. When you rename or move a directory, S3 Files must repeat this
 process (and meter) for every object that shares that prefix. For more information, see
 [Understanding the impact of rename and move operations](s3-files-synchronization.md#s3-files-sync-rename-move "s3-files-synchronization.md#s3-files-sync-rename-move").
@@ -104,28 +109,19 @@ from the file system, no file system operation charges apply.
 **Listing a large directory for the first time**
 
 When you first list a directory, S3 Files imports metadata for all files in that
-directory. Each file's metadata import is metered as a 4 KB write. Depending on your
+directory. Each file's metadata import is metered as a 4 KiB write. Depending on your
 import configuration, S3 Files may also prefetch and copy data for small files in that
 directory on to the file system's high performance storage to optimize performance. Each
-file's data import is metered as a write at the file's size (32 KB minimum). You can
+file's data import is metered as a write at the file's size (32 KiB minimum). You can
 control which files have their data imported by configuring your import rules. For more
 information, see [Customizing synchronization for S3 Files](s3-files-synchronization-customizing.md "s3-files-synchronization-customizing.md").
-
-**Reading a large file**
-
-For reads of 128 KB or larger on data that has already been synchronized to S3, S3 Files
-streams directly from S3 even if the data resides on the high-performance storage, since
-S3 is optimized for high throughput while the file system's high performance storage
-layer is optimized for low-latency small-file access. You pay the S3 GET request pricing
-along with a 4 KB metadata read operation. No file system data read charge
-applies.
 
 **Reading a small file that is not in the file system's high
 performance storage**
 
 S3 Files reads the data from S3 bucket and serves to the client, and asynchronously
 imports the data into the file system's high performance storage so that future reads are
-faster. This is metered as a file system read at the size of the data transferred (32 KB
+faster. This is metered as a file system read at the size of the data transferred (32 KiB
 minimum). The asynchronous import of data into the file system's high performance storage
 is metered as a write at the size of the data transferred. A similar process is followed
 when you read a file whose data has been expired from the file system. The expiration of
@@ -133,7 +129,7 @@ data does not incur any additional file system operation charges.
 
 **Writing a file**
 
-Your write is metered as a file system write at the size of the data written (32 KB
+Your write is metered as a file system write at the size of the data written (32 KiB
 minimum). Approximately 60 seconds after your last write, S3 Files copies the file to
 your S3 bucket. This is because when you modify a file in the file system, S3 Files
 waits up to 60 seconds, aggregating any successive changes to the file in that time,

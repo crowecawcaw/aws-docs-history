@@ -27,11 +27,16 @@ automatically manages this storage, copying data onto it when you access files a
 removing data that has not been read within a configurable expiration window. You pay a
 storage rate for data residing on the high-performance storage.
 
-**Direct from S3** – Large reads (128 KB or larger) of data
-that has already been synchronized to S3 and reads of data not on the file system are
-served directly from your S3 bucket. This tier provides high throughput for sequential
-reads, making it well suited for analytics, media processing, and other streaming
-workloads.
+**Direct from S3** – S3 Files streams file reads
+directly from your S3 bucket in two cases: when the file's data is not stored in the
+file system's high-performance storage, and for large reads >= 1 MiB, even when the data
+also resides on the file system's high-performance storage. The S3 bucket is optimized
+for high throughput while the file system's high-performance storage layer is optimized
+for low-latency access. This tiering approach for streaming data directly from S3 bucket
+provides high throughput for sequential reads, making it well suited for analytics, media
+processing, and other streaming workloads. S3 Files asynchronously imports data for small
+files (< 128 KiB by default) to the file system's high-performance storage for low
+latency access on subsequent reads.
 
 Since S3 Files automatically applies this two-tier model, you do not have to choose
 between latency and throughput. Small-file workloads get file system performance.

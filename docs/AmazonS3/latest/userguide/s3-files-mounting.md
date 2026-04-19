@@ -229,7 +229,7 @@ path:
 - Choose **Launch
   Instance**.
 - Follow this documentation to launch an EC2 instance using the launch
-  instance wizard in the AWS console. Before clicking **Launch Instance**, configure your network and add your S3 file
+  instance wizard in the AWS console. Before choosing **Launch Instance**, configure your network and add your S3 file
   system as shown in following steps.
 - Make sure you select a subnet in your **Network
   settings**.
@@ -243,12 +243,12 @@ path:
   - Port Range: 22
   - Source: Anywhere 0.0.0.0/0
 
-- Under **Storage** section, click on
+- Under **Storage** section, choose
   **File systems** and choose **S3 Files**.
 - Under the file system drop down, you will see your file systems in
   the Availability Zone based on the subnet you selected previously in your
   Network settings. Choose the S3 file system that you want to mount. If you
-  don't have any file systems, click on create a new file system to create a
+  don't have any file systems, choose create a new file system to create a
   new one.
 - Enter a local mount path on your EC2 instance where you want to
   mount the file system (for example,

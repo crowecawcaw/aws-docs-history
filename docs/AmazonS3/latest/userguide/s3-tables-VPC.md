@@ -30,6 +30,7 @@ S3 Tables, see the following topics. To create a VPC interface endpoint, see
 - [Accessing table buckets and tables through endpoints using the AWS CLI](#s3-tables-endpoints-cli-sdks "#s3-tables-endpoints-cli-sdks")
 - [Configuring a VPC network when using query engines](#s3-tables-query-engine "#s3-tables-query-engine")
 - [Using the dual-stack endpoints to access tables and table buckets](#s3-tables-dual-stack-endpoints "#s3-tables-dual-stack-endpoints")
+- [Using VPC endpoint policy conditions with table bucket policies](#s3-tables-vpc-endpoint-policies "#s3-tables-vpc-endpoint-policies")
 - [Restricting access to S3 Tables within the VPC network](#s3-tables-VPC-policy "#s3-tables-VPC-policy")
 
 ## Creating VPC endpoints for S3 Tables
@@ -156,6 +157,51 @@ aws ec2 modify-vpc-endpoint \
   --ip-address-type dualstack \
   --dns-options "DnsRecordIpType=dualstack" \
   --region `aws-region`
+```
+
+## Using VPC endpoint policy conditions with table bucket policies
+
+You can use the `aws:SourceVpce`, `aws:SourceVpc`, and
+`aws:VpcSourceIp` condition keys in a table bucket policy to restrict access to
+table bucket resources from a specific VPC or VPC endpoint. For more information about
+these condition keys, see [AWS
+global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_.
+
+When using the [Iceberg REST APIs](s3-tables-integrating-open-source.md "s3-tables-integrating-open-source.md"), S3 Tables makes requests to Amazon S3 on your
+behalf to read and write table metadata. When an Iceberg REST API request is made through a VPC
+endpoint, the source VPC of the initial request is not preserved in the table metadata
+requests to Amazon S3. If your table bucket policy restricts access using these condition keys,
+you must also add a condition for `aws:CalledVia` to allow these table metadata
+requests from S3 Tables.
+
+The following example table bucket policy denies all S3 Tables actions unless the request
+comes from the specified VPC endpoint or is a request made by the Amazon S3 Tables Iceberg REST endpoint on your behalf.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "RestrictToVPCe",
+ "Effect": "Deny",
+ "Principal": "*",
+ "Action": "s3tables:*",
+ "Resource": [
+ "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/`amzn-s3-demo-bucket`",
+ "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/`amzn-s3-demo-bucket`/*"
+ ],
+ "Condition": {
+ "StringNotEqualsIfExists": {
+ "aws:SourceVpce": "`vpce-1a2b3c4d`",
+ "aws:CalledViaLast": "s3tables.amazonaws.com"
+ }
+ }
+ }
+ ]
+}`
+
 ```
 
 ## Restricting access to S3 Tables within the VPC network
