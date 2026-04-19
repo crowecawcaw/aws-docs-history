@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: May 30, 2018, 23:31 UTC
-- **Edited time:** April 07, 2026, 21:12 UTC
+- **Edited time:** April 17, 2026, 16:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSConfigServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v91 (default)
+**Policy version:** v92 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -552,6 +552,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "connect:ListRules",
         "connect:ListSecurityKeys",
         "connect:ListSecurityProfileApplications",
+        "connect:ListSecurityProfileFlowModules",
         "connect:ListSecurityProfilePermissions",
         "connect:ListSecurityProfiles",
         "connect:ListTagsForResource",
@@ -1936,6 +1937,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3tables:GetTableBucketMaintenanceConfiguration",
         "s3tables:GetTableBucketMetricsConfiguration",
         "s3tables:GetTableBucketPolicy",
+        "s3tables:GetTableBucketReplication",
         "s3tables:GetTableBucketStorageClass",
         "s3tables:ListTableBuckets",
         "s3tables:ListTagsForResource",

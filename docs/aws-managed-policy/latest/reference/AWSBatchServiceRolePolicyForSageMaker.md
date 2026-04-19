@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: July 15, 2025, 21:37 UTC
-- **Edited time:** July 15, 2025, 21:37 UTC
+- **Edited time:** April 16, 2026, 17:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSBatchServiceRolePolicyForSageMaker`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -36,7 +36,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sagemaker:CreateTrainingJob",
         "sagemaker:DescribeTrainingJob",
         "sagemaker:StopTrainingJob",
-        "sagemaker:ListTags"
+        "sagemaker:ListTags",
+        "sagemaker:DeleteTrainingJob"
       ],
       "Resource" : "arn:aws:sagemaker:*:*:training-job/AWSBatch*"
     },

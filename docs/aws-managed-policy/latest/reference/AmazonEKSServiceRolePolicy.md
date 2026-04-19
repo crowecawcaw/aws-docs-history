@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: February 21, 2020, 20:10 UTC
-- **Edited time:** February 12, 2026, 18:02 UTC
+- **Edited time:** April 15, 2026, 18:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonEKSServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v23 (default)
+**Policy version:** v24 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -56,6 +56,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeInternetGateways",
         "ec2:DescribeLaunchTemplates",
         "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribePlacementGroups",
         "ec2:DescribeSecurityGroups",
         "ec2:DescribeSnapshots",
         "ec2:DescribeSpotPriceHistory",
@@ -70,6 +71,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:GetCoipPoolUsage",
         "ec2:GetSecurityGroupsForVpc",
         "eks:DescribeCluster",
+        "ec2:DescribeIpamPools",
         "elasticloadbalancing:DescribeListenerAttributes",
         "elasticloadbalancing:DescribeListenerCertificates",
         "elasticloadbalancing:DescribeListeners",
@@ -81,10 +83,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "elasticloadbalancing:DescribeTargetGroupAttributes",
         "elasticloadbalancing:DescribeTargetGroups",
         "elasticloadbalancing:DescribeTargetHealth",
+        "elasticloadbalancing:DeregisterTargets",
         "elasticloadbalancing:DescribeTrustStores",
         "iam:ListAttachedRolePolicies",
         "pricing:GetProducts",
         "shield:GetSubscriptionState",
+        "shield:DescribeProtection",
         "tag:GetResources"
       ],
       "Resource" : "*"
@@ -340,11 +344,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "elasticloadbalancing:DeleteListener",
         "elasticloadbalancing:DeleteRule",
-        "elasticloadbalancing:DeregisterTargets",
         "elasticloadbalancing:DeleteLoadBalancer",
         "elasticloadbalancing:DeleteTargetGroup",
-        "ec2:DeleteSecurityGroup",
-        "shield:DescribeProtection"
+        "ec2:DeleteSecurityGroup"
       ],
       "Resource" : "*",
       "Condition" : {

@@ -12,13 +12,13 @@ You can attach `AmazonEKSLoadBalancingPolicy` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: October 30, 2024, 20:18 UTC
-- **Edited time:** April 01, 2026, 22:57 UTC
+- **Edited time:** April 14, 2026, 20:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -176,35 +176,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
     {
       "Effect" : "Allow",
       "Action" : [
-        "shield:CreateProtection"
-      ],
-      "Resource" : "*",
-      "Condition" : {
-        "StringEquals" : {
-          "aws:RequestTag/eks:eks-cluster-name" : "${aws:PrincipalTag/eks:eks-cluster-name}"
-        },
-        "ForAllValues:StringEquals" : {
-          "aws:TagKeys" : [
-            "eks:eks-cluster-name",
-            "ingress.eks.amazonaws.com/stack",
-            "ingress.eks.amazonaws.com/resource",
-            "service.eks.amazonaws.com/stack",
-            "service.eks.amazonaws.com/resource"
-          ]
-        }
-      }
-    },
-    {
-      "Effect" : "Allow",
-      "Action" : [
+        "shield:CreateProtection",
         "shield:DeleteProtection"
       ],
-      "Resource" : "*",
-      "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceTag/eks:eks-cluster-name" : "${aws:PrincipalTag/eks:eks-cluster-name}"
-        }
-      }
+      "Resource" : "*"
     },
     {
       "Effect" : "Allow",

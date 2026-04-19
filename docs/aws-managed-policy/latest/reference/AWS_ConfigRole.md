@@ -12,13 +12,13 @@ You can attach `AWS_ConfigRole` to your users, groups, and roles.
 
 - **Type**: Service role policy
 - **Creation time**: September 15, 2020, 20:30 UTC
-- **Edited time:** April 07, 2026, 21:42 UTC
+- **Edited time:** April 17, 2026, 16:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWS_ConfigRole`
 
 ## Policy version
 
-**Policy version:** v68 (default)
+**Policy version:** v69 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -552,6 +552,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "connect:ListRules",
         "connect:ListSecurityKeys",
         "connect:ListSecurityProfileApplications",
+        "connect:ListSecurityProfileFlowModules",
         "connect:ListSecurityProfilePermissions",
         "connect:ListSecurityProfiles",
         "connect:ListTagsForResource",
@@ -1935,6 +1936,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3tables:GetTableBucketMaintenanceConfiguration",
         "s3tables:GetTableBucketMetricsConfiguration",
         "s3tables:GetTableBucketPolicy",
+        "s3tables:GetTableBucketReplication",
         "s3tables:GetTableBucketStorageClass",
         "s3tables:ListTableBuckets",
         "s3tables:ListTagsForResource",

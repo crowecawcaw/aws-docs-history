@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: October 18, 2019, 20:27 UTC
-- **Edited time:** December 10, 2025, 18:34 UTC
+- **Edited time:** April 16, 2026, 18:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonSageMakerNotebooksServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v11 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -144,6 +144,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DeleteNetworkInterface",
         "ec2:DescribeDhcpOptions",
         "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeRouteTables",
         "ec2:DescribeSecurityGroups",
         "ec2:DescribeSubnets",
         "ec2:DescribeVpcs",
