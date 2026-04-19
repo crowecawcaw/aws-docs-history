@@ -104,7 +104,10 @@ JSON
  "ec2:CreatePlacementGroup",
  "ec2:AttachResourcesToPlacementGroup",
  "ec2:DeletePlacementGroup",
- "ec2:DetachResourcesFromPlacementGroup"
+ "ec2:DetachResourcesFromPlacementGroup",
+ "ec2:CreateOdbNetworkPeering",
+ "ec2:ModifyOdbNetworkPeering",
+ "ec2:DeleteOdbNetworkPeering"
  ],
  "Resource": "*"
  },
