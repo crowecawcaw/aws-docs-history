@@ -141,6 +141,121 @@ If you encounter issues while building:
 - Use the Automation Assistant to get help
 - Check the action documentation for specific requirements
 
+## Automation inputs and outputs
+
+Define input and output schemas to create reusable, parameterized automations in Amazon Quick Automate. By defining input and output schemas using the Start and End nodes, you can transform static automations into reusable workflows that accept different data each time they run. Instead of hardcoding values, you define typed input parameters that are provided at runtime and structured output values that are captured when the automation completes. Inputs and outputs work across all invocation methods: manual runs, API calls, and scheduled triggers.
+
+Key benefits of using inputs and outputs:
+
+- **Reusability** – Run the same automation with different data without modifying the automation itself.
+- **Type safety** – Amazon Quick Automate validates input data against the schema before execution starts, which prevents invalid data from running.
+- **API integration** – Auto-generated schemas enable programmatic discovery and integration with external systems.
+- **Observability** – Structured outputs are captured as execution artifacts for audit and review.
+
+### Supported data types
+
+The following data types are supported for input and output fields:
+
+- **Text** – Plain text values (e.g., text1, text2)
+- **Number** – Numeric values including decimals (e.g., 3.14, 100)
+- **Boolean** – True or false values
+- **File** – File objects with a maximum size of 5 MB
+
+### Start and End nodes
+
+Every automation includes a Start node and an End node, which are blank by default. You can edit these nodes to create a schema, use the inputs in the automation, and update the output data to return from the automation. The Start node receives input data at runtime, while End nodes (including End Process nodes) collect output data during execution and return it as structured artifacts when the automation completes.
+
+#### Start
+
+The Start node is the entry point that accepts input parameters when the automation is triggered. It is blank by default.
+
+Properties:
+
+- **Input format** – Defines the schema for input parameters that the automation accepts. Edit using the Input schema editor described in Defining input and output schemas.
+- **Input variable** – Variable that stores the input values for the automation as defined in the input format and supplied by the user.
+
+#### End
+
+The End node is the termination point that collects and returns output values when the automation completes successfully. You can set the output values from variables in the automation using the properties of the End node. Your automation can have multiple End nodes (End process) based on the structure of the automation.
+
+Properties:
+
+- **Output format** – Defines the schema for output parameters that the automation returns. Choose **Edit** and add or modify the schema using the Output schema editor described in Defining input and output schemas.
+- **Output data** – Maps values from variables in your automation to the output fields that you defined. For each output variable that you create in the End node (Output schema), specify which automation variable contains the data that you want to return. Use the **Edit output data** editor to configure these mappings in the **Output Value** field.
+
+### Defining input and output schemas
+
+Schemas define the structure of data that your automation accepts as input and produces as output. The authoring studio provides a visual form builder for defining input and output schemas directly on the automation canvas.
+
+To define an input schema:
+
+- Open your automation in Amazon Quick Automate.
+- Choose the **Start** node on the canvas to open the schema editor. You can also open the schema editor from the properties pane. To do this, choose the **Start** node, and then choose **Edit** in **Input format** in the properties pane.
+- Choose **+Add field** to add an input field.
+- For each input field, configure the following properties:
+  - **Name** – A unique identifier for the field.
+  - **Type** – The type of data the field accepts. For more information, see Supported data types.
+  - **Required** – Whether the field must be provided when running the automation.
+  - **Default value** (Optional) – This option is active only if the **Required** field is cleared. Default values appear pre-populated in the input form when you run a test or trigger the automation.
+  - **Description** – A description of what the field represents.
+
+- Choose **Save** to store the schema with your automation.
+
+To define an output schema:
+
+- Choose an **End** node on the canvas to open the Output schema editor. You can also open the schema editor from the properties pane. To do this, choose the **End** node, and then choose **Edit** in **Output format** in the properties pane.
+- Choose **+Add field** to add an output field.
+- For each output field, configure the following properties:
+  - **Name** – A unique identifier for the field.
+  - **Type** – The type of data for the output.
+  - **Description** – A description of what the output represents.
+
+- Choose **Save**.
+
+###### Note
+
+You can define inputs from the Start node and outputs from any End node. If your automation has multiple End nodes, adding or modifying the schema of one End node modifies all End node schemas.
+
+### Using input values from the start node
+
+When your automation has an input schema defined at the Start node, you can access those input values throughout your workflow using the `inputs` dictionary. The runtime automatically validates and populates this dictionary with the values provided when the automation runs.
+
+```
+# Access required input fields
+value = inputs["field_name"]
+
+# Example usage
+customer_id = inputs["customer_id"]  # Retrieves a required string input
+```
+
+### Setting output values in the End node
+
+The End node defines which values from your automation are returned as outputs. You configure this using the **Output Data** property, which provides two interaction modes for setting output values in the editor. Toggle between the modes by choosing the code icon (`</>`) next to the **Output value** field.
+
+Two modes for setting outputs:
+
+- **Variable Selection Mode (Dropdown)** – The default interface displays a dropdown list of all available variables in your automation. Select the variable that you want to assign to each output field.
+- **Expression Mode (Code)** – Choose the code icon (`</>`) next to any output value field to switch to expression mode. This mode allows you to enter custom expressions, perform calculations, access nested data, or set literal values.
+
+### Defining schemas with the Build with Assistant
+
+Build with Assistant can create or modify input and output schemas directly. Describe your input and output requirements in natural language, and the assistant generates the schema definition for you. Any changes that the assistant makes automatically sync with the Studio visual form builder.
+
+### Considerations
+
+Keep the following in mind when you use automation inputs and outputs:
+
+- Input and output schemas are optional. Existing automations without schemas continue to work unchanged.
+- File inputs have a maximum size of 5 MB. For larger files, pass the file location (such as an Amazon S3 path) as a text input instead.
+- Input and output values are stored with each execution run for observability and audit purposes.
+- When you update a schema, you must redeploy the automation for the changes to take effect on deployed runs. Test runs always use the latest draft schema.
+
+You can use the input and output values in the following ways:
+
+- Testing and running the automation from the canvas. For more information, see [Testing automations](../../../quicksuite/latest/userguide/testing-automations.md#running-and-debugging "../../../quicksuite/latest/userguide/testing-automations.md#running-and-debugging").
+- Manually triggering deployed automations. For more information, see [Deploying automations](../../../quicksuite/latest/userguide/deploying-automations.md#deploy-run-inputs-outputs "../../../quicksuite/latest/userguide/deploying-automations.md#deploy-run-inputs-outputs").
+- Scheduled triggers for deployed automations. For more information, see [Deploying automations](../../../quicksuite/latest/userguide/deploying-automations.md#deploy-run-inputs-outputs "../../../quicksuite/latest/userguide/deploying-automations.md#deploy-run-inputs-outputs").
+
 ## Managing automation versions
 
 Amazon Quick Automate provides version control capabilities to help you track and maintain the history of updates to your automations and easily restore previous versions.

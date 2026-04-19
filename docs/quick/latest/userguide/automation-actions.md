@@ -5,6 +5,7 @@ Actions are the building blocks for your automations. Each action performs a spe
 **Action Categories**
 
 - **Agents** - AI-powered actions that use natural language to perform complex tasks like web automation and multi-tool orchestration
+- **Quick** - Use native integrations with Amazon Quick features and services directly in your automations
 - **Process flow** - Control the flow of your automation with steps, loops, and conditions
 - **General** - Common utility actions
 - **Web browser** - Interact with websites through clicking, typing, and extracting data

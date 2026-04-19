@@ -43,6 +43,55 @@ During testing, your automation will be in one of these statuses:
 
 ## Running and debugging
 
+### Test automations with inputs and outputs
+
+When you test an automation that has input and output fields defined, Amazon Quick Automate validates the input values and displays both inputs and outputs as expandable cards in the **Monitor** pane alongside the execution logs.
+
+#### Running an automation with inputs from the authoring studio
+
+When you choose **Run** or **Debug** to test an automation with inputs and outputs, the authoring studio (Studio) displays a dynamic input form titled **Provide input values**. Amazon Quick Automate automatically generates this form based on the schema you defined.
+
+The form includes:
+
+- Field names from your schema.
+- Input controls appropriate for each data type (text fields for strings, number inputs for integers, and file upload buttons for files).
+- Required field indicators (marked with an asterisk).
+- Default values pre-populated where you defined them.
+- Client-side validation for data types, required fields, and file size limits (maximum 5 MB for files).
+
+To run an automation with inputs:
+
+- Open your automation in Studio and choose **Run** or **Debug**.
+- In the **Provide input values** form, enter values for each field:
+  - For text and number fields, type the values directly
+  - For file fields, choose **Browse** to select a file from your local machine
+  - Optional fields can be left blank unless you want to override default values
+
+- Choose **Start** to begin the automation with your provided inputs.
+
+Amazon Quick Automate performs two layers of validation:
+
+- **Client-side validation** – Checks for blank required fields, correct data types, and file size limits before execution starts
+- **Runtime validation** – Validates the complete input payload against your JSON schema during execution
+
+#### Viewing inputs and outputs
+
+After the automation runs, input and output values appear as collapsible cards in the **Monitor** pane:
+
+- **Input card** – Displays at the beginning of the run logs, showing all values you provided when starting the automation
+- **Output card** – Displays at the end of the run logs after execution completes, showing all values your automation produced
+
+Both cards are collapsed by default. When you expand them, you can:
+
+- View the complete schema definition and actual values
+- Download any file objects included in the inputs or outputs
+- Copy the structured data as JSON
+- Download the complete payload as a JSON file
+
+###### Note
+
+If the automation terminates with an error, the output card won't be available.
+
 ### Setting breakpoints
 
 Breakpoints allow you to pause your automation at specific points:

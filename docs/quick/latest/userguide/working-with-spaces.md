@@ -103,12 +103,22 @@ The following list outlines the limitations of spaces:
 - Files uploaded to spaces will be rejected if your index data storage capacity
   is full. Reach out to your system administrator if this happens.
 - Files uploaded to a space must be one of the following formats:
-  `.html`, `.ppt`, `.docx`,
-  `.txt`, `.pdf`, `.csv`, `.xlsx`,
-  `.xml`,
-  `.json`, `.md`
-  `.rtf`, `.xslt`
-  `.mp3`, `.wav`
+  `.html`, `.xhtml`, `.txt`,
+  `.pdf`, `.csv`, `.tsv`,
+  `.xml`, `.json`, `.md`,
+  `.rtf`, `.xslt`, `.eml`,
+  `.vtt`,
+  `.docx`, `.dotx`, `.docm`,
+  `.dotm`,
+  `.ppt`, `.pptx`, `.pptm`,
+  `.ppsm`, `.ppsx`,
+  `.xlsx`, `.xls`, `.xlam`,
+  `.xlsm`, `.xltx`, `.xltm`,
+  `.c`, `.h`, `.cpp`, `.hpp`,
+  `.cs`, `.java`, `.py`, `.go`,
+  `.rb`, `.scala`, `.m`, `.sql`,
+  `.clj`,
+  `.mp3`, `.wav`,
   `.m4a`, `.flac`, `.ogg`, `.mp4`,
   `.mov`, `.m4v`.
 - File uploads are limited to 30 MB for Excel and CSV files, and 50 MB for all

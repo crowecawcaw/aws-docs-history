@@ -75,3 +75,74 @@ Triggers determine when and how your automations run. You can configure automati
 - Select the timezone
 - Amazon Quick Automate provided built-in scalability. Select the number of parallel executions of the automation (you can select a maximum of 10 parallel executions per trigger and 50 across all automations within an account. Please reach out to AWS)
 - For complex scheduling needs, you can use cron expressions to define precise running patterns. For example, to run an automation at 2:30 AM every Monday, Wednesday, and Friday, you would use the cron expression: `30 2 * * 1,3,5`.
+
+## Deploy and run automations with inputs and outputs
+
+This section describes how to deploy automations that use input and output schemas, run them manually or on a schedule, and view run results.
+
+### View schema information before deployment
+
+Before deploying an automation, you must commit it to create a version. For more information, see [maintaining automation versions](../../../quicksuite/latest/userguide/building-automations.md#managing-automation-versions "../../../quicksuite/latest/userguide/building-automations.md#managing-automation-versions").
+
+After you commit an automation with input or output schemas, you can view the schema details in the **Data model** section of the version details page. This section displays the complete field definitions for both inputs and outputs.
+
+### Deploy automations with input and output schemas
+
+When you deploy an automation that has input or output schemas defined, the deployment dialog box displays schema information in the **Data model** section, including:
+
+- Input and output field definitions (name, data type, description, required or optional status, and default values).
+- Copyable JSON schemas for inputs and outputs that API callers can use for integration.
+
+###### Important
+
+The schema is frozen at deployment time along with the automation code. If you update the schema after deployment, you must redeploy the automation for the changes to take effect.
+
+To complete the deployment, review the schema information and choose **Deploy**.
+
+### Run deployed automations manually
+
+To start a deployed automation with inputs, complete the following steps:
+
+- On the deployment page, choose the **Actions** menu (⋮).
+- Choose **Run now**.
+- In the **Provide input values** dialog box, enter values for each input field.
+- Choose **Start** to start the automation run.
+
+The input form is identical to the one you use when you test in Studio.
+
+### Run automations with scheduled triggers
+
+For scheduled triggers, you provide input values when you create or edit the trigger. The stored values are passed to the automation each time the trigger fires.
+
+You can do the following:
+
+- Create multiple triggers with different input values for the same automation
+- Edit input values for a trigger without redeploying the automation
+
+To configure inputs for a scheduled trigger, complete the following steps:
+
+- Navigate to the deployment page for your automation.
+- Choose **Create Trigger**.
+- In **Step 1: Set Trigger**, configure the schedule.
+- In **Step 2: Define Run**, enter values for each input field in the auto-generated form.
+- Choose **Next**, review your configuration, and choose **Create Trigger**.
+
+###### Note
+
+If you create a trigger with a specific schema version and later deploy the automation with an updated schema, you must modify the trigger. The trigger becomes incompatible when the schema version changes and the automation runs will fail.
+
+### Viewing inputs and outputs for deployed runs
+
+After an automation run completes (whether started manually or by a scheduled trigger), input and output values are available as structured artifacts in the logs panel on the **Runs** page.
+
+The artifacts appear as dedicated cards:
+
+- **Input artifact** – Displays at the top of the logs panel
+- **Output artifact** – Displays at the bottom of the logs panel (only available if the automation completes successfully)
+
+Both cards are collapsed by default. When you expand them, you can:
+
+- View the complete schema and actual values
+- Download any file objects included in the inputs or outputs
+- Copy the structured data as JSON
+- Download the complete payload as a JSON file
