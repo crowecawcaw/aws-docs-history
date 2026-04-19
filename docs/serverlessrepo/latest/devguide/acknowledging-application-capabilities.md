@@ -29,6 +29,16 @@ Applications that contain one or more nested applications require you to specify
 [Nested Applications](../../../serverless-application-model/latest/developerguide/serverless-sam-template-nested-applications.md "../../../serverless-application-model/latest/developerguide/serverless-sam-template-nested-applications.md") in the _AWS Serverless Application Model Developer
 Guide_.
 
+###### Note
+
+AWS Serverless Application Repository enforces restrictions on newly published applications to help protect you when
+deploying from the public repository. Specifically, AWS Serverless Application Repository blocks publication of
+applications that attach the `AWSLambda_FullAccess` managed policy to Lambda
+functions, or that grant `iam:AttachRolePolicy`,
+`iam:PutRolePolicy`, or `iam:*` on all resources in inline
+IAM policies. These controls are in addition to the capability acknowledgment flow
+described in this topic.
+
 ## Finding and Acknowledging Application Capabilities (Console)
 
 You can find applications available in the AWS Serverless Application Repository on the [AWS Serverless Application Repository website](https://aws.amazon.com/serverless/serverlessrepo/ "https://aws.amazon.com/serverless/serverlessrepo/"), or

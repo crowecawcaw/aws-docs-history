@@ -20,6 +20,24 @@ If you want to request support for an additional AWS resource, contact [AWS Supp
 
 ###### Important
 
+AWS Serverless Application Repository blocks publication of applications that include the following overly broad
+IAM permission patterns, which do not follow the principle of least
+privilege:
+
+- Attaching the `AWSLambda_FullAccess` managed policy to Lambda
+  functions
+- Granting `iam:AttachRolePolicy`,
+  `iam:PutRolePolicy`, or `iam:*` on all resources
+  (`*`) in inline IAM policies
+  To publish your application, replace `AWSLambda_FullAccess` with only
+  the specific Lambda permissions your application requires, and scope
+  `iam:AttachRolePolicy`, `iam:PutRolePolicy`, and
+  `iam:PassRole` to specific resource ARNs rather than all resources.
+  For guidance, see [IAM security
+  best practices](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md").
+
+###### Important
+
 If your application template contains one of the following custom IAM roles or
 resource policies, your application doesn't show up in search results by
 default. Also, customers need to acknowledge the application's custom IAM roles
