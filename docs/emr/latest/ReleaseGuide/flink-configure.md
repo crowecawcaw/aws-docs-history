@@ -181,7 +181,7 @@ To exclude JVM metaspace and overhead, use the total Flink memory size
 `taskmanager.memory.process.size`. The default value for
 `taskmanager.memory.process.size` is 1280m. It's not
 recommended to set both `taskmanager.memory.process.size` and
-`taskmanager.memory.process.size`.
+`taskmanager.memory.flink.size`.
 
 All Amazon EMR versions that use Flink 1.12.0 and later have the default values listed
 in the open-source set for Flink as the default values on Amazon EMR, so you don't need

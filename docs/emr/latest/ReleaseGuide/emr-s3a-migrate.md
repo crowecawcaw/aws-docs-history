@@ -15,6 +15,10 @@ If you want to continue using EMRFS, you can configure this by adding the follow
   <name>fs.s3.impl</name>
   <value>com.amazon.ws.emr.hadoop.fs.EmrFileSystem</value>
 </property>
+<property>
+  <name>fs.s3n.impl</name>
+  <value>com.amazon.ws.emr.hadoop.fs.EmrFileSystem</value>
+</property>
 ```
 
 ## Migration of Existing EMRFS Configurations to S3A Configurations

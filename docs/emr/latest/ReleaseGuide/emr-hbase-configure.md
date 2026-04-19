@@ -114,7 +114,7 @@ following example raises the number of open threads to 30:
 ### hbase.hregion.max.filesize
 
 This parameter governs the size, in bytes, of the individual regions. By default, it is
-set to `1073741824`. If you are writing a lot of data into your HBase
+set to `10737418240`. If you are writing a lot of data into your HBase
 cluster, and it's causing frequent splitting, you can increase this size to make
 individual regions bigger. It reduces splitting but takes more time to
 load-balance regions from one server to another.
@@ -124,7 +124,7 @@ load-balance regions from one server to another.
   {
     "Classification":"hbase-site",
     "Properties": {
-       "hbase.hregion.max.filesize": "1073741824"
+       "hbase.hregion.max.filesize": "10737418240"
     }
   }
 ]
