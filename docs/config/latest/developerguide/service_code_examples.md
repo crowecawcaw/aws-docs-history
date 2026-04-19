@@ -4,6 +4,8 @@ The following code examples show how to use AWS Config with an AWS software deve
 
 _Actions_ are code excerpts from larger programs and must be run in context. While actions show you how to call individual service functions, you can see actions in context in their related scenarios.
 
+_Scenarios_ are code examples that show you how to accomplish specific tasks by calling multiple functions within a service or combined with other AWS services.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using AWS Config with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
@@ -26,3 +28,6 @@ This topic also includes information about getting started and details about pre
     - [GetComplianceSummaryByResourceType](example_config-service_GetComplianceSummaryByResourceType_section.md "example_config-service_GetComplianceSummaryByResourceType_section.md")
     - [PutConfigRule](example_config-service_PutConfigRule_section.md "example_config-service_PutConfigRule_section.md")
     - [PutDeliveryChannel](example_config-service_PutDeliveryChannel_section.md "example_config-service_PutDeliveryChannel_section.md")
+
+- [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+  - [Getting started with Config](example_config_service_GettingStarted_053_section.md "example_config_service_GettingStarted_053_section.md")
