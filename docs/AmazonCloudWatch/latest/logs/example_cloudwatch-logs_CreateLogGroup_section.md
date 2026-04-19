@@ -2,6 +2,11 @@
 
 The following code examples show how to use `CreateLogGroup`.
 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in
+context in the following code example:
+
+- [Configure Amazon ECS Service Connect](example_ecs_ServiceConnect_085_section.md "example_ecs_ServiceConnect_085_section.md")
+
 .NET
 
 **SDK for .NET**

@@ -9,5 +9,7 @@ Scenarios target an intermediate level of experience to help you understand serv
 
 ###### Examples
 
+- [Configure Amazon ECS Service Connect](example_ecs_ServiceConnect_085_section.md "example_ecs_ServiceConnect_085_section.md")
+- [Creating your first Lambda function](example_lambda_GettingStarted_019_section.md "example_lambda_GettingStarted_019_section.md")
 - [Run a large query](example_cloudwatch-logs_Scenario_BigQuery_section.md "example_cloudwatch-logs_Scenario_BigQuery_section.md")
 - [Use scheduled events to invoke a Lambda function](example_cross_LambdaScheduledEvents_section.md "example_cross_LambdaScheduledEvents_section.md")

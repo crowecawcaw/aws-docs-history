@@ -5,7 +5,7 @@ perform queries to help you more efficiently and effectively respond to operatio
 In addition to querying using log groups, you can query using facets, data source, and data
 type. If an issue occurs, you can use CloudWatch Logs Insights to identify potential causes and validate
 deployed fixes. You are limited to 100 concurrent CloudWatch Logs Insights QL per account,
-including queries added to dashboards. Additionally , You can run 15 concurrent queries for
+including queries added to dashboards. Additionally, you can run 15 concurrent queries for
 either OpenSearch Service PPL or OpenSearch Service SQL.
 
 CloudWatch Logs Insights supports three query languages that you can use for your queries:
@@ -42,7 +42,7 @@ languages.
 - Creating [field
   indexes](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md") to reduce costs and speed results, especially for
   queries of large number of log groups or log events. After creating field indexes of
-  fields that are common in your log events, you can use them in in a query. The query
+  fields that are common in your log events, you can use them in a query. The query
   skips processing log events that are known to not include the indexed field, and
   processes less data.
 

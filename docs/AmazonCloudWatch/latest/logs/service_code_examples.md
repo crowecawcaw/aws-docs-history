@@ -32,5 +32,7 @@ This topic also includes information about getting started and details about pre
     - [StartQuery](example_cloudwatch-logs_StartQuery_section.md "example_cloudwatch-logs_StartQuery_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+  - [Configure Amazon ECS Service Connect](example_ecs_ServiceConnect_085_section.md "example_ecs_ServiceConnect_085_section.md")
+  - [Creating your first Lambda function](example_lambda_GettingStarted_019_section.md "example_lambda_GettingStarted_019_section.md")
   - [Run a large query](example_cloudwatch-logs_Scenario_BigQuery_section.md "example_cloudwatch-logs_Scenario_BigQuery_section.md")
   - [Use scheduled events to invoke a Lambda function](example_cross_LambdaScheduledEvents_section.md "example_cross_LambdaScheduledEvents_section.md")

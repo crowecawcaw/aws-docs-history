@@ -2,6 +2,11 @@
 
 The following code examples show how to use `GetLogEvents`.
 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in
+context in the following code example:
+
+- [Creating your first Lambda function](example_lambda_GettingStarted_019_section.md "example_lambda_GettingStarted_019_section.md")
+
 CLI
 
 **AWS CLI**
