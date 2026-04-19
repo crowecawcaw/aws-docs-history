@@ -12,7 +12,7 @@ support
 - [Troubleshooting authentication errors](#troubleshooting-authentication "#troubleshooting-authentication")
 - [Troubleshooting authorization errors](#troubleshooting-authorization "#troubleshooting-authorization")
 - [Troubleshooting SQL errors](#troubleshooting-sql "#troubleshooting-sql")
-- [Troubleshooting OCC errors](#troubleshooting-occ "#troubleshooting-occ")
+- [Troubleshooting concurrency control responses](#troubleshooting-occ "#troubleshooting-occ")
 - [Troubleshooting SSL/TLS connections](#troubleshooting-ssl-tls "#troubleshooting-ssl-tls")
 
 ## Troubleshooting connection errors
@@ -127,30 +127,30 @@ To create an index on a table with existing rows, you must use the `CREATE INDEX
  ASYNC` command. To learn more, see [Creating indexes
 asynchronously in Aurora DSQL](working-with-create-index-async.md "working-with-create-index-async.md").
 
-## Troubleshooting OCC errors
+## Troubleshooting concurrency control responses
 
 **OC000 “ERROR: mutation conflicts with another transaction, retry as
 needed”**
 
-This transaction attempted to modify the same tuples as another, concurrent, transaction.
-This indicates contention on the modified tuples. To learn more, please
-refer to [Concurrency control in Aurora DSQL](working-with-concurrency-control.md "working-with-concurrency-control.md")
+This transaction attempted to modify the same tuples as another concurrent transaction.
+This indicates contention on the modified tuples. To learn more,
+refer to [Concurrency control in Aurora DSQL](working-with-concurrency-control.md "working-with-concurrency-control.md") .
 
-**OC001 “ERROR: schema has been updated by another transaction, retry as
-needed”**
+**OC001 “ERROR: schema has been updated by another transaction, please retry: (OC001)”**
 
-Your PostgreSQL session had a cached copy of the schema catalog. That cached copy was valid
-at the time was loaded. Let’s call the time T1 and the version V1.
+Your session had a cached copy of the schema catalog at version V1, loaded at time T1.
 
-Another transaction updates the catalog at time T2. Let’s call this V2.
+A separate transaction updated the catalog to version V2 at time T2.
 
-When the original session attempts to read from storage at time T2 it’s still using catalog
-version V1. Aurora DSQL’s storage layer rejects the request because the latest catalog version at T2
-is V2.
+At time T3, when your session runs a query, it detects that it's behind and attempts to
+rebase onto the new catalog changes. In some situations the rebase can't succeed, and Aurora DSQL returns
+a `40001` OC001 response. The time between T2 and T3 can range from
+milliseconds to minutes, because query processors discover catalog changes reactively rather
+than receiving proactive updates.
 
-When you retry at time T3 from the original session, Aurora DSQL refreshes the catalog cache. The
-transaction at T3 is using catalog V2. Aurora DSQL will finish the transaction as long as no other
-catalog changes came through since time T2.
+When you retry from the same session, Aurora DSQL refreshes the catalog cache. The retried
+transaction uses catalog V2 and succeeds as long as no further catalog changes have occurred
+since T2.
 
 ## Troubleshooting SSL/TLS connections
 

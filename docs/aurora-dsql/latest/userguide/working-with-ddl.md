@@ -8,17 +8,31 @@ transactions.
 
 Specifically, DDL behaves differently in Aurora DSQL as follows:
 
-**Concurrency control errors**
+**Concurrency control responses**
 
-Aurora DSQL returns a concurrency control violation error if you run one transaction
-while another transaction updates a resource. For example, consider the following
-sequence of actions:
+Because the database catalog is distributed, Aurora DSQL manages DDL schema changes as
+distributed transactions that update the catalog version. Sessions that have a cached
+copy of the catalog at an earlier version can receive a concurrency control response
+with SQLSTATE code `40001` and OCC code `OC001` when they next
+interact with storage.
 
-1. In session 1, a user adds a column to the table `mytable`.
+For example, consider the following sequence of actions:
+
+1. In session 1, a user adds a column to the table `mytable`. This
+   updates the catalog version.
 2. In session 2, a user attempts to insert a row into `mytable`.
+   This session still has the previous catalog version cached.
 
-Aurora DSQL returns the error `SQL Error [40001]: ERROR: schema has been updated
- by another transaction, please retry: (OC001).`
+Aurora DSQL returns `SQL Error [40001]: ERROR: schema has been updated
+ by another transaction, please retry: (OC001)`.
+
+###### Note
+
+An OC001 response can also occur when the schema change has already completed
+before the affected transaction starts. Aurora DSQL query processors discover catalog
+changes reactively during query execution, so a session that has been idle might
+still be operating with a stale catalog version. On retry, the session refreshes
+its catalog cache and the transaction typically succeeds.
 
 **DDL and DML in the same transaction**
 

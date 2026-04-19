@@ -377,6 +377,11 @@ end
 ```
 
 PHP SDK
+
+###### Tip
+
+AWS recommends using the [Aurora DSQL Connector for PHP PDO_PGSQL](SECTION_program-with-dsql-connector-for-php-pdo-pgsql.md "SECTION_program-with-dsql-connector-for-php-pdo-pgsql.md"), which handles token generation automatically.
+
 You can generate the token in the following ways:
 
 - If you are connecting with the `admin` role, use
