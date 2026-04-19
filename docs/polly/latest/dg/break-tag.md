@@ -57,9 +57,3 @@ strength="medium"/>` (comma-length
 - If the tag is next to a period, it upgrades the tag to
   `<break strength="x-strong"/>`
   (paragraph-length pause).
-
-###### Note
-
-Currently `<break time=>` is partially available for the Generative voices.
-`<break>` and `<break strength=>` are fully supported
-for the Generative voices.
