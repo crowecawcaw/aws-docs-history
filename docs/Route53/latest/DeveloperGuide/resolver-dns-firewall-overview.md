@@ -81,6 +81,17 @@ If you choose to inspect the entire DNS redirection chain, you must add
 the subsequent domains to a domain list and set to the action you want
 the rule to take, either ALLOW, BLOCK, or ALERT.
 
+###### Important
+
+The trust behavior of the domain redirection setting only
+applies within a single DNS query transaction. If a DNS client
+on your host separately queries a domain that appears in a DNS
+redirection chain (for example, querying the redirection target
+directly), DNS Firewall evaluates it as an independent query
+with no trust context from the original query. To allow such
+queries, add the redirection target domains to your domain
+list.
+
 For more information, see [Rule settings in DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
 
 **Query type (Domain lists only)**
