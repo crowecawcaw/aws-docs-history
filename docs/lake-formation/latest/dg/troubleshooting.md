@@ -51,6 +51,16 @@ You should delete all invalid data lake administrators (deleted IAM roles that a
 defined as data lake administrators) simultaneously. If you try to delete invalid data lake
 administrators separately, Lake Formation throws invalid principal error.
 
+### Error: "Caller is temporarily not authorized to perform this operation on resource..."
+
+An attempt was made to query a table using a resource link that may have been redirected. To avoid this
+error, your application should adopt the
+[QuerySessionContext](../../../glue/latest/webapi/API_QuerySessionContext.md "../../../glue/latest/webapi/API_QuerySessionContext.md")
+protocol. See
+[Lake Formation workflow
+for application integration API operations](api-overview.md "api-overview.md") for more information. Otherwise, please wait 24 hours
+before attempting to execute your query again.
+
 ## Troubleshooting cross-account access
 
 Use the information here to help you diagnose and fix cross-account access issues.
