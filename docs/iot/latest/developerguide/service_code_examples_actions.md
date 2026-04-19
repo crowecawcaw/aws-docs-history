@@ -4,6 +4,11 @@ The following code examples demonstrate how to perform individual AWS IoT
 actions with AWS SDKs. Each example includes
 a link to GitHub, where you can find instructions for setting up and running the code.
 
+These excerpts call the AWS IoT API and
+are code excerpts from larger programs that must be run in context.
+You can see actions in context in
+[Scenarios for AWS IoT using AWS SDKs](service_code_examples_scenarios.md "service_code_examples_scenarios.md").
+
 The following examples include only the most commonly used actions.
 For a complete list, see the
 [AWS IoT API Reference](../apireference/Welcome.md "../apireference/Welcome.md").
