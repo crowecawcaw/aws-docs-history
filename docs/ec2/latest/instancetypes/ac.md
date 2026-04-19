@@ -99,7 +99,7 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | Instance type      | Memory (GiB) | Processor                   | vCPUs | CPU cores | Threads per core | Accelerators                                      | Accelerator memory      |
 | ------------------ | ------------ | --------------------------- | ----- | --------- | ---------------- | ------------------------------------------------- | ----------------------- |
 | **DL1**            |
-| dl1.24xlarge       | 768.00       | Intel Xeon P-8275CL         | 96    | 48        | 2                | 8 x Habana Gaudi HL-205 GPU                       | 256 GiB (8 x 32 GiB)    |
+| dl1.24xlarge       | 768.00       | Intel Xeon Platinum 8275CL  | 96    | 48        | 2                | 8 x Habana Gaudi HL-205 GPU                       | 256 GiB (8 x 32 GiB)    |
 | **DL2q**           |
 | dl2q.24xlarge      | 768.00       | Intel Xeon Cascade Lake     | 96    | 48        | 2                | 8 x Qualcomm Qualcomm AI100 inference accelerator | 125 GiB (8 x 15 GiB)    |
 | **F1**             |
@@ -186,9 +186,9 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | inf2.24xlarge      | 384.00       | AMD EPYC 7R13               | 96    | 48        | 2                | 6 x AWS Inferentia2 inference accelerator         | 192 GiB (6 x 32 GiB)    |
 | inf2.48xlarge      | 768.00       | AMD EPYC 7R13               | 192   | 96        | 2                | 12 x AWS Inferentia2 inference accelerator        | 384 GiB (12 x 32 GiB)   |
 | **P4d**            |
-| p4d.24xlarge       | 1152.00      | Intel Xeon Platinum 8175    | 96    | 48        | 2                | 8 x NVIDIA A100 GPU                               | 320 GiB (8 x 40 GiB)    |
+| p4d.24xlarge       | 1152.00      | Intel Xeon Platinum 8275CL  | 96    | 48        | 2                | 8 x NVIDIA A100 GPU                               | 320 GiB (8 x 40 GiB)    |
 | **P4de**           |
-| p4de.24xlarge      | 1152.00      | Intel Xeon Platinum 8175    | 96    | 48        | 2                | 8 x NVIDIA A100 GPU                               | 640 GiB (8 x 80 GiB)    |
+| p4de.24xlarge      | 1152.00      | Intel Xeon Platinum 8275CL  | 96    | 48        | 2                | 8 x NVIDIA A100 GPU                               | 640 GiB (8 x 80 GiB)    |
 | **P5**             |
 | p5.4xlarge         | 256.00       | AMD EPYC 7R13               | 16    | 8         | 2                | 1 x NVIDIA H100 GPU                               | 80 GiB (1 x 80 GiB)     |
 | p5.48xlarge        | 2048.00      | AMD EPYC 7R13               | 192   | 96        | 2                | 8 x NVIDIA H100 GPU                               | 640 GiB (8 x 80 GiB)    |
@@ -222,7 +222,7 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | Instance type      | Baseline / Burst bandwidth (Gbps) | EFA   | ENA   | ENA Express | Network cards | Max. network interfaces | IP addresses per interface | IPv6  |
 | ------------------ | --------------------------------- | ----- | ----- | ----------- | ------------- | ----------------------- | -------------------------- | ----- |
 | **DL1**            |
-| dl1.24xlarge       | 4x 100 Gigabit                    | ✓ Yes | ✓ Yes | ✗ No        | 4             | 60                      | 50                         | ✓ Yes |
+| dl1.24xlarge       | 4x 100 Gigabit                    | ✗ No  | ✓ Yes | ✗ No        | 4             | 60                      | 50                         | ✓ Yes |
 | **DL2q**           |
 | dl2q.24xlarge      | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
 | **F1**             |
