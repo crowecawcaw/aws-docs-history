@@ -17,7 +17,7 @@ The following topics show you how to create a basic CMF using Amazon EC2 instanc
 - [Manage access to Windows job user secrets](manage-access-windows-secrets.md "manage-access-windows-secrets.md")
 - [Install and configure software required for jobs](install-software.md "install-software.md")
 - [Configuring AWS credentials](aws-credentials.md "aws-credentials.md")
-- [Configure networking to allow AWS endpoint connections](cmf-network.md "cmf-network.md")
+- [Worker host data flow for customer-managed fleets](cmf-network.md "cmf-network.md")
 - [Test the configuration of your worker host](test-software.md "test-software.md")
 - [Create an Amazon Machine Image](create-ami.md "create-ami.md")
 - [Create fleet infrastructure with an Amazon EC2 Auto Scaling group](create-auto-scaling.md "create-auto-scaling.md")
