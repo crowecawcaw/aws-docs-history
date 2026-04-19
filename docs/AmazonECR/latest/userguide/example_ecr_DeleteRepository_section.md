@@ -3,9 +3,10 @@
 The following code examples show how to use `DeleteRepository`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+context in the following code examples:
 
 - [Learn the basics](example_ecr_Scenario_RepositoryManagement_section.md "example_ecr_Scenario_RepositoryManagement_section.md")
+- [Getting started with Amazon ECR](example_ecr_GettingStarted_078_section.md "example_ecr_GettingStarted_078_section.md")
 
 CLI
 

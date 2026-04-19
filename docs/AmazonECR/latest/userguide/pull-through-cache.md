@@ -70,6 +70,13 @@ Consider the following when using Amazon ECR pull through cache rules.
   Amazon ECR sends a request upstream to check for a newer version and updates
   the cache if one exists. If the window has not expired, Amazon ECR serves the
   cached image without contacting the upstream.
+- Calling the `ListImageReferrers` API to a pull through cache
+  created repository returns the OCI-compliant referrer artifacts to the
+  private cache.
+- Amazon ECR checks whether the referrer artifacts have been updated within the
+  last 6 hours. If the 6-hour window has expired, Amazon ECR sends a request
+  upstream to check for newer versions and updates the cache if they
+  exist.
 - If Amazon ECR is unable to update the image from the upstream registry for any
   reason and the image is pulled, the last cached image will still be
   pulled.
