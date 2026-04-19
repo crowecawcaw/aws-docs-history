@@ -36,3 +36,7 @@ In this example, the request counts as three requests against the quota.
 
 Note that the multiple requests only applies to service quotas, not billing. In the example,
 you will be billed only for one request, although it counts as three requests towards the service quota.
+For CI/CD environments running multiple concurrent `bundle install` operations,
+the effective request rate can be significantly higher than the HTTP request count. If you
+experience throttling during Ruby gem resolution, request a quota increase for
+_Read requests per second from a single AWS account_.
