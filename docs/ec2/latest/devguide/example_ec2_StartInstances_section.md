@@ -3,9 +3,10 @@
 The following code examples show how to use `StartInstances`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+context in the following code examples:
 
 - [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
+- [Getting started with Amazon EC2](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
 
 .NET
 

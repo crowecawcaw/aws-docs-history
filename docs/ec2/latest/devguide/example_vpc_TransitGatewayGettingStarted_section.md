@@ -1,14 +1,12 @@
-# Get started with Transit Gateway using the CLI
+# Getting started with Amazon VPC Transit Gateway
 
 The following code example shows how to:
 
-- Create a transit gateway with DNS support and default route table settings
-- Wait for the transit gateway to become available
-- Attach two VPCs to the transit gateway using subnets
-- Wait for VPC attachments to become available
-- Add routes between VPCs through the transit gateway
-- Test connectivity between VPC resources
-- Clean up resources including routes, attachments, and transit gateway
+- Create a transit gateway
+- Attach your VPCs to your transit gateway
+- Add routes between the transit gateway and your VPCs
+- Test the transit gateway
+- Clean up resources
 
 Bash
 

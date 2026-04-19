@@ -3,9 +3,10 @@
 The following code examples show how to use `DisassociateRouteTable`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+context in the following code examples:
 
-- [Get started with Amazon VPC](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
+- [Create a basic VPC](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
+- [Working with VPC peering connections](example_ec2_GettingStarted_015_section.md "example_ec2_GettingStarted_015_section.md")
 
 CLI
 

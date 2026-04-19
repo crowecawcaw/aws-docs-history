@@ -5,8 +5,10 @@ The following code examples show how to use `CreateRouteTable`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code examples:
 
-- [Create a VPC with private subnets and NAT gateways](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
-- [Get started with Amazon VPC](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
+- [Create a basic VPC](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
+- [Getting started with Amazon Neptune](example_ec2_GettingStarted_064_section.md "example_ec2_GettingStarted_064_section.md")
+- [VPC with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
+- [Working with VPC peering connections](example_ec2_GettingStarted_015_section.md "example_ec2_GettingStarted_015_section.md")
 
 CLI
 

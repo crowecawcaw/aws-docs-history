@@ -1,16 +1,14 @@
-# Get started using Amazon VPC using the CLI
+# Getting started with Amazon VPC
 
 The following code example shows how to:
 
-- Set up your account
-- Create and configure a VPC
-- Configure your network
-- Configure security
-- Deploy resources
-- Test and verify
-- Clean up resources
-- Consider production implications
-- Consider security implications
+- Create a VPC
+- Create subnets
+- Configure internet connectivity
+- Create a NAT Gateway
+- Configure subnet settings
+- Create security groups
+- Verify your VPC configuration
 
 Bash
 

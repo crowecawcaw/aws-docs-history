@@ -6,7 +6,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Build and manage a resilient service](example_cross_ResilientService_section.md "example_cross_ResilientService_section.md")
-- [Create a VPC with private subnets and NAT gateways](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
+- [VPC with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
 
 .NET
 

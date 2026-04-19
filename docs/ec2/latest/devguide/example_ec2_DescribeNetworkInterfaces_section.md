@@ -2,6 +2,11 @@
 
 The following code examples show how to use `DescribeNetworkInterfaces`.
 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in
+context in the following code example:
+
+- [Create an Amazon ECS Linux task for the Fargate launch type](example_ecs_GettingStarted_086_section.md "example_ecs_GettingStarted_086_section.md")
+
 CLI
 
 **AWS CLI**

@@ -6,8 +6,18 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
-- [Create a VPC with private subnets and NAT gateways](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
-- [Get started with Amazon VPC](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
+- [Configure Amazon ECS Service Connect](example_ecs_ServiceConnect_085_section.md "example_ecs_ServiceConnect_085_section.md")
+- [Create a basic VPC](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
+- [Create an Amazon ECS Linux task for the Fargate launch type](example_ecs_GettingStarted_086_section.md "example_ecs_GettingStarted_086_section.md")
+- [Creating an Amazon ECS service for the EC2 launch type](example_ecs_GettingStarted_018_section.md "example_ecs_GettingStarted_018_section.md")
+- [Creating an Amazon RDS DB instance](example_rds_GettingStarted_036_section.md "example_rds_GettingStarted_036_section.md")
+- [Creating and managing Amazon EBS volumes](example_ec2_GettingStarted_020_section.md "example_ec2_GettingStarted_020_section.md")
+- [Get started with Marketplace Buyer](example_ec2_GettingStarted_030_section.md "example_ec2_GettingStarted_030_section.md")
+- [Getting started with Amazon EC2](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
+- [Getting started with Amazon MSK](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
+- [Getting started with Amazon Neptune](example_ec2_GettingStarted_064_section.md "example_ec2_GettingStarted_064_section.md")
+- [Getting started with Elastic Load Balancing](example_elastic_load_balancing_v2_GettingStarted_058_section.md "example_elastic_load_balancing_v2_GettingStarted_058_section.md")
+- [VPC with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
 
 .NET
 
