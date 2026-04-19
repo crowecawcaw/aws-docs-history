@@ -322,7 +322,7 @@ canal`.
 
 
 
-        ![Response card eliciting the date to schedule the root canal and three options: 2-15, 2-16, and 2-17.](images/respcard-20.png)
+        ![Response card eliciting the date to schedule the root canal and three options: 2-15, 2-16, and 2-17.](/images/lex/latest/dg/images/respcard-20.png)
 
         Although the Lambda function returned five dates, the
          client (Facebook Messenger) has a limit of three buttons for
