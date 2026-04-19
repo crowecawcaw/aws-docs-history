@@ -16,7 +16,7 @@ that are defined for their projects. You can view all of your dashboards in one 
 ![The "Dashboards" icon in the navigation bar.](images/portal-navigation-dashboards-console.png) 2. In the **Filter by project** drop-down list, choose the project whose
 dashboards you want to view.
 
-![The "Dashboards" page in list view with "Wind Farm 1" highlighted.](images/dashboards-list-view-console.png)
+![The "Dashboards" page in list view with "Wind Farm 1" highlighted.](/images/iot-sitewise/latest/appguide/images/dashboards-list-view-console.png)
 
 You can sort the list of dashboards by using the column headings.
 

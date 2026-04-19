@@ -99,7 +99,7 @@ customize details of the visualization, see [Customize visualizations](customize
 add a property that has an alarm, the visualization displays that alarm's threshold. For
 more information, see [Configure thresholds](configure-thresholds.md "configure-thresholds.md").
 
-![A sample visualization with the visualization configuration icon highlighted.](images/dashboard-edit-visualization-configuration-console.png) 5. To move a visualization, choose the control icon in the upper left and then drag the
+![A sample visualization with the visualization configuration icon highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-configuration-console.png) 5. To move a visualization, choose the control icon in the upper left and then drag the
 visualization to a new location.
 
 ![An example visualization with the gripper and resize controls highlighted.](images/dashboard-edit-visualization-bounds-console.png) 6. To change the size of a visualization, use the resize control in the lower right.
@@ -155,6 +155,6 @@ viewers.
 the check boxes for the project viewers to receive an email, and then choose **Send
 invitations**.
 
-![The "Project viewers" section of the project details page.](images/project-invite-viewers-console.png) 4. Your preferred email client opens, prepopulated with the recipients and the email body
+![The "Project viewers" section of the project details page.](/images/iot-sitewise/latest/appguide/images/project-invite-viewers-console.png) 4. Your preferred email client opens, prepopulated with the recipients and the email body
 with details from your project. You can customize the email before you send it to the
 project viewers.
