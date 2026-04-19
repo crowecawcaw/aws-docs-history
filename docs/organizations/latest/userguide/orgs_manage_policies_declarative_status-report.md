@@ -24,11 +24,13 @@ steps
 
 1. The `StartDeclarativePoliciesReport` API can only be called by the
    management account or delegated administrators for an organization.
-2. You must have an S3 bucket before generating the report (create a new one or
+2. To run reports from a delegated administrator account, the account must be
+   registered as a delegated administrator for the EC2 service.
+3. You must have an S3 bucket before generating the report (create a new one or
    use an existing one), it must be in the same Region in which the request is
    made, and it must have an appropriate S3 bucket policy. For a sample S3 policy,
    see _Sample Amazon S3 policy_ under [Examples](../../../AWSEC2/latest/APIReference/API_StartDeclarativePoliciesReport.md#API_StartDeclarativePoliciesReport_Examples "../../../AWSEC2/latest/APIReference/API_StartDeclarativePoliciesReport.md#API_StartDeclarativePoliciesReport_Examples") in the _Amazon EC2 API Reference_
-3. You must enable trusted access for the service where the declarative policy
+4. You must enable trusted access for the service where the declarative policy
    will enforce a baseline configuration. This creates a read-only service-linked
    role that is used to generate the account status report of what the existing
    configuration is for accounts across your organization.
@@ -43,7 +45,7 @@ declarative policies.
 For the AWS CLI, use the [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md") API.
 
 For more information on how to enable trusted access for a specific service
-with the AWS CLI see, [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md"). 4. Only one report per organization can be generated at a time. Attempting to
+with the AWS CLI see, [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md"). 5. Only one report per organization can be generated at a time. Attempting to
 generate a report while another is in progress will result in an error.
 
 ## Access the compliance status report
