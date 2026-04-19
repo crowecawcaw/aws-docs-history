@@ -6,6 +6,11 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 The following code examples show how to use `DeleteCluster`.
 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in
+context in the following code example:
+
+- [Getting started with Amazon Redshift provisioned clusters](example_redshift_GettingStarted_039_section.md "example_redshift_GettingStarted_039_section.md")
+
 .NET
 
 **SDK for .NET (v4)**

@@ -131,6 +131,7 @@ Cluster versions in this patch:
 - Enhanced performance for queries combining Lambda User-Defined Functions and UNNEST statements
 - Enhanced performance for queries using Lambda User-Defined Functions against system tables and views
 - Enhanced query execution performance when using ORDER BY and LIMIT clauses by eliminating unnecessary data scans
+- Enhanced Redshift Serverless AI-driven scaling and optimizations with an extended range of supported RPUs, now supporting a minimum of 8 RPUs
 - Auto REFRESH queries for Amazon Redshift materialized views (MVs) are now treated as user queries instead of background autonomics processes.
   Auto REFRESH queries now run with the same priority as other user queries and are no longer deferred by autonomics background processes.
   The MV Auto REFRESH behavior change feature is only enabled for Amazon Redshift Provisioned clusters on the CURRENT Track of patch release
