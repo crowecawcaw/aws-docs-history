@@ -47,20 +47,20 @@ to the client as network I/O. The following diagram illustrates how data is acce
 
 For read access directly from the in-memory ARC cache, performance is primarily defined by two components:
 the performance supported by the client-server network I/O connection, and the size of the cache.
-The following table shows the in-memory cached read performance of file systems using the Intelligent-Tiering storage class.
+The following table shows the cached read performance, and amount of memory available for in-memory caching and other activities, for file systems using the Intelligent-Tiering storage class, based on provisioned throughput capacity.
 
-| Provisioned throughput capacity (MBps) | In-memory cache (GB) | Network throughput capacity<br>(MBps) | Maximum number of client connections | Maximum network IOPS |
-| -------------------------------------- | -------------------- | ------------------------------------- | ------------------------------------ | -------------------- | ----------------------------- |
-|                                        |                      | **Baseline**                          | **Burst**                            |                      |                               |
-| 160                                    | 3                    | 375                                   | 3,125                                | 8,192                | Tens of thousands of IOPS     |
-| 320                                    | 11.2                 | 775                                   | 3,750                                | 16,384               |
-| 640                                    | 22.4                 | 1,550                                 | 5,000                                | 32,768               | Hundreds of thousands of IOPS |
-| 1,280                                  | 44.8                 | 3,125                                 | 6,250                                | 32,768               |
-| 2,560                                  | 89.6                 | 6,250                                 | –                                    | 32,768               |
-| 3,840                                  | 134.4                | 9,375                                 | –                                    | 32,768               |
-| 5,120                                  | 179.2                | 12,500                                | –                                    | 32,768               | 1+ million IOPS               |
-| 7,680                                  | 268.8                | 18,750                                | –                                    | 32,768               |
-| 10,240                                 | 358.4                | 21,000                                | –                                    | 32,768               |
+| Provisioned throughput capacity (MBps) | Memory (GB) | Network throughput capacity<br>(MBps) | Maximum number of client connections | Maximum network IOPS |
+| -------------------------------------- | ----------- | ------------------------------------- | ------------------------------------ | -------------------- | ----------------------------- |
+|                                        |             | **Baseline**                          | **Burst**                            |                      |                               |
+| 160                                    | 8           | 375                                   | 3,125                                | 8,192                | Tens of thousands of IOPS     |
+| 320                                    | 16          | 775                                   | 3,750                                | 16,384               |
+| 640                                    | 32          | 1,550                                 | 5,000                                | 32,768               | Hundreds of thousands of IOPS |
+| 1,280                                  | 64          | 3,125                                 | 6,250                                | 32,768               |
+| 2,560                                  | 128         | 6,250                                 | –                                    | 32,768               |
+| 3,840                                  | 192         | 9,375                                 | –                                    | 32,768               |
+| 5,120                                  | 256         | 12,500                                | –                                    | 32,768               | 1+ million IOPS               |
+| 7,680                                  | 384         | 18,750                                | –                                    | 32,768               |
+| 10,240                                 | 512         | 21,000                                | –                                    | 32,768               |
 
 ## Data access from SSD cache and Intelligent-Tiering
 

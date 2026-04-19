@@ -38,87 +38,87 @@ and can use these credits when they perform I/O operations.
 
 For read access directly from the in-memory ARC or NVMe L2ARC cache, performance is primarily defined by two components:
 the performance supported by the client-server network I/O connection, and the size of the cache.
-The following tables show the cached read performance of all Single-AZ 1, all Single-AZ 2, and Multi-AZ (HA) file systems, based on AWS Region.
+The following tables show the cached read performance, and amount of memory available for in-memory caching and other activities, for all Single-AZ 1, all Single-AZ 2, and Multi-AZ (HA) file systems, based on provisioned throughput capacity and AWS Region.
 
 ###### Note
 
 Single-AZ 1 (HA) and Single-AZ 2 (HA) file systems are only available in a certain subset of AWS Regions. For more information on which AWS Regions support Single-AZ 1 (HA) and Single-AZ 2 (HA) file systems, see [Availability by AWS Region](available-aws-regions.md "available-aws-regions.md").
 
-| Provisioned throughput capacity (MBps) | In-memory cache (GB) | Maximum network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
-| -------------------------------------- | -------------------- | ------------------------------------------ | ------------------------------------ | -------------------- | ----------------------------- |
-|                                        |                      | **Baseline**                               | **Burst**                            |                      |                               |
-| 64                                     | 3                    | 97                                         | 1,562                                | 4,096                | Tens of thousands of IOPS     |
-| 128                                    | 11.2                 | 195                                        | 1,562                                | 8,192                |
-| 256                                    | 22.4                 | 390                                        | 1,562                                | 16,384               |
-| 512                                    | 44.8                 | 781                                        | 1,562                                | 32,768               | Hundreds of thousands of IOPS |
-| 1,024                                  | 89.6                 | 1,562                                      | –                                    | 32,768               |
-| 2,048                                  | 179.2                | 3,125                                      | –                                    | 32,768               |
-| 3,072                                  | 268.8                | 4,687                                      | –                                    | 32,768               |
-| 4,096                                  | 358.4                | 6,250                                      | –                                    | 32,768               | Up to 1 million IOPS          |
+| Provisioned throughput capacity (MBps) | Memory (GB) | Maximum network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
+| -------------------------------------- | ----------- | ------------------------------------------ | ------------------------------------ | -------------------- | ----------------------------- |
+|                                        |             | **Baseline**                               | **Burst**                            |                      |                               |
+| 64                                     | 8           | 97                                         | 1,562                                | 4,096                | Tens of thousands of IOPS     |
+| 128                                    | 16          | 195                                        | 1,562                                | 8,192                |
+| 256                                    | 32          | 390                                        | 1,562                                | 16,384               |
+| 512                                    | 64          | 781                                        | 1,562                                | 32,768               | Hundreds of thousands of IOPS |
+| 1,024                                  | 128         | 1,562                                      | –                                    | 32,768               |
+| 2,048                                  | 256         | 3,125                                      | –                                    | 32,768               |
+| 3,072                                  | 384         | 4,687                                      | –                                    | 32,768               |
+| 4,096                                  | 512         | 6,250                                      | –                                    | 32,768               | Up to 1 million IOPS          |
 
-| Provisioned throughput capacity (MBps) | In-memory cache (GB) | Maximum network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
-| -------------------------------------- | -------------------- | ------------------------------------------ | ------------------------------------ | -------------------- | ----------------------------- |
-|                                        |                      | **Baseline**                               | **Burst**                            |                      |                               |
-| 64                                     | 0.25                 | 200                                        | 3,200                                | 4,096                | Tens of thousands of IOPS     |
-| 128                                    | 1.0                  | 400                                        | 3,200                                | 8,192                |
-| 256                                    | 3.0                  | 800                                        | 3,200                                | 16,384               |
-| 512                                    | 11.2                 | 1,600                                      | 3,200                                | 32,768               | Hundreds of thousands of IOPS |
-| 1,024                                  | 22.4                 | 3,200                                      | –                                    | 32,768               |
-| 2,048                                  | 44.8                 | 6,400                                      | –                                    | 32,768               |
-| 3,072                                  | 67.2                 | 9,600                                      | –                                    | 32,768               |
-| 4,096                                  | 89.6                 | 12,800                                     | –                                    | 32,768               | 1 million IOPS                |
+| Provisioned throughput capacity (MBps) | Memory (GB) | Maximum network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
+| -------------------------------------- | ----------- | ------------------------------------------ | ------------------------------------ | -------------------- | ----------------------------- |
+|                                        |             | **Baseline**                               | **Burst**                            |                      |                               |
+| 64                                     | 2           | 200                                        | 3,200                                | 4,096                | Tens of thousands of IOPS     |
+| 128                                    | 4           | 400                                        | 3,200                                | 8,192                |
+| 256                                    | 8           | 800                                        | 3,200                                | 16,384               |
+| 512                                    | 16          | 1,600                                      | 3,200                                | 32,768               | Hundreds of thousands of IOPS |
+| 1,024                                  | 32          | 3,200                                      | –                                    | 32,768               |
+| 2,048                                  | 64          | 6,400                                      | –                                    | 32,768               |
+| 3,072                                  | 96          | 9,600                                      | –                                    | 32,768               |
+| 4,096                                  | 128         | 12,800                                     | –                                    | 32,768               | 1 million IOPS                |
 
-| Provisioned throughput capacity (MBps) | In-memory cache (GB) | NVMe L2ARC cache (GB) | Network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
-| -------------------------------------- | -------------------- | --------------------- | ---------------------------------- | ------------------------------------ | -------------------- | ----------------------------- |
-|                                        |                      |                       | **Baseline**                       | **Burst**                            |                      |                               |
-| 160                                    | 3                    | 40                    | 375                                | 3,125                                | 8,192                | Tens of thousands of IOPS     |
-| 320                                    | 11.2                 | 80                    | 775                                | 3,750                                | 16,384               |
-| 640                                    | 22.4                 | 160                   | 1,550                              | 5,000                                | 32,768               | Hundreds of thousands of IOPS |
-| 1,280                                  | 44.8                 | 320                   | 3,125                              | 6,250                                | 32,768               |
-| 2,560                                  | 89.6                 | 640                   | 6,250                              | –                                    | 32,768               |
-| 3,840                                  | 134.4                | 960                   | 9,375                              | –                                    | 32,768               |
-| 5,120                                  | 179.2                | 1,280                 | 12,500                             | –                                    | 32,768               | 1+ million IOPS               |
-| 7,680                                  | 268.8                | 1,920                 | 18,750                             | –                                    | 32,768               |
-| 10,240                                 | 358.4                | 2,560                 | 21,000                             | –                                    | 32,768               |
+| Provisioned throughput capacity (MBps) | Memory (GB) | NVMe L2ARC cache (GB) | Network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
+| -------------------------------------- | ----------- | --------------------- | ---------------------------------- | ------------------------------------ | -------------------- | ----------------------------- |
+|                                        |             |                       | **Baseline**                       | **Burst**                            |                      |                               |
+| 160                                    | 8           | 40                    | 375                                | 3,125                                | 8,192                | Tens of thousands of IOPS     |
+| 320                                    | 16          | 80                    | 775                                | 3,750                                | 16,384               |
+| 640                                    | 32          | 160                   | 1,550                              | 5,000                                | 32,768               | Hundreds of thousands of IOPS |
+| 1,280                                  | 64          | 320                   | 3,125                              | 6,250                                | 32,768               |
+| 2,560                                  | 128         | 640                   | 6,250                              | –                                    | 32,768               |
+| 3,840                                  | 192         | 960                   | 9,375                              | –                                    | 32,768               |
+| 5,120                                  | 256         | 1,280                 | 12,500                             | –                                    | 32,768               | 1+ million IOPS               |
+| 7,680                                  | 384         | 1,920                 | 18,750                             | –                                    | 32,768               |
+| 10,240                                 | 512         | 2,560                 | 21,000                             | –                                    | 32,768               |
 
-| Provisioned throughput capacity (MBps) | In-memory cache (GB) | Network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
-| -------------------------------------- | -------------------- | ---------------------------------- | ------------------------------------ | -------------------- | ----------------------------- |
-|                                        |                      | **Baseline**                       | **Burst**                            |                      |                               |
-| 160                                    | 11.2                 | 195                                | 1,562                                | 8,192                | Tens of thousands of IOPS     |
-| 320                                    | 22.4                 | 390                                | 1,562                                | 16,384               |
-| 640                                    | 44.8                 | 781                                | 1,562                                | 32,768               | Hundreds of thousands of IOPS |
-| 1,280                                  | 89.6                 | 1,562                              | –                                    | 32,768               |
-| 2,560                                  | 179.2                | 3,125                              | –                                    | 32,768               |
-| 3,840                                  | 268.8                | 4,687                              | –                                    | 32,768               |
-| 5,120                                  | 358.4                | 6,250                              | –                                    | 32,768               | Up to 1 million IOPS          |
+| Provisioned throughput capacity (MBps) | Memory (GB) | Network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
+| -------------------------------------- | ----------- | ---------------------------------- | ------------------------------------ | -------------------- | ----------------------------- |
+|                                        |             | **Baseline**                       | **Burst**                            |                      |                               |
+| 160                                    | 16          | 195                                | 1,562                                | 8,192                | Tens of thousands of IOPS     |
+| 320                                    | 32          | 390                                | 1,562                                | 16,384               |
+| 640                                    | 64          | 781                                | 1,562                                | 32,768               | Hundreds of thousands of IOPS |
+| 1,280                                  | 128         | 1,562                              | –                                    | 32,768               |
+| 2,560                                  | 256         | 3,125                              | –                                    | 32,768               |
+| 3,840                                  | 384         | 4,687                              | –                                    | 32,768               |
+| 5,120                                  | 512         | 6,250                              | –                                    | 32,768               | Up to 1 million IOPS          |
 
-| Provisioned throughput capacity (MBps) | In-memory cache (GB) | Network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
-| -------------------------------------- | -------------------- | ---------------------------------- | ------------------------------------ | -------------------- | ----------------------------- |
-|                                        |                      | **Baseline**                       | **Burst**                            |                      |                               |
-| 160                                    | 3                    | 375                                | 3,125                                | 8,192                | Tens of thousands of IOPS     |
-| 320                                    | 11.2                 | 775                                | 3,750                                | 16,384               |
-| 640                                    | 22.4                 | 1,550                              | 5,000                                | 32,768               | Hundreds of thousands of IOPS |
-| 1,280                                  | 44.8                 | 3,125                              | 6,250                                | 32,768               |
-| 2,560                                  | 89.6                 | 6,250                              | –                                    | 32,768               |
-| 3,840                                  | 134.4                | 9,375                              | –                                    | 32,768               |
-| 5,120                                  | 179.2                | 12,500                             | –                                    | 32,768               | 1+ million IOPS               |
-| 7,680                                  | 268.8                | 18,750                             | –                                    | 32,768               |
-| 10,240                                 | 358.4                | 21,000                             | –                                    | 32,768               |
+| Provisioned throughput capacity (MBps) | Memory (GB) | Network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
+| -------------------------------------- | ----------- | ---------------------------------- | ------------------------------------ | -------------------- | ----------------------------- |
+|                                        |             | **Baseline**                       | **Burst**                            |                      |                               |
+| 160                                    | 8           | 375                                | 3,125                                | 8,192                | Tens of thousands of IOPS     |
+| 320                                    | 16          | 775                                | 3,750                                | 16,384               |
+| 640                                    | 32          | 1,550                              | 5,000                                | 32,768               | Hundreds of thousands of IOPS |
+| 1,280                                  | 64          | 3,125                              | 6,250                                | 32,768               |
+| 2,560                                  | 128         | 6,250                              | –                                    | 32,768               |
+| 3,840                                  | 192         | 9,375                              | –                                    | 32,768               |
+| 5,120                                  | 256         | 12,500                             | –                                    | 32,768               | 1+ million IOPS               |
+| 7,680                                  | 384         | 18,750                             | –                                    | 32,768               |
+| 10,240                                 | 512         | 21,000                             | –                                    | 32,768               |
 
 ###### Note
 
 For Multi-AZ file systems created in Canada (Central) and Asia Pacific (Mumbai) prior to July 9th, 2024, refer to Table 6 for performance details.
 
-| Provisioned throughput capacity (MBps) | In-memory cache (GB) | Network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
-| -------------------------------------- | -------------------- | ---------------------------------- | ------------------------------------ | -------------------- | ----------------------------- |
-|                                        |                      | **Baseline**                       | **Burst**                            |                      |                               |
-| 160                                    | 1.0                  | 400                                | 3,200                                | 8,192                | Tens of thousands of IOPS     |
-| 320                                    | 3                    | 800                                | 3,200                                | 16,384               |
-| 640                                    | 11.2                 | 1,600                              | 3,400                                | 32,768               | Hundreds of thousands of IOPS |
-| 1,280                                  | 22.4                 | 3,200                              | –                                    | 32,768               |
-| 2,560                                  | 44.8                 | 6,400                              | –                                    | 32,768               |
-| 3,840                                  | 67.2                 | 9,600                              | –                                    | 32,768               |
-| 5,120                                  | 89.6                 | 12,800                             | –                                    | 32,768               | 1+ million IOPS               |
+| Provisioned throughput capacity (MBps) | Memory (GB) | Network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
+| -------------------------------------- | ----------- | ---------------------------------- | ------------------------------------ | -------------------- | ----------------------------- |
+|                                        |             | **Baseline**                       | **Burst**                            |                      |                               |
+| 160                                    | 4           | 400                                | 3,200                                | 8,192                | Tens of thousands of IOPS     |
+| 320                                    | 8           | 800                                | 3,200                                | 16,384               |
+| 640                                    | 16          | 1,600                              | 3,400                                | 32,768               | Hundreds of thousands of IOPS |
+| 1,280                                  | 32          | 3,200                              | –                                    | 32,768               |
+| 2,560                                  | 64          | 6,400                              | –                                    | 32,768               |
+| 3,840                                  | 96          | 9,600                              | –                                    | 32,768               |
+| 5,120                                  | 128         | 12,800                             | –                                    | 32,768               | 1+ million IOPS               |
 
 ## Data access from disk
 
