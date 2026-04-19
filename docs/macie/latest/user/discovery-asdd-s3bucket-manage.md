@@ -79,7 +79,7 @@ using the table view (
      label to the bucket.
     * To assign a sensitivity score that Macie calculates automatically, turn off
      **Assign maximum score** (
-    ![A toggle switch with a blue background and the toggle positioned to the right.](/images/macie/latest/user/images/tgl-blue-on.png)
+    ![A toggle switch with a blue background and the toggle positioned to the right.](images/tgl-blue-on.png)
     ).
     * To exclude or include specific types of sensitive data in the sensitivity score,
      choose the **Sensitivity** tab. In the
@@ -102,7 +102,7 @@ using the table view (
     ).
     * To include the bucket in subsequent analyses, if you previously excluded it,
      turn off **Exclude from automated discovery** (
-    ![A toggle switch with a blue background and the toggle positioned to the right.](/images/macie/latest/user/images/tgl-blue-on.png)
+    ![A toggle switch with a blue background and the toggle positioned to the right.](images/tgl-blue-on.png)
     ).
 
 API

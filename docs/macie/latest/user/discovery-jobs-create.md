@@ -122,7 +122,7 @@ of these buckets, spanning as many as 1,000 accounts.
    from Amazon S3.
 
 If the information icon (
-![The information icon, which is a blue circle that has a lowercase letter i in it.](/images/macie/latest/user/images/icon-info-blue.png)
+![The information icon, which is a blue circle that has a lowercase letter i in it.](images/icon-info-blue.png)
 ) appears next to any bucket
 names, we recommend that you do this. This icon indicates that a bucket
 was created during the past 24 hours, possibly after Macie last
