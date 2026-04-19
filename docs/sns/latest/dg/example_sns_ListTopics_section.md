@@ -2,6 +2,11 @@
 
 The following code examples show how to use `ListTopics`.
 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in
+context in the following code example:
+
+- [Getting Started with IoT Device Defender](example_iot_GettingStarted_079_section.md "example_iot_GettingStarted_079_section.md")
+
 .NET
 
 **SDK for .NET**

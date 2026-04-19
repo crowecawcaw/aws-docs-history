@@ -16,6 +16,6 @@ function to be triggered by published messages.
         3. For **Endpoint** enter the ARN of a function.
         4. Choose **Create subscription**.
 
-    When a message is published to an SNS topic that has a Lambda function subscribed to it,
+    When a message is published to an Amazon SNS topic that has a Lambda function subscribed to it,
     the Lambda function is invoked with the payload of the published message. For information about
     how to use AWS Lambda with Amazon SNS, including a tutorial, see [Using AWS Lambda with Amazon SNS](../../../lambda/latest/dg/with-sns.md "../../../lambda/latest/dg/with-sns.md").

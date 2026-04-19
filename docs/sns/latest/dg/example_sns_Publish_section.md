@@ -5,6 +5,7 @@ The following code examples show how to use `Publish`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code examples:
 
+- [Create an Amazon SNS topic and publish messages](example_sns_GettingStarted_048_section.md "example_sns_GettingStarted_048_section.md")
 - [Create and publish to a FIFO topic](example_sns_PublishFifoTopic_section.md "example_sns_PublishFifoTopic_section.md")
 - [Publish an SMS text message](example_sns_PublishTextSMS_section.md "example_sns_PublishTextSMS_section.md")
 - [Publish messages to queues](example_sqs_Scenario_TopicsAndQueues_section.md "example_sqs_Scenario_TopicsAndQueues_section.md")
