@@ -20,14 +20,14 @@ POST [base]/Group/[id]/$davinci-data-export
 
 ## Request Parameters
 
-| Parameter                  | Cardinality | Description                                                                                                                                                                                            |
-| -------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `patient`                  | 0..\*       | Specific members whose data to export. When omitted, all members in the Group are exported.                                                                                                            |
-| `_type`                    | 0..1        | Comma-delimited list of FHIR resource types to export.                                                                                                                                                 |
-| `_since`                   | 0..1        | Only include resources updated after this date and time.                                                                                                                                               |
-| `_until`                   | 0..1        | Only include resources updated before this date and time.                                                                                                                                              |
-| `exportType`               | 0..1        | Type of export to perform. Valid values: `hl7.fhir.us.davinci-atr`, `hl7.fhir.us.davinci-pdex`, `hl7.fhir.us.davinci-pdex.p2p`, `hl7.fhir.us.davinci-pdex.member`. Default: `hl7.fhir.us.davinci-atr`. |
-| `_includeEOB2xWoFinancial` | 0..1        | Specifies whether to include CARIN BB 2.x ExplanationOfBenefit resources with financial data removed. Default: `false`.                                                                                |
+| Parameter                  | Cardinality | Description                                                                                                                                                                                                                                                                                                                                                                      |
+| -------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `patient`                  | 0..\*       | Specific members whose data to export. When omitted, all members in the Group are exported.                                                                                                                                                                                                                                                                                      |
+| `_type`                    | 0..1        | Comma-delimited list of FHIR resource types to export. When omitted, all supported resource types for the specified export type are included. For ATR exports, this defaults to the 8 attribution resource types. For PDex exports, this includes all attribution resource types plus clinical and claims resource types from the US Core, CARIN Blue Button, and PDex profiles. |
+| `_since`                   | 0..1        | Only include resources updated after this date and time.                                                                                                                                                                                                                                                                                                                         |
+| `_until`                   | 0..1        | Only include resources updated before this date and time.                                                                                                                                                                                                                                                                                                                        |
+| `exportType`               | 0..1        | Type of export to perform. Valid values: `hl7.fhir.us.davinci-atr`, `hl7.fhir.us.davinci-pdex`, `hl7.fhir.us.davinci-pdex.p2p`, `hl7.fhir.us.davinci-pdex.member`. Default: `hl7.fhir.us.davinci-atr`.                                                                                                                                                                           |
+| `_includeEOB2xWoFinancial` | 0..1        | Specifies whether to include CARIN BB 2.x ExplanationOfBenefit resources with financial data removed. Default: `false`.                                                                                                                                                                                                                                                          |
 
 ### Supported Resource Types
 
@@ -76,6 +76,8 @@ All PDex export types share the same supported profiles and filtering logic. For
 - US Core 3.1.1, 6.1.0, and 7.0.0
 - PDex Prior Authorization (not supported for Member Access)
 - CARIN BB 2.x Basis profiles: Inpatient Institutional, Outpatient Institutional, Professional NonClinician, Oral, Pharmacy
+
+For PDex exports, clinical and claims resources are automatically discovered for each patient in the Group. You do not need to explicitly reference these resources in the Group resource. The operation searches for all patient-compartment resources (such as `Observation`, `Condition`, `Coverage`, `RelatedPerson`, `MedicationRequest`, and `ExplanationOfBenefit`) that belong to the attributed patients. Only `Patient`, `Group`, and non-patient-compartment ATR types (`Practitioner`, `PractitionerRole`, `Organization`, `Location`) require explicit references in the Group.
 
 Provider Access (`hl7.fhir.us.davinci-pdex`)
 Enables in-network providers to retrieve patient data for attributed patients.
@@ -204,6 +206,10 @@ Group (Attribution List)
 ├── PractitionerRole → Location
 └── Organization (Attributed Providers)
 ```
+
+###### Note
+
+The preceding resource relationship diagram applies to ATR exports. For PDex exports, clinical and claims resources are automatically discovered through patient search and do not require explicit references in the Group resource.
 
 ### Resource Sources
 

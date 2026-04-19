@@ -351,6 +351,10 @@ The server returns a response showing the `Patient` and
 
 AWS HealthLake supports conditional updates within bundles using the following query parameters:
 
+###### Note
+
+Conditional PUTs are supported only in `batch` bundles. `Transaction` bundles do not support conditional PUTs.
+
 - `_id` (standalone)
 - `_id` in combination with one of the following:
   - `_tag`
@@ -728,6 +732,10 @@ Polling results are available for 90 days after the transaction is completed. Af
 ###### Note
 
 Synchronous `Bundle` type `transaction` continues to support up to 100 resources and is the default processing mode. If you submit a `Bundle` type `transaction` with more than 100 resources without the `Prefer: respond-async` header, HealthLake returns a `422 Unprocessable Entity` error. Bundles with type `batch` are not supported for asynchronous processing—only `Bundle` type `transaction` can be submitted asynchronously (with up to 500 operations).
+
+###### Note
+
+`PATCH` operations and conditional PUTs are not supported in asynchronous bundle transactions.
 
 ### Submitting an asynchronous transaction
 
