@@ -66,6 +66,23 @@ metrics.
 | **NumberOfTextMessagePartsDelivered**  | Number of text message parts delivered to the recipient.                                                                          | Count       | • Sum<br>• Sample Count<br>• Max<br>• Min<br>• Average<br>• Percentile |
 | **NumberOfMediaMessagePartsDelivered** | Number of media message parts delivered to the recipient.                                                                         | Count       | • Sum<br>• Sample Count<br>• Max<br>• Min<br>• Average<br>• Percentile |
 
+###### Duplicate delivery receipts for multi-part messages
+
+When a message is split into multiple parts, the carrier infrastructure may
+return more than one delivery confirmation for the same message. The
+**NumberOfTextMessagePartsDelivered** and
+**NumberOfMediaMessagePartsDelivered** metrics
+record each delivery receipt received, which means the delivered count can
+occasionally exceed the sent count for a given message. Each message is sent and
+delivered only once—the recipient does not receive duplicates. The extra
+delivery events are duplicate delivery receipts, not duplicate sends.
+
+There is no billing impact. You are charged once per message part sent,
+regardless of how many delivery receipts are recorded.
+
+If your application counts delivery events for reconciliation, we recommend
+deduplicating on the message ID.
+
 ### Message feedback metrics
 
 The `AWS/SMSVoice` namespace includes the following message feedback

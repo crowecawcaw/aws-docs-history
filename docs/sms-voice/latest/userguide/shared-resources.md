@@ -15,6 +15,18 @@ and the consumers with whom to share them. Consumers can include:
 This topic explains how to share resources that you own, and how to use resources that are
 shared with you.
 
+###### Important
+
+Sharing origination identities with other AWS accounts does not grant those accounts
+permission to send messages to China. Each AWS account must be individually allowlisted
+for sending to China, regardless of whether the origination identity is owned or shared
+via AWS RAM. If a consuming account attempts to send to China using a shared origination
+identity without its own China allowlisting, the request will fail with a
+`DESTINATION_COUNTRY_BLOCKED` validation error.
+
+To request China allowlisting for an account, open a case with AWS Support. For more
+information, see [Requesting support for SMS, MMS, and voice messaging through Support](awssupport.md "awssupport.md").
+
 ###### Contents
 
 - [Prerequisites for sharing phone number, pool, opt-out list, or sender IDs](#sharing-prereqs "#sharing-prereqs")

@@ -1,10 +1,11 @@
 # Dedicated number registration forms
 
-The Dedicated SMS Number Registration Forms section provides step-by-step guidance for
-registering your dedicated SMS codes with AWS. Before you can use dedicated numbers for
-SMS messaging, you must submit the appropriate registration forms for your use case and region.
+The following countries require you to complete a registration before you can obtain a
+dedicated SMS number (both short and long codes). You can submit these registrations through
+the AWS End User Messaging SMS console or API. Once your registration is approved, the dedicated number is
+provisioned for your account.
 
-This form is required for registering a dedicated SMS number (both short and long codes) in the following countries:
+Select a country below for step-by-step instructions on completing the registration form:
 
 ###### Forms
 

@@ -14,21 +14,22 @@ If you're new to SMS messaging with AWS End User Messaging SMS, you should also 
 MMS spending threshold that meets the expected demands of your SMS and MMS use case. By
 default, your monthly spending threshold is $1.00 (USD). For more information, see [Requesting an SMS, MMS, or voice spending quota change for AWS End User Messaging SMS](awssupport-spend-threshold.md "awssupport-spend-threshold.md").
 
-## Requesting a long code
+## Countries supported through console and APIs
 
-You can request a long code for the below countries through the End User Messaging console. If you require a
-long code in a country not included in the below list you can request a long code by opening a case in the AWS Support
-by following the below process.
-
-Countries support through console and APIs:
+You can request a long code for the following countries through the AWS End User Messaging SMS console or
+API. Most countries require you to submit a dedicated number registration before you can
+obtain a long code.
 
 - Australia (AU)
 - Austria (AT)
+- Canada (CA)
 - Chile (CL)
 - Denmark (DK)
 - Finland (FI)
+- Germany (DE)
 - Hong Kong (HK)
 - Hungary (HU)
+- India (IN)
 - Italy (IT)
 - Netherlands (NL)
 - Norway (NO)
@@ -37,6 +38,25 @@ Countries support through console and APIs:
 - Spain (ES)
 - Sweden (SE)
 - United Kingdom (GB)
+
+###### Note
+
+Canada does not require a registration. You can purchase a Canadian long code
+directly through the console or API without submitting a registration form. For more
+information, see [Request a phone number in AWS End User Messaging SMS](phone-numbers-request.md "phone-numbers-request.md").
+
+For best deliverability to Canada, we recommend registering a toll-free number
+with international sending enabled, or obtaining a dedicated Canadian short code.
+For more information, see [United States Toll-free number registration process](registrations-tfn.md "registrations-tfn.md") or [Requesting dedicated short codes](phone-numbers-request-short-code.md "phone-numbers-request-short-code.md").
+
+For all other countries in this list, you must complete a dedicated number registration.
+For step-by-step instructions on completing the registration forms for each country,
+see [Dedicated number registration forms](registrations-dedicated-number.md "registrations-dedicated-number.md").
+
+## Requesting a long code for other countries
+
+If you require a long code in a country not listed above, you can request one by
+opening a case in the AWS Support.
 
 ###### Important
 

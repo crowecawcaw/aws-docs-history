@@ -69,6 +69,18 @@ When you are creating a Sender ID you should consider the following:
 - Some countries have additional character restrictions beyond the general rules listed above. For example, France does not support the dash character (-) in sender IDs. For country-specific requirements, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
 - If the country you're sending to requires registration you must submit a registration for each AWS Region you plan on sending from
 
+###### Sender ID casing in the console
+
+The AWS End User Messaging SMS console displays all Sender IDs in uppercase, regardless of the casing
+used during registration. Sender ID values are case-sensitive at the carrier and
+aggregator level. Using the wrong casing in API calls can cause delivery failures.
+
+To verify the registered casing of a Sender ID, check the associated registration
+record in the **Registrations** section of the console,
+which preserves the original casing submitted during registration. When specifying a
+Sender ID in API calls, use the casing shown in your registration record, not the
+casing shown in the Sender ID list.
+
 ## Sender ID display name rules in AWS End User Messaging SMS
 
 The following table explains which Sender ID is displayed when you send SMS messages to
