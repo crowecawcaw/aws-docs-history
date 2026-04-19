@@ -58,6 +58,7 @@ This topic also includes information about getting started and details about pre
   - [Create and manage global tables demonstrating MREC](example_dynamodb_Scenario_GlobalTableOperations_section.md "example_dynamodb_Scenario_GlobalTableOperations_section.md")
   - [Delete data using PartiQL DELETE](example_dynamodb_PartiQLDelete_section.md "example_dynamodb_PartiQLDelete_section.md")
   - [Detect PPE in images](example_cross_RekognitionPhotoAnalyzerPPE_section.md "example_cross_RekognitionPhotoAnalyzerPPE_section.md")
+  - [Getting started with DynamoDB](example_dynamodb_GettingStarted_070_section.md "example_dynamodb_GettingStarted_070_section.md")
   - [Insert data using PartiQL INSERT](example_dynamodb_PartiQLInsert_section.md "example_dynamodb_PartiQLInsert_section.md")
   - [Invoke a Lambda function from a browser](example_cross_LambdaForBrowser_section.md "example_cross_LambdaForBrowser_section.md")
   - [Manage Global Secondary Indexes](example_dynamodb_Scenario_GSILifecycle_section.md "example_dynamodb_Scenario_GSILifecycle_section.md")

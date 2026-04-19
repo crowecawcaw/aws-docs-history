@@ -11,6 +11,7 @@ context in the following code examples:
 - [Create an item with a TTL](example_dynamodb_PutItemTTL_section.md "example_dynamodb_PutItemTTL_section.md")
 - [Create and manage global tables demonstrating MREC](example_dynamodb_Scenario_GlobalTableOperations_section.md "example_dynamodb_Scenario_GlobalTableOperations_section.md")
 - [Create and manage MRSC global tables](example_dynamodb_Scenario_MRSCGlobalTables_section.md "example_dynamodb_Scenario_MRSCGlobalTables_section.md")
+- [Getting started with DynamoDB](example_dynamodb_GettingStarted_070_section.md "example_dynamodb_GettingStarted_070_section.md")
 - [Use conditional operations](example_dynamodb_Scenario_ConditionalOperations_section.md "example_dynamodb_Scenario_ConditionalOperations_section.md")
 - [Work with global tables and multi-Region replication eventual consistency (MREC)](example_dynamodb_Scenario_MultiRegionReplication_section.md "example_dynamodb_Scenario_MultiRegionReplication_section.md")
 - [Work with Streams and Time-to-Live](example_dynamodb_Scenario_StreamsAndTTL_section.md "example_dynamodb_Scenario_StreamsAndTTL_section.md")

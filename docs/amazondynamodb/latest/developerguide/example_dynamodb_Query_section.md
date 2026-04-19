@@ -9,6 +9,7 @@ context in the following code examples:
 - [Accelerate reads with DAX](example_dynamodb_Usage_DaxDemo_section.md "example_dynamodb_Usage_DaxDemo_section.md")
 - [Advanced Global Secondary Index scenarios](example_dynamodb_Scenario_GSIAdvanced_section.md "example_dynamodb_Scenario_GSIAdvanced_section.md")
 - [Compare multiple values with a single attribute](example_dynamodb_Scenario_CompareMultipleValues_section.md "example_dynamodb_Scenario_CompareMultipleValues_section.md")
+- [Getting started with DynamoDB](example_dynamodb_GettingStarted_070_section.md "example_dynamodb_GettingStarted_070_section.md")
 - [Manage Global Secondary Indexes](example_dynamodb_Scenario_GSILifecycle_section.md "example_dynamodb_Scenario_GSILifecycle_section.md")
 - [Perform advanced query operations](example_dynamodb_Scenario_AdvancedQueryTechniques_section.md "example_dynamodb_Scenario_AdvancedQueryTechniques_section.md")
 - [Query a table using a begins_with condition](example_dynamodb_Scenarios_QueryWithBeginsWithCondition_section.md "example_dynamodb_Scenarios_QueryWithBeginsWithCondition_section.md")

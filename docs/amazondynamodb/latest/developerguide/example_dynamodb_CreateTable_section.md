@@ -12,6 +12,7 @@ context in the following code examples:
 - [Create a table with warm throughput enabled](example_dynamodb_CreateTableWarmThroughput_section.md "example_dynamodb_CreateTableWarmThroughput_section.md")
 - [Create and manage global tables demonstrating MREC](example_dynamodb_Scenario_GlobalTableOperations_section.md "example_dynamodb_Scenario_GlobalTableOperations_section.md")
 - [Create and manage MRSC global tables](example_dynamodb_Scenario_MRSCGlobalTables_section.md "example_dynamodb_Scenario_MRSCGlobalTables_section.md")
+- [Getting started with DynamoDB](example_dynamodb_GettingStarted_070_section.md "example_dynamodb_GettingStarted_070_section.md")
 - [Manage Global Secondary Indexes](example_dynamodb_Scenario_GSILifecycle_section.md "example_dynamodb_Scenario_GSILifecycle_section.md")
 - [Manage resource-based policies](example_dynamodb_Scenario_ResourcePolicyLifecycle_section.md "example_dynamodb_Scenario_ResourcePolicyLifecycle_section.md")
 - [Set up Attribute-Based Access Control](example_dynamodb_Scenario_ABACSetup_section.md "example_dynamodb_Scenario_ABACSetup_section.md")
