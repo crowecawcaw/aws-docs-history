@@ -36,6 +36,9 @@ You can get started by connecting a valid Amazon EKS cluster with AWS Batch. The
 register an Amazon EKS job definition using `podspec` equivalent attributes. Last, submit jobs using the [SubmitJob](../APIReference/API_SubmitJob.md "../APIReference/API_SubmitJob.md") API operation referencing to
 the job definition. For more information, see [Getting started with AWS Batch on Amazon EKS](getting-started-eks.md "getting-started-eks.md").
 
+AWS Batch on Amazon EKS supports Amazon EC2 instances (On-Demand and Spot) as compute resources. To use Fargate with
+AWS Batch, use an Amazon ECS compute environment instead. For more information, see [Fargate compute environments](fargate.md "fargate.md").
+
 ## Amazon EKS
 
 ###### Topics

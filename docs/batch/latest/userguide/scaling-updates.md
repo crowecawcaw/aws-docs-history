@@ -9,7 +9,7 @@ flexible update option.
 
 When you modify only the following settings,
 AWS Batch performs a scaling update. If you modify any of these settings along with other
-compute environment settings, AWS Batch performs an [infrastructure update](infrastructure-updates.md#infrastructure-updates.title "infrastructure-updates.md#infrastructure-updates.title")
+compute environment settings, AWS Batch performs an [infrastructure update](infrastructure-updates.md "infrastructure-updates.md")
 instead.
 
 The following settings trigger scaling updates when modified exclusively:

@@ -123,7 +123,7 @@ The approach for updating AMIs depends on your compute environment configuration
 
 ### Updating the AWS Batch provided default AMI to latest
 
-AWS Batch can update to the latest Amazon ECS-optimized AMI during [infrastructure](infrastructure-updates.md#infrastructure-updates.title "infrastructure-updates.md#infrastructure-updates.title") updates when all of these
+AWS Batch can update to the latest Amazon ECS-optimized AMI during [infrastructure](infrastructure-updates.md "infrastructure-updates.md") updates when all of these
 conditions are met:
 
 ###### Note

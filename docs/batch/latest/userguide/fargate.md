@@ -9,6 +9,9 @@ memory requirements, define networking and IAM policies, and launch the applicat
 isolation boundary and does not share the underlying kernel, CPU resources, memory resources, or elastic network
 interface with another job.
 
+Fargate is only available for AWS Batch compute environments that use Amazon ECS as the orchestrator. Fargate is not
+supported for AWS Batch on Amazon EKS compute environments. For more information, see [Amazon EKS compute environments](eks.md "eks.md").
+
 ###### Topics
 
 - [When to use Fargate](when-to-use-fargate.md "when-to-use-fargate.md")

@@ -62,7 +62,8 @@ AWS Batch can select the instance type for you if you choose one of the followin
 Starting on 11/01/2025 the behavior of `optimal` is going to be changed to
 match `default_x86_64`. During the change your instance families could be
 updated to a newer generation. You do not need to perform any actions for the upgrade to
-happen. For more information about change, see [Optimal instance type configuration to receive automatic instance family updates](optimal-default-instance-troubleshooting.md "optimal-default-instance-troubleshooting.md").
+happen. For more information about change, see [Optimal instance type configuration to
+receive automatic instance family updates](optimal-default-instance-troubleshooting.md "optimal-default-instance-troubleshooting.md").
 
 ###### Note
 
@@ -77,7 +78,7 @@ happen. For more information about change, see [Optimal instance type configurat
      workload. For example, in an AWS Region where both c6i and c7i instances are
      available, AWS Batch might select c6i instances if they offer better
      cost-effectiveness for your specific job requirements. For more information on
-     AWS Batch instance types and AWS Region availability, see [Instance type compute table](instance-type-compute-table.md#instance-type-compute-table.title "instance-type-compute-table.md#instance-type-compute-table.title").
+     AWS Batch instance types and AWS Region availability, see [Instance type compute table](instance-type-compute-table.md "instance-type-compute-table.md").
     * AWS Batch periodically updates your instances in default bundles to newer, more cost-effective
      options. Updates happen automatically without requiring any action from you. Your
      workloads continue running during updates with no interruption
@@ -128,7 +129,7 @@ GPU scheduling, the compute environment must include instance types from the
     			 (accelerated)](../../../eks/latest/userguide/eks-optimized-ami.md "../../../eks/latest/userguide/eks-optimized-ami.md"): GPU instance families and can be used for all non AWS
     			 Graviton-based instance types.
     		2. For **Kubernetes version** enter in a [Kubernetes version
-    		 number](supported_kubernetes_version.md#supported_kubernetes_version.title "supported_kubernetes_version.md#supported_kubernetes_version.title").
+    		 number](supported_kubernetes_version.md "supported_kubernetes_version.md").
     	2. To use a custom AMI:
 
 
@@ -154,8 +155,8 @@ GPU scheduling, the compute environment must include instance types from the
     			 Graviton-based instance types.
     		2. For **Image ID override** enter the custom AMI ID.
     		3. For **Kubernetes version** enter in a [Kubernetes version
-    		 number](supported_kubernetes_version.md#supported_kubernetes_version.title "supported_kubernetes_version.md#supported_kubernetes_version.title").
-    4. (Optional) For **Launch template**, choose an existing [launch template](eks-launch-templates.md#eks-launch-templates.title "eks-launch-templates.md#eks-launch-templates.title").
+    		 number](supported_kubernetes_version.md "supported_kubernetes_version.md").
+    4. (Optional) For **Launch template**, choose an existing [launch template](eks-launch-templates.md "eks-launch-templates.md").
     5. (Optional) For **Launch template version**, enter
      `$Default`, `$Latest`, or a version
      number.
@@ -183,7 +184,7 @@ GPU scheduling, the compute environment must include instance types from the
 
 
     	You would use **userdataType** when you have a [mixed
-    	 environment](mixed-ami-environments.md#mixed-ami-environments.title "mixed-ami-environments.md#mixed-ami-environments.title") where you're using both AL2 and AL2023-based custom AMIs in the same
+    	 environment](mixed-ami-environments.md "mixed-ami-environments.md") where you're using both AL2 and AL2023-based custom AMIs in the same
     	 compute environment.
 
 20. Choose **Next page**.

@@ -35,9 +35,54 @@ Before submitting a service job, ensure you have:
   job queues and service environments. For more information, see
   [AWS Batch IAM policies, roles, and permissions](IAM_policies.md "IAM_policies.md").
 
-## Submit a service job with the AWS CLI
+## Submit a service job
 
-The following shows how to submit a service job using the AWS CLI:
+The table below shows how to submit a service job using either the SageMaker Python SDK or the AWS CLI:
+
+Submit using the SageMaker Python SDK
+The [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/v3-examples/training-examples/aws_batch/sm-training-queues_getting_started_with_model_trainer.html "https://sagemaker.readthedocs.io/en/stable/v3-examples/training-examples/aws_batch/sm-training-queues_getting_started_with_model_trainer.html") has built-in support for submitting jobs to
+AWS Batch. The following examples show how to create a model trainer, create
+a training queue, and submit a job. For a complete example, see the [full sample notebook](https://github.com/aws/sagemaker-python-sdk/blob/master/v3-examples/training-examples/aws_batch/sm-training-queues_getting_started_with_model_trainer.ipynb "https://github.com/aws/sagemaker-python-sdk/blob/master/v3-examples/training-examples/aws_batch/sm-training-queues_getting_started_with_model_trainer.ipynb") on GitHub.
+
+Create a `ModelTrainer` that defines the training job
+configuration.
+
+```
+from sagemaker.train.model_trainer import ModelTrainer
+from sagemaker.train.configs import SourceCode, Compute, StoppingCondition
+
+source_code = SourceCode(command="echo 'Hello World'")
+
+model_trainer = ModelTrainer(
+    training_image=`"123456789012.dkr.ecr.us-east-1.amazonaws.com/pytorch-training:2.5-gpu-py311"`,
+    source_code=source_code,
+    base_job_name=`"my-training-job"`,
+    compute=Compute(instance_type=`"ml.g5.xlarge"`, instance_count=`1`),
+    stopping_condition=StoppingCondition(max_runtime_in_seconds=`300`),
+)
+```
+
+Create a `TrainingQueue` object that references your job
+queue by name.
+
+```
+from sagemaker.train.aws_batch.training_queue import TrainingQueue
+
+queue = TrainingQueue(`"my-sagemaker-job-queue"`)
+```
+
+Submit a job by calling `queue.submit`.
+
+```
+job = queue.submit(
+    training_job=model_trainer,
+    inputs=None,
+)
+```
+
+Submit using the AWS CLI
+The following shows how to submit a service job using the AWS
+CLI:
 
 ```
 aws batch submit-service-job \
@@ -48,4 +93,5 @@ aws batch submit-service-job \
     --client-token "unique-token-12345"
 ```
 
-For more information about the `serviceRequestPayload` parameters, see [Service job payloads in AWS Batch](service-job-payload.md "service-job-payload.md").
+For more information about the `serviceRequestPayload`
+parameters, see [Service job payloads in AWS Batch](service-job-payload.md "service-job-payload.md").

@@ -35,7 +35,7 @@ selects new instance types.
 
 ###### Note
 
-For [multi-node parallel jobs](multi-node-parallel-jobs.md#multi-node-parallel-jobs.title "multi-node-parallel-jobs.md#multi-node-parallel-jobs.title")
+For [multi-node parallel jobs](multi-node-parallel-jobs.md "multi-node-parallel-jobs.md")
 AWS Batch chooses the optimal instance type available. If the instance type becomes unavailable
 due to insufficient capacity, other instance types within the family are not launched.
 

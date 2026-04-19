@@ -92,7 +92,8 @@ Complete the following steps to create a managed compute environment using Amazo
     Starting on 11/01/2025 the behavior of `optimal` is going to be changed
     to match `default_x86_64`. During the change your instance families could
     be updated to a newer generation. You do not need to perform any actions for the
-    upgrade to happen. For more information about change, see .
+    upgrade to happen. For more information about change, see [Optimal instance type configuration to
+    receive automatic instance family updates](optimal-default-instance-troubleshooting.md "optimal-default-instance-troubleshooting.md").
 
     ###### Note
 
@@ -108,7 +109,7 @@ Complete the following steps to create a managed compute environment using Amazo
          are available, AWS Batch might select c6i instances if they offer better
          cost-effectiveness for your specific job requirements. For more information on
          AWS Batch instance types and AWS Region availability, see [Instance type compute
-         table](instance-type-compute-table.md#instance-type-compute-table.title "instance-type-compute-table.md#instance-type-compute-table.title").
+         table](instance-type-compute-table.md "instance-type-compute-table.md").
         * AWS Batch periodically updates your instances in default bundles to newer, more cost-effective
          options. Updates happen automatically without requiring any action from you. Your
          workloads continue running during updates with no interruption.

@@ -80,7 +80,7 @@ The following Amazon EC2 GPU-based instance types are supported. For more inform
 
 For GPU jobs AWS Batch only supports instance types that have NVIDIA GPUs. For example, the
 [`G4ad`](https://aws.amazon.com/ec2/instance-types/g4/#Amazon_EC2_G4ad_instances "https://aws.amazon.com/ec2/instance-types/g4/#Amazon_EC2_G4ad_instances") family is not supported for GPU scheduling. You can still use [`G4ad`](https://aws.amazon.com/ec2/instance-types/g4/#Amazon_EC2_G4ad_instances "https://aws.amazon.com/ec2/instance-types/g4/#Amazon_EC2_G4ad_instances") on AWS Batch by defining only the vcpu and memory requirements in the
-job definition, then accessing the host GPUs directly through customization in an Amazon EC2 [launch template user data](launch-templates.md#lt-user-data.title "launch-templates.md#lt-user-data.title") with an Amazon ECS or Amazon EKS compute
+job definition, then accessing the host GPUs directly through customization in an Amazon EC2 [launch template user data](launch-templates.md#lt-user-data "launch-templates.md#lt-user-data") with an Amazon ECS or Amazon EKS compute
 optimized AMI, or a customized AMI for using AMD GPUs.
 
 Instance types that use an ARM64 architecture are supported for GPU jobs on custom AMIs

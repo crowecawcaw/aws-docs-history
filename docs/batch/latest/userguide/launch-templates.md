@@ -7,6 +7,14 @@ Launch templates can specify AMIs that take precedence in the AMI selection orde
 
 ###### Note
 
+When you specify a custom launch template for a AWS Batch compute environment, AWS Batch doesn't directly
+attach your launch template to the underlying Auto Scaling group. Instead, AWS Batch creates a separate,
+Batch-managed launch template for the Auto Scaling group and incorporates the relevant settings from your
+custom launch template into it. As a result, the launch template that you see associated with the Auto
+Scaling group is different from the one you originally specified. This is expected behavior.
+
+###### Note
+
 Launch templates aren't supported on AWS Fargate resources.
 
 You must create a launch template before you can associate it with a compute environment. You can create a launch template in the Amazon EC2 console. Or, you can use the AWS CLI or an AWS SDK. For example, the following JSON file represents a launch template that resizes the Docker data volume for the default AWS Batch compute resource AMI and also sets it to be encrypted.

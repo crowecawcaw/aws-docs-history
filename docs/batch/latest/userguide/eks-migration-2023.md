@@ -11,7 +11,7 @@ information about the differences between AL2 and AL2023 see [Upgrade from Amazo
 AWS ended support for Amazon EKS AL2-optimized and AL2-accelerated AMIs on November 26, 2025. AWS Batch Amazon EKS compute environments using Amazon Linux 2 no longer receive software
 updates, security patches, or bug fixes from AWS. We recommend migrating AWS Batch Amazon EKS
 compute environments to Amazon Linux 2023 to maintain optimal performance and security. It is
-your [responsibility to maintain](eks-ce-shared-responsibility.md#eks-ce-shared-responsibility.title "eks-ce-shared-responsibility.md#eks-ce-shared-responsibility.title")
+your [responsibility to maintain](eks-ce-shared-responsibility.md "eks-ce-shared-responsibility.md")
 these compute environments on the Amazon EKS optimized Amazon Linux 2 AMI after
 end-of-life.
 
@@ -31,7 +31,7 @@ If you mismatch `ImageIdOverride` and `ImageType` then the node won't join the c
 ###### Upgrade using launch templates
 
 - If you have any `kubelet` extra arguments defined in a launch template or
-  launch template override, they need to be updated to the new [kubelet extra arguments format](eks-launch-templates.md#kubelet-extra-args.title "eks-launch-templates.md#kubelet-extra-args.title").
+  launch template override, they need to be updated to the new [kubelet extra arguments format](eks-launch-templates.md#kubelet-extra-args "eks-launch-templates.md#kubelet-extra-args").
 
 If you mismatch the `kubelet` extra arguments format then the extra arguments aren't applied.
 

@@ -76,8 +76,8 @@ When migrating from Amazon Linux 2 to Amazon Linux 2023, consider the following:
   and may require updates to security-related configurations.
 - **Instance Metadata Service Version 2 (IMDSv2)** – IMDSv2
   is a session-oriented service that requires token-based authentication to access EC2
-  instance metadata, providing enhanced security. For more information about IMDS see and
-  [How Instance Metadata Service Version 2 works](../../../configuring-instance-metadata-service.md#instance-metadata-v2-how-it-works "../../../configuring-instance-metadata-service.md#instance-metadata-v2-how-it-works") in the
+  instance metadata, providing enhanced security. For more information about IMDS, see
+  [How Instance Metadata Service Version 2 works](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md#instance-metadata-v2-how-it-works "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md#instance-metadata-v2-how-it-works") in the
   _Amazon EC2 User Guide_.
 
 For a comprehensive list of changes and migration considerations, see [Migrating from an Amazon

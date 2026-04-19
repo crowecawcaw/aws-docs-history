@@ -608,12 +608,12 @@ To delete the resources you created, do the following:
 After you complete the tutorial, you might want to explore the following topics::
 
 - Learn more about the [Best
-  practices](best-practices.md#best-practices.title "best-practices.md#best-practices.title").
+  practices](best-practices.md "best-practices.md").
 - Explore the AWS Batch core components. For more information, see [Components of AWS Batch](batch_components.md "batch_components.md").
 - Learn more about the different [Compute
-  Environments](compute_environments.md#compute_environments.title "compute_environments.md#compute_environments.title") available in AWS Batch.
-- Learn more about [Job queues](job_queues.md#job_queues.title "job_queues.md#job_queues.title") and their
+  Environments](compute_environments.md "compute_environments.md") available in AWS Batch.
+- Learn more about [Job queues](job_queues.md "job_queues.md") and their
   different scheduling options.
-- Learn more about [Job definitions](job_definitions.md#job_definitions.title "job_definitions.md#job_definitions.title") and the
+- Learn more about [Job definitions](job_definitions.md "job_definitions.md") and the
   different configuration options.
-- Learn more about the different types of [Jobs](jobs.md#jobs.title "jobs.md#jobs.title").
+- Learn more about the different types of [Jobs](jobs.md "jobs.md").

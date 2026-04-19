@@ -42,7 +42,7 @@ your update process.
 
 Before performing a blue/green update, ensure you have:
 
-- Appropriate [IAM permissions](IAM_policies.md#IAM_policies.title "IAM_policies.md#IAM_policies.title") to create and manage compute environments.
+- Appropriate [IAM permissions](IAM_policies.md "IAM_policies.md") to create and manage compute environments.
 - Access to view and modify job queue settings.
 - Job retry strategies configured for your job definitions to handle potential failures during the transition. For more information, see [Automated job retries](job_retries.md "job_retries.md").
 - The AMI ID for the new compute environment. This can be either:
