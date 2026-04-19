@@ -40,7 +40,7 @@ Change-triggered security checks run when the associated resource changes state.
 choose between _continuous recording_ of changes in resource state and _daily recording_. If you choose daily recording, AWS Config delivers
 resource configuration data at the end of each 24 hour period if there are changes in resource state. If there are no changes, no data
 is delivered. This may delay the generation of Security Hub CSPM findings until a 24-hour period is complete. Regardless of your chosen recording
-period, Security Hub CSPM checks every 18 hours to ensure no resource updates from AWS Config were missed.
+period, Security Hub CSPM checks at least once every 24 hours to ensure no resource updates from AWS Config were missed.
 
 In general, Security Hub CSPM uses change-triggered rules whenever possible. For a resource to use a
 change-triggered rule, it must support AWS Config configuration items.

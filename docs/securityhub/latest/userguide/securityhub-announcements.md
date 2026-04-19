@@ -6,26 +6,10 @@ Amazon Simple Notification Service (Amazon SNS) to receive notifications about S
 After subscribing, you will receive notifications about the following events (note the
 corresponding `AnnouncementType` for each event):
 
-- `GENERAL` – General notifications about the Security Hub CSPM
-  service.
-- `UPCOMING_STANDARDS_CONTROLS` – Specified Security Hub CSPM controls or
-  standards will be released soon. This type of announcement helps you prepare
-  response and remediation workflows in advance of a release.
-- `NEW_REGIONS` – Support for Security Hub CSPM is available in a new
-  AWS Region.
 - `NEW_STANDARDS_CONTROLS` – New Security Hub CSPM controls or standards have
   been added.
-- `UPDATED_STANDARDS_CONTROLS` – Existing Security Hub CSPM controls or
-  standards have been updated.
 - `RETIRED_STANDARDS_CONTROLS` – Existing Security Hub CSPM controls or
   standards have been retired.
-- `UPDATED_ASFF` – The AWS Security Finding Format (ASFF) syntax, fields, or values
-  have been updated.
-- `NEW_INTEGRATION` – New integrations with other AWS services
-  or third-party products are available.
-- `NEW_FEATURE` – New Security Hub CSPM features are available.
-- `UPDATED_FEATURE` – Existing Security Hub CSPM features have been
-  updated.
   Notifications are available in all formats that Amazon SNS supports. You can subscribe to Security Hub CSPM
   announcements in all [AWS Regions that Security Hub CSPM is available in](../../../general/latest/gr/sechub.md "../../../general/latest/gr/sechub.md").
 
@@ -147,7 +131,7 @@ protocol)**
   "MessageId" : "d124c9cf-326a-5931-9263-92a92e7af49f",
   "TopicArn" : "arn:aws:sns:us-west-2:393883065485:SecurityHubAnnouncements",
   "Message" : "{\"AnnouncementType\":\"NEW_STANDARDS_CONTROLS\",\"Title\":\"[New Controls] 36 new Security Hub CSPM controls added to the AWS Foundational Security Best Practices standard\",\"Description\":\"We have added 36 new controls to the AWS Foundational Security Best Practices standard. These include controls for Amazon Auto Scaling (AutoScaling.3, AutoScaling.4, AutoScaling.6), CloudFormation (CloudFormation.1), Amazon CloudFront (CloudFront.10), Amazon Elastic Compute Cloud (Amazon EC2) (EC2.23, EC2.24, EC2.27), Amazon Elastic Container Registry (Amazon ECR) (ECR.1, ECR.2), Amazon Elastic Container Service (Amazon ECS) (ECS.3, ECS.4, ECS.5, ECS.8, ECS.10, ECS.12), Amazon Elastic File System (Amazon EFS) (EFS.3, EFS.4), Amazon Elastic Kubernetes Service (Amazon EKS) (EKS.2), Elastic Load Balancing (ELB.12, ELB.13, ELB.14), Amazon Kinesis (Kinesis.1), AWS Network Firewall (NetworkFirewall.3, NetworkFirewall.4, NetworkFirewall.5), Amazon OpenSearch Service (OpenSearch.7), Amazon Redshift (Redshift.9),
-Amazon Simple Storage Service (Amazon S3) (S3.13), Amazon Simple Notification Service (SNS.2), AWS WAF (WAF.2, WAF.3, WAF.4, WAF.6, WAF.7, WAF.8). If you enabled the AWS Foundational Security Best Practices standard in an account and configured SSecurity Hub CSPM to automatically enable new controls, these controls are enabled by default. Availability of controls can vary by Region. \"}",
+Amazon Simple Storage Service (Amazon S3) (S3.13), Amazon Simple Notification Service (SNS.2), AWS WAF (WAF.2, WAF.3, WAF.4, WAF.6, WAF.7, WAF.8). If you enabled the AWS Foundational Security Best Practices standard in an account and configured Security Hub CSPM to automatically enable new controls, these controls are enabled by default. Availability of controls can vary by Region. \"}",
   "Timestamp" : "2022-08-04T19:11:12.652Z",
   "SignatureVersion" : "1",
   "Signature" : "HTHgNFRYMetCvisulgLM4CVySvK9qCXFPHQDxYl9tuCFQuIrd7YO4m4YFR28XKMgzqrF20YP+EilipUm2SOTpEEtOTekU5bn74+YmNZfwr4aPFx0vUuQCVOshmHl37hjkiLjhCg/t53QQiLfP7MH+MTXIUPR37k5SuFCXvjpRQ8ynV532AH3Wpv0HmojDLMg+eg51V1fUsOG8yiJVCBEJhJ1yS+gkwJdhRk2UQab9RcAmE6COK3hRWcjDwqTXz5nR6Ywv1ZqZfLIl7gYKslt+jsyd/k+7kOqGmOJRDr7qhE7H+7vaGRLOptsQnbW8VmeYnDbahEO8FV+Mp1rpV+7Qg==",

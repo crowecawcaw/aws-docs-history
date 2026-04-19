@@ -103,7 +103,7 @@ Guide_.
 | `requireUppercase`          | Require at least one uppercase character in a password.                 | Boolean | `True`, `False`       | `True`                          |
 | `requireNumbers`            | Require at least one number in a password.                              | Boolean | `True`, `False`       | `True`                          |
 | `requireSymbols`            | Require at least one symbol in a password.                              | Boolean | `True`, `False`       | `True`                          |
-| `temporaryPasswordValidity` | The maximum number of days that a password can exist before it expires. | Integer | `7` to `365`          | `7`                             |
+| `temporaryPasswordValidity` | The maximum number of days that a password can exist before it expires. | Integer | `1` to `365`          | `7`                             |
 
 This control checks whether the password policy for an Amazon Cognito user pool requires
 the use of strong passwords, based on recommended settings for password policies. The

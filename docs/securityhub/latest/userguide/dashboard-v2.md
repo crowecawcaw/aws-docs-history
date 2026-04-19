@@ -191,7 +191,7 @@ To receive data in this widget, you must enable [Amazon Inspector](../../../insp
 
 #### Threat summary widget
 
-![Example of threat summary widget.](images/threat-summary-widget-operations.png)
+![Example of threat summary widget.](/images/securityhub/latest/userguide/images/threat-summary-widget-operations.png)
 
 This widget displays your threats by severity.
 A threat refers to malicious activity or suspicious activity that can compromise the security of your environment.
