@@ -182,8 +182,8 @@ Scratch 2, Persistent 1, and Persistent 2 deployment types are available in the 
 | US West (Phoenix) Local Zone     | ✓ \*         |              |           |
 | Africa (Cape Town)               |              | ✓            | ✓         |
 | Asia Pacific (Hong Kong)         | ✓            | ✓            | ✓         |
-| Asia Pacific (Hyderabad)         |              | ✓            | ✓         |
-| Asia Pacific (Jakarta)           |              | ✓            | ✓         |
+| Asia Pacific (Hyderabad)         | ✓            | ✓            | ✓         |
+| Asia Pacific (Jakarta)           | ✓            | ✓            | ✓         |
 | Asia Pacific (Malaysia)          | ✓ \*         |              |           |
 | Asia Pacific (Melbourne)         |              | ✓            | ✓         |
 | Asia Pacific (Mumbai)            | ✓            | ✓            | ✓         |
@@ -203,12 +203,12 @@ Scratch 2, Persistent 1, and Persistent 2 deployment types are available in the 
 | Europe (Paris)                   |              | ✓            | ✓         |
 | Europe (Spain)                   |              | ✓            | ✓         |
 | Europe (Stockholm)               | ✓            | ✓            | ✓         |
-| Europe (Zurich)                  |              | ✓            | ✓         |
+| Europe (Zurich)                  | ✓            | ✓            | ✓         |
 | Israel (Tel Aviv)                | ✓ \*         |              | ✓         |
 | Mexico (Central)                 | ✓ \*         |              |           |
 | Middle East (Bahrain)            |              | ✓            | ✓         |
 | Middle East (UAE)                |              | ✓            | ✓         |
-| South America (São Paulo)        |              | ✓            | ✓         |
+| South America (São Paulo)        | ✓            | ✓            | ✓         |
 | AWS GovCloud (US-East)           |              | ✓            | ✓         |
 | AWS GovCloud (US-West)           |              | ✓            | ✓         |
 

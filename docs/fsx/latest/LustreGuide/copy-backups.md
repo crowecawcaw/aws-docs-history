@@ -40,7 +40,6 @@ The following are some limitations when you copy backups:
   between the China (Beijing) and China (Ningxia) Regions, and between the
   AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions, but not across those sets
   of Regions.
-- Cross-Region backup copies are not supported in opt-in Regions.
 - You can make in-Region backup copies within any AWS Region.
 - The source backup must have a status of `AVAILABLE` before you can copy it.
 - You cannot delete a source backup if it is being copied. There might be a short delay
