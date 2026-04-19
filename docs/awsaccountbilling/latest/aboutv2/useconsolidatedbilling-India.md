@@ -7,7 +7,7 @@ instead of US dollars, and you are expected to make payments in rupees.
 
 ## Enabling multi-SOR organizations for AWS India accounts
 
-If your AWS India management account is unable to invite an account from a different SOR, or your AWS India account can't accept invites from an AWS account other than AWS India, your account is likely operating in the legacy model where the functionality isn't available. We are currently migrating AWS India account from the legacy to the new model where the functionality is available. The expected completion date is December 2025.
+If your AWS India management account is unable to invite an account from a different SOR, or your AWS India account can't accept invites from an AWS account other than AWS India, your account is likely operating in the legacy model where the functionality isn't available. We are currently migrating AWS India account from the legacy to the new model where the functionality is available. The migration is expected to be completed by December 2026.
 
 ## Understanding SOR impact for linked AWS India accounts
 

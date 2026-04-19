@@ -392,7 +392,7 @@ If the e-mandate cancel fails, your default payment method on the **Payment pref
 
 ###### Note
 
-If you're unable to save a payment card on your account to make invoice payments for SORs other than AWS India, your account is likely operating in the legacy model where the functionality isn't available. We are currently migrating AWS India account from the legacy to the new model where the functionality is available. The expected completion date is December 2025.
+If you're unable to save a payment card on your account to make invoice payments for SORs other than AWS India, your account is likely operating in the legacy model where the functionality isn't available. We are currently migrating AWS India account from the legacy to the new model where the functionality is available. The migration is expected to be completed by December 2026.
 
 You might encounter scenarios where you have an AWS India account, but need to make AWS payments for invoices other than the AWS India seller of record (SOR).
 
