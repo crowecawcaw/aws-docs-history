@@ -18,6 +18,7 @@ This section describes common replication errors, possible explanations, and pot
 - [Failed to pair the replication agent with replication server](#common-pair-replication-agent-server "#common-pair-replication-agent-server")
 - [Stalled replication when replicating a source volume smaller than 1MiB](#stalled-replication-for-source-disk-under-1MiB "#stalled-replication-for-source-disk-under-1MiB")
 - [Unknown data replication error](#common-unknown-data-replication-error "#common-unknown-data-replication-error")
+- [Missing Amazon Linux 2023 repository configuration](#common-missing-al2023-repo-configuration "#common-missing-al2023-repo-configuration")
 
 ## Agent not seen
 
@@ -127,3 +128,35 @@ Unknown errors (unknown_error) can occur for any number of reasons. There are se
 - Check the [network bandwidth](Replication-Related-FAQ.md#perform-connectivity-bandwidth-test "Replication-Related-FAQ.md#perform-connectivity-bandwidth-test") between the agent and the replication
   server.
 - [Check the replication agent logs.](Troubleshooting-Agent-Issues.md#MGN-Agent-Log "Troubleshooting-Agent-Issues.md#MGN-Agent-Log")
+
+## Missing Amazon Linux 2023 repository configuration
+
+Replication servers use Amazon Linux 2023 (AL2023) and require access to the AL2023 package
+repository hosted in Amazon S3. If the staging area subnet does not have outbound internet access and
+the Amazon S3 VPC gateway endpoint policy does not allow access to the AL2023 repository bucket,
+replication servers may fail to launch or function correctly.
+
+Symptoms of this issue include:
+
+- Replication stalling or failing after the replication server is launched.
+- Replication server unable to install or update required packages.
+
+To resolve this issue:
+
+1. Ensure that the Amazon S3 VPC gateway endpoint policy associated with your staging area subnet
+   allows access to the AL2023 package repository bucket
+   (`al2023-repos-<REGION>-de612dc2`). Add the following resource ARN to
+   the endpoint policy:
+
+```
+"arn:aws:s3:::al2023-repos-<REGION>-de612dc2/*"
+```
+
+2. If you use a firewall or proxy, allowlist the following Amazon S3 URL:
+
+```
+https://al2023-repos-<REGION>-de612dc2.s3.<REGION>.amazonaws.com/
+```
+
+For the complete list of Amazon S3 buckets required by AWS Application Migration Service, including the example Amazon S3 VPC
+endpoint policy, see [Network requirements](preparing-environments.md "preparing-environments.md").
