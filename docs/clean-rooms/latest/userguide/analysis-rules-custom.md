@@ -38,6 +38,13 @@ Data owners can only allow analysis templates or accounts to create queries, not
 the data owner leaves it empty, the member who can query can't run queries on the configured
 table.
 
+###### Disallowed output columns query constraint and CACHE TABLE
+
+The [disallowed output columns constraint](disallowed-columns.md "disallowed-columns.md") in the custom analysis rule is enforced on
+cached tables. A cached table cannot reference a disallowed output column in its SELECT
+clause. To use a column with a disallowed output column constraint in a subsequent part of
+your query, convert the cached table to a common table expression (CTE).
+
 ###### Topics
 
 - [Custom analysis rule predefined structure](#custom-predefined-structure "#custom-predefined-structure")

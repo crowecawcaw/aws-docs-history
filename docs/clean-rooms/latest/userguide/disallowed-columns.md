@@ -18,6 +18,13 @@ and corresponding privacy requirements.
 
 For more information on how to set this configuration, see [Adding a custom analysis rule to a table (guided flow)](add-analysis-rule.md#add-custom-analysis-rule-wizard "add-analysis-rule.md#add-custom-analysis-rule-wizard").
 
+###### Disallowed output columns query constraint and CACHE TABLE
+
+The [disallowed output columns constraint](disallowed-columns.md "disallowed-columns.md") in the custom analysis rule is enforced on
+cached tables. A cached table cannot reference a disallowed output column in its SELECT
+clause. To use a column with a disallowed output column constraint in a subsequent part of
+your query, convert the cached table to a common table expression (CTE).
+
 **Examples**
 
 The following examples display how the disallowed output columns control is applied.
