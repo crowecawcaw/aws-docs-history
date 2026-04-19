@@ -21,7 +21,7 @@ Someone sends a request to use your Amazon SQS queue.
 Amazon SQS examines all available Amazon SQS policies and determines
 which ones are applicable.
 
-![Figure five in the previous diagram.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-5-red.png)
+![Figure five in the previous diagram.](images/number-5-red.png)
 Amazon SQS evaluates the policies and determines whether the
 requester is allowed to use your queue.
 

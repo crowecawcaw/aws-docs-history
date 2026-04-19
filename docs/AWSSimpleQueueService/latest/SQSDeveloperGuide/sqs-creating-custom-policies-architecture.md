@@ -17,11 +17,11 @@ Your policies. It is a good practice to have one policy per
 resource. The AWS service provides an API you use to upload and manage your
 policies.
 
-![In the previous diagram, section number four.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-4-red.png)
+![In the previous diagram, section number four.](images/number-4-red.png)
 Requesters and their incoming requests to the AWS
 service.
 
-![In the previous diagram, section number five.](images/number-5-red.png)
+![In the previous diagram, section number five.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-5-red.png)
 The access policy language evaluation code. This is the set of code
 within the AWS service that evaluates incoming requests against the applicable
 policies and determines whether the requester is allowed access to the
