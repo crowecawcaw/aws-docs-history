@@ -1,29 +1,30 @@
-# SQL analytics
+# Query data with SQL
 
-You can use the query editor to perform analysis using SQL. The query editor tool provides a
-place to write and run queries, view results, and share your work with your team.
+Use the query editor in Amazon SageMaker Unified Studio to write SQL queries, run them against your data
+sources, and visualize results, all within your project. You can work with multiple query
+engines, browse your data catalog, generate SQL using natural language, and schedule
+queries to run automatically.
 
-For information about getting started with the query editor, see [Get started with the query editor in Amazon SageMaker Unified Studio](getting-started-querying.md "getting-started-querying.md").
+###### Note
+
+If your Amazon SageMaker Unified Studio domain uses IAM Identity Center (IdC), some query editor features
+behave differently. See [Query editor in IdC domains](sql-query-idc.md "sql-query-idc.md") for details.
 
 ###### Topics
 
-- [Navigate the query editor](query-editor-navigate.md "query-editor-navigate.md")
-- [Connect data resources](query-connect-resources.md "query-connect-resources.md")
-- [Supported query engines](#w2aac67c15 "#w2aac67c15")
-- [Create a query](query-create.md "query-create.md")
-- [Generative SQL](generative-sql.md "generative-sql.md")
-- [Review query history](query-history.md "query-history.md")
-- [Schedule a query](query-schedule.md "query-schedule.md")
+- [Supported query engines](#sql-query-engines "#sql-query-engines")
+- [Get started with the query editor](sql-query-get-started.md "sql-query-get-started.md")
+- [Write, run, and view query results](sql-query-write-run.md "sql-query-write-run.md")
+- [Generate SQL with the Data Agent](sql-query-data-agent.md "sql-query-data-agent.md")
+- [Save, schedule, and review queries](sql-query-save-share.md "sql-query-save-share.md")
+- [Query editor in IdC domains](sql-query-idc.md "sql-query-idc.md")
 
 ## Supported query engines
 
-The Amazon SageMaker Unified Studio query editor supports the following query engines:
+The query editor supports the following engines. You can switch between engines
+within the same querybook.
 
-- Amazon Redshift. For more information, see [Query
-  processing](../../../redshift/latest/dg/c-query-processing.md "../../../redshift/latest/dg/c-query-processing.md") in the Amazon Amazon Redshift Database Developer Guide.
-- Amazon Athena. For more information, see [Running SQL
-  queries using Amazon Athena](../../../athena/latest/ug/querying-athena-tables.md "../../../athena/latest/ug/querying-athena-tables.md") in the Amazon Amazon Athena User Guide.
-
-Both engines use Querybooks to develop queries and work with data from one place. You can
-change the query engine from the upper-right corner of the Querybook editor and selecting the
-data source you want to use from the dropdown menu.
+| Engine          | Description                                                                                                                            | SQL reference                                                                                                           |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Amazon Athena   | Serverless query engine for data stored in Amazon S3 and AWS Glue Data Catalog.<br>Best for ad-hoc queries against lakehouse data.     | [Athena SQL reference](../../../athena/latest/ug/ddl-sql-reference.md "../../../athena/latest/ug/ddl-sql-reference.md") |
+| Amazon Redshift | Data warehouse engine for structured and semi-structured data. Best for<br>complex analytical queries and joins across large datasets. | [Redshift SQL reference](../../../redshift/latest/dg/c_redshift-sql.md "../../../redshift/latest/dg/c_redshift-sql.md") |

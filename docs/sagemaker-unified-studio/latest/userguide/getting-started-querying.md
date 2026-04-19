@@ -86,6 +86,6 @@ This opens up a chart view with a line graph as a default. 14. Set up the chart 
 After you've finished querying the data, you can choose to view the queries in your query history
 and save them to share with other project members.
 
-- For more information about reviewing query history, see [Review query history](query-history.md "query-history.md").
+- For more information about reviewing query history, see [Review query history](sql-query-save-share.md#sql-query-history "sql-query-save-share.md#sql-query-history").
 - For more information about other operations you can do with the query editor, such as using generative AI to create SQL queries,
-  see [SQL analytics](sql-query.md "sql-query.md").
+  see [Query data with SQL](sql-query.md "sql-query.md").
