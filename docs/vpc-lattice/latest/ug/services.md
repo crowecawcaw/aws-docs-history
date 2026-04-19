@@ -8,7 +8,7 @@ targets. The supported target types include EC2 instances, IP addresses, Lambda 
 You can associate a service with multiple service networks. The following diagram shows
 the key components of a typical service within VPC Lattice.
 
-![A service with a listener, listener rules, and two target groups.](images/service.png)
+![A service with a listener, listener rules, and two target groups.](/images/vpc-lattice/latest/ug/images/service.png)
 You can create a service by giving it a name and description. However, to control and
 monitor traffic to your service, it is important that you include access settings and
 monitoring details. To send traffic from your service to your targets you must set up a
