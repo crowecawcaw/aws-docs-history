@@ -78,3 +78,7 @@ If your JWT token is valid but contains incorrect internal structure or content,
 If the user identity specified in your JWT lacks write permissions to the job's working directory, the job will fail with permission errors, similar to using `sbatch --chdir` with an inaccessible directory.
 
 **What to do**: Ensure the user specified in your JWT token has appropriate permissions for the job's working directory.
+
+- **Still running into problems?**
+  1.  Check SchedMD's [documentation](https://slurm.schedmd.com/rest_clients.html "https://slurm.schedmd.com/rest_clients.html") on the REST API specification.
+  2.  Check the Slurm controller logs for more detailed information on errors (see [Scheduler logs in AWS PCS](monitoring_scheduler-logs.md "monitoring_scheduler-logs.md") for more details).

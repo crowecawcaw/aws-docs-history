@@ -8,4 +8,5 @@ might encounter in AWS PCS.
 - [Custom Slurm settings](slurm-custom-settings-troubleshooting.md "slurm-custom-settings-troubleshooting.md")
 - [EC2 instances terminated after reboot](troubleshooting_instance-terminated-after-reboot.md "troubleshooting_instance-terminated-after-reboot.md")
 - [Identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [Job submission MaxJobCount limit](troubleshooting-job-submission-maxjobcount.md "troubleshooting-job-submission-maxjobcount.md")
 - [Slurm reboot issues](slurm-reboot-troubleshooting.md "slurm-reboot-troubleshooting.md")
