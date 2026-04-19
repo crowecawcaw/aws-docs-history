@@ -123,8 +123,10 @@ deployment was triggered:
 - **Workflow-controlled deployments** (triggered through the console, CLI, or API) –
   `eb-deployment-`request-id`.log`, where `request-id` is the unique deployment
   request ID.
-- **Self-startup deployments** (instance launch or restart app server) –
-  `eb-deployment-`unix-timestamp`.log`.
+- **Self-startup deployments** (instance launch) –
+  `eb-deployment-`timestamp`-`instance-id`.log`, where
+  `timestamp` is in UTC format (for example, `20260317T151315Z`) and `instance-id` is the
+  Amazon EC2 instance ID.
 
 Elastic Beanstalk automatically rotates these files, keeping the 50 most recent deployment logs on each instance.
 
@@ -134,8 +136,15 @@ For workflow-controlled deployments, the log is uploaded to Amazon S3 at the fol
 s3://`elasticbeanstalk-region-account-id`/resources/environments/logs/deployments/`environment-id`/`log-filename`
 ```
 
-In multi-instance environments, the first instance to begin uploading claims the role for the entire deployment. That instance uploads its log to Amazon S3
-for the duration of the deployment. All instances still write deployment logs locally.
+For self-startup deployments, the log is uploaded to Amazon S3 under a `selfstartup/` subdirectory:
+
+```
+s3://`elasticbeanstalk-region-account-id`/resources/environments/logs/deployments/`environment-id`/selfstartup/`log-filename`
+```
+
+For workflow-controlled deployments, the first instance to begin uploading claims the role for the entire deployment. That instance uploads its log
+to Amazon S3 for the duration of the deployment. For self-startup deployments, each instance uploads its own log independently. All instances still write
+deployment logs locally.
 
 ###### Important
 
