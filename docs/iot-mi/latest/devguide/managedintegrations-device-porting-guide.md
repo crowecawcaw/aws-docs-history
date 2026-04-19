@@ -19,7 +19,7 @@ work, but haven't been tested. 3. Extract (unzip) the SDK files to your workspac
     * Required libraries
     * Compiler and linker flags
 
-5. Before you port the Platform Abstraction Layer (PAL), make sure your platform’s
+5. Before you port the Platform Abstraction Layer (PAL), make sure your platformвЂ™s
    basic functionalities are initialized. Functionalities include:
    - Operating system tasks
    - Peripherals
@@ -36,23 +36,23 @@ work, but haven't been tested. 3. Extract (unzip) the SDK files to your workspac
 
 ```
 
-├── <SDK_ROOT_FOLDER>
-│   ├── CMakeLists.txt
-│   ├── LICENSE.txt
-│   ├── cmake
-│   ├── commonDependencies
-│   ├── components
-│   ├── docs
-│   ├── examples
-│   ├── include
-│   ├── lib
-│   ├── platform
-│   ├── test
-│   └── tools
+в”њв”Ђв”Ђ <SDK_ROOT_FOLDER>
+в”‚   в”њв”Ђв”Ђ CMakeLists.txt
+в”‚   в”њв”Ђв”Ђ LICENSE.txt
+в”‚   в”њв”Ђв”Ђ cmake
+в”‚   в”њв”Ђв”Ђ commonDependencies
+в”‚   в”њв”Ђв”Ђ components
+в”‚   в”њв”Ђв”Ђ docs
+в”‚   в”њв”Ђв”Ђ examples
+в”‚   в”њв”Ђв”Ђ include
+в”‚   в”њв”Ђв”Ђ lib
+в”‚   в”њв”Ђв”Ђ platform
+в”‚   в”њв”Ђв”Ђ test
+в”‚   в””в”Ђв”Ђ tools
 ```
 
 2. Copy the POSIX reference implementation files (.c and .h) from the posix folder to
-   your new platform directory. These files provide a template for the functions you’ll
+   your new platform directory. These files provide a template for the functions youвЂ™ll
    need to implement.
    - Flash memory management for credential storage
    - PKCS#11 implementation
