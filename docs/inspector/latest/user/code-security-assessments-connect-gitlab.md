@@ -8,7 +8,7 @@ The following is required when you create a connection:
 
 - Integration name – This is the name added to the body of your integration.
 - Endpoint URL – This is the URL used to access your GitLab Self Managed instance.
-- Personal access token – The personal access token is [created in GitLab Self Managed](https://docs.gitlab.com/user/profile/personal_access_tokens/ "https://docs.gitlab.com/user/profile/personal_access_tokens/") from an administrator account and must include the following scopes: `api`, `read_api`, `read_repository`, and `write_repository`.
+- Personal access token – The personal access token is [created in GitLab Self Managed](https://docs.gitlab.com/user/profile/personal_access_tokens/ "https://docs.gitlab.com/user/profile/personal_access_tokens/") from an administrator account and must include the following scopes: `api`, `read_api`, and `read_repository`.
 
 ###### Note
 

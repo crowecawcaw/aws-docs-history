@@ -23,6 +23,7 @@ The Amazon Inspector SBOM Generator supports scanning for the following ecosyste
 | Jenkins                | Jenkins (version 2.400.\<br>• and higher)                                                                                                                                                                                                                                                    |
 | MariaDB and MySQL      | MariaDB Server (10.6+, 11.x, 12.x)<br>Oracle MySQL Server Server (8.0, 8.4, 9.4+)                                                                                                                                                                                                            |
 | Microsoft applications | PowerShell<br>NuGet CLI<br>Visual Studio Code<br>Microsoft Edge<br>SharePoint Server<br>Microsoft Defender<br>Exchange Server<br>Visual Studio<br>.NET Core Runtime<br>.NET Framework<br>ASP.NET Core Runtime<br>Microsoft Teams<br>Outlook for Windows<br>Microsoft Office<br>Microsoft 365 |
+| Microsoft SQL Server   | Microsoft SQL Server                                                                                                                                                                                                                                                                         |
 | MongoDB                | MongoDB Server (7.0+, 8.0+)                                                                                                                                                                                                                                                                  |
 | Nginx                  | Nginx                                                                                                                                                                                                                                                                                        |
 | Node                   | Node                                                                                                                                                                                                                                                                                         |
@@ -882,6 +883,37 @@ Sample PURL: pkg:generic/microsoft/powerpoint@16.0.19127.20264
 
 // Microsoft Outlook
 Sample PURL: pkg:generic/microsoft/outlook@16.0.19127.20264
+```
+
+## Microsoft SQL Server ecosystem collection
+
+###### Supported applications
+
+- Microsoft SQL Server
+
+###### Key features
+
+- Reads from the Windows registry to discover installed Microsoft SQL Server instances and extract version information.
+- Discovers instances through a two-step process: reads the `InstalledInstances` value, resolves each instance path from the `Instance Names\SQL` subkey, then reads setup information from each instance's `Setup` subkey.
+- Collects instance name, base version, patch level, edition, service pack (if present), and the registry key path.
+- The component version and PURL use the patch level (full build number).
+
+###### Supported platforms – Windows
+
+The Amazon Inspector SBOM Generator reads from the following Windows registry key to discover installed instances:
+
+```
+HKLM\SOFTWARE\Microsoft\Microsoft SQL Server
+```
+
+The scanner reads the `InstalledInstances` value to enumerate instances, resolves each instance path from the `Instance Names\SQL` subkey, then reads setup information from each instance's `Setup` subkey.
+
+###### Example PURL
+
+The following is an example package URL for a Microsoft SQL Server instance.
+
+```
+pkg:generic/microsoft/sqlserver@16.0.1000.6
 ```
 
 ## MongoDB ecosystem collection
