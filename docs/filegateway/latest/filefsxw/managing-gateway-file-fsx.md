@@ -121,7 +121,7 @@ gateway should require Server Message Block (SMB) signing or SMB encryption.
 
 ###### Note
 
-For information about configuring this setting using the AWS API, see [UpdateSMBSecurityStrategy](https://amazonaws.com/storagegateway/latest/APIReference/API_UpdateSMBSecurityStrategy.html "https://amazonaws.com/storagegateway/latest/APIReference/API_UpdateSMBSecurityStrategy.html") in the _AWS Storage Gateway API Reference_.
+For information about configuring this setting using the AWS API, see [UpdateSMBSecurityStrategy](../../../storagegateway/latest/APIReference/API_UpdateSMBSecurityStrategy.md "../../../storagegateway/latest/APIReference/API_UpdateSMBSecurityStrategy.md") in the _AWS Storage Gateway API Reference_.
 
 A higher security level can affect performance of the gateway.
 

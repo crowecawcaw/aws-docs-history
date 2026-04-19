@@ -13,7 +13,7 @@ setting.
 
 The following procedure describes how to modify the maintenance window schedule
 using the Storage Gateway console. To change this setting programmatically using the API,
-see [UpdateMaintenanceStartTime](https://amazonaws.com/storagegateway/latest/APIReference/API_UpdateMaintenanceStartTime.html "https://amazonaws.com/storagegateway/latest/APIReference/API_UpdateMaintenanceStartTime.html") in the _Storage Gateway API
+see [UpdateMaintenanceStartTime](../../../storagegateway/latest/APIReference/API_UpdateMaintenanceStartTime.md "../../../storagegateway/latest/APIReference/API_UpdateMaintenanceStartTime.md") in the _Storage Gateway API
 Reference_.
 
 ###### To modify the maintenance window schedule using the Storage Gateway console:

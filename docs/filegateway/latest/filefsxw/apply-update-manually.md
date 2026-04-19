@@ -12,7 +12,7 @@ off.
 ###### Note
 
 The following procedure describes how to manually apply an update using the
-Storage Gateway console. To perform this action programmatically using the API, see [UpdateGatewaySoftwareNow](https://amazonaws.com/storagegateway/latest/APIReference/API_UpdateGatewaySoftwareNow.html "https://amazonaws.com/storagegateway/latest/APIReference/API_UpdateGatewaySoftwareNow.html") in the _Storage Gateway API
+Storage Gateway console. To perform this action programmatically using the API, see [UpdateGatewaySoftwareNow](../../../storagegateway/latest/APIReference/API_UpdateGatewaySoftwareNow.md "../../../storagegateway/latest/APIReference/API_UpdateGatewaySoftwareNow.md") in the _Storage Gateway API
 Reference_.
 
 ###### To apply a gateway software update manually using the Storage Gateway console:
