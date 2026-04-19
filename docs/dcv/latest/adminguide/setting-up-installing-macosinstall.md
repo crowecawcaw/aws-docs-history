@@ -89,10 +89,6 @@ After installing the Amazon DCV server, you must configure macOS Privacy and Sec
 ```
 
 7. Click **Allow** when prompted for Microphone access.
-8. Click **Allow** when prompted for
-
-```
-dcvagentlauncher
-```
-
-access. 9. When prompted for **Remote Control access**, click **Open System Settings**, enable the setting, and choose **Quit & Reopen**. 10. You can now connect using the Amazon DCV Client.
+8. Click **Allow** when prompted for `dcvagentlauncher` access.
+9. When prompted for **Remote Control access**, click **Open System Settings**, enable the setting, and choose **Quit & Reopen**.
+10. You can now connect using the Amazon DCV Client.

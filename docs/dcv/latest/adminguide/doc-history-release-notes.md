@@ -15,6 +15,7 @@ to address the feedback that you send us.
 
 ###### Topics
 
+- [DCV 2025.0-21744 — April 1, 2026](#dcv-2025-0-21744 "#dcv-2025-0-21744")
 - [DCV 2025.0-20177 — November 11, 2025](#dcv-2025-0-20177 "#dcv-2025-0-20177")
 - [DCV 2025.0-20103 — October 22, 2025](#dcv-2025-0-20103 "#dcv-2025-0-20103")
 - [DCV 2024.0-19030 — June 10, 2025](#dcv-2024-0-19030-2 "#dcv-2024-0-19030-2")
@@ -71,6 +72,12 @@ to address the feedback that you send us.
 - [DCV 2017.0-5121 — March 18, 2018](#dcv-2017-0-5121 "#dcv-2017-0-5121")
 - [DCV 2017.0-4334 — January 24, 2018](#dcv-2017-0-4334 "#dcv-2017-0-4334")
 - [DCV 2017.0-4100 — December 18, 2017](#dcv-2017-0-4100 "#dcv-2017-0-4100")
+
+### DCV 2025.0-21744 — April 1, 2026
+
+| Build numbers                                                                                                                                                                                                                                                                                                                                     | New features                                                                                                            | Changes and bug fixes                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| • nice-dcv-server (Windows and Linux): 20103<br>• nice-dcv-server (macOS): 21744<br>• nice-dcv-client (Windows): 9800<br>• nice-dcv-viewer (macOS): 8846<br>• nice-dcv-viewer (Linux): 8846<br>• nice-dcv-web-viewer: 20103<br>• nice-xdcv: 688<br>• nice-dcv-gl: 1112<br>• nice-dcv-gltest: 365<br>• nice-dcv-simple-external-authenticator: 282 | Amazon DCV now supports macOS 26 (Tahoe) and includes a bootstrap daemon for the DCV agent launcher for DCV on EC2 Mac. | • Fixed `osgroup` in permissions file on macOS<br>• Removed ‘Installer’ label from installer file. |
 
 ### DCV 2025.0-20177 — November 11, 2025
 
