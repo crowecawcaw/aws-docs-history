@@ -3,7 +3,7 @@ Enterprise, which is the on-premises version of Wickr, see [Enterprise Administr
 
 # AWS Wickr Device sync
 
-You can sync existing data from your original device to a new device.
+If your organization has SSO enabled, you can sync existing data from your original device to a new device.
 
 ###### Note
 
