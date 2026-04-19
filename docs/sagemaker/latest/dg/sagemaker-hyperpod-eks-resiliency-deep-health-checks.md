@@ -30,6 +30,21 @@ SageMaker HyperPod runs the following deep health checks.
 | Accelerator | NCCL test          | GPU                         | Verifies the performance of collective communication operations<br>on multiple NVIDIA GPUs    |
 | Accelerator | NCCOM cluster test | Trainium                    | Verifies the performance of collective communication operations<br>on multiple Trainium nodes |
 
+###### Deep health checks with flexible instance groups
+
+For instance groups that use `InstanceRequirements` with multiple
+instance types, deep health checks behave as follows:
+
+- Instance-level deep health checks run only on eligible GPU instance
+  types. CPU instance types within a flexible instance group are
+  skipped.
+- Cluster-level connectivity tests (such as NCCL AllReduce) run only
+  between instances of the same type within the instance group. This
+  ensures accurate test results that reflect the networking capabilities
+  of each instance type.
+- If deep health checks are enabled, at least one instance type in the
+  flexible instance group must support deep health checks.
+
 ## Logs from the deep health checks
 
 The following are example logs from the SageMaker HyperPod deep health checks.

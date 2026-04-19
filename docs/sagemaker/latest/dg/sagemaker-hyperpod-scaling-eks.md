@@ -237,3 +237,109 @@ Key considerations for MinCount usage:
 - Setting `MinInstanceCount` to 0 (default) preserves standard continuous scaling behavior
 - Setting `MinInstanceCount` equal to `InstanceCount` provides all-or-nothing scaling behavior
 - MinCount is only available for clusters with `NodeProvisioningMode` set to `Continuous`
+
+## Flexible instance groups
+
+Flexible instance groups allow you to specify multiple instance types within a single
+instance group. This simplifies cluster management by reducing the number of instance
+groups you need to create and manage, especially for inference workloads that use
+autoscaling.
+
+With flexible instance groups, HyperPod:
+
+- Attempts to provision instances using the first instance type in your list
+- Falls back to subsequent instance types if capacity is unavailable
+- Terminates instances of the lowest-priority instance type first during scale-down
+
+###### Note
+
+Flexible instance groups are only available for clusters with
+`NodeProvisioningMode` set to `Continuous`. The
+`InstanceType` and `InstanceRequirements` properties are
+mutually exclusive—you can specify one or the other, but not both.
+
+### Create a cluster with a flexible instance group
+
+Use `InstanceRequirements` instead of `InstanceType` to
+create a flexible instance group. The order of instance types in the list determines
+the priority for provisioning.
+
+```
+aws sagemaker create-cluster \
+--cluster-name $HP_CLUSTER_NAME \
+--orchestrator 'Eks={ClusterArn='$EKS_CLUSTER_ARN'}' \
+--vpc-config '{
+   "SecurityGroupIds": ["'$SECURITY_GROUP'"],
+   "Subnets": ["'$SUBNET_AZ1'", "'$SUBNET_AZ2'"]
+}' \
+--instance-groups '[{
+   "InstanceGroupName": "flexible-ig",
+   "InstanceRequirements": {
+      "InstanceTypes": ["ml.p5.48xlarge", "ml.p4d.24xlarge", "ml.g6.48xlarge"]
+   },
+   "InstanceCount": 10,
+   "LifeCycleConfig": {
+      "SourceS3Uri": "s3://'$BUCKET_NAME'",
+      "OnCreate": "on_create.sh"
+   },
+   "ExecutionRole": "'$EXECUTION_ROLE'"
+}]' \
+--node-provisioning-mode Continuous
+```
+
+### Targeted scaling with BatchAddClusterNodes
+
+When using flexible instance groups, you can use [BatchAddClusterNodes](../APIReference/API_BatchAddClusterNodes.md "../APIReference/API_BatchAddClusterNodes.md") to add nodes with specific instance types and
+availability zones. This is particularly useful when Karpenter autoscaling determines
+the optimal instance type and availability zone for your workload.
+
+```
+aws sagemaker batch-add-cluster-nodes \
+--cluster-name $HP_CLUSTER_NAME \
+--nodes-to-add '[
+   {
+      "InstanceGroupName": "flexible-ig",
+      "IncrementTargetCountBy": 1,
+      "InstanceTypes": ["ml.p5.48xlarge"],
+      "AvailabilityZones": ["us-west-2a"]
+   }
+]'
+```
+
+### View flexible instance group details
+
+Use [DescribeCluster](../APIReference/API_DescribeCluster.md "../APIReference/API_DescribeCluster.md") to view the instance types and per-type breakdown of
+your flexible instance group. The response includes:
+
+- `InstanceRequirements` — The current and desired instance
+  types for the instance group
+- `InstanceTypeDetails` — A per-instance-type breakdown
+  showing the count and configuration of each instance type in the
+  group
+
+### Using flexible instance groups with Karpenter autoscaling
+
+Flexible instance groups integrate with HyperPod's managed Karpenter
+autoscaling. For more information about setting up Karpenter, see
+[Autoscaling on SageMaker HyperPod EKS](sagemaker-hyperpod-eks-autoscaling.md "sagemaker-hyperpod-eks-autoscaling.md"). When you reference a
+flexible instance group in a
+`HyperPodNodeClass` configuration, Karpenter automatically:
+
+- Detects the supported instance types from the flexible instance group
+- Selects the optimal instance type and availability zone based on pod
+  requirements and pricing
+- Scales the flexible instance group using targeted
+  `BatchAddClusterNodes` calls with the selected instance type
+  and availability zone
+
+###### Note
+
+When Karpenter manages scaling, it uses its own selection logic based on pod
+requirements and pricing to determine which instance type to provision. This
+differs from the list-order priority used by HyperPod's native
+provisioning (such as `CreateCluster` and
+`UpdateCluster`), where the first instance type in the list is
+always attempted first.
+
+This eliminates the need to create separate instance groups for each instance type
+and manually configure Karpenter to reference multiple groups.

@@ -6,6 +6,19 @@ Studio UI. For more information on how to open JumpStart in Studio, see
 detail page of your choice, choose **Deploy** in the upper
 right corner of the Studio UI. Then, follow the steps in [Deploy models with SageMaker Studio](realtime-endpoints-deploy-models.md#deploy-models-studio "realtime-endpoints-deploy-models.md#deploy-models-studio").
 
+Amazon SageMaker JumpStart also offers optimized deployments, which provide pre-defined
+deployment configurations designed for specific use cases such as content
+generation, summarization, or chat-style interactions. When deploying a
+supported model, you can select your target use case and choose a constraint
+optimization — Cost optimized, Throughput optimized, Latency optimized, or
+Balanced — and Amazon SageMaker JumpStart automatically configures the endpoint for that scenario.
+This gives you visibility into key performance metrics like P50 latency,
+time-to-first-token (TTFT), and throughput, while ensuring the deployment is
+tuned for your workload. To get started, open a supported model's detail page
+in Studio, choose **Deploy**, and use the
+**Performance** panel to configure your optimized
+deployment.
+
 ###### Important
 
 Some foundation models require explicit acceptance of an end-user license

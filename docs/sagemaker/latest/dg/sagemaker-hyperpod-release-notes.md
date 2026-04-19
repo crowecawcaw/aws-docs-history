@@ -8,6 +8,22 @@ The HyperPod AMI releases are documented separately to include information of th
 key components including general AMI releases, versions, and dependencies. If you are
 looking for these information related to HyperPod AMI releases, see [Amazon SageMaker HyperPod AMI](sagemaker-hyperpod-release-ami.md "sagemaker-hyperpod-release-ami.md").
 
+## SageMaker HyperPod release notes: April 16, 2026
+
+SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod clusters with Amazon EKS](sagemaker-hyperpod-eks.md "sagemaker-hyperpod-eks.md").
+
+**New features**
+
+- **Flexible instance groups** – You can now create
+  instance groups with multiple instance types using the new
+  `InstanceRequirements` parameter. This enables priority-based
+  provisioning, where HyperPod attempts to provision the highest-priority
+  instance type first and falls back to lower-priority types if capacity is
+  unavailable. Flexible instance groups simplify Karpenter auto-scaling
+  configurations by reducing the number of instance groups needed. You can specify
+  up to 20 instance types per instance group. For more information, see
+  [Flexible instance groups](sagemaker-hyperpod-scaling-eks.md#sagemaker-hyperpod-scaling-eks-flexible-ig "sagemaker-hyperpod-scaling-eks.md#sagemaker-hyperpod-scaling-eks-flexible-ig").
+
 ## SageMaker HyperPod release notes: January 25, 2026
 
 SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod clusters with Amazon EKS](sagemaker-hyperpod-eks.md "sagemaker-hyperpod-eks.md").

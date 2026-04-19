@@ -30,6 +30,14 @@ running the [`DescribeCluster`](../APIReference/API_DescribeCluster.md "../APIRe
 aws sagemaker update-cluster-software --cluster-name `your-hyperpod-cluster`
 ```
 
+###### Rolling upgrades with flexible instance groups
+
+For instance groups that use `InstanceRequirements` with multiple
+instance types, rolling upgrades spread each instance type proportionally across
+batches. For example, if an instance group has 100 instances (10 P5 and 90 G6)
+and you configure a 10% batch size, each batch contains 1 P5 instance and 9 G6
+instances.
+
 When calling the `UpdateClusterSoftware` API, SageMaker HyperPod updates the
 Kubernetes version of the nodes by selecting the latest [SageMaker HyperPod DLAMI](sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-hyperpod-ami "sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-hyperpod-ami") based on the Kubernetes version
 of your Amazon EKS cluster. It then runs the lifecycle scripts in the Amazon S3 bucket that

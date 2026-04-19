@@ -156,6 +156,41 @@ API server endpoint.
 }
 ```
 
+###### Flexible instance groups
+
+Instead of specifying a single `InstanceType`, you can use
+the `InstanceRequirements` parameter to specify multiple
+instance types for an instance group. Note the following:
+
+    * `InstanceType` and
+     `InstanceRequirements` are mutually exclusive. You
+     must specify one or the other, but not both.
+    * `InstanceRequirements.InstanceTypes` is an ordered
+     list that determines provisioning priority. SageMaker HyperPod
+     attempts to provision the first instance type in the list and
+     falls back to subsequent types if capacity is unavailable. You
+     can specify up to 20 instance types, and the list must not
+     contain duplicates.
+    * Flexible instance groups require continuous node provisioning
+     mode.The following example shows an instance group using
+
+`InstanceRequirements`:
+
+```
+{
+    "InstanceGroupName": "flexible-ig",
+    "InstanceRequirements": {
+        "InstanceTypes": ["ml.p5.48xlarge", "ml.p4d.24xlarge", "ml.g6.48xlarge"]
+    },
+    "InstanceCount": 10,
+    "LifeCycleConfig": {
+        "SourceS3Uri": "s3://amzn-s3-demo-bucket-sagemaker/lifecycle-script-directory/src/",
+        "OnCreate": "on_create.sh"
+    },
+    "ExecutionRole": "arn:aws:iam::111122223333:role/iam-role-for-cluster"
+}
+```
+
 Note the following when configuring to create a new SageMaker HyperPod cluster
 associating with an EKS cluster.
 

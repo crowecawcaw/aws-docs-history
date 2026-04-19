@@ -57,6 +57,15 @@ terminate any of the instances for scaling down. When you submit an
 chooses instances for termination and scales down to the specified number of nodes
 for the instance group.
 
+###### Scale-down behavior with flexible instance groups
+
+For instance groups that use `InstanceRequirements` with multiple
+instance types, HyperPod terminates the lowest-priority instance types
+first during scale-down. The priority is determined by the order of instance
+types in the `InstanceTypes` list, where the first type has the
+highest priority. This protects higher-priority instances, which are typically
+higher-performance, during scale-down operations.
+
 ###### Note
 
 When you scale the number of instances in an instance group down to 0, all the

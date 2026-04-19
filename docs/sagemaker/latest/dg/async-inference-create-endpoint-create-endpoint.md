@@ -8,7 +8,7 @@ The following creates an endpoint using the endpoint configuration specified in 
 Amazon SageMaker AI uses the endpoint to provision resources and deploy models.
 
 ```
-# The name of the endpoint.The name must be unique within an AWS Region in your AWS account.
+# The name of the endpoint. The name must be unique within an AWS Region in your AWS account.
 endpoint_name = `'<endpoint-name>'`
 
 # The name of the endpoint configuration associated with this endpoint.

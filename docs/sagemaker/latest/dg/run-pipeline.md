@@ -39,7 +39,7 @@ Studio Classic
 
 1. Sign in to Amazon SageMaker Studio Classic. For more information, see [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
 2. In the Studio Classic sidebar, choose the **Home** icon (
-   ![Black square icon representing a placeholder or empty image.](/images/sagemaker/latest/dg/images/studio/icons/house.png)
+   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
    ).
 3. Select **Pipelines** from the menu.
 4. To narrow the list of pipelines by name, enter a full or partial pipeline name

@@ -145,6 +145,13 @@ configured with VPC and installed using Helm.
 | ml.g6e.24xlarge   | 49                 |
 | ml.g6e.48xlarge   | 49                 |
 | ml.p5e.48xlarge   | 49                 |
+| ml.r5d.16xlarge   | 49                 |
+| ml.g7e.2xlarge    | 49                 |
+| ml.g7e.4xlarge    | 49                 |
+| ml.g7e.8xlarge    | 49                 |
+| ml.g7e.12xlarge   | 49                 |
+| ml.g7e.24xlarge   | 49                 |
+| ml.g7e.48xlarge   | 49                 |
 
 - Only Pods with `hostNetwork = true` have access to the Amazon EC2 Instance
   Metadata Service (IMDS) by default. Use the Amazon EKS Pod identity or the [IAM roles for

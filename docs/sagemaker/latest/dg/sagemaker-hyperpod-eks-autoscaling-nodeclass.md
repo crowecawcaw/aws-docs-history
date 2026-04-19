@@ -15,6 +15,15 @@ for Karpenter's autoscaling decisions.
 **Considerations for creating a node class**
 
 - You can specify up to 10 instance groups in a `NodeClass`.
+- Instance groups that use `InstanceRequirements` (flexible instance
+  groups) can contain multiple instance types within a single instance group. This
+  simplifies your `NodeClass` configuration because you can reference
+  fewer instance groups to cover the same set of instance types and Availability
+  Zones. For example, instead of creating 6 instance groups (3 instance types × 2
+  AZs), you can create a single flexible instance group that covers all
+  combinations. Note that `InstanceType` and
+  `InstanceRequirements` are mutually exclusive—you must specify
+  one or the other for each instance group.
 - When using GPU partitioning with MIG (Multi-Instance GPU), Karpenter can
   automatically provision nodes with MIG-enabled instance groups. Ensure your
   instance groups include MIG-supported instance types (ml.p4d.24xlarge,
@@ -133,6 +142,19 @@ status:
     - ml.c5.4xlarge
     name: auto-c5-4xaz2
     subnets:
+    - id: <subnet-id>
+      zone: <availability-zone-b>
+      zoneId: <zone-id-b>
+  # Flexible instance group with multiple instance types
+  - instanceTypes:
+    - ml.p5.48xlarge
+    - ml.p4d.24xlarge
+    - ml.g6.48xlarge
+    name: inference-workers
+    subnets:
+    - id: <subnet-id>
+      zone: <availability-zone-a>
+      zoneId: <zone-id-a>
     - id: <subnet-id>
       zone: <availability-zone-b>
       zoneId: <zone-id-b>

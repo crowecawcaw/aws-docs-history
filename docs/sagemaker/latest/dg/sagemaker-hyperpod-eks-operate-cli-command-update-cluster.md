@@ -46,6 +46,14 @@ instructions on how to scale down or delete instance groups, see [Scaling down a
     	 instance type you initially specified to the group.
     	2. To add a new instance group, specify an instance type you
     	 want to configure the group with.
+    For instance groups that use `InstanceRequirements`
+     instead of `InstanceType`, you can add or remove instance
+     types from the `InstanceTypes` list. However, you cannot
+     remove an instance type that has active nodes running on it. You also
+     cannot switch between `InstanceType` and
+     `InstanceRequirements` when updating an existing instance
+     group. `InstanceType` and
+     `InstanceRequirements` are mutually exclusive.
     4. For `InstanceCount`
 
 

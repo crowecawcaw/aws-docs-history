@@ -11,6 +11,12 @@ GPU partitioning with MIG technology supports GPUs and allows you to partition a
 - **Task flexibility** - Support a mix of tasks on a single physical GPU, all running in parallel
 - **Flexible setup management** - Support both Do-it-yourself (DIY) Kubernetes configurations using Kubernetes command-line client `kubectl`, and a managed solution with custom labels to easily configure and apply your labels associated with GPU partitions
 
+###### Important
+
+GPU partitioning with MIG is not supported with flexible instance groups
+(instance groups that use `InstanceRequirements`). To use MIG, create
+an instance group with a single `InstanceType`.
+
 ## Supported Instance Types
 
 GPU partitioning with MIG technology is supported on the following HyperPod instance types:
