@@ -7,6 +7,10 @@ programmatically, with the AWS CLI, with Service Catalog APIs, or with AWS Contr
 (AFT). You may be able to provision customized accounts in the console if you've
 previously set up custom blueprints. For more information about customization, see [Customize accounts with Account Factory Customization (AFC)](af-customization-page.md "af-customization-page.md").
 
+###### Note
+
+If you have disabled IAM Identity Center in your landing zone settings, the SSO user parameters (`SSOUserEmail`, `SSOUserFirstName`, and `SSOUserLastName`) are not used during account provisioning. If desired, you can provide placeholder values for these required parameters and modify them later by following the instructions in [Update the provisioned product in Service Catalog](update-provisioned-product.md "update-provisioned-product.md").
+
 ###### To provision accounts individually in Account Factory, as a user
 
 1. Sign in from your user portal URL.

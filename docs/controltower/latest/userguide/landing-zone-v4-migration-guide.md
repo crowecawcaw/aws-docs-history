@@ -18,3 +18,4 @@ governance capabilities, allowing customers to tailor AWS Control Tower to their
 
 - [Key changes](key-changes-lz-v4.md "key-changes-lz-v4.md")
 - [AWS Config Updates](config-updates-v4.md "config-updates-v4.md")
+- [Feature comparison with and without AWS Config integration](config-integration-feature-comparison.md "config-integration-feature-comparison.md")

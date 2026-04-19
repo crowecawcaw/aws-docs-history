@@ -6,7 +6,7 @@ Service Catalog.
 
 ###### Note
 
-If you have opted out of IAM Identity Center in your landing zone settings, values you provide during account provisioning with the AWS Service Catalog APIs or console are not used.
+If you have disabled IAM Identity Center in your landing zone settings, the SSO user parameters (`SSOUserEmail`, `SSOUserFirstName`, and `SSOUserLastName`) are not used during account provisioning. If desired, you can provide placeholder values for these required parameters and modify them later by following the instructions in this section.
 
 ###### To update an Account Factory account or change its OU through Service Catalog
 
