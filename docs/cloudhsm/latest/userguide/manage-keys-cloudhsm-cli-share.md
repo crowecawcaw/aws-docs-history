@@ -2,7 +2,7 @@
 
 Use the commands in this topic to share and unshare keys in [CloudHSM CLI](cloudhsm_cli.md "cloudhsm_cli.md"). In AWS CloudHSM, the crypto user (CU) who creates the key owns it.
 The owner can use the **key share** and **key unshare** commands to share and unshare the key with other CUs.
-Users with whom the key is shared can use the key in cryptographic operations, but they cannot export the key, delete the key, or share it with other users.
+Users with whom the key is shared can use the key in cryptographic operations, but they cannot delete, export, share, unshare, derive, or wrap the key.
 
 Before you can share a key, you must log in to the HSM as the crypto user (CU) who owns the key.
 
