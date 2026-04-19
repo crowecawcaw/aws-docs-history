@@ -48,3 +48,11 @@ Consider the following points when you use IAM Identity Center with Amazon EMR:
   - `us-east-2` – US East (Ohio)
   - `us-west-1` – US West (N. California)
   - `us-west-2` – US West (Oregon)
+
+- If the IAM Role for identity center role is accidentally deleted and
+  recreated, the principal will have a different principal-id. Example
+  `NewRole` would have principal-id
+  `456` which would not match the recorded principal-id
+  `123`. The only way to resolve this at this point is
+  to re-set the principal in the downstream resource policies in every downstream
+  account.

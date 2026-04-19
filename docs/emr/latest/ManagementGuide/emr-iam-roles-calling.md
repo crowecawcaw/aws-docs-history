@@ -24,7 +24,7 @@ calls the EC2 instance metadata to obtain the temporary credentials.
     Amazon EC2 instances with the SDK for Java](../../../sdk-for-java/latest/developer-guide/java-dg-roles.md "../../../sdk-for-java/latest/developer-guide/java-dg-roles.md") in the
     _AWS SDK for Java Developer Guide_
   - [Using IAM roles for Amazon EC2
-    instances with the SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-roles.md "../../../sdk-for-net/latest/developer-guide/net-dg-roles.md") in the
+    instances with the SDK for .NET](../../../sdk-for-net/v4/developer-guide/net-dg-hosm.md "../../../sdk-for-net/v4/developer-guide/net-dg-hosm.md") in the
     _AWS SDK for .NET Developer Guide_
   - [Using IAM roles for Amazon EC2
     instances with the SDK for PHP](../../../sdk-for-php/latest/developer-guide/php-dg-roles.md "../../../sdk-for-php/latest/developer-guide/php-dg-roles.md") in the

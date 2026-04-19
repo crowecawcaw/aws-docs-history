@@ -7,12 +7,6 @@ Automatic scaling with a custom policy is available with the instance groups
 configuration and is not available when you use instance fleets. For more information
 about instance groups and instance fleets, see [Create an Amazon EMR cluster with instance fleets or uniform instance groups](emr-instance-group-configuration.md "emr-instance-group-configuration.md").
 
-###### Note
-
-To use the automatic scaling with a custom policy feature in Amazon EMR, you must set
-`true` for the `VisibleToAllUsers` parameter when you
-create a cluster. For more information, see [SetVisibleToAllUsers](../APIReference/API_SetVisibleToAllUsers.md "../APIReference/API_SetVisibleToAllUsers.md").
-
 The scaling policy is part of an instance group configuration. You can specify a
 policy during initial configuration of an instance group, or by modifying an instance
 group in an existing cluster, even when that instance group is active. Each instance
