@@ -97,11 +97,13 @@ can launch your EFA-enabled instances.
 7. In the **Network settings** section, choose **Edit**,
    and then do the following:
    1. For **Subnet**, choose the subnet in which to launch the
-      instance. If you do not select a subnet, you can't enable the instance for EFA.
-   2. For **Firewall (security groups)**, choose **Select
-      existing security group**, and then select the security group that you
-      created in the previous step.
-   3. Expand the **Advanced network configuration** section.
+      instance.
+
+   ###### Important
+
+   You must select a subnet. If you do not select a subnet, you can't enable the instance for EFA. 2. For **Firewall (security groups)**, choose **Select
+   existing security group**, and then select the security group that you
+   created in the previous step. 3. Expand the **Advanced network configuration** section.
 
    For **Network interface 1**, select **Network card index = 0**,
    **Device index = 0**, and **Interface type = EFA with ENA**.
@@ -165,7 +167,7 @@ refer to the [Intel MPI documentation](https://www.intel.com/content/www/us/en/d
 You can also get the latest version by replacing the version number with `latest` in the preceding command.
 
 ```
-`$` curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.47.0.tar.gz
+`$` curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.48.0.tar.gz
 ```
 
 5. (_Optional_) Verify the authenticity and integrity of the EFA tarball (`.tar.gz`) file.
@@ -205,7 +207,7 @@ Alternatively, if you prefer to verify the tarball file by using an MD5 or SHA25
 
 
     ```
-    `$` wget https://efa-installer.amazonaws.com/aws-efa-installer-1.47.0.tar.gz.sig && gpg --verify ./aws-efa-installer-1.47.0.tar.gz.sig
+    `$` wget https://efa-installer.amazonaws.com/aws-efa-installer-1.48.0.tar.gz.sig && gpg --verify ./aws-efa-installer-1.48.0.tar.gz.sig
     ```
 
     The following shows example output.
@@ -227,10 +229,55 @@ Alternatively, if you prefer to verify the tarball file by using an MD5 or SHA25
 the extracted directory.
 
 ```
-`$` tar -xf aws-efa-installer-1.47.0.tar.gz && cd aws-efa-installer
+`$` tar -xf aws-efa-installer-1.48.0.tar.gz && cd aws-efa-installer
 ```
 
-7. Install the EFA software. Do one of the following depending on your use case.
+7. (_Optional_) Verify individual package signatures during installation.
+
+Starting with EFA installer 1.48.0, the installer includes GPG-signed individual RPM
+and DEB packages. To verify the authenticity and integrity of each individual package during
+installation, use the `--check-signatures` flag. When you enable this flag, the installer
+verifies all package signatures first, and only proceeds with installation if every package
+passes verification. If any package fails verification, the installer exits immediately
+without installing anything.
+
+    1. Download the GPG public key.
+
+
+
+    ```
+    `$` wget https://efa-installer.amazonaws.com/aws-efa-installer.key
+    ```
+    2. Export the key path. Then, in the next step, append `--check-signatures`
+     to the installation command and use `sudo -E` instead of `sudo`
+     to preserve the environment variable.
+
+
+
+    ```
+    `$` export EFA_INSTALLER_KEY=$(pwd)/aws-efa-installer.key
+    ```
+
+On RPM-based systems (Amazon Linux, RHEL, Rocky Linux, and SUSE), the installer verifies
+each RPM using `rpm --checksig`. On DEB-based systems (Ubuntu, Debian), the
+installer verifies each DEB using GPG signature verification.
+
+If verification of any package fails, the installation immediately aborts, protecting
+your system against broken or malicious packages.
+
+###### Note
+
+The `--check-signatures` flag is optional. Without it, the installer does not perform
+individual signature verification.
+
+[Show moreShow less](# "#") 8. Install the EFA software. Do one of the following depending on your use case.
+
+###### Note
+
+If you completed the previous optional step to set up package signature verification,
+append `--check-signatures` to the installation command and use
+`sudo -E` instead of `sudo`. For example:
+`sudo -E ./efa_installer.sh -y --check-signatures`.
 
 ###### Note
 
@@ -297,11 +344,11 @@ command.
 `$` sudo ./efa_installer.sh -y --minimal
 ```
 
-8. If the EFA installer prompts you to reboot the instance, do so and then reconnect
+9. If the EFA installer prompts you to reboot the instance, do so and then reconnect
    to the instance. Otherwise, log out of the instance and then log back in to complete
    the installation.
-9. Delete the uncompressed tarball and the tarball itself. Otherwise, these will be
-   included in the EFA-enabled AMI that you create, increasing its size.
+10. Delete the uncompressed tarball and the tarball itself. Otherwise, these will be
+    included in the EFA-enabled AMI that you create, increasing its size.
 
 ## Step 4: (_Optional_) Enable Open MPI 5
 
@@ -639,11 +686,13 @@ EFA-enabled security group that you created in **Step
 7. In the **Network settings** section, choose **Edit**,
    and then do the following:
    1. For **Subnet**, choose the subnet in which to launch the
-      instance. If you do not select a subnet, you can't enable the instance for EFA.
-   2. For **Firewall (security groups)**, choose **Select
-      existing security group**, and then select the security group that you
-      created in the previous step.
-   3. Expand the **Advanced network configuration** section.
+      instance.
+
+   ###### Important
+
+   You must select a subnet. If you do not select a subnet, you can't enable the instance for EFA. 2. For **Firewall (security groups)**, choose **Select
+   existing security group**, and then select the security group that you
+   created in the previous step. 3. Expand the **Advanced network configuration** section.
 
    For **Network interface 1**, select **Network card index = 0**,
    **Device index = 0**, and **Interface type = EFA with ENA**.

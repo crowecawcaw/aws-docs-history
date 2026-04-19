@@ -28,7 +28,7 @@ EC2 Instance Connect is available at no additional cost.
 
 ###### Region availability
 
-EC2 Instance Connect is available in all AWS Regions, except Asia Pacific (Taipei). It is not
+EC2 Instance Connect is available in all AWS Regions. It is not
 supported in Local Zones.
 
 ###### Contents

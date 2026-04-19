@@ -245,6 +245,20 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 | `c8i.96xlarge`      | 32                               | 128                              | 1536                            |
 | `c8i.metal-48xl`    | 32                               | 128                              | 768                             |
 | `c8i.metal-96xl`    | 32                               | 128                              | 1536                            |
+| **C8ib**            |
+| `c8ib.large`        | 2                                | 2                                | 8                               |
+| `c8ib.xlarge`       | 4                                | 4                                | 16                              |
+| `c8ib.2xlarge`      | 8                                | 8                                | 32                              |
+| `c8ib.4xlarge`      | 8                                | 16                               | 64                              |
+| `c8ib.8xlarge`      | 16                               | 32                               | 128                             |
+| `c8ib.12xlarge`     | 16                               | 64                               | 192                             |
+| `c8ib.16xlarge`     | 16                               | 64                               | 256                             |
+| `c8ib.24xlarge`     | 16                               | 128                              | 256                             |
+| `c8ib.32xlarge`     | 32                               | 128                              | 512                             |
+| `c8ib.48xlarge`     | 32                               | 128                              | 768                             |
+| `c8ib.96xlarge`     | 32                               | 128                              | 1536 \*                         |
+| `c8ib.metal-48xl`   | 32                               | 128                              | 768                             |
+| `c8ib.metal-96xl`   | 32                               | 128                              | 1536 \*                         |
 | **C8id**            |
 | `c8id.large`        | 2                                | 2                                | 6                               |
 | `c8id.xlarge`       | 4                                | 4                                | 16                              |
@@ -259,6 +273,20 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 | `c8id.96xlarge`     | 32                               | 128                              | 1536                            |
 | `c8id.metal-48xl`   | 32                               | 128                              | 768                             |
 | `c8id.metal-96xl`   | 32                               | 128                              | 1536                            |
+| **C8in**            |
+| `c8in.large`        | 2                                | 2                                | 8                               |
+| `c8in.xlarge`       | 4                                | 4                                | 16                              |
+| `c8in.2xlarge`      | 8                                | 8                                | 32                              |
+| `c8in.4xlarge`      | 8                                | 16                               | 64                              |
+| `c8in.8xlarge`      | 16                               | 32                               | 128                             |
+| `c8in.12xlarge`     | 16                               | 64                               | 192                             |
+| `c8in.16xlarge`     | 16                               | 64                               | 256                             |
+| `c8in.24xlarge`     | 16                               | 128                              | 256                             |
+| `c8in.32xlarge`     | 32                               | 128                              | 512                             |
+| `c8in.48xlarge`     | 32                               | 128                              | 768                             |
+| `c8in.96xlarge`     | 32                               | 128                              | 1536 \*                         |
+| `c8in.metal-48xl`   | 32                               | 128                              | 768                             |
+| `c8in.metal-96xl`   | 32                               | 128                              | 1536 \*                         |
 | **C8i-flex**        |
 | `c8i-flex.large`    | 1                                | 1                                | 3                               |
 | `c8i-flex.xlarge`   | 2                                | 2                                | 8                               |

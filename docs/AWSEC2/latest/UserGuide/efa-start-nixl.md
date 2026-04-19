@@ -302,26 +302,71 @@ support EFA on your instance.
    version, use the following command.
 
 ```
-`$` curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.47.0.tar.gz
+`$` curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.48.0.tar.gz
 ```
 
 3. Extract the files from the compressed `.tar.gz` file, delete the tarball, and navigate
    into the extracted directory.
 
 ```
-`$` tar -xf aws-efa-installer-1.47.0.tar.gz && rm -rf aws-efa-installer-1.47.0.tar.gz && cd aws-efa-installer
+`$` tar -xf aws-efa-installer-1.48.0.tar.gz && rm -rf aws-efa-installer-1.48.0.tar.gz && cd aws-efa-installer
 ```
 
-4. Run the EFA software installation script.
+4. (_Optional_) Verify individual package signatures during installation.
+
+Starting with EFA installer 1.48.0, the installer includes GPG-signed individual RPM
+and DEB packages. To verify the authenticity and integrity of each individual package during
+installation, use the `--check-signatures` flag. When you enable this flag, the installer
+verifies all package signatures first, and only proceeds with installation if every package
+passes verification. If any package fails verification, the installer exits immediately
+without installing anything.
+
+    1. Download the GPG public key.
+
+
+
+    ```
+    `$` wget https://efa-installer.amazonaws.com/aws-efa-installer.key
+    ```
+    2. Export the key path. Then, in the next step, append `--check-signatures`
+     to the installation command and use `sudo -E` instead of `sudo`
+     to preserve the environment variable.
+
+
+
+    ```
+    `$` export EFA_INSTALLER_KEY=$(pwd)/aws-efa-installer.key
+    ```
+
+On RPM-based systems (Amazon Linux, RHEL, Rocky Linux, and SUSE), the installer verifies
+each RPM using `rpm --checksig`. On DEB-based systems (Ubuntu, Debian), the
+installer verifies each DEB using GPG signature verification.
+
+If verification of any package fails, the installation immediately aborts, protecting
+your system against broken or malicious packages.
+
+###### Note
+
+The `--check-signatures` flag is optional. Without it, the installer does not perform
+individual signature verification.
+
+[Show moreShow less](# "#") 5. Run the EFA software installation script.
+
+###### Note
+
+If you completed the previous optional step to set up package signature verification,
+append `--check-signatures` to the installation command and use
+`sudo -E` instead of `sudo`. For example:
+`sudo -E ./efa_installer.sh -y --check-signatures`.
 
 ```
 `$` sudo ./efa_installer.sh -y
 ```
 
 **Libfabric** is installed in the `/opt/amazon/efa`
-directory. 5. If the EFA installer prompts you to reboot the instance, do so and then reconnect
+directory. 6. If the EFA installer prompts you to reboot the instance, do so and then reconnect
 to the instance. Otherwise, log out of the instance and then log back in to complete
-the installation. 6. Confirm that the EFA software components were successfully installed.
+the installation. 7. Confirm that the EFA software components were successfully installed.
 
 ```
 `$` fi_info -p efa -t FI_EP_RDM

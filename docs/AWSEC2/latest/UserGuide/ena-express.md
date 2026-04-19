@@ -304,12 +304,28 @@ Compute optimized
 | `c8i.96xlarge`    | x86_64       |
 | `c8i.metal-48xl`  | x86_64       |
 | `c8i.metal-96xl`  | x86_64       |
+| `c8ib.12xlarge`   | x86_64       |
+| `c8ib.16xlarge`   | x86_64       |
+| `c8ib.24xlarge`   | x86_64       |
+| `c8ib.32xlarge`   | x86_64       |
+| `c8ib.48xlarge`   | x86_64       |
+| `c8ib.96xlarge`   | x86_64       |
+| `c8ib.metal-48xl` | x86_64       |
+| `c8ib.metal-96xl` | x86_64       |
 | `c8id.24xlarge`   | x86_64       |
 | `c8id.32xlarge`   | x86_64       |
 | `c8id.48xlarge`   | x86_64       |
 | `c8id.96xlarge`   | x86_64       |
 | `c8id.metal-48xl` | x86_64       |
 | `c8id.metal-96xl` | x86_64       |
+| `c8in.12xlarge`   | x86_64       |
+| `c8in.16xlarge`   | x86_64       |
+| `c8in.24xlarge`   | x86_64       |
+| `c8in.32xlarge`   | x86_64       |
+| `c8in.48xlarge`   | x86_64       |
+| `c8in.96xlarge`   | x86_64       |
+| `c8in.metal-48xl` | x86_64       |
+| `c8in.metal-96xl` | x86_64       |
 
 Memory optimized
 

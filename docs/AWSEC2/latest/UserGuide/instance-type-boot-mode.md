@@ -96,8 +96,8 @@ to scope the output to the value of `InstanceType`.
 ```
 aws ec2 describe-instance-types \
     --filters Name=supported-boot-mode,Values=uefi \
-    --query "InstanceTypes[*].[InstanceType]" --output text | sort
-
+    --query "InstanceTypes[*].[InstanceType]" \
+    --output text | sort
 ```
 
 PowerShell
@@ -105,10 +105,10 @@ The available instance types vary by AWS Region. To see the available instance t
 that support UEFI in a Region, use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md") cmdlet.
 
 ```
-Get-EC2InstanceType | `
-	Where-Object {$_.SupportedBootModes -Contains "uefi"} | `
-	Sort-Object InstanceType | `
-	Format-Table InstanceType -GroupBy CurrentGeneration
+Get-EC2InstanceType -Filter @{Name="supported-boot-mode"; Values="uefi"} |
+	Sort-Object @{E={$_.ProcessorInfo.SupportedArchitectures}}, InstanceType |
+	Format-Table InstanceType, SupportedBootModes, `
+      @{Name="SupportedArchitectures"; E={$_.ProcessorInfo.SupportedArchitectures}}
 ```
 
 ###### To determine the instance types that support UEFI Secure Boot and persist non-volatile variables
@@ -133,12 +133,10 @@ Use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2
 bare metal instances from the output.
 
 ```
-Get-EC2InstanceType | `
-    Where-Object { `
-        $_.SupportedBootModes -Contains "uefi" -and `
-        $_.BareMetal -eq $False
-        } | `
-    Sort-Object InstanceType  | `
-    Format-Table InstanceType, SupportedBootModes, BareMetal, `
-        @{Name="SupportedArchitectures"; Expression={$_.ProcessorInfo.SupportedArchitectures}}
+Get-EC2InstanceType -Filter `
+      @{Name="supported-boot-mode"; Values="uefi"}, `
+      @{Name="bare-metal"; Values="false"} |
+	Sort-Object @{E={$_.ProcessorInfo.SupportedArchitectures}}, InstanceType |
+	Format-Table InstanceType, SupportedBootModes, `
+      @{Name="SupportedArchitectures"; E={$_.ProcessorInfo.SupportedArchitectures}}
 ```

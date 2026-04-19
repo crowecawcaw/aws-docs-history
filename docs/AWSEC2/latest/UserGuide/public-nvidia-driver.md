@@ -100,6 +100,18 @@ development packages.
 Choose the type of installation to use for your instance, and follow the
 associated steps.
 
+AL2023 NVIDIA repository
+Amazon Linux 2023 provides NVIDIA GPU drivers and CUDA toolkit packages
+through a dedicated repository that AWS maintains. AWS qualifies this
+repository with AL2023 release candidates and provides security
+advisories through the Amazon Linux Security Center. We recommend this
+option for AL2023 instances because it simplifies installation and
+keeps drivers updated through the standard `dnf update`
+workflow.
+
+For instructions, see [NVIDIA drivers](../../../linux/al2023/ug/nvidia-drivers.md "../../../linux/al2023/ug/nvidia-drivers.md") in
+the _Amazon Linux 2023 User Guide_.
+
 RPM local installation
 You can follow these instructions to download the CUDA toolkit
 installer repository bundle to your instance, then extract and register
@@ -120,11 +132,10 @@ manager downloads only the packages that are required.
 To view instructions on the NVIDIA developer website, see [CUDA Toolkit Downloads](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Amazon-Linux&target_version=2023&target_type=rpm_network "https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Amazon-Linux&target_version=2023&target_type=rpm_network").
 
 ```
-`[ec2-user ~]$` wget https://developer.download.nvidia.com/compute/cuda/repos/`ubuntu2404`/x86_64/`cuda-keyring_1.1-1_all.deb`
-`[ec2-user ~]$` sudo dpkg -i `cuda-keyring_1.1-1_all.deb`
+`[ec2-user ~]$` sudo dnf config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/amzn2023/x86_64/cuda-amzn2023.repo
 ```
 
-Remaining steps are the same for both local and network installation.
+Remaining steps are the same for both RPM local and RPM network installation.
 
 1. Complete the CUDA toolkit install
 
@@ -196,7 +207,7 @@ development packages.
 Choose the type of installation to use for your instance, and follow the
 associated steps.
 
-RPM local installation
+Deb local installation
 You can follow these instructions to download the CUDA toolkit
 installer repository bundle to your instance, then extract and register
 the specified bundle.
@@ -211,7 +222,7 @@ To view instructions on the NVIDIA developer website, see [CUDA Toolkit Download
 `$` sudo cp /var/`cuda-repo-ubuntu2404-13-0-local`/cuda-*-keyring.gpg /usr/share/keyrings/
 ```
 
-RPM network installation
+Deb network installation
 You can follow these instructions to register the CUDA repository with the
 package manager on your instance. When you run the install steps, the package
 manager downloads only the packages that are required.

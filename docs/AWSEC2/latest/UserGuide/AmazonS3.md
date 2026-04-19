@@ -18,8 +18,7 @@ There are two ways to access Amazon S3 data from your Amazon EC2 instances:
 ## File access with Amazon S3 Files
 
 Amazon S3 Files is a serverless file system that lets you mount your S3 general purpose
-bucket as a high performance file system on your compute instance. S3 Files provides
-access to your S3 objects as files using standard file system operations such as read
+bucket as a high performance file system on your compute instance. With S3 Files, you can access your S3 objects as files by using standard file system operations such as read
 and write on the local mount path.
 
 You can mount an S3 file system to an EC2 instance either at launch, or after launch
@@ -33,60 +32,65 @@ following:
 - An S3 file system and at least one mount target in the available state. For
   information about creating an S3 file system, see [Working with Amazon S3
   Files](../../../AmazonS3/latest/userguide/s3-files.md "../../../AmazonS3/latest/userguide/s3-files.md") in the _Amazon S3 User Guide_.
-- An EC2 instance running Linux OS with an instance profile attached to it. For
+- An EC2 Linux instance with an instance profile attached to it. For
   information about the required permissions to mount the file system, see [IAM roles and policies](../../../AmazonS3/latest/userguide/s3-files-prereq-policies.md#s3-files-prereq-iam "../../../AmazonS3/latest/userguide/s3-files-prereq-policies.md#s3-files-prereq-iam") in the _Amazon S3 User Guide_.
 - Security groups that allow NFS traffic (port 2049) between your instance and
   the file system’s mount targets. For information about the required security
-  groups settings, see [Security groups](../../../AmazonS3/latest/userguide/s3-files-prereq-policies.md#s3-files-prereq-security-groups "../../../AmazonS3/latest/userguide/s3-files-prereq-policies.md#s3-files-prereq-security-groups") in the _Amazon S3 User Guide_.
+  group settings, see [Security groups](../../../AmazonS3/latest/userguide/s3-files-prereq-policies.md#s3-files-prereq-security-groups "../../../AmazonS3/latest/userguide/s3-files-prereq-policies.md#s3-files-prereq-security-groups") in the _Amazon S3 User Guide_.
 
 ###### To mount a file system to an EC2 instance at launch using the EC2 console
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. Choose **Launch instance**.
-3. Select a subnet under **Network settings**.
-4. Select the default security group to make sure that your EC2 instance can
-   access your S3 file system. You can't access your EC2 instance by Secure Shell
-   (SSH) using this security group. For access by SSH, later you can edit the
-   default security and add a rule to allow SSH or a new security group that allows
-   SSH. You can use the following settings:
-   1. **Type:** SSH
-   2. **Protocol:** TCP
-   3. **Port Range:** 22
-   4. **Source:** Anywhere 0.0.0.0/0
+3. Under **Network settings**, do the following:
+   1. Choose **Edit**.
+   2. For **Subnet**, select a subnet.
+   3. Select the default security group to make sure that your EC2 instance can
+      access your S3 file system. You can't access your EC2 instance by Secure Shell
+      (SSH) using this security group. For access by SSH, you can later edit the
+      default security group and add a rule to allow SSH, or add a new security group that allows
+      SSH. You can use the following settings:
+      1. **Type:** SSH
+      2. **Protocol:** TCP
+      3. **Port Range:** 22
+      4. **Source:** Anywhere 0.0.0.0/0
 
-5. Under **Storage**, select **File systems**
-   and choose **S3 Files**.
-   1. Under the file system dropdown, you will see your file systems in the
-      Availability Zone based on the subnet you selected in your Network
+4. Under **Configure storage**, do the following:
+   1. Under **File systems**, choose **S3 Files**.
+   2. Choose **Add shared file system**.
+   3. For **S3 file system**, your file systems appear in the
+      Availability Zone based on the subnet that you selected in your Network
       settings. Choose the S3 file system that you want to mount. If you don’t
       have any file systems, choose **Create a new file
       system** to create a new one.
-   2. Enter a local mount path on your EC2 instance where you want to mount
+   4. Enter a local mount path on your EC2 instance where you want to mount
       the file system (for example, `/mnt/s3files`).
-   3. A command will be generated to mount the file system and add it to
+   5. A command will be generated to mount the file system and add it to
       fstab. You can add this command to the **User data**
       field under **Advanced details**. Your EC2 instance
       will then be configured to mount the S3 file system at launch and
       whenever it's rebooted. You can also run these commands in your EC2
       instance after it is launched.
 
-6. Under **Advanced details**, attach an instance profile to
+5. Under **Advanced details**, attach an instance profile to
    your instance. Your IAM role must have permissions to mount the file system and
-   access the S3 bucket. [Learn more about required permissions](../../../AmazonS3/latest/userguide/s3-files-prereq-policies.md#s3-files-prereq-iam "../../../AmazonS3/latest/userguide/s3-files-prereq-policies.md#s3-files-prereq-iam").
-7. Choose **Launch instance**.
-8. After the instance launches, the required software utilities will be installed
-   and file system mounted. You can view the file system by navigating to your
-   local mount path.
+   access the S3 bucket. For more information about the required permissions,
+   see [IAM roles and policies](../../../AmazonS3/latest/userguide/s3-files-prereq-policies.md#s3-files-prereq-iam "../../../AmazonS3/latest/userguide/s3-files-prereq-policies.md#s3-files-prereq-iam") in the _Amazon S3 User Guide_.
+6. Choose **Launch instance**.
+
+After the instance launches, the required software utilities are installed
+and the file system is mounted. You can view the file system by navigating to your
+local mount path.
 
 ###### To mount a file system to an EC2 instance after launch
 
 1. [Connect
    to your EC2 instance](connect.md "connect.md") through Secure Shell (SSH) or by using EC2
    Instance Connect in the EC2 console.
-2. You mount your S3 file system using a mount helper utility
-   `amazon-efs-utils`. Install the `amazon-efs-utils`
-   package using the following command:
+2. To mount your S3 file system, use the mount helper utility
+   `amazon-efs-utils`. Depending on your Linux distribution, use one of the following commands to install the `amazon-efs-utils`
+   package:
    1. If you’re using Amazon Linux, run the following command to install
       efs-utils from Amazon's repositories:
 
@@ -94,8 +98,8 @@ following:
    sudo yum -y install amazon-efs-utils
    ```
 
-   2. If you are using other [supported Linux distributions](https://github.com/aws/efs-utils/?tab=readme-ov-file#efs-utils "https://github.com/aws/efs-utils/?tab=readme-ov-file#efs-utils"), you can do the
-      following:
+   2. If you are using other [supported Linux distributions](https://github.com/aws/efs-utils/?tab=readme-ov-file#efs-utils "https://github.com/aws/efs-utils/?tab=readme-ov-file#efs-utils"), run the
+      following command:
 
    ```
    curl https://amazon-efs-utils.aws.com/efs-utils-installer.sh | sudo sh -s -- --install
@@ -119,15 +123,17 @@ sudo mount -t s3files $FS:/ {path/to/mount}
 
 ```
 
-5. Confirm the file system is mounted.
+5. Confirm the file system is mounted:
 
 ```
 df -h {path/to/mount}
 ```
 
-You can now read and write S3 objects as files on your local mount path using standard
-file system operations. If you have objects in your S3 bucket then you can view them as
-files using the following commands.
+###### To view objects in your S3 bucket as files
+
+Having completed the preceding procedures, you can now read and write S3 objects as files on your local mount path using standard
+file system operations. If you have objects in your S3 bucket, you can view them as
+files by using the following command:
 
 ```
 ls {path/to/mount}
@@ -136,7 +142,7 @@ ls {path/to/mount}
 ## Object-based access
 
 You can copy files to and from Amazon S3 using the S3 API, AWS CLI, AWS SDKs, or
-standard HTTP tools. If you have permission, you can copy a file to or from Amazon S3
+standard HTTP tools. If you have the required permissions, you can copy a file to or from Amazon S3
 and your instance using one of the following methods.
 
 wget
@@ -151,8 +157,8 @@ permissions. For more information, see [Identity and
 access management for Amazon S3](../../../AmazonS3/latest/userguide/security-iam.md "../../../AmazonS3/latest/userguide/security-iam.md") and [Downloading
 an object](../../../AmazonS3/latest/userguide/download-objects.md "../../../AmazonS3/latest/userguide/download-objects.md") in the _Amazon S3 User Guide_.
 
-The **wget** utility is an HTTP and FTP client that allows
-you to download public objects from Amazon S3. It is installed by default in
+The **wget** utility is an HTTP and FTP client that you can use to
+download public objects from Amazon S3. It is installed by default in
 Amazon Linux and most other distributions, and available for download on
 Windows. To download an Amazon S3 object, use the following command, substituting
 the URL of the object to download.

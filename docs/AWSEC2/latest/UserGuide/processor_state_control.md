@@ -86,10 +86,18 @@ The following instance types provide the ability for an operating system to cont
   `c8i.xlarge` | `c8i.2xlarge` | `c8i.4xlarge` |
   `c8i.8xlarge` | `c8i.12xlarge` | `c8i.16xlarge` |
   `c8i.24xlarge` | `c8i.32xlarge` | `c8i.48xlarge` |
-  `c8i.96xlarge` | `c8id.large` | `c8id.xlarge` |
-  `c8id.2xlarge` | `c8id.4xlarge` | `c8id.8xlarge` |
-  `c8id.12xlarge` | `c8id.16xlarge` | `c8id.24xlarge` |
-  `c8id.32xlarge` | `c8id.48xlarge` | `c8id.96xlarge`
+  `c8i.96xlarge` | `c8ib.large` |`c8ib.xlarge` |
+  `c8ib.2xlarge` | `c8ib.4xlarge` | `c8ib.8xlarge` |
+  `c8ib.12xlarge` | `c8ib.16xlarge` |`c8ib.24xlarge` |
+  `c8ib.32xlarge` | `c8ib.48xlarge` |`c8ib.96xlarge` |
+  `c8id.large` | `c8id.xlarge` | `c8id.2xlarge` |
+  `c8id.4xlarge` | `c8id.8xlarge` | `c8id.12xlarge` |
+  `c8id.16xlarge` | `c8id.24xlarge` | `c8id.32xlarge` |
+  `c8id.48xlarge` | `c8id.96xlarge` |
+  `c8in.large` |`c8in.xlarge` | `c8in.2xlarge` |
+  `c8in.4xlarge` |`c8in.8xlarge` | `c8in.12xlarge` |
+  `c8in.16xlarge` | `c8in.24xlarge` | `c8in.32xlarge` |
+  `c8in.48xlarge` |`c8in.96xlarge` |
   `x8i.large` | `x8i.xlarge` | `x8i.2xlarge` |
   `x8i.4xlarge` | `x8i.8xlarge` | `x8i.12xlarge` |
   `x8i.16xlarge` | `x8i.24xlarge` | `x8i.32xlarge` |

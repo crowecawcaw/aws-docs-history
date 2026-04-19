@@ -171,6 +171,10 @@ the number of network interfaces that an instance type supports, see
 | `c8gb.metal-48xl`      | 2                       |
 | `c8gn.48xlarge`        | 2                       |
 | `c8gn.metal-48xl`      | 2                       |
+| `c8ib.96xlarge`        | 2                       |
+| `c8ib.metal-96xl`      | 2                       |
+| `c8in.96xlarge`        | 2                       |
+| `c8in.metal-96xl`      | 2                       |
 | `dl1.24xlarge`         | 4                       |
 | `g6e.24xlarge`         | 2                       |
 | `g6e.48xlarge`         | 4                       |

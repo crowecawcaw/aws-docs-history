@@ -16,7 +16,7 @@ troubleshooting, the following prerequisites must be met:
 
 ## AWS Regions
 
-Supported in all AWS Regions except Asia Pacific (Taipei).
+Supported in all AWS Regions.
 
 ## Wavelength Zones and AWS Outposts
 

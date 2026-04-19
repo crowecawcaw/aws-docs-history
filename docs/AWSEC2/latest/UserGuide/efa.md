@@ -159,10 +159,18 @@ Nitro v6
 | c8i.96xlarge               | Yes               | Yes                |
 | c8i.metal-48xl             | Yes               | Yes                |
 | c8i.metal-96xl             | Yes               | Yes                |
+| c8ib.48xlarge              | Yes               | Yes                |
+| c8ib.96xlarge              | Yes               | Yes                |
+| c8ib.metal-48xl            | Yes               | Yes                |
+| c8ib.metal-96xl            | Yes               | Yes                |
 | c8id.48xlarge              | Yes               | Yes                |
 | c8id.96xlarge              | Yes               | Yes                |
 | c8id.metal-48xl            | Yes               | Yes                |
 | c8id.metal-96xl            | Yes               | Yes                |
+| c8in.48xlarge              | Yes               | Yes                |
+| c8in.96xlarge              | Yes               | Yes                |
+| c8in.metal-48xl            | Yes               | Yes                |
+| c8in.metal-96xl            | Yes               | Yes                |
 | Memory Optimized           |
 | r8a.48xlarge               | Yes               | Yes                |
 | r8a.metal-48xl             | Yes               | Yes                |
@@ -391,7 +399,6 @@ Nitro v3
 | i3en.24xlarge         | No                | No                 |
 | i3en.metal            | No                | No                 |
 | Accelerated Computing |
-| dl1.24xlarge          | Yes               | No                 |
 | dl2q.24xlarge         | No                | No                 |
 | g4dn.8xlarge          | No                | No                 |
 | g4dn.12xlarge         | No                | No                 |
@@ -436,7 +443,7 @@ shows the supported operating systems.
 | -------------------------------------- | ----------------------------------- | ------------------------------------- |
 | Amazon Linux 2023                      | ✓                                   | ✓                                     |
 | Amazon Linux 2                         | ✓                                   | ✓                                     |
-| RHEL 8 and 9                           | ✓                                   | ✓                                     |
+| RHEL 8, 9, and 10                      | ✓                                   | ✓                                     |
 | Debian 11, 12, and 13                  | ✓                                   | ✓                                     |
 | Rocky Linux 8 and 9                    | ✓                                   | ✓                                     |
 | Ubuntu 22.04 and 24.04                 | ✓                                   | ✓                                     |

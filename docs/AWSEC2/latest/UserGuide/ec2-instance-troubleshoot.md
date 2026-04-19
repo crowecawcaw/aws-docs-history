@@ -15,6 +15,7 @@ instances.
 - [Windows instance RDP issues](troubleshoot-connect-windows-instance.md "troubleshoot-connect-windows-instance.md")
 - [Windows instance start issues](common-messages.md "common-messages.md")
 - [Windows instance issues](win-ts-common-issues.md "win-ts-common-issues.md")
+- [Windows instance kernel debug over network](troubleshoot-windows-with-kdnet.md "troubleshoot-windows-with-kdnet.md")
 - [Reset Windows administrator password](ResettingAdminPassword.md "ResettingAdminPassword.md")
 - [Troubleshoot Sysprep issues](sysprep-troubleshoot.md "sysprep-troubleshoot.md")
 - [EC2Rescue for Linux instances](Linux-Server-EC2Rescue.md "Linux-Server-EC2Rescue.md")
