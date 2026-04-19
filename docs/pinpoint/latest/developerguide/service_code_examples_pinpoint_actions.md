@@ -12,6 +12,11 @@ The following code examples demonstrate how to perform individual Amazon Pinpoin
 actions with AWS SDKs. Each example includes
 a link to GitHub, where you can find instructions for setting up and running the code.
 
+These excerpts call the Amazon Pinpoint API and
+are code excerpts from larger programs that must be run in context.
+You can see actions in context in
+[Scenarios for Amazon Pinpoint using AWS SDKs](service_code_examples_pinpoint_scenarios.md "service_code_examples_pinpoint_scenarios.md").
+
 The following examples include only the most commonly used actions.
 For a complete list, see the
 [Amazon Pinpoint API Reference](../apireference/welcome.md "../apireference/welcome.md").

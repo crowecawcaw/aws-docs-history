@@ -33,6 +33,9 @@ This topic also includes information about getting started and details about pre
       - [SendMessages](pinpoint_example_pinpoint_SendMessages_section.md "pinpoint_example_pinpoint_SendMessages_section.md")
       - [UpdateEndpoint](pinpoint_example_pinpoint_UpdateEndpoint_section.md "pinpoint_example_pinpoint_UpdateEndpoint_section.md")
 
+  - [Scenarios](service_code_examples_pinpoint_scenarios.md "service_code_examples_pinpoint_scenarios.md")
+    - [Getting started with End User Messaging Push](pinpoint_example_pinpoint_GettingStarted_049_section.md "pinpoint_example_pinpoint_GettingStarted_049_section.md")
+
 - [Amazon Pinpoint SMS and Voice API](service_code_examples_pinpoint-sms-voice.md "service_code_examples_pinpoint-sms-voice.md")
   - [Basics](service_code_examples_pinpoint-sms-voice_basics.md "service_code_examples_pinpoint-sms-voice_basics.md")
     - [Actions](service_code_examples_pinpoint-sms-voice_actions.md "service_code_examples_pinpoint-sms-voice_actions.md")

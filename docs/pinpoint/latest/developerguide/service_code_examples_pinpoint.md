@@ -12,6 +12,8 @@ The following code examples show how to use Amazon Pinpoint with an AWS software
 
 _Actions_ are code excerpts from larger programs and must be run in context. While actions show you how to call individual service functions, you can see actions in context in their related scenarios.
 
+_Scenarios_ are code examples that show you how to accomplish specific tasks by calling multiple functions within a service or combined with other AWS services.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon Pinpoint with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
@@ -33,3 +35,6 @@ This topic also includes information about getting started and details about pre
     - [GetUserEndpoints](pinpoint_example_pinpoint_GetUserEndpoints_section.md "pinpoint_example_pinpoint_GetUserEndpoints_section.md")
     - [SendMessages](pinpoint_example_pinpoint_SendMessages_section.md "pinpoint_example_pinpoint_SendMessages_section.md")
     - [UpdateEndpoint](pinpoint_example_pinpoint_UpdateEndpoint_section.md "pinpoint_example_pinpoint_UpdateEndpoint_section.md")
+
+- [Scenarios](service_code_examples_pinpoint_scenarios.md "service_code_examples_pinpoint_scenarios.md")
+  - [Getting started with End User Messaging Push](pinpoint_example_pinpoint_GettingStarted_049_section.md "pinpoint_example_pinpoint_GettingStarted_049_section.md")
