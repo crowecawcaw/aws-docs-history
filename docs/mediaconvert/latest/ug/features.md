@@ -30,3 +30,4 @@ You set up these features when you create a job.
 - [Video padding](video-padding.md "video-padding.md")
 - [Video rotation](auto-rotate.md "auto-rotate.md")
 - [Video scaling](video-scaling.md "video-scaling.md")
+- [Smart Cropping](smart-cropping-with-elemental-inference.md "smart-cropping-with-elemental-inference.md")
