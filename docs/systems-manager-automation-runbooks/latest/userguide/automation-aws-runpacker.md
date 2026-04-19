@@ -3,7 +3,7 @@
 **Description**
 
 This runbook uses the HashiCorp [Packer](https://www.packer.io/ "https://www.packer.io/") tool to validate, fix, or build packer templates that are used
-to create machine images. This runbook uses Packer v1.7.2.
+to create machine images. This runbook uses Packer v1.11.2.
 
 ###### Note
 
@@ -11,6 +11,16 @@ If you specify a `vpc_id` value, you must also specify the
 `subnet_id` value of a public subnet. Unless you modify your
 subnet's IPv4 public addressing attribute, you must also set
 `associate_public_ip_address` to true.
+
+###### Important
+
+Packer provisioners execute with root-level privileges on the temporary EC2
+instance. Follow least-privilege practices when authoring Packer templates.
+Avoid granting provisioners access to sensitive instance metadata or local
+credential files. If you have added additional policies to the IAM role used
+by [Default Host Management Configuration](../../../systems-manager/latest/userguide/fleet-manager-default-host-management-configuration.md "../../../systems-manager/latest/userguide/fleet-manager-default-host-management-configuration.md"), be aware that any process
+running as root on the instance can access those expanded permissions. Review
+your Packer templates to ensure they contain only trusted commands.
 
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-RunPacker "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-RunPacker")
 

@@ -6,6 +6,16 @@ Patch Amazon Elastic Compute Cloud (Amazon EC2) instances in an Auto Scaling gro
 
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-PatchAsgInstance "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-PatchAsgInstance")
 
+###### Important
+
+This runbook applies an `AutoPatchInstanceInASG` tag to the target
+instance during execution. This tag prevents the runbook from executing twice on
+the same instance simultaneously — it is not a patch compliance indicator. If the
+patching step fails, the tag value might still be set to `Completed`
+even though the runbook execution status reports `Failed`.
+
+To verify patch compliance on the instance, use [DescribeInstancePatchStates](../../../systems-manager/latest/APIReference/API_DescribeInstancePatchStates.md "../../../systems-manager/latest/APIReference/API_DescribeInstancePatchStates.md") or [ListComplianceItems](../../../systems-manager/latest/APIReference/API_ListComplianceItems.md "../../../systems-manager/latest/APIReference/API_ListComplianceItems.md") instead.
+
 **Document type**
 
 Automation
