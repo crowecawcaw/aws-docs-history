@@ -7,8 +7,38 @@ applying to production.
 
 ###### Topics
 
+- [Save Big with 1-Year or Multi-Year Commitments](#cost-opt-savings-commitments "#cost-opt-savings-commitments")
 - [Cost optimization for Amazon OpenSearch Service managed clusters](#cost-optimization-managed "#cost-optimization-managed")
 - [Cost optimization for Amazon OpenSearch Service Serverless](#cost-optimization-serverless "#cost-optimization-serverless")
+
+## Save Big with 1-Year or Multi-Year Commitments
+
+With Amazon OpenSearch Service, you pay only for what you use with no minimum fee or usage requirement.
+Amazon OpenSearch Service offers two deployment models:
+
+- For Managed Clusters, you are charged for instance hours, storage, and data transfer.
+  Pricing depends on the instance type and storage tier you choose. For instances, you can
+  use Reserved Instance pricing, or save with Database Savings Plans over on-demand
+  pricing.
+- For Serverless, you are charged for compute and storage separately. Compute capacity
+  is measured in OpenSearch Compute Units (OCUs), which correspond to the CPU, memory, and
+  I/O resources required to index data or run queries. Serverless is also covered by
+  Database Savings Plans.
+
+Database Savings Plans are a flexible pricing model that reduces your Amazon OpenSearch Service costs when
+you commit (measured in $/hour) to a consistent amount of usage over a 1-year term. This
+savings plan automatically applies to eligible serverless and provisioned instance usage
+regardless of engine version, instance family, size, deployment option, or AWS Region with
+no upfront payment. For more information, see the [Database Savings Plans pricing
+page](https://aws.amazon.com/savingsplans/database-pricing/ "https://aws.amazon.com/savingsplans/database-pricing/").
+
+Reserved Instances offer a pricing model that reduces your Amazon OpenSearch Service costs when you commit
+to a specific instance configuration for a 1-year or 3-year term. Reserved Instances provide
+significant discounts compared to On-Demand pricing when you reserve capacity for a particular
+instance type, size, and AWS Region. Payment options include All Upfront, Partial Upfront,
+or No Upfront, with greater discounts available for upfront payments. For more information,
+see the [Amazon OpenSearch Service Reserved
+Instances pricing page](https://aws.amazon.com/opensearch-service/pricing/ "https://aws.amazon.com/opensearch-service/pricing/").
 
 ## Cost optimization for Amazon OpenSearch Service managed clusters
 
@@ -85,19 +115,6 @@ actions:
 - Automate force merge on read-only indexes to reclaim storage from deleted
   documents.
 - Combine with rollups for maximum savings on large time-series datasets.
-
-### Reserved instances — Commit for predictable discounts
-
-For stable, predictable analytical workloads, Reserved Instances provide significant
-discounts over on-demand pricing:
-
-- 1-year or 3-year commitment terms with No Upfront, Partial Upfront, or All Upfront
-  payment options.
-- Best for hot-tier data nodes and dedicated master nodes that run
-  continuously.
-- Use the AWS Pricing Calculator to estimate savings before committing.
-- Reserved Instances are a billing discount applied to On-Demand Instances — no
-  infrastructure changes needed.
 
 ### Right-size instance types and count
 

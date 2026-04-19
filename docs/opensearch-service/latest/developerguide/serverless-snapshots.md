@@ -98,7 +98,7 @@ Console
      Progress)
    - **Created time** - When the snapshot was taken
 
-AWS CLI
+OpenSearch API
 
 - Use the following command to list all snapshots in a collection:
 
@@ -133,7 +133,7 @@ Console
 5. Choose the snapshot job ID to display detailed information about the snapshot,
    including metadata, indexes included, and timing information.
 
-AWS CLI
+OpenSearch API
 
 - Use the following command to retrieve information about a snapshot. In the
   command, replace the `example` content with your specific
