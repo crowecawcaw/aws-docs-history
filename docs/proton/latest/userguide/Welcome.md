@@ -65,12 +65,12 @@ with AWS Proton, which defines the shared resources.
 AWS Proton deploys one or more **Environments**, based on an **Environment
 Template**.
 
-![Pink square icon with a white exclamation mark inside a circle.](images/label-three.png)
+![Pink square icon with a white exclamation mark inside a circle.](/images/proton/latest/userguide/images/label-three.png)
 As an **Administrator**, you create and register a **Service Template**
 with AWS Proton, which defines the related infrastructure, monitoring, and CI/CD resources as well as compatible **Environment
 Templates**.
 
-![Number 4 in a red circle icon, commonly used to indicate a notification count.](/images/proton/latest/userguide/images/label-four.png)
+![Number 4 in a red circle icon, commonly used to indicate a notification count.](images/label-four.png)
 As a **Developer**, you select a registered **Service Template** and
 provide a link to your **Source code** repository.
 
