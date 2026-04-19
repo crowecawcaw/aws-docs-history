@@ -12,6 +12,16 @@ AWS services like AWS Secrets Manager (Secrets Manager), Amazon CloudWatch (Clou
 (AWS KMS). The following topics describe how to configure and run the data retention bot for
 your Wickr network.
 
+For production deployments of the Wickr Data Retention (DR) Bot, AWS recommends
+deploying to EC2/EBS with messages archived in S3 and the following minimum instance and
+storage sizing:
+
+- Instance type: m8i.large (8GiB RAM, 2vCPUs)
+- Storage: 1 TB Amazon EBS volume
+- Deployment: One DR Bot instance per EC2 host
+  For more information on EBS, see [Amazon EBS snapshot lifecycle](../../../ebs/latest/userguide/ebs-snapshot-lifecycle.md "../../../ebs/latest/userguide/ebs-snapshot-lifecycle.md")
+  in the _Amazon EBS User Guide_.
+
 ###### Topics
 
 - [Prerequisites to configure data retention for AWS Wickr](#data-retention-prerequisites "#data-retention-prerequisites")
@@ -25,7 +35,43 @@ your Wickr network.
 
 ## Prerequisites to configure data retention for AWS Wickr
 
-Before you get started, you must get the data retention bot name (labeled as
-**Username**) and initial password from the AWS Management Console for Wickr. You
-must specify both of these values the first time you start the data retention bot. You
-must also enable data retention in the console. For more information, see [View data retention details in AWS Wickr](view-data-retention-details.md "view-data-retention-details.md").
+This assumes you have an Amazon EC2 instance running already with the minimum storage
+requirements listed above and your VPC is able to reach the Wickr messaging
+endpoint:
+
+`com.amazonaws.`region`.wickr-messaging` — the bot
+receives messages from the Wickr messaging service.
+
+Before you get started, complete the following procedure to enable data retention in
+the console.
+
+1. Open the AWS Management Console for Wickr at [https://console.aws.amazon.com/wickr/](https://console.aws.amazon.com/wickr/ "https://console.aws.amazon.com/wickr/").
+2. On the **Networks** page, select the network name to navigate
+   to that network.
+3. In the navigation pane, choose **Network polices**.
+4. On the **Network polices** page, in the **Data
+   Retention** section, select **Edit**.
+5. On the **Edit data retention** page, follow Steps 1 and
+6.
+7. Start your data retention bot. For more information, see [Start the
+   data retention bot for your Wickr network](starting-data-retention-bot.md "starting-data-retention-bot.md").
+8. In the **Configure your data retention server** section, copy
+   the **Username** and **Initial Password**.
+   Configure your data retention bot with the username and initial password by
+   following, [Password for
+   data retention bot in AWS Wickr](data-retention-password.md "data-retention-password.md").
+9. Select the **Enable data retention** checkbox, then choose
+   **Save changes**.
+
+###### Note
+
+The DR Bot is validated for sustained processing at approximately 11,000 messages
+per hour (~3 messages/second). For workloads that consistently exceed this
+throughput or are expected to surpass 1.5 million messages in a single processing
+run, additional scaling strategies should be evaluated.
+
+For Disaster Recovery, we recommend Snapshot Lifecycles on the EBS volume(s) and S3
+Cross-Region Replication. To configure how often messages are sent to S3, you can set
+the environment variable WICKRIO_COMP_FILESIZE or `WICKRIO_COMP_TIMEROTATE`
+to rotate on size or time. Message logs and file attachments will get delivered into the
+same prefix in the same bucket. For more information, see [Environment variables to configure data retention bot in AWS Wickr](data-retention-bot-env-variables.md "data-retention-bot-env-variables.md").

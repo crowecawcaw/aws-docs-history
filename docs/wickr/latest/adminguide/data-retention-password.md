@@ -21,7 +21,32 @@ using one of the following options:
   A new password will be generated when you configure the data retention bot for the
   first time. If you need to re-install the data retention bot, you use the generated
   password. The initial password is not valid after the initial installation of the data
-  retention bot.
+  retention bot. You can rotate the generated password. To rotate the generated password,
+  use the guidance provided in the following sections.
+
+## Password rotation
+
+The data retention bot (minimum version 6.66.01.00) can roate its Wickr account
+password programmatically at startup by setting the WICKRIO_ROTATE_PASSWORD
+environment variable.
+
+## Usage
+
+Set the environment variable WICKRIO_ROTATE_PASSWORD when starting the bot with
+docker run:
+
+`-e WICKRIO_ROTATE_PASSWORD="`new_password`"`
+
+On startup, after the bot successfully logs in with its current password (from
+WICKRIO_BOT_PASSWORD or AWS Secrets Manager), it does the following:
+
+1. Read WICKRIO_ROTATE_PASSWORD from the process environment.
+2. Validate the new password (minimum 12 characters, must differ from current
+   password).
+3. Call the AWS Wickr service to rotate the password.
+
+After a successful rotation, update WICKRIO_BOT_PASSWORD (or the secret in AWS
+Secrets Manager) to the new password before the next restart.
 
 The new generated password will be displayed as shown in the following example.
 
@@ -39,3 +64,9 @@ ability to start data retention for your Wickr network.
  "HuEXAMPLERAW4lGgEXAMPLEn"
  ********************************************************************
 ```
+
+## Password requirements
+
+- New password must be at least 12 characters.
+- New password must differ from the current password.
+- Bot must be able to log in with the current password first.
