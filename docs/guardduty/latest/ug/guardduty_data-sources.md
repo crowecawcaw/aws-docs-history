@@ -93,10 +93,11 @@ The VPC Flow Logs feature of Amazon VPC captures information about the IP traffi
 and from network interfaces attached to the Amazon Elastic Compute Cloud (Amazon EC2) instances within your
 AWS environment.
 
-When you enable GuardDuty, it immediately starts analyzing your VPC flow logs from Amazon EC2
-instances within your account. It consumes VPC flow log events directly from the VPC
-Flow Logs feature through an independent and duplicate stream of flow logs. This process
-does not affect any of your existing flow logs configuration.
+When you enable GuardDuty, it immediately starts analyzing VPC flow log data from Amazon EC2
+instances within your account. GuardDuty consumes this data through an independent and
+duplicate stream of flow logs. You don't need to create or configure VPC flow logs
+in your account for GuardDuty to access this data. This process does not affect any of
+your existing flow logs configuration.
 
 [Lambda Protection](lambda-protection.md "lambda-protection.md")
 
