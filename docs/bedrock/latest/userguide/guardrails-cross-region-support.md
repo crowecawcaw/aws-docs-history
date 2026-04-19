@@ -78,11 +78,75 @@ The following table shows the source Regions from which you can call the guardra
 
 | Source Region | Destination Regions                                                                |
 | ------------- | ---------------------------------------------------------------------------------- |
-| eu-central-1  | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1                               |
-| eu-west-1     | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1                               |
-| eu-west-3     | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1                               |
-| eu-north-1    | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1                               |
-| il-central-1  | eu-north-1<br>eu-south-1<br>eu-west-1<br>eu-west-3<br>eu-central-1<br>il-central-1 |
+| eu-central-1  | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1                 |
+| eu-west-1     | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1                 |
+| eu-west-3     | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1                 |
+| eu-north-1    | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1                 |
+| eu-south-1    | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1                 |
+| il-central-1  | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1<br>il-central-1 |
+
+To use a guardrail profile in the UK geographic boundary, specify the following
+guardrail profile ID or ARN in one of the source Regions:
+
+**Guardrail profile ID**
+
+```
+uk.guardrail.v1:0
+```
+
+**Guardrail profile ARN**
+
+```
+arn:aws:bedrock:`source-region`:`account-id`:guardrail-profile/uk.guardrail.v1:0
+```
+
+The following table shows the source Regions from which you can call the guardrail profile and the destination Regions to which the requests can be routed:
+
+| Source Region | Destination Regions |
+| ------------- | ------------------- |
+| eu-west-2     | eu-west-2           |
+
+To use a guardrail profile in the Australia geographic boundary, specify the following
+guardrail profile ID or ARN in one of the source Regions:
+
+**Guardrail profile ID**
+
+```
+au.guardrail.v1:0
+```
+
+**Guardrail profile ARN**
+
+```
+arn:aws:bedrock:`source-region`:`account-id`:guardrail-profile/au.guardrail.v1:0
+```
+
+The following table shows the source Regions from which you can call the guardrail profile and the destination Regions to which the requests can be routed:
+
+| Source Region  | Destination Regions |
+| -------------- | ------------------- |
+| ap-southeast-2 | ap-southeast-2      |
+
+To use a guardrail profile in the Canada geographic boundary, specify the following
+guardrail profile ID or ARN in one of the source Regions:
+
+**Guardrail profile ID**
+
+```
+ca.guardrail.v1:0
+```
+
+**Guardrail profile ARN**
+
+```
+arn:aws:bedrock:`source-region`:`account-id`:guardrail-profile/ca.guardrail.v1:0
+```
+
+The following table shows the source Regions from which you can call the guardrail profile and the destination Regions to which the requests can be routed:
+
+| Source Region | Destination Regions       |
+| ------------- | ------------------------- |
+| ca-central-1  | ca-central-1<br>ca-west-1 |
 
 To apply a guardrail cross-region in the APAC geographic boundary, specify the following guardrail profile ID or ARN in one of the source Regions:
 

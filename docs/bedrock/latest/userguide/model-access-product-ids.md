@@ -43,6 +43,7 @@ a product ID:
 | Anthropic Claude Opus 4.1      | prod-w3q2d6rfge4tw                   |
 | Anthropic Claude Opus 4.5      | prod-jhuafngbly644                   |
 | Anthropic Claude Opus 4.6      | prod-5ukwuglpt66kg                   |
+| Anthropic Claude Opus 4.7      | prod-d2ik6zgct5hxi                   |
 | Cohere Command                 | a61c46fe-1747-41aa-9af0-2e0ae8a9ce05 |
 | Cohere Command Light           | 216b69fd-07d5-4c7b-866b-936456d68311 |
 | Cohere Command R               | prod-tukx4z3hrewle                   |
@@ -56,6 +57,7 @@ a product ID:
 | Stable Image Ultra 1.0         | prod-7boen2z2wnxrg                   |
 | Stability 3.5 Large 1.0        | prodview-ajc3gw4mjy7my               |
 | TwelveLabs Marengo Embed 2.7   | prod-o6xchhpirymvs                   |
+| TwelveLabs Marengo Embed 3.0   | prod-ibqpnh3htjd4s                   |
 | TwelveLabs Pegasus 1.2         | prod-635pcy5x5pc2a                   |
 | Writer Palmyra X4              | prod-azehe4da4pzsy                   |
 | Writer Palmyra X5              | prod-23enyy63orhuk                   |

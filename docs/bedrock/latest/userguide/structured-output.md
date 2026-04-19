@@ -60,6 +60,7 @@ Anthropic
 
 - Claude Haiku 4.5 (`anthropic.claude-haiku-4-5-20251001-v1:0`)
 - Claude Sonnet 4.5 (`anthropic.claude-sonnet-4-5-20250929-v1:0`)
+- Claude Sonnet 4.6 (`anthropic.claude-sonnet-4-6`)
 - Claude Opus 4.5 (`anthropic.claude-opus-4-5-20251101-v1:0`)
 - Claude Opus 4.6 (`anthropic.claude-opus-4-6-v1`)
 

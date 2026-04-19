@@ -283,6 +283,42 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `sa-east-1` (São Paulo)                                                                                    | No     | No        | Yes |
 | `mx-central-1` (Mexico)                                                                                    | No     | No        | Yes |
 
+| [Claude Opus 4.7](model-card-anthropic-claude-opus-4-7.md "model-card-anthropic-claude-opus-4-7.md") | Region | In-Region | Geo | Global |
+| ---------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                            | Yes    | Yes       | Yes |
+| `us-east-2` (Ohio)                                                                                   | Yes    | Yes       | Yes |
+| `us-west-1` (N. California)                                                                          | No     | Yes       | Yes |
+| `us-west-2` (Oregon)                                                                                 | No     | Yes       | Yes |
+| `ca-central-1` (Canada)                                                                              | No     | Yes       | Yes |
+| `ca-west-1` (Calgary)                                                                                | No     | Yes       | Yes |
+| `eu-central-1` (Frankfurt)                                                                           | No     | Yes       | Yes |
+| `eu-central-2` (Zurich)                                                                              | No     | Yes       | Yes |
+| `eu-north-1` (Stockholm)                                                                             | Yes    | Yes       | Yes |
+| `eu-south-1` (Milan)                                                                                 | No     | Yes       | Yes |
+| `eu-south-2` (Spain)                                                                                 | No     | Yes       | Yes |
+| `eu-west-1` (Ireland)                                                                                | Yes    | Yes       | Yes |
+| `eu-west-2` (London)                                                                                 | No     | Yes       | Yes |
+| `eu-west-3` (Paris)                                                                                  | No     | Yes       | Yes |
+| `ap-east-2` (Taipei)                                                                                 | No     | No        | Yes |
+| `ap-northeast-1` (Tokyo)                                                                             | Yes    | Yes       | Yes |
+| `ap-northeast-2` (Seoul)                                                                             | No     | No        | Yes |
+| `ap-northeast-3` (Osaka)                                                                             | No     | Yes       | Yes |
+| `ap-south-1` (Mumbai)                                                                                | No     | No        | Yes |
+| `ap-south-2` (Hyderabad)                                                                             | No     | No        | Yes |
+| `ap-southeast-1` (Singapore)                                                                         | No     | No        | Yes |
+| `ap-southeast-2` (Sydney)                                                                            | No     | Yes       | Yes |
+| `ap-southeast-3` (Jakarta)                                                                           | No     | No        | Yes |
+| `ap-southeast-4` (Melbourne)                                                                         | No     | Yes       | Yes |
+| `ap-southeast-5` (Malaysia)                                                                          | No     | No        | Yes |
+| `ap-southeast-6` (New Zealand)                                                                       | No     | Yes       | Yes |
+| `ap-southeast-7` (Thailand)                                                                          | No     | No        | Yes |
+| `il-central-1` (Tel Aviv)                                                                            | No     | No        | Yes |
+| `me-central-1` (UAE)                                                                                 | No     | No        | Yes |
+| `me-south-1` (Bahrain)                                                                               | No     | No        | Yes |
+| `af-south-1` (Cape Town)                                                                             | No     | No        | Yes |
+| `sa-east-1` (São Paulo)                                                                              | No     | No        | Yes |
+| `mx-central-1` (Mexico)                                                                              | No     | No        | Yes |
+
 | [Claude Opus 4.6](model-card-anthropic-claude-opus-4-6.md "model-card-anthropic-claude-opus-4-6.md") | Region | In-Region | Geo | Global |
 | ---------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
 | `us-east-1` (N. Virginia)                                                                            | No     | Yes       | Yes |

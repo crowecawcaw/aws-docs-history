@@ -57,7 +57,7 @@ Choose one of the following options:
      5. To edit a field in a parameter, select the field and edit it as necessary.
      6. To delete a parameter, choose the delete icon (
 
-     ![Trapezoid-shaped diagram showing data flow from source to destination through AWS Transfer Family.](images/icons/trash.png)
+     ![Trapezoid-shaped diagram showing data flow from source to destination through AWS Transfer Family.](/images/bedrock/latest/userguide/images/icons/trash.png)
 
      ) in the row containing the parameter.If you prefer to define the function by using a JSON object, choose **JSON editor** instead of **Table**. The JSON object format is as follows (each key in the `parameters` object is a parameter name that you provide):
 

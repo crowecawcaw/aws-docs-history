@@ -74,8 +74,27 @@ methods:
      as your vector store, and identify the graph ARN, vector field names, and metadata field names in the vector
      index. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
 
-10. Choose **Next** and review the details of your knowledge base. You can edit any
-    section before going ahead and creating your knowledge base.
+10. In the **Model for graph construction** section, choose the
+    foundation model to use for extracting entities and relationships from your documents
+    during ingestion. The required permissions for the selected model are automatically
+    added to the knowledge base service role.
+
+###### Note
+
+Some models are supported only through cross-Region inference profiles. When
+you invoke a cross-Region inference profile in Amazon Bedrock, your request and data to
+be ingested originates from a source Region and is automatically routed to one
+of the destination Regions defined in that profile, optimizing for performance.
+The destination Regions for Global cross-Region inference profiles include all
+commercial Regions. For example, you might specify the `modelArn` for a us-based cross-Region call from the us-west-2 Region using the
+format `arn:aws:bedrock:us-west-2:`account-id`:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0`.
+
+For guidance on how to use
+inference profiles to select source and destination Regions, see [Supported
+Regions and models for inference profiles](inference-profiles-support.md "inference-profiles-support.md"). Your data is stored only
+in your source Region corresponding to the Amazon Bedrock knowledge base and Amazon Neptune
+Analytics instance. The destination Region is used for inference only. 11. Choose **Next** and review the details of your knowledge base. You can edit any
+section before going ahead and creating your knowledge base.
 
 ###### Note
 
@@ -86,10 +105,10 @@ either state it is ready or available.
 Once your knowledge base is ready and available, sync your data source
 for the first time and whenever you want to keep your content up to date.
 Select your knowledge base in the console and select **Sync** within
-the data source overview section. 11. Choose **Create knowledge base**. While Amazon Bedrock is
+the data source overview section. 12. Choose **Create knowledge base**. While Amazon Bedrock is
 creating the knowledge base, you should see the status **In
 progress**. You must wait for creation to finish before
-you can sync a data source. 12. After Amazon Bedrock finishes creating the knowledge base, to configure a data source, follow the
+you can sync a data source. 13. After Amazon Bedrock finishes creating the knowledge base, to configure a data source, follow the
 instructions in [Connect a data source to your knowledge base](data-source-connectors.md "data-source-connectors.md").
 
 API
@@ -192,6 +211,92 @@ The following shows the contents of the `input.json` file.
    operations to provide end users with more comprehensive, relevant, and explainable
    responses. The following sections show you how to start ingestion and perform retrieve
    queries using CLI commands.
+
+## Choose and update the graph construction model
+
+GraphRAG uses a foundation model during ingestion to extract entities and
+relationships from your documents. You choose this model when you create a knowledge
+base or when you configure a data source. Selecting a graph construction model
+automatically enables contextual enrichment.
+
+###### Important
+
+Foundation models can reach end-of-life or be deprecated. For example,
+Claude 3 Haiku has moved to Legacy status. We recommend that you select a
+currently supported model for graph construction. To check the status of
+available models, see [Model
+lifecycle](model-lifecycle.md "model-lifecycle.md").
+
+When you select a graph construction model, the required permissions are
+automatically added to the knowledge base service role.
+
+Some models are available only through cross-Region inference profiles.
+
+###### Note
+
+When using cross-Region inference, data to be ingested originates from a
+source Region and is routed to a destination Region for inference. Data is
+stored only in the source Region corresponding to the Amazon Bedrock knowledge base
+and Amazon Neptune Analytics instance.
+
+**Choose a model during knowledge base
+creation (console)**
+
+In Step 3 of the Create Knowledge Base workflow (configure data storage and processing
+), when you select
+**Amazon Neptune Analytics (GraphRAG)** as the vector store type,
+a **Model for graph construction** section appears. Choose
+**Select model** to pick the model to use for
+extracting entities and relationships from your documents during ingestion.
+
+**Update the model on an existing data
+source (console)**
+
+Navigate to the Knowledge Base detail page. In the **Data
+source** section, select the data source and choose
+**Edit**. In the edit page, under **Model for graph
+construction**, choose a new model. Choose
+**Submit** to save your changes.
+
+**Choose a model during knowledge base
+creation (API)**
+
+When creating a data source via the `CreateDataSource` API, specify
+the `modelArn` in the `bedrockFoundationModelConfiguration`
+within `contextEnrichmentConfiguration`. See the API tab in the
+creation section above for a full example.
+
+**Update the model on an existing data
+source (API)**
+
+To update the graph construction model on an existing data source, use the
+`update-data-source` command. The following example shows how to
+specify a new model ARN in the
+`contextEnrichmentConfiguration`.
+
+```
+aws bedrock-agent update-data-source \
+    --data-source-id `data-source-id` \
+    --knowledge-base-id `knowledge-base-id` \
+    --name `data-source-name` \
+    --data-source-configuration '{"type":"S3","s3Configuration":{"bucketArn":"arn:aws:s3:::`bucket-name`"}}' \
+    --vector-ingestion-configuration '{"contextEnrichmentConfiguration":{"type":"BEDROCK_FOUNDATION_MODEL","bedrockFoundationModelConfiguration":{"modelArn":"`model-arn`","enrichmentStrategyConfiguration":{"method":"CHUNK_ENTITY_EXTRACTION"}}}}' \
+    --region `region`
+```
+
+For example, to use Claude Haiku 4.5 through a US-based cross-Region inference profile
+from the `us-west-2` Region, specify the `modelArn` in the
+following format:
+
+```
+arn:aws:bedrock:us-west-2:`account-id`:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0
+```
+
+To see the policy requirements for your role to use inference profiles, see
+[Prerequisites
+for cross-Region inference profiles](inference-profiles-prereq.md "inference-profiles-prereq.md"). For guidance on how to use
+inference profiles to select source and destination Regions, see [Supported
+Regions and models for inference profiles](inference-profiles-support.md "inference-profiles-support.md").
 
 ## Sync your data source
 

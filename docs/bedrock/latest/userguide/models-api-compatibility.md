@@ -1,12 +1,14 @@
 # API compatibility
 
-Amazon Bedrock supports three families of runtime APIs, each designed for different integration patterns and use cases.
+Amazon Bedrock supports four families of runtime APIs, each designed for different integration patterns and use cases.
 
 **Invoke family**: `InvokeModel` handles synchronous, single-response calls. `InvokeModelWithResponseStream` returns responses as a real-time stream. `InvokeModelWithBidirectionalStream` enables full-duplex streaming for interactive applications. `AsyncInvoke` submits long-running requests asynchronously, storing output to Amazon S3.
 
 **Converse family**: `Converse` provides a unified, model-agnostic interface for synchronous multi-turn conversations. `ConverseStream` delivers the same experience with streaming output.
 
 **OpenAI-compatible family**: `ChatCompletions` implements the OpenAI Chat Completions interface, enabling existing OpenAI-based integrations to run on Bedrock with minimal changes. `Responses` API implements the OpenAI Responses interface, supporting stateful, agentic interactions with built-in tool use and conversation history management.
+
+**Messages family**: `Messages` implements the Anthropic Messages interface on the `bedrock-mantle` endpoint, enabling existing Anthropic SDK-based integrations to run on Bedrock with minimal changes.
 
 We will now look at the list of APIs supported by each model.
 
@@ -48,6 +50,7 @@ We will now look at the list of APIs supported by each model.
 | **[Claude Opus 4.1](model-card-anthropic-claude-opus-4-1.md "model-card-anthropic-claude-opus-4-1.md")\***                 | Yes    | Yes      | No               | No        | No       |
 | **[Claude Opus 4.5](model-card-anthropic-claude-opus-4-5.md "model-card-anthropic-claude-opus-4-5.md")\***                 | Yes    | Yes      | No               | No        | No       |
 | **[Claude Opus 4.6](model-card-anthropic-claude-opus-4-6.md "model-card-anthropic-claude-opus-4-6.md")\***                 | Yes    | Yes      | No               | No        | No       |
+| **[Claude Opus 4.7](model-card-anthropic-claude-opus-4-7.md "model-card-anthropic-claude-opus-4-7.md")\***                 | Yes    | Yes      | No               | No        | Yes      |
 | **[Claude Sonnet 4](model-card-anthropic-claude-sonnet-4.md "model-card-anthropic-claude-sonnet-4.md")\***                 | Yes    | Yes      | No               | No        | No       |
 | **[Claude Sonnet 4.5](model-card-anthropic-claude-sonnet-4-5.md "model-card-anthropic-claude-sonnet-4-5.md")\***           | Yes    | Yes      | No               | No        | No       |
 | **[Claude Sonnet 4.6](model-card-anthropic-claude-sonnet-4-6.md "model-card-anthropic-claude-sonnet-4-6.md")\***           | Yes    | Yes      | No               | No        | No       |

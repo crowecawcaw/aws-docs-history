@@ -1,4 +1,4 @@
-# Build a knowledge base with graphs from Amazon Neptune Analytics
+# Build a knowledge base with Amazon Neptune Analytics graphs
 
 Amazon Bedrock Knowledge Bases offers a fully managed GraphRAG feature with Amazon Neptune. GraphRAG is a capability provided
 with Amazon Bedrock Knowledge Bases that combines graph modeling with generative AI to enhance retrieval-augmented generation (RAG).
@@ -12,7 +12,7 @@ connected through multiple logical steps. This means that generative AI applicat
 more relevant responses in cases where connecting data and reasoning across multiple document
 chunks is needed. This empowers applications like chatbots to deliver more relevant responses from
 foundation models (FMs) in cases where related facts, entities, and relationships derived from multiple
-document sources are required to answer questions
+document sources are required to answer questions.
 
 ## GraphRAG Region availability
 
@@ -58,8 +58,9 @@ The following are some limitations when using Amazon Bedrock Knowledge Bases wit
 - Configuration options to customize the graph build are not supported.
 - Autoscaling is not supported for Amazon Neptune Analytics graphs.
 - GraphRAG only supports Amazon S3 as the data source.
-- Claude 3 Haiku is chosen as the foundation model to automatically build graphs for your
-  knowledge base. This automatically enables contextual enrichment.
+- You choose a foundation model for graph construction when you create a knowledge base
+  or configure a data source. Selecting a graph construction model automatically enables
+  contextual enrichment. For more information, see [Choose and update the graph construction model](knowledge-base-build-graphs-build.md#knowledge-base-build-graphs-model "knowledge-base-build-graphs-build.md#knowledge-base-build-graphs-model").
 - Each data source can have up to 1000 files. You can request to increase this limit to
   a maximum of 10000 files per data source. Alternatively, you can partition your Amazon S3 bucket
   into folders, where each folder can contain up to 1000 files.
@@ -71,3 +72,12 @@ The following are some limitations when using Amazon Bedrock Knowledge Bases wit
 ###### Note
 
 When deleting a knowledge base that uses Amazon Neptune Analytics, delete the knowledge base first, then delete the Amazon Neptune Analytics graph. Deleting a knowledge base doesn't automatically delete the underlying graph. Additional charges may be incurred until you explicitly delete the graph. Alternatively, set your data source deletion policy to RETAIN mode to delete the graph first without causing failures. For more information, see [Delete a data source from your Amazon Bedrock knowledge base](kb-ds-delete.md "kb-ds-delete.md").
+
+###### Important
+
+Foundation models can reach end-of-life or be deprecated. For example,
+Claude 3 Haiku has moved to Legacy status. We recommend that you select a
+currently supported model for graph construction. To check the status of
+available models, see [Model
+lifecycle](model-lifecycle.md "model-lifecycle.md"). For information about choosing or updating your graph
+construction model, see [Choose and update the graph construction model](knowledge-base-build-graphs-build.md#knowledge-base-build-graphs-model "knowledge-base-build-graphs-build.md#knowledge-base-build-graphs-model").
