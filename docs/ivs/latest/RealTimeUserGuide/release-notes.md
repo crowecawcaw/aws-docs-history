@@ -3,6 +3,14 @@
 This document contains all Amazon IVS Real-Time Streaming release notes, latest first,
 organized by date of release.
 
+## April 16, 2026
+
+### Web Broadcast SDK Token Exchange
+
+Server-side composition layouts now update dynamically after token exchange. If your layout uses attributes such as `featuredParticipantAttribute` or `participantOrderAttribute`, changes made as part of a token exchange will immediately update the active composition without requiring the participant to reconnect.
+
+In addition, token exchange is now supported in the web broadcast SDK, implemented through the `exchangeToken` method added in [Web Broadcast SDK 1.33.0](#mar12-26-broadcast-web-rt "#mar12-26-broadcast-web-rt").
+
 ## April 9, 2026
 
 ### IVS Broadcast SDK: Web 1.34.0 (Real-Time Streaming)

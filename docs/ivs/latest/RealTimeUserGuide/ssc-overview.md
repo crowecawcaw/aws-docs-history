@@ -90,7 +90,11 @@ Reference](../RealTimeAPIReference/Welcome.md "../RealTimeAPIReference/Welcome.m
 
 ## Layouts
 
-The StartComposition operation offers two layout options: grid and pip (Picture-in-Picture).
+The StartComposition operation offers two layout options: grid and PiP (Picture-in-Picture).
+
+Server-side composition responds to token exchange events in real time. When a participant exchanges a token to update attributes such as featured status or PiP assignment, the composition layout updates automatically without requiring the participant to leave and rejoin the stage.
+
+You can also use token exchange to change participant ordering during a live composition. When a participant exchanges their token with an updated order attribute value, the composition re-renders automatically to reflect the new ordering. This eliminates the need for the participant to disconnect and reconnect. For more information, see [Token Exchange](broadcast-mobile-token-exchange.md "broadcast-mobile-token-exchange.md").
 
 ### Grid Layout
 

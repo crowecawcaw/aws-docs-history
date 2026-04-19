@@ -1,18 +1,15 @@
 # IVS Broadcast SDK: Token Exchange | Real-Time Streaming
 
 Token exchange enables you to upgrade or downgrade participant-token capabilities and update token attributes
-within the mobile broadcast SDK, without requiring participants to reconnect. This is useful for scenarios like co-hosting,
+within the broadcast SDK, without requiring participants to reconnect. This is useful for scenarios like co-hosting,
 where participants may start with subscribe-only capabilities and later need publish capabilities.
 
-Limitations:
+Token exchange is supported in both the mobile and web broadcast SDKs. When a participant exchanges a token, server-side composition detects the updated attributes in real time and automatically adjusts the layout — for example, reassigning the featured slot, reordering participants, or moving a participant into the picture-in-picture overlay — without requiring a reconnect.
 
-- Token exchange only works with tokens created on your server using a
-  [key pair](getting-started-distribute-tokens.md#getting-started-distribute-tokens-self-signed "getting-started-distribute-tokens.md#getting-started-distribute-tokens-self-signed").
-  It does not work with tokens created via the
-  [CreateParticipantToken API](../RealTimeAPIReference/API_CreateParticipantToken.md "../RealTimeAPIReference/API_CreateParticipantToken.md").
-- If you use token exchange to change attributes that drive server-side-composition layouts
-  (such as featuredParticipantAttribute and participantOrderAttribute), the layout of an active composition will
-  not update until the participant reconnects.
+Limitation: Token exchange only works with tokens created on your server using a
+[key pair](getting-started-distribute-tokens.md#getting-started-distribute-tokens-self-signed "getting-started-distribute-tokens.md#getting-started-distribute-tokens-self-signed").
+It does not work with tokens created via the
+[CreateParticipantToken API](../RealTimeAPIReference/API_CreateParticipantToken.md "../RealTimeAPIReference/API_CreateParticipantToken.md").
 
 ## Exchanging Tokens
 
@@ -59,6 +56,14 @@ stage.join()
 stage.exchangeToken(newToken)
 ```
 
+### Web
+
+```
+const stage = new Stage(originalToken, strategy);
+await stage.join();
+await stage.exchangeToken(newToken);
+```
+
 ## Receiving Updates
 
 A function in `StageRenderer` / `IVSStageRenderer` receives updates about already-published,
@@ -87,6 +92,15 @@ private val stageRenderer = object : StageRenderer {
 }
 ```
 
+### Web
+
+```
+stage.on(StageEvents.STAGE_PARTICIPANT_METADATA_CHANGED, (participantInfo: StageParticipantInfo) => {
+    // participantInfo properties will be updated with the changed properties
+    }
+);
+```
+
 ## Visibility of Updates
 
 When a participant exchanges a token to update their `userId` or `attributes`,
@@ -96,11 +110,11 @@ the visibility of these changes depends on their current publishing state:
   The update is processed silently. If they eventually publish, all SDKs will receive the updated `userId` and `attributes`
   as part of the initial publish event.
 - **If the participant _is_ already publishing:**
-  The update is broadcast immediately. However, only mobile SDKs v1.37.0+ receive the notification. Participants on the web SDK, older mobile SDKs, and server-side composition do not see the change until the participant unpublishes and republishes.
+  The update is broadcast immediately for participants using mobile SDKs v1.37.0+, the web SDK, and server-side composition. Participants using older mobile SDKs do not see the change until the participant unpublishes and republishes.
 
 This table clarifies the matrix of support:
 
-| Participant State                                | Observer: Mobile SDK 1.37.0+                                        | Observer: Older Mobile SDKs, Web SDK, Server-Side Composition         |
+| Participant State                                | Observer: Mobile SDK 1.37.0+, Web SDK, Server-Side Composition      | Observer: Older Mobile SDKs                                           |
 | ------------------------------------------------ | ------------------------------------------------------------------- | --------------------------------------------------------------------- |
 | Not publishing (then starts)                     | ✅ Visible (on publish through participant joined event)            | ✅ Visible (on publish through participant joined event)              |
 | Already publishing (never republishes)           | ✅ Visible (immediately through participant metadata updated event) | ❌ Not Visible                                                        |
