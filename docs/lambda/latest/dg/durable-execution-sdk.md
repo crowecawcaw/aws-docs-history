@@ -2,7 +2,7 @@
 
 The durable execution SDK is the foundation for building durable functions. It provides the primitives you need to checkpoint progress, handle retries, and manage execution flow. The SDK abstracts the complexity of checkpoint management and replay, letting you write sequential code that automatically becomes fault-tolerant.
 
-The SDK is available for JavaScript, TypeScript, Python and Java. For complete API documentation and examples, see the [JavaScript/TypeScript SDK](https://github.com/aws/aws-durable-execution-sdk-js "https://github.com/aws/aws-durable-execution-sdk-js"), [Python SDK](https://github.com/aws/aws-durable-execution-sdk-python "https://github.com/aws/aws-durable-execution-sdk-python") and [Java SDK](https://github.com/aws/aws-durable-execution-sdk-java "https://github.com/aws/aws-durable-execution-sdk-java") on GitHub.
+The SDK is available for JavaScript, TypeScript, Python, and Java. For complete API documentation and examples, see the [JavaScript/TypeScript SDK](https://github.com/aws/aws-durable-execution-sdk-js "https://github.com/aws/aws-durable-execution-sdk-js"), [Python SDK](https://github.com/aws/aws-durable-execution-sdk-python "https://github.com/aws/aws-durable-execution-sdk-python") and [Java SDK](https://github.com/aws/aws-durable-execution-sdk-java "https://github.com/aws/aws-durable-execution-sdk-java") on GitHub.
 
 ## DurableContext
 

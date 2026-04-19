@@ -183,3 +183,58 @@ async function processMessage(payload) {
 
 module.exports = { handler };
 ```
+
+Here is a Java version:
+
+```
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class KafkaBatchHandler implements RequestHandler<Map<String, Object>, Map<String, Object>> {
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public Map<String, Object> handleRequest(Map<String, Object> event, Context context) {
+        List<Map<String, Object>> failures = new ArrayList<>();
+        Map<String, List<Map<String, Object>>> records =
+                (Map<String, List<Map<String, Object>>>) event.getOrDefault("records", Map.of());
+
+        for (Map.Entry<String, List<Map<String, Object>>> entry : records.entrySet()) {
+            for (Map<String, Object> record : entry.getValue()) {
+                String topic = (String) record.get("topic");
+                Object partition = record.get("partition");
+                Object offset = record.get("offset");
+                String valueBase64 = (String) record.get("value");
+
+                try {
+                    String data = new String(Base64.getDecoder().decode(valueBase64), "UTF-8");
+                    processMessage(data);
+                } catch (Exception e) {
+                    System.err.printf("Failed to process record topic=%s partition=%s offset=%s: %s%n",
+                            topic, partition, offset, e.getMessage());
+                    Map<String, Object> itemIdentifier = new HashMap<>();
+                    itemIdentifier.put("partition", topic + "-" + partition);
+                    itemIdentifier.put("offset", offset instanceof Number ? ((Number) offset).longValue() : null);
+                    Map<String, Object> failure = new HashMap<>();
+                    failure.put("itemIdentifier", itemIdentifier);
+                    failures.add(failure);
+                }
+            }
+        }
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("batchItemFailures", failures);
+        return response;
+    }
+
+    private void processMessage(String data) {
+        // Your business logic for a single message
+    }
+}
+```

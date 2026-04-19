@@ -3,9 +3,10 @@
 The following code examples show how to use `ListFunctions`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+context in the following code examples:
 
 - [Learn the basics](example_lambda_Scenario_GettingStartedFunctions_section.md "example_lambda_Scenario_GettingStartedFunctions_section.md")
+- [Creating a CloudWatch dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
 
 .NET
 

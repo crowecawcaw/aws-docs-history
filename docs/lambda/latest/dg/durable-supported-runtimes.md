@@ -1,6 +1,6 @@
 # Supported runtimes for durable functions
 
-Durable functions are available for selected managed runtimes and OCI container images for additional runtime version flexibility. You can create durable functions for Node.js and Python using managed runtimes directly in the console or programmatically through infrastructure-as-code. Durable functions in Java currently can only be deployed through container images.
+Durable functions are available for selected managed runtimes and OCI container images for additional runtime version flexibility. You can create durable functions for Node.js, Python, and Java using managed runtimes directly in the console or programmatically through infrastructure-as-code.
 
 ## Lambda managed runtimes
 
@@ -12,10 +12,13 @@ The following managed runtimes support durable functions when you create functio
 | Node.js  | nodejs24.x |
 | Python   | python3.13 |
 | Python   | python3.14 |
+| Java     | java17     |
+| Java     | java21     |
+| Java     | java25     |
 
 ###### Note
 
-Lambda runtimes include the durable execution SDK for testing and development. However, we recommend including the SDK in your deployment package for production. This ensures version consistency and avoids potential runtime updates that might affect your function behavior.
+Lambda Node.js and Python runtimes include the durable execution SDK for testing and development. However, we recommend including the SDK in your deployment package for production. This ensures version consistency and avoids potential runtime updates that might affect your function behavior. Because Java is a compiled language, Lambda Java runtimes do not include the durable execution SDK, so it must be included in your deployment package.
 
 ### Node.js
 

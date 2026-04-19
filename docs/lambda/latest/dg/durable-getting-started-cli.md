@@ -61,7 +61,9 @@ Create your durable function with the `--durable-config` parameter.
 zip -r function.zip index.mjs node_modules/
 ```
 
-2. Create the function with durable execution enabled:
+###### Note
+
+For Java-based durable functions, you need to compile your function code and dependencies into a single .zip file or Java Archive (JAR) file. For more information, see [Deploy Java Lambda functions with .zip or JAR file archives](java-package.md "java-package.md"). 2. Create the function with durable execution enabled:
 
 ```
 aws lambda create-function \
@@ -76,10 +78,6 @@ aws lambda create-function \
 ###### Note
 
 You can only enable durable execution when creating the function. You cannot enable it on existing functions.
-
-###### Note
-
-Currently Durable functions in Java can only be created through container images. For more information on creating durable functions from container images, see [Supported runtimes for durable functions](durable-supported-runtimes.md "durable-supported-runtimes.md").
 
 ## Publish a version
 

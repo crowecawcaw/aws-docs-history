@@ -26,6 +26,7 @@ Central Repository](https://search.maven.org/search?q=g:com.amazonaws "https://s
   to add the request ID for the current invocation to your [function
   logs](java-logging.md "java-logging.md").
 - [AWS SDK for Java 2.0](https://github.com/aws/aws-sdk-java-v2 "https://github.com/aws/aws-sdk-java-v2") – The official AWS SDK for the Java programming language.
+- [AWS Lambda Durable Execution SDK for Java](https://github.com/aws/aws-durable-execution-sdk-java "https://github.com/aws/aws-durable-execution-sdk-java") – Build reliable multi-step applications and AI workflows that checkpoint progress, automatically recover from failures, and pause execution. For more information, see [Lambda durable functions](durable-functions.md "durable-functions.md").
   Add these libraries to your build definition as follows:
 
 Gradle
@@ -34,7 +35,8 @@ Gradle
 dependencies {
     `implementation 'com.amazonaws:aws-lambda-java-core:1.2.2'
  implementation 'com.amazonaws:aws-lambda-java-events:3.11.1'
- runtimeOnly 'com.amazonaws:aws-lambda-java-log4j2:1.5.1'`
+ runtimeOnly 'com.amazonaws:aws-lambda-java-log4j2:1.5.1'
+ implementation 'software.amazon.lambda.durable:aws-durable-execution-sdk-java:1.0.1'`
 }
 ```
 
@@ -56,6 +58,11 @@ Maven
       <groupId>com.amazonaws</groupId>
       <artifactId>aws-lambda-java-log4j2</artifactId>
       <version>1.5.1</version>
+    </dependency>
+    <dependency>
+      <groupId>software.amazon.lambda.durable</groupId>
+      <artifactId>aws-durable-execution-sdk-java</artifactId>
+      <version>1.0.1</version>
     </dependency>
   </dependencies>
 ```
