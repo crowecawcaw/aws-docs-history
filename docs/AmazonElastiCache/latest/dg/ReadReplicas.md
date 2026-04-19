@@ -32,16 +32,16 @@ port, you must authorize access to both ports from your client application by [c
 
 **Primary endpoint (Port 6379)**
 
-- Use for operations requiring immediate consistency
+- Use for operations requiring strong consistency
 - Guarantees reading the most up-to-date data
 - Best for critical transactions and write operations
 - Necessary for write operations
 - Example: `test-12345.serverless.use1.cache.amazonaws.com:6379`
 
-**Latency optimized endpoint (Port 6380)**
+**Read-optimized endpoint (Port 6380)**
 
 - Optimized for read operations that can tolerate eventual consistency
-- When possible, ElastiCache serverless automatically routes read requests to the replica node in the client's local Availability Zone. This optimization provides lower latency by avoiding the additional network latency incurred when retrieving data from a node in a different availability zone.
+- When possible, ElastiCache serverless automatically routes read requests to a replica node in the client's local Availability Zone. This optimization provides lower latency by avoiding the additional network latency incurred when retrieving data from a node in a different availability zone.
 - ElastiCache serverless automatically selects available nodes in other zones if a local node is unavailable
 - Example: `test-12345.serverless.use1.cache.amazonaws.com:6380`
 - Clients like Glide and Lettuce will automatically detect and route reads to the latency optimized endpoint if you provide the read from replica configuration. If your client doesn’t support routing configuration (e.g., valkey-java and older jedis versions), you must define the right port and client configuration to read from replicas.

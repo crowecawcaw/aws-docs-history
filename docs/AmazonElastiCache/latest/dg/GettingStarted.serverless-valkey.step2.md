@@ -7,7 +7,7 @@ see the [Amazon EC2 Getting Started Guide](../../../AWSEC2/latest/UserGuide/EC2_
 This section also assumes that you have setup VPC access and security group settings for the EC2 instance from where you are connecting to your cache, and setup valkey-cli on your EC2 instance.
 For more information on that step see [Setting up ElastiCache](set-up.md "set-up.md").
 
-In addition to the steps below, if you have a large or global application you can greatly increase read performance by creating and reading from replicas. For more information on this more advanced step see [Best Practices for using Read Replicas](ReadReplicas.md "ReadReplicas.md").
+In addition to the steps below, if you have a large or global application you can greatly increase read performance by reading from replicas. For more information on this more advanced step see [Best Practices for using Read Replicas](ReadReplicas.md "ReadReplicas.md").
 
 **Find your cache endpoint**
 

@@ -19,7 +19,7 @@ advantages and disadvantages.
 
 ## Read replicas
 
-You can often significantly improve performance for ElastiCache serverless caches by creating replicas and reading from them instead of the primary cache node. For more information see [Best Practices for using Read Replicas](ReadReplicas.md "ReadReplicas.md").
+You can often significantly improve performance for ElastiCache serverless caches by reading from replicas instead of the primary cache node. For more information see [Best Practices for using Read Replicas](ReadReplicas.md "ReadReplicas.md").
 
 ## Lazy loading
 

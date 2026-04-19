@@ -26,7 +26,7 @@ aws elasticache create-serverless-cache \
 --engine valkey
 ```
 
-Note that the value of the Status field is set to `CREATING`. It can take a minute for ElastiCache to finish creating your cache.
+Note that the value of the Status field is set to `CREATING`. ElastiCache creates your cache in about a minute.
 
 ### Step 1.2: Copy serverless cache endpoint
 
