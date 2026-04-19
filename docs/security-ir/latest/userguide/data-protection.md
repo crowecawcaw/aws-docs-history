@@ -1,9 +1,5 @@
 # Data Protection in AWS Security Incident Response
 
-###### Contents
-
-- [Data encryption](data-encryption.md "data-encryption.md")
-
 The AWS
 [shared
 responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") applies to data protection for the AWS
@@ -36,13 +32,20 @@ the following ways:
   controls within AWS services.
 - FIPS 140-3 is currently not supported by the service.
 
-You should never put confidential or sensitive information, such
+Never put confidential or sensitive information, such
 as your email addresses, into tags or free-form text fields such
 as a **Name** field. This includes
 when you work with AWS Support or other AWS services using the
-console, API, AWS CLI, or AWS SDKs. Any data that you enter tags
-or free-form text fields used for names may be used for billing or
+console, API, AWS Command Line Interface, or AWS SDKs. Any data that you enter tags
+or free-form text fields used for names might be used for billing or
 diagnostic logs. If you provide a URL to an external server, we
 **_strongly_**
 recommend that you do not include credentials information in the
 URL to validate your request to that server.
+
+###### Topics
+
+- [Data encryption](data-encryption.md "data-encryption.md")
+- [Data collection and usage](data-collection-and-usage.md "data-collection-and-usage.md")
+- [Data residency and regional behavior](data-residency-and-regional-behavior.md "data-residency-and-regional-behavior.md")
+- [Data access and permissions](data-access-and-permissions.md "data-access-and-permissions.md")

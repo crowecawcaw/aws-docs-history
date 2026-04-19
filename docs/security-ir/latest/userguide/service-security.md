@@ -1,6 +1,6 @@
 # Security
 
-###### Contents
+###### Topics
 
 - [Data Protection in AWS Security Incident Response](data-protection.md "data-protection.md")
 - [Inter-network traffic privacy](inter-network-traffic-privacy.md "inter-network-traffic-privacy.md")

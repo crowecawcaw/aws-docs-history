@@ -7,7 +7,7 @@ in) and _authorized_ (have permissions)
 principals to use AWS Security Incident Response resources. IAM is
 an AWS service that you can use with no additional charge.
 
-###### Contents
+###### Topics
 
 - [Authenticating with identities](authenticating-with-identities.md "authenticating-with-identities.md")
 - [How AWS Security Incident Response Works with IAM](how-aws-security-incident-response-works-with-iam.md "how-aws-security-incident-response-works-with-iam.md")

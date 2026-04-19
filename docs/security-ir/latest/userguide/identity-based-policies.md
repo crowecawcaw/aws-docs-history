@@ -18,7 +18,7 @@ elements that you can use in a JSON policy, see
 JSON policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the _IAM User
 Guide_.
 
-###### Contents
+###### Topics
 
 - [Identity-based policy examples](iam-examples.md "iam-examples.md")
 - [Policy best practices](policy-best-practices.md "policy-best-practices.md")

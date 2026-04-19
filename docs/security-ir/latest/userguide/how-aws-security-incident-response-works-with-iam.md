@@ -22,7 +22,7 @@ you can use with no additional charge.
 | Service roles                                                     | No                |
 | Service-linked roles                                              | Yes               |
 
-###### Contents
+###### Topics
 
 - [Identity-based policies for AWS Security Incident Response](identity-based-policies.md "identity-based-policies.md")
 - [Policy condition keys for AWS Security Incident Response](policy-condition-keys-for-aws-security-incident-response.md "policy-condition-keys-for-aws-security-incident-response.md")

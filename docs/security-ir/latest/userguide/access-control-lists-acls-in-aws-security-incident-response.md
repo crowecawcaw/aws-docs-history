@@ -28,8 +28,8 @@ management becomes cumbersome.
 To control access based on tags, you provide tag information
 in the
 [condition
-element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") of a policy using the AWS:ResourceTag/key-name,
-AWS:RequestTag/key-name, or AWS:TagKeys condition keys. If a
+element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") of a policy using the `AWS:ResourceTag/key-name`,
+`AWS:RequestTag/key-name`, or `AWS:TagKeys` condition keys. If a
 service supports all three condition keys for every resource
 type, then the value is **Yes**
 for the service. If a service supports all three condition
@@ -41,7 +41,7 @@ is ABAC?](../../../IAM/latest/UserGuide/introduction_attribute-based-access-cont
 view a tutorial with steps for setting up ABAC, see
 [Use
 attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the
-_IAM User Guide_.
+_AWS Identity and Access Management User Guide_.
 
 **Temporary
 credentials with AWS Security Incident Response**
@@ -49,7 +49,7 @@ credentials with AWS Security Incident Response**
 **Supports temporary credentials:** Yes
 
 AWS services don't work when you sign in using temporary credentials. For additional information, including
-which AWS services work with temporary credentials, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_. You are using temporary credentials if you sign in to the AWS Management
+which AWS services work with temporary credentials, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _AWS Identity and Access Management User Guide_. You are using temporary credentials if you sign in to the AWS Management
 Console using any method except a user name and password. For example, when you access AWS using your company's single sign-on (SSO) link, that process automatically
 creates temporary credentials. You also automatically create temporary credentials when you sign in to the console as a user and then switch roles. For more information
 about switching roles, see [Switching to a role (console)](../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md")

@@ -40,7 +40,7 @@ list and descriptions of job function policies, see
 managed policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM
 User Guide_.
 
-###### Contents
+###### Topics
 
 - [AWS managed policy: AWSSecurityIncidentResponseServiceRolePolicy](#AWSSecurityIncidentResponseServiceRolePolicy "#AWSSecurityIncidentResponseServiceRolePolicy")
 - [AWS managed policy: AWSSecurityIncidentResponseFullAccess](#AWSSecurityIncidentResponseFullAccess "#AWSSecurityIncidentResponseFullAccess")
