@@ -11,5 +11,6 @@ Scenarios target an intermediate level of experience to help you understand serv
 
 - [Create a multi-tenant distribution and distribution tenant](example_cloudfront_CreateSaasResources_section.md "example_cloudfront_CreateSaasResources_section.md")
 - [Delete signing resources](example_cloudfront_DeleteSigningResources_section.md "example_cloudfront_DeleteSigningResources_section.md")
-- [Get started with CloudFront](example_cloudfront_GettingStarted_section.md "example_cloudfront_GettingStarted_section.md")
+- [Get started with a basic CloudFront distribution](example_cloudfront_GettingStarted_section.md "example_cloudfront_GettingStarted_section.md")
+- [Getting started with WAF](example_wafv2_GettingStarted_052_section.md "example_wafv2_GettingStarted_052_section.md")
 - [Sign URLs and cookies](example_cloudfront_CloudFrontUtilities_section.md "example_cloudfront_CloudFrontUtilities_section.md")

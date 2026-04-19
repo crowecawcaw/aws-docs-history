@@ -2,6 +2,11 @@
 
 The following code examples show how to use `ListDistributions`.
 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in
+context in the following code example:
+
+- [Getting started with WAF](example_wafv2_GettingStarted_052_section.md "example_wafv2_GettingStarted_052_section.md")
+
 CLI
 
 **AWS CLI**

@@ -5,7 +5,7 @@ The following code examples show how to use `DeleteDistribution`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code example:
 
-- [Get started with CloudFront](example_cloudfront_GettingStarted_section.md "example_cloudfront_GettingStarted_section.md")
+- [Get started with a basic CloudFront distribution](example_cloudfront_GettingStarted_section.md "example_cloudfront_GettingStarted_section.md")
 
 CLI
 

@@ -1,14 +1,11 @@
-# Get started with a basic CloudFront distribution using the CLI
+# Get started with a basic CloudFront distribution
 
 The following code example shows how to:
 
-- Create an Amazon S3 bucket for content storage
-- Upload sample content to the S3 bucket
-- Create an origin access control (OAC) for secure S3 access
-- Create a CloudFront distribution with S3 as origin
-- Update S3 bucket policy to allow CloudFront access
-- Wait for distribution deployment and test content access
-- Clean up resources including distribution, OAC, and S3 bucket
+- Create an Amazon S3 bucket
+- Upload content to the bucket
+- Create a CloudFront distribution with OAC
+- Clean up resources
 
 Bash
 

@@ -6,7 +6,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Create a multi-tenant distribution and distribution tenant](example_cloudfront_CreateSaasResources_section.md "example_cloudfront_CreateSaasResources_section.md")
-- [Get started with CloudFront](example_cloudfront_GettingStarted_section.md "example_cloudfront_GettingStarted_section.md")
+- [Get started with a basic CloudFront distribution](example_cloudfront_GettingStarted_section.md "example_cloudfront_GettingStarted_section.md")
 
 CLI
 
