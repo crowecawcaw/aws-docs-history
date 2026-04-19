@@ -61,7 +61,6 @@ refer to [AWS service quotas](../../../general/latest/gr/aws_service_limits.md "
 | Name                             | Default limit | Adjustable? | Description                                                                                         |
 | -------------------------------- | ------------- | ----------- | --------------------------------------------------------------------------------------------------- |
 | Max concurrent vCPUs per account | 16            | Yes         | The maximum number of vCPUs that can concurrently run for the account<br>in the current AWS Region. |
-| Max Queued Jobs Per Account      | 2000          | Yes         | The maximum number of queued jobs for the account in the current AWS Region.                        |
 
 ## API limits
 

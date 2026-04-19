@@ -223,7 +223,7 @@ For Iceberg tables
         "spark.sql.catalog.spark_catalog.type": "glue",
         "spark.sql.catalog.spark_catalog.glue.account-id": "`ACCOUNT_ID`",
         "spark.sql.catalog.spark_catalog.glue.lakeformation-enabled": "true",
-        "spark.sql.catalog.dropDirectoryBeforeTable.enabled": "true",
+        "spark.sql.catalog.dropDirectoryBeforeTable.enabled": "true"
     }
 }
 ```

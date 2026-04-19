@@ -40,8 +40,27 @@ Spark
    must be 27 GB.
    - **Job configuration** — Specify any job
      configuration in this field. You can use these job configurations to override
-     the default configurations for applications.
-   - **Additional settings** — Active or deactivate the
+     the default configurations for applications. The following example shows how
+     to override Spark default settings such as executor and driver memory.
+
+   ```
+   {
+       "applicationConfiguration": [
+           {
+               "classification": "spark-defaults",
+               "configurations": [],
+               "properties": {
+                   "spark.executor.memory": "8G",
+                   "spark.driver.memory": "6G",
+                   "spark.driver.cores": "2",
+                   "spark.executor.cores": "4"
+               }
+           }
+       ]
+   }
+   ```
+
+   - **Additional settings** — Activate or deactivate the
      AWS Glue Data Catalog as a metastore and modify application log settings. To learn more
      about metastore configurations, refer to [Metastore configuration for EMR Serverless](metastore-config.md "metastore-config.md"). To learn more about application logging
      options, refer to [Storing logs](logging.md "logging.md").
