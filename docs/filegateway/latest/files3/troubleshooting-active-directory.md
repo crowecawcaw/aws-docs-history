@@ -132,7 +132,7 @@ in the Asia Pacific (Singapore) AWS Region.
 
 To increase the default timeout value of 20 seconds, you can run the [join-domain command](../../../cli/latest/reference/storagegateway/join-domain.md "../../../cli/latest/reference/storagegateway/join-domain.md") in the AWS Command Line Interface (AWS CLI) and include the
 `--timeout-in-seconds` option to increase the time. You can also use
-the [JoinDomain API call](https://amazonaws.com/storagegateway/latest/APIReference/API_JoinDomain.html "https://amazonaws.com/storagegateway/latest/APIReference/API_JoinDomain.html") and include the `TimeoutInSeconds`
+the [JoinDomain API call](../../../storagegateway/latest/APIReference/API_JoinDomain.md "../../../storagegateway/latest/APIReference/API_JoinDomain.md") and include the `TimeoutInSeconds`
 parameter to increase the time. The maximum timeout value is 3,600 seconds.
 
 If you receive errors when running AWS CLI commands, make sure that you’re using the
