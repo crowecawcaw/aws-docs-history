@@ -374,6 +374,7 @@ Example output:
   - `AWS::AppStream::StackFleetAssociation`
   - `AWS::AppStream::StackUserAssociation`
   - `AWS::AppStream::User`
+  - `AWS::AutoScaling::AutoScalingGroup`
   - `AWS::BackupGateway::Hypervisor`
   - `AWS::CertificateManager::Certificate`
   - `AWS::CloudFormation::CustomResource`

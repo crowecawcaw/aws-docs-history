@@ -70,7 +70,8 @@ CloudFormation only determines drift for property values that are explicitly set
 either through the stack template or by specifying template parameters. This doesn't
 include default values for resource properties. To have CloudFormation track a resource
 property for purposes of determining drift, explicitly set the property value, even
-if you are setting it to the default value.
+if you are setting it to the default value. CloudFormation also detects drift on
+stack-level tags.
 
 ## Drift detection status codes
 
