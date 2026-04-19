@@ -56,9 +56,11 @@ in the _AWS IoT API Reference_.
 | Europe (Frankfurt)        | eu-central-1   | iot.eu-central-1.amazonaws.com<br>iot.eu-central-1.api.aws                                                                             | HTTPS<br>HTTPS                   |
 | Europe (Ireland)          | eu-west-1      | iot.eu-west-1.amazonaws.com<br>iot.eu-west-1.api.aws                                                                                   | HTTPS<br>HTTPS                   |
 | Europe (London)           | eu-west-2      | iot.eu-west-2.amazonaws.com<br>iot.eu-west-2.api.aws                                                                                   | HTTPS<br>HTTPS                   |
+| Europe (Milan)            | eu-south-1     | iot.eu-south-1.amazonaws.com                                                                                                           | HTTPS                            |
 | Europe (Paris)            | eu-west-3      | iot.eu-west-3.amazonaws.com<br>iot.eu-west-3.api.aws                                                                                   | HTTPS<br>HTTPS                   |
 | Europe (Spain)            | eu-south-2     | iot.eu-south-2.amazonaws.com<br>iot.eu-south-2.api.aws                                                                                 | HTTPS<br>HTTPS                   |
 | Europe (Stockholm)        | eu-north-1     | iot.eu-north-1.amazonaws.com<br>iot.eu-north-1.api.aws                                                                                 | HTTPS<br>HTTPS                   |
+| Israel (Tel Aviv)         | il-central-1   | iot.il-central-1.amazonaws.com                                                                                                         | HTTPS                            |
 | Middle East (Bahrain)     | me-south-1     | iot.me-south-1.amazonaws.com<br>iot.me-south-1.api.aws                                                                                 | HTTPS<br>HTTPS                   |
 | Middle East (UAE)         | me-central-1   | iot.me-central-1.amazonaws.com<br>iot.me-central-1.api.aws                                                                             | HTTPS<br>HTTPS                   |
 | South America (São Paulo) | sa-east-1      | iot.sa-east-1.amazonaws.com<br>iot.sa-east-1.api.aws                                                                                   | HTTPS<br>HTTPS                   |
@@ -110,9 +112,11 @@ representation.
 | Europe (Frankfurt)        | eu-central-1   | data-ats.iot.eu-central-1.amazonaws.com                                               | HTTPS          |
 | Europe (Ireland)          | eu-west-1      | data-ats.iot.eu-west-1.amazonaws.com                                                  | HTTPS          |
 | Europe (London)           | eu-west-2      | data-ats.iot.eu-west-2.amazonaws.com                                                  | HTTPS          |
+| Europe (Milan)            | eu-south-1     | data-ats.iot.eu-south-1.amazonaws.com                                                 | HTTPS          |
 | Europe (Paris)            | eu-west-3      | data-ats.iot.eu-west-3.amazonaws.com                                                  | HTTPS          |
 | Europe (Spain)            | eu-south-2     | data-ats.iot.eu-south-2.amazonaws.com                                                 | HTTPS          |
 | Europe (Stockholm)        | eu-north-1     | data-ats.iot.eu-north-1.amazonaws.com                                                 | HTTPS          |
+| Israel (Tel Aviv)         | il-central-1   | data-ats.iot.il-central-1.amazonaws.com                                               | HTTPS          |
 | Middle East (Bahrain)     | me-south-1     | data-ats.iot.me-south-1.amazonaws.com                                                 | HTTPS          |
 | Middle East (UAE)         | me-central-1   | data-ats.iot.me-central-1.amazonaws.com                                               | HTTPS          |
 | South America (São Paulo) | sa-east-1      | data-ats.iot.sa-east-1.amazonaws.com                                                  | HTTPS          |

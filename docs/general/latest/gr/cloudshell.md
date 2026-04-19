@@ -21,12 +21,14 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Hong Kong)  | ap-east-1      | cloudshell.ap-east-1.amazonaws.com      | HTTPS    |
 | Asia Pacific (Hyderabad)  | ap-south-2     | cloudshell.ap-south-2.amazonaws.com     | HTTPS    |
 | Asia Pacific (Jakarta)    | ap-southeast-3 | cloudshell.ap-southeast-3.amazonaws.com | HTTPS    |
+| Asia Pacific (Malaysia)   | ap-southeast-5 | cloudshell.ap-southeast-5.amazonaws.com | HTTPS    |
 | Asia Pacific (Melbourne)  | ap-southeast-4 | cloudshell.ap-southeast-4.amazonaws.com | HTTPS    |
 | Asia Pacific (Mumbai)     | ap-south-1     | cloudshell.ap-south-1.amazonaws.com     | HTTPS    |
 | Asia Pacific (Osaka)      | ap-northeast-3 | cloudshell.ap-northeast-3.amazonaws.com | HTTPS    |
 | Asia Pacific (Seoul)      | ap-northeast-2 | cloudshell.ap-northeast-2.amazonaws.com | HTTPS    |
 | Asia Pacific (Singapore)  | ap-southeast-1 | cloudshell.ap-southeast-1.amazonaws.com | HTTPS    |
 | Asia Pacific (Sydney)     | ap-southeast-2 | cloudshell.ap-southeast-2.amazonaws.com | HTTPS    |
+| Asia Pacific (Thailand)   | ap-southeast-7 | cloudshell.ap-southeast-7.amazonaws.com | HTTPS    |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | cloudshell.ap-northeast-1.amazonaws.com | HTTPS    |
 | Canada (Central)          | ca-central-1   | cloudshell.ca-central-1.amazonaws.com   | HTTPS    |
 | Canada West (Calgary)     | ca-west-1      | cloudshell.ca-west-1.amazonaws.com      | HTTPS    |

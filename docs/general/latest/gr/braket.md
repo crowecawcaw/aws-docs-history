@@ -11,13 +11,13 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
 
-| Region Name             | Region     | Endpoint                                                     | Protocol       |
-| ----------------------- | ---------- | ------------------------------------------------------------ | -------------- |
-| US East (N. Virginia)   | us-east-1  | braket.us-east-1.amazonaws.com<br>braket.us-east-1.api.aws   | HTTPS<br>HTTPS |
-| US West (N. California) | us-west-1  | braket.us-west-1.amazonaws.com<br>braket.us-west-1.api.aws   | HTTPS<br>HTTPS |
-| US West (Oregon)        | us-west-2  | braket.us-west-2.amazonaws.com<br>braket.us-west-2.api.aws   | HTTPS<br>HTTPS |
-| Europe (London)         | eu-west-2  | braket.eu-west-2.amazonaws.com<br>braket.eu-west-2.api.aws   | HTTPS<br>HTTPS |
-| Europe (Stockholm)      | eu-north-1 | braket.eu-north-1.amazonaws.com<br>braket.eu-north-1.api.aws | HTTPS<br>HTTPS |
+| Region Name             | Region     | Endpoint                                                                                       | Protocol                |
+| ----------------------- | ---------- | ---------------------------------------------------------------------------------------------- | ----------------------- |
+| US East (N. Virginia)   | us-east-1  | braket.us-east-1.amazonaws.com<br>braket-fips.us-east-1.api.aws<br>braket.us-east-1.api.aws    | HTTPS<br>HTTPS<br>HTTPS |
+| US West (N. California) | us-west-1  | braket.us-west-1.amazonaws.com<br>braket-fips.us-west-1.api.aws<br>braket.us-west-1.api.aws    | HTTPS<br>HTTPS<br>HTTPS |
+| US West (Oregon)        | us-west-2  | braket.us-west-2.amazonaws.com<br>braket-fips.us-west-2.api.aws<br>braket.us-west-2.api.aws    | HTTPS<br>HTTPS<br>HTTPS |
+| Europe (London)         | eu-west-2  | braket.eu-west-2.amazonaws.com<br>braket-fips.eu-west-2.api.aws<br>braket.eu-west-2.api.aws    | HTTPS<br>HTTPS<br>HTTPS |
+| Europe (Stockholm)      | eu-north-1 | braket.eu-north-1.amazonaws.com<br>braket-fips.eu-north-1.api.aws<br>braket.eu-north-1.api.aws | HTTPS<br>HTTPS<br>HTTPS |
 
 ## Service quotas
 

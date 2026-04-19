@@ -19,6 +19,7 @@ The following are the service endpoints and service quotas for this service.
 | US West (Oregon)          | us-west-2      | rds.us-west-2.amazonaws.com<br>rds-fips.us-west-2.amazonaws.com       | HTTP and HTTPS<br>HTTP and HTTPS |
 | Africa (Cape Town)        | af-south-1     | rds.af-south-1.amazonaws.com                                          | HTTP and HTTPS                   |
 | Asia Pacific (Hong Kong)  | ap-east-1      | rds.ap-east-1.amazonaws.com                                           | HTTP and HTTPS                   |
+| Asia Pacific (Hyderabad)  | ap-south-2     | rds.ap-south-2.amazonaws.com                                          | HTTP and HTTPS                   |
 | Asia Pacific (Jakarta)    | ap-southeast-3 | rds.ap-southeast-3.amazonaws.com                                      | HTTP and HTTPS                   |
 | Asia Pacific (Malaysia)   | ap-southeast-5 | rds.ap-southeast-5.amazonaws.com                                      | HTTP and HTTPS                   |
 | Asia Pacific (Melbourne)  | ap-southeast-4 | rds.ap-southeast-4.amazonaws.com                                      | HTTP and HTTPS                   |
