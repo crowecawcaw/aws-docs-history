@@ -66,21 +66,4 @@ In scenarios where your partner solution does not make frequent regular AWS API/
 
 **AWS CloudFormation / AWS CDK:** CloudFormation does not support custom User Agent strings natively. When CloudFormation creates resources, it makes regular AWS API/CLI calls using its own service principal, and you cannot control the User Agent string in those calls. Use [Resource Tagging](resource-tagging.md "resource-tagging.md") for CloudFormation-deployed resources instead. If your CloudFormation template includes Custom Resources (Lambda-backed), the Lambda function code can include a User Agent string via the SDK approach.
 
-**Terraform:** Terraform supports embedding a User Agent string via `provider_meta`, but use with caution. Other partner solutions leveraging the same Terraform stack may also insert their own User Agent string, resulting in multiple product codes in the User Agent header. Partner Revenue Measurement does not support multiple product codes in a single User Agent string, and attribution may not work as expected.
-
-```
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-    }
-  }
-  provider_meta "aws" {
-    module_name = "APN_1.1/pc_5ugbbrmu7ud3u5hsipfzug61p$"
-  }
-}
-```
-
-###### Note
-
-For reliable attribution with Terraform-managed resources, consider using [Resource Tagging](resource-tagging.md "resource-tagging.md") with [provider-level default tags](automated-tagging.md#terraform-tagging "automated-tagging.md#terraform-tagging") instead.
+**Terraform:** Terraform supports User Agent attribution via `provider_meta` with the `user_agent` argument (AWS provider **>= 6.27.0** or AWSCC provider **>= 1.67.0**). This is scoped to the declaring module only, ensuring correct attribution without collision across multiple partner modules. See [Terraform Implementation Sample](user-agent-samples.md#terraform-user-agent-sample "user-agent-samples.md#terraform-user-agent-sample") for full details.

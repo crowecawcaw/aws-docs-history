@@ -173,18 +173,47 @@ s3_client = Aws::S3::Client.new
 
 ## Terraform
 
-###### Warning
+The Terraform AWS provider supports three ways to inject custom User Agent information:
 
-Terraform has limited support for custom User Agent strings via `provider_meta`, but this approach is unreliable because other partner solutions leveraging the same Terraform stack may also insert their own User Agent string. Partner Revenue Measurement does not support multiple product codes in a single User Agent string, and attribution may not work as expected. For reliable attribution with Terraform-managed resources, use the [Resource Tagging](resource-tagging.md "resource-tagging.md") method with [provider-level default tags](automated-tagging.md#terraform-tagging "automated-tagging.md#terraform-tagging") instead.
+| Method                                | Scope                  | Recommended |
+| ------------------------------------- | ---------------------- | ----------- |
+| `provider_meta` `user_agent` argument | Declaring module only  | Yes         |
+| `user_agent` provider argument        | Provider block         | No          |
+| `TF_APPEND_USER_AGENT` env var        | Global (all API calls) | No          |
+
+`provider_meta` is scoped to the declaring module only, ensuring correct attribution without collision when multiple partner modules are used in the same Terraform configuration.
+
+**Prerequisites:** Terraform >= 1.0 and AWS provider **>= 6.27.0** (or AWSCC provider **>= 1.67.0**).
+
+In your module's `terraform` block, add the `provider_meta "aws"` block with the PRM User Agent string:
 
 ```
-provider "aws" {
-  region = "us-west-2"
-
-  default_tags {
-    tags = {
-      "aws-apn-id" = "pc:5ugbbrmu7ud3u5hsipfzug61p"
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 6.27.0"
     }
+  }
+
+  provider_meta "aws" {
+    user_agent = [
+      "APN_1.1/pc_5ugbbrmu7ud3u5hsipfzug61p$",
+    ]
   }
 }
 ```
+
+Replace `5ugbbrmu7ud3u5hsipfzug61p` with your actual product code. The `$` is a required end delimiter, do not omit it.
+
+###### Important
+
+User Agent attribution requires ongoing API or CLI interaction with AWS resources. Terraform typically interacts with resources only during `plan`, `apply`, and `destroy` operations. If the partner solution provisions static, long-running resources with limited ongoing API activity, consider using [tag-based attribution with Terraform](automated-tagging.md#terraform-tagging "automated-tagging.md#terraform-tagging") instead.
+
+###### Note
+
+Do not declare a `provider "aws" {}` block in your module. The provider configuration should be controlled by the root module (the customer). Your module should only use `provider_meta`.
+
+`provider_meta` user-agent does **not** inherit to child modules. If your module calls other modules that also need attribution, each module must declare its own `provider_meta`.
+
+If both provider-level `user_agent` and `provider_meta` are present, the provider-level User Agent appears first in the header, followed by `provider_meta`.

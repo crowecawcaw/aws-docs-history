@@ -45,3 +45,7 @@ Use the [User Agent String](user-agent-string.md "user-agent-string.md") method 
 ## 2. Troubleshooting
 
 For troubleshooting guidance across all implementation methods, see [Troubleshooting Partner Revenue Measurement](troubleshooting.md "troubleshooting.md").
+
+## 3. Additional FAQs
+
+For additional FAQs, see the Partner Revenue Measurement FAQs on [AWS Partner Central](https://partnercentral.awspartner.com/partnercentral2/s/article?category=Funding_Operations_and_Management&article=Partner-Revenue-Measurement-Overview "https://partnercentral.awspartner.com/partnercentral2/s/article?category=Funding_Operations_and_Management&article=Partner-Revenue-Measurement-Overview") (login required).
