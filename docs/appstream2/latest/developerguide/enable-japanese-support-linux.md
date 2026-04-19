@@ -27,8 +27,8 @@ packages of your choice.
 
    ###### Note
 
-   You will be logged in as an ImageBuilderAdmin user to the Amazon
-   Linux GNOME desktop and have root admin privileges.
+   You will be logged in as an ImageBuilderAdmin user to the Linux
+   GNOME desktop and have root admin privileges.
 
 2. Install the font and input method that you need. To do this, open the Terminal
    application, then run the following commands:

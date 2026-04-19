@@ -33,8 +33,8 @@ image builder.
 
    ###### Note
 
-   You will be logged in as an ImageBuilderAdmin user to the Amazon
-   Linux GNOME desktop and have root admin privileges.
+   You will be logged in as an ImageBuilderAdmin user to the Linux
+   GNOME desktop and have root admin privileges.
 
 2. Install the applications that you need. For example, to install a Chromium
    browser from a public yum repo, first open the Terminal application, then run

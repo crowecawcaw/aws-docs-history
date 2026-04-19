@@ -27,7 +27,7 @@ the image builder.
    ###### Note
 
    You will be logged in as an ImageBuilderAdmin user to the
-   Amazon Linux GNOME desktop and have root admin
+   Linux GNOME desktop and have root admin
    privileges.
 
 2. Install the applications that you need. For example, to install a Chromium

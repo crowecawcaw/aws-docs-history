@@ -11,3 +11,5 @@ For more information, see the [Amazon CloudWatch User Guide](../../../AmazonClou
 - [Viewing Instance and Session Performance Metrics Using the Console](monitoring-instance-session-performance.md "monitoring-instance-session-performance.md")
 - [WorkSpaces Applications Metrics and Dimensions](monitoring-with-cloudwatch.md "monitoring-with-cloudwatch.md")
 - [Manage Multi-Session Fleet Instances](manage-multi-session-instances.md "manage-multi-session-instances.md")
+- [Create custom CloudWatch dashboards using CloudFormation templates](custom-cloudwatch-dashboards.md "custom-cloudwatch-dashboards.md")
+- [Monitor your WorkSpaces Applications health using the CloudWatch automatic dashboard](cloudwatch-automatic-dashboard.md "cloudwatch-automatic-dashboard.md")

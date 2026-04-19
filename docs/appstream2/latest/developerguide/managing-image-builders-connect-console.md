@@ -36,9 +36,9 @@ from https://stream.<aws-region>.amazonappstream.com/. 4. Log in to the image bu
     ###### Note
 
     Smart card sign in isn't supported for connections through a web browser. Instead, you must create a streaming URL and use the WorkSpaces Applications client. For information about smart card sign in, see [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards").
-    * If your image builder is powered by Amazon Linux 2, you are
+    * If your image builder is powered by Linux, you are
      automatically logged in as
 
 
-    the **ImageBuilderAdmin** user in the Amazon
-     Linux GNOME desktop and have root admin privileges.
+    the **ImageBuilderAdmin** user in the Linux
+     GNOME desktop and have root admin privileges.

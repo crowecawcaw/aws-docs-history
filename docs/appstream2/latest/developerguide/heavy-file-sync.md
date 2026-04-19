@@ -19,9 +19,9 @@ completeness of all syncs to Amazon S3 is guaranteed.
 This feature is available on all Red Hat Enterprise Linux images, and Linux WorkSpaces Applications
 images that use a Linux WorkSpaces Applications agent released on or after September 12, 2024.
 
-The heavy sync feature is disabled by default for Red Hat Enterprise Linux and Amazon
+The heavy sync feature is disabled by default for Red Hat Enterprise Linux and Rocky
 Linux streaming sessions. To configure heavy sync permission for your users on a Red Hat
-Enterprise Linux or Amazon Linux image builder, create
+Enterprise Linux or Rocky Linux image builder, create
 `/etc/appstream/appstream.conf` and add the following
 contents:
 

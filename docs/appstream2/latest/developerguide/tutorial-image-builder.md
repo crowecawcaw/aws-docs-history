@@ -1,8 +1,7 @@
 # Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console
 
 This tutorial describes how to create WorkSpaces Applications images that are based on Microsoft Windows
-Server operating systems. If you want to create custom images that are based on the Amazon
-Linux 2, Rocky Linux, or Red Hat Enterprise Linux operating systems, see [Tutorial: Create a Custom Linux-Based WorkSpaces Applications Image](tutorial-create-linux-image.md "tutorial-create-linux-image.md").
+Server operating systems. If you want to create custom images that are based on the Rocky Linux or Red Hat Enterprise Linux operating systems, see [Tutorial: Create a Custom Linux-Based WorkSpaces Applications Image](tutorial-create-linux-image.md "tutorial-create-linux-image.md").
 
 In this tutorial, you will learn how to create a custom Amazon WorkSpaces Applications image that contains
 applications you can stream to your users, and default application and Windows settings to

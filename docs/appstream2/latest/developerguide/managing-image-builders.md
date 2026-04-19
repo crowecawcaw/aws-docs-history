@@ -16,7 +16,6 @@ When you launch an image builder, you choose:
   - Windows Server 2022 Base
   - Windows Server 2019 Base
   - Windows Server 2016 Base
-  - Amazon Linux 2
   - Red Hat Enterprise Linux 8
   - Rocky Linux 8 ([Rocky
     Linux from CIQ](https://ciq.com/products/rocky-linux/ "https://ciq.com/products/rocky-linux/"))

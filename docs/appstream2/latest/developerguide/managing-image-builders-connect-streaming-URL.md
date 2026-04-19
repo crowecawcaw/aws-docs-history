@@ -87,5 +87,5 @@ You can create a streaming URL in any of the following ways:
    - If your image builder is Linux-based, you are automatically logged
      in as
 
-   the **ImageBuilderAdmin** user in the Amazon
-   Linux GNOME desktop and have root admin privileges.
+   the **ImageBuilderAdmin** user in the Linux
+   GNOME desktop and have root admin privileges.
