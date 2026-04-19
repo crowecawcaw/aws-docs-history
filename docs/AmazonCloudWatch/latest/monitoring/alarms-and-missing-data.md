@@ -227,4 +227,6 @@ Missing data scenarios affect the alarm evaluation in the following manner:
   contributor was not found with the message, "No data was returned for this contributor".
   The state of the alarm will depend on the state of the other contributors that were
   retrieved by the query.
-- At alarm level, if the query returns an empty result (no time series at all), the alarm will transition to `INSUFFICIENT_DATA` no matter the missing data treatment that is set.
+- At alarm level, if the query returns an empty result (no time series at all), the treat missing
+  data treatment is applied. For example, if the treat missing data was set as `BREACHING`,
+  the alarm will transition to `ALARM`.

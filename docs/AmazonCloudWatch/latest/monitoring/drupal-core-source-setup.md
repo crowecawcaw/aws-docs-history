@@ -11,11 +11,11 @@ To read the logs, the pipeline needs to authenticate with your Drupal Core site.
 **Configure Basic Authentication for Drupal Core**
 
 - Log in to your Drupal Core admin interface and navigate to Administration → Extend (`/admin/modules`).
-- Enable the following modules: RESTful Web Services, Serialization, HTTP Basic Authentication, and Views. Click Install.
+- Enable the following modules: RESTful Web Services, Serialization, HTTP Basic Authentication, and Views. Choose Install.
 - Install and enable the Admin Audit Trail module via Composer (`composer require drupal/admin_audit_trail`) and run `drush en admin_audit_trail -y && drush cr` to activate it.
 - Navigate to Structure → Views and create a new View named `Audit Logs API`. Set Show to `Log entries`, enable Provide a REST export, and set the REST export path to `/api/v1/audit-logs`.
 - In the View editor, add two exposed Watchdog: Timestamp filters — one with operator `is greater than or equal to` and filter identifier `starttime`, and another with operator `is less than` and filter identifier `endtime`.
-- In the REST EXPORT SETTINGS section of the View, click Authentication and enable `basic_auth`.
+- In the REST EXPORT SETTINGS section of the View, choose Authentication and enable `basic_auth`.
 - Navigate to People → Permissions and grant the roles that need API access the Access admin audit trail and Administer REST resource configuration permissions. Save the View.
 - In AWS Secrets Manager, create a secret and store the Drupal Core username under the key `username` and the account password under the key `password`.
 

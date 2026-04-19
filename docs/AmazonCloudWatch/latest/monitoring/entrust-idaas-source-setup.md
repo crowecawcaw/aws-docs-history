@@ -11,10 +11,10 @@ To read the logs, the pipeline needs to authenticate with your Entrust IDaaS ten
 **Create an Administration API application**
 
 - Go to your IDaaS Admin portal and navigate to Security → Applications.
-- Click + and select Administration API from the list of available applications.
-- In the General tab, enter a name and description for your application, then click Next.
-- In the Setup tab, assign the role with the permissions required by your application, then click Submit. The Entrust IDaaS Administration API requires the Super Administrator role to access audit log endpoints.
-- In the Complete tab, click Copy to copy your `applicationId` and `sharedSecret`, or download the JSON file.
+- Choose + and select Administration API from the list of available applications.
+- In the General tab, enter a name and description for your application, then choose Next.
+- In the Setup tab, assign the role with the permissions required by your application, then choose Submit. The Entrust IDaaS Administration API requires the Super Administrator role to access audit log endpoints.
+- In the Complete tab, choose Copy to copy your `applicationId` and `sharedSecret`, or download the JSON file.
 - In AWS Secrets Manager, create a secret and store the `applicationId` under the key `client_id` and the `sharedSecret` under the key `client_secret`.
 - Your IDaaS API base URL is `https://<hostname>` where `hostname` is taken from the credentials (for example, `https://entrust.us.trustedauth.com`).
 

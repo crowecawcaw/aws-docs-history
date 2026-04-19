@@ -2,6 +2,11 @@
 
 The following code examples show how to use `ListDashboards`.
 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in
+context in the following code example:
+
+- [Creating a CloudWatch dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
+
 .NET
 
 **SDK for .NET (v4)**

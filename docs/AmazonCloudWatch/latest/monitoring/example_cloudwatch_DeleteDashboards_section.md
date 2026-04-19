@@ -3,9 +3,11 @@
 The following code examples show how to use `DeleteDashboards`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+context in the following code examples:
 
 - [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
+- [Creating a CloudWatch dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
+- [Using property variables in CloudWatch dashboards to monitor multiple Lambda functions](example_iam_GettingStarted_032_section.md "example_iam_GettingStarted_032_section.md")
 
 .NET
 

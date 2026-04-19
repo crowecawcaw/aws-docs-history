@@ -3,9 +3,10 @@
 The following code examples show how to use `GetMetricData`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+context in the following code examples:
 
 - [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
+- [Run CPU stress tests on EC2 instances using FIS](example_iam_GettingStarted_069_section.md "example_iam_GettingStarted_069_section.md")
 
 .NET
 

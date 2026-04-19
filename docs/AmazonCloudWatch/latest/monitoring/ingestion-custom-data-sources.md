@@ -36,7 +36,7 @@ source:
 
 ###### Note
 
-The CSV processor can’t be used with S3 custom sources. Instead, use the
+The CSV processor can't be used with S3 custom sources. Instead, use the
 CSV codec in the S3 source.
 
 ###### Parameters
