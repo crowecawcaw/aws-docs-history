@@ -15,6 +15,15 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
+AWS User Notifications does not have service-specific AWS managed policies. However, User Notifications actions are
+included in the following AWS managed policies:
+
+- [**AdministratorAccess**](../../../IAM/latest/UserGuide/access_policies_job-functions.md#jf_administrator "../../../IAM/latest/UserGuide/access_policies_job-functions.md#jf_administrator") –
+  Grants full access to all AWS services, including User Notifications.
+- [**ReadOnlyAccess**](../../../IAM/latest/UserGuide/access_policies_job-functions.md#awsmp_readonlyaccess "../../../IAM/latest/UserGuide/access_policies_job-functions.md#awsmp_readonlyaccess") –
+  Grants read-only access to all AWS services, including User Notifications get and list actions.
+  For examples of identity-based policies specific to User Notifications, see [Resource-level permissions in AWS User Notifications](resource-level-permissions.md "resource-level-permissions.md").
+
 ## AWS managed policy: AWSUserNotificationsServiceLinkedRolePolicy
 
 You can't attach `AWSUserNotificationsServiceLinkedRolePolicy` to your IAM

@@ -185,3 +185,107 @@ JSON
 }`
 
 ```
+
+## Example 6: Full read-write access with explicit actions
+
+This policy grants a user full read-write access to AWS User Notifications by listing all individual actions explicitly. This includes user-configured notifications, managed notifications, organizations, and tagging permissions.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "UserNotificationsReadWrite",
+ "Effect": "Allow",
+ "Action": [
+ "iam:CreateServiceLinkedRole",
+ "notifications:RegisterNotificationHub",
+ "notifications:DeregisterNotificationHub",
+ "notifications:ListNotificationHubs",
+ "notifications:CreateNotificationConfiguration",
+ "notifications:UpdateNotificationConfiguration",
+ "notifications:GetNotificationConfiguration",
+ "notifications:DeleteNotificationConfiguration",
+ "notifications:ListNotificationConfigurations",
+ "notifications:CreateEventRule",
+ "notifications:UpdateEventRule",
+ "notifications:GetEventRule",
+ "notifications:DeleteEventRule",
+ "notifications:ListEventRules",
+ "notifications:AssociateChannel",
+ "notifications:DisassociateChannel",
+ "notifications:ListChannels",
+ "notifications:GetNotificationEvent",
+ "notifications:ListNotificationEvents",
+ "notifications:GetManagedNotificationConfiguration",
+ "notifications:ListManagedNotificationConfigurations",
+ "notifications:ListManagedNotificationChannelAssociations",
+ "notifications:AssociateManagedNotificationAccountContact",
+ "notifications:DisassociateManagedNotificationAccountContact",
+ "notifications:AssociateManagedNotificationAdditionalChannel",
+ "notifications:DisassociateManagedNotificationAdditionalChannel",
+ "notifications:GetManagedNotificationEvent",
+ "notifications:ListManagedNotificationEvents",
+ "notifications:GetManagedNotificationChildEvent",
+ "notifications:ListManagedNotificationChildEvents",
+ "notifications:EnableNotificationsAccessForOrganization",
+ "notifications:DisableNotificationsAccessForOrganization",
+ "notifications:AssociateOrganizationalUnit",
+ "notifications:DisassociateOrganizationalUnit",
+ "notifications:ListOrganizationalUnits",
+ "notifications:ListMemberAccounts",
+ "notifications:GetNotificationsAccessForOrganization",
+ "notifications:TagResource",
+ "notifications:ListTagsForResource",
+ "notifications:UntagResource",
+ "notifications-contacts:CreateEmailContact",
+ "notifications-contacts:SendActivationCode",
+ "notifications-contacts:ActivateEmailContact",
+ "notifications-contacts:DeleteEmailContact",
+ "notifications-contacts:GetEmailContact",
+ "notifications-contacts:ListEmailContacts",
+ "notifications-contacts:TagResource",
+ "notifications-contacts:UntagResource",
+ "notifications-contacts:ListTagsForResource"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+## Example 7: Resource-scoped access for managed notifications
+
+This policy demonstrates least-privilege access by scoping managed notification permissions to a specific category (and optionally a specific sub-category) using resource-level ARNs. Replace the category (and optionally the sub-category) in the ARN to match your use case. This example uses AWS Health managed notifications.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ScopedManagedNotifications",
+ "Effect": "Allow",
+ "Action": [
+ "notifications:GetManagedNotificationConfiguration",
+ "notifications:ListManagedNotificationConfigurations",
+ "notifications:ListManagedNotificationChannelAssociations",
+ "notifications:AssociateManagedNotificationAccountContact",
+ "notifications:DisassociateManagedNotificationAccountContact",
+ "notifications:AssociateManagedNotificationAdditionalChannel",
+ "notifications:DisassociateManagedNotificationAdditionalChannel",
+ "notifications:GetManagedNotificationEvent",
+ "notifications:ListManagedNotificationEvents",
+ "notifications:GetManagedNotificationChildEvent",
+ "notifications:ListManagedNotificationChildEvents"
+ ],
+ "Resource": "arn:aws::notifications::123456789012:managed-notification-configuration/category/AWS-Health/sub-category/*"
+ }
+ ]
+}`
+
+```
