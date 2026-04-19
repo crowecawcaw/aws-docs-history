@@ -56,17 +56,6 @@ for the secure connection.
 - Application Load Balancers do not support custom security policies.
 - Application Load Balancers support SSL renegotiation for target connections only.
 
-###### Compatibility
-
-- All secure listeners attached to the same load balancer must use compatible security policies.
-  To migrate all secure listeners for a load balancer to security policies that are not compatible
-  with the ones that are currently in use, remove all but one of the secure listeners, change the
-  security policy of the secure listener, and then create additional secure listeners.
-  - FIPS post-quantum TLS policies and FIPS policies - **Compatible**
-  - Post-quantum TLS policies and FIPS or FIPS post-quantum TLS polices - **Compatible**
-  - TLS polices (non-FIPS, non-post-quantum) and FIPS or FIPS post-quantum TLS policies - **Not Compatible**
-  - TLS polices (non-FIPS, non-post-quantum) and post-quantum TLS policies - **Not Compatible**
-
 ###### Backend connections
 
 - You can choose the security policy that is used for front-end connections,

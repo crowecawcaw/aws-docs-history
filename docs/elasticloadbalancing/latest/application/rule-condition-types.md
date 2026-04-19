@@ -60,6 +60,10 @@ information, see [Source IP address conditions](#source-ip-conditions "#source-i
   per rule.
 - Rules are applied only to visible ASCII characters; control characters (0x00 to 0x1f
   and 0x7f) are excluded.
+- The regular expressions used in rule conditions do not support the
+  following features: lookaheads, lookbehinds, backreferences, atomic
+  groups, possessive quantifiers, subroutines, recursion, and Unicode
+  character classes (such as `\p{L}`).
 
 ###### Demos
 

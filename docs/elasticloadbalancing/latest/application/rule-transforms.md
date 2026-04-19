@@ -34,6 +34,10 @@ replacement string.
 - If there is no pattern match, the original request is sent to the target.
 - If there is a pattern match but the transform fails, we return an HTTP 500
   error.
+- The regular expressions used in rule transforms do not support the
+  following features: lookaheads, lookbehinds, backreferences, atomic
+  groups, possessive quantifiers, subroutines, recursion, and Unicode
+  character classes (such as `\p{L}`).
 
 ## Host header rewrite transforms
 

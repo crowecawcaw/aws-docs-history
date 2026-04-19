@@ -17,6 +17,11 @@ based on your application's specific requirements.
 - Each rule condition has a type and the information required to evaluate the
   condition.
 - Each rule transform has a regular expression to match and a replacement string.
+- The regular expressions used in rule conditions and rule transforms do not
+  support the following features: lookaheads, lookbehinds, backreferences,
+  atomic groups, possessive quantifiers, subroutines, recursion,
+  and Unicode character classes (such as
+  `\p{L}`).
 - When you create a listener, you define actions for the default rule. The default
   rule can't have conditions or transforms. If none of the conditions for any other
   rules are met, then the action for the default rule is performed.
