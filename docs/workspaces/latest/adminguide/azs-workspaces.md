@@ -30,11 +30,13 @@ in your account, see [AZ IDs for Your Resources](../../../ram/latest/userguide/w
 | Region name               | Region code      | Supported AZ IDs                      |
 | ------------------------- | ---------------- | ------------------------------------- |
 | US East (N. Virginia)     | `us-east-1`      | `use1-az2`, `use1-az4`, `use1-az6`    |
+| US East (Ohio)            | `us-east-2`      | `use2-az1`, `use2-az2`, `use2-az3`    |
 | US West (Oregon)          | `us-west-2`      | `usw2-az1`, `usw2-az2`, `usw2-az3`    |
 | Asia Pacific (Mumbai)     | `ap-south-1`     | `aps1-az1`, `aps1-az2`, `aps1-az3`    |
 | Asia Pacific (Seoul)      | `ap-northeast-2` | `apne2-az1`, `apne2-az3`              |
 | Asia Pacific (Singapore)  | `ap-southeast-1` | `apse1-az1`, `apse1-az2`              |
 | Asia Pacific (Sydney)     | `ap-southeast-2` | `apse2-az1`, `apse2-az3`              |
+| Asia Pacific (Malaysia)   | `ap-southeast-5` | `apse5-az1`, `apse5-az2`, `apse5-az3` |
 | Asia Pacific (Tokyo)      | `ap-northeast-1` | `apne1-az1`, `apne1-az4`              |
 | Canada (Central)          | `ca-central-1`   | `cac1-az1`, `cac1-az2`                |
 | Europe (Frankfurt)        | `eu-central-1`   | `euc1-az2`, `euc1-az3`                |

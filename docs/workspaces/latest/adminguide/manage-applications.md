@@ -74,10 +74,12 @@ The following table shows the list of supported and unsupported application and 
   Standard applications with Professional applications.
 - Microsoft Office/Visio/Project must follow the same versions. For example, you cannot mix 2019
   applications with 2021 applications.
-- Microsoft Office/Visio/Project 2021 and 2024 Standard/Professional are not supported for
+- Microsoft Office/Visio/Project 2021 Standard/Professional are not supported for
   Value, Graphics, and GraphicsPro WorkSpaces bundles.
 - Microsoft Office/Visio/Project versions 2010 and 2013 (Standard or Professional editions) are
   no longer supported.
+- Microsoft Office/Visio/Project 2024 (Standard or Professional editions) is not supported for
+  Value bundles.
 - Plus applications bundles with Office 2016 or Office 2019 will no longer be supported after
   October 14, 2025. We recommend migrating your WorkSpaces bundles with those Office version to use Office 2021 or Office 2024.
   For more information, see [Manage applications in WorkSpaces Personal](manage-applications.md "manage-applications.md").
