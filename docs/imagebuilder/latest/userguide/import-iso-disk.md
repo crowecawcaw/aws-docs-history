@@ -3,9 +3,8 @@
 A Windows operating system ISO file is a disk image file that contains the complete
 installation package for a specific version of the Windows operating system. Microsoft
 provides official Windows operating system ISO files for download, either directly from
-their website or through authorized resellers. It's important to ensure that you obtain
-the ISO files from a trusted and legitimate source to avoid potential malware or
-unauthorized versions.
+their website or through authorized resellers. To avoid potential malware or
+unauthorized versions, obtain the ISO files from a trusted and legitimate source.
 
 EC2 Image Builder uses the `build-image-from-iso` import workflow to import the ISO disk
 file and create a secondary volume from it. After configuration is complete, Image Builder takes
@@ -28,16 +27,28 @@ Image Builder does not support the following Windows operating system ISO disk i
 
 ## Prerequisites to import an ISO disk image
 
-To import an ISO disk image, you must first meet the following prerequisites:
+###### Note
+
+After the import process is successful and you launch an instance from the output AMI,
+the Windows operating system runs Sysprep Specialize, which downloads and
+installs EC2Launch v2 and the Systems Manager Agent from public S3 endpoints. These
+endpoints require public internet access. If you plan to launch instances
+in a private subnet, you must ensure that the subnet has access to the
+following S3 endpoints:
+
+- `https://s3.amazonaws.com/amazon-ec2launch-v2/windows/amd64/latest/AmazonEC2Launch.msi`
+- `https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_amd64/AmazonSSMAgentSetup.exe`
+
+To import an ISO disk image, you must meet the following prerequisites:
 
 - The operating system of the disk image must be one that Image Builder supports. For
   a list of supported operating systems, see [Supported operating systems for ISO disk image import](#iso-import-supported-os "#iso-import-supported-os").
 - To ensure that you can import your ISO image, download it from the Microsoft 365
   admin center.
-- Before you can run the import process, you must upload your ISO disk
-  file to Amazon S3 in the same AWS account and AWS Region where the import runs.
-- The file extension is case sensitive for the import process, and must be
-  `.ISO`. If your file extension is lowercase, you can run one of the following
+- You must upload your ISO disk file to Amazon S3 in the same AWS account and
+  AWS Region where the import runs before you can run the import process.
+- The file extension is case-sensitive for the import process and must be
+  `.ISO`. If your file extension is lowercase, run one of the following
   commands to rename it:
 
 Command
@@ -57,7 +68,7 @@ Copy-S3Object -BucketName `amzn-s3-demo-bucket` -Key `Win11_24H2_English`.iso -D
   see [Licensing](https://aws.amazon.com/windows/faq/#licensing-q "https://aws.amazon.com/windows/faq/#licensing-q") on the
   _Amazon Web Services and Microsoft Frequently Asked Questions_
   page.
-- The import process uses two separate IAM roles, as follows:
+- The import process uses two separate IAM roles:
 
 **Execution role**
 
@@ -73,16 +84,51 @@ This role grants permission for the actions that the service
 performs on the EC2 instance. You can specify an instance profile
 role in your infrastructure configuration resource. Attach the following
 managed policies to your instance profile role to ensure that you have
-all of the permissions needed for the import process.
+all of the permissions needed for the import process:
 
     + [EC2InstanceProfileForImageBuilder](../../../aws-managed-policy/latest/reference/EC2InstanceProfileForImageBuilder.md "../../../aws-managed-policy/latest/reference/EC2InstanceProfileForImageBuilder.md")
     + [AmazonSSMManagedInstanceCore](../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md "../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md")
 
 For more information, see [Manage Image Builder infrastructure configuration](manage-infra-config.md "manage-infra-config.md").
 
+## Optional import settings
+
+You can optionally configure the following settings when you import an ISO
+disk image. These settings control Secure Boot, UEFI data, and image index
+selection for the imported image.
+
+**Secure Boot**
+
+Secure Boot is a UEFI security feature that ensures only trusted
+software runs during the boot process. By default, Secure Boot is
+enabled for ISO disk image imports. You can disable Secure Boot if
+you need to use custom unsigned drivers for testing or legacy
+application compatibility.
+
+**Custom UEFI data**
+
+You can provide a custom UEFI data blob as a Base64-encoded string
+to use during the boot process instead of the default UEFI data that
+Image Builder generates. You can specify custom UEFI data only when Secure
+Boot is enabled (the default). The data can be at most 64 KB.
+
+You can inspect and modify UEFI data by using the
+[python-uefivars](https://github.com/awslabs/python-uefivars "https://github.com/awslabs/python-uefivars") tool. For more information, see
+[UEFI
+variables for Amazon EC2 instances](../../../AWSEC2/latest/UserGuide/uefi-variables.md "../../../AWSEC2/latest/UserGuide/uefi-variables.md").
+
+**Image index**
+
+A Windows ISO file can contain a `.wim` file with
+multiple image indexes, where each index represents a different
+Windows edition (for example, Home or Pro). By default, Image Builder uses
+the first valid image index from the ISO file. You can specify a
+one-based image index to select a specific edition from a
+multi-edition ISO file.
+
 ## Import an ISO disk image into Image Builder
 
-Before you start the import process, make sure that you've met all of the
+Before you start the import process, make sure that you have met all of the
 [Prerequisites](#iso-import-prereq "#iso-import-prereq").
 
 The import process installs the following software and drivers on your
@@ -100,6 +146,8 @@ The import process makes the following configuration updates on your
 image:
 
 - Configures the system to use the Amazon Time server.
+
+Choose a tab to view the import steps for your preferred method:
 
 Console
 To import an ISO disk image with the Image Builder console, follow these steps:
@@ -130,25 +178,40 @@ To import an ISO disk image with the Image Builder console, follow these steps:
    You can specify the [AWSServiceRoleForImageBuilder](security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder "security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder") service-linked
    role, or you can specify your own custom role for service access.
 
-7. You can optionally add tags to your Image Builder image resource. This does
-   not add the tags to your AMI.
-8. The **ISO infrastructure configuration** defines
+7. You can optionally configure the following advanced settings
+   for the import. For more information about these settings, see
+   [Optional import settings](#iso-import-optional-settings "#iso-import-optional-settings").
+   - **Secure Boot** – Secure Boot
+     is enabled by default. To disable Secure Boot for the
+     imported image, clear the **Secure Boot**
+     check box.
+   - **Custom UEFI data** – To
+     provide a custom UEFI data blob, enter the Base64-encoded
+     string. This option is available only when Secure Boot is
+     enabled.
+   - **Image index** – To select a
+     specific Windows edition from a multi-edition ISO file,
+     enter the one-based image index.
+
+8. You can optionally add tags to your Image Builder image resource. Adding
+   tags here does not add the tags to your AMI.
+9. The **ISO infrastructure configuration** defines
    settings for the instance that Image Builder launches to host the import
-   process. You can use an infrastructure configuration that Image Builder creates,
+   process. You can use an infrastructure configuration that Image Builder creates
    based on service defaults, or you can use an existing infrastructure
    configuration. For more information, see [Manage Image Builder infrastructure configuration](manage-infra-config.md "manage-infra-config.md").
 
-To create a new infrastructure configuration , choose
+To create a new infrastructure configuration, choose
 **Create infrastructure configuration**. This opens
-in a separate tab. When you're done creating the new resource, you
-can return to the import configuration, and choose **Use
-existing infrastructure configuration**. 9. To start the import process, choose **Import image**.
+in a separate tab. After you finish creating the new resource, you
+can return to the import configuration and choose **Use
+existing infrastructure configuration**. 10. To start the import process, choose **Import image**.
 
 After the import is complete, your image appears in the list of images
 that you own. For more details, see [List images](image-details-list.md#list-images "image-details-list.md#list-images").
 
 AWS CLI
-This example shows how to import an image from an ISO disk file and create an
+The following example shows how to import an image from an ISO disk file and create an
 AMI from it with the AWS CLI.
 
 Here is a summary of the parameters that we specify in this example:
@@ -180,6 +243,26 @@ Here is a summary of the parameters that we specify in this example:
   EC2 instance on which the ISO image is built.
 - uri (string, required) – The
   URI of the ISO disk file that's stored in Amazon S3.
+- registerImageOptions (object) –
+  Configures Secure Boot and UEFI settings for the imported image.
+  Contains the following fields:
+  - secureBootEnabled (boolean) –
+    Specifies whether Secure Boot is enabled for the output AMI.
+    The default value is `true`. To disable Secure Boot
+    for custom unsigned drivers, set this value to `false`.
+  - uefiData (string) –
+    A Base64-encoded representation of the non-volatile UEFI variable store.
+    You can specify this parameter only when `secureBootEnabled`
+    is `true` or unspecified.
+
+- windowsConfiguration (object) –
+  Windows-specific configuration settings for the ISO import.
+  Contains the following fields:
+  - imageIndex (integer) –
+    The 1-based index that specifies which Windows edition to install
+    from a multi-edition Windows ISO file. A Windows ISO can contain a
+    `.wim` file with multiple image indexes, each representing
+    a different edition.
 
 ```
 aws imagebuilder import-disk-image \
@@ -189,15 +272,17 @@ aws imagebuilder import-disk-image \
     --execution-role "`AWSServiceRoleForImageBuilder`" \
     --platform "Windows" \
     --os-version "Microsoft Windows 11" \
-    --infrastructure-configuration-arn "arn:aws:imagebuilder:`us-east-1`:`111122223333`:infrastructure-configuration/`example-infrastructure-configuration-123456789abc`",
-    --uri: "s3://`amzn-s3-demo-source-bucket`/`examplefile.iso`"
+    --infrastructure-configuration-arn "arn:aws:imagebuilder:`us-east-1`:`111122223333`:infrastructure-configuration/`example-infrastructure-configuration-123456789abc`" \
+    --uri "s3://`amzn-s3-demo-source-bucket`/`examplefile.ISO`" \
+    --register-image-options '{"secureBootEnabled": `true`, "uefiData": "`custom-base64-encoded-uefi-data`"}' \
+    --windows-configuration '{"imageIndex": `1`}'
 ```
 
 After the import is complete, your image appears in the list of images
 that you own. For more details, see [List images](image-details-list.md#list-images "image-details-list.md#list-images").
 
 PowerShell
-This example shows how to import an image from an ISO disk file and create an
+The following example shows how to import an image from an ISO disk file and create an
 AMI from it with PowerShell.
 
 Here is a summary of the parameters that we specify in this example:
@@ -229,6 +314,26 @@ Here is a summary of the parameters that we specify in this example:
   EC2 instance on which the ISO image is built.
 - uri (string, required) – The
   URI of the ISO disk file that's stored in Amazon S3.
+- registerImageOptions (object) –
+  Configures Secure Boot and UEFI settings for the imported image.
+  Contains the following fields:
+  - secureBootEnabled (boolean) –
+    Specifies whether Secure Boot is enabled for the output AMI.
+    The default value is `true`. To disable Secure Boot
+    for custom unsigned drivers, set this value to `false`.
+  - uefiData (string) –
+    A Base64-encoded representation of the non-volatile UEFI variable store.
+    You can specify this parameter only when `secureBootEnabled`
+    is `true` or unspecified.
+
+- windowsConfiguration (object) –
+  Windows-specific configuration settings for the ISO import.
+  Contains the following fields:
+  - imageIndex (integer) –
+    The 1-based index that specifies which Windows edition to install
+    from a multi-edition Windows ISO file. A Windows ISO can contain a
+    `.wim` file with multiple image indexes, each representing
+    a different edition.
 
 ```
 Import-EC2IBDiskImage `
@@ -239,7 +344,10 @@ Import-EC2IBDiskImage `
     -Platform "Windows" `
     -OsVersion "Microsoft Windows 11" `
     -InfrastructureConfigurationArn "arn:aws:imagebuilder:`us-east-1`:`111122223333`:infrastructure-configuration/`example-infrastructure-configuration-123456789abc`" `
-    -Uri "s3://`amzn-s3-demo-source-bucket`/examplefile.ISO"
+    -Uri "s3://`amzn-s3-demo-source-bucket`/examplefile.ISO" `
+    -RegisterImageOptions_SecureBootEnabled `$true` `
+    -RegisterImageOptions_UefiData "`custom-base64-encoded-uefi-data`" `
+    -WindowsConfiguration_ImageIndex `1`
 ```
 
 After the import is complete, your image appears in the list of images
@@ -247,8 +355,23 @@ that you own. For more details, see [List images](image-details-list.md#list-ima
 
 ## Launch an instance from the output AMI
 
-When you launch an instance from an AMI that the import process creates, the Windows operating system
-runs Sysprep Specialize, which automatically downloads and installs EC2Launch v2 and the Systems Manager Agent
-from public S3 endpoints. These endpoints require public internet access. If you launch an
-instance from a private subnet, the Sysprep Specialize process is unable to access the S3 endpoints,
-and the launch fails.
+When you launch an instance from the output AMI, the Windows operating system
+runs Sysprep Specialize, which requires access to public S3 endpoints. Before you
+launch, make sure your network configuration meets the endpoint access requirements
+described in [Prerequisites to import an ISO disk image](#iso-import-prereq "#iso-import-prereq").
+
+## Next steps
+
+You can use the output AMI like any other AMI – launch instances from it directly,
+or use it as a base image in Image Builder to build and customize further. For more information,
+see [Create custom images with Image Builder](create-images.md "create-images.md").
+
+## Troubleshoot ISO disk image imports
+
+If your ISO disk image import fails, you can use Amazon CloudWatch Logs to identify where the import went wrong. Image Builder streams build logs to CloudWatch Logs after the build completes. To find the logs for your import, use the following log group and stream, replacing `ImageName` with the name you gave your image:
+
+**LogGroup:** `/aws/imagebuilder/`ImageName``
+
+**LogStream:** ``ImageVersion`/`ImageBuildVersion``
+
+For more information about Image Builder logs in CloudWatch Logs, see [Monitor Image Builder logs with Amazon CloudWatch Logs](monitor-cwlogs.md "monitor-cwlogs.md"). For additional troubleshooting guidance, see [Troubleshoot Image Builder issues](troubleshooting.md "troubleshooting.md").
