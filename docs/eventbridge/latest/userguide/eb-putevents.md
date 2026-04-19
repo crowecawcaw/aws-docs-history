@@ -197,7 +197,7 @@ aws events put-events --entries file://`entries.json`
 
 When you send custom events to EventBridge using the `PutEvents` action, you can batch
 up to 10 event entries into one request for efficiency. The total request size—that
-is, the sum of all event entries in the request—must be less than 1 MB. This limit
+is, the sum of all event entries in the request—must be less than 1 MB (1,048,576 bytes). This limit
 applies to the request as a whole, not to individual entries. A single event can use
 up to the full 1 MB if it is the only entry in the request. You can calculate the
 entry size before you send the events.
@@ -246,4 +246,4 @@ int getSize(PutEventsRequestEntry entry) {
 
 ###### Note
 
-If the entry size is larger than 1MB, we recommend uploading the event to an Amazon S3 bucket and including the `Object URL` in the `PutEvents` entry.
+If the entry size is larger than 1 MB (1,048,576 bytes), we recommend uploading the event to an Amazon S3 bucket and including the `Object URL` in the `PutEvents` entry.

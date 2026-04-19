@@ -42,23 +42,58 @@ CloudTrail Lake event data stores and queries incur costs. When you create an ev
 
 [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
 
-Amazon EventBridge logs all EventBridge control plane operations as management events. For a list
-of the Amazon EventBridge control plane operations that EventBridge logs to CloudTrail, see the
-[Amazon EventBridge API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+All Amazon EventBridge API operations except
+[PutEvents](../APIReference/API_PutEvents.md "../APIReference/API_PutEvents.md") and
+[PutPartnerEvents](../APIReference/API_PutPartnerEvents.md "../APIReference/API_PutPartnerEvents.md")
+are control plane operations. For a complete list, see
+[Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") in the
+_Amazon EventBridge API Reference_. For example management events, see [EventBridge management event examples](#cloudtrail-event-examples "#cloudtrail-event-examples").
 
-The following table lists the EventBridge resource types for which you can log events. The
-**Event type (console)** column shows the value to choose from
-the **Event type** list on the CloudTrail console. The
-**APIs logged to CloudTrail** column shows the API calls logged to
-CloudTrail for the resource type.
+## EventBridge data events in CloudTrail
 
-| Event type (console) | APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Event bus**        | • [DescribeEventBus](../APIReference/API_DescribeRule.md "../APIReference/API_DescribeRule.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **Event bus rule**   | • [DeleteRule](../APIReference/API_DeleteRule.md "../APIReference/API_DeleteRule.md")<br>• [DescribeRule](../APIReference/API_DescribeRule.md "../APIReference/API_DescribeRule.md")<br>• [DisableRule](../APIReference/API_DisableRule.md "../APIReference/API_DisableRule.md")<br>• [EnableRule](../APIReference/API_EnableRule.md "../APIReference/API_EnableRule.md")<br>• [ListRuleNamesByTarget](../APIReference/API_ListRuleNamesByTarget.md "../APIReference/API_ListRuleNamesByTarget.md")<br>• [ListRules](../APIReference/API_ListRules.md "../APIReference/API_ListRules.md")<br>• [ListTargetsByRule](../APIReference/API_ListTargetsByRule.md "../APIReference/API_ListTargetsByRule.md")<br>• [PutRule](../APIReference/API_PutRule.md "../APIReference/API_PutRule.md")<br>• [PutTargets](../APIReference/API_PutTargets.md "../APIReference/API_PutTargets.md")<br>• [RemoveTargets](../APIReference/API_RemoveTargets.md "../APIReference/API_RemoveTargets.md")<br>• [TestEventPattern](../APIReference/API_TestEventPattern.md "../APIReference/API_TestEventPattern.md") |
-| **Pipe**             | • [CreatePipe](../pipes-reference/API_CreatePipe.md "../pipes-reference/API_CreatePipe.md")<br>• [DeletePipe](../pipes-reference/API_DeletePipe.md "../pipes-reference/API_DeletePipe.md")<br>• [DescribePipe](../pipes-reference/API_DescribePipe.md "../pipes-reference/API_DescribePipe.md")<br>• [ListPipes](../pipes-reference/API_ListPipes.md "../pipes-reference/API_ListPipes.md")<br>• [StartPipe](../pipes-reference/API_StartPipe.md "../pipes-reference/API_StartPipe.md")<br>• [StopPipe](../pipes-reference/API_StopPipe.md "../pipes-reference/API_StopPipe.md")<br>• [UpdatePipe](../pipes-reference/API_UpdatePipe.md "../pipes-reference/API_UpdatePipe.md")                                                                                                                                                                                                                                                                                                                                                                                                               |
+[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations performed on or in a
+resource (for example, publishing events to an event bus). These are also known as data
+plane operations. Data events are often high-volume activities. By default, CloudTrail doesn't log
+data events. The CloudTrail **Event history** doesn't record data events.
 
-## EventBridge event examples
+Additional charges apply for data events. For more information about CloudTrail pricing, see
+[AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+
+You can log data events for the EventBridge resource types by using the CloudTrail console, AWS CLI,
+or CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") and [Logging data events with the AWS Command Line Interface](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") in the
+_AWS CloudTrail User Guide_.
+
+The following table lists the EventBridge resource types for which you can log data events.
+The **Resource type (console)** column shows the value to
+choose from the **Resource type** list on the CloudTrail console. The **resources.type value** column shows the `resources.type`
+value, which you would specify when configuring advanced event selectors using the AWS CLI or
+CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
+calls logged to CloudTrail for the resource type.
+
+| Resource type (console)              | resources.type value       | Data APIs logged to CloudTrail                                                                                                                                                                                                  |
+| ------------------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **EventBridge event bus**            | `AWS::Events::EventBus`    | • [PutEvents](../APIReference/API_PutEvents.md "../APIReference/API_PutEvents.md")                                                                                                                                              |
+| **EventBridge partner event source** | `AWS::Events::EventSource` | • [PutPartnerEvents](../APIReference/API_PutPartnerEvents.md "../APIReference/API_PutPartnerEvents.md")                                                                                                                         |
+| **EventBridge endpoint**             | `AWS::Events::Endpoint`    | • [PutEvents](../APIReference/API_PutEvents.md "../APIReference/API_PutEvents.md") (when using a [global endpoint](eb-global-endpoints.md "eb-global-endpoints.md");<br>successful calls only, not populated on `AccessDenied`) |
+
+You can configure advanced event selectors to filter on the `eventName`,
+`readOnly`, and `resources.ARN` fields to log only those events that
+are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
+_AWS CloudTrail API Reference_.
+
+###### Note
+
+Data events are delivered only to the AWS account of the API caller. If you send events
+to a cross-account event bus, the resource owner's account does not receive a CloudTrail data event.
+
+###### Note
+
+The `detail` field in event entries is redacted in CloudTrail data event logs to
+protect sensitive data.
+
+For examples of data events that EventBridge logs to CloudTrail, see [EventBridge data event examples](#cloudtrail-data-event-examples "#cloudtrail-data-event-examples").
+
+## EventBridge management event examples
 
 An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
 
@@ -106,6 +141,228 @@ The following example shows a CloudTrail event that demonstrates the `PutRule` o
 
 For information about CloudTrail record contents, see [CloudTrail
 record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.
+
+## EventBridge data event examples
+
+The following example shows a CloudTrail data event for a successful `PutEvents` call.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROA3XFRBF23EXAMPLE:johndoe-session",
+    "arn": "arn:aws:sts::111122223333:assumed-role/MyRole/johndoe-session",
+    "accountId": "111122223333",
+    "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROA3XFRBF23EXAMPLE",
+        "arn": "arn:aws:iam::111122223333:role/MyRole",
+        "accountId": "111122223333",
+        "userName": "MyRole"
+      },
+      "attributes": {
+        "creationDate": "2026-03-07T00:49:09Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-03-07T00:51:07Z",
+  "eventSource": "events.amazonaws.com",
+  "eventName": "PutEvents",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.1",
+  "userAgent": "aws-cli/2.33.13",
+  "requestParameters": {
+    "entries": [
+      {
+        "source": "my-application",
+        "detailType": "MyDetailType",
+        "detail": "HIDDEN_DUE_TO_SECURITY_REASONS",
+        "eventBusName": "default"
+      }
+    ]
+  },
+  "responseElements": {
+    "failedEntryCount": 0,
+    "entries": [
+      {
+        "eventId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+      }
+    ]
+  },
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "readOnly": false,
+  "resources": [
+    {
+      "type": "AWS::Events::EventBus",
+      "ARN": "arn:aws:events:us-east-1:111122223333:event-bus/default"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "apiVersion": "2015-10-07",
+  "managementEvent": false,
+  "recipientAccountId": "111122223333",
+  "eventCategory": "Data",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "events.us-east-1.amazonaws.com"
+  }
+}
+```
+
+The following example shows a CloudTrail data event for a `PutEvents` call using a
+[global endpoint](eb-global-endpoints.md "eb-global-endpoints.md").
+Note the additional `AWS::Events::Endpoint` resource in the `resources` array.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROA3XFRBF23EXAMPLE:johndoe-session",
+    "arn": "arn:aws:sts::111122223333:assumed-role/MyRole/johndoe-session",
+    "accountId": "111122223333",
+    "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROA3XFRBF23EXAMPLE",
+        "arn": "arn:aws:iam::111122223333:role/MyRole",
+        "accountId": "111122223333",
+        "userName": "MyRole"
+      },
+      "attributes": {
+        "creationDate": "2026-03-07T00:49:09Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-03-07T00:51:06Z",
+  "eventSource": "events.amazonaws.com",
+  "eventName": "PutEvents",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.1",
+  "userAgent": "aws-cli/2.33.13",
+  "requestParameters": {
+    "entries": [
+      {
+        "source": "my-application",
+        "detailType": "MyDetailType",
+        "detail": "HIDDEN_DUE_TO_SECURITY_REASONS",
+        "eventBusName": "default"
+      }
+    ],
+    "endpointId": "abc1234567.us-east-1"
+  },
+  "responseElements": {
+    "failedEntryCount": 0,
+    "entries": [
+      {
+        "eventId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444"
+      }
+    ]
+  },
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE55555",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE66666",
+  "readOnly": false,
+  "resources": [
+    {
+      "type": "AWS::Events::EventBus",
+      "ARN": "arn:aws:events:us-east-1:111122223333:event-bus/default"
+    },
+    {
+      "type": "AWS::Events::Endpoint",
+      "ARN": "arn:aws:events:us-east-1:111122223333:endpoint/MyGlobalEndpoint"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "apiVersion": "2015-10-07",
+  "managementEvent": false,
+  "recipientAccountId": "111122223333",
+  "eventCategory": "Data",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "abc1234567.us-east-1.endpoint.events.amazonaws.com"
+  }
+}
+```
+
+The following example shows a CloudTrail data event for a successful `PutPartnerEvents` call.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROA3XFRBF23EXAMPLE:partner-session",
+    "arn": "arn:aws:sts::111122223333:assumed-role/PartnerRole/partner-session",
+    "accountId": "111122223333",
+    "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROA3XFRBF23EXAMPLE",
+        "arn": "arn:aws:iam::111122223333:role/PartnerRole",
+        "accountId": "111122223333",
+        "userName": "PartnerRole"
+      },
+      "attributes": {
+        "creationDate": "2026-03-07T00:49:09Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-03-07T00:51:07Z",
+  "eventSource": "events.amazonaws.com",
+  "eventName": "PutPartnerEvents",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.1",
+  "userAgent": "aws-cli/2.33.13",
+  "requestParameters": {
+    "entries": [
+      {
+        "time": "Mar 7, 2026, 12:51:07 AM",
+        "source": "aws.partner/example.com/my-integration",
+        "detailType": "MyDetailType",
+        "detail": "HIDDEN_DUE_TO_SECURITY_REASONS"
+      }
+    ]
+  },
+  "responseElements": {
+    "failedEntryCount": 0,
+    "entries": [
+      {
+        "eventId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE77777"
+      }
+    ]
+  },
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE88888",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE99999",
+  "readOnly": false,
+  "resources": [
+    {
+      "type": "AWS::Events::EventSource",
+      "ARN": "arn:aws:events:us-east-1::event-source/aws.partner/example.com/my-integration"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "apiVersion": "2015-10-07",
+  "managementEvent": false,
+  "recipientAccountId": "111122223333",
+  "eventCategory": "Data",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "events.us-east-1.amazonaws.com"
+  }
+}
+```
 
 ## CloudTrail log entries for actions taken by EventBridge Pipes
 

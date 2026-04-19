@@ -119,5 +119,5 @@ processing. This limit currently can't be increased.
 Pipes with strictly ordered sources, such as Amazon SQS FIFO queues, Kinesis and DynamoDB
 Streams, or Apache Kafka topics) are further limited in concurrency by the configuration of the
 source, such as the number of message group IDs for FIFO queues or the number of shards for
-Kinesis queues. Because ordering is strictly guaranteedwithin these constraints, a pipe with an
+Kinesis queues. Because ordering is strictly guaranteed within these constraints, a pipe with an
 ordered source can't exceed those concurrency limits.
