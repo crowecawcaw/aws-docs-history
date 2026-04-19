@@ -23,7 +23,7 @@ While preparing to offboard from Accelerate, keep the following considerations i
 - **AMS resource retention**: After offboarding, some AMS resources remain in your account. To see which resources are retained and what you can
   do with them, see the
 
-[`resource_inventory.zip`](samples/resource_inventory3.zip.md "samples/resource_inventory3.zip.md") spreadsheet (compressed).
+[`resource_inventory.zip`](samples/resource_inventory.zip.md "samples/resource_inventory.zip.md") spreadsheet (compressed).
 
 - **Automation**: After offboarding, the AMS-curated AWS SSM automation runbooks, and AWS Lambda functions, are
   no longer available.

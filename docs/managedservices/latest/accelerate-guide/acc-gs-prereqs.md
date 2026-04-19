@@ -64,16 +64,20 @@ Region identifier, for example, `us-east-1`.
 
 ```
 $region = '`region`'
-@('logs','monitoring','ec2','ec2messages','ssm','ssmmessages','s3','events') | `
-ForEach-Object { `
-Test-NetConnection ("$_" + '.' + "$region" + '.amazonaws.com') -Port 443 } | `
-Format-Table ComputerName,RemotePort,RemoteAddress,PingSucceeded,TcpTestSucceeded -AutoSize
+@('logs', 'monitoring', 'ec2', 'ec2messages', 'ssm', 'ssmmessages', 's3', 'events') |
+    ForEach-Object {
+        Test-NetConnection ("$_.$region.amazonaws.com") -Port 443
+    } |
+    Format-Table ComputerName, RemotePort, RemoteAddress, PingSucceeded, TcpTestSucceeded -AutoSize
 ```
 
 **Linux command**
 
 ```
-for endpoint in logs monitoring ec2 ec2messages ssm ssmmessages s3 events; do nc -zv $endpoint.`region`.amazonaws.com 443; done
+region='`region`'
+for endpoint in logs monitoring ec2 ec2messages ssm ssmmessages s3 events; do
+    nc -zv "$endpoint.$region.amazonaws.com" 443
+done
 ```
 
 ## Amazon EC2 Systems Manager in Accelerate
