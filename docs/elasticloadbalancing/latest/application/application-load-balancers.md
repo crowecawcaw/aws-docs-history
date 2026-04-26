@@ -117,6 +117,13 @@ You can specify a single Outpost subnet. The following restrictions apply:
   - Sticky sessions
   - User authentication
   - AWS WAF integration
+  - Target optimizer
+  - Health check logs
+  - Connection logs
+  - Capacity unit reservation
+  - JWT verification
+  - Automated target weights
+  - FIPS security policies
 
 An Application Load Balancer can be deployed on c5/c5d, m5/m5d, or r5/r5d instances on an Outpost. The
 following table shows the size and EBS volume per instance type that the load balancer
