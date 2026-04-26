@@ -71,6 +71,11 @@ QL.
   how the query works.
 - [Use facets to group, filter, and
   interactively explore your logs](CloudWatchLogs-Facets.md "CloudWatchLogs-Facets.md").
+- [Surrounding logs](CWL_AnalyzeLogData_SurroundingLogs.md "CWL_AnalyzeLogData_SurroundingLogs.md") lets you view log lines before and
+  after any specific log record in your query results to get instant context
+  around critical log events. You can configure the range to view 5, 10, 20,
+  50, or 100 log lines before and after a selected record, and search for
+  specific keywords within the surrounding logs.
   The following CloudWatch Logs Insights features are supported only when you use Logs Insights QL.
 
 - [Comparison queries](CWL_AnalyzeLogData_Compare.md "CWL_AnalyzeLogData_Compare.md") that compare
@@ -115,6 +120,7 @@ _Amazon CloudWatch Logs API Reference_.
 - [Supported logs and discovered fields](CWL_AnalyzeLogData-discoverable-fields.md "CWL_AnalyzeLogData-discoverable-fields.md")
 - [Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md")
 - [Use facets to group and explore logs](CloudWatchLogs-Facets.md "CloudWatchLogs-Facets.md")
+- [Viewing surrounding logs in CloudWatch Logs Insights](CWL_AnalyzeLogData_SurroundingLogs.md "CWL_AnalyzeLogData_SurroundingLogs.md")
 - [Pattern analysis](CWL_AnalyzeLogData_Patterns.md "CWL_AnalyzeLogData_Patterns.md")
 - [Save and re-run CloudWatch Logs Insights queries](CWL_Insights-Saving-Queries.md "CWL_Insights-Saving-Queries.md")
 - [Add query to dashboard or export query results](CWL_ExportQueryResults.md "CWL_ExportQueryResults.md")
