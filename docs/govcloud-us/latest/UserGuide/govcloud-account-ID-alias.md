@@ -20,7 +20,7 @@ You can retrieve your AWS GovCloud (US) account ID by [Signing in to AWS GovClou
 
 ### Finding your AWS GovCloud (US) account ID using the standard AWS Management Console
 
-You can retrieve your AWS GovCloud (US) account ID by signing in to [the standard AWS Management Console as the root user](../../../signin/latest/userguide/introduction-to-root-user-sign-in-tutorial.md "../../../signin/latest/userguide/introduction-to-root-user-sign-in-tutorial.md") of the [associated standard AWS account](getting-started-standard-account-linking.md "getting-started-standard-account-linking.md"). In the navigation bar, choose your account name on the top right of the window, and then choose **Account**. On the **Account Settings** page, under **AWS GovCloud (US)** , choose the **Sign up for AWS GovCloud (US)** button. You will be directed to a page that indicates you already have access and displays your account ID.
+You can retrieve your AWS GovCloud (US) account ID by signing in to [the standard AWS Management Console as the root user](../../../signin/latest/userguide/introduction-to-root-user-sign-in-tutorial.md "../../../signin/latest/userguide/introduction-to-root-user-sign-in-tutorial.md") of the [associated standard AWS account](getting-started-standard-account-linking.md "getting-started-standard-account-linking.md"). In the navigation bar, choose your account name on the top right of the window, and then choose **Account**. On the **Account Settings** page, your 12-digit AWS GovCloud (US) account ID appears under **Linked AWS GovCloud (US) account**.
 
 ### Finding your AWS GovCloud (US) account ID using the AWS CLI
 

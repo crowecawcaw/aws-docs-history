@@ -9,7 +9,7 @@ The steps in this section describe how to sign in and create an account alias an
 
 ###### Note
 
-If you did not save your AWS GovCloud (US) sign-in link, which includes your account number, you can retrieve your account number by signing in to the standard AWS Management Console with your root user credentials, opening the **Accounts** page, and choosing the **Sign up for AWS GovCloud (US)** button. You will be directed to a page that indicates you already have access and displays your account number.
+If you did not save your AWS GovCloud (US) sign-in link, which includes your account number, you can retrieve your account number by signing in to the standard AWS Management Console with your root user credentials and choosing **Account**. On the **Account Settings** page, your 12-digit AWS GovCloud (US) account number appears under **Linked AWS GovCloud (US) account**.
 
 ###### To create an account alias
 

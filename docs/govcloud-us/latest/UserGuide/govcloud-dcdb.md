@@ -7,6 +7,10 @@ Amazon DocumentDB is a non-relational database service designed from the ground-
 ## How Amazon DocumentDB differs for AWS GovCloud (US)
 
 - Copying [cluster snapshots](../../../documentdb/latest/developerguide/backup_restore-copy_cluster_snapshot.md "../../../documentdb/latest/developerguide/backup_restore-copy_cluster_snapshot.md") from other AWS Regions to the AWS GovCloud (US) Regions or from AWS GovCloud (US) Regions to other Regions is not supported.
+- Amazon DocumentDB elastic clusters are not supported.
+- The db.t4g and db.r4 instance classes are not available.
+- The db.r8g instance class is available in the AWS GovCloud (US-West) Region only and is not available in the AWS GovCloud (US-East) Region.
+- Amazon DocumentDB Performance Insights is not available.
 
 ## Documentation for Amazon DocumentDB
 
