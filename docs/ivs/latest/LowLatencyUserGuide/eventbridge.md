@@ -24,6 +24,7 @@ You can create EventBridge rules for any of the following events.
 
 | Event Type                 | Event                   | Sent When ...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | -------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| IVS Ad Break State Change  | Ad Break Inserted       | An ad break is inserted into an active stream.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | IVS Stream State Change    | Session Created         | A channel stream key was used successfully and a stream session was<br>created. This event fires when a stream is initiated, before video is<br>processed or delivered to viewers. This event can help you determine if a<br>stream was initiated but failed to go live; e.g., due to misconfiguration or<br>limit breach.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | IVS Stream State Change    | Session Ended           | The encoder disconnected and Amazon IVS is no longer receiving video.<br>This event can help you determine when the encoder stopped sending media.<br>For multitrack streams, the `code` field can provide additional details on why the<br>session ended. For details, see the `code` field in the [StreamEvent](../LowLatencyAPIReference/API_StreamEvent.md "../LowLatencyAPIReference/API_StreamEvent.md")<br>API object.<br>Note: When the encoder disconnects, the Session Ended event may<br>come before the Stream End event. This is because there may be a short<br>period of time after the Session Ended event when Amazon IVS is still<br>processing video.                                                                                                                                                                                                 |
 | IVS Stream State Change    | Stream Start            | A stream is being processed and segments are available for the viewer to<br>watch. This event indicates that the video stream is being processed and can<br>be watched by viewers. This event can help you determine if a stream went<br>live successfully.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -62,6 +63,33 @@ steps in [Create a rule in Amazon
 EventBridge](../../../eventbridge/latest/userguide/eb-get-started.md "../../../eventbridge/latest/userguide/eb-get-started.md") in the _Amazon EventBridge User
 Guide_. When selecting a service, choose **Interactive
 Video Service (IVS)**.
+
+## Example: Ad Break State Change
+
+**Ad Break Inserted:** This event is sent when an ad break is inserted into an active stream.
+
+```
+{
+    "version": "0",
+    "id": "d2f07e23-86ba-04b4-e636-5fd2c70b5278",
+    "detail-type": "IVS Ad Break State Change",
+    "source": "aws.ivs",
+    "account": "049054135175",
+    "time": "2026-02-05T01:03:08Z",
+    "region": "us-east-1",
+    "resources": [
+        "arn:aws:ivs:us-west-2:123456789012:channel/abcdABCDefgh "
+    ],
+    "detail": {
+        "event_name": "Ad Break Inserted",
+        "channel_name": "SSAIBeta-test-channel",
+        "stream_id": "st-1GI11DKd3yvJm8eWREJq6Xz",
+        "ad_break_id": "hSi2o1WIVgij",
+        "duration_seconds": 20,
+        "target_start_time": "2026-02-05T01:03:18Z"
+    }
+}
+```
 
 ## Examples: Stream State Change
 

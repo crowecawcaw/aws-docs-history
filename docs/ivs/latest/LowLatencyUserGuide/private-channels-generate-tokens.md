@@ -87,6 +87,13 @@ All JWTs have three fields: header, payload, and signature.
     entitlements. For example, setting this field to `HD`
     means the viewer will receive a resolution less than or equal to
     `HD`.
+  - `ads-opt-out` is an optional field that allows you to opt a viewer out of receiving ads. Allowed
+    values are `true` and `fals`e. The default value when this field is excluded is `false`.
+    See [Server-Side Ad Insertion](server-side-ad-insertion.md "server-side-ad-insertion.md") for
+    more information.
+  - `ads-player-params` is an optional field that allows you to pass parameters to Elemental MediaTailor
+    as if they were player parameters. Keys that you put in this list are always namespaced as `player_params` template
+    parameters. The total payload size for all keys and values combined is limited to 1000 bytes.
   - `exp` is a Unix UTC timestamp for when the token
     expires. This does not indicate the length of time that the stream
     can be viewed. The token is validated when the viewer initializes

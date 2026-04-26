@@ -3,6 +3,20 @@
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first,
 organized by date of release.
 
+## April 22, 2026
+
+### Server-Side Ad Insertion (SSAI)
+
+Server-side ad insertion enables you to monetize your streams with video ads. IVS SSAI integrates with AWS Elemental MediaTailor,
+giving you access to capabilities such as ad decisioning, audience targeting, and personalization. IVS provides an API operation to
+insert ad breaks into your live stream, allowing you to give creators or operators control over when ads run. Ads are stitched
+directly into the video stream, enabling a seamless viewing experience while avoiding complex client-side logic.
+
+See the new [SSAI](server-side-ad-insertion.md "server-side-ad-insertion.md") document in
+the _IVS Low-Latency Streaming User Guide_. For details of all documentation changes, see
+the [Document History](doc-history.md "doc-history.md") (both the User Guide
+and API Reference tables).
+
 ## April 16, 2026
 
 ### IVS Player SDK: Web 1.51.0

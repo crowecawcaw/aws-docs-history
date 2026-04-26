@@ -78,3 +78,25 @@ storage and data movement.
 
 The cost of serving recorded video to viewers depends on the CDN that is used. For
 example, see the Amazon CloudFront [pricing page](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/cloudfront/pricing/").
+
+## Server Side Ad Insertion
+
+If you use server-side ad insertion with IVS, ads are inserted using AWS
+Elemental MediaTailor, which incurs separate charges for ad insertion and ad transcoding.
+
+Each time you insert an ad break via IVS, you are billed for a MediaTailor ad insertion for each viewer of the channel.
+
+To match the video quality of the ad content to the source content, MediaTailor transcodes ads into the following renditions:
+
+| Resolution | Frame Rate | Bitrate                           |
+| ---------- | ---------- | --------------------------------- |
+| 1080p      | 30 fps     | 2.0<br>• 8.0 Mbps (13 renditions) |
+| 720p       | 30 fps     | 1.7 Mbps                          |
+| 480p       | 30 fps     | 800 Kbps                          |
+| 360p       | 30 fps     | 400 kbps                          |
+| 160p       | 30 fps     | 90 kbps                           |
+| audio-only |            | 64 kbps                           |
+
+IVS delivers ad content to viewers as part of the video stream. You will not incur MediaTailor ad delivery charges, as the delivery of ad content is included in IVS video output costs.
+
+For more details, see the AWS Elemental MediaTailor [pricing page](https://aws.amazon.com/mediatailor/pricing/ "https://aws.amazon.com/mediatailor/pricing/").
