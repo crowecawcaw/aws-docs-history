@@ -602,3 +602,37 @@ can be logged and monitored through AWS CloudTrail for auditability.
 For information on enabling encryption at rest for SageMaker Feature Store offline
 stores using AWS KMS customer-managed keys, see [Security and access control](../../../sagemaker/latest/dg/feature-store-security.md#feature-store-authorizing-use-cmk-offline-store "../../../sagemaker/latest/dg/feature-store-security.md#feature-store-authorizing-use-cmk-offline-store") in the _Amazon SageMaker AI
 Developer Guide_.
+
+## [SageMaker.19] SageMaker models should use private registry in VPC for multi-container inference pipelines
+
+**Category:** Protect > Secure network
+configuration > Resources within VPC
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::Model`
+
+**AWS Config rule:**
+[sagemaker-model-multicontainer-private-registry](../../../config/latest/developerguide/sagemaker-model-multicontainer-private-registry.md "../../../config/latest/developerguide/sagemaker-model-multicontainer-private-registry.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether Amazon SageMaker AI models with multi-container inference pipelines
+pull container images from a private Docker registry in a VPC. The control fails if any
+container definition does not have image configuration or has repository access mode set
+to platform.
+
+Using a private Docker registry in a VPC for SageMaker AI multi-container inference pipelines
+ensures container images are pulled from trusted, controlled sources within your VPC.
+This ensures container images are accessed through VPC endpoints, without traversing the
+public internet, reducing the risk of supply chain attacks or image tampering.
+
+### Remediation
+
+To configure private docker registries for SageMaker AI real-time inference containers,
+see [Use
+a Private Docker Registry for Real-Time Inference Containers](../../../sagemaker/latest/dg/your-algorithms-containers-inference-private.md "../../../sagemaker/latest/dg/your-algorithms-containers-inference-private.md") in the
+_Amazon SageMaker AI Developer Guide_.

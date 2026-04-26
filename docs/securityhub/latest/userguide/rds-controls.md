@@ -1858,3 +1858,45 @@ restoring an Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora
 Aurora_.
 For other type of DB clusters (e.g. DocumentDB clusters), see the corresponding service user guide for
 how to update the backup retention period for the cluster.
+
+## [RDS.51] RDS global clusters should run on a supported Aurora MySQL version
+
+**Category:** Identify > Vulnerability, patch, and version management
+
+**Severity:** High
+
+**Resource type:**
+`AWS::RDS::GlobalCluster`
+
+**AWS Config rule:**
+[rds-global-cluster-aurora-mysql-supported-version](../../../config/latest/developerguide/rds-global-cluster-aurora-mysql-supported-version.md "../../../config/latest/developerguide/rds-global-cluster-aurora-mysql-supported-version.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
+- `minSupportedEngineVersion`: `8.0.mysql_aurora.3.08.0`
+  (not customizable)
+- `longTermSupportVersion`: `8.0.mysql_aurora.3.04.0, 8.0.mysql_aurora.3.04.1, 8.0.mysql_aurora.3.04.2, 8.0.mysql_aurora.3.04.3`
+  (not customizable)
+
+This control checks whether an Amazon Aurora MySQL global cluster is running on a minimum
+supported engine version. The control fails if the Aurora MySQL global cluster engine
+version is below the specified minimum supported version and is not listed in the
+long-term support version parameter.
+
+Running Aurora MySQL global databases on supported engine versions helps ensure that you
+have access to the latest security patches, bug fixes, and performance improvements.
+Aurora MySQL minor versions have defined end-of-standard-support dates, after which they
+no longer receive critical patches. Running an unsupported version can expose your global
+database to security vulnerabilities and may result in Amazon RDS Extended Support charges.
+Because Aurora MySQL follows a non-contiguous support lifecycle where long-term support
+(LTS) versions remain supported longer than subsequent non-LTS versions, this control
+also checks for LTS versions that are still under standard support. For more information, see [Release calendars for Amazon Aurora MySQL](../../../AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.release-calendars.md "../../../AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.release-calendars.md") in the
+_Amazon Aurora Release Notes for Aurora MySQL_.
+
+### Remediation
+
+For information about upgrading an Aurora MySQL global database to a supported
+engine version, see [Upgrading an Amazon Aurora global database](../../../AmazonRDS/latest/AuroraUserGuide/aurora-global-database-upgrade.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-global-database-upgrade.md") and [Upgrading Aurora MySQL by modifying the engine version](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.Patching.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.Patching.md") in the
+_Amazon Aurora User Guide_.

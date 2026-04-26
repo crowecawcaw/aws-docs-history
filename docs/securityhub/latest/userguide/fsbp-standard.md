@@ -67,6 +67,10 @@ control, choose the control.
 
 [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 
+[[BedrockAgentCore.1] Bedrock AgentCore runtimes should be configured with VPC network mode](bedrockagentcore-controls.md#bedrockagentcore-1 "bedrockagentcore-controls.md#bedrockagentcore-1")
+
+[[BedrockAgentCore.2] Bedrock AgentCore Gateways should require authorization for inbound requests](bedrockagentcore-controls.md#bedrockagentcore-2 "bedrockagentcore-controls.md#bedrockagentcore-2")
+
 [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 
 [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")
@@ -605,6 +609,8 @@ control, choose the control.
 
 [[RDS.50] RDS DB clusters should have enough backup retention period set](rds-controls.md#rds-50 "rds-controls.md#rds-50")
 
+[[RDS.51] RDS global clusters should run on a supported Aurora MySQL version](rds-controls.md#rds-51 "rds-controls.md#rds-51")
+
 [[Redshift.1] Amazon Redshift clusters should prohibit public access](redshift-controls.md#redshift-1 "redshift-controls.md#redshift-1")
 
 [[Redshift.2] Connections to Amazon Redshift clusters should be encrypted in transit](redshift-controls.md#redshift-2 "redshift-controls.md#redshift-2")
@@ -688,6 +694,8 @@ control, choose the control.
 [[SageMaker.16] SageMaker models should use private registry in VPC for primary containers](sagemaker-controls.md#sagemaker-16 "sagemaker-controls.md#sagemaker-16")
 
 [[SageMaker.17] SageMaker feature group offline stores should be encrypted with AWS KMS keys](sagemaker-controls.md#sagemaker-17 "sagemaker-controls.md#sagemaker-17")
+
+[[SageMaker.19] SageMaker models should use private registry in VPC for multi-container inference pipelines](sagemaker-controls.md#sagemaker-19 "sagemaker-controls.md#sagemaker-19")
 
 [[SecretsManager.1] Secrets Manager secrets should have automatic rotation enabled](secretsmanager-controls.md#secretsmanager-1 "secretsmanager-controls.md#secretsmanager-1")
 
