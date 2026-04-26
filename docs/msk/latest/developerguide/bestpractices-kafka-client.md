@@ -2,7 +2,7 @@
 
 When working with Apache Kafka and Amazon MSK, it's important to correctly configure both the client and server for optimal performance and reliability. This guide provides recommendations of best-practice client-side configuration for Amazon MSK.
 
-For information about Amazon MSK Replicator best practices, see [Best practices for using MSK Replicator](msk-replicator-best-practices.md "msk-replicator-best-practices.md"). For Standard and Express broker best practices, see [Best practices for Standard and Express brokers](bestpractices-intro.md "bestpractices-intro.md").
+For information about Amazon MSK Replicator best practices, see [Best practices](msk-replicator-best-practices.md "msk-replicator-best-practices.md"). For Standard and Express broker best practices, see [Best practices for Standard and Express brokers](bestpractices-intro.md "bestpractices-intro.md").
 
 ###### Topics
 

@@ -1,14 +1,6 @@
-# Considerations for creating an Amazon MSK Replicator
+# IAM permissions required to create an MSK Replicator
 
-The following sections give an overview of the prerequisites, supported configurations, and best practices for using the MSK Replicator feature. It covers the necessary permissions, cluster compatibility, and Serverless-specific requirements, as well as guidance on managing the Replicator after creation.
-
-## IAM permissions required to create an MSK Replicator
-
-Here is an example of the IAM policy required to create an MSK Replicator. The
-action `kafka:TagResource` is only needed if tags are provided when
-creating the MSK Replicator. Replicator IAM policies should be attached to the IAM
-role that corresponds to your client. For information about creating authorization
-policies, see [Create authorization policies](iam-access-control.md#create-iam-access-control-policies "iam-access-control.md#create-iam-access-control-policies").
+Here is an example of the IAM policy required to create an MSK Replicator. The action `kafka:TagResource` is only needed if tags are provided when creating the MSK Replicator. Replicator IAM policies should be attached to the IAM role that corresponds to your client. For information about creating authorization policies, see [Create authorization policies](iam-access-control.md#create-iam-access-control-policies "iam-access-control.md#create-iam-access-control-policies").
 
 JSON
 
@@ -66,9 +58,7 @@ JSON
 
 ```
 
-The following is an example IAM policy to describe replicator.
-
-JSON
+The following is an example IAM policy to describe a replicator.
 
 ```
 `{
@@ -87,3 +77,7 @@ JSON
 }`
 
 ```
+
+###### Note
+
+When log delivery is enabled, your IAM role must have the additional permissions required to write to the configured log destination. For the required permissions, see [Enabling logging from AWS services](../../../AmazonCloudWatch/latest/logs/AWS-vended-logs-permissions.md "../../../AmazonCloudWatch/latest/logs/AWS-vended-logs-permissions.md").

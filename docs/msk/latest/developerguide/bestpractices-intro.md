@@ -1,6 +1,6 @@
 # Best practices for Standard and Express brokers
 
-This section describes best practices to follow for Standard brokers and Express brokers. For information about Amazon MSK Replicator best practices, see [Best practices for using MSK Replicator](msk-replicator-best-practices.md "msk-replicator-best-practices.md").
+This section describes best practices to follow for Standard brokers and Express brokers. For information about Amazon MSK Replicator best practices, see [Best practices](msk-replicator-best-practices.md "msk-replicator-best-practices.md").
 
 ###### Topics
 

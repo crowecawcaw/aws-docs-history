@@ -37,7 +37,7 @@ You can monitor the status of ongoing and historical intelligent rebalancing ope
 - `RebalanceInProgress`: This metric is published every minute with a value of 1 when rebalancing is ongoing and 0 otherwise.
 - `UnderProvisioned`: Indicates that a cluster is currently under provisioned and any partition rebalancing can’t be performed. You either need to add more brokers or scale-up your cluster’s instance type.
 
-For information about monitoring an MSK Provisioned cluster, see and .
+For information about monitoring an MSK Provisioned cluster, see [Monitor an Amazon MSK Provisioned cluster](monitoring.md "monitoring.md") and [View Amazon MSK metrics using CloudWatch](cloudwatch-metrics.md "cloudwatch-metrics.md").
 
 ## Considerations to use intelligent rebalancing
 

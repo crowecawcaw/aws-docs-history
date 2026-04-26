@@ -1,6 +1,6 @@
 # Best practices for Standard brokers
 
-This topic outlines some best practices to follow when using Amazon MSK. For information about Amazon MSK Replicator best practices, see [Best practices for using MSK Replicator](msk-replicator-best-practices.md "msk-replicator-best-practices.md").
+This topic outlines some best practices to follow when using Amazon MSK. For information about Amazon MSK Replicator best practices, see [Best practices](msk-replicator-best-practices.md "msk-replicator-best-practices.md").
 
 ## Client-side considerations
 
