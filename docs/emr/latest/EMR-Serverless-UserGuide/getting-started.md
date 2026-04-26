@@ -137,12 +137,17 @@ JSONJSON
  "Version":"2012-10-17",
  "Statement": [
  {
+ "Sid": "AllowSTSAssumerole",
  "Effect": "Allow",
- "Action": [
- "sts:AssumeRole"
- ],
- "Resource": "arn:aws:iam::123456789012:role/EMRServerlessExecutionRole",
- "Sid": "AllowSTSAssumerole"
+ "Principal": {
+ "Service": "emr-serverless.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole",
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": "`123456789012`"
+ }
+ }
  }
  ]
 }`
@@ -170,11 +175,16 @@ JSONJSON
  "Statement": [
  {
  "Sid": "EMRServerlessTrustPolicy",
- "Action": [
- "sts:AssumeRole"
- ],
  "Effect": "Allow",
- "Resource": "arn:aws:iam::123456789012:role/EMRServerlessExecutionRole"
+ "Principal": {
+ "Service": "emr-serverless.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole",
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": "`123456789012`"
+ }
+ }
  }
  ]
 }`

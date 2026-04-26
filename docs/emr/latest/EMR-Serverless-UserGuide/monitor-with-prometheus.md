@@ -87,7 +87,7 @@ The following table describes all of the properties configure when submitting a 
 | `spark.metrics.conf.driver.sink.prometheusServlet.path`   | /metrics/prometheus                             | The distinct URL that Amazon Managed Service for Prometheus uses to collect metrics from the driver. To override the default behavior,<br>specify your own path. To stop collecting driver metrics, disable this property by setting it to an empty string, such as `""`.     |
 | `spark.metrics.conf.executor.sink.prometheusServlet.path` | /metrics/executor/prometheus                    | The distinct URL that Amazon Managed Service for Prometheus uses to collect metrics from the executor. To override the default behavior,<br>specify your own path. To stop collecting executor metrics, disable this property by setting it to an empty string, such as `""`. |
 
-For more information about the Spark metrics, refer to [Apache Spark metrics](https://spark.apache.org/docs/3.5.0/monitoring.html#metrics "https://spark.apache.org/docs/3.5.0/monitoring.html#metrics").
+For more information about the Spark metrics, refer to [Apache Spark metrics](https://spark.apache.org/docs/latest/monitoring.html#metrics "https://spark.apache.org/docs/latest/monitoring.html#metrics").
 
 ## Considerations and limitations
 

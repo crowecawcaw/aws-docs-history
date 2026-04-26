@@ -233,6 +233,9 @@ JSON
  {
  "Sid": "EmrServerlessCustomImageSupport",
  "Effect": "Allow",
+ "Principal": {
+ "Service": "emr-serverless.amazonaws.com"
+ },
  "Action": [
  "ecr:BatchGetImage",
  "ecr:DescribeImages",

@@ -106,11 +106,12 @@ JSON
  "Statement": [
  {
  "Effect": "Allow",
- "Action": [
- "sts:AssumeRole"
- ],
- "Resource": "arn:aws:iam::123456789012:role/aws-service-role/emr-serverless.amazonaws.com/AWSServiceRoleForEMRServerless",
- "Sid": "AllowSTSAssumerole"
+ "Principal": {
+ "Service": [
+ "ops.emr-serverless.amazonaws.com"
+ ]
+ },
+ "Action": "sts:AssumeRole"
  }
  ]
 }`

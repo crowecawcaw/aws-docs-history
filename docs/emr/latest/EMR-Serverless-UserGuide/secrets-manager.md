@@ -42,8 +42,7 @@ value.
 The following examples demonstrate how to provide a secret in a configuration classification at `StartJobRun`. If you want to configure classifications for Secrets Manager at the application level, refer to [Default application configuration for EMR Serverless](default-configs.md "default-configs.md").
 
 In the examples, replace `SecretName` with the name of the secret to
-retrieve.
-. For more information, refer to [How to create a secret](#secrets-manager-create "#secrets-manager-create").
+retrieve. For more information, refer to [How to create a secret](#secrets-manager-create "#secrets-manager-create").
 
 ###### In this section
 
@@ -164,7 +163,13 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
+ "Sid": "AllowSECRETSMANAGERGetsecretvalue",
  "Effect": "Allow",
+ "Principal": {
+ "Service": [
+ "emr-serverless.amazonaws.com"
+ ]
+ },
  "Action": [
  "secretsmanager:GetSecretValue",
  "secretsmanager:DescribeSecret"
@@ -176,8 +181,7 @@ JSON
  "StringEquals": {
  "aws:SourceArn": "arn:aws:emr-serverless:*:123456789012:/applications/*"
  }
- },
- "Sid": "AllowSECRETSMANAGERGetsecretvalue"
+ }
  }
  ]
 }`

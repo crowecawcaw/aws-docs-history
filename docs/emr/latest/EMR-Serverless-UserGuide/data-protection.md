@@ -92,7 +92,7 @@ To use AWS KMS encryption for data that you write to Amazon S3, you have two
 options when you use the `StartJobRun` API. You can either enable encrytion for
 everything that you write to Amazon S3, or enable encryption for data that
 you write to a specific bucket. For more information about the `StartJobRun` API,
-refer to the [EMR Serverless API Reference](https://amazonaws.com/emr-serverless/latest/APIReference/API_StartJobRun.html "https://amazonaws.com/emr-serverless/latest/APIReference/API_StartJobRun.html").
+refer to the [EMR Serverless API Reference](../../../emr-serverless/latest/APIReference/API_StartJobRun.md "../../../emr-serverless/latest/APIReference/API_StartJobRun.md").
 
 To turn on AWS KMS encryption for all data that you write to Amazon S3, use the
 following commands when you call the `StartJobRun` API.
