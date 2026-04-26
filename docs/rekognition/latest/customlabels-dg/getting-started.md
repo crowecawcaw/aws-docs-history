@@ -95,7 +95,7 @@ _pot_resistor_, and _comparator_. The
 trained model finds the circuit board parts and returns a labeled bounding for each
 circuit part found. For more information, see [Find object locations](md-dataset-purpose.md#md-dataset-purpose-localization "md-dataset-purpose.md#md-dataset-purpose-localization").
 
-![Component image showing an IR LED, pot resistor, and comparator chip on a circuit board.](/images/rekognition/latest/customlabels-dg/images/localization-circuit-board.png)
+![Component image showing an IR LED, pot resistor, and comparator chip on a circuit board.](images/localization-circuit-board.png)
 
 ## Using the example projects
 
