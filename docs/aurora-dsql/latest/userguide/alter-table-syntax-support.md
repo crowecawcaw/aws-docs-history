@@ -17,9 +17,15 @@ ALTER TABLE [ IF EXISTS ] name
 where action is one of:
 
     ADD [ COLUMN ] [ IF NOT EXISTS ] column_name data_type
+    ADD table_constraint_using_index
     ALTER [ COLUMN ] column_name { SET GENERATED { ALWAYS | BY DEFAULT } | SET sequence_option | RESTART [ [ WITH ] restart ] } [...]
     ALTER [ COLUMN ] column_name DROP IDENTITY [ IF EXISTS ]
     OWNER TO { new_owner | CURRENT_ROLE | CURRENT_USER | SESSION_USER }
+
+and table_constraint_using_index is:
+
+    [ CONSTRAINT constraint_name ]
+    UNIQUE USING INDEX index_name
 ```
 
 ## Identity column actions
@@ -42,3 +48,20 @@ These forms alter the sequence that underlies an existing identity column.
 This form removes the identity property from a column. If `DROP IDENTITY IF
  EXISTS` is specified and the column is not an identity column, no error is thrown.
 In this case a notice is issued instead.
+
+## Add constraint actions
+
+**`ADD `table_constraint_using_index``**
+
+This form adds a new `UNIQUE` constraint to a table based on an existing
+unique index. All the columns of the index will be included in the constraint.
+
+The index must be in a `VALID` state; adding a unique constraint using
+an index while the index is currently building is not supported.
+
+If a constraint name is provided then the index will be renamed to match the
+constraint name. Otherwise the constraint will be named the same as the index.
+
+After this command is executed, the index is "owned" by the constraint, in the same
+way as if the index had been built by a regular `CREATE UNIQUE INDEX ASYNC`
+command. In particular, dropping the constraint will make the index disappear too.

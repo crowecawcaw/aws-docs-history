@@ -107,20 +107,6 @@ Aurora DSQL uses optimistic concurrency control (OCC), a lock-free approach that
 
 **Design pattern:** Implement idempotent transaction logic with retry mechanisms. Design schemas to minimize contention by using random primary keys and spreading updates across your key range. For details, see [Concurrency control in Aurora DSQL](working-with-concurrency-control.md "working-with-concurrency-control.md").
 
-**Relationships and referential integrity**
-
-Aurora DSQL supports foreign key relationships between tables,
-including
-`JOIN`
-operations. For referential integrity, implement validation in your application layer. While
-enforcing referential integrity can be valuable, cascading
-operations (like cascading deletes) can create unexpected performance
-issues—for example, deleting an order with 1,000 line items
-becomes a 1,001-row transaction. Many customers avoid foreign
-key constraints for this reason.
-
-**Design pattern:** Implement referential integrity checks in your application layer, use eventual consistency patterns, or leverage AWS services for data validation.
-
 ### Operational simplifications
 
 Aurora DSQL eliminates many traditional database maintenance tasks, reducing operational overhead:

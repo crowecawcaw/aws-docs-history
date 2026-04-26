@@ -24,7 +24,7 @@ For example, consider the following sequence of actions:
    This session still has the previous catalog version cached.
 
 Aurora DSQL returns `SQL Error [40001]: ERROR: schema has been updated
- by another transaction, please retry: (OC001)`.
+ by another transaction (OC001)`.
 
 ###### Note
 

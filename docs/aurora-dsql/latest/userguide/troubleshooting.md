@@ -129,14 +129,14 @@ asynchronously in Aurora DSQL](working-with-create-index-async.md "working-with-
 
 ## Troubleshooting concurrency control responses
 
-**OC000 “ERROR: mutation conflicts with another transaction, retry as
-needed”**
+**OC000 “ERROR: change conflicts with another transaction
+(OC000)”**
 
 This transaction attempted to modify the same tuples as another concurrent transaction.
 This indicates contention on the modified tuples. To learn more,
 refer to [Concurrency control in Aurora DSQL](working-with-concurrency-control.md "working-with-concurrency-control.md") .
 
-**OC001 “ERROR: schema has been updated by another transaction, please retry: (OC001)”**
+**OC001 “ERROR: schema has been updated by another transaction (OC001)”**
 
 Your session had a cached copy of the schema catalog at version V1, loaded at time T1.
 

@@ -26,7 +26,7 @@ earliest commit time succeeds, and the conflicting transaction receives the OC00
 response:
 
 ```
-ERROR: mutation conflicts with another transaction, retry as needed (OC000) (SQLSTATE 40001)
+ERROR: change conflicts with another transaction (OC000) (SQLSTATE 40001)
 ```
 
 **OC001 — Schema conflict**
@@ -37,7 +37,7 @@ can't safely rebase to the current version, the transaction receives the OC001
 response:
 
 ```
-ERROR:  schema has been updated by another transaction, please retry: (OC001) (SQLSTATE 40001)
+ERROR: schema has been updated by another transaction (OC001) (SQLSTATE 40001)
 ```
 
 Any operation that modifies the schema catalog can cause an OC001 response,
