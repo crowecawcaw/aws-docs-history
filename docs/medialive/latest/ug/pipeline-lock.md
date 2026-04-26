@@ -40,25 +40,28 @@ synchronize the pipelines:
   For more information, see [Requirements for video aligned locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs").
   **Applicable outputs**
 
-**Source timecode** pipeline locking applies only to the following types of outputs:
+**Video aligned** locking applies only to the following types of outputs:
 
 - HLS (Live mode)
 - MediaPackage
 - CMAF Ingest
-- Microsoft Smooth
-- UDP outputs
-  that are segmented. You might have configured a UDP output group for segmented
-  outputs. To verify, in a UDP output group, choose **Output** then
-  **Network Settings**, then **Container
-  Settings**. Look for the three fields that start with the term
-  _Segmentation_.
-  **Video aligned** locking applies only to the following types of outputs:
+- UDP and SRT (segmented only; see the note below)
+  **Source timecode** pipeline locking applies to all of the above output
+  types, plus the following:
 
-- HLS (Live mode)
-- CMAF Ingest
-  The channel can contain other types of outputs, but MediaLive won't attempt to lock their
-  outputs. This means that in those other output groups, there is no guarantee that the
-  content of the two pipelines will be frame-accurate with each other.
+- Microsoft Smooth
+
+###### Note
+
+For UDP and SRT outputs, pipeline locking requires segmented outputs. To verify
+if a UDP or SRT output is configured for segmented outputs, in the output group,
+choose **Output** then **Network Settings**,
+then **Container Settings**. Look for the three fields that start
+with the term _Segmentation_.
+
+The channel can contain other types of outputs, but MediaLive won't attempt to lock their
+outputs. This means that in those other output groups, there is no guarantee that the
+content of the two pipelines will be frame-accurate with each other.
 
 ###### Topics
 
