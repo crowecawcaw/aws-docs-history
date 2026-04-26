@@ -14,6 +14,7 @@ The following procedure details how you can change your default Region from the 
 
 ###### Note
 
-If
-you do not select a default Region, the last Region you visited will be your
-default. 5. Choose **Save settings**. 6. (Optional) Choose **Go to new default Region** to immediately go to your new default Region.
+If you don't select a default Region, the console uses the last
+Region that you visited. If you sign in with IAM Identity Center, select a specific
+default Region. The last-visited Region doesn't persist across IAM Identity Center
+sessions. 5. Choose **Save settings**. 6. (Optional) Choose **Go to new default Region** to immediately go to your new default Region.
