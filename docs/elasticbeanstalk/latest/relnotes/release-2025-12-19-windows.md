@@ -34,14 +34,14 @@ The following table lists the changes included in this release.
 
 | Platform Version                                          | Solution Stack Name                                       | Framework                                                                               | Proxy Server |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------ |
-| **Windows Server 2025 with IIS 10.0 version 2.22.0**      | _64bit Windows Server 2025 v2.22.0 running IIS 10.0_      | .NET 9.0.11, supports 9.0.11, 8.0.22, 10.0.1<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server Core 2025 with IIS 10.0 version 2.22.0** | _64bit Windows Server Core 2025 v2.22.0 running IIS 10.0_ | .NET 9.0.11, supports 9.0.11, 8.0.22, 10.0.1<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server 2022 with IIS 10.0 version 2.22.0**      | _64bit Windows Server 2022 v2.22.0 running IIS 10.0_      | .NET 9.0.11, supports 9.0.11, 8.0.22, 10.0.1<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server Core 2022 with IIS 10.0 version 2.22.0** | _64bit Windows Server Core 2022 v2.22.0 running IIS 10.0_ | .NET 9.0.11, supports 9.0.11, 8.0.22, 10.0.1<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server 2019 with IIS 10.0 version 2.22.0**      | _64bit Windows Server 2019 v2.22.0 running IIS 10.0_      | .NET 9.0.11, supports 9.0.11, 8.0.22, 10.0.1<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.22.0** | _64bit Windows Server Core 2019 v2.22.0 running IIS 10.0_ | .NET 9.0.11, supports 9.0.11, 8.0.22, 10.0.1<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.22.0**      | _64bit Windows Server 2016 v2.22.0 running IIS 10.0_      | .NET 9.0.11, supports 9.0.11, 8.0.22, 10.0.1<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.22.0** | _64bit Windows Server Core 2016 v2.22.0 running IIS 10.0_ | .NET 9.0.11, supports 9.0.11, 8.0.22, 10.0.1<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server 2025 with IIS 10.0 version 2.22.0**      | _64bit Windows Server 2025 v2.22.0 running IIS 10.0_      | .NET 10.0.1, supports 10.0.1, 9.0.11, 8.0.22<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.22.0** | _64bit Windows Server Core 2025 v2.22.0 running IIS 10.0_ | .NET 10.0.1, supports 10.0.1, 9.0.11, 8.0.22<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server 2022 with IIS 10.0 version 2.22.0**      | _64bit Windows Server 2022 v2.22.0 running IIS 10.0_      | .NET 10.0.1, supports 10.0.1, 9.0.11, 8.0.22<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.22.0** | _64bit Windows Server Core 2022 v2.22.0 running IIS 10.0_ | .NET 10.0.1, supports 10.0.1, 9.0.11, 8.0.22<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server 2019 with IIS 10.0 version 2.22.0**      | _64bit Windows Server 2019 v2.22.0 running IIS 10.0_      | .NET 10.0.1, supports 10.0.1, 9.0.11, 8.0.22<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.22.0** | _64bit Windows Server Core 2019 v2.22.0 running IIS 10.0_ | .NET 10.0.1, supports 10.0.1, 9.0.11, 8.0.22<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.22.0**      | _64bit Windows Server 2016 v2.22.0 running IIS 10.0_      | .NET 10.0.1, supports 10.0.1, 9.0.11, 8.0.22<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.22.0** | _64bit Windows Server Core 2016 v2.22.0 running IIS 10.0_ | .NET 10.0.1, supports 10.0.1, 9.0.11, 8.0.22<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
 
 #### More details
 
