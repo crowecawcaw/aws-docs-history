@@ -13,7 +13,6 @@ If you encounter problems with AWS CloudHSM, the following topics can help you r
 - [AWS CloudHSM error seen during key availability check](troubleshoot-key-availability-check.md "troubleshoot-key-availability-check.md")
 - [AWS CloudHSM extracting keys using JCE](troubleshoot-getencoded.md "troubleshoot-getencoded.md")
 - [HSM throttling](troubleshoot-hsm-throttling.md "troubleshoot-hsm-throttling.md")
-- [Keep HSM users in sync across HSMs in the AWS CloudHSM cluster](troubleshooting-keep-hsm-users-in-sync.md "troubleshooting-keep-hsm-users-in-sync.md")
 - [Lost connection to the AWS CloudHSM cluster](troubleshooting-lost-connection.md "troubleshooting-lost-connection.md")
 - [Missing AWS CloudHSM audit logs in CloudWatch](troubleshooting-missing-audit-logs.md "troubleshooting-missing-audit-logs.md")
 - [Custom IVs with non-compliant length for AES key wrap in AWS CloudHSM](troubleshooting-aes-keys.md "troubleshooting-aes-keys.md")

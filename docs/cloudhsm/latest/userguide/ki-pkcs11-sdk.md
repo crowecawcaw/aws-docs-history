@@ -169,19 +169,30 @@ EL6 platforms, the initialization fails.
   or signatures may fail to verify. This issue affects both single part and
   multi-part operations.
 
-Examples of incorrect function sequences:
+The following tables show the correct function call sequences for PKCS #11 operations.
 
-    + `C_EncryptInit`/`C_EncryptUpdate` followed by
-     `C_Encrypt`
-    + `C_DecryptInit`/`C_DecryptUpdate` followed by
-     `C_Decrypt`
-    + `C_SignInit`/`C_SignUpdate` followed by `C_Sign`
-    + `C_VerifyInit`/`C_VerifyUpdate` followed by `C_Verify`
-    + `C_FindObjectsInit` followed by `C_FindObjectsInit`
+**Correct sequences for single-part operations:**
+
+| Operation    | Correct Sequence                                             |
+| ------------ | ------------------------------------------------------------ |
+| Encrypt      | `C_EncryptInit` → `C_Encrypt`                                |
+| Decrypt      | `C_DecryptInit` → `C_Decrypt`                                |
+| Sign         | `C_SignInit` → `C_Sign`                                      |
+| Verify       | `C_VerifyInit` → `C_Verify`                                  |
+| Find Objects | `C_FindObjectsInit` → `C_FindObjects` → `C_FindObjectsFinal` |
+
+**Correct sequences for multi-part operations:**
+
+| Operation | Correct Sequence                                                     |
+| --------- | -------------------------------------------------------------------- |
+| Encrypt   | `C_EncryptInit` → `C_EncryptUpdate` (one or more) → `C_EncryptFinal` |
+| Decrypt   | `C_DecryptInit` → `C_DecryptUpdate` (one or more) → `C_DecryptFinal` |
+| Sign      | `C_SignInit` → `C_SignUpdate` (one or more) → `C_SignFinal`          |
+| Verify    | `C_VerifyInit` → `C_VerifyUpdate` (one or more) → `C_VerifyFinal`    |
 
 - **Workaround**: Your application should, in compliance with
-  the PKCS #11 specification, use the right sequence of function calls for
-  both single and multi-part operations. Your application should not rely on
+  the PKCS #11 specification, use the correct sequence of function calls for
+  both single-part and multi-part operations as shown in the tables above. Your application should not rely on
   the CloudHSM PKCS #11 library to return an error under this circumstance.
 
 ## Issue: Read Only Session is not supported in SDK 5

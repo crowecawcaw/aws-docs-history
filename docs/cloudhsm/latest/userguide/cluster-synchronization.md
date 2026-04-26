@@ -1,9 +1,12 @@
 # AWS CloudHSM cluster synchronization
 
 In an AWS CloudHSM cluster, AWS CloudHSM keeps the keys on the individual HSMs in sync. You don't need
-to do anything to synchronize the keys on your HSMs. To keep the users and policies on each
-HSM in sync, update the AWS CloudHSM client configuration file before you [manage HSM users](manage-hsm-users.md "manage-hsm-users.md"). For more information, see [Keep HSM users in
-sync](troubleshooting-keep-hsm-users-in-sync.md "troubleshooting-keep-hsm-users-in-sync.md").
+to do anything to synchronize the keys on your HSMs. Unlike keys, there is no server-side
+mechanism to synchronize HSM users across the cluster. The AWS CloudHSM CLI performs best-effort
+synchronization of user operations across HSMs, but inconsistencies can occur if an operation
+partially fails. If users become out of sync, the `user list` command will
+show inconsistencies. For more information, see [Client SDK 5 user contains
+inconsistent values](troubleshoot-sdk5-inconsistent-value.md "troubleshoot-sdk5-inconsistent-value.md").
 
 When you add a new HSM to a cluster, AWS CloudHSM makes a backup of all keys, users, and policies
 on an existing HSM. It then restores that backup onto the new HSM. This keeps the two HSMs in

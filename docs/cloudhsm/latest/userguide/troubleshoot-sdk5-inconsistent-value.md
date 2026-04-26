@@ -1,5 +1,10 @@
 # AWS CloudHSM Client SDK 5 user contains inconsistent values
 
+The AWS CloudHSM CLI performs
+best-effort synchronization of user operations across HSMs, but inconsistencies can occur if an
+operation partially fails. This can cause problems when AWS CloudHSM syncs keys across HSMs in the
+cluster, because the users that own the keys might not exist on all HSMs in the cluster.
+
 The `user list` command in AWS CloudHSM Client SDK 5 returns a list of all users, and user properties, in your cluster.
 If any of a user’s properties have the value "**inconsistent**", this user is not synchronized across your cluster.
 This means that the user exists with different properties on different HSMs in the cluster.
