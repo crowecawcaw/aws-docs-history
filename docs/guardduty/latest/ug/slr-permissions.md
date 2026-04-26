@@ -26,9 +26,10 @@ The permission policies help GuardDuty perform the following tasks:
 - Use IAM to create the [Service-linked role permissions for Malware Protection for EC2](slr-permissions-malware-protection.md "slr-permissions-malware-protection.md") after Malware Protection for EC2 has been
   enabled.
 - Use Amazon ECS actions to manage and retrieve information about the Amazon ECS clusters,
-  and manage the Amazon ECS account setting with `guarddutyActivate`. The
-  actions pertaining to Amazon ECS also retrieve the information about the tags
-  associated with GuardDuty.
+  retrieve information about tasks and task definitions, and manage the Amazon ECS
+  account setting with `guarddutyActivate`. The actions pertaining
+  to Amazon ECS also retrieve the information about the tags associated with
+  GuardDuty.
   The role is configured with the following [AWS managed policy](security-iam-awsmanpol.md "security-iam-awsmanpol.md"), named
   `AmazonGuardDutyServiceRolePolicy`.
 

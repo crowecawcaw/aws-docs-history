@@ -18,6 +18,16 @@ When you create filters, take the following list into consideration:
   `AND/OR`.
 - For information about the maximum number of saved filters that you can create in an AWS account in each AWS Region, see
   [GuardDuty quotas](guardduty_limits.md "guardduty_limits.md").
+- Fields under `service.additionalInfo` are specified using their full
+  JSON path, the same as any other field. For example:
+  `{
+"service.additionalInfo.sample": {
+"Equals": ["true"]
+}
+}`.
+- Timestamp fields accept values in Unix Epoch millisecond format (for example,
+  `1486685375000`). For a full list of timestamp fields, see the note
+  below.
   The following sections provide instructions on how to create and save filters using GuardDuty console, and API and CLI commands. Choose
   your preferred access method to proceed.
 
@@ -271,3 +281,550 @@ and their equivalent JSON field names.
 | Lambda function tag key                | resource.lambdaDetails.tags.key                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Lambda function tag value              | resource.lambdaDetails.tags.value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | DNS request domain                     | service.action.dnsRequestAction.domainWithSuffix                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+
+All other finding fields (listed below) are available as suppression rule filter criteria only (using
+[CreateFilter](../APIReference/API_CreateFilter.md "../APIReference/API_CreateFilter.md") and
+[UpdateFilter](../APIReference/API_UpdateFilter.md "../APIReference/API_UpdateFilter.md")).
+These fields are not supported by other API operations. Suppression rules that use these fields must be created or updated
+through the API. These fields can only be applied for filters with an
+`ARCHIVE` action.
+
+###### Note
+
+The following fields accept timestamp values in Unix Epoch millisecond format
+(for example, `1262309025000` represents Friday, January 1, 2010 at
+1:23:45 AM GMT):
+
+- createdAt
+- updatedAt
+- service.eventFirstSeen
+- service.eventLastSeen
+- resource.instanceDetails.launchTime
+- resource.lambdaDetails.lastModifiedAt
+- resource.s3BucketDetails.createdAt
+- resource.eksClusterDetails.createdAt
+- resource.ecsClusterDetails.taskDetails.createdAt
+- resource.ecsClusterDetails.taskDetails.startedAt
+- service.ebsVolumeScanDetails.scanStartedAt
+- service.ebsVolumeScanDetails.scanCompletedAt
+- service.runtimeDetails.context.modifiedAt
+- service.runtimeDetails.context.modifyingProcess.startTime
+- service.runtimeDetails.context.modifyingProcess.lineage.startTime
+- service.runtimeDetails.context.targetProcess.startTime
+- service.runtimeDetails.context.targetProcess.lineage.startTime
+- service.runtimeDetails.process.startTime
+- service.runtimeDetails.process.lineage.startTime
+- service.detection.sequence.actors.session.createdTime
+- service.detection.sequence.signals.createdAt
+- service.detection.sequence.signals.updatedAt
+- service.detection.sequence.signals.firstSeenAt
+- service.detection.sequence.signals.lastSeenAt
+- service.detection.sequence.resources.data.s3Bucket.createdAt
+- service.detection.sequence.resources.data.ecsTask.createdAt
+- service.detection.sequence.resources.data.eksCluster.createdAt
+
+| JSON field name                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------ |
+| arn                                                                                                                            |
+| associatedAttackSequenceArn                                                                                                    |
+| createdAt                                                                                                                      |
+| description                                                                                                                    |
+| partition                                                                                                                      |
+| resource.accessKeyDetails.userIdentity.accessKeyId                                                                             |
+| resource.accessKeyDetails.userIdentity.accountId                                                                               |
+| resource.accessKeyDetails.userIdentity.arn                                                                                     |
+| resource.accessKeyDetails.userIdentity.principalId                                                                             |
+| resource.accessKeyDetails.userIdentity.sessionContext.attributes.mfaAuthenticated                                              |
+| resource.accessKeyDetails.userIdentity.sessionContext.ec2RoleDelivery                                                          |
+| resource.accessKeyDetails.userIdentity.sessionContext.invokedBy                                                                |
+| resource.accessKeyDetails.userIdentity.sessionContext.sessionIssuer.accountId                                                  |
+| resource.accessKeyDetails.userIdentity.sessionContext.sessionIssuer.arn                                                        |
+| resource.accessKeyDetails.userIdentity.sessionContext.sessionIssuer.principalId                                                |
+| resource.accessKeyDetails.userIdentity.sessionContext.sessionIssuer.type                                                       |
+| resource.accessKeyDetails.userIdentity.sessionContext.sessionIssuer.userName                                                   |
+| resource.accessKeyDetails.userIdentity.sessionContext.sourceIdentity                                                           |
+| resource.accessKeyDetails.userIdentity.sessionContext.webIdFederationData.attributes                                           |
+| resource.accessKeyDetails.userIdentity.sessionContext.webIdFederationData.federatedProvider                                    |
+| resource.accessKeyDetails.userIdentity.type                                                                                    |
+| resource.accessKeyDetails.userIdentity.userName                                                                                |
+| resource.bedrockGuardrailDetails.guardrailArn                                                                                  |
+| resource.bedrockGuardrailDetails.guardrailVersion                                                                              |
+| resource.containerDetails.containerRuntime                                                                                     |
+| resource.containerDetails.imagePrefix                                                                                          |
+| resource.containerDetails.securityContext.allowPrivilegeEscalation                                                             |
+| resource.containerDetails.securityContext.privileged                                                                           |
+| resource.containerDetails.volumeMounts.mountPath                                                                               |
+| resource.containerDetails.volumeMounts.name                                                                                    |
+| resource.ebsVolumeDetails.scannedVolumeDetails.deviceName                                                                      |
+| resource.ebsVolumeDetails.scannedVolumeDetails.encryptionType                                                                  |
+| resource.ebsVolumeDetails.scannedVolumeDetails.kmsKeyArn                                                                       |
+| resource.ebsVolumeDetails.scannedVolumeDetails.snapshotArn                                                                     |
+| resource.ebsVolumeDetails.scannedVolumeDetails.volumeArn                                                                       |
+| resource.ebsVolumeDetails.scannedVolumeDetails.volumeSizeInGB                                                                  |
+| resource.ebsVolumeDetails.scannedVolumeDetails.volumeType                                                                      |
+| resource.ebsVolumeDetails.skippedVolumeDetails.deviceName                                                                      |
+| resource.ebsVolumeDetails.skippedVolumeDetails.encryptionType                                                                  |
+| resource.ebsVolumeDetails.skippedVolumeDetails.kmsKeyArn                                                                       |
+| resource.ebsVolumeDetails.skippedVolumeDetails.snapshotArn                                                                     |
+| resource.ebsVolumeDetails.skippedVolumeDetails.volumeArn                                                                       |
+| resource.ebsVolumeDetails.skippedVolumeDetails.volumeSizeInGB                                                                  |
+| resource.ebsVolumeDetails.skippedVolumeDetails.volumeType                                                                      |
+| resource.ecsClusterDetails.activeServicesCount                                                                                 |
+| resource.ecsClusterDetails.arn                                                                                                 |
+| resource.ecsClusterDetails.registeredContainerInstancesCount                                                                   |
+| resource.ecsClusterDetails.runningTasksCount                                                                                   |
+| resource.ecsClusterDetails.status                                                                                              |
+| resource.ecsClusterDetails.tags.key                                                                                            |
+| resource.ecsClusterDetails.tags.value                                                                                          |
+| resource.ecsClusterDetails.taskDetails.arn                                                                                     |
+| resource.ecsClusterDetails.taskDetails.containers.containerRuntime                                                             |
+| resource.ecsClusterDetails.taskDetails.containers.id                                                                           |
+| resource.ecsClusterDetails.taskDetails.containers.imagePrefix                                                                  |
+| resource.ecsClusterDetails.taskDetails.containers.name                                                                         |
+| resource.ecsClusterDetails.taskDetails.containers.securityContext.allowPrivilegeEscalation                                     |
+| resource.ecsClusterDetails.taskDetails.containers.securityContext.privileged                                                   |
+| resource.ecsClusterDetails.taskDetails.containers.volumeMounts.mountPath                                                       |
+| resource.ecsClusterDetails.taskDetails.containers.volumeMounts.name                                                            |
+| resource.ecsClusterDetails.taskDetails.createdAt                                                                               |
+| resource.ecsClusterDetails.taskDetails.group                                                                                   |
+| resource.ecsClusterDetails.taskDetails.launchType                                                                              |
+| resource.ecsClusterDetails.taskDetails.startedAt                                                                               |
+| resource.ecsClusterDetails.taskDetails.startedBy                                                                               |
+| resource.ecsClusterDetails.taskDetails.tags.key                                                                                |
+| resource.ecsClusterDetails.taskDetails.tags.value                                                                              |
+| resource.ecsClusterDetails.taskDetails.version                                                                                 |
+| resource.ecsClusterDetails.taskDetails.volumes.hostPath.path                                                                   |
+| resource.ecsClusterDetails.taskDetails.volumes.name                                                                            |
+| resource.eksClusterDetails.arn                                                                                                 |
+| resource.eksClusterDetails.createdAt                                                                                           |
+| resource.eksClusterDetails.status                                                                                              |
+| resource.eksClusterDetails.tags.key                                                                                            |
+| resource.eksClusterDetails.tags.value                                                                                          |
+| resource.eksClusterDetails.vpcId                                                                                               |
+| resource.instanceDetails.iamInstanceProfile.arn                                                                                |
+| resource.instanceDetails.instanceState                                                                                         |
+| resource.instanceDetails.instanceType                                                                                          |
+| resource.instanceDetails.launchTime                                                                                            |
+| resource.instanceDetails.networkInterfaces.networkInterfaceId                                                                  |
+| resource.instanceDetails.networkInterfaces.privateDnsName                                                                      |
+| resource.instanceDetails.networkInterfaces.privateIpAddress                                                                    |
+| resource.instanceDetails.networkInterfaces.privateIpAddresses.privateDnsName                                                   |
+| resource.instanceDetails.platform                                                                                              |
+| resource.instanceDetails.productCodes.productCodeId                                                                            |
+| resource.instanceDetails.productCodes.productCodeType                                                                          |
+| resource.kubernetesDetails.kubernetesUserDetails.groups                                                                        |
+| resource.kubernetesDetails.kubernetesUserDetails.impersonatedUser.groups                                                       |
+| resource.kubernetesDetails.kubernetesUserDetails.impersonatedUser.username                                                     |
+| resource.kubernetesDetails.kubernetesUserDetails.sessionName                                                                   |
+| resource.kubernetesDetails.kubernetesUserDetails.uid                                                                           |
+| resource.kubernetesDetails.kubernetesWorkloadDetails.containers.containerRuntime                                               |
+| resource.kubernetesDetails.kubernetesWorkloadDetails.containers.id                                                             |
+| resource.kubernetesDetails.kubernetesWorkloadDetails.containers.name                                                           |
+| resource.kubernetesDetails.kubernetesWorkloadDetails.containers.securityContext.allowPrivilegeEscalation                       |
+| resource.kubernetesDetails.kubernetesWorkloadDetails.containers.securityContext.privileged                                     |
+| resource.kubernetesDetails.kubernetesWorkloadDetails.containers.volumeMounts.mountPath                                         |
+| resource.kubernetesDetails.kubernetesWorkloadDetails.containers.volumeMounts.name                                              |
+| resource.kubernetesDetails.kubernetesWorkloadDetails.hostIpc                                                                   |
+| resource.kubernetesDetails.kubernetesWorkloadDetails.hostNetwork                                                               |
+| resource.kubernetesDetails.kubernetesWorkloadDetails.hostPid                                                                   |
+| resource.kubernetesDetails.kubernetesWorkloadDetails.serviceAccountName                                                        |
+| resource.kubernetesDetails.kubernetesWorkloadDetails.type                                                                      |
+| resource.kubernetesDetails.kubernetesWorkloadDetails.uid                                                                       |
+| resource.kubernetesDetails.kubernetesWorkloadDetails.volumes.hostPath.path                                                     |
+| resource.kubernetesDetails.kubernetesWorkloadDetails.volumes.name                                                              |
+| resource.lambdaDetails.description                                                                                             |
+| resource.lambdaDetails.lastModifiedAt                                                                                          |
+| resource.lambdaDetails.revisionId                                                                                              |
+| resource.lambdaDetails.vpcConfig.securityGroups.groupId                                                                        |
+| resource.lambdaDetails.vpcConfig.securityGroups.groupName                                                                      |
+| resource.lambdaDetails.vpcConfig.subnetIds                                                                                     |
+| resource.lambdaDetails.vpcConfig.vpcId                                                                                         |
+| resource.rdsDbInstanceDetails.dbInstanceArn                                                                                    |
+| resource.rdsDbInstanceDetails.dbiResourceId                                                                                    |
+| resource.rdsDbInstanceDetails.dbSecurityGroups.name                                                                            |
+| resource.rdsDbInstanceDetails.dbSecurityGroups.status                                                                          |
+| resource.rdsDbInstanceDetails.engineVersion                                                                                    |
+| resource.rdsDbInstanceDetails.iamDatabaseAuthenticationEnabled                                                                 |
+| resource.rdsDbInstanceDetails.publiclyAccessible                                                                               |
+| resource.rdsDbInstanceDetails.vpcId                                                                                            |
+| resource.rdsDbInstanceDetails.vpcSecurityGroups.status                                                                         |
+| resource.rdsDbInstanceDetails.vpcSecurityGroups.vpcSecurityGroupId                                                             |
+| resource.rdsDbUserDetails.application                                                                                          |
+| resource.rdsDbUserDetails.authMethod                                                                                           |
+| resource.rdsDbUserDetails.database                                                                                             |
+| resource.rdsDbUserDetails.ssl                                                                                                  |
+| resource.rdsLimitlessDbDetails.dbClusterIdentifier                                                                             |
+| resource.rdsLimitlessDbDetails.dbShardGroupArn                                                                                 |
+| resource.rdsLimitlessDbDetails.dbShardGroupIdentifier                                                                          |
+| resource.rdsLimitlessDbDetails.dbShardGroupResourceId                                                                          |
+| resource.rdsLimitlessDbDetails.engine                                                                                          |
+| resource.rdsLimitlessDbDetails.engineVersion                                                                                   |
+| resource.rdsLimitlessDbDetails.tags.key                                                                                        |
+| resource.rdsLimitlessDbDetails.tags.value                                                                                      |
+| resource.s3BucketDetails.arn                                                                                                   |
+| resource.s3BucketDetails.createdAt                                                                                             |
+| resource.s3BucketDetails.defaultServerSideEncryption.encryptionType                                                            |
+| resource.s3BucketDetails.defaultServerSideEncryption.kmsMasterKeyArn                                                           |
+| resource.s3BucketDetails.owner.id                                                                                              |
+| resource.s3BucketDetails.publicAccess.permissionConfiguration.accountLevelPermissions.blockPublicAccess.blockPublicAcls        |
+| resource.s3BucketDetails.publicAccess.permissionConfiguration.accountLevelPermissions.blockPublicAccess.blockPublicPolicy      |
+| resource.s3BucketDetails.publicAccess.permissionConfiguration.accountLevelPermissions.blockPublicAccess.ignorePublicAcls       |
+| resource.s3BucketDetails.publicAccess.permissionConfiguration.accountLevelPermissions.blockPublicAccess.restrictPublicBuckets  |
+| resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.accessControlList.allowsPublicReadAccess  |
+| resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.accessControlList.allowsPublicWriteAccess |
+| resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.blockPublicAccess.blockPublicAcls         |
+| resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.blockPublicAccess.blockPublicPolicy       |
+| resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.blockPublicAccess.ignorePublicAcls        |
+| resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.blockPublicAccess.restrictPublicBuckets   |
+| resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.bucketPolicy.allowsPublicReadAccess       |
+| resource.s3BucketDetails.publicAccess.permissionConfiguration.bucketLevelPermissions.bucketPolicy.allowsPublicWriteAccess      |
+| resource.s3BucketDetails.s3ObjectDetails.eTag                                                                                  |
+| resource.s3BucketDetails.s3ObjectDetails.hash                                                                                  |
+| resource.s3BucketDetails.s3ObjectDetails.key                                                                                   |
+| resource.s3BucketDetails.s3ObjectDetails.objectArn                                                                             |
+| resource.s3BucketDetails.s3ObjectDetails.versionId                                                                             |
+| schemaVersion                                                                                                                  |
+| service.action.awsApiCallAction.affectedResources                                                                              |
+| service.action.awsApiCallAction.domainDetails.domain                                                                           |
+| service.action.awsApiCallAction.remoteIpDetails.country.countryCode                                                            |
+| service.action.awsApiCallAction.remoteIpDetails.geoLocation.lat                                                                |
+| service.action.awsApiCallAction.remoteIpDetails.geoLocation.lon                                                                |
+| service.action.awsApiCallAction.remoteIpDetails.organization.isp                                                               |
+| service.action.awsApiCallAction.remoteIpDetails.organization.org                                                               |
+| service.action.awsApiCallAction.userAgent                                                                                      |
+| service.action.dnsRequestAction.blocked                                                                                        |
+| service.action.dnsRequestAction.protocol                                                                                       |
+| service.action.kubernetesApiCallAction.parameters                                                                              |
+| service.action.kubernetesApiCallAction.remoteIpDetails.country.countryCode                                                     |
+| service.action.kubernetesApiCallAction.remoteIpDetails.geoLocation.lat                                                         |
+| service.action.kubernetesApiCallAction.remoteIpDetails.geoLocation.lon                                                         |
+| service.action.kubernetesApiCallAction.resource                                                                                |
+| service.action.kubernetesApiCallAction.resourceName                                                                            |
+| service.action.kubernetesApiCallAction.sourceIPs                                                                               |
+| service.action.kubernetesApiCallAction.subresource                                                                             |
+| service.action.kubernetesApiCallAction.userAgent                                                                               |
+| service.action.kubernetesApiCallAction.verb                                                                                    |
+| service.action.kubernetesPermissionCheckedDetails.allowed                                                                      |
+| service.action.kubernetesPermissionCheckedDetails.namespace                                                                    |
+| service.action.kubernetesPermissionCheckedDetails.resource                                                                     |
+| service.action.kubernetesPermissionCheckedDetails.verb                                                                         |
+| service.action.kubernetesRoleBindingDetails.kind                                                                               |
+| service.action.kubernetesRoleBindingDetails.name                                                                               |
+| service.action.kubernetesRoleBindingDetails.roleRefKind                                                                        |
+| service.action.kubernetesRoleBindingDetails.roleRefName                                                                        |
+| service.action.kubernetesRoleBindingDetails.uid                                                                                |
+| service.action.kubernetesRoleDetails.kind                                                                                      |
+| service.action.kubernetesRoleDetails.name                                                                                      |
+| service.action.kubernetesRoleDetails.uid                                                                                       |
+| service.action.networkConnectionAction.localNetworkInterface                                                                   |
+| service.action.networkConnectionAction.localPortDetails.portName                                                               |
+| service.action.networkConnectionAction.remoteIpDetails.country.countryCode                                                     |
+| service.action.networkConnectionAction.remoteIpDetails.geoLocation.lat                                                         |
+| service.action.networkConnectionAction.remoteIpDetails.geoLocation.lon                                                         |
+| service.action.networkConnectionAction.remoteIpDetails.organization.isp                                                        |
+| service.action.networkConnectionAction.remoteIpDetails.organization.org                                                        |
+| service.action.networkConnectionAction.remotePortDetails.portName                                                              |
+| service.action.portProbeAction.blocked                                                                                         |
+| service.action.portProbeAction.portProbeDetails.localIpDetails.ipAddressV4                                                     |
+| service.action.portProbeAction.portProbeDetails.localIpDetails.ipAddressV6                                                     |
+| service.action.portProbeAction.portProbeDetails.localPortDetails.port                                                          |
+| service.action.portProbeAction.portProbeDetails.localPortDetails.portName                                                      |
+| service.action.portProbeAction.portProbeDetails.remoteIpDetails.city.cityName                                                  |
+| service.action.portProbeAction.portProbeDetails.remoteIpDetails.country.countryCode                                            |
+| service.action.portProbeAction.portProbeDetails.remoteIpDetails.country.countryName                                            |
+| service.action.portProbeAction.portProbeDetails.remoteIpDetails.geoLocation.lat                                                |
+| service.action.portProbeAction.portProbeDetails.remoteIpDetails.geoLocation.lon                                                |
+| service.action.portProbeAction.portProbeDetails.remoteIpDetails.ipAddressV4                                                    |
+| service.action.portProbeAction.portProbeDetails.remoteIpDetails.ipAddressV6                                                    |
+| service.action.portProbeAction.portProbeDetails.remoteIpDetails.organization.asn                                               |
+| service.action.portProbeAction.portProbeDetails.remoteIpDetails.organization.asnOrg                                            |
+| service.action.portProbeAction.portProbeDetails.remoteIpDetails.organization.isp                                               |
+| service.action.portProbeAction.portProbeDetails.remoteIpDetails.organization.org                                               |
+| service.action.rdsLoginAttemptAction.loginAttributes.application                                                               |
+| service.action.rdsLoginAttemptAction.loginAttributes.failedLoginAttempts                                                       |
+| service.action.rdsLoginAttemptAction.loginAttributes.successfulLoginAttempts                                                   |
+| service.action.rdsLoginAttemptAction.loginAttributes.user                                                                      |
+| service.action.rdsLoginAttemptAction.remoteIpDetails.city.cityName                                                             |
+| service.action.rdsLoginAttemptAction.remoteIpDetails.country.countryCode                                                       |
+| service.action.rdsLoginAttemptAction.remoteIpDetails.country.countryName                                                       |
+| service.action.rdsLoginAttemptAction.remoteIpDetails.geoLocation.lat                                                           |
+| service.action.rdsLoginAttemptAction.remoteIpDetails.geoLocation.lon                                                           |
+| service.action.rdsLoginAttemptAction.remoteIpDetails.ipAddressV4                                                               |
+| service.action.rdsLoginAttemptAction.remoteIpDetails.ipAddressV6                                                               |
+| service.action.rdsLoginAttemptAction.remoteIpDetails.organization.asn                                                          |
+| service.action.rdsLoginAttemptAction.remoteIpDetails.organization.asnOrg                                                       |
+| service.action.rdsLoginAttemptAction.remoteIpDetails.organization.isp                                                          |
+| service.action.rdsLoginAttemptAction.remoteIpDetails.organization.org                                                          |
+| service.additionalInfo.agentDetails.agentId                                                                                    |
+| service.additionalInfo.agentDetails.agentVersion                                                                               |
+| service.additionalInfo.anomalies.anomalousAPIs                                                                                 |
+| service.additionalInfo.authenticationMethod                                                                                    |
+| service.additionalInfo.averagePacketSizeIn                                                                                     |
+| service.additionalInfo.averagePacketSizeOut                                                                                    |
+| service.additionalInfo.context                                                                                                 |
+| service.additionalInfo.domain                                                                                                  |
+| service.additionalInfo.inBytes                                                                                                 |
+| service.additionalInfo.localNetworkInterfaceOwner                                                                              |
+| service.additionalInfo.localPort                                                                                               |
+| service.additionalInfo.outBytes                                                                                                |
+| service.additionalInfo.packetsIn                                                                                               |
+| service.additionalInfo.packetsOut                                                                                              |
+| service.additionalInfo.policyArn                                                                                               |
+| service.additionalInfo.policyName                                                                                              |
+| service.additionalInfo.remotePort                                                                                              |
+| service.additionalInfo.sample                                                                                                  |
+| service.additionalInfo.scannedPort                                                                                             |
+| service.additionalInfo.threatFileSha256                                                                                        |
+| service.additionalInfo.threatName                                                                                              |
+| service.additionalInfo.totalBytesIn                                                                                            |
+| service.additionalInfo.totalBytesOut                                                                                           |
+| service.additionalInfo.type                                                                                                    |
+| service.additionalInfo.unusual.asnOrg                                                                                          |
+| service.additionalInfo.unusual.port                                                                                            |
+| service.additionalInfo.unusualProtocol                                                                                         |
+| service.additionalInfo.userAgent.fullUserAgent                                                                                 |
+| service.additionalInfo.userAgent.userAgentCategory                                                                             |
+| service.additionalInfo.value                                                                                                   |
+| service.additionalInfo.vpcOwnerAccountId                                                                                       |
+| service.count                                                                                                                  |
+| service.detection.anomaly.profiles                                                                                             |
+| service.detection.anomaly.unusual.behavior                                                                                     |
+| service.detection.sequence.actors.id                                                                                           |
+| service.detection.sequence.actors.process.name                                                                                 |
+| service.detection.sequence.actors.process.path                                                                                 |
+| service.detection.sequence.actors.process.sha256                                                                               |
+| service.detection.sequence.actors.session.createdTime                                                                          |
+| service.detection.sequence.actors.session.issuer                                                                               |
+| service.detection.sequence.actors.session.mfaStatus                                                                            |
+| service.detection.sequence.actors.session.uid                                                                                  |
+| service.detection.sequence.actors.user.account.account                                                                         |
+| service.detection.sequence.actors.user.account.uid                                                                             |
+| service.detection.sequence.actors.user.credentialUid                                                                           |
+| service.detection.sequence.actors.user.name                                                                                    |
+| service.detection.sequence.actors.user.type                                                                                    |
+| service.detection.sequence.actors.user.uid                                                                                     |
+| service.detection.sequence.additionalSequenceTypes                                                                             |
+| service.detection.sequence.description                                                                                         |
+| service.detection.sequence.endpoints.autonomousSystem.name                                                                     |
+| service.detection.sequence.endpoints.autonomousSystem.number                                                                   |
+| service.detection.sequence.endpoints.connection.direction                                                                      |
+| service.detection.sequence.endpoints.domain                                                                                    |
+| service.detection.sequence.endpoints.id                                                                                        |
+| service.detection.sequence.endpoints.ip                                                                                        |
+| service.detection.sequence.endpoints.location.city                                                                             |
+| service.detection.sequence.endpoints.location.country                                                                          |
+| service.detection.sequence.endpoints.location.lat                                                                              |
+| service.detection.sequence.endpoints.location.lon                                                                              |
+| service.detection.sequence.endpoints.port                                                                                      |
+| service.detection.sequence.resources.accountId                                                                                 |
+| service.detection.sequence.resources.cloudPartition                                                                            |
+| service.detection.sequence.resources.data.accessKey.principalId                                                                |
+| service.detection.sequence.resources.data.accessKey.userName                                                                   |
+| service.detection.sequence.resources.data.accessKey.userType                                                                   |
+| service.detection.sequence.resources.data.autoscalingAutoScalingGroup.ec2InstanceUids                                          |
+| service.detection.sequence.resources.data.cloudformationStack.ec2InstanceUids                                                  |
+| service.detection.sequence.resources.data.container.image                                                                      |
+| service.detection.sequence.resources.data.container.imageUid                                                                   |
+| service.detection.sequence.resources.data.ec2Image.ec2InstanceUids                                                             |
+| service.detection.sequence.resources.data.ec2Instance.availabilityZone                                                         |
+| service.detection.sequence.resources.data.ec2Instance.ec2NetworkInterfaceUids                                                  |
+| service.detection.sequence.resources.data.ec2Instance.iamInstanceProfile.arn                                                   |
+| service.detection.sequence.resources.data.ec2Instance.iamInstanceProfile.id                                                    |
+| service.detection.sequence.resources.data.ec2Instance.imageDescription                                                         |
+| service.detection.sequence.resources.data.ec2Instance.instanceState                                                            |
+| service.detection.sequence.resources.data.ec2Instance.instanceType                                                             |
+| service.detection.sequence.resources.data.ec2Instance.outpostArn                                                               |
+| service.detection.sequence.resources.data.ec2Instance.platform                                                                 |
+| service.detection.sequence.resources.data.ec2Instance.productCodes.productCodeId                                               |
+| service.detection.sequence.resources.data.ec2Instance.productCodes.productCodeType                                             |
+| service.detection.sequence.resources.data.ec2LaunchTemplate.ec2InstanceUids                                                    |
+| service.detection.sequence.resources.data.ec2LaunchTemplate.version                                                            |
+| service.detection.sequence.resources.data.ec2NetworkInterface.ipv6Addresses                                                    |
+| service.detection.sequence.resources.data.ec2NetworkInterface.privateIpAddresses.privateDnsName                                |
+| service.detection.sequence.resources.data.ec2NetworkInterface.privateIpAddresses.privateIpAddress                              |
+| service.detection.sequence.resources.data.ec2NetworkInterface.publicIp                                                         |
+| service.detection.sequence.resources.data.ec2NetworkInterface.securityGroups.groupId                                           |
+| service.detection.sequence.resources.data.ec2NetworkInterface.securityGroups.groupName                                         |
+| service.detection.sequence.resources.data.ec2NetworkInterface.subNetId                                                         |
+| service.detection.sequence.resources.data.ec2NetworkInterface.vpcId                                                            |
+| service.detection.sequence.resources.data.ec2Vpc.ec2InstanceUids                                                               |
+| service.detection.sequence.resources.data.ecsCluster.ec2InstanceUids                                                           |
+| service.detection.sequence.resources.data.ecsCluster.status                                                                    |
+| service.detection.sequence.resources.data.ecsTask.containerUids                                                                |
+| service.detection.sequence.resources.data.ecsTask.createdAt                                                                    |
+| service.detection.sequence.resources.data.ecsTask.launchType                                                                   |
+| service.detection.sequence.resources.data.ecsTask.taskDefinitionArn                                                            |
+| service.detection.sequence.resources.data.eksCluster.arn                                                                       |
+| service.detection.sequence.resources.data.eksCluster.createdAt                                                                 |
+| service.detection.sequence.resources.data.eksCluster.ec2InstanceUids                                                           |
+| service.detection.sequence.resources.data.eksCluster.status                                                                    |
+| service.detection.sequence.resources.data.eksCluster.vpcId                                                                     |
+| service.detection.sequence.resources.data.iamInstanceProfile.ec2InstanceUids                                                   |
+| service.detection.sequence.resources.data.iamInstanceProfile.id                                                                |
+| service.detection.sequence.resources.data.kubernetesWorkload.containerUids                                                     |
+| service.detection.sequence.resources.data.kubernetesWorkload.namespace                                                         |
+| service.detection.sequence.resources.data.kubernetesWorkload.type                                                              |
+| service.detection.sequence.resources.data.s3Bucket.accountPublicAccess.publicAclAccess                                         |
+| service.detection.sequence.resources.data.s3Bucket.accountPublicAccess.publicAclIgnoreBehavior                                 |
+| service.detection.sequence.resources.data.s3Bucket.accountPublicAccess.publicBucketRestrictBehavior                            |
+| service.detection.sequence.resources.data.s3Bucket.accountPublicAccess.publicPolicyAccess                                      |
+| service.detection.sequence.resources.data.s3Bucket.bucketPublicAccess.publicAclAccess                                          |
+| service.detection.sequence.resources.data.s3Bucket.bucketPublicAccess.publicAclIgnoreBehavior                                  |
+| service.detection.sequence.resources.data.s3Bucket.bucketPublicAccess.publicBucketRestrictBehavior                             |
+| service.detection.sequence.resources.data.s3Bucket.bucketPublicAccess.publicPolicyAccess                                       |
+| service.detection.sequence.resources.data.s3Bucket.createdAt                                                                   |
+| service.detection.sequence.resources.data.s3Bucket.effectivePermission                                                         |
+| service.detection.sequence.resources.data.s3Bucket.encryptionKeyArn                                                            |
+| service.detection.sequence.resources.data.s3Bucket.encryptionType                                                              |
+| service.detection.sequence.resources.data.s3Bucket.ownerId                                                                     |
+| service.detection.sequence.resources.data.s3Bucket.publicReadAccess                                                            |
+| service.detection.sequence.resources.data.s3Bucket.publicWriteAccess                                                           |
+| service.detection.sequence.resources.data.s3Bucket.s3ObjectUids                                                                |
+| service.detection.sequence.resources.data.s3Object.eTag                                                                        |
+| service.detection.sequence.resources.data.s3Object.key                                                                         |
+| service.detection.sequence.resources.data.s3Object.versionId                                                                   |
+| service.detection.sequence.resources.name                                                                                      |
+| service.detection.sequence.resources.region                                                                                    |
+| service.detection.sequence.resources.resourceType                                                                              |
+| service.detection.sequence.resources.service                                                                                   |
+| service.detection.sequence.resources.tags.key                                                                                  |
+| service.detection.sequence.resources.tags.value                                                                                |
+| service.detection.sequence.resources.uid                                                                                       |
+| service.detection.sequence.sequenceIndicators.key                                                                              |
+| service.detection.sequence.sequenceIndicators.title                                                                            |
+| service.detection.sequence.sequenceIndicators.values                                                                           |
+| service.detection.sequence.signals.actorIds                                                                                    |
+| service.detection.sequence.signals.count                                                                                       |
+| service.detection.sequence.signals.createdAt                                                                                   |
+| service.detection.sequence.signals.description                                                                                 |
+| service.detection.sequence.signals.endpointIds                                                                                 |
+| service.detection.sequence.signals.firstSeenAt                                                                                 |
+| service.detection.sequence.signals.lastSeenAt                                                                                  |
+| service.detection.sequence.signals.name                                                                                        |
+| service.detection.sequence.signals.resourceUids                                                                                |
+| service.detection.sequence.signals.severity                                                                                    |
+| service.detection.sequence.signals.signalIndicators.key                                                                        |
+| service.detection.sequence.signals.signalIndicators.title                                                                      |
+| service.detection.sequence.signals.signalIndicators.values                                                                     |
+| service.detection.sequence.signals.type                                                                                        |
+| service.detection.sequence.signals.uid                                                                                         |
+| service.detection.sequence.signals.updatedAt                                                                                   |
+| service.detection.sequence.uid                                                                                                 |
+| service.detectorId                                                                                                             |
+| service.ebsVolumeScanDetails.scanCompletedAt                                                                                   |
+| service.ebsVolumeScanDetails.scanDetections.highestSeverityThreatDetails.count                                                 |
+| service.ebsVolumeScanDetails.scanDetections.highestSeverityThreatDetails.severity                                              |
+| service.ebsVolumeScanDetails.scanDetections.highestSeverityThreatDetails.threatName                                            |
+| service.ebsVolumeScanDetails.scanDetections.scannedItemCount.files                                                             |
+| service.ebsVolumeScanDetails.scanDetections.scannedItemCount.totalGb                                                           |
+| service.ebsVolumeScanDetails.scanDetections.scannedItemCount.volumes                                                           |
+| service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.itemCount                                                     |
+| service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.shortened                                                     |
+| service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.fileName                                |
+| service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.filePath                                |
+| service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.volumeArn                               |
+| service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.itemCount                                         |
+| service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.uniqueThreatNameCount                                         |
+| service.ebsVolumeScanDetails.scanDetections.threatsDetectedItemCount.files                                                     |
+| service.ebsVolumeScanDetails.scanStartedAt                                                                                     |
+| service.ebsVolumeScanDetails.scanType                                                                                          |
+| service.ebsVolumeScanDetails.sources                                                                                           |
+| service.eventFirstSeen                                                                                                         |
+| service.eventLastSeen                                                                                                          |
+| service.malwareScanDetails.scanCategory                                                                                        |
+| service.malwareScanDetails.scanConfiguration.incrementalScanDetails.baselineResourceArn                                        |
+| service.malwareScanDetails.scanConfiguration.triggerType                                                                       |
+| service.malwareScanDetails.threats.count                                                                                       |
+| service.malwareScanDetails.threats.hash                                                                                        |
+| service.malwareScanDetails.threats.itemDetails.additionalInfo.deviceName                                                       |
+| service.malwareScanDetails.threats.itemDetails.additionalInfo.versionId                                                        |
+| service.malwareScanDetails.threats.itemDetails.hash                                                                            |
+| service.malwareScanDetails.threats.itemDetails.itemPath                                                                        |
+| service.malwareScanDetails.threats.itemDetails.resourceArn                                                                     |
+| service.malwareScanDetails.threats.itemPaths.hash                                                                              |
+| service.malwareScanDetails.threats.itemPaths.nestedItemPath                                                                    |
+| service.malwareScanDetails.threats.source                                                                                      |
+| service.malwareScanDetails.uniqueThreatCount                                                                                   |
+| service.runtimeDetails.context.addressFamily                                                                                   |
+| service.runtimeDetails.context.commandLineExample                                                                              |
+| service.runtimeDetails.context.fileSystemType                                                                                  |
+| service.runtimeDetails.context.flags                                                                                           |
+| service.runtimeDetails.context.ianaProtocolNumber                                                                              |
+| service.runtimeDetails.context.ldPreloadValue                                                                                  |
+| service.runtimeDetails.context.libraryPath                                                                                     |
+| service.runtimeDetails.context.memoryRegions                                                                                   |
+| service.runtimeDetails.context.modifiedAt                                                                                      |
+| service.runtimeDetails.context.modifyingProcess.euid                                                                           |
+| service.runtimeDetails.context.modifyingProcess.executablePath                                                                 |
+| service.runtimeDetails.context.modifyingProcess.executableSha256                                                               |
+| service.runtimeDetails.context.modifyingProcess.lineage.euid                                                                   |
+| service.runtimeDetails.context.modifyingProcess.lineage.executablePath                                                         |
+| service.runtimeDetails.context.modifyingProcess.lineage.name                                                                   |
+| service.runtimeDetails.context.modifyingProcess.lineage.namespacePid                                                           |
+| service.runtimeDetails.context.modifyingProcess.lineage.parentUuid                                                             |
+| service.runtimeDetails.context.modifyingProcess.lineage.pid                                                                    |
+| service.runtimeDetails.context.modifyingProcess.lineage.startTime                                                              |
+| service.runtimeDetails.context.modifyingProcess.lineage.userId                                                                 |
+| service.runtimeDetails.context.modifyingProcess.lineage.uuid                                                                   |
+| service.runtimeDetails.context.modifyingProcess.name                                                                           |
+| service.runtimeDetails.context.modifyingProcess.namespacePid                                                                   |
+| service.runtimeDetails.context.modifyingProcess.parentUuid                                                                     |
+| service.runtimeDetails.context.modifyingProcess.pid                                                                            |
+| service.runtimeDetails.context.modifyingProcess.pwd                                                                            |
+| service.runtimeDetails.context.modifyingProcess.startTime                                                                      |
+| service.runtimeDetails.context.modifyingProcess.user                                                                           |
+| service.runtimeDetails.context.modifyingProcess.userId                                                                         |
+| service.runtimeDetails.context.modifyingProcess.uuid                                                                           |
+| service.runtimeDetails.context.mountSource                                                                                     |
+| service.runtimeDetails.context.mountTarget                                                                                     |
+| service.runtimeDetails.context.relatedFilePaths                                                                                |
+| service.runtimeDetails.context.releaseAgentPath                                                                                |
+| service.runtimeDetails.context.runcBinaryPath                                                                                  |
+| service.runtimeDetails.context.scriptPath                                                                                      |
+| service.runtimeDetails.context.serviceName                                                                                     |
+| service.runtimeDetails.context.shellHistoryFilePath                                                                            |
+| service.runtimeDetails.context.socketPath                                                                                      |
+| service.runtimeDetails.context.targetProcess.euid                                                                              |
+| service.runtimeDetails.context.targetProcess.executablePath                                                                    |
+| service.runtimeDetails.context.targetProcess.executableSha256                                                                  |
+| service.runtimeDetails.context.targetProcess.lineage.euid                                                                      |
+| service.runtimeDetails.context.targetProcess.lineage.executablePath                                                            |
+| service.runtimeDetails.context.targetProcess.lineage.name                                                                      |
+| service.runtimeDetails.context.targetProcess.lineage.namespacePid                                                              |
+| service.runtimeDetails.context.targetProcess.lineage.parentUuid                                                                |
+| service.runtimeDetails.context.targetProcess.lineage.pid                                                                       |
+| service.runtimeDetails.context.targetProcess.lineage.startTime                                                                 |
+| service.runtimeDetails.context.targetProcess.lineage.userId                                                                    |
+| service.runtimeDetails.context.targetProcess.lineage.uuid                                                                      |
+| service.runtimeDetails.context.targetProcess.name                                                                              |
+| service.runtimeDetails.context.targetProcess.namespacePid                                                                      |
+| service.runtimeDetails.context.targetProcess.parentUuid                                                                        |
+| service.runtimeDetails.context.targetProcess.pid                                                                               |
+| service.runtimeDetails.context.targetProcess.pwd                                                                               |
+| service.runtimeDetails.context.targetProcess.startTime                                                                         |
+| service.runtimeDetails.context.targetProcess.user                                                                              |
+| service.runtimeDetails.context.targetProcess.userId                                                                            |
+| service.runtimeDetails.context.targetProcess.uuid                                                                              |
+| service.runtimeDetails.context.threatFilePath                                                                                  |
+| service.runtimeDetails.context.toolCategory                                                                                    |
+| service.runtimeDetails.context.toolName                                                                                        |
+| service.runtimeDetails.process.euid                                                                                            |
+| service.runtimeDetails.process.lineage.euid                                                                                    |
+| service.runtimeDetails.process.lineage.executablePath                                                                          |
+| service.runtimeDetails.process.lineage.name                                                                                    |
+| service.runtimeDetails.process.lineage.namespacePid                                                                            |
+| service.runtimeDetails.process.lineage.parentUuid                                                                              |
+| service.runtimeDetails.process.lineage.pid                                                                                     |
+| service.runtimeDetails.process.lineage.startTime                                                                               |
+| service.runtimeDetails.process.lineage.userId                                                                                  |
+| service.runtimeDetails.process.lineage.uuid                                                                                    |
+| service.runtimeDetails.process.namespacePid                                                                                    |
+| service.runtimeDetails.process.parentUuid                                                                                      |
+| service.runtimeDetails.process.pid                                                                                             |
+| service.runtimeDetails.process.pwd                                                                                             |
+| service.runtimeDetails.process.startTime                                                                                       |
+| service.runtimeDetails.process.user                                                                                            |
+| service.runtimeDetails.process.userId                                                                                          |
+| service.runtimeDetails.process.uuid                                                                                            |
+| service.userFeedback                                                                                                           |
+| title                                                                                                                          |

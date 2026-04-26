@@ -13,6 +13,13 @@ reduced.
 
 A list of regional differences to specify the availability of GuardDuty features.
 
+**Expanded filterable fields for CreateFilter and UpdateFilter**
+
+The [additional filterable fields](guardduty_filter-findings.md#filter_criteria "guardduty_filter-findings.md#filter_criteria") for
+suppression rules and filters are available only in the AWS partition
+(`aws`). In other partitions, you can continue to use the
+console-supported fields.
+
 **ListFindings and GetFindingsStatistics APIs**
 
 The [GetFindingsStatistics](../APIReference/API_GetFindingsStatistics.md "../APIReference/API_GetFindingsStatistics.md") and [ListFindings](../APIReference/API_ListFindings.md "../APIReference/API_ListFindings.md") APIs have a temporary
@@ -28,6 +35,8 @@ Local Zones](https://aws.amazon.com/dedicatedlocalzones "https://aws.amazon.com/
 **RDS Protection**
 
 RDS Protection is not supported in Asia Pacific (Taipei) (`ap-east-2`) Region.
+
+RDS Protection is not supported in the AWS Dedicated Local Zones.
 
 **IAM finding type – [CredentialAccess:IAMUser/CompromisedCredentials](guardduty_finding-types-iam.md#credentialaccess-iam-compromisedcredentials "guardduty_finding-types-iam.md#credentialaccess-iam-compromisedcredentials")**
 
