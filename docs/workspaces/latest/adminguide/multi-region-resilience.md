@@ -91,6 +91,7 @@ secondary WorkSpace.
   the primary WorkSpace.
 - WorkSpaces Multi-Region Resilience is currently available in the following Regions:
   - US East (N. Virginia) Region
+  - US East (Ohio) Region
   - US West (Oregon) Region
   - Europe (Frankfurt) Region
   - Europe (Ireland) Region
