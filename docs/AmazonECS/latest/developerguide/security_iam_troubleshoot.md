@@ -50,6 +50,11 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
+If you use Amazon ECS Managed Instances and receive this error, your instance role name
+might not match the naming convention required by the managed policy. For more
+information, see
+[I am having issues with my Amazon ECS Managed Instances instance profile](#security_iam_instance-profile "#security_iam_instance-profile").
+
 ## I want to allow people outside of my AWS account to access my Amazon ECS resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
@@ -70,9 +75,26 @@ To learn more, consult the following:
 ## I am having issues with my Amazon ECS Managed Instances instance profile
 
 If you use the `AmazonECSInfrastructureRolePolicyForManagedInstances`
-managed policy that Amazon ECS provides, then the instance profile must have
-`ecsInstanceRole` as prefix. The reason is that the managed policy is only
-authorized to pass roles with this prefix.
+managed policy, the instance role name must start with
+`ecsInstanceRole`. The policy scopes `iam:PassRole` to
+`arn:aws:iam::*:role/ecsInstanceRole*`, so a mismatched name causes an
+authorization error at task launch.
+
+This is common with CloudFormation when you omit `RoleName` from your
+`AWS::IAM::Role` resource, because CloudFormation auto-generates names like
+`MyStack-InstanceRole-ABC123` that do not match the policy
+condition.
+
+To resolve this issue, do one of the following:
+
+- Add `RoleName: ecsInstanceRole` to your
+  `AWS::IAM::Role` resource so the name matches the managed
+  policy.
+- Add an explicit `iam:PassRole` inline policy to your
+  infrastructure role that targets the instance role ARN.
+
+For CloudFormation templates and detailed steps, see
+[Create the instance profile using CloudFormation](managed-instances-instance-profile.md#create-instance-profile-cfn "managed-instances-instance-profile.md#create-instance-profile-cfn").
 
 ## Additional troubleshooting resources
 

@@ -113,24 +113,8 @@ original launch type. To revert, pass an empty list as the
 `capacityProviderStrategy` when you call
 `UpdateService`.
 
-JSON:
-
-```
-"capacityProviderStrategy": []
-```
-
-AWS CLI:
-
-```
---capacity-provider-strategy '[]'
-```
-
 ###### Note
 
 This only reverts the service to the launch type specified when the
 service was originally created. You cannot use this method to switch
 a service to a different launch type.
-
-###### Note
-
-Task definitions must pass compatibility validation for the target capacity provider. If the `requiresCompatibilities` check fails for the task definition version, the `UpdateService` call fails.

@@ -21,9 +21,22 @@ The following are the valid values for `overallStatus`:
 
 - `OK` – All health checks are passing.
 - `IMPAIRED` – One or more health checks have failed.
-- `INSUFFICIENT_DATA` – One or more health checks are unavailable.
+- `INSUFFICIENT_DATA` – Data for one or more health checks is unavailable.
 - `INITIALIZING` – One or more health checks are being initialized.
-  The following is an example of how to run `describe-container-instances`.
+  The health check `type` values include:
+
+- `CONTAINER_RUNTIME` – Monitors the health of the container runtime
+  (for example, the Docker daemon). Available on EC2 launch type.
+- `ACCELERATED_COMPUTE` – Monitors the health of accelerated compute
+  devices such as GPUs. When a GPU is impaired, the `statusReason`
+  contains the NVIDIA Xid error code in the format `XID_<number>`.
+  Available on Amazon ECS Managed Instances launch type.
+- `DAEMON` – Monitors the health of required daemon tasks on the
+  container instance. Available on Amazon ECS Managed Instances launch type.
+  You can also monitor health status changes through events. For more information,
+  see [Amazon ECS container instance health change events](ecs_container_instance_health_events.md "ecs_container_instance_health_events.md").
+
+The following is an example of how to run `describe-container-instances`.
 
 ```
 aws ecs describe-container-instances \
