@@ -170,7 +170,7 @@ the improvements in PostgreSQL 17.9, see [PostgreSQL release
 **High priority enhancements**
 
 - Fixed an issue in cache initialization that could cause a crash during database startup..
-- Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of availability when enhanced logical replication is enabled.
+- Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of unavailability when enhanced logical replication is enabled.
 - Fixed an issue in global databases planned switchover that would cause the switchover to be stuck waiting for a volume growth.
 - Back-ported fixes for the following PostgreSQL community security issues:
   - [CVE-2026-2003](https://www.postgresql.org/support/security/CVE-2026-2003/ "https://www.postgresql.org/support/security/CVE-2026-2003/")
@@ -199,7 +199,7 @@ the improvements in PostgreSQL 17.9, see [PostgreSQL release
 - Fixed an issue that could cause file handles to not be properly released after upgrade.
 - Fixed max_wal_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
 - Improved Aurora Replica availability by reducing buffer cache contention during write-ahead-log replay.
-- Fixed an issue where the pg_hint_plan SET hint cannot set GUCs marked as PGC_RDSSUSET.
+- Fixed an issue with pg_hint_plan where session configuration parameters requiring rds_superuser permissions could not be set in hints.
 - Fixed an issue in the orafce extension which, in rare cases, can cause database unavailability.
 - Fixed ANALYZE operations to work correctly on tables containing large LOB data.
 - Fixed an issue where infinite recursion within a plv8 procedure could cause database unavailability.
@@ -308,8 +308,40 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 17.6.2, April 22, 2026](#aurorapostgresql-versions-version176x-1762 "#aurorapostgresql-versions-version176x-1762")
 - [Aurora PostgreSQL 17.6.1, November 25, 2025](#aurorapostgresql-versions-version1761x-1761 "#aurorapostgresql-versions-version1761x-1761")
 - [Aurora PostgreSQL 17.6, November 25, 2025](#aurorapostgresql-versions-version176x-176 "#aurorapostgresql-versions-version176x-176")
+
+#### Aurora PostgreSQL 17.6.2, April 22, 2026
+
+**Critical stability enhancements**
+
+- Babelfish cross-database queries now respect dynamic data masking policies, displaying tables with masked data based on policies defined for the current login.
+- Fixed an issue where executing queries from PostgreSQL endpoint on instances with Active Directory Authentication enabled could result in database unavailability.
+- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
+  - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
+  - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
+  - [CVE-2026-2006](https://nvd.nist.gov/vuln/detail/CVE-2026-2006 "https://nvd.nist.gov/vuln/detail/CVE-2026-2006").
+  - [CVE-2026-2007](https://nvd.nist.gov/vuln/detail/CVE-2026-2007 "https://nvd.nist.gov/vuln/detail/CVE-2026-2007").
+  - [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+- Fixed a bug in Query Plan Management that prevented plan capture.
+- Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
+- nan
+- Fixed an issue where file handlers could remain improperly allocated after a major version upgrade.
+- Fixed an issue where databases could run out of memory due to excessive storage metadata in rare circumstances.
+- Fixed an issue in cache initialization that could cause database unavailability during startup.
+- Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
+
+**Security enhancements**
+
+- Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
 
 #### Aurora PostgreSQL 17.6.1, November 25, 2025
 
@@ -892,7 +924,7 @@ the improvements in PostgreSQL 16.13, see [PostgreSQL release
 **High priority enhancements**
 
 - Fixed an issue in cache initialization that could cause a crash during database startup..
-- Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of availability when enhanced logical replication is enabled.
+- Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of unavailability when enhanced logical replication is enabled.
 - Fixed an issue in global databases planned switchover that would cause the switchover to be stuck waiting for a volume growth.
 - Back-ported fixes for the following PostgreSQL community security issues:
   - [CVE-2026-2003](https://www.postgresql.org/support/security/CVE-2026-2003/ "https://www.postgresql.org/support/security/CVE-2026-2003/")
@@ -921,7 +953,7 @@ the improvements in PostgreSQL 16.13, see [PostgreSQL release
 - Fixed an issue that could cause file handles to not be properly released after upgrade.
 - Fixed max_wal_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
 - Improved Aurora Replica availability by reducing buffer cache contention during write-ahead-log replay.
-- Fixed an issue where the pg_hint_plan SET hint cannot set GUCs marked as PGC_RDSSUSET.
+- Fixed an issue with pg_hint_plan where session configuration parameters requiring rds_superuser permissions could not be set in hints.
 - Fixed an issue in the orafce extension which, in rare cases, can cause database unavailability.
 - Fixed ANALYZE operations to work correctly on tables containing large LOB data.
 - Fixed an issue where infinite recursion within a plv8 procedure could cause database unavailability.
@@ -1030,8 +1062,40 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 16.10.2, April 22, 2026](#aurorapostgresql-versions-version1610x-16102 "#aurorapostgresql-versions-version1610x-16102")
 - [Aurora PostgreSQL 16.10.1, November 25, 2025](#aurorapostgresql-versions-version16101x-16101 "#aurorapostgresql-versions-version16101x-16101")
 - [Aurora PostgreSQL 16.10, November 25, 2025](#aurorapostgresql-versions-version1610x-1610 "#aurorapostgresql-versions-version1610x-1610")
+
+#### Aurora PostgreSQL 16.10.2, April 22, 2026
+
+**Critical stability enhancements**
+
+- Babelfish cross-database queries now respect dynamic data masking policies, displaying tables with masked data based on policies defined for the current login.
+- Fixed an issue where executing queries from PostgreSQL endpoint on instances with Active Directory Authentication enabled could result in database unavailability.
+- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
+  - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
+  - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
+  - [CVE-2026-2006](https://nvd.nist.gov/vuln/detail/CVE-2026-2006 "https://nvd.nist.gov/vuln/detail/CVE-2026-2006").
+  - [CVE-2026-2007](https://nvd.nist.gov/vuln/detail/CVE-2026-2007 "https://nvd.nist.gov/vuln/detail/CVE-2026-2007").
+  - [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+- Fixed a bug in Query Plan Management that prevented plan capture.
+- Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
+- nan
+- Fixed an issue where file handlers could remain improperly allocated after a major version upgrade.
+- Fixed an issue where databases could run out of memory due to excessive storage metadata in rare circumstances.
+- Fixed an issue in cache initialization that could cause database unavailability during startup.
+- Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
+
+**Security enhancements**
+
+- Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
 
 #### Aurora PostgreSQL 16.10.1, November 25, 2025
 
@@ -2461,7 +2525,7 @@ the improvements in PostgreSQL 15.17, see [PostgreSQL release
 **High priority enhancements**
 
 - Fixed an issue in cache initialization that could cause a crash during database startup..
-- Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of availability when enhanced logical replication is enabled.
+- Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of unavailability when enhanced logical replication is enabled.
 - Fixed an issue in global databases planned switchover that would cause the switchover to be stuck waiting for a volume growth.
 - Back-ported fixes for the following PostgreSQL community security issues:
   - [CVE-2026-2003](https://www.postgresql.org/support/security/CVE-2026-2003/ "https://www.postgresql.org/support/security/CVE-2026-2003/")
@@ -2490,7 +2554,7 @@ the improvements in PostgreSQL 15.17, see [PostgreSQL release
 - Fixed an issue that could cause file handles to not be properly released after upgrade.
 - Fixed max_wal_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
 - Improved Aurora Replica availability by reducing buffer cache contention during write-ahead-log replay.
-- Fixed an issue where the pg_hint_plan SET hint cannot set GUCs marked as PGC_RDSSUSET.
+- Fixed an issue with pg_hint_plan where session configuration parameters requiring rds_superuser permissions could not be set in hints.
 - Fixed an issue in the orafce extension which, in rare cases, can cause database unavailability.
 - Fixed ANALYZE operations to work correctly on tables containing large LOB data.
 - Fixed an issue where infinite recursion within a plv8 procedure could cause database unavailability.
@@ -2595,8 +2659,40 @@ the improvements in PostgreSQL 15.14, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 15.14.2, April 22, 2026](#aurorapostgresql-versions-version1514x-15142 "#aurorapostgresql-versions-version1514x-15142")
 - [Aurora PostgreSQL 15.14.1, November 25, 2025](#aurorapostgresql-versions-version15141x-15141 "#aurorapostgresql-versions-version15141x-15141")
 - [Aurora PostgreSQL 15.14, November 25, 2025](#aurorapostgresql-versions-version1514x-1514 "#aurorapostgresql-versions-version1514x-1514")
+
+#### Aurora PostgreSQL 15.14.2, April 22, 2026
+
+**Critical stability enhancements**
+
+- Babelfish cross-database queries now respect dynamic data masking policies, displaying tables with masked data based on policies defined for the current login.
+- Fixed an issue where executing queries from PostgreSQL endpoint on instances with Active Directory Authentication enabled could result in database unavailability.
+- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
+  - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
+  - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
+  - [CVE-2026-2006](https://nvd.nist.gov/vuln/detail/CVE-2026-2006 "https://nvd.nist.gov/vuln/detail/CVE-2026-2006").
+  - [CVE-2026-2007](https://nvd.nist.gov/vuln/detail/CVE-2026-2007 "https://nvd.nist.gov/vuln/detail/CVE-2026-2007").
+  - [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+- Fixed a bug in Query Plan Management that prevented plan capture.
+- Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
+- nan
+- Fixed an issue where file handlers could remain improperly allocated after a major version upgrade.
+- Fixed an issue where databases could run out of memory due to excessive storage metadata in rare circumstances.
+- Fixed an issue in cache initialization that could cause database unavailability during startup.
+- Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
+
+**Security enhancements**
+
+- Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
 
 #### Aurora PostgreSQL 15.14.1, November 25, 2025
 
@@ -4625,7 +4721,7 @@ the improvements in PostgreSQL 14.22, see [PostgreSQL release
 **High priority enhancements**
 
 - Fixed an issue in cache initialization that could cause a crash during database startup..
-- Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of availability when enhanced logical replication is enabled.
+- Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of unavailability when enhanced logical replication is enabled.
 - Fixed an issue in global databases planned switchover that would cause the switchover to be stuck waiting for a volume growth.
 - Back-ported fixes for the following PostgreSQL community security issues:
   - [CVE-2026-2003](https://www.postgresql.org/support/security/CVE-2026-2003/ "https://www.postgresql.org/support/security/CVE-2026-2003/")
@@ -4654,7 +4750,7 @@ the improvements in PostgreSQL 14.22, see [PostgreSQL release
 - Fixed an issue that could cause file handles to not be properly released after upgrade.
 - Fixed max_wal_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
 - Improved Aurora Replica availability by reducing buffer cache contention during write-ahead-log replay.
-- Fixed an issue where the pg_hint_plan SET hint cannot set GUCs marked as PGC_RDSSUSET.
+- Fixed an issue with pg_hint_plan where session configuration parameters requiring rds_superuser permissions could not be set in hints.
 - Fixed an issue in the orafce extension which, in rare cases, can cause database unavailability.
 - Fixed ANALYZE operations to work correctly on tables containing large LOB data.
 - Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
@@ -4760,8 +4856,40 @@ the improvements in PostgreSQL 14.19, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 14.19.2, April 22, 2026](#aurorapostgresql-versions-version1419x-14192 "#aurorapostgresql-versions-version1419x-14192")
 - [Aurora PostgreSQL 14.19.1, November 25, 2025](#aurorapostgresql-versions-version14191x-14191 "#aurorapostgresql-versions-version14191x-14191")
 - [Aurora PostgreSQL 14.19, November 25, 2025](#aurorapostgresql-versions-version1419x-1419 "#aurorapostgresql-versions-version1419x-1419")
+
+#### Aurora PostgreSQL 14.19.2, April 22, 2026
+
+**Critical stability enhancements**
+
+- Babelfish cross-database queries now respect dynamic data masking policies, displaying tables with masked data based on policies defined for the current login.
+- Fixed an issue where executing queries from PostgreSQL endpoint on instances with Active Directory Authentication enabled could result in database unavailability.
+- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
+  - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
+  - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
+  - [CVE-2026-2006](https://nvd.nist.gov/vuln/detail/CVE-2026-2006 "https://nvd.nist.gov/vuln/detail/CVE-2026-2006").
+  - [CVE-2026-2007](https://nvd.nist.gov/vuln/detail/CVE-2026-2007 "https://nvd.nist.gov/vuln/detail/CVE-2026-2007").
+  - [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+- Fixed a bug in Query Plan Management that prevented plan capture.
+- Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
+- nan
+- Fixed an issue where file handlers could remain improperly allocated after a major version upgrade.
+- Fixed an issue where databases could run out of memory due to excessive storage metadata in rare circumstances.
+- Fixed an issue in cache initialization that could cause database unavailability during startup.
+- Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
+
+**Security enhancements**
+
+- Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
 
 #### Aurora PostgreSQL 14.19.1, November 25, 2025
 

@@ -7,6 +7,7 @@ and lifecycle, see [Amazon Aurora versions](../AuroraUserGuide/Aurora.VersionPol
 
 - [Release calendar for Aurora PostgreSQL major versions](#aurorapostgresql.major.versions.supported "#aurorapostgresql.major.versions.supported")
 - [Release calendar for Aurora PostgreSQL minor versions](#aurorapostgresql.minor.versions.supported "#aurorapostgresql.minor.versions.supported")
+- [Release calendar for Amazon Aurora PostgreSQL Limitless Database minor versions](#aurorapostgresql.limitless.minor.versions.supported "#aurorapostgresql.limitless.minor.versions.supported")
 
 ## Release calendar for Aurora PostgreSQL major versions
 
@@ -98,3 +99,18 @@ Dates with only a month and a year are approximate, and will be updated with an 
 \* Amazon RDS Extended Support eligible minor engine version. For more information, see [Using Amazon RDS Extended Support](../AuroraUserGuide/extended-support.md "../AuroraUserGuide/extended-support.md").
 
 LTS - Aurora PostgreSQL long-term support (LTS) releases. For more information see [Aurora PostgreSQL long-term support (LTS) releases](../AuroraUserGuide/AuroraPostgreSQL.Updates.LTS.md "../AuroraUserGuide/AuroraPostgreSQL.Updates.LTS.md").
+
+## Release calendar for Amazon Aurora PostgreSQL Limitless Database minor versions
+
+Aurora currently supports the following Aurora PostgreSQL Limitless Database minor versions of PostgreSQL.
+
+###### Note
+
+Dates with only a month and a year are approximate, and will be updated with an exact date when it's known.
+
+| PostgreSQL Limitless minor engine version | Aurora release date | Aurora end of standard support date |
+| ----------------------------------------- | ------------------- | ----------------------------------- |
+| 16.11-limitless                           | February 25, 2026   | August 25, 2027                     |
+| 16.10-limitless                           | February 24, 2026   | August 24, 2027                     |
+| 16.9-limitless                            | September 5, 2025   | March 5, 2027                       |
+| 16.8-limitless                            | May 8, 2025         | November 8, 2026                    |
