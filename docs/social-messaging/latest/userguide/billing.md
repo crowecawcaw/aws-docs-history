@@ -95,6 +95,12 @@ country.
 
 ### Example 1: Sending a Marketing template message
 
+###### Note
+
+If you opt in to Meta's Marketing Messages (MM) API, marketing messages sent
+through MM API continue to appear under the existing marketing message billing
+category with no changes to your billing configuration.
+
 For example, if you send a marketing template message to a customer, you are billed for
 one WhatsApp `MetaTemplateMessageFee` and one AWS
 `MessageFee`.

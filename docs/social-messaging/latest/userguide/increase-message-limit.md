@@ -39,6 +39,13 @@ Your messaging quality score on WhatsApp is calculated based on recent user feed
 and interactions, with more weight given to more recent data. This helps assess the
 overall quality and reliability of your messaging on the platform.
 
+###### Note
+
+If you opt in to Meta's Marketing Messages (MM) API, marketing template messaging
+limits are managed dynamically by Meta. According to Meta, templates with high engagement
+automatically receive expanded reach. Static conversation-based limits continue to apply
+to utility, authentication, and service messages.
+
 ###### Message limits level increases
 
 - 1K business-initiated conversations

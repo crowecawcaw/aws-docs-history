@@ -10,6 +10,15 @@ engage with customers through their preferred communication channel.
 To get started, either create a new WhatsApp Business Account (WABA) using the self-guided onboarding process in
 the AWS End User Messaging Social console, or link an existing WABA to the service.
 
+###### Note
+
+AWS End User Messaging Social now supports Meta's Marketing Messages (MM) API to deliver marketing messages
+using the same AWS API endpoint. To send messages through MM API, you must accept Meta's MM API
+terms and conditions. You can proceed by clicking the MM API banner on the WhatsApp Business Account (WABA) details
+page in the AWS End User Messaging Social console, and accepting the terms in Meta's console. According to Meta, MM
+API has up to 9% higher deliverability for marketing messages, recipient optimization, and
+conversion tracking. For more information, see [Meta's Marketing Messages API documentation](https://developers.facebook.com/docs/whatsapp/business-management-api/marketing-messages "https://developers.facebook.com/docs/whatsapp/business-management-api/marketing-messages").
+
 ###### Topics
 
 - [Are you a first-time AWS End User Messaging Social user?](#first-time-user "#first-time-user")

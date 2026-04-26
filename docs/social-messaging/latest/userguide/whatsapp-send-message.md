@@ -33,6 +33,14 @@ in the _WhatsApp Business Platform Cloud API Reference_.
   submit any content, information, or data that is subject to safeguarding or
   limitations on distribution pursuant to applicable laws or regulations.
 
+###### Note
+
+AWS End User Messaging Social now supports Meta's Marketing Messages (MM) API for marketing template
+messages. You use the same AWS API `SendWhatsAppMessage` — no code changes
+required. To use MM API, accept Meta's terms and conditions through the MM API banner on
+the WABA details page in the AWS End User Messaging Social console. According to Meta, MM API provides up to 9% higher
+deliverability, recipient optimization, and conversion tracking.
+
 ###### Topics
 
 - [Example of sending a template message in AWS End User Messaging Social](send-message-text.md "send-message-text.md")
