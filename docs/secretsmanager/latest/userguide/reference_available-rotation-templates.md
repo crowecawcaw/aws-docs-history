@@ -67,7 +67,7 @@ To use the templates, see:
 - **`SecretString` structure:**
   [Amazon RDS and Aurora credentials](reference_secret_json_structure.md#reference_secret_json_structure_rds "reference_secret_json_structure.md#reference_secret_json_structure_rds").
 - **Source code:** [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSDb2RotationSingleUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSDb2RotationSingleUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSDb2RotationSingleUser/lambda_function.py")
-- **Dependency:** [python-ibmdb](https://github.com/ibmdb/python-ibmdb "https://github.com/ibmdb/python-ibmdb")
+- **Dependency:** [python-ibmdb 3.2.8](https://github.com/ibmdb/python-ibmdb "https://github.com/ibmdb/python-ibmdb")
 
 ### Amazon RDS Db2 alternating users
 
@@ -79,7 +79,7 @@ To use the templates, see:
   [Amazon RDS and Aurora credentials](reference_secret_json_structure.md#reference_secret_json_structure_rds "reference_secret_json_structure.md#reference_secret_json_structure_rds").
 - **Source code:**
   [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSDb2RotationMultiUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSDb2RotationMultiUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSDb2RotationMultiUser/lambda_function.py")
-- **Dependency:** [python-ibmdb](https://github.com/ibmdb/python-ibmdb "https://github.com/ibmdb/python-ibmdb")
+- **Dependency:** [python-ibmdb 3.2.8](https://github.com/ibmdb/python-ibmdb "https://github.com/ibmdb/python-ibmdb")
 
 ### Amazon RDS MariaDB single user
 
@@ -90,7 +90,7 @@ To use the templates, see:
 - **`SecretString` structure:**
   [Amazon RDS and Aurora credentials](reference_secret_json_structure.md#reference_secret_json_structure_rds "reference_secret_json_structure.md#reference_secret_json_structure_rds").
 - **Source code:** [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSMariaDBRotationSingleUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSMariaDBRotationSingleUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSMariaDBRotationSingleUser/lambda_function.py")
-- **Dependency:** PyMySQL 1.0.2. If you use sha256
+- **Dependency:** [PyMySQL 1.1.1](https://github.com/PyMySQL/PyMySQL "https://github.com/PyMySQL/PyMySQL"). If you use sha256
   password for authentication, PyMySQL[rsa]. For information about using packages with
   compiled code in a Lambda runtime, see [How do I
   add Python packages with compiled binaries to my deployment package and make the
@@ -107,7 +107,7 @@ To use the templates, see:
   [Amazon RDS and Aurora credentials](reference_secret_json_structure.md#reference_secret_json_structure_rds "reference_secret_json_structure.md#reference_secret_json_structure_rds").
 - **Source code:**
   [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSMariaDBRotationMultiUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSMariaDBRotationMultiUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSMariaDBRotationMultiUser/lambda_function.py")
-- **Dependency:** PyMySQL 1.0.2. If you use sha256
+- **Dependency:** [PyMySQL 1.1.1](https://github.com/PyMySQL/PyMySQL "https://github.com/PyMySQL/PyMySQL"). If you use sha256
   password for authentication, PyMySQL[rsa]. For information about using packages with
   compiled code in a Lambda runtime, see [How do I
   add Python packages with compiled binaries to my deployment package and make the
@@ -124,7 +124,7 @@ To use the templates, see:
   [Amazon RDS and Aurora credentials](reference_secret_json_structure.md#reference_secret_json_structure_rds "reference_secret_json_structure.md#reference_secret_json_structure_rds").
 - **Source code:**
   [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSMySQLRotationSingleUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSMySQLRotationSingleUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSMySQLRotationSingleUser/lambda_function.py")
-- **Dependency:** PyMySQL 1.0.2. If you use sha256
+- **Dependency:** [PyMySQL 1.1.1](https://github.com/PyMySQL/PyMySQL "https://github.com/PyMySQL/PyMySQL"). If you use sha256
   password for authentication, PyMySQL[rsa]. For information about using packages with
   compiled code in a Lambda runtime, see [How do I
   add Python packages with compiled binaries to my deployment package and make the
@@ -141,7 +141,7 @@ To use the templates, see:
   [Amazon RDS and Aurora credentials](reference_secret_json_structure.md#reference_secret_json_structure_rds "reference_secret_json_structure.md#reference_secret_json_structure_rds").
 - **Source code:**
   [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSMySQLRotationMultiUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSMySQLRotationMultiUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSMySQLRotationMultiUser/lambda_function.py")
-- **Dependency:** PyMySQL 1.0.2. If you use sha256
+- **Dependency:** [PyMySQL 1.1.1](https://github.com/PyMySQL/PyMySQL "https://github.com/PyMySQL/PyMySQL"). If you use sha256
   password for authentication, PyMySQL[rsa]. For information about using packages with
   compiled code in a Lambda runtime, see [How do I
   add Python packages with compiled binaries to my deployment package and make the
@@ -179,7 +179,7 @@ To use the templates, see:
 - **Expected `SecretString` structure:**
   [Amazon RDS and Aurora credentials](reference_secret_json_structure.md#reference_secret_json_structure_rds "reference_secret_json_structure.md#reference_secret_json_structure_rds").
 - **Source code:** [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSPostgreSQLRotationSingleUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSPostgreSQLRotationSingleUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSPostgreSQLRotationSingleUser/lambda_function.py")
-- **Dependency:** PyGreSQL 5.2.5
+- **Dependency:** [PyGreSQL 6.1.0](https://github.com/PyGreSQL/PyGreSQL "https://github.com/PyGreSQL/PyGreSQL")
 
 ### Amazon RDS and Amazon Aurora PostgreSQL alternating users
 
@@ -190,7 +190,7 @@ To use the templates, see:
 - **Expected `SecretString` structure:**
   [Amazon RDS and Aurora credentials](reference_secret_json_structure.md#reference_secret_json_structure_rds "reference_secret_json_structure.md#reference_secret_json_structure_rds").
 - **Source code:** [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSPostgreSQLRotationMultiUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSPostgreSQLRotationMultiUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSPostgreSQLRotationMultiUser/lambda_function.py")
-- **Dependency:** PyGreSQL 5.2.5
+- **Dependency:** [PyGreSQL 6.1.0](https://github.com/PyGreSQL/PyGreSQL "https://github.com/PyGreSQL/PyGreSQL")
 
 ### Amazon RDS Microsoft SQLServer single user
 
@@ -201,7 +201,7 @@ To use the templates, see:
 - **Expected `SecretString` structure:**
   [Amazon RDS and Aurora credentials](reference_secret_json_structure.md#reference_secret_json_structure_rds "reference_secret_json_structure.md#reference_secret_json_structure_rds").
 - **Source code:** [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSSQLServerRotationSingleUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSSQLServerRotationSingleUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSSQLServerRotationSingleUser/lambda_function.py")
-- **Dependency:** Pymssql 2.2.2
+- **Dependency:** [Pymssql 2.3.11](https://github.com/Pymssql/Pymssql "https://github.com/Pymssql/Pymssql")
 
 ### Amazon RDS Microsoft SQLServer alternating users
 
@@ -212,7 +212,7 @@ To use the templates, see:
 - **Expected `SecretString` structure:**
   [Amazon RDS and Aurora credentials](reference_secret_json_structure.md#reference_secret_json_structure_rds "reference_secret_json_structure.md#reference_secret_json_structure_rds").
 - **Source code:** [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSSQLServerRotationMultiUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSSQLServerRotationMultiUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSSQLServerRotationMultiUser/lambda_function.py")
-- **Dependency:** Pymssql 2.2.2
+- **Dependency:** [Pymssql 2.3.11](https://github.com/Pymssql/Pymssql "https://github.com/Pymssql/Pymssql")
 
 ## Amazon DocumentDB (with MongoDB compatibility)
 
@@ -226,7 +226,7 @@ To use the templates, see:
   [Amazon DocumentDB credentials](reference_secret_json_structure.md#reference_secret_json_structure_docdb "reference_secret_json_structure.md#reference_secret_json_structure_docdb").
 - **Source code:**
   [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerMongoDBRotationSingleUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerMongoDBRotationSingleUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerMongoDBRotationSingleUser/lambda_function.py")
-- **Dependency:** PyMongo 4.2.0
+- **Dependency:** [PyMongo 4.7.3](https://github.com/mongodb/mongo-python-driver "https://github.com/mongodb/mongo-python-driver")
 
 ### Amazon DocumentDB alternating users
 
@@ -238,7 +238,7 @@ To use the templates, see:
   [Amazon DocumentDB credentials](reference_secret_json_structure.md#reference_secret_json_structure_docdb "reference_secret_json_structure.md#reference_secret_json_structure_docdb").
 - **Source code:**
   [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerMongoDBRotationMultiUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerMongoDBRotationMultiUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerMongoDBRotationMultiUser/lambda_function.py")
-- **Dependency:** PyMongo 4.2.0
+- **Dependency:** [PyMongo 4.7.3](https://github.com/mongodb/mongo-python-driver "https://github.com/mongodb/mongo-python-driver")
 
 ## Amazon Redshift
 
@@ -252,7 +252,7 @@ To use the templates, see:
   [Amazon Redshift credentials](reference_secret_json_structure.md#reference_secret_json_structure_RS "reference_secret_json_structure.md#reference_secret_json_structure_RS").
 - **Source code:**
   [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRedshiftRotationSingleUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRedshiftRotationSingleUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRedshiftRotationSingleUser/lambda_function.py")
-- **Dependency:** PyGreSQL 5.2.5
+- **Dependency:** [redshift-connector 2.1.13](https://github.com/aws/amazon-redshift-python-driver "https://github.com/aws/amazon-redshift-python-driver")
 
 ### Amazon Redshift alternating users
 
@@ -264,7 +264,7 @@ To use the templates, see:
   [Amazon Redshift credentials](reference_secret_json_structure.md#reference_secret_json_structure_RS "reference_secret_json_structure.md#reference_secret_json_structure_RS").
 - **Source code:**
   [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRedshiftRotationMultiUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRedshiftRotationMultiUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRedshiftRotationMultiUser/lambda_function.py")
-- **Dependency:** PyGreSQL 5.2.5
+- **Dependency:** [redshift-connector 2.1.13](https://github.com/aws/amazon-redshift-python-driver "https://github.com/aws/amazon-redshift-python-driver")
 
 ## Amazon Timestream for InfluxDB
 

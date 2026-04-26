@@ -77,10 +77,10 @@ aws iam create-role \
 
 ```
 aws lambda create-function \
-  --function-name my-rotation-function \
-  --runtime python3.7 \
+  --function-name `my-rotation-function` \
+  --runtime python3.12 \
   --zip-file fileb://`my-function.zip` \
-  --handler .handler \
+  --handler lambda_function.lambda_handler \
   --role arn:aws:iam::`123456789012`:role/service-role/`rotation-lambda-role`
 ```
 
@@ -108,7 +108,7 @@ set a rotation window duration. For more information, see [Rotation schedules](r
 ```
 aws secretsmanager rotate-secret \
     --secret-id MySecret \
-    --rotation-lambda-arn arn:aws:lambda:`Region`:`123456789012`:function:`my-rotation-function` \
+    --rotation-lambda-arn arn:aws:lambda:``aws-region``:`123456789012`:function:`my-rotation-function` \
     --rotation-rules "{\"ScheduleExpression\": \"`cron(0 16 1,15 * ? *)`\", \"Duration\": \"`2h`\"}"
 ```
 

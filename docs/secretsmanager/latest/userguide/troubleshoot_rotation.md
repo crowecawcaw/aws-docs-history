@@ -19,8 +19,7 @@ information, see [Managed rotation for AWS Secrets Manager secrets](rotate-secre
 - [Error: "Key is missing from secret JSON"](#tshoot-lambda-mismatched-secretvalue "#tshoot-lambda-mismatched-secretvalue")
 - [Error: "setSecret: Unable to log into database"](#troubleshoot_rotation_setSecret "#troubleshoot_rotation_setSecret")
 - [Error: "Unable to import module 'lambda_function'"](#tshoot-python-version "#tshoot-python-version")
-- [Upgrade an existing rotation function from Python 3.7 to 3.9](#troubleshoot_rotation_python39 "#troubleshoot_rotation_python39")
-- [Upgrade an existing rotation function from Python 3.9 to 3.10](#troubleshoot_rotation_python_310 "#troubleshoot_rotation_python_310")
+- [Upgrade an existing rotation function to Python 3.12](#troubleshoot_rotation_python_latest "#troubleshoot_rotation_python_latest")
 - [AWS Lambda secret rotation with PutSecretValue failed](#troubleshoot_rotation_putsecretvalue "#troubleshoot_rotation_putsecretvalue")
 - [Error: "Error when executing lambda <arn> during <a rotation> step"](#concurrency-related-failures "#concurrency-related-failures")
 
@@ -271,15 +270,22 @@ support connections that use SSL/TLS, you need to [recreate your rotation functi
 
 You might receive this error if you're running an earlier Lambda function that was
 automatically upgraded from Python 3.7 to a newer version of Python. To resolve the error, you
-can change the Lambda function version back to Python 3.7, and then [Upgrade an existing rotation function from Python 3.7 to 3.9](#troubleshoot_rotation_python39 "#troubleshoot_rotation_python39"). For more information, see [Why did my Secrets Manager
+can change the Lambda function version back to Python 3.7, and then [Upgrade an existing rotation function from Python 3.7 to Python 3.12](#troubleshoot_rotation_python_upgrade37 "#troubleshoot_rotation_python_upgrade37"). For more information, see [Why did my Secrets Manager
 Lambda function rotation fail with a “pg module not found“ error?](https://repost.aws/knowledge-center/secrets-manager-lambda-rotation "https://repost.aws/knowledge-center/secrets-manager-lambda-rotation") in _AWS
 re:Post_.
 
-## Upgrade an existing rotation function from Python 3.7 to 3.9
+## Upgrade an existing rotation function to Python 3.12
+
+Secrets Manager is transitioning to Python 3.12 for Lambda rotation functions. To switch to
+a new rotation function that uses Python 3.12, you'll need to follow the upgrade path
+based on your deployment method and current rotation lambda Python version. Use the following
+procedures to upgrade both the Python version and the underlying dependencies.
+
+### Upgrade an existing rotation function from Python 3.7 to Python 3.12
 
 Some rotation functions created before November 2022 used Python 3.7. The AWS SDK for
 Python stopped supporting Python 3.7 in December 2023. For more information, see [Python support policy updates for AWS SDKs and Tools](https://aws.amazon.com/blogs/developer/python-support-policy-updates-for-aws-sdks-and-tools/ "https://aws.amazon.com/blogs/developer/python-support-policy-updates-for-aws-sdks-and-tools/"). To switch to a new rotation
-function that uses Python 3.9, you can add a runtime property to an existing rotation function
+function that uses Python 3.12, you can add a runtime property to an existing rotation function
 or recreate the rotation function.
 
 ###### To find which Lambda rotation functions use Python 3.7
@@ -291,13 +297,13 @@ or recreate the rotation function.
 3. In the filtered list of functions, under **Runtime**, look for Python
    3.7.
 
-###### To upgrade to Python 3.9:
+###### To upgrade to Python 3.12:
 
 - [Option 1: Recreate the rotation function using CloudFormation](#update-python-opt-1 "#update-python-opt-1")
 - [Option 2: Update the runtime for the existing rotation function using CloudFormation](#update-python-opt-2 "#update-python-opt-2")
 - [Option 3: For AWS CDK users, upgrade the CDK library](#update-python-opt-3 "#update-python-opt-3")
 
-### Option 1: Recreate the rotation function using CloudFormation
+#### Option 1: Recreate the rotation function using CloudFormation
 
 When you use the Secrets Manager console to turn on rotation, Secrets Manager uses CloudFormation to create the
 necessary resources, including the Lambda rotation function. If you used the console to turn
@@ -311,7 +317,7 @@ more recent version of Python.
 
 The stack name is embedded in the ARN, as shown in the following example.
 
-    + ARN: `arn:aws:cloudformation:us-west-2:408736277230:stack/`SecretsManagerRDSMySQLRotationSingleUser5c2-SecretRotationScheduleHostedRotationLambda`-3CUDHZMDMBO8/79fc9050-2eef-11ed-80f0-021fb13c0537`
+    + ARN: `arn:aws:cloudformation:`aws-region`:123456789012:stack/`SecretsManagerRDSMySQLRotationSingleUser5c2-SecretRotationScheduleHostedRotationLambda`-3CUDHZMDMBO8/79fc9050-2eef-11ed-80f0-021fb13c0537`
     + Stack name: `SecretsManagerRDSMySQLRotationSingleUser5c2-SecretRotationScheduleHostedRotationLambda`
 
 ###### To recreate a rotation function (CloudFormation)
@@ -336,7 +342,7 @@ then under **Edit template in Application Composer**, choose the button
 4. Continue through the CloudFormation stack workflow and then choose
    **Submit**.
 
-### Option 2: Update the runtime for the existing rotation function using CloudFormation
+#### Option 2: Update the runtime for the existing rotation function using CloudFormation
 
 When you use the Secrets Manager console to turn on rotation, Secrets Manager uses CloudFormation to create the
 necessary resources, including the Lambda rotation function. If you used the console to turn
@@ -349,7 +355,7 @@ CloudFormation stack to update the runtime for the rotation function.
 
 The stack name is embedded in the ARN, as shown in the following example.
 
-    + ARN: `arn:aws:cloudformation:us-west-2:408736277230:stack/`SecretsManagerRDSMySQLRotationSingleUser5c2-SecretRotationScheduleHostedRotationLambda`-3CUDHZMDMBO8/79fc9050-2eef-11ed-80f0-021fb13c0537`
+    + ARN: `arn:aws:cloudformation:`aws-region`:123456789012:stack/`SecretsManagerRDSMySQLRotationSingleUser5c2-SecretRotationScheduleHostedRotationLambda`-3CUDHZMDMBO8/79fc9050-2eef-11ed-80f0-021fb13c0537`
     + Stack name: `SecretsManagerRDSMySQLRotationSingleUser5c2-SecretRotationScheduleHostedRotationLambda`
 
 ###### To update the runtime for a rotation function (CloudFormation)
@@ -365,7 +371,7 @@ then under **Edit template in Application Composer**, choose the button
     1. In the template JSON, for the
      `SecretRotationScheduleHostedRotationLambda`, under
      `Properties`, under `Parameters`, add `"runtime":
-     "python3.9"`.
+     "python3.12"`.
     2. Choose **Update template**.
     3. In the **Continue to CloudFormation** dialog box, choose
      **Confirm and continue to CloudFormation**.
@@ -373,30 +379,25 @@ then under **Edit template in Application Composer**, choose the button
 4. Continue through the CloudFormation stack workflow and then choose
    **Submit**.
 
-### Option 3: For AWS CDK users, upgrade the CDK library
+#### Option 3: For AWS CDK users, upgrade the CDK library
 
 If you used the AWS CDK prior to version v2.94.0 to set up rotation for your secret, you
 can update the Lambda function by upgrading to v2.94.0 or later. For more information, see
 the [AWS Cloud Development Kit (AWS CDK) v2 Developer
 Guide](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md").
 
-## Upgrade an existing rotation function from Python 3.9 to 3.10
+### Upgrade an existing rotation function from Python 3.9 or later to Python 3.12
 
-Secrets Manager is transitioning from Python 3.9 to 3.10 for Lambda rotation functions. To switch to
-a new rotation function that uses Python 3.10, you'll need to follow the upgrade path
-based on your deployment method. Use the following procedures to upgrade both the Python
-version and the underlying dependencies.
-
-###### To find which Lambda rotation functions use Python 3.9
+###### To find which Lambda rotation functions use an older version of Python
 
 1. Sign in to the AWS Management Console and open the AWS Lambda console at
    [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
 2. In the list of **Functions**, filter for
    `SecretsManager`.
 3. In the filtered list of functions, under **Runtime**, look for
-   `Python 3.9`.
+   Python versions prior to `Python 3.12`.
 
-### Update paths by deployment method
+#### Update paths by deployment method
 
 The Lambda rotation functions identified in this list can be deployed through Secrets Manager
 console, AWS Serverless Application Repository apps, or CloudFormation transforms. Each of these deployment strategies have a
@@ -469,7 +470,7 @@ The name in this example is
    Guide_.
 
 Custom Lambda rotation functions
-If you created custom Lambda rotation functions, you’ll need to upgrade each
+If you created custom Lambda rotation functions, you will need to upgrade each
 package dependencies and runtimes for these functions. For more information, see
 [Upgrade Lambda function runtime to latest version](https://repost.aws/knowledge-center/lambda-upgrade-function-runtime "https://repost.aws/knowledge-center/lambda-upgrade-function-runtime").
 
@@ -512,7 +513,7 @@ Guide_.
 To verify the Python upgrade, open the Lambda console ([https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/")) and access
 the **Function** page. Select the function you updated. Under
 **Code source** section, review the files included in the directory and
-ensure the Python .so file is version `3.10`.
+ensure the Python .so file is version `3.12`.
 
 ## AWS Lambda secret rotation with `PutSecretValue` failed
 

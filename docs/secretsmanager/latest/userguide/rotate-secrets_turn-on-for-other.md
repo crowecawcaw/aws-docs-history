@@ -70,7 +70,7 @@ create the function from scratch and copy the template code into the function.
      2. On the **Create function** page, do the following:
         1. Choose **Author from scratch**.
         2. For **Function name**, enter a name for your rotation function.
-        3. For **Runtime**, choose **Python 3.10**.
+        3. For **Runtime**, choose **Python 3.12**.
         4. Choose **Create function**.
 
 ## Step 2: Write the rotation function code
