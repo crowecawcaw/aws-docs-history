@@ -1,3 +1,5 @@
 # What is Partner Revenue Measurement?
 
-Partner Revenue Measurement is AWS Partner Network's capability to measure and quantify the impact AWS partners have on overall AWS revenue. Partner Revenue Measurement empowers AWS Partners to demonstrate their revenue impact through automated and streamlined capabilities. Partner Revenue Measurement enables partners to understand customer utilization of their solutions and helps AWS improve support for feature requests and Go-to-Market funding.
+Partner Revenue Measurement is a set of capabilities that help Partners measure attributed revenue, demonstrate impact, and unlock mutual growth opportunities. It delivers precise, automated measurement of AWS consumption driven by Partner solutions — providing transparent, data-driven recognition of Partner contributions based on actual AWS service consumption across Partner and customer accounts.
+
+After implementing Partner Revenue Measurement, access the Attributed Revenue Dashboard to gain visibility into the revenue impact by Partner product, AWS service, and billing period. See [Attributed Revenue guide](../../../partner-central/latest/getting-started/partner-analytics-attributed-revenue.md "../../../partner-central/latest/getting-started/partner-analytics-attributed-revenue.md") for more details.
