@@ -6,7 +6,8 @@ to get AI-generated insights and recommended solutions.
 
 ###### Note
 
-AI analysis is available only on supported Amazon Linux 2 and AL2023 platform versions released on or after February 16, 2026.
+AI analysis is available on supported Amazon Linux 2 and AL2023 platform versions released on or after February 26, 2026. For Windows Server platforms,
+AI analysis is available on platform versions released on or after April 22, 2026.
 
 ## How it works
 
@@ -27,6 +28,19 @@ Before you use AI analysis, verify that your environment meets the following req
   API. You only need to do this once per AWS account. If you submit the form from the AWS Organizations management account, it automatically
   covers all member accounts in the organization. For more information, see
   [Access Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access.md "../../../bedrock/latest/userguide/model-access.md").
+  - Even after submitting the use case details form, the first invocation of an Anthropic Claude model in your account requires AWS Marketplace
+    permissions to complete an automatic model subscription. If your instance profile doesn't have these permissions, AI analysis fails with the
+    following error:
+
+  `AccessDeniedException: Model access is denied due to IAM user or service role is not authorized to perform the required
+ AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model.`
+
+  To resolve this, add `aws-marketplace:Subscribe`, `aws-marketplace:Unsubscribe`, and
+  `aws-marketplace:ViewSubscriptions` permissions to your instance profile. These permissions are only needed for the first
+  invocation in an account. After the model is enabled, you can remove them. For more information, see
+  [Grant IAM permissions to request
+  access to Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access.md#model-access-permissions "../../../bedrock/latest/userguide/model-access.md#model-access-permissions").
+
 - **GovCloud regions** – If you are using AWS GovCloud (US) regions, you must enable access to the latest
   Anthropic Claude Sonnet and/or Opus model in Amazon Bedrock before using AI analysis. For instructions on enabling model access in GovCloud regions, see
   [Manage access to Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access.md#model-access-govcloud "../../../bedrock/latest/userguide/model-access.md#model-access-govcloud").
@@ -44,6 +58,12 @@ instance profile:
 - `elasticbeanstalk:DescribeEnvironmentHealth`
 
 For more information about configuring instance profiles, see [Managing Elastic Beanstalk instance profiles](iam-instanceprofile.md "iam-instanceprofile.md").
+
+###### Note
+
+If this is the first time an Anthropic Claude model is being invoked in your account, you also need AWS Marketplace permissions
+(`aws-marketplace:Subscribe`, `aws-marketplace:Unsubscribe`, and `aws-marketplace:ViewSubscriptions`).
+See [Prerequisites](#health-ai-analysis-prereqs "#health-ai-analysis-prereqs") for details.
 
 ## Using AI analysis in the console
 
@@ -116,8 +136,9 @@ The `--analyze` option requires EB CLI version 3.27 or later.
 - **Pricing** – AI analysis uses Amazon Bedrock to process your environment data, and standard Amazon Bedrock
   pricing applies for model invocations. For pricing details, see [Amazon Bedrock
   Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
-- **Platform requirement** – AI analysis is available only on Amazon Linux 2 and AL2023 based platform versions
-  released on or after February 16, 2026. To use this feature, update your environment to a supported platform version. For more information, see
+- **Platform requirement** – AI analysis is available on Amazon Linux 2 and AL2023 based platform versions
+  released on or after February 26, 2026. For Windows Server platforms, AI analysis is available on platform versions released on or after
+  April 22, 2026. To use this feature, update your environment to a supported platform version. For more information, see
   [Updating your Elastic Beanstalk environment's platform version](using-features.platform.upgrade.md "using-features.platform.upgrade.md").
 - **Permissions** – Before using AI analysis, ensure that your instance profile has the required Amazon Bedrock
   permissions (`bedrock:InvokeModel` and `bedrock:ListFoundationModels`) and Elastic Beanstalk permissions
@@ -132,5 +153,8 @@ The `--analyze` option requires EB CLI version 3.27 or later.
 ## Supported platform versions
 
 AI analysis is supported on Amazon Linux 2 and AL2023 based platform versions released on or after
-[February 16, 2026](RELEASE_NOTES_URL.md "RELEASE_NOTES_URL.md"). To verify your platform version, see
+[February 26, 2026](../relnotes/release-2026-02-26-al2023.md "../relnotes/release-2026-02-26-al2023.md"). For Windows Server
+platforms, AI analysis is supported on platform versions released on or after
+[April 22, 2026](../relnotes/release-2026-04-22-windows.md "../relnotes/release-2026-04-22-windows.md"). To verify your
+platform version, see
 [Elastic Beanstalk release notes](../relnotes/welcome.md "../relnotes/welcome.md").

@@ -14,17 +14,19 @@ the log includes up to 50 lines of output from the failed step, so you can see t
 ###### Note
 
 Deployment logs are available on [Amazon Linux 2](../relnotes/release-2026-03-11-al2.md "../relnotes/release-2026-03-11-al2.md") and [Amazon Linux 2023](../relnotes/release-2026-03-11-al2023.md "../relnotes/release-2026-03-11-al2023.md") platform versions released on or after
-March 11, 2026. Windows platforms are not currently supported.
+March 11, 2026, and on [Windows](../relnotes/release-2026-04-22-windows.md "../relnotes/release-2026-04-22-windows.md") platform versions released on or after April 22, 2026.
 
 ## Supported operations
 
 Deployment logs are generated for the following operations:
 
 - **Application deployments** – Deploying a new application version to your environment.
-- **Configuration updates** – Changing environment configuration settings that require instance
-  updates.
+- **Configuration updates** – Changing environment configuration settings that are applied to
+  existing instances, and updates that add new instances to the environment.
 - **Environment creation** – The initial deployment when you create a new environment.
 - **Restart app server** – Restarting the application server on your instances.
+- **Managed platform updates** – Platform updates that Elastic Beanstalk applies automatically during a scheduled
+  maintenance window.
 
 Operations that don't modify application or configuration state on instances, such as requesting logs, swapping CNAMEs, or updating tags, do not
 generate deployment logs.
@@ -85,6 +87,9 @@ The Deployments tab shows a table of deployments for the environment. Each row i
      *Application Deployment*, *Configuration Update*, *Managed Platform Update*,
      *Restart App Server*, *Rebuild Environment*, *Restore Environment*,
      *Swap Environment Domain*, or *Terminate Environment*.
+    * **Policy** – The deployment policy, such as *All at once*,
+     *Rolling*, *Rolling with additional batch*, *Immutable*, or
+     *Traffic splitting*.
     * **Start Time** – When the deployment began.
     * **Duration** – How long the deployment took to complete.
 

@@ -50,8 +50,6 @@ guide.
 
 | Runtime version / platform branch        | Target retirement date |
 | ---------------------------------------- | ---------------------- |
-| PHP 8.1 AL2023                           | March 31, 2026         |
-| PHP 8.1 AL2                              | March 31, 2026         |
 | Docker AL2                               | June 30, 2026          |
 | ECS AL2                                  | June 30, 2026          |
 | Go 1 AL2                                 | June 30, 2026          |
@@ -79,6 +77,7 @@ _AWS Elastic Beanstalk Platforms_ guide.
 | -------------------------- | --------------------------------- | --------------- |
 | .NET 6 AL2023              | April 8, 2025                     |
 | Node.js 18 AL2023          | August 11, 2025                   |
+| PHP 8.1 AL2023             | April 16, 2026                    |
 
 | Amazon Linux 2 (AL2)            | Runtime version / platform branch | Retirement date |
 | ------------------------------- | --------------------------------- | --------------- |
@@ -91,6 +90,7 @@ _AWS Elastic Beanstalk Platforms_ guide.
 | Node.js 14 AL2                  | October 10, 2024                  |
 | Node.js 12 AL2                  | December 23, 2022                 |
 | Node.js 10 AL2                  | June 29, 2022                     |
+| PHP 8.1 AL2                     | April 16, 2026                    |
 | PHP 8.0 AL2                     | October 10, 2024                  |
 | PHP 7.4 AL2                     | June 9, 2023                      |
 | PHP 7.3 AL2                     | June 29, 2022                     |
