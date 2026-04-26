@@ -18,7 +18,7 @@ leave a group on their own.
 2. In the navigation pane, locate and choose the name of the room for which you
    want to add moderators.
 3. Choose
-   ![Information icon](/images/wickr/latest/userguide/images/icon-wickr-room-information.png)
+   ![Information icon](images/icon-wickr-room-information.png)
    in the room window to view contact details.
 
 In the **Room Details** pane that appears, choose
