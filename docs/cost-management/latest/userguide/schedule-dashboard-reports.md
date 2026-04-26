@@ -15,8 +15,7 @@ scheduled deliveries without requiring reconfiguration of the report.
 ###### Note
 
 To schedule email delivery, you need permissions for
-`bcm-dashboards:CreateScheduledReport` and
-`iam:CreateServiceLinkedRole`.
+`bcm-dashboards:CreateScheduledReport`.
 
 ###### Note
 
@@ -27,7 +26,7 @@ _AWS User Notifications User Guide_.
 
 ###### Topics
 
-- [Service-linked role for scheduled reports](schedule-dashboard-reports-slr.md "schedule-dashboard-reports-slr.md")
+- [Execution role permissions for scheduled reports](schedule-dashboard-reports-permissions.md "schedule-dashboard-reports-permissions.md")
 - [Creating a scheduled report](schedule-dashboard-reports-create.md "schedule-dashboard-reports-create.md")
 - [Understanding scheduled report emails](schedule-dashboard-reports-emails.md "schedule-dashboard-reports-emails.md")
 - [Managing scheduled reports](schedule-dashboard-reports-manage.md "schedule-dashboard-reports-manage.md")

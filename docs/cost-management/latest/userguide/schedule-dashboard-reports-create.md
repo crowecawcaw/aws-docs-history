@@ -69,8 +69,8 @@ snapshots to your recipients on a recurring basis.
 
 
         	+ **Create and use a new execution role** - Recommended for
-        	 first-time setup. Creates a new IAM role with the minimum permissions required
-        	 for scheduled report generation and delivery.
+        	 first-time setup. Creates a new IAM role with the permissions required
+        	 for scheduled report generation and delivery. For more information, see [Execution role permissions for scheduled reports](schedule-dashboard-reports-permissions.md "schedule-dashboard-reports-permissions.md").
         	+ **Choose an existing execution role** - Select a previously
         	 created execution role from your account. Use this if you have already created a
         	 role for scheduled reports.
