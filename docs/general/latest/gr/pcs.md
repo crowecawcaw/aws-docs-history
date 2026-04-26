@@ -21,6 +21,7 @@ for your AWS account. For more information, see [AWS service quotas](aws_service
 | Europe (London)          | eu-west-2      | pcs.eu-west-2.amazonaws.com<br>pcs.eu-west-2.api.aws                                                                                   |          |
 | Europe (Milan)           | eu-south-1     | pcs.eu-south-1.amazonaws.com<br>pcs.eu-south-1.api.aws                                                                                 |          |
 | Europe (Paris)           | eu-west-3      | pcs.eu-west-3.amazonaws.com<br>pcs.eu-west-3.api.aws                                                                                   |          |
+| Europe (Spain)           | eu-south-2     | pcs.eu-south-2.amazonaws.com<br>pcs.eu-south-2.api.aws                                                                                 |          |
 | Europe (Stockholm)       | eu-north-1     | pcs.eu-north-1.amazonaws.com<br>pcs.eu-north-1.api.aws                                                                                 |          |
 | AWS GovCloud (US-East)   | us-gov-east-1  | pcs.us-gov-east-1.amazonaws.com<br>pcs-fips.us-gov-east-1.amazonaws.com<br>pcs-fips.us-gov-east-1.api.aws<br>pcs.us-gov-east-1.api.aws |          |
 | AWS GovCloud (US-West)   | us-gov-west-1  | pcs.us-gov-west-1.amazonaws.com<br>pcs-fips.us-gov-west-1.amazonaws.com<br>pcs-fips.us-gov-west-1.api.aws<br>pcs.us-gov-west-1.api.aws |          |
