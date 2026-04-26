@@ -17,6 +17,7 @@ This section contains answers to questions about AWS and AWS Application Migrati
 - [Why are my Windows server disks read-only after launching the test or cutover instance?](#Why-Windows-Server-Disks-Read-Only "#Why-Windows-Server-Disks-Read-Only")
 - [What impacts the conversion and boot time of test and cutover instances?](#What-Impacts-Conversion-Boot-Time-Target "#What-Impacts-Conversion-Boot-Time-Target")
 - [Why do I observe EBS volume performance issues while using test or cutover instances?](#EBS-performance-hit-after-instance-launch "#EBS-performance-hit-after-instance-launch")
+- [What are the Amazon EBS volume limits for AWS Application Migration Service?](#ebs-limits-faq "#ebs-limits-faq")
 - [How is the AWS Licensing Model Tenancy chosen for AWS Application Migration Service?](#How-Licensing-Model-Tenancy "#How-Licensing-Model-Tenancy")
 - [How does AWS Application Migration Service interact with Interface VPC Endpoints?](#mgn-and-vpc "#mgn-and-vpc")
 - [How do I use MGN with CloudWatch and EventBridge dashboards?](#mgn-and-monitoring "#mgn-and-monitoring")
@@ -161,6 +162,16 @@ adjusting to the AWS virtual hardware.
 ## Why do I observe EBS volume performance issues while using test or cutover instances?
 
 The EBS volumes attached to the test or cutover instances are created from snapshots of convertered volumes. For any volume type that were created from snapshots, the storage blocks are pulled down from Amazon S3 and written to the volume before accessed by you. This process may take significant time and varies based on the EBS volume type. For additional details and EBS initialization options, refer to [Initialize Amazon EBS volumes](../../../ebs/latest/userguide/ebs-initialize.md "../../../ebs/latest/userguide/ebs-initialize.md")
+
+## What are the Amazon EBS volume limits for AWS Application Migration Service?
+
+AWS Application Migration Service does not impose its own limits on Amazon EBS volume size or the number of Amazon EBS
+volumes per instance. The limits for maximum volume size, number of volumes per instance,
+and other Amazon EBS constraints are governed by Amazon EBS itself. For current limits, see
+[Amazon EBS
+service quotas](../../../ebs/latest/userguide/ebs-resource-quotas.md "../../../ebs/latest/userguide/ebs-resource-quotas.md") and
+[Instance
+volume limits](../../../AWSEC2/latest/UserGuide/volume_limits.md "../../../AWSEC2/latest/UserGuide/volume_limits.md").
 
 ## How is the AWS Licensing Model Tenancy chosen for AWS Application Migration Service?
 

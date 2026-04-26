@@ -97,7 +97,7 @@ on the root directory (/) of your Source Server. To check the available disk spa
 root directory, run the following command: df -h /
 
 Free disk space on the /tmp directory – for the duration of the installation process
-only, verify that you have at least 500 MB of free disk on the /tmp directory. To check the
+only, verify that you have at least 1 GB of free disk on the /tmp directory. To check the
 available disk space on the /tmp directory run the following command: df -h /tmp
 
 After you have entered the above commands for checking the available disk space, the

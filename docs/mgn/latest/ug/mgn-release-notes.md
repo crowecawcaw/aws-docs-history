@@ -2,6 +2,13 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Release notes
 
+## April 2026
+
+- Service launch in these regions: _Asia Pacific (New Zealand)_,
+  _Asia Pacific (Taipei)_,
+  _Canada West (Calgary)_,
+  and _Mexico (Central)_ Regions.
+
 ## March 2026
 
 - Updated network requirements for environments without outbound internet access.

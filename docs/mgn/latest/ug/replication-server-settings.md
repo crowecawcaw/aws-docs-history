@@ -154,6 +154,12 @@ You may want to use this option if:
 You can customize the Amazon EBS volume type used by each disk within each
 source server in that source server's settings. [Learn more about changing individual source server volume types.](staging-disk.md "staging-disk.md")
 
+###### Note
+
+For information about Amazon EBS volume limits, see
+[What are the Amazon EBS volume limits for
+AWS Application Migration Service?](AWS-Related-FAQ.md#ebs-limits-faq "AWS-Related-FAQ.md#ebs-limits-faq")
+
 ## Amazon EBS encryption
 
 Choose whether to use the default or custom Amazon **EBS

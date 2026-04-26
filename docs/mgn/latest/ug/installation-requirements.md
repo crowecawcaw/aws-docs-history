@@ -49,7 +49,7 @@ make gcc perl tar gawk rpm
   - At least 2 GB of free disk space on the
     root directory (/) of your source server for the installation. To check the available
     disk space on the root directory, run the `df -h /` command.
-  - At least 500 MB of free diskspace on the _/tmp_ directory for the
+  - At least 1 GB of free diskspace on the _/tmp_ directory for the
     duration of the installation process. To check the available disk
     space on the /tmp directory run the `df -h
 /tmp` command.
