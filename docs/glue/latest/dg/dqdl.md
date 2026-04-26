@@ -458,12 +458,22 @@ Rules = [
     // Auto includes the default label ["frequency"="monthly"]
     ColumnValues "col" > 21,
     // Add ["foo"="bar"] to default label. Labels for this rule would be ["frequency"="monthly", "foo"="bar"]
-    Rule 1 with threshold > 0.8 labels=["foo"="bar"],
+    RowCount > 0 with threshold > 0.8 labels=["foo"="bar"],
     // Override default label. Labels for this rule would be ["frequency"="daily", "foo"="bar"]
-    Rule 2 with threshold > 0.8 labels=["foo"="bar", "frequency"="daily"]
+    ColumnValues "colA" in ["A", "B"]  with threshold > 0.8 labels=["foo"="bar", "frequency"="daily"]
     // Labels must be applied to the entire composite rule (parentheses required)
-    (Rule 1 AND Rule 2) labels=["foo"="bar]
+    (isComplete "col" AND RowCount > 0) labels=["foo"="bar]
 ]
+```
+
+The following example shows invalid syntax with labels and composite rules:
+
+```
+
+          (isComplete "colA") AND (RowCount > 0) labels=["foo"="bar"]
+          (isComplete "colA" labels=["foo"="bar"]) AND (RowCount > 0)
+          isComplete "col" AND RowCount > 0 labels=["foo"="bar]
+
 ```
 
 ##### Label constraints

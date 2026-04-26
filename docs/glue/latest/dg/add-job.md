@@ -189,7 +189,8 @@ timeout limit are not restarted.
 
 Sets the maximum execution time in minutes. The maximum is 7 days or 10,080 minutes. Otherwise, the jobs will throw an exception.
 
-When the value is left blank, the timeout is defaulted to 2880 minutes.
+When the value is left blank, the timeout is defaulted to 2,880 minutes
+for Glue version 4.0 and earlier, or 480 minutes for Glue version 5.0 and later.
 
 Any existing AWS Glue jobs that had a timeout value greater than 7 days will be defaulted to 7 days. For instance if you specified a timeout of 20 days for a batch job, it will be stopped on the 7th day.
 

@@ -7,25 +7,40 @@ flatten complex data structures into more analytics-friendly formats.
 ## Unnesting options
 
 When creating a Zero-ETL integration with a source, you can choose from the following unnesting options.
-These options correspond to specific enumeration values that you'll use when calling the CreateIntegrationTableProperty API.
+These options correspond to specific enumeration values that you'll use when calling the CreateIntegrationTableProperty API. For all unnest options, we would traverse to most inner layer and map DDB type to target spark/iceberg primitive type with best efforts. The type mapping between source DDB and target table is as below:
 
-No unnesting (default)
+| DDB source data type | Target table data type    |
+| -------------------- | ------------------------- |
+| `"S"`                | StringType                |
+| `"B"`                | BinaryType                |
+| `"N"`                | DoubleType                |
+| `"BOOL"`             | BooleanType               |
+| `"SS"`               | ArrayType(StringType)     |
+| `"NS"`               | ArrayType(DoubleType)     |
+| `"BS"`               | ArrayType(BinaryType)     |
+| `"L"`                | ArrayType(StringType)     |
+| `"NULL"`             | Ignore                    |
+| `"M"`                | StructType (TOP/NOUNNEST) |
+
+No unnesting - NO_UNNEST
 
 **API value: `NO_UNNEST`**
 
-Preserves the original nested structure of DynamoDB items. Maps and lists are stored as structured columns in the target.
+Preserves the original nested structure of Amazon DynamoDB items. Maps and lists are stored as structured columns in the target.
 
-Best for: Preserving the exact structure of your DynamoDB data when your analytics tools can work with nested data.
+Best for: Preserving the exact structure of your Amazon DynamoDB data when your analytics tools can work with nested data.
 
-Unnest one level
+Top level - TOP_LEVEL
 
 **API value: `TOP_LEVEL`**
 
 Flattens the top level of nested maps into individual columns. List structures remain nested.
 
-Best for: Balancing between data structure preservation and query simplicity when your DynamoDB items have a consistent schema.
+Preserves the exact structure of your Amazon DynamoDB data when your analytics tools can work with nested data with all DDB type information removed.
 
-Unnest all levels
+Best for: Balancing between data structure preservation and query simplicity when your Amazon DynamoDB table items have a consistent schema.
+
+Unnest all levels - FULL (default)
 
 **API value: `FULL`**
 
@@ -43,7 +58,7 @@ When configuring schema unnesting through the CreateIntegrationTableProperty API
 
 ```
 aws glue create-integration-table-property
-  --resource-arn "arn:aws:glue:us-east-1:123456789012:integration/my-integration"
+  --resource-arn "arn:aws:glue:us-east-1:123456789012:database/my_db"
   --table-name "my-table"
   --cli-input-json '{
       "TargetTableConfig": {
@@ -58,89 +73,86 @@ aws glue create-integration-table-property
 Consider a DynamoDB item with the following structure:
 
 ```
+// Input DynamoDB Record
 {
-  "ProductId": "P12345",
-  "ProductDetails": {
-    "Name": "Smartphone",
-    "Brand": "TechCo",
-    "Specifications": {
-      "Color": "Black",
-      "Storage": "128GB"
-    }
-  },
-  "Reviews": [
-    {
-      "Rating": 5,
-      "Comment": "Great product!"
+  "Item": {
+    "col_1": {
+      "S": "value_1"
     },
-    {
-      "Rating": 4,
-      "Comment": "Good value."
+    "col_2": {
+      "M": {
+        "col_3": {
+          "M": {
+            "id": {
+              "S": "value_3"
+            }
+          }
+        },
+        "col_4": {
+          "BOOL": true
+        }
+      }
     }
-  ]
+  }
 }
 ```
 
-### No unnesting example
+### NO_UNNEST example
 
-With no unnesting, the target table would have columns:
+With NO_UNNEST, the entire row is stored within one column plus the primary key. DynamoDB type information is preserved. This maintains compatibility with Redshift querying patterns.
 
-- ProductId (string)
-- ProductDetails (struct)
-- Reviews (array of structs)
+Resulting Iceberg table (assuming col_1 is primary key):
+
+| col_1 (string) | value (struct)                                                                                                                                             |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value_1        | `<br>{<br>"col_2": {<br>"M": {<br>"col_3": {<br>"M": {<br>"id": {<br>"S": "value_3"<br>}<br>}<br>},<br>"col_4": {<br>"BOOL": true<br>}<br>}<br>}<br>}<br>` |
 
 Queries would need to use struct and array access patterns:
 
 ```
 SELECT
-  ProductId,
-  ProductDetails.Name,
-  ProductDetails.Specifications.Color
+  value.col_1,
+  value.col_2.M.col_3.M.id.S,
+  value.col_2.M.col_4.BOOL
 FROM product_table;
 ```
 
-### Unnest one level example
+### TOP_LEVEL example
 
-With one level unnesting, the target table would have columns:
+With TOP_LEVEL, only the top-level fields are unnested while keeping nested fields intact as structs. DynamoDB type information is removed and typing is maintained. Converts to string type when schema conflicts occur.
 
-- ProductId (string)
-- ProductDetails_Name (string)
-- ProductDetails_Brand (string)
-- ProductDetails_Specifications (struct)
-- Reviews (array of structs)
+Resulting Glue table after replication:
+
+| col_1 (string) | col_2 (struct)                                                           |
+| -------------- | ------------------------------------------------------------------------ |
+| value_1        | `<br>{<br>"col_3": {<br>"id": "value_3"<br>},<br>"col_4": true<br>}<br>` |
 
 Queries would be simplified for the first level:
 
 ```
 SELECT
-  ProductId,
-  ProductDetails_Name,
-  ProductDetails_Specifications.Color
+  col_1,
+  col_2.col_3.id,
+  col_2.col_4
 FROM product_table;
 ```
 
-### Unnest all levels example
+### FULL example
 
-With all levels unnesting, the target table would have columns and values:
+With FULL unnesting, both top-level fields and nested struct/map fields are flattened. Dot notation is used for nested fields (e.g., "col_2.col_3.id"). Array elements remain unnested. Each leaf node becomes a top-level column.
 
-| Column Name (Type)                             | Value          |
-| ---------------------------------------------- | -------------- |
-| ProductId (string)                             | P12345         |
-| ProductDetails_Name (string)                   | Smartphone     |
-| ProductDetails_Brand (string)                  | TechCo         |
-| ProductDetails_Specifications_Color (string)   | Black          |
-| ProductDetails_Specifications_Storage (string) | 128GB          |
-| Reviews_0_Rating (number)                      | 5              |
-| Reviews_0_Comment (string)                     | Great product! |
-| Reviews_1_Rating (number)                      | 4              |
-| Reviews_1_Comment (string)                     | Good value.    |
+Resulting Glue table after replication:
+
+| col_1 (string) | col_2.col_3.id (string) | col_2.col_4 (boolean) |
+| -------------- | ----------------------- | --------------------- |
+| value_1        | value_3                 | TRUE                  |
 
 Queries would be fully flattened:
 
 ```
 SELECT
-  ProductId,
-  ProductDetails_Name,
-  ProductDetails_Specifications_Color
+  col_1,
+  "col_2.col_3.id",
+  "col_2.col_4"
 FROM product_table;
 ```

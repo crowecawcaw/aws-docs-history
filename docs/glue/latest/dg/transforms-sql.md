@@ -57,7 +57,7 @@ schema** section of the page:
     ) button, and then choose **Add root key**. New
      columns are added at the top of the schema.
     * To remove a column from the schema, choose the delete icon (
-    ![An outline of a trash can](images/delete-icon-black.png)
+    ![An outline of a trash can](/images/glue/latest/dg/images/delete-icon-black.png)
     ) to the far right of the Key name.
 
 7. When you finish specifying the output schema, choose **Apply** to
