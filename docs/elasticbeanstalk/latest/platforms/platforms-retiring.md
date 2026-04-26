@@ -24,7 +24,6 @@ The following sections provide information about all retiring platform versions.
 - [Tomcat](#platforms-retiring.java "#platforms-retiring.java")
 - [.NET Core on Linux](#platforms-retiring.dotnetlinux "#platforms-retiring.dotnetlinux")
 - [Node.js](#platforms-retiring.nodejs "#platforms-retiring.nodejs")
-- [PHP](#platforms-retiring.PHP "#platforms-retiring.PHP")
 - [Python](#platforms-retiring.python "#platforms-retiring.python")
 - [Ruby](#platforms-retiring.ruby "#platforms-retiring.ruby")
 
@@ -91,17 +90,6 @@ Elastic Beanstalk has scheduled the following Node.js platform versions for reti
 | **Node.js 20 AL2023 version 6.10.1**<br>_64bit Amazon Linux 2023 v6.10.1 running Node.js 20_ | 2023.11.20260406 | 20.20.1 (10.8.2)<br>Default version: 20.20.1 | nginx 1.28.2 (default), Apache 2.4.66 | 2.50.1 | 3.6.2     | 2026-07-31 |
 
 For information about current platform versions, see [Node.js](platforms-supported.md#platforms-supported.nodejs "platforms-supported.md#platforms-supported.nodejs").
-
-## PHP
-
-Elastic Beanstalk has scheduled the following PHP platform versions for retirement.
-
-| Platform Version and _Solution Stack Name_                                             | AMI              | Language   | Package Manager           | Proxy Server                          | End Date   |
-| -------------------------------------------------------------------------------------- | ---------------- | ---------- | ------------------------- | ------------------------------------- | ---------- |
-| **PHP 8.1 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running PHP 8.1_ | 2023.11.20260406 | PHP 8.1.34 | Composer 2.9.5, PIE 1.4.0 | nginx 1.28.2 (default), Apache 2.4.66 | 2026-03-31 |
-| **PHP 8.1 AL2 version 3.15.0**<br>_64bit Amazon Linux 2 v3.15.0 running PHP 8.1_       | 2.0.20260406     | PHP 8.1.33 | Composer 2.9.5, PIE 1.4.0 | nginx 1.28.2 (default), Apache 2.4.66 | 2026-03-31 |
-
-For information about current platform versions, see [PHP](platforms-supported.md#platforms-supported.PHP "platforms-supported.md#platforms-supported.PHP").
 
 ## Python
 

@@ -152,27 +152,27 @@ Elastic Beanstalk supports the following .NET on Windows Server platform version
 
 | Platform Version                                          | Solution Stack Name                                       | Framework                                                                               | Proxy Server |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------ |
-| **Windows Server 2025 with IIS 10.0 version 2.22.3**      | _64bit Windows Server 2025 v2.22.3 running IIS 10.0_      | .NET 9.0.14, supports 9.0.14, 8.0.25, 10.0.5<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server Core 2025 with IIS 10.0 version 2.22.3** | _64bit Windows Server Core 2025 v2.22.3 running IIS 10.0_ | .NET 9.0.14, supports 9.0.14, 8.0.25, 10.0.5<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server 2022 with IIS 10.0 version 2.22.3**      | _64bit Windows Server 2022 v2.22.3 running IIS 10.0_      | .NET 9.0.14, supports 9.0.14, 8.0.25, 10.0.5<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server Core 2022 with IIS 10.0 version 2.22.3** | _64bit Windows Server Core 2022 v2.22.3 running IIS 10.0_ | .NET 9.0.14, supports 9.0.14, 8.0.25, 10.0.5<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server 2019 with IIS 10.0 version 2.22.3**      | _64bit Windows Server 2019 v2.22.3 running IIS 10.0_      | .NET 9.0.14, supports 9.0.14, 8.0.25, 10.0.5<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.22.3** | _64bit Windows Server Core 2019 v2.22.3 running IIS 10.0_ | .NET 9.0.14, supports 9.0.14, 8.0.25, 10.0.5<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.22.3**      | _64bit Windows Server 2016 v2.22.3 running IIS 10.0_      | .NET 9.0.14, supports 9.0.14, 8.0.25, 10.0.5<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.22.3** | _64bit Windows Server Core 2016 v2.22.3 running IIS 10.0_ | .NET 9.0.14, supports 9.0.14, 8.0.25, 10.0.5<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server 2025 with IIS 10.0 version 2.23.0**      | _64bit Windows Server 2025 v2.23.0 running IIS 10.0_      | .NET 10.0.7, supports 10.0.7, 9.0.15, 8.0.26<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.23.0** | _64bit Windows Server Core 2025 v2.23.0 running IIS 10.0_ | .NET 10.0.7, supports 10.0.7, 9.0.15, 8.0.26<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server 2022 with IIS 10.0 version 2.23.0**      | _64bit Windows Server 2022 v2.23.0 running IIS 10.0_      | .NET 10.0.7, supports 10.0.7, 9.0.15, 8.0.26<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.23.0** | _64bit Windows Server Core 2022 v2.23.0 running IIS 10.0_ | .NET 10.0.7, supports 10.0.7, 9.0.15, 8.0.26<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server 2019 with IIS 10.0 version 2.23.0**      | _64bit Windows Server 2019 v2.23.0 running IIS 10.0_      | .NET 10.0.7, supports 10.0.7, 9.0.15, 8.0.26<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.23.0** | _64bit Windows Server Core 2019 v2.23.0 running IIS 10.0_ | .NET 10.0.7, supports 10.0.7, 9.0.15, 8.0.26<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.23.0**      | _64bit Windows Server 2016 v2.23.0 running IIS 10.0_      | .NET 10.0.7, supports 10.0.7, 9.0.15, 8.0.26<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.23.0** | _64bit Windows Server Core 2016 v2.23.0 running IIS 10.0_ | .NET 10.0.7, supports 10.0.7, 9.0.15, 8.0.26<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
 
 ### More details
 
 | Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.22.3**      | 2026.03.11  | 3.7.1239.0       | 2.4.0.0   | 3.3.3883.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2025 with IIS 10.0 version 2.22.3** | 2026.03.11  | 3.7.1239.0       | 2.4.0.0   | 3.3.3883.0 | 4.0        | 3.6.1     |
-| **Windows Server 2022 with IIS 10.0 version 2.22.3**      | 2026.03.11  | 3.7.1239.0       | 2.4.0.0   | 3.3.3883.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2022 with IIS 10.0 version 2.22.3** | 2026.03.11  | 3.7.1239.0       | 2.4.0.0   | 3.3.3883.0 | 4.0        | 3.6.1     |
-| **Windows Server 2019 with IIS 10.0 version 2.22.3**      | 2026.03.11  | 3.7.1239.0       | 2.4.0.0   | 3.3.3883.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.22.3** | 2026.03.11  | 3.7.1239.0       | 2.4.0.0   | 3.3.3883.0 | 4.0        | 3.6.1     |
-| **Windows Server 2016 with IIS 10.0 version 2.22.3**      | 2026.03.11  | 3.7.1239.0       | 2.4.0.0   | 3.3.3883.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.22.3** | 2026.03.11  | 3.7.1239.0       | 2.4.0.0   | 3.3.3883.0 | 4.0        | 3.6.1     |
+| **Windows Server 2025 with IIS 10.0 version 2.23.0**      | 2026.04.15  | 3.7.1251.0       | 2.4.0.0   | 3.3.4121.0 | 4.0        | 3.6.2     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.23.0** | 2026.04.15  | 3.7.1251.0       | 2.4.0.0   | 3.3.4121.0 | 4.0        | 3.6.2     |
+| **Windows Server 2022 with IIS 10.0 version 2.23.0**      | 2026.04.15  | 3.7.1251.0       | 2.4.0.0   | 3.3.4121.0 | 4.0        | 3.6.2     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.23.0** | 2026.04.15  | 3.7.1251.0       | 2.4.0.0   | 3.3.4121.0 | 4.0        | 3.6.2     |
+| **Windows Server 2019 with IIS 10.0 version 2.23.0**      | 2026.04.15  | 3.7.1251.0       | 2.4.0.0   | 3.3.4121.0 | 4.0        | 3.6.2     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.23.0** | 2026.04.15  | 3.7.1251.0       | 2.4.0.0   | 3.3.4121.0 | 4.0        | 3.6.2     |
+| **Windows Server 2016 with IIS 10.0 version 2.23.0**      | 2026.04.15  | 3.7.1251.0       | 2.4.0.0   | 3.3.4121.0 | 4.0        | 3.6.2     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.23.0** | 2026.04.15  | 3.7.1251.0       | 2.4.0.0   | 3.3.4121.0 | 4.0        | 3.6.2     |
 
 ## Node.js
 
@@ -220,12 +220,7 @@ Elastic Beanstalk supports the following PHP platform versions.
 | **PHP 8.4 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running PHP 8.4_ | 2023.11.20260406 | PHP 8.4.19 | Composer 2.9.5, PIE 1.4.0 | nginx 1.28.2 (default), Apache 2.4.66 |
 | **PHP 8.3 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running PHP 8.3_ | 2023.11.20260406 | PHP 8.3.30 | Composer 2.9.5, PIE 1.4.0 | nginx 1.28.2 (default), Apache 2.4.66 |
 | **PHP 8.2 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running PHP 8.2_ | 2023.11.20260406 | PHP 8.2.30 | Composer 2.9.5, PIE 1.4.0 | nginx 1.28.2 (default), Apache 2.4.66 |
-| **PHP 8.1 AL2023 version 4.12.1**<br>_64bit Amazon Linux 2023 v4.12.1 running PHP 8.1_ | 2023.11.20260406 | PHP 8.1.34 | Composer 2.9.5, PIE 1.4.0 | nginx 1.28.2 (default), Apache 2.4.66 |
-| **PHP 8.1 AL2 version 3.15.0**<br>_64bit Amazon Linux 2 v3.15.0 running PHP 8.1_       | 2.0.20260406     | PHP 8.1.33 | Composer 2.9.5, PIE 1.4.0 | nginx 1.28.2 (default), Apache 2.4.66 |
 
-For information about platform
-versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
-see [PHP](platforms-retiring.md#platforms-retiring.PHP "platforms-retiring.md#platforms-retiring.PHP") on the _Retiring Platform Versions_ page.
 For information about previous platform versions, see [PHP platform history](platform-history-php.md "platform-history-php.md").
 
 ## Python
