@@ -99,7 +99,7 @@ enable sharing with organizations.
   (`glue:PutResourcePolicy`) that enables LF-TBAC. For more
   information, see [Managing cross-account permissions using both AWS Glue and Lake Formation](hybrid-cross-account.md "hybrid-cross-account.md").
 - If you're currently using an AWS Glue Data Catalog resource policy to share
-  resources, and you want to grant cross-account permissions using version 3 of the
+  resources, and you want to grant cross-account permissions using version 3 or higher of the
   **Cross account version settings**, you must add the
   `glue:ShareResource` permission in the Data Catalog Settings using the
   `glue:PutResourcePolicy` API operation as shown in the [Managing cross-account permissions using both AWS Glue and Lake Formation](hybrid-cross-account.md "hybrid-cross-account.md") section. This

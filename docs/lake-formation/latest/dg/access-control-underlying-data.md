@@ -153,6 +153,10 @@ Data Catalog databases and tables. The rules are as follows:
   on the underlying data. It is sufficient to have the `SELECT` or
   `INSERT` data access permissions. Data location permissions apply only to
   creating Data Catalog resources that point to the location.
+- Partition operations (`CreatePartition`, `BatchCreatePartition`,
+  `UpdatePartition`) do not require data location permissions when the
+  partition location is a child of the table location already registered with
+  Lake Formation.
   Consider the scenario shown in the following diagram.
 
 ![Folder hierarchy and two databases, database A and B, with database B pointing to the Customer service folder.](images/location-permissions-example.png)

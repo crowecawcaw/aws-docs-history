@@ -33,11 +33,10 @@ The following considerations and limitations apply to hybrid access mode.
   - CreateTable – The location is considered as registered with Lake Formation
     regardless of the hybrid access mode flag and opt in status. Thus, the user requires
     the data location permission to create a table.
-  - CreatePartition/BatchCreatePartitions/UpdatePartitions (when partition location is
+  - CreatePartition/BatchCreatePartition/UpdatePartition (when partition location is
     updated to point to the location registered with hybrid) – The Amazon S3 location is
     considered as registered with Lake Formation regardless of the hybrid access mode flag and opt
-    in status. Thus, the user requires the data location permission to create or update a
-    database.
+    in status.
   - CreateDatabase/UpdateDatabase (when database location is updated to point to the
     location registered in hybrid access mode) – The location is considered as registered
     with Lake Formation regardless of the hybrid access mode flag and opt in status. Thus, the user
