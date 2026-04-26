@@ -374,14 +374,12 @@ environment for service-managed fleets. For more information, see [Default conda
 
 1. Open **Blender**.
 2. In the **Render** menu, choose **Submit to AWS Deadline Cloud**.
-   1. If you are prompted to install GUI dependencies, choose **OK**
-      and the Deadline Cloud submitter dialog will appear shortly.
-   2. If you are not already authenticated in the Deadline Cloud submitter, the
+   1. If you are not already authenticated in the Deadline Cloud submitter, the
       **Credentials Status** shows as
       **NEEDS_LOGIN**.
-   3. Choose **Login**. You will be prompted to log in with your user
+   2. Choose **Login**. You will be prompted to log in with your user
       credentials in a browser.
-   4. You are now logged in and the
+   3. You are now logged in and the
       **Credentials Status** shows as
       **AUTHENTICATED**.
 

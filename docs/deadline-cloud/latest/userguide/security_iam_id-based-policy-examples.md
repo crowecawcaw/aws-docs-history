@@ -152,7 +152,7 @@ JSON
  {
  "Sid": "RoleSelection",
  "Effect": "Allow",
- "Action": ["iam:GetRole", "iam:ListRoles"],
+ "Action": ["iam:GetRole", "iam:ListRoles", "iam:ListAttachedRolePolicies"],
  "Resource": "*"
  },
  {
@@ -306,7 +306,9 @@ JSON
  "deadline:ListAvailableMeteredProducts",
  "deadline:ListMeteredProducts",
  "deadline:PutMeteredProduct",
- "deadline:DeleteMeteredProduct"
+ "deadline:DeleteMeteredProduct",
+ "deadline:GetMonitorSettings",
+ "deadline:UpdateMonitorSettings"
  ],
  "Resource": ["*"]
  }]
