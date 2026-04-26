@@ -57,8 +57,8 @@ non-authenticated requests to the AWS STS actions, `AssumeRoleWithSAML` and
 `AssumeRoleWithWebIdentity`, and logs information provided by the identity
 provider. However, some non-authenticated AWS STS requests might not be logged because they do
 not meet the minimum expectation of being sufficiently valid to be trusted as a legitimate
-request. For cross-account role assumption requests, CloudTrail does not log denied AWS STS requests
-in the target account's CloudTrail.
+request. CloudTrail does not log denied AWS STS requests in the target account for cross-account role
+assumptions and privileged sessions initiated via the `AssumeRoot` API.
 
 You can use the logged information to map calls made by an OIDC or SAML federated principal with an assumed
 role back to the originating external federated caller. In the case of

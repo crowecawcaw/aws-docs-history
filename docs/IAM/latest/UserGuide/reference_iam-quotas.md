@@ -84,7 +84,7 @@ automatically approved.
 | Managed policies per role             | 10              | 25              |
 | Managed policies per user             | 10              | 20              |
 | Managed policies per group            | 10              | 10              |
-| Role trust policy length              | 2048 characters | 4096 characters |
+| Role trust policy length              | 2048 characters | 8192 characters |
 | Roles per account                     | 1000            | 5000            |
 | Server certificates per account       | 20              | 20              |
 | OpenId connect providers per account  | 100             | 700             |

@@ -40,6 +40,18 @@ by one of these trusted CAs, only then we secure communication using the thumbpr
 the IdP's configuration. AWS will fall back to thumbprint verification if we are
 unable to retrieve the TLS certificate or if TLS v1.3 is required.
 
+###### Important
+
+If your OIDC identity provider uses different hosts for the discovery endpoint (the
+issuer URL) and the JWKS endpoint (`jwks_uri`), you must include the thumbprint
+for both endpoints in your OIDC provider's thumbprint list. AWS validates the thumbprint
+of both endpoints when falling back to thumbprint verification. If either thumbprint is
+missing from the configured list, authentication fails.
+
+Most OIDC providers host both endpoints on the same domain, so a single thumbprint
+covers both. You only need to add a separate thumbprint if your provider uses different
+hosts or certificates for the two endpoints.
+
 ## Obtain certificate thumbprint
 
 You use a web browser and the OpenSSL command line tool to obtain the certificate thumbprint
@@ -79,8 +91,16 @@ the top-level domain.
 
 ```
 
-4. Use the OpenSSL command line tool to run the following command. Replace
-   `keys.example.com` with the domain name you obtained in [Step 3](#thumbstep2 "#thumbstep2").
+###### Note
+
+If your discovery and JWKS endpoints use different hosts, note the fully qualified
+domain name from your issuer URL (the URL you used in [Step 2](#thumbstep2 "#thumbstep2"), without the
+`/.well-known/openid-configuration` path). If this domain differs from the
+`jwks_uri` domain you copied in this step, perform
+[Step 4](#thumbstep4 "#thumbstep4")
+through [Step 6](#thumbstep6 "#thumbstep6") for both domains and
+include both thumbprints when creating your OIDC provider. 4. Use the OpenSSL command line tool to run the following command. Replace
+`keys.example.com` with the domain name you obtained in [Step 3](#thumbstep3 "#thumbstep3").
 
 ```
 openssl s_client -servername `keys.example.com` -showcerts -connect `keys.example.com`:443
@@ -142,11 +162,17 @@ this:
 990F4193972F2BECF12DDEDA5237F9C952F20D9E
 ```
 
-7. If you are creating the IAM OIDC identity provider with the AWS CLI, Tools for Windows PowerShell, or the IAM
-   API, providing a thumbprint is optional. If you choose not to include a thumbprint during
-   creation, IAM will retrieve the top intermediate CA thumbprint of the OIDC IdP server
-   certificate. After the IAM OIDC identity provider is created, you can compare this
-   thumbprint to the thumbprint retrieved by IAM.
+###### Note
+
+If your discovery endpoint uses a different host than your JWKS endpoint, repeat
+[Step 4](#thumbstep4 "#thumbstep4")
+through [Step 6](#thumbstep6 "#thumbstep6") using the discovery
+endpoint domain (your issuer URL domain). Include both thumbprints when creating or
+updating your OIDC identity provider using [CreateOpenIDConnectProvider](../APIReference/API_CreateOpenIDConnectProvider.md "../APIReference/API_CreateOpenIDConnectProvider.md") or [UpdateOpenIDConnectProviderThumbprint](../APIReference/API_UpdateOpenIDConnectProviderThumbprint.md "../APIReference/API_UpdateOpenIDConnectProviderThumbprint.md"). 7. If you are creating the IAM OIDC identity provider with the AWS CLI, Tools for Windows PowerShell, or the IAM
+API, providing a thumbprint is optional. If you choose not to include a thumbprint during
+creation, IAM will retrieve the top intermediate CA thumbprint of the OIDC IdP server
+certificate. After the IAM OIDC identity provider is created, you can compare this
+thumbprint to the thumbprint retrieved by IAM.
 
 If you are creating the IAM OIDC identity provider in the IAM console, the console
 attempts to retrieve the top intermediate CA thumbprint of the OIDC IdP server certificate
