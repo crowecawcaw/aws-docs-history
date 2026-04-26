@@ -6,7 +6,7 @@ your admin must enable and configure blueprints.
 
 After your admin has enabled and configured blueprints:
 
-1. From inside the project management view, select **Compute** from the navigation bar.
+1. In the left navigation pane, choose **Compute**.
 2. In the Compute panel, select the **Data processing** tab.
 3. To create a new Amazon EMR on EKS virtual cluster, select the **Add compute**
    dropdown menu and then choose **New compute**.

@@ -14,8 +14,8 @@ and have your subscription request approved and access granted.
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Navigate to the **Discover** menu in the top navigation bar.
-3. Choose **Data catalog**.
+2. In the left navigation pane, choose **Catalog**.
+3. Choose **Browse assets**.
 4. Find the asset that you want to subscribe to by browsing or entering the name of the asset
    into the search bar. You can apply filters to narrow the results. The filters include
    asset type, source account, the AWS Region to which the asset belongs, date range, and

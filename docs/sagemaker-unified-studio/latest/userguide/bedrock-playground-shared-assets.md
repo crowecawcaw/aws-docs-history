@@ -15,8 +15,8 @@ project. For more information, see [Share an Amazon Bedrock chat agent app](app-
 
 1. Navigate to the Amazon SageMaker Unified Studio landing page by using the URL from your administrator.
 2. Access Amazon SageMaker Unified Studio using your IAM or single sign-on (SSO) credentials. For more information, see [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md").
-3. At the top of the page, choose the **Discover**.
-4. In the **GENERATIVE AI** section, choose **Shared apps
+3. In the left navigation pane, under **Generative AI**, choose **Playground**.
+4. Choose **Shared apps
    and prompts**.
 5. In the playground, select the name of the asset that you want to use. The
    **Asset type** column tells the type of the asset (App or

@@ -16,17 +16,12 @@ To delete an existing project, complete the following steps.
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Choose **Select a project**.
-3. If you don't see the name of your project under **Recently updated
-   projects**, choose **Browse all projects**.
-4. Choose the project that you want to delete. If you don't readily see it in the list of
-   projects, you can search for it by specifying the project name in the **Search
-   projects** field.
-5. On the **Project overview** page, expand **Actions**
+2. From the project selector dropdown at the top of the page, choose the project that you want to delete.
+3. On the **Project overview** page, expand **Actions**
    and choose **Delete project**.
 
 Review the informational warnings about the potential impact of deleting the
-project. 6. If you accept the warnings, then type in the confirmation text and choose
+project. 4. If you accept the warnings, then type in the confirmation text and choose
 **Delete project**.
 
 ###### Important

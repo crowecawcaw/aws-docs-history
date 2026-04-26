@@ -10,5 +10,5 @@ accompanying services such as Application Load Balancer, Amazon RDS, Amazon S3 b
 To view the partner AI apps, complete these steps:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the **Explore** drop-down menu, choose **Partner AI apps**.
+2. In the left navigation pane, under **AI/ML**, choose **Partner AI apps**.
    For more information about SageMaker AI partner AI apps, see [Partner AI Apps overview](../../../sagemaker/latest/dg/partner-apps.md "../../../sagemaker/latest/dg/partner-apps.md") in the _Amazon SageMaker AI Developer Guide_.

@@ -7,6 +7,8 @@ exploration, engineering, and machine learning workflows. You can run SQL, Pytho
 language queries to discover, transform, analyze, visualize, and share insights on data at
 scale.
 
+You can use notebooks in both IAM-based and IAM Identity Center-based domains.
+
 Amazon SageMaker Unified Studio offers multiple coding experiences to meet different development preferences
 and use cases. JupyterLab IDE provides a traditional Jupyter notebook environment with
 extensive customization options and plugin support. Code Editor, based on [Code-OSS, Visual Studio Code - Open Source](https://github.com/microsoft/vscode#visual-studio-code---open-source-code---oss "https://github.com/microsoft/vscode#visual-studio-code---open-source-code---oss"), helps you write, test, debug, and run
@@ -30,31 +32,29 @@ recommendations.
 
 ###### Note
 
-SageMaker notebooks are only available in IAM-based domains.
+Amazon Athena for Apache Spark doesn't support Virtual Private Cloud (VPC). If you require VPC connectivity for your workloads, use Spark on Amazon EMR or AWS Glue instead. For instructions on disabling Amazon Athena Spark, see [Network isolation](../adminguide/network-isolation.md "../adminguide/network-isolation.md") in the _Amazon SageMaker Unified Studio Admin Guide_.
 
-###### Note
-
-SageMaker Notebooks do not support VPC. For VPC support, you can use JupyterLab spaces.
+For more information about configuring VPC and network isolation for your domain, see [Network isolation](../adminguide/network-isolation.md "../adminguide/network-isolation.md") in the _Amazon SageMaker Unified Studio Admin Guide_.
 
 ## Key capabilities
 
-1. Execute Python, Spark, and SQL code in interactive cells
-2. Integrate with Amazon Athena for Apache Spark for distributed processing
-3. Connect to multiple data sources including Amazon Simple Storage Service, Amazon S3 Tables, AWS Glue Data
-   Catalog, Amazon Athena, and Amazon Redshift. List of supported sources can be found [here](../../../sagemaker-lakehouse-architecture/latest/userguide/lakehouse-data-connection.md#lakehouse-data-connection-supported "../../../sagemaker-lakehouse-architecture/latest/userguide/lakehouse-data-connection.md#lakehouse-data-connection-supported").
-4. Work with Apache Iceberg REST Catalogs located anywhere to read/write Iceberg tables
-   using Iceberg REST APIs in Python/SQL.
-5. Visualize data with interactive tables and charts
-6. Auto code completion, formatting, linting supported in Cell editor
-7. Use AI assistance for code generation and error diagnosis
-8. Manage compute environments with configurable instance types
-9. Export notebooks in multiple formats including Jupyter, and Python files
-10. Install and manage Python packages
+- Execute Python, Spark, and SQL code in interactive cells
+- Integrate with Amazon Athena for Apache Spark for distributed processing
+- Connect to multiple data sources including Amazon Simple Storage Service, Amazon S3 Tables, AWS Glue Data
+  Catalog, Amazon Athena, and Amazon Redshift. For a complete list of supported sources, see [Supported data connections](../../../sagemaker-lakehouse-architecture/latest/userguide/lakehouse-data-connection.md#lakehouse-data-connection-supported "../../../sagemaker-lakehouse-architecture/latest/userguide/lakehouse-data-connection.md#lakehouse-data-connection-supported").
+- Work with Apache Iceberg REST Catalogs to read and write Iceberg tables by using Iceberg REST APIs in Python and SQL
+- Visualize data with interactive tables and charts
+- Use auto code completion, formatting, and linting in the cell editor
+- Use AI assistance for code generation and error diagnosis
+- Manage compute environments with configurable instance types
+- Export notebooks in multiple formats including Jupyter and Python files
+- Install and manage Python packages
+- Run notebook kernels in your domain-level VPC configuration for network isolation
 
 ## Roles and permissions
 
 To use notebooks in Amazon SageMaker Unified Studio, you need:
 
-1. Access to an Amazon SageMaker Unified Studio domain
-2. Appropriate IAM permissions to access data sources
-3. Project membership with notebook creation permissions
+- Access to an Amazon SageMaker Unified Studio domain
+- Appropriate IAM permissions to access data sources
+- Project membership with notebook creation permissions

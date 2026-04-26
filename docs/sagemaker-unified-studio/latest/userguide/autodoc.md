@@ -101,9 +101,8 @@ descriptions, and glossary terms in Amazon SageMaker Unified Studio:
 
 ### Generating Business Descriptions and Summaries
 
-- Navigate to the **Data** tab for the project.
-- From **Project catalog**, choose
-  **Assets** and chose the asset for which you want
+- In the left navigation pane, choose **Manage**, then under **Catalog management**, choose
+  **Assets**, and then choose the asset for which you want
   to generate AI recommendations for descriptions.
 - On the asset's details page, in the **Business
   metadata** tab, choose **Generate
@@ -111,9 +110,8 @@ descriptions, and glossary terms in Amazon SageMaker Unified Studio:
 
 ### Generating glossary terms
 
-- Navigate to the **Data** tab for the project.
-- From **Project catalog**, choose
-  **Assets** and chose the asset for which you want
+- In the left navigation pane, choose **Manage**, then under **Catalog management**, choose
+  **Assets**, and then choose the asset for which you want
   to generate AI recommendations for glossary terms.
 - On the asset's details page, in the **Business
   metadata** tab, choose **Generate
@@ -121,9 +119,8 @@ descriptions, and glossary terms in Amazon SageMaker Unified Studio:
 
 ### Generating Business Names
 
-- Navigate to the **Data** tab for the project.
-- In the left navigation pane, choose **Data sources**,
-  and then choose datasource for which you want to enable business name
+- In the left navigation pane, choose **Manage**, then under **Catalog management**, choose **Data sources**,
+  and then choose the data source for which you want to enable business name
   generation.
 - Go to the **details** tab and enable the
   **AUTOMATED BUSINESS NAME GENERATION**

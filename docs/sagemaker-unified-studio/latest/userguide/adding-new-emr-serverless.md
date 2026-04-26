@@ -7,7 +7,7 @@ the admin must enable blueprints.
 
 After your admin has enabled blueprints:
 
-1. From inside the project management view, select **Compute** from the navigation bar.
+1. In the left navigation pane, choose **Compute**.
 2. In the Compute panel, select the **Data processing** tab.
 3. To add an instance of an Amazon EMR Serverless, select the **Add compute** dropdown menu
    and then choose **New compute**.

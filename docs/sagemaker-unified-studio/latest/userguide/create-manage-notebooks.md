@@ -6,6 +6,13 @@ You can create new notebooks in Amazon SageMaker Unified Studio to start data an
 
 The notebook interface provides access to sample notebooks that demonstrate common data analysis patterns. You can copy these samples to create starting points for your own analysis.
 
+###### Important
+
+In VPC-enabled domains that use only public subnets, notebooks can't run non-Python
+cells. To resolve this issue, configure your domain to use private subnets. For more
+information, see [VPC troubleshooting](../adminguide/network-isolation.md#vpc-troubleshooting "../adminguide/network-isolation.md#vpc-troubleshooting") in the _Amazon SageMaker Unified Studio Admin
+Guide_.
+
 ## Procedure
 
 1. Navigate to the Notebooks section in your Amazon SageMaker Unified Studio project.

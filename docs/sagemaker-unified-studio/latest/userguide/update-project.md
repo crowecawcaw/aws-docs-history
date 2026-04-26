@@ -32,19 +32,18 @@ To update a project, complete the following steps:
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. From the top center menu, choose **Browse all projects**.
-3. Select the name of the project to navigate to that project.
-4. On the **Project overview** page, choose **Actions > Update
+2. From the project selector dropdown at the top of the page, choose the project.
+3. On the **Project overview** page, choose **Actions > Update
    project**.
-5. (Optional) Review the information in the **Domain updates** section,
+4. (Optional) Review the information in the **Domain updates** section,
    if applicable.
-6. Review the information in the **Project profile updates**
+5. Review the information in the **Project profile updates**
    section.
-7. Review the information in **Environment updates**.
+6. Review the information in **Environment updates**.
    1. Choose **Show update parameters** in each section to review and
       update the modifiable parameters as desired. If there are other parameters that you
       want to update that are listed as non-modifiable, contact your admin.
 
-8. Choose **Update project**. Updating a project might take a few
+7. Choose **Update project**. Updating a project might take a few
    minutes as resources are deployed.
    When the update is complete, you can use your project with the updated parameters.

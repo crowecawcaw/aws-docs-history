@@ -12,8 +12,8 @@ project.
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Navigate to the **Discover** menu in the top navigation bar.
-3. Choose **Data catalog**.
+2. In the left navigation pane, choose **Catalog**.
+3. Choose **Browse assets**.
 4. Find the asset you want to subscribe to by browsing or typing the name of the asset
    into the search bar.
 5. Choose the asset to which you want to subscribe, and then choose
@@ -28,7 +28,7 @@ project.
 The project will be subscribed to the asset when the publisher approves your
 request.
 To view the status of the subscription request, locate and choose the project with which
-you subscribed to the asset. Choose **Subscription requests** from the
-project left side navigation, then choose the **Outgoing requests** tab. This
+you subscribed to the asset. In the left navigation pane, choose **Manage**, then under **Catalog management**, choose **Subscription
+requests**, then choose the **Outgoing requests** tab. This
 page lists the assets to which the project has requested access. You can filter the list by
 the status of the request.

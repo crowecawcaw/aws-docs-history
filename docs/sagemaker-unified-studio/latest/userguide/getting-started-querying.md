@@ -20,8 +20,8 @@ For more information, see [Create a new project](create-new-project.md "create-n
 
 After you create a project, you can use the query editor to write and run queries.
 
-1. Navigate to the project you created in the top center menu of the Amazon SageMaker Unified Studio home page.
-2. Expand the **Build** menu in the top navigation bar, then choose **Query editor**.
+1. Navigate to the project you created by using the project selector dropdown at the top of the page.
+2. In the left navigation pane, under **Data analytics**, choose **Query Editor**.
 3. Create a new querybook tab. A querybook is a kind of SQL notebook where you can
    draw from multiple engines to design and visualize data analytics solutions.
 4. Select a data source for your queries by using the menu in the upper-right corner of the querybook.

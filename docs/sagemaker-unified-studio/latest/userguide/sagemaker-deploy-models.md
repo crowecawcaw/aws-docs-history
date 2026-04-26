@@ -17,10 +17,9 @@ For more information about using endpoints for real-time inference, see [Deploy 
 To create an endpoint, follow these steps:
 
 1.  Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2.  From the main menu, choose **Build**.
-3.  From the drop-down menu, choose **Inference endpoints**.
-4.  From the **Endpoints** page, choose **Create endpoint**.
-5.  From the **Create endpoint** page, configure these values:
+2.  In the left navigation pane, under **AI/ML**, choose **Inference endpoints**.
+3.  From the **Endpoints** page, choose **Create endpoint**.
+4.  From the **Create endpoint** page, configure these values:
     - For **Endpoint name**, enter a name for the endpoint.
     - For **Instance type**, choose an instance for the endpoint.
     - For **Initial instance count**, enter the number of instances for
@@ -28,7 +27,7 @@ To create an endpoint, follow these steps:
     - For **Maximum instance count**, enter the maximum number of instances that
       the endpoint can provision, when it scales up.
 
-6.  Under **Models**, choose **Add model**. In the **Add model**
+5.  Under **Models**, choose **Add model**. In the **Add model**
     modal form, follow these steps:
     1. Select the model type (JumpStart foundation models or Deployable models that you created).
 
@@ -41,13 +40,12 @@ To create an endpoint, follow these steps:
 
     4. Choose **Add model**.
 
-7.  Choose **Deploy** to deploy the endpoint.
+6.  Choose **Deploy** to deploy the endpoint.
 
 ## View your endpoints
 
 To view your endpoints in the **Endpoints** table, follow these steps:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the main menu, choose **Build**.
-3. From the drop-down menu, choose **Inference endpoints**.
-4. (Optional) To search for specific endpoints, enter text in **Search by endpoint name**.
+2. In the left navigation pane, under **AI/ML**, choose **Inference endpoints**.
+3. (Optional) To search for specific endpoints, enter text in **Search by endpoint name**.

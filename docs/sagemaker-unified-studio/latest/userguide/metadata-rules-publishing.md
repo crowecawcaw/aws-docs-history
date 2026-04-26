@@ -12,8 +12,7 @@ enforcement in Amazon SageMaker Unified Studio:
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Choose **Govern** -> **Domain units** from
-   the top navigation pane and then choose the domain or the domain unit that you
+2. In the left navigation pane, choose **Manage**, then under **Domain management**, choose **Domain units**. Then choose the domain or the domain unit that you
    want to work with.
 3. Choose the **Rules** tab and then choose
    **Add**.

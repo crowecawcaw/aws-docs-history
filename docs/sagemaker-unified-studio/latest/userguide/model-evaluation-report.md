@@ -16,17 +16,12 @@ chose for the evaluation job. responses.
 
 1. Navigate to the Amazon SageMaker Unified Studio landing page by using the URL from your administrator.
 2. Access Amazon SageMaker Unified Studio using your IAM or single sign-on (SSO) credentials. For more information, see [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md").
-3. If the project that you want to use isn't already open, do the following:
-   1. Choose the current project at the top of the page. If a project isn't already open, choose **Select a project**.
-   2. Select **Browse all projects**.
-   3. In **Projects** select the project that you want
-      to use.
-
-4. Choose the **Build** menu option at the top of the page.
-5. In **MACHINE LEARNING & GENERATIVE AI** choose **My apps**.
-6. From the navigation pane, choose **Build** and then
+3. From the project selector dropdown at the top of the page, choose the project that you want to use.
+4. In the left navigation pane, under **Generative AI**, choose **AI apps**.
+5. In the left navigation pane, under **Generative AI**, choose
+   **AI apps**. Then under **Build**, choose
    **Model evaluations**.
-7. In the **Model evaluation jobs** table choose the name of
+6. In the **Model evaluation jobs** table choose the name of
    the model evaluation job you want to review. The model evaluation card opens.
 
 ## Understanding a model evaluation report

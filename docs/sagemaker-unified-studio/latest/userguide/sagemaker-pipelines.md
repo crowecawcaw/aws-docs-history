@@ -48,7 +48,7 @@ To define a pipeline using the visual pipeline designer, complete the following
 steps:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the **Build** drop-down menu, choose **ML Pipelines**. The system displays the
+2. In the left navigation pane, under **AI/ML**, choose **ML pipelines**. The system displays the
    pipelines for your project.
 3. Choose **Create in visual editor**. The system opens the visual editor for
    creating a pipeline. You can also import a pipeline definition file from
@@ -65,7 +65,7 @@ You can make changes to a pipeline before running it. To edit a pipeline, comple
 the following steps:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the **Build** drop-down menu, choose **ML Pipelines**. The system displays the
+2. In the left navigation pane, under **AI/ML**, choose **ML pipelines**. The system displays the
    pipelines for your project.
 3. Choose the pipeline to edit.
 4. Chose the **Executions** tab.
@@ -84,7 +84,7 @@ can run your pipeline, which executes the steps defined in your DAG.
 To run a pipeline, complete the following steps:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the **Build** drop-down menu, choose **ML Pipelines**. The system displays the
+2. In the left navigation pane, under **AI/ML**, choose **ML pipelines**. The system displays the
    pipelines for your project.
 3. Choose the pipeline to run.
 4. Chose **Execute**.
@@ -101,7 +101,7 @@ in the _Amazon SageMaker AI Developer Guide_.
 To stop a pipeline, complete the following steps:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the **Build** drop-down menu, choose **ML Pipelines**. The system displays the
+2. In the left navigation pane, under **AI/ML**, choose **ML pipelines**. The system displays the
    pipelines for your project.
 3. Choose the pipeline to stop.
 4. Choose the **Executions** tab.
@@ -118,7 +118,7 @@ To access the details of a given pipeline using Amazon SageMaker Unified Studio,
 steps:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the **Build** drop-down menu, choose **ML Pipelines**. The system displays the
+2. In the left navigation pane, under **AI/ML**, choose **ML pipelines**. The system displays the
    pipelines for your project.
 3. Choose the pipeline to view its details.
 4. Choose any of the following tabs to view these details:
@@ -142,7 +142,7 @@ You can view the details of a pipeline run, which can help you:
 To view the details of a pipeline run, complete the following steps:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the **Build** drop-down menu, choose **ML Pipelines**. The system displays the
+2. In the left navigation pane, under **AI/ML**, choose **ML pipelines**. The system displays the
    pipelines for your project.
 3. Choose the pipeline to view its details.
 4. Choose the **Executions** tab.
@@ -169,13 +169,13 @@ You can use this pipeline definition file for:
 - Programmatic interactions: Use the pipeline definition file as input to
   the SDK or AWS CLI.
 - Integration with automation processes: Integrate the pipeline definition
-  into your CI/CD workflows or other automation processes.
+  into your CI/CD workflows or other automation processes. For more information about CI/CD in Amazon SageMaker Unified Studio, see [CI/CD for Amazon SageMaker Unified Studio](cicd.md "cicd.md").
 
 To download the definition file of a pipeline, complete the following
 steps:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the **Build** drop-down menu, choose **ML Pipelines**. The system displays the
+2. In the left navigation pane, under **AI/ML**, choose **ML pipelines**. The system displays the
    pipelines for your project.
 3. Choose the pipeline. You can download the pipeline definition from this
    page or any of the execution pages.

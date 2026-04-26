@@ -93,7 +93,7 @@ datasets and analyses:
 
 
 
-    	1. Navigate to **Data** tab in your project
+    	1. In the left navigation pane, choose **Data**.
     	2. Select table or view to visualize
     	3. Choose **Visualize in Quick** under **Actions**
     When you choose this option, Amazon SageMaker Unified Studio creates a Quick dataset using the selected
@@ -120,7 +120,7 @@ in Amazon QuickSight folder are added to the project.
 To view the newly created dashboard assets:
 
     1. Navigate to your project
-    2. Select **Assets** under **Project Catalog**
+    2. In the left navigation pane, choose **Manage**, then under **Catalog management**, choose **Assets**.
     3. Find **Quick dashboard** listed as new asset
 
 Dashboard assets include:

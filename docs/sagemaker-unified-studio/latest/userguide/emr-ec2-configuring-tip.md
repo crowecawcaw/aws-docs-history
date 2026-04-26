@@ -13,10 +13,8 @@ Amazon SageMaker Unified Studio.
 To find the name of the instance profile role for an EMR on EC2 cluster, complete the
 following steps:
 
-1. Navigate to the project that contains the compute connection. You can do this by using
-   the center menu at the top of the page and choosing **Browse all
-   projects**, then choosing the name of the project that you want to navigate
-   to.
+1. Navigate to the project that contains the compute connection. You can do this by choosing
+   a project from the project selector dropdown at the top of the page.
 2. On the **Compute** page, go to the **Data
    processing** tab.
 3. Choose the name of the compute you want to configure TIP for. This takes you to a page

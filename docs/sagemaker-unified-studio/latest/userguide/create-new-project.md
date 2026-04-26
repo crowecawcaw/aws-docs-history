@@ -124,3 +124,4 @@ following options:
 - Add compute resources to your project. For more information, see [Compute](compute.md "compute.md").
 - Find, train, and deploy machine learning models. For more information, see [Machine learning](sagemaker.md "sagemaker.md").
 - Use Amazon Bedrock in SageMaker Unified Studio to create generative AI apps. For more information, see [Amazon Bedrock in SageMaker Unified Studio](bedrock.md "bedrock.md").
+- Deploy applications across environments with the CI/CD CLI. For more information, see [CI/CD for Amazon SageMaker Unified Studio](cicd.md "cicd.md").

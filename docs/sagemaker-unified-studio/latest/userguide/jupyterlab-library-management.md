@@ -8,10 +8,10 @@ following steps:
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Navigate to a project. You can do this by choosing **Browse all
-   projects** from the center menu and then selecting a project, or by
+2. Navigate to a project. You can do this by choosing a project from the project
+   selector dropdown at the top of the page, or by
    creating a new project.
-3. From the **Build** menu, choose
+3. In the left navigation pane, under **IDEs**, choose
    **JupyterLab**.
 4. Navigate to a notebook or create a new one by selecting **File**
    > **New** > **Notebook**.

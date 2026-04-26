@@ -23,10 +23,8 @@ and add glossary terms at column level.
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Choose **Select project** from the top navigation pane and
-   select the project to which the asset belongs.
-3. Under **Project catalog** in the left side navigation, choose
-   **Assets**.
+2. From the project selector dropdown at the top of the page, choose the project to which the asset belongs.
+3. In the left navigation pane, choose **Manage**, then under **Catalog management**, choose **Assets**.
 4. Make sure you are on the **Inventory** tab, then choose the
    name of the asset that you want to publish. You are then brought to the asset
    details page.
@@ -57,10 +55,8 @@ project to which the asset belongs.
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Choose **Select project** from the top navigation pane and
-   select the project to which the asset belongs.
-3. Under **Project catalog** in the left side navigation, choose
-   **Assets**.
+2. From the project selector dropdown at the top of the page, choose the project to which the asset belongs.
+3. In the left navigation pane, choose **Manage**, then under **Catalog management**, choose **Assets**.
 4. Make sure you are on the **Inventory** tab, then choose the
    name of the asset that you want to publish. You are then brought to the asset
    details page.

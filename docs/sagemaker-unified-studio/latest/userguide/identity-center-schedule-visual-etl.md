@@ -18,8 +18,7 @@ admin.
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Navigate to your visual ETL jobs by choosing **visual ETL jobs**
-   from the **Build** menu.
+2. In the left navigation pane, under **Data analytics**, choose **Visual ETL**.
 3. Choose the visual job you want to schedule from the list to open it in the
    editor.
 4. Choose the Schedule icon in the upper-right corner of the editor.
@@ -60,8 +59,7 @@ To review scheduled queries, complete the following steps:
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
 2. Navigate to your project.
-3. Choose **Visual ETL jobs** from the **Build**
-   menu.
+3. In the left navigation pane, under **Data analytics**, choose **Visual ETL**.
 4. Choose the **Schedules** tab.
 
 You can then pause, edit, or delete a schedule by choosing the three-dot
@@ -78,7 +76,7 @@ using Workflows. The following is an example of how to do this:
 
 1. Create a Visual ETL flow and name it "mwaa-test".
 2. Save your draft flow ("mwaa-test.vetl") to your project.
-3. Navigate to Build → Workflows menu, choose "Create workflow in editor".
+3. In the left navigation pane, choose **Workflows**, then choose **Create workflow in editor**.
 4. You will now see an example DAG template in JupyterLab.
 5. Modify the lines of python code as below, then save it as "mwaa_test_dag.py". We
    will execute the dataflow at 8AM everyday. By default, the dataflow's notebook file is

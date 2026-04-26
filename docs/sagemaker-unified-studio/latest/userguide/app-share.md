@@ -24,20 +24,14 @@ change the version that is associated with an alias. For more information, see [
 
 1. Navigate to the Amazon SageMaker Unified Studio landing page by using the URL from your administrator.
 2. Access Amazon SageMaker Unified Studio using your IAM or single sign-on (SSO) credentials. For more information, see [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md").
-3. If the project that you want to use isn't already open, do the following:
-   1. Choose the current project at the top of the page. If a project isn't already open, choose **Select a project**.
-   2. Select **Browse all projects**.
-   3. In **Projects** select the project that you want
-      to use.
-
-4. Choose the **Build** menu option at the top of the page.
-5. In **MACHINE LEARNING & GENERATIVE AI** choose **My apps**.
-6. Open the chat agent app that you want to share.
-7. Choose **Share**.
-8. In **App description** enter a short description for the chat agent app.
+3. From the project selector dropdown at the top of the page, choose the project that you want to use.
+4. In the left navigation pane, under **Generative AI**, choose **AI apps**.
+5. Open the chat agent app that you want to share.
+6. Choose **Share**.
+7. In **App description** enter a short description for the chat agent app.
    Make sure that that the description lets users understand the purpose of the
    chat agent app.
-9. Do one of the following:
+8. Do one of the following:
    - If you want to share the chat agent app snapshot with all members of your
      Amazon SageMaker Unified Studio domain, select turn on **Grant access with
      link**.
@@ -54,8 +48,8 @@ change the version that is associated with an alias. For more information, see [
         want to share the chat agent app with.
      4. Choose **Add** to add the user or group.
 
-10. Choose **Share** to share the chat agent app.
-11. When the success message appears, choose **Copy link** and send
+9. Choose **Share** to share the chat agent app.
+10. When the success message appears, choose **Copy link** and send
     the link to the users that you are sharing the chat agent app snapshot with. If **Grant
     access with link** is off, the link only works for users that you have
     explicitly granted access to the chat agent app.

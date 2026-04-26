@@ -11,15 +11,13 @@ To subscribe to a data product, complete the following steps.
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Navigate to the **Discover** menu in the top navigation
-   bar.
-3. Choose **Data catalog**.
-4. Choose **Browse data products**.
-5. Find the data product to which you want to subscribe and then choose that data
+2. In the left navigation pane, choose **Catalog**.
+3. Choose **Browse data products**.
+4. Find the data product to which you want to subscribe and then choose that data
    product.
-6. On the data product details page, choose
+5. On the data product details page, choose
    **Subscribe**.
-7. Specify the project and the reason for requesting a subscription. Then choose
+6. Specify the project and the reason for requesting a subscription. Then choose
    **Request**.
    When the owning project grants the subscription request, you will be subscribed to the
    data product.

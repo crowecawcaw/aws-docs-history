@@ -10,10 +10,8 @@ dependent assets to a different data source before you delete it.
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Choose **Select project** from the top navigation pane and
-   select the project that contains the data source that you want to edit.
-3. Choose **Data sources** from the left navigation pane under
-   **Project catalog**.
+2. From the project selector dropdown at the top of the page, choose the project that contains the data source that you want to edit.
+3. In the left navigation pane, choose **Manage**, then under **Catalog management**, choose **Data sources**.
 4. Choose the data source that you want to delete.
 5. Expand the **Actions** menu, then choose **Delete
    data source**.

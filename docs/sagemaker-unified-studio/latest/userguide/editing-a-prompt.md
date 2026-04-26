@@ -19,17 +19,15 @@ For more information about the changes you can make, see [Create an Amazon Bedro
 
 1. Navigate to the Amazon SageMaker Unified Studio landing page by using the URL from your administrator.
 2. Access Amazon SageMaker Unified Studio using your IAM or single sign-on (SSO) credentials. For more information, see [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md").
-3. Choose the **Build** menu at the top of the page.
-4. In the **MACHINE LEARNING & GENERATIVE AI** section, choose
-   **My apps**.
-5. In the **Select or create a new project to continue** dialog box, select the project that contains the prompt.
-6. In the left pane, choose **Asset gallery** and then **My prompts**.
-7. In **Prompts**, select the prompt that you want to modify.
-8. In **Configs** make changes to the model and inference parameters.
-9. For **Prompt message**, use the text box to make changes to the prompt
+3. In the left navigation pane, under **Generative AI**, choose **AI apps**.
+4. From the project selector dropdown at the top of the page, choose the project that contains the prompt.
+5. In the left pane, choose **Asset gallery** and then **My prompts**.
+6. In **Prompts**, select the prompt that you want to modify.
+7. In **Configs** make changes to the model and inference parameters.
+8. For **Prompt message**, use the text box to make changes to the prompt
    message.
-10. (Optional) Choose **Save** to save the draft of your prompt.
-11. In **Test** enter values for the prompt variables and choose run to test
+9. (Optional) Choose **Save** to save the draft of your prompt.
+10. In **Test** enter values for the prompt variables and choose run to test
     your changes.
-12. When you are satisfied with your changes, choose **Create version** to
+11. When you are satisfied with your changes, choose **Create version** to
     create a new version of your prompt.

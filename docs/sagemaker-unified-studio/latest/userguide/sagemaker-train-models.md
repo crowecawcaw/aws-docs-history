@@ -6,12 +6,10 @@ Follow these steps to train a foundation model:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
 2. Choose a model to train.
-   1. From the main menu, choose **Build**.
-   2. From the drop-down menu, choose **Jumpstart
-      Models**.
+   1. In the left navigation pane, under **AI/ML**, choose **JumpStart models**.
 
-   The JumpStart page lists the model providers. 3. Choose a model provider. The page displays the models for that provider. 4. Under **Action**, choose **Trainable**.
-   The page displays the trainable models for that provider. 5. From the provider's list of models, choose the model you want to train.
+   The JumpStart page lists the model providers. 2. Choose a model provider. The page displays the models for that provider. 3. Under **Action**, choose **Trainable**.
+   The page displays the trainable models for that provider. 4. From the provider's list of models, choose the model you want to train.
 
 3. From the model details page,
    choose **Train** to create a training job.

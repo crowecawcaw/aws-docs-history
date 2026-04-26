@@ -14,6 +14,10 @@ begin building with a variety of tools and resources.
 
 - [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md")
 - [Create a project](getting-started-create-a-project.md "getting-started-create-a-project.md")
+- [Run your first SQL query](gs-sql.md "gs-sql.md")
+- [Analyze and visualize data](gs-analyze.md "gs-analyze.md")
+- [Build a data pipeline with visual ETL](gs-etl.md "gs-etl.md")
+- [Train an ML model](gs-ml.md "gs-ml.md")
 - [Get started with Amazon Bedrock in SageMaker Unified Studio](getting-started-use-amazon-bedrock-ide.md "getting-started-use-amazon-bedrock-ide.md")
 - [Get started with the query editor in Amazon SageMaker Unified Studio](getting-started-querying.md "getting-started-querying.md")
 - [Get started adding on-demand Amazon EMR on EC2 instances](getting-started-emr-ec2-page.md "getting-started-emr-ec2-page.md")

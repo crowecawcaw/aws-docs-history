@@ -24,7 +24,7 @@ Before you get started with creating an Amazon EMR on EC2, you must access Amazo
    4. Sign in using your SSO or AWS credentials. For more information, see [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md").
 
 3. Create a project with the **All capabilities** profile:
-   1. In Amazon SageMaker Unified Studio, choose the **Projects** icon in the left sidebar.
+   1. From the project selector dropdown at the top of the page, choose **Manage projects**.
    2. Choose **Create project**.
    3. Select the **All capabilities** project profile.
    4. Follow the prompts to complete project creation.
@@ -62,10 +62,11 @@ Before you get started with creating an Amazon EMR on EC2, you must access Amazo
 
 ## Creating your Amazon EMR cluster
 
-1. In Amazon SageMaker Unified Studio, choose your project to enter the project overview page and select **Compute** from the navigation bar.
-2. In the **Compute** panel, select the **Data processing** tab.
-3. To create a new Amazon EMR on EC2 cluster choose **Add compute**.
-4. In the **Add compute** modal, you can select the type of compute you would like to add to your project. Select **Create new compute resources**.
-5. Select **Amazon EMR on EC2 cluster** and choose **Next**.
-6. The **Add compute** dialog box allows you to specify the name of the Amazon EMR on EC2 cluster. Default settings for the Amazon EMR are fine. Choose your EMR configuration according to your choice from the prerequisites.
-7. After configuring any settings if you choose, select **Add compute**. After some time, your Amazon EMR on EC2 cluster will be added to your project.
+1. From the project selector dropdown at the top of the page, choose your project.
+2. In the left navigation pane, choose **Compute**.
+3. In the **Compute** panel, select the **Data processing** tab.
+4. To create a new Amazon EMR on EC2 cluster choose **Add compute**.
+5. In the **Add compute** modal, you can select the type of compute you would like to add to your project. Select **Create new compute resources**.
+6. Select **Amazon EMR on EC2 cluster** and choose **Next**.
+7. The **Add compute** dialog box allows you to specify the name of the Amazon EMR on EC2 cluster. Default settings for the Amazon EMR are fine. Choose your EMR configuration according to your choice from the prerequisites.
+8. After configuring any settings if you choose, select **Add compute**. After some time, your Amazon EMR on EC2 cluster will be added to your project.

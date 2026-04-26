@@ -35,7 +35,7 @@ It helps data engineers, ML data developers, and other users in Amazon SageMaker
 Users in Amazon SageMaker Unified Studio can access Amazon Q Developer by signing in with their Amazon SageMaker Unified Studio SSO that is
 configured for either the Amazon Q Developer Free Tier or Pro Tier. For more information, see [Amazon Q Developer pricing](https://aws.amazon.com/q/developer/pricing/ "https://aws.amazon.com/q/developer/pricing/").
 
-For more detail about setting up Q assistance in Amazon SageMaker Unified Studio, see [Using the coding assistant](using-the-coding-assistant.md "using-the-coding-assistant.md").
+For more detail about setting up Q assistance in Amazon SageMaker Unified Studio, see [Amazon Q support in code spaces for Identity Center domains](code-spaces-idc.md#using-the-coding-assistant "code-spaces-idc.md#using-the-coding-assistant").
 
 ## Prompts
 
@@ -105,7 +105,7 @@ To start using Amazon Q Developer to chat about your project and your assets:
 3. Begin typing your query in natural language, asking Q to list Amazon SageMaker AI
    catalog assets published in the catalog. For example, you can say: "Find me data on
    sales".
-4. To open JupyterLab, choose **Build**, and then choose
+4. To open JupyterLab, in the left navigation pane, under **IDEs**, choose
    **JupyterLab**. If you are in JupyterLab, you can chat with Q with
    additional Amazon Q chat contextual awareness.
 
@@ -120,7 +120,7 @@ To start using Amazon Q Developer to interact with Q CLI about your project and 
 assets:
 
 1. Log in to your AWS account and navigate to Amazon SageMaker Unified Studio.
-2. To open JupyterLab, choose **Build**, and then choose
+2. To open JupyterLab, in the left navigation pane, under **IDEs**, choose
    **JupyterLab**.
 
 For a flow that walks you through getting started with Q CLI in JupyterLab, see [Getting started with Q CLI](qdeveloper-integration-start-CLI.md "qdeveloper-integration-start-CLI.md").

@@ -42,11 +42,10 @@ To create a workflow, complete the following steps:
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in using your SSO or AWS credentials.
 2. Navigate to a project that was created with the **All capabilities** project profile. You can do this
-   by using the center menu at the top of the page and choosing **Browse all projects**, then choosing the name
-   of the project that you want to navigate to.
-3. In the **Build** menu, choose **Workflows**. This takes you to the Workflows page.
+   by choosing a project from the project selector dropdown at the top of the page.
+3. In the left navigation pane, choose **Workflows**.
 
-![Screenshot of the Workflows page in the Build menu](images/visual-workflows/ScreenshotVisualWorkflow1.png) 4. Choose the **Create new workflow** button or in the **Create new workflow** dropdown
+![Screenshot of the Workflows page in the left navigation pane](images/visual-workflows/ScreenshotVisualWorkflow1.png) 4. Choose the **Create new workflow** button or in the **Create new workflow** dropdown
 menu, choose **Create in visual builder**. This takes you to the **Visual canvas workflow**.
 
 ![Screenshot of the Create new workflow button and dropdown menu](images/visual-workflows/ScreenshotVisualWorkflow2.png) 5. Provide a name to your workflow. 6. Choose a task from one of the three tabs: **Data processing job**, **Querybook**, or **Notebook**. The selected task appears in the
@@ -110,10 +109,9 @@ To run a workflow, select a workflow from the Workflows page list. Choose **Run*
 the following two options:
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in using your SSO or AWS credentials.
-2. Navigate to the project that was created with the **All capabilities** project profile. To do this, use the center
-   menu at the top of the landing page and choose **Browse all projects**, then choose the name of the project that you
-   want to navigate to.
-3. In the **Build** menu, choose **Workflows**. This takes you to the Workflows page.
+2. Navigate to the project that was created with the **All capabilities** project profile. To do this,
+   choose a project from the project selector dropdown at the top of the page.
+3. In the left navigation pane, choose **Workflows**.
 4. Choose the name of the workflow to navigate to the workflow canvas.
 5. Expand the **Run** menu, then choose one of the following options:
    - Run with default parameters. This option starts running the workflow using the parameters already defined in the DAG file. To

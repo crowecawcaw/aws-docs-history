@@ -12,10 +12,8 @@ To republish a data product complete the following steps.
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
 2. Navigate to the project that contains the data product that you want to edit.
-   You can do this by using the center menu at the top of the page and choosing
-   **Browse all projects**, then choosing the name of the
-   project that you want to navigate to.
-3. Under **Project catalog**, choose
+   You can do this by choosing a project from the project selector dropdown at the top of the page.
+3. In the left navigation pane, choose **Manage**, then under **Catalog management**, choose
    **Assets**.
 4. Choose the **Inventory** tab, and then choose the
    **Data products** filter. This displays existing data

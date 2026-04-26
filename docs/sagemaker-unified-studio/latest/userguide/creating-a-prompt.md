@@ -38,11 +38,7 @@ Chats may be visible to others in your organization.
 3. On the Amazon SageMaker Unified Studio home page, navigate to the **Generative AI app development**
    tile.
 
-For the **Build chat agent app** button dropdown, select
-**Build prompt**. You can also create a prompt from the
-**Build** menu at the top of the page.
-
-![Amazon Bedrock in SageMaker Unified Studio tile.](images/bedrock/bedrock-ide-build-prompt.png) 4. In the **Select or create a new project to continue** dialog box, do one of the following:
+Under **Build**, choose **Prompt**. 4. In the **Select or create a new project to continue** dialog box, do one of the following:
 
     * If you want to use a new project, follow the instructions at
      [Create a new project](create-new-project.md "create-new-project.md"). For the **Project profile** in step 1, choose

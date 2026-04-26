@@ -12,12 +12,10 @@ depending on the URLs you define.
 
 1. Navigate to the Amazon SageMaker Unified Studio landing page by using the URL from your administrator.
 2. Access Amazon SageMaker Unified Studio using your IAM or single sign-on (SSO) credentials. For more information, see [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md").
-3. Choose the **Build** menu at the top of the page.
-4. In the **MACHINE LEARNING & GENERATIVE AI** section, choose
-   **My apps**.
-5. In the **Select or create a new project to continue** dialog box, select the project that you want to use.
-6. In the left pane, choose **Asset gallery**.
-7. In **Asset gallery**, choose **My components**.
-8. Find the Knowledge Base that you want to synchronize, and choose the menu option
+3. In the left navigation pane, under **Generative AI**, choose **AI apps**.
+4. From the project selector dropdown at the top of the page, choose the project that you want to use.
+5. In the left pane, choose **Asset gallery**.
+6. In **Asset gallery**, choose **My components**.
+7. Find the Knowledge Base that you want to synchronize, and choose the menu option
    and select **Sync**.
-9. Wait until the Knoweledge Synchronization completes.
+8. Wait until the Knoweledge Synchronization completes.

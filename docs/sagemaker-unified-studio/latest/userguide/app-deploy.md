@@ -36,29 +36,23 @@ sharing the app, as Amazon Bedrock deploys the app for you. For more information
 
 1. Navigate to the Amazon SageMaker Unified Studio landing page by using the URL from your administrator.
 2. Access Amazon SageMaker Unified Studio using your IAM or single sign-on (SSO) credentials. For more information, see [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md").
-3. If the project that you want to use isn't already open, do the following:
-   1. Choose the current project at the top of the page. If a project isn't already open, choose **Select a project**.
-   2. Select **Browse all projects**.
-   3. In **Projects** select the project that you want
-      to use.
-
-4. Choose the **Build** menu option at the top of the page.
-5. In **MACHINE LEARNING & GENERATIVE AI** choose **My apps**.
-6. Open the app that you want to deploy.
-7. Choose **Deploy**.
-8. In **App description** enter a short description for the app.
+3. From the project selector dropdown at the top of the page, choose the project that you want to use.
+4. In the left navigation pane, under **Generative AI**, choose **AI apps**.
+5. Open the app that you want to deploy.
+6. Choose **Deploy**.
+7. In **App description** enter a short description for the app.
    Make sure that that the description lets users understand the purpose of the
    app.
-9. Assign an alias by doing one of the following:
+8. Assign an alias by doing one of the following:
    - Choose **Create a new alias** to create a new alias.
      Then enter an name and optional description for the alias.
    - Choose **Select an existing alias** to use an
      existing alias. Then select the existing alias that you want to
      use.
 
-10. Choose **Deploy** to deploy the app. It might take a few
-    seconds to deploy the app.
-11. To use the deployed app, select **Working draft** in the
+9. Choose **Deploy** to deploy the app. It might take a few
+   seconds to deploy the app.
+10. To use the deployed app, select **Working draft** in the
     configuration pane and then select the name of the alias that you used to deploy
     the app.
-12. Enter a prompt to try your deployed app.
+11. Enter a prompt to try your deployed app.

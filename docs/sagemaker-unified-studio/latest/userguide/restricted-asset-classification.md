@@ -62,8 +62,8 @@ restricted glossary:
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Navigate to the **Discover** menu in the top navigation bar.
-3. Choose **Data catalog**.
+2. In the left navigation pane, choose **Catalog**.
+3. Choose **Browse assets**.
 4. Find the asset to which you want to assign restricted terms and on the asset's
    details page, choose **View inventory asset**.
 5. Under **Glossary terms**, choose **Add terms**,

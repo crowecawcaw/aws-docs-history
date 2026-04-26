@@ -45,14 +45,11 @@ To create a custom asset type in Amazon SageMaker Unified Studio, complete the f
 
 1.  Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
     using your SSO or AWS credentials.
-2.  Choose **Select project** from the top navigation pane and
-    select the project where you want to create a custom asset type.
-3.  Navigate to the **Discover** menu in the top
-    navigation.
-4.  Choose **Data catalog**.
-5.  Choose **View asset types**.
-6.  Choose **Create asset type**.
-7.  Specify the following:
+2.  From the project selector dropdown at the top of the page, choose the project where you want to create a custom asset type.
+3.  In the left navigation pane, choose **Catalog**.
+4.  Choose **View asset types**.
+5.  Choose **Create asset type**.
+6.  Specify the following:
     - **Name** - the name of the custom asset type
     - **Description** - the description of the custom asset
       type.
@@ -89,5 +86,5 @@ To create a custom asset type in Amazon SageMaker Unified Studio, complete the f
          **Owner** or
          **Contributor**.
 
-8.  Choose **Create**. After the custom asset type is created,
+7.  Choose **Create**. After the custom asset type is created,
     you can use it to create assets.

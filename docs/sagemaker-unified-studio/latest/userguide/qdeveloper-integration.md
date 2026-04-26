@@ -84,4 +84,4 @@ a profile, subscribe users, and attach the profile to the Amazon SageMaker Unifi
 can then use the start URL and IDC region to sign in with a Pro Tier license. See [Enable
 Amazon Q Developer Pro](../adminguide/amazonq.md#amazonq-enable "../adminguide/amazonq.md#amazonq-enable").
 
-For more information, see [Using the coding assistant](using-the-coding-assistant.md "using-the-coding-assistant.md").
+For more information, see [Amazon Q support in code spaces for Identity Center domains](code-spaces-idc.md#using-the-coding-assistant "code-spaces-idc.md#using-the-coding-assistant").

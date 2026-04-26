@@ -17,13 +17,8 @@ the following ways:
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Choose **Select a project**.
-3. If you don't see the name of your project under **Recently updated
-   projects**, choose **Browse all projects**.
-4. Choose the project that you want to edit. If you don't readily see it in the list of
-   projects, you can search for it by specifying the project name in the **Search
-   projects** field.
-5. On the **Project overview** page, choose the edit icon next to
+2. From the project selector dropdown at the top of the page, choose the project that you want to edit.
+3. On the **Project overview** page, choose the edit icon next to
    **Description**. An editable text box appears.
-6. Input the changes you want to make in the text box.
-7. Choose the checkmark to save your changes.
+4. Input the changes you want to make in the text box.
+5. Choose the checkmark to save your changes.

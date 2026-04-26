@@ -25,7 +25,7 @@ A model group contains different versions of a model. Follow these steps to crea
 model group:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the **Build** drop-down menu, choose **Model Registry**. The model registry page displays the
+2. In the left navigation pane, under **AI/ML**, choose **Model registry**. The model registry page displays the
    models that are registered to your project.
 3. Choose **Model Groups**. The page displays the
    model groups that are defined for your project.
@@ -40,7 +40,7 @@ model group:
 Follow these steps to create a collection:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the **Build** drop-down menu, choose **Model Registry**. The model registry page displays the
+2. In the left navigation pane, under **AI/ML**, choose **Model registry**. The model registry page displays the
    models that are registered to your project.
 3. Choose **Collections**. The collections page displays the
    collections that are defined for your project.
@@ -64,7 +64,7 @@ model group.
 Follow these steps to register a model version:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the **Build** drop-down menu, choose **Model Registry**. The model registry page displays the
+2. In the left navigation pane, under **AI/ML**, choose **Model registry**. The model registry page displays the
    models that are registered to your project.
 3. Choose **Register**.
 4. From the **Register Model** page,

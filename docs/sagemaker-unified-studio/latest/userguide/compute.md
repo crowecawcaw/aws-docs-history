@@ -21,10 +21,9 @@ clusters to your project. Amazon SageMaker Unified Studio supports different kin
 - **HyperPod clusters**: In Amazon SageMaker Unified Studio, you can launch
   machine learning workloads on Amazon SageMaker AI HyperPod clusters. For more information, see [HyperPod clusters](sagemaker-hyperpods.md "sagemaker-hyperpods.md").
 - **Spaces**: Spaces are used to manage the storage and
-  resource needs of applications running on JupyterLab. On the **Spaces** tab
-  of the **Compute** page, you can view information about your JupyterLab
-  environment in Amazon SageMaker Unified Studio, such as the EBS volume and the status of the IDE. For more
-  information about spaces, see [IDE spaces in Amazon SageMaker Unified Studio](ide-spaces.md "ide-spaces.md").
+  resource needs of applications running on JupyterLab and Code Editor. You can create and
+  manage multiple code spaces within your project. The experience differs by domain
+  type. For more information, see [Code spaces in Amazon SageMaker Unified Studio](ide-spaces.md "ide-spaces.md").
 - **MLflow tracking servers**: MLflow tracking servers make
   it possible to use MLflow in Amazon SageMaker Unified Studio to create, manage, analyze, and compare machine
   learning experiments. For more information, see [Track experiments using MLflow](sagemaker-experiments.xml.md "sagemaker-experiments.xml.md").

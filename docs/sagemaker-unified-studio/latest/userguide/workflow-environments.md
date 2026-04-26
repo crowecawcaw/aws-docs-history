@@ -20,8 +20,8 @@ To create a workflow environment, complete the following steps:
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
 2. Navigate to a project that was created with the **Data analytics and AI-ML model development** project profile.
-   To do this, use the center menu at the top of the landing page and choose **Browse all projects**, then choose the name of the project that you want to navigate to.
-3. In the center menu, choose **Compute**. This takes you to the Compute page.
+   To do this, choose a project from the project selector dropdown at the top of the page.
+3. In the left navigation pane, choose **Compute**.
 4. On the **Workflow environments** tab, confirm that there are no workflow environments in the project yet. Then choose **Create**.
 5. In the **Create workflow environment** window, review the parameters of the workflow environment. These are determined by your admin. If you want any of these parameters to change, contact your admin.
 6. Choose **Create workflow environment**.
@@ -39,8 +39,8 @@ To update a workflow environment, complete the following steps:
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
 2. Navigate to the project that contains the workflow environment that you want to update.
-   To do this, use the center menu at the top of the landing page and choose **Browse all projects**, then choose the name of the project that you want to navigate to.
-3. In the center menu, choose **Compute**. This takes you to the Compute page.
+   To do this, choose a project from the project selector dropdown at the top of the page.
+3. In the left navigation pane, choose **Compute**.
 4. On the **Workflow environments** tab, expand the **Actions** menu and choose **Update**.
 5. Choose **Update workflow environment**.
 
@@ -57,8 +57,8 @@ To delete a workflow environment, complete the following steps:
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
 2. Navigate to the project that contains the workflow environment that you want to delete.
-   To do this, use the center menu at the top of the landing page and choose **Browse all projects**, then choose the name of the project that you want to navigate to.
-3. In the center menu, choose **Compute**. This takes you to the Compute page.
+   To do this, choose a project from the project selector dropdown at the top of the page.
+3. In the left navigation pane, choose **Compute**.
 4. On the **Workflow environments** tab, expand the **Actions** menu and choose **Delete**.
 5. Confirm the action by typing `confirm`, then choose **Delete workflow environment**.
 

@@ -41,4 +41,4 @@ After setting up jobs in SageMaker Unified Studio, consider these next steps:
 - Create Workflows to orchestrate multiple jobs and define dependencies.
 - Set up monitoring and alerting for critical job runs.
 - Explore advanced features like data lineage tracking and cost optimization.
-- Integrate jobs with your existing CI/CD pipelines for automated deployment.
+- Integrate jobs with your existing CI/CD pipelines for automated deployment. For more information, see [CI/CD for Amazon SageMaker Unified Studio](cicd.md "cicd.md").

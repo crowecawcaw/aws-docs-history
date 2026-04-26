@@ -16,8 +16,8 @@ configured for that data. There are two configuration options for permission mod
 1.  Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
     using your SSO or AWS credentials.
 2.  Navigate to a project.
-3.  Navigate to the Visual ETL tool by using the dropdown **Build** menu and
-    selecting **Visual ETL flows**.
+3.  In the left navigation pane, under **Data analytics**, choose
+    **Visual ETL**.
 4.  Navigate to a flow by creating one or selecting the flow from the list.
 5.  From the dropdown menu next to the **Run** button,
     choose a compute connection type that aligns with your data access preference.

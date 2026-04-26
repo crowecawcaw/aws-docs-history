@@ -37,18 +37,12 @@ information, see [Use app history to view and restore versions of an Amazon Bedr
 
 1. Navigate to the Amazon SageMaker Unified Studio landing page by using the URL from your administrator.
 2. Access Amazon SageMaker Unified Studio using your IAM or single sign-on (SSO) credentials. For more information, see [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md").
-3. On the Amazon SageMaker Unified Studio home page, navigate to the **Amazon Bedrock in SageMaker Unified Studio**
-   tile.
-
-For the **Build chat agent app** button dropdown, select
-**Build flow**.
-
-![Create Amazon Bedrock in SageMaker Unified Studio flow.](images/bedrock/bedrock-ide-build-create-flow.png) 4. In the **Select or create a new project to continue** dialog box, do one of the following:
-
-    * If you want to use a new project, follow the instructions at
+3. Under **Build**, choose **Flow**.
+4. In the **Select or create a new project to continue** dialog box, do one of the following:
+   - If you want to use a new project, follow the instructions at
      [Create a new project](create-new-project.md "create-new-project.md"). For the **Project profile** in step 1, choose
      **Generative AI application development**.
-    * If you want to use an existing project, select the project that you
+   - If you want to use an existing project, select the project that you
      want to use and then choose **Continue**.
 
 5. In the flow builder, choose the flow name (**Untitled flow-nnnn**) and enter `Local bands` as the name for the flow.

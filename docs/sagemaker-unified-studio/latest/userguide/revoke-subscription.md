@@ -14,10 +14,8 @@ revoke a subscription.
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
 2. Navigate to the project that contains the asset that has a subscription request. You
-   can do this by using the center menu at the top of the page and choosing **Browse
-   all projects**, then choosing the name of the project that you want to navigate
-   to.
-3. Under **Project catalog**, choose **Subscription
+   can do this by choosing a project from the project selector dropdown at the top of the page.
+3. In the left navigation pane, choose **Manage**, then under **Catalog management**, choose **Subscription
    requests**.
 4. Choose the **Incoming requests** tab.
 5. Locate the subscription you want to revoke and choose **View

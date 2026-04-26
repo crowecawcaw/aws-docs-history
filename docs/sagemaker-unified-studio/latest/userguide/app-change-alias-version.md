@@ -13,21 +13,15 @@ an alias for the app references.
 
 1. Navigate to the Amazon SageMaker Unified Studio landing page by using the URL from your administrator.
 2. Access Amazon SageMaker Unified Studio using your IAM or single sign-on (SSO) credentials. For more information, see [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md").
-3. If the project that you want to use isn't already open, do the following:
-   1. Choose the current project at the top of the page. If a project isn't already open, choose **Select a project**.
-   2. Select **Browse all projects**.
-   3. In **Projects** select the project that you want
-      to use.
-
-4. Choose the **Build** menu option at the top of the page.
-5. In **MACHINE LEARNING & GENERATIVE AI** choose **My apps**.
-6. Open the app that you want to use.
-7. Choose the selector on the **Deploy** button and select
+3. From the project selector dropdown at the top of the page, choose the project that you want to use.
+4. In the left navigation pane, under **Generative AI**, choose **AI apps**.
+5. Open the app that you want to use.
+6. Choose the selector on the **Deploy** button and select
    **View aliases**. The **View and manage
    aliases** pane opens.
-8. For the alias that you want modify, choose **Edit**.
-9. In the **Edit alias** pane, select the version that you want
+7. For the alias that you want modify, choose **Edit**.
+8. In the **Edit alias** pane, select the version that you want
    the alias to use in **Select version to associate with this
    alias**.
-10. (Optional) Update the name and description for the alias.
-11. Choose **Save** to save your changes.
+9. (Optional) Update the name and description for the alias.
+10. Choose **Save** to save your changes.

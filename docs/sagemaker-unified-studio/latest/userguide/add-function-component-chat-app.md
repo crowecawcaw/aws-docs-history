@@ -8,21 +8,15 @@ function.
 
 1. Navigate to the Amazon SageMaker Unified Studio landing page by using the URL from your administrator.
 2. Access Amazon SageMaker Unified Studio using your IAM or single sign-on (SSO) credentials. For more information, see [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md").
-3. If the project that you want to use isn't already open, do the following:
-   1. Choose the current project at the top of the page. If a project isn't already open, choose **Select a project**.
-   2. Select **Browse all projects**.
-   3. In **Projects** select the project that you want
-      to use.
-
-4. Choose the **Build** menu option at the top of the page.
-5. In **MACHINE LEARNING & GENERATIVE AI** choose **My apps**.
-6. In **Apps** choose the chat agent app that you want to add the
+3. From the project selector dropdown at the top of the page, choose the project that you want to use.
+4. In the left navigation pane, under **Generative AI**, choose **AI apps**.
+5. In **Apps** choose the chat agent app that you want to add the
    function component to.
-7. In the **Configs** pane, do the following:
+6. In the **Configs** pane, do the following:
    1. For **Enter a system instruction**, enter or update the system
       prompt so that it describes the function.
    2. Choose **Functions**.
    3. For **Functions**, select the function component that you created
       in [Create an Amazon Bedrock function component](creating-a-function-component.md "creating-a-function-component.md").
 
-8. Choose **Save** to save your changes.
+7. Choose **Save** to save your changes.

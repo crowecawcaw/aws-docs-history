@@ -6,7 +6,7 @@ When you no longer need an Amazon EMR on EKS virtual cluster, the Amazon EMR on 
 
 The Amazon EKS cluster used to create Amazon EMR on EKS resources is never deleted by SageMaker.
 
-1. From inside the project management view, select **Compute** from the navigation bar.
+1. In the left navigation pane, choose **Compute**.
 2. In the Compute panel, select the **Data processing** tab.
 3. In the data processing panel, select your target Amazon EMR on EKS virtual cluster.
 4. In the compute details panel, select **Actions** and **Remove compute**.

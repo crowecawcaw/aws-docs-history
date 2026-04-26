@@ -44,21 +44,19 @@ or with lakehouse architecture.
 
 1. Navigate to the Amazon SageMaker Unified Studio landing page by using the URL from your administrator.
 2. Access Amazon SageMaker Unified Studio using your IAM or single sign-on (SSO) credentials. For more information, see [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md").
-3. Choose the **Build** menu at the top of the page.
-4. In the **MACHINE LEARNING & GENERATIVE AI** section, choose
-   **My apps**.
-5. In the **Select or create a new project to continue** dialog box, select the project that you want to use.
-6. In the left pane, choose **Asset gallery**.
-7. Choose **My components**.
-8. In the **Components** section, choose **Create
+3. In the left navigation pane, under **Generative AI**, choose **AI apps**.
+4. From the project selector dropdown at the top of the page, choose the project that you want to use.
+5. In the left pane, choose **Asset gallery**.
+6. Choose **My components**.
+7. In the **Components** section, choose **Create
    component** and then **Knowledge Base**. The
    **Create Knowledge Base** pane is shown.
-9. For **Name**, enter a name for the Knowledge Base.
-10. For **Description**, enter a description for the Knowledge
-    Base.
-11. For **Select data source type**, select **Project data
+8. For **Name**, enter a name for the Knowledge Base.
+9. For **Description**, enter a description for the Knowledge
+   Base.
+10. For **Select data source type**, select **Project data
     sources**.
-12. In **Select data source**, select an
+11. In **Select data source**, select an
     existing data source (**S3**, **Redshift**, or
     **Lakehouse**). Alternatively choose to add a new connection.
     - **S3** – Do the following:
@@ -97,7 +95,7 @@ or with lakehouse architecture.
         curated query is an example question along with the matching SQL query for the
         question.
 
-13. Choose **Create** to create the Knowledge Base.
-14. Use the Knowledge Base in an app, by doing one of the following:
+12. Choose **Create** to create the Knowledge Base.
+13. Use the Knowledge Base in an app, by doing one of the following:
     - If your app is a chat agent app, do [Add an Amazon Bedrock Knowledge Base component to a chat agent app](add-kb-component-chat-app.md "add-kb-component-chat-app.md").
     - If your app is a flow app, do [Add a Knowledge Base component to a flow app](add-kb-component-prompt-flow-app.md "add-kb-component-prompt-flow-app.md").

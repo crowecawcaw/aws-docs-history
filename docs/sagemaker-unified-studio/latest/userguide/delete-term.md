@@ -20,8 +20,8 @@ relationships available in Amazon SageMaker Unified Studio include the following
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Navigate to the **Discover** menu in the top navigation bar.
-3. Choose **Glossaries**.
+2. In the left navigation pane, choose **Catalog**.
+3. Choose **View business glossaries**.
 4. Select the
    glossary that contains the term that you you want to delete.
 5. Select the name of the term to navigate to the term details page.

@@ -241,8 +241,7 @@ connection to the Amazon EMR on EC2 cluster as a compute resource in Amazon Sage
 
 ## Adding the Amazon EMR on EC2 compute resource
 
-1. From inside the project management view in Amazon SageMaker Unified Studio, select
-   **Compute** from the navigation bar.
+1. In the left navigation pane, choose **Compute**.
 2. On the Compute page, select the **Data processing** tab.
 3. Choose **Add compute**, then choose **Connect to existing
    compute resources**.

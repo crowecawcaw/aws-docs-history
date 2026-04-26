@@ -3,7 +3,7 @@
 To create a job using Visual ETL in Amazon SageMaker Unified Studio IAM-based domains:
 
 1. Log in to Amazon SageMaker Unified Studio.
-2. Navigate to the Visual ETL tool using the left menu, selecting "Visual ETL".
+2. In the left navigation pane, under **Data analytics**, choose **Visual ETL**.
 3. Choose "Create Visual job" to open the Visual ETL editor.
 4. Give the job a name when you begin authoring the job and choose "save".
 5. Open the "Add nodes" menu by choosing the plus icon and select a node, choosing your

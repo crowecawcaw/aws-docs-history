@@ -13,8 +13,8 @@ function.
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in using your
    SSO credentials.
-2. Expand the Build menu in the top navigation, then choose
-   JupyterLab.
+2. In the left navigation pane, under **IDEs**, choose
+   **JupyterLab**.
 3. Once your JupyterLab Notebook opens, choose Open in Cursor in the top
    right corner of the page.
 

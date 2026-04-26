@@ -35,6 +35,8 @@ organized by:
 
 - JupyterLab: Managed JupyterLab integrated development environment
 - Editor for VS Code: Visual Studio Code integrated development environment
+- Code spaces: Create and manage multiple individually configured development
+  environments. For more information, see [Code spaces in Amazon SageMaker Unified Studio](ide-spaces.md "ide-spaces.md").
 
 ### Domain Management
 

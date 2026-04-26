@@ -47,9 +47,8 @@ _Cross-region_ identifies such a model.
 
 1. Navigate to the Amazon SageMaker Unified Studio landing page by using the URL from your administrator.
 2. Access Amazon SageMaker Unified Studio using your IAM or single sign-on (SSO) credentials. For more information, see [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md").
-3. At the top of the page, choose **Discover**.
-4. Under **Data and model catalog**, choose **Amazon Bedrock
-   models**. The Amazon Bedrock in SageMaker Unified Studio playground opens at the model
+3. In the left navigation pane, under **Generative AI**, choose **Playground**.
+4. Choose **Models**. The Amazon Bedrock in SageMaker Unified Studio playground opens at the model
    catalog.
 5. (Optional) Choose **Group by: Modality** and select
    **Provider** to sort the list by model provider.

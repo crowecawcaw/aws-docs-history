@@ -37,7 +37,7 @@ procedure:
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
 2. Navigate to your project.
-3. Navigate to your chat agents under the **Build** menu.
+3. In the left navigation pane, under **Generative AI**, choose **AI apps**.
 4. In the left-hand navigation pane, choose **Models** in order to
    see all the enabled Amazon Bedrock models for the project.
 5. Choose a model and then on the model details page, locate the application

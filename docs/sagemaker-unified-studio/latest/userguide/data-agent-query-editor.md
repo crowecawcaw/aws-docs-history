@@ -35,8 +35,8 @@ Fix with AI capability to get agent-generated fixes for failed queries.
 
 ###### To use the SageMaker Data Agent in Query Editor
 
-1. Navigate to a project and open the Query Editor from the **Build**
-   menu.
+1. Navigate to a project and in the left navigation pane, under **Data analytics**,
+   choose **Query Editor**.
 2. Open the agent panel from the Query Editor interface.
 3. Enter a natural language prompt describing your SQL task. For example:
    _"Write a query that calculates monthly recurring revenue by customer segment for

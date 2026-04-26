@@ -1,10 +1,11 @@
 # Grant access for approved subscriptions to unmanaged assets in Amazon SageMaker Unified Studio
 
 Amazon SageMaker Unified Studio enables users to publish any type of asset in the Amazon SageMaker Catalog. For some of
-these assets, Amazon SageMaker Unified Studio can can automatically manage access grants. These assets are called
-**managed assets** and include Lake Formation-managed AWS Glue Data
-Catalog tables and Amazon Redshift tables and views. All other assets to which Amazon SageMaker Unified Studio can't
-automatically grant subscriptions are called **unmanaged**.
+these assets, Amazon SageMaker Unified Studio can automatically manage access grants. These assets are called
+**managed assets** and include Lake Formation-managed AWS Glue Data Catalog tables,
+AWS Glue Data Catalog views (Multi Dialect Views), and Amazon Redshift tables and views. All other assets,
+such as Amazon Athena views, are **unmanaged** and Amazon SageMaker Unified Studio can't automatically
+grant subscriptions for them.
 
 Amazon SageMaker Unified Studio provides a path for you to manage access grants for your unmanaged assets. When
 a subscription to an asset in the Amazon SageMaker Catalog is approved by the data owner, Amazon SageMaker Unified Studio

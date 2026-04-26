@@ -21,7 +21,7 @@ You can get started using Q chat with the following examples.
 This example shows how Q chat can provide context aware responses for your project
 resources.
 
-1. To open JupyterLab, choose **Build**, and then choose
+1. To open JupyterLab, in the left navigation pane, under **IDEs**, choose
    **JupyterLab**. If you are in JupyterLab, you can chat with Q with
    additional Amazon Q chat contextual awareness.
 2. In the Q chat field, enter the following.
@@ -37,7 +37,7 @@ The response returns where Q asks follow-up questions and shows your files.
 This example shows how Q chat can perform complex tasks for you, such as creating and
 running a data pipeline in your project.
 
-1. To open JupyterLab, choose **Build**, and then choose
+1. To open JupyterLab, in the left navigation pane, under **IDEs**, choose
    **JupyterLab**. If you are in JupyterLab, you can chat with Q with
    additional Amazon Q chat contextual awareness.
 2. In the Q chat field, enter the following.

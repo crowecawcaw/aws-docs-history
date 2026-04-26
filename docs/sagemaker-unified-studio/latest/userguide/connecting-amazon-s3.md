@@ -29,4 +29,4 @@ options:
 9. If all validations pass, a new Amazon S3 connection will be created.
    After creating the connection, you can use it in your notebooks to read and write files
    directly from the specified S3 location. You can also all the buckets you connected to if
-   you select Data on navigation pane and select S3 buckets tab.
+   you choose **Data** in the left navigation pane and choose the **S3 buckets** tab.

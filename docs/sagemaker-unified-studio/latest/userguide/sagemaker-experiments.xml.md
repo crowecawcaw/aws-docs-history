@@ -96,8 +96,8 @@ not created automatically during project creation.
 To create an MLflow App, perform the following steps:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the left menu, choose **Compute**.
-3. From the tabs in the top banner, choose
+2. In the left navigation pane, choose **Compute**.
+3. In the left navigation pane, under **AI/ML**, choose
    **MLflow**.
 4. Choose **Create MLflow App**.
 5. For **Name**, enter a name for the MLflow App. The name
@@ -115,8 +115,8 @@ create an MLflow App, it automatically starts.
 After you create an MLflow App, you can change the artifact storage location. To
 edit an MLflow App, perform the following steps:
 
-1. From the left menu, choose **Compute**.
-2. From the tabs in the top banner, choose
+1. In the left navigation pane, choose **Compute**.
+2. In the left navigation pane, under **AI/ML**, choose
    **MLflow**.
 3. From the **Actions** drop-down menu, choose
    **Edit**.
@@ -132,8 +132,8 @@ Amazon S3.
 
 To delete an MLflow App, perform the following steps:
 
-1. From the left menu, choose **Compute**.
-2. From the tabs in the top banner, choose
+1. In the left navigation pane, choose **Compute**.
+2. In the left navigation pane, under **AI/ML**, choose
    **MLflow**.
 3. From the **Actions** drop-down menu, choose
    **Delete**.
@@ -157,8 +157,8 @@ backed up any important experiment data before deleting the MLflow App.
 You can launch the MLflow UI to view and manage your experiments, models, and
 traces. To launch the MLflow UI, perform the following steps:
 
-1. From the left menu, choose **Compute**.
-2. From the tabs in the top banner, choose
+1. In the left navigation pane, choose **Compute**.
+2. In the left navigation pane, under **AI/ML**, choose
    **MLflow**.
 3. Choose the **Open** button next to the MLflow App. This
    action uses a presigned URL to launch the MLflow UI in a new tab in your
@@ -212,10 +212,9 @@ project, if it wasn't created automatically during project creation.
 To create an MLflow Tracking Server, perform the following steps:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the top banner, choose your project from the projects drop-down menu,
-   and choose **Project overview**.
-3. From the left menu, choose **Compute**.
-4. From the tabs in the top banner, choose
+2. From the project selector dropdown at the top of the page, choose your project.
+3. In the left navigation pane, choose **Compute**.
+4. In the left navigation pane, under **AI/ML**, choose
    **MLflow**.
 5. Choose **Create MLflow Tracking Server**.
 6. (Optional) Provide values to override the default values for the following
@@ -250,8 +249,8 @@ is starting or stopping, it's not available for MLflow to use.
 To start or stop an MLflow tracking server, perform the following steps from your
 project's **Project details** page:
 
-1. From the left menu, choose **Compute**.
-2. From the tabs in the top banner, choose
+1. In the left navigation pane, choose **Compute**.
+2. In the left navigation pane, under **AI/ML**, choose
    **MLflow**.
 3. From the **Actions** drop-down menu, choose
    **Stop** to stop a running server. Choose
@@ -267,8 +266,8 @@ You can launch the MLflow Tracking Server UI from the **MLflow**
 tab under **Compute**, by performing the following steps:
 
 1. Navigate to the project details page for your project.
-2. From the left menu, choose **Compute**.
-3. From the tabs in the top banner, choose
+2. In the left navigation pane, choose **Compute**.
+3. In the left navigation pane, under **AI/ML**, choose
    **MLflow**.
 4. From the **Actions** drop-down menu, choose
    **Open MLflow**. This action uses a presigned URL to

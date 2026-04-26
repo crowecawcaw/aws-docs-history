@@ -24,8 +24,7 @@ configured for that data. There are two configuration options for permission mod
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
 2. Navigate to the project you want to use visual ETL in.
-3. Choose **Visual ETL** from the **Build**
-   menu.
+3. In the left navigation pane, under **Data analytics**, choose **Visual ETL**.
 4. Choose **Create visual ETL job**.
 5. Choose to configure the visual ETL job with full-table access using the AWS Glue ETL
    compute named **project.spark.fineGrained**.

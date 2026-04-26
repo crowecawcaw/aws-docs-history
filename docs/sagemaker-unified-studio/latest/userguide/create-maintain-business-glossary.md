@@ -15,8 +15,8 @@ To create a glossary, complete the following steps:
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Navigate to the **Discover** menu in the top navigation bar.
-3. Choose **Glossaries**, and then choose
+2. In the left navigation pane, choose **Catalog**.
+3. Choose **View business glossaries**, and then choose
    **Create glossary**.
 4. Specify a name, description, and owning project for the glossary and then
    choose **Create glossary**.
@@ -40,8 +40,8 @@ To disable or enable a business glossary, complete the following steps:
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Navigate to the **Discover** menu in the top navigation bar.
-3. Choose **Glossaries**.
+2. In the left navigation pane, choose **Catalog**.
+3. Choose **View business glossaries**.
 4. Select the
    business glossary that you want to disable or enable.
 5. On the glossary details page, locate the **Enabled** toggle

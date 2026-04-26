@@ -9,10 +9,8 @@ Amazon SageMaker Unified Studio:
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Choose **Select project** from the top navigation pane
-   and select the project you want to view lineage in.
-3. Under **Project catalog** in the left side navigation,
-   choose **Assets**.
+2. From the project selector dropdown at the top of the page, choose the project you want to view lineage in.
+3. In the left navigation pane, choose **Manage**, then under **Catalog management**, choose **Assets**.
 4. On the **Inventory** tab, choose the name of the asset
    that you want to view lineage for. This opens the asset details page.
 5. On the asset details page, choose the **Lineage**

@@ -46,6 +46,5 @@ Amazon SageMaker Unified Studio supports the following browsers:
 10. Choose **Continue**.
 11. Choose **Create project**.
     You can then navigate to your project at any time from the Amazon SageMaker Unified Studio home page by
-    choosing **Select a project** and **Browse all
-    projects**, then choosing the name of your project. After you navigate to
+    choosing a project from the project selector dropdown at the top of the page. After you navigate to
     your project, you can begin adding data and compute resources and using tools.

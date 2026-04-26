@@ -16,8 +16,8 @@ To create a code workflow, complete the following steps:
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
 2. Navigate to a project that was created with the **All capabilities** project profile.
-   You can do this by using the center menu at the top of the page and choosing **Browse all projects**, then choosing the name of the project that you want to navigate to.
-3. In the **Build** menu, choose **Workflows**. This takes you to the Workflows page.
+   You can do this by choosing a project from the project selector dropdown at the top of the page.
+3. In the left navigation pane, choose **Workflows**.
 4. Choose **Create workflow in editor**. This takes you to the Code page
    and opens a new notebook file in the `workflows/dags` folder of the JupyterLab file navigation. The file is prepopulated with a workflow definition template.
 5. Update the file as desired to create your workflow.
@@ -139,8 +139,8 @@ To run a code workflow, navigate to the workflow details page by selecting a wor
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
 2. Navigate to a project that was created with the **All capabilities** project profile.
-   To do this, use the center menu at the top of the landing page and choose **Browse all projects**, then choose the name of the project that you want to navigate to.
-3. In the **Build** menu, choose **Workflows**. This takes you to the Workflows page.
+   To do this, choose a project from the project selector dropdown at the top of the page.
+3. In the left navigation pane, choose **Workflows**.
 4. Choose the name of a workflow to navigate to the workflow details page and choose **Run**. This will execute the workflow in the shared environment, allowing all team members to access and collaborate on the execution.
 5. Choose the name of a workflow to navigate to the workflow details page.
 6. Expand the **Run** menu, then choose one of the following options:
@@ -173,8 +173,8 @@ To share your workflows with other project members in a workflow environment, co
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
 2. Navigate to a project that was created with the **Data analytics and AI-ML model development** project profile.
-   You can do this by using the center menu at the top of the page and choosing **Browse all projects**, then choosing the name of the project that you want to navigate to.
-3. In the **Build** menu, choose **JupyterLab**.
+   You can do this by choosing a project from the project selector dropdown at the top of the page.
+3. In the left navigation pane, under **IDEs**, choose **JupyterLab**.
 4. Locate the workflow you want to share in the `workflows/dags` folder.
 5. Choose the **Git** icon in the left navigation.
 6. Choose the **+** icon next to the files you want to commit.
@@ -182,6 +182,6 @@ To share your workflows with other project members in a workflow environment, co
 8. (Optional) Enter a longer description of the commit in the **Description** text entry field.
 9. Choose **Commit**.
 10. Choose the **Push committed changes** icon to do a git push.
-11. In the **Build** menu, choose **Workflows**. This takes you to the Workflows page.
+11. In the left navigation pane, choose **Workflows**.
 12. On the **Shared environment** tab, choose **Sync files from project**.
 13. Choose **Confirm**.

@@ -21,7 +21,7 @@ To navigate to the sample notebook, complete the following steps:
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Navigate to a project. To do this, choose **Select project**
-   from the center menu.
-3. Expand the **Build** menu, then choose
+2. Navigate to a project. To do this, choose a project from the project
+   selector dropdown at the top of the page.
+3. In the left navigation pane, under **IDEs**, choose
    **JupyterLab**.

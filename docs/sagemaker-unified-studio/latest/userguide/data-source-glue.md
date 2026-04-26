@@ -26,10 +26,8 @@ to the Amazon SageMaker Catalog. For more information, see [The lakehouse archit
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Choose **Select project** from the top navigation pane and
-   select the project to which you want to add the data source.
-3. Choose **Data sources** from the left navigation pane under
-   **Project catalog**.
+2. From the project selector dropdown at the top of the page, choose the project to which you want to add the data source.
+3. In the left navigation pane, choose **Manage**, then under **Catalog management**, choose **Data sources**.
 4. Choose **Create data source**.
 5. Configure the following fields:
    - **Name** – The data source name.

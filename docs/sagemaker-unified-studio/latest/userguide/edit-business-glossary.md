@@ -15,8 +15,8 @@ To edit a business glossary, complete the following steps:
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Navigate to the **Discover** menu in the top navigation bar.
-3. Choose **Glossaries**.
+2. In the left navigation pane, choose **Catalog**.
+3. Choose **View business glossaries**.
 4. Select the
    business glossary that you want to edit.
 5. On the glossary details page, expand **Actions** and then choose

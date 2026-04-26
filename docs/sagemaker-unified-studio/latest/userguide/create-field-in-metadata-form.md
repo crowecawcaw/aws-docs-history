@@ -16,8 +16,8 @@ To create a field in a metadata form, complete the following steps:
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Navigate to the **Discover** menu in the top navigation bar.
-3. Choose **Metadata forms**.
+2. In the left navigation pane, choose **Catalog**.
+3. Choose **View metadata forms**.
 4. Choose the name of the metadata form that you want to add a field to. This takes you to the metadata form details page.
 5. On the metadata form details page, choose **Create field**.
 6. Specify the field name, description, type, and whether this is a required field.

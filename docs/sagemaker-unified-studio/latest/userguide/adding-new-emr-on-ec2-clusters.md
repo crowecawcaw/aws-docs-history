@@ -9,8 +9,7 @@ On-demand creation isn't supported for Amazon EMR on EC2 in quick setup.
 
 After your Admin has enabled blueprints:
 
-1. From inside the project management view, select **Compute** from the
-   navigation bar.
+1. In the left navigation pane, choose **Compute**.
 2. In the Compute panel, select the **Data processing** tab.
 3. To create a new Amazon EMR on EC2 cluster, select the **Add compute**
    dropdown menu and then choose **New compute**.

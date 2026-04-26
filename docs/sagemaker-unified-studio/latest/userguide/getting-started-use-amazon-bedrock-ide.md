@@ -29,21 +29,22 @@ If you don't have access to a model, contact your administrator.
 
 1. Navigate to the Amazon SageMaker Unified Studio landing page by using the URL from your administrator.
 2. Access Amazon SageMaker Unified Studio using your IAM or single sign-on (SSO) credentials. For more information, see [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md").
-3. At the top of the page, choose the **Discover**.
-4. In the **Generative AI** section, choose **Chat
-   playground** to open the chat playground.
-
-![Open Amazon Bedrock in SageMaker Unified Studio chat playground.](images/bedrock/bedrock-ide-discover.png) 5. In **Type** select **Model** and then select a model
-to use in **Model**. For full information about the model, choose
-**View full model details** in the information panel. For more
-information, see [Find serverless models with the Amazon Bedrock model catalog](model-catalog.md "model-catalog.md"). If you
-don't have access to an appropriate model, contact your administrator. Different models
-might not support all features. 6. In the **Enter prompt** text box, enter `What is Avebury stone
- circle?`. 7. (Optional) If the model you chose is a reasoning model, you can choose
-**Reason** to have the model include its reasoning in the reponse.
-For more information, see [Enhance model responses with
-model reasoning](../../../bedrock/latest/userguide/inference-reasoning.md "../../../bedrock/latest/userguide/inference-reasoning.md") in the _Amazon Bedrock user guide_. 8. Press Enter on your keyboard, or choose the run button, to send the prompt to the
-model. Amazon Bedrock in SageMaker Unified Studio shows the response from the model in the playground.
+3. In the left navigation pane, under **Generative AI**, choose **Playground**.
+4. Choose **Chat** to open the chat playground.
+5. In **Type** select **Model** and then select a model
+   to use in **Model**. For full information about the model, choose
+   **View full model details** in the information panel. For more
+   information, see [Find serverless models with the Amazon Bedrock model catalog](model-catalog.md "model-catalog.md"). If you
+   don't have access to an appropriate model, contact your administrator. Different models
+   might not support all features.
+6. In the **Enter prompt** text box, enter `What is Avebury stone
+circle?`.
+7. (Optional) If the model you chose is a reasoning model, you can choose
+   **Reason** to have the model include its reasoning in the reponse.
+   For more information, see [Enhance model responses with
+   model reasoning](../../../bedrock/latest/userguide/inference-reasoning.md "../../../bedrock/latest/userguide/inference-reasoning.md") in the _Amazon Bedrock user guide_.
+8. Press Enter on your keyboard, or choose the run button, to send the prompt to the
+   model. Amazon Bedrock in SageMaker Unified Studio shows the response from the model in the playground.
 
 ![Run prompt in Amazon Bedrock in SageMaker Unified Studio chat playground.](images/bedrock/bedrock-ide-chat-playground-run-prompt.png) 9. Continue the chat by entering the prompt `Is there a museum
  there?` and pressing Enter.

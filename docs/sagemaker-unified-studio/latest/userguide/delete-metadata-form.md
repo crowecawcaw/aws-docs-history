@@ -21,8 +21,8 @@ to which it is applied.
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Navigate to the **Discover** menu in the top navigation bar.
-3. Choose **Metadata forms**.
+2. In the left navigation pane, choose **Catalog**.
+3. Choose **View metadata forms**.
 4. Choose the name of the metadata form that you want to delete. This takes you to the metadata form details page.
 5. If the metadata form that you want to delete is enabled, disable the metadata form by
    choosing the **Enabled** toggle.

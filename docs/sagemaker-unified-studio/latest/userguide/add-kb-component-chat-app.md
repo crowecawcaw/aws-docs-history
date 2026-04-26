@@ -24,28 +24,22 @@ of retrieved results to return from the vector store. For more information, see 
 
 1. Navigate to the Amazon SageMaker Unified Studio landing page by using the URL from your administrator.
 2. Access Amazon SageMaker Unified Studio using your IAM or single sign-on (SSO) credentials. For more information, see [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md").
-3. If the project that you want to use isn't already open, do the following:
-   1. Choose the current project at the top of the page. If a project isn't already open, choose **Select a project**.
-   2. Select **Browse all projects**.
-   3. In **Projects** select the project that you want
-      to use.
-
-4. Choose the **Build** menu option at the top of the page.
-5. In **MACHINE LEARNING & GENERATIVE AI** choose **My apps**.
-6. In **Apps** choose the chat agent app that you want to add the knowledge base component to.
-7. In the **Configs** pane, choose **Data**.
-8. Select **Use Knowledge Base**.
-9. For **Select Knowledge Base**, select the Knowledge Base
+3. From the project selector dropdown at the top of the page, choose the project that you want to use.
+4. In the left navigation pane, under **Generative AI**, choose **AI apps**.
+5. In **Apps** choose the chat agent app that you want to add the knowledge base component to.
+6. In the **Configs** pane, choose **Data**.
+7. Select **Use Knowledge Base**.
+8. For **Select Knowledge Base**, select the Knowledge Base
    component that you want to use. To create a Knowledge Base component, see [Create an Amazon Bedrock Knowledge Base component](creating-a-knowledge-base-component.md "creating-a-knowledge-base-component.md").
-10. (Optional) Choose **Edit advanced search configs** to set advanced
-    search configurations.
-    1. In **Search type**, turn on **Overide default
-       search** to choose a different search type. You can choose from
-       **Hybrid search** (Combines relevancy scores from
-       semantic and text search to provide greater accuracy) or **Semantic
-       search** (Uses vector embeddings to deliver relevant
-       results).
-    2. (Optional) In **Maximum number of source chunks**, choose
-       the maximum number of source chunks to use.
+9. (Optional) Choose **Edit advanced search configs** to set advanced
+   search configurations.
+   1. In **Search type**, turn on **Overide default
+      search** to choose a different search type. You can choose from
+      **Hybrid search** (Combines relevancy scores from
+      semantic and text search to provide greater accuracy) or **Semantic
+      search** (Uses vector embeddings to deliver relevant
+      results).
+   2. (Optional) In **Maximum number of source chunks**, choose
+      the maximum number of source chunks to use.
 
-11. Choose **Save** to save your changes.
+10. Choose **Save** to save your changes.

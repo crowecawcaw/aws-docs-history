@@ -13,8 +13,7 @@ Your project contains a configured JupyterLab space.
 To open the JupyterLab space in Amazon SageMaker Unified Studio, follow these steps:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the main menu, choose **Build**.
-3. Under **IDE & Applications**, choose **JupyterLab**.
+2. In the left navigation pane, under **IDEs**, choose **JupyterLab**.
    Amazon SageMaker Unified Studio opens the JupyterLab space associated with your project. Choose
    **Configure space** to tailor the configuration to your needs.
 

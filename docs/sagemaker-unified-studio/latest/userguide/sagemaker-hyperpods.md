@@ -24,8 +24,7 @@ To use a HyperPod cluster in Amazon SageMaker Unified Studio, you create a conne
 following these steps:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the **Build** drop-down menu, choose **HyperPod**. The compute page displays the
-   HyperPod clusters for your project.
+2. In the left navigation pane, choose **Compute**, then choose the **HyperPod clusters** tab.
 3. Choose **Add compute**.
 4. In the **Add compute** form, configure the following fields:
    1. For **Connection name**, enter a name for this connection.
@@ -40,9 +39,8 @@ following these steps:
 To view the HyperPod clusters in your project, follow these steps:
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
-2. From the **Build** drop-down menu, choose **HyperPods**.
+2. In the left navigation pane, choose **Compute**, then choose the **HyperPod clusters** tab.
 
-The portal opens the **HyperPod clusters** tab of the **Compute** page.
 The HyperPod clusters table provides a summary view of each cluster, including the ARN, status, and creation time.
 
 ## View details about a HyperPod cluster

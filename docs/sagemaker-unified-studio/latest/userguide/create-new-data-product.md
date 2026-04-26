@@ -12,10 +12,8 @@ To create a new data product complete the following steps.
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
 2. Navigate to the project in which you'd like to create a data product. You can
-   do this by using the center menu at the top of the page and choosing
-   **Browse all projects**, then choosing the name of the
-   project that you want to navigate to.
-3. Under **Project catalog**, choose
+   do this by choosing a project from the project selector dropdown at the top of the page.
+3. In the left navigation pane, choose **Manage**, then under **Catalog management**, choose
    **Assets**.
 4. Expand the **Create** menu and then choose **Create
    data product**.

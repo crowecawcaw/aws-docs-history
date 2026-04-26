@@ -15,10 +15,8 @@ Only published assets are searchable by other domain users.
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Choose **Select project** from the top navigation pane and
-   select the project to which the data source belongs.
-3. Choose **Data sources** from the left navigation pane under
-   **Project catalog**.
+2. From the project selector dropdown at the top of the page, choose the project to which the data source belongs.
+3. In the left navigation pane, choose **Manage**, then under **Catalog management**, choose **Data sources**.
 4. Choose the data source that you want to run. This opens the data source
    details page.
 5. Choose **Run**.

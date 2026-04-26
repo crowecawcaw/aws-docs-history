@@ -8,8 +8,8 @@ affects the generation of the image. For more information, see [Configuration op
 
 1. Navigate to the Amazon SageMaker Unified Studio landing page by using the URL from your administrator.
 2. Access Amazon SageMaker Unified Studio using your IAM or single sign-on (SSO) credentials. For more information, see [Access Amazon SageMaker Unified Studio](getting-started-access-the-portal.md "getting-started-access-the-portal.md").
-3. At the top of the page, choose the **Discover**.
-4. In the **GENERATIVE AI** section, choose **Image and video playground**.
+3. In the left navigation pane, under **Generative AI**, choose **Playground**.
+4. Choose **Image and video**.
 5. If the **Configurations** pane isn't open, choose the configuration button.
 6. For **Model** select a model to use.
 7. For **Action** choose the action **Generate image**.

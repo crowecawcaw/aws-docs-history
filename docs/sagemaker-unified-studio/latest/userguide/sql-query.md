@@ -5,11 +5,6 @@ sources, and visualize results, all within your project. You can work with multi
 engines, browse your data catalog, generate SQL using natural language, and schedule
 queries to run automatically.
 
-###### Note
-
-If your Amazon SageMaker Unified Studio domain uses IAM Identity Center (IdC), some query editor features
-behave differently. See [Query editor in IdC domains](sql-query-idc.md "sql-query-idc.md") for details.
-
 ###### Topics
 
 - [Supported query engines](#sql-query-engines "#sql-query-engines")
@@ -17,7 +12,6 @@ behave differently. See [Query editor in IdC domains](sql-query-idc.md "sql-quer
 - [Write, run, and view query results](sql-query-write-run.md "sql-query-write-run.md")
 - [Generate SQL with the Data Agent](sql-query-data-agent.md "sql-query-data-agent.md")
 - [Save, schedule, and review queries](sql-query-save-share.md "sql-query-save-share.md")
-- [Query editor in IdC domains](sql-query-idc.md "sql-query-idc.md")
 
 ## Supported query engines
 

@@ -32,8 +32,7 @@ JDBC driver](../../../athena/latest/ug/jdbc-v3-driver.md "../../../athena/latest
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
    using your SSO or AWS credentials.
-2. Choose **Select project** from the top navigation pane and
-   select the project where you have the data that you want to analyze.
+2. From the project selector dropdown at the top of the page, choose the project where you have the data that you want to analyze.
 3. In the **Project overview**, choose the **JDBC
    connection details** tab.
 4. In **JDBC connection details** choose your authentication
