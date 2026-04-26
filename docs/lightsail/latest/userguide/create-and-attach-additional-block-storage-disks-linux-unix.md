@@ -35,7 +35,7 @@ Resource names:
      entering your tags to add them, or choose **Cancel** to not add
      them.
 
-   ![Key-only tags in the Lightsail console.](images/amazon-lightsail-key-only-tags.png)
+   ![Key-only tags in the Lightsail console.](/images/lightsail/latest/userguide/images/amazon-lightsail-key-only-tags.png)
    - **Create a key-value tag**, then enter a key into the
      **Key** text box, and a value into the **Value**
      text box. Choose **Save** when you’re done entering your tags, or
