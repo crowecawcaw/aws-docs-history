@@ -6,7 +6,7 @@ When all communication with the device has ended, turn it off by pressing the
 power button located above the LCD screen. It takes about 20 seconds for the device to
 shut down. While the device is shutting down, the LCD screen displays a message indicating the device is shutting down.
 
-![Shutdown message on LCD screen.](/images/snow/latest/swsbe-pack/images/shutdown-screen.png)
+![Shutdown message on LCD screen.](images/shutdown-screen.png)
 
 ###### Note
 
