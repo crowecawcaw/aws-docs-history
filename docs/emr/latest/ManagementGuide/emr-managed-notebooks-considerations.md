@@ -47,8 +47,7 @@ using EMR notebook.
     notebook-scoped libraries only. Installing kernels and libraries on
     the cluster are not supported.
   - Clusters with multiple primary nodes are not supported.
-  - Clusters using Amazon EC2 instances based on AWS Graviton2 are not
-    supported.
+  - Amazon EMR versions 6.9.0+ and 5.31.1+ support JupyterEnterpriseGateway with AWS Graviton instances.
 
 ## Differences in capabilities by cluster release version
 

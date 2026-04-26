@@ -29,13 +29,15 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
+ "Sid": "AllowSTSAssumerole",
  "Effect": "Allow",
+ "Principal": {
+ "Service": "elasticmapreduce.amazonaws.com"
+ },
  "Action": [
  "sts:AssumeRole",
  "sts:SetContext"
- ],
- "Resource": "arn:aws:iam::123456789012:role/EMRStudioServiceRole",
- "Sid": "AllowSTSAssumerole"
+ ]
  }
  ]
 }`

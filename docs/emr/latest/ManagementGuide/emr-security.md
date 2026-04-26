@@ -95,7 +95,7 @@ charge.
   – an IAM role that you can specify when you submit a job or query to an
   Amazon EMR cluster. The job or query that you submit to your Amazon EMR cluster uses the
   runtime role to access AWS resources, such as objects in Amazon S3. You can specify
-  runtime roles with Amazon EMR for Spark and Hive jobs. Bu using runtime roles, you
+  runtime roles with Amazon EMR for Spark and Hive jobs. By using runtime roles, you
   can isolate jobs running on the same cluster by using different IAM roles. For
   more information, see [Using IAM
   role as runtime role with Amazon EMR](emr-steps-runtime-roles.md "emr-steps-runtime-roles.md").

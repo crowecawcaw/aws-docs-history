@@ -51,8 +51,8 @@ Perform the following steps to identify and fix the error:
      Guide_.
    - Use the AWS CLI to find all available public and private subnets
      in the VPC that your cluster uses. For more information, see the
-     [describe-subnets](https://amazonaws.com/ec2/describe-subnets.html "https://amazonaws.com/ec2/describe-subnets.html") API. To create new subnets in a
-     VPC, see the [create-subnet](https://amazonaws.com/ec2/create-subnet.html "https://amazonaws.com/ec2/create-subnet.html") API.
+     [describe-subnets](../../../AWSEC2/latest/APIReference/API_DescribeSubnets.md "../../../AWSEC2/latest/APIReference/API_DescribeSubnets.md") API. To create new subnets in a
+     VPC, see the [create-subnet](../../../AWSEC2/latest/APIReference/API_CreateSubnet.md "../../../AWSEC2/latest/APIReference/API_CreateSubnet.md") API.
 
 3. Launch a new cluster with subnets from the same VPC as the
    cluster.

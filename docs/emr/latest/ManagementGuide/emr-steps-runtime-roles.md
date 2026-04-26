@@ -365,7 +365,7 @@ aws emr add-steps --cluster-id `<cluster-id>` --steps '[{"Name":"sample-step","A
 Additionally, you must escape your Bash command arguments when running commands with the script runner. The following is a sample that shows setting Spark properties, with included escape characters:
 
 ```
-"\"--conf spark.sql.autoBroadcastJoinThreshold=-1\n--conf spark.cradle.RSv2Mode.enabled=true\""
+"\"--conf spark.sql.autoBroadcastJoinThreshold=-1\""
 ```
 
 - Runtime roles don't provide support for controlling access to on-cluster

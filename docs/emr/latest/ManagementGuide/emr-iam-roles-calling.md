@@ -27,10 +27,10 @@ calls the EC2 instance metadata to obtain the temporary credentials.
     instances with the SDK for .NET](../../../sdk-for-net/v4/developer-guide/net-dg-hosm.md "../../../sdk-for-net/v4/developer-guide/net-dg-hosm.md") in the
     _AWS SDK for .NET Developer Guide_
   - [Using IAM roles for Amazon EC2
-    instances with the SDK for PHP](../../../sdk-for-php/latest/developer-guide/php-dg-roles.md "../../../sdk-for-php/latest/developer-guide/php-dg-roles.md") in the
+    instances with the SDK for PHP](../../../sdk-for-php/v3/developer-guide/guide_credentials_assume_role.md "../../../sdk-for-php/v3/developer-guide/guide_credentials_assume_role.md") in the
     _AWS SDK for PHP Developer Guide_
   - [Using IAM roles for
-    Amazon EC2 instances with the SDK for Ruby](../../../sdk-for-ruby/latest/developer-guide/ruby-dg-roles.md "../../../sdk-for-ruby/latest/developer-guide/ruby-dg-roles.md") in the
+    Amazon EC2 instances with the SDK for Ruby](../../../sdk-for-ruby/v3/developer-guide/credential-providers.md "../../../sdk-for-ruby/v3/developer-guide/credential-providers.md") in the
     _AWS SDK for Ruby Developer Guide_
 
 ###### To obtain temporary credentials from EC2 instance metadata

@@ -366,7 +366,7 @@ To optimize costs:
 - Use selective log types to capture only the logs you need.
 - Consider using Amazon S3 logging for long-term log storage at lower cost.
 
-For current pricing information, see [Amazon CloudWatch Pricing](aws.amazon.comcloudwatch/pricing.md "aws.amazon.comcloudwatch/pricing.md").
+For current pricing information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
 ### Additional Resources
 

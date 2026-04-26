@@ -85,12 +85,12 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
+ "Sid": "AllowSTSAssumerole",
  "Effect": "Allow",
- "Action": [
- "sts:AssumeRole"
- ],
- "Resource": "arn:aws:iam::123456789012:role/EMR_EC2_DefaultRole",
- "Sid": "AllowSTSAssumerole"
+ "Principal": {
+ "AWS": "arn:aws:iam::123456789012:role/EMR_EC2_DefaultRole"
+ },
+ "Action": "sts:AssumeRole"
  }
  ]
 }`
@@ -108,15 +108,15 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
+ "Sid": "AllowSTSAssumerole",
  "Effect": "Allow",
- "Action": [
- "sts:AssumeRole"
- ],
- "Resource": [
+ "Principal": {
+ "AWS": [
  "arn:aws:iam::123456789012:role/EMRFSRole_First",
  "arn:aws:iam::123456789012:role/EMRFSRole_Second"
- ],
- "Sid": "AllowSTSAssumerole"
+ ]
+ },
+ "Action": "sts:AssumeRole"
  }
  ]
 }`

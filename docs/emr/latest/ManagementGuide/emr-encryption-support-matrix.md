@@ -282,7 +282,7 @@ in the _Apache HBase Reference Guide_.
 If you enabled in-transit encryption in your EMR cluster, Phoenix Query Serversupports
 the TLS property `phoenix.queryserver.tls.enabled`, which is set to `true` by default.
 
-To learn more, see [Configurations relating to HTTPS](https://phoenix.apache.org/server.html#Configuration "https://phoenix.apache.org/server.html#Configuration") in the Phoenix Query Server documentation.
+To learn more, see [Configurations relating to HTTPS](https://phoenix.apache.org/docs/features/query-server#query-server-configuration "https://phoenix.apache.org/docs/features/query-server#query-server-configuration") in the Phoenix Query Server documentation.
 
 | Component    | Endpoint                      | Port | In-Transit Encryption Mechanism | Supported from Release |
 | ------------ | ----------------------------- | ---- | ------------------------------- | ---------------------- |

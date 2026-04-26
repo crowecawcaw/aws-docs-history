@@ -49,11 +49,12 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
+ "Sid": "AllowSTSAssumerole",
  "Effect": "Allow",
- "Action": [
- "sts:AssumeRole"
- ],
- "Resource": "arn:aws:iam::123456789012:role/ApplicationAutoScalingEMRRole",
+ "Principal": {
+ "Service": "application-autoscaling.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole",
  "Condition": {
  "StringEquals": {
  "aws:SourceAccount": "123456789012"
@@ -61,8 +62,7 @@ JSON
  "ArnLike": {
  "aws:SourceArn": "arn:aws:application-autoscaling:*:123456789012:scalable-target/*"
  }
- },
- "Sid": "AllowSTSAssumerole"
+ }
  }
  ]
 }`

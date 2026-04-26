@@ -33,11 +33,12 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
+ "Sid": "AllowSTSAssumerole",
  "Effect": "Allow",
- "Action": [
- "sts:AssumeRole"
- ],
- "Resource": "arn:aws:iam::123456789012:role/EMRStudioServiceRole",
+ "Principal": {
+ "Service": "elasticmapreduce.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole",
  "Condition": {
  "StringEquals": {
  "aws:SourceAccount": "123456789012"
@@ -45,8 +46,7 @@ JSON
  "ArnLike": {
  "aws:SourceArn": "arn:aws:elasticmapreduce:*:123456789012:*"
  }
- },
- "Sid": "AllowSTSAssumerole"
+ }
  }
  ]
 }`
