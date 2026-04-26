@@ -74,7 +74,7 @@ The App Runner console displays a summary of all logs for your service and allow
 
 The console displays the service dashboard with a **Service overview**.
 
-![App Runner service dashboard page showing Activity list](/images/apprunner/latest/dg/images/console-dashboard.png) 3. On the service dashboard page, choose the **Logs** tab.
+![App Runner service dashboard page showing Activity list](images/console-dashboard.png) 3. On the service dashboard page, choose the **Logs** tab.
 
 The console displays a few types of logs in several sections:
 
@@ -84,7 +84,7 @@ The console displays a few types of logs in several sections:
     * Application logs – The output of the web application that's deployed to your App Runner service. The console
      combines the output from all running instances into a single log stream.
 
-![The Logs tab on the App Runner service dashboard page](images/service-dashboad-logs.png) 4. To find specific deployments, scope down the deployment log list by entering a search term. You can search for any value that appears in the
+![The Logs tab on the App Runner service dashboard page](/images/apprunner/latest/dg/images/service-dashboad-logs.png) 4. To find specific deployments, scope down the deployment log list by entering a search term. You can search for any value that appears in the
 table. 5. To view a log's content, choose **View full log** (event log) or the log stream name (deployment and application logs). 6. Choose **Download** to download a log. For a deployment log stream, select a log stream first. 7. Choose **View in CloudWatch** to open the CloudWatch console and use its full capabilities to explore your App Runner service logs. For a deployment
 log stream, select a log stream first.
 
