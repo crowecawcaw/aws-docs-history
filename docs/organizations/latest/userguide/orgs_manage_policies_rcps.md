@@ -58,8 +58,22 @@ RCPs apply to actions for the following AWS services:
 - [Amazon Cognito](../../../cognito.md "../../../cognito.md")
 - [Amazon CloudWatch Logs](../../../cloudwatch.md "../../../cloudwatch.md")
 - [Amazon DynamoDB](../../../dynamodb.md "../../../dynamodb.md")
+- [AWS AppConfig](../../../appconfig.md "../../../appconfig.md")
+- [Amazon AppStream](../../../appstream.md "../../../appstream.md")
+- [Amazon EC2 Auto Scaling](../../../autoscaling.md "../../../autoscaling.md")
+- [AWS CodeBuild](../../../codebuild.md "../../../codebuild.md")
+- [AWS CodeCommit](../../../codecommit.md "../../../codecommit.md")
+- [Amazon Comprehend](../../../comprehend.md "../../../comprehend.md")
+- [Amazon Comprehend Medical](../../../comprehendmedical.md "../../../comprehendmedical.md")
+- [DynamoDB Accelerator](../../../dax.md "../../../dax.md")
 - [Amazon Elastic Container Registry](../../../ecr.md "../../../ecr.md")
+- [AWS Health](../../../health.md "../../../health.md")
+- [Amazon Kinesis Video Streams](../../../kinesisvideo.md "../../../kinesisvideo.md")
 - [Amazon OpenSearch Serverless](../../../opensearch-service.md "../../../opensearch-service.md")
+- [AWS Support](../../../support.md "../../../support.md")
+- [Amazon Textract](../../../textract.md "../../../textract.md")
+- [Amazon Transcribe](../../../transcribe.md "../../../transcribe.md")
+- [Amazon Translate](../../../translate.md "../../../translate.md")
 
 ## Testing effects of RCPs
 

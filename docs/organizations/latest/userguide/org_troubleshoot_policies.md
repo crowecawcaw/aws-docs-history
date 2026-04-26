@@ -23,27 +23,26 @@ An SCP must consist of one and only one JSON object. You denote an object by
 placing { } braces around it. Although you can nest other objects within a JSON
 object by embedding additional { } braces within the outer pair, a policy can
 contain only one outermost pair of { } braces. The following example is **_incorrect_** because it
-contains two objects at the top level (called out in
-`red`):
-
-JSON
+contains two objects at the top level:
 
 ```
-``{`
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "ec2:Describe*",
- "Resource": "*"
- },
- {
- "Effect": "Deny",
- "Action": "s3:*",
- "Resource": "*"
- }
- ]
-`}``
+
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Effect": "Allow",
+    "Action": "ec2:Describe*",
+    "Resource": "*"
+  }
+}
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Effect": "Deny",
+    "Action": "s3:*",
+    "Resource": "*"
+  }
+}
 
 ```
 
@@ -56,19 +55,19 @@ of two objects as its value, as shown in the following example:
 ```
 
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": "ec2:Describe*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Deny",
-      "Action": "s3:*",
-      "Resource": "*"
-    }
-  ]
+ "Version": "2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "ec2:Describe*",
+ "Resource": "*"
+ },
+ {
+ "Effect": "Deny",
+ "Action": "s3:*",
+ "Resource": "*"
+ }
+ ]
 }
 
 ```
@@ -94,24 +93,21 @@ denoted by { } braces, containing one `Effect` element, one
 following example is **_incorrect_** because it contains two
 `Statement` elements in the policy object:
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "`Statement`": [
- {
- "Effect": "Allow",
- "Action": "ec2:Describe*",
- "Resource": "*"
- },
- {
- "Effect": "Deny",
- "Action": "s3:*",
- "Resource": "*"
- }
- ]
-}`
+
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Effect": "Allow",
+    "Action": "ec2:Describe*",
+    "Resource": "*"
+  },
+  "Statement": {
+    "Effect": "Deny",
+    "Action": "s3:*",
+    "Resource": "*"
+  }
+}
 
 ```
 

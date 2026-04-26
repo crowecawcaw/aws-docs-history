@@ -124,6 +124,7 @@ Make sure the migrating account does not have any organization-related dependenc
   to the new organization in order for the old organization to function as before. For more information, see [Managing access permissions for your organization](orgs_permissions_overview.md "orgs_permissions_overview.md").
 - If you are using any account or
   organizational unit (OU) tags, you will need to recreate the tags in the new organization.
+  To help identify these dependencies, you can use [Account Assessment for AWS Organizations](https://aws.amazon.com/solutions/implementations/account-assessment-for-aws-organizations/ "https://aws.amazon.com/solutions/implementations/account-assessment-for-aws-organizations/"), which scans your organization to find delegated administrator accounts, identity-based and resource-based policies, and AWS services with trusted access enabled.
 
 ### (Optional) Step 5: Review guidance if you use AWS Control Tower
 
