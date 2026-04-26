@@ -26,3 +26,4 @@ pricing. For more information, see the following topics:
 - [Routes pricing](routes-pricing.md "routes-pricing.md")
 - [Geofences pricing](geofence-price.md "geofence-price.md")
 - [Trackers pricing](trackers-pricing.md "trackers-pricing.md")
+- [Jobs pricing](jobs-pricing.md "jobs-pricing.md")

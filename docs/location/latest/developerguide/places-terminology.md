@@ -25,12 +25,12 @@ and interpolated addresses, providing precise location data.
 See the definition of _interpolation_
 below.
 
-**Secondary Address**
+**Secondary address**
 
 An address that includes secondary designators, such as a suite or unit
 number, building, or floor information.
 
-**Inferred Secondary Address**
+**Inferred secondary address**
 
 An inferred address that includes secondary designators, such as a suite or unit number,
 building, or floor information. Inferred secondary addresses are derived from the input query

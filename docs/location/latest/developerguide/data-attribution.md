@@ -37,3 +37,7 @@ requirements, including license terms applicable to the use of the provider.
   data source attributions](https://www.esri.com/en-us/legal/terms/data-attributions "https://www.esri.com/en-us/legal/terms/data-attributions")
 - [GrabMaps' data source attributions](https://www.grab.com/sg/terms-policies/transport-delivery-logistics/ "https://www.grab.com/sg/terms-policies/transport-delivery-logistics/")
 - [HERE's data source attributions](https://legal.here.com/en-gb/terms/general-content-supplier-terms-and-notices "https://legal.here.com/en-gb/terms/general-content-supplier-terms-and-notices")
+
+## Postal Authority Terms for Address Validation feature
+
+Amazon Location Service's Address Validation feature may output location data obtained from postal authorities (for example, Canada location data is provided by Canada Post). These postal authorities subject use of the location data to additional terms ("Postal Authority Terms"). Accordingly, your use of the Address Validation feature is subject to the Postal Authority Terms. Review the [Postal Authority Terms](https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/product-categories/end-user-computing/approved/pdf/Postal-Authority-Terms.pdf "https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/product-categories/end-user-computing/approved/pdf/Postal-Authority-Terms.pdf") before using the Address Validation feature.

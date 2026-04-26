@@ -22,7 +22,7 @@ Standard
 
 The 3D Buildings feature renders building footprints as three-dimensional structures with height and volume, allowing users to visualize urban environments from multiple angles and perspectives. By controlling the viewing angle, users can more easily understand building density, height relationships, and spatial context within cities and developed areas.
 
-Use the `buildings` parameter in your API request to enable three-dimensional building visualization. This feature provides an immersive perspective of urban landscapes, making it particularly useful for understanding city layouts, identifying landmarks, and navigating complex urban environments.See [Create a 3D map](how-to-create-a-3d-map.md "how-to-create-a-3d-map.md").
+Use the `buildings` parameter in your API request to enable three-dimensional building visualization. This feature provides an immersive perspective of urban landscapes, making it particularly useful for understanding city layouts, identifying landmarks, and navigating complex urban environments. See [Create a 3D map](how-to-create-a-3d-map.md "how-to-create-a-3d-map.md").
 
 ![](/images/location/latest/developerguide/images/zoom-3d-buildings.gif)
 

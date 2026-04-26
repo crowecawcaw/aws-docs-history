@@ -2,7 +2,7 @@
 
 Amazon Location offers a comprehensive set of features to enhance your location-based
 applications and services. This page provides an overview of the key capabilities
-available, including Maps, Places, Routes, and Geofences and Trackers. Leveraging these
+available, including Maps, Places, Routes, Geofences and Trackers, and Jobs. Leveraging these
 features, you can build rich, location-aware experiences tailored to your specific use
 cases, whether it's delivering real-time location intelligence, enabling location-based
 services, or optimizing logistics and transportation operations.
@@ -15,13 +15,13 @@ Amazon Location Service Maps lets you visualize location information and is the
 foundation of many location-based service capabilities. Amazon Location Service offers both
 dynamic and static maps.
 
-Dynamic Maps allow you to create interactive maps using map tiles, with
+Dynamic maps allow you to create interactive maps using map tiles, with
 the option to use pre-built map styles such as standard, monochrome, hybrid,
-and satellite. You can stitch the Dynamic Maps content (Tiles, Styles,
-Glyphs, and Sprites) together using a map rendering engine, such as
+and satellite. You can stitch the dynamic maps content (tiles, styles,
+glyphs, and sprites) together using a map rendering engine, such as
 MapLibre.
 
-Static Maps allow you to create pre-rendered, non-interactive map images
+Static maps allow you to create pre-rendered, non-interactive map images
 that display a fixed geographical area to be embedded in applications
 without complex renderers.
 
@@ -39,8 +39,11 @@ your application. You can:
   interest and get information on contact, access points, and opening
   hours.
 - Use autocomplete or suggestions to autofill or predict an address
-  or place based on user input. You can also use Get Place to get
+  or place based on user input. You can also use `GetPlace` to get
   place details by place ID.
+- Use address validation to verify and standardize addresses using
+  free-form address lines or structured address components. Address validation is currently supported through Amazon Location Service Jobs for performing bulk processing on large datasets. For more information, see
+  [Address validation](places-address-validation.md "places-address-validation.md").
 
 For more information, see [Amazon Location Service Places](places.md "places.md").
 
@@ -82,3 +85,9 @@ costs by filtering position updates that haven't moved before storing or
 evaluating them against geofences.
 
 For more information, see [Amazon Location Service trackers](trackers.md "trackers.md").
+
+**Jobs**
+
+Amazon Location Service Jobs lets you perform asynchronous bulk processing for large-scale location data operations. Currently, Jobs supports the bulk address validation operation, enabling you to process thousands of addresses in a single job operation. Jobs integrate seamlessly with Amazon S3 for input and output data storage, using [Apache Parquet](https://parquet.apache.org/docs/overview/ "https://parquet.apache.org/docs/overview/") format for optimal performance.
+
+For more information, see [Amazon Location Jobs](jobs.md "jobs.md").

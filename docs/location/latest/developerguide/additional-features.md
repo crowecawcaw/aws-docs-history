@@ -30,7 +30,7 @@ the Place API requests. Refer to the Amazon Location Service [API documentation]
 
 ## Definitions
 
-**Time Zone**
+**Time zone**
 
 Displays the time zone of a given place.
 
@@ -44,13 +44,13 @@ pronunciation.
 Provides contact details such as phone numbers and email addresses for
 places.
 
-**Opening Hours**
+**Opening hours**
 
 An indicator of whether a location is currently open, based on the
 local time. This information is helpful for users looking for businesses
 that are open at the time of their query.
 
-**Access Points**
+**Access points**
 
 Includes access point information, such as entrances
 

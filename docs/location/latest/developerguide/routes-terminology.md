@@ -4,7 +4,7 @@
 
 A route provides details for traveling from a departure position through waypoint positions to a destination. It includes travel distance, travel time, route geometry, speed limits, spans, and other attributes.
 
-**Route Matrix**
+**Route matrix**
 
 A matrix representing travel distance and travel time from a set of origins to a set of destinations. It is useful as an input for route planning or optimization applications.
 
@@ -33,14 +33,14 @@ A span represents a continuous stretch of a road that shares a consistent set of
 
 A segment is a navigable portion of a road, typically represented as a linear stretch.
 
-**Route Geometry**
+**Route geometry**
 
 Route geometry depicts the path of a route for visualization, analysis, or other uses. Each route leg’s geometry can be represented as a compressed, encoded polyline or as a simple line string.
 
-**Flexible Polyline**
+**Flexible polyline**
 
 A compact, encoded polyline format for representing geometry. Recommended for limiting response size and optimized for client-side decoding.
 
-**Simple Line String**
+**Simple line string**
 
 A GeoJSON LineString format representing geometry. This format produces a larger response payload and is an ordered array of coordinates that can be used to plot routes on a map.

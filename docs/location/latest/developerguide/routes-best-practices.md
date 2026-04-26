@@ -16,12 +16,12 @@ compression ratios.
 
 ### When to Enable Compression
 
-**Large Responses**
+**Large responses**
 
 Enable compression for large text-based responses to reduce
 bandwidth usage and improve load times.
 
-**Network Constraints**
+**Network constraints**
 
 If your application operates over limited bandwidth or
 high-latency networks, compression can enhance data transfer
@@ -29,7 +29,7 @@ efficiency.
 
 ### How to Use Compression Effectively
 
-**Set the Accept-Encoding Header**
+**Set the Accept-Encoding header**
 
 Include `Accept-Encoding: gzip, deflate` in your HTTP
 requests to inform our API that you support these compression
@@ -41,13 +41,13 @@ while the AWS SDK for Go requires adding specific middleware for
 compression handling. For other SDKs, please refer to the [AWS SDK Reference Guide](../../../sdkref/latest/guide/overview.md "../../../sdkref/latest/guide/overview.md") for detailed
 instructions.
 
-**Handle Decompression Properly**
+**Handle decompression properly**
 
 Ensure your client application can correctly decompress the
 responses based on the `Content-Encoding` header returned
 by our API.
 
-**Test and Monitor**
+**Test and monitor**
 
 Regularly evaluate the impact of compression on your application's
 performance, balancing the benefits of reduced payload sizes against
@@ -73,7 +73,7 @@ Choose Simple format when your application needs high precision
 for coordinates, as GeoJSON maintains full decimal precision without
 loss.
 
-**Smaller Datasets**
+**Smaller datasets**
 
 Simple format is ideal when working with smaller sets of
 coordinate data where the size reduction benefits of compression are
@@ -81,19 +81,19 @@ minimal.
 
 ### Use FlexiblePolyline Format
 
-**Data Size Reduction**
+**Data size reduction**
 
 FlexiblePolyline is ideal when you need to minimize the amount of
 data transmitted, especially for large lists of coordinates, by
 leveraging lossy compression techniques.
 
-**URL Safety**
+**URL safety**
 
 FlexiblePolyline provides a compact, URL-safe string that can be
 used directly in query parameters without additional
 encoding.
 
-**Performance Optimization**
+**Performance optimization**
 
 FlexiblePolyline helps reduce the payload size, leading to faster
 data transfer and lower bandwidth usage, making it crucial for

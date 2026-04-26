@@ -64,7 +64,7 @@ Parameters used for querying and geographic biasing of results.
 
 For more information, see [Querying and biasing](places-querying-biasing.md "places-querying-biasing.md")
 
-**Refining Results**
+**Refining results**
 
 Apply filters to refine the results.
 
@@ -81,7 +81,7 @@ Specify language and apply political view for localized results.
 
 For more information, see [Localization and internationalization](places-localization-internationalization.md "places-localization-internationalization.md")
 
-**Additional Features**
+**Additional features**
 
 Request additional information like time zone details.
 

@@ -21,13 +21,13 @@ Contact details for a place include structured information such as phone numbers
 email addresses, and websites. These details are available for businesses listed in
 place data.
 
-**Phone Number**
+**Phone number**
 
 The primary contact number for a business. This field may include
 international dialing codes to ensure accurate connection, regardless of
 the caller’s location.
 
-**Email Address**
+**Email address**
 
 The primary contact email for inquiries. It may be available for
 businesses that provide an email address in their public listing.
@@ -44,19 +44,19 @@ Opening hours indicate the regular business hours for a location, providing user
 with insights into availability. This information is crucial for applications where
 users need to know when a business is open or closed.
 
-**Regular Hours**
+**Regular hours**
 
 The standard weekly opening hours, typically provided as daily ranges
 (e.g., Monday to Friday, 9 AM to 5 PM). These indicate the usual
 operating schedule.
 
-**Special Hours**
+**Special hours**
 
 Exceptional hours for holidays or special events, provided as
 overrides to regular hours. For example, holiday hours or closures can
 be indicated to inform users of temporary changes in schedule.
 
-**Open Now**
+**Open now**
 
 An indicator of whether a location is currently open, based on the
 local time. This information is helpful for users looking for businesses

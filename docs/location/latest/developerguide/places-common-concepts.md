@@ -10,6 +10,8 @@ features within your application.
 - [Querying and biasing](places-querying-biasing.md "places-querying-biasing.md")
 - [Filtering](places-filtering.md "places-filtering.md")
 - [Localization and internationalization](places-localization-internationalization.md "places-localization-internationalization.md")
+- [Time zone](places-timezone.md "places-timezone.md")
 - [Contacts and opening hours](contacts-opening-hours.md "contacts-opening-hours.md")
 - [Additional features](additional-features.md "additional-features.md")
+- [Address validation](places-address-validation.md "places-address-validation.md")
 - [IntendedUse](places-intended-use.md "places-intended-use.md")

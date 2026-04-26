@@ -14,23 +14,23 @@ Calculate routes between two or more locations, considering various
 factors such as distance, time, and road conditions. You can also see
 alternative routes for the same set of locations.
 
-**Route Optimization**
+**Route optimization**
 
 Optimize routes for time or distance, choosing the fastest or shortest
 route. You can also sequence waypoints to optimize for the traveling
 salesman problem.
 
-**Route Analysis**
+**Route analysis**
 
 Analyze performance metrics like travel time, distance, or the number of
 stops to ensure the route meets your desired goals.
 
-**Service Area**
+**Service area**
 
 Defines the geographic area that can be serviced from a particular
 location based on distance or time limits.
 
-**Toll Costs**
+**Toll costs**
 
 Calculate the costs associated with toll infrastructure on your
 route.
@@ -40,7 +40,7 @@ route.
 Constrain your route calculation by avoiding highways, tunnels, ferries,
 and toll roads.
 
-**Speed Limits**
+**Speed limits**
 
 Find speed limits for each segment of a route, ensuring drivers comply
 with local regulations.

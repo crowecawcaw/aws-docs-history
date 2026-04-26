@@ -79,7 +79,7 @@ results.
 
 For more information, see [Localization and internationalization](places-localization-internationalization.md "places-localization-internationalization.md").
 
-**Additional Features**
+**Additional features**
 
 Requests additional data, such as time zone details.
 
@@ -98,7 +98,7 @@ Reference.
 
 The response includes the following key data:
 
-**Address and Related Details**
+**Address and related details**
 
 Provides complete address details for the location.
 
@@ -107,7 +107,7 @@ Provides complete address details for the location.
 - `PostalCodeDetails`: Additional information about
   postal codes and authorities.
 
-**Place Types and Categories**
+**Place types and categories**
 
 Describes the type and category of the place.
 
@@ -118,7 +118,7 @@ Describes the type and category of the place.
 - `PlaceType`: Type of the place, such as point of
   interest or locality.
 
-**Additional Details**
+**Additional details**
 
 Provides additional data about the place, as specified in the
 request.

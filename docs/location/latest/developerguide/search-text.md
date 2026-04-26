@@ -72,7 +72,7 @@ Parameters used for specifying the text search and location bias.
 
 For more information, see [Querying and biasing](places-querying-biasing.md "places-querying-biasing.md").
 
-**Refining Results**
+**Refining results**
 
 Filters results to narrow down search criteria.
 
@@ -93,7 +93,7 @@ results.
 
 For more information, see [Localization and internationalization](places-localization-internationalization.md "places-localization-internationalization.md").
 
-**Additional Features**
+**Additional features**
 
 Requests extra data such as time zone information.
 
@@ -111,14 +111,14 @@ Reference.
 
 The response includes the following key data:
 
-**Address and Related Details**
+**Address and related details**
 
 Comprehensive address information for the returned location.
 
 - `Address`: Includes country, street, and other address
   details.
 
-**Place Types and Categories**
+**Place types and categories**
 
 Describes the type and category of the place.
 
@@ -130,7 +130,7 @@ Describes the type and category of the place.
 - `BusinessChains`: Indicates any associated business
   chains.
 
-**Additional Details**
+**Additional details**
 
 Additional data related to the place, as requested.
 
