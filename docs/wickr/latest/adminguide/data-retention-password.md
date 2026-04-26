@@ -26,7 +26,7 @@ using one of the following options:
 
 ## Password rotation
 
-The data retention bot (minimum version 6.66.01.00) can roate its Wickr account
+The data retention bot (minimum version 6.66.01.00) can rotate its Wickr account
 password programmatically at startup by setting the WICKRIO_ROTATE_PASSWORD
 environment variable.
 

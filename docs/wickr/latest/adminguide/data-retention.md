@@ -13,16 +13,15 @@ plan, see [Wickr
 Pricing](https://aws.amazon.com/wickr/pricing/ "https://aws.amazon.com/wickr/pricing/")
 
 When a network administrator configures and activates data retention for their
-network, all messages and files shared in their network are retained in accordance with
-the organization's compliance policies. These .txt file outputs are accessible by the
-network administrator in an external location (eg: local storage, Amazon S3
-bucket, or any other storage as per user's choice), from where they can be analyzed,
-erased, or transferred.
+network, all messages and files shared by users in their network are archived to a
+specified location (E.g., local storage, Amazon S3 bucket), where they can be reviewed,
+processed and retained as desired.
 
 ###### Note
 
-Wickr never accesses your messages and files. Therefore, it is your
-responsibility to configure a data retention system.
+AWS cannot access end-to-end encrypted message content in Wickr. If your
+organization requires access to your end-users’ message content, you must deploy a
+data retention bot.
 
 ###### Topics
 
@@ -30,3 +29,4 @@ responsibility to configure a data retention system.
 - [Configure data retention for AWS Wickr](configure-data-retention.md "configure-data-retention.md")
 - [Get the data retention logs for your Wickr network](getting-data-retention-logs.md "getting-data-retention-logs.md")
 - [Data retention metrics and events for your Wickr network](metrics-events.md "metrics-events.md")
+- [Security considerations](security-considerations.md "security-considerations.md")
