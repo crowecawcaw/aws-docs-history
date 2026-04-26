@@ -66,7 +66,11 @@ At deployment, ensure that the correct credentials and connections are selected 
 
 ## Setting up triggers
 
-Triggers determine when and how your automations run. You can configure automations to start based on a predefined schedule. To setup a trigger:
+Triggers determine when and how your automations run. You can configure automations to start based on a predefined schedule or invoke them programmatically through the Amazon QuickSight API.
+
+### Schedules
+
+You can configure automations to start based on a predefined schedule. To setup a trigger:
 
 - On the Deployment page, click "Create Trigger" and configure the rules.
 - Select the frequency
@@ -75,6 +79,253 @@ Triggers determine when and how your automations run. You can configure automati
 - Select the timezone
 - Amazon Quick Automate provided built-in scalability. Select the number of parallel executions of the automation (you can select a maximum of 10 parallel executions per trigger and 50 across all automations within an account. Please reach out to AWS)
 - For complex scheduling needs, you can use cron expressions to define precise running patterns. For example, to run an automation at 2:30 AM every Monday, Wednesday, and Friday, you would use the cron expression: `30 2 * * 1,3,5`.
+
+### API triggers
+
+The Automation Job APIs enable you to programmatically start and monitor automation jobs from external applications. You can use these APIs to invoke deployed automations with custom input payloads and retrieve execution results through the AWS SDK and AWS CLI.
+
+The Automation Job APIs include two operations:
+
+- **StartAutomationJob** – Starts a new job for a deployed automation with an optional input payload.
+- **DescribeAutomationJob** – Retrieves the status, timestamps, and optional input and output payloads for a specified job.
+
+These APIs are part of the Amazon QuickSight service namespace. You access them through the `quicksight` namespace in the AWS SDK and AWS CLI.
+
+For more information about AWS SDKs and toolkits, see the [AWS Getting Started Resource Center](https://aws.amazon.com/getting-started/tools-sdks/ "https://aws.amazon.com/getting-started/tools-sdks/").
+
+#### Prerequisites
+
+Before you call the Automation Job APIs, complete the following setup steps.
+
+##### Find your automation identifiers
+
+To call the Automation Job APIs, you need the following identifiers:
+
+- **AWS account ID** – Your 12-digit AWS account ID.
+- **Automation group ID** – The unique ID of the automation group that contains your automation.
+- **Automation ID** – The unique ID of the automation you want to invoke.
+
+You can find the automation group ID and automation ID in the Deployments section when you open any automation and have a deployed version.
+
+**To find your identifiers**
+
+- Sign in to Amazon Quick Automate.
+- In the left navigation pane, choose **Automations**.
+- Choose the automation group that contains your automation.
+- Choose the automation name to open the automation editor.
+- Choose the **Deployments** tab.
+- Choose the **Actions (⋮)** and **View deployment details** to get the **Automation ID** and **Group ID** at the top just below the heading Deployment Details.
+
+##### Configure IAM permissions
+
+The Automation Job APIs require IAM permissions attached to your IAM identity (user, role, or group). Each operation requires a separate permission.
+
+**Permission for StartAutomationJob**
+
+Attach a policy that grants the `quicksight:StartAutomationJob` action. Scope the resource ARN to the specific automation that you want to allow.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowStartAutomationJob",
+            "Effect": "Allow",
+            "Action": [
+                "quicksight:StartAutomationJob"
+            ],
+            "Resource": [
+                "arn:aws:quicksight:us-west-2:111122223333:automation-group/EXAMPLE-GROUP-ID/automation/EXAMPLE-AUTOMATION-ID"
+            ]
+        }
+    ]
+}
+```
+
+**Permission for DescribeAutomationJob**
+
+Attach a policy that grants the `quicksight:DescribeAutomationJob` action. The resource ARN for this operation includes the job ID segment. To allow describing any job under an automation, use a wildcard (\*) for the job segment.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowDescribeAutomationJob",
+            "Effect": "Allow",
+            "Action": [
+                "quicksight:DescribeAutomationJob"
+            ],
+            "Resource": [
+                "arn:aws:quicksight:us-west-2:111122223333:automation-group/EXAMPLE-GROUP-ID/automation/EXAMPLE-AUTOMATION-ID"
+            ]
+        }
+    ]
+}
+```
+
+AWS recommends scoping each permission to the most specific resource ARN possible to follow the principle of least privilege. For more information, see the following:
+
+- [IAM policy examples for Amazon QuickSight](../../../quicksight/latest/user/iam-policy-examples.md "../../../quicksight/latest/user/iam-policy-examples.md")
+- [Actions, resources, and condition keys](../../../IAM/latest/UserGuide/list_amazonquicksight.md "../../../IAM/latest/UserGuide/list_amazonquicksight.md")
+- [IAM JSON policy elements](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md")
+
+##### Deploy your automation
+
+The StartAutomationJob API targets deployed automations only. You must commit and deploy your automation in the Amazon Quick Automate console before you can invoke it through the API.
+
+#### StartAutomationJob
+
+Starts a new job for a deployed automation. The operation is asynchronous — Amazon Quick Automate accepts the request, queues the job, and returns a **JobId** immediately. The automation runs in the background. If the automation has an input schema defined, Amazon Quick Automate validates the **InputPayload** against the schema before accepting the job. An invalid payload results in an **InvalidParameterValueException**.
+
+##### Request syntax
+
+```
+POST /accounts/`AwsAccountId`/automation-groups/`AutomationGroupId`/automations/`AutomationId`/jobs HTTP/1.1
+Content-type: application/json
+
+{
+    "InputPayload": "string"
+}
+```
+
+##### Request parameters
+
+- **AwsAccountId** (String, required) – Your AWS account ID (12 digits).
+- **AutomationGroupId** (String, required) – The ID of the automation group (UUID).
+- **AutomationId** (String, required) – The ID of the automation to run (UUID).
+- **InputPayload** (String, optional) – Input for the job as a JSON string.
+
+##### Response elements
+
+- **Arn** (String) – ARN of the automation job.
+- **JobId** (String) – ID of the started job. Use this with `DescribeAutomationJob` to track status.
+- **Status** (Integer) – HTTP status code of the response.
+- **RequestId** (String) – AWS request ID.
+
+##### Errors
+
+- **AccessDeniedException** – Insufficient permissions or invalid credentials.
+- **InvalidParameterValueException** – One or more parameters has a value that isn't valid.
+- **ResourceNotFoundException** – Automation group or automation not found.
+- **LimitExceededException** – A limit is exceeded.
+- **ThrottlingException** – Request was throttled.
+- **InternalFailureException** – Internal service error.
+
+For more details, see the [API reference guide for StartAutomationJob](../../../quicksight/latest/APIReference/API_StartAutomationJob.md "../../../quicksight/latest/APIReference/API_StartAutomationJob.md").
+
+#### DescribeAutomationJob
+
+Retrieves the status and details of a specified automation job, including execution timestamps and optional input and output payloads. Use this operation to poll for job completion after calling **StartAutomationJob**.
+
+The response does not include input and output payloads by default. Set the **IncludeInputPayload** and **IncludeOutputPayload** query parameters to `true` to request them. Amazon Quick Automate returns the output payload only when all of the following conditions are met:
+
+- **IncludeOutputPayload** is `true`.
+- **JobStatus** is `SUCCEEDED`.
+- The automation produced output values.
+
+##### Request syntax
+
+```
+GET /accounts/`AwsAccountId`/automation-groups/`AutomationGroupId`/automations/`AutomationId`/jobs/`JobId`?IncludeInputPayload=`boolean`&IncludeOutputPayload=`boolean` HTTP/1.1
+```
+
+##### Request parameters
+
+- **AwsAccountId** (String, required) – Your AWS account ID (12 digits).
+- **AutomationGroupId** (String, required) – The ID of the automation group (UUID).
+- **AutomationId** (String, required) – The ID of the automation (UUID).
+- **JobId** (String, required) – The ID of the job returned by `StartAutomationJob` (UUID).
+- **IncludeInputPayload** (Boolean, optional) – Include the input payload in the response. Default: `false`.
+- **IncludeOutputPayload** (Boolean, optional) – Include the output payload in the response. Default: `false`.
+
+##### Response fields
+
+- **Arn** (String) – ARN of the automation job.
+- **CreatedAt** (Timestamp) – When the job was created (epoch seconds).
+- **StartedAt** (Timestamp) – When the job started running (epoch seconds).
+- **EndedAt** (Timestamp) – When the job finished (epoch seconds).
+- **JobStatus** (String) – `QUEUED`, `RUNNING`, `SUCCEEDED`, `FAILED`, or `STOPPED`.
+- **InputPayload** (String) – The input payload. Omitted from response unless `IncludeInputPayload` is `true`.
+- **OutputPayload** (String) – The output payload. Omitted from response unless `IncludeOutputPayload` is `true`.
+- **RequestId** (String) – AWS request ID.
+
+##### Errors
+
+- **AccessDeniedException** – Insufficient permissions or invalid credentials.
+- **InvalidParameterValueException** – One or more parameters has a value that isn't valid.
+- **ResourceNotFoundException** – Job, automation, or automation group not found.
+- **ThrottlingException** – Request was throttled.
+- **InternalFailureException** – Internal service error.
+
+For more details, see the [API reference guide for DescribeAutomationJob](../../../quicksight/latest/APIReference/API_DescribeAutomationJob.md "../../../quicksight/latest/APIReference/API_DescribeAutomationJob.md").
+
+## Run automations with API triggers using input and output
+
+You can include input values as a JSON payload when you start an automation job through the API. Amazon Quick Automate validates the payload against the automation's input schema before execution begins, and returns structured output values when the job completes.
+
+### Prerequisites
+
+Before you run an automation with API triggers, make sure the following are in place:
+
+- The automation is deployed.
+- The automation has an input schema defined in the Start node.
+- You have the automation group ID and automation ID.
+
+### Sending input values through the API
+
+To include input values, pass a JSON payload in the **StartAutomationJob** request using the **InputPayload** parameter.
+
+```
+Sample Request
+
+POST /accounts/123456789012/automation-groups/a1b2c3d4-e5f6-7890-abcd-ef1234567890/automations/11111111-2222-3333-4444-555555555555/jobs
+{
+    "InputPayload": "{\"customer_id\":\"C-98765\",\"threshold\":100,\"region\":\"us-east-1\"}"
+}
+
+Sample Response
+
+{
+    "Arn": "arn:aws:quicksight:us-west-2:123456789012:automation-group/a1b2c3d4-e5f6-7890-abcd-ef1234567890/automation/11111111-2222-3333-4444-555555555555/job/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+    "JobId": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+    "Status": 200,
+    "RequestId": "req-12345678-abcd-efgh-ijkl-123456789012"
+}
+```
+
+###### Note
+
+The `InputPayload` value must be a JSON-serialized string that contains the input field values matching your automation's input schema.
+
+### Retrieving output values through the API
+
+You can retrieve output values by calling the **DescribeAutomationJob** API. To include input and output payloads in the response, set the **includeInputPayload** and **includeOutputPayload** query parameters to `true`.
+
+The response includes the **OutputPayload** field only when the automation completes successfully.
+
+```
+Sample Request
+
+GET /accounts/123456789012/automation-groups/a1b2c3d4-e5f6-7890-abcd-ef1234567890/automations/11111111-2222-3333-4444-555555555555/jobs/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee?includeInputPayload=true&includeOutputPayload=true
+
+Sample Response
+
+{
+    "Arn": "arn:aws:quicksight:us-west-2:123456789012:automation-group/a1b2c3d4-e5f6-7890-abcd-ef1234567890/automation/11111111-2222-3333-4444-555555555555/job/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+    "JobStatus": "SUCCEEDED",
+    "CreatedAt": "2026-03-11T09:59:50Z",
+    "StartedAt": "2026-03-11T10:00:00Z",
+    "EndedAt": "2026-03-11T10:05:00Z",
+    "InputPayload": "{\"customer_id\":\"C-98765\",\"threshold\":100,\"region\":\"us-east-1\"}",
+    "OutputPayload": "{\"result\":\"success\",\"records_processed\":42,\"summary\":{\"passed\":40,\"failed\":2}}",
+    "RequestId": "req-12345678-abcd-efgh-ijkl-123456789012"
+}
+```
+
+###### Note
+
+The **OutputPayload** field is available only after the automation completes successfully (when **JobStatus** is `SUCCEEDED`). If the automation fails or is still running, the response does not include the **OutputPayload** field.
 
 ## Deploy and run automations with inputs and outputs
 

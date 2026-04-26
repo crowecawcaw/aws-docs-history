@@ -25,11 +25,11 @@ Retrieves a file from shared storage for use in your automation. Use this action
 
 - **File to download** (Required): The file to retrieve from shared storage. The File to download property includes a folder icon (📁) next to the field. Choose this icon to open the Select File editor, which provides an interface to:
   - _View all files_: See all files currently stored in your automation group's shared storage. Files appear as a list with Name, Last modified by, and Last modified time.
-  - _Actions_: Each file has Actions menu(⋮) with the following options:
+  - _Actions_: Each file has an Actions menu (⋮) with the following options:
     - _Download_: Save the file to your local machine
     - _Delete_: Remove the file from shared storage
 
-  - _Upload files_: Click the Upload button to manually add new files to shared storage
+  - _Upload files_: Choose **Upload** to manually add new files to shared storage.
   - _Select and Save_: Choose a file from the list and choose Save to use it in your action, or choose Cancel to close without selecting.
 
 - **Output Variable** (Required): Variable name to store the downloaded file object.
@@ -59,11 +59,25 @@ You can manually access and download files in Amazon Quick Automate using either
 - Choose the **Shared files** tab to view the list of available files.
 - Choose the three dots (⋮) under **Actions**, and then choose **Download** to save the file to your local machine.
 
+### Limitations
+
+Shared file storage has the following limits per automation group.
+
+| Limit                        | Value  | Scope                |
+| ---------------------------- | ------ | -------------------- |
+| Maximum number of files      | 250    | Per automation group |
+| Maximum total storage        | 1 GB   | Per automation group |
+| Maximum individual file size | 200 MB | Per file             |
+
+###### Note
+
+Supported file types: HTML, TXT, JSON, CSV, PDF, XLSX, XLS, JPEG/JPG, PNG, DOCX, DOC, TIFF/TIF, and ZIP.
+
 ### Best Practices
 
-- **Use descriptive filenames**: Include dates or identifiers in filenames to avoid confusion (e.g., "report_2026-03-31.xlsx")
-- **Clean up old files**: Regularly delete files that are no longer needed by using the Select File editor
-- **Consider file size limits**: Shared storage is designed for lightweight to average use cases. For large-scale file storage requirements, consider using Amazon S3 integration instead.
+- **Use descriptive filenames**: Include dates or identifiers in filenames to avoid confusion (for example, "report_2026-03-31.xlsx").
+- **Clean up old files**: Regularly delete files that are no longer needed by using the Select File editor.
+- **Consider file size limits**: Individual files can be up to 200 MB, and total shared storage is limited to 1 GB per automation group. For large-scale file storage requirements, consider using Amazon S3 integration instead.
 - **Use consistent naming conventions**: Establish naming patterns across your automation group for easier file management.
 
 ### Notes
@@ -71,8 +85,10 @@ You can manually access and download files in Amazon Quick Automate using either
 Keep the following considerations in mind when using shared file actions.
 
 - Quick Automate stores files at the automation group level. This means:
-  - All automations within the same automation group can access the same shared files
-  - Files uploaded by one automation are immediately available to other automations in the group
+  - All automations within the same automation group can access the same shared files.
+  - Files uploaded by one automation are immediately available to other automations in the group.
+
+- The file count limit (250 files) and total storage limit (1 GB) apply at the automation group level. All automations in the group share these limits.
 
 ### Examples
 

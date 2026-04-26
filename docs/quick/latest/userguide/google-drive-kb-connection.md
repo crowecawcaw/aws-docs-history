@@ -82,6 +82,10 @@ To edit, share, or delete your integration, see [Managing existing integrations]
 For information about knowledge base troubleshooting, including sync issues and
 missing documents, see [Troubleshooting knowledge bases](troubleshooting-knowledge-bases.md "troubleshooting-knowledge-bases.md").
 
+For information about sync reports, sync schedules, and verifying
+document-level access controls, see
+[Sync reports and observability](sync-reports-observability.md "sync-reports-observability.md").
+
 ### Admin-managed setup issues
 
 - **Google API rate limiting** –

@@ -8,7 +8,13 @@ in the system unless you've configured a different refresh schedule for your kno
 bases.
 
 For more information about configuring ACLs for a specific data source, see
-[Amazon S3 integration](s3-integration.md "s3-integration.md").
+[Amazon S3](s3-integration.md "s3-integration.md"),
+[Atlassian Confluence Cloud](confluence-kb-acl.md "confluence-kb-acl.md"),
+[Google Drive](google-drive-kb-acl.md "google-drive-kb-acl.md"), or
+[Microsoft SharePoint](sharepoint-kb-acl.md "sharepoint-kb-acl.md").
+
+To verify document-level access controls and troubleshoot permission issues, see
+[Check document access (ACL verification)](sync-reports-observability.md#sync-reports-acl-verification "sync-reports-observability.md#sync-reports-acl-verification").
 
 ###### Note
 
@@ -36,6 +42,15 @@ When an employee leaves, clean up their access promptly:
 
 This prevents potential security issues if the email is later reassigned to
 someone else.
+
+**Share admin-managed knowledge bases with co-owners**
+
+Admin-managed knowledge bases (service credentials) are often used across
+teams and organizations. If the original creator leaves the company and no
+co-owners exist, the knowledge base becomes unmanageable — no one can edit
+settings, trigger syncs, or update permissions. To avoid this, share
+admin-managed knowledge bases with at least one additional owner. For more
+information, see [Sharing knowledge bases and data sources](sharing-kb-datasources.md "sharing-kb-datasources.md").
 
 **When an email address is reassigned to a new employee**
 

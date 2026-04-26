@@ -10,9 +10,11 @@ When documents you expect to see don't appear in your knowledge base, several fa
 
 - **Sync in progress** – Documents might still be processing. Check the refresh status to confirm the refresh is complete.
 - **Unsupported file format** – Verify your
-  documents are in supported formats: Word, Excel, PowerPoint, PDF, CSV, TXT, RTF,
-  JSON, XML, HTML
-- **File size too large** – Each file must be less than 50 MB.
+  documents are in a supported format. For supported formats and size
+  limits, see [File size and content limits](knowledge-base-integrations.md#file-size-and-content-limits "knowledge-base-integrations.md#file-size-and-content-limits").
+- **File size too large** – Verify the file
+  is within the size limits. For details, see
+  [File size and content limits](knowledge-base-integrations.md#file-size-and-content-limits "knowledge-base-integrations.md#file-size-and-content-limits").
 - **Insufficient access permissions** – Confirm the knowledge base has proper permissions to access the document source.
 - **Document filtering** – Check if filters or exclusion rules prevent certain documents from being indexed.
 
@@ -75,14 +77,9 @@ If a refresh job shows as successful but no documents appear in your knowledge b
 
 ## File format issues during refresh
 
-Quick knowledge bases support specific file formats. Files must meet format, size, and character limit requirements.
-
-**Requirements:**
-
-- **Supported formats:** Word, Excel, PowerPoint,
-  PDF, CSV, TXT, RTF, JSON, XML, HTML
-- **File size limit:** 50 MB per file
-- **File condition:** Not corrupted or password-protected
+Quick knowledge bases support specific file formats. Files must meet
+format, size, and character limit requirements. For the full list of supported
+formats and limits, see [File size and content limits](knowledge-base-integrations.md#file-size-and-content-limits "knowledge-base-integrations.md#file-size-and-content-limits").
 
 **To resolve format issues:**
 
@@ -107,3 +104,18 @@ Access denied errors typically occur due to authentication or authorization issu
 1. **Verify authentication credentials** – Confirm that authentication credentials are current and valid. Edit the integration to re-authenticate and generate a new token.
 2. **For web crawler data sources** – Verify that secure connections are properly configured and SSL certificates are properly configured and trusted.
 3. **Contact your system administrator** – If you continue experiencing access issues, contact your system administrator. They might need to adjust permissions or security settings.
+
+## ACL validation errors
+
+If your sync report shows items with status **SKIPPED** and error type **VALIDATION_ERROR** with the message "File has no ACL while
+crawlACL is true, skipping ingestion," the app registration used by your
+knowledge base connector is missing the required ACL permissions.
+
+**To resolve:**
+
+1. Verify the app registration has the correct API permissions for
+   ACL crawling. The required permissions vary by connector. See the
+   permissions section in your connector's setup documentation.
+2. Confirm that admin consent has been granted for all required
+   permissions.
+3. Re-run a full sync after fixing permissions.

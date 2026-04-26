@@ -121,3 +121,84 @@ Switch between viewing metrics from:
 ###### Note
 
 Your selected environment applies across all dashboard tabs until changed.
+
+## CloudWatch
+
+Amazon CloudWatch provides monitoring and observability capabilities for your automations in Amazon Quick Automate. This section explains the metrics available in CloudWatch, how to view the metrics, and how to set up alarms for these metrics.
+
+### Prerequisites
+
+#### IAM roles and permissions
+
+To grant CloudWatch access following least-privilege principles:
+
+- Create an IAM role or group, preferably using AWS IAM Identity Center.
+- Attach the AWS managed policy CloudWatchFullAccess for full monitoring and alarm capabilities.
+- Optionally, add CloudWatchLogsReadOnlyAccess for log querying without deletion permissions.
+- Assign users to this role or group to enable CloudWatch operations without broader administrative access.
+
+For detailed step-by-step instructions, see [Getting setup in CloudWatch](../../../AmazonCloudWatch/latest/monitoring/GettingSetup.md "../../../AmazonCloudWatch/latest/monitoring/GettingSetup.md") and [CloudWatch permissions guide](../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md "../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md").
+
+#### Accessing CloudWatch
+
+- Navigate to the AWS Management Console.
+- Enter CloudWatch in the services search bar.
+- Choose CloudWatch from the results to open the CloudWatch console.
+
+### Accessing CloudWatch metrics for Amazon Quick Automate
+
+- Open the CloudWatch console.
+- In the left navigation pane, choose **Metrics**, **All metrics**.
+- Choose the service namespace **QuickSight**.
+- Choose the relevant dimensions, **AutomationGroupId** or **AutomationId**, to view the metrics.
+- Use the search bar to search or filter by metric name or dimension.
+
+For more detailed information, see the [CloudWatch metrics documentation](../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md "../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md").
+
+### Available metrics
+
+Amazon Quick Automate publishes metrics to CloudWatch under the **QuickSight** namespace. Metrics are grouped by either **AutomationId** or **AutomationGroupId** dimensions.
+
+###### Note
+
+CloudWatch is a Regional service. To view metrics, ensure that you are in the same AWS Region where your automations run.
+
+#### AutomationId metrics
+
+These metrics track individual automation performance:
+
+- **FailedAutomationRunCount** - The total number of automation runs that failed during execution. Use this metric to identify problematic automations that require attention or debugging.
+- **SuccessfulAutomationRunCount** - The total number of automation runs that completed successfully. Use this metric to track automation reliability and success rates.
+- **AutomationRunDuration** - The time taken for each automation run to complete. Use this metric to identify performance bottlenecks and optimize automation efficiency.
+- **StoppedAutomationRunCount** - The number of automation runs that were manually stopped or terminated before completion. This can indicate user intervention or system-initiated stops.
+- **TotalAutomationRunCount** - The aggregate count of all automation runs, regardless of status. Use this metric to monitor overall automation activity and usage patterns.
+
+#### AutomationGroupId metrics
+
+These metrics provide a broader view across all cases:
+
+- **TotalCaseCount** - The total number of cases processed by the automation system. Use this metric to track overall workload volume.
+- **CompletedCaseCount** - The number of cases that were successfully processed and completed. Use this metric to measure throughput and productivity.
+- **FailedCaseCount** - The number of cases that failed during processing. Use this metric to identify systemic issues or patterns in failures.
+- **CaseDuration** - The time taken to process cases from start to completion. Use this metric to assess overall system performance and identify opportunities for optimization.
+
+#### Finding AutomationId and AutomationGroupId
+
+To find the AutomationId and AutomationGroupId for your automation:
+
+- Sign in to Amazon Quick Automate.
+- In the left navigation pane, choose **Automations**.
+- Choose the automation group that contains your automation.
+- Choose the automation name to open the automation.
+- Choose the **Deployments** tab.
+- Choose the **Actions (⋮)** and **View deployment details** to get the **Automation ID** and **Group ID** at the top just below the heading Deployment Details.
+
+#### Setting up CloudWatch alarms
+
+Use these metrics to monitor the health of your automations or set up alarms in CloudWatch. For example, you can create alarms for the following conditions:
+
+- More than five automation runs fail within a specified period.
+- More than 10 cases fail within a specified period.
+- Case duration exceeds 30 minutes.
+
+For more information about creating alarms, see [CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/Create-Alarms.md "../../../AmazonCloudWatch/latest/monitoring/Create-Alarms.md").

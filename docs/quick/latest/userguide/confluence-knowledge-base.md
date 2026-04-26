@@ -1,72 +1,171 @@
 # Atlassian Confluence Cloud knowledge base integration
 
-Use the Atlassian Confluence Cloud knowledge base integration to index Confluence content
-so that Amazon Quick agents can search and answer questions about it.
+Use the Atlassian Confluence Cloud knowledge base integration to index Confluence
+content so that Amazon Quick agents can search and answer questions about it.
+Amazon Quick supports optional document-level access controls (ACLs) for Confluence
+knowledge bases. When enabled, users only see answers from documents they are
+authorized to access in Confluence. For more information, see
+[Document-level access controls](confluence-kb-acl.md "confluence-kb-acl.md").
 
 ## Before you begin
 
 Make sure you have the following before you set up the integration.
 
-- Atlassian Confluence Cloud.
-- For subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
+- An Atlassian Confluence Cloud instance.
+- For Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
-## Authentication
+If you plan to enable document-level access controls, you must provide
+Atlassian admin credentials during setup. These credentials allow Amazon Quick
+to access all user and group information regardless of individual email
+visibility settings. Without admin credentials, the ACL option is not
+available during knowledge base creation. To provide admin credentials, you
+need the following from your Atlassian organization administrator:
 
-For knowledge base integrations, Amazon Quick handles authentication through a
-popup flow during setup. Complete the following steps.
+- **Atlassian admin API key** – An
+  alphanumeric string generated in the Atlassian admin portal.
+- **Organization ID (UUID)** – The unique
+  identifier for your Atlassian organization. You can find this in your
+  browser URL when signed in to the admin portal:
+  `admin.atlassian.com/o/`orgId``.
+- **Directory ID (UUID)** – The unique
+  identifier for your user directory. Retrieve this value using the
+  Atlassian Admin Workspace API.
 
-1. Complete the Confluence Cloud authentication popup that appears.
-2. Grant permissions for Amazon Quick to access your Confluence content.
-3. Review and complete the authentication process.
+For detailed steps to obtain these credentials, see
+[Obtain Atlassian admin credentials](confluence-kb-acl.md#confluence-kb-atlassian-admin-credentials "confluence-kb-acl.md#confluence-kb-atlassian-admin-credentials").
 
 ## Set up the knowledge base integration
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose **Atlassian Confluence Cloud** and choose the Add
-   (plus "+") button.
-3. In the **Create Confluence knowledge base** dialog,
-   under **Connected account**, complete the following
+The setup wizard has three steps: authentication, knowledge base creation,
+and additional settings.
+
+### Authenticate your account
+
+1. In the Amazon Quick console, choose
+   **Integrations**.
+2. Under **Knowledge**, choose
+   **Atlassian Confluence Cloud** and choose the
+   Add (plus "+") button.
+3. In the **Create Confluence knowledge base**
+   dialog, under **Authentication method**,
+   choose an existing connected account from the
+   **Name** dropdown, or choose
+   **Add account** to create a new
+   connection.
+4. If you are adding a new account, complete the following
    fields:
-   - **Name** – A descriptive name for your
-     data access integration.
+   - **Name** – A descriptive name for
+     your connection.
+   - **Description** (Optional) – Notes
+     about the connection.
    - **Confluence URL** – The URL of your
      Atlassian site (for example,
-     ``your-site`.atlassian.net`).
+     `https://`your-site`.atlassian.net`).
 
-4. Choose **Sign in** and complete the Confluence Cloud
-   authentication flow in the popup window.
-5. Under **Create knowledge base**, complete the
-   following fields:
-   - **Name** – A name for your knowledge
-     base.
-   - **Description** (Optional) – Notes about
-     how the knowledge base will be used.
+5. (Optional) Under **ACL Management**, select
+   **Use Atlassian admin credentials** to provide
+   Atlassian admin credentials. When selected, enter the
+   following:
+   - **API key** – The Atlassian admin
+     API key.
+   - **OrganizationID (UUID)** – Your
+     Atlassian organization ID.
+   - **Directory ID (UUID)** – Your
+     Atlassian user directory ID.
 
-6. Under **Content**, paste the URLs of the Confluence
-   spaces, blogs, or pages that you want to include. Choose
-   **Add** after each URL.
+###### Important
+
+Atlassian admin credentials are required to enable
+document-level access controls (ACLs) in
+**Additional settings**. Without
+admin credentials, the ACL option is disabled. Admin
+credentials cannot be added after the knowledge base is
+created. For steps to obtain these credentials, see
+[Obtain Atlassian admin credentials](confluence-kb-acl.md#confluence-kb-atlassian-admin-credentials "confluence-kb-acl.md#confluence-kb-atlassian-admin-credentials"). 6. Choose **Next**. 7. Complete the Confluence Cloud authentication popup that
+appears. Review the requested permissions and choose
+**Accept** to authorize Amazon Quick to
+access your Confluence content.
+
+### Create the knowledge base
+
+1. Under **Create knowledge base**, enter a
+   **Name** for your knowledge base.
+2. (Optional) Enter a **Description** with
+   notes about how the knowledge base will be used.
+3. Under **Confluence URLs**, paste the URLs of
+   the Confluence spaces, blogs, or pages that you want to
+   include. Choose **Add** after each URL.
 
 ###### Note
 
 URLs that follow the structure
 `https://`company`.atlassian.net/wiki/spaces/`space-key`/overview`
-are treated as page URLs. 7. Choose **Create**.
+are treated as page URLs, not space URLs. To index an
+entire space, use the space URL without
+`/overview` (for example,
+`https://`company`.atlassian.net/wiki/spaces/`space-key``). 4. Choose **Next: Additional settings** to
+configure access controls and indexing options, or choose
+**Create** to create the knowledge base with
+default settings.
+
+### Configure additional settings
+
+1. To enable document-level access controls, select
+   **Control document access with ACLs**. This
+   option is only available if you provided Atlassian admin
+   credentials in **Authentication method**.
+   When enabled, Amazon Quick syncs access
+   control lists from Confluence and verifies each user's
+   permissions at query time. For more information about how
+   access controls work, see
+   [Document-level access controls](confluence-kb-acl.md "confluence-kb-acl.md").
+
+If you do not enable ACLs, access is controlled at the
+knowledge base level. Anyone who has access to the knowledge
+base can get insights from all of the content within it. When
+ACLs are enabled, access is controlled at the document level.
+Users who have access to the knowledge base only see answers
+from documents that they are authorized to access in
+Confluence.
+
+###### Important
+
+ACL management cannot be changed after the knowledge base
+is created. If you need to change this setting, you must
+create a new knowledge base.
+
+###### Note
+
+If you did not provide Atlassian admin credentials in
+**Authentication method**, this option
+is disabled. To enable ACLs, choose
+**Back** or cancel the wizard and start
+again with a connected account that includes admin
+credentials. 2. Under **Multi-media content, file size, and file
+patterns**, configure the following indexing
+options as needed:
+
+    * **Visual content in documents** –
+     Index visual content such as images and charts embedded
+     in documents.
+    * **Audio files** – Index audio file
+     attachments.
+    * **Video files** – Index video file
+     attachments.
+    * **Maximum single file size** – The
+     maximum file size for individual attachments (default:
+     50 MB).
+
+3. Choose **Create**.
 
 ## Supported content types
 
 - Confluence pages and blog posts
-- Spaces content
-- Page and blog attachments
+- Page and blog post attachments
 
-## Access controls
-
-###### Important
-
-Amazon Quick doesn't sync access control lists (ACLs) from data sources.
-When you create a knowledge base in Amazon Quick, by default, only you can
-get insights from the knowledge base. For shared content, you can provide
-access to different users and groups by updating the knowledge base
-permissions.
+When you add a Confluence space URL, Amazon Quick crawls all pages and
+blog posts within that space. For supported attachment file types and size
+limits, see [File size and content limits](knowledge-base-integrations.md#file-size-and-content-limits "knowledge-base-integrations.md#file-size-and-content-limits").
 
 ## Manage knowledge bases
 
@@ -74,9 +173,11 @@ permissions.
 
 1. In the Amazon Quick console, choose **Knowledge
    bases**.
-2. Select your Confluence Cloud knowledge base from the list.
-3. Choose the three-dot icon under **Actions**, then
-   choose **Edit knowledge base**.
+2. Select your Confluence Cloud knowledge base from the
+   list.
+3. Choose the three-dot icon under
+   **Actions**, then choose
+   **Edit knowledge base**.
 4. Update your configuration settings as needed and choose
    **Save**.
 
@@ -94,7 +195,7 @@ documents, see [Troubleshooting knowledge bases](troubleshooting-knowledge-bases
 - Error message: "Your site admin must authorize this app for
   the site `instance-name`.atlassian.net before
   the app can access your account."
-- Clicking **Accept** in the consent dialog
+- Choosing **Accept** in the consent dialog
   has no effect.
 
 **Cause:**
@@ -111,7 +212,8 @@ Use one of the following options to resolve this issue.
   app directly**
 
       1. An Atlassian site administrator navigates to Amazon Quick
-       and starts a new knowledge base setup with Confluence Cloud.
+       and starts a new knowledge base setup with Confluence
+       Cloud.
       2. Because the administrator has site-level permissions, a
        clean consent screen appears without the error.
       3. The administrator chooses **Accept** to
@@ -190,3 +292,22 @@ user has connected.
    to index the entire space, use the space URL without
    `/overview` (for example,
    `https://`company`.atlassian.net/wiki/spaces/`space-key``).
+
+### ACL-related issues
+
+**No results from ACL-enabled knowledge
+base**
+
+- Verify that the end user has signed in to Confluence when
+  prompted during their first query. The sign-in is required for
+  real-time permission verification.
+- Verify that the end user has access to the relevant
+  Confluence content in their Confluence instance.
+
+**Documents skipped during sync**
+
+- If sync reports show items with status SKIPPED, verify
+  that the authenticating user has access to the Confluence spaces
+  and pages included in the knowledge base.
+- For more information about verifying document access,
+  see [Check document access (ACL verification)](sync-reports-observability.md#sync-reports-acl-verification "sync-reports-observability.md#sync-reports-acl-verification").

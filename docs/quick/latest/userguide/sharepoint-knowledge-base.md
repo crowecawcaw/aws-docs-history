@@ -1,97 +1,45 @@
 # Microsoft SharePoint knowledge base integration
 
-Use the Microsoft SharePoint knowledge base integration to index SharePoint content
-so that Amazon Quick agents can search and answer questions about it.
+Microsoft SharePoint Online is a collaborative platform for building websites,
+managing document libraries, and organizing content across your organization. With the
+Amazon Quick SharePoint connector, you can create knowledge bases from your SharePoint
+content to power AI-driven search and Q&A.
 
-Amazon Quick uses a pre-registered multi-tenant application to connect to SharePoint
-for knowledge bases. You do not need to create an app registration. When a user first
-connects, Microsoft presents a consent dialog. An administrator can grant consent on
-behalf of the entire organization, or individual users can consent for
-themselves.
+Amazon Quick supports two authentication methods for connecting to SharePoint
+Online:
 
-## Before you begin
+- **User-managed setup** – You sign in to
+  SharePoint directly to authorize the connection. This is the simplest way to
+  get started. For more information, see
+  [User-managed setup](sharepoint-kb-user-managed.md "sharepoint-kb-user-managed.md").
+- **Admin-managed setup (service credentials)**
+  – An Entra ID app registration authenticates on behalf of the application
+  using certificate-based credentials. A key benefit of admin-managed setup is
+  built-in document-level access control (ACL). Amazon Quick automatically
+  syncs access control lists from SharePoint and verifies each user's
+  permissions at query time. Users see answers only from documents that they
+  are authorized to access. For more information, see
+  [Admin-managed setup (service credentials)](sharepoint-kb-admin-managed.md "sharepoint-kb-admin-managed.md").
+  After connecting, Amazon Quick indexes your SharePoint document libraries, sites,
+  lists, and pages into a knowledge base. Your Amazon Quick agents can then search this content
+  and generate answers grounded in your SharePoint data.
 
-Make sure you have the following before you set up the integration.
+## Prerequisites
 
-- A Microsoft 365 account with SharePoint access.
+Before you set up the SharePoint knowledge base integration, make sure that you
+have the following:
+
+- An AWS account with an active Amazon Quick instance.
+- A Microsoft 365 account with SharePoint Online access.
 - For subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
-- Your Microsoft administrator may need to grant organizational consent
-  before users can create a SharePoint knowledge base. Administrators can
-  grant organization-wide consent by signing in and choosing
-  **Consent on behalf of your organization** during the
-  integration creation flow.
 
-###### Note
+For admin-managed setup, additional prerequisites apply. For more
+information, see [Admin-managed setup (service credentials)](sharepoint-kb-admin-managed.md "sharepoint-kb-admin-managed.md").
 
-When an administrator grants organizational consent, Microsoft Entra
-automatically creates an Enterprise Application (service principal) in your
-tenant. You can disable or delete this service principal at any time from
-**Enterprise applications** in the Microsoft Entra admin
-center, which immediately revokes all access.
+###### Tip
 
-## Permissions granted during consent
-
-| SharePoint knowledge base – permissions | Permission                   | API                                                                                 | Description |
-| --------------------------------------- | ---------------------------- | ----------------------------------------------------------------------------------- | ----------- |
-| `Files.Read.All`                        | Microsoft Graph              | Allows the app to read all files that the user can<br>access.                       |
-| `Notes.Read.All`                        | Microsoft Graph              | Allows the app to read all OneNote notebooks that the user can<br>access.           |
-| `User.Read`                             | Microsoft Graph              | Allows users to sign in and allows the app to read the<br>signed-in user's profile. |
-| `Sites.Read.All`                        | Microsoft Graph              | Allows the app to read documents and list items in all site<br>collections.         |
-| `offline_access`                        | Microsoft Graph              | Allows the app to maintain access when the user is not actively<br>signed in.       |
-| `AllSites.Read`                         | Office 365 SharePoint Online | Allows the app to read items in all site<br>collections.                            |
-
-## Set up the knowledge base integration
-
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose **Microsoft SharePoint** and choose the Add
-   (plus "+") button.
-3. In the **Create SharePoint knowledge base** dialog,
-   under **Connected account**, choose
-   **Sign in to SharePoint** and complete the Microsoft
-   sign-in and consent flow.
-4. Under **Create knowledge base**, enter a name and
-   an optional description for your knowledge base.
-5. In the **Content** section, choose
-   **Add content** and select the SharePoint pages,
-   files, or folders you want to index.
-6. Choose **Create**.
-
-## Supported content types
-
-- **Document libraries:** Word, Excel,
-  PowerPoint, PDF, OneNote (.one)
-- **Media files:** MP3, MP4, MOV,
-  WMV
-- **Site pages and wiki pages**
-
-## Access controls
-
-###### Important
-
-When Amazon Quick indexes SharePoint content, it does not sync access
-control lists (ACLs) from SharePoint. All indexed content is accessible to any
-user who has access to the knowledge base in Amazon Quick, regardless of their
-permissions in SharePoint. Review which content you include when creating a
+Custom SharePoint domains are supported. If your organization uses
+a custom domain instead of the default
+`https://`tenant`.sharepoint.com`
+format, you can use your custom SharePoint URL when configuring the
 knowledge base.
-
-## Manage and troubleshoot
-
-To edit, share, or delete your integration, see [Managing existing integrations](integration-workflows.md#managing-existing-integrations "integration-workflows.md#managing-existing-integrations").
-
-For general knowledge base troubleshooting, including sync issues and
-missing documents, see [Troubleshooting knowledge bases](troubleshooting-knowledge-bases.md "troubleshooting-knowledge-bases.md").
-
-### SharePoint-specific issues
-
-- **Admin consent required** – Some
-  organizations require an administrator to grant consent before
-  individual users can connect. An administrator must sign in and choose
-  **Consent on behalf of your organization** during
-  the consent flow.
-- **Enterprise Application disabled** –
-  If the service principal was previously disabled in **Enterprise
-  applications** in the Microsoft Entra admin center,
-  re-enable it to restore access.
-- **SharePoint throttling** – SharePoint
-  may throttle requests during high usage periods. Retry the sync during
-  off-peak hours.

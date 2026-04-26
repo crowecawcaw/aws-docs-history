@@ -1,6 +1,6 @@
 # Monitoring Amazon Quick usage using CloudWatch Logs
 
-You can use [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") to deliver chat conversations, user feedback and agent/research hours usage in Amazon Quick for you to analyze. These logs can be delivered to multiple destinations, such as CloudWatch, Amazon S3, or Amazon Data Firehose (standard rates apply). We recommend that you set up vended logs shortly after enabling Amazon Quick AI features.
+You can use [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") to deliver chat conversations, user feedback, agent/research hours usage, and index storage usage in Amazon Quick for you to analyze. These logs can be delivered to multiple destinations, such as CloudWatch, Amazon S3, or Amazon Data Firehose (standard rates apply). We recommend that you set up vended logs shortly after enabling Amazon Quick AI features.
 
 The following are examples of tasks you can complete with logs from Amazon Quick:
 
@@ -10,6 +10,7 @@ The following are examples of tasks you can complete with logs from Amazon Quick
 - Generate custom dashboards and reports to track key metrics and trends over time.
 - Identify and Analyze cases where the chat returned no answer or the user query was blocked
 - Monitor agent and research hours usage
+- Track index storage usage across knowledge bases and Spaces
 
 ###### Important
 
@@ -82,7 +83,7 @@ You must also allow the `delivery.logs.amazonaws.com` service principal in your 
 
 For example IAM policies with all the required permissions for your specific logging destination, see [Enable logging from AWS services](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") in the _Amazon CloudWatch Logs User Guide_.
 
-Create a delivery source with the [PutDeliverySource](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md") CloudWatch Logs API operation. Give the delivery source a name and for `resourceArn`, specify the ARN of your application. For `logType`, specify `CHAT_LOGS`, `AGENT_HOURS_LOGS` or `FEEDBACK_LOGS`
+Create a delivery source with the [PutDeliverySource](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md") CloudWatch Logs API operation. Give the delivery source a name and for `resourceArn`, specify the ARN of your application. For `logType`, specify `CHAT_LOGS`, `AGENT_HOURS_LOGS`, `FEEDBACK_LOGS`, or `INDEX_USAGE_LOGS`.
 
 ```
 {
@@ -104,6 +105,14 @@ Create a delivery source with the [PutDeliverySource](../../../AmazonCloudWatchL
 {
     "logType": "AGENT_HOURS_LOGS",
     "name": "my-quick-suite-delivery-source",
+    "resourceArn": "arn:aws:quicksight:your-region:your-account-id:account/account-id"
+}
+```
+
+```
+{
+    "logType": "INDEX_USAGE_LOGS",
+    "name": "my-quick-index-usage-delivery-source",
     "resourceArn": "arn:aws:quicksight:your-region:your-account-id:account/account-id"
 }
 ```
@@ -238,6 +247,53 @@ The following is an example of Agent Hours logs:
     "service_resource_arn": "arn:aws:quicksight:eu-west-1:111222333444:research/a11b2bbc-c123-3abc-a12b-12a34b5c678d"
 }
 ```
+
+## Index usage logs
+
+Index usage logs capture per-source storage metrics for knowledge
+bases and Spaces. Events are published whenever a change occurs
+(created, updated, synced, or deleted).
+
+- `consumed_index_size` – Total size (in bytes)
+  consumed by the entire index. This is the authoritative
+  total, not computed by summing individual sources.
+- `source_type` – Type of source:
+  `SPACE` or `KB`.
+- `source_name` – Display name of the Space or
+  knowledge base.
+- `source_arn` – Full ARN of the source.
+- `consumed_source_size` – Size (in bytes)
+  consumed by this individual source.
+- `consumed_source_doc_count` – Number of
+  documents in this source.
+
+The following is an example of index usage logs:
+
+```
+{
+    "account_id": "111122223333",
+    "event_timestamp": 1774911984257,
+    "log_type": "INDEX_USAGE_LOGS",
+    "user_arn": "arn:aws:quicksight::111122223333:user/default/user",
+    "resource_arn": "arn:aws:quicksight:us-west-2:111122223333:account/111122223333",
+    "consumed_index_size": 500000,
+    "source_type": "SPACE",
+    "source_name": "my-space",
+    "source_arn": "arn:aws:quicksight:us-west-2:111122223333:space/2744af89-31b2-423b-93a2-69b0cd0d7fa1",
+    "consumed_source_size": 244436,
+    "consumed_source_doc_count": 2
+}
+```
+
+###### Note
+
+Events are published per source on change. Not all sources
+emit events every day. To reconstruct the current state, use
+the most recent event per `source_arn`.
+
+For information about building dashboards and running queries
+against index usage logs, see
+[Monitor index storage usage](index-usage-monitoring.md "index-usage-monitoring.md").
 
 ###### Note
 
