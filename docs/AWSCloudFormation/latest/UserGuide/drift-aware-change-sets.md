@@ -40,7 +40,7 @@ The benefits of using drift-aware change sets include:
 - Resource type support – Drift-aware change sets
   support a comparison of the desired state with the actual state for hundreds of resource
   types. For unsupported resource types, drift-aware change sets fall back to comparing the
-  previous deployment state with the desired state. See the Supported Resource Types section
+  previous deployment state with the desired state. See the Resource type support limitations section
   for details.
 - Write-only properties – For properties
   containing sensitive data (passwords, secrets), drift-aware change sets compare against
@@ -192,7 +192,7 @@ aws cloudformation execute-change-set \
 If the deployment fails, CloudFormation will roll back resources to their actual
 pre-deployment state and preserve out-of-band changes made since the last deployment.
 
-## Supported resource types
+## Resource type support limitations
 
 Drift-aware change sets support a three-way comparison of actual state, previous
 deployment state, and desired state for all [resource types](resource-import-supported-resources.md "resource-import-supported-resources.md") that support drift
