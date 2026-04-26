@@ -723,7 +723,7 @@ For more information, see [Setting up Amazon Elastic VMware Service](setting-up.
 
     ###### Note
 
-    The VCF solution key must have at least 256 cores.
+    The VCF solution key must have sufficient cores. For more information, see [VCF subscriptions](vcf-license-mgmt.md "vcf-license-mgmt.md").
 
 
     ###### Note
@@ -743,7 +743,7 @@ For more information, see [Setting up Amazon Elastic VMware Service](setting-up.
 
     ###### Note
 
-    The vSAN license key must have at least 110 TiB of vSAN capacity.
+    The vSAN license key must have sufficient vSAN capacity. For more information, see [VCF subscriptions](vcf-license-mgmt.md "vcf-license-mgmt.md").
 
 
     ###### Note
@@ -774,11 +774,6 @@ For more information, see [Setting up Amazon Elastic VMware Service](setting-up.
 
         Do not stop or terminate EC2 instances that Amazon EVS deploys.
         This action results in data loss.
-
-
-        ###### Note
-
-        Amazon EVS only supports i4i.metal EC2 instances at this time.
         5. For **SSH key pair**, choose an SSH key pair for SSH access into the host.
         6. Choose **Add host**.
 
@@ -887,8 +882,8 @@ Environment deployment can take several hours.
 
     ###### Note
 
-    The VCF solution key must have at least 256 cores.
-    The vSAN license key must have at least 110 TiB of vSAN capacity.
+    The requirements for the VCF solution key (including minimum core count) and vSAN license key (including minimum vSAN capacity) vary depending on the instance type.
+    For specific thresholds for your configuration, see [VCF subscriptions](vcf-license-mgmt.md "vcf-license-mgmt.md").
 
 
     ###### Note
@@ -930,11 +925,6 @@ Environment deployment can take several hours.
 
     Do not stop or terminate EC2 instances that Amazon EVS deploys.
     This action results in data loss.
-
-
-    ###### Note
-
-    Amazon EVS only supports i4i.metal EC2 instances at this time.
     * For `--connectivity-info`, specify the 2 VPC Route Server peer IDs that you created in the previous step.
 
 

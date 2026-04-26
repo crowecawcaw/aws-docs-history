@@ -11,9 +11,20 @@ The vSphere license key serves as the solution key for VCF.
 Each VCF license key can be used for only one Amazon EVS environment.
 Environment creation fails if you attempt to use a VCF license key that is already in use in another environment.
 
-Your VCF solution key must have at least 256 cores to provide adequate core capacity for the four initial EC2 i4i.metal hosts that Amazon EVS deploys upon environment creation.
-Each i4i.metal host requires 64 cores.
-The vSAN license key must have at least 110 TiB of vSAN capacity.
+Your VCF solution key must have enough cores to provide adequate core capacity for the four initial EC2 hosts that Amazon EVS deploys upon environment creation. The required core count depends on the instance type you select, as each instance type has a different number of cores.
+
+| Instance Type  | Cores per Host | Minimum Cores for 4 Hosts (VCF License) |
+| -------------- | -------------- | --------------------------------------- |
+| i4i.metal      | 64             | 256                                     |
+| i7i.metal-24xl | 48             | 192                                     |
+
+The vSAN license key must meet the instance-type-specific capacity requirement. The required capacity depends on the instance type selected:
+
+| Instance Type  | Minimum vSAN Capacity for 4 Hosts (vSAN License) |
+| -------------- | ------------------------------------------------ |
+| i4i.metal      | 110 TiB                                          |
+| i7i.metal-24xl | 82 TiB                                           |
+
 Environment creation fails if you attempt to use undersized license keys.
 
 ###### Note

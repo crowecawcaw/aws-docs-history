@@ -103,6 +103,32 @@ Amazon EVS deploys a pair of Active/Standby NSX Edge nodes, along with an NSX ov
 Amazon EVS automatically configures all of the NSX routing and uplinks on your behalf as part of deployment.
 For more information about common NSX concepts, see [Key Concepts](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-2/installation-guide/overview-of-nsx/key-concepts-nsxt.html "https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-2/installation-guide/overview-of-nsx/key-concepts-nsxt.html") in the _VMware NSX Installation Guide_.
 
+## Connector
+
+An Amazon EVS connector enables Amazon EVS to communicate with VMware Cloud Foundation management appliances, such as a vCenter Server appliance, in your environment. Each connector maps to a single management appliance, requiring the fully qualified domain name (FQDN) and credentials you store in an AWS Secrets Manager secret to authenticate with the appliance. Amazon EVS periodically performs reachability checks against the appliance through the connector. If the connector loses reachability, features that depend on the connector will be impacted.
+
+- To create a connector, see [Create an Amazon EVS environment connector](evs-env-create-connector.md "evs-env-create-connector.md").
+- To update a connector, see [Update an Amazon EVS environment connector](evs-env-update-connector.md "evs-env-update-connector.md").
+- To delete a connector, see [Delete an Amazon EVS environment connector](evs-env-delete-connector.md "evs-env-delete-connector.md").
+
+## Windows Server License Entitlement for Amazon EVS
+
+Windows Server license entitlement for Amazon EVS enables virtual machines (VMs) running in your Amazon EVS environment to utilize AWS-offered Windows Server licenses. Windows Server license entitlements are offered per vCPU per hour with a pay-as-you-go model.
+
+To use Windows Server License entitlements, you must first create a connector to establish reachability between Amazon EVS and your vCenter Server appliance. The reachability check on the connector must be passing before you can create an entitlement.
+
+Amazon EVS uses the vCenter connector to monitor VM lifecycle events for entitled VMs. If the connector loses reachability, associated entitlements enter an at risk state. If reachability is not restored within an 8-hour grace period, entitlements are dropped and license usage tracking is stopped from the time the entitlement entered the at risk state.
+
+After you have created an entitlement, and powered on a VM, Amazon EVS starts monitoring the corresponding VM’s Windows Server license usage. If the VM is shutdown or the configured vCPU are scaled up or down based on demand, you only pay for the licensing for the total vCPU hours used.
+
+###### Warning
+
+Supported guest operating systems are Windows Server 2016 and later.
+
+For instructions, see [Create an Amazon EVS environment connector](evs-env-create-connector.md "evs-env-create-connector.md") and [Create an Amazon EVS entitlement](evs-env-create-entitlement.md "evs-env-create-entitlement.md").
+
+After creating entitlements, you can configure each Windows Server VM to activate through a VPC Endpoint. For instructions, see [Configure Windows Server Activation](evs-activate-windows-server.md "evs-activate-windows-server.md").
+
 ## VMware Hybrid Cloud Extension (HCX)
 
 VMware Hybrid Cloud Extension (VMware HCX) is an application mobility platform designed for simplifying application migration, rebalancing workloads, and optimizing disaster recovery across data centers and clouds.

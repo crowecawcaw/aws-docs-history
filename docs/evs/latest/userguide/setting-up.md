@@ -283,8 +283,8 @@ For more information, see [Configure on-premises network connectivity (optional)
 
 ## Create an Amazon EC2 Capacity Reservation
 
-Amazon EVS launches Amazon EC2 i4i.metal instances that represent ESX hosts in your Amazon EVS environment.
-To ensure that you have sufficient i4i.metal instance capacity available when you need it, we recommend that you request an Amazon EC2 Capacity Reservation.
+Amazon EVS launches Amazon EC2 metal instances that are the ESX hosts in your Amazon EVS environment.
+To ensure that you have sufficient capacity available when you add hosts, we recommend that you request an Amazon EC2 Capacity Reservation.
 You can create a Capacity Reservation at any time, and you can choose when it starts.
 You can request a Capacity Reservation for immediate use, or you can request a Capacity Reservation for a future date.
 For more information, see [Reserve compute capacity with EC2 On-Demand Capacity Reservations](../../../AWSEC2/latest/UserGuide/ec2-capacity-reservations.md "../../../AWSEC2/latest/UserGuide/ec2-capacity-reservations.md") in the _Amazon Elastic Compute Cloud User Guide_.
@@ -315,8 +315,8 @@ For information about VCF versions provided by Amazon EVS, see [VCF versions and
 ## Acquire VCF license keys
 
 To use Amazon EVS, you need to provide a VCF solution key and a vSAN license key.
-The VCF solution key must have at least 256 cores.
-The vSAN license key must have at least 110 TiB of vSAN capacity.
+The specific requirements for core count and vSAN capacity depend on the instance type you select.
+For details about minimum core and capacity thresholds for your instance type, see [VCF subscriptions](vcf-license-mgmt.md "vcf-license-mgmt.md") for your configuration.
 For more information about VCF licenses, see [Managing License Keys in VMware Cloud Foundation](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/license-management-admin.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/license-management-admin.html") in the _VMware Cloud Foundation Administration Guide_.
 
 ###### Important

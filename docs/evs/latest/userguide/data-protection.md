@@ -34,12 +34,12 @@ For more information, see [VMware Cloud Foundation with VMware Tanzu](https://te
 
 ## Encryption at rest
 
-Amazon EVS deploys i4i.metal EC2 instances that use transparent AES-256 encryption by default for data stored on the instance store volume.
+Amazon EVS deploys EC2 metal instances that use transparent AES-256 encryption by default for data stored on the instance store volume.
 Amazon EVS does not support EBS boot volume encryption at this time.
 
 ### Amazon EBS boot volume
 
-Amazon EVS i4i.metal instances use an Amazon EBS boot volume.
+Amazon EVS instances use an Amazon EBS boot volume.
 The boot volume contains the operating system and other necessary files for the EC2 instance to boot and run.
 The boot volume is not encrypted.
 Amazon EVS does not support boot volume encryption at this time.
@@ -47,7 +47,7 @@ The boot volume does not contain user data from your virtual machines.
 
 ### Instance store volume
 
-Amazon EVS i4i.metal EC2 instances come with local NVMe SSD storage, which is part of the instance’s hardware.
+Amazon EVS EC2 metal instances come with local NVMe SSD storage, which is part of the instance’s hardware.
 Amazon EVS uses NVMe instance store volumes as the disks for vSAN datastores.
 The vSAN datastore holds your management and workload virtual machines after you deploy your Amazon EVS environment.
 

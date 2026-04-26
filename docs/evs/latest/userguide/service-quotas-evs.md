@@ -11,12 +11,11 @@ For more information about Amazon EVS service quotas, see [Amazon EVS quotas](..
 ###### Important
 
 Ensure that your EC2 Running On-Demand Standard Instance quota reflects the number of vCPUs that you need for all of the EC2 instances that you will use on Amazon EVS.
-Each i4i.metal instance uses 128 vCPUs.
 For information about increasing EC2 service quotas, see [Request an increase](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md#request-increase "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md#request-increase") in the _Amazon EC2 User Guide_.
 
 ###### Note
 
-If you plan to use EC2 Dedicated Hosts for your Amazon EVS environment, ensure that your EC2 Dedicated i4i Hosts quota reflects the number of Dedicated Hosts that you intend to use for a desired Region. For information about increasing EC2 service quotas, see [Request an increase](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md#request-increase "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md#request-increase") in the _Amazon EC2 User Guide_.
+If you plan to use EC2 Dedicated Hosts for your Amazon EVS environment, ensure that your EC2 Dedicated Hosts quota reflects the number of Dedicated Hosts that you intend to use for a desired Region. For information about increasing EC2 service quotas, see [Request an increase](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md#request-increase "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md#request-increase") in the _Amazon EC2 User Guide_.
 
 ###### Note
 

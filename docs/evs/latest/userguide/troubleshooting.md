@@ -72,8 +72,8 @@ Key coverage failure may indicate one of the following issues:
   You must assign a license to vCenter Server before its evaluation period expires or the currently assigned license expires.
   If this is the issue, review license assignments in SDDC Manager.
 - Current VCF licenses don’t cover vCPU core and vSAN storage capacity needs.
-  The VCF solution key must have at least 256 cores.
-  The vSAN license key must have at least 110 TiB of vSAN capacity.
+  The requirements for the VCF solution key (including minimum core count) and vSAN license key (including minimum vSAN capacity) vary depending on the instance type.
+  For specific thresholds for your configuration, see [VCF subscriptions](vcf-license-mgmt.md "vcf-license-mgmt.md").
   If this is the issue, add vSAN licenses in SDDC Manager until your usage needs are met.
 
 If the above actions don’t resolve the issue, reach out to AWS Support for further assistance.
@@ -152,3 +152,71 @@ Using vSphere Lifecyle Manager for any operations other than ESX upgrades may re
 5. Commission your host in SDDC manager.
    For more information, see [Commission Hosts](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin/commission-hosts-admin.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin/commission-hosts-admin.html") in the VMware Cloud Foundation documentation.
 6. After the host is commissioned, add the host to your cluster using SDDC Manager.
+
+## Windows Server entitlement status is At Risk due to appliance reachability failure
+
+An entitlement enters the at risk state when the associated Amazon EVS connector fails its reachability check for the VCF management appliance. For Windows Server entitlements, you have 8 hours from the point the entitlement reaches the at risk status to restore the connection. If the connection is not restored within this period, entitlements are automatically dropped and Windows Server usage tracking is stopped.
+
+To resolve this issue, check the following:
+
+- Verify the connector state is Active and its reachability check status is Failed.
+- Verify that the appliance credentials stored in AWS Secrets Manager are current and correct. If the credentials have been rotated in the appliance, update the values in the existing Secrets Manager secret. If you need to point to a different secret, use UpdateEnvironmentConnector to update the secret identifier.
+- Ensure that your DNS servers are reachable from the service access subnet, DNS records for the appliance FQDN are valid, and no duplicate hostnames or IP addresses exist.
+- Verify that firewall rules allow HTTPS/SSH access to the management VM VLAN subnet and TCP/UDP access to DNS servers.
+- Ensure that the appliance is running and accessible.
+
+Once the connection is restored, entitlements will automatically return to the healthy Created state. If entitlements have already been dropped and have the Entitlement Removed state, you must create new entitlements after the connector returns to an Active state with a passed reachability check.
+
+If you are still unable to resolve the issue after following this guidance, we recommend that you reach out to AWS Support for further assistance.
+
+## Entitlement failed due to unsupported guest OS
+
+An entitlement creation fails or an existing entitlement is removed when Amazon EVS detects that the VM is running a guest operating system that is not supported for Amazon EVS Windows Server Licensing.
+
+This can occur when:
+
+- A VM with an existing Windows Server entitlement is reconfigured to use an unsupported OS version or a non-Windows operating system.
+- An entitlement creation failed because of a VM that is already running an unsupported guest OS.
+
+To resolve this issue:
+
+- Verify the connector state is Active and its reachability check status is Passed.
+- Verify the guest OS configured on the VM. Amazon EVS Windows Server Licensing supports Windows Server 2016 or later.
+- Reconfigure the VM to use a supported Windows Server version.
+- After updating the guest OS, create a new entitlement for the VM.
+- (**Optional**) Delete the entitlement in the Entitlement Removed state.
+
+If you are still unable to resolve the issue after following this guidance, we recommend that you reach out to AWS Support for further assistance.
+
+## Entitlement status is entitlement removed
+
+An entitlement with the Entitlement Removed status indicates that Amazon EVS has removed the entitlement for the VM. When an entitlement is removed, Windows Server usage tracking stops for the affected VM.
+
+This status can result from several causes:
+
+- Appliance reachability failure that exceeded the 8-hour grace period. See [Windows Server entitlement status is At Risk due to appliance reachability failure](#troubleshoot-entitlement-at-risk "#troubleshoot-entitlement-at-risk").
+- VM no longer present in the appliance inventory. See [Entitlement removed due to VM disconnect, isolated, or missing from inventory](#troubleshoot-entitlement-vm-disconnect "#troubleshoot-entitlement-vm-disconnect").
+- VM became disconnected or isolated from its host. See [Entitlement removed due to VM disconnect, isolated, or missing from inventory](#troubleshoot-entitlement-vm-disconnect "#troubleshoot-entitlement-vm-disconnect").
+- VM guest OS was changed to an unsupported version. See [Entitlement failed due to unsupported guest OS](#troubleshoot-entitlement-unsupported-os "#troubleshoot-entitlement-unsupported-os").
+
+To restore entitlement:
+
+- Check the entitlement’s error details to identify the specific cause of the removal.
+- Resolve the underlying issue.
+- Create a new entitlement for the VM once the connector is in an Active state with a reachability check in a Passed state.
+- (**Optional**) Delete the entitlement in the Entitlement Removed state.
+
+If you are still unable to resolve the issue after following this guidance, we recommend that you reach out to AWS Support for further assistance.
+
+## Entitlement removed due to VM disconnect, isolated, or missing from inventory
+
+An entitlement is removed when Amazon EVS detects that a VM has become disconnected, isolated, or is no longer present in the appliance inventory. The entitlement is removed immediately and usage tracking is stopped.
+
+To resolve this issue:
+
+- Verify the connector state is Active and its reachability check status is Passed.
+- Check the VM’s connection state in your appliance. A disconnected or isolated VM may indicate a host or network issue.
+- Resolve the underlying host or network issue causing the VM to be disconnected or isolated.
+- After the VM is reconnected and running normally, create a new entitlement to resume Windows Server usage.
+
+If you are still unable to resolve the issue after following this guidance, we recommend that you reach out to AWS Support for further assistance.

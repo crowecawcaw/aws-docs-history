@@ -61,5 +61,5 @@ You can review the [VCF 5.2.x release notes](https://techdocs.broadcom.com/us/en
 You are responsible for ESX host lifecycle management and maintenance within the Amazon EVS environment, including monitoring host health and remediating host issues.
 For more information, see [Performing maintenance on your environment](evs-env-maintenance.md "evs-env-maintenance.md").
 
-AWS performs scheduled maintenance on the underlying i4i.metal EC2 instances to ensure reliability, availability, and performance of the infrastructure.
+AWS performs scheduled maintenance on the underlying EC2 metal instances to ensure reliability, availability, and performance of the infrastructure.
 For more information, see [About AWS scheduled maintenance for EC2 instances](evs-host-maintenance.md#evs-host-maintenance-about "evs-host-maintenance.md#evs-host-maintenance-about").

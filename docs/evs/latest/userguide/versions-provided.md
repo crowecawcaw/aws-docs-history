@@ -37,26 +37,42 @@ Example response:
 
 ```
 {
-   "instanceTypeEsxVersions": [
-      {
-         "esxVersions": [ "ESXi-8.0U3b-24280767","ESXi-8.0U3g-24859861" ],
-         "instanceType": "i4i.metal"
-      }
-   ],
-   "vcfVersions": [
-      {
+    "vcfVersions": [
+        {
             "vcfVersion": "VCF-5.2.1",
             "status": "RESTRICTED",
             "defaultEsxVersion": "ESXi-8.0U3b-24280767",
-            "instanceTypes": ["i4i.metal"]
-      },
-      {
+            "instanceTypes": [
+                "i4i.metal",
+                "i7i.metal-24xl"
+            ]
+        },
+        {
             "vcfVersion": "VCF-5.2.2",
             "status": "AVAILABLE",
             "defaultEsxVersion": "ESXi-8.0U3g-24859861",
-            "instanceTypes": ["i4i.metal"]
-      }
-   ]
+            "instanceTypes": [
+                "i4i.metal",
+                "i7i.metal-24xl"
+            ]
+        }
+    ],
+    "instanceTypeEsxVersions": [
+        {
+            "instanceType": "i4i.metal",
+            "esxVersions": [
+                "ESXi-8.0U3b-24280767",
+                "ESXi-8.0U3g-24859861"
+            ]
+        },
+        {
+            "instanceType": "i7i.metal-24xl",
+            "esxVersions": [
+                "ESXi-8.0U3b-24280767",
+                "ESXi-8.0U3g-24859861"
+            ]
+        }
+    ]
 }
 ```
 
@@ -68,10 +84,10 @@ If the version you need shows `RESTRICTED`, and you have a particular need, see 
 
 Amazon EVS currently provides the following VCF versions for environment creation:
 
-| VCF version | Default ESX version  | Status     | EC2 instance types |
-| ----------- | -------------------- | ---------- | ------------------ |
-| VCF-5.2.2   | ESXi-8.0U3g-24859861 | AVAILABLE  | i4i.metal          |
-| VCF-5.2.1   | ESXi-8.0U3b-24280767 | RESTRICTED | i4i.metal          |
+| VCF version | Default ESX version  | Status     | EC2 instance types        |
+| ----------- | -------------------- | ---------- | ------------------------- |
+| VCF-5.2.2   | ESXi-8.0U3g-24859861 | AVAILABLE  | i4i.metal, i7i.metal-24xl |
+| VCF-5.2.1   | ESXi-8.0U3b-24280767 | RESTRICTED | i4i.metal, i7i.metal-24xl |
 
 ###### Note
 
