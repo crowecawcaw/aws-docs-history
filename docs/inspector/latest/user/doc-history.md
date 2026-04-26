@@ -104,27 +104,27 @@ To receive notifications about documentation updates, you can subscribe to an RS
 
 Amazon Inspector continuously monitors and identifies malicious packages from the NPM registry to protect your applications from supply chain attacks.
 
-**Latest Update:** 2026-04-07 12:00:00 UTC
+**Latest Update:** 2026-04-24 16:00:00 UTC
 
 ### Detection Summary
 
-- **Lifetime Total:** 193,090 malicious packages identified
-- **This Month:** 81 new malicious packages identified
+- **Lifetime Total:** 193,501 malicious packages identified
+- **This Month:** 492 new malicious packages identified
 - **Last Month:** 1,026 new malicious packages identified
-- **This Week:** 18 new malicious packages identified
-- **Last Week:** 85 new malicious packages identified
+- **This Week:** 80 new malicious packages identified
+- **Last Week:** 288 new malicious packages identified
 
 ### Recent Malicious Package Reports (Last 10)
 
-| Package Name              | MAL-ID        | Detection Date |
-| ------------------------- | ------------- | -------------- |
-| totally-safe-util         | MAL-2026-2500 | 2026-04-06     |
-| nerite-security-audit     | MAL-2026-2499 | 2026-04-06     |
-| df-sandbox-test           | MAL-2026-2498 | 2026-04-06     |
-| commerce-utils            | MAL-2026-2497 | 2026-04-06     |
-| chess-sec-ssrf1           | MAL-2026-2496 | 2026-04-06     |
-| cloudera                  | MAL-2026-2495 | 2026-04-05     |
-| cloudera-poc              | MAL-2026-2493 | 2026-04-05     |
-| admin0911                 | MAL-2026-2492 | 2026-04-05     |
-| @not-nemo/crypto-tracker  | MAL-2026-2491 | 2026-04-05     |
-| strapi-plugin-sitemap-gen | MAL-2026-2484 | 2026-04-03     |
+| Package Name                  | MAL-ID        | Detection Date |
+| ----------------------------- | ------------- | -------------- |
+| eth-logger                    | MAL-2026-3029 | 2026-04-23     |
+| amplitude-ma-ts               | MAL-2026-3028 | 2026-04-24     |
+| wrapped-logger-utils          | MAL-2026-3027 | 2026-04-24     |
+| sagat-core                    | MAL-2026-3026 | 2026-04-24     |
+| next-rwa                      | MAL-2026-3025 | 2026-04-24     |
+| auth0-ui-components-docs      | MAL-2026-3024 | 2026-04-24     |
+| lightspark-js                 | MAL-2026-3021 | 2026-04-23     |
+| @bitwarden/cli                | MAL-2026-3020 | 2026-04-23     |
+| hls.js                        | MAL-2026-3019 | 2026-04-23     |
+| microsoft-employee-experience | MAL-2026-3018 | 2026-04-23     |

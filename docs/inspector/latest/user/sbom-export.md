@@ -13,9 +13,9 @@ This practice creates unresolved hashes, where Amazon Inspector identifies a has
 Amazon Inspector now includes these unresolved hashes in Software Bill of Materials (SBOM) exports.
 While these packages cannot be scanned for vulnerabilities, their hash values are available within the exported components list.
 
-###### Note
+###### Tip
 
-Amazon Inspector now supports exporting SBOMs for Windows Amazon EC2 instances that are opted-in to Inspector's Enhanced EC2 Scanning feature.
+As of February 28, 2026, Amazon Inspector now supports exporting SBOMs for agentless Amazon EC2 Windows instances. Exporting SBOMs for agent-based Amazon EC2 Windows instances is currently not supported.
 
 ## Amazon Inspector formats
 
