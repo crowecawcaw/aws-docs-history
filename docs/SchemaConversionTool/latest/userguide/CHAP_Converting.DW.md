@@ -316,7 +316,7 @@ schema items from the left panel of your project and view the converted schema i
 center panels of your project. The lower-center panel displays the properties of and the
 SQL command to create the converted schema, as shown following.
 
-![Choose source schema item](images/select_schema_item.png)
+![Choose source schema item](/images/SchemaConversionTool/latest/userguide/images/select_schema_item.png)
 
 After you have converted your schema,
 you can save your project.
@@ -423,7 +423,7 @@ Use the following procedure to create a database migration assessment report.
    (right-click) menu for the object, and then choose **Create
    Report**.
 
-![Create database migration assessment report](images/create_assessment_report.png)
+![Create database migration assessment report](/images/SchemaConversionTool/latest/userguide/images/create_assessment_report.png)
 
 ### Assessment report summary
 
@@ -462,7 +462,7 @@ The report also contains recommendations for how to manually convert the schema 
 For more information about deciding how to handle manual conversions, see
 [Handling manual conversions in AWS SCT](#CHAP_Converting.DW.Manual "#CHAP_Converting.DW.Manual").
 
-![Action items tab](images/action_items_tab.png)
+![Action items tab](/images/SchemaConversionTool/latest/userguide/images/action_items_tab.png)
 
 ### Saving the assessment report
 
