@@ -53,7 +53,7 @@ streaming source and adding rows to the in-application stream
 
 
 
-    ![Screenshot of the SQL editor with results shown in the real-time analytics tab.](/images/kinesisanalytics/latest/dev/images/gs-v2-50.png)
+    ![Screenshot of the SQL editor with results shown in the real-time analytics tab.](images/gs-v2-50.png)
 
     The SQL editor has the following tabs:
 
