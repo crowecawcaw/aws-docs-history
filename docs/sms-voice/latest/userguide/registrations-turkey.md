@@ -3,13 +3,9 @@
 ###### URL content restrictions effective April 1, 2026
 
 Starting April 1, 2026, SMS messages to Turkey mobile numbers that contain
-URLs will be blocked if sent without a registered sender ID. If you do not have a
-registered sender ID for Turkey, register one using the process below to
-ensure your messages continue to be delivered.
-
-Even with a registered sender ID, messages containing shortened or generic URLs
-(such as bit.ly or tinyurl.com) will be blocked. Ensure all URLs in your messages
-use your company's own branded domain.
+URLs are at risk of being blocked or having the URL masked (for example, replaced
+with \*\*\*\*\*\*\*). To ensure reliable delivery, remove all URLs from your SMS message
+content.
 
 Follow these directions to register your sender ID in Turkey.
 
