@@ -1,15 +1,21 @@
 # Inference optimization for Amazon SageMaker AI models
 
-With Amazon SageMaker AI, you can improve the performance of your generative AI models by applying
-inference optimization techniques. By optimizing your models, you can attain better
-cost-performance for your use case. When you optimize a model, you choose which of the
-supported optimization techniques to apply, including quantization, speculative decoding,
-and compilation. After your model is optimized, you can run an evaluation to see performance
-metrics for latency, throughput, and price.
+Amazon SageMaker AI provides two approaches to optimize your generative AI model inference:
 
-For many models, SageMaker AI also provides several pre-optimized versions, where each caters to
-different applications needs for latency and throughput. For such models, you can deploy one
-of the optimized versions without first optimizing the model yourself.
+- Inference recommendations. SageMaker AI automatically
+  analyzes your model and workload, evaluates instance types, applies
+  optimizations, and returns validated, deployment-ready configurations with real
+  performance metrics. This is the recommended approach for most customers. To get
+  started, see [Optimized generative AI inference recommendations](generative-ai-inference-recommendations.md "generative-ai-inference-recommendations.md").
+- Manual optimization. For customers who want a
+  do-it-yourself approach, you can apply individual optimization techniques such
+  as quantization, speculative decoding, and compilation. You choose which
+  techniques to apply, run optimization jobs, and evaluate the results yourself.
+  After your model is optimized, you can run an evaluation to see performance
+  metrics for latency, throughput, and price.
+  For many models, SageMaker AI also provides several pre-optimized versions, where each caters to
+  different applications needs for latency and throughput. For such models, you can deploy one
+  of the optimized versions without first optimizing the model yourself.
 
 ## Optimization techniques
 

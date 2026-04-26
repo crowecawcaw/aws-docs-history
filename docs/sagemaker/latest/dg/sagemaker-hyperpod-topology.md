@@ -46,12 +46,73 @@ annotations to optimize training efficiency of your workloads. For more informat
 
 ## Slurm network topology plugins
 
-Slurm provides built-in plugins for network topology awareness. UltraServer architecture in SageMaker HyperPod
-supports the block plugin.
+Slurm provides built-in plugins for network topology awareness. SageMaker HyperPod automatically
+selects and configures the appropriate topology plugin based on the instance types in your cluster.
 
-### Using the topology/block Plugin
+### Automatic topology selection
 
-NVIDIA developed a topology/block plugin that provides hierarchical scheduling across blocks of nodes with the following characteristics:
+When you create a HyperPod Slurm cluster, the system inspects all instance groups and their
+associated instance types, identifies the GPU communication characteristics of each instance type,
+and configures Slurm with the appropriate topology plugin. This process runs automatically and does
+not require any configuration.
+
+HyperPod manages topology through a dynamically generated `topology.conf` file.
+As the cluster evolves through scaling operations or node replacements, HyperPod continuously
+reconciles the topology configuration to reflect the current cluster state. For more information, see
+[Dynamic topology updates](#sagemaker-hyperpod-topology-dynamic-updates "#sagemaker-hyperpod-topology-dynamic-updates").
+
+### Using the topology/tree plugin
+
+The `topology/tree` plugin models hierarchical communication structures with multiple
+bandwidth tiers. Tree topology enables Slurm to place jobs in a way that minimizes cross-tier
+communication and maximizes locality.
+
+Tree topology is used for instance types with hierarchical interconnects, where distributed training
+workloads benefit from locality-aware placement. This includes instance types such as
+`ml.p5.48xlarge`, `ml.p5e.48xlarge`, and `ml.p5en.48xlarge`.
+
+SageMaker HyperPod automatically configures the `topology/tree` plugin when your cluster uses
+these instance types. The generated `topology.conf` maps nodes into a switch hierarchy
+that reflects the communication tiers of your hardware.
+
+Ensure your `slurm.conf` includes:
+
+```
+TopologyPlugin=topology/tree
+```
+
+#### Configuration
+
+SageMaker HyperPod automatically configures the `topology/tree` plugin based on information
+provided by Amazon EC2. For more details about Amazon EC2 topology, see
+[Amazon EC2 instance topology](../../../AWSEC2/latest/UserGuide/ec2-instance-topology.md "../../../AWSEC2/latest/UserGuide/ec2-instance-topology.md").
+
+When the `topology/tree` plugin is used, the Slurm `topology.conf`
+looks like the following:
+
+```
+SwitchName=nn-6fe9d8a965d34d181 Switches=nn-0b53107754517bf0e
+
+SwitchName=nn-0b53107754517bf0e Switches=nn-424c855d4ad825aa4,nn-95acd7c656329fc30
+
+SwitchName=nn-424c855d4ad825aa4 Nodes=ip-10-1-111-198
+SwitchName=nn-95acd7c656329fc30 Nodes=ip-10-1-53-231
+```
+
+#### Usage
+
+When the `topology/tree` plugin is configured, Slurm tries to allocate machines that
+are close to each other. You can force Slurm to allocate machines on a single switch by passing the
+`--switch` command line parameter to `sbatch` or `srun`:
+
+```
+sbatch --switch=1 ....
+```
+
+### Using the topology/block plugin
+
+NVIDIA developed a `topology/block` plugin that provides hierarchical scheduling across
+blocks of nodes with the following characteristics:
 
 - A block is a consecutive range of nodes
 - Blocks cannot overlap with each other
@@ -61,22 +122,26 @@ NVIDIA developed a topology/block plugin that provides hierarchical scheduling a
 
 This plugin allocates nodes based on the defined network topology.
 
+Block topology models uniform, high-bandwidth communication domains where all GPUs participate in a
+single high-speed domain with near-uniform latency. Block topology treats all nodes as part of a single
+cohesive communication unit. UltraServer architecture in SageMaker HyperPod supports the block plugin.
+
+Block topology is used for instance types such as `ml.p6e-gb200.NVL72` and
+`ml.p6e-gb300.NVL72`.
+
 #### Configuration
 
-To configure topology-aware scheduling with the topology/block plugin,
-
-- SageMaker HyperPod automatically configures the topology/block plugin.
-  If you want to configure the plugin, specify the following in the topology.conf file in your Slurm configuration directory:
+SageMaker HyperPod automatically configures the `topology/block` plugin. If you want to
+configure the plugin manually, specify the following in the `topology.conf` file
+in your Slurm configuration directory:
 
 ```
 BlockName=us1 Nodes=ultraserver1-[0-17]
-
 BlockName=us2 Nodes=ultraserver2-[0-17]
-
 BlockSizes=18
 ```
 
-- Ensure your `slurm.conf` includes:
+Ensure your `slurm.conf` includes:
 
 ```
 TopologyPlugin=topology/block
@@ -84,10 +149,13 @@ TopologyPlugin=topology/block
 
 #### Usage
 
-When submitting jobs, you can use the following additional arguments with `sbatch` and `srun` commands:
+When submitting jobs, you can use the following additional arguments with `sbatch`
+and `srun` commands:
 
-- `--segment=N`: Specify the number of nodes to group together. The size of the segment must be less than or equal to the planning block size.
-- `--exclusive=topo`: Request that no other jobs be placed on the same block. This is useful for benchmarking and performance-sensitive applications.
+- `--segment=N`: Specify the number of nodes to group together. The size
+  of the segment must be less than or equal to the planning block size.
+- `--exclusive=topo`: Request that no other jobs be placed on the same block.
+  This is useful for benchmarking and performance-sensitive applications.
 
 The following are sample scenarios you might consider when thinking about allocating blocks.
 
@@ -112,14 +180,79 @@ sbatch -N24
 **Allocate 12 nodes on one block and 12 nodes on another block**
 
 ```
-sbatch -N24 —segment=12
+sbatch -N24 --segment=12
 ```
 
-**With —exclusive=topo, job must be placed on block with no other jobs**
+**With --exclusive=topo, job must be placed on block with no other jobs**
 
 ```
-sbatch -N12 —exclusive=topo
+sbatch -N12 --exclusive=topo
 ```
+
+### Topology selection for clusters with mixed instance types
+
+HyperPod currently uses Slurm 24.11, which supports only a single topology configuration per cluster.
+This means that per-partition topology selection is not supported, multiple topology models cannot coexist
+within a single cluster, and all nodes must conform to a single topology definition.
+
+When your cluster contains multiple instance types, HyperPod selects a topology that is compatible
+across all of them. The following table shows an example of how HyperPod resolves topology for a
+cluster with mixed instance types.
+
+| Instance group | Instance type      | Preferred topology |
+| -------------- | ------------------ | ------------------ |
+| IG-1           | ml.p5.48xlarge     | Tree               |
+| IG-2           | ml.p6e-gb300.NVL72 | Block              |
+
+In this example, block topology is optimal for ml.p6e-gb300.NVL72, but tree topology is compatible
+with both ml.p5.48xlarge and ml.p6e-gb300.NVL72. HyperPod selects tree topology as the cluster-wide
+topology to ensure that all nodes can participate in scheduling correctly and no instance type is excluded
+or misrepresented.
+
+###### Important
+
+For workloads where topology-aware scheduling is critical to performance, we recommend creating
+separate clusters for each instance type rather than combining different instance types in a single
+cluster. This ensures that each cluster uses the optimal topology for its hardware, delivering the
+best possible workload performance. For example, instead of combining ml.p5.48xlarge and
+ml.p6e-gb300.NVL72 instances in a single cluster where tree topology is selected as a compatible
+compromise, create a dedicated cluster for each instance type so that each uses its ideal topology model.
+
+### Disable or change topology plugin
+
+When a Slurm cluster is created, HyperPod automatically selects the optimal topology plugin.
+To manually change the topology plugin, update the `TopologyPlugin` value in
+`slurm.conf` on the controller node.
+
+Example:
+
+```
+# Set this value to disable topology plugin
+TopologyPlugin=topology/flat
+```
+
+### Dynamic topology updates
+
+Topology-aware scheduling continuously maintains topology correctness as your cluster changes.
+The topology is automatically recalculated and the `topology.conf` file is regenerated
+when any of the following events occur:
+
+- **Scale-up**: New nodes are added to the cluster.
+- **Scale-down**: Nodes are removed from the cluster.
+- **Node replacement**: Failed or unhealthy nodes are replaced,
+  or nodes are manually replaced using the [BatchReplaceClusterNodes](../APIReference/API_BatchReplaceClusterNodes.md "../APIReference/API_BatchReplaceClusterNodes.md") API.
+
+When the topology is updated, new nodes are incorporated into the correct topology structure, removed
+nodes are pruned, and the Slurm configuration is updated without requiring manual intervention. This
+ensures that the topology always reflects the actual cluster state.
+
+###### Note
+
+Advanced users can override the topology behavior by logging into the Slurm controller node and
+manually modifying `slurm.conf` and `topology.conf`. However,
+manual changes may be overwritten by HyperPod during subsequent cluster updates, including
+scaling operations, node replacements, and other cluster lifecycle events. If you modify these files
+manually, verify your changes after any cluster update.
 
 ## Best practices for UltraServer topology
 

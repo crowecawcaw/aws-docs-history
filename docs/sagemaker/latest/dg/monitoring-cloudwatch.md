@@ -28,7 +28,13 @@ when those thresholds are met. For more information, see the [Amazon CloudWatch 
 The `/aws/sagemaker/Endpoints` namespace includes the following metrics for
 endpoint instances.
 
-Metrics are available at a 1-minute frequency.
+Metrics are available at a 1-minute frequency. You can configure the publishing
+frequency to 10, 30, 60, 120, 180, 240, or 300 seconds by setting
+`MetricPublishFrequencyInSeconds` in [MetricsConfig](../APIReference/API_MetricsConfig.md "../APIReference/API_MetricsConfig.md"). This setting does not require `EnableEnhancedMetrics`
+to be enabled. When you set `EnableEnhancedMetrics` to `True`,
+the additional dimensions `InstanceId` and `AcceleratorId`
+(GPU metrics only) are available. For more
+information, see [Amazon SageMaker AI enhanced metrics for inference endpoints](monitoring-cloudwatch-enhanced-metrics.md "monitoring-cloudwatch-enhanced-metrics.md").
 
 ###### Note
 
@@ -53,16 +59,25 @@ Reference_.
 | `MemoryReservation`              | The sum of memory reserved by containers on an instance.<br>This metric is provided only for endpoints that host active inference components. The value ranges between 0%–100%. In the<br>settings for an inference component, you set the memory reservation with the<br>`MinMemoryRequiredInMb` parameter. For example, if a 32 GiB instance<br>reserved 1024 MB, the `MemoryReservation` metric would be<br>3.125%. |
 | `MemoryUtilization`              | The percentage of memory that is used by the containers on an instance.<br>This value range is 0%–100%.<br>For endpoint variants, the value is the sum of the memory utilization of the<br>primary and supplementary containers on the instance.<br>Units: Percent                                                                                                                                                     |
 
-| Dimensions for endpoint metrics | Dimension                                                                                    | Description |
-| ------------------------------- | -------------------------------------------------------------------------------------------- | ----------- |
-| `EndpointName, VariantName`     | Filters endpoint metrics for a `ProductionVariant` of the specified<br>endpoint and variant. |
+| Dimensions for endpoint metrics | Dimension                                                                                                                                         | Description |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `EndpointName, VariantName`     | Filters endpoint metrics for a `ProductionVariant` of the specified<br>endpoint and variant.                                                      |
+| `InstanceId`                    | Filters endpoint metrics for a specific instance. Available when<br>`EnableEnhancedMetrics` is set to `True` in<br>`MetricsConfig`.               |
+| `AcceleratorId`                 | (GPU metrics only) Filters endpoint metrics for a specific GPU. Available when<br>`EnableEnhancedMetrics` is set to `True` in<br>`MetricsConfig`. |
 
 ## SageMaker AI endpoint invocation metrics
 
 The `AWS/SageMaker` namespace includes the following request metrics from
 calls to [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md").
 
-Metrics are available at a 1-minute frequency.
+Metrics are available at a 1-minute frequency. You can configure the publishing
+frequency to 10, 30, 60, 120, 180, 240, or 300 seconds by setting
+`MetricPublishFrequencyInSeconds` in [MetricsConfig](../APIReference/API_MetricsConfig.md "../APIReference/API_MetricsConfig.md"). For invocation metrics, this setting requires
+`EnableEnhancedMetrics` to be set to `True`.
+When you set `EnableEnhancedMetrics` to
+`True`, the additional dimensions `InstanceId` and
+`ContainerId` (inference components only) are also available. For more
+information, see [Amazon SageMaker AI enhanced metrics for inference endpoints](monitoring-cloudwatch-enhanced-metrics.md "monitoring-cloudwatch-enhanced-metrics.md").
 
 The following illustration shows how a SageMaker AI endpoint interacts with the Amazon SageMaker Runtime
 API. The overall time between sending a request to an endpoint and receiving a response
@@ -98,17 +113,28 @@ information about how long CloudWatch metrics are retained for, see [GetMetricSt
 | `FirstChunkModelLatency`     | The time taken by the model container to process the request and return the<br>first chunk of the response. This is measured from when the request is sent to the<br>model container until the first byte is received from the model. This metric<br>applies to bidirectional streaming inference requests.<br>Units: Microseconds<br>Valid statistics: Average, Sum, Min, Max, Sample Count, Percentiles                                                                                                                                                                                          |
 | `FirstChunkOverheadLatency`  | The overhead latency for the first chunk, excluding model processing time.<br>This is calculated as `FirstChunkLatency` minus `FirstChunkModelLatency`, representing<br>the time spent in routing, preprocessing, and postprocessing operations within<br>SageMaker AI platform. Overhead latency can vary depending on multiple factors,<br>including request frequency, load and authentication/authorization of the request.<br>This metric applies to bidirectional streaming inference requests.<br>Units: Microseconds<br>Valid statistics: Average, Sum, Min, Max, Sample Count, Percentile |
 
-| Dimensions for endpoint invocation metrics | Dimension                                                                                               | Description |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ----------- |
-| `EndpointName, VariantName`                | Filters endpoint invocation metrics for a `ProductionVariant` of<br>the specified endpoint and variant. |
-| `InferenceComponentName`                   | Filters inference component invocation metrics.                                                         |
+| Dimensions for endpoint invocation metrics | Dimension                                                                                                                                                          | Description |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| `EndpointName, VariantName`                | Filters endpoint invocation metrics for a `ProductionVariant` of<br>the specified endpoint and variant.                                                            |
+| `InferenceComponentName`                   | Filters inference component invocation metrics.                                                                                                                    |
+| `InstanceId`                               | Filters invocation metrics for a specific instance. Available when<br>`EnableEnhancedMetrics` is set to `True` in<br>`MetricsConfig`.                              |
+| `ContainerId`                              | (Inference components only) Filters invocation metrics for a specific container. Available when<br>`EnableEnhancedMetrics` is set to `True` in<br>`MetricsConfig`. |
 
 ## SageMaker AI inference component metrics
 
 The `/aws/sagemaker/InferenceComponents` namespace includes the following
 metrics from calls to [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md") for endpoints that host inference components.
+Container-level granularity requires `EnableEnhancedMetrics=True` in the
+endpoint configuration's [MetricsConfig](../APIReference/API_MetricsConfig.md "../APIReference/API_MetricsConfig.md").
 
-Metrics are available at a 1-minute frequency.
+Metrics are available at a 1-minute frequency. You can configure the publishing
+frequency to 10, 30, 60, 120, 180, 240, or 300 seconds by setting
+`MetricPublishFrequencyInSeconds` in `MetricsConfig`. This setting
+does not require `EnableEnhancedMetrics` to be enabled. When you set
+`EnableEnhancedMetrics` to `True`, the additional dimensions
+`InstanceId`, `ContainerId`, and `AcceleratorId`
+(GPU metrics only) are available. For more
+information, see [Amazon SageMaker AI enhanced metrics for inference endpoints](monitoring-cloudwatch-enhanced-metrics.md "monitoring-cloudwatch-enhanced-metrics.md").
 
 | Inference component metrics      | Metric                                                                                                                                                                                                                                                                                                                                                                            | Description |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
@@ -117,9 +143,12 @@ Metrics are available at a 1-minute frequency.
 | `GPUUtilizationNormalized`       | The value of the `GPUUtilizationNormalized` metric reported by each<br>copy of the inference component. If you set the<br>`NumberOfAcceleratorDevicesRequired` parameter in the settings for<br>the inference component copy, the metric presents the utilization over the<br>reservation. Otherwise, the metric presents the utilization over the limit.                         |
 | `MemoryUtilizationNormalized`    | The value of `MemoryUtilizationNormalized` reported by each copy of<br>the inference component. If you set the `MinMemoryRequiredInMb`<br>parameter in the settings for the inference component copy, the metrics present<br>the utilization over the reservation. Otherwise, the metrics present the<br>utilization over the limit.                                              |
 
-| Dimensions for inference component metrics | Dimension                            | Description |
-| ------------------------------------------ | ------------------------------------ | ----------- |
-| `InferenceComponentName`                   | Filters inference component metrics. |
+| Dimensions for inference component metrics | Dimension                                                                                                                                                    | Description |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| `InferenceComponentName`                   | Filters inference component metrics.                                                                                                                         |
+| `InstanceId`                               | Filters inference component metrics for a specific instance. Available when<br>`EnableEnhancedMetrics` is set to `True` in<br>`MetricsConfig`.               |
+| `ContainerId`                              | Filters inference component metrics for a specific container. Available when<br>`EnableEnhancedMetrics` is set to `True` in<br>`MetricsConfig`.              |
+| `AcceleratorId`                            | (GPU metrics only) Filters inference component metrics for a specific GPU. Available when<br>`EnableEnhancedMetrics` is set to `True` in<br>`MetricsConfig`. |
 
 ## SageMaker AI multi-model endpoint metrics
 

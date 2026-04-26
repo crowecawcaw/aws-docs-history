@@ -83,3 +83,12 @@ models, evaluation jobs, and deployments across SageMaker AI and Amazon Bedrock.
 
 The ability to share models, datasets, and evaluators across AWS accounts using AWS
 Resource Access Manager (RAM) while maintaining complete lineage visibility.
+
+**User Interfaces**
+
+To get started with model customization programmatically, see the [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/model_customization/index.html "https://sagemaker.readthedocs.io/en/stable/model_customization/index.html").
+
+**Pricing**
+
+For pricing details, see the [pricing page](https://aws.amazon.com/sagemaker/ai/pricing/ "https://aws.amazon.com/sagemaker/ai/pricing/") (Model
+Customization tab).

@@ -4,7 +4,8 @@ Amazon SageMaker AI supports automatic scaling (auto scaling) for your hosted mo
 scaling_ dynamically adjusts the number of instances provisioned for a model
 in response to changes in your workload. When the workload increases, auto scaling brings
 more instances online. When the workload decreases, auto scaling removes unnecessary
-instances so that you don't pay for provisioned instances that you aren't using.
+instances so that you don't pay for provisioned instances that you aren't using. For
+more information about using per-instance metrics for scaling decisions, see [Amazon SageMaker AI enhanced metrics for inference endpoints](monitoring-cloudwatch-enhanced-metrics.md "monitoring-cloudwatch-enhanced-metrics.md") and [Enhanced metrics for Amazon SageMaker AI endpoints](https://aws.amazon.com/blogs/machine-learning/enhanced-metrics-for-amazon-sagemaker-ai-endpoints-deeper-visibility-for-better-performance/ "https://aws.amazon.com/blogs/machine-learning/enhanced-metrics-for-amazon-sagemaker-ai-endpoints-deeper-visibility-for-better-performance/").
 
 ###### Topics
 

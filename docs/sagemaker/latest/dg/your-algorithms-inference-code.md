@@ -467,8 +467,29 @@ update requested by `UpdateEndpoint` isn't completed, security patches
 aren't applied, and unhealthy instances aren't replaced.
 
 While the minimum bar is for the container to return a static 200, a container
-developer can use this functionality to perform deeper checks. The request timeout on
-`/ping` attempts is 2 seconds.
+developer can use this functionality to perform deeper checks. For example, the
+container can verify that the model is loaded into memory and can serve inference
+requests. The request timeout on `/ping` attempts is 2 seconds.
+
+We strongly recommend implementing meaningful health checks rather than returning
+a static 200. The `/ping` endpoint is the main signal SageMaker AI uses to
+determine whether an instance is healthy. If your container always returns
+200 — even when the model has failed to load, run out of memory, or entered a
+bad state — SageMaker AI continues routing inference requests to that instance. This
+results in sustained invocation errors for your application until the instance is
+manually replaced or the endpoint is updated.
+
+A well-implemented `/ping` handler should verify that:
+
+- The model artifact is loaded and ready to serve
+- Critical resources (memory, disk, GPU if applicable) are available
+- The inference code path is functional (for example, a lightweight test
+  prediction succeeds)
+
+When `/ping` correctly reports an unhealthy state by returning a
+non-200 response, SageMaker AI detects the failure and automatically replaces the
+instance (excluding endpoints that use inference components), minimizing downtime
+for your application.
 
 Additionally, a container that is capable of handling bidirectional streaming requests
 must respond with a Pong Frame (per WebSocket protocol [RFC6455](https://datatracker.ietf.org/doc/html/rfc6455#section-5.5.3 "https://datatracker.ietf.org/doc/html/rfc6455#section-5.5.3"))
