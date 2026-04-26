@@ -101,6 +101,11 @@ data.
                 }
             ]
         }]
+    },
+    "AdvancedConfiguration": {
+        "WiFiCellular": {
+            "ConfidencePercent": `68`
+        }
     }
 }
 ```
@@ -125,7 +130,10 @@ data structures. The payload contains:
     * The confidence level, which indicates the uncertainty in the
      location estimate response. The default value is 0.68, which
      indicates a 68% probability that the actual device location is
-     within the uncertainty radius of the estimated location.
+     within the uncertainty radius of the estimated location. You
+     can customize this value using the
+     `AdvancedConfiguration` parameter. For more
+     information, see [Advanced configuration for AWS IoT Core Device Location](device-location-advanced-configuration.md "device-location-advanced-configuration.md").
     * The city, state, country, and postal code where the device is
      located. This information will be reported only when the IP reverse
      lookup solver is used.
@@ -145,8 +153,9 @@ information, see [Troubleshooting errors when resolving the location](#location-
 ```
 {
     "coordinates": [
-        13.376076698303223,
-        52.51823043823242
+        13.376077,
+        52.51823,
+        80.1
     ],
     "type": "Point",
     "properties": {
@@ -154,11 +163,7 @@ information, see [Troubleshooting errors when resolving the location](#location-
         "verticalConfidenceLevel": 0.68,
         "horizontalAccuracy": 303,
         "horizontalConfidenceLevel": 0.68,
-        "country": "USA",
-        "state": "CA",
-        "city": "Sunnyvalue",
-        "postalCode": "91234",
-        "timestamp": "2022-11-18T12:23:58.189Z"
+        "timestamp": "2026-04-07T01:16:39.971767716Z"
     }
 }
 ```
@@ -198,12 +203,21 @@ aws iotwireless get-position-estimate `locationout.json` \
     --ip IpAddress="`"54.240.198.35"`" \
     --wi-fi-access-points \
         MacAddress="`A0:EC:F9:1E:32:C1`",Rss=`-75` \
-        MacAddress="`A0:EC:F9:15:72:5E`",Rss=`-67`
+        MacAddress="`A0:EC:F9:15:72:5E`",Rss=`-67` \
+    --advanced-configuration \
+        WiFiCellular={ConfidencePercent=`68`}
 ```
 
 This example includes both Wi-Fi access points and IP address as the measurement
 types. AWS IoT Core Device Location chooses between the Wi-Fi solver and the IP reverse lookup solver,
 and it selects the solver with the higher accuracy.
+
+The optional `--advanced-configuration` parameter contains the
+`WiFiCellular` object, which includes the `ConfidencePercent`
+field to customize the confidence level for Wi-Fi and
+Cellular measurement data. In this example, the `ConfidencePercent` is set to
+`68`, which is also the default value when this parameter is not specified. For more
+information, see [Advanced configuration for AWS IoT Core Device Location](device-location-advanced-configuration.md "device-location-advanced-configuration.md").
 
 The resolved location is returned as a payload that uses the GeoJSON format, which
 is a format used for encoding geographical data structures. It is then stored in the
@@ -214,20 +228,17 @@ location data type, and the timestamp at which the location was resolved.
 ```
 {
     "coordinates": [
-        13.37704086303711,
-        52.51865005493164
+        13.376077,
+        52.51823,
+        80.1
     ],
     "type": "Point",
     "properties": {
-        "verticalAccuracy": 707,
+        "verticalAccuracy": 45,
         "verticalConfidenceLevel": 0.68,
-        "horizontalAccuracy": 389,
+        "horizontalAccuracy": 303,
         "horizontalConfidenceLevel": 0.68,
-        "country": "USA",
-        "state": "CA",
-        "city": "Sunnyvalue",
-        "postalCode": "91234",
-        "timestamp": "2022-11-18T14:03:57.391Z"
+        "timestamp": "2026-04-07T01:16:39.971767716Z"
     }
 }
 ```

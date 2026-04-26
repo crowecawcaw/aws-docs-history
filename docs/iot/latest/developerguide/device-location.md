@@ -24,6 +24,7 @@ System coordinate system (WGS84)](https://gisgeography.com/wgs84-world-geodetic-
 - [Resolving location of IoT devices](device-location-resolve-solvers.md "device-location-resolve-solvers.md")
 - [Resolving device location using AWS IoT Core Device Location MQTT topics](device-location-reserved-topics.md "device-location-reserved-topics.md")
 - [Location solvers and device payload](device-location-solvers-payload.md "device-location-solvers-payload.md")
+- [Advanced configuration for AWS IoT Core Device Location](device-location-advanced-configuration.md "device-location-advanced-configuration.md")
 
 ## Measurement types and solvers
 
