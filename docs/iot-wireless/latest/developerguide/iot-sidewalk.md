@@ -22,6 +22,7 @@ AWS IoT Core for AWS IoT Core for Amazon Sidewalk acts as a bridge to move data 
 - [What is AWS IoT Core for Amazon Sidewalk?](what-is-iot-sidewalk.md "what-is-iot-sidewalk.md")
 - [Get started using AWS IoT Core for Amazon Sidewalk](sidewalk-getting-started.md "sidewalk-getting-started.md")
 - [Connecting to AWS IoT Core for Amazon Sidewalk](iot-sidewalk-onboard.md "iot-sidewalk-onboard.md")
+- [Configuring the position of wireless resources with AWS IoT Core for Amazon Sidewalk](sidewalk-configure-location.md "sidewalk-configure-location.md")
 - [Bulk provisioning devices with AWS IoT Core for Amazon Sidewalk](sidewalk-bulk-provisioning.md "sidewalk-bulk-provisioning.md")
 
 ## Features of AWS IoT Core for Amazon Sidewalk

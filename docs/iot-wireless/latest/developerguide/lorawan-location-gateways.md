@@ -99,6 +99,7 @@ aws iotwireless update-resource-position \
     --resource-type WirelessGateway \
     --resource-id `"12345678-a1b2-3c45-67d8-e90fa1b2c34d"` \
     --cli-input-json `file://gatewayposition.json`
+
 ```
 
 The following shows the contents of the

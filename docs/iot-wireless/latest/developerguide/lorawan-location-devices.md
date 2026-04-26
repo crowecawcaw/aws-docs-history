@@ -1,4 +1,4 @@
-# Configuring position of LoRaWAN devices
+# Configuring the position of LoRaWAN devices
 
 When you add your device to AWS IoT Core for LoRaWAN, you can specify the static position
 information, optionally activate positioning, and specify a destination. The destination
@@ -10,7 +10,9 @@ that you specified.
 You can configure the position of your device using the AWS Management Console, the
 AWS IoT Wireless API, or the AWS CLI.
 
-## Frame ports and format of uplink messages
+## Uplink message from AWS IoT Core for LoRaWAN to rules engine
+
+###### Note
 
 If you activate positioning, you must specify the geolocation frame port for
 communicating the Wi-Fi and GNSS scan data from the device to AWS IoT Core for LoRaWAN. The
@@ -25,33 +27,41 @@ application extensions.
 
 ### Uplink message from AWS IoT Core for LoRaWAN to rules engine
 
-When you add a destination, it creates an AWS IoT rule to route the data to
-Amazon Location Service using the rules engine. The updated position information is then
-displayed on an Amazon Location map. If you haven't activated positioning, the
-destination routes the position data when you update the static position
-coordinates of your device.
+You can subscribe to an MQTT topic to receive location data as it becomes
+available from your LoRaWAN device. This method allows you to process
+location data in real-time using AWS IoT rules.
 
-The following code shows the format of the uplink message sent from
-AWS IoT Core for LoRaWAN with the position information, accuracy, solver configuration, and
-the wireless metadata. The fields highlighted below are optional. If there's no
-vertical accuracy information, the value is `null`.
+1. ###### Create a destination for location data
+
+Create a destination with an AWS IoT rule that processes location data.
+For information about creating destinations, see [Add destinations to AWS IoT Core for LoRaWAN](lorawan-create-destinations.md "lorawan-create-destinations.md"). 2. ###### Subscribe to the MQTT topic
+
+Go to the AWS IoT console, then navigate to **Test** > the
+[MQTT test client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test").
+Enter the topic name that you specified in your location destination rule
+(for example, `project/sensor/location`),
+and then choose **Subscribe**. 3. ###### View location messages
+
+When your device sends location data, you'll see messages published to
+the topic. The following shows an example of a location message:
+
+**Contents of deviceposition.json**
 
 ```
 {
-    // Position configuration parameters for given wireless device
     "WirelessDeviceId": `"5b58245e-146c-4c30-9703-0ca942e3ff35"`,
 
-    // Position information for a device in GeoJSON format. Altitude
-    // is optional. If no vertical accuracy information is available
-    // or positioning isn't activated, the value is set to null.
-    // The position information coordinates are listed in the order
-    // [longitude, latitude, altitude].
-    "coordinates": [`33.33000183105469, -22.219999313354492`, 99.0],
+    "coordinates": [
+        `33.33000183105469`,
+        `-22.219999313354492`,
+        99.0
+    ],
     "type": "Point",
     "properties": {
-         "horizontalAccuracy": `number`,
-         "verticalAccuracy": number",
-         "timestamp": "2022-08-19T03:08:35.061Z"
+        "measurementType": `"GNSS" | "Wi-Fi"`,
+        "horizontalAccuracy": `34`,
+        "verticalAccuracy": 18.5,
+        "timestamp": `"2026-01-01T00:00:00Z"`
     },
 
     //Parameters controlled by AWS IoT Core for LoRaWAN
@@ -60,37 +70,44 @@ vertical accuracy information, the value is `null`.
         "LoRaWAN":
         {
             "ADR": false,
-            "Bandwidth": `125`,
+            "Bandwidth": 125,
             "ClassB": false,
-            "CodeRate": "`4/5`",
+            "CodeRate": "4/5",
             "DataRate": "0",
-            "DevAddr": "`00b96cd4`",
-            "DevEui": "`58a0cb000202c99`",
+            "DevAddr": "00b96cd4",
+            "DevEui": "58a0cb000202c99",
             "FOptLen": 2,
             "FCnt": 1,
-            "Fport": `136`,
-            "Frequency": "`868100000`",
+            "Fport": 136,
+            "Frequency": "868100000",
             "Gateways": [
              {
-                    "GatewayEui": "`80029cfffe5cf1cc`",
-                    "Snr": `-29`,
-                    "Rssi": `9.75`
+                "GatewayEui": "80029cfffe5cf1cc",
+                "Snr": -29,
+                "Rssi": 9.75
              }
              ],
-            "MIC": "`7255cb07`",
+            "MIC": "7255cb07",
             "MType": "UnconfirmedDataUp",
             "Major": "LoRaWANR1",
             "Modulation": "LORA",
             "PolarizationInversion": false,
-            "SpreadingFactor": `12`,
-            "Timestamp": "`2021-05-03T03:24:29Z`"
-
+            "SpreadingFactor": 12,
+            "Timestamp": "2026-01-01T00:00:00Z"
         }
     }
 }
 ```
 
-## Configuring position of your devices using the console
+###### Note
+
+The coordinates (position information for a device in GeoJSON format)
+are ordered as `[longitude, latitude, altitude]`, and altitude is optional if vertical accuracy information is unavailable.
+Please see more details on [Resolved location metadata parameters](#lorawan-location-devices-metadata "#lorawan-location-devices-metadata").
+
+For WirelessMetadata, please refer to wireless device destination payload for regular uplink [Wireless device destination payload](lorawan-device-connection-status.md#lorawan-device-connection-payload "lorawan-device-connection-status.md#lorawan-device-connection-payload").
+
+## Configuring the position of your devices using the console
 
 To configure and manage the position of your devices by using the AWS Management Console, first
 sign in to the console and then go to the [**Devices**](https://console.aws.amazon.com/iot/home#/wireless/devices "https://console.aws.amazon.com/iot/home#/wireless/devices") hub page of the AWS IoT console.
@@ -179,20 +196,7 @@ position data. After you've updated the position, in the
 position information. The change in timestamp indicates that it corresponds to
 the last known position of the device.
 
-## Configure device position using the API
-
-###### Note
-
-For Bluetooth Low Energy based location, AWS IoT returns location coordinates
-based on the approximate location of nearby Sidewalk Gateways that are
-connected to Amazon Sidewalk and have the Community Finding feature enabled.
-Gateway Location Data is AWS Content and is provided to you solely for
-the purpose of assisting you in locating your devices that are connected
-to Amazon Sidewalk, and you must only use the data for that purpose. You must
-only use and access location data via the interface and functionality
-that we generally make available to you, and you must not attempt to
-re-identify, reverse engineer, or re-map any Gateway location data provided
-by us to you.
+## Configure the position of your devices using API or CLI
 
 You can specify the position information, configure the device position, and
 activate optional geolocation using the AWS IoT Wireless API or the AWS CLI.
@@ -202,71 +206,133 @@ activate optional geolocation using the AWS IoT Wireless API or the AWS CLI.
 The API actions [UpdatePosition](../apireference/API_UpdatePosition.md "../apireference/API_UpdatePosition.md"), [GetPosition](../apireference/API_GetPosition.md "../apireference/API_GetPosition.md"), [PutPositionConfiguration](../apireference/API_PutPositionConfiguration.md "../apireference/API_PutPositionConfiguration.md"), [GetPositionConfiguration](../apireference/API_GetPositionConfiguration.md "../apireference/API_GetPositionConfiguration.md"), and [ListPositionConfigurations](../apireference/API_ListPositionConfigurations.md "../apireference/API_ListPositionConfigurations.md") are no longer supported. Calls to update
 and retrieve the position information should use the [GetResourcePosition](../apireference/API_GetResourcePosition.md "../apireference/API_GetResourcePosition.md") and [UpdateResourcePosition](../apireference/API_UpdateResourcePosition.md "../apireference/API_UpdateResourcePosition.md") API operations instead.
 
-### Add position information and configuration
+### Update position information
 
-To add the position information for a given wireless device, specify the
+To update the position information for a given wireless device, specify the
 coordinates using the [UpdateResourcePosition](../apireference/API_UpdateResourcePosition.md "../apireference/API_UpdateResourcePosition.md") API operation or the [update-resource-position](../../../cli/latest/reference/iotwireless/update-resource-position.md "../../../cli/latest/reference/iotwireless/update-resource-position.md") CLI command. Specify
 `WirelessDevice` as the `ResourceType`, the ID of the
 wireless device to be updated as the `ResourceIdentifier`, and the
 position information.
 
+**Sample of the UpdateResourcePosition API operation**
+
 ```
+PATCH /resource-positions/`ResourceIdentifier`?resourceType=WirelessDevice HTTP/1.1
+{
+     "coordinates": [
+        `33.33`,
+        `-22.22`,
+        `11.11`
+     ],
+     "type": "Point"
+}
+```
+
+**Sample of the update-resource-position CLI command**
+
+```
+echo '{"coordinates": [33.33, -22.22, 11.11], "type": "Point"}' > /tmp/position.json
 aws iotwireless update-resource-position \
     --resource-type WirelessDevice \
-    --resource-id `"1ffd32c8-8130-4194-96df-622f072a315f"` \
-    --position [33.33, -33.33, 10.0]
+    --resource-id `"5b58245e-146c-4c30-9703-0ca942e3ff35"` \
+    --geo-json-payload fileb:///tmp/position.json
 ```
 
 The following shows the contents of the
-`deviceposition.json` file. To
-specify the FPort values for sending the geolocation data, use the [Positioning](../apireference/API_Positioning.md "../apireference/API_Positioning.md") object
+`deviceposition.json` file,
+which is the uplink message from AWS IoT Core for LoRaWAN to rules engine
+
+To specify the FPort values for sending the geolocation data, use the [Positioning](../apireference/API_Positioning.md "../apireference/API_Positioning.md") object
 with the [CreateWirelessDevice](../apireference/API_CreateWirelessDevice.md "../apireference/API_CreateWirelessDevice.md") and [UpdateWirelessDevice](../apireference/API_UpdateWirelessDevice.md "../apireference/API_UpdateWirelessDevice.md") API operations.
 
 **Contents of deviceposition.json**
 
 ```
 {
+     "coordinates": [
+        `33.33`,
+        `-22.22`,
+        `11.11`
+     ],
+     "WirelessDeviceId": `"5b58245e-146c-4c30-9703-0ca942e3ff35"`,
      "type": "Point",
-     "coordinates": `[33.3318, -22.2155, 13.123]`,
      "properties": {
-          "verticalAccuracy": 707,
-          "horizontalAccuracy":
-          "timestamp": `"2018-11-30T18:35:24Z"`
+        "measurementType": "UserInput",
+        "verticalAccuracy": 0,
+        "horizontalAccuracy": 0,
+        "timestamp": `"2026-01-01T00:00:00Z"`
       }
 }
 ```
 
-Running this command doesn't produce any output. To see the position
-information that you specified, use the `GetResourcePosition` API
-operation.
+###### Note
 
-### Get position information and configuration
+This command returns no response body (`204 No Content`),
+so the `update-resource-position-api-response.json` file will be empty.
+To verify the updated position, use the `GetResourcePosition` API operation.
+
+### Get position information
 
 To get the position information for a given wireless device, use the [GetResourcePosition](../apireference/API_GetResourcePosition.md "../apireference/API_GetResourcePosition.md") API or the [get-resource-position](../../../cli/latest/reference/iotwireless/get-resource-position.md "../../../cli/latest/reference/iotwireless/get-resource-position.md") CLI command. Specify
 `WirelessDevice` as the `resourceType` and provide the
 ID of the wireless device as the `resourceIdentifier`.
 
+**Sample of the GetResourcePosition API operation**
+
+```
+GET /resource-positions/`ResourceIdentifier`?resourceType=WirelessDevice HTTP/1.1
+```
+
+**Sample of the get-resource-position CLI command**
+
 ```
 aws iotwireless get-resource-position \
     --resource-type WirelessDevice \
-    --resource-id "`1ffd32c8-8130-4194-96df-622f072a315f`"
+    --resource-id `"5b58245e-146c-4c30-9703-0ca942e3ff35"`
+    /dev/stdout
 ```
 
-Running this command displays the position information of your wireless device
-as a GeoJSON payload. You'll see information about the position coordinates, the
-location type, and properties which can include the accuracy information and the
-timestamp which corresponds to the last known position of the device.
+###### Note
+
+This command returns the position information of your wireless device as a GeoJSON payload (`200 OK`).
+
+The contents of the `get-resource-position-api-response.json` file
+includes the position coordinates, geolocation type, and properties such as measurement type, accuracy,
+and the timestamp when the device position was resolved. The wireless device ID is
+not included in the API response.
+
+**Contents of get-resource-position-api-response.json**
 
 ```
 {
+     "coordinates": [
+        `33.33`,
+        `-22.22`,
+        `11.11`
+     ],
      "type": "Point",
-     "coordinates": `[33.3318, -22.2155, 13.123]`,
      "properties": {
-          "verticalAccuracy": 707,
-          "horizontalAccuracy": 389,
-          "horizontalConfidenceLevel": 0.68,
-          "verticalConfidenceLevel": 0.68,
-          "timestamp": `"2018-11-30T18:35:24Z"`
+        "measurementType": `"GNSS" | "Wi-Fi" | "UserInput"`,
+        "horizontalAccuracy": `number`,
+        "verticalAccuracy": number,
+        "timestamp": `"Thu Jan 01 00:00:00 UTC 2026"`
       }
 }
 ```
+
+## Resolved location metadata parameters
+
+The following table shows a definition of the different parameters in the resolved location
+metadata. The `wirelessDeviceId` is the ID of the
+wireless device, such as `5b58245e-146c-4c30-9703-0ca942e3ff35` and the
+`measurementType` is the positioning method used to calculate the location.
+
+| LoRaWAN resolved location metadata parameters | Parameter                                                                                                                                                                                                           | Description | Type |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---- |
+| `coordinates`                                 | The resolved coordinates of the LoRaWAN device.<br>Coordinates are ordered as `[longitude, latitude, altitude]`.                                                                                                    | String      |
+| `wirelessDeviceId`                            | The identifier of the wireless device that sends the location uplink data                                                                                                                                           | String      |
+| `type`                                        | GeoJSON type. Currently supports the `"Point"` type.                                                                                                                                                                | String      |
+| `measurementType`                             | The measurement type for resolved location metadata.<br>For LoRaWAN devices, the supported values are<br>`"GNSS"` and `"Wi-Fi"`.<br>If triggered by update-resource-position API or CLI, it would be `"UserInput"`. | String      |
+| `horizontalAccuracy`                          | The horizontal accuracy of the resolved position, in meters.                                                                                                                                                        | Number      |
+| `verticalAccuracy`                            | The vertical accuracy of the resolved position, in meters.                                                                                                                                                          | Number      |
+| `timestamp`                                   | The timestamp when the LoRaWAN device location was resolved.                                                                                                                                                        | Timestamp   |

@@ -66,7 +66,7 @@ metadata about the message request.
 ```
 {
    "PayloadData":`"ZjRlNjY1ZWNlNw=="`,
-   "WirelessDeviceId":`"wireless_device_id"`,
+   "WirelessDeviceId":`"8d5c87d8-3ec0-428d-9028-ab9daaf33704"`,
    "WirelessMetadata":{
       "Sidewalk":{
          "CmdExStatus":"Cmd",

@@ -1,4 +1,4 @@
-# Configuring position of wireless resources with AWS IoT Core for LoRaWAN
+# Configuring the position of wireless resources with AWS IoT Core for LoRaWAN
 
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -114,4 +114,4 @@ map.
 ###### Topics
 
 - [Configuring the position of LoRaWAN gateways](lorawan-location-gateways.md "lorawan-location-gateways.md")
-- [Configuring position of LoRaWAN devices](lorawan-location-devices.md "lorawan-location-devices.md")
+- [Configuring the position of LoRaWAN devices](lorawan-location-devices.md "lorawan-location-devices.md")
