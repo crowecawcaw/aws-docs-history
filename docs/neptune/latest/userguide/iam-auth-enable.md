@@ -7,19 +7,25 @@ AWS Management Console.
 To create a new Neptune DB cluster with IAM authentication by using the console,
 follow the instructions for creating a Neptune DB cluster in [Launching a Neptune DB cluster using the AWS Management Console](manage-console-launch-console.md "manage-console-launch-console.md").
 
-On the second page of the creation process, for **Enable IAM DB
-Authentication**, choose **Yes**.
+During the creation process, scroll down to **Additional settings**
+and select **Turn on IAM Authentication**.
 
 ###### To enable or disable IAM authentication for an existing DB instance or cluster
 
 1. Sign in to the AWS Management Console, and open the Amazon Neptune console at [https://console.aws.amazon.com/neptune/home](https://console.aws.amazon.com/neptune/home "https://console.aws.amazon.com/neptune/home").
 2. In the navigation pane, choose **Clusters**.
-3. Choose the Neptune DB cluster that you want to modify, and choose **Cluster
-   actions**. Then choose **Modify cluster**.
-4. In the **Database options** section, for **IAM DB
-   Authentication**, choose either **Enable IAM DB
-   authorization** or **No** (to disable). Then choose
-   **Continue**.
-5. To apply the changes immediately, choose **Apply
-   immediately**.
-6. Choose **Modify cluster**.
+3. Choose the Neptune DB cluster that you want to modify, and then choose
+   **Modify**.
+4. Scroll down to **Additional settings**. For **IAM DB
+   Authentication**, choose either **Turn on IAM Authentication** or
+   **Turn off IAM Authentication** (to disable). Then choose
+   **Next**.
+5. Under **Scheduling of modifications**, choose when to apply
+   the change, and then choose **Submit**.
+
+###### Important
+
+Enabling or disabling IAM database authentication causes the DB engine to restart.
+This restart terminates all existing connections to the cluster and causes a brief
+interruption in availability. Plan to make this change during a maintenance window or
+at a time when the impact of a connection interruption is minimal.

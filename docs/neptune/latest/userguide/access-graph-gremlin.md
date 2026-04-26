@@ -81,6 +81,7 @@ Before you begin, you must have the following:
 - [Gremlin query cancellation](gremlin-api-status-cancel.md "gremlin-api-status-cancel.md")
 - [Support for Gremlin script-based sessions](access-graph-gremlin-sessions.md "access-graph-gremlin-sessions.md")
 - [Gremlin transactions in Neptune](access-graph-gremlin-transactions.md "access-graph-gremlin-transactions.md")
+- [Streaming query results with Gremlin](access-graph-gremlin-streaming.md "access-graph-gremlin-streaming.md")
 - [Using the Gremlin API with Amazon Neptune](gremlin-api-reference.md "gremlin-api-reference.md")
 - [Caching query results in Amazon Neptune Gremlin](gremlin-results-cache.md "gremlin-results-cache.md")
 - [Making efficient upserts with Gremlin mergeV() and mergeE() steps](gremlin-efficient-upserts.md "gremlin-efficient-upserts.md")

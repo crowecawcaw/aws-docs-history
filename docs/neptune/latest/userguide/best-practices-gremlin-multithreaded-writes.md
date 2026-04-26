@@ -7,7 +7,9 @@ If possible, give each thread a set of vertices or edges to insert or modify tha
 collide. For example, thread 1 addresses ID range 1–50,000, thread 2 addresses ID range
 50,001–100,000, and so on. This reduces the chance of hitting a
 `ConcurrentModificationException`. To be safe, put a `try/catch` block
-around all writes. If any fail, you can retry them after a short delay.
+around all writes. If any fail, you can retry them after a short delay. For guidance on
+developing a retry strategy with exponential backoff and jitter, see
+[Exception Handling and Retries](transactions-exceptions.md "transactions-exceptions.md").
 
 Batching writes in a batch size between 50 and 100 (vertices or edges) generally works
 well. If you have a lot of properties being added for each vertex, a number closer to 50 than

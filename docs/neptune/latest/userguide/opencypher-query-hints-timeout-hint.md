@@ -75,3 +75,8 @@ curl https://`your-neptune-endpoint`:`port`/openCypher \
 curl https://`your-neptune-endpoint`:`port`/openCypher \
   -d "query=USING QUERY:TIMEOUTMILLISECONDS 10000 MATCH(n) RETURN n LIMIT 1"
 ```
+
+If a query exceeds the timeout, Neptune terminates it and returns a
+time-out error. Whether to retry a timed-out query depends on
+the nature of the failure and your workload. For guidance, see
+[Exception Handling and Retries](transactions-exceptions.md "transactions-exceptions.md").

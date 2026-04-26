@@ -1,9 +1,9 @@
 # Using Gremlin with the Neptune DFE query engine
 
-If you enable Neptunes [alternative
-query engine](neptune-dfe-engine.md "neptune-dfe-engine.md") known as the DFE in [lab mode](features-lab-mode.md "features-lab-mode.md")
-(by setting the `neptune_lab_mode` DB cluster parameter
-to `DFEQueryEngine=enabled`), then Neptune translates read-only Gremlin
+If you enable Neptune's [alternative
+query engine](neptune-dfe-engine.md "neptune-dfe-engine.md") known as the DFE (by setting the
+[neptune_dfe_query_engine](parameters.md#parameters-instance-parameters-neptune_dfe_query_engine "parameters.md#parameters-instance-parameters-neptune_dfe_query_engine")
+instance parameter to `enabled`), then Neptune translates read-only Gremlin
 queries/traversals into an intermediate logical representation and runs them on the DFE
 engine whenever possible.
 
@@ -55,6 +55,6 @@ looks like when the DFE engine is enabled.
 
 ###### Note
 
-Because the DFE engine is an experimental feature released in lab mode,
+Because DFE support for Gremlin is an experimental feature,
 the exact format of the `explain` and `profile` output is
 subject to change.

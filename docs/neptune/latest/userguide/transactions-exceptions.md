@@ -25,6 +25,9 @@ To build a resilient and efficient application, develop a retry strategy that's 
 - **Limit retry attempts** – Set a reasonable maximum number of retries to prevent infinite loops and resource exhaustion.
 - **Monitor and adjust** – Continuously monitor your application's error rate and adjust your retry strategy as needed. If you notice a high number of retries for a particular operation, consider whether the operation can be optimized or serialized.
 
+For a deeper discussion of exponential backoff and jitter as a general cloud design
+pattern, see [Retry with backoff](../../../prescriptive-guidance/latest/cloud-design-patterns/retry-backoff.md "../../../prescriptive-guidance/latest/cloud-design-patterns/retry-backoff.md") in AWS Prescriptive Guidance.
+
 ## Example scenarios
 
 The right retry strategy depends on the nature of the failure, the workload, and the error patterns you observe. The following table summarizes some common failure scenarios and how the retry strategy considerations apply to each. Explanatory paragraphs follow for additional context.

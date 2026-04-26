@@ -3,6 +3,9 @@
 The following Java example demonstrates how to connect to the Gremlin client
 with reconnect logic to recover from an unexpected disconnect.
 
+For detailed guidance on developing a practical retry strategy, including
+exponential backoff with jitter, see [Exception Handling and Retries](transactions-exceptions.md "transactions-exceptions.md").
+
 It has the following dependencies:
 
 ```
@@ -71,6 +74,8 @@ public static void main(String args[]) {
       .withRemote(DriverRemoteConnection.using(cluster));
 
   // Configure retries
+  // NOTE: This example uses a fixed backoff for simplicity.
+  // In a production application consider use of exponential backoff with jitter.
   RetryConfig retryConfig = new RetryConfigBuilder()
       .retryOnCustomExceptionLogic(getRetryLogic())
       .withDelayBetweenTries(1000, ChronoUnit.MILLIS)
@@ -88,11 +93,8 @@ public static void main(String args[]) {
     String id = String.valueOf(i);
 
     @SuppressWarnings("unchecked")
-    Callable<Object> query = () -> g.V(id)
-        .fold()
-        .coalesce(
-            unfold(),
-            addV("Person").property(T.id, id))
+    Callable<Object> query = () -> g.mergeV(Map.of(T.id, id))
+        .option(Merge.onCreate, Map.of(T.label, "Person"))
         .id().next();
 
     // Retry query

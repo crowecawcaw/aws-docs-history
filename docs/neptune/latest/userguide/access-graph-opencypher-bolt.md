@@ -763,114 +763,270 @@ namespace Hello
 
 ## A Golang openCypher query example using Bolt with IAM authentication
 
-The Golang package below shows how to make openCypher queries in the Go language
-using Bolt with IAM authentication:
+The following example shows how to make openCypher queries in Go using the Bolt protocol with
+IAM authentication. It uses the AWS SDK for Go v2 for SigV4 signing and the Neo4j Go driver v5 with
+an `AuthTokenManager` struct that implements the Neo4j Go driver's token manager interface
+(`github.com/neo4j/neo4j-go-driver/v5/neo4j/auth.TokenManager`) to automatically refresh
+credentials before they expire.
+
+First, create an `AuthTokenManager` that generates SigV4-signed tokens. Save this as
+`auth_token_manager.go`:
+
+```
+// AuthTokenManager for Amazon Neptune IAM authentication via the Bolt protocol.
+// Provides SigV4-signed credentials to the Neo4j driver's auth interface.
+package main
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"reflect"
+	"sync"
+	"time"
+
+	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/aws/signer/v4"
+	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/aws/aws-sdk-go-v2/credentials/stscreds"
+	"github.com/aws/aws-sdk-go-v2/service/sts"
+	"github.com/neo4j/neo4j-go-driver/v5/neo4j"
+	"github.com/neo4j/neo4j-go-driver/v5/neo4j/db"
+)
+
+const (
+	serviceName      = "neptune-db"
+	emptyPayloadHash = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+)
+
+// AuthTokenManager manages SigV4-signed authentication tokens for Neptune with automatic refresh.
+type AuthTokenManager struct {
+	region          string
+	endpoint        string
+	refreshInterval time.Duration
+	credentials     aws.CredentialsProvider
+	mutex           sync.Mutex
+	cachedToken     neo4j.AuthToken
+	tokenTime       time.Time
+}
+
+// NewAuthTokenManager creates a new AuthTokenManager.
+//
+// Parameters:
+//   - region: AWS region (e.g., "us-east-1")
+//   - endpoint: Neptune endpoint with port (e.g., "cluster.region.neptune.amazonaws.com:8182")
+//   - profile: AWS profile name (optional, pass "" to use default)
+//   - roleArn: AWS role ARN to assume (optional, pass "" to skip)
+//   - refreshInterval: Token refresh interval
+func NewAuthTokenManager(region, endpoint, profile, roleArn string, refreshInterval time.Duration) (*AuthTokenManager, error) {
+	credentials, err := createCredentialsProvider(region, profile, roleArn)
+	if err != nil {
+		return nil, err
+	}
+	return &AuthTokenManager{
+		region:          region,
+		endpoint:        endpoint,
+		refreshInterval: refreshInterval,
+		credentials:     credentials,
+	}, nil
+}
+
+// createCredentialsProvider builds an AWS credentials provider, optionally using
+// a named profile and/or assuming a role.
+func createCredentialsProvider(region, profile, roleArn string) (aws.CredentialsProvider, error) {
+	ctx := context.Background()
+	var opts []func(*config.LoadOptions) error
+	opts = append(opts, config.WithRegion(region))
+	if profile != "" {
+		opts = append(opts, config.WithSharedConfigProfile(profile))
+	}
+	cfg, err := config.LoadDefaultConfig(ctx, opts...)
+	if err != nil {
+		return nil, fmt.Errorf("failed to load AWS config: %w", err)
+	}
+	var credentials aws.CredentialsProvider = cfg.Credentials
+	if roleArn != "" {
+		stsClient := sts.NewFromConfig(cfg)
+		credentials = stscreds.NewAssumeRoleProvider(stsClient, roleArn, func(o *stscreds.AssumeRoleOptions) {
+			o.RoleSessionName = "NeptuneAuthSession"
+			o.Duration = 900 * time.Second
+		})
+	}
+	return credentials, nil
+}
+
+// GetAuthToken returns a valid authentication token, using cached token if still valid.
+func (m *AuthTokenManager) GetAuthToken(ctx context.Context) (neo4j.AuthToken, error) {
+	m.mutex.Lock()
+	defer m.mutex.Unlock()
+
+	if time.Since(m.tokenTime) < m.refreshInterval && m.cachedToken.Tokens != nil {
+		return m.cachedToken, nil
+	}
+
+	token, err := m.generateToken(ctx)
+	if err != nil {
+		return neo4j.AuthToken{}, err
+	}
+
+	m.cachedToken = token
+	m.tokenTime = time.Now()
+	return token, nil
+}
+
+// HandleSecurityException handles security exceptions by invalidating the cached
+// token (if it matches the token that caused the error) and returning true so
+// the driver retries with a fresh token. The comparison prevents a concurrent
+// retry from unnecessarily invalidating a freshly generated token.
+func (m *AuthTokenManager) HandleSecurityException(ctx context.Context, token neo4j.AuthToken, err *db.Neo4jError) (bool, error) {
+	m.mutex.Lock()
+	defer m.mutex.Unlock()
+	if reflect.DeepEqual(m.cachedToken.Tokens, token.Tokens) {
+		m.tokenTime = time.Time{}
+		m.cachedToken = neo4j.AuthToken{}
+	}
+	return true, nil
+}
+
+// generateToken generates a new SigV4-signed authentication token for Neptune.
+func (m *AuthTokenManager) generateToken(ctx context.Context) (neo4j.AuthToken, error) {
+	req, err := http.NewRequest(http.MethodGet, "https://"+m.endpoint+"/opencypher", nil)
+	if err != nil {
+		return neo4j.AuthToken{}, err
+	}
+	req.Host = m.endpoint
+
+	creds, err := m.credentials.Retrieve(ctx)
+	if err != nil {
+		return neo4j.AuthToken{}, err
+	}
+
+	signer := v4.NewSigner()
+	err = signer.SignHTTP(ctx, creds, req, emptyPayloadHash, serviceName, m.region, time.Now())
+	if err != nil {
+		return neo4j.AuthToken{}, err
+	}
+
+	authData := map[string]string{
+		"Authorization": req.Header.Get("Authorization"),
+		"X-Amz-Date":    req.Header.Get("X-Amz-Date"),
+		"Host":          m.endpoint,
+		"HttpMethod":    req.Method,
+	}
+
+	if st := req.Header.Get("X-Amz-Security-Token"); st != "" {
+		authData["X-Amz-Security-Token"] = st
+	}
+
+	authJSON, err := json.Marshal(authData)
+	if err != nil {
+		return neo4j.AuthToken{}, err
+	}
+
+	return neo4j.BasicAuth("username", string(authJSON), ""), nil
+}
+```
+
+Then use the token manager to create a driver and find a node by ID. Note the use of a
+parameterized query (`$nodeId`) instead of string interpolation:
 
 ```
 package main
 
 import (
-  "context"
-  "encoding/json"
-  "fmt"
-  "github.com/aws/aws-sdk-go/aws/credentials"
-  "github.com/aws/aws-sdk-go/aws/signer/v4"
-  "github.com/neo4j/neo4j-go-driver/v5/neo4j"
-  "log"
-  "net/http"
-  "os"
-  "time"
+	"context"
+	"fmt"
+	"log"
+	"time"
+
+	"github.com/neo4j/neo4j-go-driver/v5/neo4j"
 )
 
-const (
-  ServiceName   = "neptune-db"
-  DummyUsername = "username"
-)
+func findNode(ctx context.Context, driver neo4j.DriverWithContext, nodeId string) (string, error) {
+	session := driver.NewSession(ctx, neo4j.SessionConfig{
+		AccessMode: neo4j.AccessModeRead,
+	})
+	defer session.Close(ctx)
 
-// Find node by id using Go driver
-func findNode(ctx context.Context, region string, hostAndPort string, nodeId string) (string, error) {
-  req, err := http.NewRequest(http.MethodGet, "https://"+hostAndPort+"/opencypher", nil)
+	// Use parameterized queries to prevent injection and enable query plan caching.
+	result, err := session.Run(ctx,
+		"MATCH (n) WHERE ID(n) = $nodeId RETURN n",
+		map[string]any{"nodeId": nodeId},
+	)
+	if err != nil {
+		return "", fmt.Errorf("error running query: %v", err)
+	}
 
-  if err != nil {
-    return "", fmt.Errorf("error creating request, %v", err)
-  }
+	if !result.Next(ctx) {
+		if err = result.Err(); err != nil {
+			return "", fmt.Errorf("error fetching result: %v", err)
+		}
+		return "", fmt.Errorf("node not found")
+	}
 
-  // credentials must have been exported as environment variables
-  signer := v4.NewSigner(credentials.NewEnvCredentials())
-  _, err = signer.Sign(req, nil, ServiceName, region, time.Now())
+	n, found := result.Record().Get("n")
+	if !found {
+		return "", fmt.Errorf("node not found")
+	}
 
-  if err != nil {
-    return "", fmt.Errorf("error signing request: %v", err)
-  }
-
-  hdrs := []string{"Authorization", "X-Amz-Date", "X-Amz-Security-Token"}
-  hdrMap := make(map[string]string)
-  for _, h := range hdrs {
-    hdrMap[h] = req.Header.Get(h)
-  }
-
-  hdrMap["Host"] = req.Host
-  hdrMap["HttpMethod"] = req.Method
-
-  password, err := json.Marshal(hdrMap)
-  if err != nil {
-    return "", fmt.Errorf("error creating JSON, %v", err)
-  }
-  authToken := neo4j.BasicAuth(DummyUsername, string(password), "")
-  // +s enables encryption with a full certificate check
-  // Use +ssc to disable client side TLS verification
-  driver, err := neo4j.NewDriverWithContext("bolt+s://"+hostAndPort+"/opencypher", authToken)
-  if err != nil {
-    return "", fmt.Errorf("error creating driver, %v", err)
-  }
-
-  defer driver.Close(ctx)
-
-  if err := driver.VerifyConnectivity(ctx); err != nil {
-    log.Fatalf("failed to verify connection, %v", err)
-  }
-
-  config := neo4j.SessionConfig{}
-
-  session := driver.NewSession(ctx, config)
-  defer session.Close(ctx)
-
-  result, err := session.Run(
-    ctx,
-    fmt.Sprintf("MATCH (n) WHERE ID(n) = '%s' RETURN n", nodeId),
-    map[string]any{},
-  )
-  if err != nil {
-    return "", fmt.Errorf("error running query, %v", err)
-  }
-
-  if !result.Next(ctx) {
-    return "", fmt.Errorf("node not found")
-  }
-
-  n, found := result.Record().Get("n")
-  if !found {
-    return "", fmt.Errorf("node not found")
-  }
-
-  return fmt.Sprintf("+%v\n", n), nil
+	return fmt.Sprintf("%+v", n), nil
 }
 
 func main() {
-  if len(os.Args) < 3 {
-    log.Fatal("Usage: go main.go `(region) (host and port)`")
-  }
-  region := os.Args[1]
-  hostAndPort := os.Args[2]
-  ctx := context.Background()
+	region := "(your AWS region)"                  // e.g. "us-east-1"
+	endpoint := "(your Neptune endpoint):8182"     // e.g. "cluster.xxx.us-east-1.neptune.amazonaws.com:8182"
 
-  res, err := findNode(ctx, region, hostAndPort, "72c2e8c1-7d5f-5f30-10ca-9d2bb8c4afbc")
-  if err != nil {
-    log.Fatal(err)
-  }
-  fmt.Println(res)
+	ctx := context.Background()
+
+	// Pass a profile name for local development, or a role ARN for cross-account access
+	authManager, err := NewAuthTokenManager(region, endpoint, "", "", 4*time.Minute) // Refresh before the 5-minute SigV4 signature expiry
+	if err != nil {
+		log.Fatalf("auth manager error: %v", err)
+	}
+
+	// bolt+s:// enables TLS with full certificate verification.
+	// If you're developing on macOS, use bolt+ssc:// instead. Go on macOS uses the
+	// system TLS verifier, which requires Certificate Transparency compliance that
+	// Neptune endpoints don't support. In production (typically Linux), bolt+s://
+	// works with system CA certificates.
+	driver, err := neo4j.NewDriverWithContext("bolt+s://"+endpoint, authManager)
+	if err != nil {
+		log.Fatalf("driver error: %v", err)
+	}
+	defer driver.Close(ctx)
+
+	if err = driver.VerifyConnectivity(ctx); err != nil {
+		log.Fatalf("connectivity error: %v", err)
+	}
+
+	// Neptune assigns UUID-format node IDs if a user does not supply their own node IDs
+	res, err := findNode(ctx, driver, "72c2e8c1-7d5f-5f30-10ca-9d2bb8c4afbc")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(res)
 }
+```
 
+###### Note
+
+The `auth.TokenManager` interface (`github.com/neo4j/neo4j-go-driver/v5/neo4j/auth`)
+used in this example became generally available in
+Neo4j Go driver **v5.14.0**. This interface enables automatic credential
+refresh, which is necessary for Neptune IAM authentication since SigV4 signatures are only valid for a
+short period and must be regenerated when the driver establishes new connections.
+
+This example was validated using the following Go modules:
+
+```
+require (
+    github.com/aws/aws-sdk-go-v2         v1.30.3
+    github.com/aws/aws-sdk-go-v2/config   v1.27.27
+    github.com/aws/aws-sdk-go-v2/credentials v1.17.27
+    github.com/aws/aws-sdk-go-v2/service/sts v1.30.3
+    github.com/neo4j/neo4j-go-driver/v5   v5.22.0
+  )
 ```
 
 ## Bolt connection behavior in Neptune

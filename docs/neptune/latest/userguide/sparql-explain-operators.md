@@ -101,7 +101,7 @@ prints detailed runtime statistics of the plan executed by DFE.
 
 ###### Note
 
-Because the DFE is an experimental feature released in lab mode,
+Because DFE support for SPARQL is an experimental feature,
 the exact format of its `explain` output may change.
 
 ## `Distinct` operator

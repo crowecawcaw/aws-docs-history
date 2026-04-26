@@ -2,7 +2,7 @@
 
 The following example AWS Lambda functions, written in Java, JavaScript and Python,
 illustrate upserting a single vertex with a randomly generated ID using the
-`fold().coalesce().unfold()` idiom.
+`mergeV()` step (see [Making efficient upserts with Gremlin mergeV() and mergeE() steps](gremlin-efficient-upserts.md "gremlin-efficient-upserts.md")).
 
 Much of the code in each function is boilerplate code, responsible for managing
 connections and retrying connections and queries if an error occurs. The real application
@@ -12,7 +12,9 @@ your own Lambda functions, you can concentrate on modifying `doQuery()`
 and `query()`.
 
 The functions are configured to retry failed queries 5 times, waiting 1 second
-between retries.
+between retries. In a production application, consider use of exponential backoff with
+jitter rather than a fixed interval. For detailed guidance, see
+[Exception Handling and Retries](transactions-exceptions.md "transactions-exceptions.md").
 
 The functions require values to be present in the following Lambda environment
 variables:
@@ -86,6 +88,7 @@ import org.apache.tinkerpop.gremlin.driver.remote.DriverRemoteConnection;
 import org.apache.tinkerpop.gremlin.driver.ser.Serializers;
 import org.apache.tinkerpop.gremlin.process.traversal.AnonymousTraversalSource;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
+import org.apache.tinkerpop.gremlin.process.traversal.Merge;
 import org.apache.tinkerpop.gremlin.structure.T;
 
 import java.io.*;
@@ -97,8 +100,6 @@ import java.util.concurrent.Callable;
 import java.util.function.Function;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.__.addV;
-import static org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.__.unfold;
 
 public class MyHandler implements RequestStreamHandler {
 
@@ -149,11 +150,8 @@ public class MyHandler implements RequestStreamHandler {
     int id = (int) args.get("id");
 
     @SuppressWarnings("unchecked")
-    Callable<Object> query = () -> g.V(id)
-      .fold()
-      .coalesce(
-        unfold(),
-        addV("Person").property(T.id, id))
+    Callable<Object> query = () -> g.mergeV(Map.of(T.id, id))
+      .option(Merge.onCreate, Map.of(T.label, "Person"))
       .id().next();
 
     Status<Object> status = executor.execute(query);
@@ -186,6 +184,8 @@ public class MyHandler implements RequestStreamHandler {
     return builder.create();
   }
 
+  // NOTE: This example uses a fixed backoff for simplicity.
+  // In a production application consider use of exponential backoff with jitter.
   private RetryConfig createRetryConfig() {
     return new RetryConfigBuilder().retryOnCustomExceptionLogic(retryLogic())
                                    .withDelayBetweenTries(1000, ChronoUnit.MILLIS)
@@ -310,7 +310,7 @@ const {getUrlAndHeaders} = require('gremlin-aws-sigv4/lib/utils');
 const traversal = gremlin.process.AnonymousTraversalSource.traversal;
 const DriverRemoteConnection = gremlin.driver.DriverRemoteConnection;
 const t = gremlin.process.t;
-const __ = gremlin.process.statics;
+const Merge = gremlin.process.merge;
 
 let conn = null;
 let g = null;
@@ -319,12 +319,8 @@ async function query(context) {
 
   const id = context.id;
 
-  return g.V(id)
-    .fold()
-    .coalesce(
-      __.unfold(),
-      __.addV('User').property(t.id, id)
-    )
+  return g.mergeV({[t.id]: id})
+    .option(Merge.onCreate, {[t.label]: 'User'})
     .id().next();
 }
 
@@ -382,6 +378,8 @@ exports.handler = async (event, context) => {
     g = createGraphTraversalSource(conn);
   }
 
+  // NOTE: This example uses a fixed interval for simplicity.
+  // In a production application consider use of exponential backoff with jitter.
   return async.retry(
     {
       times: 5,

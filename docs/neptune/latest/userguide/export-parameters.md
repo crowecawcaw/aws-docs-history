@@ -5,12 +5,13 @@ command line utility, the parameters you use to control the export are mostly th
 They contain a JSON object passed to the Neptune-Export endpoint or to
 `neptune-export` on the command line.
 
-The object passed in to the export process has up to five top-level fields:
+The object passed in to the export process has the following top-level fields:
 
 ```
 -d '{
       "command" : "`(either `export-pg` or `export-rdf`)`",
       "outputS3Path" : "s3:/`(your Amazon S3 bucket)`/`(path to the folder for exported data)`",
+      "expectedBucketOwner" : "`(your AWS account ID for Amazon S3 bucket)`",
       "jobSize" : "`(for Neptune-Export service only)`",
       "params" : { `(a JSON object that contains export-process parameters)` },
       "additionalParams": { `(a JSON object that contains parameters for training configuration)` }
@@ -21,6 +22,7 @@ The object passed in to the export process has up to five top-level fields:
 
 - [The command parameter](export-parameters.md#export-parameters-command "export-parameters.md#export-parameters-command")
 - [The outputS3Path parameter](export-parameters.md#export-parameters-outputS3Path "export-parameters.md#export-parameters-outputS3Path")
+- [The expectedBucketOwner parameter](export-parameters.md#export-parameters-expectedBucketOwner "export-parameters.md#export-parameters-expectedBucketOwner")
 - [The jobSize parameter](export-parameters.md#export-parameters-jobSize "export-parameters.md#export-parameters-jobSize")
 - [The params object](export-parameters.md#export-parameters-params "export-parameters.md#export-parameters-params")
 - [The additionalParams object](export-parameters.md#export-parameters-additionalParams "export-parameters.md#export-parameters-additionalParams")
@@ -96,6 +98,17 @@ must contain the URI of an Amazon S3 location to which the exported files can be
 
 The value must begin with `s3://`, followed by a valid bucket name
 and optionally a folder path within the bucket.
+
+## The `expectedBucketOwner` parameter
+
+The `expectedBucketOwner` top-level parameter is optional. When set to
+an AWS account ID, it validates that the Amazon S3 bucket specified in `outputS3Path`
+is owned by that account. If omitted, it defaults to the account ID resolved from the
+credentials used for Amazon S3 operations.
+
+```
+  "expectedBucketOwner" : "`(your AWS account ID for Amazon S3 bucket)`"
+```
 
 ## The `jobSize` parameter
 

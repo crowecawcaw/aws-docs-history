@@ -1,6 +1,6 @@
 # Gremlin step coverage in DFE
 
-Gremlin DFE is a labmode feature and can be used by either enabling the cluster parameter or
+Gremlin DFE is an experimental feature and can be used by either enabling the instance parameter or
 using the `Neptune#useDFE` query hint. For more information please refer to
 [Using Gremlin with the Neptune DFE query engine](gremlin-with-dfe.md "gremlin-with-dfe.md").
 

@@ -37,6 +37,10 @@ Or, for string-based query submission, the code would look like this:
 
 ```
 
+If a query exceeds the per-query timeout, Neptune terminates it. Whether
+to retry a timed-out query depends on the nature of the failure and your workload.
+For guidance, see [Exception Handling and Retries](transactions-exceptions.md "transactions-exceptions.md").
+
 ###### Note
 
 It is possible to incur unexpected costs if you set the query timeout value

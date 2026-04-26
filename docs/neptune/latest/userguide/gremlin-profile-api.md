@@ -285,8 +285,8 @@ or part of the query, displays metrics for `DFEStep` and/or
 
 ###### Note
 
-DFE is an experimental feature released under lab mode, so the
-exact format of the `profile` output is still subject to change.
+Because DFE support for Gremlin is an experimental feature, the
+exact format of the `profile` output is subject to change.
 
 ## Sample `profile` output when the Neptune Dataflow engine (DFE) is enabled
 
@@ -493,5 +493,5 @@ curl -X POST https://`your-neptune-endpoint`:`port`/gremlin/profile \
 
 ###### Note
 
-Because the DFE engine is an experimental feature released in lab mode,
+Because DFE support for Gremlin is an experimental feature,
 the exact format of the `profile` output is subject to change.

@@ -1,7 +1,8 @@
 # Recommendations for using Gremlin write-requests in Lambda
 
 If your Lambda function modifies graph data, consider adopting a back-off-and-retry
-strategy to handle the following exceptions:
+strategy to handle the following exceptions. For detailed guidance on developing a
+practical retry strategy, see [Exception Handling and Retries](transactions-exceptions.md "transactions-exceptions.md").
 
 - **`ConcurrentModificationException`**   –  
   The Neptune transaction semantics mean that write requests sometimes fail
@@ -15,5 +16,5 @@ strategy to handle the following exceptions:
   with a `ReadOnlyViolationException`. When this happens, close the
   existing connection, reconnect to the cluster endpoint, and then retry the request.
   Also, if you use a back-off-and-retry strategy to handle write request issues,
-  consider implementing idempotent queries for create and update requests (for example,
-  using [fold().coalesce().unfold()](http://kelvinlawrence.net/book/Gremlin-Graph-Guide.html#upsert "http://kelvinlawrence.net/book/Gremlin-Graph-Guide.html#upsert").
+  consider implementing idempotent queries for create and update requests using
+  [Making efficient upserts with Gremlin mergeV() and mergeE() steps](gremlin-efficient-upserts.md "gremlin-efficient-upserts.md").

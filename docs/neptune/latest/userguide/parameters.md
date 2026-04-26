@@ -91,7 +91,8 @@ features currently available.
 This parameter is static, meaning that changes to it do not take
 effect on any instance until it has been rebooted.
 
-To enable or disable an experimental feature, include
+Lab mode features are typically disabled by default. To enable or
+explicitly disable an experimental feature, include
 `(feature name)``=enabled` or
 `(feature name)``=disabled` in
 this parameter. You can enable or disable multiple features by
@@ -99,14 +100,6 @@ separating them with commas, like this:
 
 `(feature #1 name)``=enabled,`
 `(feature #2 name)``=enabled`
-
-Lab mode features are typically disabled by default. An exception is the
-`DFEQueryEngine` feature, which became enabled by default for use with
-query hints (`DFEQueryEngine=viaQueryHint`) starting in [Neptune engine release 1.0.5.0](engine-releases-1.0.5.0.md "engine-releases-1.0.5.0.md").
-Beginning with [Neptune engine release 1.1.1.0](engine-releases-1.1.1.0.md "engine-releases-1.1.1.0.md")
-the DFE engine is no longer in lab mode, and is now controlled using
-the [neptune_dfe_query_engine](#parameters-instance-parameters-neptune_dfe_query_engine "#parameters-instance-parameters-neptune_dfe_query_engine")
-instance parameter in an instance's DB parameter group.
 
 ## `neptune_query_timeout` (cluster-level parameter)
 
@@ -249,8 +242,7 @@ Allowed values are `1` (enabled), and `0` (disabled). The default value is `0`.
 
 ## `neptune_dfe_query_engine` (instance-level parameter)
 
-Starting with [Neptune engine release 1.1.1.0](engine-releases-1.1.1.0.md "engine-releases-1.1.1.0.md"),
-this DB instance parameter is used to control how the [DFE
+This DB instance parameter controls how the [DFE
 query engine](neptune-dfe-engine.md "neptune-dfe-engine.md") is used. Allowed values are as follows:
 
 This parameter is static, meaning that changes to it do not take
@@ -270,9 +262,6 @@ is used when the instance is started.
 
 All openCypher queries are executed by the DFE engine regardless of how
 this parameter is set.
-
-Prior to release 1.1.1.0, this was a lab-mode parameter rather than a DB instance
-parameter.
 
 ## `neptune_query_timeout` (instance-level parameter)
 

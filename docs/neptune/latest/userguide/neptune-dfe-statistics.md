@@ -4,13 +4,7 @@
 
 Support for openCypher depends on the DFE query engine in Neptune.
 
-The DFE engine was first available in lab mode in [Neptune
-engine release 1.0.3.0](engine-releases-1.0.3.0.md "engine-releases-1.0.3.0.md"), and starting in [Neptune
-engine release 1.0.5.0](engine-releases-1.0.5.0.md "engine-releases-1.0.5.0.md"), it became enabled by default, but only for use with
-query hints and for openCypher support.
-
-Beginning with [Neptune engine release 1.1.1.0](engine-releases-1.1.1.0.md "engine-releases-1.1.1.0.md")
-the DFE engine is no longer in lab mode, and is now controlled using
+The DFE engine is controlled using
 the [neptune_dfe_query_engine](parameters.md#parameters-instance-parameters-neptune_dfe_query_engine "parameters.md#parameters-instance-parameters-neptune_dfe_query_engine")
 instance parameter in an instance's DB parameter group.
 

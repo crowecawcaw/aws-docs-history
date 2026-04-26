@@ -4,7 +4,9 @@ The `queryTimeout` query hint specifies a timeout that is shorter than
 the `neptune_query_timeout` value set in the DB parameters group.
 
 If the query terminates as a result of this hint, a `TimeLimitExceededException`
-is thrown, with an `Operation terminated (deadline exceeded)` message.
+is thrown, with an `Operation terminated (deadline exceeded)` message. Whether
+to retry a timed-out query depends on the nature of the failure and your workload. For
+guidance, see [Exception Handling and Retries](transactions-exceptions.md "transactions-exceptions.md").
 
 ## `queryTimeout` SPARQL hint syntax
 
