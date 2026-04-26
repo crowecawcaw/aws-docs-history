@@ -97,7 +97,7 @@ To create a role that grants access to Athena, you attach Athena managed policie
 role. There are two managed policies for Athena: `AmazonAthenaFullAccess` and
 `AWSQuicksightAthenaAccess`. These policies grant permissions to Athena to
 query Amazon S3 and to write the results of your queries to a separate bucket on your behalf.
-To see the contents of these policies for Athena, see .
+To see the contents of these policies for Athena, see [AWS managed policies for Amazon Athena](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
 For steps to attach the Athena managed policies to a role, follow [Adding IAM identity permissions (console)](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console") in the
 _IAM User Guide_ and add the

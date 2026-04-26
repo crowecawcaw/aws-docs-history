@@ -65,6 +65,12 @@ When using a VPC with AWS Glue connections, you will need to set up the followin
 - AWS Glue
 - AWS Secrets Manager
 
+###### Note
+
+For **AWS Glue Data Catalog federated connectors without Lambda**, you will also need to set up the following PrivateLink endpoints:
+
+- KMS
+
 Alternatively, you can use public internet access, though this is not recommended for security reasons.
 
 ###### Warning

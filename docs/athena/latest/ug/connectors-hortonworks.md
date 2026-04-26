@@ -48,7 +48,7 @@ The following terms relate to the Hortonworks Hive connector.
 
 Use the parameters in this section to configure the Hortonworks Hive connector.
 
-### Connection string
+#### Connection string
 
 Use a JDBC connection string in the following format to connect to a database
 instance.
@@ -57,7 +57,7 @@ instance.
 hive://${`jdbc_connection_string`}
 ```
 
-### Using a multiplexing handler
+#### Using a multiplexing handler
 
 You can use a multiplexer to connect to multiple database instances with a single
 Lambda function. Requests are routed by catalog name. Use the following classes in
@@ -69,7 +69,7 @@ Lambda.
 | Metadata handler  | `HiveMuxMetadataHandler`  |
 | Record handler    | `HiveMuxRecordHandler`    |
 
-#### Multiplexing handler parameters
+##### Multiplexing handler parameters
 
 | Parameter                      | Description                                                                                                                                                                                                                                                                                  |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -86,7 +86,7 @@ default), and `hive2`.
 | `hive_catalog1_connection_string` | `hive://jdbc:hive2://hive1:10000/default?${Test/RDS/hive1}`     |
 | `hive_catalog2_connection_string` | `hive://jdbc:hive2://hive2:10000/default?UID=sample&PWD=sample` |
 
-#### Providing credentials
+##### Providing credentials
 
 To provide a user name and password for your database in your JDBC connection
 string, you can use connection string properties or AWS Secrets Manager.
@@ -140,7 +140,7 @@ hive://jdbc:hive2://hive1host:10000/default?...&UID=sample2&PWD=sample2&...
 Currently, the Hortonworks Hive connector recognizes the `UID` and
 `PWD` JDBC properties.
 
-### Using a single connection handler
+#### Using a single connection handler
 
 You can use the following single connection metadata and record handlers to
 connect to a single Hortonworks Hive instance.
@@ -151,7 +151,7 @@ connect to a single Hortonworks Hive instance.
 | Metadata handler  | `HiveMetadataHandler`  |
 | Record handler    | `HiveRecordHandler`    |
 
-#### Single connection handler parameters
+##### Single connection handler parameters
 
 | Parameter | Description                              |
 | --------- | ---------------------------------------- |
@@ -167,7 +167,7 @@ The following example property is for a single Hortonworks Hive instance support
 | --------- | -------------------------------------------------------------------------- |
 | `default` | `hive://jdbc:hive2://hive1host:10000/default?secret=${Test/RDS/hive1host}` |
 
-### Spill parameters
+#### Spill parameters
 
 The Lambda SDK can spill data to Amazon S3. All database instances accessed by the same
 Lambda function spill to the same location.

@@ -77,13 +77,15 @@ aws glue describe-connection-type --connection-type POSTGRESQL
 
 **Lambda environment properties**
 
+The following Lambda environment properties apply only when you use the connector with a Lambda function in your account.
+
 glue_connection – Specifies the name of the Glue connection associated with the federated connector.
 
 ###### Note
 
-- All connectors that use Glue connections must use AWS Secrets Manager to store credentials.
-- The PostgreSQL connector created using Glue connections does not support the use of a multiplexing handler.
-- The PostgreSQL connector created using Glue connections only supports `ConnectionSchemaVersion` 2.
+- All connectors that use a AWS Glue Data Catalog federated connection must use AWS Secrets Manager to store credentials.
+- The PostgreSQL connector created using a AWS Glue Data Catalog federated connection does not support the use of a multiplexing handler.
+- The PostgreSQL connector created using a AWS Glue Data Catalog federated connection only supports `ConnectionSchemaVersion` 2.
   The parameter names and definitions listed below are for Athena data source connectors created without an associated Glue connection. Use the following parameters only when you [manually deploy](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md") an earlier version of an Athena data source connector or when the
   `glue_connection` environment property is not
   specified.

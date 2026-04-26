@@ -1,5 +1,10 @@
 # Register your connection as a Glue Data Catalog
 
+###### Note
+
+**AWS Glue Data Catalog federated connectors without Lambda** are already registered as a Glue Data Catalog and work with fine-grained access control and can ignore this section.
+See [Connector type support by data source](federated-queries.md#federated-queries-connector-support "federated-queries.md#federated-queries-connector-support") for a list of connectors.
+
 After you create your data source, you can use the Athena console to register your
 connection as a Glue Data Catalog. Once registered, you can manage your federated data
 catalog and enable fine-grained access control using Lake Formation. For more information, see
@@ -9,31 +14,31 @@ federated catalog](../../../lake-formation/latest/dg/create-fed-catalog-data-sou
 You can register the following connectors to integrate with AWS Glue for fine-grained
 access control.
 
-- Redshift
-- BigQuery
-- DynamoDB (Preview)
-- Snowflake (Preview)
-- MySQL
-- PostgreSQL
 - AWS CMDB
 - Timestream
 - Azure Data Lake Storage
 - Azure Synapse
 - IBM Db2
 - IBM Db2 AS/400 (Db2 iSeries)
-- DocumentDB
 - Google Cloud Storage
 - HBase
-- OpenSearch
-- Oracle
-- SAP HANA
-- SQL Server
 - TPC-DS
 - Cloudera Hive
 - Cloudwatch
 - Cloudwatch Metrics
-- Teradata
 - Vertica
+- BigQuery
+- DocumentDB
+- DynamoDB
+- MySQL
+- OpenSearch
+- Oracle
+- PostgreSQL
+- Redshift
+- SAP HANA
+- Snowflake
+- SQL Server
+- Teradata
 
 ## Prerequisites
 

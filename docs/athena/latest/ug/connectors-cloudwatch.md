@@ -33,13 +33,15 @@ aws glue describe-connection-type --connection-type CLOUDWATCH
 
 **Lambda environment properties**
 
+The following Lambda environment properties apply only when you use the connector with a Lambda function in your account.
+
 - glue_connection – Specifies the name of the Glue connection associated with the federated connector.
 
 ###### Note
 
-- All connectors that use Glue connections must use AWS Secrets Manager to store credentials.
-- The CloudWatch connector created using Glue connections does not support the use of a multiplexing handler.
-- The CloudWatch connector created using Glue connections only supports `ConnectionSchemaVersion` 2.
+- All connectors that use a AWS Glue Data Catalog federated connection must use AWS Secrets Manager to store credentials.
+- The CloudWatch connector created using a AWS Glue Data Catalog federated connection does not support the use of a multiplexing handler.
+- The CloudWatch connector created using a AWS Glue Data Catalog federated connection only supports `ConnectionSchemaVersion` 2.
 
 - spill_bucket – Specifies the Amazon S3 bucket
   for data that exceeds Lambda function limits.

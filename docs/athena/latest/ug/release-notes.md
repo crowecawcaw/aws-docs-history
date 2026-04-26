@@ -17,6 +17,18 @@ Describes Amazon Athena features, improvements, and bug fixes by release date.
 
 ## Athena release notes for 2026
 
+### April 21, 2026
+
+Published on 2026-04-21
+
+Amazon Athena now offers managed connectors for 12 data sources, including
+Amazon DynamoDB, PostgreSQL, MySQL, and Snowflake. Managed connectors are AWS Glue Data Catalog
+federated connectors that Athena creates and manages on your behalf, so you can
+query data outside Amazon S3 without deploying or maintaining connector resources in
+your AWS account. These connectors are registered as federated catalogs in
+AWS Glue Data Catalog, and you can optionally set up fine-grained access controls through
+AWS Lake Formation. For more information, see [Use Amazon Athena Federated Query](federated-queries.md "federated-queries.md").
+
 ### March 27, 2026
 
 Published on 2026-03-27

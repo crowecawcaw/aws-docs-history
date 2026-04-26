@@ -1,34 +1,32 @@
 # Use Amazon Athena Federated Query
 
 If you have data in sources other than Amazon S3, you can use Athena Federated Query to query the data in
-place or build pipelines that extract data from multiple data sources and store them in
+place or build pipelines that extract data from multiple data sources and store the data in
 Amazon S3. With Athena Federated Query, you can run SQL queries across data stored in relational,
-non-relational, object, and custom data sources.
+non-relational, object, and custom data sources. For a full list of supported data sources,
+see [Available data source connectors](connectors-available.md "connectors-available.md").
 
-Athena uses _data source connectors_ that run on AWS Lambda to run
-federated queries. A data source connector is a piece of code that can translate between
-your target data source and Athena. You can think of a connector as an extension of Athena's
-query engine. Prebuilt Athena data source connectors exist for data sources like Amazon CloudWatch
-Logs, Amazon DynamoDB, Amazon DocumentDB, and Amazon RDS, and JDBC-compliant relational data sources such MySQL,
-and PostgreSQL under the Apache 2.0 license. You can also use the Athena Query Federation SDK to write
-custom connectors. To choose, configure, and deploy a data source connector to your account,
-you can use the Athena and Lambda consoles or the AWS Serverless Application Repository. After you deploy data source
-connectors, the connector is associated with a catalog that you can specify in SQL queries.
-You can combine SQL statements from multiple catalogs and span multiple data sources with a
-single query.
+When you run a query against a data source, Athena invokes the connector to determine
+which data to read, manages parallelism, and pushes down filter predicates. Connectors
+can also restrict access to data based on the user who submits the query.
 
-When a query is submitted against a data source, Athena invokes the corresponding connector
-to identify parts of the tables that need to be read, manages parallelism, and pushes down
-filter predicates. Based on the user submitting the query, connectors can provide or
-restrict access to specific data elements. Connectors use Apache Arrow as the format for
-returning data requested in a query, which enables connectors to be implemented in languages
-such as C, C++, Java, Python, and Rust. Since connectors are processed in Lambda, they can be
-used to access data from any data source on the cloud or on-premises that is accessible from
-Lambda.
+Athena uses _data source connectors_ to run federated queries on
+underlying data. Athena supports two types of data source connectors with different
+capabilities:
 
-To write your own data source connector, you can use the Athena Query Federation SDK to customize one of
-the prebuilt connectors that Amazon Athena provides and maintains. You can modify a copy of the
-source code from the [GitHub repository](https://github.com/awslabs/aws-athena-query-federation/wiki/Available-Connectors "https://github.com/awslabs/aws-athena-query-federation/wiki/Available-Connectors") and then use the [Connector publish tool](https://github.com/awslabs/aws-athena-query-federation/wiki/Connector_Publish_Tool "https://github.com/awslabs/aws-athena-query-federation/wiki/Connector_Publish_Tool") to create your own AWS Serverless Application Repository package.
+- AWS Glue Data Catalog federated connectors
+  – These connectors use an AWS Glue connection to connect to the data source. They can be used with fine-grained data governance control support through Lake Formation.
+  For more information, see [Federated catalog data connections](../../../lake-formation/latest/dg/federated-catalog-data-connection.md "../../../lake-formation/latest/dg/federated-catalog-data-connection.md") in the _AWS Lake Formation Developer Guide_.
+  - Connectors associated with a Lambda can optionally be manually registered as an AWS Glue Data Catalog to be used with Lake Formation for fine-grained data governance
+  - Starting April 21, 2026, certain newly created connectors are automatically registered as Glue Data Catalogs and do not use a Lambda function in your AWS account
+
+- Athena data catalog federated connectors
+  – These connectors are specific to Athena and cannot be registered as
+  federated catalogs with AWS Glue Data Catalog. They require a Lambda function in
+  your AWS account to query data. Custom connectors developed using the Athena Query Federation SDK
+  are Athena data catalog connectors. For more information, see
+  [Develop a data source connector using the Athena Query Federation SDK](connect-data-source-federation-sdk.md "connect-data-source-federation-sdk.md").
+  For a list of data sources compatible with each type, see [Connector type support by data source](#federated-queries-connector-support "#federated-queries-connector-support").
 
 ###### Note
 
@@ -36,15 +34,8 @@ Third party developers may have used the Athena Query Federation SDK to write da
 For support or licensing issues with these data source connectors, please work with your
 connector provider. These connectors are not tested or supported by AWS.
 
-For a list of data source connectors written and tested by Athena, see [Available data source connectors](connectors-available.md "connectors-available.md").
-
-For information about writing your own data source connector, see [Example Athena connector](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-example "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-example") on GitHub.
-
 ## Considerations and limitations
 
-- Engine versions – Athena Federated Query is supported
-  only on Athena engine version 2 and later. For information about Athena engine versions, see
-  [Athena engine versioning](engine-versions.md "engine-versions.md").
 - Views – You can create and query views
   on federated data sources. Federated views are stored in AWS Glue, not the
   underlying data source. For more information, see [Query federated views](running-federated-queries.md#running-federated-queries-federated-views "running-federated-queries.md#running-federated-queries-federated-views").
@@ -66,33 +57,50 @@ currently not supported for external catalogs`**.
 - Secrets Manager – To use the Athena Federated Query feature with
   AWS Secrets Manager, you must configure an Amazon VPC private endpoint for Secrets Manager. For more
   information, see [Create a Secrets Manager VPC private endpoint](../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md#vpc-endpoint-create "../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md#vpc-endpoint-create") in the _AWS Secrets Manager User Guide_.
+- Passthrough queries – Passthrough queries are not supported after a data source is registered as an AWS Glue Data Catalog.
 
-## Permissions required
+## Connector type support by data source
 
-Data source connectors might require access to the following resources to function
-correctly. If you use a prebuilt connector, check the information for the connector to
-ensure that you have configured your VPC correctly. Also, ensure that IAM principals
-running queries and creating connectors have privileges to required actions. For more
-information, see [Allow access to Athena Federated Query: Example policies](federated-query-iam-access.md "federated-query-iam-access.md").
+The following table shows the connector types that each data source supports.
+Certain AWS Glue Data Catalog federated catalog connectors that you create on or after April 21, 2026,
+do not require Lambda.
 
-- Amazon S3 – In addition to writing query
-  results to the Athena query results location in Amazon S3, data connectors also write
-  to a spill bucket in Amazon S3. Connectivity and permissions to this Amazon S3 location
-  are required. We recommend using spill to disk encryption for each connector and
-  [S3 lifecycle
-  configuration](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md") to expire spilled data that is no longer
-  needed.
-- Athena – Data sources need connectivity
-  to Athena and vice versa for checking query status and preventing
-  overscan.
-- AWS Glue Data Catalog – Connectivity and
-  permissions are required if your connector uses Data Catalog for supplemental or
-  primary metadata.
-- Amazon ECR – Data source connector Lambda
-  functions use an Amazon ECR image from an Amazon ECR repository. The user that deploys the
-  connector must have the permissions `ecr:BatchGetImage` and
-  `ecr:GetDownloadUrlForLayer`. For more information, see [Amazon ECR permissions](../../../lambda/latest/dg/images-create.md#gettingstarted-images-permissions "../../../lambda/latest/dg/images-create.md#gettingstarted-images-permissions") in the
-  _AWS Lambda Developer Guide_.
+| Data source                                                                             | AWS Glue Data Catalog federated connectors | Athena data catalog federated connectors |
+| --------------------------------------------------------------------------------------- | ------------------------------------------ | ---------------------------------------- | --- |
+|                                                                                         | Without Lambda                             | With Lambda                              |     |
+| [Amazon CloudWatch Logs](connectors-cloudwatch.md "connectors-cloudwatch.md")           |                                            | Yes                                      | Yes |
+| [Amazon CloudWatch Metrics](connectors-cwmetrics.md "connectors-cwmetrics.md")          |                                            | Yes                                      | Yes |
+| [Amazon DocumentDB](connectors-docdb.md "connectors-docdb.md")                          | Yes                                        | Yes                                      | Yes |
+| [Amazon DynamoDB](connectors-dynamodb.md "connectors-dynamodb.md")                      | Yes                                        | Yes                                      | Yes |
+| [Amazon MSK](connectors-msk.md "connectors-msk.md")                                     |                                            |                                          | Yes |
+| [Amazon Neptune](connectors-neptune.md "connectors-neptune.md")                         |                                            |                                          | Yes |
+| [Amazon OpenSearch](connectors-opensearch.md "connectors-opensearch.md")                | Yes                                        | Yes                                      | Yes |
+| [Amazon Redshift](connectors-redshift.md "connectors-redshift.md")                      | Yes                                        | Yes                                      | Yes |
+| [Amazon Timestream](connectors-timestream.md "connectors-timestream.md")                |                                            | Yes                                      | Yes |
+| [Azure Data Lake Storage](connectors-adls-gen2.md "connectors-adls-gen2.md")            |                                            | Yes                                      | Yes |
+| [Azure Synapse](connectors-azure-synapse.md "connectors-azure-synapse.md")              |                                            | Yes                                      | Yes |
+| [Cloudera Hive](connectors-cloudera-hive.md "connectors-cloudera-hive.md")              |                                            | Yes                                      | Yes |
+| [Cloudera Impala](connectors-cloudera-impala.md "connectors-cloudera-impala.md")        |                                            | Yes                                      | Yes |
+| [CMDB](connectors-cmdb.md "connectors-cmdb.md")                                         |                                            | Yes                                      | Yes |
+| [Confluent](connectors-kafka.md "connectors-kafka.md")                                  |                                            |                                          | Yes |
+| [Custom](connect-data-source-federation-sdk.md "connect-data-source-federation-sdk.md") |                                            |                                          | Yes |
+| [Db2](connectors-ibm-db2.md "connectors-ibm-db2.md")                                    |                                            | Yes                                      | Yes |
+| [Db2 iSeries](connectors-ibm-db2-as400.md "connectors-ibm-db2-as400.md")                |                                            | Yes                                      | Yes |
+| [Google BigQuery](connectors-bigquery.md "connectors-bigquery.md")                      | Yes                                        | Yes                                      | Yes |
+| [Google Cloud Storage](connectors-gcs.md "connectors-gcs.md")                           |                                            | Yes                                      | Yes |
+| [HBase](connectors-hbase.md "connectors-hbase.md")                                      |                                            | Yes                                      | Yes |
+| [Hortonworks (Hive)](connectors-hortonworks.md "connectors-hortonworks.md")             |                                            |                                          | Yes |
+| [Kafka](connectors-kafka.md "connectors-kafka.md")                                      |                                            |                                          | Yes |
+| [MySQL](connectors-mysql.md "connectors-mysql.md")                                      | Yes                                        | Yes                                      | Yes |
+| [Oracle](connectors-oracle.md "connectors-oracle.md")                                   | Yes                                        | Yes                                      | Yes |
+| [PostgreSQL](connectors-postgresql.md "connectors-postgresql.md")                       | Yes                                        | Yes                                      | Yes |
+| [Redis OSS](connectors-redis.md "connectors-redis.md")                                  |                                            |                                          | Yes |
+| [SAP HANA](connectors-sap-hana.md "connectors-sap-hana.md")                             | Yes                                        | Yes                                      | Yes |
+| [Snowflake](connectors-snowflake.md "connectors-snowflake.md")                          | Yes                                        | Yes                                      | Yes |
+| [SQL Server](connectors-microsoft-sql-server.md "connectors-microsoft-sql-server.md")   | Yes                                        | Yes                                      | Yes |
+| [Teradata](connectors-teradata.md "connectors-teradata.md")                             | Yes                                        | Yes                                      | Yes |
+| [TPC-DS](connectors-tpcds.md "connectors-tpcds.md")                                     |                                            | Yes                                      | Yes |
+| [Vertica](connectors-vertica.md "connectors-vertica.md")                                |                                            | Yes                                      | Yes |
 
 ## Videos
 
@@ -100,8 +108,8 @@ Watch the following videos to learn more about using Athena Federated Query.
 
 ###### Video: Analyze Results of Federated Query in Amazon Athena in Quick
 
-The following video demonstrates how to analyze results of an Athena federated
-query in Quick.
+The following video demonstrates how to analyze results of an Athena Federated Query
+in Quick.
 
 ###### Video: Game Analytics Pipeline
 

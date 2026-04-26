@@ -85,6 +85,8 @@ aws glue describe-connection-type --connection-type SAPHANA
 
 **Lambda environment properties**
 
+The following Lambda environment properties apply only when you use the connector with a Lambda function in your account.
+
 - glue_connection – Specifies the name of the Glue connection associated with the federated connector.
 - **casing_mode** – (Optional) Specifies
   how to handle casing for schema and table names. The
@@ -100,9 +102,9 @@ aws glue describe-connection-type --connection-type SAPHANA
 
 ###### Note
 
-- All connectors that use Glue connections must use AWS Secrets Manager to store credentials.
-- The SAP HANA connector created using Glue connections does not support the use of a multiplexing handler.
-- The SAP HANA connector created using Glue connections only supports `ConnectionSchemaVersion` 2.
+- All connectors that use a AWS Glue Data Catalog federated connection must use AWS Secrets Manager to store credentials.
+- The SAP HANA connector created using a AWS Glue Data Catalog federated connection does not support the use of a multiplexing handler.
+- The SAP HANA connector created using a AWS Glue Data Catalog federated connection only supports `ConnectionSchemaVersion` 2.
 
 #### Connection string
 

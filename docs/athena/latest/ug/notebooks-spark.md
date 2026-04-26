@@ -46,6 +46,7 @@ Amazon Athena offers the following features:
 - [Logging and monitoring](notebooks-spark-logging-monitoring.md "notebooks-spark-logging-monitoring.md")
 - [Spark UI access](notebooks-spark-ui-access.md "notebooks-spark-ui-access.md")
 - [Spark Connect](notebooks-spark-connect.md "notebooks-spark-connect.md")
+- [Spark session VPC endpoints](athena-spark-vpc-endpoint.md "athena-spark-vpc-endpoint.md")
 - [Enable requester pays buckets](notebooks-spark-requester-pays.md "notebooks-spark-requester-pays.md")
 - [Lake Formation integration](notebooks-spark-lakeformation.md "notebooks-spark-lakeformation.md")
 - [Enable Spark encryption](notebooks-spark-encryption.md "notebooks-spark-encryption.md")
