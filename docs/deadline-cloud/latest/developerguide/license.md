@@ -14,5 +14,6 @@ Deadline Cloud provides two methods of providing software licenses for your jobs
 
 ###### Topics
 
+- [Combining BYOL and UBL](license-combine-byol-ubl.md "license-combine-byol-ubl.md")
 - [Connect service-managed fleets to a custom license server](smf-byol.md "smf-byol.md")
 - [Connect customer-managed fleets to a license endpoint](cmf-ubl.md "cmf-ubl.md")

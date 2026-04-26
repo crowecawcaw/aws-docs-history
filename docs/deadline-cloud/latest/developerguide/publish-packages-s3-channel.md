@@ -111,6 +111,53 @@ rattler-build publish output/linux-64/blender-4.5.0-hb0f4dca_0.conda \
     --to s3://amzn-s3-demo-bucket/Conda/Default
 ```
 
+## Initializing or reindexing a channel
+
+When you use `rattler-build publish` to publish a package, the command
+initializes the channel automatically if the channel does not already exist. In most cases,
+you don't need to initialize or reindex the channel manually.
+
+You might need to manually initialize or reindex a channel in the following
+situations:
+
+- You want to create an empty channel before publishing any packages, for example,
+  to verify that your Deadline Cloud queue environment can connect to the channel.
+- You uploaded or deleted `.conda` files directly with Amazon S3 tools
+  instead of using `rattler-build publish`, and the channel index is out of
+  date.
+
+### Initializing an empty channel
+
+To initialize an empty channel, create a `repodata.json` file and upload
+it to the `noarch` subdirectory of the channel prefix. Replace
+`amzn-s3-demo-bucket` with your bucket name.
+
+```
+echo '{"info":{"subdir":"noarch"},"packages":{},"packages.conda":{},"removed":[],"repodata_version":1}' > empty_channel_repodata.json
+aws s3api put-object --body empty_channel_repodata.json --key Conda/Default/noarch/repodata.json --bucket `amzn-s3-demo-bucket`
+```
+
+The `/Conda/Default` prefix must match the channel prefix that your queue
+environment uses. After you initialize the channel, you can publish packages to the
+channel by using `rattler-build publish`.
+
+### Reindexing a channel
+
+If the channel index is out of date, use `rattler-index` to rebuild the
+index from the package files in the channel. First, install
+`rattler-index`.
+
+```
+pixi global install rattler-index
+```
+
+Then reindex the channel. Replace `amzn-s3-demo-bucket`
+with your bucket name.
+
+```
+rattler-index s3 s3://amzn-s3-demo-bucket/Conda/Default
+```
+
 ## Testing the package
 
 After you publish the package, create a temporary pixi project to verify that the
@@ -151,20 +198,18 @@ terminals.
 Avoid removing packages from channels that you use for production, because lockfiles
 reference specific packages by hash. Removing a package prevents re-creating environments
 from those lockfiles. For development and testing channels, you can remove a specific
-package by deleting the `.conda` file from the bucket and then re-indexing the
-channel. First, install `rattler-index`.
+package by deleting the `.conda` file from the bucket and then reindexing the
+channel.
 
-```
-pixi global install rattler-index
-```
-
-Then delete the package file and re-index the channel. Replace
+Delete the package file and then reindex the channel. Replace
 `amzn-s3-demo-bucket` with your bucket name.
 
 ```
 aws s3 rm s3://amzn-s3-demo-bucket/Conda/Default/linux-64/blender-4.5.0-hb0f4dca_1.conda
-rattler-index s3 s3://amzn-s3-demo-bucket/Conda/Default
 ```
+
+After you delete the file, reindex the channel to update the channel metadata. For
+instructions, see [Reindexing a channel](#publish-s3-reindex "#publish-s3-reindex").
 
 Package files are stored in platform-specific subdirectories such as
 `linux-64`, `win-64`, or `osx-arm64`. To list the
