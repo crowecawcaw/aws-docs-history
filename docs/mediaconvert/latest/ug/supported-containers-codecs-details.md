@@ -190,6 +190,9 @@ MediaConvert does not read ID3 metadata or tags from MP3 inputs.
 MediaConvert doesn't support fragmented MP4 initialization segments. Your
 MP4 input must be self-contained.
 
+For information about creating MV-HEVC stereoscopic video outputs in MP4
+containers, see [Creating MV-HEVC spatial video outputs with AWS Elemental MediaConvert](mv-hevc-spatial-video.md "mv-hevc-spatial-video.md").
+
 **MPEG-1 (MPEG-1 System Stream)**
 
 | Container | Input / Output     | Supported video codec                                                      | Supported audio codec                                                                                                                                                                                                                                                          |

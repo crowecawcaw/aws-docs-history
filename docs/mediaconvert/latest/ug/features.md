@@ -19,6 +19,7 @@ You set up these features when you create a job.
 - [Image insertion](graphic-overlay.md "graphic-overlay.md")
 - [Kantar watermarking](kantar-watermarking.md "kantar-watermarking.md")
 - [Motion image insertion](motion-graphic-overlay.md "motion-graphic-overlay.md")
+- [MV-HEVC spatial video](mv-hevc-spatial-video.md "mv-hevc-spatial-video.md")
 - [Nielsen watermarking](nielsen-watermarking.md "nielsen-watermarking.md")
 - [Per-frame metric reports](per-frame-metrics.md "per-frame-metrics.md")
 - [Quality-defined variable bitrate (QVBR)](cbr-vbr-qvbr.md "cbr-vbr-qvbr.md")

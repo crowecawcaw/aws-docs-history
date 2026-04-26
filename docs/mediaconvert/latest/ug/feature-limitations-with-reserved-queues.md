@@ -9,6 +9,8 @@ features:
 - [AV1 encoding](reference-codecs-containers.md "reference-codecs-containers.md")
 - [Dolby Vision
   encoding](dolby-vision.md "dolby-vision.md")
+- [MV-HEVC spatial video
+  encoding](mv-hevc-spatial-video.md "mv-hevc-spatial-video.md")
 - [FrameFormer frame rate conversion
   algorithm](working-with-video-frame-rates.md#settings-for-frame-rate-conversion "working-with-video-frame-rates.md#settings-for-frame-rate-conversion")
 - [Accelerated

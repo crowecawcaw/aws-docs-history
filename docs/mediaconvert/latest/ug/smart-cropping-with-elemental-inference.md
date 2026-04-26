@@ -92,6 +92,12 @@ The following are steps to enable Smart Cropping in a MediaConvert output:
 For details about setting up a MediaConvert job, see
 [Tutorial: Configuring job settings](setting-up-a-job.md "setting-up-a-job.md").
 
+Smart Cropping is not supported with the following features:
+
+- [Accelerated transcoding](accelerated-transcoding.md "accelerated-transcoding.md")
+- [HTTP inputs](http-input-requirements.md "http-input-requirements.md")
+- [Reserved queues](working-with-reserved-queues.md "working-with-reserved-queues.md")
+
 ## Pricing
 
 The pricing of a Smart Cropping job is divided into 2 parts: the pricing for Elemental Inference and
