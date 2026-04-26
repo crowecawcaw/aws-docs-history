@@ -40,9 +40,9 @@ Lan Param(3) IP address: 10 4 130 12
    1. In Windows, open **Control Panel**,
       **Programs**, and then
       **Java**.
-   2. Click the **Security** tab. Move the slider
+   2. Choose the **Security** tab. Move the slider
       to the lowest setting: **Medium**.
-   3. Click **OK**.
+   3. Choose **OK**.
 
 You can now open the remote console window.
 

@@ -19,25 +19,25 @@ a USB stick.
    **Connect Virtual Media**. The
    **Virtual Media** screen appears.
 5. In the **Map CD/DVD** section, in **Image
-   File**, click **Choose File**. In the
+   File**, choose **Choose File**. In the
    window that appears, navigate to the kickstart .iso file, select it,
-   and click **Open**. The **Image
+   and choose **Open**. The **Image
    File** field in the **Virtual Media**
    screen now specifies the image file.
-6. Click **Map Device**. Then at the bottom of the
-   screen, click **Close**.
+6. Choose **Map Device**. Then at the bottom of the
+   screen, choose **Close**.
 
 The kickstart .ISO image file is now mapped to the virtual CD/DVD drive.
 
-1. On the main menu of the Virtual Console, click
+1. On the main menu of the Virtual Console, choose
    **Boot**. On the **Boot
-   Controls** list, click **Virtual
+   Controls** list, choose **Virtual
    CD/DVD/ISO**. Then at the **Confirm Boot
-   Action** prompt, click **Yes**.
-2. On the main menu of the Virtual Console, click
-   **Power**, then click **Reset System
+   Action** prompt, choose **Yes**.
+2. On the main menu of the Virtual Console, choose
+   **Power**, then choose **Reset System
    (warm boot)**, and at the **Confirm**
-   prompt, click **Yes**.
+   prompt, choose **Yes**.
 
 The system reboots into the kickstart .iso. Lines of text appear, and
 finally the prompt **Enter the server complete hostname**

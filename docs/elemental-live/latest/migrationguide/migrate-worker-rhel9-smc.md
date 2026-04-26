@@ -18,7 +18,7 @@ Don't use a VPN connection. 4. Copy the ISO file for RHEL 9 to your laptop. 5. O
 ISO that you want to use. Choose **Connect/Plug
 in**. 7. Reboot the system. The image should start to boot.
 
-If the image does not start to boot, click the **F11** key while the splash screen is displaying. Then when
+If the image does not start to boot, choose the **F11** key while the splash screen is displaying. Then when
 the **Please select boot device** prompt
 appear, choose **UEFI: Virtual CDROM**.
 Move this item to the top of the list by pressing the **+** key repeatedly. 8. The installer starts. At the prompt, enter the hostname of the
