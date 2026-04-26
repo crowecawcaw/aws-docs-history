@@ -8,11 +8,11 @@ control, and APIs optimized to write both streaming and batch applications.
 Additionally, Flink has connectors for third-party data sources, such as the
 following:
 
-- [Amazon Kinesis Data Streams](https://ci.apache.org/projects/flink/flink-docs-master/apis/streaming/connectors/kinesis.html "https://ci.apache.org/projects/flink/flink-docs-master/apis/streaming/connectors/kinesis.html")
-- [Apache Kafka](https://ci.apache.org/projects/flink/flink-docs-master/apis/streaming/connectors/kafka.html "https://ci.apache.org/projects/flink/flink-docs-master/apis/streaming/connectors/kafka.html")
-- [Flink Elasticsearch Connector](https://ci.apache.org/projects/flink/flink-docs-master/apis/streaming/connectors/elasticsearch2.html "https://ci.apache.org/projects/flink/flink-docs-master/apis/streaming/connectors/elasticsearch2.html")
-- [Twitter Streaming API](https://ci.apache.org/projects/flink/flink-docs-release-1.2/dev/connectors/twitter.html "https://ci.apache.org/projects/flink/flink-docs-release-1.2/dev/connectors/twitter.html")
-- [Cassandra](https://ci.apache.org/projects/flink/flink-docs-master/apis/streaming/connectors/cassandra.html "https://ci.apache.org/projects/flink/flink-docs-master/apis/streaming/connectors/cassandra.html")
+- [Amazon Kinesis Data Streams](https://nightlies.apache.org/flink/flink-docs-stable/docs/connectors/datastream/kinesis/ "https://nightlies.apache.org/flink/flink-docs-stable/docs/connectors/datastream/kinesis/")
+- [Apache Kafka](https://nightlies.apache.org/flink/flink-docs-stable/docs/connectors/datastream/kafka/ "https://nightlies.apache.org/flink/flink-docs-stable/docs/connectors/datastream/kafka/")
+- [Flink Elasticsearch Connector](https://nightlies.apache.org/flink/flink-docs-stable/docs/connectors/datastream/elasticsearch/ "https://nightlies.apache.org/flink/flink-docs-stable/docs/connectors/datastream/elasticsearch/")
+- [Twitter Streaming API](https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/connectors/datastream/twitter/ "https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/connectors/datastream/twitter/")
+- [Cassandra](https://nightlies.apache.org/flink/flink-docs-stable/docs/connectors/datastream/cassandra/ "https://nightlies.apache.org/flink/flink-docs-stable/docs/connectors/datastream/cassandra/")
   Amazon EMR supports Flink as a YARN application so that you can manage resources along with
   other applications within a cluster. Flink-on-YARN allows you to submit transient Flink
   jobs, or you can create a long-running cluster that accepts multiple jobs and allocates

@@ -13,7 +13,7 @@ access logs stored in Amazon S3.
 The bucket in these examples is available to clients that can access
 US East (N. Virginia).
 
-By default, the Spark shell creates its own [SparkContext](https://spark.apache.org/docs/1.3.1/api/scala/index.html#org.apache.spark.SparkContext "https://spark.apache.org/docs/1.3.1/api/scala/index.html#org.apache.spark.SparkContext") object called `sc`. You can use this context if it
+By default, the Spark shell creates its own [SparkContext](https://spark.apache.org/docs/latest/api/scala/org/apache/spark/SparkContext.html "https://spark.apache.org/docs/latest/api/scala/org/apache/spark/SparkContext.html") object called `sc`. You can use this context if it
 is required within the REPL. sqlContext is also available in the shell
 and it is a [HiveContext](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.hive.HiveContext "https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.hive.HiveContext").
 

@@ -81,13 +81,13 @@ The following list describes the support that we provide for different component
 The following describes the milestones in the Standard Support lifecycle:
 
 - **Standard Support**: Amazon EMR releases are eligible for Standard Support 24 months from the date of release.
-  You can create technical support tickets and expect updates for issues that you encounter with these releases.
+  You can create technical support cases and expect updates for issues that you encounter with these releases.
 - **End of Support**: After Standard Support ends,
   Amazon EMR releases enter End of Support (EoS) stage for 12 months. EoS releases are not eligible for technical support and
-  you won't be able to create any tickets for clusters, containers, or jobs running on these releases. EoS releases won't receive any fixes, patches or updates. EoS
+  you won't be able to create any support cases for clusters, containers, or jobs running on these releases. EoS releases won't receive any fixes, patches or updates. EoS
   releases will be removed from the console, but will continue to be available through the API and AWS CLI. You can always continue
   to run workloads on EoS releases. We strongly recommend that you migrate to the latest Amazon EMR release so that you continue to receive security patches, remain eligible for
-  technical support, and can create support tickets when needed.
+  technical support, and can create support cases when needed.
 - **End of Life**: After the End of Support (EoS) term, releases are considered End of Life (EoL).
   Although you can continue to run EoL clusters, Amazon EMR reserves the right to remove EoL
   releases from the API and SDK on a case-by-case basis due to security and operational concerns. We strongly recommend that you migrate to the latest Amazon EMR,

@@ -1,6 +1,6 @@
 # Use the EMRFS S3-optimized commit protocol
 
-The EMRFS S3-optimized commit protocol is an alternative [FileCommitProtocol](https://spark.apache.org/docs/2.2.0//api/java/org/apache/spark/internal/io/FileCommitProtocol.html "https://spark.apache.org/docs/2.2.0//api/java/org/apache/spark/internal/io/FileCommitProtocol.html") implementation that is optimized for writing files
+The EMRFS S3-optimized commit protocol is an alternative [FileCommitProtocol](https://downloads.apache.org/spark/docs/2.4.1/api/java/org/apache/spark/internal/io/FileCommitProtocol.html "https://downloads.apache.org/spark/docs/2.4.1/api/java/org/apache/spark/internal/io/FileCommitProtocol.html") implementation that is optimized for writing files
 with Spark dynamic partition overwrite to Amazon S3 when using EMRFS. The protocol
 improves application performance by avoiding rename operations in Amazon S3 during the
 Spark dynamic partition overwrite job commit phase.

@@ -109,7 +109,7 @@ aws emr create-cluster --release-label `emr-7.12.0` \
 ###### Note
 
 You can also change some configurations with the Flink API. For more
-information, see [_Concepts_](https://ci.apache.org/projects/flink/flink-docs-release-1.12/concepts/index.html "https://ci.apache.org/projects/flink/flink-docs-release-1.12/concepts/index.html") in the Flink
+information, see [_Concepts_](https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/ "https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/") in the Flink
 documentation.
 
 With Amazon EMR version 5.21.0 and later, you can override cluster configurations and specify additional configuration classifications for each instance group in a running cluster. You do this by using the Amazon EMR console, the AWS Command Line Interface (AWS CLI), or the AWS SDK. For more information, see [Supplying a Configuration for an Instance Group in a Running Cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md").
@@ -122,7 +122,7 @@ of tasks as the tasks instances that you use for the application. We generally
 recommend this for the initial level of parallelism, but you can also increase
 the granularity of parallelism with task slots, which should generally not
 exceed the number of [virtual cores](https://aws.amazon.com/ec2/virtualcores/ "https://aws.amazon.com/ec2/virtualcores/") per instance. For more information about the Flink
-architecture, see [_Concepts_](https://ci.apache.org/projects/flink/flink-docs-master/concepts/index.html "https://ci.apache.org/projects/flink/flink-docs-master/concepts/index.html") in the Flink
+architecture, see [_Concepts_](https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/ "https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/") in the Flink
 documentation.
 
 ## Configuring Flink on an EMR cluster with multiple primary nodes
@@ -159,9 +159,9 @@ the following example demonstrates:
 ```
 
 You must configure both maximum application master attempts for YARN and
-application attempts for Flink. For more information, see [Configuration of YARN cluster high availability](https://ci.apache.org/projects/flink/flink-docs-release-1.8/ops/jobmanager_high_availability.html#maximum-application-master-attempts-yarn-sitexml "https://ci.apache.org/projects/flink/flink-docs-release-1.8/ops/jobmanager_high_availability.html#maximum-application-master-attempts-yarn-sitexml"). You may also want to
+application attempts for Flink. For more information, see [Configuration of YARN cluster high availability](https://nightlies.apache.org/flink/flink-docs-stable/docs/deployment/ha/overview/ "https://nightlies.apache.org/flink/flink-docs-stable/docs/deployment/ha/overview/"). You may also want to
 configure Flink checkpointing to make restarted JobManager recover running jobs from
-previously completed checkpoints. For more information, see [Flink checkpointing](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/stream/state/checkpointing.html "https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/stream/state/checkpointing.html").
+previously completed checkpoints. For more information, see [Flink checkpointing](https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/state/checkpoints/ "https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/state/checkpoints/").
 
 ## Configuring memory process size
 

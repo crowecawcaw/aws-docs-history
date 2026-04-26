@@ -84,7 +84,7 @@ You can increase the number of EC2 instances in a cluster by stopping the
 current cluster and re-launching it with a larger number of EC2 instances. You
 specify the number of EC2 instances in the **Configure EC2
 Instances** dialog box if you're launching the cluster from the
-Amazon EMR console, or with the `‑‑num-instances` option if
+Amazon EMR console, or with the `--num-instances` option if
 you're launching the cluster from the CLI.
 
 The number of map tasks run on an instance depends on the EC2 instance type.

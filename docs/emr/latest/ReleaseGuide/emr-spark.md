@@ -58,7 +58,7 @@ For the version of components installed with Spark in this release, see [Release
 
 - [Create a cluster with Apache Spark](emr-spark-launch.md "emr-spark-launch.md")
 - [Run Spark applications with Docker on Amazon EMR 6.x](emr-spark-docker.md "emr-spark-docker.md")
-- [Use AWS Glue Data Catalog catalog with Spark on Amazon EMR](emr-spark-glue.md "emr-spark-glue.md")
+- [Use AWS Glue Data Catalog with Spark on Amazon EMR](emr-spark-glue.md "emr-spark-glue.md")
 - [Working with a multi-catalog hierarchy in AWS Glue Data Catalog with Spark on Amazon EMR](emr-multi-catalog.md "emr-multi-catalog.md")
 - [Configure Spark](emr-spark-configure.md "emr-spark-configure.md")
 - [What is Apache Spark Troubleshooting Agent for Amazon EMR](spark-troubleshoot.md "spark-troubleshoot.md")

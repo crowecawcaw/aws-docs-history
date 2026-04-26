@@ -28,4 +28,4 @@ with other interfaces and options, you can scale the `-n` option
 value used in the example based on the number of tasks you want to run from the
 shell.
 
-For more information, see [Scala REPL](https://ci.apache.org/projects/flink/flink-docs-release-1.10/ops/scala_shell.html "https://ci.apache.org/projects/flink/flink-docs-release-1.10/ops/scala_shell.html") in the official Apache Flink documentation.
+For more information, see [Scala REPL](https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/deployment/repls/scala_shell/ "https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/deployment/repls/scala_shell/") in the official Apache Flink documentation.

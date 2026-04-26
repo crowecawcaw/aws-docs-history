@@ -11,7 +11,7 @@ Regardless of the dataset type, each partition in a dataset is uniquely identifi
 its `partitionpath` relative to the `basepath`. Within each
 partition, records are distributed into multiple data files. For more information, see
 [File
-management](https://hudi.apache.org/docs/concepts.html#file-management "https://hudi.apache.org/docs/concepts.html#file-management") in the Apache Hudi documentation.
+management](https://hudi.apache.org/docs/concepts#file-management "https://hudi.apache.org/docs/concepts#file-management") in the Apache Hudi documentation.
 
 Each action in Hudi has a corresponding commit, identified by a monotonically
 increasing timestamp known as an _Instant_. Hudi keeps a series

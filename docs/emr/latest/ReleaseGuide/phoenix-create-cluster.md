@@ -34,7 +34,7 @@ aws emr create-cluster --name "Cluster with Phoenix" --release-label `emr-7.12.0
 When creating a cluster, you configure Phoenix by setting values in `hbase-site.xml` using
 the `hbase-site` configuration classification.
 
-For more information, see [Configuration and tuning](https://phoenix.apache.org/tuning.html "https://phoenix.apache.org/tuning.html") in the Phoenix documentation.
+For more information, see [Configuration and tuning](https://phoenix.apache.org/docs/fundamentals/tuning-guide "https://phoenix.apache.org/docs/fundamentals/tuning-guide") in the Phoenix documentation.
 
 The following example demonstrates using a JSON file stored in Amazon S3 to specify the value of `false` for the `phoenix.schema.dropMetaData` property. Multiple properties can be specified for a single classification. For more information, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md"). The `create-cluster` command then references the JSON file as the `--configurations` parameter.
 

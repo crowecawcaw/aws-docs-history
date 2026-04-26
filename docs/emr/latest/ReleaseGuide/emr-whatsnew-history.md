@@ -4566,7 +4566,7 @@ to include the following versions:
 
 - **Integration with AWS Glue Data Catalog**
   - Added ability for Hive and Spark SQL to use AWS Glue Data Catalog as the
-    Hive metadata store. For more information, see [Using the AWS Glue Data Catalog as the metastore for Hive](emr-hive-metastore-glue.md "emr-hive-metastore-glue.md") and [Use AWS Glue Data Catalog catalog with Spark on Amazon EMR](emr-spark-glue.md "emr-spark-glue.md").
+    Hive metadata store. For more information, see [Using the AWS Glue Data Catalog as the metastore for Hive](emr-hive-metastore-glue.md "emr-hive-metastore-glue.md") and [Use AWS Glue Data Catalog with Spark on Amazon EMR](emr-spark-glue.md "emr-spark-glue.md").
 
 - Added **Application history** to cluster details,
   which allows you to view historical data for YARN applications and
@@ -4793,7 +4793,7 @@ The following upgrades are available in this release:
 
 If you upgrade from an earlier version of Amazon EMR to Amazon EMR version
 5.4.0 or later and use secondary indexing, upgrade local indexes as
-described in the [Apache Phoenix documentation](https://phoenix.apache.org/secondary_indexing.html#Upgrading_Local_Indexes_created_before_4.8.0 "https://phoenix.apache.org/secondary_indexing.html#Upgrading_Local_Indexes_created_before_4.8.0"). Amazon EMR removes the
+described in the [Apache Phoenix documentation](https://phoenix.apache.org/docs/features/secondary-indexes#upgrading-local-indexes-created-before-480 "https://phoenix.apache.org/docs/features/secondary-indexes#upgrading-local-indexes-created-before-480"). Amazon EMR removes the
 required configurations from the `hbase-site`
 classification, but indexes need to be repopulated. Online and
 offline upgrade of indexes are supported. Online upgrades are the

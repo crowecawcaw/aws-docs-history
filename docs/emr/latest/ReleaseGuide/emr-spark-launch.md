@@ -6,7 +6,7 @@ The following procedure creates a cluster with [Spark](https://aws.amazon.com/bi
 You can alternatively use **Advanced Options** to further customize
 your cluster setup, or to submit steps to programmatically install applications and then
 run custom applications. With either cluster creation option, you can choose to use
-AWS Glue as your Spark SQL metastore. See [Use AWS Glue Data Catalog catalog with Spark on Amazon EMR](emr-spark-glue.md "emr-spark-glue.md") for more information.
+AWS Glue as your Spark SQL metastore. See [Use AWS Glue Data Catalog with Spark on Amazon EMR](emr-spark-glue.md "emr-spark-glue.md") for more information.
 
 ###### To launch a cluster with Spark installed
 
