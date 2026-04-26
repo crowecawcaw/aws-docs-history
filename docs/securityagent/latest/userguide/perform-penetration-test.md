@@ -262,6 +262,10 @@ We recommend selecting and adding relevant GitHub repositories to your pentest, 
 
 Resources selected from available sources remain synchronized with their original location. If you update a GitHub repository or S3 file, the penetration test will use the updated version.
 
+###### Note
+
+If you have a private VPC associated with your pentest and a GitHub repository configured, ensure that GitHub is accessible via your private VPC for pulling GitHub resources. In most cases, you will need to either ensure that outbound traffic via [VPC NAT Gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") is allowed by default or configure specific rules to allow outbound traffic for GitHub IPs (see [GitHub Meta API Endpoint](https://api.github.com/meta "https://api.github.com/meta"))
+
 ### Upload new resources
 
 Upload files directly from your local system or provide plain text content to AWS Security Agent.

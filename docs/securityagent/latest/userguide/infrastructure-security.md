@@ -6,9 +6,9 @@ As a managed service, AWS Security Agent is protected by AWS global network secu
 
 AWS Security Agent is a fully managed service accessed through the AWS Console and AWS Security Agent Web Application. Access to the service is controlled through AWS Identity and Access Management (IAM) or AWS IAM Identity Center, which can integrate with your identity provider.
 
-The service does not support VPC endpoints or deployment within customer VPCs, and cannot be restricted to specific subnets through IAM or SCP policies.
+AWS Security Agent supports interface VPC endpoints powered by AWS PrivateLink, enabling you to privately access the service APIs from your VPC without traversing the public internet. For more information, see [AWS Security Agent and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 
-AWS Security Agent requires internet access to perform penetration testing on target applications and for control plane operations. The service does not create customer-owned resources with public IP addresses.
+AWS Security Agent requires internet access to perform penetration testing on target applications and for control plane operations. The service uses AWS-managed infrastructure for testing and does not provision EC2 instances or other compute resources in your account. If you configure VPC access for penetration testing, Security Agent creates an ENI in your subnet, but this ENI does not have a public IP address. For more information, see [Connect agent to private VPC resources](connect-agent-vpc.md "connect-agent-vpc.md").
 
 ## Multi-tenancy and resource isolation
 

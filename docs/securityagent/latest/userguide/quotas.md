@@ -8,7 +8,6 @@ Operations quotas limit the monthly usage of security testing and review feature
 
 | Resource       | Scope                            | Quota | Adjustable |
 | -------------- | -------------------------------- | ----- | ---------- |
-| Pentest hours  | Per month per account per region | 80    | Yes        |
 | Design reviews | Per month per account per region | 200   | Yes        |
 | Code reviews   | Per month per account per region | 1,000 | Yes        |
 
