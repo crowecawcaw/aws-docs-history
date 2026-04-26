@@ -12,9 +12,8 @@ version number changes—for example, going from version 8.0.32 to 8.0.34.
 - [Supported MySQL major versions on Amazon RDS](#MySQL.Concepts.VersionMgmt.ReleaseCalendar "#MySQL.Concepts.VersionMgmt.ReleaseCalendar")
 - [Amazon RDS Extended Support versions for RDS for MySQL](#mysql-extended-support-releases "#mysql-extended-support-releases")
 - [Working with the Database Preview environment](#mysql-working-with-the-database-preview-environment "#mysql-working-with-the-database-preview-environment")
+- [MySQL version 9.6 in the Database Preview environment](#mysql-preview-environment-version-9-6 "#mysql-preview-environment-version-9-6")
 - [MySQL version 9.5 in the Database Preview environment](#mysql-preview-environment-version-9-5 "#mysql-preview-environment-version-9-5")
-- [MySQL version 9.4 in the Database Preview environment](#mysql-preview-environment-version-9-4 "#mysql-preview-environment-version-9-4")
-- [MySQL version 9.3 in the Database Preview environment](#mysql-preview-environment-version-9-3 "#mysql-preview-environment-version-9-3")
 - [Deprecated versions for Amazon RDS for MySQL](#MySQL.Concepts.DeprecatedVersions "#MySQL.Concepts.DeprecatedVersions")
 
 ## Supported MySQL minor versions on Amazon RDS
@@ -640,6 +639,29 @@ To create the RDS for MySQL DB instance, follow the same process that you
 would for creating any Amazon RDS DB instance. For more information, see the
 [RDS API](USER_CreateDBInstance.md#USER_CreateDBInstance.API "USER_CreateDBInstance.md#USER_CreateDBInstance.API") procedure in [Creating a DB instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Creating "USER_CreateDBInstance.md#USER_CreateDBInstance.Creating").
 
+## MySQL version 9.6 in the Database Preview environment
+
+MySQL version 9.6 is now available in the Amazon RDS Database Preview environment. MySQL
+version 9.6 contains several improvements that are described in [Changes in
+MySQL 9.6.0](https://dev.mysql.com/doc/relnotes/mysql/9.6/en/news-9-6-0.html "https://dev.mysql.com/doc/relnotes/mysql/9.6/en/news-9-6-0.html").
+
+For information on the Database Preview environment, see [Working with the Database Preview environment](#mysql-working-with-the-database-preview-environment "#mysql-working-with-the-database-preview-environment"). To access the
+Preview Environment from the console, select [https://console.aws.amazon.com/rds-preview/](https://console.aws.amazon.com/rds-preview/ "https://console.aws.amazon.com/rds-preview/").
+
+###### Note
+
+The `utf8` character set name and `utf8_*` collation names
+are no longer accepted as server startup options in MySQL 9.6. In parameter groups,
+`utf8` has been replaced with `utf8mb3` and
+`utf8_*` collations with `utf8mb3_*` equivalents across all
+`character_set_*` and `collation_*` parameters. When you
+upgrade to MySQL 9.6, your parameter group is automatically updated to the new
+version. However, if you previously set
+any of these parameters to `utf8` or a `utf8_*` collation
+through custom parameter group configurations, update them to use
+`utf8mb3`/`utf8mb3_*`, or consider migrating to
+`utf8mb4` for full Unicode support.
+
 ## MySQL version 9.5 in the Database Preview environment
 
 MySQL version 9.5 is now available in the Amazon RDS Database Preview environment. MySQL
@@ -649,28 +671,10 @@ MySQL 9.5.0](https://dev.mysql.com/doc/relnotes/mysql/9.5/en/news-9-5-0.html "ht
 For information on the Database Preview environment, see [Working with the Database Preview environment](#mysql-working-with-the-database-preview-environment "#mysql-working-with-the-database-preview-environment"). To access the
 Preview Environment from the console, select [https://console.aws.amazon.com/rds-preview/](https://console.aws.amazon.com/rds-preview/ "https://console.aws.amazon.com/rds-preview/").
 
-## MySQL version 9.4 in the Database Preview environment
-
-MySQL version 9.4 is now available in the Amazon RDS Database Preview environment. MySQL
-version 9.4 contains several improvements that are described in [Changes in
-MySQL 9.4.0](https://dev.mysql.com/doc/relnotes/mysql/9.4/en/news-9-4-0.html "https://dev.mysql.com/doc/relnotes/mysql/9.4/en/news-9-4-0.html").
-
-For information on the Database Preview environment, see [Working with the Database Preview environment](#mysql-working-with-the-database-preview-environment "#mysql-working-with-the-database-preview-environment"). To access the
-Preview Environment from the console, select [https://console.aws.amazon.com/rds-preview/](https://console.aws.amazon.com/rds-preview/ "https://console.aws.amazon.com/rds-preview/").
-
-## MySQL version 9.3 in the Database Preview environment
-
-MySQL version 9.3 is now available in the Amazon RDS Database Preview environment. MySQL
-version 9.3 contains several improvements that are described in [Changes in
-MySQL 9.3.0](https://dev.mysql.com/doc/relnotes/mysql/9.3/en/news-9-3-0.html "https://dev.mysql.com/doc/relnotes/mysql/9.3/en/news-9-3-0.html").
-
-For information on the Database Preview environment, see [Working with the Database Preview environment](#mysql-working-with-the-database-preview-environment "#mysql-working-with-the-database-preview-environment"). To access the
-Preview Environment from the console, select [https://console.aws.amazon.com/rds-preview/](https://console.aws.amazon.com/rds-preview/ "https://console.aws.amazon.com/rds-preview/").
-
 ## Deprecated versions for Amazon RDS for MySQL
 
-Amazon RDS for MySQL version 5.1, 5.5, and 5.6 are deprecated.
+Amazon RDS for MySQL versions 5.1, 5.5, and 5.6 are deprecated.
 
-Amazon RDS for MySQL version 9.1 and 9.2 are deprecated in the Database Preview environment.
+Amazon RDS for MySQL versions 9.1, 9.2, 9.3, and 9.4 are deprecated in the Database Preview environment.
 
 For information about the Amazon RDS deprecation policy for MySQL, see [Amazon RDS FAQs](https://aws.amazon.com/rds/faqs/ "https://aws.amazon.com/rds/faqs/").

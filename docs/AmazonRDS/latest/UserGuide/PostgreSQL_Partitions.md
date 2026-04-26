@@ -3,7 +3,7 @@
 PostgreSQL table partitioning provides a framework for high-performance handling of data
 input and reporting. Use partitioning for databases that require very fast input of large
 amounts of data. Partitioning also provides for faster queries of large tables. Partitioning
-helps maintain data without impacting the database instance because it requires less I/O
+helps maintain data without impacting the database instance because it requires fewer I/O
 resources.
 
 By using partitioning, you can split data into custom-sized chunks for processing. For

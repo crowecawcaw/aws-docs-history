@@ -24,7 +24,7 @@ If you are using Kerberos authentication, see [Connecting to Oracle with Kerbero
       the port number. You need both the endpoint and the port number to connect to the DB
       instance.
 
-   ![Locate DB instance endpoint and port](images/OracleConnect1.png)
+   ![Locate DB instance endpoint and port](/images/AmazonRDS/latest/UserGuide/images/OracleConnect1.png)
 
 ## AWS CLI
 
