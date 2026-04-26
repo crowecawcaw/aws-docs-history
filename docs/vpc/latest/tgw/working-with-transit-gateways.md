@@ -11,6 +11,7 @@ and managing Encryption support for your transit gateway, see [Encryption Suppor
 - [Network function attachments](tgw-nf-fw.md "tgw-nf-fw.md")
 - [VPN attachments](tgw-vpn-attachments.md "tgw-vpn-attachments.md")
 - [VPN Concentrator attachments](tgw-vpn-concentrator-attachments.md "tgw-vpn-concentrator-attachments.md")
+- [Client VPN attachments](tgw-client-vpn-attachments.md "tgw-client-vpn-attachments.md")
 - [Transit gateway attachments to a Direct Connect gateway](tgw-dcg-attachments.md "tgw-dcg-attachments.md")
 - [Peering attachments](tgw-peering.md "tgw-peering.md")
 - [Connect attachments and Connect peers](tgw-connect.md "tgw-connect.md")

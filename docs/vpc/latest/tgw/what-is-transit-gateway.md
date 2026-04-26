@@ -19,6 +19,7 @@ The following are the key concepts for transit gateways:
   - A peering connection with another transit gateway
   - A VPN connection to a transit gateway
   - A VPN Concentrator to a transit gateway
+  - A Client VPN endpoint to a transit gateway
   - A network function attachment. For more information, see [Network function attachments](how-transit-gateways-work.md#nf-attachment-overview "how-transit-gateways-work.md#nf-attachment-overview").
 
 - Transit gateway Maximum Transmission Unit (MTU) —

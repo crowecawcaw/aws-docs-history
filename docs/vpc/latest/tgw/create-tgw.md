@@ -71,8 +71,8 @@ addresses for your VPC attachments and on-premises networks.
 ###### Note
 
 Transit gateway CIDR blocks are used if you are configuring Connect
-(GRE) attachments or PrivateIP VPNs. Transit Gateway assigns IPs for the
-Tunnel endpoints (GRE/PrivateIP VPN) from this range. 15. Choose **Create transit gateway**.
+(GRE) attachments, PrivateIP VPNs, or Client VPN attachments. Transit Gateway assigns IPs for the
+Tunnel endpoints (GRE/PrivateIP VPN) and Client VPN attachments from this range. 15. Choose **Create transit gateway**.
 
 ###### To create a transit gateway using the AWS CLI
 

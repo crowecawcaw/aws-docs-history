@@ -220,6 +220,7 @@ Transit gateway routes are evaluated in the following order:
     routes
   - Site-to-Site VPN-propagated routes
   - Site-to-Site VPN-Concentrator propagated routes
+  - Client VPN propagated routes
   - Transit Gateway peering-propagated routes (Cloud WAN)
 
 Some attachments support route advertisement over BGP. For routes with the same
