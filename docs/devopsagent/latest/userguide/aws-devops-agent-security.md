@@ -4,7 +4,7 @@ This document provides information about security considerations, data protectio
 
 ## Multi-layered security
 
-AWS DevOps Agent implements security at multiple layers. Even if broader permissions are granted to the agent's IAM role, the agent enforces its own internal access controls to limit the scope of its actions. For example, if a customer adds a full Amazon S3 access IAM policy to the agent's IAM role, AWS DevOps Agent will ensure that only logs after the `AWSLogs` prefix are read for troubleshooting purposes.
+AWS DevOps Agent implements security at multiple layers. Even if broader permissions are granted to the agent's IAM role, the agent enforces its own internal access controls to limit the scope of its actions.
 
 We recommend following the principle of least privilege when configuring IAM permissions for AWS DevOps Agent, and implementing security at multiple layers. Defense in depth ensures that no single misconfiguration can compromise the security of your environment.
 
@@ -156,6 +156,7 @@ AWS DevOps Agent initiates outbound connections to your third-party systems and 
   - Asia Pacific (Sydney) (ap-southeast-2)
     - `13.237.95.197`
     - `13.238.84.102`
+    - `52.64.174.242`
 
   - Asia Pacific (Tokyo) (ap-northeast-1)
     - `13.192.12.233`
@@ -211,7 +212,3 @@ Customers are responsible for:
 ## Data usage
 
 AWS does not use agent data, chat messages, or data from integrated data sources to train models or improve the product. The AWS DevOps Agent Space uses customer in-product feedback to improve the agent’s responses and investigations, but AWS does not use it to improve the service itself.
-
-## Compliance
-
-At preview, AWS DevOps Agent is not compliant with standards including SOC 2, PCI-DSS, ISO 27001, or FedRAMP. AWS will announce which compliance certifications will be available at a later time.

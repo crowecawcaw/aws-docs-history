@@ -65,6 +65,14 @@ Once you create a support case, you can communicate with AWS Support in a separa
 
 The chat experience keeps your AWS DevOps Agent investigation and AWS Support conversation readily accessible, enabling faster collaboration and resolution.
 
+### Support case language
+
+When you create a support case through AWS DevOps Agent, the case is automatically created in the language configured in your Agent Space's **Agent response language** setting. This ensures that your support case is routed to a support engineer who speaks your preferred language.
+
+For example, if your Agent Space language is set to Japanese, your support case will be routed to a Japanese-speaking support engineer. If no language is configured, or if the configured language is not supported by AWS Support for the selected case category, the case defaults to English.
+
+AWS Support currently supports the following languages for case routing: Chinese, English, French, Japanese, Korean, Portuguese, and Spanish. To change the language used for support cases, update the **Agent response language** setting in your Agent Space configuration. For more information, see [Creating an Agent Space](getting-started-with-aws-devops-agent-creating-an-agent-space.md "getting-started-with-aws-devops-agent-creating-an-agent-space.md").
+
 ### Support plan requirements
 
 Your ability to create and interact with support cases through AWS DevOps Agent depends on your AWS Support plan. Please refer to the [Support Plans user guide](../../../awssupport/latest/user/aws-support-plans.md "../../../awssupport/latest/user/aws-support-plans.md") to learn more about your entitlements.

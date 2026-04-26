@@ -92,12 +92,26 @@ You can connect different sets of repositories to different Agent Spaces based o
 
 The AWS DevOps Agent GitHub app:
 
-- Requests read-only access to your repositories
+- Requests access to your repositories — you can review the specific permissions during GitHub App installation
 - Receives deployment events and other repository events
 - Allows AWS DevOps Agent to correlate code changes with operational incidents
 - Can be uninstalled at any time through your GitHub settings
 
 For GitHub Enterprise Server, the GitHub App is automatically created on your instance during registration. You can manage the app's repository access or uninstall it through **Settings > Applications > Installed GitHub Apps**. To delete the app definition entirely, go to **Settings > Developer settings > GitHub Apps**.
+
+## GitHub App permission updates
+
+AWS DevOps Agent may request permission updates after you install the GitHub App to support new features. When this happens:
+
+1. You will receive a notification from GitHub regarding the permission update request.
+2. Review the update details to understand what new permissions are being requested.
+3. Accept the request to grant the updated permissions.
+
+No changes are required in your service or application. Once you accept the updated permissions, the next installation access token that AWS DevOps Agent requests from GitHub will automatically include the new permissions.
+
+###### Note
+
+Until you accept a permission update, AWS DevOps Agent continues to operate with the previously granted permissions. New capabilities that depend on the updated permissions will not be available until you approve the request.
 
 ## Managing GitHub connections
 

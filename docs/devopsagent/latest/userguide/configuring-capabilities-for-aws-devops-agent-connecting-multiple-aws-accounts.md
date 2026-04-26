@@ -38,8 +38,8 @@ In addition to the steps below, you can use the [AWS DevOps Agent CLI onboarding
 
 ### Step 4: Attach the AWS managed policy
 
-1. In the **Permissions policies** section, search for **AIOpsAssistantPolicy**
-2. Select the checkbox next to the **AIOpsAssistantPolicy** managed policy
+1. In the **Permissions policies** section, search for **AIDevOpsAgentAccessPolicy**
+2. Select the checkbox next to the **AIDevOpsAgentAccessPolicy** managed policy
 3. Click **Next**
 
 ### Step 5: Name and create the role
@@ -72,7 +72,7 @@ In addition to the steps below, you can use the [AWS DevOps Agent CLI onboarding
 AWS DevOps Agent requires three policy components to access resources in a secondary account:
 
 - **Trust policy** – Allows AWS DevOps Agent in the primary account to assume the role in the secondary account. This establishes the trust relationship between accounts.
-- **AIOpsAssistantPolicy (AWS managed policy)** – Provides the core read-only permissions AWS DevOps Agent needs to investigate resources in the secondary account. This policy is maintained by AWS and updated as new capabilities are added.
+- **AIDevOpsAgentAccessPolicy (AWS managed policy)** – Provides the core read-only permissions AWS DevOps Agent needs to investigate resources in the secondary account. This policy is maintained by AWS and updated as new capabilities are added.
 - **Inline policy** – Provides additional permissions specific to your Agent Space configuration. This policy is generated based on your Agent Space settings and may include permissions for specific integrations or features.
 
 In the primary account, the AWS DevOps Agent IAM Role must be able to assume the role created in the secondary account.

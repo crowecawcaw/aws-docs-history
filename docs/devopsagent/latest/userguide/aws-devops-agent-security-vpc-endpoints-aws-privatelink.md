@@ -4,11 +4,11 @@ You can use AWS PrivateLink to create a private connection between your VPC and 
 
 You establish this private connection by creating an interface endpoint, powered by AWS PrivateLink. We create an endpoint network interface in each subnet that you enable for the interface endpoint. These are requester-managed network interfaces that serve as the entry point for traffic destined for AWS DevOps Agent.
 
-For more information, see [Access AWS services through AWS PrivateLink](../../../vpc/latest/privatelink/privatelink-access-aws-services.md "../../../vpc/latest/privatelink/privatelink-access-aws-services.md") in the _AWS PrivateLink Guide_.
+For more information, see [Access AWS services through AWS PrivateLink](../../../vpc/latest/privatelink/privatelink-access-aws-services.md "../../../vpc/latest/privatelink/privatelink-access-aws-services.md") in the \_AWS PrivateLink Guide\_.
 
 ## Considerations for AWS DevOps Agent VPC endpoints
 
-Before you set up an interface endpoint for AWS DevOps Agent, review [Considerations](../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints "../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints") in the _AWS PrivateLink Guide_.
+Before you set up an interface endpoint for AWS DevOps Agent, review [Considerations](../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints "../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints") in the \_AWS PrivateLink Guide\_.
 
 AWS DevOps Agent supports making API calls through the following VPC endpoints.
 
@@ -20,7 +20,7 @@ AWS DevOps Agent supports making API calls through the following VPC endpoints.
 
 ## Create an interface endpoint for AWS DevOps Agent
 
-You can create an interface endpoint for AWS DevOps Agent using either the Amazon VPC console or the AWS Command Line Interface (AWS CLI). For more information, see [Create an interface endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _AWS PrivateLink Guide_.
+You can create an interface endpoint for AWS DevOps Agent using either the Amazon VPC console or the AWS Command Line Interface (AWS CLI). For more information, see [Create an interface endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the \_AWS PrivateLink Guide\_.
 
 Create an interface endpoint for AWS DevOps Agent using the following service names:
 
@@ -32,8 +32,8 @@ After you create the endpoint, you have the option to enable a private DNS hostn
 
 If you enable private DNS for the interface endpoint, you can make API requests to AWS DevOps Agent using its default Regional DNS name. The following example shows the format of the default Regional DNS name.
 
-- aidevops.{region}.api.aws
-- aidevops-dataplane.{region}.amazonaws.com
+- cp.aidevops.{region}.api.aws
+- dp.aidevops.{region}.api.aws
 - event-ai.{region}.api.aws
 
 ## Create an endpoint policy for your interface endpoint
@@ -46,4 +46,4 @@ An endpoint policy specifies the following information:
 - The actions that can be performed.
 - The resources on which the actions can be performed.
 
-For more information, see [Control access to services using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the _AWS PrivateLink Guide_.
+For more information, see [Control access to services using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the \_AWS PrivateLink Guide\_.

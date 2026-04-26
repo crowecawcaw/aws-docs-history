@@ -86,7 +86,7 @@ This template formats Grafana alerts into the webhook payload structure expected
 2. Select **Webhook** as the integration type
 3. Set the **URL** to your AWS DevOps Agent webhook endpoint
 4. Under **Optional Webhook settings**, configure the authentication headers based on your webhook type. See [Webhook authentication methods](configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md "configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md") for details.
-5. Set the **Message** field to use your custom template: `{{ template "devops-agent-payload" . }}`
+5. Set the **Custom Payload** field to use your custom template: `{{ template "devops-agent-payload" . }}`
 6. Click **Save contact point**
 
 ### Step 3: Assign the contact point to a notification policy
