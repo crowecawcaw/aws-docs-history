@@ -1,4 +1,4 @@
-# Identity and Access Management for routing control in
+# Identity and Access Management for routing control in ARC
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_

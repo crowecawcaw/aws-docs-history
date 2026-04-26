@@ -35,10 +35,11 @@ During promotion, the DNS endpoint that you use to connect to the database will 
 However, the promoted instance will no longer replicate from the original primary database. You are
 responsible for ensuring their application is configured to use the correct endpoint after the operation completes.
 
-After promotion, the promoted instance inherits the following backup settings from the original primary instance:
+After promotion, the promoted instance inherits the following settings from the original primary instance:
 
 - Backup retention period
 - Preferred backup window
+- Multi-AZ configuration
 
 ## What is evaluated as part of plan evaluation
 

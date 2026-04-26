@@ -42,7 +42,6 @@ Then a new read replica instance will be created with the following settings cop
 - KMS key
 - VPC security groups
 - Option groups
-- Multi-AZ configuration
 - Domain authentication secret ARN
 
 ###### Important
