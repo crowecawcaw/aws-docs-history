@@ -47,7 +47,8 @@ The operator role needs permissions to manage capacity providers and the underly
         "ec2:DescribeInstanceTypeOfferings",
         "ec2:DescribeInstanceTypes",
         "ec2:DescribeSecurityGroups",
-        "ec2:DescribeSubnets"
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcEncryptionControls"
       ],
       "Resource": "*"
     },

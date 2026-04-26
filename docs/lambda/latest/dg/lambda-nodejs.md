@@ -111,10 +111,10 @@ The upstream Node.js language releases enable some experimental features by defa
 ensure runtime stability and consistent performance. The following table lists the experimental
 features that Lambda disables.
 
-| Experimental feature                                       | Supported Node.js versions | Node.js flag applied by Lambda     | Lambda flag to re-enable        |
-| ---------------------------------------------------------- | -------------------------- | ---------------------------------- | ------------------------------- |
-| Support for importing modules using require in ES modules  | Node.js 20, Node.js 22     | `--no-experimental-require-module` | `--experimental-require-module` |
-| Support for automatically detecting ES vs CommonJS modules | Node.js 22                 | `--no-experimental-detect-module`  | `--experimental-detect-module`  |
+| Experimental feature                                       | Supported Node.js versions         | Node.js flag applied by Lambda     | Lambda flag to re-enable        |
+| ---------------------------------------------------------- | ---------------------------------- | ---------------------------------- | ------------------------------- |
+| Support for importing modules using require in ES modules  | Node.js 20, Node.js 22, Node.js 24 | `--no-experimental-require-module` | `--experimental-require-module` |
+| Support for automatically detecting ES vs CommonJS modules | Node.js 22, Node.js 24             | `--no-experimental-detect-module`  | `--experimental-detect-module`  |
 
 To enable a disabled experimental feature, set the re-enable flag in the `NODE_OPTIONS`
 environment variable. For example, to enable ES module require support, set `NODE_OPTIONS` to

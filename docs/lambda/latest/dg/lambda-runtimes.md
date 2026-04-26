@@ -105,7 +105,7 @@ Lambda doesn't provide managed runtimes for language versions which aren't sched
 
 The following list shows the target launch month for upcoming Lambda runtimes. These dates are indicative only and subject to change.
 
-- **Ruby 3.5** - March 2026
+- **Ruby 4.0** - April 2026
 - **Java 8, 11, and 17 on AL2023** - Q2 2026
 - **Node.js 26** - November 2026
 - **Python 3.15** - November 2026

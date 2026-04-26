@@ -1,6 +1,6 @@
 # Basic concepts
 
-Lambda provides durable execution SDKs for JavaScript, TypeScript, and Python. These SDKs are the foundation for building durable functions, providing the primitives you need to checkpoint progress, handle retries, and manage execution flow. For complete SDK documentation and examples, see the [JavaScript/TypeScript SDK](https://github.com/aws/aws-durable-execution-sdk-js "https://github.com/aws/aws-durable-execution-sdk-js") and [Python SDK](https://github.com/aws/aws-durable-execution-sdk-python "https://github.com/aws/aws-durable-execution-sdk-python") on GitHub.
+The AWS Durable Execution SDK is the foundation for building durable functions, providing the primitives you need to checkpoint progress, handle retries, and manage execution flow. The SDK is available for JavaScript/TypeScript, Python, and Java. For complete SDK documentation including API reference, quickstart tutorials, and language-specific guides, see the [AWS Durable Execution SDK Developer Guide](../../../durable-execution.md "../../../durable-execution.md").
 
 ## Durable execution
 
@@ -59,106 +59,13 @@ def handler(event, context: DurableContext):
     return result
 ```
 
-The Python SDK for durable functions uses synchronous methods and doesn't support `await`. The TypeScript SDK uses `async/await`.
+Through `DurableContext`, your function has access to durable operations that checkpoint progress and coordinate work:
 
-## Steps
+- **Steps** run business logic with built-in retries and automatic checkpointing. Each step saves its result, so your function resumes from the last completed step after an interruption.
+- **Waits** are planned pauses where your function stops running and stops charging until it's time to continue. Use them for time periods, external callbacks, or polling for a condition.
+- **Invoke** calls other Lambda functions and checkpoints the result. The invoked function can be a standard or durable function. Cross-account invocations are not supported.
 
-**Steps** runs business logic with built-in retries and automatic checkpointing. Each step saves its result, ensuring your function can resume from any completed step after interruptions.
-
-TypeScript
-
-```
-// Each step is automatically checkpointed
-const order = await context.step(async () => processOrder(event));
-const payment = await context.step(async () => processPayment(order));
-const result = await context.step(async () => completeOrder(payment));
-```
-
-Python
-
-```
-# Each step is automatically checkpointed
-order = context.step(lambda: process_order(event))
-payment = context.step(lambda: process_payment(order))
-result = context.step(lambda: complete_order(payment))
-```
-
-## Wait States
-
-**Wait states** are planned pauses where your function stops running (and stops charging) until it's time to continue. Use them to wait for time periods, external callbacks, or specific conditions.
-
-TypeScript
-
-```
-// Wait for 1 hour without consuming resources
-await context.wait({ seconds:3600 });
-
-// Wait for external callback
-const approval = await context.waitForCallback(
-  async (callbackId) => sendApprovalRequest(callbackId)
-);
-```
-
-Python
-
-```
-# Wait for 1 hour without consuming resources
-context.wait(Duration.from_seconds(3600))
-
-# Wait for external callback
-approval = context.wait_for_callback(
-    lambda callback_id: send_approval_request(callback_id)
-)
-```
-
-When your function encounters a wait or needs to pause, Lambda saves the checkpoint log and stops the execution. When it's time to resume, Lambda invokes your function again and replays the checkpoint log, substituting stored values for completed operations.
-
-For more complex workflows, durable Lambda functions also come with advanced operations like `parallel()` for concurrent execution, `map()` for processing arrays, `runInChildContext()` for nested operations, and `waitForCondition()` for polling. See [Examples](durable-examples.md "durable-examples.md") for detailed examples and guidance on when to use each operation.
-
-## Invoking other functions
-
-**Invoke** allows a durable function to call other Lambda functions and wait for their results. The calling function suspends while the invoked function executes, creating a checkpoint that preserves the result. This enables you to build modular workflows where specialized functions handle specific tasks.
-
-Use `context.invoke()` to call other functions from within your durable function. The invocation is checkpointed, so if your function is interrupted after the invoked function completes, it resumes with the stored result without re-invoking the function.
-
-TypeScript
-
-```
-// Invoke another function and wait for result
-const customerData = await context.invoke(
-  'validate-customer',
-  'arn:aws:lambda:us-east-1:123456789012:function:customer-service:1',
-  { customerId: event.customerId }
-);
-
-// Use the result in subsequent steps
-const order = await context.step(async () => {
-  return processOrder(customerData);
-});
-```
-
-Python
-
-```
-# Invoke another function and wait for result
-customer_data = context.invoke(
-    'arn:aws:lambda:us-east-1:123456789012:function:customer-service:1',
-    {'customerId': event['customerId']},
-    name='validate-customer'
-)
-
-# Use the result in subsequent steps
-order = context.step(
-    lambda: process_order(customer_data),
-    name='process-order'
-)
-```
-
-The invoked function can be either a durable or standard Lambda function. If you invoke a durable function, the calling function waits for the complete durable execution to finish. This pattern is common in microservices architectures where each function handles a specific domain, allowing you to compose complex workflows from specialized, reusable functions.
-
-###### Note
-
-Cross-account invocations are not supported. The invoked function must be in the same AWS account as the calling function.
+For the full language reference to all the available durable operations, see [SDK Reference](../../../durable-execution/sdk-reference.md "../../../durable-execution/sdk-reference.md") in the AWS Durable Execution SDK Developer Guide.
 
 ## Durable function configuration
 
@@ -208,4 +115,5 @@ Choose a retention period based on your compliance requirements, debugging needs
 
 ## See also
 
+- [AWS Durable Execution SDK Developer Guide](../../../durable-execution.md "../../../durable-execution.md") – Complete SDK reference, quickstart tutorials, testing framework, and language-specific guides.
 - [Durable functions or Step Functions](durable-step-functions.md "durable-step-functions.md") – Compare durable functions with Step Functions to understand when each approach is most effective.

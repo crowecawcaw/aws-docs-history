@@ -1,6 +1,6 @@
 # Idempotency
 
-Durable functions provide built-in idempotency for execution starts through execution names. When you provide an execution name, Lambda uses it to prevent duplicate executions and enable safe retries of invocation requests. Steps have at-least-once execution semantics by default—during replay, the SDK returns checkpointed results without re-executing completed steps, but your business logic must be idempotent to handle potential retries before completion.
+Durable functions provide built-in idempotency for execution starts through execution names. When you provide an execution name, Lambda uses it to prevent duplicate executions and enable safe retries of invocation requests. Steps have at-least-once execution semantics by default. During replay, the SDK returns checkpointed results without re-executing completed steps, but your business logic must be idempotent to handle potential retries before completion.
 
 ###### Note
 
@@ -33,74 +33,4 @@ Scenarios 3 and 5 demonstrate idempotent behavior where Lambda safely handles du
 
 Steps have at-least-once execution semantics by default. When your function replays after a wait, callback, or failure, the SDK checks each step against the checkpoint log. For steps that already completed, the SDK returns the checkpointed result without re-executing the step logic. However, if a step fails or the function is interrupted before the step completes, the step may execute multiple times.
 
-Your business logic wrapped in steps must be idempotent to handle potential retries. Use idempotency keys to ensure operations like payments or database writes execute only once, even if the step retries.
-
-**Example: Using idempotency keys in steps**
-
-TypeScript
-
-```
-
-import { withDurableExecution, DurableContext } from '@aws/durable-execution-sdk-js';
-import { randomUUID } from 'crypto';
-
-export const handler = withDurableExecution(
-  async (event: any, context: DurableContext) => {
-    // Generate idempotency key once
-    const idempotencyKey = await context.step('generate-key', async () => {
-      return randomUUID();
-    });
-
-    // Use idempotency key in payment API to prevent duplicate charges
-    const payment = await context.step('process-payment', async () => {
-      return paymentAPI.charge({
-        amount: event.amount,
-        idempotencyKey: idempotencyKey
-      });
-    });
-
-    return { statusCode: 200, payment };
-  }
-);
-
-```
-
-Python
-
-```
-
-from aws_durable_execution_sdk_python import durable_execution, DurableContext
-import uuid
-
-@durable_execution
-def handler(event, context: DurableContext):
-    # Generate idempotency key once
-    idempotency_key = context.step(
-        lambda _: str(uuid.uuid4()),
-        name='generate-key'
-    )
-
-    # Use idempotency key in payment API to prevent duplicate charges
-    payment = context.step(
-        lambda _: payment_api.charge(
-            amount=event['amount'],
-            idempotency_key=idempotency_key
-        ),
-        name='process-payment'
-    )
-
-    return {'statusCode': 200, 'payment': payment}
-
-```
-
-You can configure steps to use at-most-once execution semantics by setting the execution mode to `AT_MOST_ONCE_PER_RETRY`. This ensures the step executes at most once per retry attempt, but may not execute at all if the function is interrupted before the step completes.
-
-The SDK enforces deterministic replay by validating that step names and order match the checkpoint log during replay. If your code attempts to execute steps in a different order or with different names, the SDK throws a `NonDeterministicExecutionError`.
-
-**How replay works with completed steps:**
-
-1. First invocation: Function executes step A, creates checkpoint, then waits
-2. Second invocation (after wait): Function replays from beginning, step A returns checkpointed result instantly without re-executing, then continues to step B
-3. Third invocation (after another wait): Function replays from beginning, steps A and B return checkpointed results instantly, then continues to step C
-
-This replay mechanism ensures that completed steps don't re-execute, but your business logic must still be idempotent to handle retries before completion.
+The business logic inside your steps must be idempotent to handle potential retries. Use idempotency keys to ensure operations like payments or database writes execute only once, even if the step retries. See [Idempotency and retries](../../../durable-execution/patterns/best-practices/idempotency.md "../../../durable-execution/patterns/best-practices/idempotency.md") in the AWS Durable Execution SDK Developer Guide for details on how to code for idempotency.

@@ -42,16 +42,20 @@ Lambda (default) compute type is multi-tenant, making use of Firecracker microVM
 
 ### Understanding managed instances
 
-Lambda Managed Instances functions run on EC2 managed instances in your account. These instances are fully managed by Lambda, which means you have restricted permissions on them compared to standard EC2 instances. You can identify Lambda Managed Instances in your account by:
+Lambda Managed Instances functions run on [EC2 managed instances](../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md "../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md") in your account. These instances are fully managed by Lambda, which means you have restricted permissions on them compared to standard EC2 instances. You can identify Lambda Managed Instances in your account by:
 
 - The presence of the `Operator` field in EC2 `DescribeInstances` output
 - The `aws:lambda:capacity-provider` tag on the instance
 
 You cannot perform standard EC2 operations directly on these instances, such as terminating them manually. To destroy managed instances, delete the associated capacity provider. Lambda will then terminate the instances as part of the capacity provider deletion process.
 
+Managed instances are hidden from your EC2 console views and API list operations by default. You can adjust the visibility using the [managed resource visibility setting](../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md#managed-resource-visibility-settings "../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md#managed-resource-visibility-settings"). Managed instances remain fully operational and billable in your AWS account.
+
 ## Pricing
 
 Lambda Managed Instances uses EC2-based pricing with a 15% management fee on top of the EC2 instance cost. This pricing model supports EC2 Savings Plans, Reserved Instances and any other pricing discounts applied to your EC2 usage. Refer to pricing page for additional details: [https://aws.amazon.com/lambda/pricing/](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/")
+
+To compare the cost of running your functions on Lambda default, Lambda Managed Instances, and self-managed Amazon EC2, use the [Lambda Managed Instances pricing calculator](https://aws-samples.github.io/sample-aws-lambda-managed-instances/ "https://aws-samples.github.io/sample-aws-lambda-managed-instances/").
 
 **Important:** EC2 pricing discounts only apply to the underlying EC2 compute, not to the management fee.
 

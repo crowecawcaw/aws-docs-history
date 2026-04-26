@@ -4,6 +4,10 @@ Lambda durable functions enable you to build resilient multi-step applications a
 
 Within each function, you use durable operations as fundamental building blocks. Steps execute business logic with built-in retries and progress tracking, while waits suspend execution without incurring compute charges, making them ideal for long-running processes like human-in-the-loop workflows or polling external dependencies. Whether you're processing orders, coordinating microservices, or orchestrating agentic AI applications, durable functions maintain state automatically and recover from failures while you write code in familiar programming languages.
 
+###### Note
+
+This guide covers Lambda service topics such as deployment, configuration, permissions, invocation, monitoring, and quotas. For SDK programming reference, quickstart tutorials, and language-specific guides, see the [AWS Durable Execution SDK Developer Guide](../../../durable-execution.md "../../../durable-execution.md").
+
 ## Key benefits
 
 **Write resilient code naturally:** With familiar programming constructs, you write code that handles failures automatically. Built-in checkpointing, transparent retries, and automatic recovery mean your business logic stays clean and focused.
@@ -26,7 +30,7 @@ Within each function, you use durable operations as fundamental building blocks.
 
 ### How durable functions compare to Step Functions
 
-Both, durable functions and Step Functions, provide workflow orchestration with automatic state management. The key differences are where they run and how you define workflows:
+Both durable functions and Step Functions provide workflow orchestration with automatic state management. The key differences are where they run and how you define workflows:
 
 - **Durable functions:** Run within Lambda, use standard programming languages, managed within Lambda environment
 - **Step Functions:** Standalone service, graph-based DSL or visual designer, fully managed with zero maintenance
@@ -44,12 +48,12 @@ To harness this checkpoint-and-replay mechanism in your applications, Lambda pro
 
 With the SDK, you wrap your Lambda event handler, which then provides a DurableContext alongside your event. This context gives you access to durable operations like steps and waits. You write your function logic as normal sequential code, but instead of calling services directly, you wrap those calls in steps for automatic checkpointing and retries. When you need to pause execution, you add waits that suspend your function without incurring charges. The SDK handles all the complexity of state management and replay behind the scenes, so your code remains clean and readable.
 
-![Filter for Amazon Inspector results related to Lambda functions](images/how_durable_works.png)
+![Diagram showing how Lambda durable functions use checkpoints to persist progress and replay to resume execution after interruptions.](images/how_durable_works.png)
 
 ## Next steps
 
+- [AWS Durable Execution SDK Developer Guide](../../../durable-execution.md "../../../durable-execution.md") – SDK reference, quickstarts, testing, and language guides
 - [Get started with durable functions](durable-getting-started.md "durable-getting-started.md")
-- [Explore the durable execution SDK](durable-execution-sdk.md "durable-execution-sdk.md")
 - [Durable functions or Step Functions](durable-step-functions.md "durable-step-functions.md")
 - [Monitor and debug durable functions](durable-monitoring.md "durable-monitoring.md")
 - [Review security and permissions](durable-security.md "durable-security.md")

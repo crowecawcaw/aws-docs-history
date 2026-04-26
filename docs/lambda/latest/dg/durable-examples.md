@@ -1,6 +1,10 @@
 # Examples and use cases
 
-Lambda durable functions enable you to build fault-tolerant, multi-step applications using durable operations like steps and waits. With automatic checkpointing and a checkpoint-replay model. where execution restarts from the beginning after failure but skips completed checkpoints, your functions can recover from failures and resume execution without losing progress.
+Lambda durable functions enable you to build fault-tolerant, multi-step applications using durable operations like steps and waits. With automatic checkpointing and a checkpoint-replay model, where execution restarts from the beginning after failure but skips completed checkpoints, your functions can recover from failures and resume execution without losing progress.
+
+###### Note
+
+For the SDK API reference, quickstart tutorials, language-specific guides, and additional workflow patterns, see the [AWS Durable Execution SDK Developer Guide](../../../durable-execution.md "../../../durable-execution.md").
 
 ## Short-lived fault-tolerant processes
 
