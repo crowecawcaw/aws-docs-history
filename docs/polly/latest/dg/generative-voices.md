@@ -80,7 +80,8 @@ voices:**
 
 - Bidirectional Streaming API is now offered in Generative engine and allows for streaming input
   and output at the same time. This API is available in the following AWS regions: US East (N. Virginia),
-  Europe (Frankfurt), US West (Oregon), and Asia Pacific (Singapore). Visit the
+  Europe (Frankfurt), US West (Oregon), Asia Pacific (Singapore),
+  Europe (London), and Canada (Central). Visit the
   [documentation](API_StartSpeechSynthesisStream.md "API_StartSpeechSynthesisStream.md")
   to learn more about how to use it.
 - Real-time and asynchronous speech synthesis operations.
