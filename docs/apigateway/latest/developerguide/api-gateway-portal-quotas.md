@@ -5,8 +5,8 @@ The following quotas apply to creating portals in API Gateway. For more informat
 | Resource or operation                                  | Default quota     | Can be increased |
 | ------------------------------------------------------ | ----------------- | ---------------- |
 | Portals per account                                    | 15                | Yes              |
-| Portal products per portal                             | 200               | Yes              |
-| Portal products per account                            | 2000              | Yes              |
+| Portal products per portal                             | 200               | No               |
+| Portal products per account                            | 500               | No               |
 | Product REST endpoint pages per portal product         | 40                | Yes              |
 | Product pages per portal product                       | 40                | Yes              |
 | Logo size                                              | 200 KB            | No               |
