@@ -140,6 +140,8 @@ Start your A2A server locally using the AgentCore CLI:
 agentcore dev
 ```
 
+This opens the AgentCore agent inspector in your web browser. To use the terminal-based TUI instead, use `agentcore dev --no-browser`.
+
 Alternatively, you can run the server directly:
 
 ```

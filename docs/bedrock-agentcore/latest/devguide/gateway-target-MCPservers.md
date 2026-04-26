@@ -2,7 +2,7 @@
 
 MCP servers provide local tools, data access, or custom functions for your interactions with models and agents in Bedrock AgentCore. In Bedrock AgentCore, you can define a preconfigured MCP server as a target when creating a gateway.
 
-MCP servers host tools that agents can discover and invoke. In Bedrock AgentCore, you use a gateway to associate targets with tools and connect them to your agent runtime. You connect with external MCP servers through the `SynchronizeGatewayTargets` API that performs protocol handshakes and indexes available tools. For more information about installing and using MCP servers, see [Amazon Bedrock AgentCore MCP Server: Vibe coding with your coding assistant](mcp-getting-started.md "mcp-getting-started.md").
+MCP servers host tools, prompts, and resources that agents can discover and use. In Bedrock AgentCore, you use a gateway to associate targets with these capabilities and connect them to your agent runtime. You connect with external MCP servers through the `SynchronizeGatewayTargets` API that performs protocol handshakes and indexes available capabilities. For more information about installing and using MCP servers, see [Amazon Bedrock AgentCore MCP Server: Vibe coding with your coding assistant](mcp-getting-started.md "mcp-getting-started.md").
 
 ###### Topics
 
@@ -12,25 +12,30 @@ MCP servers host tools that agents can discover and invoke. In Bedrock AgentCore
 
 ## Key considerations and limitations
 
-Tool discovery is managed through the synchronization operation provided by the `SynchronizeGatewayTargets` API as follows.
+**Listing Mode**
+
+ListingMode can be set as either DYNAMIC or DEFAULT for MCP server targets.
+
+- In DYNAMIC mode, clients discover MCP server capabilities when a user invokes an MCP operation. Gateway retrieves server capabilities by forwarding requests to the MCP server. Currently DYNAMIC mode is not interoperable with semantic search or outbound three-legged OAuth (3LO).
+- Unless changed, Listing Mode is set to DEFAULT. In DEFAULT mode, clients discover MCP server capabilities through a synchronization operation provided by the SynchronizeGatewayTargets API.
 
 **Implicit Synchronization**
 
-Implicit synchronization is the automatic tool discovery and indexing that occurs during `CreateGatewayTarget` and `UpdateGatewayTarget` operations. Gateway immediately calls the MCP server’s tools/list capability to fetch available tools and make tools available in the unified catalog without requiring separate user action.
+For targets in DEFAULT mode, CreateGatewayTarget and UpdateGatewayTarget operations automatically trigger capability discovery and indexing. When either operation is called, Gateway fetches available tools using MCP’s `tools/list` capability, prompts using `prompts/list`, resources using `resources/list` and `resources/templates/list`, and adds the returned capabilities to the unified catalog.
 
 **Explicit Synchronization**
 
-Manual tool catalog refresh triggered by calling the `SynchronizeGatewayTargets` API. Invoke this when the MCP server has changed its tool definitions. The API performs the discovery process on-demand, allowing users to control when Gateway updates its view of available tools.
+Capability catalogs for Targets in DEFAULT mode, can be manually refreshed by calling the `SynchronizeGatewayTargets` API. When called, it updates the Gateway’s list of available capabilities. You should call the API any time an MCP server’s tool, prompt, resource definitions change.
 
-Synchronization is a critical mechanism for maintaining accurate tool catalogs when integrating MCP servers. Implicit synchronization occurs automatically during target creation and updates, where Gateway immediately discovers and indexes tools from the MCP server to ensure tools are available for semantic search and unified listing. Explicit synchronization is performed on-demand through the `SynchronizeGatewayTargets` API, allowing discovery of the MCP tool catalog when MCP servers independently modify their capabilities.
+Synchronization is a critical mechanism for maintaining accurate capability catalogs when integrating MCP servers. Implicit synchronization occurs automatically during target creation and updates, where Gateway immediately discovers and indexes tools, prompts, and resources from the MCP server to ensure capabilities are available for semantic search and unified listing. Explicit synchronization is performed on-demand through the `SynchronizeGatewayTargets` API, allowing discovery of the MCP capability catalog when MCP servers independently modify their capabilities.
 
 **When to call SynchronizeGatewayTargets**
 
-Use this API whenever your MCP server’s tools change - whether adding new tools, modifying existing tool schemas, or removing deprecated tools. Since Gateway pre-computes vector embeddings for semantic search and maintains normalized tool catalogs, synchronization ensures users can discover and invoke the latest available tools across all target types.
+Whenever an MCP server target has its Listing Mode set to DEFAULT, use the `SynchronizeGatewayTargets` API after tools, prompts, or resources are added, removed, or modified. Since Gateway pre-computes vector embeddings for semantic search and maintains normalized capability catalogs, synchronization is necessary to ensure your users can discover and invoke the latest available tools, prompts, and resources.
 
 **How to call the API**
 
-Make a PUT request to /gateways/ { gatewayIdentifier}/synchronize with the target ID in the request body. The API returns a 202 response immediately and processes synchronization asynchronously. Monitor the target status through GetGatewayTarget to track synchronization progress, as the operation can take several minutes for large tool sets.
+Make a PUT request to /gateways/ { gatewayIdentifier}/synchronize with the target ID in the request body. The API returns a 202 response immediately and processes synchronization asynchronously. Monitor the target status through GetGatewayTarget to track synchronization progress, as the operation can take several minutes for large capability sets.
 
 **Authorization strategy**
 
@@ -48,10 +53,9 @@ IAM (SigV4) outbound authorization requires that the MCP server is hosted behind
 
 The following must be configured.
 
-1. The MCP server must have tool capabilities.
+1. The MCP server must have tool capabilities. Prompts and resources capabilities are optional and are synced automatically when the server advertises them.
 2. Supported MCP protocol versions are - **2025-06-18** , **2025-03-26** , and **2025-11-25**.
 3. For the provided URL/endpoint of the server, the URL should be encoded. The Gateway will use the same URL to invoke the server.
-4. JSON Schema reference keywords such as `$ref` , `$defs` , `$anchor` , `$dynamicRef` , and `$dynamicAnchor` are not supported in the tool definitions returned by the MCP server’s `tools/list` response. If your MCP server returns tool schemas containing these keywords, the target creation or synchronization will fail. Ensure your MCP server returns fully resolved, self-contained JSON schemas without reference keywords.
 
 ## Connecting to an OAuth-protected MCP server using Authorization Code flow
 

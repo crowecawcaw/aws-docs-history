@@ -9,7 +9,7 @@ The AgentCore Runtime service contract defines the standardized communication pr
 - [HTTP protocol contract](runtime-http-protocol-contract.md "runtime-http-protocol-contract.md")
 - [MCP protocol contract](runtime-mcp-protocol-contract.md "runtime-mcp-protocol-contract.md")
 - [A2A protocol contract](runtime-a2a-protocol-contract.md "runtime-a2a-protocol-contract.md")
-- [AGUI protocol contract](runtime-agui-protocol-contract.md "runtime-agui-protocol-contract.md")
+- [AG-UI protocol contract](runtime-agui-protocol-contract.md "runtime-agui-protocol-contract.md")
 
 ## Supported protocols
 
@@ -18,13 +18,13 @@ The AgentCore Runtime service contract supports the following communication prot
 - [HTTP](runtime-http-protocol-contract.md "runtime-http-protocol-contract.md") : Direct REST API endpoints for traditional request/response patterns
 - [MCP](runtime-mcp-protocol-contract.md "runtime-mcp-protocol-contract.md") : Model Context Protocol for tools and agent servers
 - [A2A](runtime-a2a-protocol-contract.md "runtime-a2a-protocol-contract.md") : Agent-to-Agent protocol for multi-agent communication and discovery
-- [AGUI](runtime-agui-protocol-contract.md "runtime-agui-protocol-contract.md") : Agent-to-User Interface protocol for interactive agent experiences with UI rendering
+- [AG-UI](runtime-agui-protocol-contract.md "runtime-agui-protocol-contract.md") : Agent-to-User Interface protocol for interactive agent experiences with UI rendering
 
 ## Compare supported protocols
 
-Compare the HTTP, MCP, A2A, and AGUI protocols to understand the differences and use cases.
+Compare the HTTP, MCP, A2A, and AG-UI protocols to understand the differences and use cases.
 
-| Feature            | HTTP Protocol                                                          | MCP Protocol     | A2A Protocol                 | AGUI Protocol                       |
+| Feature            | HTTP Protocol                                                          | MCP Protocol     | A2A Protocol                 | AG-UI Protocol                      |
 | ------------------ | ---------------------------------------------------------------------- | ---------------- | ---------------------------- | ----------------------------------- |
 | **Port**           | 8080                                                                   | 8000             | 9000                         | 8080                                |
 | **Mount Path**     | /invocations (HTTP), /ws (WebSocket)                                   | /mcp             | / (root)                     | /invocations (SSE), /ws (WebSocket) |

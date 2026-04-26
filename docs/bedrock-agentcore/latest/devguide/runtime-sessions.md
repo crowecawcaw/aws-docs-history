@@ -86,7 +86,7 @@ When invoking agents, include the appropriate session header to ensure requests 
 | MCP      | `Mcp-Session-Id`                              |
 | HTTP     | `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` |
 | A2A      | `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` |
-| AGUI     | `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` |
+| AG-UI    | `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` |
 
 **MicroVM stickiness** : Amazon Bedrock AgentCore uses the session header to route requests to the same microVM instance. Clients must capture the session ID returned in the response and include it in all subsequent requests to ensure session affinity. Without a consistent session ID, each request may be routed to a new microVM, which may result in additional latency due to cold starts.
 

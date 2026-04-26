@@ -293,10 +293,15 @@ aws bedrock-agentcore create-event \
 ### Example: Retrieving memory records
 
 ```
-# List records by namespace
+# List records belonging to a specific namespace
 aws bedrock-agentcore list-memory-records \
   --memory-id "your-memory-id" \
-  --namespace "/" # lists all records that match the namespace prefix
+  --namespace "/actor/Jane/" # lists all records present in the given namespace
+
+# List records belonging to a particular namespace hierarchy
+aws bedrock-agentcore list-memory-records \
+  --memory-id "your-memory-id" \
+  --namespace-path "/" # lists all records present under the namespace hierarchy
 ```
 
 ## Best practices

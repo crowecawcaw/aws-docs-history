@@ -58,7 +58,7 @@ For example code, see [Enable long-term memory](long-term-enabling-long-term-mem
 
 You can create IAM policies to restrict memory access by the scopes you define, such as actor, session, and namespace. Use the scopes as context keys in your IAM polices.
 
-The following policy restricts access to retrieving memories to a specific namespace prefix. In this example, the policy allows access only to memories in namespaces starting with `summaries/agent1/` , such as `summaries/agent1/session1/` or `summaries/agent1/session2/`.
+The following policy restricts access to retrieving memories to a specific namespace or records under a particular namespacePath hierarchy. In this example, the policy allows access only to memories with exact namespaces such as `summaries/agent1/` OR with namespaces under the following namespacePath hierarchy with `summaries/agent1/` , such as `summaries/agent1/session1/` or `summaries/agent1/session2/`.
 
 ```
 {
@@ -72,8 +72,21 @@ The following policy restricts access to retrieving memories to a specific names
       ],
       "Resource": "arn:aws:bedrock-agentcore:us-east-1:123456789012:memory/memory_id",
       "Condition": {
-        "StringLike": {
+        "StringEquals": {
           "bedrock-agentcore:namespace": "summaries/agent1/"
+        }
+      }
+    },
+    {
+      "Sid": "SpecificNamespacePathAccess",
+      "Effect": "Allow",
+      "Action": [
+        "bedrock-agentcore:RetrieveMemoryRecords"
+      ],
+      "Resource": "arn:aws:bedrock-agentcore:us-east-1:123456789012:memory/memory_id",
+      "Condition": {
+        "StringLike": {
+          "bedrock-agentcore:namespacePath": "summaries/agent1/*"
         }
       }
     }

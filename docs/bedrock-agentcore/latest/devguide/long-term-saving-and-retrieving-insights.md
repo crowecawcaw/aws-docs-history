@@ -66,9 +66,16 @@ The following example demonstrates how to wait for processing and then retrieve 
 # 'session' is an existing session object that you created when adding the coversation turns
 # session should be created on a memory resource with an active summary strategy.
 
-# --- Example 1: Retrieve the user's shipping preference ---
+# --- Example 1: Retrieve the user's shipping issues under a specific namespace ---
 memories = session.search_long_term_memories(
-    namespace_prefix=f"/summaries/{actor_id}/{session_id}/",
+    namespace=f"/summaries/{actor_id}/{session_id}/",
+    query="What problem did the user report with their order?",
+    top_k=5
+)
+
+# --- Example 2: Retrieve the user's shipping issues under a particular namespace hierarchy (e.g.: shipping issues across multiple sessions) ---
+memories = session.search_long_term_memories(
+    namespace_path=f"/summaries/{actor_id}/",
     query="What problem did the user report with their order?",
     top_k=5
 )

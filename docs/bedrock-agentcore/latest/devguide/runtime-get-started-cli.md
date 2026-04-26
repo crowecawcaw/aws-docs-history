@@ -166,7 +166,7 @@ AgentCore CLI
 
 Interactive
 
-1. Run `agentcore` to open the TUI home screen, then navigate to the dev server option:
+1. Run `agentcore` to open the TUI home screen, then select **dev** to start the local development server:
 
 
 
@@ -177,7 +177,7 @@ agentcore
 ```
 
 
-![Dev server TUI with inline chat prompt](images/tui/common-dev-server.png)
+![AgentCore agent inspector with chat prompt](images/agent-inspector/chat-prompt.png)
 
 
 
@@ -185,9 +185,20 @@ The `agentcore dev` command:
 
 
 
+* Opens agent inspector in your web browser
 * Automatically creates a Python virtual environment and installs dependencies
 * Starts a local server that mimics the AgentCore Runtime environment
 * Runs on `http://localhost:8080` by default (use `-p` to change the port)
+
+To view server logs in real time (non-interactive mode), use the `--logs` flag:
+
+
+
+```
+
+agentcore dev --logs
+
+```
 
 In a separate terminal, invoke your local agent:
 

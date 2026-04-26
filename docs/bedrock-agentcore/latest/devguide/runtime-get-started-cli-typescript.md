@@ -367,7 +367,7 @@ agentcore dev "Hello, tell me a joke"
 
 Interactive
 
-1. Run `agentcore` to open the TUI home screen, then navigate to the dev server option:
+1. Run `agentcore` to open the TUI home screen, then select **dev** to start the local development server:
 
 
 
@@ -378,13 +378,24 @@ agentcore
 ```
 
 
-![Dev server TUI with inline chat prompt](images/tui/common-dev-server.png)
+![AgentCore agent inspector with chat prompt](images/agent-inspector/chat-prompt.png)
 
 
 
 
+* Opens agent inspector in your web browser
 * For container agents, this command builds the Docker image and runs the container locally with your source directory mounted for hot reload. Your AWS credentials are forwarded automatically to the container.
 * The server runs on `http://localhost:8080` by default. Use the `--port` flag to specify a different port.
+
+To view server logs in real time (non-interactive mode), use the `--logs` flag:
+
+
+
+```
+
+agentcore dev --logs
+
+```
 
 ###### Note
 

@@ -1,8 +1,8 @@
-# AGUI protocol contract
+# AG-UI protocol contract
 
-The AGUI protocol contract defines the requirements for implementing agent-to-user interface communication in Amazon Bedrock AgentCore Runtime. This contract specifies the technical requirements, endpoints, and communication patterns that your AGUI agent must implement.
+The AG-UI protocol contract defines the requirements for implementing agent-to-user interface communication in Amazon Bedrock AgentCore Runtime. This contract specifies the technical requirements, endpoints, and communication patterns that your AG-UI agent must implement.
 
-For example code, see [Deploy AGUI servers in AgentCore Runtime](runtime-agui.md "runtime-agui.md").
+For example code, see [Deploy AG-UI servers in AgentCore Runtime](runtime-agui.md "runtime-agui.md").
 
 ###### Topics
 
@@ -15,17 +15,17 @@ For example code, see [Deploy AGUI servers in AgentCore Runtime](runtime-agui.md
 
 ## Protocol implementation requirements
 
-Your AGUI agent must implement these specific protocol requirements:
+Your AG-UI agent must implement these specific protocol requirements:
 
 - **Transport** : Server-Sent Events (SSE) or WebSocket - SSE provides unidirectional streaming from server to client, while WebSocket enables bidirectional real-time communication
 - **Session Management** : Platform automatically adds `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` header for session isolation
 
 ## Container requirements
 
-Your AGUI agent must be deployed as a containerized application meeting these specifications:
+Your AG-UI agent must be deployed as a containerized application meeting these specifications:
 
 - **Host** : `0.0.0.0`
-- **Port** : `8080` - Standard port for AGUI agent communication (same as HTTP protocol)
+- **Port** : `8080` - Standard port for AG-UI agent communication (same as HTTP protocol)
 - **Platform** : ARM64 container - Required for compatibility with AWS Amazon Bedrock AgentCore runtime environment
 
 ## Path requirements
@@ -46,9 +46,9 @@ The invocations endpoint serves several key purposes:
 
 #### Request format
 
-Amazon Bedrock AgentCore passes request payloads directly to your container without validation. To be AGUI-compliant, your requests should follow the `RunAgentInput` format. Your container implementation determines which fields are required and how validation errors are handled.
+Amazon Bedrock AgentCore passes request payloads directly to your container without validation. To be AG-UI-compliant, your requests should follow the `RunAgentInput` format. Your container implementation determines which fields are required and how validation errors are handled.
 
-AGUI-compliant agents expect a `RunAgentInput` JSON payload. Example:
+AG-UI-compliant agents expect a `RunAgentInput` JSON payload. Example:
 
 ```
 {
@@ -62,11 +62,11 @@ AGUI-compliant agents expect a `RunAgentInput` JSON payload. Example:
 }
 ```
 
-For the complete `RunAgentInput` schema and message format details, see [AGUI Types](https://docs.ag-ui.com/sdk/js/core/types "https://docs.ag-ui.com/sdk/js/core/types").
+For the complete `RunAgentInput` schema and message format details, see [AG-UI Types](https://docs.ag-ui.com/sdk/js/core/types "https://docs.ag-ui.com/sdk/js/core/types").
 
 #### Response format
 
-AGUI agents respond with SSE-formatted event streams:
+AG-UI agents respond with SSE-formatted event streams:
 
 ```
 Content-Type: text/event-stream
@@ -104,7 +104,7 @@ The WebSocket endpoint serves several key purposes:
 
 #### Purpose
 
-Verifies that your AGUI agent is operational and ready to handle requests
+Verifies that your AG-UI agent is operational and ready to handle requests
 
 #### Response format
 
@@ -122,11 +122,11 @@ Returns a status code indicating your agent’s health:
 
 ## Authentication requirements
 
-AGUI agents support multiple authentication mechanisms:
+AG-UI agents support multiple authentication mechanisms:
 
 ### OAuth 2.0 Bearer Tokens
 
-For AGUI client authentication, include the Bearer token in request headers:
+For AG-UI client authentication, include the Bearer token in request headers:
 
 ```
 Authorization: Bearer <oauth-token>
@@ -144,7 +144,7 @@ Errors are classified into two categories based on when they occur:
 - **Connection-level errors** : Occur before the request reaches your container (authentication, validation, throttling). These return standard HTTP status codes.
 - **Runtime errors** : Occur during agent execution after the stream has started. These surface as `RUN_ERROR` events in the SSE stream rather than HTTP status codes.
 
-| AGUI Error Code       | HTTP Status | Description                                                     |
+| AG-UI Error Code      | HTTP Status | Description                                                     |
 | --------------------- | ----------- | --------------------------------------------------------------- |
 | `UNAUTHORIZED`        | 401         | Authentication required or invalid credentials                  |
 | `ACCESS_DENIED`       | 403         | Insufficient permissions for requested operation                |

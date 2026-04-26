@@ -227,12 +227,12 @@ searchCriteria={"searchQuery": "Does the user have a preferred shipping carrier?
 for record in preference_response.get('memoryRecordSummaries', []):
 print(f"- Retrieved Record: {record}")
 
-# --- Example 2: Broad query about the user's issue ---
+# --- Example 2: Broad query about the user's issue (across sessions with the help of namespacePath) ---
 
 print("\nPerforming a broad search for user's reported issues...")
 issue_response = data_client.retrieve_memory_records(
 memoryId=memory_id,
-namespace=f"/summaries/{sarah_actor_id}/{support_session_id}/",
+namespacePath=f"/summaries/{sarah_actor_id}/",
 searchCriteria={"searchQuery": "What problem did the user report with their order?"}
 )
 for record in issue_response.get('memoryRecordSummaries', []):

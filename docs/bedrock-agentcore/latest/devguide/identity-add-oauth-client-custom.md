@@ -22,5 +22,19 @@ Custom providers enable you to connect to any OAuth2-compatible resource server 
       5. For **Token endpoint** , enter the URL where your agent exchanges authorization codes for access tokens. This endpoint handles the credential exchange process.
       6. (Optional) In the **Response types** section, configure how your OAuth client receives authentication responses by choosing **Add response type** and selecting the token formats your provider should return. Common types include `code` for authorization code flow or `token` for implicit flow.
 
-6. Choose **Add OAuth Client**.
-   After completing either configuration, AgentCore Identity securely stores your OAuth settings and provides an ARN you can reference in your agent code, enabling token requests without embedding sensitive credentials in your application. You can find this ARN in the properties page of the OAuth client (Choose the client name in the **Outbound Auth** section).
+6. (Optional) Expand **Advanced configuration** to configure a private endpoint for connecting to an identity provider hosted inside your VPC. Choose one of the following modes:
+   1. **Managed Lattice**: AgentCore creates and manages the VPC Lattice resource gateway and resource configuration on your behalf. This is the simpler option for in-account VPC connectivity.
+      1. For **VPC** , select your VPC identifier.
+      2. For **Subnets** , select one or more subnets that have network access to your IdP.
+      3. For **IP address type** , choose `IPV4` or `IPV6`.
+      4. (Optional) For **Security groups** , select security groups that allow traffic to your IdP.
+      5. (Optional) For **Routing domain** , enter a publicly resolvable domain to use for routing if your IdP domain is not publicly resolvable. For more information, see [Workaround for private DNS support: routing domain](vpc-egress-private-endpoints.md#lattice-vpc-egress-routing-domain "vpc-egress-private-endpoints.md#lattice-vpc-egress-routing-domain").
+
+   2. **Self-managed Lattice**: You create and manage the VPC Lattice resource gateway and resource configuration yourself. This option supports cross-account connectivity via AWS RAM and provides full governance visibility.
+      1. For **Resource configuration ARN** , select the ARN of your VPC Lattice resource configuration.
+      2. (Optional) For **Domain overrides** , enter additional domains that should be routed through the private endpoint. Use this when your identity provider endpoints (such as token or authorization endpoints) are hosted on different domains than the primary IdP domain configured in your resource configuration.
+
+7. Choose **Add OAuth Client**.
+   For a detailed comparison of managed vs self-managed Lattice modes, see [Supported VPC egress modes](vpc-egress-private-endpoints.md#lattice-vpc-egress-compare-modes "vpc-egress-private-endpoints.md#lattice-vpc-egress-compare-modes").
+
+After completing either configuration, AgentCore Identity securely stores your OAuth settings and provides an ARN you can reference in your agent code, enabling token requests without embedding sensitive credentials in your application. You can find this ARN in the properties page of the OAuth client (Choose the client name in the **Outbound Auth** section).

@@ -11,5 +11,6 @@ Amazon Bedrock AgentCore Identity is an identity and credential management servi
 - [Configure inbound JWT authorizer](inbound-jwt-authorizer.md "inbound-jwt-authorizer.md")
 - [Manage credential providers with AgentCore Identity](identity-outbound-credential-provider.md "identity-outbound-credential-provider.md")
 - [Provider setup and configuration](identity-idps.md "identity-idps.md")
+- [Connect to private identity providers](identity-private-idp.md "identity-private-idp.md")
 - [Data protection in Amazon Bedrock AgentCore Identity](identity-data-protection.md "identity-data-protection.md")
 - [Tagging AgentCore Identity resources](identity-tagging.md "identity-tagging.md")

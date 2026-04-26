@@ -38,4 +38,4 @@ Use Smithy models to define your API interfaces and generate MCP-compatible tool
 
 **MCP servers**
 
-Use remote MCP servers to connect tools to your agent runtime. Only MCP tools capabilities are supported. For both control plane and data plane operations, if tools are not available the operations will fail.
+Use remote MCP servers to connect tools, prompts, and resources to your agent runtime. Gateway supports MCP tools, prompts, and resources capabilities. Tools are required; prompts and resources are optional. Prompts provide reusable prompt templates with arguments. Resources provide contextual data identified by URIs. During synchronization, the gateway discovers all capabilities that the MCP server advertises.

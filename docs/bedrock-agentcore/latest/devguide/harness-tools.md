@@ -1,0 +1,242 @@
+# Connect to tools
+
+Tools are declarative. You list what the agent can call; AgentCore handles invocation, credentials, and results. The harness supports five tool types, plus the built-in filesystem and shell tools.
+
+- **MCP servers:** Connect to any remote [Model Context Protocol](https://modelcontextprotocol.io "https://modelcontextprotocol.io") endpoint by URL. No Gateway required for simple cases.
+- **[AgentCore Gateway](gateway.md "gateway.md"):** Governed connectivity to APIs and MCP servers with inbound/outbound auth, access control, and [policy enforcement](policy.md "policy.md"). Reference a gateway ARN and every tool configured on that gateway becomes available. Use Gateway when you need a managed, policy-backed tool surface.
+- **[AgentCore Browser](browser-tool.md "browser-tool.md"):** Managed web browsing and automation.
+- **[AgentCore Code Interpreter](code-interpreter-tool.md "code-interpreter-tool.md"):** Sandboxed Python/JavaScript/TypeScript code execution for data analysis and computation.
+- **Inline functions:** Tool schemas that execute on the client side, not on the harness VM. The harness pauses when the tool is called and returns the call to your code, which decides what to do and sends a result back. This is the pattern for human-in-the-loop approvals and custom integrations.
+  Default tools `shell` and `file_operations` are available in every session unless you restrict them with `allowedTools`. `shell` executes bash commands; `file_operations` supports viewing, creating, and editing files.
+
+The `allowedTools` parameter controls which tools the agent can use. If omitted, all tools are allowed. Supported patterns:
+
+| Pattern         | Example             | Matches                        |
+| --------------- | ------------------- | ------------------------------ |
+| `*`             | `"*"`               | All tools                      |
+| Plain name      | `"shell"`           | Builtin by name                |
+| Builtin glob    | `"file_*"`          | `file_operations`, `file_read` |
+| `@builtin`      | `"@builtin"`        | All builtin tools              |
+| `@builtin/name` | `"@builtin/shell"`  | Specific builtin               |
+| `@server`       | `"@git"`            | All tools from an MCP server   |
+| `@server/tool`  | `"@git/git_status"` | Specific MCP tool              |
+| `@server/glob`  | `"@git/read_*"`     | Glob within a server           |
+| `@*/tool`       | `"@*-mcp/status"`   | Glob across servers            |
+
+## Add tools
+
+###### Example
+
+AgentCore CLI
+When creating a new harness interactively, the `agentcore add harness` wizard lets you select tools. To add tools via the CLI, use `agentcore add tool` after creating the harness:
+
+###### Note
+
+The `--type` flag uses underscore-separated names (e.g., `agentcore_browser`), which match the tool type identifiers in `harness.json`.
+
+```
+# Add a remote MCP server
+agentcore add tool --harness my-agent --type remote_mcp \
+  --name exa --url https://mcp.exa.ai/mcp
+
+# Add Browser
+agentcore add tool --harness my-agent --type agentcore_browser --name browser
+
+# Add Code Interpreter
+agentcore add tool --harness my-agent --type agentcore_code_interpreter --name code-interpreter
+
+# Add Gateway by ARN
+agentcore add tool --harness my-agent --type agentcore_gateway \
+  --name my-gateway --gateway-arn arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway
+
+# Add Gateway by project-local name
+agentcore add tool --harness my-agent --type agentcore_gateway \
+  --name my-gateway --gateway my-gateway
+
+# Add an inline function tool (executes client-side, not on the harness VM)
+agentcore add tool --harness my-agent --type inline_function \
+  --name approve_purchase \
+  --description "Request human approval for a purchase" \
+  --input-schema '{"type": "object", "properties": {"item": {"type": "string"}, "amount": {"type": "number"}}, "required": ["item", "amount"]}'
+```
+
+Deploy to apply.
+
+Override tools on a single invocation:
+
+```
+agentcore invoke --harness research-agent --tools agentcore-browser "Find the latest news on AI agents"
+```
+
+AWS CLI/boto3
+Pass `tools` at create, update, or invoke time:
+
+```
+tools = [
+    # MCP server
+    {
+        "type": "remote_mcp",
+        "name": "exa",
+        "config": {"remoteMcp": {"url": "https://mcp.exa.ai/mcp"}},
+    },
+    # MCP server with authentication headers
+    {
+        "type": "remote_mcp",
+        "name": "my-private-mcp",
+        "config": {"remoteMcp": {
+            "url": "https://mcp.example.com/api",
+            "headers": {"Authorization": "Bearer <your-token>"}
+        }},
+    },
+    # For managed credential rotation and API key storage, put your MCP server
+    # behind AgentCore Gateway and use AgentCore Identity instead of raw headers.
+    #
+    # AgentCore Gateway with SigV4 auth (default)
+    {
+        "type": "agentcore_gateway",
+        "name": "my-gateway",
+        "config": {"agentCoreGateway": {"gatewayArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway"}},
+    },
+    # AgentCore Gateway with OAuth auth
+    {
+        "type": "agentcore_gateway",
+        "name": "my-oauth-gateway",
+        "config": {"agentCoreGateway": {
+            "gatewayArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-oauth-gateway",
+            "outboundAuth": {"oauth": {
+                "credentialProviderName": "my-oauth-provider",
+                "scopes": ["read", "write"]
+            }}
+        }},
+    },
+    # AgentCore Browser
+    {"type": "agentcore_browser", "name": "browser"},
+    # AgentCore Code Interpreter
+    {"type": "agentcore_code_interpreter", "name": "code_interpreter"},
+
+    # Inline function - executes on the client side, not on the harness VM.
+    # When the agent calls this tool, the call is returned to your code for handling.
+    {
+        "type": "inline_function",
+        "name": "approve_purchase",
+        "config": {
+            "inlineFunction": {
+                "description": "Request human approval for a purchase.",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "item": {"type": "string"},
+                        "amount": {"type": "number"},
+                    },
+                    "required": ["item", "amount"],
+                },
+            }
+        },
+    },
+]
+
+response = client.invoke_harness(
+    harnessArn=HARNESS_ARN,
+    runtimeSessionId=SESSION_ID,
+    tools=tools,
+    messages=[{"role": "user", "content": [{"text": "Find a mechanical keyboard under $200 and request approval."}]}],
+)
+```
+
+## Inline function calls
+
+Inline functions let you define a tool that executes in your code, not on the harness. This is useful for human-in-the-loop approvals, calling internal APIs, or any logic you want to control client-side.
+
+###### Example
+
+AgentCore CLI
+Add an inline function tool to a harness:
+
+```
+agentcore add tool --harness my-agent --type inline_function \
+  --name get_weather
+```
+
+Then define the description and input schema in `app/my-agent/harness.json`:
+
+```
+{
+  "type": "inline_function",
+  "name": "get_weather",
+  "config": {
+    "inlineFunction": {
+      "description": "Get the current weather for a city.",
+      "inputSchema": {
+        "type": "object",
+        "properties": { "city": { "type": "string" } },
+        "required": ["city"]
+      }
+    }
+  }
+}
+```
+
+Run `agentcore deploy` to apply. When the agent calls the inline function during an invocation, the TUI pauses and prompts you to provide the tool result inline. In non-interactive (CLI) mode, the stream returns with `stopReason: "tool_use"` and you send the result back with a follow-up invoke call.
+
+AWS CLI/boto3
+Pass an inline function tool at invoke time:
+
+```
+# 1. Invoke with an inline function tool
+response = client.invoke_harness(
+    harnessArn=HARNESS_ARN,
+    runtimeSessionId=SESSION_ID,
+    tools=[{
+        "type": "inline_function",
+        "name": "get_weather",
+        "config": {"inlineFunction": {
+            "description": "Get the current weather for a city.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {"city": {"type": "string"}},
+                "required": ["city"]
+            }
+        }}
+    }],
+    messages=[{"role": "user", "content": [{"text": "What's the weather in Seattle?"}]}],
+)
+
+# 2. The agent calls the tool - capture the toolUseId from the stream
+tool_use_id = None
+for event in response["stream"]:
+    if "contentBlockStart" in event:
+        start = event["contentBlockStart"].get("start", {})
+        if "toolUse" in start and start["toolUse"].get("type") == "inline_function":
+            tool_use_id = start["toolUse"]["toolUseId"]
+
+# 3. Execute the tool yourself and send the result back
+client.invoke_harness(
+    harnessArn=HARNESS_ARN,
+    runtimeSessionId=SESSION_ID,
+    messages=[{
+        "role": "user",
+        "content": [{
+            "toolResult": {
+                "toolUseId": tool_use_id,
+                "content": [{"text": "72°F, partly cloudy"}],
+                "status": "success",
+            }
+        }],
+    }],
+)
+```
+
+The agent resumes reasoning with the tool result and streams the final response.
+
+Learn more about each tool:
+
+- [AgentCore Gateway](gateway.md "gateway.md") · [create a gateway](gateway-create.md "gateway-create.md") · [policies](policy.md "policy.md")
+- [AgentCore Browser](browser-tool.md "browser-tool.md") · [browser profiles](browser-profiles.md "browser-profiles.md") · [session recording](browser-session-recording.md "browser-session-recording.md")
+- [AgentCore Code Interpreter](code-interpreter-tool.md "code-interpreter-tool.md") · [preinstalled libraries](code-interpreter-preinstalled-libraries.md "code-interpreter-preinstalled-libraries.md")
+
+### Related topics
+
+- [Configure agents and models](harness-config-and-models.md "harness-config-and-models.md") - configure models and override per invocation
+- [Environment and Skills](harness-environment.md "harness-environment.md") - bring your own container and run shell commands
+- [Security and access controls](harness-security.md "harness-security.md") - control which tools the agent can access with policies
+- [API Documentation](harness-get-started.md#api-documentation "harness-get-started.md#api-documentation")

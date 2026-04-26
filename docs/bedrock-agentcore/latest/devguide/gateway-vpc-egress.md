@@ -12,10 +12,6 @@ Your MCP targets could be of two types, not hosted on AgentCore, or hosted on Ag
 
 AgentCore Gateway supports connecting to self-hosted MCP servers running inside your VPC using private endpoints powered by Amazon VPC Lattice. You can configure a `privateEndpoint` on your gateway target to route traffic privately to your MCP server without exposing it to the public internet.
 
-###### Important
-
-VPC egress with private endpoints is made available as a "Beta Service" as defined in the AWS Service Terms.
-
 The following example creates a private MCP server target using managed Lattice:
 
 ```
@@ -39,7 +35,7 @@ The following example creates a private MCP server target using managed Lattice:
 }
 ```
 
-If your MCP server uses a domain that is not publicly resolvable (for example, a private hosted zone in Route 53), you must also specify a `routingDomain` . For more information, see [Workaround for private DNS support: routing domain](vpc-egress-private-endpoints.md#lattice-vpc-egress-routing-domain "vpc-egress-private-endpoints.md#lattice-vpc-egress-routing-domain").
+If you want to route traffic through an intermediate component such as a VPC endpoint or internal load balancer, you can specify a `routingDomain` . For more information, see [Route traffic through an intermediate domain](vpc-egress-private-endpoints.md#lattice-vpc-egress-routing-domain "vpc-egress-private-endpoints.md#lattice-vpc-egress-routing-domain").
 
 If your MCP server uses a TLS certificate issued by a private certificate authority, you can place an internal Application Load Balancer with a public ACM certificate in front of it. For more information, see [Workaround for private certificates: ALB](vpc-egress-private-endpoints.md#lattice-vpc-egress-private-certs "vpc-egress-private-endpoints.md#lattice-vpc-egress-private-certs").
 
@@ -115,10 +111,6 @@ If you have Private REST APIs in API Gateway, follow the instructions here: [Pri
 
 You can configure Open API targets to reach private endpoints inside your VPC using the `privateEndpoint` configuration. AgentCore Gateway uses Amazon VPC Lattice to establish private connectivity to your endpoint without exposing it to the public internet.
 
-###### Important
-
-VPC egress with private endpoints is made available as a "Beta Service" as defined in the AWS Service Terms.
-
 The following example creates a private OpenAPI target using managed Lattice:
 
 ```
@@ -142,15 +134,19 @@ The following example creates a private OpenAPI target using managed Lattice:
 }
 ```
 
-If your endpoint uses a domain that is not publicly resolvable, you must also specify a `routingDomain` . For more information, see [Workaround for private DNS support: routing domain](vpc-egress-private-endpoints.md#lattice-vpc-egress-routing-domain "vpc-egress-private-endpoints.md#lattice-vpc-egress-routing-domain").
+If you want to route traffic through an intermediate component such as a VPC endpoint or internal load balancer, you can specify a `routingDomain` . For more information, see [Route traffic through an intermediate domain](vpc-egress-private-endpoints.md#lattice-vpc-egress-routing-domain "vpc-egress-private-endpoints.md#lattice-vpc-egress-routing-domain").
 
 If your endpoint uses a TLS certificate issued by a private certificate authority, you can place an internal Application Load Balancer with a public ACM certificate in front of it. For more information, see [Workaround for private certificates: ALB](vpc-egress-private-endpoints.md#lattice-vpc-egress-private-certs "vpc-egress-private-endpoints.md#lattice-vpc-egress-private-certs").
 
 For self-managed Lattice, cross-account setups, and advanced configurations, see [Connect to private resources in your VPC using VPC Lattice](vpc-egress-private-endpoints.md "vpc-egress-private-endpoints.md").
 
+###### Note
+
+The `privateEndpoint` configuration applies to a single domain in your OpenAPI schema. If your schema references multiple server endpoints with different domains, open an [AWS Support case](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") to request support for `privateEndpointOverrides`.
+
 ## Smithy target
 
-Private endpoint ( `privateEndpoint` ) configuration is not currently supported for Smithy targets.
+Private endpoint ( `privateEndpoint` ) configuration is not currently supported for Smithy targets. If your Smithy target requires private connectivity, open an [AWS Support case](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") to request support.
 
 ## API Gateway
 
@@ -271,9 +267,13 @@ For more details on private endpoint configuration, see [Connect to private reso
 
 AgentCore Gateway supports Lambda targets as one of it target types, allowing seamless invocation of Lambda functions that can communicate with resources within your VPC. This functionality is available out-of-the-box and requires no additional configuration from customers - the gateway can immediately invoke Lambda functions that have been configured with VPC access to reach your internal resources such as databases, APIs, or other services. To maintain security best practices, it’s strongly recommended to configure the AgentCore Gateway execution role with minimal permissions, specifically limiting it to invoke only the intended Lambda function rather than granting broad Lambda execution permissions. This principle of least privilege ensures that the gateway, or any other caller using the same role, cannot inadvertently invoke unintended Lambda functions, thereby reducing your security attack surface and maintaining strict access controls within your AWS environment.
 
-## Workaround for private identity providers
+## Private identity providers
 
-Configuring a private (VPC-hosted) OAuth identity provider for AgentCore Gateway inbound authorization is not yet natively supported. As a workaround, you can use an interceptor Lambda function for inbound authentication and override the Authorization header in the interceptor Lambda for use with outbound auth.
+AgentCore now supports connecting to private OAuth identity providers for both inbound JWT authorization and outbound OAuth credential providers. This enables you to use self-hosted IdPs such as Keycloak, PingFederate, or other OIDC-compliant authorization servers running inside your VPC without exposing them to the public internet.
+
+For detailed configuration instructions, see [Connect to private identity providers in your VPC](identity-private-idp.md "identity-private-idp.md").
+
+Alternatively, you can use an interceptor Lambda function for inbound authentication and override the Authorization header in the interceptor Lambda for use with outbound auth:
 
 - [Gateway interceptors](gateway-interceptors.md "gateway-interceptors.md")
 - [Specify the authorization type and credentials to access the gateway target](gateway-building-adding-targets-authorization.md "gateway-building-adding-targets-authorization.md")
@@ -282,4 +282,4 @@ Configuring a private (VPC-hosted) OAuth identity provider for AgentCore Gateway
 
 - **Inbound authorization required** : Gateway targets configured with a `privateEndpoint` cannot use `NO_AUTH` as the inbound authorizer type unless an interceptor Lambda is configured on the gateway.
 
-For additional limitations related to private DNS resolution, cross-account connectivity, and DNS TTL configuration, see [Limitations and considerations](vpc-egress-private-endpoints.md#lattice-vpc-egress-limitations "vpc-egress-private-endpoints.md#lattice-vpc-egress-limitations") in [Connect to private resources in your VPC using VPC Lattice](vpc-egress-private-endpoints.md "vpc-egress-private-endpoints.md").
+For additional limitations related to cross-account connectivity and DNS TTL configuration, see [Limitations and considerations](vpc-egress-private-endpoints.md#lattice-vpc-egress-limitations "vpc-egress-private-endpoints.md#lattice-vpc-egress-limitations") in [Connect to private resources in your VPC using VPC Lattice](vpc-egress-private-endpoints.md "vpc-egress-private-endpoints.md").

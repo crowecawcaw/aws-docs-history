@@ -12,7 +12,11 @@ The identifier of the memory resource containing the records you want to retriev
 
 **namespace**
 
-The namespace prefix of the namespace where the memory records are stored. The operation returns paginated memory records in namespaces that start with the provided prefix.
+The exact namespace where the memory records are stored. The operation returns paginated memory records in namespaces that match with the provided namespace.
+
+**namespacePath**
+
+The namespace path of where the memory records are stored. The operation returns paginated memory records under the provided namespaces hierarchy that start with the provided path.
 
 **searchCriteria**
 

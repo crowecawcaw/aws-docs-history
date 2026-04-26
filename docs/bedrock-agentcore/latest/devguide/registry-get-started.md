@@ -89,10 +89,14 @@ A registry record represents an agent, tool, skill, or custom resource.
 1. Open the AWS Agent Registry Page in [AgentCore console](https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1# "https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1#").
 2. In the navigation pane, choose **Registry** , and then choose the name of the registry where you want to add a record.
 3. In the **Registry records** section, choose **Create record**.
-4. In the **Record details** section, for **Name** , enter a name for the record. The name must start with an alphanumeric character. Valid characters are a–z, A–Z, 0–9, `_` (underscore), `-` (hyphen), `.` (period), and `/` (forward slash). The name can have up to 255 characters.
-5. (Optional) For **Description** , enter a description for the record. The description can be 1 to 4,096 characters.
-6. For **Record version** , enter a version identifier for the record (for example, `1.0.0` or `v2.1` ).
-7. In the **Record type** section, choose the type that matches your resource:
+4. Choose a source type:
+   1. **Synchronize from endpoint** — Provide an endpoint URL and optional credentials to fetch metadata from an MCP server or Agent (A2A) endpoint. See [Synchronize records from external sources](registry-sync-records.md "registry-sync-records.md") for details.
+   2. **Manual** — Manually configure the record details and protocol configuration. Continue with the steps below.
+
+5. In the **Record details** section, for **Name** , enter a name for the record. The name must start with an alphanumeric character. Valid characters are a–z, A–Z, 0–9, `_` (underscore), `-` (hyphen), `.` (period), and `/` (forward slash). The name can have up to 255 characters.
+6. (Optional) For **Description** , enter a description for the record. The description can be 1 to 4,096 characters.
+7. For **Record version** , enter a version identifier for the record (for example, `1.0.0` or `v2.1` ).
+8. In the **Record type** section, choose the type that matches your resource:
    1. **MCP** – Protocol designed for AI tool and agent communications. Handles context management and structured message formats. If you choose this type, complete the following steps:
       1. In the **MCP server definition** section, select a schema version from the **Schema version** dropdown (for example, `2025-12-11` ), and then enter [MCP registry](https://registry.modelcontextprotocol.io/ "https://registry.modelcontextprotocol.io/") server.json in the **Your MCP server definition** editor. The definition must comply with the official MCP server schema for the selected version. To view the official schema as a reference, turn on **Show official schema**.
       2. (Optional) Select **Add tool definition** to add specific tools available on this server with their input parameters, outputs, and usage examples to enhance discoverability. If you select this option, select a schema version from the **Schema version** dropdown (for example, `2025-11-25` ), and then enter your tool definition in the **Your Tool definition** editor. To view the official tool schema as a reference, turn on **Show official schema**.
@@ -104,7 +108,7 @@ A registry record represents an agent, tool, skill, or custom resource.
 
    4. **Custom** – Custom protocol implementation for specialized communication patterns. Define your own interface specification and integration requirements. If you choose this type, enter your custom definition as a JSON object in the editor.
 
-8. Choose **Create record**.
+9. Choose **Create record**.
 
 ###### Note
 

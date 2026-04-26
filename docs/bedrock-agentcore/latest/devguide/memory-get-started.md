@@ -180,7 +180,7 @@ You can list all memory records with:
 # List all memory records
 
 memory_records = session.list_long_term_memory_records(
-namespace_prefix="/"
+namespace_path="/"
 )
 
 for record in memory_records:
@@ -199,7 +199,7 @@ Or ask for the most relevant information as part of a semantic search:
 
 memory_records = session.search_long_term_memories(
 query="can you summarize the support issue",
-namespace_prefix="/",
+namespace_path="/",
 top_k=3
 )
 

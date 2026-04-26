@@ -88,7 +88,7 @@ Make sure port 8080 is free before starting. See _Port 8080 in use (local only)_
 Open a terminal window and start your agent with the following command:
 
 ```
-agentcore dev
+agentcore dev --no-browser
 ```
 
 Test your agent by opening another terminal window and enter the following command:

@@ -1,9 +1,5 @@
 # Connect to private resources in your VPC using VPC Lattice
 
-###### Important
-
-This feature is made available to you as a "Beta Service" as defined in the AWS Service Terms. It is subject to your Agreement with AWS and the AWS Service Terms.
-
 Amazon Bedrock AgentCore supports private connectivity to resources hosted inside your AWS VPC or on-premises environments connected to your VPC, such as private MCP servers, internal REST APIs, or databases, without exposing those services to the public internet.
 
 Private connectivity is established using [Amazon VPC Lattice](../../../vpc-lattice/latest/ug/what-is-vpc-lattice.md "../../../vpc-lattice/latest/ug/what-is-vpc-lattice.md") resource gateways and resource configurations. For details on the two supported modes (managed and self-managed Lattice), see [Supported VPC egress modes](#lattice-vpc-egress-compare-modes "#lattice-vpc-egress-compare-modes").
@@ -13,9 +9,9 @@ Private connectivity is established using [Amazon VPC Lattice](../../../vpc-latt
 - [Key concepts](#lattice-vpc-egress-concepts "#lattice-vpc-egress-concepts")
 - [Supported Amazon Bedrock AgentCore services](#lattice-vpc-egress-supported-services "#lattice-vpc-egress-supported-services")
 - [Supported VPC egress modes](#lattice-vpc-egress-compare-modes "#lattice-vpc-egress-compare-modes")
-- [Option 1: Managed Lattice](#lattice-vpc-egress-managed-lattice "#lattice-vpc-egress-managed-lattice")
-- [Option 2: Self-managed Lattice](#lattice-vpc-egress-self-managed-lattice "#lattice-vpc-egress-self-managed-lattice")
-- [Workaround for private DNS support: routing domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain")
+- [Option 1: Managed VPC resources](#lattice-vpc-egress-managed-lattice "#lattice-vpc-egress-managed-lattice")
+- [Option 2: Self-managed Lattice resources](#lattice-vpc-egress-self-managed-lattice "#lattice-vpc-egress-self-managed-lattice")
+- [Route traffic through an intermediate domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain")
 - [Workaround for private certificates: ALB](#lattice-vpc-egress-private-certs "#lattice-vpc-egress-private-certs")
 - [Service-linked role for VPC egress](#lattice-vpc-egress-slr "#lattice-vpc-egress-slr")
 - [Target status and troubleshooting](#lattice-vpc-egress-target-status "#lattice-vpc-egress-target-status")
@@ -37,7 +33,7 @@ A service network resource association connects a resource configuration to the 
 
 **Routing domain**
 
-An optional field that specifies an intermediate publicly resolvable domain that AgentCore uses as the resource configuration domain instead of the actual target domain. This is required when your private endpoint uses a domain that is not publicly resolvable, because Amazon VPC Lattice requires publicly resolvable DNS for resource configurations. The AgentCore service continues to invoke the actual target domain using SNI override. For more information, see [Workaround for private DNS support: routing domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain").
+An optional field that specifies an intermediate domain that AgentCore uses as the resource configuration domain instead of the actual target domain. This is useful when you want to route traffic through an intermediate component such as a VPC endpoint or an internal load balancer — for example, to consolidate multiple private API Gateways behind a single VPC endpoint, reducing the number of resource configurations and associated costs. The AgentCore service continues to invoke the actual target domain using SNI override. For more information, see [Route traffic through an intermediate domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain").
 
 ## Supported Amazon Bedrock AgentCore services
 
@@ -47,29 +43,43 @@ The following Amazon Bedrock AgentCore services support VPC egress with VPC Latt
 
 AgentCore Gateway supports private endpoints for MCP server and OpenAPI target types. For details on configuring VPC egress for each target type, see [Configure Amazon Bedrock AgentCore Gateway VPC Egress for Gateway Targets](gateway-vpc-egress.md "gateway-vpc-egress.md").
 
+**AgentCore Identity**
+
+AgentCore Identity supports private endpoints for connecting to VPC hosted OAuth 2.0 identity providers for both inbound JWT authorization and outbound OAuth credential providers. For details, see [Connect to private identity providers](identity-private-idp.md "identity-private-idp.md").
+
 ## Supported VPC egress modes
 
 Amazon Bedrock AgentCore supports two modes for configuring VPC Lattice connectivity:
 
-- **Managed Lattice** — Amazon Bedrock AgentCore creates and manages the VPC Lattice resource gateway and resource configuration on your behalf. You provide your VPC, subnets, and optional security groups. This is the simpler approach for in-account VPC connectivity that plugs into existing network architectures such as hub-and-spoke.
-- **Self-managed Lattice** — You create and manage the VPC Lattice resource gateway and resource configuration yourself. This approach provides enhanced governance and visibility: you can see exactly which services are connected to which domains, who has access, and revoke connections at a granular level. It also enables direct cross-account connectivity via AWS RAM without requiring VPC peering or Transit Gateways.
+- **Managed VPC resources** — Amazon Bedrock AgentCore creates and manages the VPC Lattice resource gateway and resource configuration on your behalf. You provide your VPC, subnets, and optional security groups. This is the simpler approach for in-account VPC connectivity that plugs into existing network architectures such as hub-and-spoke.
+
+###### Note
+
+You do not need VPC Lattice IAM permissions, SCP changes, or additional approval processes to use this option. Amazon Bedrock AgentCore manages all VPC Lattice resources on your behalf.
+
+- **Self-managed Lattice resources** — You create and manage the VPC Lattice resource gateway and resource configuration yourself. This approach provides enhanced governance and visibility: you can see exactly which services are connected to which domains, who has access, and revoke connections at a granular level. It also enables direct cross-account connectivity via AWS RAM without requiring VPC peering or Transit Gateways.
 
 The following table summarizes the key differences:
 
-| Dimension                     | Managed Lattice                                                                                                                                             | Self-managed Lattice                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Complexity                    | Simple — provide VPC, subnets, and security groups. Amazon Bedrock AgentCore manages the rest.                                                              | Advanced — you create and manage VPC Lattice resource gateways and resource configurations yourself.                                                                                                                                                                                                                                                                                                                           |
-| Cross-account connectivity    | Not supported. Use with existing network architectures such as hub-and-spoke (VPC peering or AWS Transit Gateway) for cross-account or cross-VPC scenarios. | Supported via AWS RAM. Enables direct cross-account connectivity without requiring VPC peering or Transit Gateways.                                                                                                                                                                                                                                                                                                            |
-| VPC Lattice pricing           | Data processing charges only (per GB processed through the resource gateway).                                                                               | Hourly charge per VPC resource added to a service network, plus data processing charges (per GB).                                                                                                                                                                                                                                                                                                                              |
-| Resource lifecycle            | Amazon Bedrock AgentCore creates, reuses, and deletes resource gateways on your behalf.                                                                     | You own the full lifecycle of resource gateways and resource configurations.                                                                                                                                                                                                                                                                                                                                                   |
-| Governance and visibility     | Resource configurations are managed in the Amazon Bedrock AgentCore service account. You do not see them in your VPC Lattice console.                       | Full visibility into resource configurations, service network associations, and connected domains. You can audit connections and revoke access at a granular level.                                                                                                                                                                                                                                                            |
-| IP consumption and throughput | Each managed resource gateway consumes 1 IP address per subnet. This is not configurable.                                                                   | You can configure the number of IP addresses per ENI (up to the VPC Lattice maximum) when creating the resource gateway. More IPs allow higher throughput — the combination of port range and IP addresses determines the maximum number of concurrent connections for that service network resource association. Note that there is a 350-second port cooldown period after a connection ends before that port can be reused. |
+| Dimension                     | Managed VPC resources                                                                                                                                                                                                                                                                                                               | Self-managed Lattice resources                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Additional service dependency | No VPC Lattice onboarding or allowlisting required. VPC Lattice is used internally by Amazon Bedrock AgentCore as an implementation detail. You do not need VPC Lattice IAM policies, SCP changes, or additional approval processes. You only need standard Amazon EC2 permissions and the ability to create a service-linked role. | Yes. You create and manage VPC Lattice resources directly, which requires VPC Lattice IAM permissions (for example, `vpc-lattice:CreateResourceGateway`, `vpc-lattice:CreateResourceConfiguration`, and `vpc-lattice:CreateServiceNetworkResourceAssociation`). You may need to update SCPs or request approval if your organization restricts VPC Lattice access.                                                                                                                              |
+| Governance and visibility     | The only resource in your account is a resource gateway, which is effectively a network interface (ENI) in your VPC. This is a read-only resource fully managed by Amazon Bedrock AgentCore — you cannot modify, configure, or interact with it.                                                                                    | Full visibility into resource gateways, resource configurations, service network associations, and connected domains. You own and manage all resources, and can audit connections and revoke access at a granular level.                                                                                                                                                                                                                                                                        |
+| Complexity                    | Simple — provide VPC, subnets, and security groups. Amazon Bedrock AgentCore manages the rest.                                                                                                                                                                                                                                      | Advanced — you create and manage VPC Lattice resource gateways and resource configurations yourself.                                                                                                                                                                                                                                                                                                                                                                                            |
+| Cross-account connectivity    | Not supported. Use with existing network architectures such as hub-and-spoke (VPC peering or AWS Transit Gateway) for cross-account or cross-VPC scenarios.                                                                                                                                                                         | Supported via AWS RAM. Enables direct cross-account connectivity without requiring VPC peering or Transit Gateways.                                                                                                                                                                                                                                                                                                                                                                             |
+| VPC Lattice pricing           | Data processing charges only (per GB processed through the resource gateway).                                                                                                                                                                                                                                                       | Hourly charge per VPC resource added to a service network, plus data processing charges (per GB).                                                                                                                                                                                                                                                                                                                                                                                               |
+| Resource lifecycle            | Amazon Bedrock AgentCore creates, reuses, and deletes resource gateways on your behalf.                                                                                                                                                                                                                                             | You own the full lifecycle of resource gateways and resource configurations.                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| IP consumption and throughput | Each managed resource gateway consumes 1 IP address per subnet. This is not configurable.                                                                                                                                                                                                                                           | When used with Amazon Bedrock AgentCore, consumes 1 IP address per subnet. If also attached to other VPC Lattice service networks, consumes additional IPs based on the `ipv4AddressesPerEni` value on the resource gateway. The combination of port range and IP addresses determines the maximum number of concurrent connections for that service network resource association. Note that there is a 350-second port cooldown period after a connection ends before that port can be reused. |
 
 For VPC Lattice pricing details, see [Amazon VPC Lattice pricing](https://aws.amazon.com/vpc/lattice/pricing/ "https://aws.amazon.com/vpc/lattice/pricing/").
 
-## Option 1: Managed Lattice
+## Option 1: Managed VPC resources
 
-With managed Lattice, you provide your VPC, subnet, and optional security group information. AgentCore handles the creation and lifecycle management of the VPC Lattice resource gateway and resource configuration on your behalf, and does not require you to have VPC Lattice permissions in your own IAM policies.
+With managed VPC resources, you provide your VPC, subnet, and optional security group information. AgentCore handles the creation and lifecycle management of the VPC Lattice resource gateway and resource configuration on your behalf. The managed resource gateway is a wrapper around ENIs in your VPC. You cannot modify, configure, or interact with it. AgentCore owns its full lifecycle, including creation, reuse, and deletion.
+
+###### Note
+
+You do not need VPC Lattice IAM permissions, SCP changes, or additional approval processes to use managed VPC resources, because Amazon Bedrock AgentCore uses Lattice as an internal dependency and any Lattice resource gateways are read-only to the customer.
 
 AgentCore uses the `AWSServiceRoleForBedrockAgentCoreGatewayNetwork` service-linked role to create and manage VPC Lattice resource gateways in your account. This role is created automatically the first time you create a gateway target with a managed private endpoint. For more information about this role, see [Gateway service-linked role](service-linked-roles.md#gateway-service-linked-role "service-linked-roles.md#gateway-service-linked-role").
 
@@ -87,7 +97,6 @@ Before creating a gateway target with a managed private endpoint, ensure the fol
   - `ec2:DescribeSecurityGroups`
   - `ec2:DescribeSubnets`
 
-- If your private endpoint uses a domain that is not publicly resolvable, you must use the `routingDomain` field. For more information, see [Workaround for private DNS support: routing domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain").
 - If your private resource uses a TLS certificate issued by a private certificate authority, you can place an internal Application Load Balancer with a public ACM certificate in front of it. For more information, see [Workaround for private certificates: ALB](#lattice-vpc-egress-private-certs "#lattice-vpc-egress-private-certs").
 
 ### Create a target with a managed private endpoint
@@ -129,7 +138,7 @@ A list of security group IDs to associate with the resource gateway. If not prov
 
 `routingDomain` (optional)
 
-An intermediate publicly resolvable domain to use as the resource configuration endpoint. Required when your private endpoint domain is not publicly resolvable. For more information, see [Workaround for private DNS support: routing domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain").
+An intermediate domain to use as the resource configuration endpoint instead of the actual target domain. Use this when you want to route traffic through an intermediate component such as a VPC endpoint or internal load balancer. For more information, see [Route traffic through an intermediate domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain").
 
 `tags` (optional)
 
@@ -162,7 +171,7 @@ After the resource is created, call the relevant Get API (for example, `GetGatew
 
 The `resourceGatewayArn` is the ARN of the VPC Lattice resource gateway that AgentCore created in your account. AgentCore manages the full lifecycle of this resource: it reuses the same resource gateway for targets with matching VPC and subnet configurations, and deletes it when it is no longer used by any targets.
 
-## Option 2: Self-managed Lattice
+## Option 2: Self-managed Lattice resources
 
 With self-managed Lattice, you create and manage the VPC Lattice resource gateway and resource configuration yourself, then provide the resource configuration identifier to AgentCore. Use this option if you already have VPC Lattice resources configured, need to share a resource configuration across multiple services, or require control over the Lattice resource lifecycle.
 
@@ -173,7 +182,6 @@ Before creating a gateway target with a self-managed private endpoint, complete 
 - Your private resource (MCP server or REST API) is running and accessible within your VPC.
 - You have at least one subnet in your VPC that has network access to the private resource.
 - Your security groups allow inbound traffic on the port used by your private resource (typically port 443 for HTTPS).
-- If your private endpoint uses a domain that is not publicly resolvable, you must use the `routingDomain` field. For more information, see [Workaround for private DNS support: routing domain](#lattice-vpc-egress-routing-domain "#lattice-vpc-egress-routing-domain").
 - If your private resource uses a TLS certificate issued by a private certificate authority, you can place an internal Application Load Balancer with a public ACM certificate in front of it. For more information, see [Workaround for private certificates: ALB](#lattice-vpc-egress-private-certs "#lattice-vpc-egress-private-certs").
 
 **Set up VPC Lattice resources for self-managed connectivity**
@@ -281,17 +289,17 @@ aws ram accept-resource-share-invitation \
 
 4. **In the gateway owner account** : Create the gateway target using the shared resource configuration identifier, as described in [Create a target with a self-managed private endpoint](#lattice-vpc-egress-self-managed-lattice-create "#lattice-vpc-egress-self-managed-lattice-create").
 
-## Workaround for private DNS support: routing domain
+## Route traffic through an intermediate domain
 
-Amazon VPC Lattice requires that the domain used in a resource configuration be publicly resolvable. If your private endpoint uses a domain that is only resolvable within your VPC (for example, a private hosted zone in Route 53), you must use the `routingDomain` field.
+You can use the `routingDomain` field to route traffic through an intermediate component — such as a VPC endpoint, internal Application Load Balancer, or Network Load Balancer — instead of directly to your target domain. This is useful when you want to consolidate multiple private resources behind a single entry point (for example, routing multiple private API Gateways through a single VPC endpoint to reduce the number of resource configurations and associated costs).
 
-When using a routing domain, the domain you specify for your target (in the MCP endpoint URL or OpenAPI server URL) should be the actual private DNS name of your resource - i.e. the name that is resolvable within your VPC. The `routingDomain` is a separate, publicly resolvable domain that AgentCore uses only to set up the VPC Lattice resource configuration. At invocation time, AgentCore routes traffic through the routing domain but sends requests with the private DNS name as the TLS SNI hostname, so your resource receives requests addressed to its actual private domain.
+When using a routing domain, the domain you specify for your target (in the MCP endpoint URL or OpenAPI server URL) should be the actual DNS name of your resource. The `routingDomain` is a separate domain that AgentCore uses to set up the VPC Lattice resource configuration. At invocation time, AgentCore routes traffic through the routing domain but sends requests with the actual target domain as the TLS SNI hostname, so your resource receives requests addressed to its actual domain.
 
-The routing domain can be any publicly resolvable domain that routes to your private resource within the VPC — including any existing component in your architecture that already has a publicly resolvable DNS name. Common options include:
+The routing domain can be any domain that routes to your private resource within the VPC. Common options include:
 
 - **VPC endpoint (VPCE) domain for a private API Gateway** - Use the VPCE DNS name as the `routingDomain` , for example `<vpce-id>.execute-api.us-east-1.vpce.amazonaws.com` . Set the target URL in your OpenAPI spec to the private API Gateway hostname, for example `https://<api-id>.execute-api.us-east-1.amazonaws.com` . AgentCore routes traffic through the VPCE domain but sends requests with the private API hostname as the TLS SNI, ensuring correct routing within your VPC.
-- **Internal Application Load Balancer (ALB)** - Use the internal ALB DNS name as the `routingDomain` , for example `internal-<alb-name>-<id>.us-west-2.elb.amazonaws.com` . Set the target URL to the private DNS name of the resource behind the ALB.
-- **Internal Network Load Balancer (NLB)** - Use the internal NLB DNS name as the `routingDomain` , for example `internal-<nlb-name>-<id>.elb.us-west-2.amazonaws.com` . Set the target URL to the private DNS name of the resource behind the NLB.
+- **Internal Application Load Balancer (ALB)** - Use the internal ALB DNS name as the `routingDomain` , for example `internal-<alb-name>-<id>.us-west-2.elb.amazonaws.com` . Set the target URL to the DNS name of the resource behind the ALB.
+- **Internal Network Load Balancer (NLB)** - Use the internal NLB DNS name as the `routingDomain` , for example `internal-<nlb-name>-<id>.elb.us-west-2.amazonaws.com` . Set the target URL to the DNS name of the resource behind the NLB.
 
 The following steps describe the traffic flow when a routing domain is used:
 
@@ -447,8 +455,7 @@ The following table describes common issues and their solutions:
 
 ## Limitations and considerations
 
-Be aware of the following limitations during the public preview of VPC egress for AgentCore:
+Be aware of the following limitations when using VPC egress for AgentCore:
 
-- **Private DNS** : Amazon VPC Lattice requires publicly resolvable DNS for resource configurations. If your private endpoint uses a domain that is only resolvable within your VPC, you must use the `routingDomain` field with a publicly resolvable intermediate domain such as a VPCE domain or internal ALB DNS name.
-- **Cross-account** : Cross-account private connectivity requires the self-managed Lattice option. Managed Lattice does not support cross-account scenarios.
+- **Cross-account** : Cross-account private connectivity requires the self-managed Lattice resources option. Managed VPC resources does not support cross-account scenarios.
 - **DNS TTL configuration** : VPC Lattice uses IP-based routing. Ensure that DNS TTLs for your resource configuration domain are configured appropriately so that IP address changes during rolling deployments do not cause connectivity disruption.

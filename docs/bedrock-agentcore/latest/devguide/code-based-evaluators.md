@@ -45,6 +45,7 @@ Your Lambda function receives a JSON payload with the following structure:
     "evaluationInput": {
         "sessionSpans": [...]
     },
+    "evaluationReferenceInputs": [],
     "evaluationTarget": {
         "traceIds": ["trace123"],
         "spanIds": ["span123"]
@@ -52,17 +53,18 @@ Your Lambda function receives a JSON payload with the following structure:
 }
 ```
 
-| Field                          | Type   | Description                                                                                              |
-| ------------------------------ | ------ | -------------------------------------------------------------------------------------------------------- |
-| `schemaVersion`                | String | Schema version of the payload. Currently `"1.0"`.                                                        |
-| `evaluatorId`                  | String | The ID of the code-based evaluator.                                                                      |
-| `evaluatorName`                | String | The name of the code-based evaluator.                                                                    |
-| `evaluationLevel`              | String | The evaluation level: `TRACE` , `TOOL_CALL` , or `SESSION`.                                              |
-| `evaluationInput`              | Object | Contains the session spans for evaluation.                                                               |
-| `evaluationInput.sessionSpans` | List   | The session spans to evaluate. May be truncated if the original payload exceeds 6 MB.                    |
-| `evaluationTarget`             | Object | Identifies the specific traces or spans to evaluate. For session-level evaluators, this value is `None`. |
-| `evaluationTarget.traceIds`    | List   | The trace IDs of the evaluation target. Present for trace-level and tool-level evaluations.              |
-| `evaluationTarget.spanIds`     | List   | The span IDs of the evaluation target. Present for tool-level evaluations.                               |
+| Field                          | Type   | Description                                                                                                                                                                                |
+| ------------------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `schemaVersion`                | String | Schema version of the payload. Currently `"1.0"`.                                                                                                                                          |
+| `evaluatorId`                  | String | The ID of the code-based evaluator.                                                                                                                                                        |
+| `evaluatorName`                | String | The name of the code-based evaluator.                                                                                                                                                      |
+| `evaluationLevel`              | String | The evaluation level: `TRACE` , `TOOL_CALL` , or `SESSION`.                                                                                                                                |
+| `evaluationInput`              | Object | Contains the session spans for evaluation.                                                                                                                                                 |
+| `evaluationInput.sessionSpans` | List   | The session spans to evaluate. May be truncated if the original payload exceeds 6 MB.                                                                                                      |
+| `evaluationReferenceInputs`    | List   | Reference inputs provided to the evaluator, filtered based on the evaluation level. See [Using ground truth in code-based evaluator](#code-based-ground-truth "#code-based-ground-truth"). |
+| `evaluationTarget`             | Object | Identifies the specific traces or spans to evaluate. For session-level evaluators, this value is `None`.                                                                                   |
+| `evaluationTarget.traceIds`    | List   | The trace IDs of the evaluation target. Present for trace-level and tool-level evaluations.                                                                                                |
+| `evaluationTarget.spanIds`     | List   | The span IDs of the evaluation target. Present for tool-level evaluations.                                                                                                                 |
 
 ### Response schema
 
@@ -126,96 +128,114 @@ The following code samples demonstrate how to create code-based evaluators using
 
 ###### Example
 
+AgentCore CLI
+
+1. ```
+   agentcore eval evaluator create \
+     --name "MyCodeEvaluator" \
+     --level TRACE \
+     --lambda-arn "arn:aws:lambda:us-east-1:123456789012:function:my-eval-function" \
+     --lambda-timeout 120
+   ```
+
+````
+
+
 AgentCore SDK
 
 1. ```
-   from bedrock_agentcore.evaluation.code_based_evaluators import (
-       EvaluatorInput,
-       EvaluatorOutput,
-       code_based_evaluator,
-   )
-   import json as _json
-   ```
+from bedrock_agentcore.evaluation.code_based_evaluators import (
+    EvaluatorInput,
+    EvaluatorOutput,
+    code_based_evaluator,
+)
+import json as _json
 
 @code_based_evaluator()
 def json_response_evaluator(input: EvaluatorInput) -> EvaluatorOutput:
-"""Check if the agent response in the target trace contains valid JSON."""
-for span in input.session_spans:
-if span.get("traceId") != input.target_trace_id:
-continue
-if span.get("name", "").startswith("Model:") or span.get("name") == "Agent.invoke":
-output = span.get("attributes", {}).get("gen_ai.completion", "")
-try:
-\_json.loads(output)
-return EvaluatorOutput(
-value=1.0,
-label="Pass",
-explanation="Response contains valid JSON"
-)
-except (ValueError, TypeError):
-pass
+    """Check if the agent response in the target trace contains valid JSON."""
+    for span in input.session_spans:
+        if span.get("traceId") != input.target_trace_id:
+            continue
+        if span.get("name", "").startswith("Model:") or span.get("name") == "Agent.invoke":
+            output = span.get("attributes", {}).get("gen_ai.completion", "")
+            try:
+                _json.loads(output)
+                return EvaluatorOutput(
+                    value=1.0,
+                    label="Pass",
+                    explanation="Response contains valid JSON"
+                )
+            except (ValueError, TypeError):
+                pass
 
     return EvaluatorOutput(
         value=0.0,
         label="Fail",
         explanation="No valid JSON found in agent response"
     )
+````
+
+AWS SDK
+
+1. ```
+   import boto3
+   ```
+
+client = boto3.client('bedrock-agentcore-control')
+
+response = client.create_evaluator(
+evaluatorName="MyCodeEvaluator",
+level="TRACE",
+evaluatorConfig={
+"codeBased": {
+"lambdaConfig": {
+"lambdaArn": "arn:aws:lambda:us-east-1:123456789012:function:my-eval-function",
+"lambdaTimeoutInSeconds": 120
+}
+}
+}
+)
+
+print(f"Evaluator ID: {response['evaluatorId']}")
+print(f"Evaluator ARN: {response['evaluatorArn']}")
 
 ````
 
 
 
- AWS SDK
+ AWS CLI
 
 1. ```
-import boto3
-
-client = boto3.client('bedrock-agentcore-control')
-
-response = client.create_evaluator(
-    evaluatorName="MyCodeEvaluator",
-    level="TRACE",
-    evaluatorConfig={
+aws bedrock-agentcore-control create-evaluator \
+    --evaluator-name 'MyCodeEvaluator' \
+    --level TRACE \
+    --evaluator-config '{
         "codeBased": {
             "lambdaConfig": {
                 "lambdaArn": "arn:aws:lambda:us-east-1:123456789012:function:my-eval-function",
                 "lambdaTimeoutInSeconds": 120
             }
         }
-    }
-)
-
-print(f"Evaluator ID: {response['evaluatorId']}")
-print(f"Evaluator ARN: {response['evaluatorArn']}")
+    }'
 ````
-
-AWS CLI
-
-1. ```
-   aws bedrock-agentcore-control create-evaluator \
-       --evaluator-name 'MyCodeEvaluator' \
-       --level TRACE \
-       --evaluator-config '{
-           "codeBased": {
-               "lambdaConfig": {
-                   "lambdaArn": "arn:aws:lambda:us-east-1:123456789012:function:my-eval-function",
-                   "lambdaTimeoutInSeconds": 120
-               }
-           }
-       }'
-   ```
-
-````
-
-
 
 ## Run on-demand evaluation with a code-based evaluator
 
-
 Once created, use the custom code-based evaluator with the `Evaluate` API the same way you would use any other evaluator. The service handles Lambda invocation, parallel fan-out, and result mapping automatically.
 
-
 ###### Example
+
+AgentCore CLI
+
+1. ```
+   agentcore run eval \
+     --runtime "your_runtime_name" \
+     --session-id "your_session_id" \
+     --evaluator "code-based-evaluator-id"
+   ```
+
+````
 
 
 AgentCore SDK
@@ -286,3 +306,106 @@ response = client.evaluate(
     evaluationTarget={"spanIds": ["span-id-1", "span-id-2"]}
 )
 ```
+
+### Using ground truth in code-based evaluator
+
+When ground truth reference inputs are configured, your Lambda function receives them in the `evaluationReferenceInputs` field. The reference inputs included depend on the evaluation level:
+
+| Evaluation level | Lambda receives                                                                   |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `SESSION`        | All reference inputs.                                                             |
+| `TRACE`          | Session-level reference inputs plus reference inputs matching the target traceId. |
+| `TOOL_CALL`      | Session-level reference inputs plus reference inputs matching the target spanId.  |
+
+###### Note
+
+For more information about using ground truth evaluations, see [Ground truth evaluations](ground-truth-evaluations.md "ground-truth-evaluations.md").
+
+## Run online evaluation with code-based evaluator
+
+You can use a custom code-based evaluator in an online evaluation configuration to continuously monitor your agent’s live traffic. Pass the evaluator ID in the `evaluators` list when calling `CreateOnlineEvaluationConfig`.
+
+###### Example
+
+AgentCore CLI
+
+1. ```
+   agentcore add online-eval \
+     --name "your_config_name" \
+     --runtime "your_runtime_name" \
+     --evaluator "code-based-evaluator-id" \
+     --sampling-rate 1.0 \
+     --enable-on-create
+   ```
+
+````
+
+This command adds the online evaluation configuration to your local `agentcore.json` . Run `agentcore deploy` to create it in your AWS account.
+
+
+###### Note
+
+Run this from inside an AgentCore project directory (created with `agentcore create` ).
+
+
+AgentCore SDK
+
+1. ```
+from bedrock_agentcore_starter_toolkit import Evaluation
+
+eval_client = Evaluation()
+
+config = eval_client.create_online_config(
+    config_name="my_online_eval_config",
+    agent_id="agent-id",
+    sampling_rate=1.0,
+    evaluator_list=["code-based-evaluator-id"],
+    enable_on_create=True
+)
+
+print(f"Config ID: {config['onlineEvaluationConfigId']}")
+````
+
+AWS SDK
+
+1. ```
+   import boto3
+   ```
+
+client = boto3.client('bedrock-agentcore-control')
+
+response = client.create_online_evaluation_config(
+onlineEvaluationConfigName="my_online_eval_config",
+rule={"samplingConfig": {"samplingPercentage": 100.0}},
+dataSourceConfig={
+"cloudWatchLogs": {
+"logGroupNames": ["/aws/agentcore/my-agent-traces"],
+"serviceNames": ["my-agent.DEFAULT"]
+}
+},
+evaluators=[{"evaluatorId": "code-based-evaluator-id"}],
+evaluationExecutionRoleArn="arn:aws:iam::account-id:role/AgentCoreEvaluationRole",
+enableOnCreate=True
+)
+
+print(f"Config ID: {response['onlineEvaluationConfigId']}")
+
+````
+
+
+
+ AWS CLI
+
+1. ```
+aws bedrock-agentcore-control create-online-evaluation-config \
+    --online-evaluation-config-name "my_online_eval_config" \
+    --rule '{"samplingConfig": {"samplingPercentage": 100.0}}' \
+    --data-source-config '{"cloudWatchLogs": {"logGroupNames": ["/aws/agentcore/my-agent-traces"], "serviceNames": ["my-agent.DEFAULT"]}}' \
+    --evaluators '[{"evaluatorId": "code-based-evaluator-id"}]' \
+    --evaluation-execution-role-arn "arn:aws:iam::account-id:role/AgentCoreEvaluationRole" \
+    --enable-on-create
+````
+
+###### Note
+
+When an online evaluation configuration referencing a code-based evaluator is enabled, the evaluator is automatically locked and cannot be modified or deleted until the configuration is disabled or deleted. To make changes to the evaluator, disable the online evaluation configuration first, or clone the evaluator and create a new configuration.

@@ -8,7 +8,7 @@ Before you create your gateway, you must set up inbound authorization. Inbound a
 
 ###### Important
 
-Do not use No Authorization gateways for production workloads. No Authorization gateways should only be used for testing and development purposes where security is not a primary concern.
+Do not use No Authorization gateways for production workloads unless you have implemented your own authentication mechanism, such as an interceptor Lambda function. See [No Authorization](#gateway-inbound-auth-none "#gateway-inbound-auth-none") for security best practices.
 
 ###### Note
 
@@ -75,6 +75,8 @@ You can use the AgentCore CLI to set up a default JWT, or create one manually wi
 
 - [Set up a default JWT](#gateway-inbound-auth-jwt-default "#gateway-inbound-auth-jwt-default")
 - [Set up a JWT manually](#gateway-inbound-auth-jwt-manual "#gateway-inbound-auth-jwt-manual")
+- [Scope advertisement in authentication challenges](#gateway-inbound-auth-jwt-scope-advertisement "#gateway-inbound-auth-jwt-scope-advertisement")
+- [Use a private (VPC-hosted) identity provider](#gateway-inbound-auth-jwt-private-idp "#gateway-inbound-auth-jwt-private-idp")
 
 ### Set up a default JWT
 
@@ -107,13 +109,90 @@ You’ll need these values to do the following:
 - Create the gateway by specifying values in the [authorizer configuration](../../../bedrock-agentcore-control/latest/APIReference/API_AuthorizerConfiguration.md "../../../bedrock-agentcore-control/latest/APIReference/API_AuthorizerConfiguration.md").
 - Obtain authorization credentials to invoke the gateway. To learn how to obtain your credentials, look up your identity provider’s documentation. For example, if you used Amazon Cognito, see [The token issuer endpoint](../../../cognito/latest/developerguide/token-endpoint.md "../../../cognito/latest/developerguide/token-endpoint.md") in the Amazon Cognito Developer Guide.
 
+### Scope advertisement in authentication challenges
+
+When a client sends a request to a JWT-authorized gateway without a valid access token, the gateway returns an error response with a `WWW-Authenticate` header that advertises the required OAuth scopes. This follows the [RFC 6750 Bearer token challenge](https://datatracker.ietf.org/doc/html/rfc6750#section-3 "https://datatracker.ietf.org/doc/html/rfc6750#section-3") format and enables MCP-compliant clients to automatically discover the scopes needed for token acquisition.
+
+The gateway returns the following responses depending on the error:
+
+- **401 Unauthorized** – The request has no token or an invalid token. The `WWW-Authenticate` header includes `resource_metadata` and `scope` parameters.
+- **403 Forbidden** – The token is valid but does not contain the required scopes. The `WWW-Authenticate` header includes `error="insufficient_scope"`, `scope`, and `resource_metadata` parameters.
+
+The `scope` value contains the space-delimited scopes configured as **Allowed scopes** in the gateway’s [CustomJWTAuthorizerConfiguration](../../../bedrock-agentcore-control/latest/APIReference/API_CustomJWTAuthorizerConfiguration.md "../../../bedrock-agentcore-control/latest/APIReference/API_CustomJWTAuthorizerConfiguration.md"). The `resource_metadata` value points to the gateway’s [OAuth Protected Resource Metadata](https://datatracker.ietf.org/doc/html/rfc9728 "https://datatracker.ietf.org/doc/html/rfc9728") document at `/.well-known/oauth-protected-resource`, which clients can fetch to discover the authorization server and supported scopes.
+
+### Use a private (VPC-hosted) identity provider
+
+AgentCore Gateway supports JWT-based inbound authorization with identity providers hosted inside your VPC. You can configure a `privateEndpoint` on the `customJWTAuthorizer` to enable AgentCore to reach your private OIDC discovery, token, and JWKS endpoints without exposing them to the public internet.
+
+Your IAM principal must have the `iam:CreateServiceLinkedRole` permission for `identity-network.bedrock-agentcore.amazonaws.com`, so that AgentCore Identity can create the `AWSServiceRoleForBedrockAgentCoreIdentity` service-linked role on your behalf if it does not already exist.
+
+The `privateEndpoint` applies to the domain in the `discoveryUrl`. If your identity provider uses different domains for other endpoints (for example, the token or JWKS endpoint resolves to a different domain than the discovery URL), use `privateEndpointOverrides` to specify a separate private endpoint configuration for each additional domain.
+
+The following example creates a gateway with a private identity provider using managed Lattice:
+
+```
+{
+  "name": "my-private-idp-gateway",
+  "protocolType": "MCP",
+  "roleArn": "arn:aws:iam::123456789012:role/my-gateway-role",
+  "authorizerType": "CUSTOM_JWT",
+  "authorizerConfiguration": {
+    "customJWTAuthorizer": {
+      "allowedAudience": [
+        "my-audience"
+      ],
+      "discoveryUrl": "https://my-idp.internal.example.com/.well-known/openid-configuration",
+      "privateEndpoint": {
+        "managedVpcResource": {
+          "vpcIdentifier": "vpc-0abc123def456",
+          "subnetIds": ["subnet-0abc123", "subnet-0def456"],
+          "endpointIpAddressType": "IPV4",
+          "securityGroupIds": ["sg-0abc123def"]
+        }
+      }
+    }
+  }
+}
+```
+
+If your token or JWKS endpoints use a different domain than the discovery URL, add a `privateEndpointOverrides` entry for each additional domain. Currently, `privateEndpointOverrides` is only supported with self-managed Lattice resources:
+
+```
+{
+  ...
+  "authorizerConfiguration": {
+    "customJWTAuthorizer": {
+      "allowedAudience": ["my-audience"],
+      "discoveryUrl": "https://my-idp.internal.example.com/.well-known/openid-configuration",
+      "privateEndpoint": {
+        "selfManagedLatticeResource": {
+          "resourceConfigurationIdentifier": "arn:aws:vpc-lattice:us-east-1:123456789012:resourceconfiguration/rcfg-abc123"
+        }
+      },
+      "privateEndpointOverrides": [
+        {
+          "domain": "my-token-server.internal.example.com",
+          "privateEndpoint": {
+            "selfManagedLatticeResource": {
+              "resourceConfigurationIdentifier": "arn:aws:vpc-lattice:us-east-1:123456789012:resourceconfiguration/rcfg-def456"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+For self-managed Lattice, cross-account setups, and advanced configurations, see [Connect to private resources in your VPC using VPC Lattice](vpc-egress-private-endpoints.md "vpc-egress-private-endpoints.md"). For a comprehensive guide covering both inbound and outbound private IdP scenarios, see [Connect to private identity providers](identity-private-idp.md "identity-private-idp.md").
+
 ## No Authorization
 
 You can create a gateway that is configured with no authorization by using `authorizerType=NONE` . The gateway will not perform any authorization on the incoming gateway request and the request can be unauthenticated.
 
 ###### Important
 
-Do not use No Authorization gateways for production workloads unless you have implemented all the security best practices listed below. No Authorization gateways are most appropriate for testing and development purposes.
+Do not use No Authorization gateways for production workloads unless you have implemented all the security best practices listed below. If you need custom authentication logic, consider using an [interceptor Lambda function](gateway-interceptors.md "gateway-interceptors.md") to handle authentication before requests reach your targets.
 
 **Security Best Practices**
 
