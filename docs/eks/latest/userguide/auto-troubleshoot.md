@@ -210,7 +210,7 @@ subsets:
     protocol: TCP
 ```
 
-With these two pieces of information, you can perform the s analysis. First navigate to the VPC Reachability Analyzer in the AWS Management Console.
+With these two pieces of information, you can perform the analysis. First navigate to the VPC Reachability Analyzer in the AWS Management Console.
 
 1. Click "Create and Analyze Path"
 2. Provide a name for the analysis (e.g. "Node Join Failure")

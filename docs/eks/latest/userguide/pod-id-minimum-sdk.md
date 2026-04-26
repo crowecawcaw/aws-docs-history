@@ -32,7 +32,7 @@ AWS CLI – [2.15.0](https://github.com/aws/aws-cli/releases/tag/2.15.0 "https:/
 - C++ – [1.11.263](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.263 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.263")
 - .NET – [3.7.734.0](https://github.com/aws/aws-sdk-net/releases/tag/3.7.734.0 "https://github.com/aws/aws-sdk-net/releases/tag/3.7.734.0")
 - PowerShell – [4.1.502](https://www.powershellgallery.com/packages/AWS.Tools.Common/4.1.502 "https://www.powershellgallery.com/packages/AWS.Tools.Common/4.1.502")
-- PHP – [3.289.0](https://github.com/aws/aws-sdk-php/releases/tag/3.287.1 "https://github.com/aws/aws-sdk-php/releases/tag/3.287.1")
+- PHP – [3.289.0](https://github.com/aws/aws-sdk-php/releases/tag/3.289.0 "https://github.com/aws/aws-sdk-php/releases/tag/3.289.0")
 
 To ensure that you’re using a supported SDK, follow the installation instructions for your preferred SDK at [Tools to Build on AWS](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/") when you build your containers.
 

@@ -53,7 +53,7 @@ If the Amazon EKS service is using the role when you try to delete the resources
 1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
 2. In the left navigation pane, choose **Clusters**.
 3. On the **Clusters** page, select your cluster.
-4. Select the **Deregister** tab and then select the **Ok** tab.
+4. Choose **Deregister** and then choose **Ok**.
 
 ### Manually delete the service-linked role
 

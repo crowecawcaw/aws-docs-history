@@ -126,7 +126,6 @@ eksctl create nodegroup -f efa-ng.yaml
 
 ###### Important
 
-===
 Adjust these values for your environment in section `# 5. Mount FSx filesystem`.
 
 ```
@@ -134,8 +133,6 @@ FSX_DNS="<your-fsx-filesystem-dns>" # Needs to be adjusted.
 MOUNT_NAME="<your-mount-name>" # Needs to be adjusted.
 MOUNT_POINT="</your/mount/point>" # Needs to be adjusted.
 ```
-
-===
 
 Example `efa-ng.yaml`:
 

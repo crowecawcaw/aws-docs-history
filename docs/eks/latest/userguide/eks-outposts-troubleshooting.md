@@ -106,7 +106,7 @@ The most common issues are the following:
 - One of the new Kubernetes control-plane instances may have experienced an unexpected bootstrapping failure. Please file a ticket with [AWS Support Center](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for further guidance on troubleshooting and log-collection in this exceptional case.
 
 - AMI issues:
-  - You’re using an incompatible AMI. Only Amazon EKS optimized Amazon Linux 2 AMIs are supported (`amazon-linux-2`,`amazon-linux-2-gpu`, `amazon-linux-2-arm64`). If you attempt to join AL2023 nodes to EKS LocalClusters on AWS Outposts, the nodes fail to join the cluster. For more information, see [Create Amazon Linux nodes on AWS Outposts](eks-outposts-self-managed-nodes.md "eks-outposts-self-managed-nodes.md").
+  - You’re using an incompatible AMI. Only Amazon EKS optimized Amazon Linux 2023 AMIs are supported. For more information, see [Create Amazon Linux nodes on AWS Outposts](eks-outposts-self-managed-nodes.md "eks-outposts-self-managed-nodes.md").
   - If you used an AWS CloudFormation template to create your nodes, make sure it wasn’t using an unsupported AMI.
 
 - Missing the AWS IAM Authenticator `ConfigMap` – If it’s missing, you must create it. For more information, see [Apply the aws-auth   ConfigMap to your cluster](auth-configmap.md#aws-auth-configmap "auth-configmap.md#aws-auth-configmap") .

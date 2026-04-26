@@ -226,7 +226,7 @@ Parameters:
 
 ## Full access (write) tools
 
-This section describes the read-only tools available for the EKS MCP Server. Note that (as of "today") all write Kubernetes API operations can access only:
+This section describes the full access (write) tools available for the EKS MCP Server. Note that (as of "today") all write Kubernetes API operations can access only:
 
 - **Public clusters** (endpointPublicAccess=true)
 

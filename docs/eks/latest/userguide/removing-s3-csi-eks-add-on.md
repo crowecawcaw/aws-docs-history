@@ -30,7 +30,7 @@ eksctl delete addon --cluster my-cluster --name aws-mountpoint-s3-csi-driver --p
 
 1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
 2. In the left navigation pane, choose **Clusters**.
-3. Choose the name of the cluster that you want to remove the Amazon EBS CSI add-on for.
+3. Choose the name of the cluster that you want to remove the Mountpoint for Amazon S3 CSI add-on for.
 4. Choose the **Add-ons** tab.
 5. Choose **Mountpoint for Amazon S3 CSI Driver**.
 6. Choose **Remove**.

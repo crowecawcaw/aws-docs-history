@@ -36,9 +36,7 @@ Before you can load balance network traffic using the AWS Load Balancer Controll
 - Your public and private subnets must meet the following requirements, unless you explicitly specify subnet IDs as an annotation on a service or ingress object. If you provision load balancers by explicitly specifying subnet IDs as an annotation on a service or ingress object, then Kubernetes and the AWS Load Balancer Controller use those subnets directly to create the load balancer and the following tags aren’t required.
 
       + **Private subnets**
-      – Must be tagged in the following format. This is so that Kubernetes and the AWS Load Balancer Controller know that the subnets can be used for internal load balancers. If you use `eksctl` or an Amazon EKS AWS
-       AWS CloudFormation template to create your VPC after March 26, 2020, then the subnets are tagged appropriately when they’re created. For more information about the Amazon EKS AWS
-       AWS CloudFormation VPC templates, see [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md "creating-a-vpc.md").
+      – Must be tagged in the following format. This is so that Kubernetes and the AWS Load Balancer Controller know that the subnets can be used for internal load balancers. If you use `eksctl` or an Amazon EKS AWS CloudFormation template to create your VPC after March 26, 2020, then the subnets are tagged appropriately when they’re created. For more information about the Amazon EKS AWS CloudFormation VPC templates, see [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md "creating-a-vpc.md").
 
 
 

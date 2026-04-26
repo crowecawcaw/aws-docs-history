@@ -6,7 +6,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 Amazon EKS provides two types of insights: **Configuration insights** and **Upgrade insights**. **Configuration insights** identify misconfigurations in your EKS Hybrid Nodes setup that could impair functionality of your cluster or workloads. **Upgrade insights** identify issues that could impact your ability to upgrade to new versions of Kubernetes.
 
-To see the list of insight checks performed and any relevant issues that Amazon EKS has identified, you can call the look in the AWS Management Console, the AWS CLI, AWS SDKs, and Amazon EKS `ListInsights` API operation.
+To see the list of insight checks performed and any relevant issues that Amazon EKS has identified, you can use the AWS Management Console, the AWS CLI, AWS SDKs, and Amazon EKS `ListInsights` API operation.
 
 ## View configuration insights (Console)
 

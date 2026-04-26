@@ -34,6 +34,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------- |
+| `1.35-2026.04.18` | `1.35.3`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026.02.16` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026-01-22` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 
@@ -47,6 +48,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------- |
+| `1.35-2026.04.18` | `1.35.3`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026.02.16` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026-01-22` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 
@@ -60,6 +62,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------- |
+| `1.35-2026.04.18` | `1.35.3`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026.02.16` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026-01-22` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 
@@ -67,6 +70,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                     |
 | ----------------- | --------------- | ------------------ | ----------------- | --------------------------------- |
+| `1.34-2026.04.18` | `1.34.6`        | `2.1.6`            | `1.2.1`           |                                   |
 | `1.34-2026.02.13` | `1.34.3`        | `2.1.6`            | `1.2.1`           |                                   |
 | `1.34-2026.01.22` | `1.34.2`        | `2.1.6`            | `1.2.1`           | Upgraded `containerd` to `2.1.6`. |
 | `1.34-2025.12.15` | `1.34.2`        | `2.1.4`            | `1.2.1`           |                                   |
@@ -78,6 +82,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.33-2026.04.18` | `1.33.10`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.33-2026.02.13` | `1.33.7`        | `1.7.30`           | `1.2.1`           |                                            |
 | `1.33-2026.01.22` | `1.33.5`        | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.33-2025.12.15` | `1.33.5`        | `1.7.28`           | `1.2.1`           |                                            |
@@ -93,6 +98,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.32-2026.04.18` | `1.32.13`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.32-2026.02.13` | `1.32.11`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.32-2026.01.22` | `1.32.9`        | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.32-2025.12.15` | `1.32.9`        | `1.7.28`           | `1.2.1`           |                                            |
@@ -112,6 +118,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.31-2026.04.18` | `1.31.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.31-2026.02.13` | `1.31.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.31-2026.01.22` | `1.31.13`       | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.31-2025.12.15` | `1.31.13`       | `1.7.28`           | `1.2.1`           |                                            |
@@ -137,6 +144,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.30-2026.04.18` | `1.30.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.30-2026.02.13` | `1.30.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.30-2026.01.22` | `1.30.14`       | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.30-2025.12.15` | `1.30.14`       | `1.7.28`           | `1.2.1`           |                                            |
@@ -238,6 +246,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------- |
+| `1.35-2026.04.18` | `1.35.3`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026.02.16` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026-01-22` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 
@@ -245,6 +254,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                     |
 | ----------------- | --------------- | ------------------ | ----------------- | --------------------------------- |
+| `1.34-2026.04.18` | `1.34.6`        | `2.1.6`            | `1.2.1`           |                                   |
 | `1.34-2026.02.13` | `1.34.3`        | `2.1.6`            | `1.2.1`           |                                   |
 | `1.34-2026.01.22` | `1.34.2`        | `2.1.6`            | `1.2.1`           | Upgraded `containerd` to `2.1.6`. |
 | `1.34-2025.12.15` | `1.34.2`        | `2.1.4`            | `1.2.1`           |                                   |
@@ -256,6 +266,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.33-2026.04.18` | `1.33.10`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.33-2026.02.13` | `1.33.7`        | `1.7.30`           | `1.2.1`           |                                            |
 | `1.33-2026.01.22` | `1.33.5`        | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.33-2025.12.15` | `1.33.5`        | `1.7.28`           | `1.2.1`           |                                            |
@@ -271,6 +282,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.32-2026.04.18` | `1.32.13`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.32-2026.02.13` | `1.32.11`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.32-2026.01.22` | `1.32.9`        | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.32-2025.12.15` | `1.32.9`        | `1.7.28`           | `1.2.1`           |                                            |
@@ -290,6 +302,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.31-2026.04.18` | `1.31.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.31-2026.02.13` | `1.31.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.31-2026.01.22` | `1.31.13`       | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.31-2025.12.15` | `1.31.13`       | `1.7.28`           | `1.2.1`           |                                            |
@@ -315,6 +328,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.30-2026.04.18` | `1.30.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.30-2026.02.13` | `1.30.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.30-2026.01.22` | `1.30.14`       | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.30-2025.12.15` | `1.30.14`       | `1.7.28`           | `1.2.1`           |                                            |
@@ -416,6 +430,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------- |
+| `1.35-2026.04.18` | `1.35.3`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026.02.16` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026-01-22` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 
@@ -423,6 +438,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                     |
 | ----------------- | --------------- | ------------------ | ----------------- | --------------------------------- |
+| `1.34-2026.04.18` | `1.34.6`        | `2.1.6`            | `1.2.1`           |                                   |
 | `1.34-2026.02.13` | `1.34.3`        | `2.1.6`            | `1.2.1`           |                                   |
 | `1.34-2026.01.22` | `1.34.2`        | `2.1.6`            | `1.2.1`           | Upgraded `containerd` to `2.1.6`. |
 | `1.34-2025.12.15` | `1.34.2`        | `2.1.4`            | `1.2.1`           |                                   |
@@ -434,6 +450,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.33-2026.04.18` | `1.33.10`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.33-2026.02.13` | `1.33.7`        | `1.7.30`           | `1.2.1`           |                                            |
 | `1.33-2026.01.22` | `1.33.5`        | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.33-2025.12.15` | `1.33.5`        | `1.7.28`           | `1.2.1`           |                                            |
@@ -449,6 +466,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.32-2026.04.18` | `1.32.13`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.32-2026.02.13` | `1.32.11`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.32-2026.01.22` | `1.32.9`        | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.32-2025.12.15` | `1.32.9`        | `1.7.28`           | `1.2.1`           |                                            |
@@ -468,6 +486,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.31-2026.04.18` | `1.31.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.31-2026.02.13` | `1.31.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.31-2026.01.22` | `1.31.13`       | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.31-2025.12.15` | `1.31.13`       | `1.7.28`           | `1.2.1`           |                                            |
@@ -493,6 +512,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.30-2026.04.18` | `1.30.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.30-2026.02.13` | `1.30.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.30-2026.01.22` | `1.30.14`       | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.30-2025.12.15` | `1.30.14`       | `1.7.28`           | `1.2.1`           |                                            |
@@ -594,6 +614,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------- |
+| `1.35-2026.04.18` | `1.35.3`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026.02.16` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026-01-22` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 
@@ -601,6 +622,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                     |
 | ----------------- | --------------- | ------------------ | ----------------- | --------------------------------- |
+| `1.34-2026.04.18` | `1.34.6`        | `2.1.6`            | `1.2.1`           |                                   |
 | `1.34-2026.02.13` | `1.34.3`        | `2.1.6`            | `1.2.1`           |                                   |
 | `1.34-2026.01.22` | `1.34.2`        | `2.1.6`            | `1.2.1`           | Upgraded `containerd` to `2.1.6`. |
 | `1.34-2025.12.15` | `1.34.2`        | `2.1.4`            | `1.2.1`           |                                   |
@@ -612,6 +634,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.33-2026.04.18` | `1.33.10`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.33-2026.02.13` | `1.33.7`        | `1.7.30`           | `1.2.1`           |                                            |
 | `1.33-2026.01.22` | `1.33.5`        | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.33-2025.12.15` | `1.33.5`        | `1.7.28`           | `1.2.1`           |                                            |
@@ -627,6 +650,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.32-2026.04.18` | `1.32.13`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.32-2026.02.13` | `1.32.11`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.32-2026.01.22` | `1.32.9`        | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.32-2025.12.15` | `1.32.9`        | `1.7.28`           | `1.2.1`           |                                            |
@@ -646,6 +670,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.31-2026.04.18` | `1.31.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.31-2026.02.13` | `1.31.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.31-2026.01.22` | `1.31.13`       | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.31-2025.12.15` | `1.31.13`       | `1.7.28`           | `1.2.1`           |                                            |
@@ -671,6 +696,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
+| `1.30-2026.04.18` | `1.30.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.30-2026.02.13` | `1.30.14`       | `1.7.30`           | `1.2.1`           |                                            |
 | `1.30-2026.01.22` | `1.30.14`       | `1.7.30`           | `1.2.1`           | Upgraded `containerd` to `1.7.30`.         |
 | `1.30-2025.12.15` | `1.30.14`       | `1.7.28`           | `1.2.1`           |                                            |

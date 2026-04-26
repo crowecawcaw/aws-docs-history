@@ -72,7 +72,7 @@ In this step, you will establish a secure trust chain by creating and configurin
 }
 ```
 
-The above policy policy lets the role `eks-pod-identity-primary-role` from AWS account 111122223333 with the relevant [EKS Pod Identity Session Tags](pod-id-abac.md "pod-id-abac.md") assume this role.
+The above policy lets the role `eks-pod-identity-primary-role` from AWS account 111122223333 with the relevant [EKS Pod Identity Session Tags](pod-id-abac.md "pod-id-abac.md") assume this role.
 
 If you [Disabled Session Tags](pod-id-abac.md#pod-id-abac-tags "pod-id-abac.md#pod-id-abac-tags") in your EKS Pod Identity, EKS Pod Identity also sets the `sts:ExternalId` with information about the cluster, namespace, and service account of a pod when assuming a target role.
 

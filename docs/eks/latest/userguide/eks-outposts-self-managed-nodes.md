@@ -85,7 +85,7 @@ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-24/
 
 2.  Open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3.  Choose **Create stack** and then select **With new resources (standard)**.
-4.  For **Specify template**, select **Upload a template file** and then select **Choose file**. Select the `amazon-eks-nodegroup.yaml` file that you downloaded in a previous step and then select **Next**.
+4.  For **Specify template**, select **Upload a template file** and then select **Choose file**. Select the `amazon-eks-outpost-nodegroup.yaml` file that you downloaded in a previous step and then select **Next**.
 5.  On the **Specify stack details** page, enter the following parameters accordingly, and then choose **Next**:
     - **Stack name**: Choose a stack name for your AWS CloudFormation stack. For example, you can call it `al-nodes`. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
     - **ApiServerEndpoint**: Enter the Kubernetes API Server endpoint, visible in EKS console or via DescribeCluster API.
@@ -236,7 +236,7 @@ To create a `gp2` storage class on your cluster, complete the following steps.
 kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/vX.X.X/deployments/static/nvidia-device-plugin.yml
 ```
 
-**Step3: Additional actions**
+**Step 3: Additional actions**
 
 1. (Optional) Deploy a [sample application](sample-deployment.md "sample-deployment.md") to test your cluster and Linux nodes.
 2. If your cluster is deployed on an Outpost, then skip this step. If your cluster is deployed on the AWS Cloud, the following information is optional. If the **AmazonEKS_CNI_Policy** managed IAM policy is attached to your [Amazon EKS node IAM role](create-node-role.md "create-node-role.md"), we recommend assigning it to an IAM role that you associate to the Kubernetes `aws-node` service account instead. For more information, see [Configure Amazon VPC CNI plugin to use IRSA](cni-iam-role.md "cni-iam-role.md").

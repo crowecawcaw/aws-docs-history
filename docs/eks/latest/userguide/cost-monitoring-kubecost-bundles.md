@@ -167,7 +167,7 @@ Yes. You can configure Kubecost to ingest data from AWS Cost and Usage Report to
 
 **Does this version support cost management of self-managed Kubernetes clusters on Amazon EC2?**
 
-No. _Amazon EKS optimized Kubecost bundle_ only compatible with Amazon EKS clusters.
+No. _Amazon EKS optimized Kubecost bundle_ is only compatible with Amazon EKS clusters.
 
 **Can Kubecost track costs for Amazon EKS on AWS Fargate?**
 

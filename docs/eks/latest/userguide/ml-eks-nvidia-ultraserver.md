@@ -188,7 +188,7 @@ tolerations:
     effect: NoSchedule
 ```
 
-2. Install the NVIDIA DRA operator for your cluster using the `dra-values.yaml` file you created in the previous step.
+2. Install the EFA device plugin for your cluster using the `efa-values.yaml` file you created in the previous step.
 
 ```
 helm repo add eks https://aws.github.io/eks-charts

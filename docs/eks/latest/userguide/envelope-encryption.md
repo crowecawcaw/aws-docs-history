@@ -42,8 +42,7 @@ The high-level diagram below depicts the encryption of a Kubernetes resource bef
 ### How does default envelope encryption improve the security posture of my EKS cluster?
 
 This feature reduces the surface area and period of time in which metadata and customer content are un-encrypted.
-With default envelope encryption, metadata and customer content are only ever in a temporarily un-encrypted state in the kube-apiserver’s memory before being stored in etcd. T
-he kube-apiserver’s memory is secured through the [Nitro system](../../../whitepapers/latest/security-design-of-aws-nitro-system/the-components-of-the-nitro-system.md "../../../whitepapers/latest/security-design-of-aws-nitro-system/the-components-of-the-nitro-system.md").
+With default envelope encryption, metadata and customer content are only ever in a temporarily un-encrypted state in the kube-apiserver’s memory before being stored in etcd. The kube-apiserver’s memory is secured through the [Nitro system](../../../whitepapers/latest/security-design-of-aws-nitro-system/the-components-of-the-nitro-system.md "../../../whitepapers/latest/security-design-of-aws-nitro-system/the-components-of-the-nitro-system.md").
 Amazon EKS only uses [Nitro-based EC2 instances](../../../whitepapers/latest/security-design-of-aws-nitro-system/security-design-of-aws-nitro-system.md "../../../whitepapers/latest/security-design-of-aws-nitro-system/security-design-of-aws-nitro-system.md") for the managed Kubernetes control plane.
 These instances have security control designs that prevent any system or person from accessing their memory.
 

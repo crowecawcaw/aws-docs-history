@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Grant IAM users and roles access to Kubernetes APIs
 
-Your cluster has an Kubernetes API endpoint. Kubectl uses this API. You can authenticate to this API using two types of identities:
+Your cluster has a Kubernetes API endpoint. Kubectl uses this API. You can authenticate to this API using two types of identities:
 
 - **An AWS Identity and Access Management (IAM) _principal_ (role or user)**
   – This type requires authentication to IAM. Users can sign in to AWS as an [IAM](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") user or with a [federated identity](https://aws.amazon.com/identity/federation/ "https://aws.amazon.com/identity/federation/") by using credentials provided through an identity source. Users can only sign in with a federated identity if your administrator previously set up identity federation using IAM roles. When users access AWS by using federation, they’re indirectly [assuming a role](../../../IAM/latest/UserGuide/when-to-use-iam.md#security-iam-authentication-iamrole "../../../IAM/latest/UserGuide/when-to-use-iam.md#security-iam-authentication-iamrole"). When users use this type of identity, you:

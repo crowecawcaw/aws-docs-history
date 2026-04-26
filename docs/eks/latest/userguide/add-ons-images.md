@@ -10,7 +10,7 @@ When you deploy [AWS Amazon EKS add-ons](workloads-add-ons-available-eks.md "wor
 | -------------- | ---------------------------------------------------- |
 | af-south-1     | 877085696533.dkr.ecr.af-south-1.amazonaws.com        |
 | ap-east-1      | 800184023465.dkr.ecr.ap-east-1.amazonaws.com         |
-| ap-east-2      | 533267051163.dkr.ecr.ap-east-1.amazonaws.com         |
+| ap-east-2      | 533267051163.dkr.ecr.ap-east-2.amazonaws.com         |
 | ap-southeast-3 | 296578399912.dkr.ecr.ap-southeast-3.amazonaws.com    |
 | ap-south-2     | 900889452093.dkr.ecr.ap-south-2.amazonaws.com        |
 | ap-southeast-4 | 491585149902.dkr.ecr.ap-southeast-4.amazonaws.com    |

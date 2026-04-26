@@ -16,7 +16,7 @@ Write operations such as create, update, and delete require both permissions—i
 
 ## CloudTrail visibility
 
-While perform write operations on Kubernetes resources, you will see specific operation names in your CloudTrail logs:
+While performing write operations on Kubernetes resources, you will see specific operation names in your CloudTrail logs:
 
 - `createKubernetesObject` - When creating new resources
 - `updateKubernetesObject` - When modifying existing resources

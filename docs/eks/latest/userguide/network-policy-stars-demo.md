@@ -45,7 +45,7 @@ stars             frontend-cscnf                             1/1     Running   0
 kubectl get service/management-ui -n management-ui
 ```
 
-4. Open the a browser to the location from the previous step. You should see the management user interface. The **C** node is the client service, the **F** node is the front-end service, and the **B** node is the back-end service. Each node has full communication access to all other nodes, as indicated by the bold, colored lines.
+4. Open a browser to the location from the previous step. You should see the management user interface. The **C** node is the client service, the **F** node is the front-end service, and the **B** node is the back-end service. Each node has full communication access to all other nodes, as indicated by the bold, colored lines.
 
 ![Open network policy](images/stars-default.png) 5. Apply the following network policy in both the `stars` and `client` namespaces to isolate the services from each other:
 

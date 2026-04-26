@@ -26,7 +26,7 @@ The `AWSServiceRoleForAmazonEKSLocalOutpost` service-linked role trusts the foll
 
 The role permissions policy allows Amazon EKS to complete the following actions on the specified resources:
 
-- [AmazonEKSServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonEKSServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonEKSServiceRolePolicy.md")
+- [AmazonEKSLocalOutpostServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonEKSLocalOutpostServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonEKSLocalOutpostServiceRolePolicy.md")
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role) to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 

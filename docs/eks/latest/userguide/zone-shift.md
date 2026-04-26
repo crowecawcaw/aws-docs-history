@@ -96,7 +96,7 @@ spec:
   replicas: 9
   selector:
     matchLabels:
-      app:orders
+      app: orders
   template:
     metadata:
       labels:

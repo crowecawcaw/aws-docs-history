@@ -122,7 +122,7 @@ parameters:
 
 For general information on the Kubernetes `StorageClass` resources, see [Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/ "https://kubernetes.io/docs/concepts/storage/storage-classes/") in the Kubernetes Documentation.
 
-THe `parameters` section of the `StorageClass` resource is specific to AWS. Use the following table to review available options.
+The `parameters` section of the `StorageClass` resource is specific to AWS. Use the following table to review available options.
 
 | Parameters                   | Values                                             | Default | Description                                                                                                                                                                                                                                                                                                                                                                                       |
 | ---------------------------- | -------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -46,7 +46,7 @@ Custom permissions aren’t used with this add-on.
 
 The add-on name is `calyptia_fluent-bit` and the namespace is `calyptia-fluentbit`. Calyptia publishes the add-on.
 
-For information about the add-on, see [Getting Started with Calyptia Core Agent](https://docs.akuity.io/tutorials/eks-addon-agent-install/ "https://docs.akuity.io/tutorials/eks-addon-agent-install/") on the Calyptia documentation website.
+For information about the add-on, see [Getting Started with Calyptia Core Agent](https://docs.calyptia.com/docs/getting-started "https://docs.calyptia.com/docs/getting-started") on the Calyptia documentation website.
 
 ### Service account name
 
@@ -270,7 +270,7 @@ Custom permissions aren’t used with this add-on.
 
 The name is `haproxy-technologies_kubernetes-ingress-ee` and the namespace is `haproxy-controller`. HA Proxy publishes the add-on.
 
-For information about the add-on, see [Amazon EKS-integration](https://hub.datree.io/integrations/eks-integration "https://hub.datree.io/integrations/eks-integration") in the Datree documentation.
+For information about the add-on, see [Installing on AWS](https://www.haproxy.com/documentation/kubernetes-ingress/community/installation/aws/ "https://www.haproxy.com/documentation/kubernetes-ingress/community/installation/aws/") in the HA Proxy documentation.
 
 ### Service account name
 

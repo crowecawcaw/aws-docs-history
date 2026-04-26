@@ -481,7 +481,7 @@ Specialized inference engines like vLLM provide advanced features that significa
 
 ### Benchmark vLLM configurations
 
-To tune vLLM configuration parameters for your use case, benchmark different settings using a comprehensive inference benchmarking tool like [GuideLLM](https://github.com/vllm-project/guidellm "https://github.com/vllm-project/guidellm"). This will collect key metrics like request per second throughput (RPS), end-to-end latency (E2E), time to first token (TTFT), and tail latency (TPOT) to compare different configurations.
+To tune vLLM configuration parameters for your use case, benchmark different settings using a comprehensive inference benchmarking tool like [GuideLLM](https://github.com/vllm-project/guidellm "https://github.com/vllm-project/guidellm"). This will collect key metrics like request per second throughput (RPS), end-to-end latency (E2E), time to first token (TTFT), and time per output token (TPOT) to compare different configurations.
 
 ### Baseline vLLM configuration
 
@@ -575,4 +575,4 @@ Compute benchmarking results in a table for both baseline and optimized vLLM con
 | TTFT       | 8637.2 ms       | 147.9 ms         |
 | TPOT       | 34.0 ms         | 39.5 ms          |
 
-The optimized vLLM configurations significantly improved inference throughput (RPS) and reduced latency (E2E, TTFT) with only a minor millisecond increase in tail latency (TPOT). These results demonstrate how vLLM significantly improves inference performance, allowing each container to process more requests in less time for cost-effective operation.
+The optimized vLLM configurations significantly improved inference throughput (RPS) and reduced latency (E2E, TTFT) with only a minor millisecond increase in time per output token (TPOT). These results demonstrate how vLLM significantly improves inference performance, allowing each container to process more requests in less time for cost-effective operation.

@@ -49,7 +49,7 @@ autoModeConfig:
 
 Now, we’re ready to create the cluster.
 
-Create the EKS cluster using the `cluster-config.yaml``:
+Create the EKS cluster using the `cluster-config.yaml`:
 
 ```
 eksctl create cluster -f cluster-config.yaml

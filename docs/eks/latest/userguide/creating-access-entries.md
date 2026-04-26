@@ -34,7 +34,7 @@ Before creating access entries, consider the following:
   | ------------------ | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
   | User               | `STANDARD`                   | The ARN of the user. Example: `arn:aws:iam::<111122223333>:user/<my-user>`                                                                                                                                                                                                                    |
   | Role               | `STANDARD`                   | The STS ARN of the role when it’s assumed. Amazon EKS appends `{{SessionName}}` to the role.<br>Example: `arn:aws:sts::<111122223333>:assumed-role/<my-role>/{{SessionName}}`<br>If the ARN of the role that you specified contained a path, Amazon EKS removes it in the generated username. |
-  | Role               | `EC2_LINUX` or `EC2_Windows` | `system:node:{{EC2PrivateDNSName}}`                                                                                                                                                                                                                                                           |
+  | Role               | `EC2_LINUX` or `EC2_WINDOWS` | `system:node:{{EC2PrivateDNSName}}`                                                                                                                                                                                                                                                           |
   | Role               | `FARGATE_LINUX`              | `system:node:{{SessionName}}`                                                                                                                                                                                                                                                                 |
   | Role               | `HYBRID_LINUX`               | `system:node:{{SessionName}}`                                                                                                                                                                                                                                                                 |
 
@@ -44,7 +44,7 @@ Before creating access entries, consider the following:
 
 ###### Important
 
-Amazon EKS doesn’t confirm that any Kubernetes RBAC objects that exist on your cluster include any of the group names that you specify. For example, if you create an access entry for group that currently doesn’t exist, EKS will create the group instead of returning an error.
+Amazon EKS doesn’t confirm that any Kubernetes RBAC objects that exist on your cluster include any of the group names that you specify. For example, if you create an access entry for group that currently doesn’t exist, Amazon EKS will accept the configuration without returning an error, but the IAM principal won’t have any permissions until matching Kubernetes RBAC resources are created.
 
 Instead of, or in addition to, Kubernetes authorizing the IAM principal access to Kubernetes objects on your cluster, you can associate Amazon EKS _access policies_ to an access entry. Amazon EKS authorizes IAM principals to access Kubernetes objects on your cluster with the permissions in the access policy. You can scope an access policy’s permissions to Kubernetes namespaces that you specify. Use of access policies don’t require you to manage Kubernetes RBAC objects. For more information, see [Associate access policies with access entries](access-policies.md "access-policies.md").
 
@@ -96,7 +96,7 @@ Instead of, or in addition to, Kubernetes authorizing the IAM principal access t
 
 
         ```
-        aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role --type STANDARD --user Viewers --kubernetes-groups Viewers
+        aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role --type STANDARD --username Viewers --kubernetes-groups Viewers
         ```
         * Create an access entry that allows an IAM user to authenticate to your cluster. This example is provided because this is possible, though IAM best practices recommend accessing your cluster using IAM *roles* that have short-term credentials, rather than IAM *users* that have long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the *IAM User Guide*.
 

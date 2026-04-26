@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Analyze AWS CloudTrail log file entries
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action. This include information such as the date and time of the action and the request parameters that were used. CloudTrail log files aren’t an ordered stack trace of the public API calls, so they don’t appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action. This includes information such as the date and time of the action and the request parameters that were used. CloudTrail log files aren’t an ordered stack trace of the public API calls, so they don’t appear in any specific order.
 
 The following example shows a CloudTrail log entry that demonstrates the [`CreateCluster`](../APIReference/API_CreateCluster.md "../APIReference/API_CreateCluster.md") action.
 

@@ -22,7 +22,7 @@ The following procedure guides you to create an EKS cluster with `eksctl` with n
 
 ## Prerequisites
 
-- An existing Amazon EKS cluster. If you don’t have an existing cluster, create one using [Get started with Amazon EKS](getting-started.md "getting-started.md").. Your cluster must be deployed in a VPC that has at least one private subnet with enough available IP addresses to deploy nodes in. The private subnet must have outbound internet access provided by an external device, such as a NAT gateway.
+- An existing Amazon EKS cluster. If you don’t have an existing cluster, create one using [Get started with Amazon EKS](getting-started.md "getting-started.md"). Your cluster must be deployed in a VPC that has at least one private subnet with enough available IP addresses to deploy nodes in. The private subnet must have outbound internet access provided by an external device, such as a NAT gateway.
 
 If you plan to use `eksctl` to create your node group, `eksctl` can also create a cluster for you.
 

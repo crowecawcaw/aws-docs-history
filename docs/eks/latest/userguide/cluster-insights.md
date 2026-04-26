@@ -22,7 +22,7 @@ Cluster insights in Amazon EKS provide automated checks to help maintain the hea
 
 ### Upgrade insights
 
-Upgrade insights are a specific type of insight checks within cluster insights. These checks returns insights related to Kubernetes version upgrade readiness. Amazon EKS runs upgrade insight checks on every EKS cluster.
+Upgrade insights are a specific type of insight checks within cluster insights. These checks return insights related to Kubernetes version upgrade readiness. Amazon EKS runs upgrade insight checks on every EKS cluster.
 
 ###### Important
 

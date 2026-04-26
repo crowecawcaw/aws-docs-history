@@ -84,6 +84,25 @@ scheduler_pod_scheduling_attempts_bucket{le="+Inf"} 81
 [...]
 ```
 
+Due to the potentially large amount of data returned, there is an additional `kube-scheduler` metrics endpoint for retrieving `kube_pod_resource_request` and `kube_pod_resource_limit` metrics. To retrieve these metrics, use the following command.
+
+```
+kubectl get --raw "/apis/metrics.eks.amazonaws.com/v1/ksh/container/resourcemetrics"
+```
+
+An example output is as follows.
+
+```
+# HELP kube_pod_resource_limit [STABLE] Resources limit for workloads on the cluster, broken down by pod. This shows the resource usage the scheduler and kubelet expect per pod for resources along with the unit for the resource if any.
+# TYPE kube_pod_resource_limit gauge
+kube_pod_resource_limit{namespace="kube-system",node="ip-192-168-87-3.us-west-2.compute.internal",pod="coredns-7bf648ff5d-dj4ss",priority="2000000000",resource="memory",scheduler="default-scheduler",unit="bytes"} 1.7825792e+08
+# HELP kube_pod_resource_request [STABLE] Resources requested by workloads on the cluster, broken down by pod. This shows the resource usage the scheduler and kubelet expect per pod for resources along with the unit for the resource if any.
+# TYPE kube_pod_resource_request gauge
+kube_pod_resource_request{namespace="kube-system",node="ip-192-168-87-3.us-west-2.compute.internal",pod="aws-node-x7znh",priority="2000001000",resource="cpu",scheduler="default-scheduler",unit="cores"} 0.05
+kube_pod_resource_request{namespace="kube-system",node="ip-192-168-87-3.us-west-2.compute.internal",pod="coredns-7bf648ff5d-dj4ss",priority="2000000000",resource="cpu",scheduler="default-scheduler",unit="cores"} 0.1
+[...]
+```
+
 ### Fetch `kube-controller-manager` metrics
 
 To retrieve `kube-controller-manager` metrics, use the following command.
@@ -117,20 +136,22 @@ workqueue_work_duration_seconds_sum{name="replicaset"} 4.265655885000002
 
 The following table describes the scheduler and controller manager metrics that are made available for Prometheus style scraping. For more information about these metrics, see [Kubernetes Metrics Reference](https://kubernetes.io/docs/reference/instrumentation/metrics/ "https://kubernetes.io/docs/reference/instrumentation/metrics/") in the Kubernetes documentation.
 
-| Metric                                                | Control plane component | Description                                                                                                                                                               |
-| ----------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| scheduler_pending_pods                                | scheduler               | The number of Pods that are waiting to be scheduled onto a node for execution.                                                                                            |
-| scheduler_schedule_attempts_total                     | scheduler               | The number of attempts made to schedule Pods.                                                                                                                             |
-| scheduler_preemption_attempts_total                   | scheduler               | The number of attempts made by the scheduler to schedule higher priority Pods by evicting lower priority ones.                                                            |
-| scheduler_preemption_victims                          | scheduler               | The number of Pods that have been selected for eviction to make room for higher priority Pods.                                                                            |
-| scheduler_pod_scheduling_attempts                     | scheduler               | The number of attempts to successfully schedule a Pod.                                                                                                                    |
-| scheduler_scheduling_attempt_duration_seconds         | scheduler               | Indicates how quickly or slowly the scheduler is able to find a suitable place for a Pod to run based on various factors like resource availability and scheduling rules. |
-| scheduler_pod_scheduling_sli_duration_seconds         | scheduler               | The end-to-end latency for a Pod being scheduled, from the time the Pod enters the scheduling queue. This might involve multiple scheduling attempts.                     |
-| cronjob_controller_job_creation_skew_duration_seconds | controller manager      | The time between when a cronjob is scheduled to be run, and when the corresponding job is created.                                                                        |
-| workqueue_depth                                       | controller manager      | The current depth of queue.                                                                                                                                               |
-| workqueue_adds_total                                  | controller manager      | The total number of adds handled by workqueue.                                                                                                                            |
-| workqueue_queue_duration_seconds                      | controller manager      | The time in seconds an item stays in workqueue before being requested.                                                                                                    |
-| workqueue_work_duration_seconds                       | controller manager      | The time in seconds processing an item from workqueue takes.                                                                                                              |
+| Metric                                                | Control plane component | Description                                                                                                                                                                                            |
+| ----------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| scheduler_pending_pods                                | scheduler               | The number of Pods that are waiting to be scheduled onto a node for execution.                                                                                                                         |
+| scheduler_schedule_attempts_total                     | scheduler               | The number of attempts made to schedule Pods.                                                                                                                                                          |
+| scheduler_preemption_attempts_total                   | scheduler               | The number of attempts made by the scheduler to schedule higher priority Pods by evicting lower priority ones.                                                                                         |
+| scheduler_preemption_victims                          | scheduler               | The number of Pods that have been selected for eviction to make room for higher priority Pods.                                                                                                         |
+| scheduler_pod_scheduling_attempts                     | scheduler               | The number of attempts to successfully schedule a Pod.                                                                                                                                                 |
+| scheduler_scheduling_attempt_duration_seconds         | scheduler               | Indicates how quickly or slowly the scheduler is able to find a suitable place for a Pod to run based on various factors like resource availability and scheduling rules.                              |
+| scheduler_pod_scheduling_sli_duration_seconds         | scheduler               | The end-to-end latency for a Pod being scheduled, from the time the Pod enters the scheduling queue. This might involve multiple scheduling attempts.                                                  |
+| kube_pod_resource_limit                               | scheduler               | Resources limit for workloads on the cluster, broken down by pod. This shows the resource usage the scheduler and kubelet expect per pod for resources along with the unit for the resource if any.    |
+| kube_pod_resource_request                             | scheduler               | Resources requested by workloads on the cluster, broken down by pod. This shows the resource usage the scheduler and kubelet expect per pod for resources along with the unit for the resource if any. |
+| cronjob_controller_job_creation_skew_duration_seconds | controller manager      | The time between when a cronjob is scheduled to be run, and when the corresponding job is created.                                                                                                     |
+| workqueue_depth                                       | controller manager      | The current depth of queue.                                                                                                                                                                            |
+| workqueue_adds_total                                  | controller manager      | The total number of adds handled by workqueue.                                                                                                                                                         |
+| workqueue_queue_duration_seconds                      | controller manager      | The time in seconds an item stays in workqueue before being requested.                                                                                                                                 |
+| workqueue_work_duration_seconds                       | controller manager      | The time in seconds processing an item from workqueue takes.                                                                                                                                           |
 
 ## Deploy a Prometheus scraper to consistently scrape metrics
 

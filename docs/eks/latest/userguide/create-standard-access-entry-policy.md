@@ -59,7 +59,7 @@ You need the ARN of the access policy. Review the [available access policies](ac
 ### Create policy without namespace scope
 
 ```
-aws eks associate-access-policy --cluster-name <cluster-name> --principal-arn <iam-identity-arn> --policy-arn <access-policy-arn>
+aws eks associate-access-policy --cluster-name <cluster-name> --principal-arn <iam-identity-arn> --access-scope type=cluster --policy-arn <access-policy-arn>
 ```
 
 ### Create with namespace scope

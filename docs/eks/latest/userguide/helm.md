@@ -31,7 +31,7 @@ kubectl get svc
 sudo yum install openssl
 ```
 
-1. To pick up the new binary in your `PATH`, Close your current terminal window and open a new one.
+1. To pick up the new binary in your `PATH`, close your current terminal window and open a new one.
 2. See the version of Helm that you installed.
 
 ```

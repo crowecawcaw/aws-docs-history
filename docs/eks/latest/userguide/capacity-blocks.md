@@ -38,7 +38,7 @@ Make sure the `LaunchTemplateData` includes the following:
 
     ```
     NodeLaunchTemplate:
-      Type: "aws::EC2::LaunchTemplate"
+      Type: "AWS::EC2::LaunchTemplate"
       Properties:
         LaunchTemplateData:
           InstanceMarketOptions:

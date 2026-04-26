@@ -39,7 +39,7 @@ eksctl utils enable-secrets-encryption \
 To opt-out of automatically re-encrypting your secrets, run the following command.
 
 ```
-eksctl utils enable-secrets-encryption
+eksctl utils enable-secrets-encryption \
     --cluster my-cluster \
     --key-arn arn:aws:kms:region-code:account:key/key \
     --encrypt-existing-secrets=false
@@ -142,7 +142,7 @@ AWS CLI
             "value": "[{\"resources\":[\"secrets\"],\"provider\":{\"keyArn\":\"arn:aws:kms:region-code:account:key/key\"}}]"
           }
         ],
-        "createdAt": 1613754188.734>,
+        "createdAt": 1613754188.734,
         "errors": []
       }
     }

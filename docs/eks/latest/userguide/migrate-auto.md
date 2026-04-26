@@ -45,7 +45,7 @@ When migrating workloads to EKS Auto Mode, you need to handle EBS volume migrati
 
 Follow these steps to migrate your persistent volumes:
 
-1. **Modify volume retention policy**: Change the existing platform version’s (PV’s) `persistentVolumeReclaimPolicy` to `Retain` to ensure the underlying EBS volume is not deleted.
+1. **Modify volume retention policy**: Change the existing PersistentVolume’s (PV’s) `persistentVolumeReclaimPolicy` to `Retain` to ensure the underlying EBS volume is not deleted.
 2. **Remove PV from Kubernetes**: Delete the old PV resource while keeping the actual EBS volume intact.
 3. **Create a new PV with static provisioning**: Create a new PV that references the same EBS volume but works with the target CSI driver.
 4. **Bind to a new PVC**: Create a new PVC that specifically references your PV using the `volumeName` field.

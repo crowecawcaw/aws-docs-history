@@ -202,7 +202,7 @@ kubectl scale deployments/coredns --replicas=2 -n kube-system
 11. Drain each of the nodes that you want to remove from your cluster with the following command:
 
 ```
-kubectl drain node_name --ignore-daemonsets --delete-local-data
+kubectl drain node_name --ignore-daemonsets --delete-emptydir-data
 ```
 
 If you’re upgrading your nodes to a new Kubernetes version, identify and drain all of the nodes of a particular Kubernetes version (in this case, `1.33`) with the following code snippet.
@@ -213,7 +213,7 @@ nodes=$(kubectl get nodes -o jsonpath="{.items[?(@.status.nodeInfo.kubeletVersio
 for node in ${nodes[@]}
 do
     echo "Draining $node"
-    kubectl drain $node --ignore-daemonsets --delete-local-data
+    kubectl drain $node --ignore-daemonsets --delete-emptydir-data
 done
 ```
 
