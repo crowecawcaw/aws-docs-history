@@ -32,7 +32,7 @@ including:
 - Last recovery result – **Not started**, **Pending**, **Successful**, **Failed**, and **Partial success**
   (meaning the network was deployed, but the source servers were not configured as part of
   the recovered network)
-- Launched VPC –the recovered network
+- Launched VPC – the recovered network
 - CFN stack name – the name of the CloudFormation stack which was used to deploy the
   launched VPC
 - Source network ID – the ID of the source network

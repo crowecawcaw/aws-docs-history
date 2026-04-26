@@ -17,7 +17,7 @@ AWS Elastic Disaster Recovery allows you to run various predefined post-launch a
 
 ###### Note
 
-These predefined post-launch actions are supported in the Middle East:
+These predefined post-launch actions are supported in the Middle East
 (UAE) Region:
 
 - Enable SSM
@@ -50,8 +50,8 @@ instance requires these policies:
 
 **AmazonSSMManagedInstanceCore** – The policy for Amazon EC2 Role to enable AWS Systems Manager service core functionality
 
-To ensure that the launch instance has the right policies, create a role that has the required permissions as per the policies above or have access to a role with those permissions.
-Go to **Launch settings > EC2 launch template > Modify > Advance > IAM instance profile**.
+To ensure that the launched instance has the right policies, create a role that has the required permissions as per the policies above or have access to a role with those permissions.
+Go to **Launch settings > EC2 launch template > Modify > Advanced > IAM instance profile**.
 Use an existing profile or create a new one using the **Create new IAM profile** link.
 
 ###### Note
@@ -72,7 +72,7 @@ Use the Create AMI from Instance feature to create a new Amazon Machine Image (A
 
 The action uses these APIs:
 
-- [CreateImages](../../../AWSEC2/latest/APIReference/API_CreateImage.md "../../../AWSEC2/latest/APIReference/API_CreateImage.md")
+- [CreateImage](../../../AWSEC2/latest/APIReference/API_CreateImage.md "../../../AWSEC2/latest/APIReference/API_CreateImage.md")
 - [DescribeImages](../../../AWSEC2/latest/APIReference/API_DescribeImages.md "../../../AWSEC2/latest/APIReference/API_DescribeImages.md")
 
 To allow the SSM document to run these APIs, you need to have the required

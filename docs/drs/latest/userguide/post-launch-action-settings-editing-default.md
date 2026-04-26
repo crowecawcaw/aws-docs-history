@@ -35,13 +35,13 @@ when the source server was added.
 **Mark launch as successful only if this action finishes
 running successfully** – This checkbox dictates whether or not the
 launch is marked as successful, based on the successful run of this action.
-Instances launches still progress normally regardless of the success of the
+Instance launches still progress normally regardless of the success of the
 action.
 
-**System Manager document name** – Editable for custom actions. Select any Systems Manager document that is available to be used in this account.
+**Systems Manager document name** – Editable for custom actions. Select any Systems Manager document that is available to be used in this account.
 
 **View in Systems Manager** – Select to open
-**System Managers** and view additional
+**Systems Manager** and view additional
 information about the document.
 
 **Description** – Editable for custom actions. Add a description or keep the default.

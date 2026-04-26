@@ -12,7 +12,7 @@ performed in Elastic Disaster Recovery.
 The **Recovery job history** page allows you to track and
 manage all operations performed in Elastic Disaster Recovery.
 
-You can access the Recovery job history page by choose **Recovery
+You can access the Recovery job history page by choosing **Recovery
 job history** on the left-hand navigation menu.
 
 ![Recovery job history table showing job details like ID, type, status, and start time.](images/drs-new-job1.png)
@@ -129,7 +129,7 @@ instance Id, Drill/Recovery instance ID,** and **Error.**
 ![List of properties for filtering, including Time, Event, Source Server Id, and others.](images/drs-recoveryjob-jobdetails-joblog3.png)
 
 You can filter by multiple values at once (for example, Job log filtered by
-**Event: Failed to take snaphot** and a
+**Event: Failed to take snapshot** and a
 specific **Source Server Id: 7**).
 
 ![Job log filtered by "Failed to take snapshot" event and Source Server Id: 7.](images/drs-recoveryjob-jobdetails-joblog4.png)

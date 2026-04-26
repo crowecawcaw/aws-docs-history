@@ -18,7 +18,7 @@ You can choose the hostname of any individual source server on the source server
 order to access the server details view. This view allows you to see the details for individual
 servers. Here you are able to see an in-depth overview of the server's recovery state, view the
 server's technical details, manage tags, manage disks, and most importantly, configure the
-individual replications settings and launch settings for the server.
+individual replication settings and launch settings for the server.
 
 ###### Topics
 

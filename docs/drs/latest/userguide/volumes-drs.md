@@ -35,7 +35,7 @@ You may want to use this option if:
 
 - The **Faster, General Purpose SSD (gp2)** and
   Faster, **General Purpose SSD (gp3)** options
-  utilizes faster, but more expensive disks.
+  utilize faster, but more expensive disks.
 
 You may want to use this option if:
 
@@ -60,14 +60,14 @@ Choose your encryption approach:
 - Choose **Custom** and then enter the ARN or
   key ID of a customer-managed key from your account or another AWS account in the **EBS encryption key** field. Enter
   the key, such as a cross-account KMS key, in standard key ID
-  format. For example, KMS key format is `123abcd-12ab-34cd-56ef-1234567890ab)`. This option encrypts
+  format. For example, KMS key format is `1234abcd-12ab-34cd-56ef-1234567890ab`. This option encrypts
   your replicated data at rest on the staging area subnet disks and the replicated disks.
 - Choose **Create an AWS KMS
   key** to be redirected to the Key Management Service (KMS)
   Console where you can create a new key to use.
 
 Learn more about EBS Volume Encryption in [Amazon EBS
-encyption](../../../AWSEC2/latest/UserGuide/EBSEncryption.md "../../../AWSEC2/latest/UserGuide/EBSEncryption.md").
+encryption](../../../AWSEC2/latest/UserGuide/EBSEncryption.md "../../../AWSEC2/latest/UserGuide/EBSEncryption.md").
 
 ###### Important
 
@@ -77,7 +77,7 @@ data replication to start from the beginning.
 ## Automatic replication of new disks
 
 AWS Elastic Disaster Recovery (AWS DRS) allows you to automatically replicate newly added disks.
-When you add new disks to your source environment AWS DRS initiates data replication
+When you add new disks to your source environment, AWS DRS initiates data replication
 to the staging area subnet in your AWS account.
 
 Automating replication of new disks assists you in maintaining continuous data
@@ -91,7 +91,7 @@ To deactivate or reactivate this feature for newly added servers:
 - Under **Settings** on the left-hand
   navigation menu, choose **Default replication
   settings**.
-- select **Edit**.
+- Select **Edit**.
 - Under **Volumes**, uncheck the
   **Automatically replicate new
   disks** checkbox.
@@ -100,7 +100,7 @@ To activate or deactivate or reactivate this feature for a specific
 server:
 
 - Go to the replication settings.
-- select **Edit**.
+- Select **Edit**.
 - Under **Volumes**, uncheck the
   **Automatically replicate new
   disks** checkbox.

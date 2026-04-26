@@ -27,12 +27,10 @@ launch is marked as successful, based on the successful run of this action.
 Instance launches still progress normally regardless of the success of the
 action.
 
-**System Manager document name** – Select any Systems Manager document that is available to be used in this account.
-
-**System Manager document name** – Select any Systems Manager document that is available to be used in this account.
+**Systems Manager document name** – Select any Systems Manager document that is available to be used in this account.
 
 **View in Systems Manager** – select to open
-**System Managers** and view additional
+**Systems Manager** and view additional
 information about the document.
 
 **Description** – Add a description or keep the default.
@@ -61,12 +59,12 @@ AWS Elastic Disaster Recovery (AWS DRS) places **AWSElasticDisasterRecoveryRecov
 If you add an SSM command action that requires additional permissions in the launch instance,
 you must ensure that the instance profile has the right policies or the right permissions.
 In order to do so, create a role that has the required permissions as per the policies above or has a policy or policies with those permissions attached to it.
-Go to **Launch settings** > **EC2 launch template** > **Modify** > **Advance** > **IAM instance profile**.
+Go to **Launch settings** > **EC2 launch template** > **Modify** > **Advanced** > **IAM instance profile**.
 Use an existing profile or create a new one using the **Create new IAM profile** link.
 
 ###### Note
 
 Only trusted, authorized users should have access to the parameter store. For enhanced security, ensure that users who do not have permissions to execute SSM documents / commands,
 do not have access to parameter store. [Learn more about restricting access to Systems Manager parameters](../../../systems-manager/latest/userguide/sysman-paramstore-access.md "../../../systems-manager/latest/userguide/sysman-paramstore-access.md"). Action parameters are stored in the SSM parameter store as regular strings.
-Changing parameters in the SSM Parameter store may impact the post launch action run on target instances. We recommend to consider security implications, when choosing to use parameters that
+Changing parameters in the SSM Parameter store may impact the post launch action run on target instances. We recommend considering security implications when choosing to use parameters that
 contain scripts or sensitive information, such as API keys and database passwords.

@@ -6,13 +6,13 @@ added source servers and controls which post-launch actions run when launching n
 instances. These settings are created automatically for each server based on the default
 settings and can be modified at any time for any individual source server.
 
-You can also use this settings to install the IAM roles required for post-launch actions to work,
+You can also use these settings to install the IAM roles required for post-launch actions to work,
 if the roles were not already installed in your account during the first initialization of AWS DRS.
 The IAM roles need to be installed once per AWS account, regardless of the region used.
 
-Post launch actions can be of two different types: command and automation.
+Post-launch actions can be of two different types: command and automation.
 Command post-launch actions run on the launched instance using the instance profile attached to the instance.
-Note that if no instance profile is defined on the EC2 launch template, AWS Elastic Disaster Recovery (AWS DRS) places the **AWSElasticDisasterRecoveryRecoveryInstanceWithLaunchActionsRole** instance profile by default if post-launch actions is active for the source server.
+Note that if no instance profile is defined on the EC2 launch template, AWS Elastic Disaster Recovery (AWS DRS) places the **AWSElasticDisasterRecoveryRecoveryInstanceWithLaunchActionsRole** instance profile by default if post-launch actions are active for the source server.
 
 Automation actions run with the credentials of the same IAM entity that started the
 drill, recovery or failback. In addition some automation actions accept a parameter that
@@ -39,7 +39,7 @@ role for that action execution.
 In order to run an SSM command or Automation document owned by a different account as a post-launch action you should
 provide the permission to use `ssm:SendCommand` and `ssm:StartAutomation` on the relevant document.
 
-For example, if you have shared the SSM documents MyCommand (command) and MyAutomation (automation) from account 111111111111, you should attach these permissions to you your IAM entities:
+For example, if you have shared the SSM documents MyCommand (command) and MyAutomation (automation) from account 111111111111, you should attach these permissions to your IAM entities:
 
 ###### Example
 
@@ -50,7 +50,7 @@ For example, if you have shared the SSM documents MyCommand (command) and MyAuto
                 "Action": [
                     "ssm:SendCommand",
                 ],
-                "Resource": "arn:aws:ssm:*:111111111111:document/MyAutomation",
+                "Resource": "arn:aws:ssm:*:111111111111:document/MyCommand",
                 "Condition": {
                     "ForAnyValue:StringEquals": {
                         "aws:CalledVia": [
@@ -91,7 +91,7 @@ For example, if you have shared the SSM documents MyCommand (command) and MyAuto
 
 ## Validate disk space
 
-Use the **Disk space validation** feature to obtain visibility into the disc space that you have at your disposal, as well as logs with actionable insights.
+Use the **Disk space validation** feature to obtain visibility into the disk space that you have at your disposal, as well as logs with actionable insights.
 
 ## Amazon EC2 connectivity checks
 

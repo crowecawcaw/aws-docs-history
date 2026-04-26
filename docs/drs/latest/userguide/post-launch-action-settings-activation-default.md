@@ -12,7 +12,7 @@ actions** is set to **Active**. In case it
 is not, select **Edit** and make sure **Post-launch actions activated** is checked. Then select
 **Save** to store these settings.
 
-To deactivate go to **Settings → Default post-launch
+To deactivate, go to **Settings → Default post-launch
 actions** and check **Post-launch actions
 settings** to see if **Post-launch
 actions** is set to **Not active**. In

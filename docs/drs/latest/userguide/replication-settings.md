@@ -3,7 +3,7 @@
 **Replication Settings** govern how data is replicated from
 Source Servers and stored within AWS.
 
-These topics discuss address the different types of replication settings:
+These topics address the different types of replication settings:
 
 ###### Topics
 

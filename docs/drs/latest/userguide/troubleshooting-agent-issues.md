@@ -707,9 +707,8 @@ If you see `BitLocker is not supported. Please disable BitLocker and try
 Disabling BitLocker decrypts the drive. Ensure this is acceptable per
 your organization's security policy before proceeding.
 
-Disable BitLocker on the source server and run the installer again. You can
-re-enable BitLocker after the agent is installed if needed, though this may
-affect replication performance.
+Disable BitLocker on the source server and run the installer again.
+BitLocker must remain disabled while using AWS Elastic Disaster Recovery.
 
 ## Error: Volume too large
 
