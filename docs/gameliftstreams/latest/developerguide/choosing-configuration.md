@@ -66,7 +66,7 @@ for cost while maintaining good performance.
 Many Windows applications can run in the Proton runtime environment. Proton is a game-optimized compatibility layer that runs on
 Linux. The stream class options for this runtime include powerful GPU resources running on NVIDIA hardware, with support for DirectX
 11 and, beginning with Proton 8.0-5, DirectX 12. Visit the [Proton wiki](https://github.com/ValveSoftware/Proton/wiki "https://github.com/ValveSoftware/Proton/wiki") for more details about this option. If you choose to
-explore running your application on Proton, we recommend that you start your testing using Proton 9.0-2.
+explore running your application on Proton, we recommend that you start your testing using Proton 10.0-4.
 
 ###### Important
 
@@ -75,7 +75,7 @@ Proton runtimes in Amazon GameLift Streams do not support streaming over IPv6. C
 ###### Important
 
 The compatibility of your Windows application in a Proton runtime environment depends on your specific application requirements.
-For example, Proton 9.0-2 has better support than Proton 8.0-2c for Unreal Engine 5. In general, the newer
+For example, Proton 10.0-4 has better support than Proton 8.0-2c for Unreal Engine 5. In general, the newer
 your game, the newer version of Proton you will need. We strongly recommend thoroughly testing this runtime in your local
 environment to ensure optimal performance. Use our [Proton troubleshooting
 guide](troubleshoot-compatibility-wp.md "troubleshoot-compatibility-wp.md") to help you in this effort.

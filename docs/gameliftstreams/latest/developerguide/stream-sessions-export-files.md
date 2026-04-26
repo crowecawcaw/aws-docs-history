@@ -82,8 +82,8 @@ command, customized for your content.
 ```
 aws gameliftstreams export-stream-session-files \
     --identifier `arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4` \
-    --stream-session-identifier `arn:aws:gameliftstreams:us-west-2:111122223333:streamsession/sg-1AB2C3De4/ABC123def4567`
-    --ouput-uri s3://`amzn-s3-demo-bucket/prefix`
+    --stream-session-identifier `arn:aws:gameliftstreams:us-west-2:111122223333:streamsession/sg-1AB2C3De4/ABC123def4567` \
+    --output-uri s3://`amzn-s3-demo-bucket/prefix`
 ```
 
 Where

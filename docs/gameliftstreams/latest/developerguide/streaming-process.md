@@ -117,6 +117,7 @@ executable or script file. Complete this step in the Amazon GameLift Streams con
 
 
         	+ Microsoft Windows Server 2022 Base (`WINDOWS, 2022`)
+        	+ Proton 10.0-4 (`PROTON, 20260204`)
         	+ Proton 9.0-2 (`PROTON, 20250516`)
         	+ Proton 8.0-5 (`PROTON, 20241007`)
         	+ Proton 8.0-2c (`PROTON, 20230704`)

@@ -79,6 +79,13 @@ In your terminal, run the `proton-setup.sh` script and specify the Proton versio
 
 
 
+    	+ For Proton 10.0-4 (`PROTON-20260204`), use [proton-10.0-4](https://github.com/ValveSoftware/Proton/tree/proton-10.0-4 "https://github.com/ValveSoftware/Proton/tree/proton-10.0-4").
+
+
+
+    	```
+    	proton-setup.sh proton-10.0-4
+    	```
     	+ For Proton 9.0-2 (`PROTON-20250516`), use [experimental-9.0-20241121b](https://github.com/ValveSoftware/Proton/tree/experimental-9.0-20241121b "https://github.com/ValveSoftware/Proton/tree/experimental-9.0-20241121b").
 
 
