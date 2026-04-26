@@ -41,7 +41,7 @@ destination branches, and choose **Compare** again. 9. When you are satisfied wi
 title that appears in the list of pull requests for the repository. 10. (Optional) In **Description**, enter details about this review and any
 other useful information for reviewers. 11. Choose **Create**.
 
-![Creating a pull request](images/codecommit-pull-request-create.png)
+![Creating a pull request](/images/codecommit/latest/userguide/images/codecommit-pull-request-create.png)
 
 Your pull request appears in the list of pull requests for the repository. If you [configured notifications](how-to-repository-email.md "how-to-repository-email.md"), subscribers to the Amazon SNS
 topic receive an email to inform them of the newly created pull request.

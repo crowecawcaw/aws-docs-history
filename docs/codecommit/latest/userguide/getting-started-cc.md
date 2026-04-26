@@ -178,7 +178,7 @@ create a local copy of a repository.
    tag you want to view from the list. In the following screenshot, the view is set
    to the **main** branch.
 
-![Browse the contents of a repository](/images/codecommit/latest/userguide/images/codecommit-code-browse.png) 3. To view the contents of a file in your repository, choose the file from the
+![Browse the contents of a repository](images/codecommit-code-browse.png) 3. To view the contents of a file in your repository, choose the file from the
 list. To change the color of the displayed code, choose the settings
 icon.
 
@@ -280,7 +280,7 @@ can be merged, you might name the rule `Require two approvals before
 **Submit**. To learn more about approval rules and approval
 pool members, see [Create an approval rule for a pull request](how-to-create-pull-request-approval-rule.md "how-to-create-pull-request-approval-rule.md").
 
-![Creating an approval rule for a pull request](images/codecommit-create-approval-rule.png) 7. If you configured notifications for your repository and chose to notify users
+![Creating an approval rule for a pull request](/images/codecommit/latest/userguide/images/codecommit-create-approval-rule.png) 7. If you configured notifications for your repository and chose to notify users
 of pull request events, users receive email about your new pull request. Users
 can view the changes and comment on specific lines of code, files, and the pull
 request itself. They can also reply to comments with text and emojis. If
