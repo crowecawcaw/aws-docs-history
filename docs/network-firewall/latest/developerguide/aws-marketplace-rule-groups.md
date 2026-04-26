@@ -4,6 +4,10 @@ AWS Marketplace rule groups provide managed security rules from AWS Partners tha
 
 AWS Marketplace rule groups are available by subscription through the AWS Marketplace console at [AWS Marketplace](https://aws.amazon.com/marketplace/ "https://aws.amazon.com/marketplace/") or through the AWS Management console. After you subscribe to an AWS Marketplace rule group, to enable the functionality in AWS Network Firewall, you can apply it to a firewall policy and associate it to a firewall to have these rules take effect.
 
+###### Note
+
+Some AWS Marketplace managed rule groups use a `stateful-domain-rulegroup` resource type that is available only with managed rules. You will see this resource type identified in the Amazon Resource Name (ARN) for the rule group. This resource type consumes capacity from your firewall policy's total available domain capacity. Only AWS Marketplace managed rule groups can use this capacity. For more information about domain capacity, see [Firewall policy settings](firewall-policy-settings.md "firewall-policy-settings.md").
+
 ## Pricing
 
 AWS Marketplace rule groups are available with no long-term contracts or minimal commitments. When you subscribe to a managed rule group provided by an AWS Marketplace seller, you will be charged additional fees based on the price set by the seller, which will be based on per GB traffic inspected by the firewall. For more information, see [AWS Network Firewall Pricing](https://aws.amazon.com/network-firewall/pricing/ "https://aws.amazon.com/network-firewall/pricing/") and the description for each AWS Marketplace rule group at AWS Marketplace.

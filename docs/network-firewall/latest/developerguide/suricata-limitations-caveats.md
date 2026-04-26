@@ -18,10 +18,13 @@ The following Suricata features are not supported by Network Firewall:
 - Rules actions except for pass, drop, reject, and alert. Pass, drop, reject, and alert are supported. For
   additional information about stateful rule actions, see [Actions for stateful rules](rule-action.md#rule-action-stateful "rule-action.md#rule-action-stateful").
 - SCTP protocol.
+- `xbits` and `hostbits` with host or IP-level tracking (`track ip_src`, `track ip_dst`, or `track ip_pair`).
+- `tag:host`.
 - Thresholding.
 - IKEv2 protocol.
 - IP-in-IP protocol.
 - HTTP/2 overloading.
+- Application Layer drop established default rules are incompatible with a session-holding configuration. You can read more at [Managing evaluation order for Suricata compatible rules in AWS Network Firewall.](suricata-rule-evaluation-order.md "suricata-rule-evaluation-order.md")
 
 ## Suricata features that Network Firewall supports with caveats
 

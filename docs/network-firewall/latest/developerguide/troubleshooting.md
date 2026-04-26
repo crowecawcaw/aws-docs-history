@@ -10,6 +10,7 @@ The topics in this chapter can help you troubleshoot problems with configuring a
   - [How do I check if I have asymmetric routing?](troubleshooting-general-issues.md#troubleshoot-check-asymmetric-routing-tg "troubleshooting-general-issues.md#troubleshoot-check-asymmetric-routing-tg")
   - [I'm using Network Firewall with AWS Transit Gateway and Network Firewall is dropping traffic](troubleshooting-general-issues.md#troubleshoot-dropped-traffic-flows "troubleshooting-general-issues.md#troubleshoot-dropped-traffic-flows")
   - [High latency and intermittent packet drops when traffic passes through Network Firewall](troubleshooting-general-issues.md#troubleshoot-high-latency-package-drops "troubleshooting-general-issues.md#troubleshoot-high-latency-package-drops")
+  - [How Network Firewall scaling works](troubleshooting-general-issues.md#troubleshoot-scaling-behavior "troubleshooting-general-issues.md#troubleshoot-scaling-behavior")
 
 - [Troubleshooting logging in AWS Network Firewall](troubleshooting-logging.md "troubleshooting-logging.md")
   - [My firewall isn't logging all traffic that matches pass action rules](troubleshooting-logging.md#troubleshoot-logging-partial-traffic "troubleshooting-logging.md#troubleshoot-logging-partial-traffic")

@@ -5,6 +5,10 @@ traffic inspection. You can create allow lists and deny
 lists with domain names that the stateful rules engine looks
 for in network traffic.
 
+###### Note
+
+AWS Marketplace managed rule groups use a `stateful-domain-rulegroup` resource type that is available only with managed rules. This resource type uses capacity from your firewall policy's total available domain capacity. Only AWS Marketplace managed rule groups can use this capacity. For more information, see [Firewall policy settings](firewall-policy-settings.md "firewall-policy-settings.md") and [AWS Network Firewall quotas](quotas.md "quotas.md").
+
 All rule groups have the common settings that are defined at
 [Common rule group settings in AWS Network Firewall](rule-group-settings.md "rule-group-settings.md").
 

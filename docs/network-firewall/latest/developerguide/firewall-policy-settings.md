@@ -68,6 +68,7 @@ For example, if `HOME_NET` is already configured for a primary firewall, you mus
 
 You can define the value to be between 60 and 6000 seconds. If no value is provided, it defaults to 350 seconds.
 
+- **Consumed domain capacity** – The total number of domain name specifications across all AWS Marketplace managed rule groups in the firewall policy that use the `stateful-domain-rulegroup`. Only rule groups from AWS Marketplace managed rules that use the `stateful-domain-rulegroup` resource type contribute to this capacity. A firewall policy can have a consumed domain capacity of up to 10,000,000 (10 million) domain name specifications. For more information about quotas, see [AWS Network Firewall quotas](quotas.md "quotas.md").
 - **TLS inspection configuration** (Optional) – Contains settings to turn on
   decryption and re-encryption of the Secure Socket Layer (SSL)/Transport Layer
   Security (TLS) traffic going to your firewall so that the traffic can be
