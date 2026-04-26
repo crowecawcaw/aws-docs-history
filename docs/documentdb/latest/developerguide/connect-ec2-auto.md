@@ -96,7 +96,7 @@ Leave the **Engine version** at it's default value of **5.0.0**. 5. For **Cluste
     * For **number of instances**, choose a number that best reflects your needs.
      Remember, the lower the number, the lower the cost, and the lower the read/write volume that can be managed by the cluster.
 
-![Configuration interface with default values for cluster identifier, engine version, and instance class, with number of instances set to one.](images/create-cluster/instance-config.png) 7. For **Connectivity**, choose **Connect to an EC2 compute resource**. This is the EC2 instance you created in Step 1.
+![Configuration interface with default values for cluster identifier, engine version, and instance class, with number of instances set to one.](/images/documentdb/latest/developerguide/images/create-cluster/instance-config.png) 7. For **Connectivity**, choose **Connect to an EC2 compute resource**. This is the EC2 instance you created in Step 1.
 
 ![Connectivity interface with the Connect to an EC2 compute resource option selected.](images/ec2-connect.png)
 

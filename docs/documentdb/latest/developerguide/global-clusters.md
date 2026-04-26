@@ -26,6 +26,9 @@ dedicated infrastructure. Latency is typically under a second.
   clusters** — The replication performed by a global cluster has
   little performance impact on the primary database cluster. The resources of the DB
   instances are fully devoted to serve application read and write workloads.
+- **Change streams** — You can read change
+  streams from a secondary cluster in global clusters, reducing the load on the
+  primary cluster and allowing you to scale read workloads from secondary regions.
 
 ## What are the current limitations of global clusters?
 
@@ -47,7 +50,6 @@ dedicated infrastructure. Latency is typically under a second.
   are back in sync with the primary database cluster's writer instance. This behavior
   is expected. Be sure that you understand the impact to your global cluster before
   making changes to your primary cluster.
-- You cannot use change streams on secondary clusters.
 
 ###### Topics
 

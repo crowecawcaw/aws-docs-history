@@ -7,8 +7,7 @@ To determine whether your engine needs an update, see [Determining pending maint
 
 ###### Note
 
-If you are trying to upgrade from a major engine version to another, such as 3.6 to 5.0, see either [Amazon DocumentDB in-place major version upgrade](docdb-mvu.md "docdb-mvu.md") or [Upgrading your Amazon DocumentDB cluster using AWS Database Migration Service](docdb-migration.versions.md "docdb-migration.versions.md").
-An in-place major version upgrade only supports docdb 5.0 as the target engine version.
+If you are trying to upgrade from a major engine version to another, such as 3.6 to 5.0 or 5.0 to 8.0, see either [Amazon DocumentDB in-place major version upgrade](docdb-mvu.md "docdb-mvu.md") or [Upgrading your Amazon DocumentDB cluster using AWS Database Migration Service](docdb-migration.versions.md "docdb-migration.versions.md").
 
 There are two configuration requirements to get the latest patch updates for a cluster's engine version:
 

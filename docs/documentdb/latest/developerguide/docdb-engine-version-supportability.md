@@ -22,28 +22,28 @@ best fits your workload requirements.
 
 ## Features
 
-| Features and Configurations by Engine Version | Feature                 | v3.6                   | v4.0                   | v5.0     | v8.0            | Elastic Clusters |
-| --------------------------------------------- | ----------------------- | ---------------------- | ---------------------- | -------- | --------------- | ---------------- |
-| Global clusters                               | No                      | Yes                    | Yes                    | Yes      | No              |
-| Multi-AZ (3 AZs)                              | Yes                     | Yes                    | Yes                    | Yes      | Yes (per shard) |
-| Read replicas supported                       | 15                      | 15                     | 15                     | 15       | 15 per shard    |
-| ACID transactions                             | No                      | Yes                    | Yes                    | Yes      | No              |
-| Change streams                                | Yes                     | Yes                    | Yes                    | Yes      | No              |
-| Vector search                                 | No                      | No                     | Yes                    | Yes      | No              |
-| Performance Insights                          | Yes                     | Yes                    | Yes                    | Yes      | No              |
-| In-place major version upgrade (MVU)          | Yes (to 5.0)            | Yes (to 5.0)           | No (target only)       | No       | No              |
-| Client-side field level encryption (FLE)      | No                      | No                     | Yes                    | Yes      | No              |
-| I/O-Optimized storage                         | No                      | No                     | Yes                    | Yes      | No              |
-| TLS certificate rotation (no reboot)          | Yes (patch 1.0.208662+) | Yes (patch 2.0.10179+) | Yes (patch 3.0.4780+)  | Yes      | Yes             |
-| Cross-Region snapshot copy                    | Yes                     | Yes                    | Yes                    | Yes      | Yes             |
-| Cross-account snapshot sharing                | Yes                     | Yes                    | Yes                    | Yes      | No              |
-| Audit and slow query logs                     | Yes                     | Yes                    | Yes                    | Yes      | Yes             |
-| Dual-stack IPv4/IPv6                          | No                      | Yes (patch 2.0.11747+) | Yes (patch 3.0.15902+) | Yes      | N/A             |
-| Collation                                     | No                      | No                     | No                     | Yes      | No              |
-| Views                                         | No                      | No                     | No                     | Yes      | No              |
-| Compression Support                           | No                      | No                     | LZ4                    | LZ4/Ztsd | No              |
-| Text Index                                    | No                      | No                     | V1                     | V2       | No              |
-| FedRAMP (GovCloud)                            | No                      | No                     | Yes                    | Yes      | No              |
+| Features and Configurations by Engine Version | Feature                 | v3.6                   | v4.0                   | v5.0             | v8.0            | Elastic Clusters |
+| --------------------------------------------- | ----------------------- | ---------------------- | ---------------------- | ---------------- | --------------- | ---------------- |
+| Global clusters                               | No                      | Yes                    | Yes                    | Yes              | No              |
+| Multi-AZ (3 AZs)                              | Yes                     | Yes                    | Yes                    | Yes              | Yes (per shard) |
+| Read replicas supported                       | 15                      | 15                     | 15                     | 15               | 15 per shard    |
+| ACID transactions                             | No                      | Yes                    | Yes                    | Yes              | No              |
+| Change streams                                | Yes                     | Yes                    | Yes                    | Yes              | No              |
+| Vector search                                 | No                      | No                     | Yes                    | Yes              | No              |
+| Performance Insights                          | Yes                     | Yes                    | Yes                    | Yes              | No              |
+| In-place major version upgrade (MVU)          | Yes (to 5.0)            | Yes (to 5.0)           | Yes (to 8.0)           | No (target only) | No              |
+| Client-side field level encryption (FLE)      | No                      | No                     | Yes                    | Yes              | No              |
+| I/O-Optimized storage                         | No                      | No                     | Yes                    | Yes              | No              |
+| TLS certificate rotation (no reboot)          | Yes (patch 1.0.208662+) | Yes (patch 2.0.10179+) | Yes (patch 3.0.4780+)  | Yes              | Yes             |
+| Cross-Region snapshot copy                    | Yes                     | Yes                    | Yes                    | Yes              | Yes             |
+| Cross-account snapshot sharing                | Yes                     | Yes                    | Yes                    | Yes              | No              |
+| Audit and slow query logs                     | Yes                     | Yes                    | Yes                    | Yes              | Yes             |
+| Dual-stack IPv4/IPv6                          | No                      | Yes (patch 2.0.11747+) | Yes (patch 3.0.15902+) | Yes              | N/A             |
+| Collation                                     | No                      | No                     | No                     | Yes              | No              |
+| Views                                         | No                      | No                     | No                     | Yes              | No              |
+| Compression Support                           | No                      | No                     | LZ4                    | LZ4/Ztsd         | No              |
+| Text Index                                    | No                      | No                     | V1                     | V2               | No              |
+| FedRAMP (GovCloud)                            | No                      | No                     | Yes                    | Yes              | No              |
 
 ## Instance types
 

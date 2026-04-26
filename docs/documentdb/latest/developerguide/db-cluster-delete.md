@@ -37,7 +37,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
 in the upper-left corner of the page. 3. Note that in the Clusters navigation box, the **Cluster
 identifier** column shows both clusters and instances. Instances are listed underneath clusters, similar to the screenshot below.
 
-![Image: the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](/images/documentdb/latest/developerguide/images/clusters.png) 4. Choose the cluster's name, and select the
+![Image: the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](images/clusters.png) 4. Choose the cluster's name, and select the
 **Configuration** tab. In the
 **Cluster details** section, locate
 **Deletion protection**. If deletion
