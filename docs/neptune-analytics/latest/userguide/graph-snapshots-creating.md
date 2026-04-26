@@ -38,4 +38,4 @@ Neptune Console
 
 ![Image showing the selection process of creating a snapshot.](images/snapshots/create-step-2.png) 3. Give the snapshot a name and choose **Create Analytics Snapshot**.
 
-![Analytics snapshot creation interface with name input field and tag section.](images/snapshots/create-step-3.png)
+![Analytics snapshot name field with Tags section showing no tags and Add new tag button.](images/snapshots/create-step-3.png)

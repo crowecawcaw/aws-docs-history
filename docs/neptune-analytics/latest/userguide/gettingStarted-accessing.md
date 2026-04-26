@@ -95,7 +95,7 @@ Go
 The code sample below uses the Go SDK to submit a query that returns a single node and prints the result.
 
 1. Follow the
-   [installation instructions](https://aws.github.io/aws-sdk-go-v2/docs/getting-started/ "https://aws.github.io/aws-sdk-go-v2/docs/getting-started/") to install Go and the AWS SDK for Go.
+   [installation instructions](../../../sdk-for-go/v2/developer-guide/getting-started.md "../../../sdk-for-go/v2/developer-guide/getting-started.md") to install Go and the AWS SDK for Go.
 2. Create a file named `queryExample.go`.
 3. In that file, paste the following code. It will set up a Neptune graph client, execute
    an openCypher query request, and print the result. Replace the graph identifier and
