@@ -23,6 +23,18 @@ Use the following resources to learn more about the Customer Carbon Footprint To
 
 This section documents the updates made to Customer Carbon Footprint Tool. This page lists announcements about new or updated features, bug fixes, improvements, and deprecated functionality for the year 2026.
 
+#### April 22, 2026
+
+##### Carbon emissions methodology updated to version 3.0.1
+
+We have recalculated and republished 2025 data using the latest available snapshots from the data sources used to calculate carbon emissions estimates. This includes updating Scope 2 data from using estimates to using invoiced data from our utility providers.
+
+We also corrected three data quality issues in version 3.0.1, detailed below, and recalculated emissions back to January 2022 with the latest version. The majority of customers will not see a significant change to their carbon emission estimates.
+
+- The model was using an outdated data snapshot for IT hardware racks installed before May 2025.
+- The model was missing one day of carbon allocation per month for each server rack within Scope 3.
+- We corrected the treatment of negative revenue values from discounts and cancellations which caused a small number of accounts (<0.01%) to see negative carbon emissions estimates.
+
 #### March 31, 2026
 
 ##### CCFT deprecation notice
