@@ -87,6 +87,7 @@ mkdir /mnt/tmp
 mount -t nfs -o sec=sys,vers=4.1 <svm-shared>:/HDB-shared /mnt/tmp
 cd /mnt/tmp
 mkdir shared
+mkdir lss-shared
 mkdir usr-sap-host1
 mkdir usr-sap-host2
 mkdir usr-sap-host3
@@ -110,6 +111,7 @@ mkdir -p /hana/log/HDB/mnt00003
 mkdir -p /hana/data/HDB/mnt00004
 mkdir -p /hana/log/HDB/mnt00004
 mkdir -p /hana/shared
+mkdir -p /lss/shared
 mkdir -p /usr/sap/HDB
 ```
 
@@ -117,13 +119,14 @@ mkdir -p /usr/sap/HDB
 
 The created file systems must be mounted as NFS file systems on Amazon EC2. The following table is an example recommendation of NFS options for different SAP HANA file systems.
 
-|                  |                               |                             |                            |                        |
-| ---------------- | ----------------------------- | --------------------------- | -------------------------- | ---------------------- |
-| **File systems** | **Common mount options**      | **Version options**         | **Transfer size options**  | **Connection options** |
-| SAP HANA data    | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=4             |
-| SAP HANA log     | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2             |
-| SAP HANA shared  | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2             |
-| SAP HANA binary  | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2             |
+|                     |                               |                             |                            |                        |
+| ------------------- | ----------------------------- | --------------------------- | -------------------------- | ---------------------- |
+| **File systems**    | **Common mount options**      | **Version options**         | **Transfer size options**  | **Connection options** |
+| SAP HANA data       | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=4             |
+| SAP HANA log        | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2             |
+| SAP HANA shared     | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2             |
+| SAP HANA binary     | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2             |
+| SAP HANA LSS shared | rw,bg,hard,timeo=600,noatime, | vers=4,minorversion=1,lock, | rsize=262144,wsize=262144, | nconnect=2             |
 
 - Changes to the `nconnect` parameter take effect only if the NFS file system is unmounted and mounted again.
 - Client systems must have unique host names when accessing FSx for ONTAP. If there are systems with the same name, the second system may not be able to access FSx for ONTAP.
@@ -142,6 +145,7 @@ Add the following lines to `/etc/fstab` on **all** the hosts to preserve mounted
 <svm-data_4>:/HDB_data_mnt00004 /hana/data/HDB/mnt00004 nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=4
 <svm-log_4>:/HDB_log_mnt00004 /hana/log/HDB/mnt00004 nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2
 <svm-shared>:/HDB_shared/shared /hana/shared nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2
+<svm-lss-shared>:/HDB_shared/lss-shared /lss/shared nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2
 ```
 
 **Example - mount host-specific volumes**

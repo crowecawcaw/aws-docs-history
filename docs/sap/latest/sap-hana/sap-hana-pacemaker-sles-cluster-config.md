@@ -349,7 +349,7 @@ Create the clone
 
 ```
 # crm configure clone msl_SAPHanaController_<SID>_HDB<hana_sys_nr> rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> \
-meta clone-node-max="1" interleave="true" clone-max="2"
+meta clone-node-max="1" promotable="true" interleave="true" clone-max="2"
 ```
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
@@ -370,7 +370,7 @@ op monitor interval="60" role="Promoted" timeout="700" \
 op monitor interval="61" role="Unpromoted" timeout="700" \
 meta priority="100"
 # crm configure clone msl_SAPHanaController_HDB_HDB00 rsc_SAPHanaController_HDB_HDB00 \
-meta clone-node-max="1" interleave="true" clone-max="2"
+meta clone-node-max="1" promotable="true" interleave="true" clone-max="2"
 ```
 
 For scale-out
@@ -394,7 +394,7 @@ Create the clone
 
 ```
 # crm configure clone msl_SAPHanaController_<SID>_HDB<hana_sys_nr> rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> \
-meta clone-node-max="1" interleave="true" clone-max="<number-of-nodes>"
+meta clone-node-max="1" promotable="true" interleave="true" clone-max="<number-of-nodes>"
 ```
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
@@ -415,7 +415,7 @@ op monitor interval="60" role="Promoted" timeout="700" \
 op monitor interval="61" role="Unpromoted" timeout="700"
 
 # crm configure clone msl_SAPHanaController_HDB_HDB00 rsc_SAPHanaController_HDB_HDB00 \
-meta clone-node-max="1" interleave="true" clone-max="6"
+meta clone-node-max="1" promotable="true" interleave="true" clone-max="6"
 ```
 
 Details:
@@ -460,7 +460,7 @@ meta priority="100"
 Create the clone
 
 ```
-# crm configure clone msl_SAPHana_<SID>_HDB<hana_sys_nr> rsc_SAPHana_<SID>_HDB<hana_sys_nr> \
+# crm configure ms msl_SAPHana_<SID>_HDB<hana_sys_nr> rsc_SAPHana_<SID>_HDB<hana_sys_nr> \
 meta clone-node-max="1" interleave="true" clone-max="2"
 ```
 
@@ -480,7 +480,7 @@ op monitor interval="60" role="Master" timeout="700" \
 op monitor interval="61" role="Slave" timeout="700" \
 meta priority="100"
 
-# crm configure clone msl_SAPHana_HDB_HDB00 rsc_SAPHana_HDB_HDB00 \
+# crm configure ms msl_SAPHana_HDB_HDB00 rsc_SAPHana_HDB_HDB00 \
 meta clone-node-max="1" interleave="true" clone-max="2"
 ```
 
@@ -523,7 +523,7 @@ op promote interval="0" timeout="3600" \
 op monitor interval="60" role="Master" timeout="700" \
 op monitor interval="61" role="Slave" timeout="700"
 
-# crm configure clone msl_SAPHana_HDB_HDB00 rsc_SAPHana_HDB_HDB00 \
+# crm configure ms msl_SAPHana_HDB_HDB00 rsc_SAPHana_HDB_HDB00 \
 meta clone-node-max="1" interleave="true" clone-max="6"
 ```
 

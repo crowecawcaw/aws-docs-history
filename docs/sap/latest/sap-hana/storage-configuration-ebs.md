@@ -9,3 +9,4 @@ This section explains how to deploy and configure SAP HANA scale-up and scale-ou
 - [Deploy Workloads](deployment-steps-using-the-aws-management-console.md "deployment-steps-using-the-aws-management-console.md")
 - [Configure Fileystems](configure-storage-for-sap-hana.md "configure-storage-for-sap-hana.md")
 - [Architecture](architecture-ebs.md "architecture-ebs.md")
+- [Legacy Reference](hana-storage-legacy-ebs.md "hana-storage-legacy-ebs.md")
