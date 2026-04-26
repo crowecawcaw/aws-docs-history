@@ -34,6 +34,7 @@ see [Internet access for VPC-connected workflows](workflows-vpc-internet.md "wor
 - [Getting started](#vpc-getting-started "#vpc-getting-started")
 - [VPC requirements](#vpc-requirements "#vpc-requirements")
 - [Service-linked role for VPC networking](vpc-service-linked-role.md "vpc-service-linked-role.md")
+- [Connecting to a VPC in another account](workflows-vpc-cross-account.md "workflows-vpc-cross-account.md")
 - [Configuration APIs](#vpc-configuration-apis "#vpc-configuration-apis")
 - [Running workflows with VPC networking](#vpc-running-workflows "#vpc-running-workflows")
 - [Troubleshooting VPC networking](vpc-troubleshooting-guide.md "vpc-troubleshooting-guide.md")

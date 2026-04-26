@@ -17,8 +17,8 @@ HealthOmics.
 
 HealthOmics supports implicit type conversion in the input.json file and the workflow definition.
 To use implicit type casting, specify the workflow engine as WDL lenient when you create the workflow.
-WDL lenient is designed to handle workflows migrated from Cromwell. It supports customer Cromwell
-directives and some non-conformant logic.
+WDL lenient includes all standard WDL features plus additional compatibility behaviors designed for workflows migrated from Cromwell.
+It supports customer Cromwell directives and some non-conformant logic.
 
 WDL lenient supports type conversion for the following items in the list of WDL’s [limited exceptions](https://github.com/openwdl/wdl/blob/wdl-1.2/SPEC.md#-limited-exceptions "https://github.com/openwdl/wdl/blob/wdl-1.2/SPEC.md#-limited-exceptions"):
 

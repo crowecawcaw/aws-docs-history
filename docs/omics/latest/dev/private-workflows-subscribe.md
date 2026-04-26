@@ -1,5 +1,13 @@
 # Requesting Sentieon licenses for private workflows
 
+###### Note
+
+The HealthOmics licensing server proxy for Sentieon is not available for new customers. To use Sentieon
+software with HealthOmics workflows, we recommend that you create a Sentieon license server inside your Amazon VPC, following
+the instructions in [Sentieon's AWS Deployment
+Guide](https://support.sentieon.com/appnotes/aws_deployment/ "https://support.sentieon.com/appnotes/aws_deployment/"). Once a Sentieon license server is running in your VPC, you can use VPC networking to connect to the
+Sentieon license server in your HealthOmics workflows.
+
 If your private workflow uses Sentieon software, you need a Senieon license.
 Follow these steps to request and set up a license for the Sentieon software:
 

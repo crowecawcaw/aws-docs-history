@@ -508,6 +508,8 @@ at the batch level. For full field descriptions, see the **StartRun** API refere
 | `cacheBehavior`       | Yes                               | No                                      |
 | `cacheId`             | Yes                               | No                                      |
 | `retentionMode`       | Yes                               | No                                      |
+| `networkingMode`      | Yes                               | No                                      |
+| `configurationName`   | Yes                               | No                                      |
 | `name`                | Yes                               | Yes                                     |
 | `outputUri`           | Yes                               | Yes                                     |
 | `parameters`          | Yes                               | Yes (merged)                            |

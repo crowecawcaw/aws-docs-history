@@ -19,6 +19,7 @@ use private subnets with NAT Gateway routes for runs requiring internet connecti
 - [VPC endpoints for AWS services](#vpc-endpoints "#vpc-endpoints")
 - [Security group configuration](#vpc-internet-security-groups "#vpc-internet-security-groups")
 - [Route table configuration](#vpc-internet-route-tables "#vpc-internet-route-tables")
+- [IAM permissions for AWS services](#vpc-iam-permissions "#vpc-iam-permissions")
 - [Testing VPC connectivity](#vpc-testing-connectivity "#vpc-testing-connectivity")
 - [Examples](#vpc-internet-examples "#vpc-internet-examples")
 - [Best practices](#vpc-internet-best-practices "#vpc-internet-best-practices")
@@ -88,6 +89,12 @@ in the public subnet to reach the internet.
 You can configure VPC endpoints to allow runs to access AWS services without traversing the public
 internet. This improves security and can reduce data transfer costs.
 
+###### Important
+
+If your workflow definition needs to access AWS services (such as Amazon Athena queries, Amazon DynamoDB operations,
+or other API calls), you must ensure that the required VPC endpoints are configured in your VPC. Without the
+appropriate endpoints, your workflow may fail with authentication or connectivity errors.
+
 ###### Note
 
 In-Region Amazon S3 traffic is routed through the HealthOmics service VPC by default. If you configure Amazon S3
@@ -97,13 +104,21 @@ _AWS PrivateLink Guide_.
 
 The following table lists commonly used VPC endpoints for HealthOmics runs:
 
-| Service             | Endpoint type | Endpoint name                  |
-| ------------------- | ------------- | ------------------------------ |
-| Amazon S3           | Gateway       | com.amazonaws.`region`.s3      |
-| Amazon ECR (API)    | Interface     | com.amazonaws.`region`.ecr.api |
-| Amazon ECR (Docker) | Interface     | com.amazonaws.`region`.ecr.dkr |
-| SSM                 | Interface     | com.amazonaws.`region`.ssm     |
-| CloudWatch Logs     | Interface     | com.amazonaws.`region`.logs    |
+| Service             | Endpoint type | Endpoint name                   |
+| ------------------- | ------------- | ------------------------------- |
+| Amazon S3           | Gateway       | com.amazonaws.`region`.s3       |
+| Amazon S3 Tables    | Interface     | com.amazonaws.`region`.s3tables |
+| Amazon ECR (API)    | Interface     | com.amazonaws.`region`.ecr.api  |
+| Amazon ECR (Docker) | Interface     | com.amazonaws.`region`.ecr.dkr  |
+| SSM                 | Interface     | com.amazonaws.`region`.ssm      |
+| CloudWatch Logs     | Interface     | com.amazonaws.`region`.logs     |
+| Amazon Athena       | Interface     | com.amazonaws.`region`.athena   |
+
+The full list of services that you can access through AWS PrivateLink endpoints can be found in
+[AWS
+services that integrate with AWS PrivateLink](../../../vpc/latest/privatelink/aws-services-privatelink-support.md "../../../vpc/latest/privatelink/aws-services-privatelink-support.md"). For detailed endpoint setup instructions, see
+[Access
+AWS services through AWS PrivateLink](../../../vpc/latest/privatelink/privatelink-access-aws-services.md "../../../vpc/latest/privatelink/privatelink-access-aws-services.md") in the _AWS PrivateLink Guide_.
 
 ### NAT Gateway requirements
 
@@ -148,6 +163,113 @@ gateway:
 
 For access to on-premises resources, configure routes to a virtual private gateway or
 gateway.
+
+## IAM permissions for AWS services
+
+When your workflow tasks access AWS services such as Amazon Athena, AWS Glue, or Amazon DynamoDB in VPC networking mode, you
+must add the necessary permissions to the service role that you pass to the `StartRun` API. Without
+these permissions, your workflow tasks will fail with `AccessDeniedException` or
+`UnauthorizedException` errors.
+
+###### Important
+
+The service role permissions are separate from VPC networking configuration. Even with properly
+configured VPC endpoints and security groups, your workflow will fail if the service role lacks the required
+IAM permissions.
+
+If your workflow fails with permission errors, check the CloudWatch Logs logs for your workflow run. Common error
+messages include `AccessDeniedException: You are not authorized to perform: action on the resource`
+(the service role is missing the required IAM permission) or `UnrecognizedClientException: The security
+ token included in the request is invalid` (the service role trust policy may be misconfigured, or the role
+ARN passed to `StartRun` is incorrect).
+
+### Common service permissions
+
+The following examples show IAM permissions for commonly used AWS services in VPC mode workflows. Add
+these permissions to your service role policy based on which services your workflow accesses.
+
+###### Example permissions
+
+For workflows that run queries:
+
+```
+{
+  "Effect": "Allow",
+  "Action": [
+    "athena:StartQueryExecution",
+    "athena:GetQueryExecution",
+    "athena:GetQueryResults",
+    "athena:StopQueryExecution"
+  ],
+  "Resource": "arn:aws:athena:`region`:`account-id`:workgroup/`workgroup-name`"
+}
+```
+
+###### Example AWS Glue Data Catalog permissions
+
+For workflows that access AWS Glue databases and tables (commonly used with Amazon Athena):
+
+```
+{
+  "Effect": "Allow",
+  "Action": [
+    "glue:GetDatabase",
+    "glue:GetTable",
+    "glue:GetPartitions",
+    "glue:CreateTable",
+    "glue:UpdateTable"
+  ],
+  "Resource": [
+    "arn:aws:glue:`region`:`account-id`:catalog",
+    "arn:aws:glue:`region`:`account-id`:database/`database-name`",
+    "arn:aws:glue:`region`:`account-id`:table/`database-name`/*"
+  ]
+}
+```
+
+###### Note
+
+If you use AWS Lake Formation to manage permissions for your AWS Glue Data Catalog, you must also grant the
+appropriate Lake Formation permissions. For more information, see
+[Lake Formation
+permissions](../../../lake-formation/latest/dg/lake-formation-permissions.md "../../../lake-formation/latest/dg/lake-formation-permissions.md") in the _AWS Lake Formation Developer Guide_.
+
+###### Example DynamoDB permissions
+
+For workflows that read from or write to DynamoDB tables:
+
+```
+{
+  "Effect": "Allow",
+  "Action": [
+    "dynamodb:GetItem",
+    "dynamodb:PutItem",
+    "dynamodb:Query",
+    "dynamodb:Scan"
+  ],
+  "Resource": "arn:aws:dynamodb:`region`:`account-id`:table/`table-name`"
+}
+```
+
+###### Example Amazon S3 Tables permissions
+
+For workflows that read from or write to Amazon S3 Tables:
+
+```
+{
+  "Effect": "Allow",
+  "Action": [
+    "s3tables:GetTableData",
+    "s3tables:PutTableData"
+  ],
+  "Resource": "arn:aws:s3tables:`region`:`account-id`:bucket/`bucket-name`/table/`table-id`"
+}
+```
+
+###### Note
+
+Amazon S3 Tables uses a different endpoint than Amazon S3. You must configure a VPC endpoint for Amazon S3 Tables
+and ensure your security group allows outbound HTTPS traffic (port 443) to the Amazon S3 Tables service.
 
 ## Testing VPC connectivity
 

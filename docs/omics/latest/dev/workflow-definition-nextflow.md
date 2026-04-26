@@ -29,7 +29,8 @@ Summary of HealthOmics support for plugins:
 HealthOmics provides the following support for Nextflow plugins:
 
 - For Nextflow v23.10, HealthOmics pre-installs the nf-validation@1.1.1 plugin.
-- For Nextflow v23.10 and later, HealthOmics pre-installs the nf-schema@2.3.0 plugin.
+- For Nextflow v23.10 and v24.10, HealthOmics pre-installs the nf-schema@2.3.0 plugin.
+- For Nextflow v25.10, HealthOmics pre-installs the nf-schema@2.6.1, nf-core-utils@0.4.0, nf-prov@1.7.0, and nf-fgbio@1.0.1 plugins.
 - You cannot retrieve additional plugins during a workflow run. HealthOmics ignores any other plugin versions
   that you specify in the `nextflow.config` file.
 - For Nextflow v24 and higher, `nf-schema` is the new version of the deprecated
