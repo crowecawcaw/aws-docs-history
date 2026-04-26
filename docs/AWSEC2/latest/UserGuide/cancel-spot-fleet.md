@@ -1,5 +1,9 @@
 # Cancel (delete) a Spot Fleet request
 
+###### Important
+
+Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md "which-fleet-method-to-use.md").
+
 If you no longer require a Spot Fleet, you can cancel the Spot Fleet request, which deletes the
 request. After you cancel a fleet request, all Spot requests associated with the fleet
 are also canceled, so that no new Spot Instances are launched.

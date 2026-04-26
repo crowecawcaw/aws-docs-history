@@ -51,6 +51,10 @@ versions only to appropriate administrators.
 
 ## Important security concerns when using launch templates with EC2 Fleet or Spot Fleet
 
+###### Note
+
+Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md "which-fleet-method-to-use.md").
+
 To use launch templates, you must grant your users permissions to create, modify,
 describe, and delete launch templates and launch template versions. You can control
 who can create launch templates and launch template versions by controlling access

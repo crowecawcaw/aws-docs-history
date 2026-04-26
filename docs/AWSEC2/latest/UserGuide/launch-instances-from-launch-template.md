@@ -284,6 +284,10 @@ launch template. For more information, see [Create an EC2 Fleet](create-ec2-flee
 
 ## Launch a Spot Fleet using a launch template
 
+###### Important
+
+Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md "which-fleet-method-to-use.md").
+
 A launch template is optional when creating a Spot Fleet request. If you don't use a
 launch template, you can manually specify the launch parameters. If you use a launch
 template, when Amazon EC2 fulfills the Spot Fleet request, it uses the launch parameters

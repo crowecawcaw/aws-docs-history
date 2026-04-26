@@ -22,7 +22,7 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **Launch
    Templates**.
-3. Select the launch template and choose
+3. Choose the launch template and choose
    **Actions**, **Delete
    template**.
 4. Enter `Delete` to confirm deletion, and
@@ -76,10 +76,10 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **Launch
    Templates**.
-3. Select the launch template and choose
+3. Choose the launch template and choose
    **Actions**, **Delete template
    version**.
-4. Select the version to delete and choose
+4. Choose the version to delete and choose
    **Delete**.
 
 AWS CLI

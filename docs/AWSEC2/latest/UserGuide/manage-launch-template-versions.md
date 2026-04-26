@@ -27,7 +27,7 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **Launch
    Templates**.
-3. Select a launch template, and then choose
+3. Choose a launch template, and then choose
    **Actions**, **Modify template
    (Create new version)**.
 4. For **Template version description**, enter a
@@ -97,7 +97,7 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **Launch
    Templates**.
-3. Select the launch template and choose
+3. Choose the launch template and choose
    **Actions**, **Set default
    version**.
 4. For **Template version**, select the version
@@ -148,9 +148,9 @@ Console
 3. You can view a version of a specific launch template, or get a
    list of the launch templates whose latest or default version
    matches a specific version number.
-   - To view a version of a launch template: Select the
+   - To view a version of a launch template: Choose the
      launch template. On the **Versions**
-     tab, from **Version**, select a version
+     tab, from **Version**, choose a version
      to view its details.
    - To get a list of all the launch templates whose latest
      version matches a specific version number: From the

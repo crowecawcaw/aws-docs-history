@@ -39,6 +39,10 @@ You can view the following usage and savings information:
   When viewing the savings summary, these comprise all your running Spot Instances.
   Savings information can only be viewed using the Amazon EC2 console.
 
+###### Note
+
+Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md "which-fleet-method-to-use.md").
+
 ###### To view the savings information for a Spot Fleet
 
 1. Open the Amazon EC2 console at

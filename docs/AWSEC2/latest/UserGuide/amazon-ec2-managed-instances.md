@@ -22,6 +22,7 @@ you to categorize them within your AWS environment.
 
 - [Billing for managed instances](#billing-for-ec2-managed-instances "#billing-for-ec2-managed-instances")
 - [Identify managed instances](#identify-ec2-managed-instances "#identify-ec2-managed-instances")
+- [Managed resource visibility settings](#managed-resource-visibility-settings "#managed-resource-visibility-settings")
 - [Get started with managed instances](#get-started-with-ec2-managed-instances "#get-started-with-ec2-managed-instances")
 
 ## Billing for managed instances
@@ -144,6 +145,160 @@ cmdlet. This example displays only the IDs of the managed instances.
 ```
 (Get-EC2Instance -Filter @{Name="operator.managed"; Values="true"}).Instances.InstanceId
 ```
+
+## Managed resource visibility settings
+
+You can control whether resources that AWS services provision on your behalf
+appear in your Amazon EC2 console views and API list operations.
+
+### What is managed resource visibility?
+
+AWS services such as Amazon EKS, Amazon ECS, Workspaces, and AWS Lambda provision and operate
+Amazon EC2 instances directly within your account. These services assume responsibility
+for scaling, OS patches, security updates, and lifecycle management. The resulting
+Amazon EC2 instances, Amazon EC2 launch templates, Amazon EBS volumes, and network interfaces (ENIs) appear
+alongside your customer-managed resources in the Amazon EC2 console and APIs. Managed
+resource visibility settings give you control over whether these managed resources
+surface in your resource views.
+
+### Affected resource types
+
+| Resource type               | Services that provision these resources                                                                               | Description                                           |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| Amazon EC2 Instances        | Amazon EKS worker nodes, Amazon ECS container instances, AWS Lambda execution<br>environments, Amazon WorkSpaces Core | Primary resource type affected by visibility settings |
+| Amazon EC2 Launch Templates | Amazon EKS, Amazon ECS                                                                                                | Launch Templates created by managed services          |
+| Amazon EBS Volumes          | Amazon EKS, Amazon ECS                                                                                                | Volumes attached to managed instances                 |
+| Network Interfaces (ENIs)   | Amazon EKS, Amazon ECS, Lambda                                                                                        | Network interfaces provisioned for managed workloads  |
+
+###### Note
+
+New managed resources are hidden by default. Resources that managed instance
+offerings (such as Amazon EKS Auto Mode, Amazon ECS managed instances, or Lambda managed
+instances) have already created in your account remain visible. You can adjust
+visibility settings at any time.
+
+### Why configure visibility settings
+
+Configuring visibility settings lets you tailor how managed resources appear across
+your operational tooling. Common use cases include:
+
+- Simplify governance by reducing resource counts in compliance dashboards to
+  only customer-managed resources.
+- Reduce noise in observability tools that aggregate Amazon EC2 metrics across all
+  instances in an account.
+- Prevent false positives in cloud security posture management (CSPM)
+  scanners (for example, Qualys) that flag managed resources as
+  customer misconfigurations.
+- With managed instances, AWS is responsible for the configuration,
+  patching, and health of Amazon EC2 instances. By controlling visibility, you
+  can better articulate the shared responsibility model to end users.
+
+###### Note
+
+Visibility settings control resource display in AWS console views and API
+list operations. They do not affect billing, resource operation, or actual access
+permissions. Hidden resources remain fully operational and billable.
+
+### Configure managed resource visibility
+
+You can configure managed resource visibility by using the Amazon EC2 console or
+the AWS CLI.
+
+Console
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Dashboard**.
+3. On the **Account attributes** card, under
+   **Settings**, choose **Managed resource
+   visibility**.
+4. Choose **Manage**.
+5. Toggle visibility on or off for managed instances.
+6. Choose **Save changes**.
+
+AWS CLI
+
+###### Get current visibility settings
+
+Use the [get-managed-resource-visibility](../../../cli/latest/reference/ec2/get-managed-resource-visibility.md "../../../cli/latest/reference/ec2/get-managed-resource-visibility.md") command to retrieve the
+current visibility configuration:
+
+```
+aws ec2 get-managed-resource-visibility
+```
+
+Example response:
+
+```
+{
+    "visibility": {
+        "defaultVisibility": "hidden"
+    }
+}
+```
+
+###### Hide all managed resources
+
+Use the [modify-managed-resource-visibility](../../../cli/latest/reference/ec2/modify-managed-resource-visibility.md "../../../cli/latest/reference/ec2/modify-managed-resource-visibility.md") command to hide all
+managed resources regardless of operator:
+
+```
+aws ec2 modify-managed-resource-visibility \
+    --default-visibility "hidden"
+```
+
+### Discover hidden managed resources
+
+When you turn off visibility, you can still access managed resources. The following
+methods surface them on demand:
+
+1. **Service-specific consoles**: Navigate to the
+   respective AWS service console (for example, the Amazon EKS console) to view instances
+   provisioned for that service. The service console provides full details on
+   all resources the service manages in your account.
+2. **Direct API queries**: Use the
+   `describe-instances` API with a specific
+   `instance-id` parameter. Direct queries with known instance IDs
+   return results regardless of visibility settings. Visibility settings only
+   affect list and filter operations. You can also use
+   `describe-instances` with the
+   `include-managed-resources` parameter to discover managed
+   instances.
+
+###### Note
+
+The same direct-query-by-ID behavior applies to all affected resource types.
+You can use `describe-volumes`, `describe-launch-templates`, and
+`describe-network-interfaces` with specific resource IDs to access
+hidden managed resources of those types.
+
+### Billing considerations
+
+Managed resource visibility settings have no effect on billing. Hidden managed
+instances continue to appear in billing data because they are resources running
+within your account, provisioned on your behalf, and remain fully billable regardless
+of visibility configuration.
+
+Hidden resources remain visible in:
+
+- AWS bills
+- AWS Cost and Usage Reports
+
+###### Important
+
+Managed instances are provisioned in your account and consume compute
+resources. Hiding them from console views does not reduce costs. Review
+service-specific billing documentation (for example, [Amazon EKS Pricing](https://aws.amazon.com/eks/pricing/ "https://aws.amazon.com/eks/pricing/"), [Amazon ECS Pricing](https://aws.amazon.com/ecs/pricing/ "https://aws.amazon.com/ecs/pricing/")) for details on managed instance
+charges.
+
+### Limitations
+
+- Visibility settings apply to the entire account and affect all IAM
+  principals uniformly.
+- You cannot selectively show or hide managed resources by resource type
+  or by the service that created them. For example, you cannot choose to
+  show managed instances created by Amazon EKS while hiding those created by
+  Lambda, Amazon ECS, or Amazon WorkSpaces.
 
 ## Get started with managed instances
 

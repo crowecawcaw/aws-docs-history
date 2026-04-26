@@ -27,7 +27,7 @@ Use the [describe-instance-status](../../../cli/latest/reference/ec2/describe-in
 
 ```
 aws ec2 describe-instance-status \
-    --instance-id `i-1234567890abcdef0` \
+    --instance-ids `i-1234567890abcdef0` \
     --query "InstanceStatuses[].Events"
 ```
 

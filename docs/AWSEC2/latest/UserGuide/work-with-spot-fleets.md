@@ -1,5 +1,13 @@
 # Work with Spot Fleet
 
+###### Important
+
+We strongly discourage using Spot Fleet because it uses a legacy API with no planned
+investment. If you want to manage your instance lifecycle, use EC2 Fleet instead. If you
+don't want to manage your instance lifecycle, use an Auto Scaling group instead. Use Spot Fleet
+only if you need console support for a use case where you would use EC2 Fleet. For more
+information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md "which-fleet-method-to-use.md").
+
 To start using a Spot Fleet, create a request that includes the total target capacity for Spot Instances,
 an optional On-Demand portion, and either manually specify an AMI and a key pair, or specify
 a launch template that includes the configuration for the instances in the fleet. You can

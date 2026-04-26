@@ -74,7 +74,7 @@ information about the scheduled event.
 
 ```
 aws ec2 describe-instance-status \
-    --instance-id `i-1234567890abcdef0` \
+    --instance-ids `i-1234567890abcdef0` \
     --query InstanceStatuses[].Events
 ```
 

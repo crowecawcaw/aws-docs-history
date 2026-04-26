@@ -1,5 +1,9 @@
 # EC2 Fleet and Spot Fleet request types
 
+###### Note
+
+Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md "which-fleet-method-to-use.md").
+
 The request type for an EC2 Fleet or Spot Fleet determines whether the request is synchronous or
 asynchronous, and whether it is a one-time request for the desired target capacity or an
 ongoing effort to maintain the capacity over time. When configuring your fleet, you must

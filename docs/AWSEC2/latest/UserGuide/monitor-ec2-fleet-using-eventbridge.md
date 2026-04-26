@@ -581,6 +581,10 @@ description of the event.
 
 ## Spot Fleet event types
 
+###### Note
+
+Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md "which-fleet-method-to-use.md").
+
 There are five Spot Fleet event types. For each event type, there are several
 sub-types.
 

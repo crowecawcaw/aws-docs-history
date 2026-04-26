@@ -16,9 +16,13 @@ a Spot Instance using EC2:
 - You can create a Spot Fleet request, in which you specify the desired number of Spot Instances. Amazon EC2
   creates a Spot Instance request on your behalf for every Spot Instance that is specified in the
   Spot Fleet request. For more information, see [Create a Spot Fleet](create-spot-fleet.md "create-spot-fleet.md").
-  Your Spot Instance launches if there is available capacity. Your Spot Instance runs until you stop or
-  terminate it, or until Amazon EC2 interrupts it (known as a _Spot Instance interruption_).
-  Amazon EC2 can stop, terminate, or hibernate a Spot Instance when it interrupts it.
+
+###### Note
+
+Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md "which-fleet-method-to-use.md").
+Your Spot Instance launches if there is available capacity. Your Spot Instance runs until you stop or
+terminate it, or until Amazon EC2 interrupts it (known as a _Spot Instance interruption_).
+Amazon EC2 can stop, terminate, or hibernate a Spot Instance when it interrupts it.
 
 When you use Spot Instances, you must be prepared for interruptions. Amazon EC2 can interrupt your Spot Instance
 when the demand for Spot Instances rises or when the supply of Spot Instances decreases. When Amazon EC2

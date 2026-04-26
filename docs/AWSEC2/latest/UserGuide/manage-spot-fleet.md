@@ -1,5 +1,9 @@
 # Describe a Spot Fleet request, its instances, and event history
 
+###### Important
+
+Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md "which-fleet-method-to-use.md").
+
 You can describe your Spot Fleet configuration, the instances in your Spot Fleet, and the event
 history of your Spot Fleet.
 

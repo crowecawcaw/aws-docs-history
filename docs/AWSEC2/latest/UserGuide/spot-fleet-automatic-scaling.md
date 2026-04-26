@@ -1,5 +1,9 @@
 # Understand automatic scaling for Spot Fleet
 
+###### Important
+
+Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md "which-fleet-method-to-use.md").
+
 _Automatic scaling_ enables your Spot Fleet to increase or decrease its
 target capacity based on demand. With automatic scaling, a Spot Fleet can either launch
 instances (scale out) or terminate instances (scale in) within a specified range, in
