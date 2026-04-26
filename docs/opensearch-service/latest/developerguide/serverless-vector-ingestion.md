@@ -62,14 +62,11 @@ console experience.
    2. Choose **Browse Amazon S3** to select from
       available buckets, or choose **View** to
       preview the bucket contents.
-   3. For **Content type**, select one of the
+   3. For **Content type**, select
       following:
       - **Vectors** - Documents already
         contain vectors and doesn't require further vector embedding
         generation.
-      - **Text, image, or audio** -
-        Documents contain content such as text, images or audio bytes
-        that need to be encoded into vector embeddings.
 
 3. In the **Data source permissions** section,
    configure access permissions:

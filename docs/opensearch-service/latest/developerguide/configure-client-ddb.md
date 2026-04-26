@@ -25,6 +25,7 @@ You can process DynamoDB data with or without a full initial snapshot.
 - [Step 2: Create the pipeline](#ddb-pipeline "#ddb-pipeline")
 - [Data consistency](#ddb-pipeline-consistency "#ddb-pipeline-consistency")
 - [Mapping data types](#ddb-pipeline-mapping "#ddb-pipeline-mapping")
+- [Auto Scaling](#ddb-pipeline-auto-scaling "#ddb-pipeline-auto-scaling")
 - [Limitations](#ddb-pipeline-limitations "#ddb-pipeline-limitations")
 - [Recommended CloudWatch Alarms for DynamoDB](#ddb-pipeline-metrics "#ddb-pipeline-metrics")
 
@@ -202,6 +203,18 @@ In case automatic mappings fail, you can use `template_type` and
 `template_content` in your pipeline configuration to define explicit
 mapping rules. Alternatively, you can create mapping templates directly in your search
 domain or collection before you start the pipeline.
+
+## Auto Scaling
+
+Each OCU in OpenSearch Ingestion can process up to 150 DynamoDB stream shards in
+parallel. To prevent high latency and data loss, set the minimum OCUs to at least the
+maximum number of open shards divided by 150, rounded up to the nearest integer.
+OpenSearch Ingestion automatically scales to the required number of OCUs to process all
+shards in parallel.
+
+To see how many shards your DynamoDB stream has, view the
+`totalOpenShards.max` metric with the _Maximum_
+statistic at a 15-minute period in your CloudWatch metrics for the pipeline.
 
 ## Limitations
 

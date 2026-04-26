@@ -301,3 +301,190 @@ states:
 | Split brain                      | \*Split brain<br>• means your OpenSearch cluster<br>has more than one master node and has split into two clusters that never will rejoin<br>on their own. You can avoid split brain by using the recommended number of [dedicated master nodes](managedomains-dedicatedmasternodes.md "managedomains-dedicatedmasternodes.md"). For<br>help recovering from split brain, contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home"). |
 | Amazon Cognito integration issue | Your domain uses [authentication for<br>OpenSearch Dashboards](cognito-auth.md "cognito-auth.md"), and OpenSearch Service can't find one or more Amazon Cognito resources. This<br>problem usually occurs if the Amazon Cognito user pool is missing. To correct the issue,<br>recreate the missing resource and configure the OpenSearch Service domain to use it.                                                                                                                    |
 | Other service issue              | Issues with OpenSearch Service itself might cause your domain to display as ineligible for an<br>update. If none of the previous conditions apply to your domain and the problem<br>persists for more than a day, contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").                                                                                                                                                        |
+
+## Rolling back a service software update
+
+Amazon OpenSearch Service supports rolling back service software updates. You can initiate a rollback
+using the OpenSearch Service console, the AWS CLI, or one of the AWS SDKs. Software updates are rolled back
+using a blue/green deployment.
+
+###### Note
+
+Rollback is supported only for service software updates. Engine version upgrades cannot
+be rolled back.
+
+### Rollback eligibility and considerations
+
+Your domain must meet all of the following conditions for a rollback to be
+available:
+
+- **Domain is active** – The domain must be in an
+  `Active` state. Rollback is not available while a configuration change,
+  software update, or other blue/green deployment is in progress.
+- **Within the rollback time window** – The
+  software update must have been applied within the allowed rollback period. See [Rollback time windows](#service-software-rollback-windows "#service-software-rollback-windows").
+- **No configuration changes after the update** –
+  If you made a configuration change to the domain after the software update was applied,
+  rollback is blocked. Configuration changes can affect domain settings in ways that are
+  incompatible with the previous software version. For example, changing instance types,
+  enabling replicas, or adjusting storage settings after an update will block
+  rollback.
+- **Update was not auto-applied by the service** –
+  If you did not act on a mandatory update within the 30-day availability window and OpenSearch Service
+  applied the update automatically, rollback is not available for that update.
+- **Update was not an engine version upgrade** –
+  Engine version changes (for example, upgrading from OpenSearch 1.3 to OpenSearch 2.11)
+  are irreversible. Only service software version rollbacks are supported.
+- **A previous software version exists** –
+  Rollback is available only for software updates applied after this feature became
+  generally available (GA). Domains that have not yet undergone a software update since GA
+  do not have a previous version to roll back to.
+- **Only one rollback is permitted per update** –
+  Once a rollback is complete, the domain is considered to be in a rolled-back state. You
+  cannot roll back again until a new software update has been successfully applied.
+- **Software update was not applied with configuration changes in
+  the same blue/green deployment** – If the setting
+  `UseLatestServiceSoftwareForBlueGreen` is enabled, OpenSearch Service applies the latest
+  available software update along with configuration changes submitted during an update
+  domain configuration operation. Software updates that are applied along with
+  configuration changes in the same blue/green deployment cannot be rolled back. You have
+  the option to disable the `UseLatestServiceSoftwareForBlueGreen`
+  setting.
+
+### Rollback time windows
+
+The rollback window depends on the type of software update that was applied.
+
+| Update type | Rollback window                              | Notes                                                                                                                                                                                |
+| ----------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Optional    | 15 days from the date the update was applied | Applies whether you applied the update manually, scheduled it, or it was<br>applied automatically during off-peak hours.                                                             |
+| Mandatory   | 15 days from the date the update was applied | Available only if you applied the update yourself within the 30-day<br>availability window. If the service auto-applied the update after the deadline,<br>rollback is not available. |
+
+After the rollback window expires, self-service rollback is no longer available. Contact
+[Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") if you are experiencing a critical
+issue after the window has closed.
+
+### How to request a rollback
+
+You can request a rollback using the `RollbackServiceSoftwareUpdate`
+API.
+
+#### Request
+
+```
+POST /2021-01-01/opensearch/serviceSoftwareUpdate/rollback
+```
+
+Request body:
+
+```
+{
+    "DomainName": "`your-domain-name`"
+}
+```
+
+#### Response
+
+The API returns an HTTP 200 response in all non-error cases. The
+`RollbackAvailable` field in the response body indicates whether the rollback
+was initiated.
+
+```
+{
+    "RollbackServiceSoftwareOptions": {
+        "CurrentVersion": "string",
+        "NewVersion": "string",
+        "RollbackAvailable": boolean,
+        "Description": "string"
+    }
+}
+```
+
+Response fields:
+
+| Field               | Type    | Description                                                                                                    |
+| ------------------- | ------- | -------------------------------------------------------------------------------------------------------------- |
+| `CurrentVersion`    | String  | The software version currently running on the domain.                                                          |
+| `NewVersion`        | String  | The software version the domain will be rolled back to. Returns null if<br>rollback is not available.          |
+| `RollbackAvailable` | Boolean | `true` if the rollback has been successfully initiated.<br>`false` if the domain is not eligible for rollback. |
+| `Description`       | String  | A human-readable message describing the result or the reason rollback is<br>unavailable.                       |
+
+#### Error responses
+
+| Error                        | Description                                                                                            |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `ResourceNotFoundException`  | The specified domain does not exist.                                                                   |
+| `ValidationException`        | The domain is not in an active state. Wait for any in-progress changes to<br>complete before retrying. |
+| `InternalException`          | The service encountered an internal error. Retry the request.                                          |
+| `DisabledOperationException` | The rollback operation is not supported for this domain.                                               |
+
+#### Example responses
+
+**Rollback initiated successfully:**
+
+```
+{
+    "RollbackServiceSoftwareOptions": {
+        "CurrentVersion": "OpenSearch_2_11_R20240115",
+        "NewVersion": "OpenSearch_2_11_R20231023",
+        "RollbackAvailable": true,
+        "Description": "Rollback initiated successfully. The domain will be rolled back from OpenSearch_2_11_R20240115 to OpenSearch_2_11_R20231023."
+    }
+}
+```
+
+**Rollback unavailable, outside the time
+window:**
+
+```
+{
+    "RollbackServiceSoftwareOptions": {
+        "CurrentVersion": "OpenSearch_2_11_R20240115",
+        "NewVersion": null,
+        "RollbackAvailable": false,
+        "Description": "Rollback is not available. The 15-day rollback window has expired. Please contact AWS Support for assistance."
+    }
+}
+```
+
+**Rollback unavailable, mandatory update auto-applied by
+service:**
+
+```
+{
+    "RollbackServiceSoftwareOptions": {
+        "CurrentVersion": "OpenSearch_2_11_R20240215",
+        "NewVersion": null,
+        "RollbackAvailable": false,
+        "Description": "Rollback is not available. The current version was applied through a mandatory service update. Please contact AWS Support for assistance."
+    }
+}
+```
+
+**Rollback unavailable, engine version
+upgrade:**
+
+```
+{
+    "RollbackServiceSoftwareOptions": {
+        "CurrentVersion": "OpenSearch_2_11_R20240215",
+        "NewVersion": null,
+        "RollbackAvailable": false,
+        "Description": "Rollback is not available. Engine version upgrades are irreversible. Please contact AWS Support for assistance."
+    }
+}
+```
+
+**Rollback unavailable, domain already in rolled-back
+state:**
+
+```
+{
+    "RollbackServiceSoftwareOptions": {
+        "CurrentVersion": "OpenSearch_2_11_R20231023",
+        "NewVersion": null,
+        "RollbackAvailable": false,
+        "Description": "Domain is already in a rolled-back state."
+    }
+}
+```

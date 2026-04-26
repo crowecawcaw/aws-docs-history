@@ -20,6 +20,12 @@ The following plugin extensions are currently supported by Amazon OpenSearch Ser
 - **ScriptPlugin** – Allows you to add custom scripting
   capabilities to OpenSearch, for example, custom scripts for operations like scoring,
   sorting, and field value transformations during search or indexing.
+- **SearchPipelinePlugin** – Allows you to tailor the
+  search experience on Amazon OpenSearch Service by adding custom search pipeline capabilities — for example,
+  custom `SearchPhaseResultsProcessor` implementations that run between search
+  phases at the coordinating node level, hybrid search reranking to combine multiple scoring
+  strategies, and federated search pipelines that aggregate results across multiple data
+  sources.
   You can use the OpenSearch Service console or existing API commands for custom packages to upload and
   associate the plugin with the Amazon OpenSearch Service cluster. You can also use the [DescribePackages](../APIReference/API_DescribePackages.md "../APIReference/API_DescribePackages.md") command to describe all the packages in your account and to view
   details such as OpenSearch version and error details. OpenSearch Service validates plugin package for

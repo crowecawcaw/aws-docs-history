@@ -50,22 +50,9 @@ For HTTP sources, you can increase the maximum payload size to 20 MB. The reques
 payload size includes the entire HTTP request, which typically contains multiple events.
 Each event can't exceed 3.5 MB.
 
-Pipelines with persistent buffering split the configured pipeline units between
-compute and buffer units. If a pipeline uses a CPU-intensive processor like grok,
-key-value, or split string, it allocates the units in a 1:1 buffer-to-compute ratio.
-Otherwise, it allocates them in a 3:1 ratio, always favoring compute units.
-
-For example:
-
-- Pipeline with grok and 2 max units – 1 compute unit and 1 buffer units
-- Pipeline with grok and 5 max units – 3 compute units and 2 buffer
-  units
-- Pipeline with no processors and 2 max units – 1 compute unit and 1
-  buffer units
-- Pipeline with no processors and 4 max units – 1 compute unit and 3
-  buffer units
-- Pipeline with grok and 5 max units – 2 compute units and 3 buffer
-  units
+Pipelines with persistent buffer enabled split the configured OCUs (pipeline units)
+between compute and buffer evenly using a 1:1 buffer-to-compute ratio, regardless of
+processor type.
 
 By default, pipelines use an AWS owned key to encrypt buffer data. These pipelines
 don't need any additional permissions for the pipeline role.
