@@ -11,6 +11,7 @@ Policy](dlami-support-policy-table.md "dlami-support-policy-table.md") page.
 - [Release Notes for Base DLAMIs](#appendix-ami-release-notes-base "#appendix-ami-release-notes-base")
 - [Release Notes for Single Framework DLAMIs](#appendix-ami-release-notes-single "#appendix-ami-release-notes-single")
 - [Release Notes for Multi-Framework DLAMIs](#appendix-ami-release-notes-multi "#appendix-ami-release-notes-multi")
+- [SOCI Supported DLAMIs](#appendix-ami-release-notes-soci "#appendix-ami-release-notes-soci")
 
 ## Release Notes for Base DLAMIs
 
@@ -23,6 +24,7 @@ Below are the release notes for X86 Base DLAMI:
 GPU
 
 - [Base AMI with Single CUDA (Amazon Linux 2023)](aws-deep-learning-x86-base-with-single-cuda-ami-amazon-linux-2023.md "aws-deep-learning-x86-base-with-single-cuda-ami-amazon-linux-2023.md")
+- [Base AMI with Single CUDA (Ubuntu 24.04)](aws-deep-learning-x86-base-with-single-cuda-ami-ubuntu-24-04.md "aws-deep-learning-x86-base-with-single-cuda-ami-ubuntu-24-04.md")
 - [Base AMI with Single CUDA (Ubuntu 22.04)](aws-deep-learning-x86-base-with-single-cuda-ami-ubuntu-22-04.md "aws-deep-learning-x86-base-with-single-cuda-ami-ubuntu-22-04.md")
 - [Base GPU AMI (Amazon Linux 2023)](aws-deep-learning-x86-base-gpu-ami-amazon-linux-2023.md "aws-deep-learning-x86-base-gpu-ami-amazon-linux-2023.md")
 - [Base GPU AMI (Ubuntu 24.04)](aws-deep-learning-x86-base-gpu-ami-ubuntu-24-04.md "aws-deep-learning-x86-base-gpu-ami-ubuntu-24-04.md")
@@ -39,6 +41,7 @@ Below are the release notes for ARM64 Base DLAMI:
 GPU
 
 - [ARM64 Base AMI with Single CUDA (Amazon Linux 2023)](aws-deep-learning-arm64-base-with-single-cuda-ami-amazon-linux-2023.md "aws-deep-learning-arm64-base-with-single-cuda-ami-amazon-linux-2023.md")
+- [ARM64 Base AMI with Single CUDA (Ubuntu 24.04)](aws-deep-learning-arm64-base-with-single-cuda-ami-ubuntu-24-04.md "aws-deep-learning-arm64-base-with-single-cuda-ami-ubuntu-24-04.md")
 - [ARM64 Base AMI with Single CUDA (Ubuntu 22.04)](aws-deep-learning-arm64-base-with-single-cuda-ami-ubuntu-22-04.md "aws-deep-learning-arm64-base-with-single-cuda-ami-ubuntu-22-04.md")
 - [ARM64 Base GPU AMI (Amazon Linux 2023)](aws-deep-learning-arm64-base-gpu-ami-amazon-linux-2023.md "aws-deep-learning-arm64-base-gpu-ami-amazon-linux-2023.md")
 - [ARM64 Base GPU AMI (Ubuntu 24.04)](aws-deep-learning-arm64-base-gpu-ami-ubuntu-24-04.md "aws-deep-learning-arm64-base-gpu-ami-ubuntu-24-04.md")
@@ -120,3 +123,31 @@ GPU
 **AWS Neuron**
 
 - Refer to the [Neuron DLAMI User Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/dlami/index.html#neuron-multi-framework-dlami "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/dlami/index.html#neuron-multi-framework-dlami")
+
+## SOCI Supported DLAMIs
+
+The following DLAMIs include pre-installed SOCI (Seekable OCI) snapshotter for container image
+lazy loading and parallel pull. Use `nerdctl --snapshotter soci` to pull Deep Learning
+Container images with the `-soci` tag suffix for faster container startup.
+
+### X86 SOCI Supported DLAMIs
+
+Below are the X86 DLAMIs with SOCI support:
+
+- [Deep Learning Base OSS Nvidia Driver GPU AMI (Amazon Linux 2023)](aws-deep-learning-x86-base-gpu-ami-amazon-linux-2023.md "aws-deep-learning-x86-base-gpu-ami-amazon-linux-2023.md")
+- [Deep Learning Base OSS Nvidia Driver GPU AMI (Ubuntu 24.04)](aws-deep-learning-x86-base-gpu-ami-ubuntu-24-04.md "aws-deep-learning-x86-base-gpu-ami-ubuntu-24-04.md")
+- [Deep Learning Base OSS Nvidia Driver GPU AMI (Ubuntu 22.04)](aws-deep-learning-x86-base-gpu-ami-ubuntu-22-04.md "aws-deep-learning-x86-base-gpu-ami-ubuntu-22-04.md")
+- [Deep Learning Base AMI with Single CUDA (Amazon Linux 2023)](aws-deep-learning-x86-base-with-single-cuda-ami-amazon-linux-2023.md "aws-deep-learning-x86-base-with-single-cuda-ami-amazon-linux-2023.md")
+- [Deep Learning Base AMI with Single CUDA (Ubuntu 24.04)](aws-deep-learning-x86-base-with-single-cuda-ami-ubuntu-24-04.md "aws-deep-learning-x86-base-with-single-cuda-ami-ubuntu-24-04.md")
+- [Deep Learning Base AMI with Single CUDA (Ubuntu 22.04)](aws-deep-learning-x86-base-with-single-cuda-ami-ubuntu-22-04.md "aws-deep-learning-x86-base-with-single-cuda-ami-ubuntu-22-04.md")
+
+### ARM64 SOCI Supported DLAMIs
+
+Below are the ARM64 DLAMIs with SOCI support:
+
+- [Deep Learning ARM64 Base OSS Nvidia Driver GPU AMI (Amazon Linux 2023)](aws-deep-learning-arm64-base-gpu-ami-amazon-linux-2023.md "aws-deep-learning-arm64-base-gpu-ami-amazon-linux-2023.md")
+- [Deep Learning ARM64 Base OSS Nvidia Driver GPU AMI (Ubuntu 24.04)](aws-deep-learning-arm64-base-gpu-ami-ubuntu-24-04.md "aws-deep-learning-arm64-base-gpu-ami-ubuntu-24-04.md")
+- [Deep Learning ARM64 Base OSS Nvidia Driver GPU AMI (Ubuntu 22.04)](aws-deep-learning-arm64-base-gpu-ami-ubuntu-22-04.md "aws-deep-learning-arm64-base-gpu-ami-ubuntu-22-04.md")
+- [Deep Learning ARM64 Base AMI with Single CUDA (Amazon Linux 2023)](aws-deep-learning-arm64-base-with-single-cuda-ami-amazon-linux-2023.md "aws-deep-learning-arm64-base-with-single-cuda-ami-amazon-linux-2023.md")
+- [Deep Learning ARM64 Base AMI with Single CUDA (Ubuntu 24.04)](aws-deep-learning-arm64-base-with-single-cuda-ami-ubuntu-24-04.md "aws-deep-learning-arm64-base-with-single-cuda-ami-ubuntu-24-04.md")
+- [Deep Learning ARM64 Base AMI with Single CUDA (Ubuntu 22.04)](aws-deep-learning-arm64-base-with-single-cuda-ami-ubuntu-22-04.md "aws-deep-learning-arm64-base-with-single-cuda-ami-ubuntu-22-04.md")
