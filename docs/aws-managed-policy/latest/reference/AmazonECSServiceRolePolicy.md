@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: October 14, 2017, 01:18 UTC
-- **Edited time:** February 12, 2026, 17:58 UTC
+- **Edited time:** April 22, 2026, 23:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonECSServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v23 (default)
+**Policy version:** v24 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -81,7 +81,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "autoscaling:PutLifecycleHook",
         "autoscaling:DeleteLifecycleHook",
         "autoscaling:CompleteLifecycleAction",
-        "autoscaling:RecordLifecycleActionHeartbeat"
+        "autoscaling:RecordLifecycleActionHeartbeat",
+        "autoscaling:TerminateInstanceInAutoScalingGroup"
       ],
       "Resource" : "*",
       "Condition" : {

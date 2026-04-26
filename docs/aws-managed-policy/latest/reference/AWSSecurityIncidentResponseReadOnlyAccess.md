@@ -12,13 +12,13 @@ You can attach `AWSSecurityIncidentResponseReadOnlyAccess` to your users, groups
 
 - **Type**: AWS managed policy
 - **Creation time**: December 01, 2024, 23:06 UTC
-- **Edited time:** February 12, 2026, 17:58 UTC
+- **Edited time:** April 22, 2026, 16:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSSecurityIncidentResponseReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -41,7 +41,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "security-ir:GetCaseAttachmentDownloadUrl",
         "security-ir:ListComments",
         "security-ir:ListCaseEdits",
-        "security-ir:ListTagsForResource"
+        "security-ir:ListTagsForResource",
+        "security-ir:ListInvestigations"
       ],
       "Resource" : "*"
     }

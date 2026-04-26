@@ -12,13 +12,13 @@ You can attach `AWSSecurityIncidentResponseFullAccess` to your users, groups, an
 
 - **Type**: AWS managed policy
 - **Creation time**: December 01, 2024, 23:21 UTC
-- **Edited time:** February 12, 2026, 18:02 UTC
+- **Edited time:** April 22, 2026, 16:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSSecurityIncidentResponseFullAccess`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -30,45 +30,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "SecurityIRReadAccess",
+      "Sid" : "SecurityIRFullAccess",
       "Effect" : "Allow",
       "Action" : [
-        "security-ir:BatchGetMemberAccountDetails",
-        "security-ir:GetMembership",
-        "security-ir:ListMemberships",
-        "security-ir:GetCase",
-        "security-ir:ListCases",
-        "security-ir:GetCaseAttachmentDownloadUrl",
-        "security-ir:ListComments",
-        "security-ir:ListCaseEdits",
-        "security-ir:ListTagsForResource"
+        "security-ir:*"
       ],
       "Resource" : "*"
-    },
-    {
-      "Sid" : "SecurityIRWriteAccess",
-      "Effect" : "Allow",
-      "Action" : [
-        "security-ir:CreateMembership",
-        "security-ir:UpdateMembership",
-        "security-ir:CancelMembership",
-        "security-ir:CreateCase",
-        "security-ir:UpdateCase",
-        "security-ir:CloseCase",
-        "security-ir:UpdateCaseStatus",
-        "security-ir:UpdateResolverType",
-        "security-ir:GetCaseAttachmentUploadUrl",
-        "security-ir:CreateCaseComment",
-        "security-ir:UpdateCaseComment",
-        "security-ir:TagResource",
-        "security-ir:UntagResource"
-      ],
-      "Resource" : "*",
-      "Condition" : {
-        "Bool" : {
-          "aws:MultiFactorAuthPresent" : "true"
-        }
-      }
     },
     {
       "Sid" : "AllowCreationOfServiceLinkedRoleForSecurityIncidentResponse",
@@ -105,7 +72,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "organizations:DescribeOrganization",
-        "organizations:ListDelegatedAdministrators"
+        "organizations:ListDelegatedAdministrators",
+        "organizations:ListAWSServiceAccessForOrganization",
+        "organizations:ListRoots",
+        "organizations:ListOrganizationalUnitsForParent",
+        "organizations:ListAccountsForParent",
+        "organizations:ListChildren",
+        "organizations:DescribeOrganizationalUnit",
+        "organizations:ListAccounts",
+        "organizations:DescribeAccount"
       ],
       "Resource" : "*"
     }

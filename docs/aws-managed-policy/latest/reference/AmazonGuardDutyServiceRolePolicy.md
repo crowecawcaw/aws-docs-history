@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 28, 2017, 20:12 UTC
-- **Edited time:** March 25, 2026, 20:57 UTC
+- **Edited time:** April 24, 2026, 20:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonGuardDutyServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v11 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -48,6 +48,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3:GetBucketTagging",
         "s3:GetAccountPublicAccessBlock",
         "s3:ListAllMyBuckets",
+        "s3:ListBucket",
         "s3:GetBucketAcl",
         "s3:GetBucketPolicy",
         "s3:GetBucketPolicyStatus",
@@ -59,7 +60,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeVpcs",
         "ec2:DescribeSecurityGroups",
         "ecs:ListClusters",
-        "ecs:DescribeClusters"
+        "ecs:DescribeClusters",
+        "ecs:DescribeTasks",
+        "ecs:DescribeTaskDefinition"
       ],
       "Resource" : "*"
     },

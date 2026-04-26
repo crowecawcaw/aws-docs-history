@@ -12,13 +12,13 @@ You can attach `AWSMarketplaceSellerFullAccess` to your users, groups, and roles
 
 - **Type**: AWS managed policy
 - **Creation time**: July 02, 2019, 20:40 UTC
-- **Edited time:** March 31, 2026, 17:42 UTC
+- **Edited time:** April 21, 2026, 18:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess`
 
 ## Policy version
 
-**Policy version:** v26 (default)
+**Policy version:** v27 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -114,7 +114,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aws-marketplace:UntagResource",
         "aws-marketplace:ListTagsForResource"
       ],
-      "Resource" : "arn:aws:aws-marketplace:*:*:AWSMarketplace/*"
+      "Resource" : [
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace*/*",
+        "arn:aws:aws-marketplace:*:*:catalog/AWSMarketplace*/*"
+      ]
     },
     {
       "Sid" : "SellerSettings",
@@ -136,9 +139,20 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "tax:ListSupplementalTaxRegistrations",
         "tax:PutSupplementalTaxRegistration",
         "tax:DeleteSupplementalTaxRegistration",
-        "tax:GetTaxRegistration"
+        "tax:GetTaxRegistration",
+        "aws-marketplace:ListPayables"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "InvoiceSubmissionManagement",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:StartInvoiceSubmissionTask",
+        "aws-marketplace:GetInvoiceSubmissionTask",
+        "aws-marketplace:ListInvoiceSubmissionTasks"
+      ],
+      "Resource" : "arn:aws:aws-marketplace:*:*:catalog/AWSMarketplace*/invoice-submission-task/*"
     },
     {
       "Sid" : "Support",
@@ -156,7 +170,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aws-marketplace:PutResourcePolicy",
         "aws-marketplace:DeleteResourcePolicy"
       ],
-      "Resource" : "arn:aws:aws-marketplace:*:*:AWSMarketplace/*"
+      "Resource" : [
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace*/*",
+        "arn:aws:aws-marketplace:*:*:catalog/AWSMarketplace*/*"
+      ]
     },
     {
       "Sid" : "CreateServiceLinkedRole",

@@ -1,5 +1,11 @@
 # AWSLambdaExecute
 
+###### Important
+
+The `AWSLambdaExecute` managed policy is on the path to deprecation, and no longer recommended for use with AWS Lambda. Instead,
+use [`AWSLambdaBasicExecutionRole`](AWSLambdaBasicExecutionRole.md "AWSLambdaBasicExecutionRole.md").
+When the IAM service eventually deprecates the policy, you won't be able to attach it to a role. However, you can attach an existing role to a resource even if that role uses the deprecated policy.
+
 **Description**: Provides Put, Get access to S3 and full access to CloudWatch Logs.
 
 `AWSLambdaExecute` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").

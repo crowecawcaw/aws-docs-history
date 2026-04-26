@@ -12,13 +12,13 @@ You can attach `ViewOnlyAccess` to your users, groups, and roles.
 
 - **Type**: Job function policy
 - **Creation time**: November 10, 2016, 17:20 UTC
-- **Edited time:** March 31, 2026, 19:27 UTC
+- **Edited time:** April 22, 2026, 18:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/job-function/ViewOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v44 (default)
+**Policy version:** v45 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -389,6 +389,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "storagegateway:ListVolumes",
         "swf:List*",
         "trustedadvisor:Describe*",
+        "uxc:GetAccountCustomizations",
+        "uxc:ListServices",
         "waf-regional:List*",
         "waf:List*",
         "wafv2:List*",
@@ -407,8 +409,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
-      "Effect" : "Allow",
       "Sid" : "APIGatewayAccess",
+      "Effect" : "Allow",
       "Action" : [
         "apigateway:GET"
       ],

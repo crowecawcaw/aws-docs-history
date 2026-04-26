@@ -12,13 +12,13 @@ You can attach `AWSMarketplaceProcurementSystemAdminFullAccess` to your users, g
 
 - **Type**: AWS managed policy
 - **Creation time**: June 25, 2019, 13:07 UTC
-- **Edited time:** June 25, 2019, 13:07 UTC
+- **Edited time:** April 21, 2026, 22:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSMarketplaceProcurementSystemAdminFullAccess`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -35,7 +35,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aws-marketplace:PutProcurementSystemConfiguration",
         "aws-marketplace:DescribeProcurementSystemConfiguration",
         "organizations:Describe*",
-        "organizations:List*"
+        "organizations:List*",
+        "invoicing:CreateProcurementPortalPreference",
+        "invoicing:GetProcurementPortalPreference",
+        "invoicing:ListProcurementPortalPreferences"
       ],
       "Resource" : [
         "*"

@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: February 21, 2020, 20:10 UTC
-- **Edited time:** April 15, 2026, 18:42 UTC
+- **Edited time:** April 21, 2026, 22:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonEKSServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v24 (default)
+**Policy version:** v25 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -53,6 +53,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeInstances",
         "ec2:DescribeInstanceTypeOfferings",
         "ec2:DescribeInstanceTypes",
+        "ec2:DescribeInstanceStatus",
         "ec2:DescribeInternetGateways",
         "ec2:DescribeLaunchTemplates",
         "ec2:DescribeNetworkInterfaces",
@@ -85,6 +86,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "elasticloadbalancing:DescribeTargetHealth",
         "elasticloadbalancing:DeregisterTargets",
         "elasticloadbalancing:DescribeTrustStores",
+        "elasticloadbalancing:DescribeCapacityReservation",
         "iam:ListAttachedRolePolicies",
         "pricing:GetProducts",
         "shield:GetSubscriptionState",
@@ -275,7 +277,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "iam:CreateInstanceProfile",
         "iam:DeleteInstanceProfile",
-        "iam:RemoveRoleFromInstanceProfile"
+        "iam:RemoveRoleFromInstanceProfile",
+        "iam:ListInstanceProfiles"
       ],
       "Resource" : "arn:aws:iam::*:instance-profile/eks*"
     },

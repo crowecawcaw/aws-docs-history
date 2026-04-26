@@ -12,13 +12,13 @@ You can attach `BedrockAgentCoreFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: July 16, 2025, 13:37 UTC
-- **Edited time:** March 27, 2026, 21:12 UTC
+- **Edited time:** April 21, 2026, 17:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/BedrockAgentCoreFullAccess`
 
 ## Policy version
 
-**Policy version:** v16 (default)
+**Policy version:** v17 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -295,6 +295,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "iam:AWSServiceName" : "network.bedrock-agentcore.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "CreateBedrockAgentCoreGatewayNetworkServiceLinkedRolePermissions",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreGatewayNetwork",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "bedrock-agentcore.amazonaws.com"
         }
       }
     },

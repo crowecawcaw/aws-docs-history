@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: July 30, 2022, 01:17 UTC
-- **Edited time:** November 08, 2024, 02:54 UTC
+- **Edited time:** April 20, 2026, 22:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerUserSubscriptionsServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -75,7 +75,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "a8jthu9h8pjsn4b8ylvfl6sfr",
             "7at6der8hnlov1g347e6tdkde",
             "3t0v0vuhvxjzm6m462f9v8iz4",
-            "4gs2prcp03ojilgkjx8m3ifh7"
+            "4gs2prcp03ojilgkjx8m3ifh7",
+            "5uypd9kpy863kwykrwn4bcolv",
+            "eqtok9gt75we12qgk28b955qc"
           ]
         }
       },
