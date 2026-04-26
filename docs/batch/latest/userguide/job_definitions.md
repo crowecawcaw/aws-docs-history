@@ -22,4 +22,5 @@ Some of the attributes specified in a job definition include:
 - [Specify sensitive data](specifying-sensitive-data.md "specifying-sensitive-data.md")
 - [Private registry authentication for jobs](private-registry.md "private-registry.md")
 - [Amazon EFS volumes](efs-volumes.md "efs-volumes.md")
+- [Amazon S3 Files volumes](s3files-volumes.md "s3files-volumes.md")
 - [Job definition examples](example-job-definitions.md "example-job-definitions.md")
