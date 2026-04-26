@@ -205,11 +205,6 @@ _IAM User Guide_.
 
 ### Supported Regions for AWS Transform Custom service-linked roles
 
-AWS Transform Custom does not support using service-linked roles in every Region where the
-service is available. You can use the AWSServiceRoleForAWSTransformCustom role in the following Regions. For
-more information, see [AWS Regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").
-
-| Region name           | Region identity | Support in AWS Transform Custom |
-| --------------------- | --------------- | ------------------------------- |
-| US East (N. Virginia) | us-east-1       | Yes                             |
-| Europe (Frankfurt)    | eu-central-1    | Yes                             |
+AWS Transform Custom supports using service-linked roles in all Regions where AWS Transform Custom is
+available. For a list of supported Regions, see [Supported
+Regions](custom-get-started.md#custom-region-configuration "custom-get-started.md#custom-region-configuration").

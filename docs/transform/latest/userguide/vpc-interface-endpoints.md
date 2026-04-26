@@ -42,7 +42,7 @@ The following VPC endpoint service names are available for AWS Transform:
 
 - `com.amazonaws.`region`.transform`
 - `com.amazonaws.`region`.api.transform`
-  – Required for the AWS Transform WebApp. This endpoint **must** have private DNS enabled (the
+  – Required for the AWS Transform web application. This endpoint **must** have private DNS enabled (the
   _Enable DNS name_ option) so that
   `api.transform.`region`.on.aws` resolves to
   a private IP address in your VPC.
@@ -53,9 +53,9 @@ _com.amazonaws.us-east-1.transform_.
 
 ###### Note
 
-If you use the AWS Transform WebApp, the
+If you use the AWS Transform web application, the
 `api.transform` endpoint is required. For the full setup
-guide, see [Accessing the AWS Transform WebApp from a VPC](vpc-webapp-access.md "vpc-webapp-access.md").
+guide, see [Accessing the AWS Transform web application from a VPC](vpc-webapp-access.md "vpc-webapp-access.md").
 
 For more information, see [Supported Regions for AWS Transform](regions.md "regions.md") and [Accessing a
 service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the

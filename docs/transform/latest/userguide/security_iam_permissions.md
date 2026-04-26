@@ -32,6 +32,7 @@ This section provides information about the APIs used by AWS Transform, and what
 - transform:GetLoginRedirectUri
 - transform:GetUserDetails
 - transform:GetUserPreferences
+- transform:GetWebAppUrl
 - transform:GetWorkspace
 - transform:ListArtifacts
 - transform:ListConnectors

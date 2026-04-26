@@ -1,4 +1,4 @@
-# Migration planning
+# Build migration plan
 
 The Migration planning job step within AWS Transform for VMware is a collaborative chat-based experience for
 planning large migrations. AWS Transform agents apply AWS Prescriptive Guidance to guide customers from analysis of on-premises data to finalized migration wave plans.

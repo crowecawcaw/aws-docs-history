@@ -134,7 +134,7 @@ To configure Okta Workforce Identity integration with AWS Transform:
 
 ###### Note
 
-If you would like to be redirected back to the AWS Transform webapp after logout, you’ll need to
+If you would like to be redirected back to the AWS Transform web application after logout, you’ll need to
 configure your web application URL as a trusted origin under **Security** > **API**.
 
 ## User onboarding

@@ -111,6 +111,12 @@ AWS Transform custom is available in the following AWS regions:
 
 - `us-east-1` (US East - N. Virginia)
 - `eu-central-1` (Europe - Frankfurt)
+- `eu-west-2` (Europe - London)
+- `ca-central-1` (Canada - Central)
+- `ap-northeast-1` (Asia Pacific - Tokyo)
+- `ap-northeast-2` (Asia Pacific - Seoul)
+- `ap-southeast-2` (Asia Pacific - Sydney)
+- `ap-south-1` (Asia Pacific - Mumbai)
 
 ### How Region is Determined
 

@@ -8,7 +8,7 @@ To migrate your network, follow these steps:
 1. Upload your source network file
 2. Upload additional configuration files (optional, for RVTools environments)
 3. Select a network topology
-4. Select security groups mapping strategy
+4. Select a security groups mapping strategy
 5. Review the generated VPC configurations
 6. Generate a network diagram (optional)
 7. Configure resource tagging
@@ -16,7 +16,7 @@ To migrate your network, follow these steps:
 
 ###### Note
 
-For multi-account deployments, you must configure cross-account IAM roles and trusted access for AWS Organizations before starting the network migration. For more information, see [Migration to multiple target accounts](migration-multiple-target-accounts.md "migration-multiple-target-accounts.md").
+For multi-account deployments, you must configure cross-account IAM roles and trusted access for AWS Organizations before starting the network migration. For more information, see [Step 1: Migration type selection](transform-vmware-connect-target-account.md#transform-vmware-cta-migration-type "transform-vmware-connect-target-account.md#transform-vmware-cta-migration-type").
 
 ## Step 1: Source network mapping
 
@@ -55,29 +55,55 @@ For supported versions and extraction instructions, see [Configuration file extr
 
 During the network definition step, you select a network topology. You can choose the **Isolated VPCs** topology or the **Hub and Spoke** topology.
 
-###### Important
-
-For both topologies, AWS Transform does not open the communication to the internet. You must open it manually after taking appropriate security precautions.
-
 ### Isolated VPCs
 
 These are independent network environments that operate as separate units within AWS. VPCs maintain complete network isolation, with no built-in communication pathways between them. This separation provides the highest level of network boundary protection. You can connect the VPCs through specific networking configurations if needed.
 
+###### Important
+
+No internet connectivity is configured for Isolated VPCs. You must set up internet gateways, NAT gateways, and routing manually.
+
 ### Hub and Spoke
 
-In this model, an AWS Transit Gateway created by AWS Transform acts as the hub that connects to multiple workload VPCs (the spokes). During network convergence, AWS Transform creates a spoke VPC for each detected source network segment.
+In this model, an [AWS Transit Gateway](../../../vpc/latest/tgw/what-is-transit-gateway.md "../../../vpc/latest/tgw/what-is-transit-gateway.md") acts as the central hub that connects multiple workload VPCs (the spokes). AWS Transform creates a spoke VPC for each detected source network segment and connects them through the Transit Gateway.
 
-AWS Transform creates three specialized VPCs for traffic management and security:
+**Appliance VPCs**
 
-- Inspection VPC: Where you establish the firewall that inspects the traffic. You can create firewall rule configurations here to modify VPC connections.
-- Inbound VPC: For all traffic from the public internet (north-south). Includes an internet gateway.
-- Outbound VPC: For all traffic to the public internet. Has an internet gateway, a Network Address Translation (NAT) gateway and an [elastic IP address](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md").
+AWS Transform creates three specialized appliance VPCs to manage traffic flow and security:
 
-AWS Transform automatically associates all spoke VPCs with the default association route table and propagates routes from all spoke VPCs to the default propagation route table. This automation creates routing paths without manual configuration, though traffic flow remains subject to security group permissions.
+- **Inspection VPC:** Hosts your firewall appliance for traffic inspection. All cross-VPC traffic is routed through this VPC. You must deploy a firewall (such as [AWS Network Firewall](../../../network-firewall/latest/developerguide/getting-started.md "../../../network-firewall/latest/developerguide/getting-started.md") or a third-party appliance) in this VPC. The Transit Gateway attachment uses [appliance mode](../../../vpc/latest/tgw/transit-gateway-appliance-scenario.md "../../../vpc/latest/tgw/transit-gateway-appliance-scenario.md") to ensure symmetric routing.
+- **Inbound VPC:** Handles traffic from the public internet (north-south inbound). Includes an [internet gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") and public subnets across multiple Availability Zones.
+- **Outbound VPC:** Handles traffic to the public internet (north-south outbound). Includes an internet gateway, [NAT gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") with [elastic IP addresses](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md") in each Availability Zone for high availability, and private subnets for the Transit Gateway attachment.
+
+**Transit Gateway route tables**
+
+AWS Transform creates two Transit Gateway route tables to steer traffic through the Inspection VPC:
+
+- **Uninspected:** Associated with spoke VPCs, Inbound VPC, and Outbound VPC. Routes all traffic (0.0.0.0/0) to the Inspection VPC attachment. This is the default association route table — new VPC attachments are automatically associated with it.
+- **Inspected:** Associated with the Inspection VPC. Contains propagated routes from all spoke VPCs, so inspected traffic can reach its destination. This is the default propagation route table — spoke VPC routes are automatically propagated to it.
+
+**Traffic flow**
+
+All cross-VPC traffic follows this path:
+
+1. Traffic from a spoke VPC is sent to the Transit Gateway (default route 0.0.0.0/0).
+2. The Uninspected route table routes the traffic to the Inspection VPC.
+3. Your firewall in the Inspection VPC inspects the traffic and forwards it back to the Transit Gateway.
+4. The Inspected route table routes the traffic to the destination spoke VPC using propagated routes.
+
+For outbound internet traffic, the Inspected route table routes traffic to the Outbound VPC, where NAT gateways translate private IP addresses before forwarding to the internet gateway. The Outbound VPC public route table includes specific routes for each spoke VPC CIDR back to the Transit Gateway, enabling return traffic to reach the correct spoke VPC. Inbound internet traffic enters through the Inbound VPC's internet gateway and follows the same inspection path to reach spoke VPCs.
+
+For multi-account deployments, AWS Transform shares the Transit Gateway across accounts using [AWS Resource Access Manager (RAM)](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md").
+
+###### Note
+
+By default, cross-VPC traffic passes through the Inspection VPC without inspection. To inspect traffic, deploy a firewall appliance (such as [AWS Network Firewall](../../../network-firewall/latest/developerguide/getting-started.md "../../../network-firewall/latest/developerguide/getting-started.md")) in the Inspection VPC.
+
+To deploy a firewall, create additional subnets in the Inspection VPC for the firewall endpoints. AWS Transform creates subnets for the Transit Gateway attachment only. Route traffic from the TGW attachment subnets to the firewall endpoints, and from the firewall subnets back to the Transit Gateway. For more information, see [Creating a firewall with a Transit Gateway](../../../network-firewall/latest/developerguide/create-tgw-firewall.md "../../../network-firewall/latest/developerguide/create-tgw-firewall.md").
 
 If you want fine-grained control over the communication between the VPCs, choose the **Isolated VPCs** option and modify the generated network to create the specific communication paths you require.
 
-## Step 4: Security group mapping
+## Step 4: Security groups mapping
 
 AWS Transform creates security groups based on your source environment configurations. AWS Transform converts security policies, security policy rules, gateway policies, and gateway policy rules to security groups.
 
@@ -85,10 +111,26 @@ AWS Transform creates security groups based on your source environment configura
 
 AWS Transform makes a best effort to create security groups that match your source environment. Review and modify the generated security groups to ensure that they meet your company's needs and security policies.
 
+**Security group referencing**
+
+When generating security groups, AWS Transform uses security group referencing where supported. Security group referencing sets security rules based on another security group ID rather than specific IP address ranges (CIDR blocks). This approach provides more flexible and maintainable security configurations.
+
+In AWS, security group rules can only reference other security groups within the same VPC, or in a connected VPC within the same Region, including across accounts. You cannot reference a security group in a non-connected VPC or across Regions. For connected VPCs, only inbound rules support cross-VPC security group references — outbound rules must use CIDR-based rules. How AWS Transform creates security group rules depends on your chosen network topology:
+
+- **Hub and Spoke:** Transit Gateway provides network connectivity between VPCs. AWS Transform creates security groups using referencing for both within-VPC and cross-VPC/cross-account ingress rules. Cross-VPC/cross-account egress (outbound) rules use CIDR-based rules.
+- **Isolated VPCs:** There is no network connectivity between VPCs. AWS Transform creates security groups using referencing for within-VPC rules only. All cross-VPC and cross-account rules use CIDR-based rules.
+
+CIDR-based rules are also used when source configurations are not symmetric.
+
 Choose one of the following security group mapping strategies:
 
-- **MAP:** Translate rules from your source environment. Only static IP assignment is supported with this strategy (see IP migration approaches below).
-- **SKIP:** Do not translate rules from your source environment. No security groups are generated. Both static and dynamic (DHCP) IP assignment are available. For RVTools source environments without additional configuration files, AWS Transform automatically uses SKIP.
+- **MAP:** Translates security rules from your source environment to AWS security groups and rules. Use this option for migrations using static IP addressing.
+- **MAP_DHCP (Translate with DHCP support):** Translates security rules from your source environment with DHCP compatibility. Because DHCP assigns IP addresses dynamically from the subnet's CIDR range, cross-VPC egress rules are widened to match the full destination subnet CIDR. A narrower CIDR would block DHCP-assigned IPs that fall outside that range — review these rules post-migration. Use this option for DHCP support with cross-VPC Transit Gateway communication. Also works with static IPs, but may produce broader rules than MAP.
+- **SKIP:** Does not translate security rules. Configure AWS security groups manually post-migration. Works with both static IP and DHCP environments. For RVTools source environments without additional configuration files, AWS Transform automatically uses SKIP.
+
+###### Note
+
+Your mapping strategy determines your IP assignment options. MAP supports static IP only. MAP_DHCP and SKIP support both static and DHCP.
 
 **IP migration approaches**
 

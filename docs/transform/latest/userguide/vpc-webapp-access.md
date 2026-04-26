@@ -1,25 +1,25 @@
-# Accessing the AWS Transform WebApp from a VPC
+# Accessing the AWS Transform web application from a VPC
 
 When you use AWS PrivateLink to access the AWS Transform API privately from your VPC, the
-webapp requires additional network configuration. It serves static content
+web application requires additional network configuration. It serves static content
 (HTML, JavaScript, CSS) through CloudFront, which requires internet connectivity. API calls from
-the webapp go through your VPC endpoint and remain fully private.
+the web application go through your VPC endpoint and remain fully private.
 
 This guide shows you how to configure controlled internet egress from your VPC so the
-webapp can load while keeping your VPC locked down to only the required domains.
+web application can load while keeping your VPC locked down to only the required domains.
 
 ## How it works
 
-The AWS Transform WebApp uses two network paths:
+The AWS Transform web application uses two network paths:
 
 - **API calls** – When you interact with the
-  webapp (starting jobs, viewing workspaces, and so on), the browser sends API
+  web application (starting jobs, viewing workspaces, and so on), the browser sends API
   requests to
   `api.transform.`region`.on.aws`. With
   the `com.amazonaws.`region`.api.transform`
   VPC endpoint and private DNS enabled, these requests resolve to a private IP
   address in your VPC and never leave the AWS network.
-- **Static content** – The webapp's HTML,
+- **Static content** – The web application's HTML,
   JavaScript, and CSS files are served through CloudFront via
   ``tenant-id`.transform.`region`.on.aws`.
   Loading these files requires internet connectivity because CloudFront content delivery
@@ -29,14 +29,14 @@ The AWS Transform WebApp uses two network paths:
   ``region`.signin.aws`, which also
   requires internet connectivity.
 
-To enable the webapp while maintaining security, you create a controlled egress path
+To enable the web application while maintaining security, you create a controlled egress path
 using AWS Network Firewall with domain-based filtering. This allows your VPC to reach
-_only_ the specific domains required by the webapp while blocking
+_only_ the specific domains required by the web application while blocking
 all other internet traffic.
 
 ## Architecture
 
-The following diagram shows the network path for webapp traffic:
+The following diagram shows the network path for web application traffic:
 
 ```
 
@@ -76,14 +76,52 @@ Before you begin, ensure you have:
 - An internet gateway attached to the VPC (or permissions to create one).
 - A AWS Transform VPC endpoint for
   `com.amazonaws.`region`.api.transform`
-  with private DNS enabled. This is the endpoint used by the WebApp browser
+  with private DNS enabled. This is the endpoint used by the web application browser
   client. For instructions on creating endpoints,
   see [AWS Transform and interface endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
+
+## Configuring the VPC endpoint policy
+
+If your `com.amazonaws.`region`.api.transform`
+VPC endpoint has a custom endpoint policy, you must add a statement that allows
+AWS Transform operations. Without this, the web application will be unable to make API calls through
+the endpoint.
+
+Add the following statement to your VPC endpoint policy. Replace
+`AWS_TRANSFORM_PROFILE_ARN` with your AWS Transform service
+profile ARN, which you can find in the AWS Transform console on the
+_Settings_ page.
+
+```
+{
+    "Statement": [
+        {
+            "Sid": "AllowAWSTransform",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "*",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:PrincipalArn": [
+                        "`AWS_TRANSFORM_PROFILE_ARN`"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+###### Note
+
+If your VPC endpoint uses the default policy (full access), no changes are
+needed and you can skip this step.
 
 ## Setting up controlled internet egress
 
 Complete the following steps to configure Network Firewall with domain-based
-filtering for the AWS Transform WebApp.
+filtering for the AWS Transform web application.
 
 ### Step 1: Create the firewall subnet
 
@@ -164,7 +202,7 @@ aws ec2 wait nat-gateway-available \
 ### Step 5: Create the Network Firewall rule group
 
 Create a stateful rule group that allows traffic only to the domains required by
-the AWS Transform WebApp.
+the AWS Transform web application.
 
 ```
 
@@ -205,21 +243,21 @@ IAM Identity Center console.
 
 The following table explains the allowed domains.
 
-| Domain                                     | Purpose                                                                                   |
-| ------------------------------------------ | ----------------------------------------------------------------------------------------- |
-| `.cloudfront.net`                          | CloudFront CDN – serves webapp static assets (JavaScript, CSS,<br>images)                 |
-| `.transform.`region`.on.aws`               | Webapp tenant URL – the browser loads the initial page from<br>this domain via CloudFront |
-| ``region`.signin.aws`                      | SSO sign-in redirect page                                                                 |
-| `.s3.`region`.amazonaws.com`               | S3 presigned URLs – artifact uploads and downloads                                        |
-| `oidc.`region`.amazonaws.com`              | OIDC token exchange for SSO authentication                                                |
-| `portal.sso.`region`.amazonaws.com`        | SSO portal login page                                                                     |
-| `assets.sso-portal.`region`.amazonaws.com` | SSO portal static assets (CSS, JavaScript)                                                |
-| ``directory-id`.awsapps.com`               | IAM Identity Center portal for your organization                                          |
+| Domain                                     | Purpose                                                                                            |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| `.cloudfront.net`                          | CloudFront CDN – serves web application static assets (JavaScript, CSS,<br>images)                 |
+| `.transform.`region`.on.aws`               | Web application tenant URL – the browser loads the initial page from<br>this domain via CloudFront |
+| ``region`.signin.aws`                      | SSO sign-in redirect page                                                                          |
+| `.s3.`region`.amazonaws.com`               | S3 presigned URLs – artifact uploads and downloads                                                 |
+| `oidc.`region`.amazonaws.com`              | OIDC token exchange for SSO authentication                                                         |
+| `portal.sso.`region`.amazonaws.com`        | SSO portal login page                                                                              |
+| `assets.sso-portal.`region`.amazonaws.com` | SSO portal static assets (CSS, JavaScript)                                                         |
+| ``directory-id`.awsapps.com`               | IAM Identity Center portal for your organization                                                   |
 
 ###### Note
 
 The `.cloudfront.net` wildcard allows traffic to any CloudFront
-distribution, not only the AWS Transform WebApp's. A narrower domain filter is not
+distribution, not only the AWS Transform web application's. A narrower domain filter is not
 possible because CloudFront edge IPs are shared across distributions and TLS SNI
 inspection cannot distinguish individual distributions behind the same
 domain.
@@ -399,7 +437,7 @@ From an instance in the private subnet, verify the configuration:
 
 ```
 
-# Should SUCCEED - webapp content via CloudFront (allowed)
+# Should SUCCEED - web application content via CloudFront (allowed)
 curl -vL --connect-timeout 15 \
   'https://`tenant-id`.transform.`region`.on.aws'
 
@@ -438,7 +476,7 @@ aws ec2 describe-vpc-endpoints \
 
 Expected output: `available | True`
 
-The webapp does not load (connection timeout)
+The web application does not load (connection timeout)
 
 - Verify the private subnet route table has a
   `0.0.0.0/0` route pointing to the firewall

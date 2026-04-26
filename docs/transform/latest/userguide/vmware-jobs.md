@@ -21,37 +21,54 @@ and recommendations is determined by your AWS Transform administrator, you can s
 different AWS Region as your target for the migration. In other words, you can run
 discovery and receive AWS Transform recommendations in one AWS Region, but then create
 your target environment in a different AWS Region. If you do that, you will be
-transferring your data across AWS Regions. For more information, see [AWS account connectors for VMware migrations](transform-app-vmware-acct-connections.md "transform-app-vmware-acct-connections.md").
+transferring your data across AWS Regions. For more information, see [Connect target AWS accounts](transform-vmware-connect-target-account.md "transform-vmware-connect-target-account.md").
 
 ## Job types
 
 AWS Transform offers the following types of VMware migration jobs that you can choose
-from depending on your migration needs.
+from depending on your migration needs. In addition to these preset options, you can
+dynamically add or remove any step from your job at any time to customize your
+migration workflow.
 
 ### End-to-end migration
 
 1. Perform discovery
-2. Generate wave plan
-3. Generate VPC configuration
-4. (Optional) Deploy VPC networks
-5. Migrate servers
+2. Build migration plan
+3. Connect target accounts
+4. Build landing zone
+5. Migrate network
+6. Migrate servers
 
-### Network migration only
-
-1. Generate VPC configuration
-2. (Optional) Deploy VPC networks
-
-### Network-and-server migration
-
-1. Generate VPC configuration
-2. (Optional) Deploy VPC networks
-3. Migrate servers
-
-### Discovery and server migration
+### Discovery and migration planning
 
 1. Perform discovery
-2. Generate wave plan
-3. Migrate servers
+2. Build migration plan
+
+### Network migration
+
+1. Connect target accounts
+2. Migrate network
+
+### Landing zone
+
+1. Connect target accounts
+2. Build landing zone
+
+### Landing zone, network, and server migration
+
+1. Connect target accounts
+2. Build landing zone
+3. Migrate network
+4. Migrate servers
+
+### Migration planning and server migration
+
+Includes discovery, wave plan, and rehost.
+
+1. Perform discovery
+2. Build migration plan
+3. Connect target accounts
+4. Migrate servers
 
 ## Creating and starting a job
 
