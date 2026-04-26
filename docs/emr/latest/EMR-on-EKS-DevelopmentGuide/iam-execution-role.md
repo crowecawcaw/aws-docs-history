@@ -17,16 +17,18 @@ JSON
  "Statement": [
  {
  "Effect": "Allow",
- "Action": [
- "sts:AssumeRoleWithWebIdentity"
- ],
- "Resource": "*",
- "Condition": {
- "StringLike": {
- "aws:userid": "system:serviceaccount:`NAMESPACE`:emr-containers-sa-*-*-`AWS_ACCOUNT_ID`-`BASE36_ENCODED_ROLE_NAME`"
- }
+ "Principal": {
+ "Federated": "arn:aws:iam::`AWS_ACCOUNT_ID`:oidc-provider/`OIDC_PROVIDER`"
  },
- "Sid": "AllowSTSAssumerolewithwebidentity"
+ "Action": "sts:AssumeRoleWithWebIdentity",
+ "Condition": {
+ "StringEquals": {
+ "`OIDC_PROVIDER`:aud": "sts.amazonaws.com"
+ },
+ "StringLike": {
+ "`OIDC_PROVIDER`:sub": "system:serviceaccount:`NAMESPACE`:emr-containers-sa-*-*-`AWS_ACCOUNT_ID`-`BASE36_ENCODED_ROLE_NAME`"
+ }
+ }
  }
  ]
 }`

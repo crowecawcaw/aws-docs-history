@@ -239,12 +239,12 @@ JSON
  {
  "Sid": "TrustQueryEngineRoleForSystemDriver",
  "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`123456789012`:role/`QueryExecutionRole`"
+ },
  "Action": [
  "sts:AssumeRole",
  "sts:TagSession"
- ],
- "Resource": [
- "arn:aws:iam::*:role/`QueryExecutionRole`"
  ],
  "Condition": {
  "StringLike": {
@@ -255,12 +255,10 @@ JSON
  {
  "Sid": "TrustQueryEngineRoleForSystemExecutor",
  "Effect": "Allow",
- "Action": [
- "sts:AssumeRole"
- ],
- "Resource": [
- "arn:aws:iam::*:role/`QueryEngineRole`"
- ]
+ "Principal": {
+ "AWS": "arn:aws:iam::`123456789012`:role/`QueryEngineRole`"
+ },
+ "Action": "sts:AssumeRole"
  }
  ]
 }`

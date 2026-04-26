@@ -40,18 +40,16 @@ JSON
  "Statement": [
  {
  "Effect": "Allow",
- "Action": [
- "sts:AssumeRoleWithWebIdentity"
- ],
- "Resource": [
- "*"
- ],
- "Condition": {
- "StringLike": {
- "aws:userid": "system:serviceaccount:emr:emr-containers-sa-flink-operator"
- }
+ "Principal": {
+ "Federated": "arn:aws:iam::`AWS_ACCOUNT_ID`:oidc-provider/`OIDC_PROVIDER`"
  },
- "Sid": "AllowSTSAssumerolewithwebidentity"
+ "Action": "sts:AssumeRoleWithWebIdentity",
+ "Condition": {
+ "StringEquals": {
+ "`OIDC_PROVIDER`:aud": "sts.amazonaws.com",
+ "`OIDC_PROVIDER`:sub": "system:serviceaccount:emr:emr-containers-sa-flink-operator"
+ }
+ }
  }
  ]
 }`

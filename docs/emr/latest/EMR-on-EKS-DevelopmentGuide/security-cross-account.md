@@ -107,14 +107,12 @@ To set up cross-account access for Amazon EMR on EKS, complete the following ste
     "Version":"2012-10-17",
     "Statement": [
     {
+    "Sid": "AllowSTSAssumerole",
     "Effect": "Allow",
-    "Action": [
-    "sts:AssumeRole"
-    ],
-    "Resource": [
-    "arn:aws:iam::*:role/Job-Execution-Role-A"
-    ],
-    "Sid": "AllowSTSAssumerole"
+    "Principal": {
+    "AWS": "arn:aws:iam::`123456789012`:role/Job-Execution-Role-A"
+    },
+    "Action": "sts:AssumeRole"
     }
     ]
    }`
