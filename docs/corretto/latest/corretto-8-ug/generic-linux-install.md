@@ -65,7 +65,7 @@ sudo apt-get update && sudo apt-get install java-common
 ###### Example
 
 ```
-sudo dpkg --install java-1.8.0-amazon-corretto-jdk_8.0.482.08-1_amd64.deb
+sudo dpkg --install java-1.8.0-amazon-corretto-jdk_8.0.492.09-1_amd64.deb
 ```
 
 ### Verify Your Installation
@@ -78,12 +78,12 @@ In the terminal, run the following command to verify the installation.
 java -version
 ```
 
-Expected output for 8u482:
+Expected output for 8u492:
 
 ```
-openjdk version "1.8.0_482"
-OpenJDK Runtime Environment Corretto-8.482.08.1 (build 1.8.0_482-b08)
-OpenJDK 64-Bit Server VM Corretto-8.482.08.1 (build 25.482-b08, mixed mode)
+openjdk version "1.8.0_492"
+OpenJDK Runtime Environment Corretto-8.492.09.1 (build 1.8.0_492-b09)
+OpenJDK 64-Bit Server VM Corretto-8.492.09.1 (build 25.492-b09, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`, run the
@@ -164,7 +164,7 @@ sudo zypper install java-1.8.0-amazon-corretto-devel
 ###### Example
 
 ```
-sudo yum localinstall java-1.8.0-amazon-corretto-devel-1.8.0_482.b08-1.x86_64.rpm
+sudo yum localinstall java-1.8.0-amazon-corretto-devel-1.8.0_492.b09-1.x86_64.rpm
 ```
 
 ### Verify Your Installation
@@ -177,12 +177,12 @@ In the terminal, run the following command to verify the installation.
 java -version
 ```
 
-Expected output for 8u482:
+Expected output for 8u492:
 
 ```
-openjdk version "1.8.0_482"
-OpenJDK Runtime Environment Corretto-8.482.08.1 (build 1.8.0_482-b08)
-OpenJDK 64-Bit Server VM Corretto-8.482.08.1 (build 25.482-b08, mixed mode)
+openjdk version "1.8.0_492"
+OpenJDK Runtime Environment Corretto-8.492.09.1 (build 1.8.0_492-b09)
+OpenJDK 64-Bit Server VM Corretto-8.492.09.1 (build 25.492-b09, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`,
