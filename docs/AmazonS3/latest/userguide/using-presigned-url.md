@@ -25,7 +25,7 @@ the following:
   When using presigned URLs to upload objects, you can verify object integrity using
   checksums. While presigned URLs created with AWS Signature Version 2 only support MD5
   checksums, presigned URLs created with AWS Signature Version 4 support additional checksum
-  algorithms including CRC-64/NVME, CRC32, CRC32C, SHA-1, and SHA-256.
+  algorithms including CRC-64/NVME, CRC32, CRC32C, SHA-1, SHA-256, MD5, XXHash64, XXHash3, XXHash128, and SHA-512.
   To use these additional
   checksum algorithms, ensure you're using AWS Signature Version 4 and include the appropriate
   checksum header in your upload request. For more information about object integrity, see

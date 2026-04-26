@@ -871,6 +871,10 @@ include these optional metadata fields in their reports by using the
 `s3:InventoryAccessibleOptionalFields` condition key. For a list of the
 optional metadata fields available in S3 Inventory, see [OptionalFields](../API/API_PutBucketInventoryConfiguration.md#API_PutBucketInventoryConfiguration_RequestBody "../API/API_PutBucketInventoryConfiguration.md#API_PutBucketInventoryConfiguration_RequestBody") in the _Amazon Simple Storage Service API Reference_.
 
+###### Note
+
+For directory buckets, use the `s3express:InventoryAccessibleOptionalFields` condition key instead of `s3:InventoryAccessibleOptionalFields`. For more information about configuring S3 Inventory for directory buckets, see [Configuring Amazon S3 Inventory](configure-inventory.md "configure-inventory.md").
+
 To grant a user permission to create an inventory configuration with specific optional
 metadata fields, use the `s3:InventoryAccessibleOptionalFields` condition key to
 refine the conditions in your bucket policy.
@@ -978,6 +982,30 @@ can be overly restrictive and block inventory configuration deletion.
 
 To learn more about the `ForAllValues` and `ForAnyValue`
 condition set operators, see [Multivalued context keys](../../../IAM/latest/UserGuide/reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "../../../IAM/latest/UserGuide/reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys") in the _IAM User Guide_.
+
+#### Control S3 Inventory report configuration creation for directory buckets
+
+For directory buckets, you use the `s3express:InventoryAccessibleOptionalFields` condition key in an IAM identity-based policy instead of a bucket policy. The following example IAM policy grants a user permission to create an inventory configuration for a directory bucket. The `ForAllValues:StringEquals` condition uses the `s3express:InventoryAccessibleOptionalFields` condition key to specify the allowed optional metadata fields.
+
+```
+{
+	"Version": "2012-10-17",
+	"Statement": [{
+		"Sid": "AllowInventoryCreationForDirectoryBucket",
+		"Effect": "Allow",
+		"Action": "s3express:PutInventoryConfiguration",
+		"Resource": "arn:aws:s3express:`region`:`account-id`:bucket/`bucket-base-name`--`zone-id`--x-s3",
+		"Condition": {
+			"ForAllValues:StringEquals": {
+				"s3express:InventoryAccessibleOptionalFields": [
+					"Size",
+					"StorageClass"
+				]
+			}
+		}
+	}]
+}
+```
 
 ## Requiring MFA
 

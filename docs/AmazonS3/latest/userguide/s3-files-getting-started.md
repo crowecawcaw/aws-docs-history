@@ -8,9 +8,9 @@ started with S3 Files.
 
 The S3 Files workflow on S3 Console consists of the following steps:
 
-- Create your S3 file system
+- Create your S3 file system.
 - Mount the file system on your EC2 instance and run file system
-  operations
+  operations.
 
 ### Prerequisites
 

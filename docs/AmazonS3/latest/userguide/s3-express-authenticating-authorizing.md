@@ -52,10 +52,14 @@ Access to bucket-level actions can be granted only in IAM identity-based policie
 | ------------------------------------- | ------------- | ----------------------------------------------- | -------------------- |
 | `CreateBucket`                        | Regional      | `s3express:CreateBucket`                        | No                   |
 | `DeleteBucket`                        | Regional      | `s3express:DeleteBucket`                        | No                   |
-| `ListDirectoryBuckets`                | Regional      | `s3express:ListAllMyDirectoryBuckets`           | No                   |
-| `PutBucketPolicy`                     | Regional      | `s3express:PutBucketPolicy`                     | No                   |
-| `GetBucketPolicy`                     | Regional      | `s3express:GetBucketPolicy`                     | No                   |
+| `DeleteBucketInventoryConfiguration`  | Regional      | `s3express:PutInventoryConfiguration`           | No                   |
 | `DeleteBucketPolicy`                  | Regional      | `s3express:DeleteBucketPolicy`                  | No                   |
+| `GetBucketInventoryConfiguration`     | Regional      | `s3express:GetInventoryConfiguration`           | No                   |
+| `GetBucketPolicy`                     | Regional      | `s3express:GetBucketPolicy`                     | No                   |
+| `ListBucketInventoryConfigurations`   | Regional      | `s3express:GetInventoryConfiguration`           | No                   |
+| `ListDirectoryBuckets`                | Regional      | `s3express:ListAllMyDirectoryBuckets`           | No                   |
+| `PutBucketInventoryConfiguration`     | Regional      | `s3express:PutInventoryConfiguration`           | No                   |
+| `PutBucketPolicy`                     | Regional      | `s3express:PutBucketPolicy`                     | No                   |
 | `CreateSession`                       | Zonal         | `s3express:CreateSession`                       | Yes                  |
 | `CopyObject`                          | Zonal         | `s3express:CreateSession`                       | Yes                  |
 | `DeleteObject`                        | Zonal         | `s3express:CreateSession`                       | Yes                  |

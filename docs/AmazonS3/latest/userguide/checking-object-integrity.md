@@ -20,13 +20,20 @@ algorithm used for checksum calculations.
 - SHA-1 (`SHA1`)
 - SHA-256 (`SHA256`)
 - MD5 (`MD5`)
+- XXHash64 (`XXHASH64`)
+- XXHash3 (`XXHASH3`)
+- XXHash128 (`XXHASH128`)
+- SHA-512 (`SHA512`)
 
 ###### Note
 
-For multipart uploads, the Compute checksum operation provides full object
-checksum values using `MD5`, which isn’t possible during uploads. For single part
-uploads, the `content-MD5 header` is only available using the S3 ETag for objects
-and must use SSE-S3 encryption.
+You can provide a precalculated MD5 checksum using the
+`x-amz-checksum-md5` header. AWS SDKs do not automatically calculate
+MD5 checksums. For multipart uploads, the Compute checksum operation in S3 Batch Operations
+can calculate full object MD5 checksums for objects at rest. The legacy
+`Content-MD5` header remains available for single part uploads
+using SSE-S3 encryption.
+
 When you upload an object to S3, you can specify the usage of any of these checksum
 algorithms. For uploads, all AWS-owned clients calculate a checksum of the object and send
 it with the upload request. S3 then independently calculates a checksum value of the object
