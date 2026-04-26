@@ -77,6 +77,7 @@ generates for that scenario.
 - [CloudFormation resources generated when AWS::Serverless::Function is specified](sam-specification-generated-resources-function.md "sam-specification-generated-resources-function.md")
 - [CloudFormation resources generated when AWS::Serverless::GraphQLApi is specified](sam-specification-generated-resources-graphqlapi.md "sam-specification-generated-resources-graphqlapi.md")
 - [CloudFormation resources generated when AWS::Serverless::HttpApi is specified](sam-specification-generated-resources-httpapi.md "sam-specification-generated-resources-httpapi.md")
+- [CloudFormation resources generated when AWS::Serverless::WebSocketApi is specified](sam-specification-generated-resources-websocketapi.md "sam-specification-generated-resources-websocketapi.md")
 - [CloudFormation resources generated when AWS::Serverless::LayerVersion is specified](sam-specification-generated-resources-layerversion.md "sam-specification-generated-resources-layerversion.md")
 - [CloudFormation resources generated when AWS::Serverless::SimpleTable is specified](sam-specification-generated-resources-simpletable.md "sam-specification-generated-resources-simpletable.md")
 - [CloudFormation resources generated when AWS::Serverless::StateMachine is specified](sam-specification-generated-resources-statemachine.md "sam-specification-generated-resources-statemachine.md")

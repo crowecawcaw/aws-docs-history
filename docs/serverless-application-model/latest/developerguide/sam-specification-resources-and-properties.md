@@ -15,6 +15,7 @@ and property types reference](../../../AWSCloudFormation/latest/UserGuide/aws-te
 - [AWS::Serverless::Function](sam-resource-function.md "sam-resource-function.md")
 - [AWS::Serverless::GraphQLApi](sam-resource-graphqlapi.md "sam-resource-graphqlapi.md")
 - [AWS::Serverless::HttpApi](sam-resource-httpapi.md "sam-resource-httpapi.md")
+- [AWS::Serverless::WebSocketApi](sam-resource-websocketapi.md "sam-resource-websocketapi.md")
 - [AWS::Serverless::LayerVersion](sam-resource-layerversion.md "sam-resource-layerversion.md")
 - [AWS::Serverless::SimpleTable](sam-resource-simpletable.md "sam-resource-simpletable.md")
 - [AWS::Serverless::StateMachine](sam-resource-statemachine.md "sam-resource-statemachine.md")

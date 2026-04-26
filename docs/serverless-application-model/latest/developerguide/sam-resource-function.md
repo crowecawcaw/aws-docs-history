@@ -352,11 +352,19 @@ doesn't have an CloudFormation equivalent.
 `FileSystemConfigs`
 
 List of [FileSystemConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.md") objects that specify the connection settings for an
-Amazon Elastic File System (Amazon EFS) file system.
+Amazon Elastic File System (Amazon EFS) file system or an Amazon S3 Files file system. You can attach
+either an Amazon EFS access point or an S3 Files access point, but not both.
+
+Each `FileSystemConfig` object contains an `Arn` (the access
+point ARN) and a `LocalMountPath` (the path where the file system is
+mounted in the function). For Amazon EFS, the ARN is an Amazon EFS access point ARN. For
+S3 Files, the ARN is an `AWS::S3Files::AccessPoint` ARN.
 
 If your template contains an [AWS::EFS::MountTarget](../../../AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.md") resource, you must also specify a
 `DependsOn` resource attribute to ensure that the mount target is created
-or updated before the function.
+or updated before the function. Similarly, if your template contains an
+`AWS::S3Files::MountTarget` resource, you must specify a
+`DependsOn` attribute for the S3 Files mount target.
 
 _Type_: List
 
@@ -913,7 +921,7 @@ Properties:
 
 The following is an example of an [AWS::Serverless::Function](sam-resource-function.md "sam-resource-function.md") of package type `Zip` (default) that
 uses `InlineCode`, `Layers`, `Tracing`,
-`Policies`, `Amazon EFS`, and an `Api` event source.
+`Policies`, `Amazon EFS` file system, and an `Api` event source.
 
 #### YAML
 
@@ -1039,4 +1047,147 @@ TestFunction
     ...
     TenancyConfig:
       TenantIsolationMode: PER_TENANT
+```
+
+### S3 Files file system example
+
+The following example creates a Lambda function that mounts an Amazon S3 Files file
+system. The template creates an S3 bucket, an S3 Files file system backed by that bucket,
+a mount target in a VPC subnet, and an access point. The function mounts the access point
+at `/mnt/s3files` and can read and write files that sync to the S3 bucket.
+
+###### Note
+
+You can attach either an Amazon EFS file system or an S3 Files file system to a Lambda
+function, but not both at the same time.
+
+#### YAML
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Lambda function with S3 Files file system
+
+Resources:
+  # VPC and networking
+  MyVpc:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+
+  MySubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref MyVpc
+      CidrBlock: 10.0.1.0/24
+      AvailabilityZone: !Select [0, !GetAZs '']
+
+  MySecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group for Lambda and S3 Files
+      VpcId: !Ref MyVpc
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 2049
+          ToPort: 2049
+          CidrIp: 10.0.0.0/16
+
+  # S3 bucket for file storage
+  MyS3Bucket:
+    Type: AWS::S3::Bucket
+
+  # IAM role for S3 Files to access the bucket
+  S3FilesRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: elasticfilesystem.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: S3FilesBucketAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:DeleteObject
+                  - s3:ListBucket
+                Resource:
+                  - !GetAtt MyS3Bucket.Arn
+                  - !Sub '${MyS3Bucket.Arn}/*'
+
+  # S3 Files resources
+  MyS3FilesFileSystem:
+    Type: AWS::S3Files::FileSystem
+    Properties:
+      Bucket: !GetAtt MyS3Bucket.Arn
+      RoleArn: !GetAtt S3FilesRole.Arn
+
+  MyS3FilesMountTarget:
+    Type: AWS::S3Files::MountTarget
+    Properties:
+      FileSystemId: !Ref MyS3FilesFileSystem
+      SubnetId: !Ref MySubnet
+      SecurityGroups:
+        - !Ref MySecurityGroup
+
+  MyS3FilesAccessPoint:
+    Type: AWS::S3Files::AccessPoint
+    Properties:
+      FileSystemId: !Ref MyS3FilesFileSystem
+      PosixUser:
+        Uid: '1000'
+        Gid: '1000'
+      RootDirectory:
+        Path: /lambda
+        CreationInfo:
+          OwnerUid: '1000'
+          OwnerGid: '1000'
+          Permissions: '750'
+
+  # Lambda function with S3 Files mount
+  MyFunction:
+    Type: AWS::Serverless::Function
+    DependsOn: MyS3FilesMountTarget
+    Properties:
+      Handler: index.handler
+      Runtime: python3.12
+      Timeout: 120
+      VpcConfig:
+        SecurityGroupIds:
+          - !Ref MySecurityGroup
+        SubnetIds:
+          - !Ref MySubnet
+      FileSystemConfigs:
+        - Arn: !GetAtt MyS3FilesAccessPoint.AccessPointArn
+          LocalMountPath: /mnt/s3files
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - s3files:ClientMount
+                - s3files:ClientWrite
+              Resource: !GetAtt MyS3FilesAccessPoint.AccessPointArn
+      InlineCode: |
+        import os
+
+        def handler(event, context):
+            # Write a file to the S3 Files mount
+            with open('/mnt/s3files/hello.txt', 'w') as f:
+                f.write('Hello from Lambda!')
+
+            # List files at the mount path
+            files = os.listdir('/mnt/s3files')
+            return {'files': files}
+
 ```

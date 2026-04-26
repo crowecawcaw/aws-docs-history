@@ -87,6 +87,10 @@ Build arguments for the build.
 
 The AWS SAM CLI doesn't redact or obfuscate any information you include in `DockerBuildArgs` arguments. We strongly recommend you don't use this section to store sensitive information, such as passwords or secrets.
 
+`DockerImage`
+
+(Optional) A custom name for the built Docker image. If not specified, the function's logical resource ID is used.
+
 The following is an example `Metadata` resource attribute section:
 
 ```
@@ -94,6 +98,7 @@ The following is an example `Metadata` resource attribute section:
       Dockerfile: Dockerfile
       DockerContext: ./hello_world
       DockerTag: v1
+      DockerImage: my-custom-image
 ```
 
 To download a sample application that's configured with the `Image` package
@@ -105,6 +110,16 @@ package type you want to install, choose `Image`.
 If you specify a multi-architecture base image in your Dockerfile, AWS SAM builds your
 container image for your host machine's architecture. To build for a different architecture,
 specify a base image that uses the specific target architecture.
+
+By default, the AWS SAM CLI uses the legacy Docker build
+engine when building container images. To use BuildKit, an improved container backend
+that improves performance and handles more complex builds, pass the `--use-buildkit` flag with your build command:
+
+```
+`$` `sam build --use-buildkit`
+```
+
+Using `--use-buildkit` requires having the Docker or Finch CLI installed.
 
 ## Container environment variable file
 

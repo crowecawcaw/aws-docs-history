@@ -13,7 +13,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ```
   AuthorizationScopes: `List`
   Identity: `CognitoAuthorizationIdentity`
-  UserPoolArn: `String`
+  UserPoolArn: `String | List`
 
 ```
 
@@ -41,9 +41,9 @@ _CloudFormation compatibility_: This property is unique to AWS SAM and doesn't h
 
 `UserPoolArn`
 
-Can refer to a user pool/specify a userpool arn to which you want to add this cognito authorizer
+The Amazon Cognito user pool ARN(s) to use for authorization. Specify a single ARN as a string, or multiple ARNs as a list to use multiple user pools.
 
-_Type_: String
+_Type_: String | List
 
 _Required_: Yes
 

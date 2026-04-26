@@ -70,12 +70,14 @@ Globals:
     DefinitionUri:
     Domain:
     EndpointConfiguration:
+    EndpointAccessMode:
     GatewayResponses:
     MethodSettings:
     MinimumCompressionSize:
     Name:
     OpenApiVersion:
     PropagateTags:
+    SecurityPolicy:
     TracingEnabled:
     Variables:
 

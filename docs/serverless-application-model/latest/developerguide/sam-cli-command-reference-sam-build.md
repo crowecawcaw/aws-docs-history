@@ -244,6 +244,14 @@ The relative or absolute path to the top-level directory containing your Terrafo
 If these files are located outside of the directory containing your Terraform root module, use this option to specify its absolute or relative path.
 This option requires that `--hook-name` be set to `terraform`.
 
+`--use-buildkit | --no-use-buildkit`
+
+Enable or disable using the BuildKit plugin for container image builds.
+This will use the Finch or Docker CLIs.
+By default, builds uses the legacy builder from the SDK. If the
+`--no-use-buildkit` option is invoked, it overrides the
+`use-buildkit = true` setting in samconfig.toml.
+
 `--use-container`, `-u`
 
 If your functions depend on packages that have natively compiled dependencies, use

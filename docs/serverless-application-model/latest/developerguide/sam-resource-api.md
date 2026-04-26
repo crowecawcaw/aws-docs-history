@@ -49,6 +49,7 @@ Properties:
   Description: `String`
   DisableExecuteApiEndpoint: `Boolean`
   Domain: `DomainConfiguration`
+  EndpointAccessMode: `String`
   EndpointConfiguration: `EndpointConfiguration`
   FailOnWarnings: `Boolean`
   GatewayResponses: `Map`
@@ -61,6 +62,7 @@ Properties:
   OpenApiVersion: `String`
   PropagateTags: `Boolean`
   Policy: `JSON`
+  SecurityPolicy: `String`
   StageName: `String`
   Tags: `Map`
   TracingEnabled: `Boolean`
@@ -292,6 +294,20 @@ _CloudFormation compatibility_: This property is similar to the
 `AWS::ApiGateway::RestApi` resource. The nested configuration properties
 are named differently.
 
+`EndpointAccessMode`
+
+The access mode for the REST API endpoint. Required when using enhanced security policies (those prefixed with `SecurityPolicy_`).
+
+_Valid values_: `STRICT` or `BASIC`
+
+_Type_: String
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the
+`EndpointAccessMode` property of an `AWS::ApiGateway::RestApi`
+resource.
+
 `FailOnWarnings`
 
 Specifies whether to roll back the API creation (`true`) or not
@@ -456,6 +472,19 @@ _Required_: No
 
 _CloudFormation compatibility_: This property is passed directly to
 the [Policy](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-policy "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.md#cfn-apigateway-restapi-policy") property of an `AWS::ApiGateway::RestApi` resource.
+
+`SecurityPolicy`
+
+The TLS version plus cipher suite for the REST API. When using enhanced security policies (those prefixed
+with `SecurityPolicy>`), you must also set the`EndpointAccessMode`.
+
+_Type_: String
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the
+`SecurityPolicy` property of an `AWS::ApiGateway::RestApi`
+resource.
 
 `StageName`
 

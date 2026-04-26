@@ -210,6 +210,26 @@ To specify the container image to use for a single function, provide the functio
 `$` `sam build --use-container --build-image `Function1=amazon/aws-sam-cli-build-image-python3.12``
 ```
 
+### Building container images with BuildKit
+
+When building Lambda functions with the `Image` package type, you can use
+BuildKit as the build engine by passing the `--use-buildkit` option.
+BuildKit provides improved build performance, better caching, and enhanced build output
+compared to the legacy Docker build engine.
+
+This option requires having either the Docker or Finch CLIs installed and in your `PATH`.
+
+You can combine `--use-buildkit` with other build options. The following is an example:
+
+```
+`$` `sam build --use-buildkit --parallel`
+```
+
+###### Note
+
+The `--use-buildkit` flag is for container image builds only. It will not have any effect
+for zip functions being built with `--use-container`.
+
 ### Pass environment variables to the build container
 
 Use the `--container-env-var` to pass environment variables to the build container. The following is an

@@ -13,6 +13,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
   BasePath: `List`
   CertificateArn: `String`
   DomainName: `String`
+  EndpointAccessMode: `String`
   EndpointConfiguration: `String`
   MutualTlsAuthentication: `MutualTlsAuthentication`
   NormalizeBasePath: `Boolean`
@@ -100,6 +101,21 @@ _Required_: No
 _Default_: `REGIONAL`
 
 _CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
+
+`EndpointAccessMode`
+
+The access mode for the custom domain name endpoint. Required when using enhanced security policies (those prefixed with `SecurityPolicy_`).
+
+_Valid values_: `STRICT` or `BASIC`
+
+_Type_: String
+
+_Required_: Conditional
+
+_CloudFormation compatibility_: This property is passed directly to the
+`EndpointAccessMode` property of an `AWS::ApiGateway::DomainName` resource,
+or to [`AWS::ApiGateway::DomainNameV2`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.md")
+when `EndpointConfiguration` is set to `PRIVATE`.
 
 `MutualTlsAuthentication`
 
