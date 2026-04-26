@@ -25,6 +25,7 @@ and avoid potential disruptions to your workloads, see
 
 ###### Topics
 
+- [Amazon Redshift patch 201](#cluster-version-201 "#cluster-version-201")
 - [Amazon Redshift patch 200](#cluster-version-200 "#cluster-version-200")
 - [Amazon Redshift patch 199](#cluster-version-199 "#cluster-version-199")
 - [Amazon Redshift patch 198](#cluster-version-198 "#cluster-version-198")
@@ -58,6 +59,47 @@ and avoid potential disruptions to your workloads, see
 - [Amazon Redshift patch 170](#cluster-version-170 "#cluster-version-170")
 - [Amazon Redshift patch 169](#cluster-version-169 "#cluster-version-169")
 - [Amazon Redshift patch 168](#cluster-version-168 "#cluster-version-168")
+
+## Amazon Redshift patch 201
+
+Cluster versions in this patch:
+
+- 1.0.280974 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released April 22, 2026
+
+### New features and improvements in this patch
+
+- Added support for ALTERs on Iceberg tables.
+- Added support to write to Iceberg tables mounted under AwsDataCatalog.
+- Added support for the SHOW GRANTS command when connected to a database using the USE command.
+- Added support for SHOW GRANTS and SHOW COLUMN GRANTS commands for identities with federated permissions.
+- Added support for materialized view auto-refresh as a user workload with burst capacity on Amazon Redshift Serverless.
+- Allow AutoWLM to assign more cluster memory to queries writing to wide tables.
+- Amazon Redshift improved the query performance of the SVV_ATTACHED_MASKING_POLICY system view, reducing execution time on instances with a large number of permissions and dynamic data masking policy attachments.
+- Improved the DROP USER error message to include the number of object ownerships and privileges that must be resolved before the user can be dropped.
+- Upgraded the librdkafka library to version 2.13.x from 2.8.x to provide the latest bug fixes and performance enhancements.
+- Enhanced performance for queries using Lambda User-Defined Functions in the HAVING clause of aggregates.
+- Enhanced performance for queries using Lambda User-Defined Functions with window functions.
+- Enhanced stability for Lambda User-Defined Functions with no arguments.
+- Enhanced datalake table query execution performance when using ORDER BY and LIMIT clauses by eliminating unnecessary data scans.
+- Improved error messages for zero-ETL integrations to provide clearer details for unsupported constraints, unsupported DDL statements, date precision loss, multibyte character length mismatches, and skipped source tables.
+- Improved zero-ETL integration resilience by gracefully handling credential acquisition failures during replication status checks.
+- Improved performance of zero-ETL integrations when running concurrent replication tasks.
+- Improved time-travel query results for zero-ETL tables with frequently updated rows to ensure each historical row version reflects its individual deletion timestamp.
+- Fixed some edge cases where the main cluster was not properly resized by AI-driven scaling.
+- Fixed an issue where Amazon CloudWatch metrics could report duplicate failed query counts when queries were evicted and retried by workload management (WLM).
+- Fixed an issue where COPY with Redshift Table Copy could produce a distribution style mismatch on the pristine path.
+- Fixed an issue with incorrect partition sort end row calculation that could affect range-restricted scan results.
+- Fixed an issue where automatic vacuum operations could fail when a table was dropped concurrently.
+- Fixed an issue where VACUUM could use a stale table version when acquiring the relation, potentially leading to errors.
+- Ensured vacuum transaction map is properly cleaned up on burst clusters.
+- Fixed an issue where queries on zero-ETL replicated tables could fail when accessed through data sharing.
+- Fixed an issue in zero-ETL integration data replication that could cause cluster restarts.
+- Fixed an issue where zero-ETL integrations with DynamoDB history mode could fail during update-merge operations.
+- Fixed an issue where zero-ETL integration tables could display incorrect row counts in the Amazon Redshift console.
+- Fixed an issue that prevented Amazon Redshift Serverless workgroups from pausing during zero-ETL integration operations.
+- Fixed an issue where empty Avro files caused COPY ingestion to fail. Empty Avro files are now skipped and ingestion continues without an error.
+- Fixed a stale block header checksum issue during epsilon tree replay when using position-independent superblock.
 
 ## Amazon Redshift patch 200
 
