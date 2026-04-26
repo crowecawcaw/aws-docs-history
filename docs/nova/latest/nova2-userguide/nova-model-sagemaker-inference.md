@@ -73,6 +73,32 @@ For example, on Amazon Nova Micro with a ml.g5.12xlarge:
 - `CONTEXT_LENGTH=8000`, `MAX_CONCURRENCY=6` → Valid
 - `CONTEXT_LENGTH=10000` → Rejected (max context length is 8000 on this instance)
 
+## Inference components
+
+You can deploy Amazon Nova models using [SageMaker inference components](../../../sagemaker/latest/dg/inference-components.md "../../../sagemaker/latest/dg/inference-components.md"), which allow you to host multiple models on a single endpoint and optimize resource utilization. Inference components let you specify the compute resources (CPU, memory, GPU) required for each model, enabling efficient multi-model hosting on shared infrastructure.
+
+The following table lists the minimum compute resource requirements for each Amazon Nova model when using inference components:
+
+| Model             | Min CPU Cores | Min Memory (MB) | Min GPU Count |
+| ----------------- | ------------- | --------------- | ------------- |
+| Amazon Nova Micro | 15            | 25000           | 4             |
+| Amazon Nova Lite  | 20            | 35000           | 4             |
+| Nova 2 Lite       | 20            | 100000          | 4             |
+
+###### Note
+
+The `ComputeResourceRequirements` values must meet or exceed the minimum requirements listed in the table above for the model you are deploying. Using values below the minimums will cause the inference component creation to fail.
+
+You can deploy multiple inference components on the same endpoint, as long as the total resource requirements do not exceed the capacity of the instance.
+
+The number of inference components you can host on a single endpoint depends on the instance type's available resources and each model's minimum requirements. For example, on a `ml.p5.48xlarge` (8 GPUs, 192 vCPUs, ~1 TB memory):
+
+- 1 Amazon Nova Micro inference component (4 GPUs, 15 CPU cores, 25000 MB) → Valid
+- 2 Amazon Nova Micro inference components (8 GPUs total, 30 CPU cores, 50000 MB) → Valid (fits within instance capacity)
+- 1 Nova 2 Lite inference component (4 GPUs, 20 CPU cores, 100000 MB) → Valid
+- 2 Nova 2 Lite inference components (8 GPUs total, 40 CPU cores, 200000 MB) → Valid
+- 3 Amazon Nova Micro inference components (12 GPUs total) → Rejected (exceeds 8 available GPUs)
+
 ## Supported AWS Regions
 
 The following table lists the AWS Regions where Amazon Nova models are available on SageMaker inference:
