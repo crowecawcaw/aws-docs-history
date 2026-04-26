@@ -13,7 +13,7 @@ how to access them.
 
 ### Artifacts contents
 
-In both Release and Pre-release buckets, you'll find:
+The following artifacts are accessible from [AWS Transform for mainframe refactor Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction").
 
 **gapwalk-x.y.z.zip**
 

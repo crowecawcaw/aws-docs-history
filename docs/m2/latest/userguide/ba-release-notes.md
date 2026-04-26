@@ -18,9 +18,252 @@ For release notes predating this document, contact AWS Transform for mainframe d
 about the latest AWS Transform for mainframe refactor features, see [AWS Transform for mainframe refactor
 releases](https://bluinsights.aws/releases "https://bluinsights.aws/releases").
 
+## Release notes 5.125.0
+
+Released on: April 17, 2026
+
+This release of AWS Transform for mainframe Runtime and Transformation Engines is focused on Easytrieve language support, modern framework upgrades (Spring Boot, Tomcat, Angular), and runtime improvements. Some key features and changes in this release are:
+
+- **Added Easytrieve Transformation Engine support**
+
+Introduced a dedicated Easytrieve transformation engine enabling automated conversion of Easytrieve programs to modern Java. Main features include preprocessing, Library Section, JOB Activity, Control Flow, File & IMS data access, and Report Generation. The Runtime, which already covered most Easytrieve statements due to its proximity with COBOL, was extended with synchronized file processing support.
+
+- **Major Framework Upgrades**
+  - **Spring Boot & Spring Core** – Upgraded to Spring Boot 4.0.4 and Spring Core 7.0.6, migrating from Spring Boot 3.5.7 and Spring Core 6.2.12. See migration notes for full details.
+  - **Apache Tomcat** – Upgraded to Tomcat 11.0.15, migrating from Tomcat 10.
+  - **Front-end Modernization** – Front-end applications have been upgraded to Angular 21 from Angular 20, bringing the latest features and performance improvements to the user interface.
+
+This version of the AWS Transform for mainframe Runtime has been tested with the following stack:
+
+|                           |                         |
+| ------------------------- | ----------------------- |
+| **Component**             | **Version tested**      |
+| Java                      | Java 21                 |
+| Presentation layer        | Node JS 24.11.1         |
+| Npm 11.6.2                |
+| Angular 21                |
+| Service layer             | Spring Boot 4.0.4       |
+| Spring Core 7.0.6         |
+| Spring Session 3.5.2      |
+| Spring statemachine 4.0.0 |
+| Persistence layer         | PostgreSQL engine 15.10 |
+| Oracle 21c                |
+| Report                    | Jasper 7                |
+| Application server        | Apache Tomcat 11.0.15   |
+
+## AWS Transform for mainframe Runtime
+
+### zOS
+
+**Improvements**
+
+- COBOL
+  - Added support for SORT streams without FIN statement
+  - Improved support for SORT statement for variable-length records
+  - Improved support for MOVE ALL with numeric edited fields where the decimal digits need to be set to 0
+  - Added support for ACCEPT FROM SYSIPT statement to enable reading input from the SYSIPT device name
+  - Improved support for statement with Numeric edited type and virtual decimal
+  - Added support for Packed Type for NUMPROC(NOPFD)
+  - Improved support for PERFORM in MQ CALL ON EXCEPTION catch
+
+- CICS
+  - Improved SOAP envelope namespace URIs to use HTTP protocol and formatting per W3C specifications
+  - Improved support for SOAP fault message handling with SOAP 1.1 compatibility and fault retrieval
+  - Improved support for INQUIRE REQID command
+  - Improved support for CONTAINER CHANNEL command to accept RecordAdaptable
+  - Improved SQL transaction commit in CICS non-XA mode
+  - Improved support for ASKTIME command to accept RangeReference as ABSTIME parameter
+  - Improved support for GET CONTAINER command with SET option
+  - Improved support for RECEIVE MAP command and MAPFAIL response
+  - Improved support for MOVE CONTAINER statement
+  - Improved support for HANDLE AID command with empty AID Key
+  - Improved support for START command with TERMID targeting a different terminal
+  - Improved LENGTH validation from CICS TS/TD Queue and File commands
+  - Improved support for LOAD PROGRAM statement
+
+- Blusam
+  - Improved support for Large KSDS data loader when append mode is on
+  - Improved support for Large KSDS Pagination by ensuring page capacity is taken into consideration, preventing memory and performance degradation as the dataset grows
+  - Improved support for large KSDS and ESDS data loaders in multi-schema PostgreSQL configurations by enhancing initialization order
+  - Improved support for skip list delete operations by preventing array index exceptions when processing nodes with levels exceeding the list height after split
+  - Removed RDW bytes before loading data when calling IDCAMS PGM
+  - Improved support for open release lock for Read dataset
+
+- Redis
+  - Added support for TTL (timeToLive) for the warmUp flag to improve reading performance
+  - Added configurable batch processing for Redis cache clear operations to prevent RESP protocol errors when clearing large datasets with two new properties bluesam.redis.enableBatchClear (default: false, Type: Boolean) to enable batching and bluesam.redis.batchClearSize (default: 1000, Type: Integer) to control batch size
+  - Added configurable session timeout via server.servlet.session.timeout when using Redis as session store
+  - Updated Redis error handling from ERROR to WARNING level
+
+- IMS - MFS
+  - Added support for STACK/UNSTACK statements
+  - Added support for GRAPHIC=NO or GRAPHIC=YES on SEG statements
+  - Added support for multiple messages in a single screen
+  - Improved support for EQU substitution
+  - Improved support for implicit DPAGE
+  - Improved support for printer format features of 3270P devices by extending the parser to handle DIV TYPE=OUTPUT, DEV→DEV and DEV→FMTEND transitions, PAGE= parameter in device processing, and multi-element POS tuples
+  - Improved support for Empty message
+
+- IMS - DBD
+  - Improved support for flexible NAME parameter positioning in SEGM, FIELD, LCHILD, and XDFLD statements by allowing it to appear anywhere in the parameter list
+  - Improved support for the full RULES= parameter syntax
+
+- IMS - CBLTDLI
+  - Improved support for function PCB
+  - Improved support for function TERM
+
+- SQL
+  - Added support for DB2 database keywords as SQL column names and handled PostgreSQL reserved word quoting
+  - Added support for SMALLINT DB2 function
+  - Improved support for USE and TIME keywords as column name
+  - Improved support for DD-prefixed SQL host variables and ENTRY statement name collision resolution
+  - Improved support for CASE statement and conversion of app format timestamps
+
+- JCL - ICEGENER
+  - Added support for SYSOUT as output
+
+- JCL - DSNUTILB
+  - Improved support for LOAD return code
+  - Improved support for COPY and GDGLIMIT during old files removal
+  - Improved support for COPY TABLESPACE command through Control Card
+
+- JCL - INFUTILB
+  - Improved support for SYSPUNCH cursor position after retrieving blob column
+  - Improved support for Oracle Database by excluding Rownum from columns to process
+
+- JCL - DSNTEP
+  - Improved support for CURRENT_DATE and CURRENT_TIMESTAMP
+  - Improved support for inline SQL comments
+
+- JCL - IDCAMS
+  - Enhanced parsing support of LISTCAT, DELETE, and DEFINE CLUSTER statements
+  - Added support for SystemOutput with comma (,) as output value
+
+- JCL - DFSORT
+  - Added support for DCB attribute inheritance from SORTIN DUMMY
+  - Improved support for OUTFIL filenames with 1/2-char alphanumeric suffix
+  - Improved date output behavior when DATENS=(YMD)
+  - Improved support for SUM field overflow with OPTION OVFLO=RC0
+  - Improved support for REMOVECC in OUTFIL HEADER1
+  - Improved support for OVERLAY where INREC/OUTREC OVERLAY operations produce records that exceed the original input size
+
+- JCL - Misc
+  - Improved support for multiple Groovy scripts running concurrently
+  - Added support for DSNTIAD utility
+
+### AS400
+
+**Improvements**
+
+- RPG
+  - Improved support of READ LAST operation and file status code 23 for START/RETRIEVE commands
+  - Improved support for functions READE and PRIORE after a cursor set
+
+- CL
+  - Improved JOBQ resolution with library-qualified lookup
+  - Improved support for OVRDBF MBR(\*FIRST) to dynamically resolve member names instead of using literal values in QTEMP DAO
+  - Improved support for OVRDBF command without the TOFILE parameter
+  - Improved support for CALLPRC command with multi-parameter procedure calls, including \*BYVAL (pass-by-value) and \*BYREF (pass-by-reference) semantics
+  - Improved support for SBMJOB command and connection Leak with SQL in Auto-Commit Mode
+  - Improved support for CHKOBJ command with "OBJTYPE(\*LIB)" parameter
+  - Improved support for CALL command through QCMDEXC within a SBMJOB
+  - Improved support for DLCOBJ command and ElementaryRangeReference
+  - Improved QTempHelper to manage flat files with thread isolation and session cleanup
+
+- Database access
+  - Improved Name-based column mapping in RowMapperHelper to fix SELECT \* with auto-generated id column
+  - Enforced new transactions for partition creation/deletion operations
+  - Improved query generation after a setOnEqual in data access layer
+  - Improved boost performance for partition and member retrieval with a cache
+
+- Screen
+  - Improved support for DSPMSG screen message
+  - Improved tab close handling to prevent break message thread leak and interactive job race condition on tab close
+  - Improved support for QMHSNDPM to handle call stack entry/counter parameters
+  - Improved workstation initialization to display screen titles on first render by pre-populating INFDS
+
+- Job
+  - Improved Quartz job key uniqueness using AtomicLong sequential counter
+  - Added interactive job persistence and job number strategy
+
+- MQ
+  - Improved support for MQGET using CMQC.MQMI_NONE/MQCI_NONE for blank messageId/correlationId values
+
+- Misc
+  - Improved support for renamed fields in Input Specifications
+
+## AWS Transform for mainframe Transformation Engines
+
+### zOS
+
+**Improvements**
+
+- COBOL
+  - Added support for CURRENT-DATE and TIME-OF-DAY special registers
+  - Added support for IN and OF in report group source
+  - Improved support for composed conditions to preserve operator grouping for parenthesized OR lists
+  - Improved support for IF statement prematurely interrupted by a DOT marker in addition to the END-IF
+  - Improved support for ADV/NOADV compiler option
+  - Improved support for CONSTANT and FUNCTION as field name
+  - Improved support for BELL, CONNECT and DISCONNECT as variable name
+  - Improved support for fields with same name in nested filler groups
+  - Improved exit state as signal handler rewriting
+  - Improved generated code on State Machine controllers (remove Sonar issues)
+  - Improved support for CICS HANDLE ABEND statements to avoid creating state machines
+
+- SQL
+  - Improved support for cast from long to int
+  - Improved support for cast for legacy local DATE type field in query
+  - Improved support for CREATE and DROP STOGROUP statements
+  - Improved support for PostgreSQL time function handling and parameter casting
+  - Improved support for JOIN clause by replacing implicit JOIN with CROSS JOIN for PostgreSQL target
+  - Normalized DB2 CONCAT infix operator to || during SQL modernization
+
+- JCL
+  - Added DCB param to DummyFileConfiguration
+  - Improved search JCL procedure method
+
+- Easytrieve - major features supported
+  - Preprocessing (macros inlining, comments, line continuations)
+  - Library Section (file definitions, field definitions with data types/positions/VALUE/OCCURS/MASK/REDEFINES, working storage, records, TABLE, COPY)
+  - JOB Activity (JOB INPUT, synchronized file processing, SORT)
+  - Control Flow (IF/ELSE, CASE, DO WHILE/UNTIL, GOTO JOB, PERFORM)
+  - File I/O (GET, PUT, READ, WRITE, POINT, SEARCH, DISPLAY)
+  - Expressions (arithmetic, series conditions, file presence, figurative, class conditions, system variables)
+  - Report Generation (LINE, TITLE, CONTROL, SUM, break/line event procedures)
+  - IMS Database (DLI statements, RETRIEVE)
+
+### AS400
+
+**Improvements**
+
+- RPG
+  - Improved support for function calls like %STR to allow passing lowercase external methods as arguments
+  - Improved support for space-padded EXTPROC names in prototype declaration
+  - Improved support for non-literal INZ values in sub procedure field initialization
+  - Improved support for numeric output only fields with determined size handling
+  - Improved support of EXTMBR keyword
+  - Added support for "CALL LINKAGE" instruction
+  - Added support for WRITE statements without FROM keyword
+  - Improved support for CTDATA initialization of ALT fields defined with LIKE data structure
+  - Improved support for I-spec processing for program-described files
+  - Improved support for indicators with REWRITE SUBFILE operation
+  - Improved support for RI conditions with ERRMSG
+
+- CL
+  - Improved support of GOTOs in CL programs
+
+- Screen
+  - Improved support for subfile HTML generation to prevent extra empty div
+  - Added support for WRITE statements without FROM keyword
+  - Improved support for PARAM List processing to restrict Linkage Section to ENTRY parameters only
+  - Improved support for record format registering by preventing duplicate to be added
+  - Improved support for EDTWRD/EDTMSK and display mask in generated HTML
+  - Improved support for DSPF fields sharing names with named Data Structures
+
 ## Release notes 5.75.0
 
-Released on: February 16, 2025
+Released on: February 16, 2026
 
 This release of AWS Transform for mainframe Runtime and Transformation Engines introduces significant enhancements to platform capabilities, performance optimizations, and modernized technologies. Some key features and changes include:
 
@@ -55,7 +298,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 | Spring statemachine 4.0.0 |
 | Persistence layer         | PostgreSQL engine 15.10 |
 | Oracle 21c                |
-| Report                    | Jasper 6                |
+| Report                    | Jasper 7                |
 | Application server        | Apache Tomcat 10.1.40   |
 
 ## AWS Transform for mainframe Runtime
@@ -772,7 +1015,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved performance of WRITE operations with write-behind mode enabled
   - Improved support of data set operations by optimizing table existence verification processes, eliminating redundant lookup operations and enhancing overall performance through reduced database queries
   - Improved performance by adding a new open mode (data set level locking only mode) that sets bulk insertion mode to true. This configuration is useful in custom data set restore scenarios where dataset-level locks are sufficient.
-  - Extended configuration for large <noloc>Blusam</noloc> KSDS by allowing the use of yml ds configuration file to set properties
+  - Extended configuration for large Blusam KSDS by allowing the use of yml ds configuration file to set properties
   - Added support for graphic alphanumeric in mask generation
   - Improved error reporting when the alternate index is missing in the data set metadata
   - Enabled asynchronous execution of Redis bulk write operations to improve performance. The feature is configurable through a YML property.
@@ -985,15 +1228,15 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
   - Improved support for DCB=\*.DD to be compliant with the Backward Reference used to reference information from a previously defined DD
   - Improved support to make processing procedure variables available in multi-threading context
 
-- <noloc>Blusam</noloc>
-  - Improved the read of <noloc>Blusam</noloc> Large KSDS when navigating to next/previous
+- Blusam
+  - Improved the read of Blusam Large KSDS when navigating to next/previous
     records at page or index boundaries
-  - Improved the clear and load of large <noloc>Blusam</noloc> files
-  - Improved support for the creation of indexes tables for <noloc>Blusam</noloc> Large KSDS
+  - Improved the clear and load of large Blusam files
+  - Improved support for the creation of indexes tables for Blusam Large KSDS
     when optional data set is missing
-  - Improved <noloc>Blusam</noloc> write-behind implementation to address issues with delete
+  - Improved Blusam write-behind implementation to address issues with delete
     operations, enforce queuing of batch updates
-  - Improved performance of <noloc>Blusam</noloc> Large data sets records operations
+  - Improved performance of Blusam Large data sets records operations
     (addition and deletion) by using a local indexes caching mechanism reducing delays from
     multiple interactions with remote cache
 
@@ -1181,8 +1424,8 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
 - Introduced support for defining custom headers for secured transactions through the YML property
   `gapwalk-application.security.customAllowedHeaders`. This property is related to
   `gapwalk-application.identity` property with value `oauth`.
-- Added a feature to allow customers to rebuild <noloc>Blusam</noloc> metadata based
-  on the actual records in the <noloc>Blusam</noloc> database table
+- Added a feature to allow customers to rebuild Blusam metadata based
+  on the actual records in the Blusam database table
 - Secured JHDB connections using AWS Secrets Manager integration
 
 **Improvements**
@@ -1225,8 +1468,8 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
   - Improved support for SET statements to handle command not including variable name, command defined inside includes a member file that should be accessible within the JCL and command contains inline comments
   - Added support to retain the job level 'scriptContext' parameters in the JCL checkpoint metadata and the job context for use at restart
 
-- <noloc>Blusam</noloc>
-  - Improved record insertion on <noloc>Blusam</noloc> large indexed data sets when
+- Blusam
+  - Improved record insertion on Blusam large indexed data sets when
     writing after loading an empty data set
   - Improved performance for large data sets by enabling a warm-up mechanism and introducing an optional prefetch window for records, as well as local storage for indexes and pages
   - Improved support for Export Data Set to handle a larger dataset with AWS Key Management Service
@@ -1385,7 +1628,7 @@ be compatible.
 - Data Processing
   - Enhanced numeric comparison logic when processing blank-valued fields redefined from alphanumeric to numeric types, ensuring correct evaluation against zero
 
-- <noloc>Blusam</noloc>
+- Blusam
   - Improved support for START command to handle partial key searches using segments of the primary key, providing more flexible record retrieval capabilities
 
 - SQL
@@ -1404,7 +1647,7 @@ be compatible.
 
 - Misc
   - System Integration - Added support for the schema environment in DFSRRC00 program calls
-  - Added compatibility for IMS transaction when <noloc>Blusam</noloc> is
+  - Added compatibility for IMS transaction when Blusam is
     disabled
   - Improved support for end-of-file condition on a sequential file to align to legacy rule 'EOF is considered an unsuccessful read'
 
@@ -1591,14 +1834,14 @@ be compatible.
   - Enhanced Batch Restart Metadata handling to improve workflow status management during
     restart mode
 
-- <noloc>Blusam</noloc>
-  - Added support of TTL for <noloc>Blusam</noloc> cache in both Ehcache and Redis
+- Blusam
+  - Added support of TTL for Blusam cache in both Ehcache and Redis
     implementations
   - Improved support for `DEPENDING ON` field on COBOL File Description
-    `FD` for <noloc>Blusam</noloc> KSDS file
-  - Enhanced thread safety in Redis <noloc>Blusam</noloc> read operations for
+    `FD` for Blusam KSDS file
+  - Enhanced thread safety in Redis Blusam read operations for
     simultaneous multi-job execution
-  - Improved <noloc>Blusam</noloc> schema creation for better robustness regarding
+  - Improved Blusam schema creation for better robustness regarding
     database user privileges
   - Improved padding to the right on variable block concatenated input dataset `READ`
 
@@ -1831,7 +2074,7 @@ be compatible.
   - Improved support for block size for GDG files and concatenated files
 
 - CICS
-  - Added support for OpenStatus and EnableStatus of <noloc>Blusam</noloc>
+  - Added support for OpenStatus and EnableStatus of Blusam
     datasets
   - Added support for the `SET DATASET` command
 
@@ -2101,10 +2344,10 @@ sections.
 - COBOL - Added support for JSON GENERATE statement
 - COBOL - Added support for control blocks
 - MF - Added support for FCDREG compiler directive
-- <noloc>Blusam</noloc> - Added feature VSAM file-sets with an implementation based
+- Blusam - Added feature VSAM file-sets with an implementation based
   on database schema - Only PostgresSQL supported
-- <noloc>Blusam</noloc> - Added support for handling TTL (Time to live) for
-  <noloc>Blusam</noloc> cached data items (Redis cache engine)
+- Blusam - Added support for handling TTL (Time to live) for
+  Blusam cached data items (Redis cache engine)
 - JCL - IDCAMS - Added new property `idcams.encoding.forced` to force charset
   used to decode SYSIN card
 - JICS - Extended the `jics.db.dataScriptLocation` property from
@@ -2115,15 +2358,15 @@ sections.
 
 **Improvements**
 
-- <noloc>Blusam</noloc> - Improved loading time and memory footprint from legacy
-  large data sets to <noloc>Blusam</noloc> for customers using PostgreSQL engine (we
+- Blusam - Improved loading time and memory footprint from legacy
+  large data sets to Blusam for customers using PostgreSQL engine (we
   observed up to an 8-fold increase in loading speed for large data sets)
-- <noloc>Blusam</noloc> - Improved exportDataSetToS3 API with Credentials
+- Blusam - Improved exportDataSetToS3 API with Credentials
   Support
-- <noloc>Blusam</noloc> - Improved LISTCAT uploading files for data sets
+- Blusam - Improved LISTCAT uploading files for data sets
   creation
-- <noloc>Blusam</noloc> - Improved support for Dynamic READ using explicit KEY
-- <noloc>Blusam</noloc> - Improved the write-behind mechanism logic
+- Blusam - Improved support for Dynamic READ using explicit KEY
+- Blusam - Improved the write-behind mechanism logic
 - JCL - Enhanced JES support to improve file locking in parallel execution
 - JCL - Added support for statement `INCLUDE MEMBER`
 - JCL - DNSUTILB - Improved support for duplicate key to handle special case when primary
@@ -2395,7 +2638,7 @@ sections.
 - COBOL - Added support for multiple embedded spaces in Pseudo-text for REPLACING
   statement
 - COBOL - Added support for JSON PARSE statement
-- <noloc>Blusam</noloc> - Added support for KMS to feature “Export dataset”
+- Blusam - Added support for KMS to feature “Export dataset”
 - BAC - Added the configuration of `application-main.yaml` to define
   record size to filter loaded masks matching with this record size
 - JCL - INFUTILB - Added support for the keyword INTO as part of BMC control
@@ -2441,9 +2684,9 @@ sections.
   command
 - CICS - Enhanced support for parsing INQUIRE NETNAME command
 - CICS - Added support for group name for JicsQueueBuilder
-- <noloc>Blusam</noloc> - Added support for indexed file starting with generic
+- Blusam - Added support for indexed file starting with generic
   key
-- <noloc>Blusam</noloc> - Improved <noloc>Blusam</noloc> loaders
+- Blusam - Improved Blusam loaders
 - BAC - Improved support for data synchronization in multi-instance environment when Redis
   is used to centralize cached values, including both actual data and locks
 - BAC - Improved UI (style, logo, checkbox)
@@ -2535,7 +2778,7 @@ sections.
   AS400 and ZOS
 - SQL - Improved implicit read-only cursor runtime validation
 - SQL - Improved Metadata caching mechanism
-- Remove Jics/<noloc>Blusam</noloc> database connection from Gapwalk Application
+- Remove Jics/Blusam database connection from Gapwalk Application
   `application-main.yml`
 
 ## Modernization tools release 4.3.0
@@ -2658,7 +2901,7 @@ sections.
 - COBOL - Added support for FUNCTION TEST-DATE-YYYYMMDD and TEST-DAY-YYYYDDD
 - CICS - Added support for option UCTRANST in the SET TERMINAL command
 - CICS - Added support for the INQUIRE DB2CONN command
-- <noloc>Blusam</noloc> - Added support for key deletion on dynamically accessed
+- Blusam - Added support for key deletion on dynamically accessed
   VSAM
 - IMS - Added support for the TERM command
 - BAC - Added authorization checks on all BAC REST endpoints
@@ -2842,7 +3085,7 @@ key features and changes in this release are:
   performance and memory footprint of the whole transformation mechanism.
 - **BAC/JAC**: Security at AWS is the highest priority.
   Applications modernized with AWS Transform for mainframe must comply with security standards. We have made some major
-  upgrades to the <noloc>Blusam</noloc> Administration Console (BAC) and the JICS
+  upgrades to the Blusam Administration Console (BAC) and the JICS
   Administration Console (JAC) to make them more secure:
   - Updated the application to Angular v17.
   - In addition to the native support for AWS Cognito, we added generic support for OAuth
@@ -2918,7 +3161,7 @@ sections.
 - MQ - Improved data length setting of GET message for XA datasoure.
 - MQ - Decomposed CMQV standard copybook to prevent compilation errors and refactoring
   uses.
-- <noloc>Blusam</noloc> - Improved support for delete requests for non-existent data
+- Blusam - Improved support for delete requests for non-existent data
   sets.
 - Improved support for the ALLOCATE statement.
 - Improved robustness of TS-QUEUE Naming.
@@ -3170,11 +3413,11 @@ sections.
 - IMS - DFSRRC00 able to pass the params from groovy to backend program.
 - Added support for JICS command that was not invoked through a transactionRunner.
 - JICS - Improved performance by using configurable cache.
-- <noloc>Blusam</noloc> - Add support for disabling warmup
-  <noloc>Blusam</noloc> when opening to enhance performance for large dataset.
-- <noloc>Blusam</noloc>- Improved delete/rename behaviour on regular
-  <noloc>Blusam</noloc> data sets.
-- <noloc>Blusam</noloc> - Enhanced performance on record operations.
+- Blusam - Add support for disabling warmup
+  Blusam when opening to enhance performance for large dataset.
+- Blusam- Improved delete/rename behaviour on regular
+  Blusam data sets.
+- Blusam - Enhanced performance on record operations.
 - Enhanced datasimplifier for the methods determining if a string is low value.
 - Enhanced support for Packed-Decimal & sorting order issue.
 - Enhanced configuration of DB2 as primary data-source with AWS Secrets.
@@ -3388,7 +3631,7 @@ transformation and execution steps. Some key features and changes in this releas
   recent third-party framework versions.
 - Additional support for managing large shared memory spaces between users or jobs, storing
   data reusable after application or instance restart.
-- Faster access to large data sets in <noloc>Blusam</noloc> using a pagination
+- Faster access to large data sets in Blusam using a pagination
   mechanism that makes it possible to retrieve a subset of records incrementally.
 
 For more information about the changes included in this release, see the following
@@ -3402,7 +3645,7 @@ This runtime is based on Java17, Spring2.7, and Angular16.
 
 **New features**
 
-- <noloc>Blusam</noloc> - Added support for large data sets through a paginated
+- Blusam - Added support for large data sets through a paginated
   mechanism where indexes are stored and loaded using pages
 
 **Improvements**
@@ -3414,11 +3657,11 @@ This runtime is based on Java17, Spring2.7, and Angular16.
 - Enhanced removeSOSI() to support the initialization of a GraphicAlphanumericType with an
   empty character
 - Added robustness for job operation and secure GDG state read
-- <noloc>Blusam</noloc> - Added support for clearing Ehcache of
-  <noloc>Blusam</noloc> data sets through a new method named
+- Blusam - Added support for clearing Ehcache of
+  Blusam data sets through a new method named
   CoreBluesamManager.removeCache()
-- <noloc>Blusam</noloc> - Improved delete/rename behavior for regular
-  <noloc>Blusam</noloc> data sets
+- Blusam - Improved delete/rename behavior for regular
+  Blusam data sets
 - Redis - Enhanced support for unlocking data sets and clearing record lock
 - JICS - Improved the error message for failed requests
 - JCL - Added support for ControlM variable concatenation based on dot character
@@ -3430,7 +3673,7 @@ This runtime is based on Java17, Spring2.7, and Angular16.
 - JCL - Improved IDCAMS performance
 - JCL - Enhanced support for PRINT STATEMENT by adding "CHAR" as alias of
   "CHARACTER"
-- SORT - Enhanced support for copy operation from a <noloc>Blusam</noloc>
+- SORT - Enhanced support for copy operation from a Blusam
   fixed-length dataset to a dataset with variable length
 - SORT - Enhanced sort grammar to handle some specific statements
 
@@ -3609,7 +3852,7 @@ sections.
 - Enhanced support for skip list serialization order
 - Added support for debug dump feature to help diagnose indexes order issues
 - Enhanced support for metadata refresh
-- Enhanced support for <noloc>Blusam</noloc> bulk read
+- Enhanced support for Blusam bulk read
 
 ### AS400
 
@@ -3810,7 +4053,7 @@ key features and changes in this release are:
 - Unification of more than 82 CL commands support as part of the over-the-counter
   distribution in order to facilitate the usage and deployment of modernized applications
   previously using CL scripting.
-- New APIs available to operate and interact better with <noloc>Blusam</noloc>
+- New APIs available to operate and interact better with Blusam
   datasets, such as integrated import to the managed service and the capability to list dataset
   metadata information.
 - Performance improvements and extension of the usage of Redis, including availability in
@@ -3833,14 +4076,14 @@ sections.
 
 **Improvements**
 
-- Externalized <noloc>Blusam</noloc> loading services in a separate jar
+- Externalized Blusam loading services in a separate jar
 - Added support to set up location for storing temporary files
 - Improved shared cache mechanisms for multi-nodes cases
 - Shared cache usage: IDCAMS verify optimization
 - Improve ROWID injection for embedded select
 - JCL: Each in-stream job procedure is now generated in a distinct Groovy file
 - Ensure card-demo-v2 coverage on IDCAMS JCL cards
-- <noloc>Blusam</noloc>: Avoid duplicate warmUp when using multiple instances
+- Blusam: Avoid duplicate warmUp when using multiple instances
 - Reduced memory footprint on cache hydration
 - Jedis pool config support
 - Added line separator to stream if used in file concatenation
@@ -3906,7 +4149,7 @@ sections.
   to BYTEA type postgres.
 - Improvement of deletion of last item of cursor
 - Enhanced support for delete RRDS file
-- Improved AWS <noloc>Blusam</noloc> secret performance
+- Improved AWS Blusam secret performance
 - Improved handling of database connections in SQL framework
 - Standardized AWS multi-datasource secret manager keys
 - Performance regression fixes
@@ -4003,7 +4246,7 @@ monitoring features. Some of the key changes in this release are:
 
 - Multiple runtime components can now use AWS Secrets Manager to increase the security setup
   of modernized applications, mostly related to utilities data sources, Redis for TS Queues,
-  <noloc>Blusam</noloc> cache and locks.
+  Blusam cache and locks.
 - Monitoring endpoint that allows to retrieve transaction, batch, and JVM metrics for
   resource usage optimization and operational management, such as status, duration, volume, and
   others.
@@ -4017,9 +4260,9 @@ sections.
 
 ###### Topics
 
-- [zOS](#runtime-zos "#runtime-zos")
-- [AS400](#runtime-as400 "#runtime-as400")
-- [Transversal capabilities](#runtime-transversal "#runtime-transversal")
+- [zOS](#runtime-zos-3.7.0 "#runtime-zos-3.7.0")
+- [AS400](#runtime-as400-3.7.0 "#runtime-as400-3.7.0")
+- [Transversal capabilities](#runtime-transversal-3.7.0 "#runtime-transversal-3.7.0")
 
 ### zOS
 
@@ -4079,7 +4322,7 @@ sections.
 - Added Db2 support for DSNUTILB DISCARD (V7-9798)
 - Support for writing into logger instead of default system output stream in default
   SYSPRINT and SYSPUNCH files (V7-10098)
-- Support <noloc>Blusam</noloc> Redis cache and locks connection properties in AWS
+- Support Blusam Redis cache and locks connection properties in AWS
   Secrets Manager (V7-10238)
 - Support for SSL connection on Db2 XA AWS secret (V7-10258)
 - Updated metadata for IDCAMS REPRO and VERIFY (V7-10281)
@@ -4089,9 +4332,9 @@ sections.
 
 ###### Topics
 
-- [zOS](#modernization-zos "#modernization-zos")
-- [AS400](#modernization-as400 "#modernization-as400")
-- [Transversal capabilities](#modernization-transversal "#modernization-transversal")
+- [zOS](#modernization-zos-3.7.0 "#modernization-zos-3.7.0")
+- [AS400](#modernization-as400-3.7.0 "#modernization-as400-3.7.0")
+- [Transversal capabilities](#modernization-transversal-3.7.0 "#modernization-transversal-3.7.0")
 
 ### zOS
 
@@ -4193,9 +4436,9 @@ sections.
 
 ###### Topics
 
-- [zOS](#runtime-zos "#runtime-zos")
-- [AS400](#runtime-as400 "#runtime-as400")
-- [Transversal capabilities](#runtime-transversal "#runtime-transversal")
+- [zOS](#runtime-zos-3.6.0 "#runtime-zos-3.6.0")
+- [AS400](#runtime-as400-3.6.0 "#runtime-as400-3.6.0")
+- [Transversal capabilities](#runtime-transversal-3.6.0 "#runtime-transversal-3.6.0")
 
 ### zOS
 
@@ -4216,7 +4459,7 @@ sections.
 - Handle default value size for Union (V7-9648)
 - JCL/GROOVY handle different termination/disposition in concatenated datasets
   (V7-9653)
-- Make pageSize configurable for <noloc>Blusam</noloc> datasets (V7-9680)
+- Make pageSize configurable for Blusam datasets (V7-9680)
 - DSNUTIL - allow loading of 24:00:00 as valid TIME in DB2LUW (V7-9697)
 - Support HIGH-VALUES (0xff) comparison in NumberUtils.ne() / NumberUtils.eq()
   (V7-9731)
@@ -4281,14 +4524,14 @@ sections.
 **Improvements**
 
 - Improve the handle of the comparison with blank (V7-8047)
-- Improve logging for Jics and <noloc>Blusam</noloc> (V7-8847)
+- Improve logging for Jics and Blusam (V7-8847)
 - Support BMS extended attributes SOSI and programmed symbol F8 for dynamic fields
   (V7-8857)
 - Handle buffer overflow in program parameter (V7-9138)
-- Improve threads write concurrency for <noloc>Blusam</noloc> locks registry
+- Improve threads write concurrency for Blusam locks registry
   (V7-9505)
 - Support multiple datasources configuration for Utility-pgm (V7-9570)
-- <noloc>Blusam</noloc> record level locking only mode (V7-9626)
+- Blusam record level locking only mode (V7-9626)
 - Ensure metadata persistence resists to server restart (V7-9748)
 - Improve DAO clean-up on exception (Browser Close) (V7-9790)
 - Support DummyFile for INFUTILB SYSPUNCH (V7-9799)
@@ -4298,9 +4541,9 @@ sections.
 
 ###### Topics
 
-- [zOS](#modernization-zos "#modernization-zos")
-- [AS400](#modernization-as400 "#modernization-as400")
-- [Transversal capabilities](#modernization-transversal "#modernization-transversal")
+- [zOS](#modernization-zos-3.6.0 "#modernization-zos-3.6.0")
+- [AS400](#modernization-as400-3.6.0 "#modernization-as400-3.6.0")
+- [Transversal capabilities](#modernization-transversal-3.6.0 "#modernization-transversal-3.6.0")
 
 ### zOS
 
@@ -4413,9 +4656,9 @@ sections.
 
 ###### Topics
 
-- [zOS](#runtime-zos "#runtime-zos")
-- [AS400](#runtime-as400 "#runtime-as400")
-- [Transversal capabilities](#runtime-transversal "#runtime-transversal")
+- [zOS](#runtime-zos-3.5.0 "#runtime-zos-3.5.0")
+- [AS400](#runtime-as400-3.5.0 "#runtime-as400-3.5.0")
+- [Transversal capabilities](#runtime-transversal-3.5.0 "#runtime-transversal-3.5.0")
 
 ### zOS
 
@@ -4429,7 +4672,7 @@ sections.
 - Handle FUNCTION ORD-MAX with ALL (all array items) (V7-9366)
 - Prefixed and human-readable keys are now used when storing TS Queues in Redis
   (V7-9212)
-- Add get dataset endpoint for <noloc>Blusam</noloc> API
+- Add get dataset endpoint for Blusam API
 - JCL - ADD support for batch job with name involving special character like #
   (V7-9136)
 - TSModel fetching is now robustly performed on demand (V7-9212)
@@ -4445,19 +4688,19 @@ sections.
 - Support bulk mode for ESDS and RRDS datasets loading from files (V7-8639)
 - Handle the opening of empty ESDS in input mode. (V7-9287)
 - Enhance DEFINE CLUSTER statement with ORD/UNORD abbreviation support (V7-9451)
-- <noloc>Blusam</noloc> Redis lock performance improvements (V7-8639)
+- Blusam Redis lock performance improvements (V7-8639)
 - Enhance DEFINE CLUSTER statement to support RECORDSIZE provided in DATA() argument scope
   (V7-9337)
 - Adds support of BUFFERSPACE/UNIQUE attributes on DEFINE CLUSTER statements
   (V7-9419)
-- Improve <noloc>Blusam</noloc> read operation for variable length record dataset.
+- Improve Blusam read operation for variable length record dataset.
   (V7-9391)
 - CICS ADDRESS properly represents missing CWA as null (V7-9491)
 - Remove Unnecessary write at end locks (V7-8639)
 - Handle Redis cache template injection in cache (V7-9510)
 - Decode correctly BPXWDYN parameter (V7-9417)
 - Improvement on LISTCAT export consumption (V7-9201)
-- Non-printable chars support in <noloc>Blusam</noloc> TS Queues name
+- Non-printable chars support in Blusam TS Queues name
   (V7-9212)
 - Handle receive Map building for field with mapset null (V7-9486)
 - Improve BluesamRelativeFile delete and rewrite operation for dynamic access mode.
@@ -4519,9 +4762,9 @@ sections.
 
 ###### Topics
 
-- [zOS](#modernization-zos "#modernization-zos")
-- [AS400](#modernization-as400 "#modernization-as400")
-- [Transversal capabilities](#modernization-transversal "#modernization-transversal")
+- [zOS](#modernization-zos-3.5.0 "#modernization-zos-3.5.0")
+- [AS400](#modernization-as400-3.5.0 "#modernization-as400-3.5.0")
+- [Transversal capabilities](#modernization-transversal-3.5.0 "#modernization-transversal-3.5.0")
 
 ### zOS
 
