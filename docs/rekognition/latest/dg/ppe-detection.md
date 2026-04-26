@@ -6,7 +6,7 @@ For example, you can use PPE detection to help determine if workers on a constru
 or if medical workers are wearing face covers and hand covers. The following image shows some of the types of PPE that
 can detected.
 
-![Worker wearing PPE including hardhat, safety glasses, protective mask, and gloves, operating a power tool. Bounding boxes around the items.](/images/rekognition/latest/dg/images/worker-with-bb.png)
+![Worker wearing PPE including hardhat, safety glasses, protective mask, and gloves, operating a power tool. Bounding boxes around the items.](images/worker-with-bb.png)
 To detect PPE in an image you call the [DetectProtectiveEquipment](../APIReference/API_DetectProtectiveEquipment.md "../APIReference/API_DetectProtectiveEquipment.md") API and
 pass an input image. The response is a JSON structure that includes the following.
 
