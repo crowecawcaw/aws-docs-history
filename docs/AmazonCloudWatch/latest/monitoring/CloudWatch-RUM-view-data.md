@@ -1,15 +1,17 @@
 # Viewing the CloudWatch RUM dashboard
 
-CloudWatch RUM helps you collect data from user sessions about your application's
-performance, including load times, Apdex score, device information, geolocation of user
-sessions, and sessions with errors. All of this information is displayed in a
-dashboard.
+CloudWatch RUM collects and visualizes application performance data from user sessions
+through an interactive dashboard. By capturing load times, Apdex scores, device
+information, geolocation, and error patterns, teams can quickly identify performance
+bottlenecks, prioritize fixes based on real user impact, and ensure optimal experiences
+across different browsers, devices, and geographic regions—ultimately reducing end
+user frustration and improving application reliability.
 
 To view the RUM dashboard:
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane, choose **Application Signals**,
+2. In the navigation pane, choose **Application Signals (APM)**,
    **RUM**.
    The RUM console displays a list view of all your app monitors. The
    **Platform** column indicates whether each app monitor is for Web,
@@ -24,47 +26,84 @@ When you select a web application monitor, you'll see the following tabs:
 
 - The **Performance** tab displays page performance
   information including load times, request information, web vitals, and page
-  loads over time. This view features interactive web vitals graphs where you
-  can see the different percentile values of core web vitals for your pages
-  and choose datapoints on the graph to view associated events captured by
-  CloudWatch RUM. From there, you can either explore more events related to the
-  metric spike or view page details for a selected event to identify specific
-  conditions causing performance issues.
+  loads over time. On this tab you can also toggle the view between
+  **Page loads**, **Resources**, and
+  **Locations** to see more details about page
+  performance.
 
-On this tab you can also toggle the view between **Page
-loads**, **Requests**, and
-**Location** to see more details about page
-performance.
+The **Page loads** view features interactive web vitals
+graphs where you can see the different percentile values of core web vitals
+for your pages and choose datapoints on the graph to view correlated
+sessions captured by CloudWatch RUM. From there you can navigate to the Sessions
+tab using one of the links in the diagnostic table to identify specific
+conditions causing performance issues. The tab also features the application
+performance index (**Apdex**) score which indicates end
+users' level of satisfaction. Scores range from 0 (least satisfied) to 1
+(most satisfied). The scores are based on application performance only. For
+more information about Apdex scores, see [How CloudWatch RUM sets Apdex scores](#CloudWatch-RUM-apdex "#CloudWatch-RUM-apdex"). The table at the bottom lists
+the **Top 100 page load times** based on **Page
+Ids**. You can change this attribute in the dropdown next to
+the table header.
 
-- The **Errors** tab displays Javascript error information
-  including the error message most frequently seen by users and the devices
-  and browsers with the most errors. This view includes a histogram of the
-  errors and a list view of errors. You can filter the list of errors by user
-  and event details. Choose an error message to see more details.
-- The **HTTP requests** tab displays HTTP request
-  information including the request URL with most errors and the devices and
-  browsers with the most errors. This tab includes a histogram of the
-  requests, a list view of requests, and a list view of network errors. You
-  can filter the lists by user and event details. Choose a response code or an
-  error message to see more details about the request or network error,
-  respectively.
-- The **Sessions** tab displays session metrics. This tab
-  includes a histogram of session start events and a list view of sessions.
-  You can filter the list of sessions by event type, user details, and event
-  details. Choose a **sessionId** to see more details about a
-  session.
-- The **Events** tab displays a histogram of RUM events and
-  a list view of the events. You can filter the list of events by event type,
-  user details, and event details. Choose a RUM event to see the raw
+![Performance tab showing the Page loads view with interactive web vitals graphs, Apdex score, and Top 100 page load times table](images/rum-web-performance-pageloads.png)
+
+Similarly the **Resources** view shows the resource
+request time and count by the resource type. The
+**Locations** view has interactive map that lets you
+drill down to a more granular view and investigate performance issues in a
+specific region.
+
+![Performance tab showing the Resources and Locations views](images/rum-web-performance-resources-locations.png)
+
+The diagnostic panel on the right also has the
+**Browsers** and **Devices** tab which
+shows the top 5 browsers/devices contributing to the performance issue. You
+can click on the bar chart to navigate to the Sessions tab to further
+investigate the issue.
+
+![Diagnostic panel showing the Browsers and Devices tabs with top 5 contributing browsers and devices](images/rum-web-performance-browsers-devices.png)
+
+- The **JS errors** tab displays JavaScript error count
+  and rate in the summary component along with the Browser and Device with the
+  most errors. This tab includes a chart which shows the number of sessions
+  with JS errors and the failure rate. You can click on any data point in the
+  chart to view the correlated sessions in the diagnostic panel. The table at
+  the bottom lists the top 100 JS errors. The error count link in the table
+  can be used to navigate to the sessions tab where you can view relevant
+  sessions.
+
+![JS errors tab showing error count, failure rate chart, diagnostic panel, and top 100 JS errors table](images/rum-web-js-errors.png)
+
+- The **Http requests** tab displays HTTP request volume
+  and error information in the HTTP request summary on the top. This tab
+  includes a graph with the HTTP errors, HTTP faults and Network failures. You
+  can click on any data point in the chart to view the correlated sessions in
+  the diagnostic panel. The table at the bottom lists the top 100 network
+  routes with issues. If you expand one of the rows you can see the top error
+  messages for that url. The error count link in the table can be used to
+  navigate to the sessions tab where you can view relevant sessions.
+
+![HTTP requests tab showing request summary, error graph, diagnostic panel, and top 100 network routes table](images/rum-web-http-requests.png)
+
+- The **Sessions** tab displays a table that lists all
+  sessions in descending chronological order. At the bottom, a waterfall
+  visualization shows all telemetry for the selected session, helping you
+  track user interactions and identify performance issues. You can click on
+  the error link in the **Errors** column to filter the
+  waterfall chart for the specific error event. Each row in the waterfall can
+  be selected to open the diagnostic panel where you can view the raw
   event.
-- The **Browsers & Devices** tab displays information
-  such as the performance and usage of different browsers and devices to
-  access your application. This view includes controls to toggle the view
-  between focusing on **Browsers** and
-  **Devices**.
 
-If you narrow the scope to a single browser, you see the data broken down
-by browser version.
+![Sessions tab showing session list and waterfall visualization of telemetry events](images/rum-web-sessions-waterfall.png)
+
+For HTTP requests, you'll see a **traceId** for HTTP and
+Xray events that links to the Traces console if you have tracing enabled.
+For events like JS error or HTTP error events, diagnostic panel includes an
+**Exception** tab with the stack trace. The
+**View** button in the waterfall provides quick access
+to this information.
+
+![Sessions diagnostic panel showing traceId link and Exception tab with stack trace](images/rum-web-sessions-diagnostic.png)
 
 - The **User Journey** tab displays the paths that your
   customers use to navigate your application. You can see where your customers
@@ -72,7 +111,12 @@ by browser version.
   can also see the paths that they take and the percentage of customers that
   follow those paths. You can pause on a node to get more details about that
   page. You can choose a single path to highlight the connections for easier
-  viewing.
+  viewing. The page shows user journey till 2nd interaction by default. You
+  can click on the **Add path** button to view further
+  interactions.
+
+![User Journey tab showing navigation paths with Add path button](images/rum-web-user-journey.png)
+
 - The **Metrics** tab displays all default CloudWatch
   metrics published by your app monitor, including performance web vitals,
   error metrics (JavaScript errors, HTTP errors/faults), volume, user flow and
@@ -85,11 +129,16 @@ by browser version.
   the **Add to dashboard** option and update it to include
   more metrics.
 
-(Optional) On any of the first six tabs, you can choose the
-**Pages** button and select a page or page group from the list.
-This narrows down the displayed data to a single page or group of pages of your
-application. You can also mark pages and page groups in the list as
-favorites.
+![Metrics tab showing default and extended CloudWatch metrics published by the app monitor](images/rum-web-metrics.png)
+
+(Optional) On any of the first five tabs, you can filter the data based on user
+ID, session ID and other event specific filters using the filter bar on the top. You
+can also use the quick filter panel on the left to filter on a subset of attributes
+like Page IDs, Page groups, Device, Browser, Location. These filters can be saved
+using the **Save filter** option and can be reused using the
+**Select filter** dropdown next to the filter bar.
+
+![Filter bar with quick filter panel, Save filter option, and Select filter dropdown](images/rum-web-filter-bar.png)
 
 ## Mobile Application Dashboard
 
@@ -116,6 +165,8 @@ which indicates end users' level of satisfaction. Scores range from 0 (least
 satisfied) to 1 (most satisfied). The scores are based on application
 performance only. For more information about Apdex scores, see [How CloudWatch RUM sets Apdex scores](#CloudWatch-RUM-apdex "#CloudWatch-RUM-apdex").
 
+![Mobile Performance tab showing screen load times, app launch times, and Apdex scores with diagnostic panel](images/rum-mobile-performance.png)
+
 - The **Errors** tab breaks down application issues in
   three categories: Network Errors, Crashes, and ANRs (Android)/App Hangs
   (iOS). The **Network Errors** tab has a line chart showing
@@ -132,6 +183,8 @@ crash message or ANR/App Hang stack trace. Clicking on a radio button will
 filter the chart, and clicking the error message will show the complete
 stack trace.
 
+![Mobile Errors tab showing Network Errors, Crashes, and ANRs/App Hangs categories with diagnostic panel](images/rum-mobile-errors.png)
+
 - The **Sessions** tab displays a table that lists all
   sessions in descending chronological order. At the bottom, a waterfall
   visualization shows all telemetry for the selected session, helping you
@@ -145,6 +198,8 @@ App Hangs (iOS), the diagnostic panel includes an
 **Exception** tab with the stack trace. The
 **View** button in the waterfall provides quick access
 to this information.
+
+![Mobile Sessions tab showing waterfall visualization and diagnostic panel with traceId and Exception tab](images/rum-mobile-sessions-diagnostic.png)
 
 - The **Metrics** tab displays all default CloudWatch
   metrics published by your app monitor, including performance metrics (screen

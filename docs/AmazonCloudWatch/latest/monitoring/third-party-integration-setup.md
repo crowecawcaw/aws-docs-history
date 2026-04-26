@@ -47,6 +47,10 @@ comprehensive information about Security Hub's third-party integrations, includi
 supported partners and integration configurations with "Sends findings" direction,
 refer to the [Security Hub Third-Party Integration documentation](../../../securityhub/latest/userguide/securityhub-partner-providers.md "../../../securityhub/latest/userguide/securityhub-partner-providers.md").
 
+AWS Security Hub (distinct from Security Hub CSPM) also supports third-party
+integrations as data sources. For the full list of supported integrations, refer to the
+[Security Hub third-party integrations documentation](../../../securityhub/latest/userguide/securityhub-v2-integrations.md "../../../securityhub/latest/userguide/securityhub-v2-integrations.md").
+
 **Data transformation and standardization**
 
 Third-party integrations support data transformation to standardized formats for

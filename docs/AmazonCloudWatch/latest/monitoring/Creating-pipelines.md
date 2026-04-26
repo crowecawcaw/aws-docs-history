@@ -13,6 +13,19 @@ pipeline.
    parsing using processors like Grok or CSV. Processors that are not supported by the
    data type are disabled.
 
+To configure processors using natural language, enable the
+**AI-assisted** toggle. Enter a description of the log
+transformations you need, and CloudWatch pipelines generates the processor configuration
+automatically. For AWS vended logs, a sample log event is also generated so
+you can verify the output before deploying. You can review and edit the generated
+configuration before creating the pipeline.
+
+###### Important
+
+To use AI-assisted processor configuration, you must have the
+`logs:GeneratePipeline` IAM permission. For more information, see
+[AI-assisted processor configuration permissions](pipeline-iam-reference.md#ai-assisted-permissions "pipeline-iam-reference.md#ai-assisted-permissions").
+
 You can also add conditional processing rules to supported processors using
 the `when` parameter. Conditional processing lets you
 control which log entries a processor acts on. For the expression syntax and

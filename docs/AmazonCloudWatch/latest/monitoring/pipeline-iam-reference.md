@@ -262,6 +262,28 @@ Restricts pipeline creation to specific log source types.
 }
 ```
 
+## AI-assisted processor configuration permissions
+
+To use AI-assisted processor configuration in the CloudWatch pipelines console, the IAM principal
+must have the `logs:GeneratePipeline` permission. This permission authorizes
+the generation of processor configurations from natural language descriptions.
+
+###### Example IAM policy for AI-assisted processor configuration
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowGeneratePipeline",
+            "Effect": "Allow",
+            "Action": "logs:GeneratePipeline",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
 ## Source-specific IAM policies
 
 Different source types require specific IAM permissions to access their respective

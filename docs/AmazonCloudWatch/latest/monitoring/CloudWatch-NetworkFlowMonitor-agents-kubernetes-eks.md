@@ -7,9 +7,6 @@ complete the steps, AWS Network Flow Monitor Agent pods will be running on all o
 If you use self-managed Kubernetes clusters, the installation steps to follow are in the previous section:
 [Install agents for self-managed Kubernetes instances](CloudWatch-NetworkFlowMonitor-agents-kubernetes-non-eks.md "CloudWatch-NetworkFlowMonitor-agents-kubernetes-non-eks.md").
 
-Be aware that Customer Managed prefix lists
-[Customer Managed prefix lists](../../../vpc/latest/userguide/working-with-managed-prefix-lists.md "../../../vpc/latest/userguide/working-with-managed-prefix-lists.md") are not supported for Network Flow Monitor.
-
 You can install the add-on by using the console or by using API commands with the AWS Command Line Interface.
 
 ###### Contents
