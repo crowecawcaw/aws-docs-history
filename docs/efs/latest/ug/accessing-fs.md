@@ -40,7 +40,7 @@ shown in one of the zones in the illustration, you create a mount target in only
 you have one mount target in an Availability Zone, the EC2 instances launched in any of its subnets can share the
 same mount target.
 
-![Regional file system with mount targets in three Availability Zones within a VPC on EC2 instances.](/images/efs/latest/ug/images/efs-ec2-how-it-works-Regional_china-world.png)
+![Regional file system with mount targets in three Availability Zones within a VPC on EC2 instances.](images/efs-ec2-how-it-works-Regional_china-world.png)
 
 The following diagram shows a One Zone file system, with a
 single mount target created in the same Availability Zone as the file system. Accessing the file
