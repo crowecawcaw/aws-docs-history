@@ -60,19 +60,13 @@ when there is consumer capacity and the queue has no other messages to return.
 Like Amazon SQS standard queues, fair queues allow virtually unlimited throughput,
 and there are no limits on the number of tenants you could have in your queue.
 
-## Difference with FIFO queues
+For details on how Amazon SQS detects noisy neighbors and manages message delivery order,
+see [How Amazon SQS fair queues work](sqs-fair-queues-detailed.md "sqs-fair-queues-detailed.md").
 
-FIFO queues maintain strict ordering by limiting the number of in-flight messages from each tenant.
-While this prevents noisy neighbors, it limits throughput for each tenant.
-Fair queues are designed for multi-tenant scenarios where high throughput,
-low dwell time, and fair resource allocation are priorities.
-Fair queues allow multiple consumers to process messages from the same tenant
-concurrently while helping all tenants maintain consistent dwell times.
+## How to use fair queues
 
-## Using fair queues
-
-Your message producers can add a tenant identifier
-by setting a `MessageGroupId` on an outgoing message:
+To enable fair queues, message producers should add a tenant identifier
+by setting a `MessageGroupId` on outgoing messages:
 
 ```
 // Send message with tenant identifier
@@ -88,6 +82,30 @@ The fairness capability will be applied automatically in all Amazon SQS standard
 for messages with the MessageGroupId property.
 It does not require any change in the consumer code, it has no impact on API latency,
 and it does not come with any throughput limitations.
+
+###### Note
+
+`MessageGroupId` on standard queues with fair queues does not have the same behavior
+as `MessageGroupId` on FIFO queues. On standard queues, `MessageGroupId`
+is used only as a tenant identifier for fair queues and does not enforce message ordering.
+For details on `MessageGroupId` on FIFO queues, see
+[Using the message group ID with Amazon SQS FIFO Queues](using-messagegroupid-property.md "using-messagegroupid-property.md").
+
+## When to use fair queues
+
+Consider using fair queues when all of the following apply to your queue:
+
+- **The queue is multi-tenant.** The queue carries messages
+  that belong to multiple logical entities, such as customers, client applications, or
+  request types, and you can identify each entity with a `MessageGroupId`.
+- **The queue is high-throughput.** At low throughput, one
+  tenant's burst rarely creates a backlog that affects other tenants. At high throughput,
+  over-scaling the consumer fleet to absorb every burst is impractical, and even with
+  auto-scaling, the delay before new consumers come online can let backlogs form.
+- **Dwell time is part of your application's quality of
+  service.** Fair queues protect quiet tenants from elevated dwell time caused by
+  a noisy neighbor. If your application is not sensitive to dwell time, the noisy-neighbor
+  protection fair queues provide may not be needed.
 
 ## Fair queues CloudWatch metrics
 

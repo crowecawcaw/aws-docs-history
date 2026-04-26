@@ -213,7 +213,7 @@ _IAM User Guide_.
 The subset of actions included in `*` has
 expanded. For a list of allowed actions, see [Amazon SQS API permissions: Actions and resource reference](sqs-api-permissions-reference.md "sqs-api-permissions-reference.md").
 
-![Number three in the diagram.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-3-red.png)
+![Number three in the diagram.](images/number-3-red.png)
 You can specify the resource using the Amazon Resource Name
 (ARN), the standard means of specifying resources in IAM policies. For
 information about the ARN format for Amazon SQS queues, see [Amazon Simple Queue Service resource and operations](#sqs-resource-and-operations "#sqs-resource-and-operations").
