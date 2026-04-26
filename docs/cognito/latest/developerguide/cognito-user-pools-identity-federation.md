@@ -13,7 +13,7 @@ Sign-in through a third party (federation) is available in Amazon Cognito user p
 feature is independent of federation through Amazon Cognito identity pools (federated
 identities).
 
-![Authentication overview with social sign-in](/images/cognito/latest/developerguide/images/scenario-authentication-cup.png)
+![Authentication overview with social sign-in](images/scenario-authentication-cup.png)
 
 Amazon Cognito is a user directory and an OAuth 2.0 identity provider (IdP). When you sign in
 _local users_ to the Amazon Cognito directory, your user

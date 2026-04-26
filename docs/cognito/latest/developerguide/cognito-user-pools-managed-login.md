@@ -108,6 +108,7 @@ The following languages are available.
 | Spanish                 | es       |
 | French                  | fr       |
 | Bahasa Indonesia        | id       |
+| Dutch                   | nl       |
 | Italian                 | it       |
 | Japanese                | ja       |
 | Korean                  | ko       |
