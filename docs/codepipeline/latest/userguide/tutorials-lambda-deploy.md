@@ -156,7 +156,7 @@ repository.
     Add deploy stage** page, choose
     **Lambda**.
 
-![Add a Lambda deploy action to your pipeline.](images/lambdadeploy-edit-screen.png)
+![Add a Lambda deploy action to your pipeline.](/images/codepipeline/latest/userguide/images/lambdadeploy-edit-screen.png)
 
     1. Add
      your function name and alias.
