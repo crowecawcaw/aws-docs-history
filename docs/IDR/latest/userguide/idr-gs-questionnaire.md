@@ -10,9 +10,14 @@ runbook information on who should be contacted and what actions should be taken.
 Properly completing these questionnaires is a key step in setting up monitoring and
 incident response processes for your AWS workloads.
 
-Download the [Workload onboarding questionnaire](https://d3oc37omrta8ht.cloudfront.net/AWS-Incident-Detection-and-Response-Workload-Onboarding-Questionnaire.xlsx "https://d3oc37omrta8ht.cloudfront.net/AWS-Incident-Detection-and-Response-Workload-Onboarding-Questionnaire.xlsx").
+Download the Workload onboarding questionnaire:
 
-Download the [Alarm ingestion questionnaire](https://d3oc37omrta8ht.cloudfront.net/AWS-Incident-Detection-and-Response-Alarm-Ingestion-Questionnaire.xlsx "https://d3oc37omrta8ht.cloudfront.net/AWS-Incident-Detection-and-Response-Alarm-Ingestion-Questionnaire.xlsx").
+- [English version](https://d3oc37omrta8ht.cloudfront.net/AWS-Incident-Detection-and-Response-Workload-Onboarding-Questionnaire.xlsx "https://d3oc37omrta8ht.cloudfront.net/AWS-Incident-Detection-and-Response-Workload-Onboarding-Questionnaire.xlsx")
+- [Japanese version](https://d3oc37omrta8ht.cloudfront.net/JP_AWS-Incident-Detection-and-Response-Workload-Onboarding-Questionnaire.xlsx "https://d3oc37omrta8ht.cloudfront.net/JP_AWS-Incident-Detection-and-Response-Workload-Onboarding-Questionnaire.xlsx")
+  Download the Alarm ingestion questionnaire:
+
+- [English version](https://d3oc37omrta8ht.cloudfront.net/AWS-Incident-Detection-and-Response-Alarm-Ingestion-Questionnaire.xlsx "https://d3oc37omrta8ht.cloudfront.net/AWS-Incident-Detection-and-Response-Alarm-Ingestion-Questionnaire.xlsx")
+- [Japanese version](https://d3oc37omrta8ht.cloudfront.net/JP_AWS-Incident-Detection-and-Response-Alarm-Ingestion-Questionnaire.xlsx "https://d3oc37omrta8ht.cloudfront.net/JP_AWS-Incident-Detection-and-Response-Alarm-Ingestion-Questionnaire.xlsx")
 
 ## Workload onboarding questionnaire - General questions
 
