@@ -13,3 +13,4 @@ Slurm is an open-source workload manager designed for Linux clusters that provid
 - [Configuring custom SlurmDBD settings in AWS PCS](slurmdbd-custom-settings.md "slurmdbd-custom-settings.md")
 - [Extend Slurm functionality on AWS PCS with SPANK plugins](spank.md "spank.md")
 - [Use Slurm CLI Filter Plugins to customize job submission in AWS PCS](slurm-cli-filter-plugins.md "slurm-cli-filter-plugins.md")
+- [Slurm metrics in AWS PCS](slurm-metrics.md "slurm-metrics.md")

@@ -102,6 +102,12 @@ https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/crea
 https://console.aws.amazon.com/cloudformation/home?region=eu-south-1#/stacks/create/review?stackName=hpc-networking&templateURL=https://aws-hpc-recipes.s3.us-east-1.amazonaws.com/main/recipes/net/hpc_large_scale/assets/main.yaml
 ```
 
+- **Europe (Spain) (eu-south-2)**
+
+```
+https://console.aws.amazon.com/cloudformation/home?region=eu-south-2#/stacks/create/review?stackName=hpc-networking&templateURL=https://aws-hpc-recipes.s3.us-east-1.amazonaws.com/main/recipes/net/hpc_large_scale/assets/main.yaml
+```
+
 - **Europe (Stockholm) (eu-north-1)**
 
 ```

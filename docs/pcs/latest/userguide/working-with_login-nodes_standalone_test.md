@@ -10,7 +10,7 @@ errors, they will commonly show up here.
    Active: active (running) since Tue 2024-12-17 16:34:55 UTC; 8s ago
  Main PID: 9985 (sackd)
    CGroup: /system.slice/sackd.service
-           └─9985 /opt/aws/pcs/scheduler/slurm-25.05/sbin/sackd --systemd --conf-server=10.3.149.220:6817
+           └─9985 /opt/aws/pcs/scheduler/slurm-25.11/sbin/sackd --systemd --conf-server=10.3.149.220:6817
 
 Dec 17 16:34:55 ip-10-3-27-112.ec2.internal systemd[1]: Starting Slurm auth and cred kiosk daemon...
 Dec 17 16:34:55 ip-10-3-27-112.ec2.internal systemd[1]: Started Slurm auth and cred kiosk daemon.

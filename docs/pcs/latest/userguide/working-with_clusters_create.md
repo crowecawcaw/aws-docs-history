@@ -92,11 +92,11 @@ AWS CLI
      can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with
      an alphabetic character and can't be longer than 40 characters. The name must be unique
      within the AWS Region and AWS account where you're creating the cluster.
-   - Replace `25.05` with any supported version of Slurm.
+   - Replace `25.11` with any supported version of Slurm.
 
    ###### Note
 
-   AWS PCS currently supports Slurm 25.05 and 24.11.
+   AWS PCS currently supports Slurm 25.11, 25.05 and 24.11.
    - Replace `SMALL` with any supported cluster size. This
      determines how many concurrent jobs and compute nodes can be managed by the AWS PCS
      cluster. It can only be set when the cluster is created. For more information on sizing,
@@ -112,7 +112,7 @@ AWS CLI
 ```
 aws pcs create-cluster --region `region` \
     --cluster-name `my-cluster` \
-    --scheduler type=SLURM,version=`25.05` \
+    --scheduler type=SLURM,version=`25.11` \
     --size `SMALL` \
     --networking subnetIds=`subnet-ExampleId1`,securityGroupIds=`sg-ExampleId1`
 ```
@@ -143,7 +143,7 @@ aws pcs create-cluster --region `region` \
     ```
     aws pcs create-cluster --region `region` \
         --cluster-name `my-cluster` \
-        --scheduler type=SLURM,version=`25.05` \
+        --scheduler type=SLURM,version=`25.11` \
         --size `SMALL` \
         --networking subnetIds=`subnet-ExampleId1`,securityGroupIds=`sg-ExampleId1`
         **--slurm-configuration scaleDownIdleTimeInSeconds=3600,accounting='{mode=STANDARD}',slurmCustomSettings='[{parameterName=SelectTypeParameters,parameterValue=CR\_CPU\_Memory}]'**

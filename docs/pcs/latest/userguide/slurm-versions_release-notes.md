@@ -6,6 +6,45 @@ your cluster.
 
 ###### Changes implemented in AWS PCS
 
+- Expedited requeue is enabled by default. Jobs that fail due to node issues
+  (such as insufficient capacity errors) can be requeued with the highest
+  scheduling priority using `sbatch --requeue=expedite`. This is
+  controlled by the
+  `SchedulerParameters=enable_expedited_requeue` setting.
+- The `requeue_delay` parameter is available as a custom cluster
+  setting with a default of 5 seconds. Previously, requeue delay was tied to
+  credential expiration (70 seconds). Administrators can now configure this
+  independently via
+  `SchedulerParameters=requeue_delay=<seconds>`.
+- `HealthCheckNodeState` now supports the
+  `START_ONLY` value, which runs the health check program only at
+  node startup (slurmd start).
+- `CommunicationParameters=disable_http` is set by default to
+  disable unauthenticated HTTP endpoints (metrics and health probes)
+  introduced in Slurm 25.11.
+
+###### Known issues
+
+- Slurm 25.11 validates `AllowQOS` and `DenyQOS`
+  partition settings even when `AccountingStorageEnforce=QOS` is
+  not set. If a QOS referenced in `AllowQOS` or
+  `DenyQOS` doesn't exist in the Slurm accounting database,
+  `slurmctld` exits with a fatal error. Ensure that all QOS values
+  listed in partition `AllowQOS` and `DenyQOS` settings
+  exist in the accounting database before upgrading to or restarting Slurm
+  25.11.
+- The `slurmd` log may show the error message
+  `error: cannot create url_parser context for
+ http_parser/libhttp_parser`. This is a known Slurm issue that occurs
+  even when `CommunicationParameters=disable_http` is set. The
+  error can be safely ignored and doesn't affect cluster operation.
+  For more information about Slurm 25.11, see the following publications:
+
+- SchedMD release announcement: [https://www.schedmd.com/slurm-version-25-11-0-is-now-available/](https://www.schedmd.com/slurm-version-25-11-0-is-now-available/ "https://www.schedmd.com/slurm-version-25-11-0-is-now-available/")
+- SchedMD release notes: [https://github.com/SchedMD/slurm/blob/slurm-25.11/RELEASE_NOTES.md](https://github.com/SchedMD/slurm/blob/slurm-25.11/RELEASE_NOTES.md "https://github.com/SchedMD/slurm/blob/slurm-25.11/RELEASE_NOTES.md")
+
+###### Changes implemented in AWS PCS
+
 - The Slurm requeue_on_resume_failure SchedulerParameter is now Enabled by default.
 - "stderr" was removed as an option for LogTimeFormat, as it was disabled in Slurm 25.05.
 - AWS PCS supports Multi-cluster sackd configuration: login node can access multiple clusters.

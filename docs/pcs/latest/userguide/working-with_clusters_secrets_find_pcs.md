@@ -26,7 +26,7 @@ The following example output is from the `get-cluster` command. You can use
         "modifiedAt": "2024-12-17T21:03:52+00:00",
         "scheduler": {
             "type": "SLURM",
-            "version": "25.05"
+            "version": "25.11"
         },
         "size": "SMALL",
         "slurmConfiguration": {

@@ -17,6 +17,13 @@ operations:
 
 This script requires Slurm version 25.05 or later.
 
+###### Note
+
+For Slurm 25.11 or later, you can use `sackd --jwks-file <path>` and
+`sackd --key-file <path>` to specify authentication key paths instead of the
+`SLURM_SACK_JWKS` environment variable. The `SLURM_SACK_JWKS` approach
+remains supported for backward compatibility with Slurm 25.05 clusters.
+
 Slurm must already be installed on the instance (equivalent to
 [step 3](working-with_login-nodes_standalone_install-slurm.md "working-with_login-nodes_standalone_install-slurm.md") in the manual process).
 The instance must be able to reach the target cluster's endpoints. The script performs the

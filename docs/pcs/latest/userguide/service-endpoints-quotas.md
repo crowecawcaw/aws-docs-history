@@ -34,6 +34,7 @@ in the _AWS General Reference_.
 | Europe (London)          | eu-west-2      | pcs.eu-west-2.amazonaws.com<br>pcs.eu-west-2.api.aws                                                                                   | HTTPS    |
 | Europe (Paris)           | eu-west-3      | pcs.eu-west-3.amazonaws.com<br>pcs-eu-west-3.api.aws                                                                                   | HTTPS    |
 | Europe (Milan)           | eu-south-1     | pcs.eu-south-1.amazonaws.com<br>pcs-eu-south-1.api.aws                                                                                 | HTTPS    |
+| Europe (Spain)           | eu-south-2     | pcs.eu-south-2.amazonaws.com<br>pcs-eu-south-2.api.aws                                                                                 | HTTPS    |
 | Europe (Stockholm)       | eu-north-1     | pcs.eu-north-1.amazonaws.com<br>pcs.eu-north-1.api.aws                                                                                 | HTTPS    |
 | AWS GovCloud (US-East)   | us-gov-east-1  | pcs.us-gov-east-1.amazonaws.com<br>pcs-fips.us-gov-east-1.amazonaws.com<br>pcs-fips.us-gov-east-1.api.aws<br>pcs.us-gov-east-1.api.aws | HTTPS    |
 | AWS GovCloud (US-West)   | us-gov-west-1  | pcs.us-gov-west-1.amazonaws.com<br>pcs-fips.us-gov-west-1.amazonaws.com<br>pcs-fips.us-gov-west-1.api.aws<br>pcs.us-gov-west-1.api.aws | HTTPS    |

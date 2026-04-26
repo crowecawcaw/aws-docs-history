@@ -25,10 +25,10 @@ aws-pcs-sample_ami-`OS`-`architecture`-`scheduler`-`scheduler-major-version`
 
 ###### Accepted values
 
-- `OS` – `amzn2`
+- `OS` – `al2023`
 - `architecture` – `x86_64` or `arm64`
 - `scheduler` – `slurm`
-- `scheduler-major-version` – `25.05`
+- `scheduler-major-version` – `25.11`
 
 ###### To find AWS PCS sample AMIs
 
@@ -40,24 +40,28 @@ aws-pcs-sample_ami-`OS`-`architecture`-`scheduler`-`scheduler-major-version`
 
 ###### Examples
 
-    * Sample AMI for Slurm 25.05 on Arm64 instances
+    * Sample AMI for Slurm 25.11 on Arm64 instances
 
 
 
     ```
-    aws-pcs-sample_ami-amzn2-arm64-slurm-25.05
+    aws-pcs-sample_ami-al2023-arm64-slurm-25.11
     ```
-    * Sample AMI for Slurm 25.05 on x86 instances
+    * Sample AMI for Slurm 25.11 on x86 instances
 
 
 
     ```
-    aws-pcs-sample_ami-amzn2-x86_64-slurm-25.05
+    aws-pcs-sample_ami-al2023-x86_64-slurm-25.11
     ```
 
 ###### Note
 
-If there are multiple AMIs, use the AMI with the most recent time stamp. 5. Use the AMI ID when you create or update a compute node group.
+If there are multiple AMIs, use the AMI with the most recent time stamp.
+
+###### Note
+
+Sample AMIs for Slurm 25.05 and 24.11 use Amazon Linux 2 (`amzn2`) instead of Amazon Linux 2023 (`al2023`). 5. Use the AMI ID when you create or update a compute node group.
 
 AWS CLI
 You can find the latest AWS PCS sample AMI with the commands that follow. Replace
@@ -68,7 +72,7 @@ as `us-east-1`.
 
 ```
 aws ec2 describe-images --region `region-code` --owners amazon \
---filters 'Name=name,Values=aws-pcs-sample_ami-amzn2-x86_64-slurm-25.05*' \
+--filters 'Name=name,Values=aws-pcs-sample_ami-al2023-x86_64-slurm-25.11*' \
             'Name=state,Values=available' \
 --query 'sort_by(Images, &CreationDate)[-1].[Name,ImageId]' --output text
 ```
@@ -77,7 +81,7 @@ aws ec2 describe-images --region `region-code` --owners amazon \
 
 ```
 aws ec2 describe-images --region `region-code` --owners amazon \
---filters 'Name=name,Values=aws-pcs-sample_ami-amzn2-arm64-slurm-25.05*' \
+--filters 'Name=name,Values=aws-pcs-sample_ami-al2023-arm64-slurm-25.11*' \
             'Name=state,Values=available' \
 --query 'sort_by(Images, &CreationDate)[-1].[Name,ImageId]' --output text
 ```

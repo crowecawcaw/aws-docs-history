@@ -4,12 +4,25 @@ You can configure AWS PCS to send detailed logging data from your cluster schedu
 Amazon CloudWatch Logs, Amazon Simple Storage Service (Amazon S3), and Amazon Data Firehose. This can assist with monitoring and
 troubleshooting.
 
+AWS PCS delivers logs from the following Slurm daemons through the
+`PCS_SCHEDULER_LOGS` log type:
+
+- **`slurmctld`** — The Slurm
+  controller daemon. Available for all supported Slurm versions.
+- **`slurmdbd`** — The Slurm
+  database daemon. Available for Slurm 24.11 and later.
+- **`slurmrestd`** — The Slurm
+  REST API daemon. Available for Slurm 25.05 and later.
+  Clusters that already have `PCS_SCHEDULER_LOGS` delivery configured
+  automatically start receiving `slurmdbd` and `slurmrestd` logs
+  when they run a supported Slurm version. No additional configuration is required.
+
 ###### Contents
 
 - [Prerequisites](monitoring_scheduler-logs.md#monitoring_scheduler-logs_prereqs "monitoring_scheduler-logs.md#monitoring_scheduler-logs_prereqs")
 - [Set up scheduler logs](monitoring_scheduler-logs.md#monitoring_scheduler-logs_setup "monitoring_scheduler-logs.md#monitoring_scheduler-logs_setup")
 - [Scheduler log stream paths and names](monitoring_scheduler-logs.md#monitoring_scheduler-logs_paths "monitoring_scheduler-logs.md#monitoring_scheduler-logs_paths")
-- [Example scheduler log record](monitoring_scheduler-logs.md#monitoring_scheduler-logs_record "monitoring_scheduler-logs.md#monitoring_scheduler-logs_record")
+- [Example scheduler log records](monitoring_scheduler-logs.md#monitoring_scheduler-logs_record "monitoring_scheduler-logs.md#monitoring_scheduler-logs_record")
 
 ## Prerequisites
 
@@ -116,6 +129,10 @@ For more information, see [CreateDelivery](../../../AmazonCloudWatchLogs/latest/
 
 The path and name for AWS PCS scheduler logs depend on the destination type.
 
+The `${log_name}` value in the paths below is `slurmctld`,
+`slurmdbd`, or `slurmrestd`, depending on the daemon that
+produced the log.
+
 - **CloudWatch Logs**
   - A CloudWatch Logs stream follows this naming convention.
 
@@ -126,7 +143,9 @@ The path and name for AWS PCS scheduler logs depend on the destination type.
   ###### Example
 
   ```
-  AWSLogs/PCS/abcdef0123/slurmctld_24.05.log
+  AWSLogs/PCS/abcdef0123/slurmctld_25.11.log
+  AWSLogs/PCS/abcdef0123/slurmdbd_24.11.log
+  AWSLogs/PCS/abcdef0123/slurmrestd_25.05.log
   ```
 
 - **S3 bucket**
@@ -139,7 +158,9 @@ The path and name for AWS PCS scheduler logs depend on the destination type.
   ###### Example
 
   ```
-  AWSLogs/111111111111/PCS/us-east-2/abcdef0123/slurmctld/24.05/2024/09/01/00.
+  AWSLogs/111111111111/PCS/us-east-2/abcdef0123/slurmctld/25.11/2024/09/01/00/
+  AWSLogs/111111111111/PCS/us-east-2/abcdef0123/slurmdbd/24.11/2024/09/01/00/
+  AWSLogs/111111111111/PCS/us-east-2/abcdef0123/slurmrestd/25.05/2024/09/01/00/
   ```
 
   - An S3 object name follows this convention:
@@ -151,14 +172,17 @@ The path and name for AWS PCS scheduler logs depend on the destination type.
   ###### Example
 
   ```
-  PCS_slurmctld_24.05_2024-09-01-00_abcdef0123_0123abcdef.log
+  PCS_slurmctld_25.11_2024-09-01-00_abcdef0123_0123abcdef.log
   ```
 
-## Example scheduler log record
+## Example scheduler log records
 
 AWS PCS scheduler logs are structured. They include fields such as the cluster
 identifier, scheduler type, major and patch versions, in addition to the log message
-emitted from the Slurm controller process. Here is an example.
+emitted from the Slurm daemon process. The `log_name` and
+`node_type` fields identify which daemon produced the log.
+
+The following example shows a `slurmctld` log record.
 
 ```
 {
@@ -168,9 +192,45 @@ emitted from the Slurm controller process. Here is an example.
     "log_level": "info",
     "log_name": "slurmctld",
     "scheduler_type": "slurm",
-    "scheduler_major_version": "25.05",
-    "scheduler_patch_version": "3",
+    "scheduler_major_version": "25.11",
+    "scheduler_patch_version": "2",
     "node_type": "controller_primary",
     "message": "[2024-07-17T15:42:58.614+00:00] Running as primary controller\n"
+}
+```
+
+The following example shows a `slurmdbd` log record (Slurm 24.11 and
+later).
+
+```
+{
+    "resource_id": "pcs_bu93qsds2j",
+    "resource_type": "PCS_CLUSTER",
+    "event_timestamp": 1774485082772,
+    "log_level": "info",
+    "log_name": "slurmdbd",
+    "scheduler_type": "slurm",
+    "scheduler_major_version": "25.11",
+    "scheduler_patch_version": "2",
+    "node_type": "slurmdbd_primary",
+    "message": "[2026-03-26T00:31:22.772+00:00] mysql_common: storage token refreshed"
+}
+```
+
+The following example shows a `slurmrestd` log record (Slurm 25.05 and
+later).
+
+```
+{
+    "resource_id": "pcs_bu93qsds2j",
+    "resource_type": "PCS_CLUSTER",
+    "event_timestamp": 1774485082772,
+    "log_level": "info",
+    "log_name": "slurmrestd",
+    "scheduler_type": "slurm",
+    "scheduler_major_version": "25.05",
+    "scheduler_patch_version": "3",
+    "node_type": "slurmrestd_primary",
+    "message": "[2026-03-26T00:31:22.772+00:00] slurmrestd: Listening on port 6820\n"
 }
 ```

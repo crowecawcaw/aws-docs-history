@@ -5,6 +5,25 @@ The following custom Slurm settings are supported at the cluster level:
 - [AccountingStorageEnforce](https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStorageEnforce "https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStorageEnforce")
 - [AccountingStorageTRES](https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStorageTRES "https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStorageTRES")
 - [AccountingStoreFlags](https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStoreFlags "https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStoreFlags")
+- [AuthAltParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_AuthAltParameters "https://slurm.schedmd.com/slurm.conf.html#OPT_AuthAltParameters")
+- [CliFilterParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_CliFilterParameters "https://slurm.schedmd.com/slurm.conf.html#OPT_CliFilterParameters")
+
+###### Note
+
+For more information on CLI Filters in AWS PCS, see [Configure Slurm CLI Filter Plugins on an AWS PCS cluster](slurm-cli-filter-plugins-configure.md "slurm-cli-filter-plugins-configure.md").
+
+- [CliFilterPlugins](https://slurm.schedmd.com/slurm.conf.html#OPT_CliFilterPlugins "https://slurm.schedmd.com/slurm.conf.html#OPT_CliFilterPlugins")
+
+###### Note
+
+For more information on CLI Filters in AWS PCS, see [Configure Slurm CLI Filter Plugins on an AWS PCS cluster](slurm-cli-filter-plugins-configure.md "slurm-cli-filter-plugins-configure.md").
+
+- [CommunicationParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_CommunicationParameters "https://slurm.schedmd.com/slurm.conf.html#OPT_CommunicationParameters")
+
+###### Important
+
+AWS PCS disables the HTTP endpoint by default. To enable it, specify `enable_http`.
+
 - [DefMemPerCPU](https://slurm.schedmd.com/slurm.conf.html#OPT_DefMemPerCPU "https://slurm.schedmd.com/slurm.conf.html#OPT_DefMemPerCPU")
 - [Epilog](https://slurm.schedmd.com/slurm.conf.html#OPT_Epilog_1 "https://slurm.schedmd.com/slurm.conf.html#OPT_Epilog_1")
 - [EnforcePartLimits](https://slurm.schedmd.com/slurm.conf.html#OPT_EnforcePartLimits "https://slurm.schedmd.com/slurm.conf.html#OPT_EnforcePartLimits")
@@ -16,6 +35,12 @@ The following custom Slurm settings are supported at the cluster level:
 - [JobRequeue](https://slurm.schedmd.com/slurm.conf.html#OPT_JobRequeue "https://slurm.schedmd.com/slurm.conf.html#OPT_JobRequeue")
 - [LaunchParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_LaunchParameters "https://slurm.schedmd.com/slurm.conf.html#OPT_LaunchParameters")
 - [Licenses](https://slurm.schedmd.com/slurm.conf.html#OPT_Licenses "https://slurm.schedmd.com/slurm.conf.html#OPT_Licenses")
+- [MetricsType](https://slurm.schedmd.com/slurm.conf.html#OPT_MetricsType "https://slurm.schedmd.com/slurm.conf.html#OPT_MetricsType")
+
+###### Note
+
+For more information on Metrics in AWS PCS, see [Slurm metrics in AWS PCS](slurm-metrics.md "slurm-metrics.md").
+
 - [MinJobAge](https://slurm.schedmd.com/slurm.conf.html#OPT_MinJobAge "https://slurm.schedmd.com/slurm.conf.html#OPT_MinJobAge")
 
 ###### Note
@@ -42,9 +67,6 @@ AWS PCS supports a minimum value of 5 seconds for `MinJobAge`.
 - [PriorityWeightTRES](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightTRES "https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightTRES")
 - [Prolog](https://slurm.schedmd.com/slurm.conf.html#OPT_Prolog_1 "https://slurm.schedmd.com/slurm.conf.html#OPT_Prolog_1")
 - [PrologFlags](https://slurm.schedmd.com/slurm.conf.html#OPT_PrologFlags "https://slurm.schedmd.com/slurm.conf.html#OPT_PrologFlags")
-- [PropagatePrioProcess](https://slurm.schedmd.com/slurm.conf.html#OPT_PropagatePrioProcess "https://slurm.schedmd.com/slurm.conf.html#OPT_PropagatePrioProcess")
-- [PropagateResourceLimits](https://slurm.schedmd.com/slurm.conf.html#OPT_PropagateResourceLimits "https://slurm.schedmd.com/slurm.conf.html#OPT_PropagateResourceLimits")
-- [PropagateResourceLimitsExcept](https://slurm.schedmd.com/slurm.conf.html#OPT_PropagateResourceLimitsExcept "https://slurm.schedmd.com/slurm.conf.html#OPT_PropagateResourceLimitsExcept")
 - [RequeueExit](https://slurm.schedmd.com/slurm.conf.html#OPT_RequeueExit "https://slurm.schedmd.com/slurm.conf.html#OPT_RequeueExit")
 - [RequeueExitHold](https://slurm.schedmd.com/slurm.conf.html#OPT_RequeueExitHold "https://slurm.schedmd.com/slurm.conf.html#OPT_RequeueExitHold")
 - [SchedulerParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_SchedulerParameters "https://slurm.schedmd.com/slurm.conf.html#OPT_SchedulerParameters")

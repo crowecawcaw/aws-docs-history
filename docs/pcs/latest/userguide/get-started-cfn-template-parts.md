@@ -101,11 +101,12 @@ Parameters:
 
   SlurmVersion:
     Type: String
-    Default: 25.05
+    Default: 25.11
     Description: Version of Slurm to use
     AllowedValues:
          - 24.11
          - 25.05
+         - 25.11
 
   ManagedAccounting:
     Type: String

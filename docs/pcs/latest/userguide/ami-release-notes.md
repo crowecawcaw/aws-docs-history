@@ -15,12 +15,29 @@ workloads.
 
 ###### Contents
 
-- [Sample AMIs for x86_64
-  (AL2)](ami-release-notes.md#ami-release-notes_x86 "ami-release-notes.md#ami-release-notes_x86")
-- [Sample AMIs for Arm64
-  (AL2)](ami-release-notes.md#ami-release-notes_arm64 "ami-release-notes.md#ami-release-notes_arm64")
+- [Sample AMIs for x86_64](ami-release-notes.md#ami-release-notes_x86 "ami-release-notes.md#ami-release-notes_x86")
+- [Sample AMIs for Arm64](ami-release-notes.md#ami-release-notes_arm64 "ami-release-notes.md#ami-release-notes_arm64")
 
-## AWS PCS sample AMIs for x86_64 (Amazon Linux 2)
+## AWS PCS sample AMIs for x86_64
+
+###### AMI name
+
+- `aws-pcs-sample_ami-al2023-x86_64-slurm-25.11`
+
+###### Supported EC2 instances
+
+- All instances with an 64-bit x86 processor. To find compatible instances, navigate to the Amazon EC2 console. Choose Instance Types, then search for Architectures=x86_64.
+
+###### AMI contents
+
+- Supported AWS Service: AWS PCS
+- Operating System: Amazon Linux 2023
+- Compute Architecture: x86_64
+- EBS volume type: gp2
+- EFA Installer: 1.47.0
+- GDRCopy: 2.5.1
+- NVIDIA Driver: 590.48.01
+- NVIDIA CUDA: 13.1_590.48.01
 
 ###### AMI name
 
@@ -109,7 +126,26 @@ information, see [Slurm accounting in AWS PCS](slurm-accounting.md "slurm-accoun
 - NVIDIA Driver: 550.127.08
 - NVIDIA CUDA: 12.4.1_550.54.15
 
-## AWS PCS sample AMIs for Arm64 (Amazon Linux 2)
+## AWS PCS sample AMIs for Arm64
+
+###### AMI name
+
+- `aws-pcs-sample_ami-al2023-arm64-slurm-25.11`
+
+###### Supported EC2 instances
+
+- All instances with a 64-bit Arm processor. To find compatible instances, navigate to the Amazon EC2 console. Choose Instance Types, then search for Architectures=arm64.
+
+###### AMI contents
+
+- Supported AWS Service: AWS PCS
+- Operating System: Amazon Linux 2023
+- Compute Architecture: arm64
+- EBS volume type: gp2
+- EFA Installer: 1.47.0
+- GDRCopy: 2.5.1
+- NVIDIA Driver: 590.48.01
+- NVIDIA CUDA: 13.1_590.48.01
 
 ###### AMI name
 
