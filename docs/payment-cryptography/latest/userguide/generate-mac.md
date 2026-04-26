@@ -116,14 +116,15 @@ The key must have KeyUsage set to `TR31_M6_ISO_9797_5_CMAC_KEY` and KeyModesOfUs
 
 ## Generate MAC using DUKPT CMAC
 
-In this example, we will generate a MAC using DUKPT (Derived Unique Key Per Transaction) with CMAC for card data authentication.
+This example generates a MAC using DUKPT (Derived Unique Key Per Transaction) with CMAC for card data authentication.
 The key must have KeyUsage set to `TR31_B0_BASE_DERIVATION_KEY` and KeyModesOfUse `DeriveKey` set to true.
+
 DUKPT keys derive a unique key for each transaction using a Base Derivation Key (BDK) and a Key Serial Number (KSN).
 
 ###### Example
 
 ```
-`$` `aws payment-cryptography-data generate-mac --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/qnobl5lghrzunce6 --message-data "3b313038383439303031303733393431353d32343038323236303030373030303f33" --generation-attributes="DukptCmac={KeySerialNumber="932A6E954ABB32DD00000001",Direction=BIDIRECTIONAL}"`
+`$` `aws payment-cryptography-data generate-mac --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/qnobl5lghrzunce6 --message-data "3b313038383439303031303733393431353d32343038323236303030373030303f33" --generation-attributes="DukptCmac={KeySerialNumber="932A6E954ABB32DD00000001",DukptKeyVariant=BIDIRECTIONAL}"`
 
 ```
 
@@ -131,7 +132,8 @@ DUKPT keys derive a unique key for each transaction using a Base Derivation Key 
 
 `{
  "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/qnobl5lghrzunce6",
- "KeyCheckValue": "C1EB8F"
+ "KeyCheckValue": "C1EB8F",
+ "Mac": "1F8C36E63F91E4E93DF7842BF5E2E5F7"
 }`
 
 ```
