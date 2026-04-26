@@ -7,7 +7,7 @@ Selecting an API destination as a target is part of creating the rule.
 
 ###### To create a rule that sends events to an API destination using the console
 
-1. Follow the steps in the [Creating rules in Amazon EventBridge](eb-create-rule-visual.md "eb-create-rule-visual.md") procedure.
+1. Follow the steps in the [Creating rules using the Enhanced Builder](eb-create-rule-visual.md "eb-create-rule-visual.md") procedure.
 2. In the [Select targets](eb-create-rule-wizard.md#eb-create-rule-target "eb-create-rule-wizard.md#eb-create-rule-target") step, when prompted to choose
    an API destination as the target type:
    1. Select **EventBridge API destination**.

@@ -1,4 +1,4 @@
-# Creating rules in Amazon EventBridge
+# Creating rules using the Enhanced Builder
 
 ## Prerequisites
 
@@ -27,23 +27,35 @@ First, choose the events you want to send to the target.
 
 ###### To select an event
 
-1.  Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2.  In the navigation pane, choose **Rules**, and then choose **Create Rule**.
-3.  In the **Events** tab, find the events you want to send to the target:
+1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
+2. In the navigation pane, choose **Rules**, and then choose **Create rule**.
+3. On the rule builder selection page, choose **Enhanced Builder**.
+
+The Enhanced Builder provides a visual canvas for building rules and targets by
+dragging and dropping events and targets. To use JSON patterns and configuration
+instead, see [Creating rules (Advanced Builder)](eb-create-rule-wizard.md "eb-create-rule-wizard.md"). 4. In the **Events** tab, find the events you want to send to the target:
+
     1. Choose **AWS Service Events** or **Custom Events**.
     2. Use the Search box or browse the event list to find the events you want to send to the target.
     3. Drag one or more events into the **Build** canvas and drop it on **Triggering Events**.EventBridge displays the **Triggering Events** section. This section includes:
-    - **Events**, which lists the event you chose.
-    - **Schema**, which displays the schema of the selected event, if available.
+
+
+
+
+    * **Events**, which lists the event you chose.
+    * **Schema**, which displays the schema of the selected event, if available.
+
 
     **Schema** contains three tabs:
 
-        + **Tree**: A tree view of the event schema.
-        + **Code**: The event schema in Open API spec or JSON format.
-        + **Info**: Overview information about the schema.
 
-    - **Sample event**, which displays a sample of a selected event, if available.
-    - **Event pattern (filter)**, which contains an event pattern that selects all events you've chosen.
+
+
+    	+ **Tree**: A tree view of the event schema.
+    	+ **Code**: The event schema in Open API spec or JSON format.
+    	+ **Info**: Overview information about the schema.
+    * **Sample event**, which displays a sample of a selected event, if available.
+    * **Event pattern (filter)**, which contains an event pattern that selects all events you've chosen.
 
 ## Filter events to send only what you want
 

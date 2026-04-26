@@ -1,4 +1,4 @@
-# Creating rules that react to events in Amazon EventBridge
+# Creating rules using the Advanced Builder
 
 To take action on events received by Amazon EventBridge, you can
 create [rules](eb-rules.md "eb-rules.md"). When an event matches the [event pattern](eb-event-patterns.md "eb-event-patterns.md") defined in your rule, EventBridge sends the
@@ -24,16 +24,19 @@ the event bus where your rule looks for events to match to an event pattern.
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2. In the navigation pane, choose **Rules**.
 3. Choose **Create rule**.
-4. Enter a **Name** and, optionally, a
-   **Description** for the rule.
+4. On the rule builder selection page, choose **Advanced Builder**.
+
+The Advanced Builder uses JSON patterns and configuration for rules and targets.
+To use the visual canvas instead, see [Creating rules (Enhanced Builder)](eb-create-rule-visual.md "eb-create-rule-visual.md"). 5. Enter a **Name** and, optionally, a
+**Description** for the rule.
 
 A rule can't have the same name as another rule in the same AWS Region and
-on the same event bus. 5. For **Event bus**, choose the event bus to associate with
+on the same event bus. 6. For **Event bus**, choose the event bus to associate with
 this rule. If you want this rule to match events that come from your account,
 select **AWS default event bus**. When an AWS service in
 your account emits an event, it always goes to your account’s default event
-bus. 6. For **Rule type**, choose **Rule with an event
-pattern**. 7. Choose **Next**.
+bus. 7. For **Rule type**, choose **Rule with an event
+pattern**. 8. Choose **Next**.
 
 ## Build the event pattern
 

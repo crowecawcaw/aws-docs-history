@@ -15,7 +15,16 @@ criteria (called an _event pattern_). An event
 pattern defines the event structure and the fields that a rule
 matches. If an event matches the criteria defined in the event pattern, EventBridge sends it to the target(s) you specify.
 
-For more information, see [Creating rules in Amazon EventBridge](eb-create-rule-visual.md "eb-create-rule-visual.md").
+EventBridge provides two rule builder modes for creating event-pattern rules in the console:
+
+- **Enhanced Builder** – A visual canvas for
+  building rules and targets. Drag and drop events and targets to construct your
+  rule without writing JSON directly. For more information, see
+  [Creating rules (Enhanced Builder)](eb-create-rule-visual.md "eb-create-rule-visual.md").
+- **Advanced Builder** – JSON patterns and
+  configuration for rules and targets. Provides direct access to the full event
+  pattern syntax and target configuration options. For more information, see
+  [Creating rules (Advanced Builder)](eb-create-rule-wizard.md "eb-create-rule-wizard.md").
 
 ## Rules that run on a schedule
 

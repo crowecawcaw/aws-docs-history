@@ -205,4 +205,4 @@ which you can use to create a rule and assign it to the event bus of your choice
 Note that **Step 2 - Build event pattern** contains the event
 pattern information you've already specified, and which you can accept or update.
 
-For more on how to create rules, see [Creating rules in Amazon EventBridge](eb-create-rule-visual.md "eb-create-rule-visual.md").
+For more on how to create rules, see [Creating rules using the Enhanced Builder](eb-create-rule-visual.md "eb-create-rule-visual.md").
