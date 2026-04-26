@@ -742,11 +742,23 @@ For more information about using a trust policy with AWS DMS, see [Creating the 
 
 Using Redshift Serverless as a target has the following limitations:
 
-- AWS DMS only supports Amazon Redshift Serverless as an endpoint in regions that support Amazon Redshift Serverless. For information
-  about which regions support Amazon Redshift Serverless, see **Redshift Serverless API** in the
-  [Amazon Redshift endpoints and quotas](../../../general/latest/gr/redshift-service.md "../../../general/latest/gr/redshift-service.md")
-  topic in the
-  [AWS General Reference](../../../general/latest/gr/Welcome.md "../../../general/latest/gr/Welcome.md").
+- AWS DMS supports Amazon Redshift Serverless as an endpoint in the following AWS Regions:
+  - US East (N. Virginia) – us-east-1
+  - US East (Ohio) – us-east-2
+  - US West (N. California) – us-west-1
+  - US West (Oregon) – us-west-2
+  - Asia Pacific (Mumbai) – ap-south-1
+  - Asia Pacific (Seoul) – ap-northeast-2
+  - Asia Pacific (Singapore) – ap-southeast-1
+  - Asia Pacific (Sydney) – ap-southeast-2
+  - Asia Pacific (Tokyo) – ap-northeast-1
+  - Canada (Central) – ca-central-1
+  - Europe (Frankfurt) – eu-central-1
+  - Europe (Ireland) – eu-west-1
+  - Europe (London) – eu-west-2
+  - Europe (Paris) – eu-west-3
+  - Europe (Stockholm) – eu-north-1
+
 - When using Enhanced VPC Routing, make sure that you create an Amazon S3 endpoint in the same VPC as your
   Redshift Serverless or Redshift Provisioned cluster. For more information, see [Using enhanced VPC routing with Amazon Redshift as a target for AWS Database Migration Service](#CHAP_Target.Redshift.EnhancedVPC "#CHAP_Target.Redshift.EnhancedVPC").
 - AWS DMS does not support Enhanced Throughput for Amazon Redshift Serverless as a target. For more information, see [Enhanced Throughput for Full-Load Oracle to Amazon Redshift and Amazon S3 Migrations](CHAP_Serverless.Components.md#CHAP_Serverless.Throughput "CHAP_Serverless.Components.md#CHAP_Serverless.Throughput").

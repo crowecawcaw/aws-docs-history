@@ -155,6 +155,59 @@ When using ongoing replication (CDC), the following limitations apply:
 ALTER TABLE TABLE_SCHEMA.TABLE_NAME DATA CAPTURE CHANGES INCLUDE LONGVAR COLUMNS;
 ```
 
+AWS DMS doesn't support migrating tables from the following DB2 system schemas:
+
+- `SYSIBM`
+- `SYSIBMADM`
+- `SYSCAT`
+- `SYSSTAT`
+- `SYSPROC`
+- `SYSFUN`
+- `SYSPUBLIC`
+- `SYSTOOLS`
+
+These schemas contain DB2 system catalog tables whose metadata can not be retrieved by AWS DMS.
+If your table mapping selection rules include these schemas - for example, by using a wildcard pattern such as `%` for the schema name - the migration task might fail.
+
+To avoid this issue, use one of the following approaches in your table mapping rules:
+
+- Specify only the user schemas that you want to migrate in your `include` rules.
+- Add an explicit `exclude` rule for DB2 system schemas before your `include` rule.
+
+The following example shows table mapping rules that exclude DB2 system schemas by using a wildcard pattern, and then include all remaining user schemas.
+
+```
+
+	{
+	  "rules": [
+	    {
+	      "rule-type": "selection",
+	      "rule-id": "1",
+	      "rule-name": "exclude-db2-system-schemas",
+	      "object-locator": {
+	        "schema-name": "SYS%",
+	        "table-name": "%"
+	      },
+	      "rule-action": "exclude"
+	    },
+	    {
+	      "rule-type": "selection",
+	      "rule-id": "2",
+	      "rule-name": "include-user-schemas",
+	      "object-locator": {
+	        "schema-name": "%",
+	        "table-name": "%"
+	      },
+	      "rule-action": "include"
+	    }
+	  ]
+	}
+
+```
+
+**Note:** In table mapping rules, `exclude` rules are evaluated before `include` rules. In this example,
+the `exclude` rule prevents AWS DMS from selecting any tables in schemas that begin with SYS, while the `include` rule selects all tables in the remaining schemas.
+
 ## Endpoint settings when using Db2 LUW as a source for AWS DMS
 
 You can specify the settings when you create the source

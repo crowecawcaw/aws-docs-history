@@ -43,6 +43,11 @@ use a MySQL, Aurora MySQL-Compatible Edition or Aurora MySQL-Compatible Edition 
 - [Validate that skipTableSuspensionForPartitionDdl is enabled for partitioned tables](#CHAP_Tasks.AssessmentReport.MYSQL.tablepartition.ddl "#CHAP_Tasks.AssessmentReport.MYSQL.tablepartition.ddl")
 - [Validate that max_allowed_packet size can handle source LOB columns](#CHAP_Tasks.AssessmentReport.MYSQL.maxallowed.packetlob "#CHAP_Tasks.AssessmentReport.MYSQL.maxallowed.packetlob")
 - [Validate that secondary constraints and indexes (non-primary) are present in the source database](#CHAP_Tasks.AssessmentReport.MYSQL.secondary.constraints "#CHAP_Tasks.AssessmentReport.MYSQL.secondary.constraints")
+- [Validate that row size of net changes table does not exceed 65535 when batch apply is enabled](#CHAP_Tasks.AssessmentReport.MYSQL.batchapply.mysql "#CHAP_Tasks.AssessmentReport.MYSQL.batchapply.mysql")
+- [Validate that the target endpoint is not a read replica](#CHAP_Tasks.AssessmentReport.MYSQL.read.replica "#CHAP_Tasks.AssessmentReport.MYSQL.read.replica")
+- [Validate that number of tables to be migrated does not exceed 10,000](#CHAP_Tasks.AssessmentReport.MYSQL.10k.tables "#CHAP_Tasks.AssessmentReport.MYSQL.10k.tables")
+- [Validate that binary logging is enabled](#CHAP_Tasks.AssessmentReport.MYSQL.binlog.enable "#CHAP_Tasks.AssessmentReport.MYSQL.binlog.enable")
+- [Validate that AWS DMS is connected to a MySQL primary instance](#CHAP_Tasks.AssessmentReport.MYSQL.source.replica "#CHAP_Tasks.AssessmentReport.MYSQL.source.replica")
 
 ## Validate if Binary Log transaction compression is disabled
 
@@ -483,3 +488,42 @@ data migration. For more information, see
 
 This premigration assessment verifies that secondary constraints and indexes (foreign keys,
 check constraints, non-clustered indexes) are present in the source database.
+
+## Validate that row size of net changes table does not exceed 65535 when batch apply is enabled
+
+**API key**:
+`all-check-for-batch-apply-to-mysql`
+
+This premigration assessment checks if any table contains rows exceeding 65,535 bytes in size. When batch apply is enabled, AWS DMS cannot create temporary tables for rows exceeding this size due to MySQL engine limitations.
+
+## Validate that the target endpoint is not a read replica
+
+**API key**:
+`all-check-target-read-replica`
+
+This premigration assessment verifies that the target endpoint is not configured as a read replica. AWS DMS requires write access to the target database and cannot replicate to read-only replicas.
+
+## Validate that number of tables to be migrated does not exceed 10,000
+
+**API key**:
+`mysql-check-10k-tables`
+
+This premigration assessment validates whether the number of tables to migrate exceeds 10,000 based on your table selection.
+
+## Validate that binary logging is enabled
+
+**API key**:
+`mysql-check-binlog-enabled`
+
+This premigration assessment validates whether binary logging is enabled on the source database.
+
+For more information, see [Using a self-managed MySQL-compatible database as a source for AWS DMS](CHAP_Source.MySQL.md#CHAP_Source.MySQL.CustomerManaged "CHAP_Source.MySQL.md#CHAP_Source.MySQL.CustomerManaged").
+
+## Validate that AWS DMS is connected to a MySQL primary instance
+
+**API key**:
+`mysql-check-source-replica`
+
+This premigration assessment validates that the AWS DMS task source endpoint is a primary instance.
+
+For more information, see [Using a self-managed MySQL-compatible database as a source for AWS DMS](CHAP_Source.MySQL.md#CHAP_Source.MySQL.CustomerManaged "CHAP_Source.MySQL.md#CHAP_Source.MySQL.CustomerManaged").

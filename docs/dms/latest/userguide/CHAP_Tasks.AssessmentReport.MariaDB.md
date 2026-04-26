@@ -46,6 +46,11 @@ API key for the `Include` parameter of the
 - [Validate that at least one selected object exists in the source database](#CHAP_Tasks.AssessmentReport.MariaDB.selection.rules "#CHAP_Tasks.AssessmentReport.MariaDB.selection.rules")
 - [Validate that skipTableSuspensionForPartitionDdl is enabled for partitioned tables](#CHAP_Tasks.AssessmentReport.MariaDB.suspension.ddl "#CHAP_Tasks.AssessmentReport.MariaDB.suspension.ddl")
 - [Validate that secondary constraints and indexes (non-primary) are present in the source database](#CHAP_Tasks.AssessmentReport.MariaDB.secondary.constraints "#CHAP_Tasks.AssessmentReport.MariaDB.secondary.constraints")
+- [Validate that row size of net changes table does not exceed 65535 when batch apply is enabled](#CHAP_Tasks.AssessmentReport.MariaDB.batchapply.mysql "#CHAP_Tasks.AssessmentReport.MariaDB.batchapply.mysql")
+- [Validate that target endpoint is not a read replica](#CHAP_Tasks.AssessmentReport.MariaDB.read.replica "#CHAP_Tasks.AssessmentReport.MariaDB.read.replica")
+- [Validate that number of tables to be migrated does not exceed 10,000](#CHAP_Tasks.AssessmentReport.MariaDB.10k.tables "#CHAP_Tasks.AssessmentReport.MariaDB.10k.tables")
+- [Validate that binary log is enabled](#CHAP_Tasks.AssessmentReport.MariaDB.binlog.enable "#CHAP_Tasks.AssessmentReport.MariaDB.binlog.enable")
+- [Check that views from selection rules exist on source](#CHAP_Tasks.AssessmentReport.MariaDB.views "#CHAP_Tasks.AssessmentReport.MariaDB.views")
 
 ## Validate if the `server_id` is set to 1 or greater in the source database
 
@@ -468,3 +473,42 @@ For more information, see [Limitations on using a MySQL database as a source for
 `all-check-secondary-constraints`
 
 This premigration assessment verifies that secondary constraints and indexes (foreign keys, check constraints, non-clustered indexes) are present in the source database.
+
+## Validate that row size of net changes table does not exceed 65535 when batch apply is enabled
+
+**API key**:
+`all-check-for-batch-apply-to-mysql`
+
+The premigration assessment checks if any table contains rows exceeding 65,535 bytes in size. When batch apply is enabled, AWS DMS cannot create temporary tables for rows exceeding this size due to engine limitations.
+
+## Validate that target endpoint is not a read replica
+
+**API key**:
+`all-check-target-read-replica`
+
+This premigration assessment verifies that the target endpoint is not configured as a read replica. AWS DMS requires write access to the target database and cannot replicate to read-only replicas.
+
+## Validate that number of tables to be migrated does not exceed 10,000
+
+**API key**:
+`mariadb-check-10k-tables`
+
+This premigration assessment validates whether the number of tables to migrate exceeds 10,000 based on your table selection.
+
+## Validate that binary log is enabled
+
+**API key**:
+`mariadb-check-binlog-enabled`
+
+This premigration assessment validates whether binary logging is enabled on the source database.
+
+For more information, see [Using a self-managed MySQL-compatible database as a source for AWS DMS](CHAP_Source.MySQL.md#CHAP_Source.MySQL.CustomerManaged "CHAP_Source.MySQL.md#CHAP_Source.MySQL.CustomerManaged").
+
+## Check that views from selection rules exist on source
+
+**API key**:
+`mariadb-check-views`
+
+This premigration assessment validates whether views are used, as AWS DMS does not support views migration for MariaDB.
+
+For more information, see [Limitations on using a MySQL database as a source for AWS DMS](CHAP_Source.MySQL.md#CHAP_Source.MySQL.Limitations "CHAP_Source.MySQL.md#CHAP_Source.MySQL.Limitations").

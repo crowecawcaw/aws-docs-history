@@ -1088,7 +1088,7 @@ WHERE directory_name LIKE ( 'ARCHIVELOG_DIR_%' )
 For example, the preceding code displays a list of directories like
 the following.
 
-![Table showing directory names and their corresponding paths for archive and online logs.](images/datarep-rds-server-level-directories.png) 4. Grant the `Read` privilege on the preceding directories to
+![Table showing directory names and paths for archive and online log directories.](images/datarep-rds-server-level-directories.png) 4. Grant the `Read` privilege on the preceding directories to
 the Oracle user account that is used to access the Oracle
 Standby.
 
