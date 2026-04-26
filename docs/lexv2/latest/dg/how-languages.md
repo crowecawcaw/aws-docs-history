@@ -59,6 +59,7 @@ Amazon Lex V2 supports the following languages and locales.
 | pt_BR   | Portuguese (Brazil)                |
 | pt_PT   | Portuguese (Portugal)              |
 | ro_RO\* | Romanian (Romania)                 |
+| ru_RU\* | Russian (Russia)                   |
 | sk_SK\* | Slovak (Slovakia)                  |
 | sl_SI\* | Slovenian (Slovenia)               |
 | so_SO\* | Somali (Somalia)                   |
