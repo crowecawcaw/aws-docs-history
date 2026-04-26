@@ -28,10 +28,6 @@ Follow these steps to provide your bank account information in AWS Marketplace:
 3. Provide the required information about your bank account. You have the option to provide one or more bank accounts (US ACH account, SWIFT bank account from an eligible jurisdiction, or other supported account types).
 4. Choose **Submit** to save your bank account information.
 
-###### Note
-
-Your bank account cannot be deleted after it is added.
-
 ###### Important
 
 Ensure that the bank account holder name matches the legal entity name you provided during the tax information step. Mismatches can cause payment delays or rejections.
