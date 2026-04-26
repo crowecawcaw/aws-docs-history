@@ -103,7 +103,9 @@ The unit of measure for Aurora Serverless v2 is the _Aurora capacity unit (ACU)_
 Aurora Serverless v2 capacity isn't tied to the DB instance classes that you use for provisioned clusters.
 
 Each ACU is a combination of approximately 2 gibibytes (GiB) of memory, corresponding CPU, and networking. You
-specify the database capacity range using this unit of measure. The `ServerlessDatabaseCapacity`
+specify the database capacity range (minimum and maximum) using this unit of measure. Aurora Serverless v2 offers
+capacity from 0 ACUs to 256 ACUs. With the minimum capacity of 0 ACUs, the cluster will scale to 0 when there
+is no workload running.The `ServerlessDatabaseCapacity`
 and `ACUUtilization` metrics help you to determine how much capacity your database is actually
 using and where that capacity falls within the specified range.
 
@@ -123,6 +125,13 @@ The following table shows the Aurora Serverless v2 capacity ranges and engine ve
 | 0.5–256               | 3.06.0 and higher               | 13.13 and higher, 14.10 and higher, 15.5 and higher, 16.1 and higher |
 | 0–256                 | 3.08.0 and higher               | 13.15 and higher, 14.12 and higher, 15.7 and higher, 16.3 and higher |
 
+Platform versions in Aurora Serverless v2 represent improvements in performance, scaling capabilities or features.
+Amazon Aurora automatically manages platform version assignments at the cluster level. All new clusters,
+database restores, and new clones launch with the latest platform version available in your AWS Region.
+When a new platform version becomes available, existing clusters on previous platform versions can be upgraded
+directly to the latest platform version by stopping and restarting the cluster or by using blue/green deployments.
+Amazon Aurora recommends upgrading to the latest platform version to benefit from all the latest improvements.
+
 The following table shows the Aurora Serverless v2 platform versions with their ACU ranges and performance characteristics.
 
 | Aurora Serverless v2 platform version | ACU range | Performance                                                   |
@@ -130,10 +139,23 @@ The following table shows the Aurora Serverless v2 platform versions with their 
 | 1                                     | 0–128     | Baseline performance                                          |
 | 2                                     | 0–256     | Baseline performance                                          |
 | 3                                     | 0–256     | Up to 30% improved performance compared to platform version 2 |
+| 4                                     | 0-256     | Up to 30% improved performance compared to platform version 3 |
 
 ###### Note
 
-The available scaling range for a given cluster is determined by both engine version and platform version. It is possible to have a more capable engine version running on a less capable platform version and vice-versa. The scaling range is determined by the lowest capable engine or platform version.
+The available scaling range for a given cluster is determined by both engine version and platform version.
+It is possible to have a more capable engine version running on a less capable platform version and vice-versa.
+The scaling range is determined by the lowest capable engine or platform version. Platform versions should not
+be confused with Aurora Serverless v1, which is a deprecated product with a different architecture.
+
+Platform version 1, 2, and 3 are available in all regions where Aurora Serverless v2 is supported.
+Platform Version 4 is available in the following regions: US East (N. Virginia),
+US East (Ohio), US West (N. California), US West (Oregon), Asia Pacific (Hong Kong), Asia Pacific (Hyderabad),
+Asia Pacific (Jakarta), Asia Pacific (Malaysia), Asia Pacific (Melbourne), Asia Pacific (Mumbai),
+Asia Pacific (Osaka), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney),
+Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland),
+Europe (London), Europe (Paris), Europe (Spain), Europe (Stockholm), Europe (Zurich),
+South America (São Paulo), AWS GovCloud (US-East), and AWS GovCloud (US-West).
 
 You can determine what platform version your cluster is running on in the Instance
 Configuration section of the AWS Management Console or through the API by viewing the

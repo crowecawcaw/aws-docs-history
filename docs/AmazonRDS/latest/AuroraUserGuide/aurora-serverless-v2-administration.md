@@ -12,6 +12,7 @@ In the following topics, you can learn about management considerations for clust
 
 - [Setting the Aurora Serverless v2 capacity range for a cluster](#aurora-serverless-v2-setting-acus "#aurora-serverless-v2-setting-acus")
 - [Checking the capacity range for Aurora Serverless v2](#aurora-serverless-v2-checking-capacity "#aurora-serverless-v2-checking-capacity")
+- [Checking the platform version for an existing Aurora Serverless v2 cluster](#aurora-serverless-v2-checking-platform-version "#aurora-serverless-v2-checking-platform-version")
 - [Adding an Aurora Serverless v2 reader](#aurora-serverless-v2-adding-reader "#aurora-serverless-v2-adding-reader")
 - [Converting a provisioned writer or reader to Aurora Serverless v2](#aurora-serverless-v2-converting-from-provisioned "#aurora-serverless-v2-converting-from-provisioned")
 - [Converting an Aurora Serverless v2 writer or reader to provisioned](#aurora-serverless-v2-converting-to-provisioned "#aurora-serverless-v2-converting-to-provisioned")
@@ -233,9 +234,9 @@ The inability to scale greater than 128 ACUs can happen for one of two reasons:
 
   ###### Note
 
-  If you maintain your database credentials in AWS Secrets Manager, you can't use blue/green deployments.
-
-  Aurora Global Database doesn't support blue/green deployments.
+      - If you maintain your database credentials in AWS Secrets Manager, you can't use blue/green deployments.
+      - Aurora Global Database doesn't support blue/green deployments.
+      - **Important:** Once you upgrade to a newer platform version, you cannot downgrade to a previous version.
 
 ## Checking the capacity range for Aurora Serverless v2
 
@@ -277,6 +278,93 @@ $ aws rds describe-db-clusters --db-cluster-identifier serverless-v2-64-acu-clus
     ]
 ]
 ```
+
+## Checking the platform version for an existing Aurora Serverless v2 cluster
+
+The platform version is displayed in the Instance Configuration section of the instance.
+
+![Platform version in the Instance Configuration section.](images/aurora-serverless-v2-platform-version.png)
+You can use the `describe-db-clusters` command to check the platform version for existing cluster(s).
+
+###### Example
+
+```
+aws rds describe-db-clusters \
+    --db-cluster-identifier `mydbcluster`
+```
+
+### Checking the default platform version
+
+You can use the `describe-serverless-v2-platform-versions` command to check the details of a platform version or to check the default platform version that you will get when you create a new cluster.
+
+###### Example
+
+```
+$ aws rds describe-serverless-v2-platform-versions
+{
+    "ServerlessV2PlatformVersions": [
+        {
+            "Engine": "aurora-postgresql",
+            "ServerlessV2PlatformVersion": "3",
+            "ServerlessV2PlatformVersionDescription": "Version 3 powered by Graviton 3 processors offering scaling up to 256 ACUs, and performance improvement up to 30% compared to version 2"
+            "ServerlessV2FeatureSupport": {
+                "MinCapacity": 0
+                "MaxCapacity": 256
+            },
+            "Status": "available",
+            "IsDefault": True
+        },
+        ...
+    ]
+}
+
+# describing the default platform version for an engine
+$ aws rds describe-serverless-v2-platform-versions --engine aurora-postgresql --default-only
+{
+    "ServerlessV2PlatformVersions": [
+        {
+            "Engine": "aurora-postgresql",
+            "ServerlessV2PlatformVersion": "3",
+            "ServerlessV2PlatformVersionDescription": "Version 3 powered by Graviton 3 processors offering scaling up to 256 ACUs, and performance improvement up to 30% compared to version 2"
+            "ServerlessV2FeatureSupport": {
+                "MinCapacity": 0
+                "MaxCapacity": 256
+            },
+            "Status": "available",
+            "IsDefault": True
+        }
+    ]
+}
+```
+
+### Checking for pending platform version upgrades
+
+You can use the `describe-pending-maintenance-actions` command to check whether there are any
+pending platform version upgrades for your Aurora Serverless v2 DB clusters.
+
+To check for pending upgrades on a specific cluster, use the `--resource-identifier` parameter
+to specify the Amazon Resource Name (ARN) of your DB cluster:
+
+###### Example
+
+```
+aws rds describe-pending-maintenance-actions \
+    --resource-identifier arn:aws:rds:`us-east-1`:`123456789012`
+    :cluster:`my-serverless-cluster`
+```
+
+#### Scheduling a platform version upgrade
+
+After you identify a pending platform version upgrade, you can use the
+`apply-pending-maintenance-action` command to schedule when the upgrade occurs.
+
+To schedule a platform version upgrade, specify the following parameters:
+
+- `--resource-identifier` – The ARN of your Aurora Serverless v2 DB cluster
+- `--apply-action` – Use `serverless-platform-version-update` to specify a platform version upgrade
+- `--opt-in-type` – Choose when to apply the upgrade:
+  - `immediate` – Apply the upgrade immediately
+  - `next-maintenance` – Apply the upgrade during your next schedule
 
 ## Adding an Aurora Serverless v2 reader
 
