@@ -24,7 +24,7 @@ To create a RAG evaluation job, you need access to at least one of the evaluator
 model to generate the responses, you also need access to at least one of the listed generator response models.
 
 To learn more about gaining access to models and Region availability,
-see [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
+see [Request access to models](model-access.md "model-access.md").
 
 ### Supported evaluator models (built-in metrics)
 
@@ -58,7 +58,7 @@ see [Access Amazon Bedrock foundation models](model-access.md "model-access.md")
 
 You can use the following model types in Amazon Bedrock as the response generator model in an evaluation job. You can also bring your own inference response data from non-Amazon Bedrock models.
 
-- Foundation models – [Amazon Bedrock foundation model information](foundation-models-reference.md "foundation-models-reference.md")
+- Foundation models – [Using models with Bedrock](foundation-models-reference.md "foundation-models-reference.md")
 - Amazon Bedrock Marketplace models – [Amazon Bedrock Marketplace](amazon-bedrock-marketplace.md "amazon-bedrock-marketplace.md")
 - Customized foundation models – [Customize your model to improve its performance for your use case](custom-models.md "custom-models.md")
 - Imported foundation models – [Use Custom model import to import a customized open-source model into Amazon Bedrock](model-customization-import-model.md "model-customization-import-model.md")

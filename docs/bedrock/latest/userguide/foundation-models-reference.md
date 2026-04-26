@@ -1,4 +1,4 @@
-# Amazon Bedrock foundation model information
+# Using models with Bedrock
 
 A foundation model is an Artificial Intelligence model with a large number of parameters
 and trained on a massive amount of diverse data. A foundation model can generate a variety

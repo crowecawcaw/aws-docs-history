@@ -129,7 +129,7 @@ This section provides detailed information about the common errors you might enc
 
 **HTTP Status Code:** 503
 
-**Cause:** The service is temporarily unable to handle the request. 503 errors are used for regular throttling.
+**Cause:** The service is temporarily unable to handle the request. 503 errors indicate that the service is experiencing high demand or temporary capacity constraints. This is not related to your account-level quotas or rate limits (which return 429 ThrottlingException).
 
 **Solution:**
 

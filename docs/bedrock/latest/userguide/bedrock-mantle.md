@@ -30,6 +30,7 @@ Amazon Bedrock is available in the following AWS Regions:
 | US West (Oregon)          | us-west-2      | bedrock-mantle.us-west-2.api.aws      |
 | Asia Pacific (Jakarta)    | ap-southeast-3 | bedrock-mantle.ap-southeast-3.api.aws |
 | Asia Pacific (Mumbai)     | ap-south-1     | bedrock-mantle.ap-south-1.api.aws     |
+| Asia Pacific (Sydney)     | ap-southeast-2 | bedrock-mantle.ap-southeast-2.api.aws |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | bedrock-mantle.ap-northeast-1.api.aws |
 | Europe (Frankfurt)        | eu-central-1   | bedrock-mantle.eu-central-1.api.aws   |
 | Europe (Ireland)          | eu-west-1      | bedrock-mantle.eu-west-1.api.aws      |

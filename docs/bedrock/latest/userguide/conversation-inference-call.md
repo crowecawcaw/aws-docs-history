@@ -89,7 +89,7 @@ or the model.
 
 The `content` field maps to an array of [ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md") objects.
 Within each [ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md"), you can specify one of the following fields (to
-see what models support what blocks, see [Supported models and model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md")):
+see what models support what blocks, see [models at a glance](model-cards.md "model-cards.md")):
 
 text
 The `text` field maps to a string specifying the
@@ -543,8 +543,12 @@ Content-type: application/json
 
 {
    "promptVariables": {
-      "genre" : "pop",
-      "number": 3
+      "genre": {
+         "text": "pop"
+      },
+      "number": {
+         "text": "3"
+      }
    }
 }
 ```

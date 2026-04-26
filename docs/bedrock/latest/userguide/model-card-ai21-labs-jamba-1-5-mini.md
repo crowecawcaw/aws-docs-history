@@ -13,6 +13,7 @@ Jamba 1.5 Mini is AI21 Labs' lightweight hybrid SSM-Transformer model with 52B t
 - **Context window:** 256K tokens
 - **Max output tokens:** 4K
 - **Knowledge cutoff:** Mar 2024
+- **Marketplace product ID:** `prod-ggrzjm65qmjhm`
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |

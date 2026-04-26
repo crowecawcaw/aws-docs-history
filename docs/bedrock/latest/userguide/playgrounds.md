@@ -21,7 +21,7 @@ Speech-to-speech models such as Amazon Nova Sonic are only available in chat mod
 ###### To use a playground
 
 1.  If you haven't already, request access to the models that you want to use.
-    For more information, see [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
+    For more information, see [Request access to models](model-access.md "model-access.md").
 2.  Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
     [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
 3.  From the navigation pane, under Test, choose **Playground**.
@@ -31,7 +31,7 @@ Speech-to-speech models such as Amazon Nova Sonic are only available in chat mod
     - Prompt – One or more sentences of text that set up a scenario, question, or
       task for a model. For information about creating prompts, see [Prompt engineering concepts](prompt-engineering-guidelines.md "prompt-engineering-guidelines.md").
 
-    Some models (refer to [Supported models and model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md")) allow you to include a file in the following ways:
+    Some models (refer to [models at a glance](model-cards.md "model-cards.md")) allow you to include a file in the following ways:
 
         + Select the attachment icon and choose a file to upload.
         + Select the attachment icon and choose an Amazon S3 object to upload.

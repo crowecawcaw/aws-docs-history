@@ -16,7 +16,6 @@ The supported models are as follows:
 | Claude Sonnet 4.5 | `anthropic.claude-sonnet-4-5-20250929-v1:0` |
 | Claude Haiku 4.5  | `anthropic.claude-haiku-4-5-20251001-v1:0`  |
 | Claude 3.7 Sonnet | `anthropic.claude-3-7-sonnet-20250219-v1:0` |
-| Claude Sonnet 4.5 | `anthropic.claude-opus-4-5-20251101-v1:0`   |
 
 ###### Note
 
@@ -243,8 +242,8 @@ through tool selection and results processing. When using extended thinking with
 tool use, be aware of the following limitations:
 
 - **Tool choice limitation**: Tool use with
-  thinking only supports `tool_choice: any`. It does not support
-  providing a specific tool, `auto`, or any other values.
+  thinking only supports `tool_choice: auto` (default) or `tool_choice: none`. It does not support
+  forced tool use (`any` or specifying a specific tool).
 - **Preserving thinking blocks**: During tool
   use, you must pass thinking blocks back to the API for the last assistant
   message. Include the complete unmodified block back to the API to maintain
@@ -613,7 +612,7 @@ Response
 
 ###### Note
 
-While thinking blocks are removed for aching and context calculations, they
+While thinking blocks are removed for caching and context calculations, they
 must be preserved when continuing conversations with tool use, especially with
 interleaved thinking.
 

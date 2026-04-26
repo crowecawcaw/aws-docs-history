@@ -12,7 +12,7 @@ use with no additional charge.
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
 - [How Amazon Bedrock works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
 - [Identity-based policy examples for Amazon Bedrock](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-- [Managing IAM policies on Projects](security-iam-projects.md "security-iam-projects.md")
+- [IAM policies for Amazon Bedrock Projects](security-iam-projects.md "security-iam-projects.md")
 - [AWS managed policies for Amazon Bedrock](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [Service roles](security-iam-sr.md "security-iam-sr.md")
 - [Configure access to Amazon S3 buckets](s3-bucket-access.md "s3-bucket-access.md")

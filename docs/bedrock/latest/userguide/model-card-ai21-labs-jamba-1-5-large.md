@@ -13,6 +13,7 @@ Jamba 1.5 Large is AI21 Labs' hybrid SSM-Transformer model with 398B total param
 - **Context window:** 256K tokens
 - **Max output tokens:** 4K
 - **Knowledge cutoff:** Mar 2024
+- **Marketplace product ID:** `prod-evcp4w4lurj26`
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |

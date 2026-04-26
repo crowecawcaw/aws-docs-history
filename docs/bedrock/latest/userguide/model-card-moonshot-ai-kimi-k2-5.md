@@ -10,7 +10,7 @@ Kimi K2.5 is Moonshot AI's multimodal model with improved reasoning, coding, and
 - **Model EOL date:** N/A
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
 - **Model lifecycle:** Active
-- **Context window:** 128K tokens
+- **Context window:** 256K tokens
 - **Max output tokens:** 16K
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |

@@ -22,16 +22,8 @@ You can use the `CountTokens` API to do the following:
 
 ## Supported models and Regions for token counting
 
-The following table shows foundation model support for token counting:
-
-| Provider  | Model                | Model ID                                  | Single-region model support                                                                |
-| --------- | -------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Anthropic | Claude 3.5 Haiku     | anthropic.claude-3-5-haiku-20241022-v1:0  | us-west-2                                                                                  |
-| Anthropic | Claude 3.5 Sonnet    | anthropic.claude-3-5-sonnet-20240620-v1:0 | ap-northeast-1<br>ap-southeast-1<br>eu-central-1<br>eu-central-2<br>us-east-1<br>us-west-2 |
-| Anthropic | Claude 3.5 Sonnet v2 | anthropic.claude-3-5-sonnet-20241022-v2:0 | ap-southeast-2<br>us-west-2                                                                |
-| Anthropic | Claude 3.7 Sonnet    | anthropic.claude-3-7-sonnet-20250219-v1:0 | eu-west-2                                                                                  |
-| Anthropic | Claude Opus 4        | anthropic.claude-opus-4-20250514-v1:0     |                                                                                            |
-| Anthropic | Claude Sonnet 4      | anthropic.claude-sonnet-4-20250514-v1:0   |                                                                                            |
+To see which models support token counting, please visit
+[models at a glance](model-cards.md "model-cards.md") and pick the model you are interested in.
 
 ## Count tokens in a request
 

@@ -12,8 +12,16 @@ Claude Opus 4.7 is Anthropic's most capable generally available model, advancing
 - **Model lifecycle:** Active
 - **Context window:** 1M tokens
 - **Max output tokens:** 128K
-- **Reasoning:** Supported
+- **Reasoning:** Supported (`thinking.type: "adaptive"` only)
 - **Knowledge cutoff:** January 2026
+- **Marketplace product ID:** `prod-d2ik6zgct5hxi`
+
+###### Important
+
+Claude Opus 4.7 only supports `thinking.type: "adaptive"` for extended thinking.
+Unlike Claude Opus 4.6, `thinking.type: "enabled"` with `budget_tokens`
+is not supported and will return a 400 error. If you are migrating from Opus 4.6, update your
+requests to use `thinking.type: "adaptive"`.
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
@@ -38,6 +46,14 @@ Claude Opus 4.7 is Anthropic's most capable generally available model, advancing
 | **Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **Not Supported**                                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• Yes [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• Yes [Model evaluation](evaluation.md "evaluation.md")<br>• Yes [Prompt management](prompt-management.md "prompt-management.md")<br>• Yes [Flows](flows.md "flows.md")<br>• Yes [Agents](agents.md "agents.md") | • No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• No [Count tokens](count-tokens.md "count-tokens.md") |
+
+**Prompt caching using `bedrock-runtime` endpoint**
+
+For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
+
+| **Prompt caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoints** |
+| ---------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ----------------------------------------------- |
+| Yes                          | 1,024                               | 4                                     | 5 minutes         | `system`, `messages`, and `tools`               |
 
 ## Pricing
 
@@ -221,6 +237,7 @@ client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
     modelId='anthropic.claude-opus-4-7',
     body=json.dumps({
+            'anthropic_version': 'bedrock-2023-05-31',
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
             'max_tokens': 1024
     })

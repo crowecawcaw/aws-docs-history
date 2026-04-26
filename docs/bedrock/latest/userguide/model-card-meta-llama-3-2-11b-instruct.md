@@ -7,9 +7,9 @@
 Llama 3.2 11B Instruct is Meta's 11-billion parameter multimodal model that processes both text and images with a 128K context window. For more information about model development and performance, see the [model/service card](https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_2/ "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_2/").
 
 - **Model launch date:** Sep 25, 2024
-- **Model EOL date:** Legacy: July 7, 2026
+- **Model EOL date:** July 7, 2026
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
-- **Model lifecycle:** Active
+- **Model lifecycle:** Legacy
 - **Context window:** 128K tokens
 - **Max output tokens:** 4K
 - **Knowledge cutoff:** Dec 2023

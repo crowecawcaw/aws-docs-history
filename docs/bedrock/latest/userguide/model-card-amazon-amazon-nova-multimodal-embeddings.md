@@ -6,7 +6,7 @@
 
 Amazon Nova Multimodal Embeddings is Amazon's embedding model that converts text, images, and video into vector representations for search and retrieval use cases. For more information about model development and performance, see the [model/service card](../../../ai/responsible-ai/nova-micro-lite-pro/overview.md "../../../ai/responsible-ai/nova-micro-lite-pro/overview.md").
 
-- **Model launch date:** Dec 3, 2024
+- **Model launch date:** Oct 28, 2025
 - **Model EOL date:** N/A
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
 - **Model lifecycle:** Active

@@ -7,12 +7,13 @@
 Claude 3.5 Haiku is Anthropic's next-generation fast model with improved coding and reasoning performance over Claude 3 Haiku at the same speed tier. For more information about model development and performance, see the [model/service card](https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf "https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf").
 
 - **Model launch date:** Nov 4, 2024
-- **Model EOL date:** Legacy: June 19, 2026
+- **Model EOL date:** June 19, 2026
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
-- **Model lifecycle:** Active
+- **Model lifecycle:** Legacy
 - **Context window:** 200K tokens
 - **Max output tokens:** 8K
 - **Knowledge cutoff:** Jul 2024
+- **Marketplace product ID:** `prod-5oba7y7jpji56`
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
@@ -21,6 +22,14 @@ Claude 3.5 Haiku is Anthropic's next-generation fast model with improved coding 
 | No Speech            | No Speech             | Yes `Invoke`                            |                                                        |
 | Yes Text             | Yes Text              | Yes `Converse`                          |                                                        |
 | No Video             | No Video              |                                         |                                                        |
+
+**Prompt caching using `bedrock-runtime` endpoint**
+
+For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
+
+| **Prompt caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoints** |
+| ---------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ----------------------------------------------- |
+| Yes                          | 2,048                               | 4                                     | 5 minutes         | `system`, `messages`, and `tools`               |
 
 ## Pricing
 
@@ -102,6 +111,7 @@ client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
     modelId='anthropic.claude-3-5-haiku-20241022-v1:0',
     body=json.dumps({
+            'anthropic_version': 'bedrock-2023-05-31',
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
             'max_tokens': 1024
     })

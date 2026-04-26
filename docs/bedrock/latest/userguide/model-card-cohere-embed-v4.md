@@ -11,6 +11,7 @@ Embed v4 is Cohere's unified multimodal embedding model that processes text, ima
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
 - **Model lifecycle:** Active
 - **Context window:** 128K tokens
+- **Marketplace product ID:** `prod-ft3cj5gst3spo`
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |

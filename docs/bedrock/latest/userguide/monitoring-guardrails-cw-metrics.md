@@ -5,19 +5,19 @@ with Amazon CloudWatch metrics.
 
 **Runtime metrics**
 
-| Metric name            | Unit         | Description                                                                                                 |
-| ---------------------- | ------------ | ----------------------------------------------------------------------------------------------------------- |
-| Invocations            | SampleCount  | Number of requests to the `ApplyGuardrail` API<br>operation                                                 |
-| InvocationLatency      | MilliSeconds | Latency of the invocations                                                                                  |
-| InvocationClientErrors | SampleCount  | Number of invocations that result in client-side errors                                                     |
-| InvocationServerErrors | SampleCount  | Number of invocations that result in AWS server-side errors                                                 |
-| InvocationThrottles    | SampleCount  | Number of invocations that the system throttled. Throttled requests don't<br>count as invocations or errors |
-| TextUnitCount          | SampleCount  | Number of text units consumed by the guardrails policies                                                    |
-| InvocationsIntervened  | SampleCount  | Number of invocations where the guardrails intervened                                                       |
-| FindingCounts          | SampleCount  | Counts for each type of finding from InvokeAutomatedReasoningCheck                                          |
-| TotalFindings          | SampleCount  | Counts number of findings produced for each InvokeAutomatedReasoningCheck request                           |
-| Invocations            | SampleCount  | Number of requests to InvokeAutomatedReasoningCheck                                                         |
-| Latency                | MilliSeconds | Latency of verification using automated reasoning policy                                                    |
+| Metric name                      | Unit         | Description                                                                                                 |
+| -------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------- |
+| Invocations                      | SampleCount  | Number of requests to the `ApplyGuardrail` API<br>operation                                                 |
+| InvocationLatency                | MilliSeconds | Latency of the invocations                                                                                  |
+| InvocationClientErrors           | SampleCount  | Number of invocations that result in client-side errors                                                     |
+| InvocationServerErrors           | SampleCount  | Number of invocations that result in AWS server-side errors                                                 |
+| InvocationThrottles              | SampleCount  | Number of invocations that the system throttled. Throttled requests don't<br>count as invocations or errors |
+| TextUnitCount                    | SampleCount  | Number of text units consumed by the guardrails policies                                                    |
+| InvocationsIntervened            | SampleCount  | Number of invocations where the guardrails intervened                                                       |
+| FindingCounts                    | SampleCount  | Counts for each type of finding from InvokeAutomatedReasoningCheck                                          |
+| TotalFindings                    | SampleCount  | Counts number of findings produced for each InvokeAutomatedReasoningCheck request                           |
+| Invocations (AutomatedReasoning) | SampleCount  | Number of requests to InvokeAutomatedReasoningCheck                                                         |
+| Latency                          | MilliSeconds | Latency of verification using automated reasoning policy                                                    |
 
 You can view guardrail dimensions in the CloudWatch console based on the table below:
 

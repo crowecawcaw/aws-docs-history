@@ -7,12 +7,13 @@
 Claude 3 Haiku is Anthropic's fastest and most compact Claude 3 model, optimized for speed and efficiency in near-instant responses. For more information about model development and performance, see the [model/service card](https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf "https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf").
 
 - **Model launch date:** Mar 13, 2024
-- **Model EOL date:** No sooner than 3/14/2025
+- **Model EOL date:** September 10, 2026
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
-- **Model lifecycle:** Active
+- **Model lifecycle:** Legacy (certain regions)
 - **Context window:** 200K tokens
 - **Max output tokens:** 4K
 - **Knowledge cutoff:** Aug 2023
+- **Marketplace product ID:** `prod-ozonys2hmmpeu`
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
@@ -127,6 +128,7 @@ client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
     modelId='anthropic.claude-3-haiku-20240307-v1:0',
     body=json.dumps({
+            'anthropic_version': 'bedrock-2023-05-31',
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
             'max_tokens': 1024
     })

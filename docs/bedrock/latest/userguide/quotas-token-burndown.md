@@ -48,7 +48,7 @@ Total input tokens + max_tokens
 InputTokenCount + CacheWriteInputTokens + (OutputTokenCount x burndown rate)
 ```
 
-If you don't use [prompt caching](prompt-caching.md "prompt-caching.md"), `CacheWriteInputTokens` will be 0. `CacheReadInputTokens` don't contribute to this calculation.
+`CacheReadInputTokens` don't contribute to this calculation and are not counted toward your quota. If you don't use [prompt caching](prompt-caching.md "prompt-caching.md"), both `CacheWriteInputTokens` and `CacheReadInputTokens` will be 0.
 
 ###### Note
 

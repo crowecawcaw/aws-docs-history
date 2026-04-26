@@ -12,6 +12,7 @@ Palmyra X4 is Writer's enterprise LLM optimized for business writing, content ge
 - **Model lifecycle:** Active
 - **Context window:** 128K tokens
 - **Max output tokens:** 8K
+- **Marketplace product ID:** `prod-azehe4da4pzsy`
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |

@@ -34,7 +34,7 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 | **[Titan Image Generator G1 v2](model-card-amazon-titan-image-generator-g1-v2.md "model-card-amazon-titan-image-generator-g1-v2.md")**                   | Yes               | No               |
 | **[Titan Multimodal Embeddings G1](model-card-amazon-titan-multimodal-embeddings-g1.md "model-card-amazon-titan-multimodal-embeddings-g1.md")**          | Yes               | No               |
 | **[Titan Text Embeddings V2](model-card-amazon-titan-text-embeddings-v2.md "model-card-amazon-titan-text-embeddings-v2.md")**                            | Yes               | No               |
-| **[Titan Text Embeddings v2](model-card-amazon-titan-text-embeddings-v2-2.md "model-card-amazon-titan-text-embeddings-v2-2.md")**                        | Yes               | No               |
+| **[Titan Embeddings G1<br>• Text v2](model-card-amazon-titan-text-embeddings-v2-2.md "model-card-amazon-titan-text-embeddings-v2-2.md")**                | Yes               | No               |
 | **[Titan Text Large](model-card-amazon-titan-text-large.md "model-card-amazon-titan-text-large.md")**                                                    | Yes               | No               |
 
 ## Anthropic

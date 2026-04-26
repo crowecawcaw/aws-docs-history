@@ -7,7 +7,7 @@ review and accept the prices and EULAs of the model provider.
 
 ###### Note
 
-Subscription is not required before first invocation due to auto-enablement, Amazon Bedrock automatically initiates the subscription process in the background. API calls may succeed temporarily while the subscription is being finalized. However, if subscription fails, subsequent requests will fail, see [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
+Subscription is not required before first invocation due to auto-enablement, Amazon Bedrock automatically initiates the subscription process in the background. API calls may succeed temporarily while the subscription is being finalized. However, if subscription fails, subsequent requests will fail, see [Request access to models](model-access.md "model-access.md").
 
 ###### To subscribe to a model
 

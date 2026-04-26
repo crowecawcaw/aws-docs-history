@@ -11,6 +11,7 @@ Embed Multilingual is Cohere's multilingual text embedding model supporting 100+
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
 - **Model lifecycle:** Active
 - **Context window:** 512 tokens
+- **Marketplace product ID:** `38e55671-c3fe-4a44-9783-3584906e7cad`
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |

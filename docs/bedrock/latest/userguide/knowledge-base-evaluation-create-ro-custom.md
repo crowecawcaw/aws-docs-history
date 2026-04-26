@@ -16,7 +16,7 @@ JSON definitions of custom metrics, see [Creating a JSON file to create a custom
 To create a job using the following instructions, you also need a prompt dataset. If you haven't already created one, see [Create a prompt dataset for a RAG evaluation in Amazon Bedrock](knowledge-base-evaluation-prompt.md "knowledge-base-evaluation-prompt.md").
 
 For a list of supported evaluator models, see [Supported models](evaluation-kb.md#evaluation-kb-supported "evaluation-kb.md#evaluation-kb-supported").
-To learn more about accessing models, see [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
+To learn more about accessing models, see [Request access to models](model-access.md "model-access.md").
 
 Console
 

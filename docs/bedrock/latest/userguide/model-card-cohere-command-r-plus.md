@@ -7,12 +7,13 @@
 Command R+ is Cohere's model for complex RAG workflows, multi-step tool use, and enterprise tasks with a 128K context window. For more information about model development and performance, see the [model/service card](https://docs.cohere.com/docs/command-r-plus "https://docs.cohere.com/docs/command-r-plus").
 
 - **Model launch date:** Aug 2024
-- **Model EOL date:** N/A
+- **Model EOL date:** August 19, 2026
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
-- **Model lifecycle:** Active
+- **Model lifecycle:** Legacy
 - **Context window:** 128K tokens
 - **Max output tokens:** 4K
 - **Knowledge cutoff:** Mar 2024
+- **Marketplace product ID:** `prod-nb4wqmplze2pm`
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |

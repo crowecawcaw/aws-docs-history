@@ -118,7 +118,7 @@ If the script is successful, the response returns a list of foundation models th
 The following example runs the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") operation using an Amazon Bedrock client. `Converse` lets you submit a prompt to generate a model response. Run the following SDK for Python script to create an Amazon Bedrock runtime client and test the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") operation:
 
 ```
-# Use the Conversation API to send a text message to Amazon Titan Text G1 - Express.
+# Use the Conversation API to send a text message to Amazon Nova Micro.
 
 import boto3
 from botocore.exceptions import ClientError
@@ -126,8 +126,8 @@ from botocore.exceptions import ClientError
 # Create an Amazon Bedrock Runtime client.
 brt = boto3.client("bedrock-runtime")
 
-# Set the model ID, e.g., Amazon Titan Text G1 - Express.
-model_id = "amazon.titan-text-express-v1"
+# Set the model ID, e.g., Amazon Nova Micro.
+model_id = "amazon.nova-micro-v1:0"
 
 # Start a conversation with the user message.
 user_message = "Describe the purpose of a 'hello world' program in one line."

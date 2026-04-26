@@ -20,7 +20,7 @@ inference call.
     "anthropic_version": "bedrock-2023-05-31",
     "anthropic_beta": ["computer-use-2024-10-22"]
     "max_tokens": int,
-    "system": string,
+    "system": string | [{"type": "text", "text": string}],
     "messages": [
         {
             "role": string,
@@ -124,7 +124,7 @@ parameter. For more information, see [Model comparison](https://docs.anthropic.c
 The following are optional parameters.
 
 - **system** – (Optional) The
-  system prompt for the request.
+  system prompt for the request. You can provide the system prompt as a string or as an array of content blocks (for example, `[{"type": "text", "text": "your prompt"}]`).
 
 A system prompt is a way of providing context and instructions to
 Anthropic Claude, such as specifying a particular goal or role.

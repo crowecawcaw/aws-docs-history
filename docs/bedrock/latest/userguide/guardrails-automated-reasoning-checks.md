@@ -13,7 +13,7 @@ about _why_ a response is correct or incorrect. This feedback can be
 used to steer an LLM towards generating content that is provably consistent with your policy.
 Specifically, Automated Reasoning checks can:
 
-- **Detect factually incorrest statements** in LLM responses by
+- **Detect factually incorrect statements** in LLM responses by
   mathematically proving that generated content contradicts your policy rules.
 - **Highlight unstated assumptions** where a response is
   consistent with your policy but doesn't address all relevant rules, indicating the

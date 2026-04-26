@@ -35,6 +35,5 @@ applications.
 
 ###### Topics
 
-- [Supported models and model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md")
 - [Using the Converse API](conversation-inference-call.md "conversation-inference-call.md")
 - [Converse API examples](conversation-inference-examples.md "conversation-inference-examples.md")

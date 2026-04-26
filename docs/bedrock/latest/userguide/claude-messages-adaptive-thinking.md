@@ -129,6 +129,49 @@ You can combine adaptive thinking with the effort parameter to guide how much th
 | `medium`         | Claude uses moderate thinking. May skip thinking for very simple queries.                                                                     |
 | `low`            | Claude minimizes thinking. Skips thinking for simple tasks where speed matters most.                                                          |
 
+## Using adaptive thinking with the Converse API
+
+When using the [Converse API](conversation-inference.md "conversation-inference.md"), pass the `thinking` and `effort` parameters inside `additionalModelRequestFields`. The following example shows adaptive thinking with the default effort level:
+
+```
+import boto3, json
+
+bedrock_runtime = boto3.client(service_name='bedrock-runtime', region_name='us-east-2')
+
+response = bedrock_runtime.converse(
+    modelId="us.anthropic.claude-opus-4-6-v1",
+    messages=[{
+        "role": "user",
+        "content": [{"text": "Explain why the sum of two even numbers is always even."}]
+    }],
+    additionalModelRequestFields={
+        "thinking": {
+            "type": "adaptive"
+        }
+    }
+)
+
+print(json.dumps(response["output"], indent=2, default=str))
+```
+
+To specify an effort level, add the `effort` field inside the `thinking` object:
+
+```
+response = bedrock_runtime.converse(
+    modelId="us.anthropic.claude-opus-4-6-v1",
+    messages=[{
+        "role": "user",
+        "content": [{"text": "What is 2 + 2?"}]
+    }],
+    additionalModelRequestFields={
+        "thinking": {
+            "type": "adaptive",
+            "effort": "low"
+        }
+    }
+)
+```
+
 ## Prompt caching
 
 Consecutive requests using `adaptive` thinking preserve prompt cache breakpoints. However, switching between `adaptive` and `enabled`/`disabled` thinking modes breaks cache breakpoints for messages. System prompts and tool definitions remain cached regardless of mode changes.

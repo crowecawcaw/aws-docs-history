@@ -169,7 +169,7 @@ except Exception as e:
     print(e)
 ```
 
-The following table shows the input and output images of a Creative Upscale operation using the following prompt: _This dreamlike digital art captures a vibrant, kaleidoscopic bird in a lush rainforest_.
+The following table shows the input and output images of a Creative Upscale operation using the following prompt: _This dreamlike digital art captures a vibrant, kaleidoscopic Big Ben in London_.
 
 | Input                                                                                                                                                                                                                                                                                                                                                                                                                                        | Output |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
@@ -278,7 +278,7 @@ except Exception as e:
     print(e)
 ```
 
-The following table shows the input and output images of a Conservative Upscale operation using the following prompt: _photo of a giant chicken in a forest_.
+The following table shows the input and output images of a Conservative Upscale operation using the following prompt: _This dreamlike digital art captures a vibrant, kaleidoscopic Big Ben in London_.
 
 | Input                                                                                                                                                                                                                                                                                                                                                                                                                                        | Output |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |

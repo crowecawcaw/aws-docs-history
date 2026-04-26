@@ -2,6 +2,10 @@
 
 To carry out batch inference, you must set up permissions for the following IAM identities:
 
+###### Warning
+
+Foundation model resources used in batch inference are owned by the Amazon Bedrock service, not by your AWS account. If your IAM policies include organization-based conditions on resources (such as `aws:ResourceOrgID`), batch inference requests to foundation models will fail with `AccessDeniedException`. Remove organization resource conditions from policies that apply to Amazon Bedrock foundation model resources.
+
 - The IAM identity that will create and manage batch inference jobs.
 - The batch inference [service role](security-iam-sr.md "security-iam-sr.md") that Amazon Bedrock assumes to perform actions on your behalf.
   To learn how to set up permissions for each identity, navigate through the following topics:

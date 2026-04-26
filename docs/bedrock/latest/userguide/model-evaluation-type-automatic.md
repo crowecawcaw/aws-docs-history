@@ -12,7 +12,7 @@ learn more, see [Required Cross Origin Resource Sharing (CORS) permissions on S3
 ###### Required service level resources to start an automatic model evaluation job
 
 1. To start a automatic model evaluation job, you need access to at least one Amazon Bedrock
-   foundation model. To learn more, see [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
+   foundation model. To learn more, see [Request access to models](model-access.md "model-access.md").
 2. To create an automatic model evaluation job you need access to the [https://console.aws.amazon.com/bedrock/](https://console.aws.amazon.com/bedrock/ "https://console.aws.amazon.com/bedrock/"),
    AWS Command Line Interface, or a supported AWS SDK. To learn more about the required IAM actions
    and resources, see [Required console permissions to create an automatic model evaluation job](#base-for-automatic "#base-for-automatic").

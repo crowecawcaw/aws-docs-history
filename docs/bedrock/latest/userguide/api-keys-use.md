@@ -59,7 +59,7 @@ client = boto3.client(
 )
 
 # Define the model and message
-model_id = "us.anthropic.claude-3-5-haiku-20241022-v1:0"
+model_id = "us.anthropic.claude-sonnet-4-6"
 messages = [{"role": "user", "content": [{"text": "Hello"}]}]
 
 response = client.converse(
@@ -80,7 +80,7 @@ The following example shows how to directly send an API request with an HTTP cli
 ```
 import requests
 
-url = "https://bedrock-runtime.us-east-1.amazonaws.com/model/us.anthropic.claude-3-5-haiku-20241022-v1:0/converse"
+url = "https://bedrock-runtime.us-east-1.amazonaws.com/model/us.anthropic.claude-sonnet-4-6/converse"
 
 payload = {
     "messages": [
@@ -105,7 +105,7 @@ HTTP request using cURL
 The following example shows how to directly send an API request, using cURL. If you didn't set the API key as the AWS_BEARER_TOKEN_BEDROCK environment variable, you'll have to replace `$AWS_BEARER_TOKEN_BEDROCK` in the example with the literal value of the key.
 
 ```
-curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/model/us.anthropic.claude-3-5-haiku-20241022-v1:0/converse" \
+curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/model/us.anthropic.claude-sonnet-4-6/converse" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $AWS_BEARER_TOKEN_BEDROCK" \
   -d '{

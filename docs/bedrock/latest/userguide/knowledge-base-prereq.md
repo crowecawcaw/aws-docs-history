@@ -22,7 +22,7 @@ prerequisites. For general permissions requirements, see
 If you're creating a knowledge base with Amazon OpenSearch Service (including Amazon OpenSearch Serverless), the service role requires additional permissions beyond those covered by the AWS-managed BedrockFullAccess policy. These include `aoss:CreateAccessPolicy`, `iam:CreateServiceLinkedRole`, and `iam:CreateRole` permissions. 4. (Optional) Set up extra security configurations by following the steps at [Encryption of knowledge base resources](encryption-kb.md "encryption-kb.md"). 5. (Optional) If you plan to use the [RetrieveAndGenerate](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md") API operation to generate
 responses based on information retrieved from your knowledge base, request access to
 the models that you'll use in the Regions that you'll use them in by following the
-steps at [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
+steps at [Request access to models](model-access.md "model-access.md").
 
 ###### Topics
 

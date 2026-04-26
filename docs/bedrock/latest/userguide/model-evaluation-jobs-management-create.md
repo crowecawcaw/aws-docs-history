@@ -47,7 +47,7 @@ To learn more about adding the required CORS permissions see, [Required Cross Or
       to use in the model evaluation job.
 
    To learn more about available models and accessing them in
-   Amazon Bedrock, see [Access Amazon Bedrock foundation models](model-access.md "model-access.md"). 4. (Optional) To change the inference configuration choose
+   Amazon Bedrock, see [Request access to models](model-access.md "model-access.md"). 4. (Optional) To change the inference configuration choose
    **update**.
 
    Changing the inference configuration changes the responses

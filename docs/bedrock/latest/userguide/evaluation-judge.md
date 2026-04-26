@@ -23,7 +23,7 @@ You can also define your own custom metrics for your particular business case. S
 ### Supported evaluator models (built-in metrics)
 
 To create an evaluation job that uses an LLM as a judge with Amazon Bedrock's built-in metrics, you need access to at least one of the judge models in the following list. To learn more about gaining access to models and Region availability,
-see [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
+see [Request access to models](model-access.md "model-access.md").
 
 - Amazon Nova Pro – `amazon.nova-pro-v1:0`
 - Anthropic Claude 3.5 Sonnet v1 – `anthropic.claude-3-5-sonnet-20240620-v1:0`
@@ -57,7 +57,7 @@ To create an evaluation job that uses an LLM as a judge with custom metrics, you
 
 You can use the following model types in Amazon Bedrock as the generator model in an evaluation job. You can also bring your own inference response data from non-Amazon Bedrock models.
 
-- Foundation models – [Amazon Bedrock foundation model information](foundation-models-reference.md "foundation-models-reference.md")
+- Foundation models – [Using models with Bedrock](foundation-models-reference.md "foundation-models-reference.md")
 - Amazon Bedrock Marketplace models – [Amazon Bedrock Marketplace](amazon-bedrock-marketplace.md "amazon-bedrock-marketplace.md")
 - Customized foundation models – [Customize your model to improve its performance for your use case](custom-models.md "custom-models.md")
 - Imported foundation models – [Use Custom model import to import a customized open-source model into Amazon Bedrock](model-customization-import-model.md "model-customization-import-model.md")

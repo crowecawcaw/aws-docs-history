@@ -105,7 +105,7 @@ You can remove statements that you don't need, depending on your use case:
 - The `Retrieve` statement is required to call [Retrieve](../APIReference/API_agent-runtime_Retrieve.md "../APIReference/API_agent-runtime_Retrieve.md") to retrieve data from your data store.
 - The `RetrieveAndGenerate` statement is required to call [RetrieveAndGenerate](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md") to retrieve data from your data store
   and generate responses based off the data.
-  If you plan to use [RetrieveAndGenerate](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md") to generate responses based on retrieved data from your data source, request access to the foundation models to use for generation by following the steps at [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
+  If you plan to use [RetrieveAndGenerate](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md") to generate responses based on retrieved data from your data source, request access to the foundation models to use for generation by following the steps at [Request access to models](model-access.md "model-access.md").
 
 To further restrict permissions, you can omit actions, or you can specify resources and condition keys by which to filter permissions. For more information about actions, resources, and condition keys, see the following topics in the _Service Authorization Reference_:
 

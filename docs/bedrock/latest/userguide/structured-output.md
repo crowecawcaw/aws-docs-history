@@ -54,63 +54,8 @@ Structured outputs is incompatible with citations for Anthropic models. If you e
 
 ## Supported models
 
-Structured outputs is generally available in all commercial AWS regions for the select Amazon Bedrock serverless models. For the list of supported model, refer Model support by feature.
-
-Anthropic
-
-- Claude Haiku 4.5 (`anthropic.claude-haiku-4-5-20251001-v1:0`)
-- Claude Sonnet 4.5 (`anthropic.claude-sonnet-4-5-20250929-v1:0`)
-- Claude Sonnet 4.6 (`anthropic.claude-sonnet-4-6`)
-- Claude Opus 4.5 (`anthropic.claude-opus-4-5-20251101-v1:0`)
-- Claude Opus 4.6 (`anthropic.claude-opus-4-6-v1`)
-
-Qwen
-
-- Qwen3 235B A22B 2507 (`qwen.qwen3-235b-a22b-2507-v1:0`)
-- Qwen3 32B (dense) (`qwen.qwen3-32b-v1:0`)
-- Qwen3-Coder-30B-A3B-Instruct (`qwen.qwen3-coder-30b-a3b-v1:0`)
-- Qwen3 Coder 480B A35B Instruct (`qwen.qwen3-coder-480b-a35b-v1:0`)
-- Qwen3 Next 80B A3B (`qwen.qwen3-next-80b-a3b`)
-- Qwen3 VL 235B A22B (`qwen.qwen3-vl-235b-a22b`)
-
-OpenAI
-
-- gpt-oss-120b (`openai.gpt-oss-120b-1:0`)
-- gpt-oss-20b (`openai.gpt-oss-20b-1:0`)
-- GPT OSS Safeguard 120B (`openai.gpt-oss-safeguard-120b`)
-- GPT OSS Safeguard 20B (`openai.gpt-oss-safeguard-20b`)
-
-DeepSeek
-
-- DeepSeek-V3.1 (`deepseek.v3-v1:0`)
-
-Google
-
-- Gemma 3 12B IT (`google.gemma-3-12b-it`)
-- Gemma 3 27B PT (`google.gemma-3-27b-it`)
-
-MiniMax
-
-- MiniMax M2 (`minimax.minimax-m2`)
-
-Mistral AI
-
-- Magistral Small 2509 (`mistral.magistral-small-2509`)
-- Ministral 3B (`mistral.ministral-3-3b-instruct`)
-- Ministral 3 8B (`mistral.ministral-3-8b-instruct`)
-- Ministral 14B 3.0 (`mistral.ministral-3-14b-instruct`)
-- Mistral Large 3 (`mistral.mistral-large-3-675b-instruct`)
-- Voxtral Mini 3B 2507 (`mistral.voxtral-mini-3b-2507`)
-- Voxtral Small 24B 2507 (`mistral.voxtral-small-24b-2507`)
-
-Moonshot AI
-
-- Kimi K2 Thinking (`moonshot.kimi-k2-thinking`)
-
-NVIDIA
-
-- NVIDIA Nemotron Nano 12B v2 VL BF16 (`nvidia.nemotron-nano-12b-v2`)
-- NVIDIA Nemotron Nano 9B v2 (`nvidia.nemotron-nano-9b-v2`)
+To see which models support structured outputs, please go to
+[models at a glance](model-cards.md "model-cards.md") and select the model you are interested in.
 
 ## Example requests
 

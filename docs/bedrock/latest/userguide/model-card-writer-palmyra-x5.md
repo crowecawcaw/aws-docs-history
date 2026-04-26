@@ -12,6 +12,7 @@ Palmyra X5 is Writer's enterprise model with improved reasoning, coding, and age
 - **Model lifecycle:** Active
 - **Context window:** 128K tokens
 - **Max output tokens:** 8K
+- **Marketplace product ID:** `prod-23enyy63orhuk`
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |

@@ -76,26 +76,15 @@ model. For more information, see [Supported models, Regions, and limits](#prompt
 The following table lists the supported models along with their token minimums, maximum
 number of cache checkpoints, and fields that allow cache checkpoints.
 
-| Model name           | Model ID                                  | Release Type        | Minimum number of tokens per cache checkpoint | Maximum number of cache checkpoints per request | Supported TTL     | Fields that accept prompt cache checkpoints |
-| -------------------- | ----------------------------------------- | ------------------- | --------------------------------------------- | ----------------------------------------------- | ----------------- | ------------------------------------------- |
-| Claude Opus 4.5      | anthropic.claude-opus-4-5-20251101-v1:0   | Generally Available | 4,096                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`           |
-| Claude Opus 4.1      | anthropic.claude-opus-4-1-20250805-v1:0   | Generally Available | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
-| Claude Opus 4        | anthropic.claude-opus-4-20250514-v1:0     | Generally Available | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
-| Claude Sonnet 4.5    | anthropic.claude-sonnet-4-5-20250929-v1:0 | Generally Available | 1,024                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`           |
-| Claude Haiku 4.5     | anthropic.claude-haiku-4-5-20251001-v1:0  | Generally Available | 4,096                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`           |
-| Claude Sonnet 4      | anthropic.claude-sonnet-4-20250514-v1:0   | Generally Available | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
-| Claude 3.7 Sonnet    | anthropic.claude-3-7-sonnet-20250219-v1:0 | Generally Available | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
-| Claude 3.5 Haiku     | anthropic.claude-3-5-haiku-20241022-v1:0  | Generally Available | 2,048                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
-| Claude 3.5 Sonnet v2 | anthropic.claude-3-5-sonnet-20241022-v2:0 | Preview             | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
-| Amazon Nova Micro    | amazon.nova-micro-v1:0                    | Generally available | 1K1                                           | 4                                               | 5 minutes         | `system` and `messages`                     |
-| Amazon Nova Lite     | amazon.nova-lite-v1:0                     | Generally available | 1K1                                           | 4                                               | 5 minutes         | `system` and `messages`2                    |
-| Amazon Nova Pro      | amazon.nova-pro-v1:0                      | Generally available | 1K1                                           | 4                                               | 5 minutes         | `system` and `messages`2                    |
-| Amazon Nova Premier  | amazon.nova-premier-v1:0                  | Generally available | 1K1                                           | 4                                               | 5 minutes         | `system` and `messages`2                    |
-| Amazon Nova 2 Lite   | amazon.nova-2-lite-v1:0                   | Generally available | 1K1                                           | 4                                               | 5 minutes         | `system` and `messages`2                    |
+To see which models support prompt caching, please refer to
+[Models at a glance](model-cards.md "model-cards.md") and then choose the model you are interested in.
+The following table shows prompt caching for models that are not present in models-at-a-glance.
 
-1: The Amazon Nova models support a maximum number of 20K tokens for prompt caching.
-
-2: Prompt caching is primarily for text prompts.
+| Model name           | Model ID                                  | Release Type        | Minimum number of tokens per cache checkpoint | Maximum number of cache checkpoints per request | Supported TTL | Fields that accept prompt cache checkpoints |
+| -------------------- | ----------------------------------------- | ------------------- | --------------------------------------------- | ----------------------------------------------- | ------------- | ------------------------------------------- |
+| Claude Opus 4        | anthropic.claude-opus-4-20250514-v1:0     | Generally Available | 1,024                                         | 4                                               | 5 minutes     | `system`, `messages`, and `tools`           |
+| Claude 3.7 Sonnet    | anthropic.claude-3-7-sonnet-20250219-v1:0 | Generally Available | 1,024                                         | 4                                               | 5 minutes     | `system`, `messages`, and `tools`           |
+| Claude 3.5 Sonnet v2 | anthropic.claude-3-5-sonnet-20241022-v2:0 | Preview             | 1,024                                         | 4                                               | 5 minutes     | `system`, `messages`, and `tools`           |
 
 To use the 1-hour TTL option with supported models (Claude Opus 4.5, Claude Haiku 4.5, and Claude Sonnet 4.5),
 specify the `ttl` field in your cache checkpoint. In the Converse API, add `"ttl": "1h"`

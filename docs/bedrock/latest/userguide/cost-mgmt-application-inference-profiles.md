@@ -1,0 +1,53 @@
+# Application inference profiles
+
+Application inference profiles (AIPs) let you attribute Amazon Bedrock costs by application, team, or workload for the Amazon Bedrock [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") and [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") APIs on the `bedrock-runtime` endpoint. Each AIP is model-specific and carries cost allocation tags that flow to AWS Cost Explorer and AWS Cost and Usage Reports (CUR 2.0).
+
+For workloads using Responses and Chat Completions on the `bedrock-mantle` endpoint, use [Projects](cost-mgmt-projects.md "cost-mgmt-projects.md") instead.
+
+## How cost attribution works
+
+An application inference profile is a resource that references a specific Amazon Bedrock model. You create the profile, attach cost allocation tags, and then use the profile ARN in place of the model ID in your API calls. The profile's tags are attached to the billing record for each request.
+
+The following example shows how to use an application inference profile ARN instead of a model ID when calling the Converse API:
+
+```
+import boto3
+
+client = boto3.client("bedrock-runtime")
+
+response = client.converse(
+    modelId="arn:aws:bedrock:us-east-1:123456789012:inference-profile/my-team-profile",
+    messages=[
+        {"role": "user", "content": [{"text": "Hello"}]}
+    ]
+)
+
+```
+
+For more information on creating profiles, see [Create an application inference profile](inference-profiles-create.md "inference-profiles-create.md").
+
+## Viewing profile costs
+
+After creating and tagging your profiles, activate the tags as cost allocation tags in the AWS Billing and Cost Management console:
+
+1. Open the AWS Billing and Cost Management console.
+2. In the navigation pane, choose **Cost allocation tags**.
+3. Select the tags you applied to your profiles.
+4. Choose **Activate**.
+
+Tags can take up to 24 hours to appear in Cost Explorer and CUR after activation. Cost allocation tags are not retroactive. Only costs incurred after activation are tagged. For more information, see [Activating user-defined cost allocation tags](../../../awsaccountbilling/latest/aboutv2/activating-tags.md "../../../awsaccountbilling/latest/aboutv2/activating-tags.md").
+
+After tag activation, you can analyze Amazon Bedrock costs by application inference profile in the following tools:
+
+- **AWS Cost Explorer** – Filter by profile tags to view cost trends over time. Group by tag to compare costs across profiles.
+- **AWS Cost and Usage Reports (CUR 2.0)** – Query CUR data for line-item cost breakdowns by profile tag.
+
+## Scaling considerations
+
+Each application inference profile is tied to a specific model. This means you need a separate profile for every unique combination of model, team, and tag set. As organizations grow, profile count can increase quickly, especially when new model versions require new profiles.
+
+To reduce profile proliferation:
+
+- **Recommended:** Use [Projects](cost-mgmt-projects.md "cost-mgmt-projects.md") for flexibility and ease when cost tracking.
+- Tag at the team or cost center level rather than per-user.
+- For per-user cost attribution without creating additional profiles, use [IAM principal attribution](cost-mgmt-iam-principal-tracking.md "cost-mgmt-iam-principal-tracking.md"). IAM principal tracking works alongside application inference profiles and attributes costs at the identity level automatically.

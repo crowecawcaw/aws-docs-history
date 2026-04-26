@@ -1,6 +1,6 @@
-# Titan Text Embeddings v2
+# Titan Embeddings G1 - Text v2
 
-## Amazon — Titan Text Embeddings v2
+## Amazon — Titan Embeddings G1 - Text v2
 
 ## Model Details
 

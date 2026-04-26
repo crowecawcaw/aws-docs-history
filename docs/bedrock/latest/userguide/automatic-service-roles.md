@@ -58,7 +58,7 @@ JSON
 
 ###### Required Amazon Bedrock IAM actions
 
-You also need to create a policy that allows Amazon Bedrock to invoke the model you plan to specify in the automatic model evaluation job. To learn more about managing access to Amazon Bedrock models, see [Access Amazon Bedrock foundation models](model-access.md "model-access.md"). In the `"Resource"` section of the policy, you must specify at least one ARN of a model you have access too. To use a model encrypted with customer managed key KMS key, you must add the required IAM actions and resources to the IAM service role policy. You must also add the service role to the AWS KMS key policy.
+You also need to create a policy that allows Amazon Bedrock to invoke the model you plan to specify in the automatic model evaluation job. To learn more about managing access to Amazon Bedrock models, see [Request access to models](model-access.md "model-access.md"). In the `"Resource"` section of the policy, you must specify at least one ARN of a model you have access too. To use a model encrypted with customer managed key KMS key, you must add the required IAM actions and resources to the IAM service role policy. You must also add the service role to the AWS KMS key policy.
 
 JSON
 

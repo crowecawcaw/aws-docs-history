@@ -2,7 +2,7 @@
 
 A user requires the following permissions to use reranking:
 
-- Access to the reranking models that they plan to use. For more information, see [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
+- Access to the reranking models that they plan to use. For more information, see [Request access to models](model-access.md "model-access.md"). For third-party models (such as Cohere Rerank), your IAM role also needs `aws-marketplace:ViewSubscriptions` and `aws-marketplace:Subscribe` permissions. For more information, see [Use product ID condition keys to control access](model-access-product-ids.md "model-access-product-ids.md").
 - Permissions for their role and, if they plan to use reranking in a [Retrieve](../APIReference/API_agent-runtime_Retrieve.md "../APIReference/API_agent-runtime_Retrieve.md") workflow, permissions for the Amazon Bedrock Knowledge Bases service role that has a [trust relationship](kb-permissions.md#kb-permissions-trust "kb-permissions.md#kb-permissions-trust") with their role.
 
 ###### Tip

@@ -419,7 +419,7 @@ query and a metadata schema.
 
 ###### Note
 
-The feature currently only works with Anthropic Claude 3.5 Sonnet.
+Implicit metadata filtering is supported by Anthropic Claude models. For more information about supported models, see [models at a glance](model-cards.md "model-cards.md").
 
 The `implicitFilterConfiguration` is specified in the
 `vectorSearchConfiguration` of the [Retrieve](../APIReference/API_agent-runtime_Retrieve.md "../APIReference/API_agent-runtime_Retrieve.md") request body. Include

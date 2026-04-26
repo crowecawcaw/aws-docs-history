@@ -7,9 +7,9 @@
 Nova Canvas is Amazon's image generation model that creates studio-quality images from text and image prompts with built-in controls for watermarking and content moderation. For more information about model development and performance, see the [model/service card](../../../ai/responsible-ai/nova-micro-lite-pro/overview.md "../../../ai/responsible-ai/nova-micro-lite-pro/overview.md").
 
 - **Model launch date:** Dec 3, 2024
-- **Model EOL date:** No sooner than 12/4/2025
+- **Model EOL date:** September 30, 2026
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
-- **Model lifecycle:** Active
+- **Model lifecycle:** Legacy (certain regions)
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
@@ -87,8 +87,13 @@ client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
     modelId='amazon.nova-canvas-v1:0',
     body=json.dumps({
-            'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
-            'max_tokens': 1024
+            'messages': [{
+                'role': 'user',
+                'content': [{'text': 'Can you explain the features of Amazon Bedrock?'}]
+            }],
+            'inferenceConfig': {
+                'maxTokens': 1024
+            }
     })
  )
  print(json.loads(response['body'].read()))

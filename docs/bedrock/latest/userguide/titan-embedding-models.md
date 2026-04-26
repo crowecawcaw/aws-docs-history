@@ -2,6 +2,10 @@
 
 Amazon Titan Embeddings models include Amazon Titan Text Embeddings V2 and Titan Text Embeddings G1 model.
 
+###### Note
+
+Embedding models on Amazon Bedrock are throttled by Requests Per Minute (RPM), not Tokens Per Minute (TPM). When planning capacity or requesting quota increases for embedding models, use the RPM quota. For more information, see [Quotas for Amazon Bedrock](quotas.md "quotas.md").
+
 Text embeddings represent meaningful vector representations of unstructured text such as documents, paragraphs, and sentences. You input a body of text
 and the output is a (1 x n) vector. You can use embedding vectors for a wide variety of applications.
 
@@ -12,8 +16,9 @@ for text retrieval tasks, but can also be used for additional tasks, such as sem
 Amazon Titan Embeddings models generate meaningful semantic representation of documents,
 paragraphs and sentences. Amazon Titan Text Embeddings takes as input a body of text and
 generates a (1 x n) vector. Amazon Titan Text Embeddings is offered via latency-optimized
-endpoint invocation for faster search (recommended during the retrieval step) as well as
-throughput optimized batch jobs for faster indexing. Amazon Titan Text Embeddings v2 supports long documents,
+endpoint invocation for generating vectors at low latency (recommended during the retrieval step) as well as
+throughput optimized batch jobs for faster indexing. The actual similarity computation and retrieval are performed
+by your vector database, not by the embedding model. Amazon Titan Text Embeddings v2 supports long documents,
 however for retrieval tasks, it is recommended to segment documents into logical segments, such as paragraphs or sections.
 
 ###### Note

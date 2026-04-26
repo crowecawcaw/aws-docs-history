@@ -229,7 +229,7 @@ from aws_bedrock_token_generator import provide_token
 import requests
 
 def get_new_token():
-    url = "https://bedrock-runtime.us-west-2.amazonaws.com/model/us.anthropic.claude-3-5-haiku-20241022-v1:0/converse"
+    url = "https://bedrock-runtime.us-west-2.amazonaws.com/model/us.anthropic.claude-sonnet-4-6/converse"
     payload = {
         "messages": [
             {
@@ -269,7 +269,7 @@ import { getTokenProvider } from "@aws/bedrock-token-generator";
 const provideToken = getTokenProvider();
 
 async function example() {
-    const url = "https://bedrock-runtime.us-east-1.amazonaws.com/model/us.anthropic.claude-3-5-haiku-20241022-v1:0/converse";
+    const url = "https://bedrock-runtime.us-east-1.amazonaws.com/model/us.anthropic.claude-sonnet-4-6/converse";
     const payload = {
         messages: [
             {
@@ -314,7 +314,7 @@ public class GetNewToken {
         // getToken() retrieves a valid token. It can be used for each API call as it is inexpensive.
         String token = tokenGenerator.getToken();
 
-        String url = "https://bedrock-runtime.us-west-2.amazonaws.com/model/us.anthropic.claude-3-5-haiku-20241022-v1:0/converse";
+        String url = "https://bedrock-runtime.us-west-2.amazonaws.com/model/us.anthropic.claude-sonnet-4-6/converse";
         String payload = "{\n" +
                 "    \"messages\": [\n" +
                 "        {\n" +

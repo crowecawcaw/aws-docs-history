@@ -2,6 +2,14 @@
 
 Amazon Bedrock gives you three options so you can match the routing behavior of your inference calls to the scale, compliance, and cost requirements of your workload.
 
+###### Process to enabling Bedrock models in GovCloud
+
+Accessing Bedrock foundation models in AWS GovCloud (US) requires initiating the access request through the standard AWS account linked to your GovCloud account. You must first agree to the model's End User License Agreement (EULA) in a standard region (`us-east-1` or `us-west-2`), then enable the model in your GovCloud account. You can do this in two ways:
+
+- **Console:** Sign in to your linked standard AWS account, open the Amazon Bedrock Chat/Text playground, choose the model, and run a prompt to establish the EULA.
+- **AWS CLI:** Run `aws bedrock list-foundation-models` to get the model ID, then `aws bedrock list-foundation-model-agreement-offers --model-id <model-id>` to get the offer token, and finally `aws bedrock create-foundation-model-agreement --model-id <model-id> --offer-token <offerToken>`.
+  After completing either method, go to your GovCloud account and enable the model via the Model Access page. It may take a few minutes for entitlements to propagate. For the full walkthrough, see [Process to enabling Bedrock models in GovCloud](https://repost.aws/articles/ARUT8Sy76NTUmRN7kuiU0UXQ "https://repost.aws/articles/ARUT8Sy76NTUmRN7kuiU0UXQ").
+
 - **In-Region:** Your requests never leave the AWS Region you specify. Use this when regulations require strict single-Region data processing.
 - **Geographic (Geo):** Bedrock intelligently routes within a defined geography (US, EU, Japan, or Australia) to maximize throughput while keeping data within regional boundaries. Use this when you have data residency requirements tied to a geography rather than a single Region.
 - **Global:** Bedrock routes across all commercial Regions worldwide for the highest throughput and lowest cost. Use this when you have no data residency constraints and want the best performance and price.
@@ -125,14 +133,14 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `eu-central-1` (Frankfurt)                                                                                                      | Yes    | No        | No  |
 | `ap-northeast-1` (Tokyo)                                                                                                        | Yes    | No        | No  |
 
-| [Titan Text Embeddings v2](model-card-amazon-titan-text-embeddings-v2-2.md "model-card-amazon-titan-text-embeddings-v2-2.md") | Region | In-Region | Geo | Global |
-| ----------------------------------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                                                                     | Yes    | No        | No  |
-| `us-west-2` (Oregon)                                                                                                          | Yes    | No        | No  |
+| [Titan Embeddings G1 - Text v2](model-card-amazon-titan-text-embeddings-v2-2.md "model-card-amazon-titan-text-embeddings-v2-2.md") | Region | In-Region | Geo | Global |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                                                          | Yes    | No        | No  |
+| `us-west-2` (Oregon)                                                                                                               | Yes    | No        | No  |
 
-| [Nova Reel](model-card-amazon-nova-reel.md "model-card-amazon-nova-reel.md") | Region | In-Region | Geo | Global |
-| ---------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                    | Yes    | No        | No  |
+| [Nova Reel](model-card-amazon-nova-reel.md "model-card-amazon-nova-reel.md") | Region                   | In-Region | Geo | Global |
+| ---------------------------------------------------------------------------- | ------------------------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                    | Legacy (EOL: 2026-09-30) | No        | No  |
 
 | Rerank                     | Region | In-Region | Geo | Global |
 | -------------------------- | ------ | --------- | --- | ------ |
@@ -192,11 +200,11 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `il-central-1` (Tel Aviv)                                                    | No     | Yes       | No  |
 | `me-central-1` (UAE)                                                         | Yes    | No        | No  |
 
-| [Nova Canvas](model-card-amazon-nova-canvas.md "model-card-amazon-nova-canvas.md") | Region | In-Region | Geo | Global |
-| ---------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                          | Yes    | No        | No  |
-| `eu-west-1` (Ireland)                                                              | Yes    | No        | No  |
-| `ap-northeast-1` (Tokyo)                                                           | Yes    | No        | No  |
+| [Nova Canvas](model-card-amazon-nova-canvas.md "model-card-amazon-nova-canvas.md") | Region                   | In-Region | Geo | Global |
+| ---------------------------------------------------------------------------------- | ------------------------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                          | Legacy (EOL: 2026-09-30) | No        | No  |
+| `eu-west-1` (Ireland)                                                              | Yes                      | No        | No  |
+| `ap-northeast-1` (Tokyo)                                                           | Yes                      | No        | No  |
 
 | [Nova Micro](model-card-amazon-nova-micro.md "model-card-amazon-nova-micro.md") | Region | In-Region | Geo | Global |
 | ------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
@@ -226,20 +234,20 @@ Now, let us look at Regional availability across all the models supported by Ama
 | ---------------------------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
 | `us-east-1` (N. Virginia)                                                                                              | Yes    | No        | No  |
 
-| [Claude Sonnet 4](model-card-anthropic-claude-sonnet-4.md "model-card-anthropic-claude-sonnet-4.md") | Region | In-Region | Geo | Global |
-| ---------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                                            | No     | Yes       | Yes |
-| `us-east-2` (Ohio)                                                                                   | No     | Yes       | Yes |
-| `us-west-1` (N. California)                                                                          | No     | Yes       | No  |
-| `us-west-2` (Oregon)                                                                                 | No     | Yes       | Yes |
-| `eu-central-1` (Frankfurt)                                                                           | No     | Yes       | No  |
-| `eu-north-1` (Stockholm)                                                                             | No     | Yes       | No  |
-| `eu-south-1` (Milan)                                                                                 | No     | Yes       | No  |
-| `eu-south-2` (Spain)                                                                                 | No     | Yes       | No  |
-| `eu-west-1` (Ireland)                                                                                | No     | Yes       | Yes |
-| `eu-west-3` (Paris)                                                                                  | No     | Yes       | No  |
-| `ap-northeast-1` (Tokyo)                                                                             | No     | No        | Yes |
-| `il-central-1` (Tel Aviv)                                                                            | No     | Yes       | No  |
+| [Claude Sonnet 4](model-card-anthropic-claude-sonnet-4.md "model-card-anthropic-claude-sonnet-4.md") | Region | In-Region                | Geo | Global |
+| ---------------------------------------------------------------------------------------------------- | ------ | ------------------------ | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                            | No     | Yes                      | Yes |
+| `us-east-2` (Ohio)                                                                                   | No     | Legacy (EOL: 2026-10-14) | Yes |
+| `us-west-1` (N. California)                                                                          | No     | Yes                      | No  |
+| `us-west-2` (Oregon)                                                                                 | No     | Yes                      | Yes |
+| `eu-central-1` (Frankfurt)                                                                           | No     | Yes                      | No  |
+| `eu-north-1` (Stockholm)                                                                             | No     | Yes                      | No  |
+| `eu-south-1` (Milan)                                                                                 | No     | Yes                      | No  |
+| `eu-south-2` (Spain)                                                                                 | No     | Yes                      | No  |
+| `eu-west-1` (Ireland)                                                                                | No     | Yes                      | Yes |
+| `eu-west-3` (Paris)                                                                                  | No     | Yes                      | No  |
+| `ap-northeast-1` (Tokyo)                                                                             | No     | No                       | Yes |
+| `il-central-1` (Tel Aviv)                                                                            | No     | Yes                      | No  |
 
 | Claude Opus 4             | Region | In-Region | Geo | Global |
 | ------------------------- | ------ | --------- | --- | ------ |
@@ -465,31 +473,31 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `sa-east-1` (São Paulo)                                                                                    | No     | No        | Yes |
 | `mx-central-1` (Mexico)                                                                                    | No     | No        | Yes |
 
-| [Claude Opus 4.1](model-card-anthropic-claude-opus-4-1.md "model-card-anthropic-claude-opus-4-1.md") | Region | In-Region | Geo | Global |
-| ---------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                                            | No     | Yes       | No  |
-| `us-east-2` (Ohio)                                                                                   | No     | Yes       | No  |
-| `us-west-2` (Oregon)                                                                                 | No     | Yes       | No  |
+| [Claude Opus 4.1](model-card-anthropic-claude-opus-4-1.md "model-card-anthropic-claude-opus-4-1.md") | Region | In-Region                | Geo | Global |
+| ---------------------------------------------------------------------------------------------------- | ------ | ------------------------ | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                            | No     | Legacy (EOL: 2026-05-31) | No  |
+| `us-east-2` (Ohio)                                                                                   | No     | Legacy (EOL: 2026-05-31) | No  |
+| `us-west-2` (Oregon)                                                                                 | No     | Legacy (EOL: 2026-05-31) | No  |
 
-| [Claude 3 Haiku](model-card-anthropic-claude-3-haiku.md "model-card-anthropic-claude-3-haiku.md") | Region | In-Region | Geo | Global |
-| ------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                                         | Yes    | Yes       | No  |
-| `us-east-2` (Ohio)                                                                                | No     | Yes       | No  |
-| `us-west-2` (Oregon)                                                                              | Yes    | Yes       | No  |
-| `us-gov-east-1` (GovCloud)                                                                        | No     | Yes       | No  |
-| `us-gov-west-1` (GovCloud)                                                                        | Yes    | No        | No  |
-| `ca-central-1` (Canada)                                                                           | Yes    | No        | No  |
-| `eu-central-1` (Frankfurt)                                                                        | Yes    | Yes       | No  |
-| `eu-central-2` (Zurich)                                                                           | Yes    | No        | No  |
-| `eu-west-1` (Ireland)                                                                             | Yes    | Yes       | No  |
-| `eu-west-2` (London)                                                                              | Yes    | No        | No  |
-| `eu-west-3` (Paris)                                                                               | Yes    | Yes       | No  |
-| `ap-northeast-1` (Tokyo)                                                                          | Yes    | No        | No  |
-| `ap-northeast-2` (Seoul)                                                                          | Yes    | No        | No  |
-| `ap-south-1` (Mumbai)                                                                             | Yes    | No        | No  |
-| `ap-southeast-1` (Singapore)                                                                      | Yes    | No        | No  |
-| `ap-southeast-2` (Sydney)                                                                         | Yes    | No        | No  |
-| `sa-east-1` (São Paulo)                                                                           | Yes    | No        | No  |
+| [Claude 3 Haiku](model-card-anthropic-claude-3-haiku.md "model-card-anthropic-claude-3-haiku.md") | Region                   | In-Region                | Geo | Global |
+| ------------------------------------------------------------------------------------------------- | ------------------------ | ------------------------ | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                         | Legacy (EOL: 2026-09-10) | Yes                      | No  |
+| `us-east-2` (Ohio)                                                                                | No                       | Legacy (EOL: 2026-09-10) | No  |
+| `us-west-2` (Oregon)                                                                              | Legacy (EOL: 2026-09-10) | Yes                      | No  |
+| `us-gov-east-1` (GovCloud)                                                                        | No                       | Yes                      | No  |
+| `us-gov-west-1` (GovCloud)                                                                        | Yes                      | No                       | No  |
+| `ca-central-1` (Canada)                                                                           | Yes                      | No                       | No  |
+| `eu-central-1` (Frankfurt)                                                                        | Legacy (EOL: 2026-09-10) | Yes                      | No  |
+| `eu-central-2` (Zurich)                                                                           | Yes                      | No                       | No  |
+| `eu-west-1` (Ireland)                                                                             | Legacy (EOL: 2026-09-10) | Yes                      | No  |
+| `eu-west-2` (London)                                                                              | Yes                      | No                       | No  |
+| `eu-west-3` (Paris)                                                                               | Legacy (EOL: 2026-09-10) | Yes                      | No  |
+| `ap-northeast-1` (Tokyo)                                                                          | Legacy (EOL: 2026-09-10) | No                       | No  |
+| `ap-northeast-2` (Seoul)                                                                          | Yes                      | No                       | No  |
+| `ap-south-1` (Mumbai)                                                                             | Yes                      | No                       | No  |
+| `ap-southeast-1` (Singapore)                                                                      | Yes                      | No                       | No  |
+| `ap-southeast-2` (Sydney)                                                                         | Legacy (EOL: 2026-09-10) | No                       | No  |
+| `sa-east-1` (São Paulo)                                                                           | Yes                      | No                       | No  |
 
 | Claude 3 Sonnet            | Region | In-Region | Geo | Global |
 | -------------------------- | ------ | --------- | --- | ------ |
@@ -523,11 +531,11 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `us-west-2` (Oregon)      | Yes    | Yes       | No  |
 | `ap-southeast-2` (Sydney) | Yes    | No        | No  |
 
-| [Claude 3.5 Haiku](model-card-anthropic-claude-3-5-haiku.md "model-card-anthropic-claude-3-5-haiku.md") | Region | In-Region | Geo | Global |
-| ------------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                                               | No     | Yes       | No  |
-| `us-east-2` (Ohio)                                                                                      | No     | Yes       | No  |
-| `us-west-2` (Oregon)                                                                                    | Yes    | Yes       | No  |
+| [Claude 3.5 Haiku](model-card-anthropic-claude-3-5-haiku.md "model-card-anthropic-claude-3-5-haiku.md") | Region                   | In-Region                | Geo | Global |
+| ------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------------ | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                               | No                       | Legacy (EOL: 2026-06-19) | No  |
+| `us-east-2` (Ohio)                                                                                      | No                       | Legacy (EOL: 2026-06-19) | No  |
+| `us-west-2` (Oregon)                                                                                    | Legacy (EOL: 2026-06-19) | Legacy (EOL: 2026-06-19) | No  |
 
 | Claude 3.5 Sonnet            | Region | In-Region | Geo | Global |
 | ---------------------------- | ------ | --------- | --- | ------ |
@@ -610,15 +618,15 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `eu-central-1` (Frankfurt)                                                      | Yes    | No        | No  |
 | `ap-northeast-1` (Tokyo)                                                        | Yes    | No        | No  |
 
-| [Command R](model-card-cohere-command-r.md "model-card-cohere-command-r.md") | Region | In-Region | Geo | Global |
-| ---------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                    | Yes    | No        | No  |
-| `us-west-2` (Oregon)                                                         | Yes    | No        | No  |
+| [Command R](model-card-cohere-command-r.md "model-card-cohere-command-r.md") | Region                   | In-Region | Geo | Global |
+| ---------------------------------------------------------------------------- | ------------------------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                    | Legacy (EOL: 2026-08-19) | No        | No  |
+| `us-west-2` (Oregon)                                                         | Legacy (EOL: 2026-08-19) | No        | No  |
 
-| [Command R+](model-card-cohere-command-r-plus.md "model-card-cohere-command-r-plus.md") | Region | In-Region | Geo | Global |
-| --------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                               | Yes    | No        | No  |
-| `us-west-2` (Oregon)                                                                    | Yes    | No        | No  |
+| [Command R+](model-card-cohere-command-r-plus.md "model-card-cohere-command-r-plus.md") | Region                   | In-Region | Geo | Global |
+| --------------------------------------------------------------------------------------- | ------------------------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                               | Legacy (EOL: 2026-08-19) | No        | No  |
+| `us-west-2` (Oregon)                                                                    | Legacy (EOL: 2026-08-19) | No        | No  |
 
 ## DeepSeek
 
@@ -739,40 +747,40 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `us-east-2` (Ohio)                                                                                              | Yes    | Yes       | No  |
 | `us-west-2` (Oregon)                                                                                            | No     | Yes       | No  |
 
-| [Llama 3.2 90B Instruct](model-card-meta-llama-3-2-90b-instruct.md "model-card-meta-llama-3-2-90b-instruct.md") | Region | In-Region | Geo | Global |
-| --------------------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                                                       | No     | Yes       | No  |
-| `us-east-2` (Ohio)                                                                                              | No     | Yes       | No  |
-| `us-west-2` (Oregon)                                                                                            | No     | Yes       | No  |
+| [Llama 3.2 90B Instruct](model-card-meta-llama-3-2-90b-instruct.md "model-card-meta-llama-3-2-90b-instruct.md") | Region | In-Region                | Geo | Global |
+| --------------------------------------------------------------------------------------------------------------- | ------ | ------------------------ | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                                       | No     | Legacy (EOL: 2026-07-07) | No  |
+| `us-east-2` (Ohio)                                                                                              | No     | Legacy (EOL: 2026-07-07) | No  |
+| `us-west-2` (Oregon)                                                                                            | No     | Legacy (EOL: 2026-07-07) | No  |
 
-| [Llama 3.2 11B Instruct](model-card-meta-llama-3-2-11b-instruct.md "model-card-meta-llama-3-2-11b-instruct.md") | Region | In-Region | Geo | Global |
-| --------------------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                                                       | No     | Yes       | No  |
-| `us-east-2` (Ohio)                                                                                              | No     | Yes       | No  |
-| `us-west-2` (Oregon)                                                                                            | No     | Yes       | No  |
+| [Llama 3.2 11B Instruct](model-card-meta-llama-3-2-11b-instruct.md "model-card-meta-llama-3-2-11b-instruct.md") | Region | In-Region                | Geo | Global |
+| --------------------------------------------------------------------------------------------------------------- | ------ | ------------------------ | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                                       | No     | Legacy (EOL: 2026-07-07) | No  |
+| `us-east-2` (Ohio)                                                                                              | No     | Legacy (EOL: 2026-07-07) | No  |
+| `us-west-2` (Oregon)                                                                                            | No     | Legacy (EOL: 2026-07-07) | No  |
 
-| [Llama 3.2 3B Instruct](model-card-meta-llama-3-2-3b-instruct.md "model-card-meta-llama-3-2-3b-instruct.md") | Region | In-Region | Geo | Global |
-| ------------------------------------------------------------------------------------------------------------ | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                                                    | No     | Yes       | No  |
-| `us-east-2` (Ohio)                                                                                           | No     | Yes       | No  |
-| `us-west-2` (Oregon)                                                                                         | No     | Yes       | No  |
-| `eu-central-1` (Frankfurt)                                                                                   | No     | Yes       | No  |
-| `eu-west-1` (Ireland)                                                                                        | No     | Yes       | No  |
-| `eu-west-3` (Paris)                                                                                          | No     | Yes       | No  |
+| [Llama 3.2 3B Instruct](model-card-meta-llama-3-2-3b-instruct.md "model-card-meta-llama-3-2-3b-instruct.md") | Region | In-Region                | Geo | Global |
+| ------------------------------------------------------------------------------------------------------------ | ------ | ------------------------ | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                                    | No     | Legacy (EOL: 2026-07-07) | No  |
+| `us-east-2` (Ohio)                                                                                           | No     | Legacy (EOL: 2026-07-07) | No  |
+| `us-west-2` (Oregon)                                                                                         | No     | Legacy (EOL: 2026-07-07) | No  |
+| `eu-central-1` (Frankfurt)                                                                                   | No     | Legacy (EOL: 2026-07-07) | No  |
+| `eu-west-1` (Ireland)                                                                                        | No     | Legacy (EOL: 2026-07-07) | No  |
+| `eu-west-3` (Paris)                                                                                          | No     | Legacy (EOL: 2026-07-07) | No  |
 
-| [Llama 3.2 1B Instruct](model-card-meta-llama-3-2-1b-instruct.md "model-card-meta-llama-3-2-1b-instruct.md") | Region | In-Region | Geo | Global |
-| ------------------------------------------------------------------------------------------------------------ | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                                                    | No     | Yes       | No  |
-| `us-east-2` (Ohio)                                                                                           | No     | Yes       | No  |
-| `us-west-2` (Oregon)                                                                                         | No     | Yes       | No  |
-| `eu-central-1` (Frankfurt)                                                                                   | No     | Yes       | No  |
-| `eu-west-1` (Ireland)                                                                                        | No     | Yes       | No  |
-| `eu-west-3` (Paris)                                                                                          | No     | Yes       | No  |
+| [Llama 3.2 1B Instruct](model-card-meta-llama-3-2-1b-instruct.md "model-card-meta-llama-3-2-1b-instruct.md") | Region | In-Region                | Geo | Global |
+| ------------------------------------------------------------------------------------------------------------ | ------ | ------------------------ | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                                    | No     | Legacy (EOL: 2026-07-07) | No  |
+| `us-east-2` (Ohio)                                                                                           | No     | Legacy (EOL: 2026-07-07) | No  |
+| `us-west-2` (Oregon)                                                                                         | No     | Legacy (EOL: 2026-07-07) | No  |
+| `eu-central-1` (Frankfurt)                                                                                   | No     | Legacy (EOL: 2026-07-07) | No  |
+| `eu-west-1` (Ireland)                                                                                        | No     | Legacy (EOL: 2026-07-07) | No  |
+| `eu-west-3` (Paris)                                                                                          | No     | Legacy (EOL: 2026-07-07) | No  |
 
-| [Llama 3.1 405B Instruct](model-card-meta-llama-3-1-405b-instruct.md "model-card-meta-llama-3-1-405b-instruct.md") | Region | In-Region | Geo | Global |
-| ------------------------------------------------------------------------------------------------------------------ | ------ | --------- | --- | ------ |
-| `us-east-2` (Ohio)                                                                                                 | No     | Yes       | No  |
-| `us-west-2` (Oregon)                                                                                               | Yes    | No        | No  |
+| [Llama 3.1 405B Instruct](model-card-meta-llama-3-1-405b-instruct.md "model-card-meta-llama-3-1-405b-instruct.md") | Region                   | In-Region                | Geo | Global |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------ | ------------------------ | --- | ------ |
+| `us-east-2` (Ohio)                                                                                                 | No                       | Legacy (EOL: 2026-07-07) | No  |
+| `us-west-2` (Oregon)                                                                                               | Legacy (EOL: 2026-07-07) | No                       | No  |
 
 | [Llama 3.1 70B Instruct](model-card-meta-llama-3-1-70b-instruct.md "model-card-meta-llama-3-1-70b-instruct.md") | Region | In-Region | Geo | Global |
 | --------------------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
@@ -1068,11 +1076,6 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `ap-south-1` (Mumbai)                                                                                      | Yes    | No        | No  |
 | `ap-southeast-2` (Sydney)                                                                                  | Yes    | No        | No  |
 | `sa-east-1` (São Paulo)                                                                                    | Yes    | No        | No  |
-
-| [NVIDIA Nemotron 3 Super 120B](model-card-nvidia-nemotron-super-3-120b.md "model-card-nvidia-nemotron-super-3-120b.md") | Region | In-Region | Geo | Global |
-| ----------------------------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                                                               | Yes    | No        | No  |
-| `us-west-2` (Oregon)                                                                                                    | Yes    | No        | No  |
 
 | [NVIDIA Nemotron 3 Super 120B](model-card-nvidia-nemotron-super-3-120b.md "model-card-nvidia-nemotron-super-3-120b.md") | Region | In-Region | Geo | Global |
 | ----------------------------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |

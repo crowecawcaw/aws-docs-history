@@ -18,7 +18,7 @@ for both response quality and cost.
 
 ## Supported Regions and models for intelligent prompt routing
 
-Intelligent prompt routing can used with different types of models. The following list describes support for different types of Amazon Bedrock models:
+Intelligent prompt routing can be used with different types of models. The following list describes support for different types of Amazon Bedrock models:
 
 - **Single-region model support** – Lists regions that support sending inference requests to a foundation model in one AWS Region. For a full table of models available across Amazon Bedrock, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
 - **Cross-region inference profile support** – Lists regions that support using a cross-region inference profile, which support sending inference requests to a foundation model in multiple AWS regions within a geographical area. An inference profile has a prefix preceding the model ID that indicates its geographical area (for example, `us.`, `apac`). For more information for available inference profiles across Amazon Bedrock, see [Supported Regions and models for inference profiles](inference-profiles-support.md "inference-profiles-support.md").

@@ -29,7 +29,7 @@ If you're using the console, Amazon Bedrock Knowledge Bases will automatically c
 permissions for you. 4. (Optional) Set up extra security configurations by following the steps at
 [Encryption of knowledge base resources](encryption-kb.md "encryption-kb.md"). 5. If you plan to use the [RetrieveAndGenerate](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md") API operation with
 BDA-processed content, request access to the models that you'll use in the
-Regions that you'll use them in by following the steps at [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
+Regions that you'll use them in by following the steps at [Request access to models](model-access.md "model-access.md").
 
 ## Permissions for multimodal content
 

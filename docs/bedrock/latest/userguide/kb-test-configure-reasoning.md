@@ -23,14 +23,8 @@ reasoning models with Amazon Bedrock Knowledge Bases.
 
 ## Reasoning models
 
-Model reasoning is available for the following models.
-
-| Foundation Model            | Model ID                                  | Number of tokens                                                                                                                                                                                             | Reasoning configuration                                                                                                   |
-| --------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
-| Anthropic Claude Opus 4     | anthropic.claude-opus-4-20250514-v1:0     | This model will have 32,768 tokens, which includes both output and reasoning tokens.                                                                                                                         | Reasoning can be enabled or disabled for this model using a configurable token budget. By default, reasoning is disabled. |
-| Anthropic Claude Sonnet 4   | anthropic.claude-sonnet-4-20250514-v1:0   | This model will have 65,536 tokens, which includes both output and reasoning tokens.                                                                                                                         | Reasoning can be enabled or disabled for this model using a configurable token budget. By default, reasoning is disabled. |
-| Anthropic Claude 3.7 Sonnet | anthropic.claude-3-7-sonnet-20250219-v1:0 | This model will have 65,536 tokens, which includes both output and reasoning tokens.                                                                                                                         | Reasoning can be enabled or disabled for this model using a configurable token budget. By default, reasoning is disabled. |
-| DeepSeek DeepSeek-R1        | deepseek.r1-v1:0                          | This model will have 8192 tokens, which includes both output and reasoning tokens. The number of thinking tokens cannot be configured and the maximum number of output tokens must not be greater than 8192. | Reasoning is always enabled for this model. The model does not support toggling the reasoning capability on and off.      |
+To see which models support reasoning, please visit
+[models at a glance](model-cards.md "model-cards.md") and choose the model you are interested in.
 
 ## Using model reasoning for Claude 3.7 Sonnet
 

@@ -5,7 +5,7 @@ You must add your batch inference data to an S3 location that you'll choose or s
 - At least one JSONL file that defines the model inputs. A JSONL contains rows of JSON objects. Your JSONL file must end in the extension .jsonl and be in the following format:
 
 ```
-{ "recordId" : "`alphanumeric string`", "modelInput" : `{JSON body}` }
+{ "recordId" : "`string`", "modelInput" : `{JSON body}` }
 ...
 
 ```

@@ -5,8 +5,8 @@ to make inference calls to Writer AI models with the [InvokeModel](../APIReferen
 This section also includes Python code examples that shows how to call Writer AI models. To use a model in an inference operation, you need the model ID for the model.
 To get the model ID, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md"). Some
 models also work with the [Converse API](conversation-inference.md "conversation-inference.md").
-To check if the Converse API supports a specific Writer AI model, see
-[Supported models and model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md"). For more code examples,
+To check if a specific Writer AI model supports a feature, see
+[models at a glance](model-cards.md "model-cards.md"). For more code examples,
 see [Code examples for Amazon Bedrock using AWS SDKs](service_code_examples.md "service_code_examples.md").
 
 Foundation models in Amazon Bedrock support input and output modalities, which vary from model to

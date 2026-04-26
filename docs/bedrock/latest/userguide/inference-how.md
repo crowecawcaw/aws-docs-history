@@ -7,8 +7,8 @@ When you submit an input to a model, the model predicts a probable sequence of t
   [Prompt engineering concepts](prompt-engineering-guidelines.md "prompt-engineering-guidelines.md"). For information about
   protecting against prompt injection attacks, see [Prompt injection security](prompt-injection.md "prompt-injection.md").
 - **Model** – You make requests to a model to run inference on a prompt. The model that you choose also specifies a level of throughput, which defines the number and rate of input and output tokens that you can process. You can make requests to the following types of models:
-  - **Base model** – A foundation model to run inference with. Requests are sent to a single AWS Region. For model IDs, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md"). For more information about the foundation models that are available in Amazon Bedrock, see [Amazon Bedrock foundation model information](foundation-models-reference.md "foundation-models-reference.md").
-  - **Inference profile** – A foundation model to run inference with. Requests are made to the model in a multiple AWS Regions. For inference profile IDs, see [Supported Regions and models for inference profiles](inference-profiles-support.md "inference-profiles-support.md").
+  - **Base model** – A foundation model to run inference with. Requests are sent to a single AWS Region. For model IDs, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md"). For more information about the foundation models that are available in Amazon Bedrock, see [Using models with Bedrock](foundation-models-reference.md "foundation-models-reference.md").
+  - **Inference profile** – A foundation model to run inference with. Requests are made to the model in multiple AWS Regions. For inference profile IDs, see [Supported Regions and models for inference profiles](inference-profiles-support.md "inference-profiles-support.md").
 
   ###### Note
 

@@ -11,6 +11,7 @@ Embed English is Cohere's English-language text embedding model for search, clas
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
 - **Model lifecycle:** Active
 - **Context window:** 512 tokens
+- **Marketplace product ID:** `b7568428-a1ab-46d8-bab3-37def50f6f6a`
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |

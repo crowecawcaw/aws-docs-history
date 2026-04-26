@@ -7,9 +7,9 @@
 Nova Sonic is Amazon's speech-to-speech model that enables natural, real-time voice conversations with low latency and support for multiple languages. For more information about model development and performance, see the [model/service card](../../../ai/responsible-ai/nova-micro-lite-pro/overview.md "../../../ai/responsible-ai/nova-micro-lite-pro/overview.md").
 
 - **Model launch date:** Mar 2025
-- **Model EOL date:** N/A
+- **Model EOL date:** September 14, 2026
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
-- **Model lifecycle:** Active
+- **Model lifecycle:** Legacy
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")**  | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | ---------------------------------------- | ------------------------------------------------------ |

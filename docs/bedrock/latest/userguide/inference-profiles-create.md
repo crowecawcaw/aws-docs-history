@@ -4,9 +4,9 @@ You can create an application inference profile with one or more Regions to trac
 
 - To create an application inference profile for one Region, specify a foundation model. Usage and costs for requests made to that Region with that model will be tracked.
 - To create an application inference profile for multiple Regions, specify a cross Region (system-defined) inference profile. The inference profile will route requests to the Regions defined in the cross Region (system-defined) inference profile that you choose. Usage and costs for requests made to the Regions in the inference profile will be tracked.
-  Currently, you can only create an inference profile using the Amazon Bedrock API.
+  You can create an application inference profile using the Amazon Bedrock console or the Amazon Bedrock API.
 
-To create an inference profile, send a [CreateInferenceProfile](../APIReference/API_CreateInferenceProfile.md "../APIReference/API_CreateInferenceProfile.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp").
+To create an inference profile using the API, send a [CreateInferenceProfile](../APIReference/API_CreateInferenceProfile.md "../APIReference/API_CreateInferenceProfile.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp").
 
 The following fields are required:
 

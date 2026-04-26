@@ -7,9 +7,9 @@
 Titan Image Generator G1 v2 is Amazon's image generation model that creates and edits realistic images from text prompts with built-in watermarking. For more information about model development and performance, see the [model/service card](../../../ai/responsible-ai/titan-text-embeddings/overview.md "../../../ai/responsible-ai/titan-text-embeddings/overview.md").
 
 - **Model launch date:** Nov 29, 2023
-- **Model EOL date:** Legacy: June 30, 2026
+- **Model EOL date:** June 30, 2026
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
-- **Model lifecycle:** Active
+- **Model lifecycle:** Legacy
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
@@ -86,8 +86,13 @@ client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
     modelId='amazon.titan-image-generator-v2:0',
     body=json.dumps({
-            'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
-            'max_tokens': 1024
+            'messages': [{
+                'role': 'user',
+                'content': [{'text': 'Can you explain the features of Amazon Bedrock?'}]
+            }],
+            'inferenceConfig': {
+                'maxTokens': 1024
+            }
     })
  )
  print(json.loads(response['body'].read()))

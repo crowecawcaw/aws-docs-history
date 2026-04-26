@@ -5,7 +5,7 @@ model input data, and model output data for all invocations in your AWS account 
 in Amazon Bedrock in a Region.
 
 With invocation logging, you can collect the full request data, response data, and
-metadata associated with all calls performed in your account in a Region. Logging can be configured
+metadata associated with supported calls performed in your account in a Region. Logging can be configured
 to provide the destination resources where the log data will be published. Supported
 destinations include Amazon CloudWatch Logs and Amazon Simple Storage Service (Amazon S3). Only destinations from the same account
 and Region are supported.
@@ -18,9 +18,17 @@ The following operations can log model invocations.
 - [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md")
 - [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md")
 - [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")
-  When [using the Converse API](conversation-inference-call.md "conversation-inference-call.md"), any image or document data that you pass is logged in Amazon S3
-  (if you have [enabled](#model-invocation-logging-console "#model-invocation-logging-console") delivery and
-  image logging in Amazon S3).
+
+###### Note
+
+Model invocation logging is only supported for calls made through the
+`bedrock-runtime` endpoint. Calls made through other endpoints,
+such as the Responses API on the `bedrock-mantle` endpoint, are
+not currently captured by invocation logging.
+
+When [using the Converse API](conversation-inference-call.md "conversation-inference-call.md"), any image or document data that you pass is logged in Amazon S3
+(if you have [enabled](#model-invocation-logging-console "#model-invocation-logging-console") delivery and
+image logging in Amazon S3).
 
 Before you can enable invocation logging, you need to set up an Amazon S3 or CloudWatch Logs destination.
 You can enable invocation logging through either the console or the API.

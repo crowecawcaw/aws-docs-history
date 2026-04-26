@@ -8,7 +8,7 @@ level resources. Use the linked topics to learn more about getting setting up.
 1. Model evaluation jobs that use human workers allow you to rate/compare the
    responses for up two different foundation models. To start a job, at least one Amazon Bedrock
    foundation model is required. To learn more accessing Amazon Bedrock foundation models, see
-   [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
+   [Request access to models](model-access.md "model-access.md").
 2. To create a model evaluation job using human workers, you need access to the
    [https://console.aws.amazon.com/bedrock/](https://console.aws.amazon.com/bedrock/ "https://console.aws.amazon.com/bedrock/"), AWS Command Line Interface, or a supported AWS SDK. To learn more about the
    required IAM actions and resources, see [Required console permissions to create a human-based model evaluation job](#more-for-human "#more-for-human").

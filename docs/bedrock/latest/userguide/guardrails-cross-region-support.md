@@ -76,14 +76,15 @@ arn:aws:bedrock:`source-region`:`account-id`:guardrail-profile/eu.guardrail.v1:0
 
 The following table shows the source Regions from which you can call the guardrail profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                                                                |
-| ------------- | ---------------------------------------------------------------------------------- |
-| eu-central-1  | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1                 |
-| eu-west-1     | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1                 |
-| eu-west-3     | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1                 |
-| eu-north-1    | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1                 |
-| eu-south-1    | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1                 |
-| il-central-1  | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1<br>il-central-1 |
+| Source Region | Destination Regions                                                                              |
+| ------------- | ------------------------------------------------------------------------------------------------ |
+| eu-central-1  | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1<br>eu-south-2                 |
+| eu-west-1     | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1<br>eu-south-2                 |
+| eu-west-3     | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1<br>eu-south-2                 |
+| eu-north-1    | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1<br>eu-south-2                 |
+| eu-south-1    | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1<br>eu-south-2                 |
+| eu-south-2    | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1<br>eu-south-2                 |
+| il-central-1  | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>il-central-1 |
 
 To use a guardrail profile in the UK geographic boundary, specify the following
 guardrail profile ID or ARN in one of the source Regions:

@@ -27,10 +27,11 @@ Before you can deploy a custom model for on-demand inference, make sure you meet
 
 You can set up on-demand inference for the following base models:
 
-- Amazon Nova Lite
-- Amazon Nova Micro
-- Amazon Nova Pro
-- Meta Llama 3.3 70B Instruct
+- Amazon Nova Lite – Supported Region: US East (N. Virginia)
+- Amazon Nova 2 Lite – Supported Region: US East (N. Virginia)
+- Amazon Nova Micro – Supported Region: US East (N. Virginia)
+- Amazon Nova Pro – Supported Region: US East (N. Virginia)
+- Meta Llama 3.3 70B Instruct – Supported Region: US West (Oregon)
 
 ## Deploy a custom model
 

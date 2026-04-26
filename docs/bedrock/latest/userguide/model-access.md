@@ -1,4 +1,4 @@
-# Access Amazon Bedrock foundation models
+# Request access to models
 
 Access to all Amazon Bedrock foundation models is enabled by default with the correct AWS
 Marketplace permissions. To get started, simply select a model from the model catalog in the
@@ -8,7 +8,7 @@ Amazon Bedrock console and open it in the playground or invoke the model using t
 information](foundation-models-reference.md "foundation-models-reference.md"). For information about model pricing, see [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
 
 Access to all Amazon Bedrock foundation models is enabled by default with the correct AWS
-Marketplace permissions in all commercial AWS regions. For programtic access to third-party models, see [Manage model access using SDK and CLI](#model-access-modify "#model-access-modify").
+Marketplace permissions in all commercial AWS regions. For programmatic access to third-party models, see [Manage model access using SDK and CLI](#model-access-modify "#model-access-modify").
 
 ###### Understanding automatic model access
 
@@ -230,6 +230,9 @@ Follow these steps to manage model access programmatically:
 
 Note: Below instructions use python3 for the examples
 
+- If you are using the AWS CLI, these commands require AWS CLI version 2.27.42 or later.
+  Run `aws --version` to check your version and
+  [update if needed](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 - Note the modelId of the model for which the access needs to be managed.
 
 ### Step 1: List foundation model agreement offers

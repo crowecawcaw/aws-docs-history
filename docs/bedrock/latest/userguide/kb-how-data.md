@@ -22,6 +22,7 @@ A data source contains the raw form of your documents. To optimize the query pro
 - Embedding model – A foundation model that converts your data into vector embeddings. For multimodal data containing both text and images, you can use multimodal embedding models like Amazon Titan Multimodal Embeddings G1 or Cohere Embed v3.
 - Vector store – A service that stores the vector representation of your data. The following vector stores are supported:
   - Amazon OpenSearch Serverless
+  - Amazon OpenSearch Service Managed Clusters
   - Amazon Neptune
   - Amazon Aurora (RDS)
   - Pinecone

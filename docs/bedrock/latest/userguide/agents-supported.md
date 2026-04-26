@@ -19,6 +19,7 @@ Amazon Bedrock Agents is supported in the following Regions:
 - eu-west-3
 - sa-east-1
 - us-east-1
+- us-east-2
 - us-gov-west-1
 - us-west-2
   For a table of which models are supported in which Regions, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").

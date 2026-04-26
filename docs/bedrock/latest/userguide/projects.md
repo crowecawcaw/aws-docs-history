@@ -10,7 +10,7 @@ Projects can only be used with models that use the OpenAI-compatible APIs agains
 
 A Project is a logical boundary used to isolate workloads such as applications, environments, or experiments within Amazon Bedrock. Projects provide:
 
-- **Access isolation**: Control who can access specific project resources using [AWS Identity and Access Management (IAM) policies](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md")
+- **Access isolation**: Control who can access specific project resources using [IAM policies for Amazon Bedrock Projects](security-iam-projects.md "security-iam-projects.md")
 - **Cost monitoring**: Track spending at the project level using [AWS tags](../../../whitepapers/latest/tagging-best-practices/what-are-tags.md "../../../whitepapers/latest/tagging-best-practices/what-are-tags.md") and [AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md")
 
 Projects allow you to manage multiple generative AI workloads in production without creating separate AWS accounts or organizations, reducing operational complexity while maintaining security and governance.
@@ -22,7 +22,6 @@ Each AWS account has a default project where all inference requests are associat
 You should use the Projects API when you need to:
 
 - **Organize by business structure**: Manage Bedrock usage based on your organizational taxonomy such as business units, teams, applications, or cost centers
-- **Isolate sensitive data**: Ensure that prompts, responses, and context data from one application are not accessible to other applications
 - **Track costs accurately**: Monitor and allocate AI spending to specific teams, projects, or environments
 - **Enforce access policies**: Apply granular IAM permissions to control who can access specific AI workloads
 - **Scale production workloads**: Run multiple production applications with clear operational boundaries and monitoring
@@ -219,7 +218,7 @@ This page provides detailed information about managing projects throughout their
 Create a project with a name, description, and tags:
 
 ```
-curl -X POST $OPENAI_BASE_URL/v1/organization/projects \
+curl -X POST $OPENAI_BASE_URL/organization/projects \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

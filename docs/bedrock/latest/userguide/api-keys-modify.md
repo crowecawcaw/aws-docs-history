@@ -64,4 +64,4 @@ JSON
 ```
 
 8. Choose **Next**, provide a **Policy name**, and then choose **Create policy**.
-9. With this API key, a user now can only run inference with the US Anthropic Claude 3 Haiku inference profile in US West (Oregon).
+9. With this API key, a user now can only run inference with the US Anthropic Claude Sonnet 4.6 inference profile in US West (Oregon).

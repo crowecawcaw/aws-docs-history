@@ -39,19 +39,14 @@ Text to image
 The Stable Image Core model has the following
 inference parameters for a text to image inference call.
 
-**text_prompts** (Required)
-– An array of text prompts to use for
-generation. Each element is a JSON object that contains
-a prompt and a weight for the prompt.
+**prompt** (Required)
+– (string) What you wish to see in the output image. A strong, descriptive prompt
+that clearly defines elements, colors, and subjects will lead to better
+results.
 
-- **prompt** – (string)
-  What you wish to see in the output image. A strong, descriptive prompt
-  that clearly defines elements, colors, and subjects will lead to better
-  results.
-
-| Minimum | Maximum |
-| ------- | ------- |
-| 0       | 10,000  |
+| Minimum | Maximum           |
+| ------- | ----------------- |
+| 0       | 10,000 characters |
 
 **Optional fields**
 

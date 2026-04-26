@@ -17,7 +17,7 @@ To use a guardrail, you include configuration information for the guardrail in c
 to the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") or [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") (for streaming responses) operations. Optionally,
 you can select specific content in the message that you want the guardrail to assess.
 For information about the models that you can use with guardrails and the Converse API,
-see [Supported models and model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md").
+see [models at a glance](model-cards.md "model-cards.md").
 
 ###### Topics
 
@@ -81,7 +81,7 @@ shown in the following example.
         "role": "assistant",
         "content": [
             {
-                "text": "Sure! Here are two pop songs:\n1. \"Bad Habits\" by Ed Sheeran\n2. \"All Of The Lights\" by Kanye West\n\nWould you like to add any more songs to this playlist?"
+                "text": "Sure! Here are two pop songs:\n1. \"Bad Habits\" by Ed Sheeran\n2. \"Blinding Lights\" by The Weeknd\n\nWould you like to add any more songs to this playlist?"
             }
         ]
     },
@@ -514,7 +514,7 @@ def main():
                         format="%(levelname)s: %(message)s")
 
     # The model to use.
-    model_id = "amazon.titan-text-express-v1"
+    model_id = "amazon.nova-micro-v1:0"
 
     # The ID and version of the guardrail.
     guardrail_id = "Change to your guardrail ID"

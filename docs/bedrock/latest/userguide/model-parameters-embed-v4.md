@@ -6,7 +6,7 @@ The model ID for Cohere Embed v4 is `cohere.embed-v4`.
 
 ###### Additional usage notes
 
-- **Context length:** Up to ~128k tokens supported; for RAG, smaller chunks often improve retrieval and cost.
+- **Context length:** Up to ~128k tokens per document; for RAG, smaller chunks often improve retrieval and cost.
 - **Image sizing:** Images > 2,458,624 pixels are downsampled to that size; images < 3,136 pixels are upsampled.
 - **Interleaved inputs:** Prefer inputs.content[] for page-like multimodal content so text context (e.g., filename, entities) travels with the image.
 
@@ -50,7 +50,7 @@ Content type: application/json
   Each part is `{ "type": "text", "text": ... }` or `{ "type": "image_url", "image_url": {"url": "data:<mime>;base64,..."} }`. Send interleaved page-like content here (e.g., PDF page image + caption/metadata). Max 96 items.
 - **embedding_types** (optional) – One or more of: `float`, `int8`, `uint8`, `binary`, `ubinary`. If omitted, returns float embeddings.
 - **output_dimension** (optional) – Select vector length. Allowed: `256`, `512`, `1024`, `1536` (default `1536` if unspecified).
-- **max_tokens** (optional) – Truncation budget per input object. The model supports up to ~128,000 tokens; chunk smaller for RAG as appropriate.
+- **max_tokens** (optional) – Truncation budget per input document. The model supports up to ~128,000 tokens per document; chunk smaller for RAG as appropriate.
 - **truncate** (optional) – How to handle over-length inputs:
   `LEFT` drops tokens from the start; `RIGHT` drops from the end; `NONE` returns an error if the input exceeds the limit.
 

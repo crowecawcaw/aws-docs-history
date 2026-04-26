@@ -7,9 +7,9 @@
 Nova Premier is Amazon's multimodal model for complex reasoning, agentic workflows, and model distillation. For more information about model development and performance, see the [model/service card](../../../ai/responsible-ai/nova-micro-lite-pro/overview.md "../../../ai/responsible-ai/nova-micro-lite-pro/overview.md").
 
 - **Model launch date:** Oct 31, 2025
-- **Model EOL date:** N/A
+- **Model EOL date:** September 14, 2026
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
-- **Model lifecycle:** Active
+- **Model lifecycle:** Legacy
 - **Context window:** 1M tokens
 - **Max output tokens:** 25K
 - **Reasoning:** Supported
@@ -22,6 +22,16 @@ Nova Premier is Amazon's multimodal model for complex reasoning, agentic workflo
 | No Speech            | No Speech             | Yes `Invoke`                            |                                                        |
 | Yes Text             | Yes Text              | Yes `Converse`                          |                                                        |
 | Yes Video            | No Video              |                                         |                                                        |
+
+**Prompt caching using `bedrock-runtime` endpoint**
+
+For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
+
+| **Prompt caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoints** |
+| ---------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ----------------------------------------------- |
+| Yes                          | 1K\*                                | 4                                     | 5 minutes         | `system` and `messages`                         |
+
+_\* Amazon Nova models support a maximum of 20K tokens for prompt caching. Prompt caching is primarily for text prompts._
 
 ## Pricing
 
@@ -103,8 +113,13 @@ client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
     modelId='amazon.nova-premier-v1:0',
     body=json.dumps({
-            'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
-            'max_tokens': 1024
+            'messages': [{
+                'role': 'user',
+                'content': [{'text': 'Can you explain the features of Amazon Bedrock?'}]
+            }],
+            'inferenceConfig': {
+                'maxTokens': 1024
+            }
     })
  )
  print(json.loads(response['body'].read()))

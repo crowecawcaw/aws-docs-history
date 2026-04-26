@@ -10,7 +10,7 @@ irony, the quality of responses can deteriorate.
 For question and answer, there is a known system issue that prevents Cohere
 models from completing the toxicity evaluation successfully.
 
-The following built-in datasets are recommended for use with the question andg
+The following built-in datasets are recommended for use with the question and answer
 answer task type.
 
 **BoolQ**
