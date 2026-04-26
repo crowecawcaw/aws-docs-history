@@ -189,6 +189,15 @@ as a resource to backup, you can **exclude specific resource
 IDs from the selected resource types**. You can also use tags to exclude
 resources within the stack.
 
+###### Important
+
+Resources that belong to a CloudFormation stack must be in the exclusion list of
+_every_ resource selection in the backup plan that targets that
+resource type. If a resource is excluded only from the CloudFormation backup selection
+but is matched by another resource selection (for example, an S3 selection using
+`arn:aws:s3:::*`), the resource will still be backed up by
+that other selection.
+
 Using CLI, you can use
 
     * `NotResources` in your backup plan to

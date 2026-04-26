@@ -32,7 +32,6 @@ configuration has a link to an expanded section further on the page to where you
 navigate for more detail.
 
 1. Enter a plan name in **[Backup plan name](plan-options-and-configuration.md#plan-name "plan-options-and-configuration.md#plan-name")**.
-   You can't change the name of a plan after it is created.
 
 If you try to create a backup plan that is identical to an existing plan, you receive an
 `AlreadyExistsException` error. 2. Optionally, you can add tags to your backup plan. 3. **Backup rule configuration:** In the backup rule configuration

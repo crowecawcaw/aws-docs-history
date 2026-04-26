@@ -9,8 +9,6 @@ For example, when you update the retention period in a backup rule, the retentio
 of backups created before you made the update remain the same. Any backups that are created by
 that rule going forward reflect the updated retention period.
 
-You can't change the name of a plan after it is created.
-
 ###### To edit a backup plan using the AWS Backup console
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
