@@ -6,20 +6,48 @@ Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wick
 
 ###### Topics
 
+- [Bot runtime architecture](#bot-architecture "#bot-architecture")
 - [Setting up Wickr IO Docker container](#troubleshooting-docker-container "#troubleshooting-docker-container")
 - [Provisioning Wickr IO client](#troubleshooting-provisioning "#troubleshooting-provisioning")
 - [Start bot client failures](#troubleshooting-failures "#troubleshooting-failures")
 - [Wickr IO command line interface](#troubleshooting-command-line-interface "#troubleshooting-command-line-interface")
 - [Client and Integration compatibility issues](#troubleshooting-compatibility-issues "#troubleshooting-compatibility-issues")
 - [Deploying custom Integrations](#troubleshooting-deploying-integrations "#troubleshooting-deploying-integrations")
-- [Other issues](#troubleshooting-other-issues "#troubleshooting-other-issues")
+- [Monitor bot health with Amazon CloudWatch](#bot-monitoring "#bot-monitoring")
+- [Collect bot logs](#bot-logging "#bot-logging")
+- [Common issues](#troubleshooting-common-issues "#troubleshooting-common-issues")
 - [Upgrading bots](#upgrading-bots "#upgrading-bots")
+- [Improve bot resilience](#bot-resilience "#bot-resilience")
   These are troubleshooting suggestions associated with running the Wickr IO gateway,
   clients, and integrations. You may also run into some issues when developing your own custom
   Wickr IO integrations.
 
 This section will describe some possible issues you may run into while using the Wickr IO
 client and the associated services
+
+###### Note
+
+AWS Support can help with AWS Wickr service configuration, network
+settings, and the Wickr bot SDK APIs. For issues with custom bot logic,
+container infrastructure, or host environment, contact your internal
+development or operations team.
+
+## Bot runtime architecture
+
+Each Wickr IO bot has three layers, which AWS recommends independent
+monitoring for:
+
+1. **Host** – The Amazon EC2 instance or on-premises
+   server running Docker.
+2. **Container** – The Wickr IO Docker container
+   (`wickrio/bot-cloud` or
+   `wickrio/bot-cloud-govcloud`).
+3. **Bot process** – Your Node.js integration
+   running inside the container.
+
+The container can report as running while the bot process inside it has crashed
+or lost its connection to the Wickr network. Effective monitoring covers all
+three layers.
 
 ## Setting up Wickr IO Docker container
 
@@ -252,7 +280,440 @@ IO client using your custom integration.
 Make sure all the required files are present in the zipped integration software imported in
 the docker container. You can use any sample integrations as reference.
 
-## Other issues
+## Monitor bot health with Amazon CloudWatch
+
+The following table summarizes the monitoring approaches for each layer, from
+simplest to most comprehensive.
+
+| Layer                   | What it catches                                                    | Effort          | Reliability |
+| ----------------------- | ------------------------------------------------------------------ | --------------- | ----------- |
+| Amazon EC2 status check | Host failure, hardware issues                                      | None (built-in) | High        |
+| Container metric        | Docker crash, OOM kill, restart loop                               | Low             | Medium      |
+| Log-based metric filter | Container crash, restart loop (container output only)              | Low             | Low         |
+| Heartbeat metric        | All of the above, plus silent disconnects and event loop<br>blocks | Medium          | High        |
+
+For production bots, we recommend implementing all four approaches. They are
+not redundant – each catches different failure modes.
+
+### Monitor the host instance
+
+Use the built-in Amazon EC2 `StatusCheckFailed` metric to detect
+host-level failures. On supported instance types, Amazon EC2 simplified automatic
+recovery is enabled by default and automatically migrates the instance to
+healthy hardware when a status check fails. The alarm below is informational
+– it notifies you that a recovery occurred, but no manual action is
+required. For more information, see [Recover your
+instance](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md") in the _Amazon EC2 User
+Guide_.
+
+```
+
+HostDownAlarm:
+  Type: AWS::CloudWatch::Alarm
+  Properties:
+    AlarmName: !Sub "${BotName}-HostDown"
+    Namespace: AWS/EC2
+    MetricName: StatusCheckFailed
+    Dimensions:
+      - Name: InstanceId
+        Value: !Ref BotInstance
+    Statistic: Maximum
+    Period: 60
+    EvaluationPeriods: 2
+    Threshold: 1
+    ComparisonOperator: GreaterThanOrEqualToThreshold
+    AlarmActions:
+      - !Ref AlertTopic
+```
+
+### Monitor the Docker container
+
+Create a script on the host that publishes a custom CloudWatch metric based on
+container status. Run it every minute using `cron`. For example:
+
+```
+
+#!/bin/bash
+# /opt/wickr-bot/monitor.sh
+CONTAINER_NAME="${1:-wickr-bot}"
+NAMESPACE="WickrIO/Bots"
+
+STATUS=$(docker inspect --format='{{.State.Running}}' "$CONTAINER_NAME" 2>/dev/null)
+
+aws cloudwatch put-metric-data \
+  --namespace "$NAMESPACE" \
+  --metric-name ContainerRunning \
+  --dimensions BotName="$CONTAINER_NAME" \
+  --value "$([ "$STATUS" = "true" ] && echo 1 || echo 0)" \
+  --unit Count
+```
+
+Add a cron entry to run the script:
+
+```
+* * * * * /opt/wickr-bot/monitor.sh `container-name`
+```
+
+Create an alarm that fires when the value drops to 0.
+
+### Monitor with log-based metric filters
+
+If you forward container logs to Amazon CloudWatch Logs using the
+`awslogs` driver, you can create a metric filter that counts
+log events. When the container stops producing output, the alarm fires.
+
+1. Open the Amazon CloudWatch console and navigate to
+   **Log groups**.
+2. Select your bot's log group
+   (`/wickr/bots/`bot-name``).
+3. Choose **Metric filters**, then
+   **Create metric filter**.
+4. For **Filter pattern**, enter a single space
+   (`" "`) to match any log line.
+5. Set the metric namespace to `WickrIO/Bots` and the
+   metric name to `BotLogEvents`.
+6. Create an alarm on this metric: `Sum < 1` over a
+   5-minute period.
+
+### Add a heartbeat metric (recommended)
+
+A heartbeat metric is the most reliable approach because it proves the
+Node.js process is alive and the event loop is not blocked. Add the following
+to your bot's entry point, after the bot starts successfully. For example:
+
+```
+
+const { CloudWatchClient, PutMetricDataCommand } = require('@aws-sdk/client-cloudwatch')
+const cw = new CloudWatchClient()
+const BOT_NAME = process.env.BOT_NAME || 'wickr-bot'
+
+setInterval(async () => {
+  try {
+    await cw.send(new PutMetricDataCommand({
+      Namespace: 'WickrIO/Bots',
+      MetricData: [{
+        MetricName: 'Heartbeat',
+        Dimensions: [{ Name: 'BotName', Value: BOT_NAME }],
+        Value: 1,
+        Unit: 'Count'
+      }]
+    }))
+  } catch (e) { console.error('Heartbeat publish failed:', e.message) }
+}, 60000)
+```
+
+Add the `@aws-sdk/client-cloudwatch` dependency to your bot's
+`package.json`.
+
+Create an alarm on the heartbeat metric. For example:
+
+```
+
+BotProcessAlarm:
+  Type: AWS::CloudWatch::Alarm
+  Properties:
+    AlarmName: !Sub "${BotName}-ProcessDown"
+    Namespace: WickrIO/Bots
+    MetricName: Heartbeat
+    Dimensions:
+      - Name: BotName
+        Value: !Ref BotName
+    Statistic: Sum
+    Period: 300
+    EvaluationPeriods: 2
+    Threshold: 1
+    ComparisonOperator: LessThanThreshold
+    TreatMissingData: breaching
+    AlarmActions:
+      - !Ref AlertTopic
+```
+
+Set `TreatMissingData` to `breaching` so the alarm
+fires when the metric stops arriving entirely, rather than entering
+`INSUFFICIENT_DATA`.
+
+### Monitor memory usage
+
+Node.js bots that maintain session state, cache data, or process file
+attachments can develop memory leaks over time. If the bot's memory usage
+exceeds the Docker container's memory limit, Docker terminates the container
+with an out-of-memory (OOM) kill. The container restarts automatically if
+you configured the `--restart` policy, but active user sessions
+and in-flight messages are lost.
+
+To detect memory growth before it causes an OOM kill, publish the Node.js
+heap usage alongside your heartbeat metric. For example:
+
+```
+
+setInterval(async () => {
+  const mem = process.memoryUsage()
+  try {
+    await cw.send(new PutMetricDataCommand({
+      Namespace: 'WickrIO/Bots',
+      MetricData: [
+        {
+          MetricName: 'Heartbeat',
+          Dimensions: [{ Name: 'BotName', Value: BOT_NAME }],
+          Value: 1, Unit: 'Count'
+        },
+        {
+          MetricName: 'HeapUsedMB',
+          Dimensions: [{ Name: 'BotName', Value: BOT_NAME }],
+          Value: Math.round(mem.heapUsed / 1048576),
+          Unit: 'Megabytes'
+        }
+      ]
+    }))
+  } catch (e) { console.error('Metric publish failed:', e.message) }
+}, 60000)
+```
+
+Create a CloudWatch alarm that fires when heap usage exceeds 80% of the
+container's memory limit. For example, if the container has a 512 MB
+memory limit (`--memory=512m`), set the threshold to
+410 MB. Adjust the threshold to 80% of your configured limit.
+
+```
+
+MemoryAlarm:
+  Type: AWS::CloudWatch::Alarm
+  Properties:
+    AlarmName: !Sub "${BotName}-HighMemory"
+    Namespace: WickrIO/Bots
+    MetricName: HeapUsedMB
+    Dimensions:
+      - Name: BotName
+        Value: !Ref BotName
+    Statistic: Maximum
+    Period: 300
+    EvaluationPeriods: 3
+    Threshold: 410
+    ComparisonOperator: GreaterThanThreshold
+    AlarmActions:
+      - !Ref AlertTopic
+```
+
+**Remediation**
+
+- **Immediate:** Restart the container with
+  `docker restart `container-name``.
+  This clears the Node.js heap without losing the WickrIO registration
+  database.
+- **Preventive:** Set a Docker memory limit with
+  `--memory=512m` when starting the container to prevent
+  a leaking bot from consuming all host memory.
+- **Automated:** Schedule a weekly container restart
+  using `cron` during a low-traffic maintenance window.
+- **Root cause:** If heap usage grows steadily,
+  the bot code likely has a memory leak. Common causes include
+  unbounded session caches, event listeners that are never removed,
+  and large message payloads stored in memory. Use the Node.js
+  `--inspect` flag and Chrome DevTools to take heap
+  snapshots and identify the leak.
+
+### Required IAM permissions
+
+The Amazon EC2 instance profile for the bot host requires the following
+permissions for Amazon CloudWatch monitoring:
+
+```
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "cloudwatch:PutMetricData",
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "arn:aws:logs:*:*:log-group:/wickr/bots/*",
+                "arn:aws:logs:*:*:log-group:/wickr/bots/*:*"
+            ]
+        }
+    ]
+}
+```
+
+## Collect bot logs
+
+A Wickr IO bot produces logs at multiple levels. Understanding where each
+log is stored helps you collect the right information when troubleshooting.
+
+| Log                           | Path inside container                                                    | Contents                                                                                                                                                                        |
+| ----------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Docker container log          | Access with `docker logs`                                                | WickrIO console output and container startup messages.<br>Bot integrations do not write to standard output, so<br>`docker logs` does not contain application-level<br>bot logs. |
+| WickrIO server log            | `/opt/WickrIO/logs/WickrIOSvr.log`                                       | Server process events, client registration, and<br>connection status. Check this log when the container<br>is running but the bot is not connecting.                            |
+| Integration log (WickrLogger) | `/opt/WickrIO/clients/`bot-name`/integration/`bot-name`/logs/log.output` | Application-level logs from your bot code, written<br>by the WickrLogger library. This is the most<br>useful log for debugging bot logic issues.                                |
+
+To view the integration log from outside the container:
+
+```
+
+sudo docker exec `container-name` \
+  cat /opt/WickrIO/clients/`bot-name`/integration/`bot-name`/logs/log.output
+```
+
+To view the WickrIO server log:
+
+```
+
+sudo docker exec `container-name` cat /opt/WickrIO/logs/WickrIOSvr.log
+```
+
+**View Docker container logs**
+
+```
+
+# View recent logs
+sudo docker logs --tail 100 `container-name`
+
+# Follow logs in real time
+sudo docker logs -f `container-name`
+```
+
+**Configure integration log settings**
+
+The WickrLogger library reads log settings from the
+`processes.json` file in your bot's integration directory. Add a
+`log_tokens` section to configure the log level, maximum file size,
+and maximum number of rotated log files:
+
+```
+
+{
+  "apps": [{
+    "name": "`bot-name`",
+    "script": "src/index.js",
+    "env": {
+      "tokens": { },
+      "log_tokens": {
+        "LOG_LEVEL": "debug",
+        "LOG_FILE_SIZE": "10m",
+        "LOG_MAX_FILES": "5"
+      }
+    }
+  }]
+}
+```
+
+The defaults are `info` level, 10 MB maximum file size, and 5
+rotated files. Set `LOG_LEVEL` to `debug` temporarily
+when troubleshooting, then revert to `info` for normal operation.
+For more information, see
+[Logging API](../botguide/logging-api.md "../botguide/logging-api.md")
+in the _Wickr IO Bot Guide_.
+
+###### Note
+
+Always revert `LOG_LEVEL` to `info` after
+troubleshooting. Running at `debug` level in production
+generates excessive log volume and, on older bot versions, may log
+sensitive values such as authentication challenge tokens.
+
+###### Note
+
+When investigating bot crashes, check both the integration log and
+the Docker container log (`docker logs
+ `container-name``). Crash traces from
+unhandled exceptions and segmentation faults are written to the
+container log.
+
+**Configure Docker log rotation**
+
+###### Important
+
+The default Docker log driver (`json-file`) does not rotate
+logs. The log file grows without limit until it fills the host's disk,
+which can cause the bot and other processes on the host to fail. Always
+configure log rotation for production bots.
+
+Set the `max-size` and `max-file` options when you
+start the container. For example:
+
+```
+
+sudo docker run -it \
+  --restart unless-stopped \
+  --log-opt max-size=50m \
+  --log-opt max-file=5 \
+  `other-options` \
+  `image-name`
+```
+
+This configuration keeps up to 5 log files of 50 MB each (250 MB total).
+To set this as the default for all containers on the host, add the following
+to `/etc/docker/daemon.json` and restart Docker:
+
+```
+
+{
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "50m",
+    "max-file": "5"
+  }
+}
+```
+
+**Forward logs to Amazon CloudWatch Logs**
+
+For production bots, you can forward container-level logs to Amazon CloudWatch Logs
+using the Docker `awslogs` log driver. This captures WickrIO server
+output and container startup messages, which is useful for detecting container
+crashes and restart loops. To forward bot application logs to Amazon CloudWatch Logs,
+use the CloudWatch agent on the host to tail the volume-mounted integration log
+file, or publish metrics directly from your bot code using the heartbeat
+approach described in [Add a heartbeat metric (recommended)](#monitor-heartbeat "#monitor-heartbeat").
+
+```
+
+sudo docker run -it \
+  --restart unless-stopped \
+  --log-driver=awslogs \
+  --log-opt awslogs-region=`us-east-1` \
+  --log-opt awslogs-group=/wickr/bots/`bot-name` \
+  --log-opt awslogs-create-group=true \
+  `other-options` \
+  `image-name`
+```
+
+The Amazon EC2 instance profile must include the
+`logs:CreateLogGroup`, `logs:CreateLogStream`, and
+`logs:PutLogEvents` permissions.
+
+###### Note
+
+Complete the initial bot setup (the `add` and
+`start` commands in the WickrIO console) using the default
+`json-file` driver first. After the bot is running, recreate
+the container with the `awslogs` driver. Use
+`docker restart` for subsequent restarts to preserve the
+registration database.
+
+**Archive logs to Amazon S3**
+
+For compliance or long-term retention, export Amazon CloudWatch Logs data to
+Amazon S3. You can configure automatic export using a Amazon CloudWatch Logs
+subscription filter with Amazon Data Firehose, or perform one-time exports
+from the Amazon CloudWatch console. For more information, see
+[Export log data to
+Amazon S3](../../../AmazonCloudWatch/latest/logs/S3Export.md "../../../AmazonCloudWatch/latest/logs/S3Export.md") in the _Amazon CloudWatch Logs User
+Guide_.
+
+Set a retention policy on the Amazon CloudWatch Logs log group to control costs.
+For most bot deployments, 30 to 90 days of log retention in Amazon CloudWatch Logs
+is sufficient for troubleshooting, with older logs archived to Amazon S3.
+
+## Common issues
 
 **_Exited Docker container_**
 
@@ -348,6 +809,229 @@ The `.ini` file is located in the client directory associated with the bot clien
 `/opt/WickrIO/clients/[botname]/WickrIO[botname].ini`
 
 Restart the bot after you have added this to the `.ini` file.
+
+**Bot doesn't respond to messages**
+
+Possible causes:
+
+- The bot process has crashed inside the container.
+- The bot lost its connection to the Wickr network.
+- The container is running but the integration was not started.
+
+**Resolution**
+
+1. Check container status:
+   `sudo docker ps -a --filter name=`container-name``
+2. Check bot logs:
+   `sudo docker logs --tail 50 `container-name``
+3. Verify the bot shows as online in the Wickr Admin Console under
+   **Bots**.
+4. Restart the container:
+   `sudo docker restart `container-name``
+
+**Failed to create connection to host**
+
+The bot container logs show `Failed to create connection to host`
+when attempting to reach the Wickr messaging gateway on port 443. The bot
+cannot connect to the Wickr service and will not come online.
+
+Possible causes:
+
+- A firewall, security group, or network ACL is blocking outbound
+  TCP port 443 from the bot host.
+- A proxy or web filter is intercepting TLS connections to Wickr
+  domains.
+- DNS resolution is failing for the Wickr messaging gateway
+  domain.
+- The bot is using the wrong Docker image for its deployment type
+  (for example, the commercial image in or vice versa).
+
+**Resolution**
+
+1. Verify that the host can resolve and reach the Wickr messaging
+   gateway. Run the following commands from the bot host (not from inside
+   the container):
+
+```
+
+# For commercial deployments:
+nslookup gw-pro-prod.wickr.com
+curl -v https://gw-pro-prod.wickr.com
+
+# For GovCloud deployments:
+nslookup api.messaging.wickr.us-gov-west-1.amazonaws.com
+curl -v https://api.messaging.wickr.us-gov-west-1.amazonaws.com
+```
+
+If `nslookup` fails, the host has a DNS resolution
+issue. If `curl` fails with a connection timeout or
+reset, a firewall or security group is blocking the traffic. 2. Verify that the Amazon EC2 security group allows outbound TCP port 443.
+In the Amazon EC2 console, select the instance, choose the
+**Security** tab, and review the outbound rules for
+the attached security group. 3. Allowlist the required Wickr domains for your AWS Region. The
+bot host must be able to reach the messaging gateway domain on TCP
+port 443. For the full list of domains and IP addresses by Region,
+see [Ports
+and domains to allow list for your Wickr network](../adminguide/allow-list-ports-domains.md "../adminguide/allow-list-ports-domains.md"). 4. If the host is behind a corporate proxy or web filter, verify that
+the proxy is not performing TLS inspection on Wickr traffic. The
+Wickr IO container requires a direct TLS connection to the
+messaging gateway. Configure a proxy bypass for the Wickr domains
+listed in the allowlist. 5. Verify you are using the correct Docker image for your deployment
+type. Commercial deployments must use
+`wickrio/bot-cloud:latest`. deployments must
+use `wickrio/bot-cloud-govcloud:latest`. Using the wrong
+image causes the container to connect to the wrong messaging gateway,
+which results in a connection failure.
+
+**Container starts but bot process fails**
+
+Possible causes:
+
+- Missing Node.js dependencies.
+- Incorrect bot credentials.
+- The bot user was removed from the Wickr network.
+
+**Resolution**
+
+1. Check the container logs for error messages.
+2. Verify the bot user exists in the Wickr Admin Console.
+3. Re-run `npm install` inside the container to restore
+   dependencies.
+
+**Bot was working but stopped after container recreation**
+
+If you removed and recreated the container (using `docker rm`
+followed by `docker run`) instead of restarting it (using
+`docker restart`), the WickrIO server's registration database was
+lost. The container starts, but the WickrIO server does not recognize any
+registered bot clients.
+
+Symptoms:
+
+- The WickrIO server log shows `WickrIO Client Server
+configured` but no connection attempts.
+- The bot process starts but hangs at `Checking for client
+connection` indefinitely.
+- In interactive mode, the console shows
+  `There are no clients currently configured!`
+- In detached mode (`-d`), the WickrIO server may crash
+  with a segmentation fault (`Segmentation fault (core dumped)`
+  in `docker logs`) and the container enters a restart loop.
+  This occurs because the server attempts to auto-start registered
+  clients in `-notty` mode, but the registration database
+  is empty.
+
+**Resolution**
+
+1. Attach to the container:
+   `sudo docker attach `container-name``
+2. Re-register the bot using the `add` command. If auto-login
+   was previously configured and the client data volume is intact, the bot
+   uses the existing auto-login keys.
+3. Start the bot with `start 0`.
+4. Detach from the container with
+   `Ctrl+P`, `Ctrl+Q`.
+
+To prevent this issue, use `docker restart` instead of
+`docker rm` and `docker run`. If you must recreate the
+container (for example, to change the log driver), plan for the
+re-registration step.
+
+###### Important
+
+If the container is running in detached mode (`-d`) with
+`--restart` enabled and the registration database is lost,
+the WickrIO server repeatedly attempts to re-register on each restart.
+This can exhaust the Wickr service's registration rate limit, which
+locks the bot username for 24 hours. Stop the container immediately
+with `docker stop `container-name`` if you see`Segmentation fault`or
+`Begin register existing user context`repeating in
+`docker logs`.
+
+**Bot is online but CloudWatch alarms are not working**
+
+Possible causes:
+
+- The Amazon EC2 instance profile is missing
+  `cloudwatch:PutMetricData` permission.
+- The bot is publishing to a different AWS Region than the alarm.
+
+**Resolution**
+
+1. Verify the instance profile includes
+   `cloudwatch:PutMetricData`.
+2. Confirm the `AWS_REGION` environment variable matches the
+   Region where your alarms are configured.
+3. Check the CloudWatch console under **Custom namespaces**
+   for the `WickrIO/Bots` namespace to verify metrics are
+   arriving.
+
+**Bot integration does not start after container restart**
+
+The container is running and the WickrIO server shows the bot as
+`Running`, but the bot does not respond to messages and no
+integration log is produced.
+
+**Cause:** When the container restarts in detached mode,
+the WickrIO server starts the Wickr client process but does not automatically
+launch the Node.js integration. The integration must be started separately.
+
+**Resolution**
+
+1. Start the integration manually inside the container:
+
+```
+
+sudo docker exec -d `container-name` bash -c \
+  'source /usr/local/nvm/nvm.sh && nvm use 20 >/dev/null && \
+   cd /opt/WickrIO/clients/`bot-name`/integration/`bot-name` && \
+   node src/index.js > /tmp/bot.log 2>&1'
+```
+
+2. Verify the integration is running by checking for the Node.js
+   process and the integration log:
+
+```
+
+sudo docker exec `container-name` pgrep -a node
+sudo docker exec `container-name` tail /tmp/bot.log
+```
+
+###### Note
+
+The `name` field in your bot's `package.json`
+must match the registered bot username. The WickrIO SDK uses this value
+to determine the IPC socket path for communicating with the Wickr client
+process. If the names do not match, the integration starts but cannot
+connect to the client.
+
+**Integration import fails with "install shell file does not
+exist"**
+
+When importing a custom integration during the `add` command,
+the WickrIO console reports `install shell file does not exist for this
+ software!` and the import fails.
+
+**Cause:** The `software.tar.gz` file does not
+contain an `install.sh` script. The WickrIO import process requires
+this script to install the integration dependencies.
+
+**Resolution:** Add an `install.sh` script to
+the root of your `software.tar.gz` archive:
+
+```
+
+#!/bin/bash
+cd "$(dirname "$0")"
+npm install --production
+```
+
+Rebuild the archive with the script included:
+
+```
+
+tar czf software.tar.gz src/ package.json install.sh
+```
 
 ## Upgrading bots
 
@@ -459,3 +1143,150 @@ Current list of clients:
 0  old-test-bot  Running  wickrio_web_interface  5.82.2   3
 Enter command:
 ```
+
+## Improve bot resilience
+
+A Wickr IO bot running on a single Amazon EC2 instance is a single point of
+failure. If the instance fails, the bot is offline until you manually intervene.
+The following practices improve bot availability for production deployments.
+
+**Persist container state across restarts**
+
+The Wickr IO container stores critical state in two locations that you
+must mount as Docker volumes to persist across container restarts:
+
+- **Client data**
+  (`/opt/WickrIO/clients/`bot-name`/client/`)
+  – Contains the bot's encryption keys, auto-login credentials, and
+  message database.
+- **Integration code**
+  (`/opt/WickrIO/clients/`bot-name`/integration/`)
+  – Contains your bot's source code, `package.json`, and
+  configuration files.
+
+###### Important
+
+The WickrIO server process maintains a registration database
+(`wickrbot.database.sqlite`) inside the container at
+`/opt/WickrIO/`. This database records which bot clients are
+registered. If you recreate the container (by running
+`docker rm` followed by `docker run`), this database
+is lost and the bot must be re-registered through the interactive console
+using the `add` command. To avoid this, use
+`docker restart` instead of removing and recreating the
+container.
+
+The following example shows the recommended volume mounts:
+
+```
+
+sudo docker run -it \
+  --name `bot-name` \
+  --restart unless-stopped \
+  -e PRODUCT_TYPE=`govcloud` \
+  -v /opt/wickr-bot:/opt/WickrIO/clients/`bot-name`/integration \
+  -v /opt/wickr-bot-client:/opt/WickrIO/clients/`bot-name`/client \
+  `image-name`
+```
+
+**Enable automatic instance recovery**
+
+Amazon EC2 simplified automatic recovery is enabled by default on supported instance
+types. If the underlying hardware fails, AWS automatically migrates the instance
+to healthy hardware. The instance retains its ID, IP addresses, and attached EBS
+volumes. For more information, see [Automatic instance
+recovery](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md") in the _Amazon EC2 User Guide_.
+
+**Automate bot recovery with health checks**
+
+The Docker `--restart unless-stopped` policy restarts the
+container when it exits, but it does not detect cases where the container
+is running while the bot process inside it has stopped responding. To
+detect and recover from these silent failures, add a Docker health
+check.
+
+Create a health check script in your bot's integration directory that
+verifies the bot process is running and producing logs. For example:
+
+```
+
+#!/bin/bash
+# healthcheck.sh — exit 0 = healthy, exit 1 = unhealthy
+
+# Check that the Node.js bot process is running
+pgrep -f "node `entry-point`" > /dev/null || exit 1
+
+# Check that the bot has produced a log entry in the last 5 minutes
+LOG="/opt/WickrIO/clients/`bot-name`/integration/`bot-name`/logs/log.output"
+if [ -f "$LOG" ]; then
+  LAST_MOD=$(stat -c %Y "$LOG" 2>/dev/null || stat -f %m "$LOG" 2>/dev/null)
+  NOW=$(date +%s)
+  DIFF=$(( NOW - LAST_MOD ))
+  [ "$DIFF" -gt 300 ] && exit 1
+fi
+
+exit 0
+```
+
+Start the container with the health check configured. For example:
+
+```
+
+sudo docker run -it \
+  --restart unless-stopped \
+  --health-cmd="/opt/WickrIO/clients/`bot-name`/integration/healthcheck.sh" \
+  --health-interval=60s \
+  --health-retries=3 \
+  --health-start-period=120s \
+  `other-options` \
+  `image-name`
+```
+
+The `--health-start-period` gives the bot time to authenticate
+with the Wickr network before health checks begin. After the start period,
+Docker runs the health check every 60 seconds. If 3 consecutive checks fail,
+Docker marks the container as `unhealthy`.
+
+###### Note
+
+The Docker `--restart` policy does not automatically restart
+unhealthy containers. Add a watchdog script on the host to trigger a
+restart:
+
+```
+
+#!/bin/bash
+# /opt/wickr-bot/watchdog.sh — run via cron every 2 minutes
+CONTAINER="`container-name`"
+HEALTH=$(docker inspect --format='{{.State.Health.Status}}' "$CONTAINER" 2>/dev/null)
+
+if [ "$HEALTH" = "unhealthy" ]; then
+  logger "Wickr bot $CONTAINER is unhealthy — restarting"
+  docker restart "$CONTAINER"
+fi
+```
+
+```
+*/2 * * * * /opt/wickr-bot/watchdog.sh
+```
+
+Using `docker restart` preserves the WickrIO registration
+database and container logs.
+
+**Use an Auto Scaling group**
+
+An Auto Scaling group with a minimum, maximum, and desired capacity of 1
+automatically replaces the instance if it fails a health check. Store your
+bot's client data and integration code on a separate Amazon EBS volume or
+Amazon EFS file system so the replacement instance can mount the same data
+and resume without re-registering the bot. For more information, see the
+[Amazon
+EC2 Auto Scaling User Guide](../../../autoscaling/ec2/userguide.md "../../../autoscaling/ec2/userguide.md").
+
+**Use a container orchestrator**
+
+If your organization already uses a container orchestrator such as
+Amazon ECS, Amazon EKS, or a lightweight Kubernetes distribution, you can
+run the Wickr IO container as a managed task or pod with built-in health
+checks, automatic restarts, and log collection. This approach is recommended
+only if you already have orchestration infrastructure in place.
