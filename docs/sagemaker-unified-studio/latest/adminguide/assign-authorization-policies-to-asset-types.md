@@ -8,16 +8,16 @@ contributors can view asset type usage permissions but they cannot edit them.
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your administrator and log in
    using your SSO or AWS credentials.
-2. Choose **Govern**.
-3. Choose **Asset types**.
-4. Choose an existing asset type and then choose the
+2. In the left navigation pane, choose **Manage**, then under
+   **Domain management**, choose **Asset types**.
+3. Choose an existing asset type and then choose the
    **Permissions** tab.
-5. Choose **Add usage permission**, and in the **Add
+4. Choose **Add usage permission**, and in the **Add
    projects and designations** pop up window, specify the authorized
    projects (you can choose **Select projects in a domain unit**
    or **All project in a domain unit**), the specific domain unit,
    and the allowed designations - which designations a project member must have to
    use this policy. You can choose **Owner** or
    **Contributor**.
-6. Choose Add policy grant to save the changes and complete modifying the asset
+5. Choose Add policy grant to save the changes and complete modifying the asset
    type usage permissions.

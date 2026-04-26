@@ -10,8 +10,11 @@ SageMaker, Amazon CloudWatch, and AWS Resource Groups. The policy also gives rea
 write permissions to some infrastructure resources that are required to use these
 services such as network interfaces and AWS KMS keys.
 
-An administrator can disable certain permissions in this policy by tagging the role to
-which the policy is attached to. The tag EnableSageMakerMLWorkloads=false disables all
-SageMaker ML workloads related permissions.
+An administrator can control certain permissions in this policy by tagging the
+role to which the policy is attached. The tag
+EnableSageMakerMLWorkloadsPermissions — when set to "true" (default), grants
+permissions for SageMaker ML workloads including training jobs, processing jobs,
+and model deployment. When not set to "true", these SageMaker ML workload
+permissions are not granted.
 
 To view the permissions for this policy, see [SageMakerStudioProjectRoleMachineLearningPolicy](../../../aws-managed-policy/latest/reference/SageMakerStudioProjectRoleMachineLearningPolicy.md "../../../aws-managed-policy/latest/reference/SageMakerStudioProjectRoleMachineLearningPolicy.md") in the _AWS Managed Policy Reference_.

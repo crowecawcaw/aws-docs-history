@@ -15,14 +15,13 @@ domain unit:
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your administrator and log in
    using your SSO or AWS credentials.
-2. Choose **Govern**.
-3. Choose **Domain units**.
-4. Navigate to the **Domain units** tab and choose the domain
-   unit that you want to add an authorization policy grant in.
-5. On the domain unit details page, choose the authorization policy that you want
+2. In the left navigation pane, choose **Manage**, then under
+   **Domain management**, choose **Domain units**.
+3. Choose the domain unit that you want to add an authorization policy grant in.
+4. On the domain unit details page, choose the authorization policy that you want
    to assign to projects and then choose **Add project**.
-6. Choose **Add policy grant**.
-7. In the **Add projects** pop up window, do one of the
+5. Choose **Add policy grant**.
+6. In the **Add projects** pop up window, do one of the
    following:
    - Choose **Selected projects in a domain unit**,
      specify projects to which you want to assign the selected authorization

@@ -7,13 +7,12 @@ To add owners to a domain unit in Amazon SageMaker Unified Studio, complete the 
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your administrator and log in
    using your SSO or AWS credentials.
-2. Choose **Govern**.
-3. Choose **Domain units**.
-4. Navigate to the **Domain units** tab and choose the domain
-   unit that you want to add owners to.
-5. On the domain details page, navigate to the **Owners**
+2. In the left navigation pane, choose **Manage**, then under
+   **Domain management**, choose **Domain units**.
+3. Choose the domain unit that you want to add owners to.
+4. On the domain details page, navigate to the **Owners**
    tab.
-6. Choose **Add owner**, and then in the **Add domain
+5. Choose **Add owner**, and then in the **Add domain
    unit owners** pop up window, specify users that you want to make
    domain unit owners.
-7. Choose **Add owners**.
+6. Choose **Add owners**.

@@ -88,10 +88,12 @@ write access to relevant AWS services including Amazon SageMaker, AWS Glue, Amaz
 S3, AWS Lake Formation, Amazon Redshift, Amazon Athena, Amazon Q, and Amazon EMR.
 Additionally, it provides necessary permissions for infrastructure resources such as
 network interfaces, AWS KMS keys, AWS CodeCommit, and AWS Secrets Manager.
-Administrators maintain granular control over these permissions through role tagging -
-for example, they can disable Glue Spark workload permissions by applying the tag
-'EnableGlueSparkWorkloads=false', or restrict Generative AI Studio access using the tag
-'EnableGenAIStudio=false'.
+Administrators maintain granular control over these permissions through role tagging.
+The tag 'EnableGlueWorkloadsPermissions' controls AWS Glue workload permissions
+(Sessions, Blueprints, Jobs, Data Quality Rulesets, and Workflows), the tag
+'EnableAmazonBedrockPermissions' controls Amazon Bedrock permissions, and the tag
+'EnableSageMakerMLWorkloadsPermissions' controls SageMaker ML workload permissions
+(training jobs, processing jobs, and model deployment).
 
 ###### Note
 

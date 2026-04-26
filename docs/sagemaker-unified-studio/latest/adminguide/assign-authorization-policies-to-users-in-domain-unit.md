@@ -17,14 +17,13 @@ unit:
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your administrator and log in
    using your SSO or AWS credentials.
-2. Choose **Govern**.
-3. Choose **Domain units**.
-4. Navigate to the **Domain units** tab and choose the domain
-   unit that you want to add an authorization policy grant in.
-5. On the domain unit details page, choose the authorization policy that you want
+2. In the left navigation pane, choose **Manage**, then under
+   **Domain management**, choose **Domain units**.
+3. Choose the domain unit that you want to add an authorization policy grant in.
+4. On the domain unit details page, choose the authorization policy that you want
    to assign to users or groups to.
-6. Choose **Add policy grant**.
-7. In the **Add users** pop up window, do one of the
+5. Choose **Add policy grant**.
+6. In the **Add users** pop up window, do one of the
    following:
    - Choose **Select users and groups**, specify users and
      groups to which you want to assign the selected authorization policy,
@@ -32,7 +31,7 @@ unit:
    - Choose **All users** and then choose **Add
      policy grant**.
 
-8. You can also enable or disable the cascade permissions of the selected
+7. You can also enable or disable the cascade permissions of the selected
    authorization policy for the selected users. To do so, select the user(s) for
    which you want to enable the cascade permissions, then expand
    **Actions**, and then choose **Set cascade

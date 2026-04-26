@@ -14,6 +14,15 @@ needs and authentication approaches:
   through identity providers and provide centralized user management capabilities. You can
   create these domains using either quick setup or manual setup options through the Amazon
   SageMaker management console.
+
+###### Note
+
+The Amazon SageMaker domain can reside in a different AWS Region than where the
+IAM Identity Center organization instance is located using IAM Identity Center
+multi-Region support. To use this feature, your IAM Identity Center instance must be
+connected to an external identity provider (IdP). For information about setting up IAM
+Identity Center multi-Region, see [Using IAM Identity Center across multiple AWS Regions](../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md "../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md").
+
 - **IAM-based domains** - Use AWS Identity and Access
   Management (IAM) roles for authentication and access control. These domains provide an
   additional path to setup and manage your data and AI development environment using federated

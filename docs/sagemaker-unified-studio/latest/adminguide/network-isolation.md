@@ -25,9 +25,43 @@ This level of network isolation means:
 - Customer access to Amazon SageMaker Unified Studio and other AWS services from outside the Amazon VPC is denied. Customers cannot use Amazon SageMaker Unified Studio outside of the Amazon VPC. This includes denying access from the public internet.
 - Access to the public internet is denied from the Amazon VPC. All network traffic must be served within the Amazon VPC, there is no access to the public internet. Access to public internet for non-customer data for items such as Amazon SageMaker Unified Studio web clients and client operations may be required.
 
-###### Note
+###### Important
 
-If Amazon VPC endpoints are missing or misconfigured, network calls to Amazon SageMaker Unified Studio and other AWS services will be routed over the public Internet when that network path is available.
+Amazon Athena for Apache Spark does not currently support Amazon VPC. If you require Amazon VPC connectivity for your Spark workloads, use Amazon EMR or AWS Glue instead.
+
+###### Disable Amazon Athena Spark in Amazon VPC-enabled domains
+
+If your organization requires all compute traffic to stay within the Amazon VPC, you can disable Amazon Athena Spark by using the following controls.
+
+- **Account or organization-level SCP** — Apply a service control policy (SCP) that denies `athena:StartSession` and `athena:UpdateSession`.
+
+The following IAM policy denies these actions for all Amazon Athena workgroups.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyAthenaSparkStartSession",
+            "Effect": "Deny",
+            "Action": [
+                "athena:StartSession",
+                "athena:UpdateSession"
+            ],
+            "Resource": [
+                "arn:aws:athena:*:*:workgroup/*"
+            ]
+        }
+    ]
+}
+```
+
+The wildcard ARN `arn:aws:athena:*:*:workgroup/*` applies to all Regions and accounts. You can scope the policy to specific Regions, accounts, or workgroups by replacing the wildcards.
+
+- **Tooling blueprint configuration** — Disable the Amazon Athena flag in tooling blueprints to prevent Amazon Athena (SQL) and Amazon Athena Spark from being provisioned in new projects.
+- **Project-level policy updates** — Remove Amazon Athena Spark permissions from individual project IAM policies to restrict access at the project level.
+
+If Amazon VPC endpoints are missing or misconfigured, network calls to Amazon SageMaker Unified Studio and other AWS services route over the public internet when that network path is available.
 
 ###### Step 1 - Deploy Amazon VPC endpoints
 
@@ -178,3 +212,125 @@ Running the Amazon SageMaker Unified Studio console web client requires public i
 ###### Public internet access for IAM login to Amazon SageMaker Unified Studio portal
 
 Amazon SageMaker Unified Studio domains that use IAM login for the Portal web client require the Amazon SageMaker Unified Studio Console. See the public internet access requirements for the Amazon SageMaker Unified Studio on AWS console above.
+
+## Amazon VPC troubleshooting
+
+This section helps you diagnose and resolve common Amazon VPC configuration issues that affect notebook connectivity in Amazon SageMaker Unified Studio. Use the following table to identify your subnet configuration and determine the appropriate recovery action.
+
+| Scenario (Subnet 1 type, Subnet 2 type) | Expected behavior              | Recovery action                                                                                                                                                                                                                                                                                                                                                      |
+| --------------------------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Private with NAT + Private with NAT     | Works as expected              | No action needed                                                                                                                                                                                                                                                                                                                                                     |
+| Private no NAT + Private no NAT         | Only local Python kernel works | Add NAT ([Add a NAT gateway to a private subnet](#vpc-troubleshoot-add-nat "#vpc-troubleshoot-add-nat")) or add Amazon VPC endpoints ([Add Amazon VPC endpoints](#vpc-troubleshoot-add-vpce "#vpc-troubleshoot-add-vpce"))                                                                                                                                           |
+| Public + Public                         | Only local Python kernel works | Convert to private ([Convert a public subnet to a private subnet](#vpc-troubleshoot-convert-public "#vpc-troubleshoot-convert-public")) or add Amazon VPC endpoints ([Add Amazon VPC endpoints](#vpc-troubleshoot-add-vpce "#vpc-troubleshoot-add-vpce"))                                                                                                            |
+| Private with NAT + Public               | Works as expected              | No action needed                                                                                                                                                                                                                                                                                                                                                     |
+| Private no NAT + Public                 | Only local Python kernel works | Convert to private ([Convert a public subnet to a private subnet](#vpc-troubleshoot-convert-public "#vpc-troubleshoot-convert-public")), add NAT ([Add a NAT gateway to a private subnet](#vpc-troubleshoot-add-nat "#vpc-troubleshoot-add-nat")), or add Amazon VPC endpoints ([Add Amazon VPC endpoints](#vpc-troubleshoot-add-vpce "#vpc-troubleshoot-add-vpce")) |
+
+### Convert a public subnet to a private subnet
+
+A public subnet has a route to an internet gateway (IGW), which allows resources in the subnet to communicate directly with the internet. To convert a public subnet to a private subnet, remove the IGW route and disable auto-assign public IP.
+
+###### Note
+
+Existing instances in the subnet retain their public IP addresses after you make this change. Any services that rely on inbound internet access stop working. To maintain outbound access for package installations and AWS API calls, set up a NAT gateway or Amazon VPC endpoints before converting the subnet.
+
+###### To convert a public subnet to a private subnet
+
+1. Open the Amazon Virtual Private Cloud console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose **Route tables**.
+3. Select the route table associated with your public subnet.
+4. Choose the **Routes** tab.
+5. Choose **Edit routes**.
+6. Choose **Remove** for the route with destination `0.0.0.0/0` that targets an internet gateway (`igw-xxx`).
+7. Choose **Save changes**.
+
+###### To disable auto-assign public IP
+
+1. In the navigation pane, choose **Subnets**.
+2. Select your subnet.
+3. Choose **Actions**, **Edit subnet settings**.
+4. Clear the **Enable auto-assign public IPv4 address** checkbox.
+5. Choose **Save**.
+
+(Optional) If instances in the subnet need outbound internet access, add a NAT gateway route. For instructions, see [Add a NAT gateway to a private subnet](#vpc-troubleshoot-add-nat "#vpc-troubleshoot-add-nat").
+
+###### To verify the conversion
+
+1. In the navigation pane, choose **Subnets**.
+2. Select your subnet and choose the **Route table** tab.
+3. Confirm that no route with destination `0.0.0.0/0` targets an internet gateway.
+
+### Add a NAT gateway to a private subnet
+
+A NAT gateway allows instances in a private subnet to connect to the internet for outbound traffic while preventing unsolicited inbound connections. You must have a public subnet with an internet gateway route before you create a NAT gateway.
+
+###### To create a NAT gateway
+
+1. Open the Amazon Virtual Private Cloud console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose **NAT gateways**.
+3. Choose **Create NAT gateway**.
+4. For **Subnet**, select a public subnet that has a route to an internet gateway.
+5. For **Connectivity type**, select **Public**.
+6. Choose **Allocate Elastic IP** to assign a new Elastic IP address to the NAT gateway.
+7. Choose **Create NAT gateway**.
+
+###### To update the private subnet route table
+
+1. In the navigation pane, choose **Route tables**.
+2. Select the route table associated with your private subnet.
+3. Choose the **Routes** tab.
+4. Choose **Edit routes**.
+5. Choose **Add route**. For **Destination**, enter `0.0.0.0/0`. For **Target**, select the NAT gateway that you created.
+6. Choose **Save changes**.
+
+###### To verify the NAT gateway
+
+1. In the navigation pane, choose **NAT gateways**.
+2. Confirm that the NAT gateway status is **Available**.
+3. In the navigation pane, choose **Route tables** and select the private subnet route table.
+4. Confirm that the `0.0.0.0/0` route targets the NAT gateway.
+
+### Add Amazon VPC endpoints
+
+Amazon VPC endpoints allow resources in your private subnets to communicate with AWS services without requiring internet access. There are two types of Amazon VPC endpoints:
+
+- **Gateway endpoints** – For Amazon Simple Storage Service and Amazon DynamoDB. Gateway endpoints are free of charge.
+- **Interface endpoints** – For other AWS services such as AWS Security Token Service, Amazon CloudWatch, Amazon ECR, and AWS Systems Manager. Interface endpoints cost approximately $0.01 per hour per Availability Zone, plus data processing charges.
+
+The following are common endpoints to add for Amazon SageMaker Unified Studio notebook connectivity:
+
+- Amazon Simple Storage Service (gateway)
+- Amazon DynamoDB (gateway)
+- AWS Security Token Service (interface)
+- Amazon ECR – `ecr.api` and `ecr.dkr` (interface)
+- Amazon CloudWatch Logs (interface)
+- AWS Systems Manager (interface)
+
+###### To create a gateway endpoint
+
+1. Open the Amazon Virtual Private Cloud console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose **Endpoints**.
+3. Choose **Create endpoint**.
+4. For **Service category**, select **AWS services**.
+5. Search for and select the gateway service (for example, `com.amazonaws.<region>.s3` with type **Gateway**).
+6. For **VPC**, select your Amazon VPC.
+7. For **Route tables**, select the route tables associated with your private subnets.
+8. Choose **Create endpoint**.
+
+###### To create an interface endpoint
+
+1. Open the Amazon Virtual Private Cloud console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose **Endpoints**.
+3. Choose **Create endpoint**.
+4. For **Service category**, select **AWS services**.
+5. Search for and select the interface service (for example, `com.amazonaws.<region>.sts`).
+6. For **VPC**, select your Amazon VPC.
+7. For **Subnets**, select the subnets in your private subnet Availability Zones.
+8. For **Security groups**, select a security group that allows inbound traffic on port 443 (HTTPS).
+9. Select **Enable DNS name** to turn on private DNS for the endpoint.
+10. Choose **Create endpoint**.
+
+###### To verify Amazon VPC endpoints
+
+1. In the navigation pane, choose **Endpoints**.
+2. Confirm that each endpoint status is **Available**.
+3. For gateway endpoints, choose **Route tables** in the navigation pane and confirm that the route table includes a route for the endpoint.

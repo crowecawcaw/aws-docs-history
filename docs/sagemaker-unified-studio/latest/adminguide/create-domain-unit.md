@@ -7,10 +7,10 @@ entities under specific business units and teams. For more information, see [Ama
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your administrator and log in
    using your SSO or AWS credentials.
-2. Choose **Govern**.
-3. Choose **Domain units**.
-4. Choose **Create domain unit**.
-5. Specify the following:
+2. In the left navigation pane, choose **Manage**, then under
+   **Domain management**, choose **Domain units**.
+3. Choose **Create domain unit**.
+4. Specify the following:
    - Under **Domain unit details**, for
      **Name**, specify the domain unit name.
    - Under **Domain unit details**, for
@@ -23,4 +23,4 @@ entities under specific business units and teams. For more information, see [Ama
    domain unit. Then choose **Select parent domain
    unit**.
 
-6. Choose **Create domain unit**.
+5. Choose **Create domain unit**.

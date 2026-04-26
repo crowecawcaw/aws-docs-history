@@ -31,7 +31,7 @@ applications in projects. For more information, see [Amazon Bedrock in SageMaker
 
 Amazon Q Developer is an AI coding assistant that can chat about code, provide inline code
 completions, generate net new code, scan your code for security vulnerabilities, and make code
-upgrades and improvements. For more information, see [Amazon Q in Amazon SageMaker Unified Studio](amazonq.md "amazonq.md").
+upgrades and improvements. For more information, see [Generative AI assistance in Amazon SageMaker Unified Studio](amazonq.md "amazonq.md").
 
 In the current release of Amazon SageMaker Unified Studio, by default, all users of an Amazon SageMaker Unified Studio domain have
 access to the Free Tier release of Amazon Q.

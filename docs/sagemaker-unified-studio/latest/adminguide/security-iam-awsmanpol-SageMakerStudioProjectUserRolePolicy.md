@@ -12,10 +12,19 @@ Redshift, Amazon Athena, Amazon Q, Amazon EMR. The policy also gives read and wr
 permissions to some infrastructure resources that are required to use these services
 such as network interfaces, AWS KMS keys, AWS CodeCommit, and AWS Secrets Manager.
 
-An administrator can disable certain permissions in this policy by tagging the role to
-which the policy is attached to. The tag EnableGlueSparkWorkloads=false disables all
-Glue Spark workloads related permissions. The tag EnableGenAIStudio=false disables all
-Generative AI Studio related permissions.
+An administrator can control certain permissions in this policy by tagging the
+role to which the policy is attached. The following tags control permission scoping:
+
+- EnableGlueWorkloadsPermissions — When set to "true" (default), grants
+  permissions for AWS Glue workloads including creating and managing Glue
+  Sessions, Blueprints, Jobs, Data Quality Rulesets, and Workflows. When not
+  set to "true", these Glue workload permissions are not granted. Glue Data
+  Catalog permissions (such as GetCatalogs, GetDatabases, GetTables) are not
+  affected by this tag and remain available regardless of this setting.
+- EnableAmazonBedrockPermissions — When set to "true" (default), grants
+  permissions for Amazon Bedrock including foundation model access and
+  Bedrock agent operations. When not set to "true", these Bedrock permissions
+  are not granted.
 
 ###### Note
 

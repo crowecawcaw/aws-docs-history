@@ -177,6 +177,39 @@ JSON
  ]
  }
  }
+ },
+ {
+ "Sid": "AllowCreateGrantForProjectRoles",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "*"
+ },
+ "Action": "kms:CreateGrant",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "kms:EncryptionContext:aws:datazone:domainId": "`dzd_0123456789`"
+ },
+ "StringLike": {
+ "kms:GrantConstraintType": "EncryptionContextSubset"
+ },
+ "Null": {
+ "kms:GrantOperations": "false"
+ },
+ "ForAllValues:StringEquals": {
+ "kms:GrantOperations": [
+ "Encrypt",
+ "Decrypt",
+ "ReEncryptFrom",
+ "ReEncryptTo",
+ "GenerateDataKey",
+ "GenerateDataKeyWithoutPlaintext",
+ "DescribeKey",
+ "RetireGrant",
+ "CreateGrant"
+ ]
+ }
+ }
  }
  ]
 }`
