@@ -44,6 +44,12 @@ The file must be:
 - Contain headers
 - UTF-8 encoded
 
+###### Note
+
+UTF-8 with BOM (Byte Order Mark) is not supported. If
+your import fails with a missing header error, re-save the
+file with UTF-8 encoding without BOM.
+
 ## Configure segment details
 
 For **Name**, specify a recognizable identifier
@@ -118,7 +124,7 @@ using AI-powered or manual mapping.
 
 ## Set profile expiry
 
-Specify when imported profiles expire:
+Specify when imported profiles expire.
 
 1. Choose an expiry option:
    - Default: 14 days from import date
@@ -128,7 +134,8 @@ Specify when imported profiles expire:
    - Minimum: 1 day after import
    - Maximum: 90 days after import
 
-Customer Profiles removes expired profiles from the segment and the profiles domain.
+Customer Profiles removes expired profiles from the segment and the profiles domain. [Learn
+more](customer-profiles-data-expiration.md "customer-profiles-data-expiration.md").
 
 ###### Note
 

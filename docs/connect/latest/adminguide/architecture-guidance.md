@@ -24,3 +24,4 @@ operations team members.
 - [Reliability in Amazon Connect](reliability-bp.md "reliability-bp.md")
 - [Performance efficiency for Amazon Connect workloads](performance-efficiency-bp.md "performance-efficiency-bp.md")
 - [Cost optimization for Amazon Connect workloads](cost-optimization-bp.md "cost-optimization-bp.md")
+- [Instance to instance transfer](architecture-instance-transfer.md "architecture-instance-transfer.md")

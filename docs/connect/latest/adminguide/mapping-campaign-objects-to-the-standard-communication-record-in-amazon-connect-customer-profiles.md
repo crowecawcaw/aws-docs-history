@@ -134,6 +134,43 @@ Campaign-Telephony object to the standard communication record.
 | voice.answeringMachineDetectionStatus            | Events.{{campaign\_event\_type}}.Attributes.AnsweringMachineDetectionStatus |
 | campaign_event_timestamp                         | SourceLastUpdatedTimestamp                                                  |
 
+## Campaign-WhatsApp object
+
+**Mapping a Campaign-WhatsApp object to a
+standard communication record**
+
+A subset of the fields in the Campaign-WhatsApp object map to the
+standard communication record object in Customer Profiles.
+
+The following table lists which fields can be mapped from the
+Campaign-WhatsApp object to the standard communication
+record.
+
+| Campaign-WhatsApp source field                          | Standard communication record target field        |
+| ------------------------------------------------------- | ------------------------------------------------- |
+| campaign_event_id                                       | Attributes.LastCampaignEventId                    |
+| engagement.outbound_request_id                          | Attributes.OutboundCampaignRequestId              |
+| campaign_message_id                                     | Attributes.CampaignMessageId                      |
+| engagement.channel.name                                 | Channel                                           |
+| engagement.channel.subtype                              | Attributes.ChannelSubType                         |
+| engagement.endpoint.endpoint_address                    | Endpoint.EndpointAddress                          |
+| engagement.endpoint.endpoint_type                       | Endpoint.EndpointType                             |
+| instance_arn                                            | ConnectInstanceArn                                |
+| campaign.campaign_name                                  | Campaign.CampaignName                             |
+| campaign.campaign_id                                    | Campaign.CampaignId                               |
+| campaign.campaign_run_id                                | Campaign.CampaignRunId                            |
+| campaign.campaign_activity_id                           | Campaign.CampaignActivityId                       |
+| campaign.segment_arn                                    | Campaign.SegmentArn                               |
+| engagement.outbound_request_creation_timestamp          | CreatedDate                                       |
+| campaign_event_timestamp                                | UpdatedDate                                       |
+| campaign_event_type                                     | LastEventType                                     |
+| campaign_event_timestamp                                | Events.{{campaign\_event\_type}}.UpdatedDate      |
+| campaign_event_id                                       | Events.{{campaign\_event\_type}}.EventId          |
+| campaign_event_type                                     | Events.{{campaign\_event\_type}}.EventType        |
+| engagement.engagement_details.whatsapp.errors[].code    | Events.{{campaign\_event\_type}}.Errors[].Code    |
+| engagement.engagement_details.whatsapp.errors[].message | Events.{{campaign\_event\_type}}.Errors[].Message |
+| campaign_event_timestamp                                | SourceLastUpdatedTimestamp                        |
+
 ## Campaign-Orchestration object
 
 **Mapping a Campaign-Orchestration object to a

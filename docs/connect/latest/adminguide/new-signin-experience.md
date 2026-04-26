@@ -28,15 +28,18 @@ The migration to the new sign-in experience will occur in the following phases:
 
 ## Testing instructions
 
-Before testing the new sign-in experience, ensure the following URLs are accessible from your network:
+Before testing the new sign-in experience, allowlist the following endpoints to ensure they are accessible from your network:
 
 - `*.apps.signin.aws`
 - `*.signin.aws`
+- `*.threat-mitigation.aws.amazon.com`
+- `*.s3.dualstack.*.amazonaws.com`
+
+If you are an AWS GovCloud (US) user, also allowlist the following endpoints:
+
 - `*.signin-fips.amazonaws-us-gov.com`
 - `*.apps.signin-fips.aws-us-gov.com`
 - `*.apps.signin.aws-us-gov.com`
-- `*.threat-mitigation.aws.amazon.com`
-- `*.s3.dualstack.*.amazonaws.com`
 
 ###### To test the new sign-in experience
 

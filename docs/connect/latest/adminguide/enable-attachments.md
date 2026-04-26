@@ -1,13 +1,13 @@
 # Enable attachments in your CCP so customers and agents can share and upload files
 
-You can allow customers and agents to share files using chat and email, and allow
+You can allow customers and agents to share files using chat, email, and tasks, and allow
 agents to upload files to cases. After you complete the steps in this topic, an
 attachment icon automatically appears in your agent's Contact Control Panel so they can
-share attachments on chats and emails.
+share attachments on chats, emails, and tasks.
 
 ###### Important
 
-You must complete steps 1 and 2 in this topic (create an Amazon S3 bucket and configure
+You must complete steps 1 and 3 in this topic (create an Amazon S3 bucket and configure
 a CORS policy) for email attachments. If you don't do this, yet have selected
 **Enable Attachments sharing** for your instance, the email
 channel will not work for your instance.
@@ -81,7 +81,23 @@ Note the following about the staging location:
     	 deleted** if S3 bucket versioning is not
     	 enabled.
 
-## Step 2: Configure a CORS policy on your attachments bucket
+## Step 2: Configure attachment size limits and custom file extensions
+
+After you enable attachments, you can configure the following options through the
+Amazon Connect admin website:
+
+- **Attachment size limit** – The default
+  maximum attachment size is 20 MB. You can increase this limit up to
+  100 MB.
+- **Custom file extensions** – In addition to
+  the default supported file types, you can configure custom file extensions
+  for attachments across chat, email, cases, and tasks.
+
+###### Note
+
+You can also configure these options by using the Amazon Connect API.
+
+## Step 3: Configure a CORS policy on your attachments bucket
 
 To allow customers and agents to upload and download files, update your
 cross-origin resource sharing (CORS) policy to allow `PUT` and
@@ -156,7 +172,7 @@ don't recommend.
    ]
    ```
 
-## Step 3 (Optional): Integrate with the APIs to enhance your custom UIs
+## Step 4 (Optional): Integrate with the APIs to enhance your custom UIs
 
 If you are skipping the out-of-the-box Chat UI or Agent workspace, you can use the
 Amazon Connect Participant attachments APIs, or Amazon Connect attached files APIs to build your own
@@ -173,4 +189,4 @@ more information, see [Set up attachment scanning in Amazon Connect](setup-attac
 ## Attachments not appearing?
 
 If your agents report problems receiving and sending attachments in chat messages,
-see [Internal firewall or missing CORS policy prevents access to chat, email, or case attachments](ts-agent-attachments.md "ts-agent-attachments.md").
+see [Internal firewall or missing CORS policy prevents access to chat, email, task, or case attachments](ts-agent-attachments.md "ts-agent-attachments.md").

@@ -48,8 +48,6 @@ You can configure tag-based access controls by using the Amazon Connect admin we
   **View queue graphs**. For example, you cannot
   choose **View agents** in a Queue table.
 - Access to view **Agent Queues** is disabled.
-- The **Agent Adherence** table is not
-  supported.
 
 ## How to enable tag-based access control for real-time metrics
 

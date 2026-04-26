@@ -5,6 +5,14 @@ Inbox. Click the **RSS** link (under the topic title **Release
 notes**), and then copy the URL (it ends with `doc-history.xml.rss`) into
 your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
+## April 2026 Updates
+
+### Amazon Connect now supports instance transfer
+
+Amazon Connect now supports call transfers between instances with cross-instance context sharing,
+enabling you to maintain the benefits of Amazon Connect while allowing individual business
+units to run and control their own contact centers. See [Instance to instance transfer](architecture-instance-transfer.md "architecture-instance-transfer.md") for details.
+
 ## March 2026 Updates
 
 ### Amazon Connect now provides case data in analytics data lake

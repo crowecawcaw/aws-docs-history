@@ -1017,6 +1017,70 @@ executed successfully without technical failures.
 - Get total AI agent invocations count.
 - Calculate percentage: (AI agent invocation success / AI agent invocations) \* 100.0
 
+## AI Agent Response Helpful
+
+This metric measures the count of AI suggestions rated as helpful with a thumbs-up.
+
+**Metric type**: Integer
+
+**Metric category**: AI Agent
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_AGENT_RESPONSE_HELPFUL`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
+  Agent Response Helpful
+
+**Calculation logic**:
+
+- For each AI Agent record
+  - If aiAgentId is NOT present, then skip this record.
+  - If helpfulResponseCount is present, then set result = helpfulResponseCount.
+  - Else, skip this record.
+
+- Return final_result = sum of the result values from matching records.
+
+###### Note
+
+- This metric is updated every 6 hours.
+- This metric is available as part of Connect Customer AI.
+
+## AI Agent Response Not Helpful
+
+This metric measures the count of AI suggestions rated as unhelpful with a thumbs-down.
+
+**Metric type**: Integer
+
+**Metric category**: AI Agent
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_AGENT_RESPONSE_NOT_HELPFUL`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
+  Agent Response Not Helpful
+
+**Calculation logic**:
+
+- For each AI Agent record
+  - If aiAgentId is NOT present, then skip this record.
+  - If unhelpfulResponseCount is present, then set result = unhelpfulResponseCount.
+  - Else, skip this record.
+
+- Return final_result = sum of the result values from matching records.
+
+###### Note
+
+- This metric is updated every 6 hours.
+- This metric is available as part of Connect Customer AI.
+
 ## AI Response Completion Rate
 
 This metric measures the percentage of [AI sessions](../APIReference/API_amazon-q-connect_CreateSession.md "../APIReference/API_amazon-q-connect_CreateSession.md") that successfully
@@ -1222,6 +1286,105 @@ This metric measures the percentage of [AI Tools](ai-agent-mcp-tools.md "ai-agen
 
 - Return final_result = sum of the counts from matching records.
 
+## AI Tool Parameter Accuracy
+
+This metric measures the rate of tool invocations where [AI Agents](create-ai-agents.md "create-ai-agents.md")
+provided the correct parameters. Value is between 0-1, where 1 indicates perfect parameter accuracy.
+
+**Metric type**: Double
+
+**Metric category**: AI Tool
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_TOOL_PARAMETER_ACCURACY`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
+  Tool Parameter Accuracy
+
+**Calculation logic**:
+
+- For each AI Tool record
+  - If aiToolId is NOT present, then skip this record.
+  - If toolParameterAccuracy is present, then set result = toolParameterAccuracy.
+  - Else, skip this record.
+
+- Return final_result = average of the result values from matching records.
+
+###### Note
+
+- This metric is updated every 24 hours.
+- This metric is available as part of Connect Customer AI.
+
+## AI Tool Selection Accuracy
+
+This metric measures the rate of correct tool selections by [AI Agents](create-ai-agents.md "create-ai-agents.md").
+Value is between 0-1, where 1 indicates optimal selection.
+
+**Metric type**: Double
+
+**Metric category**: AI Tool
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_TOOL_SELECTION_ACCURACY`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
+  Tool Selection Accuracy
+
+**Calculation logic**:
+
+- For each AI Tool record
+  - If aiToolId is NOT present, then skip this record.
+  - If toolSelectionAccuracy is present, then set result = toolSelectionAccuracy.
+  - Else, skip this record.
+
+- Return final_result = average of the result values from matching records.
+
+###### Note
+
+- This metric is updated every 24 hours.
+- This metric is available as part of Connect Customer AI.
+
+## AI Tool Utilization Accuracy
+
+This metric measures the rate of correct tool utilization by [AI Agents](create-ai-agents.md "create-ai-agents.md"),
+including proper parameters and selection. Value is between 0-1, where 1 indicates perfect utilization.
+
+**Metric type**: Double
+
+**Metric category**: AI Tool
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `AI_TOOL_UTILIZATION_ACCURACY`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
+  Tool Utilization Accuracy
+
+**Calculation logic**:
+
+- For each AI Tool record
+  - If aiToolId is NOT present, then skip this record.
+  - If toolUtilizationAccuracy is present, then set result = toolUtilizationAccuracy.
+  - Else, skip this record.
+
+- Return final_result = average of the result values from matching records.
+
+###### Note
+
+- This metric is updated every 24 hours.
+- This metric is available as part of Connect Customer AI.
+
 ## Average AI Agent Conversation Turns
 
 This metric measures the average number of conversation turns that [AI
@@ -1333,6 +1496,111 @@ milliseconds.
   - Else, skip this record.
 
 - Return final_result = average of the result values from matching records.
+
+## Completeness Score
+
+This metric measures the proportion of sessions where the Orchestration [AI
+Agent](create-ai-agents.md "create-ai-agents.md") responses fully address all parts of customer requests rather than providing partial or incomplete
+answers. Value is between 0-1, where 1 indicates complete responses across all sessions.
+
+**Metric type**: Double
+
+**Metric category**: AI Session
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `COMPLETENESS_SCORE`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
+  Avg. Completeness Score
+
+**Calculation logic**:
+
+- For each AI session record
+  - If contactId is NOT present, then skip this record.
+  - If sessionId is NOT present, then skip this record.
+  - If conversationCompletenessScore is present, then set result = conversationCompletenessScore.
+  - Else, skip this record.
+
+- Return final_result = average of the result values from matching records.
+
+###### Note
+
+- This metric is updated every 24 hours.
+- This metric is available as part of Connect Customer AI.
+
+## Faithfulness Score
+
+This metric measures the proportion of sessions where the Orchestration [AI
+Agent](create-ai-agents.md "create-ai-agents.md") responses remain faithful to the conversational context, including messages and tool call results.
+Value is between 0-1, where 1 indicates perfect contextual fidelity.
+
+**Metric type**: Double
+
+**Metric category**: AI Session
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `FAITHFULNESS_SCORE`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
+  Avg. Faithfulness Score
+
+**Calculation logic**:
+
+- For each AI session record
+  - If contactId is NOT present, then skip this record.
+  - If sessionId is NOT present, then skip this record.
+  - If conversationFaithfulnessScore is present, then set result = conversationFaithfulnessScore.
+  - Else, skip this record.
+
+- Return final_result = average of the result values from matching records.
+
+###### Note
+
+- This metric is updated every 24 hours.
+- This metric is available as part of Connect Customer AI.
+
+## Goal Success Rate
+
+This metric measures the proportion of sessions where the Orchestration [AI
+Agent](create-ai-agents.md "create-ai-agents.md") successfully resolved customer issues. Value is between 0-1, where 1 indicates successful resolution
+across all sessions.
+
+**Metric type**: Double
+
+**Metric category**: AI Session
+
+**How to access using the Amazon Connect API**:
+
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
+  API metric identifier: `GOAL_SUCCESS_RATE`
+
+**How to access using the Amazon Connect admin website**:
+
+- Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
+  Goal Success Rate
+
+**Calculation logic**:
+
+- For each AI session record
+  - If contactId is NOT present, then skip this record.
+  - If sessionId is NOT present, then skip this record.
+  - If goalSuccessRate is present, then set result = goalSuccessRate.
+  - Else, skip this record.
+
+- Return final_result = average of the result values from matching records.
+
+###### Note
+
+- This metric is updated every 24 hours.
+- This metric is available as part of Connect Customer AI.
 
 ## Knowledge Content References
 

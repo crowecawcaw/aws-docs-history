@@ -122,7 +122,7 @@ the returned metrics. Use the following steps:
    metrics** block. Choose the metric that you want to use for
    the routing decision.
 
-![Attribute to check section, dropdown list of available metrics.](images/get-metrics-block-returned-metrics.png)
+![Attribute to check section, dropdown list of available metrics.](/images/connect/latest/adminguide/images/get-metrics-block-returned-metrics.png)
 
 ### Why Get metrics block throws an error
 

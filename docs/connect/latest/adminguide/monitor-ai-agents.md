@@ -117,51 +117,60 @@ The following table describes each event type. Note that different event types
 contain different fields. Refer to the [Field Definitions](#field-definitions "#field-definitions") section for detailed information about
 each field.
 
-| EventType                                     | Definition                                                                                                                                                                                   |
-| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TRANSCRIPT_CREATE_SESSION                     | Logged when a new Connect AI agents session is created.<br>This marks the beginning of a conversation.                                                                                       |
-| TRANSCRIPT_INTENT_TRIGGERING_REFERENCE        | Logged when a specific customer intent is detected in the<br>conversation, which may trigger automated responses or<br>workflows.                                                            |
-| TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION    | Logged when a large language model (LLM) is invoked to<br>generate responses or process conversation content. Records the<br>inputs to and outputs from the LLM.                             |
-| TRANSCRIPT_QUERY_ASSISTANT                    | Logged when one of the following Connect AI agents is invoked:<br>AnswerRecommendation, CaseSummarization, EmailGenerativeAnswer,<br>EmailOverview, EmailResponse, ManualSearch, NoteTaking. |
-| TRANSCRIPT_RECOMMENDATION                     | Logged when the system provides a recommendation to an agent<br>or customer, which may include knowledge articles, generated<br>responses, or suggested actions.                             |
-| TRANSCRIPT_RESULT_FEEDBACK                    | Logged when feedback is provided about a search or query<br>result's usefulness or relevance.                                                                                                |
-| TRANSCRIPT_SELF_SERVICE_MESSAGE               | Logged when a customer interacts with a SelfService Connect AI agent                                                                                                                         |
-| TRANSCRIPT_SESSION_POLLED                     | Logged when the system detects an agent is connected to a<br>session (A session is polled when a GetRecommendations API call<br>has been made)                                               |
-| TRANSCRIPT_TRIGGER_DETECTION_MODEL_INVOCATION | Logged when the trigger detection model is invoked to<br>determine if a conversation has intents                                                                                             |
-| TRANSCRIPT_UTTERANCE                          | Logged when a message is sent by any participant in the<br>conversation, recording the actual conversation content.                                                                          |
+| EventType                                     | Definition                                                                                                                                                                                                                                                                          |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TRANSCRIPT_CREATE_SESSION                     | Logged when a new Connect AI agents session is created.<br>This marks the beginning of a conversation.                                                                                                                                                                              |
+| TRANSCRIPT_INTENT_TRIGGERING_REFERENCE        | Logged when a specific customer intent is detected in the<br>conversation, which may trigger automated responses or<br>workflows.                                                                                                                                                   |
+| TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION    | Logged when a large language model (LLM) is invoked to<br>generate responses or process conversation content. Records the<br>inputs to and outputs from the LLM.                                                                                                                    |
+| TRANSCRIPT_QUERY_ASSISTANT                    | Logged when one of the following Connect AI agents is invoked:<br>AnswerRecommendation, CaseSummarization, EmailGenerativeAnswer,<br>EmailOverview, EmailResponse, ManualSearch, NoteTaking.                                                                                        |
+| TRANSCRIPT_RECOMMENDATION                     | Logged when the system provides a recommendation to an agent<br>or customer, which may include knowledge articles, generated<br>responses, or suggested actions.                                                                                                                    |
+| TRANSCRIPT_RESULT_FEEDBACK                    | Logged when feedback is provided about a search or query<br>result's usefulness or relevance.                                                                                                                                                                                       |
+| TRANSCRIPT_SELF_SERVICE_MESSAGE               | Logged when a customer interacts with a SelfService Connect AI agent                                                                                                                                                                                                                |
+| TRANSCRIPT_SESSION_POLLED                     | Logged when the system detects an agent is connected to a<br>session (A session is polled when a GetRecommendations API call<br>has been made)                                                                                                                                      |
+| TRANSCRIPT_TRIGGER_DETECTION_MODEL_INVOCATION | Logged when the trigger detection model is invoked to<br>determine if a conversation has intents                                                                                                                                                                                    |
+| TRANSCRIPT_UTTERANCE                          | Logged when a message is sent by any participant in the<br>conversation, recording the actual conversation content.                                                                                                                                                                 |
+| TRANSCRIPT_ORCHESTRATION_MESSAGE              | Logged for each step within an orchestration loop, including<br>the initial customer message, bot text responses, reasoning,<br>tool use requests, and tool results. Captures the full detail<br>of multi-turn agentic reasoning performed by an Orchestration<br>Connect AI agent. |
+| TRANSCRIPT_ORCHESTRATION_ERROR                | Logged when an error occurs during orchestration, such as<br>exceeding the maximum number of orchestration iterations,<br>system capacity constraints, or a general orchestration<br>failure.                                                                                       |
 
 ### Field Definitions
 
 The following table describes each field.
 
-| Field                    | Definition                                                                                                                                          |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ai_agent_id              | Unique identifier for the Connect AI agent<br>resource.                                                                                             |
-| assistant_id             | Unique identifier for the Connect assistant<br>resource.                                                                                            |
-| completion               | The raw completion text returned by the LLM or generated for<br>the message.                                                                        |
-| connect_user_arn         | Amazon Resource Name (ARN) of the Connect user accessing the<br>session.                                                                            |
-| event_timestamp          | Unix timestamp (in milliseconds) when the event<br>occurred.                                                                                        |
-| event_type               | Type of the event, indicating what action or process occurred<br>in the system.                                                                     |
-| generation_id            | Unique identifier for a specific AI-generated<br>response.                                                                                          |
-| intent                   | The intent text or description.                                                                                                                     |
-| intent_clicked           | Boolean indicating if the recommendation was triggered by a<br>clicked intent.                                                                      |
-| intent_id                | Unique identifier for the detected intent.                                                                                                          |
-| issue_probability        | Numerical probability (0.0–1.0) that an issue was detected in<br>the conversation (A probability greater than 0.5 will invoke<br>intent generation) |
-| is_recommendation_useful | Boolean indicating whether the user found the result<br>helpful.                                                                                    |
-| is_valid_trigger         | Boolean indicating whether the detection model analysis<br>resulted in a valid trigger.                                                             |
-| model_id                 | Identifier of the AI model used to invoke the LLM.                                                                                                  |
-| parsed_response          | The processed/parsed version of the language model response,<br>often in structured format.                                                         |
-| prompt                   | The input prompt used to invoke the LLM.                                                                                                            |
-| prompt_type              | Type of AI prompt used for processing the<br>message or query.                                                                                      |
-| recommendation           | The actual recommendation text content provided to the<br>user                                                                                      |
-| recommendation_id        | Unique identifier for the recommendation.                                                                                                           |
-| response                 | The final response text generated for the user after<br>processing.                                                                                 |
-| session_event_id         | Unique identifier for a specific event within the<br>session.                                                                                       |
-| session_event_ids        | List of session event identifiers.                                                                                                                  |
-| session_id               | Unique identifier for the Connect AI agents session.                                                                                                |
-| session_message_id       | Unique identifier for a self-service message within a<br>session.                                                                                   |
-| session_name             | Name of the session.                                                                                                                                |
-| utterance                | The actual message text exchanged in the<br>conversation.                                                                                           |
+| Field                           | Definition                                                                                                                                                                                                                                                               |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ai_agent_id                     | Unique identifier for the Connect AI agent<br>resource.                                                                                                                                                                                                                  |
+| assistant_id                    | Unique identifier for the Connect assistant<br>resource.                                                                                                                                                                                                                 |
+| completion                      | The raw completion text returned by the LLM or generated for<br>the message.                                                                                                                                                                                             |
+| connect_user_arn                | Amazon Resource Name (ARN) of the Connect user accessing the<br>session.                                                                                                                                                                                                 |
+| event_timestamp                 | Unix timestamp (in milliseconds) when the event<br>occurred.                                                                                                                                                                                                             |
+| event_type                      | Type of the event, indicating what action or process occurred<br>in the system.                                                                                                                                                                                          |
+| generation_id                   | Unique identifier for a specific AI-generated<br>response.                                                                                                                                                                                                               |
+| intent                          | The intent text or description.                                                                                                                                                                                                                                          |
+| intent_clicked                  | Boolean indicating if the recommendation was triggered by a<br>clicked intent.                                                                                                                                                                                           |
+| intent_id                       | Unique identifier for the detected intent.                                                                                                                                                                                                                               |
+| issue_probability               | Numerical probability (0.0–1.0) that an issue was detected in<br>the conversation (A probability greater than 0.5 will invoke<br>intent generation)                                                                                                                      |
+| is_recommendation_useful        | Boolean indicating whether the user found the result<br>helpful.                                                                                                                                                                                                         |
+| is_valid_trigger                | Boolean indicating whether the detection model analysis<br>resulted in a valid trigger.                                                                                                                                                                                  |
+| model_id                        | Identifier of the AI model used to invoke the LLM.                                                                                                                                                                                                                       |
+| parsed_response                 | The processed/parsed version of the language model response,<br>often in structured format.                                                                                                                                                                              |
+| prompt                          | The input prompt used to invoke the LLM.                                                                                                                                                                                                                                 |
+| prompt_type                     | Type of AI prompt used for processing the<br>message or query.                                                                                                                                                                                                           |
+| recommendation                  | The actual recommendation text content provided to the<br>user                                                                                                                                                                                                           |
+| recommendation_id               | Unique identifier for the recommendation.                                                                                                                                                                                                                                |
+| response                        | The final response text generated for the user after<br>processing.                                                                                                                                                                                                      |
+| session_event_id                | Unique identifier for a specific event within the<br>session.                                                                                                                                                                                                            |
+| session_event_ids               | List of session event identifiers.                                                                                                                                                                                                                                       |
+| session_id                      | Unique identifier for the Connect AI agents session.                                                                                                                                                                                                                     |
+| session_message_id              | Unique identifier for a self-service message within a<br>session.                                                                                                                                                                                                        |
+| session_name                    | Name of the session.                                                                                                                                                                                                                                                     |
+| utterance                       | The actual message text exchanged in the<br>conversation.                                                                                                                                                                                                                |
+| orchestration_id                | Unique identifier for the orchestration run. Corresponds to<br>the initial customer message ID that triggered<br>orchestration.                                                                                                                                          |
+| orchestration_iteration         | The iteration number within the orchestration loop.                                                                                                                                                                                                                      |
+| ai_agent_orchestration_use_case | The orchestrator use case, such as<br>`CONNECT_AGENT_ASSISTANCE` or<br>`CONNECT_SELF_SERVICE`.                                                                                                                                                                           |
+| participant                     | The participant role for the message, such as<br>`CUSTOMER` or `BOT`.                                                                                                                                                                                                    |
+| values                          | JSON-serialized list of message values. Each entry has a<br>type: `text` (with a text value),<br>`tool_use` (with toolUseId, toolId, name, and<br>arguments), `tool_result` (with toolUseId, toolId,<br>name, values, and error), or `reasoning` (with a<br>text value). |
+| guardrail_blocked               | Boolean indicating whether the response was blocked by an<br>AI guardrail.                                                                                                                                                                                               |
+| orchestration_error             | JSON-serialized error details containing<br>`errorMessage` and an optional<br>`errorDetails` object (with<br>`estimatedInputTokens` and<br>`estimatedOutputTokens`).                                                                                                     |
 
 ### Examples of assistant logs
 
@@ -395,6 +404,153 @@ Manual Search Generation
     "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
     "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
     "utterance": "[Customer] My laptop won't connect to WiFi after the recent update"
+}
+
+```
+
+#### OrchestrationMessage
+
+Customer message
+
+```
+
+{
+    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+    "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "event_timestamp": 1729530173612,
+    "event_type": "TRANSCRIPT_ORCHESTRATION_MESSAGE",
+    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+    "orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+    "participant": "CUSTOMER",
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+    "session_message_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+    "values": "[{\"type\":\"text\",\"value\":\"How do I reset my password?\"}]"
+}
+
+```
+
+Bot text response
+
+```
+
+{
+    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+    "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "event_timestamp": 1729530174234,
+    "event_type": "TRANSCRIPT_ORCHESTRATION_MESSAGE",
+    "guardrail_blocked": false,
+    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+    "orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+    "orchestration_iteration": 1,
+    "participant": "BOT",
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+    "session_message_id": "mfff1234-5678-4eab-9333-112233445566",
+    "values": "[{\"type\":\"text\",\"value\":\"I can help you reset your password. Let me look up your account.\"}]"
+}
+
+```
+
+Tool use
+
+```
+
+{
+    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+    "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "event_timestamp": 1729530174500,
+    "event_type": "TRANSCRIPT_ORCHESTRATION_MESSAGE",
+    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+    "orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+    "orchestration_iteration": 1,
+    "participant": "BOT",
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+    "session_message_id": "maaa2222-3333-4bbb-cccc-ddddeeeeffff",
+    "values": "[{\"type\":\"tool_use\",\"toolUseId\":\"toolu_01ABC\",\"toolId\":\"ResetPassword\",\"name\":\"ResetPassword\",\"arguments\":{\"email\":\"customer@example.com\"}}]"
+}
+
+```
+
+Tool result
+
+```
+
+{
+    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+    "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "event_timestamp": 1729530175100,
+    "event_type": "TRANSCRIPT_ORCHESTRATION_MESSAGE",
+    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+    "orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+    "orchestration_iteration": 1,
+    "participant": "BOT",
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+    "session_message_id": "mbbb3333-4444-5ccc-dddd-eeeeffff0000",
+    "values": "[{\"type\":\"tool_result\",\"toolUseId\":\"toolu_01ABC\",\"toolId\":\"ResetPassword\",\"name\":\"ResetPassword\",\"values\":[{\"type\":\"text\",\"value\":\"Password reset email sent successfully.\"}],\"error\":null}]"
+}
+
+```
+
+Reasoning
+
+```
+
+{
+    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+    "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "event_timestamp": 1729530175200,
+    "event_type": "TRANSCRIPT_ORCHESTRATION_MESSAGE",
+    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+    "orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+    "orchestration_iteration": 1,
+    "participant": "BOT",
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+    "session_message_id": "mccc4444-5555-6ddd-eeee-ffff00001111",
+    "values": "[{\"type\":\"reasoning\",\"value\":\"The password reset was successful. I should inform the customer and ask if they need further help.\"}]"
+}
+
+```
+
+#### OrchestrationError
+
+Maximum orchestration iterations exceeded
+
+```
+
+{
+    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+    "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "event_timestamp": 1729530180000,
+    "event_type": "TRANSCRIPT_ORCHESTRATION_ERROR",
+    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+    "orchestration_error": "{\"errorMessage\":\"The orchestration exceeded the maximum number of iterations\"}",
+    "orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+    "orchestration_iteration": 9,
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+}
+
+```
+
+System capacity constraints
+
+```
+
+{
+    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+    "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "event_timestamp": 1729530180000,
+    "event_type": "TRANSCRIPT_ORCHESTRATION_ERROR",
+    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+    "orchestration_error": "{\"errorMessage\":\"System capacity is constrained. We are actively working on scaling system to prevent such failures.\",\"errorDetails\":{\"estimatedInputTokens\":50000,\"estimatedOutputTokens\":2048}}",
+    "orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+    "orchestration_iteration": 3,
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
 
 ```

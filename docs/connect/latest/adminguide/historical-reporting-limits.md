@@ -31,7 +31,10 @@ Historical metrics reports have the following limits:
 
 - You can select up to 31 days in a single request.
 
-###### 200k cell limit
+###### Cell limit
 
-- There is a 200k cell limitation on historical metrics reports and
-  scheduled reports. This applies to number of cells with data (and not rows\*columns in the report).
+- Historical and scheduled reports limit the quantity of data returned according to
+  the number of cells with data (and not total rows \* columns in the report). A cell missing data
+  is rendered as "-" on the reporting page.
+- Historical reports are limited to 120k cells of data. If the cell limit is exceeded, the data is truncated.
+- Scheduled reports are limited to 200k cells of data. If the cell limit is exceeded, the report fails.

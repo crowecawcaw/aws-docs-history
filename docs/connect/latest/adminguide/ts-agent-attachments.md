@@ -1,17 +1,17 @@
-# Internal firewall or missing CORS policy prevents access to chat, email, or case attachments
+# Internal firewall or missing CORS policy prevents access to chat, email, task, or case attachments
 
 This topic is for developers who need to investigate issues that may occur when using
-attachments with the chat or email channels in Amazon Connect, or when using attachments to
+attachments with the chat, email, or task channels in Amazon Connect, or when using attachments to
 upload files to cases.
 
 The following issues may cause attachments to not display for your agents using Amazon Connect
-chat or email, or Amazon Connect Cases.
+chat, email, or tasks, or Amazon Connect Cases.
 
 ## Configure a CORS policy on your attachments bucket
 
-A common reason for attachments not appearing in chats or emails is that the CORS
+A common reason for attachments not appearing in chats, emails, or tasks is that the CORS
 policy hasn't been configured on your attachments bucket. For instructions, see
-[Step 2: Configure a CORS policy on your attachments bucket](enable-attachments.md#step2-update-cors-policy "enable-attachments.md#step2-update-cors-policy").
+[Step 3: Configure a CORS policy on your attachments bucket](enable-attachments.md#step3-update-cors-policy "enable-attachments.md#step3-update-cors-policy").
 
 ## Internal firewall settings are preventing access
 
@@ -24,5 +24,17 @@ domain allowlist. For more information, see [Set up your network to use the Amaz
 Check that the attachments meet the size, number, and file type requirements. For
 more information, see [Amazon Connect feature specifications](feature-limits.md "feature-limits.md").
 
+The maximum attachment size is configurable up to 100 MB. The default is 20 MB. If
+attachments are being rejected, verify the configured size limit for your instance
+through the Amazon Connect admin website or the Amazon Connect API.
+
 To calculate the size of an attachment (artifactSizeInBytes), use a third-party
 tool such as [File.size](https://developer.mozilla.org/en-US/docs/Web/API/File/size "https://developer.mozilla.org/en-US/docs/Web/API/File/size").
+
+## File type is rejected even though it is expected to be allowed
+
+If a file type is rejected when uploading an attachment, verify that the file
+extension has been added to the allowed file extensions list for your instance. For
+information about configuring custom file extensions, see [Enable attachments in your CCP so customers and agents can share and upload files](enable-attachments.md "enable-attachments.md").
+
+For a list of default supported file types, see [Amazon Connect feature specifications](feature-limits.md "feature-limits.md").

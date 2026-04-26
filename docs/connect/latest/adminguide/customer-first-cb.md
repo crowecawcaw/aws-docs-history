@@ -172,16 +172,9 @@ changes take effect at the point the contact re-enters the queue.
 By default, retry timing is not system-controlled for customer first callbacks
 – you have full control over when a retry is initiated.
 
-To introduce a delay between retry attempts, use the **Initial
-delay** parameter in the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block when recreating the callback
-contact (C4) in the C3 outbound flow. This is the recommended approach
-because it:
-
-- Allows the flow to disconnect from the customer's voicemail once a retry
-  decision has been made, avoiding long silent voicemails or the voicemail
-  disconnecting the call and ending the flow prematurely.
-- Allows you to track scheduled retries under the
-  `CONTACTS_SCHEDULED` metric.
+To introduce a delay between retry attempts, add a **Wait** block in the C4 creation flow before transferring to queue. This allows you to define a specific interval (for example,
+wait 5 minutes before queueing), preventing immediate back-to-back dial
+attempts.
 
 A typical retry flow with timing control looks like:
 
@@ -191,9 +184,9 @@ A typical retry flow with timing control looks like:
    `retry = true` (and optionally increment a retry
    counter).
 3. **Create callback** – recreate the
-   contact as C4 using the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block with the
-   **Initial delay** set to the desired interval (for
-   example, 5 minutes).
+   contact as C4.
+4. **Wait** block – for the
+   desired interval before queueing.
 
 ## Metrics for customer first callbacks
 

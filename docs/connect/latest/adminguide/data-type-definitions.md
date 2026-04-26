@@ -182,6 +182,8 @@ shared:
 | invocation_success             | bool     | A boolean field which indicates whether the invocation of the AI agent has been successful or not. |
 | invocation_latency_ms          | float    | The invocation latency of the AI Agent in the evaluated contact.                                   |
 | conversation_turns_in_response | bigint   | The number of conversation turns responded by the requested AI Agent.                              |
+| response_helpful               | int      | The count of AI suggestions rated as helpful with a thumbs-up.                                     |
+| response_not_helpful           | int      | The count of AI suggestions rated as unhelpful with a thumbs-down.                                 |
 
 ## AI Agent Knowledge Base
 
@@ -238,48 +240,54 @@ shared:
 
 ## AI Session
 
-| **Column**                         | **Type** | **Description**                                                                                                        |
-| ---------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
-| instance_arn                       | string   | The ARN of the Amazon Connect instance.                                                                                |
-| instance_id                        | string   | The ID of the Amazon Connect instance.                                                                                 |
-| contact_id                         | string   | The ID of the contact.                                                                                                 |
-| ai_session_id                      | string   | The ID of the AI-Agent session.                                                                                        |
-| aws_account_id                     | string   | The customer AWS account ID.                                                                                           |
-| assistant_id                       | string   | The identifier of the Connect AI agents assistant.                                                                     |
-| creation_timestamp                 | bigint   | The timestamp when the event is created in the data lake.                                                              |
-| update_timestamp                   | bigint   | The timestamp when the event is updated in the data lake.                                                              |
-| proactive_intents_detected         | bigint   | The number of proactive intents (customer queries) detected during the AI session for an Agent Assistance<br>use case. |
-| proactive_intents_engaged          | bigint   | The number of proactive intents (customer queries) engaged in the AI session for an Agent Assistance use<br>case.      |
-| proactive_intents_answered         | bigint   | The number of proactive intents (customer queries) answered in the AI session for an Agent Assistance use<br>case.     |
-| ai_agent_invocation_count          | bigint   | The number of AI Agent invocations in the AI session.                                                                  |
-| ai_agent_invocation_success_count  | bigint   | The number of successful AI Agent invocations in the AI session.                                                       |
-| is_handed_off                      | boolean  | A boolean field which indicates whether the AI agent has handed off to the human agent during the AI<br>session.       |
-| avg_conversation_turns_in_response | float    | The average number of conversation turns in response of AI Agent invocation.                                           |
+| **Column**                         | **Type** | **Description**                                                                                                                                                       |
+| ---------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| instance_arn                       | string   | The ARN of the Amazon Connect instance.                                                                                                                               |
+| instance_id                        | string   | The ID of the Amazon Connect instance.                                                                                                                                |
+| contact_id                         | string   | The ID of the contact.                                                                                                                                                |
+| ai_session_id                      | string   | The ID of the AI-Agent session.                                                                                                                                       |
+| aws_account_id                     | string   | The customer AWS account ID.                                                                                                                                          |
+| assistant_id                       | string   | The identifier of the Connect AI agents assistant.                                                                                                                    |
+| creation_timestamp                 | bigint   | The timestamp when the event is created in the data lake.                                                                                                             |
+| update_timestamp                   | bigint   | The timestamp when the event is updated in the data lake.                                                                                                             |
+| proactive_intents_detected         | bigint   | The number of proactive intents (customer queries) detected during the AI session for an Agent Assistance<br>use case.                                                |
+| proactive_intents_engaged          | bigint   | The number of proactive intents (customer queries) engaged in the AI session for an Agent Assistance use<br>case.                                                     |
+| proactive_intents_answered         | bigint   | The number of proactive intents (customer queries) answered in the AI session for an Agent Assistance use<br>case.                                                    |
+| ai_agent_invocation_count          | bigint   | The number of AI Agent invocations in the AI session.                                                                                                                 |
+| ai_agent_invocation_success_count  | bigint   | The number of successful AI Agent invocations in the AI session.                                                                                                      |
+| is_handed_off                      | boolean  | A boolean field which indicates whether the AI agent has handed off to the human agent during the AI<br>session.                                                      |
+| avg_conversation_turns_in_response | float    | The average number of conversation turns in response of AI Agent invocation.                                                                                          |
+| goal_success_rate                  | double   | A double between 0 and 1 that evaluates whether the Orchestration AI agent successfully resolved the customer issue.                                                  |
+| faithfulness_score                 | double   | A double between 0 and 1 that evaluates if the Orchestration AI agent's response is faithful to the conversational context, including messages and tool call results. |
+| completeness_score                 | double   | A double between 0 and 1 that evaluates if the Orchestration AI agent's response fully addresses all parts of customer requests.                                      |
 
 ## AI Tool
 
-| **Column**            | **Type** | **Description**                                                                                |
-| --------------------- | -------- | ---------------------------------------------------------------------------------------------- |
-| instance_arn          | string   | The ARN of the Connect instance.                                                               |
-| aws_account_id        | string   | The identifier of the AWS account that owns Connect AI Assistant.                              |
-| instance_id           | string   | The ID of the Connect instance.                                                                |
-| contact_id            | string   | The ID of the contact .                                                                        |
-| ai_agent_id           | string   | The ID of requested AI Agent.                                                                  |
-| ai_tool_id            | string   | The ID of requested AI tool.                                                                   |
-| ai_tool_event_id      | string   | The ID of the AI Tool invocation event.                                                        |
-| assistant_id          | string   | The ID of the Amazon Connect AI Assistant.                                                     |
-| ai_session_id         | string   | The ID of AI Agent session.                                                                    |
-| creation_timestamp    | bigint   | The instant the data lake event was created.                                                   |
-| update_timestamp      | bigint   | The instant the data lake event was last modified.                                             |
-| ai_agent_type         | string   | The type of the requested AI Agent.                                                            |
-| ai_agent_name         | string   | The name of the requested AI Agent.                                                            |
-| ai_agent_version      | string   | The version number of the requested AI Agent.                                                  |
-| ai_agent_arn          | string   | The ARN of the requested AI Agent.                                                             |
-| ai_tool_type          | string   | The type of the invoked AI tool.                                                               |
-| ai_tool_name          | string   | The name of the invoked AI tool.                                                               |
-| ai_tool_arn           | string   | The ARN of the invoked AI tool.                                                                |
-| invocation_success    | boolean  | A boolean field which indicates whether the invocation of the tool has been successful or not. |
-| invocation_latency_ms | float    | The invocation latency for AI tool calling.                                                    |
+| **Column**                   | **Type** | **Description**                                                                                                                               |
+| ---------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| instance_arn                 | string   | The ARN of the Connect instance.                                                                                                              |
+| aws_account_id               | string   | The identifier of the AWS account that owns Connect AI Assistant.                                                                             |
+| instance_id                  | string   | The ID of the Connect instance.                                                                                                               |
+| contact_id                   | string   | The ID of the contact .                                                                                                                       |
+| ai_agent_id                  | string   | The ID of requested AI Agent.                                                                                                                 |
+| ai_tool_id                   | string   | The ID of requested AI tool.                                                                                                                  |
+| ai_tool_event_id             | string   | The ID of the AI Tool invocation event.                                                                                                       |
+| assistant_id                 | string   | The ID of the Amazon Connect AI Assistant.                                                                                                    |
+| ai_session_id                | string   | The ID of AI Agent session.                                                                                                                   |
+| creation_timestamp           | bigint   | The instant the data lake event was created.                                                                                                  |
+| update_timestamp             | bigint   | The instant the data lake event was last modified.                                                                                            |
+| ai_agent_type                | string   | The type of the requested AI Agent.                                                                                                           |
+| ai_agent_name                | string   | The name of the requested AI Agent.                                                                                                           |
+| ai_agent_version             | string   | The version number of the requested AI Agent.                                                                                                 |
+| ai_agent_arn                 | string   | The ARN of the requested AI Agent.                                                                                                            |
+| ai_tool_type                 | string   | The type of the invoked AI tool.                                                                                                              |
+| ai_tool_name                 | string   | The name of the invoked AI tool.                                                                                                              |
+| ai_tool_arn                  | string   | The ARN of the invoked AI tool.                                                                                                               |
+| invocation_success           | boolean  | A boolean field which indicates whether the invocation of the tool has been successful or not.                                                |
+| invocation_latency_ms        | float    | The invocation latency for AI tool calling.                                                                                                   |
+| ai_tool_parameter_accuracy   | double   | A double between 0 and 1 that evaluates whether the AI agent provided the correct tool parameters, where 1 indicates correct tool parameters. |
+| ai_tool_selection_accuracy   | double   | A double between 0 and 1 that evaluates whether the AI agent selected the correct tool, where 1 indicates correct tool selection.             |
+| ai_tool_utilization_accuracy | double   | A double between 0 and 1 that evaluates whether the AI agent correctly utilized the tool, where 1 indicates perfect utilization.              |
 
 ## Connect test case execution results
 

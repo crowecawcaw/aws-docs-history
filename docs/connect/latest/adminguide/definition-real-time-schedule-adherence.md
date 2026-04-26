@@ -12,7 +12,7 @@ Amazon Connect admin website:
 
 Select this table from the Real-time metrics page or from within an
 existing report. This table has the same functionality as an existing
-agent's table, but with the additional metrics listed below.
+agents table, but with the additional metrics listed below.
 
 - [Agent adherence](queue-performance-dashboard.md#agent-adherence-dashboard "queue-performance-dashboard.md#agent-adherence-dashboard") widget on the
   **Queue and agent performance** dashboard.
@@ -20,6 +20,10 @@ agent's table, but with the additional metrics listed below.
 This widget provides detailed agent adherence information that you can
 filter and sort. It also provides conditional formatting to help you
 proactively manage and optimize workforce performance.
+The list of agents displayed on the Queue and agent performance dashboard
+refreshes as new agents come online. To refresh the list of agents on the
+Real-time metrics page, refresh the page.
+
 Following is a list of the real-time agent adherence metrics.
 
 ## Real-Time agent adherence status
