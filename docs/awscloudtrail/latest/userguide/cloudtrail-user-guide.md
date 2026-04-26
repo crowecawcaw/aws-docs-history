@@ -1,5 +1,10 @@
 # What Is AWS CloudTrail?
 
+###### Tip
+
+If you use CloudTrail data events, you can learn advanced monitoring techniques through the
+[Cloud Operations Enablement workshop and event series](https://aws-experience.com/amer/smb/events/series/Cloud-Operations-Enablement "https://aws-experience.com/amer/smb/events/series/Cloud-Operations-Enablement").
+
 AWS CloudTrail is an AWS service that helps you enable operational and risk auditing,
 governance, and compliance of your AWS account. Actions taken by a user, role, or an AWS
 service are recorded as events in CloudTrail. Events include actions taken in the AWS Management Console,
