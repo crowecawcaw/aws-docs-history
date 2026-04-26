@@ -25,6 +25,7 @@ Before you begin, ensure you have:
   - [Visual Studio Professional 2022](https://aws.amazon.com/Marketplace/pp/prodview-zo3zltrbpgr5i "https://aws.amazon.com/Marketplace/pp/prodview-zo3zltrbpgr5i")
   - [Visual Studio Enterprise 2022](https://aws.amazon.com/Marketplace/pp/prodview-dzstlnjdl3izg "https://aws.amazon.com/Marketplace/pp/prodview-dzstlnjdl3izg")
   - [Office LTSC Professional Plus](https://aws.amazon.com/Marketplace/pp/prodview-bh46d5p2hapns "https://aws.amazon.com/Marketplace/pp/prodview-bh46d5p2hapns")
+  - [Office LTSC Standard](https://aws.amazon.com/Marketplace/pp/prodview-4riznyn4eqlbw "https://aws.amazon.com/Marketplace/pp/prodview-4riznyn4eqlbw")
 
 ## Limitations
 

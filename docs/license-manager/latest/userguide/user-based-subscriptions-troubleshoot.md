@@ -341,11 +341,11 @@ For information about supported software for user-based subscriptions, see [Supp
 
 ## Using user subscription with older Windows Server versions
 
-When you launch an instance from an AMI that supports Office LTSC Professional Plus or Microsoft Visual Studio, the launch defaults to the latest Windows OS platform version of the AMI (for example Windows Server 2022). To launch with an earlier OS platform version, follow these steps:
+When you launch an instance from an AMI that supports Office LTSC Professional Plus, Office LTSC Standard, or Microsoft Visual Studio, the launch defaults to the latest Windows OS platform version of the AMI (for example Windows Server 2022). To launch with an earlier OS platform version, follow these steps:
 
 1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace](https://console.aws.amazon.com/marketplace "https://console.aws.amazon.com/marketplace").
 2. Choose **Manage subscriptions** from the navigation pane.
-3. To streamline subscription results, you can search for all or part of the subscription name. For example, Office LTSC Professional Plus or Visual Studio Enterprise.
+3. To streamline subscription results, you can search for all or part of the subscription name. For example, Office LTSC Professional Plus, Office LTSC Standard, or Visual Studio Enterprise.
 4. Select **Launch new instance** from the subscription panel. This opens a launch configuration page.
 5. To launch an instance from an AMI that's based on an earlier version of the Windows OS platform, select the full AWS Marketplace website link, located under the Software version. This takes you to a configuration page where you can select from a list of versions.
 6. The list shows the latest AMI versions for the supported Windows OS platforms. Select the Windows OS version that you want to launch from.

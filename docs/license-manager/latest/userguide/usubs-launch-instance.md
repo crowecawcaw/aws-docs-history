@@ -44,15 +44,16 @@ For more information, see the [Prerequisites to create user-based subscriptions 
 
 ## Launch an instance from a specific operating system version AMI
 
-When you launch an instance from an AMI that supports `Office LTSC Professional 
- Plus` or Microsoft Visual Studio, the launch defaults to the latest Windows operating system version of
+When you launch an instance from an AMI that supports Office LTSC Professional
+Plus, Office LTSC Standard, or Microsoft Visual Studio, the launch defaults to the latest Windows operating system version of
 the AMI (for example Windows Server 2025). To launch with a specific operating system version AMI,
 follow these steps.
 
 1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace](https://console.aws.amazon.com/marketplace "https://console.aws.amazon.com/marketplace").
 2. Choose **Manage subscriptions** from the navigation pane.
 3. To streamline subscription results, you can search for all or part of the
-   subscription name. For example, `Office LTSC Professional Plus`
+   subscription name. For example, `Office LTSC Professional Plus`,
+   `Office LTSC Standard`,
    or `Visual Studio Enterprise`.
 4. Select **Launch new instance** from the subscription panel.
    This opens a launch configuration page.

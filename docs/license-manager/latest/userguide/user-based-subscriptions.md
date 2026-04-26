@@ -609,6 +609,10 @@ slide show presentations.
 - Office LTSC Professional Plus 2024
 - Office LTSC Professional Plus 2021 32-bit (x86)
 - Office LTSC Professional Plus 2024 32-bit (x86)
+- Office LTSC Standard 2021
+- Office LTSC Standard 2024
+- Office LTSC Standard 2021 32-bit (x86)
+- Office LTSC Standard 2024 32-bit (x86)
 
 The following table details the software subscription names and their associated
 product value used for License Manager user-based subscription API operations.
@@ -617,6 +621,8 @@ product value used for License Manager user-based subscription API operations.
 | ---------------------------------- | -------------------------- |
 | Office LTSC Professional Plus 2021 | `OFFICE_PROFESSIONAL_PLUS` |
 | Office LTSC Professional Plus 2024 | `OFFICE_PROFESSIONAL_PLUS` |
+| Office LTSC Standard 2021          | `OFFICE_STANDARD`          |
+| Office LTSC Standard 2024          | `OFFICE_STANDARD`          |
 
 ## Active Directory
 

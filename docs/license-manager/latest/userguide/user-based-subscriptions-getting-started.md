@@ -33,6 +33,8 @@ links:
   Studio Enterprise](https://aws.amazon.com/marketplace/pp/prodview-dzstlnjdl3izg "https://aws.amazon.com/marketplace/pp/prodview-dzstlnjdl3izg")
 - [Office LTSC
   Professional Plus](https://aws.amazon.com/marketplace/pp/prodview-bh46d5p2hapns "https://aws.amazon.com/marketplace/pp/prodview-bh46d5p2hapns")
+- [Office LTSC
+  Standard](https://aws.amazon.com/marketplace/pp/prodview-4riznyn4eqlbw "https://aws.amazon.com/marketplace/pp/prodview-4riznyn4eqlbw")
 - [Win Remote
   Desktop Services SAL](https://aws.amazon.com/marketplace/pp/prodview-buamtl3v3xaes "https://aws.amazon.com/marketplace/pp/prodview-buamtl3v3xaes")
 
@@ -92,6 +94,13 @@ to. If you've subscribed to `Win Remote Desktop Services SAL`, select the
 **Microsoft RDS SAL** tab. If you subscribe to Microsoft Office or
 Visual Studio and do NOT subscribe to RDS SAL, select the **Stand-alone
 MSO subscriptions** tab.
+
+###### Important
+
+If you have already registered one Microsoft Office product type (either Office LTSC Professional
+Plus or Office LTSC Standard) with an Active Directory in a VPC, and you are registering
+the other Microsoft Office product type with the same Active Directory in the same VPC, you must use
+the same subnets and security group as the existing identity provider configuration.
 
 Microsoft RDS SAL
 
@@ -180,6 +189,10 @@ aws license-manager-user-subscriptions register-identity-provider --product "`<p
 
 For more information about the available software products, see
 [Supported software products for user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-software "user-based-subscriptions.md#usubs-software").
+
+###### Note
+
+Registering the same Active Directory for the same product more than once in the same region may result in duplicate user subscription charges.
 
 ## Step 3: Configure RDS license server
 
