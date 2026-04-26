@@ -10,7 +10,7 @@ historical data will be retained in your destination account. To delete
 the CURs, go to the ${resource-prefix}-${payer-account-id}-shared S3 Bucket and
 manually delete the account data. Note that if you deployed following
 best practices with a separate Destination account hosting the
-dashboards, you should also delete the CID-CUR-Replication Stack in your
+dashboards, you should also delete the CID-DataExports-Source Stack in your
 Management/Payer/Source account.**
 
 1. Login to the Account(s) where you deployed CloudFormation templates as

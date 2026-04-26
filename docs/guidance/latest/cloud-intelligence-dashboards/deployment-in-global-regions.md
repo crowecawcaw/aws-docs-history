@@ -29,8 +29,8 @@ collect the data across multiple Linked accounts using the
 
 Deployment process consists of 3 main steps:
 
-1. Step 1: Deploy Amazon S3 Bucket and Athena Tables in the **Data Collection Account**.
-2. Step 2: Deploy AWS Data Exports, Amazon S3 Bucket and a replication policy in **Source** Accounts (one or many).
+1. Step 1: Deploy Amazon S3 Bucket and AWS Glue Data Catalog/Athena Tables in the **Data Collection Account**.
+2. Step 2: Deploy AWS Data Exports with direct delivery to the Data Collection Account in **Source** Accounts (one or many).
 3. Step 3: Deploy Cloud Intelligence Dashboards (CID) Stack in the **Data Collection Account**.
 
 ## Deployment
@@ -56,9 +56,9 @@ Currently only foundational dashboards, CORA, Sustainability and FOCUS Dashboard
 ## Step 1. [Data Collection Account] Create Destination For CUR Aggregation
 
 1. Sign in to your Data Collection Account.
-2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation console. This stack will create bucket open for replication and Athena Tables.
+2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation console. This stack will create an S3 bucket with a bucket policy allowing write access for the AWS Data Exports service, and Athena Tables.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination&param_ManageCUR2=yes&param_ManageCOH=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20IDS "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination¶m_ManageCUR2=yes¶m_ManageCOH=no¶m_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID¶m_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20IDS")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination&param_ManageCUR2=yes&param_ManageCOH=no&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20IDS "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination¶m_ManageCUR2=yes¶m_ManageCOH=no¶m_LegacyLocalBucket=no¶m_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID¶m_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20IDS")
 
 - Update `DestinationAccountId` parameter as your **Data Collection**
   Account ID (Current Account ID).
@@ -68,7 +68,7 @@ Currently only foundational dashboards, CORA, Sustainability and FOCUS Dashboard
   [CORA](cora-dashboard.md "cora-dashboard.md") and
   [FOCUS](focus-dashboard.md "focus-dashboard.md") dashboards.
 - Enter your Source Account(s) IDs, using commas to separate multiple
-  Account IDs. These are accounts that will send their Data Exports to the
+  Account IDs. These are accounts that will deliver their Data Exports directly to the
   bucket in the current Account. If you decided to deploy dashboards in
   Management/Payer Account (not recommended), make sure that
   SourceAccountId contains the current Account Id as the first element and
@@ -87,12 +87,12 @@ You can add or delete Source Accounts later by updating this stack and
 adding or deleting Account IDs in a comma separated list of Source
 Account parameter.
 
-## Step 2. [In Management/Payer/Source Account] Create CUR 2.0 and Replication
+## Step 2. [In Management/Payer/Source Account] Create CUR 2.0
 
 1. Click the **Launch Stack button** below to open the **stack template** in
    your AWS CloudFormation console.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source&param_ManageCUR2=yes&param_ManageCOH=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs&param_SourceAccountIds= "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source¶m_ManageCUR2=yes¶m_ManageCOH=no¶m_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs¶m_SourceAccountIds=")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source&param_ManageCUR2=yes&param_ManageCOH=no&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs&param_SourceAccountIds= "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source¶m_ManageCUR2=yes¶m_ManageCOH=no¶m_LegacyLocalBucket=no¶m_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs¶m_SourceAccountIds=")
 
 1. Enter a **Stack name** for your template such as
    **CID-DataExports-Source**.
@@ -107,7 +107,7 @@ Account parameter.
    **CREATE_COMPLETE**.
 6. Repeat for other Source Accounts.
    It will typically take about 24 hours for the first delivery of AWS Data
-   Exports replication to the Destination Account, but it might take up to
+   Exports to the Destination Account, but it might take up to
    72 hours (3 days). You can continue with the dashboards deployment
    however data will appear on the dashboards the next day after the first
    data delivery.

@@ -23,20 +23,18 @@ and Cost Categories.
 ![Recommended Deployment Architecture](images/basic_deployment_arch.png)
 
 1. [AWS Data
-   Exports](https://aws.amazon.com/aws-cost-management/aws-data-exports/ "https://aws.amazon.com/aws-cost-management/aws-data-exports/") delivers daily the Cost & Usage Report (CUR2) to an
-   [Amazon S3 Bucket](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/") in the Management Account.
-2. [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/") replication rule copies Export
-   data to a dedicated Data Collection Account S3 bucket automatically.
-3. [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/") allows querying data
+   Exports](https://aws.amazon.com/aws-cost-management/aws-data-exports/ "https://aws.amazon.com/aws-cost-management/aws-data-exports/") delivers daily the Cost & Usage Report (CUR2) directly to an
+   [Amazon S3 Bucket](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/") in the Data Collection Account.
+2. [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/") allows querying data
    directly from the S3 bucket using an [AWS
    Glue](https://aws.amazon.com/glue/ "https://aws.amazon.com/glue/") table schema definition.
-4. [Amazon Quick Sight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") creates datasets
+3. [Amazon Quick Sight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") creates datasets
    from [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/"), refreshes daily and
    caches in
    [SPICE](../../../quicksight/latest/user/spice.md "../../../quicksight/latest/user/spice.md")(Super-fast,
    Parallel, In-memory Calculation Engine) for
    [Amazon Quick Sight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
-5. User Teams (Executives, FinOps, Engineers) can access Cloud
+4. User Teams (Executives, FinOps, Engineers) can access Cloud
    Intelligence Dashboards in [Amazon
    Quick Sight](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"). Access is secured through [AWS
    IAM](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/"), IIC ([AWS IAM Identity

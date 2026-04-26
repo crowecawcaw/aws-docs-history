@@ -1,24 +1,14 @@
 # Data Exports
 
-## Authors
-
-- Zach Erdman, Senior Product Manager, AWS
-- Petro Kashlikov, Senior Solutions Architect, AWS
-- Iakov Gan, Senior Solutions Architect, AWS
-- Yuriy Prykhodko, Principal Technical Account Manager, AWS
-
 ## Introduction
 
 The
 [AWS
 Data Exports](../../../cur/latest/userguide/what-is-data-exports.md "../../../cur/latest/userguide/what-is-data-exports.md") service allows you to create exports of various types of
-billing and cost management data to an Amazon S3 bucket in your local
-AWS account. This page introduces a simple
-[Cloud
-Formation Template](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-data-collection/blob/main/data-exports/deploy/data-exports-aggregation.yaml "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-data-collection/blob/main/data-exports/deploy/data-exports-aggregation.yaml") that can automate the following tasks:
+billing and cost management data. This page introduces a simple
+[CloudFormation Template](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-data-collection/blob/main/data-exports/deploy/data-exports-aggregation.yaml "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-data-collection/blob/main/data-exports/deploy/data-exports-aggregation.yaml") that can automate the following tasks:
 
-- **Create AWS Data Exports**: Set up exports for billing and cost management data to be delivered to an Amazon S3 bucket in your account.
-- **Cross-Account Replication**: Replicate the exported data to dedicated Data Collection AWS account for centralized analysis or auditing purposes.
+- **Create AWS Data Exports with cross-account delivery**: Set up exports for billing and cost management data with direct delivery to an Amazon S3 bucket in a centralized Data Collection account.
 - **Athena Table Creation**: Create Amazon Athena tables for querying the exported data directly, enabling data analysis and visualization.
 
 ## Common Use Cases
@@ -39,19 +29,23 @@ This solution covers the following use cases:
 
 ## Architecture
 
-The same stack must be installed the Destination (Data Collection)
-account and also in one or many Source account(s).
+The CloudFormation stack must be installed in the Destination (Data Collection) account and also in one or many Source account(s).
 
-- `Destination (Data Collection) Account` is used to consolidate, analyze or/and visualize the data. Typically FinOps or CCoE team owns this account.
-- `Source Account` is the account where stack will create AWS Data Exports. Typically it is one or many Management (Payer) Accounts, but can be also one or many Linked Accounts.
+- `Destination (Data Collection) Account` is used to consolidate, analyze, and visualize the data. Typically the FinOps or CCoE team owns this account.
+- `Source Account` is the account where the stack will create AWS Data Exports. Typically it is one or many Management (Payer) Accounts, but can also be one or many Linked Accounts.
 
 ![Data Export](images/data-export/architecture.png)
 
-The CloudFormation template installed in 2 accounts does the following:
+The CloudFormation template installed in each account does the following:
 
-1. Creates data exports for one or more [supported export types](#supported-data-export-types "#supported-data-export-types"), and a local Amazon S3 bucket in the Source Account.
-2. Sets up a replication from a local Amazon S3 Bucket in a Source Account to another Aggregation bucket in a Data Collection Account.
-3. Creates AWS Glue Database, Amazon Athena Tables and AWS Glue Crawlers in the Data Collection Account.
+**In the Destination (Data Collection) Account:**
+
+1. Creates an Amazon S3 bucket with an S3 bucket policy allowing write access for the AWS Data Exports service from Source account.
+2. Creates AWS Glue Database, Amazon Athena Tables, and AWS Glue Crawlers.
+
+**In the Source (Management or Linked) Account:**
+
+1. Creates data exports for one or more [supported export types](#supported-data-export-types "#supported-data-export-types") with remote delivery directly to the S3 bucket in the Destination (Data Collection) Account.
 
 Each individual Data Export has a prefix `<export-name>/<account-id>` so the aggregated structure has the following structure:
 
@@ -90,40 +84,38 @@ If you plan to activate Data Export for Cost Optimization Hub you need to activa
 
 ## Deployment
 
-The deployment process consists of 2 steps. The first is in
-Destination/Data Collection account, and the 2nd in one or multiple
-Source Accounts.
+The deployment process consists of 2 required steps and 1 optional step. First, create the destination infrastructure in the Data Collection account. Then, create the data exports in one or multiple Source Accounts. Step 3 is only required if you already have Cloud Intelligence Dashboards deployed and want to migrate them to use the new Data Exports as a data source.
 
 ![Data Export Deployment process](images/data-export/deploy.png)
 
-### Step 1 of 3. (In Destination/Data Collection Account) Create Destination for Data Exports aggregation
+### Step 1 of 3. (In Destination/Data Collection Account) Create Destination for Data Exports
 
 1. Login to your **Data Collection Account**. Make sure you use the target region.
 2. Click the **Launch Stack button** below to open the **stack template** in your AWS CloudFormation console.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination&param_ManageCUR2=yes&param_ManageCOH=yes&param_ManageCarbon=yes&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination¶m_ManageCUR2=yes¶m_ManageCOH=yes¶m_ManageCarbon=yes¶m_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID¶m_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination&param_ManageCUR2=yes&param_ManageCOH=yes&param_ManageCarbon=yes&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination¶m_ManageCUR2=yes¶m_ManageCOH=yes¶m_ManageCarbon=yes¶m_LegacyLocalBucket=no¶m_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID¶m_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID")
 
 1. Enter a **Stack name** for your template such as **CID-DataExports-Destination**.
 2. Enter your **Destination Account ID** parameter (Your Data Collection Account, where you will deploy dashboards).
-3. Choose the exports to manage. For selected types in Destination account the stack will create Athena Tables and allow replication from Management Accounts.
-4. Enter your **Source Account IDs** parameter as a comma separated list of all accounts that must deliver AWS Data Exports. In a rare case if you need the Data Collection account to produce AWS Data Export(for testing or mono account deploy), you need to specify this Account Id first in the list, and skip the "Step 2 of 3".
+3. Choose the exports to manage. For selected types, the Destination account stack will create the S3 bucket, Athena Tables, and allow delivery from Source Accounts.
+4. Enter your **Source Account IDs** parameter as a comma separated list of all accounts that must deliver AWS Data Exports. In a rare case if you need the Data Collection account to produce AWS Data Export (for testing or single account deployment), you need to specify this Account Id first in the list, and skip "Step 2 of 3".
 5. Review the configuration, click **I acknowledge that AWS CloudFormation might create IAM resources, and click Create stack**.
 6. You will see the stack will start with **CREATE_IN_PROGRESS**. This step can take ~5 mins. Once complete, the stack will show **CREATE_COMPLETE**.
 
-### Step 2 of 3. (In Management/Payer/Source Account) Create AWS Data Exports and Amazon S3 Replication Rules
+### Step 2 of 3. (In Management/Payer/Source Account) Create AWS Data Exports
 
 1. Click the **Launch Stack button** below to open the **stack template** in your AWS CloudFormation console.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source&param_ManageCUR2=yes&param_ManageCOH=yes&param_ManageCarbon=yes&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs&param_SourceAccountIds= "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source¶m_ManageCUR2=yes¶m_ManageCOH=yes¶m_ManageCarbon=yes¶m_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs¶m_SourceAccountIds=")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source&param_ManageCUR2=yes&param_ManageCOH=yes&param_ManageCarbon=yes&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs&param_SourceAccountIds= "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source¶m_ManageCUR2=yes¶m_ManageCOH=yes¶m_ManageCarbon=yes¶m_LegacyLocalBucket=no¶m_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs¶m_SourceAccountIds=")
 
 1. Enter a **Stack name** for your template such as **CID-DataExports-Source**.
 2. Enter your **Destination Account ID** parameter (Your Data Collection Account, where you will deploy dashboards).
-3. Choose the exports to manage. For selected types in Source account the stack will create exports set up replication to the Data Collection Accounts. Please keep the choice consistent with the same configuration in the Data Collection Account.
+3. Choose the exports to manage. For selected types, the Source account stack will create data exports with direct delivery to the Destination Account S3 bucket. Please keep the choice consistent with the same configuration in the Data Collection Account.
 4. Review the configuration, click **I acknowledge that AWS CloudFormation might create IAM resources, and click Create stack**.
 5. You will see the stack will start with **CREATE_IN_PROGRESS**. This step can take ~5 mins. Once complete, the stack will show **CREATE_COMPLETE**.
 6. Repeat for other Source Accounts.
    It will typically take about 24 hours for the first delivery of AWS Data
-   Exports replication to the Destination Account, but it might take up to
+   Exports to the Destination Account, but it might take up to
    72 hours (3 days). You can continue with the dashboards deployment
    however data will appear on the dashboards the next day after the first
    data delivery.
@@ -168,9 +160,13 @@ aws support create-case \
 Make sure you create the case from your Source Accounts (Typically
 Management/Payer Accounts).
 
-### Step 3 of 3. (In Destination/Data Collection Account) Allow Quick Sight access to Database and Bucket
+### Step 3 of 3. (Optional) (In Destination/Data Collection Account) Allow QuickSight access to Database and Bucket
 
-In order to allow Amazon Quick Sight access to Bucket and Database table you need to extend the role that Quick Sight uses.
+###### Note
+
+This step is only required if you already have Cloud Intelligence Dashboards deployed and want to migrate them to use the new Data Exports as a data source. If you are deploying dashboards for the first time, you can skip this step — the necessary permissions will be configured automatically during the dashboard deployment.
+
+In order to allow Amazon QuickSight access to the Data Exports bucket and Glue database, you need to extend the role that QuickSight uses.
 
 #### Option A: If you use CID Foundational dashboards (CUDOS, KPI, Cost Intelligence) installed via CloudFormation or with Terraform
 
@@ -275,17 +271,24 @@ Follow [this guide](../../../quicksight/latest/user/troubleshoot-connect-S3.md "
 
 ## Updating Stack
 
-### Adding Exports
+### Update stack or add new exports
 
-Update Stack in Data Collection Account as well as in all Source Account
-with [the latest version](https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml "https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml"). Set parameter that corresponds to the needed Data
-Collection to 'yes'.
+To update the stack or enable additional export types, follow these steps:
+
+1. Download [the latest version](https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml "https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml") of the CloudFormation template.
+2. Update the stack in the **Destination (Data Collection) Account** first. If you want to add new export types, set the corresponding parameters to `yes`.
+3. Then update the stack in each **Source Account** with the same template and matching parameter configuration.
+
+###### Important
+
+Always update the Destination Account stack before updating Source Account stacks.
 
 ### Adding Source Accounts
 
-If you need to add Source Account, you need first to login to your Data
-Collection account and update Source Account Ids list. Then you can
-create a stack in the new Source Account as per deployment guide.
+To add a new Source Account:
+
+1. Login to your **Data Collection Account** and update the existing Destination stack to include the new Source Account ID in the **Source Account IDs** parameter.
+2. Then create a new stack in the Source Account following [Step 2 of 3](#step-2-of-3-in-managementpayersource-account-create-aws-data-exports "#step-2-of-3-in-managementpayersource-account-create-aws-data-exports").
 
 ## Usage
 
@@ -294,7 +297,14 @@ create a stack in the new Source Account as per deployment guide.
 
 ## Teardown
 
-If you need to delete the stack you can do that by deleting all stacks in all Source accounts and Destination one. Before deleting stacks you might need to empty Amazon S3 buckets.
+If you need to delete the stack, you can do that by deleting all stacks in all Source accounts and the Destination account. Before deleting the Destination stack you might need to empty the Amazon S3 bucket.
+
+## Authors
+
+- Yuriy Prykhodko, Principal Technical Account Manager, AWS
+- Petro Kashlikov, Senior Solutions Architect, AWS
+- Zach Erdman, Senior Product Manager, AWS
+- Iakov Gan, Ex-Amazonian
 
 ## Feedback & Support
 
