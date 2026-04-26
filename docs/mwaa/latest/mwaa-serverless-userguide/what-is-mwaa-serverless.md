@@ -130,6 +130,15 @@ Amazon MWAA Serverless is available in the following AWS Regions.
 - Europe (Zurich): eu-central-2
 - US West (N. California): us-west-1
 - Asia Pacific (Osaka): ap-northeast-3
+- Asia Pacific (Jakarta): ap-southeast-3
+- Asia Pacific (Hyderabad): ap-south-2
+- Asia Pacific (Melbourne): ap-southeast-4
+- Europe (Milan): eu-south-1
+- Mexico (Central): mx-central-1
+- Israel (Tel Aviv): il-central-1
+- Asia Pacific (Taipei): ap-east-2
+- Canada West (Calgary): ca-west-1
+- Asia Pacific (New Zealand): ap-southeast-6
 
 ## Are you a first-time Amazon MWAA Serverless user?
 
