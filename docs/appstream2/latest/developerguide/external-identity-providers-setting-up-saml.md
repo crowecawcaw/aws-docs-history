@@ -16,6 +16,9 @@ stack portal to which users are forwarded after successful authentication by AWS
 - [Step 4: Configure Your SAML-Based IdP](#external-identity-providers-config-idp "#external-identity-providers-config-idp")
 - [Step 5: Create Assertions for the SAML Authentication Response](#external-identity-providers-create-assertions "#external-identity-providers-create-assertions")
 - [Step 6: Configure the Relay State of Your Federation](#external-identity-providers-relay-state "#external-identity-providers-relay-state")
+- [Table 1: WorkSpaces Applications relay state region endpoints (Recommended)](#relay-state-endpoints "#relay-state-endpoints")
+- [Table 2: Old WorkSpaces Applications relay state region endpoints (Not recommended)](#relay-state-OLD-endpoints "#relay-state-OLD-endpoints")
+- [Table 3: Relay state URL parameters](#relay-state-URL-parameters "#relay-state-URL-parameters")
 
 ## Prerequisites
 
@@ -382,6 +385,8 @@ Users cannot stream from multiple stacks at the same time.
 
 For more information, see [Attribute-Based Application Entitlements Using a Third-Party SAML 2.0 Identity Provider](application-entitlements-saml.md "application-entitlements-saml.md").
 
+## Table 1: WorkSpaces Applications relay state region endpoints (Recommended)
+
 Table 1 below lists the relay state endpoints for the Regions where WorkSpaces Applications is
 available. The relay state endpoints in Table 1 are compatible with [WorkSpaces Applications Web Browser Access (Version 2)](web-browser-access-v2.md "web-browser-access-v2.md") and the Windows client application version
 1.1.1300 and later. If you are using older versions of the Windows client, you
@@ -413,6 +418,8 @@ see [Protecting Data in Transit with FIPS Endpoints](protecting-data-in-transit-
 | South America (São Paulo)                                                   | `https://appstream2.euc-sso.sa-east-1.aws.amazon.com/saml`                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Israel (Tel Aviv)                                                           | `https://appstream2.euc-sso.il-central-1.aws.amazon.com/saml`                                                                                                                                                                                                                                                                                                                                                                                                            |
 
+## Table 2: Old WorkSpaces Applications relay state region endpoints (Not recommended)
+
 Table 2 below lists the old relay state endpoints that are still available.
 However, it is recommended that you use the new relay state endpoints listed in
 Table 1 to configure your SAML 2.0 federations. In particular, with the new relay
@@ -440,6 +447,8 @@ more information, see [My WorkSpaces Applications client users are getting disco
 | AWS GovCloud (US-East)                                                              | `https://appstream2.us-gov-east-1.amazonaws-us-gov.com/saml`<br>(FIPS)<br>`https://appstream2-fips.us-gov-east-1.amazonaws-us-gov.com/saml`<br>NoteFor more information about using WorkSpaces Applications in<br>AWS GovCloud (US) Regions, see [Amazon WorkSpaces Applications](../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md "../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md") in the _AWS GovCloud (US) User<br>Guide_. |
 | AWS GovCloud (US-West)                                                              | `https://appstream2.us-gov-west-1.amazonaws-us-gov.com/saml`<br>(FIPS)<br>`https://appstream2-fips.us-gov-west-1.amazonaws-us-gov.com/saml`<br>NoteFor more information about using WorkSpaces Applications in<br>AWS GovCloud (US) Regions, see [Amazon WorkSpaces Applications](../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md "../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md") in the _AWS GovCloud (US) User<br>Guide_. |
 | South America (São Paulo)                                                           | `https://appstream2.sa-east-1.aws.amazon.com/saml`                                                                                                                                                                                                                                                                                                                                                                                                       |
+
+## Table 3: Relay state URL parameters
 
 Table 3 below lists all of the available parameters that you can use to construct
 a relay state URL.
