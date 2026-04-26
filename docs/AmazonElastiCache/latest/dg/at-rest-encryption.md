@@ -59,12 +59,9 @@ your implementation of ElastiCache encryption at-rest:
   information on implementing at-rest encryption on an existing replication group, see
   [Enabling At-Rest Encryption](#at-rest-encryption-enable "#at-rest-encryption-enable").
 - If a cluster is using a node type from the r6gd family, data stored on SSD is encrypted whether at-rest encryption is enabled or not.
-- The option to use customer managed key for encryption at rest is not available in AWS GovCloud (us-gov-east-1 and us-gov-west-1) regions.
-- If a cluster is using a node type from the r6gd family, data stored on SSD is encrypted with the chosen customer managed AWS KMS key (or service-managed encryption in AWS GovCloud Regions).
+- If a cluster is using a node type from the r6gd family, data stored on SSD is encrypted with the chosen customer managed AWS KMS key.
 
 - With Memcached, at-rest encryption is supported only on serverless caches.
-- When using Memcached, the option to use customer managed key for encryption at rest is not available in AWS
-  GovCloud (us-gov-east-1 and us-gov-west-1) regions.
 
 Implementing at-rest encryption can reduce performance during backup and node sync
 operations. Benchmark at-rest encryption compared to no encryption on your own data to

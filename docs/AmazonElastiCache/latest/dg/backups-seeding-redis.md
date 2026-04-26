@@ -39,7 +39,11 @@ For a complete listing of node types and specifications,
 see [Redis OSS node-type specific parameters](ParameterGroups.Engine.md#ParameterGroups.Redis.NodeSpecific "ParameterGroups.Engine.md#ParameterGroups.Redis.NodeSpecific")
 and [Amazon ElastiCache product features and details](https://aws.amazon.com/elasticache/details/ "https://aws.amazon.com/elasticache/details/").
 
-- You can encrypt a Valkey or Redis OSS .rdb file with Amazon S3 server-side encryption (SSE-S3) only. For more information, see
+- You can encrypt a Valkey or Redis OSS .rdb file with Amazon S3 server-side encryption using
+  Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). If you use SSE-KMS, you must grant
+  ElastiCache decrypt permissions on the KMS key and disable Amazon S3 Bucket Keys. For more information,
+  see [Grant ElastiCache access to a KMS-encrypted .rdb file](#backups-seeding-redis-kms-encryption "#backups-seeding-redis-kms-encryption"). For general information about
+  server-side encryption, see
   [Protecting data using server-side encryption](../../../AmazonS3/latest/dev/serv-side-encryption.md "../../../AmazonS3/latest/dev/serv-side-encryption.md").
   Following, you can find topics that walk you through migrating your cluster from
   outside ElastiCache for Valkey or Redis OSS to ElastiCache for Redis OSS.
@@ -189,38 +193,40 @@ regions](../../../general/latest/gr/rande-manage.md "../../../general/latest/gr/
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Choose the name of the S3 bucket that contains your .rdb file.
-3. Choose the name of the folder that contains your .rdb file.
-4. Choose the name of your .rdb backup file. The name of the selected file
-   appears above the tabs at the top of the page.
-5. Choose **Permissions**.
-6. If **aws-scs-s3-readonly** or one of the canonical IDs in
-   the following list is not listed as a user, do the following:
-   1. Under **Access for other AWS accounts**, choose **Add grantee**.
-   2. In the box, add the AWS Region's canonical ID as shown following:
-      - AWS GovCloud (US-West) Region:
+3. Choose the **Permissions** tab.
+4. Under **Bucket policy**, choose **Edit**.
+5. Add a bucket policy that grants ElastiCache the required permissions. The following
+   example grants the ElastiCache service principal read access to the bucket and its
+   objects. Replace `amzn-s3-demo-bucket` with the name of your
+   S3 bucket. Replace `region-full-name` with the AWS Region
+   identifier where your cluster is located (for example,
+   `us-east-1`).
 
-      ```
-      40fa568277ad703bd160f66ae4f83fc9dfdfd06c2f1b5060ca22442ac3ef8be6
-      ```
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ElastiCacheSnapshotAccess",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "`region-full-name`.elasticache-snapshot.amazonaws.com"
+            },
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket",
+                "s3:GetBucketAcl"
+            ],
+            "Resource": [
+                "arn:aws:s3:::`amzn-s3-demo-bucket`",
+                "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
+            ]
+        }
+    ]
+}
+```
 
-      ###### Important
-
-      The backup must be located in an S3 bucket in AWS GovCloud (US) for you to download
-      it to a Valkey or Redis OSS cluster in AWS GovCloud (US).
-      - AWS Regions enabled by default:
-
-      ```
-      540804c33a284a299d2547575ce1010f2312ef3da9b3a053c8bc45bf233e4353
-      ```
-
-   3. Set the permissions on the bucket by choosing **Yes** for the following:
-      - **List/write object**
-      - **Read/write object ACL permissions**
-
-   4. Choose **Save**.
-
-7. Choose **Overview**, and then choose
-   **Download**.
+6. Choose **Save changes**.
 
 ### Grant ElastiCache read access to the .rdb file in an opt-in Region
 
@@ -290,6 +296,44 @@ JSON
 ```
 
 8. Choose **Save changes**.
+
+### Grant ElastiCache access to a KMS-encrypted .rdb file
+
+If your Amazon S3 bucket uses AWS KMS server-side encryption (SSE-KMS), you must also
+grant ElastiCache permissions on the KMS key so that it can decrypt the .rdb file during the
+restore process.
+
+###### To grant ElastiCache decrypt permissions on a KMS key
+
+1. Open the AWS KMS console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
+2. Choose the KMS key that is used to encrypt the Amazon S3 bucket.
+3. Under **Key policy**, choose **Edit**.
+4. Add the following statement to the key policy to grant ElastiCache decrypt
+   permissions:
+
+```
+{
+    "Sid": "AllowElastiCacheDecrypt",
+    "Effect": "Allow",
+    "Principal": {
+        "Service": "`region-full-name`.elasticache-snapshot.amazonaws.com"
+    },
+    "Action": [
+        "kms:Decrypt",
+        "kms:DescribeKey"
+    ],
+    "Resource": "*"
+}
+```
+
+Replace `region-full-name` with the AWS Region
+identifier where your cluster is located (for example,
+`us-west-2`). 5. Choose **Save changes**.
+
+In addition, you must disable Amazon S3 Bucket Keys for the bucket. ElastiCache does not support
+reading objects encrypted with Amazon S3 Bucket Keys. To disable this setting, see
+[Configuring S3 Bucket
+Keys](../../../AmazonS3/latest/userguide/configuring-bucket-key.md "../../../AmazonS3/latest/userguide/configuring-bucket-key.md") in the _Amazon Simple Storage Service User Guide_.
 
 ### Seed the ElastiCache cluster with the .rdb file data
 

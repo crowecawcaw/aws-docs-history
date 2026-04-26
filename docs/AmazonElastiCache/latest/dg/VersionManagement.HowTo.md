@@ -10,12 +10,16 @@ You can also cross upgrade from Redis OSS to Valkey. For more information on cro
 
 ###### Topics
 
+- [How to modify clusters and replication groups](#modify-clusters-replication-groups "#modify-clusters-replication-groups")
 - [How to upgrade from Redis OSS to Valkey](#VersionManagement.HowTo.cross-engine-upgrade "#VersionManagement.HowTo.cross-engine-upgrade")
 - [Resolving blocked Valkey or Redis OSS engine upgrades](#resolving-blocked-engine-upgrades "#resolving-blocked-engine-upgrades")
 
-| How to modify clusters and<br>replication groups                                                                                |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+## How to modify clusters and replication groups
+
+**Valkey and Redis OSS**
+
 | Caches                                                                                                                          | Replication groups                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | [Using the ElastiCache AWS Management Console](Clusters.Modify.md#Clusters.Modify.CON "Clusters.Modify.md#Clusters.Modify.CON") | [Using the AWS Management Console](Replication.Modify.md#Replication.Modify.CON "Replication.Modify.md#Replication.Modify.CON") |
 | [Using the AWS CLI with ElastiCache](Clusters.Modify.md#Clusters.Modify.CLI "Clusters.Modify.md#Clusters.Modify.CLI")           | [Using the AWS CLI](Replication.Modify.md#Replication.Modify.CLI "Replication.Modify.md#Replication.Modify.CLI")                |
 | [Using the ElastiCache API](Clusters.Modify.md#Clusters.Modify.API "Clusters.Modify.md#Clusters.Modify.API")                    | [Using the ElastiCache API](Replication.Modify.md#Replication.Modify.API "Replication.Modify.md#Replication.Modify.API")        |
@@ -32,7 +36,7 @@ AWS CLI, or the ElastiCache API:
 
 ## How to upgrade from Redis OSS to Valkey
 
-Valkey is designed as a drop-in replacement for Redis OSS 7. You can upgrade from Redis OSS to Valkey using the Console, API, or CLI, by specifying the new engine and major engine version. The endpoint IP address and all other aspects of the application will not be changed by the upgrade. When upgrading from Redis OSS 5.0.6 and higher you will experience no downtime.
+Valkey is designed as a drop-in replacement for Redis OSS 7. You can upgrade from Redis OSS to Valkey using the Console, API, or CLI, by specifying the new engine and major engine version. All aspects of your application, including the endpoint DNS name, will remain unchanged, except that for node-based clusters, the underlying node IP addresses will change during the upgrade. You will not experience any downtime when upgrading from Redis OSS 5.0.6 or higher.
 
 ###### Note
 
@@ -130,9 +134,9 @@ Upgrading directly from Redis OSS 4 or lower to Valkey may include a longer fail
 
 If for any reason you wish to rollback your upgraded cluster, Amazon ElastiCache supports rolling back a
 Valkey 7.2 cache to Redis OSS 7.1. You can perform a rollback using the same console, API, or CLI steps
-as an engine upgrade and specifying Redis OSS 7.1 as the target engine version. Rollbacks use the same
-processes as an upgrade. The endpoint IP address and all other aspects of the application will not be
-changed by the rollback and you will experience no downtime.
+as an engine upgrade by specifying Redis OSS 7.1 as the target engine version. All aspects of your
+application, including the endpoint DNS name, will remain unchanged, except that for node-based clusters,
+the underlying node IP addresses will change during the rollback. You will not experience any downtime while rolling back.
 
 Additionally, you can restore a snapshot created from your Valkey 7.2 cache as a Redis OSS 7.1 cache.
 When you restore from a snapshot, you can specify Redis OSS 7.1 as the target engine version. When

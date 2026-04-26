@@ -10,6 +10,19 @@ To use valkey-cli to connect to a Valkey or Redis OSS cluster enabled with in-tr
 1. Download and compile the valkey-cli utility. This utility is included in the Valkey software distribution.
 2. At the command prompt of your EC2 instance, type the appropriate commands for the version of Linux you are using.
 
+**Amazon Linux 2023**
+
+If using Amazon Linux 2023, enter this:
+
+```
+sudo dnf install gcc jemalloc-devel openssl-devel tcl tcl-devel -y
+wget -O valkey-8.0.0.tar.gz https://github.com/valkey-io/valkey/archive/refs/tags/8.0.0.tar.gz
+tar xvzf valkey-8.0.0.tar.gz
+cd valkey-8.0.0
+make valkey-cli BUILD_TLS=yes
+sudo install -m 755 src/valkey-cli /usr/local/bin/
+```
+
 **Amazon Linux 2**
 
 If using Amazon Linux 2, enter this:

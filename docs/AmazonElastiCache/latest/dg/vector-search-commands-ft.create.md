@@ -54,7 +54,7 @@ SCHEMA
       	- TYPE FLOAT32 (required): Data type, currently only FLOAT32 is supported.
       	- DISTANCE\_METRIC [L2 | IP | COSINE] (required): Specifies the distance algorithm.
       	- INITIAL\_CAP <size> (optional): Initial index size.
-      	- M <number> (optional): Number of maximum allowed outgoing edges for each node in the graph in each layer. On the layer zero, the maximal number of outgoing edges will be 2\*M. Default is 16, the maximum is 512.
+      	- M <number> (optional): Number of maximum allowed outgoing edges for each node in the graph in each layer. On the layer zero, the maximal number of outgoing edges will be 2\*M. Default is 16, the maximum is 2000000.
       	- EF\_CONSTRUCTION <number> (optional): Controls the number of vectors examined during index construction. Higher values for this parameter will improve recall ratio at the expense of longer index creation times. The default value is 200. Maximum value is 4096.
       	- EF\_RUNTIME <number> (optional): Controls the number of vectors to be examined during a query operation. The default is 10, and the max is 4096. You can set this parameter value for each query you run. Higher values increase query times, but improve query recall.
 

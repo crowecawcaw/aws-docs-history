@@ -27,6 +27,8 @@ ElastiCache will perform IAM authentication for connection requests of IAM-enabl
 When using IAM authentication, the following limitations apply:
 
 - IAM authentication is available when using ElastiCache for Valkey 7.2 and above or Redis OSS version 7.0 and above.
+- IAM authentication requires in-transit encryption (TLS) to be enabled on your cache. For more information, see
+  [ElastiCache in-transit encryption (TLS)](in-transit-encryption.md "in-transit-encryption.md").
 - For IAM-enabled ElastiCache users the username and user id properties must be identical.
 - The IAM authentication token is valid for 15 minutes. For long-lived connections, we recommend using a Valkey or Redis OSS client that supports a credentials provider interface.
 - An IAM authenticated connection to ElastiCache for Valkey or Redis OSS will automatically be disconnected after 12 hours. The connection can be prolonged for 12 hours by sending an `AUTH` or `HELLO` command with a new IAM authentication token.

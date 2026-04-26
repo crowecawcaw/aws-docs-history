@@ -60,11 +60,11 @@ To monitor the ratio of items in DRAM compared to SSD, you can use the `CurrItem
 You can calculate the percentage as: _(CurrItems with Dimension: Tier = Memory \* 100) / (CurrItems with no dimension filter)_.
 
 If the configured eviction policy allows, then ElastiCache will start evicting items
-when the percentage of items in memory decreases below 5 percent.
+when less than 5 percent of available memory (DRAM) remains.
 On nodes configured with noeviction policy, write operations will receive an out of memory error.
 
 It is still recommended that you consider scaling out for
-Cluster Mode Enabled clusters or scaling up for Cluster Mode disabled clusters when the percentage of items in memory decreases below 5 percent.
+Cluster Mode Enabled clusters or scaling up for Cluster Mode disabled clusters when less than 5 percent of available memory (DRAM) remains.
 For more information on scaling see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md").
 
 For more information on metrics for Valkey or Redis OSS clusters that use data tiering see [Metrics for Valkey and Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md").
