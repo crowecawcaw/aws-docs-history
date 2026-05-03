@@ -126,6 +126,14 @@ Console
 
     You can create up to 25 rules.
 
+    ###### Note
+
+    AWS Entity Resolution also supports [transitive matching](transitive-matching.md "transitive-matching.md"), which
+    processes records across all rule levels to connect match groups
+    transitively. Transitive matching is available as an API-only feature.
+    When transitive matching is enabled, the **EmptyValues=Ignore**
+    modifier is not supported. For more information, see [Using transitive matching](transitive-matching.md "transitive-matching.md").
+
     You must combine a fuzzy matching function (**Cosine**,
     **Levenshtein**, or **Soundex**) with an
     exact matching function (**Exact**,

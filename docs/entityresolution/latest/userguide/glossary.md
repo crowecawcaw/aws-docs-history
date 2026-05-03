@@ -607,6 +607,17 @@ To find matches that are differentiated by Phone, reorder the rules, like this:
 - **Rule 2** includes Full name, Address, and Phone
 - **Rule 1** includes Full name and Address
 
+## Transitive matching
+
+Transitive matching is an optional feature for [rule-based matching](#rule-based-matching-defn "#rule-based-matching-defn") workflows that use the
+Advanced rule type. By default, AWS Entity Resolution uses a waterfall matching approach where records matched at
+a higher rule level are excluded from subsequent rules. With transitive matching enabled, all
+records are processed across all rule levels. A record's [match ID](#match-id-defin "#match-id-defin") is fixed upon its first match, but the record
+continues to act as a link to connect unmatched records from later rules to match groups from
+earlier rules.
+
+For more information, see [Using transitive matching](transitive-matching.md "transitive-matching.md").
+
 ## Schema
 
 The term used for a structure or layout defining how a set of data is organized and
