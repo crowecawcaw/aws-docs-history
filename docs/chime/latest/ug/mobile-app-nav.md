@@ -53,7 +53,7 @@ the app window.
 When you chat with someone or enter a chat room, a horizontal ellipsis icon appears in
 the upper-right corner.
 
-![Three blue dots arranged horizontally, representing an ellipsis menu icon.](images/mobile-horiz-ellipse.jpg)
+![Horizontal ellipsis icon with three blue dots arranged horizontally.](images/mobile-horiz-ellipse.jpg)
 
 Choosing either type of ellipsis opens a menu of options for meetings and chats. To
 learn more about these options, see [Additional meeting actions](mobile-mtg-options.md "mobile-mtg-options.md").

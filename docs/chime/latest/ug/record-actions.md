@@ -22,7 +22,7 @@ chat message once the meeting ends.
     - In the left control bar, choose the **Record meeting** icon
       (
 
-    ![Icon of a record button.](images/icon-record-meeting.png)
+    ![Icon of a record button.](/images/chime/latest/ug/images/icon-record-meeting.png)
 
     ).
     - In the left control bar, choose the **More options** menu
