@@ -62,7 +62,7 @@ The following example shows how your label data should appear as a .csv file.
 You can use the same Amazon S3 bucket or a different one. If you use the same one, it's
 a good practice to create a separate folder for your data labels. 3. In the Lookout for Equipment console, on the **Provide data labels** page, indicate the location of your data labels.
 
-![AWSLookout for Equipment console page for providing optional data labels with S3 location input.](images/provide-data-labels.png) 4. Choose your IAM role.
+![Provide data labels page with S3 location field, IAM role section, and navigation buttons.](images/provide-data-labels.png) 4. Choose your IAM role.
 
 This is the role that authorizes Lookout for Equipment to access the Amazon S3 bucket where your data
 labels are stored. If you're using the same bucket as before, you can choose the

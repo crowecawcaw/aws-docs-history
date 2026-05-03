@@ -15,7 +15,7 @@ and turbines.
 As an example of using Lookout for Equipment on data from a high-level machine , let's look at a fluid
 pump.
 
-![Schematic diagram of a fluid pump system with numbered components and connections.](images/fluid_pump.png)
+![Diagram of a fluid pump system with motor, coupling, and pump components labeled 1, 2, and 3.](images/fluid_pump.png)
 In a simplified form, this fluid pump consists of three major components and their
 sensors. Note that this is just an example and not a complete list of features and
 components of such a pump.
@@ -34,14 +34,14 @@ components of such a pump.
    measurements of how fast the pump is spinning in RPM, and the outlet flow rate of the fluid.
    The following historical time-series plots show both sets of measurements.
 
-![Two time-series graphs showing RPM and outlet flow rate measurements over time.](images/graphs.png)
+![Two time-series plots showing RPM and outlet flow rate measurements over time.](images/graphs.png)
 These graphs show the expected relationship between RPM and flow rate: as the pump rotates
 faster, the fluid flows faster. The graphs show two operating modes: one with low RPM and a
 low flow rate, and a second mode with high RPM and high flow rate. In this case, Amazon Lookout for Equipment
 wants to learn this normal relationship in terms of operating modes. .The following graph
 shows another way to visualize the learned normal operating modes.
 
-![Scatter plot showing pump operating states: low RPM/flow rate and high RPM/flow rate clusters.](images/pump-normal.png)
+![Scatter plot showing two pump operating states: low RPM with low flow rate and high RPM with high flow rate.](images/pump-normal.png)
 The normal behavior of this pump is clear. The operator runs the pump at low RPM and high
 RPM in order to get a low flow rate or a high flow rate. As the pump continues to run, we
 expect that the data will continue to fall into one of these two operating modes. However,
@@ -52,7 +52,7 @@ loosen, or become misaligned. As this happens, the data might show abnormal beha
 the pump rotates at higher a RPM, the flow rate remains low, as shown in the following
 graph.
 
-![Scatter plot showing normal and abnormal pump operating states based on RPM and outlet flow rate.](images/pump-abnormal.png)
+![Scatter plot showing pump operating states with two clusters and abnormal data points between them.](images/pump-abnormal.png)
 These types of issues are precisely what Amazon Lookout for Equipment is designed to detect.
 
 In this case, we see a simple representation of the normal operating states of the pump
@@ -62,7 +62,7 @@ is normal, Lookout for Equipment detects that everything is normal. However, as 
 flow rate stays the same, Lookout for Equipment starts detecting abnormal behavior. The vertical red line
 denotes the potential failure point for the pump, at which unplanned downtime occurs.
 
-![Graph showing normal behavior, abnormal behavior, and pump failure over time.](images/hogun-output.png)
+![Graph showing normal output transitioning to abnormal behavior and then pump failure over time.](images/hogun-output.png)
 This is a very simple example of a straightforward application with only two inputs (RPM
 and flow rate) that have a direct linear relationship with each other. The situation become
 dramatically more complex when we add additional inputs, such as pressure, temperature,
