@@ -176,6 +176,7 @@ Example not available.
     "ProxyProtocolV2": "false",
     "Public": "false",
     "SubnetIds": ["subnet-01234567890abcdef", "subnet-01234567891abcdef"],
+    "SecurityGroupIds":["sg-01234567890abcdef"],
     "Target1AvailabilityZone": "us-east-1a",
     "Target1ID": "i-01234567890abcdef",
     "Target1Port": "80",

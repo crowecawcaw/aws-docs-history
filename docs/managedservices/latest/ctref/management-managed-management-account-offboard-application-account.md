@@ -25,6 +25,10 @@ You have 48 hours to offboard the specified application account after successful
 [Confirm offboarding](management-managed-application-account-confirm-offboarding.md#ex-man-lz-app-acct-confirm-offb-col "management-managed-application-account-confirm-offboarding.md#ex-man-lz-app-acct-confirm-offb-col") change type (ct-2wlfo2jxj2rkj). After 48 hours, the
 offboarding request fails and the process of confirming and then offboarding must be restarted.
 
+###### Warning
+
+Before submitting this change type to initiate application account offboarding, make sure that all RFCs associated with the application account have reached a terminal state. There must be no RFCs in any of the following statuses: Editing, Pending Approval, Scheduled, or In Progress. Cancel, complete, or resolve all active RFCs before proceeding.
+
 Screenshot of this change type in the AMS console:
 
 ![Offboard Application Account details showing ID, execution mode, version, and description.](images/guiManLzAppAcctRunOffBCT.png)

@@ -1,14 +1,14 @@
-# Outbound (Palo Alto) | Delete Security Policy
+# PrefixList | Modify
 
-Delete a security policy for AMS managed Palo Alto firewall - Outbound.
+Modify an existing AWS customer-managed prefix list by adding or removing CIDR entries, updating tags, and resizing the entries.
 
-**Full classification:** Management | Managed Firewall | Outbound (Palo Alto) | Delete security policy
+**Full classification:** Management | Advanced stack components | PrefixList | Modify
 
 ## Change Type Details
 
 |                             |                  |
 | --------------------------- | ---------------- |
-| Change type ID              | ct-1taxucdyi84iy |
+| Change type ID              | ct-2s1q5tjl0416n |
 | Current version             | 1.0              |
 | Expected execution duration | 60 minutes       |
 | AWS approval                | Required         |
@@ -17,11 +17,11 @@ Delete a security policy for AMS managed Palo Alto firewall - Outbound.
 
 ## Additional Information
 
-### Delete security policy from managed Palo Alto outbound firewall
+### Modify a managed prefix list
 
-Screenshot of this change type in the AMS console:
+The following shows this change type in the AMS console.
 
-![Delete Security Policy interface showing ID, execution mode, version, and description details.](images/guiManFwPaDeleteSpCT.png)
+![Screenshot of the Modify managed prefix list change type in the AMS console](images/guiVpcPrefixListModifyCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -67,61 +67,71 @@ RFC parameters part of the request (not the execution parameters). For a list of
 
 _INLINE CREATE_:
 
-Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
+Issue the create RFC command with execution parameters provided inline (escape
+quotation marks when providing execution parameters inline) and then submit the
+returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-1taxucdyi84iy" --change-type-version "1.0" --title "`Delete Security Policy`" --execution-parameters "{ \"RequestType\": \"DeleteSecurityPolicy\", \"Parameters\": { "SecurityPolicyName": "`custom-sec-name`" } } "
+aws amscm create-rfc --change-type-id "ct-2s1q5tjl0416n" --change-type-version "1.0" --title "AWSManagedServices-ModifyPrefixList" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-ModifyPrefixList\",\"Region\":\"`ap-southeast-1`\",\"Parameters\":{\"PrefixListId\":[\"`pl-03d7a44509b1be33f`\"],\"AddCIDRBlock\":[{\"Cidr\":\"`10.0.1.0/24`\",\"Description\":\"`Value`\"},{\"Cidr\":\"`10.0.2.0/24`\",\"Description\":\"`new networking team`\"}],\"RemoveCIDRBlock\":[\"`10.0.0.0/24`\"],\"AddTags\":[{\"Key\":\"`name_2`\",\"Value\":\"`value_2`\"}],\"RemoveTags\":[\"`Name`\",\"`env`\"],\"ResizeMaxEntries\":[`0`]}}"
 ```
 
 _TEMPLATE CREATE_:
 
-1. Output the execution parameters JSON schema for this change type to a file; this example names it DeleteSecurityPolicyParams.json.
+1. Output the execution parameters JSON schema for this change type; this
+   example names it ModifyPrefixListParams.json:
 
 ```
-aws amscm get-change-type-version --change-type-id "ct-1taxucdyi84iy" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > DeleteSecurityPolicyParams.json
+aws amscm get-change-type-version --change-type-id "ct-2s1q5tjl0416n" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > ModifyPrefixListParams.json
 ```
 
-2. Modify and save the DeleteSecurityPolicyParams file. For example, you can replace the contents with something like this:
+2. Modify and save the execution parameters JSON file. For example, you can replace the contents with something like this:
 
 ```
 {
-  "RequestType": "DeleteSecurityPolicy",
+  "DocumentName": "AWSManagedServices-ModifyPrefixList",
+  "Region": "`ap-southeast-1`",
   "Parameters": {
-      "SecurityPolicyName": "`custom-sec-name`"
+    "PrefixListId": ["`pl-03d7a44509b1be33f`"],
+    "AddCIDRBlock": [
+      {"Cidr": "`10.0.1.0/24`", "Description": "`Value`"},
+      {"Cidr": "`10.0.2.0/24`", "Description": "`new networking team`"}
+    ],
+    "RemoveCIDRBlock": ["`10.0.0.0/24`"],
+    "AddTags": [{"Key": "`name_2`", "Value": "`value_2`"}],
+    "RemoveTags": ["`Name`", "`env`"],
+    "ResizeMaxEntries": [`0`]
   }
 }
 ```
 
-3. Output the RFC template JSON file to a file named DeleteSecurityPolicyRfc.json:
+3. Output the RFC template JSON file; this example names it ModifyPrefixListRfc.json:
 
 ```
-aws amscm create-rfc --generate-cli-skeleton > DeleteSecurityPolicyRfc.json
+aws amscm create-rfc --generate-cli-skeleton > ModifyPrefixListRfc.json
 ```
 
-4. Modify and save the DeleteSecurityPolicyRfc.json file. For example, you can replace the contents with something like this:
+4. Modify and save the ModifyPrefixListRfc.json file. For example, you can replace the contents with something like this:
 
 ```
 {
-"ChangeTypeVersion":    "`1.0`",
-"ChangeTypeId":         "ct-1taxucdyi84iy",
-"Title":                "`Delete-Security-Policy-RFC`"
+  "ChangeTypeVersion" : "1.0",
+  "ChangeTypeId" : "ct-2s1q5tjl0416n",
+  "Title" : "`Modify managed prefix list`"
 }
 ```
 
-5. Create the RFC, specifying the DeleteSecurityPolicy Rfc file and the DeleteSecurityPolicyParams file:
+5. Create the RFC, specifying the ModifyPrefixListRfc file and the ModifyPrefixListParams file:
 
 ```
-aws amscm create-rfc --cli-input-json file://DeleteSecurityPolicyRfc.json  --execution-parameters file://DeleteSecurityPolicyParams.json
+aws amscm create-rfc --cli-input-json file://ModifyPrefixListRfc.json  --execution-parameters file://ModifyPrefixListParams.json
 ```
 
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
-To learn more about Palo Alto managed firewall in AMS,
-see [Managed Palo Alto egress firewall](../userguide/networking-palo-alto.md "../userguide/networking-palo-alto.md").
 
 ## Execution Input Parameters
 
 For detailed information about the execution input parameters, see
-[Schema for Change Type ct-1taxucdyi84iy](schemas.md#ct-1taxucdyi84iy-schema-section "schemas.md#ct-1taxucdyi84iy-schema-section").
+[Schema for Change Type ct-2s1q5tjl0416n](schemas.md#ct-2s1q5tjl0416n-schema-section "schemas.md#ct-2s1q5tjl0416n-schema-section").
 
 ## Example: Required Parameters
 
@@ -132,11 +142,5 @@ Example not available.
 ## Example: All Parameters
 
 ```
-{
-  "Parameters": {
-    "SecurityPolicyName": "custom-sec-pol"
-  },
-  "RequestType": "DeleteSecurityPolicy"
-}
-
+Example not available.
 ```

@@ -1,27 +1,27 @@
-# Outbound (Palo Alto) | Add URLs
+# PrefixList | Delete
 
-Add allow list URLs for AMS managed Palo Alto firewall - Outbound.
+Delete an existing AWS customer-managed prefix list. The prefix list must not be associated with any resources.
 
-**Full classification:** Management | Managed Firewall | Outbound (Palo Alto) | Add URLs
+**Full classification:** Management | Advanced stack components | PrefixList | Delete
 
 ## Change Type Details
 
 |                             |                  |
 | --------------------------- | ---------------- |
-| Change type ID              | ct-2b9q8339bj2sa |
-| Current version             | 2.0              |
-| Expected execution duration | 60 minutes       |
+| Change type ID              | ct-3fh88p7t5k5gi |
+| Current version             | 1.0              |
+| Expected execution duration | 30 minutes       |
 | AWS approval                | Required         |
 | Customer approval           | Not required     |
 | Execution mode              | Automated        |
 
 ## Additional Information
 
-### Add URLs to managed Palo Alto outbound firewall
+### Delete a managed prefix list
 
-Screenshot of this change type in the AMS console:
+The following shows this change type in the AMS console.
 
-![Form to add allow list URLs for AMS Managed Firewall Palo Alto - Outbound.](images/guiManFwPaAddUrlCT.png)
+![Screenshot of the Delete managed prefix list change type in the AMS console](images/guiVpcPrefixListDeleteCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -67,74 +67,63 @@ RFC parameters part of the request (not the execution parameters). For a list of
 
 _INLINE CREATE_:
 
-Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
+Issue the create RFC command with execution parameters provided inline (escape
+quotation marks when providing execution parameters inline) and then submit the
+returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-2b9q8339bj2sa" --change-type-version "`2.0`" --title "`Add URLs to Allow List`" --execution-parameters "{ \"RequestType\": \"AddURLs\", \"Parameters\": { \"URLs\": [ \"`amazon.com/`\", \"`*.website.com\`\" ], "AllowListName": "`CustomAllowList`" } } "
+aws amscm create-rfc --change-type-id "ct-3fh88p7t5k5gi" --change-type-version "1.0" --title "AWSManagedServices-DeletePrefixList" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-DeletePrefixList\",\"Region\":\"`ap-southeast-1`\",\"Parameters\":{\"PrefixListId\":[\"`pl-0b6430edc53fc274c`\"]}}"
 ```
 
 _TEMPLATE CREATE_:
 
-1. Output the execution parameters JSON schema for this change type to a file; this example names it AddPaUrlsParams.json.
+1. Output the execution parameters JSON schema for this change type; this
+   example names it DeletePrefixListParams.json:
 
 ```
-aws amscm get-change-type-version --change-type-id "ct-2b9q8339bj2sa" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > AddPaUrlsParams.json
+aws amscm get-change-type-version --change-type-id "ct-3fh88p7t5k5gi" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > DeletePrefixListParams.json
 ```
 
-2. Modify and save the AddPaUrlsParams file. For example, you can replace the contents with something like this:
+2. Modify and save the execution parameters JSON file. For example, you can replace the contents with something like this:
 
 ```
 {
-  "RequestType": "AddURLs",
+  "DocumentName": "AWSManagedServices-DeletePrefixList",
+  "Region": "`ap-southeast-1`",
   "Parameters": {
-      "URLs": [
-          "`amazon.com/`",
-          "`*.website.com`/"
-      ],
-      "AllowListName": "`CustomAllowList`"
+    "PrefixListId": ["`pl-0b6430edc53fc274c`"]
   }
 }
 ```
 
-3. Output the RFC template JSON file to a file named AddPaUrlsRfc.json:
+3. Output the RFC template JSON file; this example names it DeletePrefixListRfc.json:
 
 ```
-aws amscm create-rfc --generate-cli-skeleton > AddPaUrlsRfc.json
+aws amscm create-rfc --generate-cli-skeleton > DeletePrefixListRfc.json
 ```
 
-4. Modify and save the AddPaUrlsRfc.json file. For example, you can replace the contents with something like this:
+4. Modify and save the DeletePrefixListRfc.json file. For example, you can replace the contents with something like this:
 
 ```
 {
-"ChangeTypeVersion":    "`2.0`",
-"ChangeTypeId":         "ct-2b9q8339bj2sa",
-"Title":                "`Add-Urls-RFC`"
+  "ChangeTypeVersion" : "1.0",
+  "ChangeTypeId" : "ct-3fh88p7t5k5gi",
+  "Title" : "`Delete managed prefix list`"
 }
 ```
 
-5. Create the RFC, specifying the AddPaUrls Rfc file and the AddPaUrlsParams file:
+5. Create the RFC, specifying the DeletePrefixListRfc file and the DeletePrefixListParams file:
 
 ```
-aws amscm create-rfc --cli-input-json file://AddPaUrlsRfc.json  --execution-parameters file://AddPaUrlsParams.json
+aws amscm create-rfc --cli-input-json file://DeletePrefixListRfc.json  --execution-parameters file://DeletePrefixListParams.json
 ```
 
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
-###### Note
-
-This change has a new version and a new schema.
-
-###### Note
-
-If you are a Beta customer for AMS Palo Alto managed firewall, do not use this change type, it does not
-work with Beta accounts. Use the Management | Other | Other | Update (ct-0xdawir96cy7k) instead.
-
-To learn more about Palo Alto managed firewall in AMS, see[Managed Palo Alto egress firewall](../userguide/networking-palo-alto.md "../userguide/networking-palo-alto.md").
-
 ## Execution Input Parameters
 
 For detailed information about the execution input parameters, see
-[Schema for Change Type ct-2b9q8339bj2sa](schemas.md#ct-2b9q8339bj2sa-schema-section "schemas.md#ct-2b9q8339bj2sa-schema-section").
+[Schema for Change Type ct-3fh88p7t5k5gi](schemas.md#ct-3fh88p7t5k5gi-schema-section "schemas.md#ct-3fh88p7t5k5gi-schema-section").
 
 ## Example: Required Parameters
 
@@ -145,12 +134,5 @@ Example not available.
 ## Example: All Parameters
 
 ```
-{
-  "RequestType": "AddURLs",
-  "Parameters": {
-    "URLs": ["amazon.com/","*.amazon.com/","www.*.com/","amazon.co1m/","amazon.c-m/","ama-zon.com/","long.sub.domain.amazon.com/","long.sub.*.amazon.com/"],
-    "AllowListName": "test_file"
-  }
-}
-
+Example not available.
 ```

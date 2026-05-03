@@ -128,21 +128,11 @@ For detailed information about the execution input parameters, see
 ## Example: Required Parameters
 
 ```
-{
-  "Region": "us-east-1",
-  "VpnId": "vpn-01234567890abcdef",
-  "VpnTunnelOutsideIpAddress": "203.0.113.1"
-}
+Example not available.
 ```
 
 ## Example: All Parameters
 
 ```
-{
-  "Region": "us-west-2",
-  "VpnId": "vpn-01234567890abcdef",
-  "VpnTunnelOutsideIpAddress": "203.0.113.1",
-  "ApplyPendingMaintenance": true,
-  "Priority": "High"
-}
+Example not available.
 ```

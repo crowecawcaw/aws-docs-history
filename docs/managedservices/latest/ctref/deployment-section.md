@@ -9,7 +9,6 @@
 - [AWS Backup](deployment-aws-backup-section.md "deployment-aws-backup-section.md")
 - [Directory Service](deployment-directory-service-section.md "deployment-directory-service-section.md")
 - [Ingestion](deployment-ingestion-section.md "deployment-ingestion-section.md")
-- [Managed Firewall](deployment-managed-firewall-section.md "deployment-managed-firewall-section.md")
 - [Managed Landing Zone](deployment-managed-landing-zone-section.md "deployment-managed-landing-zone-section.md")
 - [Monitoring and Notification](deployment-monitoring-and-notification-section.md "deployment-monitoring-and-notification-section.md")
 - [Patching](deployment-patching-section.md "deployment-patching-section.md")

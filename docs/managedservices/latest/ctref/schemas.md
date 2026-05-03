@@ -1644,20 +1644,20 @@ Change type schemas specify the execution input parameters for a change type.
           "maxItems": 1
         },
         "IOPS": {
-          "description": "The requested number of I/O operations per second that the new EBS volume can support if VolumeType is io1, io2 or gp3. This value is ignored for other volume types. If VolumeType is gp3, then the IOPS should be between 3000 and 16000, else it should be between 100 and 64000. The IOPS must respect the max ratio of 50 IOPS per GiB.",
+          "description": "The requested number of I/O operations per second that the new EBS volume can support if VolumeType is io1, io2 or gp3. This value is ignored for other volume types. If VolumeType is gp3, then the IOPS should be between 3000 and 80000, if the VolumeType is io1, then the Iops should be between 100 and 64000, if the VolumeType is io2, then the Iops should be between 100 and 256000.",
           "type": "array",
           "items": {
             "type": "string",
-            "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-5][0-9][0-9]{3}|[6][0-3][0-9]{3}|64000)$"
+            "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|1[0-9]{5}|2[0-4][0-9]{4}|25[0-5][0-9]{3}|256000)$"
           },
           "maxItems": 1
         },
         "Throughput": {
-          "description": "The Throughput to use for the restored volume if VolumeType is gp3. If VolumeType is not gp3, any value provided here is ignored. The Throughput should be between 125 and 1000.",
+          "description": "The Throughput to use for the restored volume if VolumeType is gp3. If VolumeType is not gp3, any value provided here is ignored. The Throughput should be between 125 and 2000.",
           "type": "array",
           "items": {
             "type": "string",
-            "pattern": "^$|^([1][2][5-9]$|[1][3-9][0-9]$|[2-9][0-9][0-9]$|1000)$"
+            "pattern": "^$|^(12[5-9]|1[3-9][0-9]|[2-9][0-9]{2}|1[0-9]{3}|2000)$"
           },
           "maxItems": 1
         },
@@ -1671,11 +1671,11 @@ Change type schemas specify the execution input parameters for a change type.
           "maxItems": 1
         },
         "VolumeSize": {
-          "description": "The size of the volume, in GiBs. The volume size must be equal to or larger than the snapshot size. If not specified, the default will be the snapshot size. Valid values are between 1 and 16384.",
+          "description": "The size of the volume, in GiBs. The volume size must be equal to or larger than the snapshot size. If not specified, the default will be the snapshot size. Valid values are between 1 and 65536.",
           "type": "array",
           "items": {
             "type": "string",
-            "pattern": "^([1-9]|[1-8][0-9]|9[0-9]|[1-8][0-9]{2}|9[0-8][0-9]|99[0-9]|[1-8][0-9]{3}|9[0-8][0-9]{2}|99[0-8][0-9]|999[0-9]|1[0-5][0-9]{3}|16[0-2][0-9]{2}|163[0-7][0-9]|1638[0-4])$"
+            "pattern": "^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-6])$"
           },
           "maxItems": 1
         },
@@ -6882,211 +6882,6 @@ Change type schemas specify the execution input parameters for a change type.
   "required": [
     "VpcId",
     "StackId",
-    "Parameters"
-  ]
-}
-```
-
-## Schema for Change Type ct-0mss4i7neuj7f
-
-###### Classifications:
-
-- [Management | Managed Firewall | Outbound (Palo Alto) | Update security policy](management-managed-outbound-palo-alto-update-security-policy.md "management-managed-outbound-palo-alto-update-security-policy.md")
-
-```
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "name": "Update Security Policy",
-  "description": "Update a security policy for AMS managed Palo Alto firewall - Outbound.",
-  "type": "object",
-  "properties": {
-    "RequestType": {
-      "description": "Must be UpdateSecurityPolicy.",
-      "type": "string",
-      "enum": [
-        "UpdateSecurityPolicy"
-      ],
-      "default": "UpdateSecurityPolicy"
-    },
-    "Parameters": {
-      "type": "object",
-      "properties": {
-        "SecurityPolicyName": {
-          "description": "The name of the security policy. Must start with custom-sec-.",
-          "type": "string",
-          "pattern": "^custom-sec-[a-zA-Z0-9][a-zA-Z0-9-_]{0,51}$"
-        },
-        "SourceAddressesToAdd": {
-          "description": "A list of source addresses to add to the policy.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+(/[0-9]{1,2})?)$"
-          },
-          "minItems": 1,
-          "maxItems": 50
-        },
-        "DestinationAddressesToAdd": {
-          "description": "A list of destination addresses to add to the policy. Supply values for this parameter or for AllowListsToAdd, but not both.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^(([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+(/[0-9]{1,2})?)|((([a-zA-Z0-9][a-zA-Z0-9-_]{0,62}[a-zA-Z0-9]{0,1}))\\.){1,127}([a-zA-Z][a-zA-Z0-9\\-]{0,23}[a-zA-Z]))$"
-          },
-          "minItems": 1,
-          "maxItems": 50
-        },
-        "AllowListsToAdd": {
-          "description": "A list of allowlists to add to the policy. Supply values for this parameter or for DestinationAddressesToAdd, but not both.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-_]{0,62}$"
-          },
-          "minItems": 1,
-          "maxItems": 10
-        },
-        "ServicePortsToAdd": {
-          "type": "object",
-          "description": "A list of Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) service ports to add.",
-          "properties": {
-            "TCPPortsToAdd": {
-              "description": "A list of Transmission Control Protocol (TCP) service ports to add.",
-              "type": "array",
-              "items": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 65535
-              },
-              "minItems": 1,
-              "maxItems": 50
-            },
-            "UDPPortsToAdd": {
-              "description": "A list of User Datagram Protocol (UDP) service ports to add.",
-              "type": "array",
-              "items": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 65535
-              },
-              "minItems": 1,
-              "maxItems": 50
-            }
-          },
-          "metadata": {
-            "ui:order": [
-              "TCPPortsToAdd",
-              "UDPPortsToAdd"
-            ]
-          }
-        },
-        "SourceAddressesToRemove": {
-          "description": "A list of source addresses to remove from the policy.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+(/[0-9]{1,2})?)$"
-          },
-          "minItems": 1,
-          "maxItems": 50
-        },
-        "DestinationAddressesToRemove": {
-          "description": "A list of destination addresses to remove from the policy. Supply values for this parameter or for AllowListsToRemove, but not both.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^(([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+(/[0-9]{1,2})?)|((([a-zA-Z0-9][a-zA-Z0-9-_]{0,62}[a-zA-Z0-9]{0,1}))\\.){1,127}([a-zA-Z][a-zA-Z0-9\\-]{0,23}[a-zA-Z]))$"
-          },
-          "minItems": 1,
-          "maxItems": 50
-        },
-        "AllowListsToRemove": {
-          "description": "A list of allowlists to remove from the policy. Supply values for this parameter or for DestinationAddressesToRemove, but not both.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-_]{0,62}$"
-          },
-          "minItems": 1,
-          "maxItems": 10
-        },
-        "ServicePortsToRemove": {
-          "type": "object",
-          "description": "A list of Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) service ports to remove.",
-          "properties": {
-            "TCPPortsToRemove": {
-              "description": "A list of Transmission Control Protocol (TCP) service ports to remove.",
-              "type": "array",
-              "items": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 65535
-              },
-              "minItems": 1,
-              "maxItems": 50
-            },
-            "UDPPortsToRemove": {
-              "description": "A list of User Datagram Protocol (UDP) service ports to remove.",
-              "type": "array",
-              "items": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 65535
-              },
-              "minItems": 1,
-              "maxItems": 50
-            }
-          },
-          "metadata": {
-            "ui:order": [
-              "TCPPortsToRemove",
-              "UDPPortsToRemove"
-            ]
-          }
-        },
-        "ActionType": {
-          "description": "The type of action the security policy will perform on outbound traffic that matches the policy's rules.",
-          "type": "string",
-          "enum": [
-            "Allow",
-            "Deny"
-          ]
-        },
-        "EnablePolicy": {
-          "description": "True to enable the security policy, false to disable it.",
-          "type": "boolean"
-        }
-      },
-      "additionalProperties": false,
-      "metadata": {
-        "ui:order": [
-          "SecurityPolicyName",
-          "SourceAddressesToAdd",
-          "DestinationAddressesToAdd",
-          "AllowListsToAdd",
-          "ServicePortsToAdd",
-          "SourceAddressesToRemove",
-          "DestinationAddressesToRemove",
-          "AllowListsToRemove",
-          "ServicePortsToRemove",
-          "ActionType",
-          "EnablePolicy"
-        ]
-      },
-      "required": [
-        "SecurityPolicyName"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "metadata": {
-    "ui:order": [
-      "RequestType",
-      "Parameters"
-    ]
-  },
-  "required": [
-    "RequestType",
     "Parameters"
   ]
 }
@@ -12654,10 +12449,10 @@ Change type schemas specify the execution input parameters for a change type.
           "default": "customer-mc-ec2-instance-profile"
         },
         "InstanceRootVolumeIops": {
-          "description": "The Iops to use for the root volume if volume type is io1, io2 or gp3. If InstanceRootVolumeType is gp3, then the Iops should be between 3000 and 16000, else it should be between 100 and 64000.",
+          "description": "The Iops to use for the root volume if volume type is io1, io2 or gp3. If InstanceRootVolumeType is gp3, then the Iops should be between 3000 and 80000, if the InstanceRootVolumeType is io1, then the Iops should be between 100 and 64000, if the InstanceRootVolumeType is io2, then the Iops should be between 100 and 256000.",
           "type": "number",
           "minimum": 100,
-          "maximum": 64000,
+          "maximum": 256000,
           "default": 100
         },
         "InstanceRootVolumeName": {
@@ -12665,10 +12460,10 @@ Change type schemas specify the execution input parameters for a change type.
           "type": "string"
         },
         "InstanceRootVolumeSize": {
-          "description": "The size of the root volume for the instance. Defaults to 20 GiB for Linux, and 60 GiB for Windows.",
+          "description": "The size of the root volume for the instance. Defaults to 20 GiB for Linux, and 60 GiB for Windows. If InstanceRootVolumeType is gp2, then the size should be between 1 GiB and 16 TiB, if the InstanceRootVolumeType is gp3, then the size should be between 1 GiB and 64 TiB, if the InstanceRootVolumeType is io1, then the size should be between 4 GiB and 16 TiB, if the InstanceRootVolumeType is io2, then the size should be between 4 GiB and 64 TiB.",
           "type": "number",
           "minimum": 20,
-          "maximum": 16000
+          "maximum": 65536
         },
         "InstanceRootVolumeType": {
           "description": "Choose io1, io2, gp2 or gp3 for SSD-backed volumes optimized for transactional workloads. Choose standard for HDD-backed volumes suitable for workloads where data is infrequently accessed.",
@@ -13732,7 +13527,7 @@ Change type schemas specify the execution input parameters for a change type.
         "Volume1Iops": {
           "type": "string",
           "description": "The Iops to use for Volume1 if Volume1Type is io1, io2 or gp3. If Volume1Type is not io1, io2 or gp3, any value provided here is ignored. The range is between 100 and 256000. Note: IOPS limits vary by volume type (io1: min 100 IOPS and max 64000 IOPS (up to 50 IOPS per GiB), io2: min 100 IOPS and max 256000 IOPS (up to 1000 IOPS per GiB), gp3: min 3000 IOPS and max 80000 IOPS).",
-          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|[1-2][0-9]{5}|256000)$"
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|1[0-9]{5}|2[0-4][0-9]{4}|25[0-5][0-9]{3}|256000)$"
         },
         "Volume1KmsKeyId": {
           "type": "string",
@@ -13747,7 +13542,7 @@ Change type schemas specify the execution input parameters for a change type.
         "Volume1Size": {
           "type": "string",
           "description": "The size for Volume1 in GiB. Range: 1-65536 GiB. Note: Minimum sizes vary by volume type (gp2: min 1 GiB and max 16384 GiB, gp3: min 1 GiB and max 65536 GiB, io2: min 4 GiB and max 65536 GiB, io1: min 4 GiB and max 16384 GiB, st1/sc1: min 125 GiB and max 16384 GiB, standard: min 1 GiB and max 1024 GiB).",
-          "pattern": "^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65536)$"
+          "pattern": "^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-6])$"
         },
         "Volume1Snapshot": {
           "type": "string",
@@ -13776,7 +13571,7 @@ Change type schemas specify the execution input parameters for a change type.
         "Volume2Iops": {
           "type": "string",
           "description": "The Iops to use for Volume2 if Volume2Type is io1, io2 or gp3. If Volume2Type is not io1, io2 or gp3, any value provided here is ignored. The range is between 100 and 256000. Note: IOPS limits vary by volume type (io1: min 100 IOPS and max 64000 IOPS (up to 50 IOPS per GiB), io2: min 100 IOPS and max 256000 IOPS (up to 1000 IOPS per GiB), gp3: min 3000 IOPS and max 80000 IOPS).",
-          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|[1-2][0-9]{5}|256000)$"
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|1[0-9]{5}|2[0-4][0-9]{4}|25[0-5][0-9]{3}|256000)$"
         },
         "Volume2KmsKeyId": {
           "type": "string",
@@ -13791,7 +13586,7 @@ Change type schemas specify the execution input parameters for a change type.
         "Volume2Size": {
           "type": "string",
           "description": "The size for Volume2 in GiB. Range: 1-65536 GiB. Note: Minimum sizes vary by volume type (gp2: min 1 GiB and max 16384 GiB, gp3: min 1 GiB and max 65536 GiB, io2: min 4 GiB and max 65536 GiB, io1: min 4 GiB and max 16384 GiB, st1/sc1: min 125 GiB and max 16384 GiB, standard: min 1 GiB and max 1024 GiB).",
-          "pattern": "^$|^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65536)$"
+          "pattern": "^$|^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-6])$"
         },
         "Volume2Snapshot": {
           "type": "string",
@@ -13820,7 +13615,7 @@ Change type schemas specify the execution input parameters for a change type.
         "Volume3Iops": {
           "type": "string",
           "description": "The Iops to use for Volume3 if Volume3Type is io1, io2 or gp3. If Volume3Type is not io1, io2 or gp3, any value provided here is ignored. The range is between 100 and 256000. Note: IOPS limits vary by volume type (io1: min 100 IOPS and max 64000 IOPS (up to 50 IOPS per GiB), io2: min 100 IOPS and max 256000 IOPS (up to 1000 IOPS per GiB), gp3: min 3000 IOPS and max 80000 IOPS).",
-          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|[1-2][0-9]{5}|256000)$"
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|1[0-9]{5}|2[0-4][0-9]{4}|25[0-5][0-9]{3}|256000)$"
         },
         "Volume3KmsKeyId": {
           "type": "string",
@@ -13835,7 +13630,7 @@ Change type schemas specify the execution input parameters for a change type.
         "Volume3Size": {
           "type": "string",
           "description": "The size for Volume3 in GiB. Range: 1-65536 GiB. Note: Minimum sizes vary by volume type (gp2: min 1 GiB and max 16384 GiB, gp3: min 1 GiB and max 65536 GiB, io2: min 4 GiB and max 65536 GiB, io1: min 4 GiB and max 16384 GiB, st1/sc1: min 125 GiB and max 16384 GiB, standard: min 1 GiB and max 1024 GiB).",
-          "pattern": "^$|^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65536)$"
+          "pattern": "^$|^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-6])$"
         },
         "Volume3Snapshot": {
           "type": "string",
@@ -13864,7 +13659,7 @@ Change type schemas specify the execution input parameters for a change type.
         "Volume4Iops": {
           "type": "string",
           "description": "The Iops to use for Volume4 if Volume4Type is io1, io2 or gp3. If Volume4Type is not io1, io2 or gp3, any value provided here is ignored. The range is between 100 and 256000. Note: IOPS limits vary by volume type (io1: min 100 IOPS and max 64000 IOPS (up to 50 IOPS per GiB), io2: min 100 IOPS and max 256000 IOPS (up to 1000 IOPS per GiB), gp3: min 3000 IOPS and max 80000 IOPS).",
-          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|[1-2][0-9]{5}|256000)$"
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|1[0-9]{5}|2[0-4][0-9]{4}|25[0-5][0-9]{3}|256000)$"
         },
         "Volume4KmsKeyId": {
           "type": "string",
@@ -13879,7 +13674,7 @@ Change type schemas specify the execution input parameters for a change type.
         "Volume4Size": {
           "type": "string",
           "description": "The size for Volume4 in GiB. Range: 1-65536 GiB. Note: Minimum sizes vary by volume type (gp2: min 1 GiB and max 16384 GiB, gp3: min 1 GiB and max 65536 GiB, io2: min 4 GiB and max 65536 GiB, io1: min 4 GiB and max 16384 GiB, st1/sc1: min 125 GiB and max 16384 GiB, standard: min 1 GiB and max 1024 GiB).",
-          "pattern": "^$|^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65536)$"
+          "pattern": "^$|^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-6])$"
         },
         "Volume4Snapshot": {
           "type": "string",
@@ -13908,7 +13703,7 @@ Change type schemas specify the execution input parameters for a change type.
         "Volume5Iops": {
           "type": "string",
           "description": "The Iops to use for Volume5 if Volume5Type is io1, io2 or gp3. If Volume5Type is not io1, io2 or gp3, any value provided here is ignored. The range is between 100 and 256000. Note: IOPS limits vary by volume type (io1: min 100 IOPS and max 64000 IOPS (up to 50 IOPS per GiB), io2: min 100 IOPS and max 256000 IOPS (up to 1000 IOPS per GiB), gp3: min 3000 IOPS and max 80000 IOPS).",
-          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|[1-2][0-9]{5}|256000)$"
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|1[0-9]{5}|2[0-4][0-9]{4}|25[0-5][0-9]{3}|256000)$"
         },
         "Volume5KmsKeyId": {
           "type": "string",
@@ -13923,7 +13718,7 @@ Change type schemas specify the execution input parameters for a change type.
         "Volume5Size": {
           "type": "string",
           "description": "The size for Volume5 in GiB. Range: 1-65536 GiB. Note: Minimum sizes vary by volume type (gp2: min 1 GiB and max 16384 GiB, gp3: min 1 GiB and max 65536 GiB, io2: min 4 GiB and max 65536 GiB, io1: min 4 GiB and max 16384 GiB, st1/sc1: min 125 GiB and max 16384 GiB, standard: min 1 GiB and max 1024 GiB).",
-          "pattern": "^$|^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65536)$"
+          "pattern": "^$|^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-6])$"
         },
         "Volume5Snapshot": {
           "type": "string",
@@ -16998,6 +16793,203 @@ Change type schemas specify the execution input parameters for a change type.
   "required": [
     "IpSetId",
     "Region"
+  ]
+}
+```
+
+## Schema for Change Type ct-1bw3q0obl5y75
+
+###### Classifications:
+
+- [Deployment | Advanced stack components | PrefixList | Create](deployment-advanced-prefixlist-create.md "deployment-advanced-prefixlist-create.md")
+
+```
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "Create Prefix List",
+  "description": "Create a new AWS managed prefix list. A prefix list is a set of one or more CIDR blocks that you can use to configure VPC security groups and route tables.",
+  "type": "object",
+  "properties": {
+    "DocumentName": {
+      "description": "Must be AWSManagedServices-CreatePrefixList.",
+      "type": "string",
+      "enum": [
+        "AWSManagedServices-CreatePrefixList"
+      ],
+      "default": "AWSManagedServices-CreatePrefixList"
+    },
+    "Region": {
+      "description": "The AWS Region where you want to create the prefix list, such as us-east-1.",
+      "type": "string",
+      "pattern": "^([a-z]{2}((-gov))?-[a-z]+-\\d{1})$"
+    },
+    "Parameters": {
+      "type": "object",
+      "properties": {
+        "PrefixListName": {
+          "description": "The name of the managed prefix list. The name cannot start with any case combination of \"com.amazonaws\", \"aws:\", \"mc-\" or \"ams\".",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(?!([aA][mM][sS]|[mM][cC]-|[aA][wW][sS]:|[cC][oO][mM]\\.[aA][mM][aA][zZ][oO][nN][aA][wW][sS]))([a-zA-Z0-9_+\\-.]+(\\s[a-zA-Z0-9_+\\-.]+)*)$",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "minItems": 1,
+          "maxItems": 1
+        },
+        "MaxEntries": {
+          "description": "Maximum number of entries for this prefix list.",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000
+          },
+          "minItems": 1,
+          "maxItems": 1
+        },
+        "AddressFamily": {
+          "description": "A prefix list supports a single type of IP addressing only (IPv4 or IPv6). Address family cannot be changed after the prefix list is created.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "IPv4",
+              "IPv6"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 1
+        },
+        "CIDRBlockIPv4": {
+          "description": "List of IPv4 address ranges in CIDR notation, in the form [{\"Cidr\":\"255.255.255.255/32\",\"Description\":\"Value\"}]. The description is optional and can be left blank. Only include IPv6 or IPv4. AWS managed prefix lists don't support both IPv4 and IPv6 together.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Cidr": {
+                "type": "string",
+                "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(3[0-2]|[1-2][0-9]|[0-9]))$"
+              },
+              "Description": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9_.:/=+@\\s-]{0,255}$"
+              }
+            },
+            "required": [
+              "Cidr"
+            ],
+            "additionalProperties": false,
+            "metadata": {
+              "ui:order": [
+                "Cidr",
+                "Description"
+              ]
+            }
+          },
+          "maxItems": 1000,
+          "default": [
+
+          ]
+        },
+        "CIDRBlockIPv6": {
+          "description": "List of IPv6 address ranges in CIDR notation, in the form [{\"Cidr\":\"ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128\",\"Description\":\"Value\"}]. The description is optional and can be left blank. Only include IPv6 or IPv4. AWS managed prefix lists don't support both IPv4 and IPv6 together.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Cidr": {
+                "type": "string",
+                "pattern": "^((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(\\/([0-9]|[1-9][0-9]|1[0-1][0-9]|12[0-8]))$"
+              },
+              "Description": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9_.:/=+@\\s-]{0,255}$"
+              }
+            },
+            "required": [
+              "Cidr"
+            ],
+            "additionalProperties": false,
+            "metadata": {
+              "ui:order": [
+                "Cidr",
+                "Description"
+              ]
+            }
+          },
+          "maxItems": 1000,
+          "default": [
+
+          ]
+        },
+        "Tags": {
+          "description": "List of tags [{\"Key\":\"KeyName\",\"Value\":\"ValueName\"}] that you want to apply to your Prefix List. KeyName cannot start with any case combination of \"aws:\", \"mc-\" or \"ams\".",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Key": {
+                "type": "string",
+                "pattern": "^(?!([aA][wW][sS]:|[mM][cC]-|[aA][mM][sS]))[a-zA-Z0-9 _.:/=+\\-@]{1,128}$",
+                "minLength": 1,
+                "maxLength": 128
+              },
+              "Value": {
+                "type": "string",
+                "pattern": "^[\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]{0,256}$",
+                "minLength": 0,
+                "maxLength": 256
+              }
+            },
+            "required": [
+              "Key"
+            ],
+            "additionalProperties": false,
+            "metadata": {
+              "ui:order": [
+                "Key",
+                "Value"
+              ]
+            }
+          },
+          "maxItems": 25,
+          "default": [
+
+          ]
+        }
+      },
+      "metadata": {
+        "ui:order": [
+          "PrefixListName",
+          "MaxEntries",
+          "AddressFamily",
+          "CIDRBlockIPv4",
+          "CIDRBlockIPv6",
+          "Tags"
+        ]
+      },
+      "additionalProperties": false,
+      "required": [
+        "PrefixListName",
+        "MaxEntries",
+        "AddressFamily"
+      ]
+    }
+  },
+  "metadata": {
+    "ui:order": [
+      "DocumentName",
+      "Region",
+      "Parameters"
+    ]
+  },
+  "additionalProperties": false,
+  "required": [
+    "DocumentName",
+    "Region",
+    "Parameters"
   ]
 }
 ```
@@ -22204,61 +22196,6 @@ Change type schemas specify the execution input parameters for a change type.
 }
 ```
 
-## Schema for Change Type ct-1taxucdyi84iy
-
-###### Classifications:
-
-- [Management | Managed Firewall | Outbound (Palo Alto) | Delete security policy](management-managed-outbound-palo-alto-delete-security-policy.md "management-managed-outbound-palo-alto-delete-security-policy.md")
-
-```
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "name": "Delete Security Policy",
-  "description": "Delete a security policy for AMS managed Palo Alto firewall - Outbound.",
-  "type": "object",
-  "properties": {
-    "RequestType": {
-      "description": "Must be DeleteSecurityPolicy.",
-      "type": "string",
-      "enum": [
-        "DeleteSecurityPolicy"
-      ],
-      "default": "DeleteSecurityPolicy"
-    },
-    "Parameters": {
-      "type": "object",
-      "properties": {
-        "SecurityPolicyName": {
-          "description": "The name of the security policy. Must start with custom-sec-.",
-          "type": "string",
-          "pattern": "^custom-sec-[a-zA-Z0-9][a-zA-Z0-9-_]{0,51}$"
-        }
-      },
-      "additionalProperties": false,
-      "metadata": {
-        "ui:order": [
-          "SecurityPolicyName"
-        ]
-      },
-      "required": [
-        "SecurityPolicyName"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "metadata": {
-    "ui:order": [
-      "RequestType",
-      "Parameters"
-    ]
-  },
-  "required": [
-    "RequestType",
-    "Parameters"
-  ]
-}
-```
-
 ## Schema for Change Type ct-1urj94c3hdfu5
 
 ###### Classifications:
@@ -23133,17 +23070,17 @@ Change type schemas specify the execution input parameters for a change type.
           "type": "array",
           "items": {
             "type": "string",
-            "pattern": "^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-5][0-9][0-9]{3}|[6][0-3][0-9]{3}|64000)$"
+            "pattern": "^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|1[0-9]{5}|2[0-4][0-9]{4}|25[0-5][0-9]{3}|256000)$"
           },
           "minItems": 1,
           "maxItems": 1
         },
         "Throughput": {
-          "description": "The throughput to provision for a volume, with a maximum of 1000 MiB/s. This parameter is valid only for gp3 volumes. If left unspecified, a minimum value is assigned or the existing value is retained.",
+          "description": "The throughput to provision for a volume, with a maximum of 2000 MiB/s. This parameter is valid only for gp3 volumes. If left unspecified, a minimum value is assigned or the existing value is retained.",
           "type": "array",
           "items": {
             "type": "string",
-            "pattern": "^([1][2][5-9]$|[1][3-9][0-9]$|[2-9][0-9][0-9]$|1000)$"
+            "pattern": "^(12[5-9]|1[3-9][0-9]|[2-9][0-9]{2}|1[0-9]{3}|2000)$"
           },
           "minItems": 1,
           "maxItems": 1
@@ -26019,147 +25956,6 @@ Change type schemas specify the execution input parameters for a change type.
 }
 ```
 
-## Schema for Change Type ct-281dpwh9tqnan
-
-###### Classifications:
-
-- [Deployment | Managed Firewall | Outbound (Palo Alto) | Create security policy](deployment-managed-outbound-palo-alto-create-security-policy.md "deployment-managed-outbound-palo-alto-create-security-policy.md")
-
-```
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "name": "Create Security Policy",
-  "description": "Create a security policy for AMS managed Palo Alto firewall - Outbound.",
-  "type": "object",
-  "properties": {
-    "RequestType": {
-      "description": "Must be CreateSecurityPolicy.",
-      "type": "string",
-      "enum": [
-        "CreateSecurityPolicy"
-      ],
-      "default": "CreateSecurityPolicy"
-    },
-    "Parameters": {
-      "type": "object",
-      "properties": {
-        "SecurityPolicyName": {
-          "description": "A meaningful name for the security policy. Must start with custom-sec-.",
-          "type": "string",
-          "pattern": "^custom-sec-[a-zA-Z0-9][a-zA-Z0-9-_]{0,51}$"
-        },
-        "SourceAddresses": {
-          "description": "A list of source addresses. If no value is provided, the security policy will match against any source address.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+(/[0-9]{1,2})?)$"
-          },
-          "minItems": 1,
-          "maxItems": 50
-        },
-        "DestinationAddresses": {
-          "description": "A list of destination addresses. Supply values for this parameter or for AllowLists, but not both.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^(([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+(/[0-9]{1,2})?)|((([a-zA-Z0-9][a-zA-Z0-9-_]{0,62}[a-zA-Z0-9]{0,1}))\\.){1,127}([a-zA-Z][a-zA-Z0-9\\-]{0,23}[a-zA-Z]))$"
-          },
-          "minItems": 1,
-          "maxItems": 50
-        },
-        "AllowLists": {
-          "description": "A list of allowlists to associate with this security policy. Supply values for this parameter or for DestinationAddresses, but not both.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-_]{0,62}$"
-          },
-          "minItems": 1,
-          "maxItems": 10
-        },
-        "ServicePorts": {
-          "type": "object",
-          "description": "A list of Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) service ports. If no value is provided, the security policy matches against any service port.",
-          "properties": {
-            "tcp": {
-              "description": "A list of Transmission Control Protocol (TCP) service ports. If no value is provided for TCP or UDP, the security policy matches against any service port.",
-              "type": "array",
-              "items": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 65535
-              },
-              "minItems": 1,
-              "maxItems": 50
-            },
-            "udp": {
-              "description": "A list of User Datagram Protocol (UDP) service ports. If no value is provided for TCP or UDP, the security policy matches against any service port.",
-              "type": "array",
-              "items": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 65535
-              },
-              "minItems": 1,
-              "maxItems": 50
-            }
-          },
-          "metadata": {
-            "ui:order": [
-              "tcp",
-              "udp"
-            ]
-          }
-        },
-        "ActionType": {
-          "description": "The type of action the security policy will perform on outbound traffic that matches the policy's rules.",
-          "type": "string",
-          "enum": [
-            "Allow",
-            "Deny"
-          ],
-          "default": "Allow"
-        },
-        "EnablePolicy": {
-          "description": "True to enable the security policy upon creation, false to not enable it (the policy must be explicitly enabled instead). Default is true.",
-          "type": "boolean",
-          "default": true
-        }
-      },
-      "additionalProperties": false,
-      "metadata": {
-        "ui:order": [
-          "SecurityPolicyName",
-          "SourceAddresses",
-          "DestinationAddresses",
-          "AllowLists",
-          "ServicePorts",
-          "ActionType",
-          "EnablePolicy"
-        ]
-      },
-      "required": [
-        "SecurityPolicyName",
-        "ActionType",
-        "EnablePolicy"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "metadata": {
-    "ui:order": [
-      "RequestType",
-      "Parameters"
-    ]
-  },
-  "required": [
-    "RequestType",
-    "Parameters"
-  ]
-}
-```
-
 ## Schema for Change Type ct-281et7bs9ep4s
 
 ###### Classifications:
@@ -26879,73 +26675,6 @@ Change type schemas specify the execution input parameters for a change type.
     "InstanceId",
     "DeviceNames",
     "DeleteOnTermination"
-  ]
-}
-```
-
-## Schema for Change Type ct-2b9q8339bj2sa
-
-###### Classifications:
-
-- [Management | Managed Firewall | Outbound (Palo Alto) | Add URLs](management-managed-outbound-palo-alto-add-urls.md "management-managed-outbound-palo-alto-add-urls.md")
-
-```
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "name": "Add Allow List URLs",
-  "description": "Add allow list URLs for AMS managed Palo Alto firewall - Outbound.",
-  "type": "object",
-  "properties": {
-    "RequestType": {
-      "description": "Must be AddURLs.",
-      "type": "string",
-      "enum": [
-        "AddURLs"
-      ],
-      "default": "AddURLs"
-    },
-    "Parameters": {
-      "type": "object",
-      "properties": {
-        "URLs": {
-          "description": "URLs to add to the allow list. URLs must end with a forward slash i.e '*.amazon.com/'.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^((\\*|([a-zA-Z0-9][a-zA-Z0-9-_]{0,62}[a-zA-Z0-9]{0,1}))\\.){1,127}([a-zA-Z][a-zA-Z0-9\\-]{0,23}[a-zA-Z]\\/)$"
-          },
-          "minItems": 1,
-          "maxItems": 50
-        },
-        "AllowListName": {
-          "description": "The name of the allow list.",
-          "type": "string",
-          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-_]{0,62}$"
-        }
-      },
-      "additionalProperties": false,
-      "metadata": {
-        "ui:order": [
-          "URLs",
-          "AllowListName"
-        ]
-      },
-      "required": [
-        "URLs",
-        "AllowListName"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "metadata": {
-    "ui:order": [
-      "Parameters",
-      "RequestType"
-    ]
-  },
-  "required": [
-    "Parameters",
-    "RequestType"
   ]
 }
 ```
@@ -29057,61 +28786,6 @@ Change type schemas specify the execution input parameters for a change type.
     "Parameters"
   ],
   "additionalProperties": false
-}
-```
-
-## Schema for Change Type ct-2fzh1wckpl7f5
-
-###### Classifications:
-
-- [Management | Managed Firewall | Outbound (Palo Alto) | Delete allow list](management-managed-outbound-palo-alto-delete-allow-list.md "management-managed-outbound-palo-alto-delete-allow-list.md")
-
-```
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "name": "Delete Allow List",
-  "description": "Delete an allow list file for AMS managed Palo Alto firewall - Outbound.",
-  "type": "object",
-  "properties": {
-    "RequestType": {
-      "description": "Must be DeleteAllowList.",
-      "type": "string",
-      "enum": [
-        "DeleteAllowList"
-      ],
-      "default": "DeleteAllowList"
-    },
-    "Parameters": {
-      "type": "object",
-      "properties": {
-        "AllowListName": {
-          "description": "The name of the allow list to delete.",
-          "type": "string",
-          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-_]{0,62}$"
-        }
-      },
-      "additionalProperties": false,
-      "metadata": {
-        "ui:order": [
-          "AllowListName"
-        ]
-      },
-      "required": [
-        "AllowListName"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "metadata": {
-    "ui:order": [
-      "Parameters",
-      "RequestType"
-    ]
-  },
-  "required": [
-    "Parameters",
-    "RequestType"
-  ]
 }
 ```
 
@@ -31864,73 +31538,6 @@ Change type schemas specify the execution input parameters for a change type.
 }
 ```
 
-## Schema for Change Type ct-2mf36chtp1ejh
-
-###### Classifications:
-
-- [Management | Managed Firewall | Outbound (Palo Alto) | Remove URLs](management-managed-outbound-palo-alto-remove-urls.md "management-managed-outbound-palo-alto-remove-urls.md")
-
-```
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "name": "Remove Allow List URLs",
-  "description": "Remove URLs from an allow list file for AMS managed Palo Alto firewall - Outbound.",
-  "type": "object",
-  "properties": {
-    "RequestType": {
-      "description": "Must be RemoveURLs.",
-      "type": "string",
-      "enum": [
-        "RemoveURLs"
-      ],
-      "default": "RemoveURLs"
-    },
-    "Parameters": {
-      "type": "object",
-      "properties": {
-        "URLs": {
-          "description": "The URLs to remove from the allow list. URLs must end with a forward slash i.e '*.amazon.com/'.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^((\\*|([a-zA-Z0-9][a-zA-Z0-9-_]{0,62}[a-zA-Z0-9]{0,1}))\\.){1,127}([a-zA-Z][a-zA-Z0-9\\-]{0,23}[a-zA-Z]\\/)$"
-          },
-          "minItems": 1,
-          "maxItems": 50
-        },
-        "AllowListName": {
-          "description": "The name of the allow list.",
-          "type": "string",
-          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-_]{0,62}$"
-        }
-      },
-      "additionalProperties": false,
-      "metadata": {
-        "ui:order": [
-          "URLs",
-          "AllowListName"
-        ]
-      },
-      "required": [
-        "URLs",
-        "AllowListName"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "metadata": {
-    "ui:order": [
-      "Parameters",
-      "RequestType"
-    ]
-  },
-  "required": [
-    "Parameters",
-    "RequestType"
-  ]
-}
-```
-
 ## Schema for Change Type ct-2murl5xzbxoxf
 
 ###### Classifications:
@@ -33446,13 +33053,13 @@ Change type schemas specify the execution input parameters for a change type.
         "properties": {
           "Key": {
             "type": "string",
-            "pattern": "^[a-zA-Z0-9\\s_./=+-]{1,127}$",
+            "pattern": "^[a-zA-Z0-9\\s_.:/=+@-]{1,127}$",
             "minLength": 1,
             "maxLength": 127
           },
           "Value": {
             "type": "string",
-            "pattern": "^[a-zA-Z0-9\\s_./=+-]{1,127}$",
+            "pattern": "^[a-zA-Z0-9\\s_.:/=+@-]{1,127}$",
             "minLength": 1,
             "maxLength": 127
           }
@@ -34025,6 +33632,179 @@ Change type schemas specify the execution input parameters for a change type.
 }
 ```
 
+## Schema for Change Type ct-2s1q5tjl0416n
+
+###### Classifications:
+
+- [Management | Advanced stack components | PrefixList | Modify](management-advanced-prefixlist-modify.md "management-advanced-prefixlist-modify.md")
+
+```
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "Modify Prefix List",
+  "description": "Modify an existing AWS customer-managed prefix list by adding or removing CIDR entries, updating tags, and resizing the entries.",
+  "type": "object",
+  "properties": {
+    "DocumentName": {
+      "description": "Must be AWSManagedServices-ModifyPrefixList.",
+      "type": "string",
+      "enum": [
+        "AWSManagedServices-ModifyPrefixList"
+      ],
+      "default": "AWSManagedServices-ModifyPrefixList"
+    },
+    "Region": {
+      "description": "The AWS Region in which the prefix list is located, in the form us-east-1.",
+      "type": "string",
+      "pattern": "^([a-z]{2}((-gov))?-[a-z]+-\\d{1})$"
+    },
+    "Parameters": {
+      "type": "object",
+      "properties": {
+        "PrefixListId": {
+          "description": "The ID of the prefix list to be modified.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^pl-[a-z0-9]{8,17}$"
+          },
+          "minItems": 1,
+          "maxItems": 1
+        },
+        "AddCIDRBlock": {
+          "description": "List of IPv4 or IPv6 address ranges to ADD in the CIDR notation, in the form [{\"Cidr\":\"10.0.0.0/24\",\"Description\":\"Value\"}] or [{\"Cidr\":\"2001:db8::/32\",\"Description\":\"Value\"}]. Description is optional and can be left blank. Use either IPv4 or IPv6 entries. The prefix list doesn't support both IPv4 and IPv6 entries in the same list.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Cidr": {
+                "type": "string",
+                "pattern": "^((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(3[0-2]|[1-2][0-9]|[0-9]))|((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(\\/([0-9]|[1-9][0-9]|1[0-1][0-9]|12[0-8])))$"
+              },
+              "Description": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9_.:/=+@\\s-]{0,255}$"
+              }
+            },
+            "required": [
+              "Cidr"
+            ],
+            "additionalProperties": false,
+            "metadata": {
+              "ui:order": [
+                "Cidr",
+                "Description"
+              ]
+            }
+          },
+          "default": [
+
+          ]
+        },
+        "RemoveCIDRBlock": {
+          "description": "List of IPv4 or IPv6 address ranges to REMOVE in CIDR notation, e.g., \"10.0.0.0/24\",\"2001:db8::/32\". Use either IPv4 or IPv6 entries. The prefix list doesn't support both IPv4 and IPv6 entries in the same list.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(3[0-2]|[1-2][0-9]|[0-9]))|((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(\\/([0-9]|[1-9][0-9]|1[0-1][0-9]|12[0-8])))$"
+          },
+          "default": [
+
+          ]
+        },
+        "AddTags": {
+          "description": "List of tags to ADD [{\"Key\":\"KeyName\",\"Value\":\"ValueName\"}]. KeyName cannot start with any case combination of \"aws:\", \"mc-\" or \"ams\".",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Key": {
+                "type": "string",
+                "pattern": "^(?!([aA][wW][sS]:|[mM][cC]-|[aA][mM][sS]))[a-zA-Z0-9 _.:/=+\\-@]{1,128}$",
+                "minLength": 1,
+                "maxLength": 128
+              },
+              "Value": {
+                "type": "string",
+                "pattern": "^[\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]{0,256}$",
+                "minLength": 0,
+                "maxLength": 256
+              }
+            },
+            "required": [
+              "Key"
+            ],
+            "additionalProperties": false,
+            "metadata": {
+              "ui:order": [
+                "Key",
+                "Value"
+              ]
+            }
+          },
+          "maxItems": 25,
+          "default": [
+
+          ]
+        },
+        "RemoveTags": {
+          "description": "List of tag keys to REMOVE from the prefix list. For example, \"Name\",\"Env\".",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(?!([aA][wW][sS]:|[mM][cC]-|[aA][mM][sS]))[a-zA-Z0-9 _.:/=+\\-@]{1,128}$"
+          },
+          "default": [
+
+          ]
+        },
+        "ResizeMaxEntries": {
+          "description": "New maximum number of entries for the prefix list. To skip resizing, set this attribute to 0.",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000
+          },
+          "minItems": 1,
+          "maxItems": 1,
+          "default": [
+            0
+          ]
+        }
+      },
+      "metadata": {
+        "ui:order": [
+          "PrefixListId",
+          "AddCIDRBlock",
+          "RemoveCIDRBlock",
+          "AddTags",
+          "RemoveTags",
+          "ResizeMaxEntries"
+        ]
+      },
+      "additionalProperties": false,
+      "required": [
+        "PrefixListId"
+      ]
+    }
+  },
+  "metadata": {
+    "ui:order": [
+      "DocumentName",
+      "Region",
+      "Parameters"
+    ]
+  },
+  "additionalProperties": false,
+  "required": [
+    "DocumentName",
+    "Region",
+    "Parameters"
+  ]
+}
+```
+
 ## Schema for Change Type ct-2sav5hzk5twk4
 
 ###### Classifications:
@@ -34591,7 +34371,7 @@ Change type schemas specify the execution input parameters for a change type.
           "description": "The Iops to use for the root volume if io1 volume type is specified.",
           "type": "integer",
           "minimum": 0,
-          "maximum": 20000,
+          "maximum": 64000,
           "default": 0
         },
         "ASGInstanceRootVolumeName": {
@@ -36482,18 +36262,18 @@ Change type schemas specify the execution input parameters for a change type.
       "properties": {
         "Volume1Iops": {
           "type": "string",
-          "description": "The Iops to use for Volume1 if Volume1Type is io1, io2 or gp3. If Volume1Type is not io1, io2 or gp3, any value provided here is ignored. If Volume1Type is gp3, then the Iops should be between 3000 and 16000, else it should be between 100 and 64000.",
-          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-5][0-9][0-9]{3}|[6][0-3][0-9]{3}|64000)$"
+          "description": "The Iops to use for Volume1 if Volume1Type is io1, io2 or gp3. If Volume1Type is not io1, io2 or gp3, any value provided here is ignored. If Volume1Type is gp3, then the Iops should be between 3000 and 16000, if the Volume1Type is io1, then the Iops should be between 100 and 64000, if the Volume1Type is io2, then the Iops should be between 100 and 256000.",
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|1[0-9]{5}|2[0-4][0-9]{4}|25[0-5][0-9]{3}|256000)$"
         },
         "Volume1Size": {
           "type": "string",
           "description": "The size for Volume1 in GiB. The size can be increased, but not decreased.",
-          "pattern": "^([1-9]|[1-9][0-9]{1}|[1-9][0-9]{2}|[1-9][0-9]{3}|[1][0-5][0-9]{3}||[1][6][0-3][0-8][0-4]|16384)$"
+          "pattern": "^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-6])$"
         },
         "Volume1Throughput": {
           "type": "string",
-          "description": "The Throughput to use for Volume1 if Volume1Type is gp3. If Volume1Type is not gp3, any value provided here is ignored. The Throughput should be between 125 and 1000. Default is 125.",
-          "pattern": "^$|^([1][2][5-9]$|[1][3-9][0-9]$|[2-9][0-9][0-9]$|1000)$"
+          "description": "The Throughput to use for Volume1 if Volume1Type is gp3. If Volume1Type is not gp3, any value provided here is ignored. The Throughput should be between 125 and 2000. Default is 125.",
+          "pattern": "^$|^(12[5-9]|1[3-9][0-9]|[2-9][0-9]{2}|1[0-9]{3}|2000)$"
         },
         "Volume1Type": {
           "type": "string",
@@ -36510,18 +36290,18 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume2Iops": {
           "type": "string",
-          "description": "The Iops to use for Volume2 if Volume2Type is io1, io2 or gp3. If Volume2Type is not io1, io2 or gp3, any value provided here is ignored. If Volume2Type is gp3, then the Iops should be between 3000 and 16000, else it should be between 100 and 64000.",
-          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-5][0-9][0-9]{3}|[6][0-3][0-9]{3}|64000)$"
+          "description": "The Iops to use for Volume2 if Volume2Type is io1, io2 or gp3. If Volume2Type is not io1, io2 or gp3, any value provided here is ignored. If Volume2Type is gp3, then the Iops should be between 3000 and 16000, if the Volume2Type is io1, then the Iops should be between 100 and 64000, if the Volume2Type is io2, then the Iops should be between 100 and 256000.",
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|1[0-9]{5}|2[0-4][0-9]{4}|25[0-5][0-9]{3}|256000)$"
         },
         "Volume2Size": {
           "type": "string",
           "description": "The size for Volume2 in GiB. The size can be increased, but not decreased.",
-          "pattern": "^([1-9]|[1-9][0-9]{1}|[1-9][0-9]{2}|[1-9][0-9]{3}|[1][0-5][0-9]{3}||[1][6][0-3][0-8][0-4]|16384)$"
+          "pattern": "^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-6])$"
         },
         "Volume2Throughput": {
           "type": "string",
-          "description": "The Throughput to use for Volume2 if Volume2Type is gp3. If Volume2Type is not gp3, any value provided here is ignored. The Throughput should be between 125 and 1000. Default is 125.",
-          "pattern": "^$|^([1][2][5-9]$|[1][3-9][0-9]$|[2-9][0-9][0-9]$|1000)$"
+          "description": "The Throughput to use for Volume2 if Volume2Type is gp3. If Volume2Type is not gp3, any value provided here is ignored. The Throughput should be between 125 and 2000. Default is 125.",
+          "pattern": "^$|^(12[5-9]|1[3-9][0-9]|[2-9][0-9]{2}|1[0-9]{3}|2000)$"
         },
         "Volume2Type": {
           "type": "string",
@@ -36538,18 +36318,18 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume3Iops": {
           "type": "string",
-          "description": "The Iops to use for Volume3 if Volume3Type is io1, io2 or gp3. If Volume3Type is not io1, io2 or gp3, any value provided here is ignored. If Volume3Type is gp3, then the Iops should be between 3000 and 16000, else it should be between 100 and 64000.",
-          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-5][0-9][0-9]{3}|[6][0-3][0-9]{3}|64000)$"
+          "description": "The Iops to use for Volume3 if Volume3Type is io1, io2 or gp3. If Volume3Type is not io1, io2 or gp3, any value provided here is ignored. If Volume3Type is gp3, then the Iops should be between 3000 and 16000, if the Volume3Type is io1, then the Iops should be between 100 and 64000, if the Volume3Type is io2, then the Iops should be between 100 and 256000.",
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|1[0-9]{5}|2[0-4][0-9]{4}|25[0-5][0-9]{3}|256000)$"
         },
         "Volume3Size": {
           "type": "string",
           "description": "The size for Volume3 in GiB. The size can be increased, but not decreased.",
-          "pattern": "^([1-9]|[1-9][0-9]{1}|[1-9][0-9]{2}|[1-9][0-9]{3}|[1][0-5][0-9]{3}||[1][6][0-3][0-8][0-4]|16384)$"
+          "pattern": "^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-6])$"
         },
         "Volume3Throughput": {
           "type": "string",
-          "description": "The Throughput to use for Volume3 if Volume3Type is gp3. If Volume3Type is not gp3, any value provided here is ignored. The Throughput should be between 125 and 1000. Default is 125.",
-          "pattern": "^$|^([1][2][5-9]$|[1][3-9][0-9]$|[2-9][0-9][0-9]$|1000)$"
+          "description": "The Throughput to use for Volume3 if Volume3Type is gp3. If Volume3Type is not gp3, any value provided here is ignored. The Throughput should be between 125 and 2000. Default is 125.",
+          "pattern": "^$|^(12[5-9]|1[3-9][0-9]|[2-9][0-9]{2}|1[0-9]{3}|2000)$"
         },
         "Volume3Type": {
           "type": "string",
@@ -36566,18 +36346,18 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume4Iops": {
           "type": "string",
-          "description": "The Iops to use for Volume4 if Volume4Type is io1, io2 or gp3. If Volume4Type is not io1, io2 or gp3, any value provided here is ignored. If Volume4Type is gp3, then the Iops should be between 3000 and 16000, else it should be between 100 and 64000.",
-          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-5][0-9][0-9]{3}|[6][0-3][0-9]{3}|64000)$"
+          "description": "The Iops to use for Volume4 if Volume4Type is io1, io2 or gp3. If Volume4Type is not io1, io2 or gp3, any value provided here is ignored. If Volume4Type is gp3, then the Iops should be between 3000 and 16000, if the Volume4Type is io1, then the Iops should be between 100 and 64000, if the Volume4Type is io2, then the Iops should be between 100 and 256000.",
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|1[0-9]{5}|2[0-4][0-9]{4}|25[0-5][0-9]{3}|256000)$"
         },
         "Volume4Size": {
           "type": "string",
           "description": "The size for Volume4 in GiB. The size can be increased, but not decreased.",
-          "pattern": "^([1-9]|[1-9][0-9]{1}|[1-9][0-9]{2}|[1-9][0-9]{3}|[1][0-5][0-9]{3}||[1][6][0-3][0-8][0-4]|16384)$"
+          "pattern": "^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-6])$"
         },
         "Volume4Throughput": {
           "type": "string",
-          "description": "The Throughput to use for Volume4 if Volume4Type is gp3. If Volume4Type is not gp3, any value provided here is ignored. The Throughput should be between 125 and 1000. Default is 125.",
-          "pattern": "^$|^([1][2][5-9]$|[1][3-9][0-9]$|[2-9][0-9][0-9]$|1000)$"
+          "description": "The Throughput to use for Volume4 if Volume4Type is gp3. If Volume4Type is not gp3, any value provided here is ignored. The Throughput should be between 125 and 2000. Default is 125.",
+          "pattern": "^$|^(12[5-9]|1[3-9][0-9]|[2-9][0-9]{2}|1[0-9]{3}|2000)$"
         },
         "Volume4Type": {
           "type": "string",
@@ -36594,18 +36374,18 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume5Iops": {
           "type": "string",
-          "description": "The Iops to use for Volume5 if Volume5Type is io1, io2 or gp3. If Volume5Type is not io1, io2 or gp3, any value provided here is ignored. If Volume5Type is gp3, then the Iops should be between 3000 and 16000, else it should be between 100 and 64000.",
-          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-5][0-9][0-9]{3}|[6][0-3][0-9]{3}|64000)$"
+          "description": "The Iops to use for Volume5 if Volume5Type is io1, io2 or gp3. If Volume5Type is not io1, io2 or gp3, any value provided here is ignored. If Volume5Type is gp3, then the Iops should be between 3000 and 16000, if the Volume5Type is io1, then the Iops should be between 100 and 64000, if the Volume5Type is io2, then the Iops should be between 100 and 256000.",
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|1[0-9]{5}|2[0-4][0-9]{4}|25[0-5][0-9]{3}|256000)$"
         },
         "Volume5Size": {
           "type": "string",
           "description": "The size for Volume5 in GiB. The size can be increased, but not decreased.",
-          "pattern": "^([1-9]|[1-9][0-9]{1}|[1-9][0-9]{2}|[1-9][0-9]{3}|[1][0-5][0-9]{3}||[1][6][0-3][0-8][0-4]|16384)$"
+          "pattern": "^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-6])$"
         },
         "Volume5Throughput": {
           "type": "string",
-          "description": "The Throughput to use for Volume5 if Volume5Type is gp3. If Volume5Type is not gp3, any value provided here is ignored. The Throughput should be between 125 and 1000. Default is 125.",
-          "pattern": "^$|^([1][2][5-9]$|[1][3-9][0-9]$|[2-9][0-9][0-9]$|1000)$"
+          "description": "The Throughput to use for Volume5 if Volume5Type is gp3. If Volume5Type is not gp3, any value provided here is ignored. The Throughput should be between 125 and 2000. Default is 125.",
+          "pattern": "^$|^(12[5-9]|1[3-9][0-9]|[2-9][0-9]{2}|1[0-9]{3}|2000)$"
         },
         "Volume5Type": {
           "type": "string",
@@ -37359,61 +37139,6 @@ Change type schemas specify the execution input parameters for a change type.
   "required": [
     "Region",
     "DocumentName",
-    "Parameters"
-  ]
-}
-```
-
-## Schema for Change Type ct-309eozh6lpkr8
-
-###### Classifications:
-
-- [Deployment | Managed Firewall | Outbound (Palo Alto) | Create allow list](deployment-managed-outbound-palo-alto-create-allow-list.md "deployment-managed-outbound-palo-alto-create-allow-list.md")
-
-```
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "name": "Create Allow List",
-  "description": "Create an allow list file for AMS managed Palo Alto firewall - Outbound.",
-  "type": "object",
-  "properties": {
-    "RequestType": {
-      "description": "Must be CreateAllowList.",
-      "type": "string",
-      "enum": [
-        "CreateAllowList"
-      ],
-      "default": "CreateAllowList"
-    },
-    "Parameters": {
-      "type": "object",
-      "properties": {
-        "AllowListName": {
-          "description": "A meaningful name for the allow list, cannot exceed 63 characters.",
-          "type": "string",
-          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-_]{0,62}$"
-        }
-      },
-      "additionalProperties": false,
-      "metadata": {
-        "ui:order": [
-          "AllowListName"
-        ]
-      },
-      "required": [
-        "AllowListName"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "metadata": {
-    "ui:order": [
-      "RequestType",
-      "Parameters"
-    ]
-  },
-  "required": [
-    "RequestType",
     "Parameters"
   ]
 }
@@ -42201,6 +41926,73 @@ Change type schemas specify the execution input parameters for a change type.
     "Parameters"
   ],
   "additionalProperties": false
+}
+```
+
+## Schema for Change Type ct-3fh88p7t5k5gi
+
+###### Classifications:
+
+- [Management | Advanced stack components | PrefixList | Delete](management-advanced-prefixlist-delete.md "management-advanced-prefixlist-delete.md")
+
+```
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "Delete Prefix List",
+  "description": "Delete an existing AWS customer-managed prefix list. The prefix list must not be associated with any resources.",
+  "type": "object",
+  "properties": {
+    "DocumentName": {
+      "description": "Must be AWSManagedServices-DeletePrefixList.",
+      "type": "string",
+      "enum": [
+        "AWSManagedServices-DeletePrefixList"
+      ],
+      "default": "AWSManagedServices-DeletePrefixList"
+    },
+    "Region": {
+      "description": "The AWS Region in which the prefix list is located, in the form us-east-1.",
+      "type": "string",
+      "pattern": "^([a-z]{2}((-gov))?-[a-z]+-\\d{1})$"
+    },
+    "Parameters": {
+      "type": "object",
+      "properties": {
+        "PrefixListId": {
+          "description": "The ID of the prefix list to be deleted.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^pl-[a-z0-9]{8,17}$"
+          },
+          "minItems": 1,
+          "maxItems": 1
+        }
+      },
+      "metadata": {
+        "ui:order": [
+          "PrefixListId"
+        ]
+      },
+      "additionalProperties": false,
+      "required": [
+        "PrefixListId"
+      ]
+    }
+  },
+  "metadata": {
+    "ui:order": [
+      "DocumentName",
+      "Region",
+      "Parameters"
+    ]
+  },
+  "additionalProperties": false,
+  "required": [
+    "DocumentName",
+    "Region",
+    "Parameters"
+  ]
 }
 ```
 
@@ -48383,7 +48175,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "RootVolumeIops": {
           "type": "string",
-          "description": "The IOPS to use for the root volume if volume type is io1, io2, or gp3."
+          "description": "The IOPS to use for the root volume if volume type is io1, io2, or gp3.If RootVolumeType is not io1, io2 or gp3, any value provided here is ignored.If RootVolumeType is gp3, then the Iops should be between 3000 and 16000, if the RootVolumeType is io1, then the Iops should be between 100 and 64000, if the RootVolumeType is io2, then the Iops should be between 100 and 256000.",
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|1[0-9]{5}|2[0-4][0-9]{4}|25[0-5][0-9]{3}|256000)$"
         },
         "RootVolumeName": {
           "type": "string",
@@ -48396,15 +48189,15 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "RootVolumeSize": {
           "type": "integer",
-          "description": "The size of the root volume for the instance in GiB.",
-          "minimum": 8,
-          "maximum": 16000
+          "description": "The size of the root volume for the instance in GiB. If RootVolumeType is gp2, then the size should be between 1 GiB and 16 TiB, if the RootVolumeType is gp3, then the size should be between 1 GiB and 64 TiB, if the RootVolumeType is io1, then the size should be between 4 GiB and 16 TiB, if the RootVolumeType is io2, then the size should be between 4 GiB and 64 TiB.",
+          "minimum": 1,
+          "maximum": 65536
         },
         "RootVolumeThroughput": {
           "type": "integer",
           "description": "The throughput in MiB/s to provision for the root volume if the volume type is gp3.",
           "minimum": 125,
-          "maximum": 1000
+          "maximum": 2000
         },
         "RootVolumeType": {
           "type": "string",

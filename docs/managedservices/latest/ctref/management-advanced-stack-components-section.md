@@ -72,6 +72,8 @@
 - [Network Load Balancer | Add Listener Certificate](management-advanced-network-load-balancer-add-listener-certificate.md "management-advanced-network-load-balancer-add-listener-certificate.md")
 - [Network Load Balancer | Remove Listener Certificate](management-advanced-network-load-balancer-remove-listener-certificate.md "management-advanced-network-load-balancer-remove-listener-certificate.md")
 - [Network Load Balancer | Update](management-advanced-network-load-balancer-update.md "management-advanced-network-load-balancer-update.md")
+- [PrefixList | Delete](management-advanced-prefixlist-delete.md "management-advanced-prefixlist-delete.md")
+- [PrefixList | Modify](management-advanced-prefixlist-modify.md "management-advanced-prefixlist-modify.md")
 - [RDS Database Stack | Reboot](management-advanced-rds-database-stack-reboot.md "management-advanced-rds-database-stack-reboot.md")
 - [RDS Database Stack | Restore To Point In Time](management-advanced-rds-database-stack-restore-to-point-in-time.md "management-advanced-rds-database-stack-restore-to-point-in-time.md")
 - [RDS Database Stack | Rotate DB Certificate](management-advanced-rds-database-stack-rotate-db-certificate.md "management-advanced-rds-database-stack-rotate-db-certificate.md")

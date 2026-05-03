@@ -21,7 +21,7 @@ Update the MasterUserPassword property of an Amazon Relational Database Service 
 
 Screenshot of this change type in the AMS console:
 
-![Update RDS MasterUserPassword interface showing ID, execution mode, version, and description.](images/guiRdsStackUpdateMPCT.png)
+![Screenshot of the Update RDS master user password change type in the AMS console.](images/guiRdsStackUpdateMPCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -137,7 +137,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 | SecretKey           | "`my_secret_key`"  |
 
 - To learn more about Amazon RDS, including size recommendations, see
-  [Amazon Relational Database Service Documentation](https://aws.amazon.com/documentation/rds/ "https://aws.amazon.com/documentation/rds/").
+  [Documentation](https://aws.amazon.com/documentation/rds/ "https://aws.amazon.com/documentation/rds/").
 
 ## Execution Input Parameters
 

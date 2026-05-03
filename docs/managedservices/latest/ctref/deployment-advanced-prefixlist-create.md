@@ -1,15 +1,15 @@
-# Outbound (Palo Alto) | Remove URLs
+# PrefixList | Create
 
-Remove URLs from an allow list file for AMS managed Palo Alto firewall - Outbound.
+Create a new AWS managed prefix list. A prefix list is a set of one or more CIDR blocks that you can use to configure VPC security groups and route tables.
 
-**Full classification:** Management | Managed Firewall | Outbound (Palo Alto) | Remove URLs
+**Full classification:** Deployment | Advanced stack components | PrefixList | Create
 
 ## Change Type Details
 
 |                             |                  |
 | --------------------------- | ---------------- |
-| Change type ID              | ct-2mf36chtp1ejh |
-| Current version             | 2.0              |
+| Change type ID              | ct-1bw3q0obl5y75 |
+| Current version             | 1.0              |
 | Expected execution duration | 60 minutes       |
 | AWS approval                | Required         |
 | Customer approval           | Not required     |
@@ -17,11 +17,11 @@ Remove URLs from an allow list file for AMS managed Palo Alto firewall - Outboun
 
 ## Additional Information
 
-### Remove URLS from managed Palo Alto outbound firewall
+### Create a managed prefix list
 
-Screenshot of this change type in the AMS console:
+The following shows this change type in the AMS console.
 
-![Remove Allow List URLs option for AMS Managed Firewall Palo Alto - Outbound.](images/guiManFwPaRemoveUrlCT.png)
+![Screenshot of the Create managed prefix list change type in the AMS console](images/guiVpcPrefixListCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -67,70 +67,69 @@ RFC parameters part of the request (not the execution parameters). For a list of
 
 _INLINE CREATE_:
 
-Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
+Issue the create RFC command with execution parameters provided inline (escape
+quotation marks when providing execution parameters inline) and then submit the
+returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-2mf36chtp1ejh" --change-type-version "`2.0`" --title "`Remove URLs from Allow List`" --execution-parameters "{ \"RequestType\": \"RemoveURLs\", \"Parameters\": { \"URLs\": [ \"`amazon.com/`\", \"`*.website.com/`\" ], "AllowListName": "`CustomAllowList`" } } "
+aws amscm create-rfc --change-type-id "ct-1bw3q0obl5y75" --change-type-version "1.0" --title "AWSManagedServices-CreatePrefixList" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-CreatePrefixList\",\"Region\":\"`ap-southeast-1`\",\"Parameters\":{\"PrefixListName\":[\"`newprefix_list_2`\"],\"MaxEntries\":[`4`],\"AddressFamily\":[\"`IPv4`\"],\"CIDRBlockIPv4\":[{\"Cidr\":\"`10.0.0.0/16`\",\"Description\":\"`Value_1`\"},{\"Cidr\":\"`192.168.1.0/24`\",\"Description\":\"`networking item`\"}]}}"
 ```
 
 _TEMPLATE CREATE_:
 
-1. Output the execution parameters JSON schema for this change type to a file; this example names it RemovePaUrlsParams.json.
+1. Output the execution parameters JSON schema for this change type; this
+   example names it CreatePrefixListParams.json:
 
 ```
-aws amscm get-change-type-version --change-type-id "ct-2mf36chtp1ejh" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > RemovePaUrlsParams.json
+aws amscm get-change-type-version --change-type-id "ct-1bw3q0obl5y75" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreatePrefixListParams.json
 ```
 
-2. Modify and save the RemovePaUrlsParams file. For example, you can replace the contents with something like this:
+2. Modify and save the execution parameters JSON file. For example, you can replace the contents with something like this:
 
 ```
 {
-  "RequestType": "RemoveURLs",
+  "DocumentName": "AWSManagedServices-CreatePrefixList",
+  "Region": "`ap-southeast-1`",
   "Parameters": {
-      "URLs": [
-          "`amazon.com/`",
-          "`*.website.com/`"
-      ],
-      "AllowListName": "`CustomAllowList`"
+    "PrefixListName": ["`newprefix_list_2`"],
+    "MaxEntries": [`4`],
+    "AddressFamily": ["`IPv4`"],
+    "CIDRBlockIPv4": [
+      {"Cidr": "`10.0.0.0/16`", "Description": "`Value_1`"},
+      {"Cidr": "`192.168.1.0/24`", "Description": "`networking item`"}
+    ]
   }
 }
 ```
 
-3. Output the RFC template JSON file to a file named RemovePaUrlsRfc.json:
+3. Output the RFC template JSON file; this example names it CreatePrefixListRfc.json:
 
 ```
-aws amscm create-rfc --generate-cli-skeleton > RemovePaUrlsRfc.json
+aws amscm create-rfc --generate-cli-skeleton > CreatePrefixListRfc.json
 ```
 
-4. Modify and save the RemovePaUrlsRfc.json file. For example, you can replace the contents with something like this:
+4. Modify and save the CreatePrefixListRfc.json file. For example, you can replace the contents with something like this:
 
 ```
 {
-"ChangeTypeVersion":    "`2.0`",
-"ChangeTypeId":         "ct-2mf36chtp1ejh",
-"Title":                "`Remove-Urls-RFC`"
+  "ChangeTypeVersion" : "1.0",
+  "ChangeTypeId" : "ct-1bw3q0obl5y75",
+  "Title" : "`Create managed prefix list`"
 }
 ```
 
-5. Create the RFC, specifying the RemovePaUrls Rfc file and the RemovePaUrlsParams file:
+5. Create the RFC, specifying the CreatePrefixListRfc file and the CreatePrefixListParams file:
 
 ```
-aws amscm create-rfc --cli-input-json file://RemovePaUrlsRfc.json  --execution-parameters file://RemovePaUrlsParams.json
+aws amscm create-rfc --cli-input-json file://CreatePrefixListRfc.json  --execution-parameters file://CreatePrefixListParams.json
 ```
 
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
-###### Note
-
-This change has a new version and a new schema.
-
-To learn more about Palo Alto managed firewall in AMS,
-see [Managed Palo Alto egress firewall](../userguide/networking-palo-alto.md "../userguide/networking-palo-alto.md").
-
 ## Execution Input Parameters
 
 For detailed information about the execution input parameters, see
-[Schema for Change Type ct-2mf36chtp1ejh](schemas.md#ct-2mf36chtp1ejh-schema-section "schemas.md#ct-2mf36chtp1ejh-schema-section").
+[Schema for Change Type ct-1bw3q0obl5y75](schemas.md#ct-1bw3q0obl5y75-schema-section "schemas.md#ct-1bw3q0obl5y75-schema-section").
 
 ## Example: Required Parameters
 
@@ -142,11 +141,25 @@ Example not available.
 
 ```
 {
+  "DocumentName": "AWSManagedServices-CreatePrefixList",
+  "Region": "us-east-1",
   "Parameters": {
-    "URLs": ["amazon.com/","*.amazon.com/","www.*.com/","amazon.co1m/","amazon.c-m/","ama-zon.com/","long.sub.domain.amazon.com/","long.sub.*.amazon.com/"],
-    "AllowListName": "test_file"
-  },
-  "RequestType": "RemoveURLs"
+    "PrefixListName": ["test-prefix-list"],
+    "MaxEntries": [10],
+    "AddressFamily": ["IPv4"],
+    "CIDRBlockIPv4": [
+      {
+        "Cidr": "10.0.0.0/16",
+        "Description": "Test CIDR"
+      }
+    ],
+    "Tags": [
+      {
+        "Key": "Environment",
+        "Value": "Test"
+      }
+    ]
+  }
 }
 
 ```
