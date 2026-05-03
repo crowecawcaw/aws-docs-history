@@ -16,4 +16,4 @@ client.
 The bottom of the navigation pane, as shown in the following example, displays
 the current version of the Wickr client you have installed.
 
-![Sign out options with privacy policy link and Windows version information displayed.](images/wickr-version.png)
+![Navigation pane showing QUIT button, Sign Out option, Privacy Policy link, and Windows v5.110.8 build 1 version number.](images/wickr-version.png)
