@@ -8,7 +8,7 @@ In the following example, the four inputs on the SDI card at the top have a path
 router. The one and only input on the second card has a path to the router. And two of the
 four inputs on the bottom SDI card have a path to the router.
 
-![Diagram showing multiple SDI cards with inputs connected to a router via signal paths.](images/sdi-diagram-shared-png.png)
+![Three SDI cards with inputs routing to a central router, showing varying path connections.](images/sdi-diagram-shared-png.png)
 
 ###### To map the outputs
 

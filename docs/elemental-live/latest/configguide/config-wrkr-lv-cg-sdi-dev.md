@@ -15,7 +15,7 @@ Once you have cabled the SDI cards, make sure that every input that has a cable 
 the **Settings** > **Input Devices** screen. The following
 image shows input devices in Elemental Live:
 
-![Interface showing input devices with details like device name, input type, and status.](images/inputs-shared-png.png)
+![Input Devices screen showing a list of SDI inputs with their status and settings.](images/inputs-shared-png.png)
 
 ###### Naming Inputs
 
