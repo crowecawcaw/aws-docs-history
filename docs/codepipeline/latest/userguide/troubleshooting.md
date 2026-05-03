@@ -27,6 +27,7 @@ The following information might help you troubleshoot common issues in AWS CodeP
 - [CodeCommit or S3 source revisions in PARALLEL mode might not match EventBridge event](#troubleshooting-revisions-parallel "#troubleshooting-revisions-parallel")
 - [EC2 Deploy action fails with an error message No such file](#troubleshooting-ec2-deploy "#troubleshooting-ec2-deploy")
 - [EKS Deploy action fails with a cluster unreachable error message](#troubleshooting-eks-deploy "#troubleshooting-eks-deploy")
+- [Pipeline does not trigger for all branches when multiple source actions reference the same repository](#troubleshooting-multi-branch-trigger "#troubleshooting-multi-branch-trigger")
 - [Need help with a different issue?](#troubleshooting-other "#troubleshooting-other")
 
 ## Pipeline error: A pipeline configured with AWS Elastic Beanstalk returns an error message: "Deployment failed. The provided role does not have sufficient permissions: Service:AmazonElasticLoadBalancing"
@@ -649,6 +650,19 @@ add an access entry to your cluster and specify the service role for the access 
    deploy action. For the permissions reference, see [Service role policy permissions](action-reference-EKS.md#action-reference-EKS-service-role "action-reference-EKS.md#action-reference-EKS-service-role").
 2. Add an access entry to your cluster and specify the CodePipeline service role for the
    access. For an example, see [Step 4: Create an access entry for the CodePipeline service role](tutorials-eks-deploy.md#tutorials-eks-deploy-access-entry "tutorials-eks-deploy.md#tutorials-eks-deploy-access-entry").
+
+## Pipeline does not trigger for all branches when multiple source actions reference the same repository
+
+**Problem:** A pipeline has multiple source actions that use
+connections (such as a Bitbucket, GitHub, or GitLab connection), with each source action
+pointing to a different branch of the same repository. Only one of the branches triggers the
+pipeline when you push changes. The connection's webhook subscription is registered for the
+combination of pipeline and repository, not per branch. As a result, multiple source actions
+targeting different branches of the same repository within a single pipeline are not
+supported.
+
+**Possible fixes:** Use a separate pipeline for each branch
+that you want to trigger independently.
 
 ## Need help with a different issue?
 

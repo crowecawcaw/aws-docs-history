@@ -120,6 +120,11 @@ The following considerations apply when using triggers.
   Bitbucket, the Git event for a merge is not a pull request closure event.
   However, in GitHub, merging a pull request is a closure event. For more
   information, see [Pull request events for triggers by provider](#pipelines-filter-pullrequest-events "#pipelines-filter-pullrequest-events").
+- When multiple source actions in a pipeline reference different branches of the
+  same repository through a connection, only one branch reliably triggers the
+  pipeline. The connection's webhook subscription is registered for the combination
+  of pipeline and repository, not per branch. As a workaround, use a separate
+  pipeline for each branch.
 
 ## Pull request events for triggers by provider
 

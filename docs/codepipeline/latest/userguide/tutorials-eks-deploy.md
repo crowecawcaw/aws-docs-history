@@ -380,7 +380,7 @@ repository.
 10. On the **Step 5: Add deploy stage** page, choose
     **Amazon EKS**.
 
-![Deploy configuration form with Helm selected, showing fields for release name and chart location.](images/eks-action-example.png)
+![Deploy configuration form with Helm selected, showing fields for release name, chart location, and other options.](images/eks-action-example.png)
 
     1. Under **Deploy configuration type**, choose
      **Helm**.
