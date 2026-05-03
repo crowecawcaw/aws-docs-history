@@ -86,6 +86,9 @@ Nitro Enclaves has the following requirements:
   | M8gn            | All instance types, **except**: `m8gn.medium`  | `m8gn.metal-24xl`  | `m8gn.metal-48xl`  |
   | M8i             | All instance types, **except**: `m8i.large`    | `m8i.metal-48xl`   | `m8i.metal-96xl`   |
   | M8id            | All instance types, **except**: `m8id.large`   | `m8id.metal-48xl`  | `m8id.metal-96xl`  |
+  | M8in            | All instance types, **except**: `m8in.large`   |
+  | M8ine           | All instance types, **except**: `m8ine.large`  |
+  | M8ib            | All instance types, **except**: `m8ib.large`   |
 
   Compute optimized
 
@@ -113,9 +116,10 @@ Nitro Enclaves has the following requirements:
   | C8gd            | All instance types, **except**: `c8gd.medium` | `c8gd.metal-24xl` | `c8gd.metal-48xl` |
   | C8gn            | All instance types, **except**: `c8gn.medium` | `c8gn.metal-24xl` | `c8gn.metal-48xl` |
   | C8i             | All instance types, **except**: `c8i.large`   | `c8i.metal-48xl`  | `c8i.metal-96xl`  |
-  | C8ib            | All instance types, **except**: `c8ib.large`  | `c8ib.metal-48xl` | `c8ib.metal-96xl` |
   | C8id            | All instance types, **except**: `c8id.large`  | `c8id.metal-48xl` | `c8id.metal-96xl` |
   | C8in            | All instance types, **except**: `c8in.large`  | `c8in.metal-48xl` | `c8in.metal-96xl` |
+  | C8ine           | All instance types, **except**: `c8ine.large` |
+  | C8ib            | All instance types, **except**: `c8ib.large`  | `c8ib.metal-48xl` | `c8ib.metal-96xl` |
 
   Memory optimized
 
@@ -147,6 +151,8 @@ Nitro Enclaves has the following requirements:
   | R8gn            | All instance types, **except**: `r8gn.medium`       | `r8gn.metal-24xl`   | `r8gn.metal-48xl` |
   | R8i             | All instance types, **except**: `r8i.large`         | `r8i.metal-48xl`    | `r8i.metal-96xl`  |
   | R8id            | All instance types, **except**: `r8id.large`        | `r8id.metal-48xl`   | `r8id.metal-96xl` |
+  | R8in            | All instance types, **except**: `r8in.large`        |
+  | R8ib            | All instance types, **except**: `r8ib.large`        |
   | X2gd            | All instance types, **except**: `x2gd.medium`       | `x2gd.metal`        |
   | X2idn           | All instance types, **except**: `x2idn.metal`       |
   | X2iedn          | All instance types, **except**: `x2iedn.metal`      |
