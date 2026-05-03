@@ -113,11 +113,13 @@ To the right of the cluster’s name, the cluster status is **Creating** for sev
 
 You might receive an error that one of the Availability Zones in your request doesn’t have sufficient capacity to create an Amazon EKS cluster. If this happens, the error output contains the Availability Zones that can support a new cluster. Retry creating your cluster with at least two subnets that are located in the supported Availability Zones for your account. For more information, see [Insufficient capacity](troubleshooting.md#ice "troubleshooting.md#ice").
 
-## Step 2: Configure your computer to communicate with your cluster
+## Step 2: Connect to your cluster
 
-In this section, you create a `kubeconfig` file for your cluster. The settings in this file enable the `kubectl` CLI to communicate with your cluster.
+In this section, you connect `kubectl` to your cluster so you can manage Kubernetes resources.
 
 Before proceeding, be sure that your cluster creation completed successfully in Step 1.
+
+### Option 1: Connect using the AWS CLI
 
 1. Create or update a `kubeconfig` file for your cluster. Replace `region-code` with the AWS Region that you created your cluster in. Replace `my-cluster` with the name of your cluster.
 
@@ -142,6 +144,20 @@ An example output is as follows.
 NAME             TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 svc/kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   1m
 ```
+
+### Option 2: Connect using the EKS console
+
+Alternatively, you can connect directly from the console without any local setup:
+
+1. On the cluster details page for the cluster you created in [Step 1](#eks-create-cluster "#eks-create-cluster"), choose **Connect**.
+2. AWS CloudShell opens with `kubectl` pre-configured for your cluster.
+3. Test your connection:
+
+```
+kubectl get svc
+```
+
+For more information, see [Connect kubectl to an EKS cluster by creating a kubeconfig file](create-kubeconfig.md "create-kubeconfig.md").
 
 ## Step 3: Create nodes
 

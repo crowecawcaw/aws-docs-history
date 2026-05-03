@@ -122,4 +122,8 @@ AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets y
 
 When you configure `kubectl` for your AWS Cloud9 IDE, be sure to use AWS credentials that are already mapped to your cluster’s RBAC configuration, or add the IAM principal that your IDE will use to the RBAC configuration before you remove endpoint public access. For more information, see [Grant IAM users and roles access to Kubernetes APIs](grant-k8s-access.md "grant-k8s-access.md") and [Unauthorized or access denied (kubectl)](troubleshooting.md#unauthorized "troubleshooting.md#unauthorized").
 
+**AWS CloudShell**
+
+Choose **Connect** on the cluster details page in the Amazon EKS console. For private clusters, CloudShell launches a VPC environment that can reach your cluster’s private API server endpoint. For more information, see [Connect kubectl to an EKS cluster by creating a kubeconfig file](create-kubeconfig.md "create-kubeconfig.md").
+
 📝 [Edit this page on GitHub](https://github.com/search?q=repo%3Aawsdocs%2Famazon-eks-user-guide+%5B%23cluster-endpoint%5D&type=code "https://github.com/search?q=repo%3Aawsdocs%2Famazon-eks-user-guide+%5B%23cluster-endpoint%5D&type=code")

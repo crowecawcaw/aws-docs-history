@@ -22,6 +22,10 @@ This topic helps you to download and install, or update, the `kubectl` binary on
 You must use a `kubectl` version that is within one minor version difference of your Amazon EKS cluster control plane. For example, a `1.34`
 `kubectl` client works with Kubernetes `1.33`, `1.34`, and `1.35` clusters.
 
+###### Tip
+
+You can also use `kubectl` directly from the EKS console via AWS CloudShell. Choose **Connect** on any cluster details page to get a pre-configured session. For more information, see [Connect kubectl to an EKS cluster by creating a kubeconfig file](create-kubeconfig.md "create-kubeconfig.md").
+
 ## Step 1: Check if `kubectl` is installed
 
 Determine whether you already have `kubectl` installed on your device.

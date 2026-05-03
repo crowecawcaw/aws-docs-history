@@ -23,7 +23,25 @@ aws sts get-caller-identity
 - Version `2.12.3` or later or version `1.27.160` or later of the AWS Command Line Interface (AWS CLI) installed and configured on your device or AWS CloudShell. To check your current version, use `aws --version | cut -d / -f2 | cut -d ' ' -f1`. Package managers such as `yum`, `apt-get`, or Homebrew for macOS are often several versions behind the latest version of the AWS CLI. To install the latest version, see [Installing](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md") and [Quick configuration with aws configure](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config") in the _AWS Command Line Interface User Guide_. The AWS CLI version that is installed in AWS CloudShell might also be several versions behind the latest version. To update it, see [Installing AWS CLI to your home directory](../../../cloudshell/latest/userguide/vm-specs.md#install-cli-software "../../../cloudshell/latest/userguide/vm-specs.md#install-cli-software") in the _AWS CloudShell User Guide_.
 - An IAM user or role with permission to use the `eks:DescribeCluster` API action for the cluster that you specify. For more information, see [Amazon EKS identity-based policy examples](security-iam-id-based-policy-examples.md "security-iam-id-based-policy-examples.md"). If you use an identity from your own OpenID Connect provider to access your cluster, then see [Using kubectl](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-kubectl "https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-kubectl") in the Kubernetes documentation to create or update your `kube config` file.
 
-## Create `kubeconfig` file automatically
+## Connect using the EKS console (CloudShell)
+
+You can connect to your cluster directly from the AWS Management Console using AWS CloudShell, without any local setup.
+
+1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+2. Choose the name of the cluster you want to connect to.
+3. On the cluster details page, choose **Connect** from the top-right action bar.
+4. AWS CloudShell opens with `kubectl` pre-configured for your cluster.
+
+Once connected, you can run `kubectl` commands immediately:
+
+```
+kubectl get nodes
+kubectl get pods -A
+```
+
+CloudShell sessions include `kubectl`, the AWS CLI, and standard CloudShell utilities. This feature supports clusters with both public and private API server endpoints. For clusters with private endpoints, CloudShell automatically launches a VPC environment to reach your cluster’s private API server and prompts you to enter a name for the environment.
+
+## Create `kubeconfig` file using the AWS CLI
 
 - Version `2.12.3` or later or version `1.27.160` or later of the AWS Command Line Interface (AWS CLI) installed and configured on your device or AWS CloudShell. To check your current version, use `aws --version | cut -d / -f2 | cut -d ' ' -f1`. Package managers such as `yum`, `apt-get`, or Homebrew for macOS are often several versions behind the latest version of the AWS CLI. To install the latest version, see [Installing](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md") and [Quick configuration with aws configure](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config") in the _AWS Command Line Interface User Guide_. The AWS CLI version that is installed in AWS CloudShell might also be several versions behind the latest version. To update it, see [Installing AWS CLI to your home directory](../../../cloudshell/latest/userguide/vm-specs.md#install-cli-software "../../../cloudshell/latest/userguide/vm-specs.md#install-cli-software") in the _AWS CloudShell User Guide_.
 - Permission to use the `eks:DescribeCluster` API action for the cluster that you specify. For more information, see [Amazon EKS identity-based policy examples](security-iam-id-based-policy-examples.md "security-iam-id-based-policy-examples.md").

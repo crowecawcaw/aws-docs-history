@@ -34,7 +34,7 @@ The following components are recommended for running workloads on EKS with the P
 | NVIDIA NVLink Subnet Manager        |
 | EFA driver                          |
 | Components running on node          | VPC CNI     |
-| EFA device plugin                   |
+| EFA DRA driver or EFA device plugin |
 | NVIDIA K8s device plugin            |
 | NVIDIA DRA driver                   |
 | NVIDIA Node Feature Discovery (NFD) |
@@ -43,8 +43,8 @@ The following components are recommended for running workloads on EKS with the P
 The node components in the table above perform the following functions:
 
 - **VPC CNI**: Allocates VPC IPs as the primary network interface for pods running on EKS
-- **EFA device plugin**: Allocates EFA devices as secondary networks for pods running on EKS. Responsible for network traffic across P6e-GB200 UltraServers. For multi-node workloads, for GPU-to-GPU within an UltraServer can flow over multi-node NVLink.
-- **NVIDIA Kubernetes device plugin**: Allocates GPUs as devices for pods running on EKS. It is recommended to use the NVIDIA Kubernetes device plugin until the NVIDIA DRA driver GPU allocation functionality graduates from experimental. See the [NVIDIA DRA driver releases](https://github.com/NVIDIA/k8s-dra-driver-gpu/releases "https://github.com/NVIDIA/k8s-dra-driver-gpu/releases") for updated information.
+- **EFA DRA driver or EFA device plugin**: Allocates EFA devices as secondary networks for pods running on EKS. Responsible for network traffic across P6e-GB200 UltraServers. For multi-node workloads, GPU-to-GPU traffic within an UltraServer can flow over multi-node NVLink. The EFA DRA driver is recommended for Kubernetes 1.34 and later and provides topology-aware allocation and device sharing. The EFA device plugin is supported for all Kubernetes versions. For more information, see [Manage EFA devices on Amazon EKS](device-management-efa.md "device-management-efa.md").
+- **NVIDIA Kubernetes device plugin**: Allocates GPUs as devices for pods running on EKS. It is recommended to use the NVIDIA Kubernetes device plugin until the NVIDIA DRA driver GPU allocation functionality graduates from experimental. See the [NVIDIA DRA driver releases](https://github.com/kubernetes-sigs/nvidia-dra-driver-gpu/releases "https://github.com/kubernetes-sigs/nvidia-dra-driver-gpu/releases") for updated information.
 - **NVIDIA DRA driver**: Enables ComputeDomain custom resources that facilitate creation of IMEX domains that follow workloads running on P6e-GB200 UltraServers.
   - The ComputeDomain resource describes an Internode Memory Exchange (IMEX) domain. When workloads with a ResourceClaim for a ComputeDomain are deployed to the cluster, the NVIDIA DRA driver automatically creates an IMEX DaemonSet that runs on matching nodes and establishes the IMEX channel(s) between the nodes before the workload is started. To learn more about IMEX, see [overview of NVIDIA IMEX for multi-node NVLink systems](https://docs.nvidia.com/multi-node-nvlink-systems/imex-guide/overview.html "https://docs.nvidia.com/multi-node-nvlink-systems/imex-guide/overview.html").
   - The NVIDIA DRA driver uses a clique ID label (`nvidia.com/gpu.clique`) applied by NVIDIA GFD that relays the knowledge of the network topology and NVLink domain.
@@ -59,11 +59,12 @@ The following section assumes you have an EKS cluster running Kubernetes version
 
 The following procedure uses the components below.
 
-| Name                | Version | Description                                                                                       |
-| ------------------- | ------- | ------------------------------------------------------------------------------------------------- |
-| NVIDIA GPU Operator | 25.3.4+ | For lifecycle management of required plugins such as NVIDIA Kubernetes device plugin and NFD/GFD. |
-| NVIDIA DRA Drivers  | 25.8.0+ | For ComputeDomain CRDs and IMEX domain management.                                                |
-| EFA Device Plugin   | 0.5.14+ | For cross-UltraServer communication.                                                              |
+| Name                    | Version | Description                                                                                           |
+| ----------------------- | ------- | ----------------------------------------------------------------------------------------------------- |
+| NVIDIA GPU Operator     | 25.3.4+ | For lifecycle management of required plugins such as NVIDIA Kubernetes device plugin and NFD/GFD.     |
+| NVIDIA DRA Drivers      | 25.8.0+ | For ComputeDomain CRDs and IMEX domain management.                                                    |
+| EFA DRA driver (DRANET) | Latest  | For cross-UltraServer communication with topology-aware allocation. Recommended for Kubernetes 1.34+. |
+| EFA Device Plugin       | 0.5.14+ | For cross-UltraServer communication. Supported for all Kubernetes versions.                           |
 
 ## Install NVIDIA GPU operator
 
@@ -175,9 +176,15 @@ compute-domain-daemon.nvidia.com
 compute-domain-default-channel.nvidia.com
 ```
 
-## Install the EFA device plugin
+## Install EFA for cross-UltraServer communication
 
-To use EFA communication between UltraServers, you must install the Kubernetes device plugin for EFA. P6e-GB200 instances can be configured with up to [17 network cards](../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md#efa-for-p6e "../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md#efa-for-p6e") and the primary NCI (index 0) must be of type `interface` and supports up to 100 Gbps of ENA bandwidth. Configure your EFA and ENA interfaces as per your requirements during node provisioning. Review the [EFA configuration for a P6e-GB200 instances AWS documentation](../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md#efa-for-p6e "../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md#efa-for-p6e") for more details on EFA configuration.
+To use EFA communication between UltraServers, install the EFA DRA driver (DRANET) or the EFA device plugin. P6e-GB200 instances can be configured with up to [17 network cards](../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md#efa-for-p6e "../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md#efa-for-p6e") and the primary NCI (index 0) must be of type `interface` and supports up to 100 Gbps of ENA bandwidth. Configure your EFA and ENA interfaces as per your requirements during node provisioning. Review the [EFA configuration for P6e-GB200 instances AWS documentation](../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md#efa-for-p6e "../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md#efa-for-p6e") for more details on EFA configuration.
+
+###### Important
+
+Do not install the EFA DRA driver and the EFA device plugin on the same node. The two mechanisms cannot coexist on the same node.
+
+### Option 1: Install the EFA DRA driver (DRANET)
 
 1. Create a Helm values file named `efa-values.yaml` with the following configuration.
 
@@ -188,7 +195,7 @@ tolerations:
     effect: NoSchedule
 ```
 
-2. Install the EFA device plugin for your cluster using the `efa-values.yaml` file you created in the previous step.
+2. Add the EKS Helm chart repository and install the EFA DRA driver.
 
 ```
 helm repo add eks https://aws.github.io/eks-charts
@@ -196,24 +203,80 @@ helm repo update
 ```
 
 ```
-helm install efa eks/aws-efa-k8s-device-plugin -n kube-system \
-  --version="0.5.14" \
-  -f efa-values.yaml
+helm install aws-dranet eks/aws-dranet --namespace kube-system -f efa-values.yaml
 ```
 
-As an example, if you configured your instances with 1 efa-only interface in each [NCI group](../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md#efa-for-p6e "../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md#efa-for-p6e"), when describing a node, it is expected to see 4 allocatable EFA devices per node.
+3. Verify that the DRANET DaemonSet is running.
 
 ```
-kubectl describe node/<gb200-node-name>
+kubectl get daemonset -n kube-system aws-dranet
 ```
 
 ```
-Capacity:
-  ...
-  vpc.amazonaws.com/efa:  4
-Allocatable:
-  ...
-  vpc.amazonaws.com/efa:  4
+NAME          DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+aws-dranet    2         2         2       2            2           <none>          60s
+```
+
+4. Verify that the `DeviceClass` and `ResourceSlice` objects are available.
+
+```
+kubectl get deviceclass efa.networking.k8s.aws
+```
+
+```
+NAME                    AGE
+efa.networking.k8s.aws  60s
+```
+
+```
+kubectl get resourceslices -l resource.k8s.io/driver=dra.net
+```
+
+For more information on using the EFA DRA driver, including topology-aware allocation and device sharing, see [Manage EFA devices on Amazon EKS](device-management-efa.md "device-management-efa.md").
+
+### Option 2: Install the EFA device plugin
+
+1. Create a Helm values file named `efa-values.yaml` with the following configuration.
+
+```
+tolerations:
+  - key: nvidia.com/gpu
+    operator: Exists
+    effect: NoSchedule
+```
+
+2. Add the EKS Helm chart repository and install the EFA device plugin.
+
+```
+helm repo add eks https://aws.github.io/eks-charts
+helm repo update
+```
+
+```
+helm install efa eks/aws-efa-k8s-device-plugin -n kube-system -f efa-values.yaml
+```
+
+3. Verify the EFA device plugin DaemonSet is running.
+
+```
+kubectl get daemonset -n kube-system aws-efa-k8s-device-plugin-daemonset
+```
+
+```
+NAME                                  DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+aws-efa-k8s-device-plugin-daemonset   2         2         2       2            2           <none>          60s
+```
+
+4. Verify that your nodes have allocatable EFA devices. As an example, if you configured your instances with 1 efa-only interface in each [NCI group](../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md#efa-for-p6e "../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md#efa-for-p6e"), it is expected to see 4 allocatable EFA devices per node.
+
+```
+kubectl get nodes "-o=custom-columns=NAME:.metadata.name,EFA:.status.allocatable.vpc\.amazonaws\.com/efa"
+```
+
+```
+NAME                                           EFA
+ip-192-168-11-225.us-west-2.compute.internal   4
+ip-192-168-24-96.us-west-2.compute.internal    4
 ```
 
 ## Validate IMEX over Multi-Node NVLink
@@ -226,9 +289,11 @@ For a multi-node NVLINK NCCL test and other micro-benchmarks review the [awesome
 kubectl create -f https://github.com/kubeflow/mpi-operator/releases/download/v0.7.0/mpi-operator.yaml
 ```
 
-2. Create a Helm values file named `nvbandwidth-test-job.yaml` that defines the test manifest. Note the `nvidia.com/gpu.clique` pod affinity to schedule the workers in the same NVLink domain which has Multi-Node NVLink reachability. The sample below runs a multi-node device-to-device CE Read memcpy test using cuMemcpyAsync and prints the results in the logs.
+2. Create a file named `nvbandwidth-test-job.yaml` that defines the test manifest. Note the `nvidia.com/gpu.clique` pod affinity to schedule the workers in the same NVLink domain which has Multi-Node NVLink reachability. The sample below runs a multi-node device-to-device CE Read memcpy test using cuMemcpyAsync and prints the results in the logs.
 
-As of NVIDIA DRA Driver version `v25.8.0` ComputeDomains are elastic and `.spec.numNodes` can be set to `0` in the ComputeDomain definition. Review the latest [NVIDIA DRA Driver release notes](https://github.com/NVIDIA/k8s-dra-driver-gpu "https://github.com/NVIDIA/k8s-dra-driver-gpu") for updates.
+As of NVIDIA DRA Driver version `v25.8.0` ComputeDomains are elastic and `.spec.numNodes` can be set to `0` in the ComputeDomain definition. Review the latest [NVIDIA DRA Driver release notes](https://github.com/kubernetes-sigs/nvidia-dra-driver-gpu/releases "https://github.com/kubernetes-sigs/nvidia-dra-driver-gpu/releases") for updates.
+
+There can be only one ComputeDomain (IMEX channel) per node. Do not change the `allocationMode` to `All` for the ComputeDomain resource, as it can prevent the ComputeDomain and Pods accessing that ComputeDomain from being allocated and scheduled correctly. For more information, see [NVIDIA DRA driver issue #353](https://github.com/kubernetes-sigs/dra-driver-nvidia-gpu/issues/353 "https://github.com/kubernetes-sigs/dra-driver-nvidia-gpu/issues/353").
 
 ```
 ---
@@ -340,17 +405,23 @@ spec:
             resourceClaimTemplateName: nvbandwidth-test-compute-domain-channel
 ```
 
-3. Create the ComputeDomain and start the job with the following command.
+- . Create the ComputeDomain and start the job with the following command.
+
+-
 
 ```
 kubectl apply -f nvbandwidth-test-job.yaml
 ```
 
-4. ComputeDomain creation, you can see the workload’s ComputeDomain has two nodes:
+- . ComputeDomain creation, you can see the workload’s ComputeDomain has two nodes:
+
+-
 
 ```
 kubectl get computedomains.resource.nvidia.com -o yaml
 ```
+
+-
 
 ```
 status:
@@ -364,13 +435,17 @@ status:
   status: Ready
 ```
 
-5. Review the results of the job with the following command.
+- . Review the results of the job with the following command.
+
+-
 
 ```
 kubectl logs --tail=-1 -l job-name=nvbandwidth-test-launcher
 ```
 
-A successful test shows bandwidth statistics in GB/s for the multi-node memcpy test. An example of a successful test output is shown below.
+- A successful test shows bandwidth statistics in GB/s for the multi-node memcpy test. An example of a successful test output is shown below.
+
+-
 
 ```
 ...
@@ -409,7 +484,9 @@ NOTE: The reported results may not reflect the full capabilities of the platform
 Performance can vary with software drivers, hardware clocks, and system topology.
 ```
 
-6. When the test is complete, delete it with the following command.
+- . When the test is complete, delete it with the following command.
+
+-
 
 ```
 kubectl delete -f nvbandwidth-test-job.yaml

@@ -19,7 +19,7 @@ If you want to use Amazon EKS CA for generating certificates on your clusters, y
 
 Client certificate signing is not supported.
 
-- Expiration/certificate lifetime: 1 year (default and maximum)
+- Expiration/certificate lifetime: 45 days (default and maximum)
 - CA bit allowed/disallowed: Not allowed
 
 ## Example CSR generation with signerName

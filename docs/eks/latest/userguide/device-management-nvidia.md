@@ -6,29 +6,30 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 NVIDIA GPUs are widely used for machine learning training, inference, and high-performance computing workloads. Amazon EKS supports two mechanisms for managing NVIDIA GPU devices in your EKS clusters: the _NVIDIA DRA driver for GPUs_ and the _NVIDIA Kubernetes device plugin_.
 
-It’s recommended to use the NVIDIA DRA driver for new deployments on clusters running Kubernetes version 1.34 or later. The NVIDIA DRA driver enables flexible GPU allocation and GPU sharing between containers. The NVIDIA device plugin remains supported.
+It’s recommended to use the NVIDIA DRA driver for new deployments on clusters running Kubernetes version 1.34 or later with EKS managed node groups or self-managed node groups. The NVIDIA DRA driver enables flexible GPU allocation and GPU sharing between containers.
+
+The NVIDIA DRA driver is not supported with Karpenter or EKS Auto Mode. Use the [NVIDIA device plugin](#nvidia-device-plugin "#nvidia-device-plugin") with Karpenter and EKS Auto Mode. The NVIDIA device plugin also remains supported for EKS managed node groups and self-managed nodes.
 
 ## NVIDIA DRA driver vs. NVIDIA device plugin
 
-| Capability                  | NVIDIA DRA driver                                                                                           | NVIDIA device plugin                                               |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Minimum Kubernetes version  | 1.34                                                                                                        | All EKS-supported Kubernetes versions                              |
-| Karpenter and EKS Auto Mode | Not supported                                                                                               | Supported                                                          |
-| EKS-optimized AMIs          | AL2023                                                                                                      | AL2023, Bottlerocket                                               |
-| Device advertisement        | Rich attributes via `ResourceSlice` objects including GPU model, memory, driver version, and topology       | Integer count of `nvidia.com/gpu` extended resources               |
-| GPU sharing                 | Multiple containers in the same Pod can share a GPU through shared `ResourceClaim` references               | Not supported. Each GPU is exclusively allocated to one container. |
-| ComputeDomains              | Manages Multi-Node NVLink (MNNVL) through `ComputeDomain` resources for secure multi-node GPU communication | Not supported                                                      |
-| Attribute-based selection   | Filter GPUs by model, memory, or other attributes using CEL expressions                                     | Not supported                                                      |
+| Capability                    | NVIDIA DRA driver                                                                                           | NVIDIA device plugin                                               |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Minimum Kubernetes version    | 1.34                                                                                                        | All EKS-supported Kubernetes versions                              |
+| EKS Compute                   | Managed node groups, self-managed nodes                                                                     | EKS Auto Mode, Karpenter, managed node groups, self-managed nodes  |
+| EKS-optimized AMIs            | AL2023 (NVIDIA)                                                                                             | AL2023 (NVIDIA), Bottlerocket                                      |
+| Device advertisement          | Rich attributes via `ResourceSlice` objects including GPU model, memory, driver version, and topology       | Integer count of `nvidia.com/gpu` extended resources               |
+| GPU sharing                   | Multiple containers in the same Pod can share a GPU through shared `ResourceClaim` references               | Not supported. Each GPU is exclusively allocated to one container. |
+| ComputeDomains                | Manages Multi-Node NVLink (MNNVL) through `ComputeDomain` resources for secure multi-node GPU communication | Not supported                                                      |
+| Attribute-based selection     | Filter GPUs by model, memory, or other attributes using CEL expressions                                     | Not supported                                                      |
+| Topology-aware EFA allocation | DRA-native topology-awareness                                                                               | Automatic topology-awareness (EKS-optimized AL2023 AMIs only)      |
 
 ## Install the NVIDIA DRA driver
 
 The NVIDIA DRA driver for GPUs manages two types of resources: GPUs and ComputeDomains. It runs two DRA kubelet plugins: `gpu-kubelet-plugin` and `compute-domain-kubelet-plugin`. Each can be enabled or disabled separately during installation. This guide focuses on GPU allocation. For using ComputeDomains, see [Use P6e-GB200 UltraServers with Amazon EKS](ml-eks-nvidia-ultraserver.md "ml-eks-nvidia-ultraserver.md").
 
-Using the NVIDIA DRA driver with Bottlerocket is not currently supported.
-
 ### Prerequisites
 
-- An Amazon EKS cluster running Kubernetes version 1.34 or later.
+- An Amazon EKS cluster running Kubernetes version 1.34 or later with EKS managed node groups or self-managed node groups.
 - Nodes with NVIDIA GPU instance types (such as `P` or `G` instances).
 - Nodes with host-level components installed for NVIDIA GPUs. When using the EKS-optimized AL2023 or Bottlerocket NVIDIA AMIs, the host-level NVIDIA driver, CUDA user mode driver, and container toolkit are pre-installed.
 - Helm installed in your command-line environment, see the [Setup Helm instructions](helm.md "helm.md") for more information.
@@ -39,6 +40,10 @@ Using the NVIDIA DRA driver with Bottlerocket is not currently supported.
 ###### Important
 
 When using the NVIDIA DRA driver for GPU device management, it cannot be deployed alongside the NVIDIA device plugin on the same node. See upstream Kubernetes [KEP-5004](https://github.com/kubernetes/enhancements/issues/5004 "https://github.com/kubernetes/enhancements/issues/5004") for updates.
+
+###### Important
+
+Using the NVIDIA DRA driver with Bottlerocket is not currently supported.
 
 1. Add the NVIDIA DRA driver Helm chart repository.
 
@@ -68,7 +73,7 @@ helm install nvidia-dra-driver-gpu nvidia/nvidia-dra-driver-gpu \
     --set 'gpuResourcesEnabledOverride=true'
 ```
 
-For advanced configuration options, see the [NVIDIA DRA driver Helm chart](https://github.com/NVIDIA/k8s-dra-driver-gpu/blob/main/deployments/helm/nvidia-dra-driver-gpu/values.yaml "https://github.com/NVIDIA/k8s-dra-driver-gpu/blob/main/deployments/helm/nvidia-dra-driver-gpu/values.yaml"). 5. Verify that the DRA driver pods are running.
+For advanced configuration options, see the [NVIDIA DRA driver Helm chart](https://github.com/kubernetes-sigs/nvidia-dra-driver-gpu/blob/main/deployments/helm/nvidia-dra-driver-gpu/values.yaml "https://github.com/kubernetes-sigs/nvidia-dra-driver-gpu/blob/main/deployments/helm/nvidia-dra-driver-gpu/values.yaml"). 5. Verify that the DRA driver pods are running.
 
 ```
 kubectl get pods -n nvidia-dra-driver-gpu
@@ -91,12 +96,8 @@ gpu.nvidia.com  60s
 kubectl get resourceslice
 ```
 
-### Request NVIDIA GPUs in a Pod
-
 To request NVIDIA GPUs using the DRA driver, create a `ResourceClaimTemplate` that references the `gpu.nvidia.com`
-`DeviceClass` and reference it in your Pod specification.
-
-The following example requests a single GPU:
+`DeviceClass` and reference it in your Pod specification. The following example requests a single GPU. See [Topology-aware EFA and GPU/Neuron device allocation](device-management-efa.md#efa-dra-topology-aware "device-management-efa.md#efa-dra-topology-aware") for steps to allocate NVIDIA GPUs with topology-aligned EFA interfaces.
 
 ```
 apiVersion: resource.k8s.io/v1
@@ -166,6 +167,31 @@ helm install nvdp nvdp/nvidia-device-plugin \
     --set gfd.enabled=true
 ```
 
+###### Disable MOFED on nodes with EFA devices
+
+Starting with `k8s-device-plugin` v0.19.0, the `--mofed-enabled` flag defaults to `true`. This causes the NVIDIA device plugin to mount all `/dev/infiniband/uverbs*` devices into containers requesting GPUs (`nvidia.com/gpu`). This conflicts with the AWS EFA device plugin, which manages mounting of the `uverbs` devices. Workloads requesting fewer than all EFA devices on a node are impacted because the NVIDIA device plugin claims all `uverbs` devices by default.
+
+If your nodes have EFA devices, explicitly disable MOFED when installing the NVIDIA device plugin:
+
+```
+helm upgrade --install nvdp nvdp/nvidia-device-plugin \
+    --namespace nvidia \
+    --create-namespace \
+    --set gfd.enabled=true \
+    --set mofedEnabled=false
+```
+
+If you manage the NVIDIA device plugin through the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator "https://github.com/NVIDIA/gpu-operator"), disable MOFED using the `devicePlugin.env` field:
+
+```
+helm upgrade --install gpu-operator nvidia/gpu-operator \
+    --namespace gpu-operator \
+    --set 'devicePlugin.env[0].name=MOFED_ENABLED' \
+    --set 'devicePlugin.env[0].value=false'
+```
+
+For more information, see [NVIDIA k8s-device-plugin issue #1692](https://github.com/NVIDIA/k8s-device-plugin/issues/1692 "https://github.com/NVIDIA/k8s-device-plugin/issues/1692").
+
 ###### Note
 
 You can also install and manage the NVIDIA Kubernetes device plugin using the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator "https://github.com/NVIDIA/gpu-operator"), which automates the management of all NVIDIA software components needed to provision GPUs. 4. Verify the NVIDIA device plugin DaemonSet is running.
@@ -195,7 +221,7 @@ ip-192-168-24-96.us-west-2.compute.internal    1
 
 ### Request NVIDIA GPUs in a Pod
 
-To request NVIDIA GPUs using the device plugin, specify the `nvidia.com/gpu` resource in your container resource limits.
+To request NVIDIA GPUs using the device plugin, specify the `nvidia.com/gpu` resource in your container resource requests and limits.
 
 ```
 apiVersion: v1
@@ -211,6 +237,8 @@ spec:
     args: ["nvidia-smi && tail -f /dev/null"]
     resources:
       limits:
+        nvidia.com/gpu: 1
+      requests:
         nvidia.com/gpu: 1
   tolerations:
   - key: "nvidia.com/gpu"

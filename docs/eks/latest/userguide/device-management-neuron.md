@@ -6,19 +6,22 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 AWS Trainium and AWS Inferentia are purpose-built machine learning chips designed by AWS. Amazon EKS supports two mechanisms for managing Neuron devices in EKS clusters: the _Neuron DRA driver_ and the _Neuron Kubernetes device plugin_.
 
-It’s recommended to use the Neuron DRA driver for new deployments on EKS clusters running Kubernetes version 1.34 or later. The Neuron DRA driver provides topology-aware allocation, connected device subset scheduling, Logical NeuronCore (LNC) configuration, and UltraServer multi-node allocation without requiring custom scheduler extensions. The Neuron device plugin remains supported.
+It’s recommended to use the Neuron DRA driver for new deployments on EKS clusters running Kubernetes version 1.34 or later with EKS managed node groups or self-managed node groups. The Neuron DRA driver provides topology-aware allocation, connected device subset scheduling, Logical NeuronCore (LNC) configuration, and UltraServer multi-node allocation without requiring custom scheduler extensions.
+
+The Neuron DRA driver is not supported with Karpenter or EKS Auto Mode. Use the [Neuron device plugin](#neuron-device-plugin "#neuron-device-plugin") with Karpenter and EKS Auto Mode. The Neuron device plugin also remains supported for EKS managed node groups and self-managed nodes.
 
 ## Neuron DRA driver vs. Neuron device plugin
 
-| Feature                     | Neuron DRA driver                                                                                                          | Neuron device plugin                                                                                                                                                                                                                                                                        |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Minimum Kubernetes version  | 1.34                                                                                                                       | All EKS-supported Kubernetes versions                                                                                                                                                                                                                                                       |
-| Karpenter and EKS Auto Mode | Not supported                                                                                                              | Supported                                                                                                                                                                                                                                                                                   |
-| EKS-optimized AMI support   | AL2023                                                                                                                     | AL2023, Bottlerocket                                                                                                                                                                                                                                                                        |
-| Device advertisement        | Rich attributes via `ResourceSlice` objects including device ID, instance type, topology, driver version, and EFA locality | Integer count of `aws.amazon.com/neuron` and `aws.amazon.com/neuroncore` extended resources                                                                                                                                                                                                 |
-| Connected device subsets    | Allocate subsets of 1, 4, 8, or 16 connected Neuron devices using topology constraints                                     | Requires the [Neuron scheduler extension](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-neuron-scheduler.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-neuron-scheduler.html") for contiguous device allocation |
-| LNC configuration           | Per-workload Logical NeuronCore configuration (LNC=1 or LNC=2) through `ResourceClaimTemplate` parameters                  | Requires pre-configuration in EC2 launch templates                                                                                                                                                                                                                                          |
-| Attribute-based selection   | Filter devices by instance type, driver version, and other attributes using CEL expressions                                | Not supported                                                                                                                                                                                                                                                                               |
+| Feature                       | Neuron DRA driver                                                                                                          | Neuron device plugin                                                                                                                                                                                                                                                                        |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Minimum Kubernetes version    | 1.34                                                                                                                       | All EKS-supported Kubernetes versions                                                                                                                                                                                                                                                       |
+| EKS Compute                   | Managed node groups, self-managed nodes                                                                                    | EKS Auto Mode, Karpenter, managed node groups, self-managed nodes                                                                                                                                                                                                                           |
+| EKS-optimized AMI support     | AL2023 (Neuron), Bottlerocket                                                                                              | AL2023 (Neuron), Bottlerocket                                                                                                                                                                                                                                                               |
+| Device advertisement          | Rich attributes via `ResourceSlice` objects including device ID, instance type, topology, driver version, and EFA locality | Integer count of `aws.amazon.com/neuron` and `aws.amazon.com/neuroncore` extended resources                                                                                                                                                                                                 |
+| Connected device subsets      | Allocate subsets of 1, 4, 8, or 16 connected Neuron devices using topology constraints                                     | Requires the [Neuron scheduler extension](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-neuron-scheduler.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-neuron-scheduler.html") for contiguous device allocation |
+| LNC configuration             | Per-workload Logical NeuronCore configuration (LNC=1 or LNC=2) through `ResourceClaimTemplate` parameters                  | Requires pre-configuration in EC2 launch templates                                                                                                                                                                                                                                          |
+| Attribute-based selection     | Filter devices by instance type, driver version, and other attributes using CEL expressions                                | Not supported                                                                                                                                                                                                                                                                               |
+| Topology-aware EFA allocation | DRA-native topology-awareness                                                                                              | Automatic topology-awareness (EKS-optimized AL2023 AMIs only)                                                                                                                                                                                                                               |
 
 ## Install the Neuron DRA driver
 
@@ -26,11 +29,9 @@ The Neuron DRA driver advertises Neuron devices as `ResourceSlice` objects with 
 
 Detailed information about the Neuron DRA driver is available in the [Neuron DRA documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/neuron-dra.html#neuron-dra-driver-attributes-reference "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/neuron-dra.html#neuron-dra-driver-attributes-reference").
 
-Using the Neuron DRA driver with Bottlerocket is not currently supported.
-
 ### Prerequisites
 
-- An Amazon EKS cluster running Kubernetes version 1.34 or later.
+- An Amazon EKS cluster running Kubernetes version 1.34 or later with EKS managed node groups or self-managed node groups.
 - Nodes with AWS Trainium or Inferentia2 instance types.
 - Helm installed in your command-line environment, see the [Setup Helm instructions](helm.md "helm.md") for more information.
 - `kubectl` configured to communicate with your cluster, see [Install or update kubectl](install-kubectl.md#kubectl-install-update "install-kubectl.md#kubectl-install-update") for more information.
@@ -151,7 +152,7 @@ spec:
         matchAttribute: "resource.aws.com/devicegroup4_id"
 ```
 
-The supported `matchAttribute` values for connected subsets are `resource.aws.com/devicegroup1_id`, `resource.aws.com/devicegroup4_id`, `resource.aws.com/devicegroup8_id`, and `resource.aws.com/devicegroup16_id`.
+The supported `matchAttribute` values for connected subsets are `resource.aws.com/devicegroup1_id`, `resource.aws.com/devicegroup4_id`, `resource.aws.com/devicegroup8_id`, and `resource.aws.com/devicegroup16_id`. The number in the `devicegroup` attribute name corresponds to the number of Neuron devices in the connected topology group. For example, `resource.aws.com/devicegroup1_id` identifies a single Neuron device, `resource.aws.com/devicegroup4_id` identifies a group of 4 connected devices, and `resource.aws.com/devicegroup8_id` and `resource.aws.com/devicegroup16_id` identify groups of 8 and 16 connected devices respectively. Choose the `matchAttribute` that matches the device `count` in your request so that the allocated devices belong to the same connected topology group. For more information on these attributes, see the [Neuron DRA driver documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/neuron-dra.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/neuron-dra.html").
 
 ### Configure Logical NeuronCores (LNC)
 
@@ -184,6 +185,10 @@ spec:
             kind: NeuronConfig
             logicalNeuronCore: 1
 ```
+
+### Allocate Neuron devices with aligned EFA interfaces
+
+See [Topology-aware EFA and GPU/Neuron device allocation](device-management-efa.md#efa-dra-topology-aware "device-management-efa.md#efa-dra-topology-aware")
 
 ## Install the Neuron Kubernetes device plugin
 
@@ -247,6 +252,8 @@ spec:
     args: ["-c", "neuron-ls"]
     resources:
       limits:
+        aws.amazon.com/neuron: 1
+      requests:
         aws.amazon.com/neuron: 1
   tolerations:
   - key: "aws.amazon.com/neuron"

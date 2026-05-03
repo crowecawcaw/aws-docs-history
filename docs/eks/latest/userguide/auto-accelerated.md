@@ -20,7 +20,7 @@ EKS Auto Mode includes the NVIDIA device plugin for Kubernetes. This plugin runs
 
 Additional networking support:
 
-- [Elastic Fabric Adapter (EFA)](https://aws.amazon.com/hpc/efa/ "https://aws.amazon.com/hpc/efa/")
+- [Elastic Fabric Adapter (EFA)](https://aws.amazon.com/hpc/efa/ "https://aws.amazon.com/hpc/efa/") — For information on managing EFA devices in your EKS cluster, see [Manage EFA devices on Amazon EKS](device-management-efa.md "device-management-efa.md").
   Amazon EKS Auto Mode eliminates the toil of accelerator driver and device plugin management.
 
 You can also benefit from cost savings by scaling the cluster to zero. You can configure EKS Auto Mode to terminate instances when no workloads are running. This is useful for batch based inference workloads.
