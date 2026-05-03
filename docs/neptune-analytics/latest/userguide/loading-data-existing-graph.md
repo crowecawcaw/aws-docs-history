@@ -62,6 +62,7 @@ aws neptune-graph start-import-task \
 --source <s3-path-to-data> \
 --format <data-format> \
 --role-arn <IAM-role-ARN> \
+[--parquet-type <parquet-type>] \
 [--fail-on-error | --no-fail-on-error]
 
 ```
@@ -70,9 +71,12 @@ aws neptune-graph start-import-task \
     * `source`: An Amazon S3 URI prefix. All object names with matching prefixes are loaded.
      See [Neptune loader request parameters](../../../neptune/latest/userguide/load-api-reference-load.md#load-api-reference-load-parameters "../../../neptune/latest/userguide/load-api-reference-load.md#load-api-reference-load-parameters") for Amazon S3 URI prefix examples.
     * `format`: The data format of the Amazon S3 data to be loaded, either `csv`,
-     `openCypher`, or `ntriples`. For more information, see
+     `openCypher`, `ntriples`, or `parquet`. For more information, see
      [Data formats](loading-data-formats.md "loading-data-formats.md").
     * `role-arn`: The ARN of the IAM role that Neptune Analytics can assume to access your Amazon S3 data.
+    * `parquet-type`: (Required if the format is `parquet`) The Parquet data type of the
+     import, with the only valid value being `COLUMNAR`. For more information, see
+     [Using Parquet data](using-Parquet-data.md "using-Parquet-data.md").
     * `(--no-)fail-on-error`: (Optional) Stops the import process early if an error occurs. By default,
      the system attempts to stop at the first error.
 

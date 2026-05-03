@@ -7,4 +7,5 @@ data into a graph from another Neptune database, Neptune database cluster snapsh
 
 - [Create an empty Neptune graph](gettingStarted-creating-a-graph.md "gettingStarted-creating-a-graph.md")
 - [Create a Neptune graph from existing sources](gettingStarted-existing-sources.md "gettingStarted-existing-sources.md")
+- [Quick start using AWS CloudShell](gettingStarted-cloudshell.md "gettingStarted-cloudshell.md")
 - [Connecting to a graph](gettingStarted-connecting.md "gettingStarted-connecting.md")
