@@ -1,7 +1,7 @@
 # GetAccountInformation
 
 Retrieves information about the specified account including its account name, account
-ID, and account creation date and time. To use this API, an IAM user or role must have
+ID, account creation date and time, and account state. To use this API, an IAM user or role must have
 the `account:GetAccountInformation` IAM permission.
 
 ## Request Syntax
@@ -64,7 +64,8 @@ Content-type: application/json
 {
    "AccountCreatedDate": "***string***",
    "AccountId": "***string***",
-   "AccountName": "***string***"
+   "AccountName": "***string***",
+   "AccountState": "***string***"
 }
 ```
 
@@ -112,6 +113,18 @@ Type: String
 Length Constraints: Minimum length of 1. Maximum length of 50.
 
 Pattern: `[ -;=?-~]+`
+
+**[AccountState](#API_GetAccountInformation_ResponseSyntax "#API_GetAccountInformation_ResponseSyntax")**
+
+The state of the account. Each account state represents a specific phase in the
+account lifecycle. Use this information to manage account access, automate workflows,
+or trigger actions based on account state changes.
+
+Valid values: `PENDING_ACTIVATION | ACTIVE | SUSPENDED | CLOSED`
+
+Type: String
+
+Valid Values: `PENDING_ACTIVATION | ACTIVE | SUSPENDED | CLOSED`
 
 ## Errors
 
@@ -193,7 +206,8 @@ Content-Type: application/json
 {
    "AccountId": "123456789012",
    "AccountName": "MyAccount",
-   "AccountCreatedDate": "2020-11-30T17:44:37Z"
+   "AccountCreatedDate": "2020-11-30T17:44:37Z",
+   "AccountState": "ACTIVE"
 }
 ```
 
@@ -224,7 +238,8 @@ Content-Type: application/json
 {
    "AccountId": "123456789012",
    "AccountName": "MyMemberAccount",
-   "AccountCreatedDate": "2020-11-30T17:44:37Z"
+   "AccountCreatedDate": "2020-11-30T17:44:37Z",
+   "AccountState": "ACTIVE"
 }
 ```
 
