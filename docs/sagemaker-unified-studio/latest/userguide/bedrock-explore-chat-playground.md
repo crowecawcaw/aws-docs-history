@@ -53,7 +53,7 @@ circle?`.
 8. Press Enter on your keyboard, or choose the run button, to send the prompt to the
    model. Amazon Bedrock in SageMaker Unified Studio shows the response from the model in the playground.
 
-![Run prompt in Amazon Bedrock in SageMaker Unified Studio chat playground.](/images/sagemaker-unified-studio/latest/userguide/images/bedrock/bedrock-ide-chat-playground-run-prompt.png) 9. Continue the chat by entering the prompt `Is there a museum
+![Run prompt in Amazon Bedrock in SageMaker Unified Studio chat playground.](images/bedrock/bedrock-ide-chat-playground-run-prompt.png) 9. Continue the chat by entering the prompt `Is there a museum
  there?` and pressing Enter.
 
 The response shows how the model uses the previous prompt as context for generating

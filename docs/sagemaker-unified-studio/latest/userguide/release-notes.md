@@ -2,6 +2,202 @@
 
 The following sections describe the feature releases for Amazon SageMaker Unified Studio.
 
+## April 2026
+
+### April 23, 2026
+
+**Amazon SageMaker supports notebooks and data agent for IdC domains**
+
+Amazon SageMaker Unified Studio now supports serverless notebooks with a built-in data agent for AWS IAM Identity Center (IdC) domains. Previously, the notebook experience and data agent were available only in IAM domains. With this launch, customers who use IdC for authentication and access management can access the high-performance, serverless notebook environment for analytics and machine learning (ML) workloads.
+
+The serverless notebook gives data engineers, analysts, and data scientists one place to perform SQL queries, execute Python code, process large-scale data jobs, run ML workloads, and create visualizations. A built-in AI data agent accelerates development by generating code and SQL statements from natural language prompts and guides users through their tasks. Customers can flexibly combine SQL, Python, and natural language within a single interactive workspace, removing the need to switch between different tools based on the workload. For example, you can start with SQL queries to explore your data, use Python for advanced analytics or to build ML models, or use natural language prompts to generate code automatically. The notebook is backed by Amazon Athena for Apache Spark, scaling from interactive SQL queries to petabyte-scale data processing.
+
+For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-sagemaker-idc/ "https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-sagemaker-idc/").
+
+**Amazon SageMaker Unified Studio now supports VPC for notebook kernels**
+
+Amazon SageMaker Unified Studio now supports Amazon Virtual Private Cloud (Amazon VPC) for notebook kernels. With this launch, notebook kernels execute within the VPC configured at the domain level, giving enterprises network isolation for interactive data and machine learning (ML) workloads. This helps customers meet security and compliance requirements by keeping applicable notebook compute traffic within their VPC boundaries.
+
+With VPC support for notebook kernels, data engineers, analysts, and data scientists can connect to private resources from their notebooks. The notebook kernel inherits the VPC settings, subnets, and security groups defined at the SageMaker Unified Studio domain level, so administrators can manage network policies centrally. This means you can query private databases, access internal APIs, and work with data sources that are not publicly accessible, all from the same notebook environment that supports SQL, Python, and natural language through the built-in data agent. This VPC configuration only applies to the notebook's interactive compute, where your Python code and dataframes execute. For VPC configurations with other compute engines, refer to the documentation for each individual engine.
+
+For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/04/sagemaker-unified-studio-vpc/ "https://aws.amazon.com/about-aws/whats-new/2026/04/sagemaker-unified-studio-vpc/").
+
+**Amazon SageMaker Unified Studio now offers CI/CD CLI for data and AI applications**
+
+Amazon SageMaker Unified Studio now offers the CI/CD CLI (aws-smus-cicd-cli), an open-source command line tool that automates deployment of multi-service data and AI applications across development, test, and production. Organizations building applications in SageMaker Unified Studio combine multiple AWS services, including AWS Glue, Amazon Athena, Amazon MWAA, Amazon SageMaker AI, Amazon Bedrock, and Amazon QuickSight, into single applications. The CLI allows data teams to define applications once in a YAML manifest while DevOps teams deploy with a single command, reducing deployment bottlenecks and configuration drift.
+
+The CLI reads a declarative manifest.yaml that maps each pipeline stage to an isolated SageMaker Unified Studio project. At deploy time, it substitutes stage-specific configurations (S3 paths, IAM roles, account IDs, and connection strings) and provisions resources in dependency order. Four commands cover the lifecycle: describe validates permissions and connections, bundle packages an immutable artifact from the source target, deploy writes that artifact to the destination target, and test runs post-deployment validation. It works with existing CI/CD solutions such as GitHub Actions, Jenkins, and GitLab CI. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-smus-ci-cd-cli/ "https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-smus-ci-cd-cli/").
+
+### April 22, 2026
+
+**Amazon SageMaker Unified Studio now supports multiple code spaces within projects for IAM domains**
+
+Amazon SageMaker Unified Studio now lets data workers create and manage multiple code spaces (individually configured development environments) within a single project for IAM domains. Previously, projects were limited to one JupyterLab space and one Code Editor space embedded in the project. With this launch, you can now parallelly work on different workstreams or experiments with different compute and storage configuration needs, giving developers the flexibility they need as their workloads scale. For instance, data scientists can now work in parallel on any long running data transformation and model training workloads within the same project using separate spaces.
+
+With multiple spaces, each one maintains its own persistent Amazon EBS volume, ensuring that your files, data, and session state are preserved independently. You can scale compute and storage up or down per space, pause and resume them at any time, and customize the runtime environment for each specific task. Spaces can either be opened in dedicated browser tabs or connected to a local IDE if you prefer your own development environment, with full functionality including Amazon Q paid tier support. This is particularly beneficial for builders who need isolated environments for parallel workstreams while still working within a single collaborative project. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/04/sagemaker-code-spaces/ "https://aws.amazon.com/about-aws/whats-new/2026/04/sagemaker-code-spaces/").
+
+### April 21, 2026
+
+**Amazon SageMaker now supports multi-region replication from IAM Identity Center**
+
+Amazon SageMaker now supports multi-region replication from IAM Identity Center (IdC), enabling you to deploy SageMaker Unified Studio domains in different regions from your IdC instance. This new capability empowers enterprise customers, particularly those in regulated industries like financial services and healthcare, to maintain compliance while leveraging centralized workforce identity management.
+
+As an Amazon SageMaker Unified Studio administrator, you can deploy SageMaker domains closer to your workforce based on data residency needs while maintaining seamless single sign-on (SSO) access. Organizations can address use cases such as maintaining IdC in one region while processing sensitive data in compliance-required regions, supporting global operations with centralized identity management, and meeting data sovereignty requirements without compromising SSO capabilities. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/04/smus-identity-center/ "https://aws.amazon.com/about-aws/whats-new/2026/04/smus-identity-center/").
+
+### April 7, 2026
+
+**Amazon SageMaker adds serverless workflows to Identity Center domains**
+
+Amazon SageMaker Unified Studio now supports Serverless Workflows in Identity Center domains. With this launch, customers using Identity Center domains can orchestrate data processing tasks with Apache Airflow (powered by Managed Workflows for Apache Airflow ) without provisioning or managing Airflow infrastructure. Serverless Workflows were previously available only in IAM-based domains.
+
+Serverless Workflows automatically provision compute resources when a workflow runs and release them when it completes, so you only pay for actual workflow run time. Each workflow runs with its own execution role and isolated worker, providing workflow-level security and preventing cross-workflow interference. With Serverless Workflows, Identity Center domain customers also get access to the Visual Workflow experience with support for around 200 operators, including built-in integration with AWS services such as Amazon S3, Amazon Redshift, Amazon EMR, AWS Glue, and Amazon SageMaker AI.
+
+For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-sagemaker-serverless-workflows/ "https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-sagemaker-serverless-workflows/").
+
+### April 6, 2026
+
+**Amazon SageMaker Unified Studio adds notebook import/export and developer acceleration features**
+
+Amazon SageMaker Unified Studio notebooks now support import/export capabilities, enabling migration from JupyterLab and other notebook platforms. This release also introduces developer acceleration features including cell reordering, keyboard shortcuts, cell renaming, and multi-line SQL support, designed to enhance productivity for data engineers and data scientists professionals working with notebook-based workflows.
+
+The new import/export functionality supports .ipynb, .json, and .py formats while preserving cell types, metadata, and outputs, making platform migration straightforward. You can export notebooks in four formats including Jupyter notebook with requirements (.zip), standard .ipynb, Python scripts (.py), and SageMaker Unified Studio native format (.json). Developer acceleration features enable you to reorder cells without copy-paste duplication, assign custom names to cells for improved navigation in large notebooks, use familiar keyboard shortcuts for faster development, and execute multiple SQL statements in a single cell with results displayed in separate tabs for easy comparison and analysis. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-sagemaker-unified-studio/ "https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-sagemaker-unified-studio/").
+
+### April 3, 2026
+
+**Amazon SageMaker Data Agent introduces charting capabilities and support for materialized views**
+
+Amazon SageMaker Data Agent now supports interactive charting, SQL analytics on Snowflake data sources, and materialized view management in Amazon SageMaker Unified Studio notebooks. Data Agent now provides a complete analytics workflow that goes beyond code generation, enabling you to explore AWS and external data sources, visualize results, and optimize query performance, all with natural language prompts.
+
+You can ask "plot monthly revenue trends by region for 2025" and Data Agent generates an interactive chart directly in your notebook, where you can hover over data points, and modify without writing code. When your analysis spans AWS and Snowflake, you can query Snowflake tables through external connections and join them with your AWS Glue Data Catalog data in a single prompt. Additionally, you can ask "analyze my notebook and suggest which queries would benefit from materialized views" and the agent recommends optimizations based on your query patterns, creates the views, and sets refresh schedules. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sgmkr-dataagent-chart-mv/ "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sgmkr-dataagent-chart-mv/").
+
+### April 1, 2026
+
+**Amazon SageMaker Data Agent now supports geo-specific inference for Japan and Australia**
+
+Amazon SageMaker Data Agent now supports cross-region inference profiles for Japan and Australia through Amazon Bedrock. With this update, inference requests from Data Agent in the Asia Pacific (Tokyo) and Asia Pacific (Sydney) regions are processed within their respective geographies, supporting data sovereignty requirements for customers in Japan and Australia.
+
+Data Agent provides an AI-powered conversational experience for data exploration, Python and SQL code generation, troubleshooting, and analytics directly within Amazon SageMaker Unified Studio Notebook and Query Editor. With geo-specific inference through JP-CRIS (Japan Cross-Region Inference) and AU-CRIS (Australia Cross-Region Inference), you can use Data Agent with confidence that your inference requests are routed exclusively within your geography over the AWS Global Network. Customers in regulated industries such as financial services, healthcare, and the public sector can meet data residency requirements while using the full set of Data Agent capabilities. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/03/sage-maker-da-infr-jp-au/ "https://aws.amazon.com/about-aws/whats-new/2026/03/sage-maker-da-infr-jp-au/").
+
+## March 2026
+
+### March 31, 2026
+
+**Amazon SageMaker Unified Studio adds Observability for AWS Glue jobs via CloudWatch metrics**
+
+Amazon SageMaker Unified Studio adds Observability for jobs, it now displays Amazon CloudWatch metrics for AWS Glue jobs directly alongside job logs in a single, unified interface. This enhancement adds observability to SageMaker Unified Studio, enabling data engineers and ETL developers to streamline their troubleshooting processes.
+
+With this feature, teams can diagnose performance issues faster by correlating resource utilization patterns—including DPU utilization, memory consumption, CPU load, and data movement size—directly with job log output. Specific use cases include identifying compute bottlenecks, detecting memory pressure or out-of-memory conditions, optimizing resource allocation, and monitoring data pipeline performance at scale. By consolidating metrics and logs into one workspace, organizations can significantly reduce mean time to resolution (MTTR) for ETL pipeline issues and improve overall operational efficiency. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/03/sagemaker-unified-studio-metrics/ "https://aws.amazon.com/about-aws/whats-new/2026/03/sagemaker-unified-studio-metrics/").
+
+### March 30, 2026
+
+**Amazon SageMaker Data Agent is now available in the Amazon SageMaker Unified Studio Query Editor**
+
+Amazon SageMaker Data Agent is now available in the Query Editor in Amazon SageMaker Unified Studio, extending beyond notebook experience. With Data Agent in Query Editor, you can generate SQL queries from natural language, debug failed queries, and explore your data through a conversational, interactive experience.
+
+Data Agent brings the same conversational experience available in notebooks to your SQL analytics workflow. You can ask "calculate quarterly revenue growth rate by product category for 2025," and the agent proposes a step-by-step plan for you to review before generating contextually accurate SQL for Amazon Redshift and Amazon Athena. This helps you build analytics queries faster, going from question to executable SQL without writing complex joins and aggregations manually. When a query fails, you can use Fix with AI to analyze the error and get suggested corrections. Data Agent maintains awareness of your connected data sources and schema information, so follow-up questions and modifications build on your previous context. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-data-agent-query-editor/ "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-data-agent-query-editor/").
+
+### March 25, 2026
+
+**Amazon SageMaker Unified Studio launches support for remote connection from Cursor IDE**
+
+Today, AWS announces remote connection from Cursor IDE to Amazon SageMaker Unified Studio via the AWS Toolkit extension. This new capability allows data scientists, ML engineers, and developers to leverage their Cursor setup - including its AI-powered code completion, natural language editing, and multi-file editing capabilities - while accessing the scalable compute resources of Amazon SageMaker. By connecting Cursor to SageMaker Unified Studio using the AWS Toolkit extension, you can eliminate context switching between your local IDE and cloud infrastructure, maintaining your existing AI-assisted development workflows within a single environment for all your AWS analytics and AI/ML services. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/03/sagemaker-unified-studio-cursor-ide/ "https://aws.amazon.com/about-aws/whats-new/2026/03/sagemaker-unified-studio-cursor-ide/").
+
+### March 18, 2026
+
+**Amazon SageMaker Unified Studio adds custom metadata filters**
+
+Amazon SageMaker Unified Studio adds custom metadata search filters, enabling customers to narrow catalog search results using organization-specific attributes. This helps customers find the right assets faster by filtering on fields like business region, data classification, or study name, in addition to existing keyword and semantic search.
+
+With custom metadata search filters, customers can add filters based on any custom metadata fields available in their catalog, such as sample type or study ID. Filters support string fields with a "contains" operator and numeric fields (Integer, Long) with equals, greater than, and less than operators. Customers can also filter by asset name, description, and date range. Multiple filters can be combined, and filter selections persist across browser sessions.
+
+For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-smus-custom-metadata-search/ "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-smus-custom-metadata-search/").
+
+### March 17, 2026
+
+**Amazon SageMaker Unified Studio supports aggregated view of data lineage**
+
+Amazon SageMaker Unified Studio now provides an aggregated view of data lineage, displaying all jobs contributing to your dataset. The aggregated view gives you a complete picture of data transformations and dependencies across your entire lineage graph, helping you quickly identify all upstream sources and downstream consumers of your datasets.
+
+Previously, SageMaker Unified Studio showed the lineage graph as it existed at a specific point in time, which is useful for troubleshooting and investigating specific data processing events. The aggregated view now provides a complete picture of data transformations and dependencies across multiple levels of the lineage graph. You can use this view to understand the full scope of jobs impacting your datasets and to identify all upstream sources and downstream consumers.
+
+The aggregated view is available as the default lineage view in Amazon SageMaker Unified Studio for IdC-based domains. You can switch to the previous view by toggling the "display in event timestamp order" option. You can also query the lineage graph using the new QueryGraph API, which provides lineage node graphs with metadata and augmented business context.
+
+For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-unified-studio-aggregated-lineage/ "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-unified-studio-aggregated-lineage/").
+
+### March 9, 2026
+
+**Amazon SageMaker Unified Studio now supports faster data preview in Visual ETL**
+
+Amazon SageMaker Unified Studio introduces data preview v2.0 for Visual ETL, a new data preview mode that delivers near-instant results when building and iterating on visual ETL jobs. With data preview v2.0, data engineers and analysts can see the output of each transform in about one second, with no session startup required and at no additional compute cost.
+
+Data preview v2.0 uses an in-browser query engine to load and process data locally, removing the dependency on server-side Spark sessions for preview operations. Source data is fetched once and cached in the browser, so subsequent transforms apply instantly without re-querying the underlying data source. For Amazon Redshift users, this means you can iterate on transforms without additional queries against your Redshift cluster, keeping your preview workflow fast and your cluster resources focused on production workloads. Data preview v2.0 supports CSV, Parquet, and JSON files from Amazon S3, in addition to data from Amazon Redshift, Amazon S3 Tables, AWS Glue Data Catalog, and third-party sources including Snowflake, MySQL, PostgreSQL, SQL Server, Oracle, Google BigQuery, Amazon DynamoDB, and Amazon DocumentDB. A toggle in the Visual ETL editor gives you the option to switch between data preview v2.0 and the original Spark-based preview at any time. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-unified-studio-faster-data-preview/ "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-unified-studio-faster-data-preview/").
+
+### March 5, 2026
+
+**Amazon SageMaker Unified Studio adds light mode support for IAM-based domains**
+
+Today, AWS announces light mode support in Amazon SageMaker Unified Studio for IAM-based domains. Customers can now configure the visual interface mode to match their preference, choosing between dark and light themes.
+
+Light mode helps improve readability in bright environments and provides a familiar visual experience for customers who prefer lighter interfaces. Combined with the existing dark mode, this update gives you full control over your development environment's appearance, improving accessibility and reducing eye strain across varying lighting conditions. In SageMaker Unified Studio settings, you can click on 'customize appearance' under your Profile settings to choose between visual modes including dark and light. The setting persists across browsers and devices. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/03/sagemaker-unified-studio-light-mode/ "https://aws.amazon.com/about-aws/whats-new/2026/03/sagemaker-unified-studio-light-mode/").
+
+### March 3, 2026
+
+**Amazon SageMaker Unified Studio adds metadata sync with third-party catalogs**
+
+Amazon SageMaker Unified Studio now supports metadata and context sync across Atlan, Collibra, and Alation. These integrations synchronize catalog metadata between Amazon SageMaker Catalog and each partner platform, giving teams a consistent view of their data and AI assets regardless of which tool they use day to day. Organizations can maintain aligned glossary terms, asset descriptions, and ownership information across platforms without manual reconciliation.
+
+All three integrations synchronize key metadata elements including projects, assets, descriptions, glossary terms, and their hierarchies. With the Collibra integration, you can synchronize metadata in both directions between SageMaker Catalog and the partner platform, so updates you make in one are reflected in the other. Also, you can manage SageMaker Unified Studio data access requests from Collibra. With the Atlan and Alation integration, you can ingest metadata from SageMaker Catalog into Alation with additional enhancements coming soon. You set up these integrations by setting up a connection to SageMaker Unified Studio from within Atlan and Alation, while the Collibra integration is available as an open-source solution on GitHub. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-unified-studio-3p-catalogs/ "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-unified-studio-3p-catalogs/").
+
+**Amazon SageMaker Unified Studio now supports AWS Glue 5.1 for data processing jobs**
+
+Amazon SageMaker Unified Studio now supports AWS Glue 5.1 for Visual ETL, notebook, and code-based data processing jobs. With AWS Glue 5.1 in Amazon SageMaker Unified Studio, data engineers and data scientists can run jobs on Apache Spark 3.5.6 with Python 3.11 and Scala 2.12.18, and use updated open table format libraries including Apache Iceberg 1.10.0, Apache Hudi 1.0.2, and Delta Lake 3.3.2.
+
+You can use AWS Glue 5.1 in Amazon SageMaker Unified Studio when creating data processing jobs by selecting Glue 5.1 from the version dropdown in job settings. This applies to Visual ETL jobs, notebook jobs, and code-based jobs, so you can take advantage of the latest Spark runtime and open table format libraries across all your data processing workflows.
+
+For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-unified-studio-aws-glue-5-1/ "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-unified-studio-aws-glue-5-1/").
+
+**Amazon SageMaker Unified Studio launches support for remote connection from Kiro IDE**
+
+Today, AWS announces the ability to remotely connect from Kiro IDE to Amazon SageMaker Unified Studio. This new capability allows data scientists, ML engineers, and developers to leverage their Kiro setup - including its spec-driven development, conversational coding, and automated feature generation capabilities - while accessing the scalable compute resources of Amazon SageMaker. By connecting Kiro to SageMaker Unified Studio using the AWS toolkit extension, you can eliminate context switching between your local IDE and cloud infrastructure, maintaining your existing agentic development workflows within a single environment for all your AWS analytics and AI/ML services. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-unified-studio-kiro-ide/ "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-unified-studio-kiro-ide/").
+
+## February 2026
+
+### February 4, 2026
+
+**Apache Spark lineage now available in Amazon SageMaker Unified Studio for IDC based domains**
+
+Amazon SageMaker announces general availability of Data Lineage for Apache Spark jobs executed on Amazon EMR and AWS Glue in SageMaker Unified Studio for IDC based domains. Data Lineage provides you with the information you need to identify the root cause of complex issues and understand the impact of changes.
+
+This feature supports lineage capture of schema and transformations of data assets and columns from Spark executions in EMR-EC2, EMR-Serverless, EMR-EKS, and AWS Glue. You can then explore this lineage visually as a graph in SageMaker Unified Studio or query it using APIs. You can also use lineage to compare transformations across Spark job's history.
+
+For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/02/apache-spark-lineage-amazon-sageMaker-unified-studio "https://aws.amazon.com/about-aws/whats-new/2026/02/apache-spark-lineage-amazon-sageMaker-unified-studio").
+
+## January 2026
+
+### January 30, 2026
+
+**Amazon SageMaker Unified Studio now supports AWS PrivateLink**
+
+Today, Amazon SageMaker announced a new capability allowing you to establish connectivity between your Amazon Virtual Private Cloud (VPC) and Amazon SageMaker Unified Studio without customer data traffic going through the public internet. Customers needing to go beyond the standard data transfer protocol (HTTPS/TLS2) can choose to configure their VPC so data transfer stays within the AWS network.
+
+Through AWS PrivateLink , Network Administrators can now onboard AWS service endpoints to their VPC used by Amazon SageMaker Unified Studio. With the endpoints are onboarded, IAM policies used by Amazon SageMaker will enforce that customer data stay within the AWS network. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-sagemaker-unified-studio-aws-privatelink/ "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-sagemaker-unified-studio-aws-privatelink/").
+
+### January 20, 2026
+
+**SageMaker Unified Studio adds cross-Region subscriptions support for IDC based domains**
+
+Amazon SageMaker Unified Studio now supports cross-Region subscriptions for comprehensive and flexible data access and governance. With cross-Region support, you can subscribe to AWS Glue tables and views, as well as Amazon Redshift tables and views published in a different AWS Region than your project. This capability helps break down data silos and enable better collaboration across your organization by allowing teams to access curated data assets from any AWS Region without manual replication. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2026/01/sagemaker-unified-studio-adds-cross-region-iam/ "https://aws.amazon.com/about-aws/whats-new/2026/01/sagemaker-unified-studio-adds-cross-region-iam/").
+
+## December 2025
+
+### December 2, 2025
+
+**Amazon SageMaker Catalog now exports asset metadata as queryable dataset**
+
+Amazon SageMaker Catalog now exports asset metadata as an Apache Iceberg table through Amazon S3 Tables. This allows data teams to query catalog inventory and answer questions such as, "How many assets were registered last month?", "Which assets are classified as confidential?", or "Which assets lack business descriptions?" using standard SQL without building custom ETL infrastructure for reporting.
+
+This capability automatically converts catalog asset metadata into a queryable table accessible from Amazon Athena, SageMaker Unified Studio notebooks, AI agents, and other analytics and BI tools. The exported table includes technical metadata (such as resource_id, resource_type), business metadata (such as asset_name, business_description), ownership details, and timestamps. Data is partitioned by snapshot_date for time travel queries and automatically appears in SageMaker Unified Studio under the aws-sagemaker-catalog bucket. For more information, see [What's New Post](https://aws.amazon.com/about-aws/whats-new/2025/12/sagemaker-catalog-asset-metadata-queryable-dataset/ "https://aws.amazon.com/about-aws/whats-new/2025/12/sagemaker-catalog-asset-metadata-queryable-dataset/").
+
 ## November 2025
 
 ### November 21, 2025

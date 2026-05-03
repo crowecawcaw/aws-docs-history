@@ -62,21 +62,21 @@ scheduling enabled in the Tooling blueprint parameters.
 
 ![The Create schedule button in the top-right toolbar of the query editor.](images/sql-analytics/sql-create-schedule-toolbar.png)
 
-300. Under **Schedule name**, enter a name
+317. Under **Schedule name**, enter a name
      for the schedule.
-301. Under **Schedule status**, choose
+318. Under **Schedule status**, choose
      **Active** (starts running immediately) or
      **Paused** (created but does not run until you
      activate it).
-302. (Optional) Enter a description.
-303. Choose a schedule type:
+319. (Optional) Enter a description.
+320. Choose a schedule type:
      **One-time** (runs once at a specific date and time)
      or **Recurring** (runs on a repeating
      schedule).
-304. Set the days and times for the schedule to run. You can use a
+321. Set the days and times for the schedule to run. You can use a
      rate-based expression (for example, every 1 hour) or a cron expression for more
      complex schedules.
-305. Choose **Create schedule**.
+322. Choose **Create schedule**.
 
 ![The schedule creation form with options for name, status, type, and timing.](images/sql-analytics/sql-create-schedule.png)
 
