@@ -6,39 +6,39 @@ Amazon FSx for OpenZFS is available in the following AWS Regions, with deploymen
 | -------------------------- | ---------------------------- | ---------------------------- | ------------------------ | ------------------------ | --------------------- | ------------------------------------- |
 | US East (N. Virginia)\*    | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
 | US East (Ohio)             | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
-| US West (N. California)    | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
+| US West (N. California)    | ✓                            | ✓                            | ✓                        | ✓                        | ✓                     |                                       |
 | US West (Oregon)\*         | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
-| AWS GovCloud (US-West)     | ✓                            |                              |                          |                          | ✓                     |                                       |
-| AWS GovCloud (US-East)     | ✓                            |                              |                          |                          | ✓                     |                                       |
+| AWS GovCloud (US-West)     | ✓                            | ✓                            |                          | ✓                        | ✓                     |                                       |
+| AWS GovCloud (US-East)     | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | Asia Pacific (Hong Kong)   | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | Asia Pacific (Tokyo)       | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
-| Asia Pacific (Seoul)       | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
-| Asia Pacific (Osaka)       | ✓                            |                              |                          |                          | ✓                     |                                       |
+| Asia Pacific (Seoul)       | ✓                            | ✓                            | ✓                        | ✓                        | ✓                     |                                       |
+| Asia Pacific (Osaka)       | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | Asia Pacific (Singapore)\* | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
 | Asia Pacific (Sydney)      | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
-| Asia Pacific (Jakarta)     | ✓                            |                              |                          |                          | ✓                     |                                       |
+| Asia Pacific (Jakarta)     | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | Asia Pacific (Melbourne)   | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
-| Asia Pacific (Malaysia)    | ✓                            |                              |                          |                          | ✓                     |                                       |
+| Asia Pacific (Malaysia)    | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | Asia Pacific (Mumbai)      | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
-| Asia Pacific (Hyderabad)   | ✓                            |                              |                          |                          | ✓                     |                                       |
-| Asia Pacific (Taipei)      | ✓                            |                              |                          |                          | ✓                     |                                       |
-| Asia Pacific (Thailand)    | ✓                            |                              |                          |                          | ✓                     |                                       |
+| Asia Pacific (Hyderabad)   | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
+| Asia Pacific (Taipei)      | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
+| Asia Pacific (Thailand)    | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | Canada (Central)\*         | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
-| Canada West (Calgary)\*    | ✓                            |                              |                          |                          | ✓                     |                                       |
-| Europe (Milan)             | ✓                            |                              |                          |                          | ✓                     |                                       |
-| Europe (Spain)             | ✓                            |                              |                          |                          | ✓                     |                                       |
+| Canada West (Calgary)\*    | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
+| Europe (Milan)             | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
+| Europe (Spain)             | ✓                            | ✓                            |                          | ✓                        | ✓                     |                                       |
 | Europe (Frankfurt)         | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
-| Europe (Zurich)            | ✓                            |                              |                          |                          | ✓                     |                                       |
+| Europe (Zurich)            | ✓                            | ✓                            |                          | ✓                        | ✓                     |                                       |
 | Europe (Ireland)           | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
 | Europe (London)            | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
-| Europe (Paris)             | ✓                            |                              |                          |                          | ✓                     |                                       |
-| Europe (Stockholm)         | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
-| Mexico (Central)           | ✓                            |                              |                          |                          | ✓                     |                                       |
+| Europe (Paris)             | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
+| Europe (Stockholm)         | ✓                            | ✓                            | ✓                        | ✓                        | ✓                     |                                       |
+| Mexico (Central)           | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | Middle East (UAE)          | ✓                            |                              |                          |                          | ✓                     |                                       |
 | Middle East (Bahrain)      | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
-| South America (São Paulo)  | ✓                            |                              |                          |                          | ✓                     |                                       |
-| Israel (Tel Aviv)          | ✓                            |                              |                          |                          | ✓                     |                                       |
-| Africa (Cape Town)         | ✓                            |                              |                          |                          | ✓                     |                                       |
+| South America (São Paulo)  | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
+| Israel (Tel Aviv)          | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
+| Africa (Cape Town)         | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 
 ###### Note
 
