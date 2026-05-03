@@ -66,8 +66,7 @@ cleanup() {
     log "- Key Pair: $KEY_NAME (File: $KEY_FILE)"
   fi
 
-  read -p "Do you want to delete these resources? (y/n): " -n 1 -r
-  echo
+  REPLY=y
 
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     log "Starting cleanup..."
@@ -177,6 +176,7 @@ log "Creating security group..."
 SECURITY_GROUP_ID=$(aws ec2 create-security-group \
   --group-name "$SG_NAME" \
   --description "Security group for EC2 tutorial" \
+  --tag-specifications 'ResourceType=security-group,Tags=[{Key=project,Value=doc-smith},{Key=tutorial,Value=ec2-basics}]' \
   --query "GroupId" \
   --output text)
 
@@ -246,6 +246,7 @@ INSTANCE_ID=$(aws ec2 run-instances \
   --security-group-ids "$SECURITY_GROUP_ID" \
   --metadata-options "HttpTokens=required,HttpEndpoint=enabled" \
   --block-device-mappings "DeviceName=/dev/xvda,Ebs={Encrypted=true}" \
+  --tag-specifications 'ResourceType=instance,Tags=[{Key=project,Value=doc-smith},{Key=tutorial,Value=ec2-basics}]' 'ResourceType=volume,Tags=[{Key=project,Value=doc-smith},{Key=tutorial,Value=ec2-basics}]' \
   --count 1 \
   --query 'Instances[0].InstanceId' \
   --output text)
@@ -284,7 +285,7 @@ log "Instance public IP: $PUBLIC_IP"
 log "To connect to your instance, run: ssh -i $KEY_FILE ec2-user@$PUBLIC_IP"
 
 # Pause to allow user to connect if desired
-read -p "Press Enter to continue to the next step (stopping and starting the instance)..."
+sleep 2
 
 # Step 6: Stop and Start the Instance
 log "Stopping instance $INSTANCE_ID..."
@@ -328,6 +329,7 @@ log "To connect to your instance, run: ssh -i $KEY_FILE ec2-user@$NEW_PUBLIC_IP"
 log "Allocating Elastic IP address..."
 ALLOCATION_RESULT=$(aws ec2 allocate-address \
   --domain vpc \
+  --tag-specifications 'ResourceType=elastic-ip,Tags=[{Key=project,Value=doc-smith},{Key=tutorial,Value=ec2-basics}]' \
   --query '[PublicIp,AllocationId]' \
   --output text)
 
@@ -355,7 +357,7 @@ log "Associated Elastic IP with instance. Association ID: $ASSOCIATION_ID"
 log "To connect to your instance using the Elastic IP, run: ssh -i $KEY_FILE ec2-user@$ELASTIC_IP"
 
 # Pause to allow user to connect if desired
-read -p "Press Enter to continue to the next step (testing Elastic IP persistence)..."
+sleep 2
 
 # Step 8: Test the Elastic IP by Stopping and Starting the Instance
 log "Stopping instance $INSTANCE_ID to test Elastic IP persistence..."
@@ -408,7 +410,6 @@ log "Tutorial completed successfully!"
 cleanup
 
 exit 0
-
 
 ```
 
