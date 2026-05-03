@@ -58,7 +58,7 @@ preferred applications.
    first prompts you to sign in. Every application you want to enable AppFabric in will reach this
    screen.
 
-![Sign-in prompt for AWS AppFabric, highlighting AI-powered productivity features.](images/fabric-01.png) 2. Sign in with your credentials from one of these providers: Asana,
+![AWS AppFabric sign-in dialog with lightning bolt icon and Sign in button.](images/fabric-01.png) 2. Sign in with your credentials from one of these providers: Asana,
 Google Workspace, Microsoft 365, or Slack. For
 the best experience, we recommend signing in using the same provider for each application you
 enable AppFabric in. For instance, if you choose Google Workspace credentials in App1, we recommend
@@ -66,12 +66,12 @@ choosing Google Workspace in App2, as well as every other time you need to sign
 back in. If you sign in with a different provider, you’ll need to restart the process of
 connecting applications.
 
-![AWS AppFabric sign-in page with options for Slack, Microsoft, Google, and Asana.](images/fabric-02.png) 3. If prompted, enter your sign-in credentials and accept signing into AppFabric from this
+![AWS AppFabric sign-in interface with corporate identity provider options for authentication.](images/fabric-02.png) 3. If prompted, enter your sign-in credentials and accept signing into AppFabric from this
 provider.
 
-![Slack sign-in page with options for Google, Apple, or email authentication.](images/fabric-03.png)
+![Slack sign-in page with Google, Apple, and email sign-in options.](images/fabric-03.png)
 
-![Sign-in interface for AWS AppFabric with Slack, showing account selection and connection details.](images/fabric-04.png)
+![Sign in dialog showing Slack account selection for AWS AppFabric integration with consent details.](images/fabric-04.png)
 
 ## Step 2. Provide consent for the app to display insights
 
@@ -81,7 +81,7 @@ For example, do you allow AppFabric to take your Google Workspace emails and cal
 events and display them in Asana. You only need to complete this consent step one
 time per application that you enable AppFabric in.
 
-![Dialog box requesting permission to display insights and artifacts within an application.](images/fabric-05.png)
+![Permission dialog requesting authorization to display insights in an application.](images/fabric-05.png)
 
 ## Step 3. Connect your applications to generate insights and actions
 
@@ -94,12 +94,12 @@ your connected applications.
 To connect an application, choose the **Connect** button next to any
 application that you use.
 
-![List of applications to connect, including Smartsheet, Slack, and Google Workspace, all showing as not connected.](images/fabric-06.png)
+![Connect applications table showing application names, connection status, and Connect buttons.](images/fabric-06.png)
 
 You will need to provide your sign-in credentials for the application, and allow AppFabric
 permission to access your data to generate insights and complete actions.
 
-![Dialog box requesting permission for AWS AppFabric to access Slack workspace data.](images/fabric-07.png)
+![Permission dialog showing AWS AppFabric requesting access to Acme Widgets Slack workspace.](images/fabric-07.png)
 
 After you successfully connect an application, the Status for that application will change
 from “Not Connected” to “Connected”. Reminder: you need to complete this authorization step for
@@ -119,7 +119,7 @@ The possible application statuses are:
   specific application. If you see this error, try reconnecting your application using the
   **Connect** button.
 
-![Application connection status interface showing connected and unconnected apps.](images/fabric-08.png)
+![Connect applications interface showing connection status for apps such as Smartsheet, Slack, and Asana.](images/fabric-08.png)
 
 The set up is complete and you can return to your application. It can take at least a few
 hours to start seeing insights inside your applications.
@@ -185,13 +185,13 @@ The following fields are required to send an email:
   addresses.
 - Subject line and Message fields.
 
-![Email form with From, To, CC, BCC, Subject line, and Message fields for sending.](images/fabric-12.png)
+![Send Email dialog with Subject line and Message fields for composing an email.](images/fabric-12.png)
 
 After the email is sent, you'll see a confirmation that the email has been sent.
 Additionally, you'll see a link to view the email in the designated application. You can use
 this link to quickly navigate to the application and verify the email has been sent.
 
-![Email sent confirmation with recipient details and message preview.](images/fabric-13.png)
+![Email sent confirmation dialog showing recipient details, subject line, message, and Gmail link.](images/fabric-13.png)
 
 ### Create calendar events (Google Workspace, Microsoft 365)
 
@@ -207,13 +207,13 @@ The following fields are required to create a calendar event:
 - Starts time and date must not be earlier than Ends time and date.
 - Invite field is optional, but requires valid email addresses if provided.
 
-![Calendar event creation form with title, time, location, invitees, and description fields.](images/fabric-14.png)
+![Create Calendar Event form with fields for title, location, start and end times, invites, and description.](images/fabric-14.png)
 
 After calendar event is sent, you'll see a confirmation that the event has been created.
 Additionally, you'll see a link to view the event in the designated application. You can use
 this link to quickly navigate to the application and verify the event was created.
 
-![Calendar event creation confirmation with event details and option to view in Google Calendar.](images/fabric-15.png)
+![Event created confirmation showing calendar event details with title, date, invitees, and description.](images/fabric-15.png)
 
 ### Create tasks (Asana)
 
@@ -229,14 +229,14 @@ The following fields are required to create an Asana task:
 - Title and Description fields.
 - Assignee must be valid email address if modified.
 
-![Create Task form with fields for title, assignee, due date, and description for a finance meeting task.](images/fabric-16.png)
+![Create Task form with fields for title, assignee, due date, and description.](images/fabric-16.png)
 
 After the task is created, you'll see a confirmation that the task has been created in
 Asana. Additionally, you'll see a link to view the task in Asana.
 You can use this link to quickly navigate to the application to verify the task was created, or
 move it to the appropriate Asana workspace or project or task.
 
-![Task creation confirmation with details and a link to view in Asana.](images/fabric-17.png)
+![Task created confirmation showing title, assignee, due date, description, and View in Asana link.](images/fabric-17.png)
 
 ### Create tasks (Smartsheet)
 
@@ -253,7 +253,7 @@ The following fields are required to create an Smartsheet task:
 - Title and Description fields.
 - Assignee must be valid email address if provided.
 
-![Create Task form with fields for title, assignees, due date, and description for an AWS AppFabric Action.](images/fabric-18.png)
+![Create Task dialog with fields for title, assignees, due date, and description with Create button.](images/fabric-18.png)
 
 After the task is created, you'll see a confirmation that the task has been created in
 Smartsheet. Additionally, you'll see a link to view the task in
@@ -262,4 +262,4 @@ the task in the created Smartsheet sheet. All future Smartsheet
 tasks will be populated in this sheet. If the sheet is deleted, AppFabric will create a new
 one.
 
-![AWS AppFabric Action interface showing a successfully created task with details.](images/fabric-19.png)
+![Task created confirmation showing task details including title, assignee, due date, and description.](images/fabric-19.png)
