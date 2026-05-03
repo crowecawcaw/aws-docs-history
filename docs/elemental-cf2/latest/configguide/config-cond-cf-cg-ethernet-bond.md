@@ -53,4 +53,4 @@ Before you begin this process, make sure that you've done the following:
 
 2. Choose **Save**. The Network Devices list shows the two Ethernet devices and the bond, as displayed in this example:
 
-![Network Devices list showing bond0, eth0, and eth1 with their configurations and statuses.](images/confc-device-shared-png.png) 3. If you have a secondary Conductor node, switch to the web interface for that node and repeat these steps.
+![Network Devices list showing bond0, eth0, and eth1 with their configurations and statuses.](/images/elemental-cf2/latest/configguide/images/confc-device-shared-png.png) 3. If you have a secondary Conductor node, switch to the web interface for that node and repeat these steps.
