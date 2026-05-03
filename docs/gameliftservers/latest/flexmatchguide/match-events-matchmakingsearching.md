@@ -8,6 +8,16 @@ were part of a proposed match that failed.
 **Detail:** type, tickets, estimatedWaitMillis,
 gameSessionInfo
 
+###### Note
+
+The `estimatedWaitMillis` value is reported in
+_seconds_, not milliseconds. When available, the value is an
+integer representing seconds; otherwise it is the string
+`"NOT_AVAILABLE"`. This value matches the
+`EstimatedWaitTime` field returned by the [DescribeMatchmaking](../../../gamelift/latest/apireference/API_DescribeMatchmaking.md "../../../gamelift/latest/apireference/API_DescribeMatchmaking.md") API,
+which is also in seconds. If your application already interprets this value as
+seconds, no change is needed.
+
 ## Example
 
 ```
