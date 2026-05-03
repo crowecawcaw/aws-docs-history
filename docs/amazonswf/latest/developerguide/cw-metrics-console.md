@@ -19,12 +19,12 @@ For a description of each of the available metrics, see [Amazon SWF Metrics for 
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, under **Metrics**, choose **SWF**.
 
-![Dashboard interface showing Alarms, Billing, Metrics, and SWF options with Metric Summary.](images/cw_console.png)
+![Navigation pane showing Dashboard, Alarms, Billing, Metrics, and SWF options with Metric Summary and Alarm Summary panels.](images/cw_console.png)
 
 If you have run any workflow executions recently, you will see two lists of metrics presented:
 **Workflow Type Metrics** and **Activity Type Metrics**.
 
-![Table showing Workflow Type Metrics and Activity Type Metrics with columns for names and versions.](images/cw_workflow_metrics.png)
+![SWF Metrics console showing Workflow Type Metrics and Activity Type Metrics tables.](images/cw_workflow_metrics.png)
 
 ###### Note
 
@@ -42,12 +42,12 @@ The various types of metrics are described in [Amazon SWF Metrics for CloudWatch
 You can view graphs for metrics by choosing the boxes next to the metric row in the list, and change the graph
 parameters using the **Time Range** controls to the right of the graph view.
 
-![Workflow metrics dashboard showing failed workflows for Cron and FileProcessing domains.](images/cw_graph.png)
+![Browse Metrics console showing WorkflowFailed metrics with a graph displaying data points over time.](images/cw_graph.png)
 
 For details about any point on the graph, place your cursor over the graph point. A detail of the point's
 dimensions will be shown.
 
-![Workflow details showing value, time, metric, and other parameters for a completed task.](images/cw_graph_detail.png)
+![Tooltip displaying workflow execution details including value, time, method, namespace, and status.](images/cw_graph_detail.png)
 
 For more information about working with CloudWatch metrics, see [Viewing,
 Graphing, and Publishing Metrics](../../../AmazonCloudWatch/latest/DeveloperGuide/working_with_metrics.md "../../../AmazonCloudWatch/latest/DeveloperGuide/working_with_metrics.md") in the _Amazon CloudWatch User Guide_.
@@ -65,7 +65,7 @@ example, you can set an alarm to send a notification to an SNS topic or to send 
 3. On the **Define Alarm** screen, enter the alarm threshold value, period parameters, and
    actions to take.
 
-![Alarm Threshold configuration interface with fields for name, description, conditions, and notification actions.](images/cw_define_alarm.png)
+![Define Alarm screen showing threshold settings, notification period, and email action configuration.](images/cw_define_alarm.png)
 
 For more information about setting and using CloudWatch alarms, see [Creating Amazon CloudWatch Alarms](../../../AmazonCloudWatch/latest/DeveloperGuide/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/DeveloperGuide/AlarmThatSendsEmail.md") in the
 _Amazon CloudWatch User Guide_.

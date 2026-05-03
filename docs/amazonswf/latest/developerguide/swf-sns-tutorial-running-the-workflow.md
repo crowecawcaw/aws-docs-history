@@ -112,7 +112,7 @@ your phone.
 If you reply to this message with `YES`, you'll get the response that we provided in
 `send_result_activity`.
 
-![Message confirming successful registration and workflow completion.](images/swf_sns_sample_sms_success.png)
+![Mobile notification showing successful workflow registration confirmation message.](images/swf_sns_sample_sms_success.png)
 
 While all of this was happening, did you see what was happening in your command-line window? Both the workflow
 and activity pollers have been hard at work.
