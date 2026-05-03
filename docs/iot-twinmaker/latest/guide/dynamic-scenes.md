@@ -35,7 +35,7 @@ You can convert an existing static scene to a dynamic scene by following these s
 
 The conversion from a static to dynamic scene is irreversible.
 
-![3D modeling interface with grid and a robotic arm model in the center.](images/convert-scene.png)
+![3D viewer showing a robotic arm model with settings panel for toggling visibility options.](images/convert-scene.png)
 
 ## Scene component types and entities
 
