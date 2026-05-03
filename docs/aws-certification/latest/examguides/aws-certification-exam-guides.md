@@ -70,10 +70,6 @@ Specialty certifications are designed for individuals who want to validate techn
 
 Validate advanced technical skills and experience in designing and implementing AWS and hybrid IT network architectures. This exam is intended for individuals who perform complex networking tasks and validates the ability to design and implement AWS and hybrid network architectures at scale.
 
-[AWS Certified Machine Learning - Specialty (MLS-C01) (Last day to test: March 31, 2026)](../machine-learning-specialty-01.md "../machine-learning-specialty-01.md")
-
-Validate expertise in building, training, tuning, and deploying ML models on AWS. This exam is intended for individuals who perform a development or data science role and validates the ability to design, implement, deploy, and maintain ML solutions.
-
 [AWS Certified Security - Specialty (SCS-C03)](../security-specialty-03.md "../security-specialty-03.md")
 
 Validate expertise in securing AWS workloads and applications. This exam is intended for individuals who perform a security role and validates the ability to demonstrate knowledge of specialized data classifications and AWS data protection mechanisms.
