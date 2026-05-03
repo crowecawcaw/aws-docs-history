@@ -1,10 +1,24 @@
-# In-scope AWS services and features
-
-## In-scope AWS services and features
+# In-Scope AWS Services
 
 The following list contains AWS services and features that are in scope for the exam. This list is non-exhaustive and is subject to change. AWS offerings appear in categories that align with the offerings' primary functions:
 
-### Analytics
+###### Topics
+
+- [Analytics](#aip-01-analytics "#aip-01-analytics")
+- [Application Integration](#aip-01-application-integration "#aip-01-application-integration")
+- [Compute](#aip-01-compute "#aip-01-compute")
+- [Containers](#aip-01-containers "#aip-01-containers")
+- [Customer Engagement](#aip-01-customer-engagement "#aip-01-customer-engagement")
+- [Database](#aip-01-database "#aip-01-database")
+- [Developer Tools](#aip-01-developer-tools "#aip-01-developer-tools")
+- [Machine Learning](#aip-01-machine-learning "#aip-01-machine-learning")
+- [Management and Governance](#aip-01-management-governance "#aip-01-management-governance")
+- [Migration and Transfer](#aip-01-migration-transfer "#aip-01-migration-transfer")
+- [Networking and Content Delivery](#aip-01-networking-content-delivery "#aip-01-networking-content-delivery")
+- [Security, Identity, and Compliance](#aip-01-security-identity-compliance "#aip-01-security-identity-compliance")
+- [Storage](#aip-01-storage "#aip-01-storage")
+
+## Analytics
 
 - Amazon Athena
 - Amazon EMR
@@ -14,7 +28,7 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon QuickSight
 - Amazon Managed Streaming for Apache Kafka (Amazon MSK)
 
-### Application Integration
+## Application Integration
 
 - Amazon AppFlow
 - AWS AppConfig
@@ -23,7 +37,7 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon SQS
 - AWS Step Functions
 
-### Compute
+## Compute
 
 - AWS App Runner
 - Amazon EC2
@@ -32,18 +46,18 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Outposts
 - AWS Wavelength
 
-### Containers
+## Containers
 
 - Amazon ECR
 - Amazon ECS
 - Amazon EKS
 - AWS Fargate
 
-### Customer Engagement
+## Customer Engagement
 
 - Amazon Connect
 
-### Database
+## Database
 
 - Amazon Aurora
 - Amazon DocumentDB
@@ -53,7 +67,7 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon Neptune
 - Amazon RDS
 
-### Developer Tools
+## Developer Tools
 
 - AWS Amplify
 - AWS CDK
@@ -66,7 +80,7 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Tools and SDKs
 - AWS X-Ray
 
-### Machine Learning
+## Machine Learning
 
 - Amazon Augmented AI
 - Amazon Bedrock
@@ -95,7 +109,7 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon Titan
 - Amazon Transcribe
 
-### Management and Governance
+## Management and Governance
 
 - AWS Auto Scaling
 - AWS Chatbot
@@ -110,12 +124,12 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Systems Manager
 - AWS Well-Architected Tool
 
-### Migration and Transfer
+## Migration and Transfer
 
 - AWS DataSync
 - AWS Transfer Family
 
-### Networking and Content Delivery
+## Networking and Content Delivery
 
 - Amazon API Gateway
 - AWS AppSync
@@ -126,7 +140,7 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon Route 53
 - Amazon VPC
 
-### Security, Identity, and Compliance
+## Security, Identity, and Compliance
 
 - Amazon Cognito
 - AWS Encryption SDK
@@ -138,7 +152,7 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Secrets Manager
 - AWS WAF
 
-### Storage
+## Storage
 
 - Amazon EBS
 - Amazon EFS

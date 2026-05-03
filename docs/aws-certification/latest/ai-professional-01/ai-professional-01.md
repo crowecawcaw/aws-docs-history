@@ -15,8 +15,8 @@ The AWS Certified Generative AI Developer - Professional (AIP-C01) exam is inten
 - [Content Domain 5: Testing, Validation, and Troubleshooting](ai-professional-01-domain5.md "ai-professional-01-domain5.md")
 - [Technologies and concepts that might appear on the exam](ai-professional-01-technologies-concepts.md "ai-professional-01-technologies-concepts.md")
 - [Mentions of AWS services on the exam](ai-professional-01-service-mentions.md "ai-professional-01-service-mentions.md")
-- [In-scope AWS services and features](aip-01-in-scope-services.md "aip-01-in-scope-services.md")
-- [Out-of-scope AWS services and features](aip-01-out-of-scope-services.md "aip-01-out-of-scope-services.md")
+- [In-Scope AWS Services](aip-01-in-scope-services.md "aip-01-in-scope-services.md")
+- [Out-of-Scope AWS Services](aip-01-out-of-scope-services.md "aip-01-out-of-scope-services.md")
 - [Survey](#ai-professional-01-survey "#ai-professional-01-survey")
 
 ## Introduction
@@ -55,8 +55,6 @@ The following list contains job tasks that the target candidate is not expected 
 - Model development and training
 - Advanced ML techniques
 - Data engineering and feature engineering
-
-Refer to the Appendix for a list of technologies and concepts that might appear on the exam, a list of in-scope AWS services and features, and a list of out-of-scope AWS services and features.
 
 ## Exam content
 
