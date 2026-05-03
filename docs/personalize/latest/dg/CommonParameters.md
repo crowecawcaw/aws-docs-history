@@ -2,7 +2,7 @@
 
 The following list contains the parameters that all actions use for signing Signature
 Version 4 requests with a query string. Any action-specific parameters are listed in the topic
-for that action. For more information about Signature Version 4, see [Signing AWS API requests](../../../IAM/latest/UserGuide/reference_aws-signing.md "../../../IAM/latest/UserGuide/reference_aws-signing.md") in the _IAM User Guide_.
+for that action. For more information about Signature Version 4, see [Signing AWS API requests](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") in the _IAM User Guide_.
 
 **X-Amz-Algorithm**
 
@@ -21,7 +21,7 @@ Required: Conditional
 The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string ("aws4_request"). The value is expressed in the following format:
 _access_key_/_YYYYMMDD_/_region_/_service_/aws4_request.
 
-For more information, see [Create a signed AWS API request](../../../IAM/latest/UserGuide/create-signed-request.md "../../../IAM/latest/UserGuide/create-signed-request.md") in the _IAM User Guide_.
+For more information, see [Create a signed AWS API request](../../../IAM/latest/UserGuide/reference_sigv-create-signed-request.md "../../../IAM/latest/UserGuide/reference_sigv-create-signed-request.md") in the _IAM User Guide_.
 
 Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header.
 
@@ -34,7 +34,7 @@ Required: Conditional
 The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: `20120325T120000Z`.
 
 Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always
-overrides the value of the Date header. For more information, see [Elements of an AWS API request signature](../../../IAM/latest/UserGuide/signing-elements.md "../../../IAM/latest/UserGuide/signing-elements.md") in the _IAM User Guide_.
+overrides the value of the Date header. For more information, see [Elements of an AWS API request signature](../../../IAM/latest/UserGuide/reference_sigv-signing-elements.md "../../../IAM/latest/UserGuide/reference_sigv-signing-elements.md") in the _IAM User Guide_.
 
 Type: string
 
@@ -65,7 +65,7 @@ Required: Conditional
 **X-Amz-SignedHeaders**
 
 Specifies all the HTTP headers that were included as part of the canonical request.
-For more information about specifying signed headers, see [Create a signed AWS API request](../../../IAM/latest/UserGuide/create-signed-request.md "../../../IAM/latest/UserGuide/create-signed-request.md") in the _IAM User Guide_.
+For more information about specifying signed headers, see [Create a signed AWS API request](../../../IAM/latest/UserGuide/reference_sigv-create-signed-request.md "../../../IAM/latest/UserGuide/reference_sigv-create-signed-request.md") in the _IAM User Guide_.
 
 Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header.
 
