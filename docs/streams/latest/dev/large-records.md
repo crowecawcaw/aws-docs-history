@@ -17,6 +17,35 @@ intermittent large records alongside a baseline traffic of records less than, or
 to 1 MiB. It is not designed to accommodate sustained high-volume large record
 ingestion.
 
+## How large records work
+
+Amazon Kinesis Data Streams accepts records up to 10 MiB in size. Your stream accommodates large records by
+temporarily bursting beyond its sustained write throughput, then returning to its
+baseline rate over time. This burst capacity is continuously replenished, so your
+stream can handle intermittent large records alongside normal traffic without any
+manual capacity adjustments.
+
+To visualize this behavior, think of your stream's write capacity as a tank that
+refills at a steady rate. When you send a large record, such as a 10 MiB record, the
+tank is temporarily depleted. It then begins refilling immediately, which means you
+can continue to send smaller records as capacity becomes available.
+
+The rate at which capacity is replenished depends on several factors:
+
+- The size of the large records
+- The size of the baseline records
+- The overall traffic pattern on the stream
+- Your chosen partition key strategy
+
+For best results, use a uniformly distributed partition key to spread large records
+across the stream's available capacity.
+
+In on-demand mode, Kinesis Data Streams manages capacity automatically. Your stream scales its
+throughput up and down based on your traffic patterns, and large record burst
+capacity is handled transparently. You don't need to provision or manage capacity
+to use large records. For more information on how on-demand mode scales, see [On-demand mode features and use
+cases](how-do-i-size-a-stream.md#ondemandmode "how-do-i-size-a-stream.md#ondemandmode").
+
 ## Update your stream to use large records
 
 ###### To process larger records with Kinesis Data Streams
@@ -38,21 +67,23 @@ aws kinesis update-max-record-size \ --stream-arn  \
 
 ## Optimize your stream performance with large records
 
-It's recommended to maintain large records to less than 2% of your overall traffic. In
-a stream, each shard has a throughput capacity of 1 MiB per second. To accommodate large
-records, Kinesis Data streams bursts up to 10 MiBs, while averaging out to 1 MiB per
-second. This capacity to support large records is continuously refilled into the stream.
-The rate of refilling depends on the size of the large records and the size of the
-baseline record. For best results, use a uniformly distributed partition key. For more
-information on how Kinesis on-demand scales, see [On-demand mode features and use
-cases](how-do-i-size-a-stream.md#ondemandmode "how-do-i-size-a-stream.md#ondemandmode").
+Large records are designed for intermittent use. For best results, keep large records to
+less than 2% of your overall traffic. Because the stream temporarily bursts beyond
+its sustained throughput to deliver a large record, sending large records too frequently
+can reduce the capacity available for your baseline traffic. For more information
+on optimizing your stream performance with large records, see [Throttling and best practices for optimal performance](https://aws.amazon.com/blogs/big-data/amazon-kinesis-data-streams-now-supports-10x-larger-record-sizes-simplifying-real-time-data-processing/#:~:text=Throttling%20and%20best%20practices%20for%20optimal%20performance "https://aws.amazon.com/blogs/big-data/amazon-kinesis-data-streams-now-supports-10x-larger-record-sizes-simplifying-real-time-data-processing/#:~:text=Throttling%20and%20best%20practices%20for%20optimal%20performance").
 
 ## Mitigate throttling with large records
+
+Because large records temporarily consume burst capacity, your stream might throttle
+subsequent writes until capacity is replenished. The following steps help reduce
+throttling:
 
 ###### To mitigate throttling
 
 1. Implement retry logic with exponential back-off in your producer application.
-2. Use randomized partition keys to distribute large records across available shards.
+2. Use randomized partition keys to distribute large records across the stream's
+   available capacity.
 3. Store payloads in Amazon S3 and send only metadata references to the stream for continuous streams
    of large records. For more information, see [Processing large records with Amazon Kinesis Data Streams](https://aws.amazon.com/blogs/big-data/processing-large-records-with-amazon-kinesis-data-streams/ "https://aws.amazon.com/blogs/big-data/processing-large-records-with-amazon-kinesis-data-streams/").
 
