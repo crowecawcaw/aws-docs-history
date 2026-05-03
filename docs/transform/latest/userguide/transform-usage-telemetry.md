@@ -1,0 +1,3 @@
+# Usage Telemetry
+
+The AWS Transform IDE plugin and AWS Transform Kiro Power collect usage telemetry by default during transformation execution. The telemetry consists of three data points: the IDE name (for example, VS Code or Kiro), the AI agent name (for example, Claude Code or OpenAI Codex), and the execution mode (local or remote). This data is used by AWS Transform to prioritize compatibility testing. To disable telemetry, tell the agent during your chat session that you do not want telemetry emitted. This opt-out applies only to the current chat session and must be repeated for each new session.

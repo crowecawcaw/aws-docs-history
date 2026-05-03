@@ -2,8 +2,8 @@
 
 Configure your target AWS account connector for network migration, landing zone
 build, and server migration.
-This involves three steps: selecting your migration type, providing your MAP
-agreement details (if applicable), and setting up the connector. These settings
+This involves three steps: select your migration type, provide your MAP
+agreement details (if applicable), and set up the connector. These settings
 apply across all migration stages — network migration, landing zone, and server
 rehost.
 
@@ -18,74 +18,78 @@ migration:
 - **Multi-account migration** – Workloads
   migrate to different target accounts. The connector must be connected to
   the organization management account or a Delegated Administrator (DA)
-  account registered for both Application Migration Service and CloudFormation StackSets.
+  account registered for both AWS Application Migration Service
+  (Application Migration Service) and CloudFormation StackSets.
 
 ## Step 2: MAP agreement
 
 If your migration is part of the **AWS Migration
-Acceleration Program (MAP 2.0)**, provide your MPE ID — a
-10-character code using uppercase letters and digits (for example,
-ABCDE12345). AWS Transform applies the MAP tag to all resources created across
-network migration, landing zone, and server rehost stages. The tag format
-is:
+Acceleration Program (MAP 2.0)**, provide your Migration
+Portfolio Experience (MPE) ID — a 10-character code using uppercase letters
+and digits (for example, ABCDE12345). When you provide your MPE ID, the MAP
+tag is applied to all resources created across network migration, landing
+zone, and server rehost stages. The tag format is:
 
 - **Key:** `map-migrated`
   **Value:**
   `mig`MPE_ID``
 
-MAP tags are required to receive MAP credit. For more information, see [AWS
+You must apply MAP tags to receive MAP credit. For more information
+about MAP, see [AWS
 Migration Acceleration Program](https://aws.amazon.com/migration-acceleration-program/ "https://aws.amazon.com/migration-acceleration-program/").
 
 ## Step 3: Connector configuration
 
-The target account connector connects your migration job to the AWS
-environment where your workloads will reside after migration. It's important to
-ensure that the target AWS account is properly set up with the necessary
-permissions, quotas, and configurations to support your migrated infrastructure.
+You use the target account connector to connect your migration job to
+the AWS environment where your workloads will reside after migration.
+Before you begin, verify that your target AWS account has the necessary
+permissions, quotas, and configurations to support your migrated
+infrastructure.
 
 When you approve the connector request, you grant AWS Transform permissions to:
 
 - Manage Amazon S3 bucket operations (read/write) for VMware migration,
   along with access to AWS Migration Hub and AWS Application
   Migration Service (Application Migration Service). This includes permissions for the following
-  items, all restricted to resources within the target account and tagged
-  with `CreatedBy:AWSTransform` or
+  items, all restricted to resources within the target account that are
+  tagged with `CreatedBy:AWSTransform` or
   `CreatedFor:AWSTransform`:
-  - Managing migration waves
-  - Network configurations (Amazon EC2, VPC, Transit Gateway,
-    Direct Connect, Load Balancers, Network Firewall)
-  - CloudFormation stack deployments
-  - Automated agent installations via Systems
-    Manager
+  - Manage migration waves.
+  - Manage network configurations (Amazon EC2, VPC, Transit Gateway,
+    Direct Connect, Load Balancers, Network Firewall).
+  - Manage CloudFormation stack deployments.
+  - Perform automated agent installations through Systems
+    Manager.
 
 - Migrate your on-premises workloads to the target AWS account and
   Region by using the information stored in the discovery Region.
 - Provision and manage landing zone infrastructure in the target
   AWS account and Region. This includes permissions for the following
-  items, restricted to resources tagged with
+  items, restricted to resources that are tagged with
   `CreatedBy:AWSTransform` where applicable:
-  - Amazon S3 bucket operations (create, read, write, delete)
-    for buckets starting with
-    `transform-vmware-landing-zone-`
-  - CloudFormation stack deployments and change set management for
-    landing zone stacks
-  - AWS Control Tower operations (managing landing zones,
-    enabling baselines and controls)
-  - AWS Organizations management (creating and managing
-    organizational units, creating accounts, and moving
-    accounts)
-  - Service control policy (SCP) management via AWS
-    Control Tower
-  - AWS Service Catalog provisioning artifact
-    management
+  - Perform Amazon S3 bucket operations (create, read, write, delete)
+    for buckets that start with
+    `transform-vmware-landing-zone-`.
+  - Manage CloudFormation stack deployments and change sets for
+    landing zone stacks.
+  - Perform AWS Control Tower operations. You can
+    manage landing zones, enable baselines, and enable
+    controls.
+  - Manage AWS Organizations. You can create and manage
+    organizational units, create accounts, and move
+    accounts.
+  - Manage service control policies (SCPs) through AWS
+    Control Tower.
+  - Manage AWS Service Catalog provisioning
+    artifacts.
 
 ###### Note
 
-AWS Transform may update connector types when introducing features requiring
-permission changes. The current version for the target account connector
-type is 2.0. New connectors are always created with the latest version.
+Connector types might be updated when new features require permission
+changes. The current version for the target account connector type is 2.0.
+When you create a new connector, it uses the latest version.
 
-Before setting up the connector, understand the account roles involved in
+Before you set up the connector, understand the account roles involved in
 your migration:
 
 | Account                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -96,9 +100,11 @@ your migration:
 
 ### Using a delegated administrator account
 
-For multi-account migrations, AWS recommends using a Delegated
+For multi-account migrations, AWS recommends that you use a Delegated
 Administrator (DA) account rather than the organization management account
-directly. The DA account must be registered as delegated administrator for
+directly. A DA account follows the principle of least privilege by
+limiting the scope of permissions required for migration operations.
+The DA account must be registered as delegated administrator for
 both Application Migration Service and CloudFormation StackSets in your AWS Organization.
 
 The key difference between the two options is:
@@ -119,9 +125,12 @@ for Application Migration Service](../../../mgn/latest/ug/mgn-delegated-admin.md
 
 ### IAM roles created during setup
 
-During migration setup, AWS Transform deploys a CloudFormation StackSet
-(`MGNMultiAccountRoles`) to create the required IAM roles across
-your target accounts. The following roles are created:
+During migration setup, a CloudFormation StackSet
+(`MGNMultiAccountRoles`) is deployed to create the required
+IAM roles across your target accounts. These roles grant the permissions
+that AWS Transform needs to replicate servers, launch instances, and install
+agents in each target account. The following roles are
+created:
 
 - `AWSApplicationMigrationConnectorManagementRole` –
   Used during agent installation to access source server credentials
@@ -136,17 +145,19 @@ your target accounts. The following roles are created:
 
 ###### Note
 
-IAM roles are created idempotently — if they already exist in the
-account, the setup process skips creating them again.
+IAM roles are created only if they don't already exist in the
+account. If they already exist, the setup process doesn't create
+them again.
 
-### How to set up the connector
+### Target account connector setup
 
 ###### Important
 
-AWS Transform creates an Amazon S3 bucket on your behalf in the target
-AWS account. This bucket won't have `SecureTransport` enabled
-by default. If you want the bucket policy to include secure transport, you
-must update the policy yourself. For more information, see [Security
+During connector setup, an Amazon S3 bucket is created in your target
+AWS account. This bucket won't enforce HTTPS-only access
+(`SecureTransport`) by default. If you want the bucket policy
+to include secure transport, you must update the policy yourself. For more
+information, see [Security
 best practices for Amazon S3](../../../AmazonS3/latest/userguide/security-best-practices.md "../../../AmazonS3/latest/userguide/security-best-practices.md").
 
 ###### To use an existing target account connector
@@ -156,7 +167,7 @@ best practices for Amazon S3](../../../AmazonS3/latest/userguide/security-best-p
    select connectors**.
 2. In the **Collaboration** tab, select an existing
    connector and then choose **Use connector**. If a
-   connector is grayed out, its version isn't compatible with the job type
+   connector is unavailable, its version isn't compatible with the job type
    you selected.
 
 ###### Important
@@ -194,9 +205,11 @@ connector from the list and choose **Use
 connector**. 7. Choose **Send to AWS Transform**.
 
 If you plan to modify the AWS Application Migration Service template to enable post-launch actions,
-add the following permission to the target connector role. You can find the role
-name in the **Collaboration** tab after the connector is
-created. For information about adding permissions to a role, see [Update
+add the following permission to the target connector role. This JSON policy
+statement grants the `iam:PassRole` permission for the post-launch
+actions role. You can find the role name in the
+**Collaboration** tab after the connector is created. For
+information about adding permissions to a role, see [Update
 permissions for a role](../../../IAM/latest/UserGuide/id_roles_update-role-permissions.md "../../../IAM/latest/UserGuide/id_roles_update-role-permissions.md") in the
 _IAM User Guide_.
 
@@ -235,20 +248,22 @@ any of the following AWS Regions:
 
 ###### Important
 
-If you specify a target AWS Region that is different from the
-AWS Transform AWS Region, that means AWS Transform will be transferring your
-data across AWS Regions.
+If you specify a target AWS Region that differs from the
+AWS Transform AWS Region, your data is transferred across
+AWS Regions.
 
 ###### Note
 
-If you plan to run a job that includes server migration only (without
-network migration execution), additional commercial AWS Regions are
-available as target Regions: US West (N. California), Europe (Milan),
-Asia Pacific (Jakarta), Europe (Zurich), Europe (Spain), Asia Pacific
-(Hyderabad), Asia Pacific (Melbourne), Middle East (Tel Aviv), Asia
-Pacific (Bangkok), Asia Pacific (Kuala Lumpur), Middle East (Bahrain),
-Africa (Cape Town), Asia Pacific (Hong Kong), and Middle East (UAE). To
-use one of these additional Regions before Q3 2026, contact your AWS
-account team to have your account allow-listed. Starting in Q3 2026,
-these Regions will be generally available without the need for an
-allow-list request.
+If you plan to run a job that includes only server migration (without
+network migration), additional commercial AWS Regions are
+available as target Regions. These Regions include US West
+(N. California), Europe (Milan), Asia Pacific (Jakarta), Europe
+(Zurich), Europe (Spain), Asia Pacific (Hyderabad), Asia Pacific
+(Melbourne), Middle East (Tel Aviv), Asia Pacific (Bangkok), Asia
+Pacific (Kuala Lumpur), Middle East (Bahrain), Africa (Cape Town),
+Asia Pacific (Hong Kong), and Middle East (UAE).
+
+To use one of these additional Regions before Q3 2026, contact
+your AWS account team to request access. After Q3 2026,
+these Regions will be generally available without an access
+request.

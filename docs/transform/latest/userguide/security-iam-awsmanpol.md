@@ -21,6 +21,8 @@ View details about updates to AWS managed policies for AWS Transform since March
 
 | Change                                                                                                                                                                                                 | Description                                                                                                                                                                                                                | Date               |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [AWSTransformCustomExecuteTransformations](#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations "#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations") – Updated policy       | Added permission to create the AWS Transform custom service-linked role (`AWSServiceRoleForAWSTransformCustom`) to enable CloudWatch metrics emission to customer accounts.                                                | April 27, 2026     |
+| [AWSTransformCustomManageTransformations](#security-iam-awsmanpol-AWSTransformCustomManageTransformations "#security-iam-awsmanpol-AWSTransformCustomManageTransformations") – Updated policy          | Added permission to create the AWS Transform custom service-linked role (`AWSServiceRoleForAWSTransformCustom`) to enable CloudWatch metrics emission to customer accounts.                                                | April 27, 2026     |
 | [AWSTransformCustomFullAccess](#security-iam-awsmanpol-AWSTransformCustomFullAccess "#security-iam-awsmanpol-AWSTransformCustomFullAccess") – Updated policy                                           | Added permission to create the AWS Transform custom service-linked role (`AWSServiceRoleForAWSTransformCustom`) to enable CloudWatch metrics emission to customer accounts.                                                | April 7, 2026      |
 | [AWSServiceRoleForAWSTransformCustom](#security-iam-awsmanpol-AWSServiceRoleForAWSTransformCustom "#security-iam-awsmanpol-AWSServiceRoleForAWSTransformCustom") – New policy                          | Added a new AWS managed policy for the AWS Transform custom service-linked role. This policy allows AWS Transform custom to publish CloudWatch metrics to your account.                                                    | March 23, 2026     |
 | [DBModProvisioningAndMigration](#security-iam-awsmanpol-DBModProvisioningAndMigration "#security-iam-awsmanpol-DBModProvisioningAndMigration") – New policy                                            | This policy grants database provisioning and migration capabilities.                                                                                                                                                       | March 24, 2026     |
@@ -158,6 +160,11 @@ This policy provides access to execute transformations in AWS Transform custom.
 This policy includes the following permissions:
 
 - **AWS Transform Custom** – Allows streaming conversations, executing transformations, and managing campaigns. Includes permissions to get campaign details, update campaign repository status, and update campaigns.
+- **AWS Identity and Access Management (IAM)** – Allows creating the AWS Transform custom
+  [service-linked role](using-service-linked-roles.md#using-service-linked-roles-custom "using-service-linked-roles.md#using-service-linked-roles-custom")
+  (`AWSServiceRoleForAWSTransformCustom`). This role is required for AWS Transform
+  custom to emit CloudWatch metrics to your account. The permission is scoped to only allow
+  creating this specific service-linked role.
 
 **Permissions details**
 
@@ -176,6 +183,11 @@ This policy includes the following permissions:
 - **Knowledge Management** – Allows listing, getting, deleting, and updating knowledge items and their configurations and status.
 - **Campaign Management** – Allows getting campaign details, updating campaign repository status, and updating campaigns.
 - **Resource Tagging** – Allows listing, adding, and removing tags for AWS Transform custom resources.
+- **AWS Identity and Access Management (IAM)** – Allows creating the AWS Transform custom
+  [service-linked role](using-service-linked-roles.md#using-service-linked-roles-custom "using-service-linked-roles.md#using-service-linked-roles-custom")
+  (`AWSServiceRoleForAWSTransformCustom`). This role is required for AWS Transform
+  custom to emit CloudWatch metrics to your account. The permission is scoped to only allow
+  creating this specific service-linked role.
 
 **Permissions details**
 

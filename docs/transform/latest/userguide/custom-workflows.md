@@ -41,7 +41,7 @@ When executing transformations with `atx custom def exec`, the following flags a
 
 ###### Important
 
-The `-t` or `--trust-all-tools` flag automatically approves all tool executions without prompting and bypasses all security guardrails. This is required for a fully autonomous experience but not required to execute the transformation. Use with caution in production environments.
+The `-t` or `--trust-all-tools` flag automatically approves all tool executions without prompting and bypasses most security guardrails, (commands matching your `alwaysPromptCommands` list still require explicit permission unless overridden by `trustedShellCommands`). Passing in `--non-interactive` and `--trust-all-tools` is required for a fully autonomous experience but not required to execute the transformation. Use with caution in production environments.
 
 ### Using Configuration Files
 
@@ -269,12 +269,13 @@ export ATX_DISABLE_UPDATE_CHECK=true
 
 ### Trust Settings
 
-Trust settings allow you to pre-approve specific tools and commands to execute without prompts. These settings are configured in the `~/.aws/atx/trust-settings.yaml` file.
+Trust settings allow you to pre-approve specific tools and commands to execute without prompts. You can also require explicit permission for specific shell commands regardless of trust level. These settings are configured in the `~/.aws/atx/trust-settings.yaml` file.
 
-The file contains two lists:
+The file contains three lists:
 
 - `trustedTools` - Tools that can execute without prompting
 - `trustedShellCommands` - Shell commands that can execute without prompting
+- `alwaysPromptCommands` - Shell command patterns that require explicit permission unless overridden by `trustedShellCommands`, regardless of the `-t` flag or session trust. These patterns are not enforced in non-interactive mode (`-x`).
 
 **Default trusted tools:**
 
@@ -284,12 +285,28 @@ The file contains two lists:
 
 **Editing trust settings:**
 
-You can manually edit the trust-settings.yaml file to add or remove trusted tools and commands. The `trustedShellCommands` list supports wildcard patterns using `*` for flexible command matching.
+You can manually edit the trust-settings.yaml file to add or remove trusted tools and commands. Both `trustedShellCommands` and `alwaysPromptCommands` support glob wildcard patterns using `*`.
+
+###### Note
+
+If a command matches both lists, `trustedShellCommands` takes priority.
+
+The following describes each command list and provides examples:
+
+- `trustedShellCommands` - Commands matching these patterns execute without prompting, bypassing all other guardrails. Patterns are matched against the full command string.
 
 Examples:
 
-- `cd *` - Matches compound commands starting with cd
-- `*&&*` - Trusts all commands with && operators
+    + `cd *` - Matches compound commands starting with cd
+    + `*&&*` - Trusts all commands with && operators
+
+- `alwaysPromptCommands` - Commands matching these patterns require explicit permission unless overridden by `trustedShellCommands`, regardless of the `-t` flag or session trust. These patterns are not enforced in non-interactive mode (`-x`). Patterns are matched against each sub-command in compound expressions (`&&`, `||`, command substitutions).
+
+Examples:
+
+    + `rm -rf *` - Always prompts for recursive force-delete commands
+    + `sudo *` - Always prompts for commands run with sudo
+    + `find * -exec *` - Always prompts for find commands with -exec
 
 **Session-level trust:**
 
@@ -300,6 +317,10 @@ During interactive prompts, you can choose:
 - `(t)rust` - Trust for the current session only
 
 Session-level trust settings are temporary and reset when the CLI restarts, providing temporary approval without permanently modifying trust-settings.yaml.
+
+###### Note
+
+Session trust is not available for commands matching your `alwaysPromptCommands` list.
 
 ### Model Context Protocol (MCP) Servers
 
