@@ -334,15 +334,15 @@ The following diagrams show example architectures for multiple application VPC c
 
 **Single AZ with multiple Application VPC peers:**
 
-![](images/Single-AZ-map.png)
+![ODBNetwork with Oracle Database@AWS connecting to applications in VPC1, VPC2, and VPC3 via ODB Peering.](images/Single-AZ-map.png)
 
 **Multi-AZ with a single application VPC peer:**
 
-![](images/Multi-AZ-single-peering.png)
+![Application VPC in two availability zones connected via ODB peering to Oracle Database networks.](images/Multi-AZ-single-peering.png)
 
 **Multi-AZ with Data Guard Observer for fast start failover (FSFO):**
 
-![](images/Multipe-AZ-with-DG.png)
+![Oracle Database deployment across three AZs with Data Guard replication and observer instance.](images/Multipe-AZ-with-DG.png)
 
 ###### Note
 

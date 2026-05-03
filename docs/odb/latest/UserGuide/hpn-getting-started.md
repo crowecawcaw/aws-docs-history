@@ -100,9 +100,10 @@ aws ec2 modify-instance-placement \
 
 Oracle Database@AWS High Performance Networking is not available in the following Availability Zones:
 
-| Region                | Availability Zone(s)      |
-| --------------------- | ------------------------- |
-| US East (N. Virginia) | `use1-az4` and `use1-az6` |
-| US West (Oregon)      | `usw2-az3` and `usw2-az4` |
-| Europe (Frankfurt)    | `euc1-az2`                |
-| Asia Pacific (Seoul)  | `apne2-az1`               |
+| Region                   | Availability Zone(s)      |
+| ------------------------ | ------------------------- |
+| US East (N. Virginia)    | `use1-az4` and `use1-az6` |
+| US West (Oregon)         | `usw2-az3` and `usw2-az4` |
+| Europe (Frankfurt)       | `euc1-az2`                |
+| Asia Pacific (Seoul)     | `apne2-az1`               |
+| Asia Pacific (Melbourne) | `apse4-az1`               |
