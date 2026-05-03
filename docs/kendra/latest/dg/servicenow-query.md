@@ -18,7 +18,7 @@ create the query and to test that the query returns the correct list of document
 5. When the query is complete, right click the query and choose **Copy
    query** to copy the query from the query builder. Save this query to use in Amazon Kendra.
 
-![Query builder interface showing Knowledge base filters with options to run, save, and copy query.](images/ServiceNowQuery.png)
+![Query builder interface showing Copy query option in right-click context menu.](images/ServiceNowQuery.png)
 Make sure that you don't change any query parameter when you copy the query. If any of the
 query parameters are not recognized, ServiceNow treats the parameter as empty and doesn't
 use it to filter the results.

@@ -34,19 +34,19 @@ The first returned result is the Amazon Kendra suggested answer, together with t
 file containing the answer. The rest of the results form the set of recommended
 documents.
 
-![Search interface showing query "Who is Lewis Hamilton?" with Formula One driver information results.](images/tutorial-query1.png) 5. To run a descriptive query, enter `How does Formula One
+![Amazon Kendra search results page showing Formula One driver information for Lewis Hamilton.](images/tutorial-query1.png) 5. To run a descriptive query, enter `How does Formula One
  work?` in the search box and press enter.
 
 You will see another result returned by the Amazon Kendra console, this time with the
 relevant phrase highlighted.
 
-![Search results for "How does Formula One work?" showing snippets about the racing series.](images/tutorial-query2.png) 6. To run a keyword search, enter `Formula One` in the search
+![Search results page showing query for How does Formula One work with 51 results displayed.](images/tutorial-query2.png) 6. To run a keyword search, enter `Formula One` in the search
 box and press enter.
 
 You will see another result returned by the Amazon Kendra console, followed by the
 results for all other mentions of the phrase in the dataset.
 
-![Search results for "Formula One" showing Amazon Kendra suggested answers with article snippets.](images/tutorial-query3.png)
+![Amazon Kendra search results page showing Formula One related answers with snippets.](images/tutorial-query3.png)
 
 1. To run a sample factoid query, use the [query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html") command:
 
@@ -209,7 +209,7 @@ queries](filtering.md "filtering.md").
    subheading, to see your search results filtered only by the results containing
    "Champions League".
 
-![Search interface for soccer matches with filters and Amazon Kendra suggested answers.](images/tutorial-filter.png)
+![Search results page showing four results for Soccer matches with filters and sorting options.](images/tutorial-filter.png)
 
 1. To see the entities of a specific type (such as `EVENT`) that are
    available for a search, use the [query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html") command:
