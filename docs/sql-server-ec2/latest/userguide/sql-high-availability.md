@@ -28,8 +28,7 @@ configurations, see [Deploy SQL Server on Amazon EC2](create-sql-server-on-ec2-i
 - SQL HA saves license costs for SQL Server license-included only. For more information,
   see [SQL Server licensing
   options](sql-server-on-ec2-licensing.md#sql-server-on-ec2-licensing-options-included "sql-server-on-ec2-licensing.md#sql-server-on-ec2-licensing-options-included").
-- SQL HA only supports multi-AZ deployments within the same region. Cross-region
-  deployments are not supported.
+- Cross-Region deployments are not supported.
 - The SQL Server standby node must meet requirements to receive the license savings,
   including: 1. Does not serve incoming traffic; 2. Does not run active SQL Server workloads;
 
