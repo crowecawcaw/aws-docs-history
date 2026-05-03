@@ -43,7 +43,7 @@ The following conceptual diagram shows how AWS Resilience Hub accesses Amazon EK
 clusters when the application is configured as a role-based
 application.
 
-![Diagram showing AWS Resilience Hub accessing EKS clusters in primary and secondary accounts.](images/EKS-accounts.png)
+![Primary account with scheduler assuming service role to access RDS, EC2, and EKS resources.](images/EKS-accounts.png)
 
 - If your application is configured to use the current IAM user for
   accessing resource, you must create a new IAM role with the name
@@ -55,10 +55,10 @@ The following conceptual diagram shows how AWS Resilience Hub accesses Amazon EK
 clusters deployed in your primary account when the application is configured
 to use the current IAM user permissions.
 
-![Icons representing login, current IAM role, assume role, and AWS Resilience Hub options.](images/SingleAccountEKS.png)
+![Flow from Login to Current IAM Role to Assume Role to AWS Resilience Hub with EKS access role.](images/SingleAccountEKS.png)
 
 The following conceptual diagram shows how AWS Resilience Hub accesses Amazon EKS
 clusters deployed on a secondary account when the application is configured
 to use the current IAM user permissions.
 
-![Icons representing AWS account access roles and permissions for primary and secondary accounts.](images/MultiAccountEKS.png)
+![Flow diagram showing role assumption from primary account through IAM roles to access EKS in secondary account.](images/MultiAccountEKS.png)
