@@ -63,29 +63,29 @@ your behalf.
    Administrative Tools** from the Start menu by choosing **Windows
    Administrative Tools** folder.
 
-![Windows Server start menu showing administrative tools and system management options.](images/simple_ad_krbtgt_acct_step_5.png) 6. In the Windows Administrative Tools dashboard, open **Active Directory Users and
+![Windows Start menu showing Windows Administrative Tools folder expanded with system tools.](images/simple_ad_krbtgt_acct_step_5.png) 6. In the Windows Administrative Tools dashboard, open **Active Directory Users and
 Computers** by choosing **Active Directory User and Computers**.
 
-![Windows Administrative Tools dashboard showing various system management shortcuts.](images/simple_ad_krbtgt_acct_step_6.png) 7. In the **Active Directory Users and Computers** window, select
+![Windows Administrative Tools folder showing Active Directory Users and Computers shortcut.](images/simple_ad_krbtgt_acct_step_6.png) 7. In the **Active Directory Users and Computers** window, select
 **View** and then choose **Enable Advanced
 Features**.
 
-![View menu options in a software interface, with "Advanced Features" selected.](images/simple_ad_krbtgt_acct_step_7.png) 8. In the **Active Directory Users and Computers** window, select
+![View menu with Advanced Features option selected.](images/simple_ad_krbtgt_acct_step_7.png) 8. In the **Active Directory Users and Computers** window, select
 **Users** from the left panel.
 
-![Active Directory Users and Computers folder structure with Users folder highlighted.](images/simple_ad_krbtgt_acct_step_8.png) 9. Find the user named **krbtgt**, right click on it and select
+![Active Directory Users and Computers navigation tree with Users folder highlighted.](images/simple_ad_krbtgt_acct_step_8.png) 9. Find the user named **krbtgt**, right click on it and select
 **Reset Password**.
 
-![Context menu with options including Reset Password, Move, Open Home Page, and Send Mail.](images/simple_ad_krbtgt_acct_step_9.png) 10. In the new window, enter the new password, enter it again, and then choose
+![Context menu with Reset Password option highlighted.](images/simple_ad_krbtgt_acct_step_9.png) 10. In the new window, enter the new password, enter it again, and then choose
 **OK** to reset the krbtgt account password.
 
-![Password reset dialog with fields for new password, confirmation, and account options.](images/simple_ad_krbtgt_acct_step_10.png) 11. In the Windows Administrative Tools dashboard, choose **Active Directory Sites and
+![Reset Password dialog with password fields, checkbox options, and OK and Cancel buttons.](images/simple_ad_krbtgt_acct_step_10.png) 11. In the Windows Administrative Tools dashboard, choose **Active Directory Sites and
 Services**.
 
-![Windows Administrative Tools folder showing various Active Directory management shortcuts.](images/simple_ad_krbtgt_acct_step_11.png) 12. In the Active Directory Sites and Services window, expand **Site**,
+![Administrative Tools folder showing Active Directory Sites and Services among other shortcuts.](images/simple_ad_krbtgt_acct_step_11.png) 12. In the Active Directory Sites and Services window, expand **Site**,
 **Default-First-Site-Name**, and **Servers**.
 
-![Active Directory Sites and Services window showing expanded hierarchy with NTDS Settings.](images/simple_ad_krbtgt_acct_step_12.png) 13. In the NTDS Settings window, right click on the server and select **Replicate
+![Active Directory Sites and Services console showing expanded Servers node with NTDS Settings.](images/simple_ad_krbtgt_acct_step_12.png) 13. In the NTDS Settings window, right click on the server and select **Replicate
 Now**.
 
-![Context menu showing "Replicate Now" option selected for a server in NTDS Settings window.](images/simple_ad_krbtgt_acct_step_13.png) 14. Repeat steps 13 - 14 for your other servers.
+![Context menu with Replicate Now option highlighted for a connection in NTDS Settings.](images/simple_ad_krbtgt_acct_step_13.png) 14. Repeat steps 13 - 14 for your other servers.
