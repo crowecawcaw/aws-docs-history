@@ -20,7 +20,7 @@ Make sure that you selected the check boxes for all schema objects
 to create an assessment report for. 4. Open the context (right-click) menu for the object, and then choose
 **Create report**.
 
-![Create database migration assessment report](images/create_assessment_report.png)
+![Create database migration assessment report](/images/SchemaConversionTool/latest/userguide/images/create_assessment_report.png)
 
 The assessment report view opens. 5. Choose the **Action items** tab.
 
