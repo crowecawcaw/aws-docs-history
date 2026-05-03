@@ -84,7 +84,7 @@ application delivery models and the associated advantages which
 are mentioned in the preceding section. The following diagram
 illustrates a typical deployment of the WorkSpaces Applications service.
 
-![](images/image3.png)
+![Architecture diagram showing AppStream 2.0 VPC with Fleet and Image Builder connecting to Customer VPCs across two Availability Zones with optional Active Directory and Amazon S3 storage.](images/image3.png)
 
 Prior to subscribing to the WorkSpaces Applications service, the customer
 must create their own AWS landing zone and VPC, which will
