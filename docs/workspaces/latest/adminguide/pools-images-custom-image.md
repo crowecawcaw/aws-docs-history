@@ -62,7 +62,7 @@ WorkSpace.
   - Teradici PCoIP agents and drivers
   - STXHD agents and drivers
   - AWS and WorkSpaces certificates
-  - Skylight agent
+  - AmazonWorkSpaces agent
 
 - WorkSpaces Pools only supports a maximum bundle / image root volume size of 200 GB.
   When you create a Windows custom image, ensure it is under the root volume

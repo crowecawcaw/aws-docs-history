@@ -5,7 +5,7 @@ After you launch a WorkSpace, you can modify its configuration in three ways:
 - You can change the size of its root volume (for Windows, drive C; for Linux, /)
   and its user volume (for Windows, drive D; for Linux /home).
 - You can change its compute type to select a new bundle.
-- You can modify the streaming protocol using the AWS CLI or Amazon WorkSpaces
+- You can modify the streaming protocol using the AWS Management Console, AWS CLI or Amazon WorkSpaces
   API if your WorkSpace was created with PCoIP bundles.
   To see the current modification state of a WorkSpace, select the arrow to show more
   details about that WorkSpace. The possible values for **State** are
@@ -195,13 +195,12 @@ property.
 ## Modify protocols
 
 If your WorkSpace is created with PCoIP bundles, you can modify their streaming
-protocol using the AWS CLI or the Amazon WorkSpaces API. This allows you to migrate the protocol
+protocol using the AWS Management Console, AWS CLI, or Amazon WorkSpaces API. This allows you to migrate the protocol
 using your existing WorkSpace without using the WorkSpace migration feature. This also allows you
 to use DCV and maintain your root volume without
 re-creating existing PCoIP WorkSpaces during the migration process.
 
-- You can only modify your protocol if your WorkSpace was created with PCoIP bundles
-  and is not a GPU-enabled WorkSpace.
+- You can only modify your protocol if your WorkSpace was created with PCoIP bundles.
 - Before you modify the protocol to DCV, ensure that your WorkSpace meets the
   following requirements for a DCV WorkSpace.
   - Your WorkSpaces client supports DCV
@@ -209,7 +208,6 @@ re-creating existing PCoIP WorkSpaces during the migration process.
   - The IP address and port requirements for DCV are open. For more information,
     see [IP address and port requirements for WorkSpaces](workspaces-port-requirements.md "workspaces-port-requirements.md").
   - Ensure your current bundle is available with DCV.
-  - For the best experience with video conferencing we recommend using Power, PowerPro, GeneralPurpose.4xlarge, or GeneralPurpose.8xlarge only.
 
 ###### Note
 
@@ -217,7 +215,26 @@ re-creating existing PCoIP WorkSpaces during the migration process.
 - If you modify the protocol from PCoIP to DCV, and then modify the protocol back to PCoIP,
   you won't be able to connect to WorkSpaces through Web Access.
 
-###### To change the protocol of a WorkSpace
+###### To change the protocol of a WorkSpace using the console
+
+The console provides a guided experience to change the protocol of a WorkSpace from PCoIP to DCV.
+
+1. Open the [WorkSpaces console](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
+2. Select the WorkSpace (ensure that it's in the `AVAILABLE` state and its current Protocol is `PCOIP`).
+3. Choose Actions and then Modify Protocol.
+4. Confirm to proceed with the modification.
+5. It can take up to 40 minutes for the modification to complete. During the modification, the WorkSpace Status will show as _Modifying Protocol._
+6. To confirm completion, verify in the console that the WorkSpace Status is `AVAILABLE` and the current Protocol property has been changed to `DCV(WSP)`.
+
+###### Note
+
+- During protocol modification, session provisioning is blocked. End users who attempt to connect will receive an error message indicating the WorkSpace is being modified.
+- In case of a protocol modification failure, the WorkSpace Status will show as _Modify Protocol Failed_. You can view all the WorkSpaces that failed during protocol modification by either selecting the _View failed WorkSpaces_ button in the console banner or by using the filters with combination of `PROTOCOL` and `UPDATE_FAILED`.
+- Before protocol modification begins, a checkpoint snapshot of the WorkSpace is automatically taken. In case of a protocol modification failure, you can restore the WorkSpace to this pre-modification state to ensure no data is lost. To restore, use the [Restore WorkSpace](restore-workspace.md "restore-workspace.md") action.
+- After the WorkSpace has been restored to the checkpoint snapshot, try the Modify Protocol action again. If the failure persists, contact AWS Support.
+- After successful protocol modification, another WorkSpace snapshot is taken ensuring that the Restore WorkSpace action restores to the updated protocol.
+
+###### To change the protocol of a WorkSpace using the CLI
 
 1. [Optional] Reboot your WorkSpace and wait until it’s in the `AVAILABLE` state before
    modifying the protocol.
@@ -236,8 +253,8 @@ aws workspaces modify-workspace-properties
 ###### Important
 
 The `Protocols` property is case-sensitive. Ensure that you use `PCOIP`
-or `DCV`. 4. After you run the command, it can take up to 20 minutes for the WorkSpace to reboot and
-complete the necessary configurations. 5. Use the `describe-workspaces` command again to list the WorkSpace
+or `WSP`. The input parameter for DCV (WSP) is `WSP`. 4. After you run the command, it can take up to 40 minutes for the WorkSpace to
+complete the protocol modification workflow. 5. Use the `describe-workspaces` command again to list the WorkSpace
 properties and verify that it’s in an `AVAILABLE` state and the current
 `Protocols` property has been changed to the correct
 protocol.
@@ -246,7 +263,8 @@ protocol.
 
     * Modifying the WorkSpace's protocol will not update the bundle description in the console.
      The **Launch Bundle** description will not change.
-    * If the WorkSpace remains in an `UNHEALTHY` state after 20
-     min, reboot the WorkSpace in the console.
-
-6. You can now connect to your WorkSpace.
+    * During protocol modification, session provisioning is blocked. End users who attempt to connect will receive an error message indicating the WorkSpace is being modified.
+    * Protocol modification has failed if the WorkSpace is in an `UNHEALTHY` State with `RESOURCE: PROTOCOL` and `STATE: UPDATE_FAILED`.
+    * Before protocol modification begins, a checkpoint snapshot of the WorkSpace is automatically taken. In case of a protocol modification failure, you can restore the WorkSpace to this pre-modification state to ensure no data is lost. To restore, use the [`restore-workspace`](../../../cli/latest/reference/workspaces/restore-workspace.md "../../../cli/latest/reference/workspaces/restore-workspace.md") command. See [Restore WorkSpaces](restore-workspace.md "restore-workspace.md") documentation for details.
+    * After the WorkSpace has been restored to the checkpoint snapshot, try the `modify-workspace-properties` command again. If the failure persists, contact AWS Support.
+    * After successful protocol modification, another WorkSpace snapshot is taken ensuring that the Restore WorkSpace action restores to the updated protocol.

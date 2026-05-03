@@ -32,7 +32,7 @@ Before you set up VPC endpoints for WorkSpaces, be aware of the following prereq
   require internet connectivity for user authentication. Enable outbound access on port 443 (both UDP and TCP)
   for authentication traffic. Additionally, you must add the required domains and IP addresses to your allow
   list based on your chosen authentication method. For a complete list of domains for each category, refer to
-  [Domains and IP addresses to add to your allow list](workspaces-port-requirements.md#whitelisted_ports "workspaces-port-requirements.md#whitelisted_ports").
+  [Domains and IP addresses to add to your allow list](workspaces-port-requirements.md#allowlisted_ports "workspaces-port-requirements.md#allowlisted_ports").
   - CAPTCHA
   - Directory Settings
   - Pre-session Smart Card Authentication Endpoints, if you are using Smart Card

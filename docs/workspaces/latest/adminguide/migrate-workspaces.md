@@ -11,7 +11,7 @@ user volume. The following are example scenarios:
 
 - You can migrate WorkSpaces from the Windows 7 desktop experience to the Windows 10
   desktop experience.
-- You can migrate WorkSpaces from the PCoIP protocol to DCV.
+- You can migrate WorkSpaces from the PCoIP protocol to DCV. If you want to change only the streaming protocol, use the Modify protocols feature instead. Modify protocols retains your root volume and does not require a rebuild. For more information, see [Modify protocols](modify-workspaces.md#modify_protocols "modify-workspaces.md#modify_protocols"). Use the Migrate feature described in this section when you need to change the bundle or operating system.
 - You can migrate WorkSpaces from the 32-bit Microsoft Office on Windows Server
   2016-powered WorkSpaces bundle to the 64-bit Microsoft Office on Windows Server
   2019 and Windows Server 2022-powered WorkSpaces bundles.

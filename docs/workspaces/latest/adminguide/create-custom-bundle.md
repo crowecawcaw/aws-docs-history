@@ -89,7 +89,7 @@ image of a WorkSpace.
   - Teradici PCoIP agents and drivers
   - STXHD agents and drivers
   - AWS and WorkSpaces certificates
-  - Skylight agent
+  - AmazonWorkSpaces agent
 
 ## Requirements to create Linux custom images
 
@@ -105,7 +105,7 @@ image of a WorkSpace.
   correctly:
   - Cloud-init
   - Teradici PCoIP or DCV agents and drivers
-  - Skylight agent
+  - AmazonWorkSpaces agent
 
 ## Best practices
 
@@ -863,7 +863,7 @@ the following applicable folders and keys, which are removed:
 - /etc/network/interfaces.d/50-cloud-init.cfg
 - /var/log/amazon/ssm
 - /var/log/pcoip-agent
-- /var/log/skylight
+- /var/log/AmazonWorkSpaces
 - /var/lock/.skylight.domain-join.lock
 - /var/lib/skylight/domain-join-status
 - /var/lib/skylight/configuration-data

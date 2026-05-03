@@ -128,7 +128,7 @@ about modifying `/etc/pcoip-agent/pcoip-agent.conf`, see
 - `/var/lib/pcoip-agent`
 - `/var/lib/skylight`
 - `/var/log/pcoip-agent`
-- `/var/log/skylight`
+- `/var/log/AmazonWorkSpaces`
 - `/var/logs/wsp`
 - `/var/log/eucanalytics`
 
@@ -157,7 +157,7 @@ will not function correctly.
 - `/usr/share/X11`
 - `/usr/bin/euc-analytics-agent`
 - `/var/lib/skylight`
-- `/var/log/skylight`
+- `/var/log/AmazonWorkSpaces`
 - `/var/log/eucanalytics`
 
 ## Required service components for Rocky Linux
@@ -185,6 +185,7 @@ will not function correctly.
 - `/var/lib/skylight`
 - `/var/log/eucanalytics`
 - `/var/log/skylight`
+- `/var/log/AmazonWorkSpaces`
 
 ## Required service components for Red Hat Enterprise Linux
 
@@ -210,3 +211,4 @@ will not function correctly.
 - `/usr/share/X11`
 - `/var/log/eucanalytics`
 - `/var/log/skylight`
+- `/var/log/AmazonWorkSpaces`

@@ -53,7 +53,6 @@ For more information about how to check your WorkSpace client version and host a
 - If you want to use the iPad or Android Linux clients.
 - If you use Teradici zero client devices.
 - If you need to use a Linux bundle for non-smart card use cases.
-- If you need to use WorkSpaces in the China (Ningxia) Region.
 
 ###### Note
 

@@ -30,7 +30,7 @@ identity broker to bring your workforce identity from Entra ID to AWS. Microsoft
 user-driven mode is used to accomplish WorkSpaces Intune enrollment and Entra join. The following
 diagram illustrates the Autopilot process.
 
-![Diagram showing WorkSpaces client, service, and agent interacting with AWS and Azure components for authentication and device management.](images/autopilot.jpg)
+![Workflow showing admin setup of Entra ID, WorkSpaces Service integration, and device registration.](images/autopilot.jpg)
 
 ## Requirements and limitations
 
