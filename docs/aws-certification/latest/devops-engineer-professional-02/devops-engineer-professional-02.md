@@ -16,7 +16,7 @@ The AWS Certified DevOps Engineer - Professional (DOP-C02) exam is intended for 
 - [Content Domain 5: Incident and Event Response](devops-engineer-professional-02-domain5.md "devops-engineer-professional-02-domain5.md")
 - [Content Domain 6: Security and Compliance](devops-engineer-professional-02-domain6.md "devops-engineer-professional-02-domain6.md")
 - [Technologies and Concepts](dop-technologies-concepts.md "dop-technologies-concepts.md")
-- [In-scope AWS services and features](dop-02-in-scope-services.md "dop-02-in-scope-services.md")
+- [In-Scope AWS Services](dop-02-in-scope-services.md "dop-02-in-scope-services.md")
 - [Survey](#devops-engineer-professional-02-survey "#devops-engineer-professional-02-survey")
 
 ## Introduction
