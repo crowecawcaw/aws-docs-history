@@ -18,17 +18,17 @@ The default volume initialization rate fluctuates throughout the initialization 
 which could make completion times unpredictable. To minimize the performance impacts associated
 with volume initialization, you could use the following options:
 
-###### Note
-
-Volume initialization rate and fast snapshot restore are not supported for volume copies. For more
-information, see [Volume copy initialization](ebs-copying-volume.md#copy-volume-initialization "ebs-copying-volume.md#copy-volume-initialization").
-
 ###### Topics
 
 - [Use an Amazon EBS Provisioned Rate for Volume Initialization](#volume-initialization-rate "#volume-initialization-rate")
 - [Use a snapshot that is enabled for fast snapshot restore](#volume-initialization-fsr "#volume-initialization-fsr")
 - [Manually initialize volumes](#ebs-initialize "#ebs-initialize")
 - [Monitor volume initialization](ebs-initialize-monitor.md "ebs-initialize-monitor.md")
+
+###### Note
+
+Amazon EBS Provisioned Rate for Volume Initialization and fast snapshot restore are not supported for volume copies. For more
+information, see [Volume copy initialization](ebs-copying-volume.md#copy-volume-initialization "ebs-copying-volume.md#copy-volume-initialization").
 
 ## Use an Amazon EBS Provisioned Rate for Volume Initialization
 

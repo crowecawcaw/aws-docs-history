@@ -28,7 +28,7 @@ see [Initialize Amazon EBS volumes](initalize-volume.md "initalize-volume.md").
 The encryption state of the volume depends on whether your account is
 [enabled for encryption by default](encryption-by-default.md "encryption-by-default.md"), and on
 the encryption state of the snapshot, if you choose to use one. The following table
-summarizes thepossible encryption outcomes.
+summarizes the possible encryption outcomes.
 
 | Encryption by default | Snapshot used?   | Volume encryption outcome | Note                                                                                                                                                                                                           |
 | --------------------- | ---------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

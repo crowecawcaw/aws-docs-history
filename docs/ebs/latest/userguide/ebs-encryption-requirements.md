@@ -31,7 +31,7 @@ to use EBS encryption:
 - `kms:CreateGrant`
 - `kms:Decrypt`
 - `kms:DescribeKey`
-- `kms:GenerateDataKeyWithoutPlainText`
+- `kms:GenerateDataKeyWithoutPlaintext`
 - `kms:ReEncrypt`
 
 ###### Tip

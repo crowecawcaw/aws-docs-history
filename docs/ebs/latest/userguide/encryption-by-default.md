@@ -22,14 +22,12 @@ Console
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. From the navigation bar, select the Region.
-3. From the navigation pane, select **EC2 Dashboard**.
-4. In the upper-right corner of the page, choose **Account Attributes**,
-   **Data protection and security**.
-5. In the **EBS encryption** section, choose **Manage**.
-6. Select **Enable**. You keep the AWS managed key with the alias
+3. From the navigation pane, select **Settings**, and then select the **Data protection and security** tab.
+4. In the **EBS encryption** section, choose **Manage**.
+5. Select **Enable**. You keep the AWS managed key with the alias
    `aws/ebs` created on your behalf as the default encryption key,
    or choose a symmetric customer managed encryption key.
-7. Choose **Update EBS encryption**.
+6. Choose **Update EBS encryption**.
 
 AWS CLI
 

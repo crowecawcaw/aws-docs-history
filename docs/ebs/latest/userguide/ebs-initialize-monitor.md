@@ -60,7 +60,7 @@ For example, the following command checks the initialization status for volume
 `vol-11111111111111111`, which was created with an Amazon EBS Provisioned Rate for Volume Initialization.
 
 ```
-aws ec2 describe-volume-status --volume-id `vol-01111111111111111`
+aws ec2 describe-volume-status --volume-ids `vol-01111111111111111`
 ```
 
 The following is example output.
