@@ -15,7 +15,7 @@ with three video encodes (one for low-resolution video, one for medium, one for 
 one audio. You also want to include embedded captions (in English and Spanish) and
 associate them with all three video encodes.
 
-![Diagram showing input captions and output video streams with embedded captions in English and Spanish.](images/captions_INembed_OUTembed_ABRhls_result.png)
+![Diagram showing input captions flowing to three video quality outputs and one audio output in HLS.](images/captions_INembed_OUTembed_ABRhls_result.png)
 
 ###### To use one caption's output in multiple video encodes
 
@@ -60,7 +60,7 @@ video, one for medium, one for high) and one audio. These encodes are in an MS S
 output. You want to ingest embedded captions (in English and Spanish) and convert them to
 TTML captions, one for English and one for Spanish.
 
-![Diagram showing output options for video, audio, and captions in multiple qualities and languages.](images/captions_INembed_OUTembed_ABRmss_result.png)
+![Caption selectors for Embedded English and Spanish connecting to multiple outputs including video qualities, audio, and TTML formats, all feeding into MSS Output Group.](images/captions_INembed_OUTembed_ABRmss_result.png)
 
 ###### To set up sidecar captions
 

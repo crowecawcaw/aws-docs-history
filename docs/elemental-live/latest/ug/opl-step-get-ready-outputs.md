@@ -39,7 +39,7 @@ encodes, create an output in one output group and an output in the
 other output group. Create one video stream. Set up both outputs to
 use the same encode.
 
-![Diagram showing two output groups sharing a high resolution video stream.](images/opl-shared-encode.png)
+![Two output groups connecting to a single high resolution video stream.](images/opl-shared-encode.png)
 
 ## Encodes across the locked events
 

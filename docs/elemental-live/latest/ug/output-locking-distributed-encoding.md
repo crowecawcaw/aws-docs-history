@@ -22,4 +22,4 @@ occurs with no missing frames and with no duplicate frames.
 The following diagram illustrates a setup of several events that
 together produce the outputs for an ABR stack.
 
-![Diagram showing three HLS output groups connected to an ABR stack with high, medium, and low resolution video outputs.](images/opl-abr.png)
+![Three events with HLS output groups connecting to ABR stack with high, medium, and low resolution videos.](images/opl-abr.png)

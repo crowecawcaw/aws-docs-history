@@ -64,7 +64,7 @@ You now have three inputs in the order A, X, B.
   set up with failover conditions. Input X is set up with failback rules. Therefore,
   inputs A and X are a hot-backup pair.
 
-![](images/2110-input-scenario-B.png)
+![Diagram showing inputs A, X, and B with NMOS patch pair and Hot Backup settings.](images/2110-input-scenario-B.png)
 **How patching works at runtime**
 
 The NMOS controller sends a patching request by sending new SDP content for the

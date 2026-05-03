@@ -26,7 +26,7 @@ list that is patching-pair-enabled (input B in this example). Whenever Elemental
 ingesting this receiver group content, one of the inputs in the patching pair is
 _active_ and the other input is in _standby_.
 
-![](images/2110-input-scenario-A.png)
+![Diagram showing two inputs, A and B, with NMOS patch pair set to ON for both.](images/2110-input-scenario-A.png)
 The two patching-pair inputs must be next to each other. If necessary, use the up and
 down arrows on the far right of the web interface to move an input up or down the
 list.

@@ -17,7 +17,7 @@ For Dolby Digital, encoder control fields are circled in blue and delivery field
 circled in red. Note that the LFE Filter field appears only when the Coding Mode is 3/2
 mode.
 
-![Audio codec settings interface with Dolby Digital options and highlighted fields.](images/dolby-metadata-setup-dolby-digital.png)
+![Audio encoding settings with Dolby Digital codec, bitstream mode, coding mode, bitrate, and compression options.](images/dolby-metadata-setup-dolby-digital.png)
 
 **Dolby Digital Plus codec**
 Encoder Control fields are circled in blue. Delivery fields are circled in red. Note that
@@ -25,7 +25,7 @@ the Automatic Pass-through field does not relate to metadata.
 
 Note that the Surround Mode field appears only when Coding Mode is 2/0.
 
-![Audio codec interface with settings for bitstream, coding, DRC, filters, and surround sound options.](images/dolby-metadata-setup-dolby-digital-plus.png)
+![Audio encoding settings interface showing Surround FX Mode field set to Disabled.](images/dolby-metadata-setup-dolby-digital-plus.png)
 
 **Dolby Digital Passthrough**
 There are no fields for metadata.

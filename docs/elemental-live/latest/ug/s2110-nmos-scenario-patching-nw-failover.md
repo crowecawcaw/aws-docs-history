@@ -51,7 +51,7 @@ To set up SMPTE 2110 sources in this way, follow this procedure.
 
 You now have four inputs in the order A, B, C, D.
 
-![](images/2110-input-scenario-C-1.png) 3. Turn on **NMOS patching pair** in all these inputs. 4. Turn on **Hot Backup** in all these inputs. 5. Make these changes in input A:
+![Four inputs A, B, C, D connected to resource groups RG1, RG2, RG1, RG2 respectively.](images/2110-input-scenario-C-1.png) 3. Turn on **NMOS patching pair** in all these inputs. 4. Turn on **Hot Backup** in all these inputs. 5. Make these changes in input A:
 
     * Create as many failover conditions as you want. To create one
      condition, click **Add Failover Condition**. In
@@ -77,7 +77,7 @@ You now have four inputs in the order A, B, C, D.
 You have now set up the four inputs as shown in the following diagram. All inputs
 have hot backup enabled and all have patching enabled.
 
-![](images/2110-input-scenario-C-3.png)
+![Four inputs with route groups, NMOS patch pairs, and hot backup enabled for all inputs.](images/2110-input-scenario-C-3.png)
 
 Elemental Live proceeds as follows:
 
@@ -122,7 +122,7 @@ be ready when the event starts:
 When the event starts, the sources will connect to the inputs as shown in this
 diagram.
 
-![](images/2110-input-scenario-C-4.png)
+![Source 1 connects to RG1 for Input A, Source 2 connects to RG2 for Input B, RG1 to Input C, RG2 to Input D.](images/2110-input-scenario-C-4.png)
 
 ## How patching works at runtime
 
@@ -147,7 +147,7 @@ Typically, the NMOS controller will also send a patching request by sending new
 SDP content for RG2 (scenario 2). In this way, the hot backup for input C will be
 input D, which is the same content (the studio) but on the other network.
 
-![](images/2110-input-scenario-C-6.png)
+![Four inputs with network routing: RG1 connects to inputs A and C, RG2 connects to inputs B and D.](images/2110-input-scenario-C-6.png)
 
 If the NMOS controller doesn't patch RG2, Elemental Live still prepares input D (the hot
 backup for input C). But for the source, the current source for RG2, which is source 2. This source is on the other network, so if input C fails, a failover will succeed.
@@ -155,7 +155,7 @@ But the content will be curling, not the studio.
 
 The following diagram illustrates this undesirable setup.
 
-![](images/2110-input-scenario-C-7.png)
+![Three sources routing to network inputs, with Source 3 connected to both RG1 and RG2 networks.](images/2110-input-scenario-C-7.png)
 
 ## How failover works at runtime
 
@@ -174,4 +174,4 @@ ingest input B (the hot backup for input A). Note that both input A and input C 
 affected when the network goes offline, as shown in the diagram. The event starts to
 process the studio feed from network 2 instead of network 1.
 
-![](images/2110-input-scenario-C-5.png)
+![Network diagram showing RG1 inactive, RG2 active with Input B from Source 2, and Input D active.](images/2110-input-scenario-C-5.png)

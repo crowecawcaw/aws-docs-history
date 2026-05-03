@@ -19,4 +19,4 @@ same source. The following pairs exist:
 - Videos 1 and 2 are a redundant pair of encodes. Videos 3 and 4 are
   another redundant pair.
 
-![Diagram showing four events with HLS and MS Smooth output groups connected to video outputs.](images/opl-pairs.png)
+![Four events with output groups routing to video destinations, including HLS and MS Smooth outputs.](images/opl-pairs.png)

@@ -164,7 +164,7 @@ source frame rate.
 Rule 2: All the encodes can have a different fran rate, but they
 must be whole number multiples of each other.
 
-![Three appliances showing HLS output groups with varying video resolution streams.](images/outputs_opl-framerates.png)
+![Three appliances with HLS events producing video streams at different resolutions.](images/outputs_opl-framerates.png)
 
 ## Output locking and SCTE 35
 
