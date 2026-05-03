@@ -95,7 +95,7 @@ are not peered, and you cannot use VPC A as a transit point for peering between 
 and VPC C. If you want to enable routing of traffic between VPC B and VPC C, you must
 create a unique VPC peering connection between them.
 
-![One VPC peered with two VPCs](images/one-vpc-peered-to-two.png)
+![One VPC peered with two VPCs](/images/vpc/latest/peering/images/one-vpc-peered-to-two.png)
 
 ## VPC peering limitations
 
