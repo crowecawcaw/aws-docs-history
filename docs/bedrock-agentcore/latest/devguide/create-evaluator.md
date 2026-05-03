@@ -4,6 +4,8 @@ The `CreateEvaluator` API creates a new custom evaluator that defines how to ass
 
 **Required parameters:** You must specify a unique evaluator name (within your Region), evaluator configuration, and evaluation level ( `TOOL_CALL` , `TRACE` , or `SESSION` ).
 
+**Optional encryption:** You can specify a `kmsKeyArn` to encrypt the evaluator’s instructions and rating scale with a customer managed AWS KMS key. Only symmetric encryption KMS keys are supported. For more information, see [Encryption at rest for AgentCore Evaluations](evaluations-encryption.md "evaluations-encryption.md").
+
 **Evaluator configuration:** You can choose one of two evaluator types:
 
 - **LLM-as-a-judge** – Define evaluation instructions (prompts), model settings, and rating scales. The evaluation logic is executed by a Bedrock foundation model.

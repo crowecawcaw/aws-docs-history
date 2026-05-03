@@ -13,6 +13,7 @@ Amazon Bedrock AgentCore Gateway provides an easy and secure way for developers 
 - [Prerequisites for using the Amazon Bedrock AgentCore gateway service](gateway-prerequisites.md "gateway-prerequisites.md")
 - [Set up an Amazon Bedrock AgentCore gateway](gateway-building.md "gateway-building.md")
 - [Use an AgentCore gateway](gateway-using.md "gateway-using.md")
+- [Add rules to a gateway](gateway-rules.md "gateway-rules.md")
 - [Fine-grained access control for Amazon Bedrock AgentCore Gateway](gateway-fine-grained-access-control.md "gateway-fine-grained-access-control.md")
 - [Debug and assess your gateway](gateway-building-debug.md "gateway-building-debug.md")
 - [Advanced features and topics for Amazon Bedrock AgentCore Gateway](gateway-advanced.md "gateway-advanced.md")

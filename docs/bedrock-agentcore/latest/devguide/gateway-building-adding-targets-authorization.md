@@ -55,6 +55,7 @@ The structure of the [OAuthCredentialProvider](../../../bedrock-agentcore-contro
 
 - If you set up machine-to-machine authentication, also known as a client credentials grant or 2-legged OAuth (2LO), follow the structure in the **Client credentials** tab.
 - If you set up user-delegated access, also known as an authorization code grant or 3-legged OAuth (3LO), follow the structure in the **Authorization code** tab.
+- If you set up on-behalf-of token exchange to propagate an authenticated user’s identity to a downstream service or obtain an access token with the actor context, follow the structure in the **Token exchange (On-behalf-of)** tab.
 
 Select one of the following methods:
 
@@ -108,6 +109,33 @@ Authorization code
 ```
 
 To learn more about 3LO authentication, see [OAuth 2.0 authorization URL session binding](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md").
+
+Token exchange (On-behalf-of)
+
+1. Specify the `grantType` as `TOKEN_EXCHANGE`. The gateway exchanges the inbound user’s access token for a target-scoped token via the credential provider. Include any IdP-specific parameters in `customParameters`. For more information about configuring the credential provider, see [On-behalf-of token exchange](on-behalf-of-token-exchange.md "on-behalf-of-token-exchange.md").
+
+```
+{
+    "credentialProviderType": "OAUTH",
+    "credentialProvider": {
+        "oauthCredentialProvider": {
+            "providerArn": "string",
+            "grantType": "TOKEN_EXCHANGE",
+            "scopes": [
+                "string",
+                ...
+            ],
+            "customParameters": {
+                "subject_token_type": "urn:ietf:params:oauth:token-type:access_token"
+            }
+        }
+    }
+}
+```
+
+###### Note
+
+The `customParameters` field passes values directly to the identity provider’s token endpoint. Required parameters vary by provider. For example, Okta requires an `audience` parameter in addition to `subject_token_type`. See your identity provider’s documentation and [On-behalf-of token exchange](on-behalf-of-token-exchange.md "on-behalf-of-token-exchange.md") for details.
 
 ## API key authorization
 

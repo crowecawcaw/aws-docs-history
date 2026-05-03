@@ -10,6 +10,7 @@ Select a topic to see examples of adding a target type:
 - [Add an API Gateway stage target](#gateway-add-target-api-gateway "#gateway-add-target-api-gateway")
 - [Add an OpenAPI target](#gateway-add-target-api-openapi "#gateway-add-target-api-openapi")
 - [Add a Smithy target](#gateway-add-target-api-smithy "#gateway-add-target-api-smithy")
+- [Add an HTTP runtime target](#gateway-add-target-api-http-runtime "#gateway-add-target-api-http-runtime")
 - [Add an MCP server target](#gateway-add-target-api-MCPserver "#gateway-add-target-api-MCPserver")
 
 ## Add a Lambda target
@@ -417,6 +418,65 @@ Interactive
 ![TUI target type selection showing Smithy Model option](images/tui/gateway-target-type-smithy.png)
 
 The wizard then prompts you for the target name, path to the Smithy model file, and outbound authorization configuration.
+
+## Add an HTTP runtime target
+
+You can add an Amazon Bedrock AgentCore Runtime agent as an HTTP target to your gateway. The gateway sends traffic directly to the runtime agent without aggregation or protocol translation.
+
+For more information about HTTP targets, see [Amazon Bedrock AgentCore Runtime targets](gateway-target-http-runtime.md "gateway-target-http-runtime.md").
+
+Select one of the following methods:
+
+###### Example
+
+AWS CLI
+
+1. The following command creates an HTTP runtime target with IAM authorization:
+
+```
+aws bedrock-agentcore-control create-gateway-target \
+    --gateway-identifier "your-gateway-id" \
+    --name "MyRuntimeTarget" \
+    --description "Runtime gateway target" \
+    --target-configuration '{
+        "http": {
+            "agentcoreRuntime": {
+                "arn": "arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/RUNTIME_ID"
+            }
+        }
+    }' \
+    --credential-provider-configurations '[{
+        "credentialProviderType": "GATEWAY_IAM_ROLE"
+    }]'
+```
+
+Boto3
+
+1. The following Python code shows how to add an HTTP runtime target using the AWS Python SDK (Boto3):
+
+```
+import boto3
+
+agentcore_client = boto3.client('bedrock-agentcore-control')
+
+target = agentcore_client.create_gateway_target(
+    gatewayIdentifier="your-gateway-id",
+    name="MyRuntimeTarget",
+    description="Runtime gateway target",
+    targetConfiguration={
+        "http": {
+            "agentcoreRuntime": {
+                "arn": "arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/RUNTIME_ID"
+            }
+        }
+    },
+    credentialProviderConfigurations=[
+        {
+            "credentialProviderType": "GATEWAY_IAM_ROLE"
+        }
+    ]
+)
+```
 
 ## Add an MCP server target
 

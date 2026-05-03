@@ -2,7 +2,7 @@
 
 The `DeleteOnlineEvaluationConfig` API permanently removes an online evaluation configuration and stops all associated evaluation processing. This asynchronous operation disables the evaluation service and cleans up all related resources.
 
-An online evaluation can only be deleted when the configuration is in Active, UpdateFailed, or Disabled status. Configurations currently being created or updated must complete their operations before deletion is allowed.
+An online evaluation can only be deleted when the configuration is in `ACTIVE`, `UPDATE_FAILED`, `CREATE_FAILED`, or `ERROR` status. Configurations currently being created, updated, or deleted must complete their operations before another deletion is allowed.
 
 ## Code samples for AgentCore CLI, AgentCore SDK, and AWS SDK
 

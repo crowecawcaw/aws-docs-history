@@ -7,9 +7,9 @@ Minimally, you must specify the following fields:
 - `name` – The name of the gateway.
 - `roleArn` – The ARN of the gateway service role. For more information, see [AgentCore Gateway service role permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions "gateway-prerequisites-permissions.md#gateway-service-role-permissions").
 - `authorizerType` – The type of authorizer to use for the gateway. Depends on the inbound authorization that you set up. For more information, see [Set up inbound authorization for your gateway](gateway-inbound-auth.md "gateway-inbound-auth.md").
-- `protocolType` – The protocol type for the gateway.
   The following optional fields add metadata to your gateway:
 
+- `protocolType` – The protocol type for the gateway. If you set this to `MCP`, the gateway operates in aggregation mode and can only have MCP targets. If you omit this field, the gateway can have both MCP and HTTP targets.
 - `description` – A description of the gateway.
 - `tags` – A dictionary of key-value pairs specifying tags that you can use to label your gateway for monitoring purposes.
   The remaining fields depend on your gateway configuration and whether you want to toggle custom features for your gateway:
@@ -366,7 +366,7 @@ AWS CLI
 ```
 aws bedrock-agentcore-control create-gateway \
   --name my-gateway \
-  --role-arn arn:aws:iam::123456789012:role/my-gateway-service-role \
+  --role-arn arn:aws:iam::111122223333:role/my-gateway-service-role \
   --protocol-type MCP \
   --authorizer-type NONE
 ```
@@ -386,12 +386,69 @@ client = boto3.client('bedrock-agentcore-control')
 # Create a gateway
 gateway = client.create_gateway(
   name="my-gateway",
-  roleArn="arn:aws:iam::123456789012:role/my-gateway-service-role",
+  roleArn="arn:aws:iam::111122223333:role/my-gateway-service-role",
   protocolType="MCP",
   authorizerType="NONE"
 )
 
 print(f"MCP Endpoint: {gateway['gatewayUrl']}")
+```
+
+## Create a gateway: basic example (AUTHENTICATE_ONLY authorization)
+
+This section provides examples of creating a gateway with `AUTHENTICATE_ONLY` authorization. With this authorizer type, the gateway validates the inbound token but does not perform full authorization. The authenticated identity or token is then passed through to the target for downstream authorization. This is useful when you want the gateway to verify that the caller is authenticated while delegating authorization decisions to the target service.
+
+###### Note
+
+The `AUTHENTICATE_ONLY` authorizer type requires a JWT authorizer configuration. The gateway validates the token but does not enforce scope or audience restrictions for authorization. If you choose an option that involves specifying an overt gateway service role ARN, ensure that you specify an existing one that you’ve set up. For more information, see [AgentCore Gateway service role permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions "gateway-prerequisites-permissions.md#gateway-service-role-permissions").
+
+Select one of the following methods:
+
+###### Example
+
+AWS CLI
+
+1. Run the following command to create a gateway with `AUTHENTICATE_ONLY` authorization:
+
+```
+aws bedrock-agentcore-control create-gateway \
+  --name my-gateway \
+  --role-arn arn:aws:iam::111122223333:role/my-gateway-service-role \
+  --authorizer-type AUTHENTICATE_ONLY \
+  --authorizer-configuration '{
+    "jwtAuthenticationConfiguration": {
+      "discoveryUrl": "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration",
+      "allowedClients": ["clientId"]
+    }
+  }'
+```
+
+The `gatewayUrl` in the response is the endpoint to use when you invoke the gateway.
+
+AWS Python SDK (Boto3)
+
+1. The following Python code shows how to create a gateway with `AUTHENTICATE_ONLY` authorization:
+
+```
+import boto3
+
+# Initialize the AgentCore client
+client = boto3.client('bedrock-agentcore-control')
+
+# Create a gateway
+gateway = client.create_gateway(
+  name="my-gateway",
+  roleArn="arn:aws:iam::111122223333:role/my-gateway-service-role",
+  authorizerType="AUTHENTICATE_ONLY",
+  authorizerConfiguration={
+      "jwtAuthenticationConfiguration": {
+          "discoveryUrl": "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration",
+          "allowedClients": ["clientId"]
+      }
+  }
+)
+
+print(f"Gateway URL: {gateway['gatewayUrl']}")
 ```
 
 ## Create a gateway with semantic search

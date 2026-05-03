@@ -6,20 +6,24 @@ AgentCore Gateway supports the following types of outbound authorization:
 
 - **No authorization (not recommended)** – Some target types provide you the option to bypass outbound authorization. This less secure option is not recommended.
 - **IAM-based outbound authorization** – Use the [gateway service role](gateway-prerequisites-permissions.md#gateway-service-role-permissions "gateway-prerequisites-permissions.md#gateway-service-role-permissions") to authenticate access to the gateway target with [AWS Signature Version 4 (Sig V4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md").
+- **Caller IAM credentials** – The gateway uses the caller’s IAM credentials to sign requests to the target. The gateway assumes a role on behalf of the caller using the Federated Access Service (FAS) and signs the outbound request with the caller’s identity. This is useful when the target service needs to authorize based on the original caller’s identity rather than the gateway service role.
 - **OAuth** – An open authorization framework that allows a client application to access resources. You can use OAuth with a [built-in identity provider](identity-idps.md "identity-idps.md") or with a custom one. For more information, see [OAuth 2.0](https://oauth.net/2/ "https://oauth.net/2/") . You can use the following types of OAuth authorization grants:
-  - **Client credentials grant** – Machine-to-machine authentication (also known as 2-legged OAuth). The client application access resources on the application’s behalf, rather than on behalf of the user.
+  - **Client credentials grant** – Machine-to-machine authentication (also known as 2-legged OAuth). The client application accesses resources on the application’s behalf, rather than on behalf of the user.
   - **Authorization code grant** – User-delegated access (also known as 3-legged OAuth). The user provides consent for the client application to access resources on behalf of the user.
+  - **Token exchange grant (On-behalf-of)** – The gateway exchanges the inbound user’s access token for a new, scoped access token that targets a downstream resource. The exchanged token carries both the user’s identity and the agent’s identity, enabling downstream services to enforce fine-grained authorization at every hop without triggering additional consent flows. For more information, see [On-behalf-of token exchange](on-behalf-of-token-exchange.md "on-behalf-of-token-exchange.md").
 
+- **Token passthrough** – The gateway passes the inbound authorization token directly to the target without modification. The target service is responsible for validating the token. This requires the gateway to use `AUTHENTICATE_ONLY` inbound authorization so that the token is validated but preserved for forwarding.
 - **API key** – Use the AgentCore service to generate an API key to authenticate access to the gateway target.
   The type of outbound authorization that you can set up is dependent on the gateway target type to which you authorize access:
 
-| Target type       | No authorization | Gateway service role | OAuth (client credentials) | OAuth (authorization code) | API key |
-| ----------------- | ---------------- | -------------------- | -------------------------- | -------------------------- | ------- |
-| API Gateway stage | Yes              | Yes                  | No                         | No                         | Yes     |
-| Lambda function   | No               | Yes                  | No                         | No                         | No      |
-| MCP server        | Yes              | Yes                  | Yes                        | No                         | No      |
-| OpenAPI schema    | No               | No                   | Yes                        | Yes                        | Yes     |
-| Smithy schema     | No               | Yes                  | Yes                        | No                         | No      |
+| Target type              | No authorization | Gateway service role | Caller IAM credentials | OAuth (client credentials) | OAuth (authorization code) | OAuth (token exchange) | Token passthrough | API key |
+| ------------------------ | ---------------- | -------------------- | ---------------------- | -------------------------- | -------------------------- | ---------------------- | ----------------- | ------- |
+| API Gateway stage        | Yes              | Yes                  | No                     | No                         | No                         | No                     | No                | Yes     |
+| Lambda function          | No               | Yes                  | No                     | No                         | No                         | No                     | No                | No      |
+| MCP server               | Yes              | Yes                  | No                     | Yes                        | No                         | Yes                    | No                | No      |
+| OpenAPI schema           | No               | No                   | No                     | Yes                        | Yes                        | Yes                    | No                | Yes     |
+| Smithy schema            | No               | Yes                  | No                     | Yes                        | No                         | No                     | No                | No      |
+| AgentCore Runtime (HTTP) | No               | Yes                  | Yes                    | Yes                        | No                         | No                     | Yes               | No      |
 
 ###### Note
 

@@ -13,5 +13,6 @@ This section provides examples using the AWS SDK (Boto3). For complete end-to-en
 - [Save and retrieve insights](long-term-saving-and-retrieving-insights.md "long-term-saving-and-retrieving-insights.md")
 - [Retrieve memory records](long-term-retrieve-records.md "long-term-retrieve-records.md")
 - [List memory records](long-term-list-memory-records.md "long-term-list-memory-records.md")
+- [Structured metadata for long-term memories](long-term-memory-metadata.md "long-term-memory-metadata.md")
 - [Delete memory records](long-term-delete-memory-records.md "long-term-delete-memory-records.md")
 - [Redrive failed ingestions](long-term-redrive.md "long-term-redrive.md")

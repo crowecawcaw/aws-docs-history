@@ -2,7 +2,7 @@
 
 The `ListOnlineEvaluationConfigs` API retrieves a paginated list of all online evaluation configurations in your account and Region. This synchronous operation uses the POST method and returns summary information for each configuration.
 
-The response includes an array of evaluation configuration summaries containing the configuration ARN, ID, name, description, lifecycle status (Creating, Active, Updating, or Deleting), execution status (ENABLED or DISABLED), creation and update timestamps, and any failure reasons.
+The response includes an array of evaluation configuration summaries containing the configuration ARN, ID, name, description, lifecycle status (`ACTIVE`, `CREATING`, `CREATE_FAILED`, `UPDATING`, `UPDATE_FAILED`, `DELETING`, or `ERROR`), execution status (`ENABLED` or `DISABLED`), creation and update timestamps, and any failure reasons.
 
 ## Code samples for AgentCore SDK and AWS SDK
 

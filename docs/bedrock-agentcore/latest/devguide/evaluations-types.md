@@ -1,11 +1,12 @@
 # Evaluation types
 
-AgentCore Evaluations provides two evaluation types, which differ in when and how the evaluation is performed:
+AgentCore Evaluations provides three evaluation types, which differ in when and how the evaluation is performed:
 
 ###### Topics
 
 - [Online evaluation](#online-evaluation-type "#online-evaluation-type")
 - [On-demand evaluation](#on-demand-evaluation-type "#on-demand-evaluation-type")
+- [Batch evaluation](#batch-evaluation-type "#batch-evaluation-type")
 
 ## Online evaluation
 
@@ -20,3 +21,11 @@ On-demand evaluation provides a flexible way to evaluate specific agent interact
 With on-demand evaluation, you specify the exact spans or traces you want to evaluate by providing their span or trace IDs. You can then apply the same comprehensive evaluation methods available in online evaluation, including [Custom evaluators](custom-evaluators.md "custom-evaluators.md") or [Built-in evaluators](evaluators.md#built-in-evaluators "evaluators.md#built-in-evaluators") . This evaluation type is particularly useful when you need to try out your own custom evaluator, investigate specific customer interactions, validate fixes for reported issues, or analyze historical data for quality improvements. Once you submit the evaluation request, the service processes only the spans and traces you specify and returns detailed results for your analysis.
 
 This evaluation type complements online evaluation by offering precise control over which interactions to assess, making it an effective tool for focused quality analysis and issue investigation. It is also well suited for early stages of the agent development lifecycle, such as build-time testing.
+
+## Batch evaluation
+
+Batch evaluation runs evaluators against multiple agent sessions in a single asynchronous job. Unlike on-demand evaluation where you collect spans and call the Evaluate API per session, batch evaluation handles session discovery, span collection, and scoring entirely on the service side. You submit a job specifying the CloudWatch Logs location of your agent sessions and which evaluators to run. The service processes all matching sessions and returns aggregate results with per-evaluator average scores.
+
+Batch evaluation supports ground truth through session metadata, enabling reference-based scoring with expected responses, assertions, and expected tool trajectories. Results include both aggregate summaries (per-evaluator averages and session counts) and per-session detail written to CloudWatch Logs.
+
+This evaluation type is designed for baseline measurement before making changes, pre/post comparison after applying prompt or model updates, regression testing across curated session sets, and periodic quality audits across production traffic from a specific time window.

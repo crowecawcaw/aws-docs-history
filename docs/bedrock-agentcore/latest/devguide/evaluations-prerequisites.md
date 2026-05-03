@@ -85,10 +85,24 @@ AWS managed policy to your IAM user or IAM role. This policy grants broad permis
                 "logs:CreateLogGroup"
             ],
             "Resource": "*"
+        },
+        {
+            "Sid": "KMSPermissionsForCMKEvaluators",
+            "Effect": "Allow",
+            "Action": [
+                "kms:DescribeKey",
+                "kms:GenerateDataKey",
+                "kms:Decrypt"
+            ],
+            "Resource": "arn:aws:kms:*:*:key/*"
         }
     ]
 }
 ```
+
+###### Note
+
+The `KMSPermissionsForCMKEvaluators` statement is only required if you use customer managed KMS keys to encrypt custom evaluators. For more information, see [Encryption at rest for AgentCore Evaluations](evaluations-encryption.md "evaluations-encryption.md").
 
 ## Service execution role
 

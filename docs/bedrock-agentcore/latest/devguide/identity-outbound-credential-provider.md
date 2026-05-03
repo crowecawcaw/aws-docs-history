@@ -9,5 +9,6 @@ Integration with the Resource Credential Provider enables AgentCore Identity to 
 ###### Topics
 
 - [Supported authentication patterns](common-use-cases.md "common-use-cases.md")
+- [Client authentication methods](client-auth-methods.md "client-auth-methods.md")
 - [Configure credential provider](resource-providers.md "resource-providers.md")
 - [Obtain credentials](obtain-credentials.md "obtain-credentials.md")

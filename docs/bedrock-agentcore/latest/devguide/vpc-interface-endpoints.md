@@ -120,6 +120,83 @@ The `InvokeAgentRuntime` API supports two modes of VPC endpoint authorization. T
 
 The above policy allows only the IAM principal to make `InvokeAgentRuntime` calls to `customAgent1` . It also allows both IAM principals and OAuth callers to make `InvokeAgentRuntime` calls to `customAgent2`.
 
+**Protected Resource Metadata (PRM) endpoint policies**
+
+The `GetRuntimeProtectedResourceMetadata` API implements [OAuth 2.0 Protected Resource Metadata (RFC 9728)](https://datatracker.ietf.org/doc/html/rfc9728 "https://datatracker.ietf.org/doc/html/rfc9728"). Clients call this endpoint _before_ they have credentials, to discover which authorization server protects a given agent runtime. This endpoint is unauthenticated by design, so the `Principal` must be set to \* in the endpoint policy.
+
+VPC endpoint policies are enforced on PRM requests. If your endpoint policy does not explicitly allow `bedrock-agentcore:GetRuntimeProtectedResourceMetadata` , PRM requests through that endpoint are denied with HTTP 403. Any OAuth-configured agent runtime accessed through a VPC endpoint requires PRM access for authorization server discovery.
+
+###### Note
+
+If you have a deny-all endpoint policy for data perimeter enforcement and do not use OAuth or JWT authentication, PRM requests are denied automatically. No additional configuration is needed.
+
+The following endpoint policy allows any caller to discover the authorization server (PRM) while restricting runtime invocations to a specific IAM principal:
+
+```
+{
+   "Statement": [
+      {
+         "Sid": "AllowPRMDiscovery",
+         "Effect": "Allow",
+         "Principal": "*",
+         "Action": [
+            "bedrock-agentcore:GetRuntimeProtectedResourceMetadata"
+         ],
+         "Resource": "arn:aws:bedrock-agentcore:REGION:ACCOUNT_ID:runtime/*"
+      },
+      {
+         "Sid": "AllowInvoke",
+         "Effect": "Allow",
+         "Principal": {
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
+         },
+         "Action": [
+            "bedrock-agentcore:InvokeAgentRuntime"
+         ],
+         "Resource": "arn:aws:bedrock-agentcore:REGION:ACCOUNT_ID:runtime/RUNTIME_ID"
+      }
+   ]
+}
+```
+
+To block cross-account PRM lookups through your VPC endpoint (data perimeter enforcement), scope the PRM allow statement to only your account’s runtimes:
+
+```
+{
+   "Statement": [
+      {
+         "Sid": "AllowPRMOwnAccountOnly",
+         "Effect": "Allow",
+         "Principal": "*",
+         "Action": [
+            "bedrock-agentcore:GetRuntimeProtectedResourceMetadata"
+         ],
+         "Resource": "arn:aws:bedrock-agentcore:REGION:ACCOUNT_ID:runtime/*"
+      },
+      {
+         "Sid": "DenyCrossAccountPRM",
+         "Effect": "Deny",
+         "Principal": "*",
+         "Action": [
+            "bedrock-agentcore:GetRuntimeProtectedResourceMetadata"
+         ],
+         "NotResource": "arn:aws:bedrock-agentcore:REGION:ACCOUNT_ID:runtime/*"
+      },
+      {
+         "Sid": "AllowInvoke",
+         "Effect": "Allow",
+         "Principal": {
+            "AWS": "arn:aws:iam::ACCOUNT_ID:root"
+         },
+         "Action": [
+            "bedrock-agentcore:InvokeAgentRuntime"
+         ],
+         "Resource": "arn:aws:bedrock-agentcore:REGION:ACCOUNT_ID:runtime/*"
+      }
+   ]
+}
+```
+
 Code Interpreter Tool
 
 1. The following endpoint policy allows specific IAM principals to invoke Code Interpreter resources.

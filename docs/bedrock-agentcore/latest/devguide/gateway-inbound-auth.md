@@ -4,6 +4,7 @@ Before you create your gateway, you must set up inbound authorization. Inbound a
 
 - **JSON Web Token (JWT)** – A secure and compact token used for authorization. After creating the JWT, you specify it as the authorization configuration when you create the gateway. You can create a JWT with any of the identity providers at [Provider setup and configuration](identity-idps.md "identity-idps.md").
 - **IAM identity** – Authorizes through the credentials of the AWS IAM identity trying to access the gateway.
+- **Authenticate only** – The gateway validates the inbound JWT token to verify the caller’s identity but does not perform full authorization. The authenticated identity or token is passed through to the target for downstream authorization. This is useful when you want the gateway to verify authentication while delegating authorization decisions to the target service, such as when using passthrough outbound authorization with HTTP targets.
 - **No Authorization** – The gateway will not perform any inbound authorization. This makes your gateway accessible to all users to be invoked.
 
 ###### Important

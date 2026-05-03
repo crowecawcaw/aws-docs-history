@@ -2,7 +2,7 @@
 
 The `UpdateOnlineEvaluationConfig` API modifies an existing online evaluation configuration, allowing you to change evaluators, data sources, execution settings, and other parameters. This operation intelligently handles updates with no disruption to running evaluations.
 
-Updates can only be made when your evaluation configuration is in Active or UpdateFailed status. If the configuration is currently being created, updated, or deleted, you’ll receive a conflict error and should retry after the operation completes.
+Updates can only be made when your evaluation configuration is in `ACTIVE`, `UPDATE_FAILED`, or `ERROR` status. If the configuration is currently being created, updated, or deleted, you’ll receive a conflict error and should retry after the operation completes.
 
 ## Execution control
 
@@ -37,7 +37,7 @@ agentcore resume online-eval "your_config_name"
 
 ###### Note
 
-The configuration must be in `Active` or `UpdateFailed` lifecycle status before you can update it.
+The configuration must be in `ACTIVE`, `UPDATE_FAILED`, or `ERROR` lifecycle status before you can update it.
 
 ###### Note
 

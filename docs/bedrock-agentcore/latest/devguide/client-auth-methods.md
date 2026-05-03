@@ -1,0 +1,67 @@
+# Client authentication methods
+
+Client authentication method controls how the OAuth client authenticates with the authorization server’s token endpoint when requesting access tokens.
+
+For provider-specific credential providers, AgentCore Identity manages the client authentication method for you based on each vendor’s requirements, so no additional configuration is needed.
+
+For use cases that require finer-grained control — such as authenticating with an IAM-signed JWT assertion instead of a client secret, or targeting an authorization server whose requirements differ from a built-in vendor — use the custom provider, which allows you to choose from the supported methods below.
+
+## Supported client authentication methods
+
+AgentCore Identity supports the following values for client authentication method.
+
+1. **`CLIENT_SECRET_BASIC`** (default) — Clients that have received a client secret value from the authorization server authenticate with the authorization server in accordance with Section 2.3.1 of OAuth 2.0 (RFC 6749) using the HTTP Basic authentication scheme. Both client ID and client secret are required.
+2. **`CLIENT_SECRET_POST`** — Clients that have received a client secret value from the authorization server authenticate with the authorization server in accordance with Section 2.3.1 of OAuth 2.0 (RFC 6749) by including the client credentials in the request body. Both client ID and client secret are required.
+3. **`AWS_IAM_ID_TOKEN_JWT`** — Authenticates to the authorization server’s token endpoint by sending an AWS IAM-signed JWT assertion for the agent’s execution role (obtained via [sts:GetWebIdentityToken](../../../STS/latest/APIReference/API_GetWebIdentityToken.md "../../../STS/latest/APIReference/API_GetWebIdentityToken.md")) as client assertion, per RFC 7523, Section 2.2. The authorization server must support this mechanism and trust AWS IAM as an issuer. When this method is selected, client secret is not required, and client ID is only required for the user-delegated access flow ([User-delegated access (OAuth 2.0 authorization code grant)](common-use-cases.md#user-delegated-access "common-use-cases.md#user-delegated-access")). To use `AWS_IAM_ID_TOKEN_JWT` as client authentication method, here are the prerequisites:
+   1. Outbound web identity federation must be enabled on your account. Enable it with [iam:EnableOutboundWebIdentityFederation](../../../IAM/latest/APIReference/API_EnableOutboundWebIdentityFederation.md "../../../IAM/latest/APIReference/API_EnableOutboundWebIdentityFederation.md").
+   2. The calling AWS IAM identity must have permission to call [sts:GetWebIdentityToken](../../../STS/latest/APIReference/API_GetWebIdentityToken.md "../../../STS/latest/APIReference/API_GetWebIdentityToken.md").
+
+## How to configure client authentication method
+
+Configuring client authentication method for CustomOauth2
+
+To configure client authentication method for custom provider on AWS Console, see [Add OAuth client using custom provider](identity-add-oauth-client-custom.md "identity-add-oauth-client-custom.md"). You can also configure it using CLI.
+
+### CLI example: using `CLIENT_SECRET_BASIC` as client authentication method
+
+```
+aws bedrock-agentcore-control create-oauth2-credential-provider \
+  --cli-input-json '{
+    "name": "sample-client-basic",
+    "credentialProviderVendor": "CustomOauth2",
+    "oauth2ProviderConfigInput": {
+      "customOauth2ProviderConfig": {
+        "oauthDiscovery": {
+          "discoveryUrl": "https://my.idp.com/.well-known/openid-configuration"
+        },
+        "clientId": "your-client-id",
+        "clientSecret": "your-client-secret",
+        "clientAuthenticationMethod": "CLIENT_SECRET_BASIC"
+      }
+    }
+  }'
+```
+
+### CLI example: using `AWS_IAM_ID_TOKEN_JWT` as client authentication method
+
+```
+aws bedrock-agentcore-control create-oauth2-credential-provider \
+  --cli-input-json '{
+    "name": "sample-iam-jwt",
+    "credentialProviderVendor": "CustomOauth2",
+    "oauth2ProviderConfigInput": {
+      "customOauth2ProviderConfig": {
+        "oauthDiscovery": {
+          "discoveryUrl": "https://my.idp.com/.well-known/openid-configuration"
+        },
+        "clientId": "your-client-id",
+        "clientAuthenticationMethod": "AWS_IAM_ID_TOKEN_JWT"
+      }
+    }
+  }'
+```
+
+## Notice
+
+The [`tokenEndpointAuthMethods`](../../../bedrock-agentcore-control/latest/APIReference/API_Oauth2AuthorizationServerMetadata.md "../../../bedrock-agentcore-control/latest/APIReference/API_Oauth2AuthorizationServerMetadata.md") field is not recommended in favor of client authentication method but maintained for backward compatibility in CLI and SDK.
+Providing both in the same request will result in a validation error.

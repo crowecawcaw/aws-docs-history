@@ -48,3 +48,61 @@ To configure PingOne as an outbound resource provider use the following:
   }
 }
 ```
+
+To use [PingIdentity OAuth 2.0 token exchange for delegation](https://docs.pingidentity.com/pingone/use_cases/p1_oauth_2_token_exchange_delegation.html "https://docs.pingidentity.com/pingone/use_cases/p1_oauth_2_token_exchange_delegation.html"), use custom provider for advanced configuration. For details, see [On-behalf-of token exchange with AgentCore Identity](on-behalf-of-token-exchange.md "on-behalf-of-token-exchange.md").
+
+```
+{
+  "name": "PingOne",
+  "credentialProviderVendor": "CustomOauth2",
+  "oauth2ProviderConfigInput": {
+    "customOauth2ProviderConfig": {
+      "clientAuthenticationMethod": "CLIENT_SECRET_BASIC",
+      "clientId": "your-client-id",
+      "clientSecret": "your-client-secret",
+      "oauthDiscovery": {
+        "authorizationServerMetadata": {
+          "authorizationEndpoint": "https://auth.pingone.com/your-env-id/as/authorize",
+          "tokenEndpoint": "https://auth.pingone.com/your-env-id/as/token",
+          "issuer": "https://auth.pingone.com/your-env-id/as"
+        }
+      },
+      "onBehalfOfTokenExchangeConfig": {
+        "grantType": "TOKEN_EXCHANGE",
+        "tokenExchangeGrantTypeConfig": {
+          "actorTokenContent": "M2M"
+        }
+      }
+    }
+  }
+}
+```
+
+To use [PingIdentity OAuth 2.0 token exchange for impersonation](https://docs.pingidentity.com/pingone/use_cases/p1_oauth_2_token_exchange_impersonation.html "https://docs.pingidentity.com/pingone/use_cases/p1_oauth_2_token_exchange_impersonation.html"), use custom provider for advanced configuration. For details, see [On-behalf-of token exchange with AgentCore Identity](on-behalf-of-token-exchange.md "on-behalf-of-token-exchange.md").
+
+```
+{
+  "name": "PingOne",
+  "credentialProviderVendor": "CustomOauth2",
+  "oauth2ProviderConfigInput": {
+    "customOauth2ProviderConfig": {
+      "clientAuthenticationMethod": "CLIENT_SECRET_BASIC",
+      "clientId": "your-client-id",
+      "clientSecret": "your-client-secret",
+      "oauthDiscovery": {
+        "authorizationServerMetadata": {
+          "authorizationEndpoint": "https://auth.pingone.com/your-env-id/as/authorize",
+          "tokenEndpoint": "https://auth.pingone.com/your-env-id/as/token",
+          "issuer": "https://auth.pingone.com/your-env-id/as"
+        }
+      },
+      "onBehalfOfTokenExchangeConfig": {
+        "grantType": "TOKEN_EXCHANGE",
+        "tokenExchangeGrantTypeConfig": {
+          "actorTokenContent": "NONE"
+        }
+      }
+    }
+  }
+}
+```

@@ -11,8 +11,10 @@ The AgentCore Code Interpreter includes a comprehensive set of pre-installed Pyt
 | Library             | Description                                      |
 | ------------------- | ------------------------------------------------ |
 | `pandas`            | Data manipulation and analysis                   |
+| `polars`            | Fast DataFrame library for data manipulation     |
 | `numpy`             | Numerical computing                              |
 | `matplotlib`        | Plotting and visualization                       |
+| `seaborn`           | Statistical data visualization                   |
 | `matplotlib-inline` | Matplotlib backend for Jupyter                   |
 | `matplotlib-venn`   | Venn diagram plotting                            |
 | `plotly`            | Interactive visualizations                       |

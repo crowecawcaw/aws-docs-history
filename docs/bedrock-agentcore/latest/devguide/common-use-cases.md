@@ -8,7 +8,9 @@ For detailed examples of how these patterns apply to specific industries and age
 
 - [User-delegated access (OAuth 2.0 authorization code grant)](#user-delegated-access "#user-delegated-access")
 - [Machine-to-machine authentication (OAuth 2.0 client credentials grant)](#machine-to-machine-auth "#machine-to-machine-auth")
+- [On-behalf-of token exchange (OAuth 2.0 token exchange)](#obo-token-exchange "#obo-token-exchange")
 - [Choosing the right authentication pattern](#choosing-auth-pattern "#choosing-auth-pattern")
+- [On-behalf-of token exchange with AgentCore Identity](on-behalf-of-token-exchange.md "on-behalf-of-token-exchange.md")
 
 ## User-delegated access (OAuth 2.0 authorization code grant)
 
@@ -40,20 +42,38 @@ The OAuth 2.0 client credentials grant flow enables direct authentication betwee
 
 This pattern is ideal for enterprise automation agents, data processing workflows, and DevOps automation. For detailed industry-specific examples, see [Enterprise automation agents](identity-use-cases.md#enterprise-automation-agents "identity-use-cases.md#enterprise-automation-agents") , [Data processing and analytics agents](identity-use-cases.md#data-processing-and-analytics-agents "identity-use-cases.md#data-processing-and-analytics-agents") , and [Development and DevOps agents](identity-use-cases.md#development-and-devops-agents "identity-use-cases.md#development-and-devops-agents").
 
+## On-behalf-of token exchange (OAuth 2.0 token exchange)
+
+On-behalf-of (OBO) token exchange enables agents to access downstream resource servers on behalf of an already-authenticated user. The agent exchanges the inbound user token for a new, audience-scoped access token through an outbound credential provider, binding both the user’s identity and the agent’s identity into the resulting token. Downstream services can then make authorization decisions based on both identities — without requiring the user to go through another consent flow.
+
+**Key characteristics**
+
+- No additional user consent — the inbound user token is exchanged directly for a downstream access token
+- Propagates both the user’s identity and the agent’s (or workload’s) identity across multiple hops, giving each downstream service the context to make its own authorization decisions
+- Supports standard token exchange ([RFC 8693](https://www.rfc-editor.org/rfc/rfc8693.html "https://www.rfc-editor.org/rfc/rfc8693.html")) or JWT authorization grant ([RFC 7523](https://www.rfc-editor.org/rfc/rfc7523.html "https://www.rfc-editor.org/rfc/rfc7523.html")), depending on the identity provider
+
+**Example scenario: Accessing a per-user business application** – An enterprise has an internal HR application that enforces per-user access control — each employee can only see their own compensation and benefits data. The company wants to let employees query this application through an AI agent, without relaxing any of the existing access policies.
+
+1. **Mike (identity admin)** configures the HR application as an OAuth Credential Provider in AgentCore Identity, including the OBO token exchange mode. Once set up, no per-user provisioning is needed — any employee who can authenticate to the agent can reach the HR application through it.
+2. **Bob (agent developer)** adds a tool that calls the HR application. He doesn’t write any token exchange logic or handle client secrets. He calls [`GetResourceOauth2Token`](../APIReference/API_GetResourceOauth2Token.md "../APIReference/API_GetResourceOauth2Token.md") with the workload access token, and AgentCore Identity returns a scoped downstream token. Bob focuses on what the agent does with the data, not how it gets authorized.
+3. **Sarah (end user)** signs into the agent and asks it to pull her benefits summary. She is not prompted to sign in a second time. Behind the scenes, AgentCore Identity exchanges Sarah’s inbound token for a downstream access token that carries her identity. The HR application applies its existing access policies and returns only Sarah’s data — the same data she would see if she accessed the application directly.
+
+This pattern is ideal for enterprise agents that traverse multiple identity-aware services in a single trust domain. For a deep-dive on grant types, configuration, and supported identity providers, see [On-behalf-of token exchange](on-behalf-of-token-exchange.md "on-behalf-of-token-exchange.md").
+
 ## Choosing the right authentication pattern
 
 When designing your agent authentication strategy, consider these factors to determine which pattern is most appropriate:
 
-| Factor           | User-delegated access (OAuth 2.0 authorization code grant) | Machine-to-machine authentication (OAuth 2.0 client credentials grant) |
-| ---------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------- |
-| Data ownership   | User-specific data (emails, documents, personal calendars) | System or organization-owned data (analytics, logs, shared resources)  |
-| User interaction | User is present and can provide consent                    | No user interaction required or available                              |
-| Operation timing | Interactive, real-time operations                          | Background, scheduled, or batch operations                             |
-| Permission scope | Permissions vary by user and their consent choices         | Consistent permissions defined at the agent level                      |
+| Factor           | User-delegated access (OAuth 2.0 authorization code grant) | Machine-to-machine authentication (OAuth 2.0 client credentials grant) | On-behalf-of token exchange (OAuth 2.0 token exchange)                         |
+| ---------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Data ownership   | User-specific data (emails, documents, personal calendars) | System or organization-owned data (analytics, logs, shared resources)  | User-specific data, where the user is already authenticated to the agent       |
+| User interaction | User is present and can provide consent                    | No user interaction required or available                              | User is already authenticated to the agent; no new consent prompt              |
+| Operation timing | Interactive, real-time operations                          | Background, scheduled, or batch operations                             | Interactive, real-time operations initiated by an authenticated user           |
+| Permission scope | Permissions vary by user and their consent choices         | Consistent permissions defined at the agent level                      | Permissions derived from the inbound user token and downstream provider policy |
 
-Many agent implementations will require both patterns for different aspects of their functionality. For example, a customer service agent might use user-delegated access to retrieve a specific customer’s data while using machine-to-machine authentication to access company knowledge bases and internal systems. AgentCore Identity supports both patterns simultaneously, allowing agents to use the most appropriate authentication mechanism for each resource they need to access.
+Many agent implementations will require all patterns for different aspects of their functionality. For example, a customer service agent might use user-delegated access to retrieve a specific customer’s data while using machine-to-machine authentication to access company knowledge bases and internal systems. The same agent may also use on-behalf-of token exchange to propagate the user’s identity to downstream services that enforce per-user authorization, without prompting the user again. AgentCore Identity supports all patterns simultaneously, allowing agents to use the most appropriate authentication mechanism for each resource they need to access.
 
-Both authentication patterns benefit from AgentCore Identity’s core capabilities:
+All authentication patterns benefit from AgentCore Identity’s core capabilities:
 
 - Secure credential storage without exposing secrets to agent code
 - Consistent authentication interfaces across multiple resource types

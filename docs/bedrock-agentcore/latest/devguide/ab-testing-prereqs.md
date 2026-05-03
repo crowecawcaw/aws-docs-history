@@ -1,0 +1,105 @@
+# A/B testing prerequisites
+
+Before you create an A/B test, ensure the following resources are in place.
+
+## Required resources
+
+| Resource                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| AgentCore Gateway                | An active AgentCore Gateway with at least one HTTP target pointing to your agent runtime. The AgentCore Gateway handles traffic splitting between variants.                                                                                                                                                                                                                                                                                                                                                  |
+| Agent runtime                    | At least one deployed agent runtime using the Amazon Bedrock AgentCore SDK (version 1.8+). The SDK’s `BaggageSpanProcessor` automatically attaches A/B test experiment details (experiment ARN and variant name) to all OpenTelemetry spans emitted by the runtime.<br>• **Configuration bundle based variants:** One runtime is sufficient. Both variants run on the same runtime with different configuration bundle versions.<br>• **Target-based variants:** Deploy one runtime per variant (two total). |
+| Online evaluation configuration  | An active online evaluation config that specifies which evaluators to run against sessions.<br>• **Configuration bundle based variants:** One online evaluation config that points to the single runtime where both variants run.<br>• **Target-based variants:** One online evaluation config per runtime endpoint that you are using for your A/B test (two total), since each endpoint has its own log group.                                                                                             |
+| Configuration bundles (optional) | Required when using configuration bundle based variants. Two bundle versions or two separate bundles: one for control and one for treatment.                                                                                                                                                                                                                                                                                                                                                                 |
+
+## SDK requirements
+
+The Amazon Bedrock AgentCore SDK version 1.8 or later is required. The SDK includes a `BaggageSpanProcessor` that reads experiment baggage headers propagated by the AgentCore Gateway and automatically stamps all runtime OpenTelemetry spans with the experiment ARN and variant name. The online evaluation pipeline reads these attributes to map session scores to the correct variant. No additional instrumentation is required in your agent code.
+
+## Evaluator requirements
+
+###### Note
+
+Code-based evaluators are not supported for A/B testing at this time. Use built-in evaluators or custom LLM-as-judge evaluators.
+
+## IAM permissions
+
+The A/B test execution role must trust the `bedrock-agentcore.amazonaws.com` service principal and have permissions for AgentCore Gateway operations, configuration bundle reads, online evaluation config reads, and CloudWatch Logs access.
+
+Example trust policy:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "bedrock-agentcore.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "${aws:PrincipalAccount}"
+                },
+                "ArnLike": {
+                    "aws:SourceArn": "arn:aws:bedrock-agentcore:*:${aws:PrincipalAccount}:ab-test/*"
+                }
+            }
+        }
+    ]
+}
+```
+
+Example permissions policy:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AgentCoreResources",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock-agentcore:GetGateway",
+                "bedrock-agentcore:GetGatewayTarget",
+                "bedrock-agentcore:ListGatewayTargets",
+                "bedrock-agentcore:CreateGatewayRule",
+                "bedrock-agentcore:UpdateGatewayRule",
+                "bedrock-agentcore:GetGatewayRule",
+                "bedrock-agentcore:DeleteGatewayRule",
+                "bedrock-agentcore:ListGatewayRules",
+                "bedrock-agentcore:GetOnlineEvaluationConfig",
+                "bedrock-agentcore:GetEvaluator",
+                "bedrock-agentcore:GetConfigurationBundle",
+                "bedrock-agentcore:GetConfigurationBundleVersion",
+                "bedrock-agentcore:ListConfigurationBundleVersions"
+            ],
+            "Resource": "arn:aws:bedrock-agentcore:*:${aws:PrincipalAccount}:*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
+                }
+            }
+        },
+        {
+            "Sid": "CloudWatchLogs",
+            "Effect": "Allow",
+            "Action": [
+                "logs:DescribeLogGroups",
+                "logs:DescribeIndexPolicies",
+                "logs:PutIndexPolicy",
+                "logs:StartQuery",
+                "logs:GetQueryResults",
+                "logs:StopQuery",
+                "logs:FilterLogEvents",
+                "logs:GetLogEvents"
+            ],
+            "Resource": [
+                "arn:aws:logs:*:${aws:PrincipalAccount}:log-group:/aws/bedrock-agentcore/evaluations/*",
+                "arn:aws:logs:*:${aws:PrincipalAccount}:log-group:aws/spans",
+                "arn:aws:logs:*:${aws:PrincipalAccount}:log-group:aws/spans:*"
+            ]
+        }
+    ]
+}
+```

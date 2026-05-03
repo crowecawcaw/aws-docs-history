@@ -51,7 +51,7 @@ For outbound authorization from AgentCore Gateway to AgentCore Runtime, two auth
 - [Specify the authorization type and credentials to access the gateway target](gateway-building-adding-targets-authorization.md "gateway-building-adding-targets-authorization.md")
 - [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md")
 
-![gateway runtime vpc access](images/gateway-runtime-vpc-access.png)
+![Architecture diagram showing AgentCore Gateway cannot connect to Private Link endpoint.](images/gateway-runtime-vpc-access.png)
 
 **Example CreateGatewayTarget with AgentCore Runtime as a the target**
 

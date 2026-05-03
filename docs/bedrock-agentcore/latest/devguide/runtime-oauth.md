@@ -22,9 +22,25 @@ Invoking InvokeAgentRuntime with the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id h
 
 **Security Best Practices for X-Amzn-Bedrock-AgentCore-Runtime-User-Id Header**
 
-While IAM authentication secures the API access, the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header requires additional security considerations. Only trusted principals with the `bedrock-agentcore:InvokeAgentRuntimeForUser` permission should be allowed to set this header. The user-id value should ideally be derived from the authenticated principal’s context (for example, IAM context or user token) rather than accepting arbitrary values. This prevents scenarios where an authenticated user could potentially impersonate another user by manually specifying a different `user-id`.
+While IAM authentication secures the API access, the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header requires additional security considerations:
 
-Implement audit logging to track the relationship between the authenticated principal and the `user-id` being passed.
+- **Restrict the IAM permission** — Only trusted principals should have the `bedrock-agentcore:InvokeAgentRuntimeForUser` permission. Scope this permission to specific runtime resources using IAM resource conditions. Do not grant it broadly via managed policies or wildcard resource statements.
+- **Derive user-id from the authenticated principal** — The user-id value should be derived from the authenticated principal’s context (for example, IAM caller identity or user token claims) rather than accepting arbitrary client-supplied values. This prevents an authenticated user from impersonating another user by manually specifying a different `user-id` .
+- **Implement audit logging** — Log the relationship between the authenticated IAM principal (from SigV4 context) and the `user-id` value being passed. Use AWS CloudTrail to monitor `InvokeAgentRuntime` calls that include the `runtimeUserId` parameter.
+- **Deny the header in untrusted contexts** — For runtimes where user-id delegation is not needed, explicitly deny the `bedrock-agentcore:InvokeAgentRuntimeForUser` action in IAM policies to prevent the header from being accepted:
+
+```
+{
+   "Statement": [
+      {
+         "Sid": "DenyUserIdDelegation",
+         "Effect": "Deny",
+         "Action": "bedrock-agentcore:InvokeAgentRuntimeForUser",
+         "Resource": "arn:aws:bedrock-agentcore:REGION:ACCOUNT_ID:runtime/*"
+      }
+   ]
+}
+```
 
 Remember that Amazon Bedrock AgentCore treats this header value as an opaque identifier and relies on your application’s logic to maintain the security boundary between authenticated users and their corresponding `user-id` values.
 
