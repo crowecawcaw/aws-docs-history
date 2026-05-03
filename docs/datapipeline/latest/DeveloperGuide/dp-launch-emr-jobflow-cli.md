@@ -144,8 +144,8 @@ and you can view the output folder using the Amazon S3 console.
 2. The clusters that were spawned by AWS Data Pipeline have a name formatted as follows:
    `<pipeline-identifier>`\_@`<emr-cluster-name>`\_`<launch-time>`.
 
-![Elastic MapReduce cluster list showing three running clusters with unique identifiers.](images/dp-emr-scenario-starting.png) 3. After one of the runs is complete, open the Amazon S3 console and check
+![Cluster list showing two running clusters with IDs and names formatted as pipeline identifiers.](images/dp-emr-scenario-starting.png) 3. After one of the runs is complete, open the Amazon S3 console and check
 that the time-stamped output folder exists and contains the expected results of
 the cluster.
 
-![Amazon S3 console showing folders with timestamp names in the wordcount directory.](images/dp-emr-scenario-output.png)
+![S3 bucket folder list showing three timestamped folders from June 29, 2014.](images/dp-emr-scenario-output.png)

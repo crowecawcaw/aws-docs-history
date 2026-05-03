@@ -32,7 +32,7 @@ Task Runner to poll for that worker group value. You do this by passing the work
 group string as a parameter (for example, `--workerGroup=wg-12345`) when you
 run the Task Runner JAR file.
 
-![AWS Data Pipeline diagram showing monthly task flow for archiving processed invoices using Task Runner.](images/dp-task-runner-user-emr-jobflow.png)
+![Data Pipeline polling Task Runner on a server using workerGroup parameter wg-12345.](images/dp-task-runner-user-emr-jobflow.png)
 
 ```
 
