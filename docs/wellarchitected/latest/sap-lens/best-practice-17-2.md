@@ -125,9 +125,10 @@ For example, if 100% capacity is an availability requirement for failure scenari
 including the loss of an Availability Zone, instead of provisioning 200% capacity across
 two Availability Zones, provision 150% capacity across three.
 
-![SAP production account with three availability zones, each hosting application and database instances.](images/example-three-availability-zone-architecture.png)
+![Three availability zones each with subnets, application instances at 50% capacity, and database instances.](images/example-three-availability-zone-architecture.png)
 _Example of a three Availability Zone architecture with 150% of capacity
 in normal operations_
+
 **Suggestion 17.2.7 – Evaluate the use of storage-only based recovery
 options**
 
