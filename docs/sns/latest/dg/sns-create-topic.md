@@ -56,7 +56,14 @@ operational requirements.
     (for example, no-reply@sns.amazonaws.com) must not exceed 320 UTF-8
     characters. You can use a third party encoding tool to verify the
     length of the sending address before configuring a display name for
-    your Amazon SNS topic. 4. (Optional) For a FIFO topic, you can choose **content-based
+    your Amazon SNS topic.
+
+    ###### Note
+
+    For email and email-json subscriptions, the topic display name is used as the sender
+    name only for regular notification messages. Subscription confirmation and
+    unsubscribe confirmation emails always use "AWS Notifications" as the sender
+    name, regardless of the topic's display name setting. 4. (Optional) For a FIFO topic, you can choose **content-based
     message deduplication** to enable default message
     deduplication. For more information, see [Amazon SNS message deduplication for FIFO topics](fifo-message-dedup.md "fifo-message-dedup.md").
 
