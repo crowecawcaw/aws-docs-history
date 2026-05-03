@@ -118,7 +118,7 @@ row of the table represents a record, using two columns:
 
 See for example the content of a KSDS data set used in the CardDemo application:
 
-![SQL query result showing KSDS data set with id and record bytes columns for CardDemo application.](images/sample_dataset_storage.png)
+![Query results showing id column with values 0 through 3600 and record column containing binary data.](images/sample_dataset_storage.png)
 
 - This particular data set has fixed length records, the length being 300 bytes (hence the
   collection of ids being multiples of 300).
@@ -133,7 +133,7 @@ Regarding the data set metadata and keys indexes: each data set is associated wi
 in the table named `metadata`. This is the default naming convention. To learn how to
 customize it, see [Blusam configuration](#ba-shared-blusam-configuration "#ba-shared-blusam-configuration").
 
-![Table showing two rows of metadata with names and IDs for AWS M2 CARDDEMO ACCTDATA VSAM KSDS datasets.](images/sample_dataset_metadata_rows.png)
+![Table showing two rows with name and metadata columns for VSAM KSDS data set entries.](images/sample_dataset_metadata_rows.png)
 
 - The first row has the data set name as the value of the _name_ column. The _metadata_ column is a binary
   column that contains a binary serialization of the general metadata of the given data set. For
@@ -162,7 +162,7 @@ columns:
 - metadata: binary compressed serialization of the indexes page (mapping key values to
   records RBAs).
 
-![Database table showing columns for id, firstkey, lastkey, and metadata with sample rows.](images/sample_index_pages.png)
+![Database table showing columns for id, firstkey bytea, lastkey bytea, and metadata oid with binary data rows.](images/sample_index_pages.png)
 
 The table name is a concatenation of the data set name and the key internal name, which
 contains information about the key, such as the key offset, whether the key accepts duplicates (set to true to allow duplicates), and the key length. For example, consider a data set named
@@ -173,7 +173,7 @@ contains information about the key, such as the key offset, whether the key acce
 
 In this case, the following tables store the indexes related to the two keys.
 
-![Two tables showing index storage for large_ksds_0f18 and large_ksds_3f6 keys.](images/sample_large_dataset_indexes_tables.png)
+![Two collapsed table entries labeled aws_large_ksds_0f18 and aws_large_ksds_3f6.](images/sample_large_dataset_indexes_tables.png)
 
 ### Optimizing I/O throughput using write-behind mechanism
 
@@ -838,7 +838,7 @@ and KSDS, the calculation of the footprint depends on two factors:
 The graphic below shows the size of the key index per record (y-axis) based on the size
 of the key (x-axis).
 
-![Graph showing step-wise increase in index size per record as key size increases.](images/indexes_size_per_record.png)
+![Line graph showing index size per record increasing from 83 to 157 as key size grows from 0 to 80.](images/indexes_size_per_record.png)
 
 The corresponding formula for evaluating the footprint for a given key index of a data
 set is:

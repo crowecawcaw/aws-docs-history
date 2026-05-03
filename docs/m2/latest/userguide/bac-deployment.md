@@ -86,7 +86,7 @@ For the SQL masks to be generated, please make sure to set the relevant option
 (`export.SQL.masks`) in the configuration of the AWS Transform for mainframe refactor Transformation Center
 to true:
 
-![Property set configuration with export.sql.masks option set to true and boolean type.](images/ba-bac-bluinsights-generate-masks-option.png)
+![Property Set with export.sql.masks highlighted, showing boolean type set to true.](images/ba-bac-bluinsights-generate-masks-option.png)
 
 The masks are part of the modernization artifacts that can be downloaded from AWS Transform for mainframe refactor
 for a given project. They are SQL scripts, organized by modernized programs, giving the
@@ -97,7 +97,7 @@ CardDemo sample application](https://github.com/aws-samples/aws-mainframe-modern
 modernization result of this application, the following SQL masks for the program
 CBACT04C.cbl:
 
-![List of SQL mask files for CBACT04C program, including account, discrep, and transaction records.](images/ba-bac-sample-masks.png)
+![Five SQL files with names starting with cbact04c_fd, including acctfile, discrp, tran_cat_bal_record, tranfile, and xreffile.](images/ba-bac-sample-masks.png)
 
 Each SQL mask name is the concatenation of the program name and the record structure name
 for a given data set within the program.

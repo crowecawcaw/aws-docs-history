@@ -21,7 +21,7 @@ Keycloak as an identity provider (IdP). In this tutorial we use Keycloak 24.0.0.
 
 ![alt_text](images/ba-runtime-auth-keycloak_2.png) 2. Create a client with the name `app-demo`.
 
-![User interface for creating a new client in an authentication management system.](images/ba-runtime-auth-keycloak_3.jpg)
+![Clients list page with Create client button highlighted in the toolbar.](images/ba-runtime-auth-keycloak_3.jpg)
 
 Replace `localhost:8080` with the address of your Gapwalk application
 

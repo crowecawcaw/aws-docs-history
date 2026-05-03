@@ -88,7 +88,7 @@ editable.
 For each data set in the paginated list, there is an **Actions** drop-down
 list with the following content:
 
-![Dropdown menu showing options: Read, Load, Export, Clear, and Delete.](images/ba-bac-dataset-actions-dropdown.png)
+![Actions menu expanded showing Read, Load, Export, Clear, and Delete options.](images/ba-bac-dataset-actions-dropdown.png)
 
 Each item in the list is an active link that makes it possible to perform the specified
 action on the data set:
@@ -106,7 +106,7 @@ Details for each action are provided in the following sections.
 When you choose the **Read** action for a given data set, you get the
 following page.
 
-![Blusam Administration Console interface for dataset management with search and filter options.](images/ba-bac-dataset-browse-empty.png)
+![Blusam Administration Console showing dataset AWS .M2.CARDDEMO.CARDDATA.VSAM.KSDS with filter options and empty data table.](images/ba-bac-dataset-browse-empty.png)
 
 The page is made of:
 
@@ -169,13 +169,13 @@ image.
   field, the list of applicable masks appears. You can choose the mask you want from that
   list.
 
-![Text input field labeled "Filter mask" with a dropdown arrow and placeholder text.](images/ba-bac-mask-quick-select.png)
+![Filter mask field with dropdown showing cbacf04c_fq_tran_cat_bal_record option.](images/ba-bac-mask-quick-select.png)
 
 - Filter column: The name of the field (column) from the mask, used to filter records.
   When you choose the field, the list of mask columns appears. To fill the **Filter
   column** field, choose the desired cell.
 
-![Dropdown menu showing filter column options for a data mask, including transaction and account IDs.](images/ba-bac-dataset-filter-column.png)
+![Filter column field with dropdown showing available columns including fd_trancat_acct_id.](images/ba-bac-dataset-filter-column.png)
 
 - Filter operator: An operator to apply to the selected column. The following operators
   are available.
@@ -256,7 +256,7 @@ Viewing the record's contents in detail:
 
 Editing the record's contents:
 
-![Data record editor showing fields for transaction account details and data.](images/bac-bac-record-rw-details.png)
+![Data record editor showing field names, types, options, byte ranges, and values for transaction data.](images/bac-bac-record-rw-details.png)
 
 The editing page is similar to the view page described above, except that the mask items
 values are editable. Three buttons control the update process:
@@ -271,11 +271,11 @@ values are editable. Three buttons control the update process:
   - Save: attempt to update the existing record into Blusam storage
   - Save a copy: attempt to create a new record into Blusam storage
 
-  ![Data record form with fields for transaction account details and validation status.](images/bac-bac-record-rw-valid-details.png)
+  ![Data record table showing field names, types, options, ranges, and values for transaction data.](images/bac-bac-record-rw-valid-details.png)
   - If saving the record to the storage is successful, a message is displayed and the page
     will switch to a read-only mode (mask items values cannot be edited anymore):
 
-  ![Data mask record details showing fields, types, options, and values in a table format.](images/ba-bac-record-updated.png)
+  ![Success message showing record with id 0 successfully updated with field values displayed.](images/ba-bac-record-updated.png)
   - If for any reason the record persistence to the storage fails, an error message is
     displayed in red, providing a failure reason. The most common case of failures are that
     storing the record would lead to a key corruption (invalid or duplicate key). For an
@@ -291,7 +291,7 @@ values are editable. Three buttons control the update process:
   with the mask item type. For example, see this failed validation on a numeric mask
   item:
 
-![Data entry form with validation error on numeric field, showing incompatible value.](images/bac-bac-record-rw-invalid-format.png)
+![Data validation interface showing an error for fd_trancat_cd field with XXXX value marked as invalid.](images/bac-bac-record-rw-invalid-format.png)
 
 - The validation mechanism might try to auto-correct invalid input, displaying an
   informational message in blue to indicate that the value has been automatically corrected,
@@ -309,13 +309,13 @@ Calling validation leads to the following:
   validation being successful, if provided values lead to an invalid or duplicate key
   situation, the persistence will fail and an error message will be displayed:
 
-![Data entry form with error message and fields for transaction details.](images/bac-bac-record-rw-invalid-key.png)
+![Data record form showing WRITE_INVALID_KEY error message despite successful field validation.](images/bac-bac-record-rw-invalid-key.png)
 
 Deleting a record:
 
 To delete a record, choose the trashcan button:
 
-![Confirmation dialog for deleting a record, with Cancel and Confirm options.](images/ba-bac-record-deletion-confirmation-popup.png)
+![Confirmation required dialog box asking to confirm deletion of record with id 0000.](images/ba-bac-record-deletion-confirmation-popup.png)
 
 ### Loading records into a data set
 
@@ -326,7 +326,7 @@ To loading records into a data set, choose **Actions**, then choose
 
 A window with load options appears.
 
-![Data set loading interface with reading parameters and file selection options.](images/ba-bac-dataset-load-popup.png)
+![Load data set dialog with reading parameters, file selection options, and Load on Blusam button.](images/ba-bac-dataset-load-popup.png)
 
 At first, both the **Load on server** and **Load on
 Blusam** buttons are disabled.
@@ -359,14 +359,14 @@ Reading parameters:
     go on with the load process, a notification will appear in the lower right corner after
     the loading process is completed:
 
-    ![Green success notification indicating file loading completed successfully.](images/ba-bac-dataset-load-notification.png)
+    ![Success notification showing Loading file cardxref.txt completed.](images/ba-bac-dataset-load-notification.png)
     - Server: choosing this option makes an input field appear while the **Load
       on server** button disappears. The input field is where you must specify the
       path to the data set file on the Blusam server (this assumes that you have transferred
       the given file to the Blusam server first). After you specify the path, **Load
       on Blusam** gets enabled:
 
-    ![File selection interface with server option and file path input field.](images/ba-bac-dataset-load-from-server.png)
+    ![File selection interface with Server option selected and file path input field displayed.](images/ba-bac-dataset-load-from-server.png)
 
     To complete the loading process, Choose **Load on Blusam**.
     Otherwise, choose **Cancel**. If you choose to proceed with the
@@ -374,14 +374,14 @@ Reading parameters:
     is different from the load from the browser as it displays the data file server path
     followed by the words **from server**:
 
-    ![Green success notification showing file loaded from server path.](images/ba-bac-dataset-load-from-server-notification.png)
+    ![Succeeded notification showing the file path C:\Work\Cobot\cartdemo-main\data\carbxref.txt from server.](images/ba-bac-dataset-load-from-server-notification.png)
 
 ### Exporting records from a data set
 
 To export data set records, choose **Actions** in the current data set
 row, then choose **Export**:
 
-![Dropdown menu showing options: Read, Load, Export, Clear, and Delete.](images/ba-bac-dataset-export-cmd.png)
+![Actions menu expanded showing Read, Load, Export, Clear, and Delete options.](images/ba-bac-dataset-export-cmd.png)
 
 The following pop-up window appears.
 
@@ -414,7 +414,7 @@ To launch the data set export process, choose **Dump**. If you choose
 to export to browser, check the download folder for the export data set file. The file will
 have the same name as the data set:
 
-![File name AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS with details on size and type.](images/ba-bac-dataset-export-result-file.png)
+![File explorer showing exported KSDS file with name AWS .M2.CARDDEMO.CARDXREF.VSAM.KSDS.](images/ba-bac-dataset-export-result-file.png)
 
 **Note:**
 
@@ -429,7 +429,7 @@ have the same name as the data set:
 To clear all records from a data set, choose **Actions**, then choose
 **Clear**:
 
-![Dropdown menu showing options: Read, Load, Export, Clear, and Delete.](images/ba-bac-dataset-clear-cmd.png)
+![Actions menu expanded showing Read, Load, Export, Clear, and Delete options.](images/ba-bac-dataset-clear-cmd.png)
 
 After all records are removed from a data set, the following notification appears.
 
@@ -480,7 +480,7 @@ set**:
 
 The data set creation form will then be displayed as a pop-up window:
 
-![Data set creation form with fields for name, record size, type, and other configuration options.](images/ba-bac-dataset-creation-form-window.png)
+![Data set creation form with fields for DataSet Name, Record size max, DataSet Type, and options.](images/ba-bac-dataset-creation-form-window.png)
 
 You can specify the following attributes for the data set definition:
 
@@ -489,7 +489,7 @@ You can specify the following attributes for the data set definition:
   leave the toggle on the default value, with enabled data set naming rules (the toggle widget
   should display "Disable naming rules"):
 
-![Toggle switch for disabling or enabling naming rules, currently set to "Disable naming rules".](images/ba-bac-disable-dataset-naming-rules.png)
+![Toggle switch in the on position labeled Disable naming rules.](images/ba-bac-disable-dataset-naming-rules.png)
 
 ![Toggle switch for enabling naming rules, shown in the off position.](images/ba-bac-enable-dataset-naming-rules.png)
 
@@ -506,7 +506,7 @@ The name must also respect the naming convention if it is enabled:
 
 ![Input field for dataset name with character limit instruction in red text.](images/ba-bac-dataset-name-segment-length-err-msg.png)
 
-![Input field with error message indicating dataset name must not end with a period.](images/ba-bac-dataset-name-ends-with-period-err-msg.png)
+![Dataset Name field showing MY.NEW with error message that name must not end with a period.](images/ba-bac-dataset-name-ends-with-period-err-msg.png)
 
 - Record size max: This must be a positive integer representing the record size for a data
   set with fixed-length records. You can leave it blank for data sets with variable-length
@@ -528,7 +528,7 @@ record.
 
   For KSDS, you must specify the primary key:
 
-![Form fields for KSDS dataset configuration, including Primary Key, Offset, Length, and Unique option.](images/ba-bac-dataset-creation-ksds.png)
+![Form fields for KSDS dataset configuration including Primary Key, Offset, Length, and Unique checkbox.](images/ba-bac-dataset-creation-ksds.png)
 
 For the primary key, specify the following:
 
@@ -542,7 +542,7 @@ For KSDS and ESDS, you can optionally define a collection of alternate keys, by
 choosing the Plus button in front of the Alternate Keys label. Each time you choose that
 button, a new alternate key definition section appears in the data set creation form:
 
-![Form fields for defining alternate keys with options for key name, offset, length, and uniqueness.](images/ba-bac-dataset-altkey-definition.png)
+![Alternative Keys section with fields for key name, Offset, Length, and Unique checkbox.](images/ba-bac-dataset-altkey-definition.png)
 
 For each alternative key, you need to provide:
 
@@ -596,7 +596,7 @@ default.
 In Multi-schema mode, BAC console displays the schema information of the data set in the
 first column.
 
-![Blusam Administration Console showing configuration details and dataset information.](images/ba-bac-create-display-datasets-Multi-schema.png)
+![Blusam Administration Console showing two schemas with KSDS type and their creation dates.](images/ba-bac-create-display-datasets-Multi-schema.png)
 
 ### Create data sets from LISTCAT
 
@@ -640,7 +640,7 @@ two options:
 ![Text input field for server folder path with a "Load" button below.](images/ba-bac-dataset-creation-from-server-listcat-files.png) 2. Choose the **Load** button. All recognized data set definitions will
 be listed in a table:
 
-![List of AWS_M2_CARDDEMO data set definitions from LISTCAT, showing various VSAM_KSDS types.](images/ba-bac-dataset-creation-from-server-listcat-files-list.png)
+![Table listing AWS M2 CARDDEMO data set definitions from LISTCAT with VSAM KSDS entries.](images/ba-bac-dataset-creation-from-server-listcat-files-list.png)
 
 Each row represents a data set definition. You can use trashcan button to remove a data
 set definition from the list.
