@@ -21,7 +21,7 @@ Mechanical Turk provides 29 pre-built HTML templates for four categories: Survey
 Language, and Other. You can modify these templates while creating a HIT to customize the
 Worker UI.
 
-![Interface for selecting a customizable template to start a new project in Amazon Mechanical Turk.](images/ProjectTemplates.png)
+![Image Summarization template interface showing basketball players on an outdoor court.](images/ProjectTemplates.png)
 You must create a Mechanical Turk project before you can create a batch of Human Intelligence Tasks
 (HITs). To create a project, start with one of the provided sample project templates and
 customize it.
