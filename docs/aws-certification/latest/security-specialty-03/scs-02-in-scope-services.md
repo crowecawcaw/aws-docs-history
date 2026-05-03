@@ -1,6 +1,4 @@
-# In-scope AWS services and features
-
-## In-scope AWS services and features
+# In-Scope AWS Services
 
 **Note:** Security affects all AWS services. Many services do not appear in this list because the overall service is out of scope, but the security aspects of the service are in scope. For example, a candidate for this exam would not be asked about the steps to set up replication for an S3 bucket. However, the candidate might be asked about configuring an S3 bucket policy.
 
@@ -19,17 +17,17 @@ The following list contains AWS services and features that are in scope for the 
 - [Security, Identity, and Compliance](#scs-02-in-scope-security-identity-compliance "#scs-02-in-scope-security-identity-compliance")
 - [Storage and Data Management](#scs-02-in-scope-storage-data-management "#scs-02-in-scope-storage-data-management")
 
-### Analytics
+## Analytics
 
 - Amazon Athena
 - Amazon OpenSearch Service
 
-### Application Integration
+## Application Integration
 
 - Amazon SNS
 - AWS Step Functions
 
-### Compute
+## Compute
 
 - Amazon API Gateway
 - Amazon EC2 (including EC2 Image Builder, EC2 Instance Connect)
@@ -38,15 +36,15 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Lambda
 - Amazon Data Lifecycle Manager
 
-### Developer Tools
+## Developer Tools
 
 - AWS Fault Injection Service
 
-### Internet of Things
+## Internet of Things
 
 - AWS IoT Core
 
-### Machine Learning
+## Machine Learning
 
 - Amazon Bedrock
 - Amazon CodeGuru Security
@@ -54,7 +52,7 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon Q Developer
 - Amazon SageMaker AI
 
-### Management and Governance
+## Management and Governance
 
 - AWS CloudFormation
 - AWS CloudTrail
@@ -72,7 +70,7 @@ The following list contains AWS services and features that are in scope for the 
 - AWS User Notifications
 - AWS Well-Architected Tool
 
-### Networking and Content Delivery
+## Networking and Content Delivery
 
 - Amazon Application Recovery Controller
 - Amazon VPC
@@ -94,7 +92,7 @@ The following list contains AWS services and features that are in scope for the 
 - Network Access Analyzer
 - AWS Transit Gateway
 
-### Security, Identity, and Compliance
+## Security, Identity, and Compliance
 
 - AWS Artifact
 - AWS Audit Manager
@@ -121,7 +119,7 @@ The following list contains AWS services and features that are in scope for the 
 - AWS STS
 - AWS WAF
 
-### Storage and Data Management
+## Storage and Data Management
 
 - Amazon S3
 - AWS Backup
