@@ -7,7 +7,7 @@ share attachments on chats, emails, and tasks.
 
 ###### Important
 
-You must complete steps 1 and 3 in this topic (create an Amazon S3 bucket and configure
+You must complete steps 1 and 4 in this topic (create an Amazon S3 bucket and configure
 a CORS policy) for email attachments. If you don't do this, yet have selected
 **Enable Attachments sharing** for your instance, the email
 channel will not work for your instance.
@@ -81,7 +81,33 @@ Note the following about the staging location:
     	 deleted** if S3 bucket versioning is not
     	 enabled.
 
-## Step 2: Configure attachment size limits and custom file extensions
+## Step 2: Enable file attachment configuration permissions
+
+To allow administrators to view or modify file attachment settings, assign the
+appropriate permissions in their security profile.
+
+1. In the Amazon Connect console, choose **Users**,
+   **Security profiles**.
+2. Select the security profile that you want to modify.
+3. Expand the **Settings** section.
+4. Under **File attachments**, choose the permissions to
+   assign:
+   - **View** — Allows users to view file
+     attachment settings.
+   - **Edit** — Allows users to view and modify
+     file attachment settings, including attachment sizes and
+     types.
+   - **All** — Grants both View and Edit
+     permissions for file attachment settings.
+
+5. Choose **Save**.
+
+Users assigned a security profile with file attachment permissions see a
+**Settings** icon in the left navigation menu, below
+**Channels**. From there, they can view or edit file
+attachment settings based on their assigned permissions.
+
+## Step 3: Configure attachment size limits and custom file extensions
 
 After you enable attachments, you can configure the following options through the
 Amazon Connect admin website:
@@ -97,7 +123,7 @@ Amazon Connect admin website:
 
 You can also configure these options by using the Amazon Connect API.
 
-## Step 3: Configure a CORS policy on your attachments bucket
+## Step 4: Configure a CORS policy on your attachments bucket
 
 To allow customers and agents to upload and download files, update your
 cross-origin resource sharing (CORS) policy to allow `PUT` and
@@ -172,7 +198,7 @@ don't recommend.
    ]
    ```
 
-## Step 4 (Optional): Integrate with the APIs to enhance your custom UIs
+## Step 5 (Optional): Integrate with the APIs to enhance your custom UIs
 
 If you are skipping the out-of-the-box Chat UI or Agent workspace, you can use the
 Amazon Connect Participant attachments APIs, or Amazon Connect attached files APIs to build your own

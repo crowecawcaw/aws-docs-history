@@ -11,7 +11,7 @@ is terminated. If the Lex bot detects an agent escalation intent or fails to
 capture any intent, the contact is transferred to a queue to be connected to
 an agent.
 
-![](images/test-contact-flow-example.png)
+![Contact flow showing Lex bot handling flight booking with paths for success, error, and agent escalation.](images/test-contact-flow-example.png)
 **Building a test case for the contact flow**
 
 In this test case, we validate two scenarios:
@@ -27,7 +27,7 @@ queue transfer is validated even if an intent is not matched or the Lex bot
 encounters an error. This is because the Lex bot default and error branches in
 the contact flow are both connected to the queue transfer block.
 
-![](images/test-case-designer.png)
+![Workflow diagram showing five validation blocks with Observe and Action steps connected in sequence.](images/test-case-designer.png)
 **Configure the test setting**
 
 Under **Channel**, select **Chat**, then
@@ -36,7 +36,7 @@ select the contact flow you want to simulate. This test case supports both
 initiate a call or a chat session. The following steps use Chat simulation for
 demonstration purposes.
 
-![](images/test-case-settings.png)
+![Settings tab showing Channel set to Chat, Starting point to Flow, and Flow dropdown with flight booking bot flow example selected.](images/test-case-settings.png)
 **Configure interaction groups**
 
 **Interaction group 1: Validate bot initial message**
@@ -51,7 +51,7 @@ intent to book a flight.
 - **Expected prompt** – "hello welcome to anytravel you can say book a flight"
 - **Matching criteria** – Similar
 
-![](images/test-case-simulate-bot-initial.png)
+![Workflow designer showing validation steps with observe and action nodes connected by success paths.](images/test-case-simulate-bot-initial.png)
 **Action block configuration:**
 
 - **Action** – Send instruction
@@ -59,7 +59,7 @@ intent to book a flight.
 - **Input type** – Text/Utterance
 - **Input Parameter** – "I want to book a flight"
 
-![](images/test-case-simulate-input-to-bot.png)
+![Amazon Connect flow designer showing multiple validation blocks with observe and action components.](images/test-case-simulate-input-to-bot.png)
 **Interaction group 2: Validate bot collecting origin city**
 
 This group validates that the bot collects the correct slot for the
@@ -101,13 +101,13 @@ a test command to end the test.
 - **Target resource** – BasicQueue (select the Queue resource you want to observe)
 - **Operation** – Transfer to Queue
 
-![](images/test-case-simulate-queue.png)
+![Workflow designer showing multiple validation blocks with Observe and Action components connected in sequence.](images/test-case-simulate-queue.png)
 **Action block configuration:**
 
 - **Action** – Test commands
 - **Test control type** – End test
 
-![](images/test-case-end-test.png)
+![Action block configuration panel showing Test commands action type and End test control type.](images/test-case-end-test.png)
 **Run test and analyze results**
 
 After configuring all interaction groups and blocks, publish the test case
@@ -120,14 +120,14 @@ displayed in execution order. Note that **Initial Setup**,
 entries are added to the execution trace to provide visibility into the system
 steps for initiating and completing the test.
 
-![](images/test-case-result-detail.png)
+![Test results showing 5 passed interactions with 18 second completion time and expandable steps.](images/test-case-result-detail.png)
 Click on each interaction group trace to view detailed results for each
 observe and action block.
 
-![](images/test-case-result-detail-expanded.png)
+![Flight booking bot flow test results showing passed validation steps for message handling and data collection.](images/test-case-result-detail-expanded.png)
 Click the **Contact ID** link to navigate to the Contact
 detail page. If the contact flow has automated agent interaction and automated
 interaction summary enabled, the simulation chat or voice call will be analyzed
 accordingly.
 
-![](images/test-case-contact-details.png)
+![Contact details page showing chat interaction overview, AI-generated insights, and transcript timeline.](images/test-case-contact-details.png)

@@ -41,16 +41,16 @@ During test execution, please be aware of the following limitations and behavior
 
 1. Choose **Run Test** to execute the test case.
 
-![](images/GIF/test-execution-trigger-gif.gif) 2. Once the test case is running, choose the **Test runs** tab to view a
+![Flow designer showing three connected states: initial setup, welcome prompt, and transfer to queue.](images/GIF/test-execution-trigger-gif.gif) 2. Once the test case is running, choose the **Test runs** tab to view a
 list of in progress and completed test runs for the tests case.
 
-![](images/test-runs.png) 3. Choose a test run to see the interaction block execution status, the
+![Test runs tab showing three test runs from November 19, 2025 with Passed outcomes.](images/test-runs.png) 3. Choose a test run to see the interaction block execution status, the
 simulated contact ID, and the pass or fail status of each step.
 
-![](images/test-execution-detail-page.png)
+![Test run details showing passed status with session metrics, contact flow information, and test steps.](images/test-execution-detail-page.png)
 You can also view all the test runs across all test cases in the
 **Test runs** tab. This page lists all of the test executions
 in the same Amazon Connect instance. You will only see the detail test results for the test
 cases you created or test cases you have permission to view.
 
-![](images/test-run-list-page.png)
+![Test runs tab showing eight test executions with names, dates, and pass or fail outcomes.](images/test-run-list-page.png)

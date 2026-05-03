@@ -396,8 +396,15 @@ fields. 3. Choose **Next**.
 1. Under **Integration setup**, select the checkbox
    next to **Read and acknowledge that your ServiceNow account
    meets the integration requirements.**.
-2. In the **Integration name** box, enter a name for
-   the integration.
+
+###### Important
+
+You must enable versioning on your ServiceNow knowledge base
+articles. Connect AI agents requires versioning to correctly
+identify and ingest the latest version of your articles. Without
+versioning enabled, the integration will fail to
+create. 2. In the **Integration name** box, enter a name for
+the integration.
 
 ###### Tip
 

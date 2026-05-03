@@ -1047,7 +1047,7 @@ This metric measures the count of AI suggestions rated as helpful with a thumbs-
 ###### Note
 
 - This metric is updated every 6 hours.
-- This metric is available as part of Connect Customer AI.
+- This metric is available as part of Connect Customer.
 
 ## AI Agent Response Not Helpful
 
@@ -1079,7 +1079,7 @@ This metric measures the count of AI suggestions rated as unhelpful with a thumb
 ###### Note
 
 - This metric is updated every 6 hours.
-- This metric is available as part of Connect Customer AI.
+- This metric is available as part of Connect Customer.
 
 ## AI Response Completion Rate
 
@@ -1317,7 +1317,7 @@ provided the correct parameters. Value is between 0-1, where 1 indicates perfect
 ###### Note
 
 - This metric is updated every 24 hours.
-- This metric is available as part of Connect Customer AI.
+- This metric is available as part of Connect Customer.
 
 ## AI Tool Selection Accuracy
 
@@ -1350,7 +1350,7 @@ Value is between 0-1, where 1 indicates optimal selection.
 ###### Note
 
 - This metric is updated every 24 hours.
-- This metric is available as part of Connect Customer AI.
+- This metric is available as part of Connect Customer.
 
 ## AI Tool Utilization Accuracy
 
@@ -1383,7 +1383,7 @@ including proper parameters and selection. Value is between 0-1, where 1 indicat
 ###### Note
 
 - This metric is updated every 24 hours.
-- This metric is available as part of Connect Customer AI.
+- This metric is available as part of Connect Customer.
 
 ## Average AI Agent Conversation Turns
 
@@ -1530,7 +1530,7 @@ answers. Value is between 0-1, where 1 indicates complete responses across all s
 ###### Note
 
 - This metric is updated every 24 hours.
-- This metric is available as part of Connect Customer AI.
+- This metric is available as part of Connect Customer.
 
 ## Faithfulness Score
 
@@ -1565,7 +1565,7 @@ Value is between 0-1, where 1 indicates perfect contextual fidelity.
 ###### Note
 
 - This metric is updated every 24 hours.
-- This metric is available as part of Connect Customer AI.
+- This metric is available as part of Connect Customer.
 
 ## Goal Success Rate
 
@@ -1600,7 +1600,7 @@ across all sessions.
 ###### Note
 
 - This metric is updated every 24 hours.
-- This metric is available as part of Connect Customer AI.
+- This metric is available as part of Connect Customer.
 
 ## Knowledge Content References
 

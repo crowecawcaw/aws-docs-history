@@ -1,97 +1,101 @@
-# Amazon Connect pricing
+# Amazon Connect Customer
 
-Amazon Connect is an AI-powered contact center solution that turns every customer
-touchpoint into a deeper relationship and better outcome.
-
-When you create an Amazon Connect instance, unlimited AI pricing is enabled.
-
-Amazon Connect unlimited AI pricing provides unlimited use of Amazon Connect AI capabilities that power customer self-service,
-agent assistance, and supervisor experiences. It allows you to optimize every step of your
-customer journey without cost-driven compromises.
-
-For more information, visit [Amazon Connect Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
+Amazon Connect Customer is an AI-native solution that helps companies of any scale deliver
+exceptional customer experiences at every touchpoint. You can use fully autonomous AI agents,
+a blend of AI and human agents working together, or fully human-supported experiences. AI is
+embedded across all channels for every customer, with simple per-channel pricing. For more
+information, visit [Amazon Connect
+Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 
 ###### Contents
 
-- [How Amazon Connect billing works](#how-ac-billing-works "#how-ac-billing-works")
-- [Amazon Connect pricing options](#bestpractices-ac-billing "#bestpractices-ac-billing")
-- [How to disable unlimited AI pricing](#how-to-disable-ac "#how-to-disable-ac")
-- [How to enable unlimited AI pricing](#how-to-enable-ac "#how-to-enable-ac")
+- [AI capabilities](#customer-ai-capabilities "#customer-ai-capabilities")
+- [Updating existing Amazon Connect instances](#how-to-enable-ac "#how-to-enable-ac")
+- [How to switch to Customer Basic](#how-to-disable-ac "#how-to-disable-ac")
 
-## How Amazon Connect billing works
+## AI capabilities
 
-Amazon Connect is a pay-as-you-go customer experience solution that makes it simple to leverage native AI in every touchpoint across all channels. There are no required minimum monthly fees, long-term commitments, or upfront license charges, and pricing is not based on peak capacity, agent seats, or maintenance; you only pay for what you use. This flexible pricing model enables you to scale up and down depending on seasonality and the needs of your business, without worrying about capacity constraints or licensing costs.
+Amazon Connect Customer embeds AI at every stage of the customer journey. The following
+capabilities are included with Amazon Connect Customer.
 
-For global resiliency pricing, contact your AWS Technical Account Manager or Solutions Architect.
+- **End-customer self-service** — agentic
+  voice and agentic chat powered by AI agents
+- **Real-time agent assistance** —
+  AI-powered recommendations and next-best-action guidance during live
+  conversations
+- **Conversational analytics and post-contact
+  summaries** — sentiment analysis, theme detection, and
+  automated summaries across voice, chat, messaging, and email
+- **AI-powered case summarization** —
+  automatically generated case summaries to accelerate resolution
+- **Performance evaluations** — evaluate
+  both human agents and self-service interactions
+- **Forecasting and agent scheduling** —
+  predict contact volumes and optimize agent schedules
+- **Flow designer analytics** — insights
+  into contact flow performance
+- **Custom metrics in dashboards and APIs**
+  — build tailored views of contact center performance
+- **Generative speech** — Amazon Polly
+  generative voices and third-party speech-to-text (STT) and text-to-speech
+  (TTS) model configuration
+- **Customer first callbacks** — let
+  customers request a callback instead of waiting on hold
 
-## Amazon Connect pricing options
+## Updating existing Amazon Connect instances
 
-There are two pricing models available: unlimited AI pricing and per feature pricing.
-You can select a different pricing model for each Amazon Connect instance and change that selection at any time, giving you the flexibility to choose the option that best suits your needs.
+All new instances are Amazon Connect Customer instances.
 
-**Unlimited AI pricing** is the default option. It enables
-you to use an all-inclusive channel pricing model that covers all optimization
-features, including:
-
-- Conversational analytics
-- Performance evaluations
-- Screen recording
-- Agent scheduling tools
-- AI-powered voice and chat through Amazon Lex and Connect AI agents
-- AI-powered generative voice for text-to-speech (TTS) in Amazon Connect
-
-###### Note
-
-We recommend reviewing [Service Improvement and how to opt out from using your data for service improvement](data-opt-out.md "data-opt-out.md") to learn which Amazon Connect services use your
-customer's data to train machine learning models, and how you can opt
-out.
-
-- OR -
-
-**Per feature pricing** where you pay separately for channels and any optimization features you choose to use.
-
-## How to disable unlimited AI pricing
-
-Complete the following steps to disable unlimited AI pricing and instead use per feature pricing for a given Amazon Connect instance.
-
-1. Log in to the AWS Management Console using your AWS account.
-2. In the AWS Management Console, in the search box, type
-   **Amazon Connect**. Choose **Amazon Connect**.
-3. On the **Amazon Connect virtual contact center instances** page,
-   choose the **instance alias** where you want to disable unlimited AI pricing.
-4. In the navigation pane, choose **Amazon Connect**.
-5. In the **Enable unlimited AI pricing across your entire contact center** section,
-   confirm the status is **enabled**.
-6. Choose **Disable**.
-
-A dialog box appears prompting you to confirm that you want to disable unlimited AI pricing and instead
-use the per feature pricing model. Choose **Disable** to confirm.
-
-###### Warning
-
-Disabling unlimited AI pricing will not disable the individual features used. If those features continue to be used after unlimited AI pricing is disabled, you will be charged based on each individual feature's price.
-
-Exception: If you are using the [customer first callback](setup-queued-cb.md "setup-queued-cb.md") feature, it is disabled when you choose to disable unlimited AI pricing.
-
-## How to enable unlimited AI pricing
-
-If you have disabled unlimited AI pricing and want to enable again, or you
-created your Amazon Connect before this option was released, here's how you can enable it now.
-Also use these steps if you want to verify if unlimited AI pricing is enabled.
-
-Complete the following steps to enable unlimited AI pricing for a given Amazon Connect instance.
+If your Amazon Connect instance was created before Amazon Connect Customer was available, you may need to
+update your instance to Amazon Connect Customer.
 
 1. Log in to the AWS Management Console using your AWS account.
 2. In the AWS Management Console, in the search box, type
    **Amazon Connect**. Choose **Amazon Connect**.
 3. On the **Amazon Connect virtual contact center instances** page,
-   choose the **instance alias** where you want to enable unlimited AI pricing.
+   choose the **instance alias** where you want to enable
+   Amazon Connect Customer.
 4. In the navigation pane, choose **Amazon Connect**.
-5. In the **Enable unlimited AI pricing across your entire contact center** section,
-   confirm the status is **Not enabled**.
+5. In the **Enable Amazon Connect Customer across your entire
+   instance** section, confirm the status is **Not
+   enabled**.
 6. Choose **Enable**.
 
+## How to switch to Customer Basic
+
+Amazon Connect Customer Basic does not include all the AI capabilities available in Amazon Connect
+Customer. If you move to Customer Basic, some capabilities you are using today may no longer
+be available, including:
+
+- Conversational analytics for email
+- AI-powered case summarization
+- Performance evaluations of self-service interactions
+- Flow designer analytics
+- Custom metrics in dashboards and APIs
+- Agentic voice with Amazon Nova Sonic
+- Third-party speech-to-text (STT) and text-to-speech (TTS) model
+  configuration
+- Customer first callbacks
+
 ###### Warning
 
-When you enable unlimited AI, any active free trials of Amazon Connect features end, such as free
-trials of conversational analytics, performance evaluation, and agent scheduling.
+If these features are configured in contact flows, you may encounter runtime
+errors.
+
+Complete the following steps to switch from Amazon Connect Customer to Customer Basic for a
+given Amazon Connect instance.
+
+1. Log in to the AWS Management Console using your AWS account.
+2. In the AWS Management Console, in the search box, type
+   **Amazon Connect**. Choose **Amazon Connect**.
+3. On the **Amazon Connect virtual contact center instances** page,
+   choose the **instance alias** where you want to switch to
+   Customer Basic.
+4. In the navigation pane, choose **Amazon Connect**.
+5. In the **Enable Amazon Connect Customer across your entire
+   instance** section, confirm the status is
+   **enabled**.
+6. Choose **Disable**.
+
+A dialog box appears prompting you to confirm that you want to switch to
+Customer Basic. Choose **Disable** to confirm.

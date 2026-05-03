@@ -560,7 +560,7 @@ The number of seconds to wait before expiring the routing step.
 
 Type: Integer
 
-Min value: 0
+Min value: 1
 
 **ExpiryTimestamp**
 

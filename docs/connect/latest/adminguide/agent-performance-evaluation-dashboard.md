@@ -58,14 +58,14 @@ Save a custom dashboard by:
 
 - Add one or more performance evaluation widgets to an existing dashboard.
 
-![](images/agent-performance-dashboard-add-widget.png)
+![Refresh icon and Add widget button in the dashboard header.](images/agent-performance-dashboard-add-widget.png)
 
-![](images/agent-performance-widgets.png)
+![Add widget dialog showing Performance evaluation category with six widget options.](images/agent-performance-widgets.png)
 
 - **Save** the dashboard.
 - Click **Share**. **Publish** the dashboard to make it available to other users. You may set the share setting to **Read-only** to prevent others from making edits to the dashboard.
 
-![](images/agent-performance-dashboard-share.png)
+![Share dashboard dialog with Read-only toggle, share link, and Publish toggle options.](images/agent-performance-dashboard-share.png)
 
 You can **Share the dashboard link** for agents to access the dashboard within the Amazon Connect admin console. For agents to access the saved dashboard on the Connect agent workspace see: [Integrate a published dashboard into the agent workspace](integrate-published-dashboard.md "integrate-published-dashboard.md").
 

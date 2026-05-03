@@ -21,7 +21,7 @@ contact center.
 
 After you initially create your Amazon Connect instance, you can choose to disable this
 option and instead pay separately for channels and any optimization features you
-choose to use. For more information, see [Amazon Connect pricing](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md").
+choose to use. For more information, see [Amazon Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md").
 
 - Amazon Connect is not available to customers in India using Amazon Web Services through
   Amazon Web Services India Private Limited (AWS India). You will receive an error

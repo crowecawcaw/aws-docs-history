@@ -1,6 +1,6 @@
 # Amazon Connect feature overview
 
-Amazon Connect is an omnichannel contact center, built in the cloud from the ground-up. It
+Amazon Connect Customer is an omnichannel contact center, built in the cloud from the ground-up. It
 empowers businesses of all sizes to connect their customers with the same world-class
 customer experience Amazon uses to orchestrate their customer care.
 

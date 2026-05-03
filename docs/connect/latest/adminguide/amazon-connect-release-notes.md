@@ -7,17 +7,109 @@ your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
 ## April 2026 Updates
 
-### Amazon Connect now supports instance transfer
+### Amazon Connect increases attachment file sizes and adds custom file types
 
-Amazon Connect now supports call transfers between instances with cross-instance context sharing,
-enabling you to maintain the benefits of Amazon Connect while allowing individual business
-units to run and control their own contact centers. See [Instance to instance transfer](architecture-instance-transfer.md "architecture-instance-transfer.md") for details.
+Amazon Connect now supports attachment file sizes up to 100 MB for chat, cases, and tasks, up from the previous 20 MB limit. Administrators can enable these higher limits and configure custom file extensions for attachments across chat, email, cases, and tasks through the Amazon Connect admin website or Amazon Connect APIs.
+
+For more information, see [Enable Attachments](enable-attachments.md "enable-attachments.md").
+
+### Supervisor agent activity status changes now logged to AWS CloudTrail
+
+Amazon Connect now provides audit logging for agent activity status changes made through analytics dashboards to AWS CloudTrail. This enhancement provides visibility into who changed agent activity status and when changes occurred, helping contact centers maintain clear audit trails. For example, if a supervisor changes an agent’s status from “Available” to “Break,” this action is now captured in AWS CloudTrail with details including the supervisor’s identity, timestamp, and the specific status change.
+
+This feature is available in all AWS commercial and AWS GovCloud (US) regions where Amazon Connect is offered.
+
+### Eight new metrics to measure and improve AI agent performance
+
+Amazon Connect now provides eight new metrics to measure and improve AI agent performance, including goal success rate, faithfulness score, and tool selection accuracy. These metrics offer visibility into the quality of AI-driven customer interactions, enabling measurement and continuous improvement of AI agent outcomes. With this launch, you can monitor whether AI agents successfully resolved customer requests, assess faithfulness and detect contextual hallucinations, evaluate tool selection and utilization accuracy, and capture customer feedback through thumbs up/down ratings when enabled.
+
+You can access these new metrics through Amazon Connect’s AI Agent Performance dashboard, or through the GetMetricDataV2 API and zero-ETL data lake for custom reporting.
+
+This feature is available in all AWS Regions where Amazon Connect AI Agents is supported.
+
+### Outbound Campaigns now supports contact priority ordering
+
+Amazon Connect Outbound Campaigns now allows you to dial contacts in configurable priority order based on up to 10 profile attributes for voice campaigns and voice activities in journeys. This helps you focus agent time on the most valuable customers or time-sensitive opportunities, improving campaign effectiveness and conversion rates. Initial dial attempts always take precedence over reattempts, ensuring your priority order is maintained throughout campaign execution.
+
+To get started, configure sort attributes when building segments in Amazon Connect Customer Profiles. For more information, see [Outbound Campaigns best practices](outbound-campaigns-best-practices.md "outbound-campaigns-best-practices.md").
+
+### Outbound Campaigns now supports hourly segment refresh
+
+Amazon Connect Outbound Campaigns now allows you to refresh campaign segments as frequently as every hour, reduced from the previous minimum of 24 hours. This enables campaigns to reach newly eligible customers throughout the day rather than waiting for the next daily run. For example, a collections team can start outreach to newly delinquent accounts the same afternoon they are flagged, and a multi-step journey can enroll new customers throughout the day instead of in a single daily batch.
+
+This capability is available in all AWS Regions where Amazon Connect Outbound Campaigns is offered at no additional cost.
+
+### Automatically pass customer context into calls for AI-powered self-service
+
+Amazon Connect now enables you to automatically pass customer context to personalize self-service experiences from the moment a call connects. When a customer initiates a call from a website, mobile app, or notification link, you can automatically pass context—such as customer IDs, session references, and campaign codes—into the call. AI agents use this context to recognize the caller, understand the reason for the call, take action, and resolve issues without requiring callers to re-identify themselves or repeat why they are calling.
+
+This feature is available in all AWS Regions where Amazon Connect is available. For more information, see the [Amazon Connect Administrator Guide](what-is-amazon-connect.md "what-is-amazon-connect.md").
+
+### Flow modules now work across all flow types and within other modules
+
+Amazon Connect now supports the use of flow modules across all Connect flows, allowing you to reuse common logic and functionality beyond inbound customer experiences. For example, you can now use a module to share information about a customer’s recent transactions in an agent whisper flow, preparing the agent with relevant details and leveraging functionality that was previously only available as part of inbound flows.
+
+Additionally, you can now use flow modules within other modules, enabling you to build complex logic by stitching together pre-built intermediary steps under a single module. For example, a credit card eligibility module can invoke other modules that check credit scores, verify income, and review payment history before making a final determination.
+
+For more information, see [Flow modules for reusable functions in Amazon Connect](contact-flow-modules.md "contact-flow-modules.md").
 
 ## March 2026 Updates
 
 ### Amazon Connect now provides case data in analytics data lake
 
 Amazon Connect now provides case data in the analytics data lake, making it easier for you to generate reports and insights from this data. With case data available alongside other Amazon Connect analytics, you can use Amazon Athena and Amazon QuickSight to build custom reports and analyze trends such as case volume by type, case handling across agent shifts, or contact sentiment across cases without building and maintaining complex data pipelines.
+
+### AI-powered manager assistance (Preview)
+
+Amazon Connect announces the preview of an AI-powered assistant that enables contact center managers to get instant answers to operational questions using natural language. You can query across 150+ Amazon Connect metrics—including agent scheduling, self-service experience, and performance evaluations—with historical data for all of these, and receive results in seconds, eliminating hours of manual data gathering. The assistant can also diagnose underlying issues, such as identifying which queues are at risk of missing service level targets and recommending specific recovery actions.
+
+This feature is available as a preview. To request access, contact your AWS account team or an AWS Representative.
+
+### Conversational analytics for email
+
+Amazon Connect now supports conversational analytics for email contacts, enabling contact center managers to automatically categorize emails, redact personally identifiable information (PII), and generate contact summaries. This allows you to quickly identify emerging trends, better maintain compliance by protecting sensitive information, and reduce the time spent reviewing agent performance.
+
+To enable this feature, add the Set recording, analytics and processing behavior block to your flows before an email contact is assigned to your agent or sent to your end customer. You can customize which PII types to redact, choose whether redacted content shows specific PII type indicators (e.g., [SSN]) or generic markings ([PII]), opt to store both original and redacted versions in separate storage, and enable contact summaries.
+
+Amazon Connect conversational analytics is available in the US East (N. Virginia), US West (Oregon), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), and Europe (London) regions. For more information, see [the help documentation](analyze-conversations.md "analyze-conversations.md").
+
+### Integrated workflows for managers to coach agents
+
+Amazon Connect now delivers integrated agent coaching workflows that enable contact center managers to provide timely, targeted feedback directly within the Connect UI. When managers identify improvement opportunities through evaluation scorecards, they can immediately create coaching plans with specific customer interaction examples. After coaching sessions, agents acknowledge feedback and add notes to confirm understanding of expectations and next steps. Both managers and agents access all coaching history on a single page, enabling systematic progress tracking and improved coaching effectiveness.
+
+For more information, see the [Amazon Connect Administrator Guide](what-is-amazon-connect.md "what-is-amazon-connect.md").
+
+### Agents can now select different From email addresses when sending emails
+
+Amazon Connect now enables you to choose the “From” email address when replying to inbound emails or sending new outbound messages, helping contact centers ensure the correct brand or business identity is used for every customer interaction. Administrators can configure multiple sender addresses per queue, allowing agents to search and select the appropriate email address based on the queue they are working in.
+
+Amazon Connect email is available in the US East (N. Virginia), US West (Oregon), Africa (Cape Town), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), and Europe (London) regions. For more information, see [the help documentation](setup-email-channel.md "setup-email-channel.md").
+
+### Agents can now forward email contacts to external email addresses
+
+Amazon Connect now enables agents to forward email contacts to external email addresses and distribution lists directly from the Agent workspace and Contact Center Panel. When an email is forwarded, agents still retain ownership and the complete communication trail of the original contact. This makes it easy for your agents to seamlessly loop in back-office teams, subject matter experts, partners, and other stakeholders while remaining a single consistent point of contact for your customers.
+
+For more information, see [Set up email in Amazon Connect](setup-email-channel.md "setup-email-channel.md").
+
+### Tag-based access control for quick responses
+
+Amazon Connect now applies tag-based access controls (TBAC) to routing profile assignments in quick responses. Previously, quick responses configured by administrators with tag-based access controls were available to all agents, regardless of routing profile tags. Administrators can now assign quick responses to specific routing profiles based on their TBAC permissions, giving them the same level of access control they use across other Amazon Connect resources.
+
+For more information, see [Quick Responses](quick-responses.md "quick-responses.md") and [Tag-based Access Control](tag-based-access-control.md "tag-based-access-control.md") in the Amazon Connect Administrator Guide.
+
+### Testing and simulation capabilities now support chats
+
+Amazon Connect now allows you to test and simulate chat experiences in just a few clicks, making it easy to validate self-service chat interactions, customer service workflows, and their outcomes. For each test, you can configure the test parameters including the channel as chat, customer attributes, the reason for the chat, the expected responses, and business conditions like after-hours scenarios or full queues. After executing tests, results show success or failure based on your defined criteria, along with the path taken by the simulated interaction and detailed logs to quickly diagnose potential issues.
+
+For more information, see [Amazon Connect Testing and Simulation](testing-simulation.md "testing-simulation.md").
+
+### AI-powered predictive insights enhancements (Preview)
+
+Amazon Connect announces enhancements to AI-powered predictive insights that make it easier for businesses to deliver proactive, personalized customer experiences at scale. AI-powered predictive insights now support up to 40 million product catalog items (8X increase), are available in message templates for trigger-based campaigns, and deliver up to 14% improved model accuracy.
+
+Businesses can now deliver trigger-based campaigns to initiate personalized outreach based on customer behavior and predictive signals—such as sending product recommendations when a customer abandons their cart or offering complementary services after a purchase. Improved model accuracy and reduced training time mean businesses can deploy personalized experiences faster with greater confidence.
+
+Public preview for AI-powered predictive insights enhancements is available in Europe (Frankfurt), US East (N. Virginia), Asia Pacific (Seoul), Asia Pacific (Tokyo), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), and Canada (Central).
 
 ## February 2026 Updates
 

@@ -11,7 +11,7 @@ chat, email, or tasks, or Amazon Connect Cases.
 
 A common reason for attachments not appearing in chats, emails, or tasks is that the CORS
 policy hasn't been configured on your attachments bucket. For instructions, see
-[Step 3: Configure a CORS policy on your attachments bucket](enable-attachments.md#step3-update-cors-policy "enable-attachments.md#step3-update-cors-policy").
+[Step 4: Configure a CORS policy on your attachments bucket](enable-attachments.md#step4-update-cors-policy "enable-attachments.md#step4-update-cors-policy").
 
 ## Internal firewall settings are preventing access
 

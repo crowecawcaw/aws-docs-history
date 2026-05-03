@@ -39,7 +39,7 @@ After you create an Amazon Connect instance, you can:
 
 ###### Contents
 
-- [Amazon Connect pricing](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md")
+- [Amazon Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md")
 - [Create an Amazon Connect
   instance](amazon-connect-instances.md "amazon-connect-instances.md")
 - [Test voice, chat, and task experiences in Amazon Connect](chat-testing.md "chat-testing.md")

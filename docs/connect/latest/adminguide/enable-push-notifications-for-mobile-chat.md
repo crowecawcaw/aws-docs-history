@@ -104,7 +104,7 @@ To register the device with a chat contact, we recommend that you do the followi
    `deviceType` as [contact attributes](../APIReference/API_StartChatContact.md#connect-StartChatContact-request-Attributes "../APIReference/API_StartChatContact.md#connect-StartChatContact-request-Attributes"). For webview and hosted communication widget
    users, see [How to pass contact attributes into the communications widget](pass-contact-attributes-chat.md#how-to-contact-attributes-chatwidget "pass-contact-attributes-chat.md#how-to-contact-attributes-chatwidget") for
    more details.
-2. Embed a call to the [CreatePushNotificationRegistration](../APIReference/API_CreateIntegrationAssociation.md "../APIReference/API_CreateIntegrationAssociation.md") action in a Lambda function in a
+2. Embed a call to the [CreatePushNotificationRegistration](../APIReference/API_CreatePushNotificationRegistration.md "../APIReference/API_CreatePushNotificationRegistration.md") action in a Lambda function in a
    contact flow. The flow block should read `deviceToken` and
    `deviceType` from the user-defined contact attributes, and the
    `initialContactId` from the system attributes, then pass these
@@ -120,7 +120,7 @@ To register the device with a chat contact, we recommend that you do the followi
 
    ![Invoke lambda function flow block in the Amazon Connect admin website flow designer.](images/step-4-set-up-push-notifications-for-mobile-chat-1.png)
 
-3. (optional)  Embed a call to the [DeletePushNotificationRegistration](../APIReference/API_CreateIntegrationAssociation.md "../APIReference/API_CreateIntegrationAssociation.md") action in a Lambda function in a
+3. (optional)  Embed a call to the [DeletePushNotificationRegistration](../APIReference/API_DeletePushNotificationRegistration.md "../APIReference/API_DeletePushNotificationRegistration.md") action in a Lambda function in a
    flow. Once the API call is made, the device will stop receiving push
    notifications when a new message comes from the agent or system.
 

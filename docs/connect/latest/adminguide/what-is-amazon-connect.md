@@ -1,16 +1,20 @@
-# What is Amazon Connect?
+# What is Amazon Connect Customer?
 
-Amazon Connect is an AI-powered application that provides one seamless experience for your contact
-center customers and users. It's comprised of a full suite of features across communication
-channels.
+###### Note
 
-Using an intuitive web application—the Amazon Connect admin website—you can [set up a contact center](amazon-connect-get-started.md "amazon-connect-get-started.md") in a few steps, add
-agents who are located anywhere, and start engaging with your customers. You can innovate
-and make changes in minutes, not months. No coding required.
+Amazon Connect now refers to a portfolio of agentic solutions for business functions.
+The legacy product is now called Amazon Connect Customer, or simply Customer. The
+legacy name is used interchangeably in this documentation.
 
-If you're using Amazon Connect, you're likely one of these users:
+Amazon Connect Customer engages customers at every touchpoint and creates deeper relationships
+with AI powered capabilities.
 
-![One application that provides a seamless experience for customers, agents, supervisors and administrators.](images/firstcallimage.png)
+Build and manage customer communication experiences. Connect customers to agents, enable
+intelligent routing, and track performance in real-time.
+
+Amazon Connect Customer helps a variety of personas:
+
+![One application that provides a seamless experience for customers, agents, supervisors and administrators. Amazon Connect Customer.](images/firstcallimage.png)
 
 - **Customers** reach out to your contact center
   because they are having trouble with some issue they can't resolve for themselves,
@@ -25,22 +29,22 @@ If you're using Amazon Connect, you're likely one of these users:
   configuration to be optimal for their business. They onboard most new agents, and
   provide coaching to help their team members grow.
 - **Administrators** handle the entire Amazon Connect
-  configuration. They provision phone numbers and integrate Amazon Connect with other products.
+  Customer configuration. They provision phone numbers and integrate Amazon Connect Customer with other products.
   Along with contact center managers, they define queues and routing profiles,
   implement flows, and create rules to set up alerts and notifications.
   Get more information in the [Amazon Connect feature overview](connect-feature-overview.md "connect-feature-overview.md").
 
 ## How to get started
 
-If you are a first-time user of Amazon Connect, we recommend that you do the following:
+If you are a first-time user of Amazon Connect Customer, we recommend that you do the following:
 
-- Check out the [Getting Started with Amazon Connect](https://catalog.workshops.aws/amazon-connect-getting-started/en-US "https://catalog.workshops.aws/amazon-connect-getting-started/en-US") for an introduction to Amazon Connect with a
+- Check out the [Getting Started with Amazon Connect](https://catalog.workshops.aws/amazon-connect-getting-started/en-US "https://catalog.workshops.aws/amazon-connect-getting-started/en-US") for an introduction to Amazon Connect Customer with a
   series of hands-on labs.
-- Explore Amazon Connect with our [tutorials](tutorials.md "tutorials.md").
+- Explore Amazon Connect Customer with our [tutorials](tutorials.md "tutorials.md").
 - Read the [architectural
   guidance](architecture-guidance.md "architecture-guidance.md").
 - [Set up your contact center in Amazon Connect](amazon-connect-contact-centers.md "amazon-connect-contact-centers.md").
 
 ## Pricing
 
-With Amazon Connect, you pay only for what you use. For more information, see [Amazon Connect pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
+With Amazon Connect Customer, you pay only for what you use. For more information, see [Amazon Connect pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").

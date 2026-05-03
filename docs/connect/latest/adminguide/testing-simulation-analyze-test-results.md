@@ -13,8 +13,8 @@ The following procedure shows how to view the dashboard.
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. In the main navigation pane, choose **Analytics and optimization**, and then choose **Dashboards and reports**.
 
-![](images/test-dashboard.png) 3. Choose **Test and simulation dashboard**. The dashboard shows analytics
+![Dashboards and reports page showing eight available dashboard options in a grid layout.](images/test-dashboard.png) 3. Choose **Test and simulation dashboard**. The dashboard shows analytics
 reports on test execution including summary metrics, breakdown of
 various failure metrics, and execution duration metrics.
 
-![](images/test-dashboard-widget.png)
+![Dashboard displaying test execution metrics including success rate, failure rate, duration, and failure breakdowns.](images/test-dashboard-widget.png)

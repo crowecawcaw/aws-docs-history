@@ -15,6 +15,14 @@ such as a custom Contact Control Panel (CCP).
 This section describes the system requirements for using the Citrix Unified
 Communications SDK with Amazon Connect.
 
+###### Important
+
+Chrome 147 and Edge 147 introduce Local Network Access prompts that
+can block Citrix UCSDK optimization. If you use these browser versions,
+audio optimization does not function until you apply the workaround.
+For details and workaround steps, see [Chrome 147 and Edge 147 Local Network Access Prompts Block UCSDK
+Optimization](https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX696569&articleTitle=Chrome_147_and_Edge_147_Local_Network_Access_Prompts_Block_UCSDK_Optimization "https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX696569&articleTitle=Chrome_147_and_Edge_147_Local_Network_Access_Prompts_Block_UCSDK_Optimization") on the Citrix support website.
+
 - **Citrix Workspace Application
   Version**
 
