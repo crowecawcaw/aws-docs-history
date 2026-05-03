@@ -50,10 +50,11 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | C8gd            | `c8gd.medium`            | `c8gd.large`      | `c8gd.xlarge`      | `c8gd.2xlarge`     | `c8gd.4xlarge`     | `c8gd.8xlarge`      | `c8gd.12xlarge`     | `c8gd.16xlarge` | `c8gd.24xlarge` | `c8gd.48xlarge`  | `c8gd.metal-24xl` | `c8gd.metal-48xl` |
 | C8gn            | `c8gn.medium`            | `c8gn.large`      | `c8gn.xlarge`      | `c8gn.2xlarge`     | `c8gn.4xlarge`     | `c8gn.8xlarge`      | `c8gn.12xlarge`     | `c8gn.16xlarge` | `c8gn.24xlarge` | `c8gn.48xlarge`  | `c8gn.metal-24xl` | `c8gn.metal-48xl` |
 | C8i             | `c8i.large`              | `c8i.xlarge`      | `c8i.2xlarge`      | `c8i.4xlarge`      | `c8i.8xlarge`      | `c8i.12xlarge`      | `c8i.16xlarge`      | `c8i.24xlarge`  | `c8i.32xlarge`  | `c8i.48xlarge`   | `c8i.96xlarge`    | `c8i.metal-48xl`  | `c8i.metal-96xl`  |
-| C8ib            | `c8ib.large`             | `c8ib.xlarge`     | `c8ib.2xlarge`     | `c8ib.4xlarge`     | `c8ib.8xlarge`     | `c8ib.12xlarge`     | `c8ib.16xlarge`     | `c8ib.24xlarge` | `c8ib.32xlarge` | `c8ib.48xlarge`  | `c8ib.96xlarge`   | `c8ib.metal-48xl` | `c8ib.metal-96xl` |
 | C8id            | `c8id.large`             | `c8id.xlarge`     | `c8id.2xlarge`     | `c8id.4xlarge`     | `c8id.8xlarge`     | `c8id.12xlarge`     | `c8id.16xlarge`     | `c8id.24xlarge` | `c8id.32xlarge` | `c8id.48xlarge`  | `c8id.96xlarge`   | `c8id.metal-48xl` | `c8id.metal-96xl` |
-| C8in            | `c8in.large`             | `c8in.xlarge`     | `c8in.2xlarge`     | `c8in.4xlarge`     | `c8in.8xlarge`     | `c8in.12xlarge`     | `c8in.16xlarge`     | `c8in.24xlarge` | `c8in.32xlarge` | `c8in.48xlarge`  | `c8in.96xlarge`   | `c8in.metal-48xl` | `c8in.metal-96xl` |
 | C8i-flex        | `c8i-flex.large`         | `c8i-flex.xlarge` | `c8i-flex.2xlarge` | `c8i-flex.4xlarge` | `c8i-flex.8xlarge` | `c8i-flex.12xlarge` | `c8i-flex.16xlarge` |
+| C8in            | `c8in.large`             | `c8in.xlarge`     | `c8in.2xlarge`     | `c8in.4xlarge`     | `c8in.8xlarge`     | `c8in.12xlarge`     | `c8in.16xlarge`     | `c8in.24xlarge` | `c8in.32xlarge` | `c8in.48xlarge`  | `c8in.96xlarge`   | `c8in.metal-48xl` | `c8in.metal-96xl` |
+| C8ine           | `c8ine.large`            | `c8ine.xlarge`    | `c8ine.2xlarge`    | `c8ine.4xlarge`    | `c8ine.8xlarge`    | `c8ine.12xlarge`    |
+| C8ib            | `c8ib.large`             | `c8ib.xlarge`     | `c8ib.2xlarge`     | `c8ib.4xlarge`     | `c8ib.8xlarge`     | `c8ib.12xlarge`     | `c8ib.16xlarge`     | `c8ib.24xlarge` | `c8ib.32xlarge` | `c8ib.48xlarge`  | `c8ib.96xlarge`   | `c8ib.metal-48xl` | `c8ib.metal-96xl` |
 
 ## Instance family summary
 
@@ -83,10 +84,11 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | C8gd            | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |
 | C8gn            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |
 | C8i             | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
-| C8ib            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
 | C8id            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
-| C8in            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
 | C8i-flex        | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| C8in            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| C8ine           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Windows                     | Linux |
+| C8ib            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
 
 ## Performance specifications
 
@@ -354,20 +356,6 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | c8i.96xlarge      | 768.00       | Intel Xeon Granite Rapids          | 384   | 192       | 2                | ✗ No         | ✗ No               |
 | c8i.metal-48xl    | 384.00       | Intel Xeon Granite Rapids          | 192   | 96        | 2                | ✗ No         | ✗ No               |
 | c8i.metal-96xl    | 768.00       | Intel Xeon Granite Rapids          | 384   | 192       | 2                | ✗ No         | ✗ No               |
-| **C8ib**          |
-| c8ib.large        | 4.00         | Intel Xeon Granite Rapids          | 2     | 1         | 2                | ✗ No         | ✗ No               |
-| c8ib.xlarge       | 8.00         | Intel Xeon Granite Rapids          | 4     | 2         | 2                | ✗ No         | ✗ No               |
-| c8ib.2xlarge      | 16.00        | Intel Xeon Granite Rapids          | 8     | 4         | 2                | ✗ No         | ✗ No               |
-| c8ib.4xlarge      | 32.00        | Intel Xeon Granite Rapids          | 16    | 8         | 2                | ✗ No         | ✗ No               |
-| c8ib.8xlarge      | 64.00        | Intel Xeon Granite Rapids          | 32    | 16        | 2                | ✗ No         | ✗ No               |
-| c8ib.12xlarge     | 96.00        | Intel Xeon Granite Rapids          | 48    | 24        | 2                | ✗ No         | ✗ No               |
-| c8ib.16xlarge     | 128.00       | Intel Xeon Granite Rapids          | 64    | 32        | 2                | ✗ No         | ✗ No               |
-| c8ib.24xlarge     | 192.00       | Intel Xeon Granite Rapids          | 96    | 48        | 2                | ✗ No         | ✗ No               |
-| c8ib.32xlarge     | 256.00       | Intel Xeon Granite Rapids          | 128   | 64        | 2                | ✗ No         | ✗ No               |
-| c8ib.48xlarge     | 384.00       | Intel Xeon Granite Rapids          | 192   | 96        | 2                | ✗ No         | ✗ No               |
-| c8ib.96xlarge     | 768.00       | Intel Xeon Granite Rapids          | 384   | 192       | 2                | ✗ No         | ✗ No               |
-| c8ib.metal-48xl   | 384.00       | Intel Xeon Granite Rapids          | 192   | 96        | 2                | ✗ No         | ✗ No               |
-| c8ib.metal-96xl   | 768.00       | Intel Xeon Granite Rapids          | 384   | 192       | 2                | ✗ No         | ✗ No               |
 | **C8id**          |
 | c8id.large        | 4.00         | Intel Xeon Granite Rapids          | 2     | 1         | 2                | ✗ No         | ✗ No               |
 | c8id.xlarge       | 8.00         | Intel Xeon Granite Rapids          | 4     | 2         | 2                | ✗ No         | ✗ No               |
@@ -382,6 +370,14 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | c8id.96xlarge     | 768.00       | Intel Xeon Granite Rapids          | 384   | 192       | 2                | ✗ No         | ✗ No               |
 | c8id.metal-48xl   | 384.00       | Intel Xeon Granite Rapids          | 192   | 96        | 2                | ✗ No         | ✗ No               |
 | c8id.metal-96xl   | 768.00       | Intel Xeon Granite Rapids          | 384   | 192       | 2                | ✗ No         | ✗ No               |
+| **C8i-flex**      |
+| c8i-flex.large    | 4.00         | Intel Xeon Granite Rapids          | 2     | 1         | 2                | ✗ No         | ✗ No               |
+| c8i-flex.xlarge   | 8.00         | Intel Xeon Granite Rapids          | 4     | 2         | 2                | ✗ No         | ✗ No               |
+| c8i-flex.2xlarge  | 16.00        | Intel Xeon Granite Rapids          | 8     | 4         | 2                | ✗ No         | ✗ No               |
+| c8i-flex.4xlarge  | 32.00        | Intel Xeon Granite Rapids          | 16    | 8         | 2                | ✗ No         | ✗ No               |
+| c8i-flex.8xlarge  | 64.00        | Intel Xeon Granite Rapids          | 32    | 16        | 2                | ✗ No         | ✗ No               |
+| c8i-flex.12xlarge | 96.00        | Intel Xeon Granite Rapids          | 48    | 24        | 2                | ✗ No         | ✗ No               |
+| c8i-flex.16xlarge | 128.00       | Intel Xeon Granite Rapids          | 64    | 32        | 2                | ✗ No         | ✗ No               |
 | **C8in**          |
 | c8in.large        | 4.00         | Intel Xeon Granite Rapids          | 2     | 1         | 2                | ✗ No         | ✗ No               |
 | c8in.xlarge       | 8.00         | Intel Xeon Granite Rapids          | 4     | 2         | 2                | ✗ No         | ✗ No               |
@@ -396,14 +392,27 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | c8in.96xlarge     | 768.00       | Intel Xeon Granite Rapids          | 384   | 192       | 2                | ✗ No         | ✗ No               |
 | c8in.metal-48xl   | 384.00       | Intel Xeon Granite Rapids          | 192   | 96        | 2                | ✗ No         | ✗ No               |
 | c8in.metal-96xl   | 768.00       | Intel Xeon Granite Rapids          | 384   | 192       | 2                | ✗ No         | ✗ No               |
-| **C8i-flex**      |
-| c8i-flex.large    | 4.00         | Intel Xeon Granite Rapids          | 2     | 1         | 2                | ✗ No         | ✗ No               |
-| c8i-flex.xlarge   | 8.00         | Intel Xeon Granite Rapids          | 4     | 2         | 2                | ✗ No         | ✗ No               |
-| c8i-flex.2xlarge  | 16.00        | Intel Xeon Granite Rapids          | 8     | 4         | 2                | ✗ No         | ✗ No               |
-| c8i-flex.4xlarge  | 32.00        | Intel Xeon Granite Rapids          | 16    | 8         | 2                | ✗ No         | ✗ No               |
-| c8i-flex.8xlarge  | 64.00        | Intel Xeon Granite Rapids          | 32    | 16        | 2                | ✗ No         | ✗ No               |
-| c8i-flex.12xlarge | 96.00        | Intel Xeon Granite Rapids          | 48    | 24        | 2                | ✗ No         | ✗ No               |
-| c8i-flex.16xlarge | 128.00       | Intel Xeon Granite Rapids          | 64    | 32        | 2                | ✗ No         | ✗ No               |
+| **C8ine**         |
+| c8ine.large       | 4.00         | Intel Xeon Granite Rapids          | 2     | 1         | 2                | ✗ No         | ✗ No               |
+| c8ine.xlarge      | 8.00         | Intel Xeon Granite Rapids          | 4     | 2         | 2                | ✗ No         | ✗ No               |
+| c8ine.2xlarge     | 16.00        | Intel Xeon Granite Rapids          | 8     | 4         | 2                | ✗ No         | ✗ No               |
+| c8ine.4xlarge     | 32.00        | Intel Xeon Granite Rapids          | 16    | 8         | 2                | ✗ No         | ✗ No               |
+| c8ine.8xlarge     | 64.00        | Intel Xeon Granite Rapids          | 32    | 16        | 2                | ✗ No         | ✗ No               |
+| c8ine.12xlarge    | 96.00        | Intel Xeon Granite Rapids          | 48    | 24        | 2                | ✗ No         | ✗ No               |
+| **C8ib**          |
+| c8ib.large        | 4.00         | Intel Xeon Granite Rapids          | 2     | 1         | 2                | ✗ No         | ✗ No               |
+| c8ib.xlarge       | 8.00         | Intel Xeon Granite Rapids          | 4     | 2         | 2                | ✗ No         | ✗ No               |
+| c8ib.2xlarge      | 16.00        | Intel Xeon Granite Rapids          | 8     | 4         | 2                | ✗ No         | ✗ No               |
+| c8ib.4xlarge      | 32.00        | Intel Xeon Granite Rapids          | 16    | 8         | 2                | ✗ No         | ✗ No               |
+| c8ib.8xlarge      | 64.00        | Intel Xeon Granite Rapids          | 32    | 16        | 2                | ✗ No         | ✗ No               |
+| c8ib.12xlarge     | 96.00        | Intel Xeon Granite Rapids          | 48    | 24        | 2                | ✗ No         | ✗ No               |
+| c8ib.16xlarge     | 128.00       | Intel Xeon Granite Rapids          | 64    | 32        | 2                | ✗ No         | ✗ No               |
+| c8ib.24xlarge     | 192.00       | Intel Xeon Granite Rapids          | 96    | 48        | 2                | ✗ No         | ✗ No               |
+| c8ib.32xlarge     | 256.00       | Intel Xeon Granite Rapids          | 128   | 64        | 2                | ✗ No         | ✗ No               |
+| c8ib.48xlarge     | 384.00       | Intel Xeon Granite Rapids          | 192   | 96        | 2                | ✗ No         | ✗ No               |
+| c8ib.96xlarge     | 768.00       | Intel Xeon Granite Rapids          | 384   | 192       | 2                | ✗ No         | ✗ No               |
+| c8ib.metal-48xl   | 384.00       | Intel Xeon Granite Rapids          | 192   | 96        | 2                | ✗ No         | ✗ No               |
+| c8ib.metal-96xl   | 768.00       | Intel Xeon Granite Rapids          | 384   | 192       | 2                | ✗ No         | ✗ No               |
 
 ## Network specifications
 
@@ -678,20 +687,6 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8i.96xlarge        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | c8i.metal-48xl      | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | c8i.metal-96xl      | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| **C8ib**            |
-| c8ib.large 1        | 2.083 / 16.667                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
-| c8ib.xlarge 1       | 4.166 / 20.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8ib.2xlarge 1      | 8.333 / 26.667                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8ib.4xlarge 1      | 16.666 / 33.333                   | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c8ib.8xlarge        | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c8ib.12xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
-| c8ib.16xlarge       | 66.66 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8ib.24xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8ib.32xlarge       | 133.33 Gigabit                    | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
-| c8ib.48xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c8ib.96xlarge       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
-| c8ib.metal-48xl     | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
-| c8ib.metal-96xl     | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
 | **C8id**            |
 | c8id.large 1        | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 20                         | ✓ Yes |
 | c8id.xlarge 1       | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
@@ -706,6 +701,14 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8id.96xlarge       | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | c8id.metal-48xl     | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | c8id.metal-96xl     | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| **C8i-flex**        |
+| c8i-flex.large 1    | 0.468 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 20                         | ✓ Yes |
+| c8i-flex.xlarge 1   | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| c8i-flex.2xlarge 1  | 1.875 / 15.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| c8i-flex.4xlarge 1  | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| c8i-flex.8xlarge 1  | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 10                      | 50                         | ✓ Yes |
+| c8i-flex.12xlarge 1 | 11.25 / 22.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 12                      | 50                         | ✓ Yes |
+| c8i-flex.16xlarge 1 | 15.0 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 16                      | 64                         | ✓ Yes |
 | **C8in**            |
 | c8in.large 1        | 3.125 / 25.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
 | c8in.xlarge 1       | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
@@ -720,14 +723,27 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8in.96xlarge       | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
 | c8in.metal-48xl     | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | c8in.metal-96xl     | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
-| **C8i-flex**        |
-| c8i-flex.large 1    | 0.468 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 20                         | ✓ Yes |
-| c8i-flex.xlarge 1   | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8i-flex.2xlarge 1  | 1.875 / 15.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
-| c8i-flex.4xlarge 1  | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c8i-flex.8xlarge 1  | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 10                      | 50                         | ✓ Yes |
-| c8i-flex.12xlarge 1 | 11.25 / 22.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 12                      | 50                         | ✓ Yes |
-| c8i-flex.16xlarge 1 | 15.0 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 16                      | 64                         | ✓ Yes |
+| **C8ine**           |
+| c8ine.large         | 3.125 Gigabit                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
+| c8ine.xlarge        | 6.25 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| c8ine.2xlarge       | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| c8ine.4xlarge       | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| c8ine.8xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| c8ine.12xlarge      | 75 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 12                      | 50                         | ✓ Yes |
+| **C8ib**            |
+| c8ib.large 1        | 2.083 / 16.667                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
+| c8ib.xlarge 1       | 4.166 / 20.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| c8ib.2xlarge 1      | 8.333 / 26.667                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| c8ib.4xlarge 1      | 16.666 / 33.333                   | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| c8ib.8xlarge        | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| c8ib.12xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
+| c8ib.16xlarge       | 66.66 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| c8ib.24xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| c8ib.32xlarge       | 133.33 Gigabit                    | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| c8ib.48xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| c8ib.96xlarge       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
+| c8ib.metal-48xl     | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| c8ib.metal-96xl     | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
 
 ###### Note
 
@@ -1038,20 +1054,6 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8i.96xlarge        | 80000.00                            | 10000.00                                          | 480000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | c8i.metal-48xl      | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | c8i.metal-96xl      | 80000.00                            | 10000.00                                          | 480000.00                            | ✓ Yes | ✗ No                                                                                                                 | 79 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| **C8ib**            |
-| c8ib.large 1        | 1563.00 / 25000.00                  | 195.38 / 3125.00                                  | 7500.00 / 120000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8ib.xlarge 1       | 3125.00 / 25000.00                  | 390.62 / 3125.00                                  | 15000.00 / 120000.00                 | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8ib.2xlarge 1      | 6250.00 / 25000.00                  | 781.25 / 3125.00                                  | 30000.00 / 120000.00                 | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8ib.4xlarge 1      | 12500.00 / 25000.00                 | 1562.50 / 3125.00                                 | 60000.00 / 120000.00                 | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8ib.8xlarge        | 25000.00                            | 3125.00                                           | 120000.00                            | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8ib.12xlarge       | 37500.00                            | 4687.50                                           | 180000.00                            | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8ib.16xlarge       | 50000.00                            | 6250.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8ib.24xlarge       | 75000.00                            | 9375.00                                           | 360000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8ib.32xlarge       | 100000.00                           | 12500.00                                          | 480000.00                            | ✓ Yes | ✗ No                                                                                                                 | 88 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8ib.48xlarge       | 150000.00                           | 18750.00                                          | 720000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
-| c8ib.96xlarge       | 300000.00                           | 37500.00                                          | 1440000.00                           | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
-| c8ib.metal-48xl     | 150000.00                           | 18750.00                                          | 720000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8ib.metal-96xl     | 300000.00                           | 37500.00                                          | 1440000.00                           | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 78 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **C8id**            |
 | c8id.large 1        | 650.00 / 10000.00                   | 81.25 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | c8id.xlarge 1       | 1250.00 / 10000.00                  | 156.25 / 1250.00                                  | 6000.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
@@ -1066,6 +1068,14 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8id.96xlarge       | 80000.00                            | 10000.00                                          | 480000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | c8id.metal-48xl     | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | c8id.metal-96xl     | 80000.00                            | 10000.00                                          | 480000.00                            | ✓ Yes | ✗ No                                                                                                                 | 79 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| **C8i-flex**        |
+| c8i-flex.large 1    | 315.00 / 10000.00                   | 39.38 / 1250.00                                   | 2500.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8i-flex.xlarge 1   | 630.00 / 10000.00                   | 78.75 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8i-flex.2xlarge 1  | 1250.00 / 10000.00                  | 156.25 / 1250.00                                  | 6000.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8i-flex.4xlarge 1  | 2500.00 / 10000.00                  | 312.50 / 1250.00                                  | 12000.00 / 40000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8i-flex.8xlarge 1  | 5000.00 / 10000.00                  | 625.00 / 1250.00                                  | 20000.00 / 40000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8i-flex.12xlarge 1 | 7500.00 / 15000.00                  | 937.50 / 1875.00                                  | 30000.00 / 60000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8i-flex.16xlarge 1 | 10000.00 / 20000.00                 | 1250.00 / 2500.00                                 | 40000.00 / 80000.00                  | ✓ Yes | ✗ No                                                                                                                 | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **C8in**            |
 | c8in.large 1        | 650.00 / 10000.00                   | 81.25 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | c8in.xlarge 1       | 1250.00 / 10000.00                  | 156.25 / 1250.00                                  | 6000.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
@@ -1080,14 +1090,27 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8in.96xlarge       | 120000.00                           | 15000.00                                          | 480000.00                            | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | c8in.metal-48xl     | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | c8in.metal-96xl     | 120000.00                           | 15000.00                                          | 480000.00                            | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 78 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| **C8i-flex**        |
-| c8i-flex.large 1    | 315.00 / 10000.00                   | 39.38 / 1250.00                                   | 2500.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8i-flex.xlarge 1   | 630.00 / 10000.00                   | 78.75 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8i-flex.2xlarge 1  | 1250.00 / 10000.00                  | 156.25 / 1250.00                                  | 6000.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8i-flex.4xlarge 1  | 2500.00 / 10000.00                  | 312.50 / 1250.00                                  | 12000.00 / 40000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8i-flex.8xlarge 1  | 5000.00 / 10000.00                  | 625.00 / 1250.00                                  | 20000.00 / 40000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8i-flex.12xlarge 1 | 7500.00 / 15000.00                  | 937.50 / 1875.00                                  | 30000.00 / 60000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| c8i-flex.16xlarge 1 | 10000.00 / 20000.00                 | 1250.00 / 2500.00                                 | 40000.00 / 80000.00                  | ✓ Yes | ✗ No                                                                                                                 | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| **C8ine**           |
+| c8ine.large 1       | 650.00 / 10000.00                   | 81.25 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8ine.xlarge 1      | 1250.00 / 10000.00                  | 156.25 / 1250.00                                  | 6000.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8ine.2xlarge 1     | 2500.00 / 10000.00                  | 312.50 / 1250.00                                  | 12000.00 / 40000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8ine.4xlarge 1     | 5000.00 / 10000.00                  | 625.00 / 1250.00                                  | 20000.00 / 40000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8ine.8xlarge       | 10000.00                            | 1250.00                                           | 40000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8ine.12xlarge      | 15000.00                            | 1875.00                                           | 60000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| **C8ib**            |
+| c8ib.large 1        | 1563.00 / 25000.00                  | 195.38 / 3125.00                                  | 7500.00 / 120000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8ib.xlarge 1       | 3125.00 / 25000.00                  | 390.62 / 3125.00                                  | 15000.00 / 120000.00                 | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8ib.2xlarge 1      | 6250.00 / 25000.00                  | 781.25 / 3125.00                                  | 30000.00 / 120000.00                 | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8ib.4xlarge 1      | 12500.00 / 25000.00                 | 1562.50 / 3125.00                                 | 60000.00 / 120000.00                 | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8ib.8xlarge        | 25000.00                            | 3125.00                                           | 120000.00                            | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8ib.12xlarge       | 37500.00                            | 4687.50                                           | 180000.00                            | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8ib.16xlarge       | 50000.00                            | 6250.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8ib.24xlarge       | 75000.00                            | 9375.00                                           | 360000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8ib.32xlarge       | 100000.00                           | 12500.00                                          | 480000.00                            | ✓ Yes | ✗ No                                                                                                                 | 88 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8ib.48xlarge       | 150000.00                           | 18750.00                                          | 720000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| c8ib.96xlarge       | 300000.00                           | 37500.00                                          | 1440000.00                           | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| c8ib.metal-48xl     | 150000.00                           | 18750.00                                          | 720000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8ib.metal-96xl     | 300000.00                           | 37500.00                                          | 1440000.00                           | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 78 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 
 ###### Note
 
@@ -1454,20 +1477,6 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | c8i.96xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | c8i.metal-48xl    | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | c8i.metal-96xl    | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
-| **C8ib**          |
-| c8ib.large        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
-| c8ib.xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| c8ib.2xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| c8ib.4xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| c8ib.8xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| c8ib.12xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| c8ib.16xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| c8ib.24xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| c8ib.32xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| c8ib.48xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| c8ib.96xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| c8ib.metal-48xl   | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
-| c8ib.metal-96xl   | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | **C8id**          |
 | c8id.large        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
 | c8id.xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
@@ -1482,6 +1491,14 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | c8id.96xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | c8id.metal-48xl   | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | c8id.metal-96xl   | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| **C8i-flex**      |
+| c8i-flex.large    | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| c8i-flex.xlarge   | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| c8i-flex.2xlarge  | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| c8i-flex.4xlarge  | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| c8i-flex.8xlarge  | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| c8i-flex.12xlarge | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| c8i-flex.16xlarge | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
 | **C8in**          |
 | c8in.large        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
 | c8in.xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
@@ -1496,11 +1513,24 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | c8in.96xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | c8in.metal-48xl   | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | c8in.metal-96xl   | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
-| **C8i-flex**      |
-| c8i-flex.large    | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
-| c8i-flex.xlarge   | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
-| c8i-flex.2xlarge  | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
-| c8i-flex.4xlarge  | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
-| c8i-flex.8xlarge  | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
-| c8i-flex.12xlarge | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
-| c8i-flex.16xlarge | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| **C8ine**         |
+| c8ine.large       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| c8ine.xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8ine.2xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8ine.4xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8ine.8xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8ine.12xlarge    | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| **C8ib**          |
+| c8ib.large        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| c8ib.xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8ib.2xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8ib.4xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8ib.8xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8ib.12xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8ib.16xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8ib.24xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8ib.32xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8ib.48xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8ib.96xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8ib.metal-48xl   | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| c8ib.metal-96xl   | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
