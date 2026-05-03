@@ -73,24 +73,6 @@ Application Migration Service supports IPv6 in the regions where Amazon EC2 dual
 of EC2 dual-stack endpoints, see [Dual-stack (IPv4 and IPv6) endpoints](../../../ec2/latest/devguide/ec2-endpoints.md#ipv6 "../../../ec2/latest/devguide/ec2-endpoints.md#ipv6")
 in the _Amazon EC2 Developer Guide_.
 
-## Using the AWS Migration Hub with AWS MGN
-
-AWS Application Migration Service works with the AWS Migration Hub (MGH), allowing you to
-organize your servers into applications and then to track the progress of all your MGN at the
-server and app level, even as you move servers into multiple AWS Regions.
-
-You must choose a Migration Hub Home Region for AWS MGN to work with the Migration Hub. [Learn more about choosing a Migration Hub Home Region.](../../../migrationhub/latest/ug/home-region.md#select-home-region "../../../migrationhub/latest/ug/home-region.md#select-home-region")
-
-You can access the AWS Migration Hub from the AWS MGN navigation menu.
-
-AWS Application Migration Service supports auto tagging in MGH. Migrated resources (Amazon EC2
-instances or Amazon Machine Images (AMIs)) reported to Migration Hub by AWS MGN are automatically
-tagged with Application Discovery Service server IDs. If you turn on cost allocation tagging, you
-can view the cost of the AWS resources that are tagged by Migration Hub in the AWS Cost Explorer
-Service. Resource tagging by Migration Hub can’t be turned off. This tagging is implemented
-automatically and doesn't count against your limit of 50 tags per resource. Learn more about
-tagging migration resources in the [Migration Hub documentation](../../../en_us/migrationhub/latest/ug/doing-more.md#tagging-migration-resources "../../../en_us/migrationhub/latest/ug/doing-more.md#tagging-migration-resources").
-
 ## MGN technical training materials
 
 The following technical trainings are available for AWS MGN:

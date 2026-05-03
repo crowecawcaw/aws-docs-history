@@ -4,9 +4,9 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 Choose the boot mode for the test or cutover instance.
 
-You can either choose the **Legacy BIOS**, **UEFI** or **Use source boot mode**. By
-default, the boot mode is set to **Use source boot mode**. When
-this option is selected, MGN launches the test or cutover instance using the same boot mode
+You can choose either **Legacy BIOS** or **UEFI**. By
+default, the boot mode is set according to the source boot mode. If you don't make any
+changes, MGN launches the test or cutover instance using the same boot mode
 as the source server.
 
 **Note**: When the BIOS option is chosen, Application Migration Service converts

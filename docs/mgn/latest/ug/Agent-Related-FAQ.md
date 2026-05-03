@@ -68,6 +68,13 @@ Make sure the proxy has a trailing forward slash.
 Ensure that you have allowlisted the [MGN IPs and URLs](preparing-environments.md#TCP-443 "preparing-environments.md#TCP-443") for
 both SSL Interception and Authentication.
 
+###### Note
+
+A web proxy cannot be used for communication between the source server and the staging
+area subnet where replication server launched for replication over TCP Port 1500. To use
+private routing for data replication, please see [Data routing
+and throttling](replication-server-settings.md#data-routing "replication-server-settings.md#data-routing").
+
 ## What are the prerequisites needed to install the AWS Replication Agent?
 
 The installation requirements for source server depend on the type of OS that the server
