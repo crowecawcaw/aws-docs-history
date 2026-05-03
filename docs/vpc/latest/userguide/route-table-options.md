@@ -330,6 +330,12 @@ following:
   (East-West traffic) to a middlebox appliance. The destination of the route must
   match the entire IPv4 or IPv6 CIDR block of a subnet in your VPC.
 - To intercept IPv6 traffic, ensure that your VPC, subnet, and appliance support IPv6.
+- ###### Important
+
+Do not route traffic from AWS-managed services — such as a transit gateway, NAT
+gateway, or Network Load Balancer — through a middlebox appliance back to the subnet where
+that service is attached. This configuration causes unpredictable routing
+behavior and is not supported.
 
 ### Routing traffic between a gateway and an appliance
 
