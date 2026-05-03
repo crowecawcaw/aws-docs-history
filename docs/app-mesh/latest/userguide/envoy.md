@@ -6,7 +6,7 @@ End of support notice: On September 30, 2026, AWS will discontinue support for A
 
 AWS App Mesh is a service mesh based on the [Envoy](https://www.envoyproxy.io/ "https://www.envoyproxy.io/") proxy.
 
-![ECS Task/Kubernetes Pod with Proxy and Microservice Container communicating via ports 8080 and 8081.](images/proxy.png)
+![Proxy container receiving external traffic on port 8080 and forwarding to microservice on port 8081.](images/proxy.png)
 You must add an Envoy proxy to the Amazon ECS task, Kubernetes pod, or Amazon EC2 instance represented
 by your App Mesh endpoint, such as a virtual node or virtual gateway. App Mesh vends an Envoy proxy
 container image that is patched with the latest vulnerability and performance updates. App Mesh

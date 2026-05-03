@@ -27,7 +27,7 @@ Envoy classifies its metrics into the following major categories:
   The following picture shows the communication between the proxy and service
   containers.
 
-![Diagram showing proxy and service containers within an Amazon ECS task or Kubernetes Pod with ingress and egress flow.](images/task-proxy-container.png)
+![Proxy container receives ingress and egress traffic, communicating with service container.](images/task-proxy-container.png)
 **Resource naming conventions**
 
 It's useful to understand how Envoy views your mesh and how its resources map back to
@@ -124,7 +124,7 @@ three virtual nodes. The virtual services, virtual routers, and routes in the me
 can be ignored since they are not reflected in Envoy’s metrics. In this example, all
 services listen for http traffic on port 8080.
 
-![Diagram showing Envoy proxies in product-details, cart, and website services of an online store mesh.](images/envoy-metric-example1.png)
+![Three virtual nodes with Service and Envoy components: product-details, cart, and website.](images/envoy-metric-example1.png)
 
 We recommend adding the environment variable
 `ENABLE_ENVOY_STATS_TAGS=1` to the Envoy proxy containers running in

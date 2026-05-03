@@ -8,7 +8,7 @@ When you create your virtual nodes and virtual gateways, you have the option to
 configure Envoy access logs. In the console, this is in the **Logging**
 section of the virtual node and virtual gateway create or edit workflows.
 
-![Logging configuration interface showing HTTP access logs path field with example path.](images/logging.png)
+![HTTP access logs path field set to /dev/stdout with informational note about log ingestion.](images/logging.png)
 The preceding image shows a logging path of `/dev/stdout` for Envoy
 access logs.
 

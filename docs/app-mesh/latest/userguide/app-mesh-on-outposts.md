@@ -48,7 +48,7 @@ you configure your Outpost, you associate a subnet with it to extend your Region
 environment to your on-premises facility. Instances on an Outpost appear as part of your
 Regional VPC, similar to an Availability Zone with associated subnets.
 
-![AWS Region with VPC, subnets, and Outpost extension showing network connectivity.](images/network-components.png)
+![VPC spanning AWS Region with two availability zones and an Outpost with local gateway.](images/network-components.png)
 
 To create an App Mesh Envoy proxy on an Outpost, add the App Mesh Envoy container image
 to the Amazon ECS task or Amazon EKS pod running on an Outpost. For more information, see [Amazon Elastic Container Service on AWS Outposts](../../../AmazonECS/latest/developerguide/ecs-on-outposts.md "../../../AmazonECS/latest/developerguide/ecs-on-outposts.md") in the _Amazon Elastic Container Service Developer Guide_ and
