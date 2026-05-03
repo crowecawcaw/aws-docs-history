@@ -2,6 +2,10 @@
 
 This chapter details some common issues encountered while creating or managing Amazon EVS environments.
 
+## Broadcom and AWS Support guidance
+
+AWS provides support for Amazon EVS and its associated infrastructure services, including VMware Cloud Foundation (VCF). For VCF-specific configuration guidance, or issues related to other VMware products such as Aria Suite, HCX, or NSX, you can also contact Broadcom directly using your Broadcom support entitlement. For more information, see [Broadcom Support Portal](https://support.broadcom.com/ "https://support.broadcom.com/").
+
 ## Troubleshoot failed environment status checks
 
 Amazon EVS performs automated checks on your environment to identify issues.

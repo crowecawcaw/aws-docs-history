@@ -150,5 +150,9 @@ aws evs delete-environment-host --environment-id "env-abcde12345" --host-name "e
 
 ### Troubleshooting
 
+#### Broadcom and AWS Support guidance
+
+AWS provides support for Amazon EVS and its associated infrastructure services, including VMware Cloud Foundation (VCF). For VCF-specific configuration guidance, or issues related to other VMware products such as Aria Suite, HCX, or NSX, you can also contact Broadcom directly using your Broadcom support entitlement. For more information, see [Broadcom Support Portal](https://support.broadcom.com/ "https://support.broadcom.com/").
+
 For troubleshooting guidance, see [Troubleshooting](troubleshooting.md "troubleshooting.md").
 If you continue to experience issues after reviewing the troubleshooting guidance, contact AWS Support for further assistance.
