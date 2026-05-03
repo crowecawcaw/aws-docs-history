@@ -100,7 +100,7 @@ Docker containers on each instance in your Elastic Beanstalk environment, access
 which are also defined in this file. The containers themselves are created from images hosted in official repositories on Docker Hub. The resulting
 environment looks like the following:
 
-![Elastic Beanstalk environment with load balancer, auto scaling group, and two instances running Nginx and PHP-FPM.](images/aeb-multicontainer-tutorial.png)
+![Elastic Load Balancer routing traffic to two EC2 instances running Nginx and PHP-FPM containers.](images/aeb-multicontainer-tutorial.png)
 
 The volumes defined in the configuration correspond to the content that you will create next and upload as part of your application source bundle. The
 containers access content on the host by mounting volumes in the `mountPoints` section of the container definitions.

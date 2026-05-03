@@ -12,28 +12,24 @@ Implementing CloudWatch Logs can enable you to do the following monitoring activ
   group share the same retention, monitoring, and access control settings. You can configure Elastic Beanstalk to automatically stream logs to the CloudWatch service, as
   described in [Streaming instance logs to CloudWatch Logs](#AWSHowTo.cloudwatchlogs.streaming "#AWSHowTo.cloudwatchlogs.streaming"). For more information about CloudWatch Logs,
   including terminology and concepts, see the [Amazon CloudWatch Logs User
-  Guide](../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.md").
+  Guide](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md").
 
 In addition to instance logs, if you enable [enhanced health](health-enhanced.md "health-enhanced.md") for your environment, you can configure the
 environment to stream health information to CloudWatch Logs. See [Streaming Elastic Beanstalk environment health information to Amazon CloudWatch Logs](AWSHowTo.cloudwatchlogs.envhealth.md "AWSHowTo.cloudwatchlogs.envhealth.md").
 
 ###### Topics
 
-- [Prerequisites to instance log streaming to CloudWatch Logs](#AWSHowTo.cloudwatchlogs.prereqs "#AWSHowTo.cloudwatchlogs.prereqs")
+- [Prerequisite for instance log streaming to CloudWatch Logs](#AWSHowTo.cloudwatchlogs.prereqs "#AWSHowTo.cloudwatchlogs.prereqs")
 - [How Elastic Beanstalk sets up CloudWatch Logs](#AWSHowTo.cloudwatchlogs.loggroups "#AWSHowTo.cloudwatchlogs.loggroups")
 - [Streaming instance logs to CloudWatch Logs](#AWSHowTo.cloudwatchlogs.streaming "#AWSHowTo.cloudwatchlogs.streaming")
 - [Troubleshooting CloudWatch Logs integration](#AWSHowTo.cloudwatchlogs.troubleshoot "#AWSHowTo.cloudwatchlogs.troubleshoot")
 - [Streaming Elastic Beanstalk environment health information to Amazon CloudWatch Logs](AWSHowTo.cloudwatchlogs.envhealth.md "AWSHowTo.cloudwatchlogs.envhealth.md")
 
-## Prerequisites to instance log streaming to CloudWatch Logs
+## Prerequisite for instance log streaming to CloudWatch Logs
 
-To enable streaming of logs from your environment's Amazon EC2 instances to CloudWatch Logs, you must meet the following conditions.
-
-- _Platform_ – Because this feature is only available in platform versions released on or after [this release](https://aws.amazon.com/releasenotes/6677534638371416 "https://aws.amazon.com/releasenotes/6677534638371416"), if you are using an earlier platform version, update your environment to a
-  current one.
-- If you don't have the _AWSElasticBeanstalkWebTier_ or _AWSElasticBeanstalkWorkerTier_ Elastic Beanstalk managed policy
-  in your [Elastic Beanstalk instance profile](concepts-roles-instance.md "concepts-roles-instance.md"), you must add the following to your profile to enable this
-  feature.
+If you don't have the _AWSElasticBeanstalkWebTier_ or _AWSElasticBeanstalkWorkerTier_ Elastic Beanstalk managed policy
+in your [Elastic Beanstalk instance profile](concepts-roles-instance.md "concepts-roles-instance.md"), you must add the following permissions to your profile to enable this
+feature.
 
 JSON
 
@@ -58,20 +54,20 @@ JSON
 
 ## How Elastic Beanstalk sets up CloudWatch Logs
 
-Elastic Beanstalk installs a CloudWatch log agent with the default configuration settings on each instance it creates. Learn more in the [CloudWatch Logs Agent Reference](../../../AmazonCloudWatch/latest/logs/AgentReference.md "../../../AmazonCloudWatch/latest/logs/AgentReference.md").
+Elastic Beanstalk installs a CloudWatch log agent with the default configuration settings on each instance it creates. Learn more in the [CloudWatch agent documentation](../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md "../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md").
 
 When you enable instance log streaming to CloudWatch Logs, Elastic Beanstalk sends log files from your environment's instances to CloudWatch Logs. Different platforms stream
 different logs. The following table lists the logs, by platform.
 
-| Platform / Platform Branch                                                                   | Logs                                                                                                                                                                                                                                  |
-| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Docker /<br>Platform Branch: Docker Running on 64bit Amazon Linux 2                          | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/docker<br>• /var/log/docker-events.log<br>• /var/log/eb-docker/containers/eb-current-app/stdouterr.log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log |
-| Docker /<br>Platform Branch: ECS Running on 64bit Amazon Linux 2                             | • /var/log/docker-events.log<br>• /var/log/eb-ecs-mgr.log<br>• /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/ecs/ecs-agent.log<br>• /var/log/ecs/ecs-init.log                                                       |
-| Go<br>.NET Core on Linux<br>Java / Platform Branch: Corretto running on 64bit Amazon Linux 2 | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/web.stdout.log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                                                                                         |
-| Node.js<br>Python                                                                            | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/web.stdout.log<br>• /var/log/httpd/access_log<br>• /var/log/httpd/error_log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                            |
-| Tomcat<br>PHP                                                                                | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/httpd/access_log<br>• /var/log/httpd/error_log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                                                         |
-| .NET on Windows Server                                                                       | • C:\inetpub\logs\LogFiles\W3SVC1\u_ex\*.log<br>• C:\Program Files\Amazon\ElasticBeanstalk\logs\AWSDeployment.log<br>• C:\Program Files\Amazon\ElasticBeanstalk\logs\Hooks.log                                                        |
-| Ruby                                                                                         | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/puma/puma.log<br>• /var/log/web.stdout.log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                                                             |
+| Platform / Platform Branch       | Logs                                                                                                                                                                                                                                  |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Docker                           | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/docker<br>• /var/log/docker-events.log<br>• /var/log/eb-docker/containers/eb-current-app/stdouterr.log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log |
+| ECS on Docker                    | • /var/log/docker-events.log<br>• /var/log/eb-ecs-mgr.log<br>• /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/ecs/ecs-agent.log<br>• /var/log/ecs/ecs-init.log                                                       |
+| Go<br>.NET Core on Linux<br>Java | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/web.stdout.log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                                                                                         |
+| Node.js<br>Python                | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/web.stdout.log<br>• /var/log/httpd/access_log<br>• /var/log/httpd/error_log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                            |
+| Tomcat<br>PHP                    | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/httpd/access_log<br>• /var/log/httpd/error_log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                                                         |
+| .NET on Windows Server           | • C:\inetpub\logs\LogFiles\W3SVC1\u_ex\*.log<br>• C:\Program Files\Amazon\ElasticBeanstalk\logs\AWSDeployment.log<br>• C:\Program Files\Amazon\ElasticBeanstalk\logs\Hooks.log                                                        |
+| Ruby                             | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/puma/puma.log<br>• /var/log/web.stdout.log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                                                             |
 
 ###### Note
 

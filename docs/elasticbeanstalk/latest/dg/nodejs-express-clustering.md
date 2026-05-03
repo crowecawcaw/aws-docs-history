@@ -658,7 +658,7 @@ fs.readFile(filename, 'UTF8', function(err, data) {
       ElastiCache metrics, select **Metrics** in the left pane, and then search for **CurrItems**. Select
       **ElastiCache > Cache Node Metrics**, and then select your cache node to view the number of items in the cache.
 
-   ![CloudWatch dashboard showing CurrItems metric for an ElastiCache node over time.](images/elasticache-express.png)
+   ![CloudWatch Metrics console showing CurrItems metric graph and ElastiCache cache node selection.](images/elasticache-express.png)
 
    ###### Note
 

@@ -198,7 +198,7 @@ database. This includes changes to the **Database deletion policy**. Any pending
 5. Review all of the configurations values in the **Database settings** section, especially the **Database deletion
    policy**, which determines what happens to the database after it's decoupled.
 
-![Database settings form with engine, instance, storage, and deletion policy options.](images/aeb-rds-options-w-db-deletion-policies.png)
+![Database settings page showing engine, instance class, storage, credentials, and deletion policy options.](images/aeb-rds-options-w-db-deletion-policies.png)
 
 If all of the other configuration settings are correct, skip to **Step 6** to decouple the database.
 
@@ -217,7 +217,7 @@ If any of the configuration settings require updates do the following:
 
 6. Go to the **Database connection** section of the pane.
 
-![Database connection options showing "Couple database" selected and "Decouple database" unselected.](images/aeb-rds-couple-decouple-db.png) 7. Choose **Decouple database**. 8. Choose **Apply** to initiate the database decoupling operation.
+![Database connection options showing Couple database and Decouple database radio buttons.](images/aeb-rds-couple-decouple-db.png) 7. Choose **Decouple database**. 8. Choose **Apply** to initiate the database decoupling operation.
 
 The deletion policy setting determines the outcome for the database and the length of time that's required to decouple the database.
 

@@ -23,7 +23,7 @@ For more information about monitoring specific metrics, see [Basic health report
 The page displays a list of existing alarms. If any alarms are in the alarm state, they are flagged with the warning icon (
 ![Image of the warning icon.](images/warning.png)
 ). 4. To filter alarms, choose the drop-down menu, and then select a filter. 5. To edit or delete an alarm, choose the edit icon (
-![Image of a cog, which serves as the edit icon.](/images/elasticbeanstalk/latest/dg/images/cog.png)
+![Image of a cog, which serves as the edit icon.](images/cog.png)
 ) or the delete icon (
 ![Image of an x, which servers as the delete icon.](images/x.png)
 ), respectively.

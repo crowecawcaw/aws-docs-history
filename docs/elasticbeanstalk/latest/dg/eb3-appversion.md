@@ -64,12 +64,12 @@ The command with the `--delete`
 
 The following example shows the interactive window for an application with no deployments.
 
-![Application window showing version history with three entries and no current deployment.](images/InteractiveModeNoEnvironment.png)
+![Application versions list showing three versions with labels, creation dates, ages, and descriptions.](images/InteractiveModeNoEnvironment.png)
 
 The following example shows the interactive window for an application with the fourth version, with version label **Sample
 Application**, deployed.
 
-![Application versions table showing 4 versions, with the latest labeled "Sample Application" deployed 2 minutes ago.](images/InteractiveModeWithEnvironment.png)
+![Versions table showing Sample Application as version 4 deployed with Health Green status.](images/InteractiveModeWithEnvironment.png)
 
 The following example shows the output from an **eb appversion lifecycle -p** command, where `ACCOUNT-ID` is
 the user's account ID:

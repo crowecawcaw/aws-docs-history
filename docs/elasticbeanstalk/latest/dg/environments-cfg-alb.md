@@ -269,7 +269,7 @@ You can now see your additional listener on the list.
 port**, type `443`. For **Match conditions**, add a **PathPattern** with the value
 `/admin/*`. For **Process**, select `admin`.
 
-![Application Load Balancer configuration example - adding admin rule](/images/elasticbeanstalk/latest/dg/images/aeb-config-alb-rule-https-admin.png)
+![Application Load Balancer configuration example - adding admin rule](images/aeb-config-alb-rule-https-admin.png)
 
 ## Configuring an Application Load Balancer using the EB CLI
 

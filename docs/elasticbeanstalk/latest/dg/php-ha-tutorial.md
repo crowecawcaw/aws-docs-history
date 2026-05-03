@@ -218,7 +218,7 @@ The site collects user comments and uses a MySQL database to store the data. To 
 comment, and then choose **Submit Your Thought**. The web app writes the comment to the database so that any instance in the environment
 can read it, and it won't be lost if instances go out of service.
 
-![User interface for sharing thoughts, with a posted comment about Elastic Beanstalk on AWS.](images/php-ha-tutorial-app.png)
+![Your Thoughts section with Share Your Thought button and user comment about Elastic Beanstalk.](images/php-ha-tutorial-app.png)
 
 ## Cleanup
 

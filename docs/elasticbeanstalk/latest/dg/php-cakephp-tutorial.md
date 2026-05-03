@@ -233,7 +233,7 @@ When the DB instance has finished launching, bundle up and deploy the updated ap
 Deploying a new version of your application takes less than a minute. When the deployment is complete, refresh the web page again to verify that the
 database connection succeeded:
 
-![Green checkmark icon indicating successful database connection for CakePHP.](images/php-cakephp-defaultwdb.png)
+![Database connection success message with green checkmark icon.](images/php-cakephp-defaultwdb.png)
 
 ## Cleanup
 

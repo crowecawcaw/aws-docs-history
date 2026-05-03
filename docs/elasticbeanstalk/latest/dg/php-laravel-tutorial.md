@@ -137,7 +137,7 @@ Git to exclude the `vendor` folder and other files that are not required for dep
 
 When the deployment completes, click the URL to open your Laravel application in the browser:
 
-![Error message indicating no permission to access or on this server.](images/php-laravel-403.png)
+![403 Forbidden error page indicating the user does not have permission to access the requested resource.](images/php-laravel-403.png)
 
 What's this? By default, Elastic Beanstalk serves the root of your project at the root path of the website. In this case, though, the default page
 (`index.php`) is one level down in the `public` folder. You can verify this by adding `/public`
@@ -251,7 +251,7 @@ When the DB instance has finished launching, bundle and deploy the updated appli
 Deploying a new version of your application takes less than a minute. When the deployment is complete, refresh the web page again to verify that the
 database connection succeeded:
 
-![Laravel website header with navigation menu items for Documentation, Laracasts, News, Forge, and GitHub.](images/php-laravel-defaultwdb.png)
+![Laravel application homepage showing successful database connection to ebdb.](images/php-laravel-defaultwdb.png)
 
 ## Cleanup
 
