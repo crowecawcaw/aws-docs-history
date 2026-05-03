@@ -85,7 +85,7 @@ content:
 - **MediaPackage origins**: Use
   `CORS-S3Origin` for MediaPackage V2 endpoints
 
-![Origins table showing ContentOrigin, MediaTailorSegments, and MediaTailorManifests with their respective details.](images/origins-cdn.png)
+![Origins table showing origin name, domain, path, type, Shield region, and access columns.](images/origins-cdn.png)
 
 ## Cache behavior precedence and configuration
 
@@ -104,7 +104,7 @@ pattern. Understanding this precedence is essential for troubleshooting:
 If requests aren't behaving as expected, check that your path patterns don't overlap
 in unintended ways.
 
-![Table showing behaviors with path patterns, origins, and policies for different URL paths.](images/bhv.png)
+![Behaviors table showing precedence, path patterns, origin groups, and policy configurations.](images/bhv.png)
 
 ### Precedence 0: Ad segments path behavior
 
