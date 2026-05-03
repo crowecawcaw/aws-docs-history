@@ -124,14 +124,17 @@ enterprises that interact with the United States government.
 
 To specify a FIPS endpoint when you call an AWS operation, use a mechanism provided by
 the tool that you're using to make the call. For example, the AWS SDKs provide the
-following mechanisms to enable the use of FIPS endpoints:
+following mechanisms to use FIPS endpoints:
 
 - Set the `AWS_USE_FIPS_ENDPOINT` environment variable to
   `true`
 - Add `use_fips_endpoint=true` to your `~/.aws/config`
   file
 
-The AWS Command Line Interface supports these mechanisms, and also provides the
+For information about FIPS endpoint support in AWS SDKs, see [Dual-stack and
+FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md") in the _AWS SDKs and Tools Reference Guide_.
+
+The AWS Command Line Interface supports the preceding mechanisms, and also provides the
 `--endpoint-url` option. The following example uses
 `--endpoint-url` to specify the FIPS endpoint for AWS Key Management Service (AWS KMS) in the
 US West (Oregon) Region.
@@ -145,36 +148,42 @@ Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "http
 
 ### Minimum TLS version for FIPS endpoints
 
-With FIPS endpoints, the minimum requirement is TLS 1.2. We recommend TLS 1.3. For
-information about how to determine whether your applications were impacted by this
-change, see [this AWS Security Blog
-post](https://aws.amazon.com/blogs/security/tls-1-2-confirm-your-connections/ "https://aws.amazon.com/blogs/security/tls-1-2-confirm-your-connections/").
+With FIPS endpoints, the minimum requirement is TLS 1.2. We recommend TLS 1.3. To
+determine whether your applications were affected by this change, see [this AWS
+Security Blog post](https://aws.amazon.com/blogs/security/tls-1-2-confirm-your-connections/ "https://aws.amazon.com/blogs/security/tls-1-2-confirm-your-connections/").
 
 ## Dual stack endpoints
 
 Some AWS services offer dual stack endpoints, so that you can access them using either
 IPv4 or IPv6 requests. In general, the syntax of a dual stack endpoint is as
-follows.
+follows:
 
 ```
 `protocol`://`service-code`.`region-code`.api.aws
 ```
 
-However, Amazon S3 uses the following syntax for its dual stack endpoints.
+However, Amazon S3 uses the following syntax for [Amazon S3 dual stack
+endpoints](../../../AmazonS3/latest/API/dual-stack-endpoints.md "../../../AmazonS3/latest/API/dual-stack-endpoints.md"):
 
 ```
 `protocol`://`service-code`.dualstack.`region-code`.amazonaws.com
 ```
 
-To make a request to a dual stack endpoint, you must use the mechanism provided by the
-tool or AWS SDK to specify the endpoint. For example, the AWS CLI provides the
-`--endpoint-url` option. The following example uses
+To make a request to a dual stack endpoint, use the mechanism provided by the tool or
+AWS SDK to specify the endpoint. For information about dual stack endpoint support in
+AWS SDKs, see [Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md")
+in the _AWS SDKs and Tools Reference Guide_.
+
+The AWS CLI provides the `--endpoint-url` option. The following example uses
 `--endpoint-url` to specify the dual stack endpoint for Amazon EC2 in the
 US West (Oregon) Region.
 
 ```
 aws ec2 describe-regions --region us-west-2 --endpoint-url https://ec2.us-west-2.api.aws
 ```
+
+To use the AWS CLI to configure dual-stack endpoints for all AWS services, see [Set to use
+dual-stack endpoints for all AWS services](../../../cli/latest/userguide/cli-configure-endpoints.md#endpoints-dual-stack "../../../cli/latest/userguide/cli-configure-endpoints.md#endpoints-dual-stack") in the _AWS Command Line Interface User Guide_.
 
 For a list of services that support dual stack endpoints, see [AWS services
 that support IPv6](../../../vpc/latest/userguide/aws-ipv6-support.md "../../../vpc/latest/userguide/aws-ipv6-support.md").
@@ -183,7 +192,7 @@ that support IPv6](../../../vpc/latest/userguide/aws-ipv6-support.md "../../../v
 
 You can find endpoint information from the following sources:
 
-- To learn about enabling Regions that are disabled by default, see [Specifying which AWS Regions your account can use](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md") in the
+- To enable Regions that are disabled by default, see [Enable or disable AWS Regions in your account](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md") in the
   _AWS Account Management Reference Guide_.
 - For information about the AWS services and endpoints available in the
-  China Regions, see [China (Beijing) Region Endpoints](https://docs.amazonaws.cn/en_us/aws/latest/userguide/endpoints-Beijing.html "https://docs.amazonaws.cn/en_us/aws/latest/userguide/endpoints-Beijing.html") and [China (Ningxia) Region Endpoints](https://docs.amazonaws.cn/en_us/aws/latest/userguide/endpoints-Ningxia.html "https://docs.amazonaws.cn/en_us/aws/latest/userguide/endpoints-Ningxia.html").
+  China Regions, see [China (Beijing) Region Endpoints](https://docs.amazonaws.cn/en_us/general/latest/gr/endpoints-Beijing.html "https://docs.amazonaws.cn/en_us/general/latest/gr/endpoints-Beijing.html") and [China (Ningxia) Region Endpoints](https://docs.amazonaws.cn/en_us/general/latest/gr/endpoints-Ningxia.html "https://docs.amazonaws.cn/en_us/general/latest/gr/endpoints-Ningxia.html").

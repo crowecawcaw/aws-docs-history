@@ -1,41 +1,43 @@
 # Amazon CloudWatch Application Signals endpoints and quotas
 
-| Region Name               | Region         | Endpoint                                                                                    | Protocol |
-| ------------------------- | -------------- | ------------------------------------------------------------------------------------------- | -------- |
-| US East (Ohio)            | us-east-2      | application-signals.us-east-2.api.aws<br>application-signals-fips.us-east-2.api.aws         | HTTPS    |
-| US East (N. Virginia)     | us-east-1      | application-signals.us-east-1.api.aws<br>application-signals-fips.us-east-1.api.aws         | HTTPS    |
-| US West (N. California)   | us-west-1      | application-signals.us-west-1.api.aws<br>application-signals-fips.us-west-1.api.aws         | HTTPS    |
-| US West (Oregon)          | us-west-2      | application-signals.us-west-2.api.aws<br>application-signals-fips.us-west-2.api.aws         | HTTPS    |
-| Africa (Cape Town)        | af-south-1     | application-signals.af-south-1.api.aws                                                      |          |
-| Asia Pacific (Hong Kong)  | ap-east-1      | application-signals.ap-east-1.api.aws                                                       |          |
-| Asia Pacific (Hyderabad)  | ap-south-2     | application-signals.ap-south-2.api.aws                                                      |          |
-| Asia Pacific (Jakarta)    | ap-southeast-3 | application-signals.ap-southeast-3.api.aws                                                  |          |
-| Asia Pacific (Malaysia)   | ap-southeast-5 | application-signals.ap-southeast-5.api.aws                                                  |          |
-| Asia Pacific (Melbourne)  | ap-southeast-4 | application-signals.ap-southeast-4.api.aws                                                  |          |
-| Asia Pacific (Mumbai)     | ap-south-1     | application-signals.ap-south-1.api.aws                                                      |          |
-| Asia Pacific (Osaka)      | ap-northeast-3 | application-signals.ap-northeast-3.api.aws                                                  |          |
-| Asia Pacific (Seoul)      | ap-northeast-2 | application-signals.ap-northeast-2.api.aws                                                  |          |
-| Asia Pacific (Singapore)  | ap-southeast-1 | application-signals.ap-southeast-1.api.aws                                                  |          |
-| Asia Pacific (Sydney)     | ap-southeast-2 | application-signals.ap-southeast-2.api.aws                                                  |          |
-| Asia Pacific (Thailand)   | ap-southeast-7 | application-signals.ap-southeast-7.api.aws                                                  |          |
-| Asia Pacific (Tokyo)      | ap-northeast-1 | application-signals.ap-northeast-1.api.aws                                                  |          |
-| Canada (Central)          | ca-central-1   | application-signals.ca-central-1.api.aws<br>application-signals-fips.ca-central-1.api.aws   | HTTPS    |
-| Canada West (Calgary)     | ca-west-1      | application-signals.ca-west-1.api.aws<br>application-signals-fips.ca-west-1.api.aws         | HTTPS    |
-| Europe (Frankfurt)        | eu-central-1   | application-signals.eu-central-1.api.aws                                                    |          |
-| Europe (Ireland)          | eu-west-1      | application-signals.eu-west-1.api.aws                                                       |          |
-| Europe (London)           | eu-west-2      | application-signals.eu-west-2.api.aws                                                       |          |
-| Europe (Milan)            | eu-south-1     | application-signals.eu-south-1.api.aws                                                      |          |
-| Europe (Paris)            | eu-west-3      | application-signals.eu-west-3.api.aws                                                       |          |
-| Europe (Spain)            | eu-south-2     | application-signals.eu-south-2.api.aws                                                      |          |
-| Europe (Stockholm)        | eu-north-1     | application-signals.eu-north-1.api.aws                                                      |          |
-| Europe (Zurich)           | eu-central-2   | application-signals.eu-central-2.api.aws                                                    |          |
-| Israel (Tel Aviv)         | il-central-1   | application-signals.il-central-1.api.aws                                                    |          |
-| Mexico (Central)          | mx-central-1   | application-signals.mx-central-1.api.aws                                                    |          |
-| Middle East (Bahrain)     | me-south-1     | application-signals.me-south-1.api.aws                                                      |          |
-| Middle East (UAE)         | me-central-1   | application-signals.me-central-1.api.aws                                                    |          |
-| South America (São Paulo) | sa-east-1      | application-signals.sa-east-1.api.aws                                                       |          |
-| AWS GovCloud (US-East)    | us-gov-east-1  | application-signals.us-gov-east-1.api.aws<br>application-signals-fips.us-gov-east-1.api.aws | HTTPS    |
-| AWS GovCloud (US-West)    | us-gov-west-1  | application-signals.us-gov-west-1.api.aws<br>application-signals-fips.us-gov-west-1.api.aws | HTTPS    |
+| Region Name                | Region         | Endpoint                                                                                    | Protocol |
+| -------------------------- | -------------- | ------------------------------------------------------------------------------------------- | -------- |
+| US East (Ohio)             | us-east-2      | application-signals.us-east-2.api.aws<br>application-signals-fips.us-east-2.api.aws         | HTTPS    |
+| US East (N. Virginia)      | us-east-1      | application-signals.us-east-1.api.aws<br>application-signals-fips.us-east-1.api.aws         | HTTPS    |
+| US West (N. California)    | us-west-1      | application-signals.us-west-1.api.aws<br>application-signals-fips.us-west-1.api.aws         | HTTPS    |
+| US West (Oregon)           | us-west-2      | application-signals.us-west-2.api.aws<br>application-signals-fips.us-west-2.api.aws         | HTTPS    |
+| Africa (Cape Town)         | af-south-1     | application-signals.af-south-1.api.aws                                                      |          |
+| Asia Pacific (Hong Kong)   | ap-east-1      | application-signals.ap-east-1.api.aws                                                       |          |
+| Asia Pacific (Hyderabad)   | ap-south-2     | application-signals.ap-south-2.api.aws                                                      |          |
+| Asia Pacific (Jakarta)     | ap-southeast-3 | application-signals.ap-southeast-3.api.aws                                                  |          |
+| Asia Pacific (Malaysia)    | ap-southeast-5 | application-signals.ap-southeast-5.api.aws                                                  |          |
+| Asia Pacific (Melbourne)   | ap-southeast-4 | application-signals.ap-southeast-4.api.aws                                                  |          |
+| Asia Pacific (Mumbai)      | ap-south-1     | application-signals.ap-south-1.api.aws                                                      |          |
+| Asia Pacific (New Zealand) | ap-southeast-6 | application-signals.ap-southeast-6.api.aws                                                  |          |
+| Asia Pacific (Osaka)       | ap-northeast-3 | application-signals.ap-northeast-3.api.aws                                                  |          |
+| Asia Pacific (Seoul)       | ap-northeast-2 | application-signals.ap-northeast-2.api.aws                                                  |          |
+| Asia Pacific (Singapore)   | ap-southeast-1 | application-signals.ap-southeast-1.api.aws                                                  |          |
+| Asia Pacific (Sydney)      | ap-southeast-2 | application-signals.ap-southeast-2.api.aws                                                  |          |
+| Asia Pacific (Taipei)      | ap-east-2      | application-signals.ap-east-2.api.aws                                                       |          |
+| Asia Pacific (Thailand)    | ap-southeast-7 | application-signals.ap-southeast-7.api.aws                                                  |          |
+| Asia Pacific (Tokyo)       | ap-northeast-1 | application-signals.ap-northeast-1.api.aws                                                  |          |
+| Canada (Central)           | ca-central-1   | application-signals.ca-central-1.api.aws<br>application-signals-fips.ca-central-1.api.aws   | HTTPS    |
+| Canada West (Calgary)      | ca-west-1      | application-signals.ca-west-1.api.aws<br>application-signals-fips.ca-west-1.api.aws         | HTTPS    |
+| Europe (Frankfurt)         | eu-central-1   | application-signals.eu-central-1.api.aws                                                    |          |
+| Europe (Ireland)           | eu-west-1      | application-signals.eu-west-1.api.aws                                                       |          |
+| Europe (London)            | eu-west-2      | application-signals.eu-west-2.api.aws                                                       |          |
+| Europe (Milan)             | eu-south-1     | application-signals.eu-south-1.api.aws                                                      |          |
+| Europe (Paris)             | eu-west-3      | application-signals.eu-west-3.api.aws                                                       |          |
+| Europe (Spain)             | eu-south-2     | application-signals.eu-south-2.api.aws                                                      |          |
+| Europe (Stockholm)         | eu-north-1     | application-signals.eu-north-1.api.aws                                                      |          |
+| Europe (Zurich)            | eu-central-2   | application-signals.eu-central-2.api.aws                                                    |          |
+| Israel (Tel Aviv)          | il-central-1   | application-signals.il-central-1.api.aws                                                    |          |
+| Mexico (Central)           | mx-central-1   | application-signals.mx-central-1.api.aws                                                    |          |
+| Middle East (Bahrain)      | me-south-1     | application-signals.me-south-1.api.aws                                                      |          |
+| Middle East (UAE)          | me-central-1   | application-signals.me-central-1.api.aws                                                    |          |
+| South America (São Paulo)  | sa-east-1      | application-signals.sa-east-1.api.aws                                                       |          |
+| AWS GovCloud (US-East)     | us-gov-east-1  | application-signals.us-gov-east-1.api.aws<br>application-signals-fips.us-gov-east-1.api.aws | HTTPS    |
+| AWS GovCloud (US-West)     | us-gov-west-1  | application-signals.us-gov-west-1.api.aws<br>application-signals-fips.us-gov-west-1.api.aws | HTTPS    |
 
 ## Service quotas
 

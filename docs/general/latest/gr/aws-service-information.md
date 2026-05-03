@@ -35,6 +35,7 @@ quotas](aws-general.pdf.md#aws-service-information "aws-general.pdf.md#aws-servi
 - [Aurora](aurora.md "aurora.md")
 - [Aurora DSQL](dsql.md "dsql.md")
 - [AWS Auto Scaling](autoscaling_region.md "autoscaling_region.md")
+- [AWS MCP Server (Preview)](aws-mcp.md "aws-mcp.md")
 - [B2B Data Interchange](b2bi-service.md "b2bi-service.md")
 - [AWS Backup](bk.md "bk.md")
 - [AWS Batch](batch.md "batch.md")

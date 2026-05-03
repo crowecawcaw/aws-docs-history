@@ -56,7 +56,7 @@ You can learn about the endpoints and service quotas in the following pages:
 - [AWS service endpoints](rande.md "rande.md")
 - [AWS service quotas](aws_service_limits.md "aws_service_limits.md")
 - [Service endpoints and quotas](aws-service-information.md "aws-service-information.md")
-- [Specifying which AWS Regions your account can use](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md") in the _AWS Account Management Guide_
+- [Enable or disable AWS Regions in your account](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md") in the _AWS Account Management Guide_
 
 ## AWS Glossary
 

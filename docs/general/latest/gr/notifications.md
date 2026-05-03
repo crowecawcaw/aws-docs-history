@@ -41,6 +41,7 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Stockholm)        | eu-north-1     | notifications.eu-north-1.api.aws     | HTTPS    |
 | Europe (Zurich)           | eu-central-2   | notifications.eu-central-2.api.aws   | HTTPS    |
 | Israel (Tel Aviv)         | il-central-1   | notifications.il-central-1.api.aws   | HTTPS    |
+| Mexico (Central)          | mx-central-1   | notifications.mx-central-1.api.aws   | HTTPS    |
 | Middle East (Bahrain)     | me-south-1     | notifications.me-south-1.api.aws     | HTTPS    |
 | Middle East (UAE)         | me-central-1   | notifications.me-central-1.api.aws   | HTTPS    |
 | South America (São Paulo) | sa-east-1      | notifications.sa-east-1.api.aws      | HTTPS    |
