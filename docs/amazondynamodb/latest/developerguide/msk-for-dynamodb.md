@@ -71,7 +71,7 @@ by performing the following operations.
 After this is completed, note down the S3 bucket name output under
 _Outputs_. You will need the name in Step 3.
 
-![CloudFormation stack outputs showing S3 bucket name for MSK and DynamoDB sample.](images/msk-dynamodb-bucket-name.png) 2. Upload the downloaded ZIP file `fromMSK.zip` to the S3 bucket you
+![Outputs tab showing BucketName key with S3 bucket name value for-msk-ddb-sample-466288479681.](images/msk-dynamodb-bucket-name.png) 2. Upload the downloaded ZIP file `fromMSK.zip` to the S3 bucket you
 just created.
 
 ![Image showing where you can upload files in the S3 console.](images/msk-dynamodb-zip.png) 3. Run the CloudFormation template `VPC.yaml` to create a VPC, Amazon MSK
@@ -93,7 +93,7 @@ fields:
     3. **Subnet** - select **MSKTest Private Subnet (AZ1)**
     4. **SecurityGroup** - select **ForMSKSecurityGroup**
 
-![CloudShell interface showing ap-southeast-1 environment and option to create VPC environment.](images/msk-dynamodb-cshell-1.png)
+![CloudShell interface showing ap-southeast-1 environment with Open environment option displayed.](images/msk-dynamodb-cshell-1.png)
 
 ![Image showing a CloudShell environment with the fields you have to specify.](images/msk-dynamodb-cshell-2.png)
 
@@ -116,7 +116,7 @@ unzip pythonScripts.zip
    URL and Region value in the Python scripts. Check the Amazon MSK cluster broker
    endpoint in the management console.
 
-![Amazon MSKcluster summary showing active status, serverless type, and creation details.](images/msk-dynamodb-view-client-1.png)
+![Cluster summary page with arrow pointing to View client information button.](images/msk-dynamodb-view-client-1.png)
 
 ![TODO.](images/msk-dynamodb-view-client-2.png) 7. Set the environment variables on the CloudShell. If you are using the
 US West (Oregon):
