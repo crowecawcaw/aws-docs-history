@@ -44,6 +44,25 @@ certificates](../../../IAM/latest/UserGuide/id_credentials_server-certs.md "../.
 - ECDSA 384-bit
 - ECDSA 521-bit
 
+###### Important — Behavior when using IAM-imported certificates
+
+If you import a certificate into AWS Identity and Access Management (IAM) and attach it to an NLB
+TLS listener, the certificate key size and algorithm are not validated at the time of attachment.
+Validation occurs asynchronously after the certificate is associated with the listener. If the certificate
+uses an unsupported key size (for example, RSA 4096-bit), the listener will enter a non-functional state
+and you will receive a notification via AWS Personal Health Dashboard (PHD).
+
+Note that if your listener has a previously working certificate configured, traffic may continue to
+be served by that certificate while the unsupported certificate is rejected. The PHD notification will
+indicate that the listener is configured with an unsupported certificate but does not confirm whether
+traffic is still being served by a prior certificate.
+
+To avoid this, verify the key size of your certificate before importing it into IAM. For RSA certificates,
+the maximum supported key size for NLB TLS listeners is 2048-bit.
+
+If you use AWS Certificate Manager (ACM) to provision or import certificates, unsupported key sizes are
+rejected at the time of attachment, providing immediate feedback.
+
 ## Default certificate
 
 When you create a TLS listener, you must specify at least one certificate. This
