@@ -22,7 +22,7 @@ is 16 bytes.
 The following diagram shows the components that make up a message
 and a header. There are multiple headers per message.
 
-![Diagram showing message structure with prelude, headers, payload, and CRC components.](images/frame-diagram-frame-overview.png)
+![Message structure showing prelude with byte lengths and CRC, followed by headers and payload sections.](images/frame-diagram-frame-overview.png)
 Each message contains the following components:
 
 - **Prelude:** Always a fixed

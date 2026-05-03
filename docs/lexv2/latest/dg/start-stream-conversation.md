@@ -189,7 +189,7 @@ The following diagram shows the beginning of a conversation
 between the application and the bot. The stream begins at time
 zero (t0).
 
-![Timeline showing audio input events from application and various response events from bot during a conversation.](images/Streaming-Page-1.png)
+![Timeline showing audio input events from user triggering bot response events like heartbeat and transcript.](images/Streaming-Page-1.png)
 
 The following list describes the events of the preceding
 diagram.
@@ -229,7 +229,7 @@ utterance 1_ to the user. The user responds to
 _Bot response to user utterance 1_ with
 _User utterance 2_.
 
-![Timeline of audio input events from user and response events from bot, showing interaction flow.](images/Streaming-Page-2.png)
+![Timeline showing bot and application events including audio input, playback completion, and responses.](images/Streaming-Page-2.png)
 The following list describes the events of the preceding
 diagram:
 
@@ -255,4 +255,4 @@ diagram:
   utterance 3_, and that the conversation continues
   after the bot responds to the user utterance.
 
-![Diagram showing events flow between application, bot, and user utterances over time.](images/Streaming-Page-3.png)
+![Bot response sequence showing Audio Response, Text Response, Intent Result, Transcript, Heartbeat, and Playback Interruption events.](images/Streaming-Page-3.png)

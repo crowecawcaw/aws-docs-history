@@ -18,7 +18,7 @@ The bot and web application that you create in this tutorial helps agents respon
 customers efficiently and accurately by quickly providing the right resources. The following
 diagram shows how the web application works.
 
-![](images/agent-tutorial.png)
+![Workflow showing customer question flow from Amazon Lex to Kendra to S3 and back to agent.](images/agent-tutorial.png)
 As the diagram shows, the Amazon Kendra index of documents is stored in an Amazon Simple Storage Service (Amazon S3)
 bucket. If you don't already have an S3 bucket, you can set one up when you create the Amazon Kendra
 index. In addition to Amazon S3, you will use Amazon Cognito for this tutorial. Amazon Cognito manages permissions
