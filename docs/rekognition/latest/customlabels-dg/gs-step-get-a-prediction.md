@@ -123,7 +123,7 @@ _Amazon Simple Storage Service User Guide_.
 
 ### Multi-label classification
 
-![Spherical green flower head composed of densely packed overlapping petals or bracts forming a ball-like shape.](images/multi-label-classification.jpg)
+![Spherical green flower head composed of densely packed overlapping petals or bracts forming a ball-like shape.](/images/rekognition/latest/customlabels-dg/images/multi-label-classification.jpg)
 
 ### Brand detection
 

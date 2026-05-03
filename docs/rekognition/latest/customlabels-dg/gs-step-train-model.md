@@ -18,7 +18,7 @@ notice that the Amazon Resource Name (ARN) for your project is in the
 ![Train model page with project ARN input field and Train model button.](images/tutorial-train-model-page-train-model.jpg) 3. In the **Do you want to train your model?** dialog box, shown in the
 following image, choose **Train model**.
 
-![Dialog box to start model training with Cancel and Train model buttons.](/images/rekognition/latest/customlabels-dg/images/tutorial-dialog-train-model.jpg) 4. After training completes, choose the model name. Training is finished when the model status is
+![Dialog box to start model training with Cancel and Train model buttons.](images/tutorial-dialog-train-model.jpg) 4. After training completes, choose the model name. Training is finished when the model status is
 **TRAINING_COMPLETED**, as demonstrated in the following
 console screenshot.
 
