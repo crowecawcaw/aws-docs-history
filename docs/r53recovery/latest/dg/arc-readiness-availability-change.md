@@ -2,17 +2,17 @@
 
 ###### Note
 
-The readiness check feature in Amazon Application Recovery Controller (ARC) will no
-longer be open to new customers starting on April 30, 2026. Existing customers can
-continue to use the service as normal.
+The readiness check feature in Amazon Application Recovery Controller (ARC) is no
+longer open to new customers. Existing customers can continue to use the service
+as normal.
 
 After careful consideration, we decided to close the readiness check feature in
-Amazon Application Recovery Controller (ARC) to new customers starting April 30, 2026. Existing customers can continue to
-use the service as normal.
+Amazon Application Recovery Controller (ARC) to new customers. Existing customers can continue to use the service
+as normal.
 
 ARC readiness check is a feature that enables you to monitor the readiness of your
 resources for disaster recovery. ARC continues to be available, but the readiness check
-feature will no longer be open to new customers starting April 30, 2026.
+feature is no longer open to new customers.
 
 ###### Note
 
