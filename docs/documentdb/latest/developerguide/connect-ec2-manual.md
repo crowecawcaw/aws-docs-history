@@ -136,7 +136,7 @@ Complete the following steps:
 ![Instance summary for an Amazon EC2 instance. The Connect button is towards the upper-right corner.](images/ec2/ec2-instance-summary.png) 3. There are four tabbed options for your connection method: Amazon EC2 Instance Connect, Session Manager, SSH client, or EC2 serial console.
 You must choose one and follow its instructions. When complete, choose **Connect**.
 
-![Interface showing configuration options for the EC2 Instance Connect connection method.](/images/documentdb/latest/developerguide/images/ec2/connect-options.png)
+![Interface showing configuration options for the EC2 Instance Connect connection method.](images/ec2/connect-options.png)
 
 ###### Note
 
@@ -243,7 +243,7 @@ Transport Layer Security (TLS) is enabled by default for any new Amazon Document
 
 ![Amazon DocumentDB cluster list showing a regional cluster with primary instance details.](images/cluster-connect-choose.png) 2. In the **Connectivity and security** tab, locate **Connect to this cluster with the mongo shell** in the **Connect** box:
 
-![Cluster connect settings with highlighted MongoDB connection string for connecting to an Amazon DocumentDB cluster using the mongo shell.](/images/documentdb/latest/developerguide/images/connect-mongosh.png)
+![Cluster connect settings with highlighted MongoDB connection string for connecting to an Amazon DocumentDB cluster using the mongo shell.](images/connect-mongosh.png)
 
 Copy the connection string provided and paste it into your terminal.
 

@@ -78,6 +78,7 @@ window by modifying the cluster. For more information, see [Modifying an Amazon 
 | Asia Pacific (Thailand)   | ap-southeast-7 | 15:00-23:00    |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | 13:00-21:00    |
 | Canada (Central)          | ca-central-1   | 03:00-11:00    |
+| Canada West (Calgary)     | ca-west-1      | 18:00-02:00    |
 | China (Beijing)           | cn-north-1     | 06:00-14:00    |
 | China (Ningxia)           | cn-northwest-1 | 06:00-14:00    |
 | Europe (Frankfurt)        | eu-central-1   | 21:00-05:00    |

@@ -36,6 +36,7 @@ contain `rds` and not `docdb`.
 | Asia Pacific (Thailand)   | `ap-southeast-7` | 3                            |
 | Asia Pacific (Tokyo)      | `ap-northeast-1` | 3                            |
 | Canada (Central)          | `ca-central-1`   | 3                            |
+| Canada West (Calgary)     | `ca-west-1`      | 3                            |
 | China (Beijing) Region    | `cn-north-1`     | 3                            |
 | China (Ningxia)           | `cn-northwest-1` | 3                            |
 | Europe (Frankfurt)        | `eu-central-1`   | 3                            |

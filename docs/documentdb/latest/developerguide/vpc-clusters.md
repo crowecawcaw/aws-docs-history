@@ -296,6 +296,7 @@ The following list identifies the AWS Regions that support dual-stack mode:
 - Asia Pacific (Thailand)
 - Asia Pacific (Tokyo)
 - Canada (Central)
+- Canada West (Calgary)
 - China (Beijing)
 - China (Ningxia)
 - Europe (Frankfurt)

@@ -88,7 +88,8 @@ For a complete list of instance types supported by Amazon DocumentDB in each ins
 | Asia Pacific (Singapore)             | Supported | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | Asia Pacific (Thailand)              |           |                  | Supported |           |           | Supported | Supported |            |
 | Asia Pacific (Tokyo)                 | Supported | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
-| Canada (Central)                     |           | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
+| Canada (Central)                     | Supported | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
+| Canada West (Calgary)                |           |                  | Supported | Supported |           | Supported | Supported |            |
 | Europe (Frankfurt)                   | Supported | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | Europe (Zurich)                      |           | Supported        | Supported | Supported |           | Supported | Supported |            |
 | Europe (Ireland)                     | Supported | Supported        | Supported | Supported | Supported | Supported | Supported | Supported  |
@@ -153,6 +154,7 @@ The following table lists the number of Availability Zones that you can use in a
 | Asia Pacific (Thailand)   | `ap-southeast-7` | 3                            |
 | Asia Pacific (Tokyo)      | `ap-northeast-1` | 3                            |
 | Canada (Central)          | `ca-central-1`   | 3                            |
+| Canada West (Calgary)     | `ca-west-1`      | 3                            |
 | China (Beijing) Region    | `cn-north-1`     | 3                            |
 | China (Ningxia)           | `cn-northwest-1` | 3                            |
 | Europe (Frankfurt)        | `eu-central-1`   | 3                            |
