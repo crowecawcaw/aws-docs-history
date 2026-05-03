@@ -59,4 +59,4 @@ For deployment instructions, see [AWS sample solutions for Jira, Slack, and Serv
 
 AWS Security Incident Response doesn't directly ingest findings from your SIEM. However, when you open an AWS-supported case, AWS SIRT responders analyze and investigate SIEM findings in parallel with your team. SIRT helps identify correlations across hybrid and multi-cloud environments and assists with scoping threat actor activity across providers.
 
-AWS SIRT also collaborates directly with your MDR providers and third-party investigation teams. Tabletop exercises are available to help establish effective coordination processes before an incident occurs.
+AWS SIRT also collaborates directly with your MDR providers and third-party investigation teams to help establish effective coordination processes before an incident occurs.

@@ -67,6 +67,22 @@ AWS Security Incident Response Engineering conducts a hands-on security investig
 
 As part of a security investigation, AWS Security Incident Response can also collect investigative information from within Amazon Elastic Compute Cloud instances using EC2 Triage. When enabled, this capability allows AWS Security Incident Response responders to execute AWS Systems Manager Run Command on Amazon EC2 instances to gather investigative data, inspect running processes, and analyze system state — without requiring direct access to the instance.
 
+EC2 Triage supports the following operating systems:
+
+Linux
+
+- Amazon Linux 2, Amazon Linux 2023
+- Ubuntu 18.04, 20.04, 22.04, 24.04
+- Red Hat Enterprise Linux (RHEL) 7.x, 8.x, 9.x
+- CentOS 7.x, 8.x
+- SUSE Linux Enterprise Server (SLES) 12.x, 15.x
+- Debian 10, 11, 12
+
+Windows
+
+- Windows Server 2012 R2
+- Windows Server 2016, 2019, 2022
+
 To use EC2 Triage, you must deploy the **Containment with EC2 Triage** CloudFormation template to your accounts. For more information, see [Working with CloudFormation StackSets](working-with-stacksets.md "working-with-stacksets.md"). The target Amazon EC2 instances must have [SSM Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md") installed and running, and must be online and managed by AWS Systems Manager. For setup information, see [Setting up Systems Manager for Amazon EC2 instances](../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md "../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md").
 
 **Communicate**

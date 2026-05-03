@@ -12,23 +12,21 @@ membership in the Organizations management account or in an Organizations delega
 account:** AWS Security Incident Response administrative
 tasks and case management are located in the delegated
 administrator account. We recommend using the same delegated
-administrator you've set for other AWS security and compliance
+administrator that you set for other AWS security and compliance
 services. Provide the 12-digit delegated administrator account ID
 and then log in to that account to proceed.
 
 ###### Important
 
 When you use a delegated administrator account as part of setup, AWS Security Incident Response can't automatically create the required
-triage service linked role in your AWS Organizations management account.
+triage service linked role in your AWS Organizations management account. Complete the following steps to manually create this role in your AWS Organizations management account.
 
-You can use the IAM to create this role in your AWS Organizations management account
-
-###### To create a service-linked role (console)
+###### Create a service-linked role (console)
 
 1. Login to your AWS Organizations management account.
-2. Access the [AWS CloudShell](https://console.aws.amazon.com/cloudshell/home "https://console.aws.amazon.com/cloudshell/home") window or access the account through CLI in your preferred method.
-3. Use the CLI command `aws iam create-service-linked-role --aws-service-name "triage.security-ir.amazonaws.com" --no-cli-pager`
-4. (Optional) To verify the command worked you can execute the command `aws iam get-role --role-name AWSServiceRoleForSecurityIncidentResponse_Triage`
+2. Access the [AWS CloudShell console](https://console.aws.amazon.com/cloudshell/home "https://console.aws.amazon.com/cloudshell/home") or access the account through the AWS Command Line Interface using your preferred method.
+3. Use the CLI command `aws iam create-service-linked-role --aws-service-name "triage.security-ir.amazonaws.com" --no-cli-pager`.
+4. (Optional) To verify that the command worked, run the command `aws iam get-role --role-name AWSServiceRoleForSecurityIncidentResponse_Triage`.
 
 **Use the currently logged in
 account**: Selecting this account means the current account will be designated as the

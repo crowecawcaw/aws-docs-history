@@ -1,6 +1,6 @@
 # Working with CloudFormation StackSets
 
-For specific instructions on how to create a StackSet with service-managed permissions, see [Create CloudFormation StackSets with service-managed permissions](../../../AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.md") in the _AWS CloudFormation User Guide_.
+For specific instructions on how to create a StackSet with service-managed permissions, see [Create CloudFormation StackSets with service-managed permissions](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-associate-stackset-with-org.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-associate-stackset-with-org.md") in the _AWS CloudFormation User Guide_.
 
 AWS Security Incident Response provides two CloudFormation templates. Both templates create the same two AWS Identity and Access Management roles, `AWSSecurityIncidentResponseContainment` and `AWSSecurityIncidentResponseContainmentExecution`. The **Containment with EC2 Triage** template adds the `AWSSecurityIncidentResponseInvestigationPolicy` to the `AWSSecurityIncidentResponseContainment` role, which grants additional permissions for EC2 Triage. Choose the template that matches your security requirements:
 

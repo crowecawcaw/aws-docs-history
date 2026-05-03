@@ -14,8 +14,7 @@ any errors you may have seen during the setup process.
 
 If you have questions about Amazon GuardDuty suppression rules, alert triaging configurations, or proactive
 response workflows, you can create an AWS supported case with the case type
-**Investigations and Inquiries** to consult with the AWS Security
-Incident Response team. For more information, see
+**Investigations and Inquiries** to consult with the AWS Security Incident Response team. For more information, see
 [Create an AWS supported case](create-an-aws-supported-case.md "create-an-aws-supported-case.md").
 
 This feature enables AWS Security Incident Response to monitor and investigate findings across all covered accounts
@@ -23,8 +22,8 @@ and active supported AWS Regions in your organization. To facilitate this functi
 service-linked role in all covered member accounts within your AWS Organizations.
 However, for the management account, you must manually create the service-linked role to enable monitoring.
 
-_The service cannot create the service-linked role in the management account. You must create this role manually
-in the management account by [working with AWS CloudFormation stack sets](working-with-stacksets.md "working-with-stacksets.md")._
+_AWS Security Incident Response can't create the service-linked role in the management account. You must create this role manually
+in the management account. For more information, see the **Important** note in [Select a membership account](select-a-membership-account.md "select-a-membership-account.md")._
 
 **Containment:** In the event of a security incident, AWS Security Incident Response can execute containment actions
 to quickly mitigate the impact, such as isolating compromised hosts or rotating credentials. Security Incident Response doesn't enable
