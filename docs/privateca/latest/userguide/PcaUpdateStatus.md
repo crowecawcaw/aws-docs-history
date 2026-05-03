@@ -61,7 +61,7 @@ actions with CA status.
 
 ![Interaction of CA management actions and status.](images/status.png)
 
-Diagram key| Blue fabric swatch with a repeating pattern of white polka dots.<br>Management action | Blue parallelogram shape with angled sides and sharp corners.<br>CA status | Blue arrow pointing to the right, indicating direction or progression.<br>Action results in a state change | Blue arrow pointing right, composed of five dots increasing in size from left to right.<br>New state enables new action |
+Diagram key| Blue rectangle shape representing a management action in the diagram.<br>Management action | Blue parallelogram shape with angled sides and sharp corners.<br>CA status | Blue arrow pointing to the right, indicating direction or progression.<br>Action results in a state change | Four dots followed by a right-pointing arrow indicating progression or continuation.<br>New state enables new action |
 
 At the top of the diagram, management actions are applied through the AWS Private CA
 console, CLI, or API. The actions take the CA through creation, activation,
