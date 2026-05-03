@@ -7,7 +7,7 @@ which instances this endpoint refers to, and you decide what purpose the endpoin
 serves.
 
 An Aurora DB cluster has no custom endpoints until you create one. You can create up to
-five custom endpoints for each provisioned Aurora cluster or Aurora Serverless v2 cluster.
+five custom endpoints for each provisioned Aurora cluster or Aurora serverless cluster.
 
 The custom endpoint provides balanced database connections based on criteria other than
 the read-only or read/write capability of the DB instances. For example, you might define a

@@ -1,4 +1,4 @@
-# Amazon RDS Proxyfor Aurora
+# Amazon RDS Proxy for Aurora
 
 By using Amazon RDS Proxy, you can allow your applications to pool and share database
 connections to improve their ability to scale. RDS Proxy makes applications more resilient to
@@ -44,6 +44,7 @@ code changes. For a list of supported engine versions, see [Supported Regions an
 - [Using RDS Proxy with AWS CloudFormation](rds-proxy-cfn.md "rds-proxy-cfn.md")
 - [Using RDS Proxy with Blue/Green Deployments](rds-proxy-blue-green.md "rds-proxy-blue-green.md")
 - [Using RDS Proxy with Aurora global databases](rds-proxy-gdb.md "rds-proxy-gdb.md")
+- [Best practices with RDS Proxy](rds-proxy-best-practices.md "rds-proxy-best-practices.md")
 
 ## Region and version availability
 
@@ -72,7 +73,7 @@ The following quotas and limitations apply to RDS Proxy:
   for a proxy. That endpoint passes connections to the reader endpoint of the cluster. That way, your proxy connections
   can take advantage of Aurora read scalability.
   For more information, see [Overview of proxy endpoints](rds-proxy-endpoints.md#rds-proxy-endpoints-overview "rds-proxy-endpoints.md#rds-proxy-endpoints-overview").
-- You can use RDS Proxy with Aurora Serverless v2 clusters, but not with Aurora Serverless
+- You can use RDS Proxy with Aurora serverless clusters, but not with Aurora Serverless
   v1 clusters.
 - Your RDS Proxy must be in the same virtual private cloud (VPC) as the database. The
   proxy can't be publicly accessible, although the database can be. For example, if you're
@@ -182,6 +183,8 @@ The following additional limitations apply to RDS Proxy with Aurora PostgreSQL d
   aren't always accurate. As a work-around, use the [INSERT](https://www.postgresql.org/docs/current/sql-insert.html "https://www.postgresql.org/docs/current/sql-insert.html") statement
   with the `RETURNING` clause.
 - RDS Proxy currently doesn't support streaming replication mode.
+- RDS Proxy doesn't support direct SSL negotiation mode.
+- RDS Proxy only supports version 3.0 of the PostgreSQL messaging protocol.
 - The default `postgres` database must exist on the RDS for PostgreSQL instance
   for RDS Proxy to function. Don't delete this database even if your application uses
   different databases.

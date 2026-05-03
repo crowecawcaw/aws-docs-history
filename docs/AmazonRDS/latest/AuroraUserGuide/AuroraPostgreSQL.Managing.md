@@ -96,9 +96,9 @@ If your applications frequently open and close connections, or keep a large numb
 of long-lived connections open, we recommend that you use Amazon RDS Proxy. RDS Proxy is a
 fully managed, highly available database proxy that uses connection pooling to share
 database connections securely and efficiently. To learn more about RDS Proxy, see
-[Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md").
+[Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
 
-For details about how Aurora Serverless v2 instances handle this parameter, see [Maximum connections for Aurora Serverless v2](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.max-connections "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.max-connections").
+For details about how Aurora serverless instances handle this parameter, see [Maximum connections for Aurora serverless](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.max-connections "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.max-connections").
 
 ## Temporary storage limits for Aurora PostgreSQL
 
@@ -201,7 +201,7 @@ You can monitor the temporary storage available for a DB instance with the
 `FreeLocalStorage` CloudWatch metric,
 
 described in [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md "Aurora.AuroraMonitoring.Metrics.md"). (This doesn't apply to
-Aurora Serverless v2.)
+Aurora serverless.)
 
 For some workloads, you can reduce the amount of temporary storage by allocating more
 memory to the processes that are performing the operation. To increase the memory

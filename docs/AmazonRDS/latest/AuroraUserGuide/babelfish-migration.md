@@ -107,8 +107,7 @@ with Babelfish Compass through GitHub instead of through AWS
 Support.
 
 You can use Generate Script Wizard with SQL Server Management Studio (SSMS) to
-generate the SQL file that is assessed by Babelfish Compass or AWS Schema Conversion Tool
-CLI. We recommend the following steps to streamline the assessment.
+generate the SQL file that is assessed by Babelfish Compass. We recommend the following steps to streamline the assessment.
 
 1. On the **Choose Objects** page, choose **Script
    entire database and all database objects**.

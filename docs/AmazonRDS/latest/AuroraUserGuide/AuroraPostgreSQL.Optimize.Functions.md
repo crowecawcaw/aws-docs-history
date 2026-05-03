@@ -82,8 +82,9 @@ Returns 0 if the delete was successful or -1 if the delete failed.
 
 ## apg_plan_mgmt.evolve_plan_baselines
 
-Verifies whether an already approved plan is faster or whether a plan identified
-by the query optimizer as a minimum cost plan is faster.
+Executes the captured query and compares its performance against the best
+approved/preferred plan that is enabled, or the optimizer's plan. Based on the
+results, applies a user input action.
 
 **Syntax**
 
@@ -118,6 +119,12 @@ you can set. The action parameter might be set to `'approve'` or
 performance criteria. Alternatively, it might be set to '' (empty string) to do the
 performance experiment and produce a report, but take no action.
 
+To collect planning and execution time,
+`apg_plan_mgmt.evolve_plan_baselines()` runs
+`EXPLAIN ANALYZE` on the captured query. The captured query is
+executed with the privileges of the user who calls
+`apg_plan_mgmt.evolve_plan_baselines()`.
+
 You can avoid pointlessly rerunning of the
 `apg_plan_mgmt.evolve_plan_baselines` function for a plan on which it
 was recently run. To do so, restrict the plans to just the recently created
@@ -125,8 +132,9 @@ unapproved plans. Alternatively, you can avoid running the
 `apg_plan_mgmt.evolve_plan_baselines` function on any approved plan
 that has a recent `last_verified` timestamp.
 
-Conduct a performance experiment to compare the planning plus execution time of
-each plan relative to the other plans in the baseline. In some cases, there is only
+Conduct a performance experiment by executing the captured query to compare the
+planning plus execution time of each plan relative to the other plans in the
+baseline. In some cases, there is only
 one plan for a statement and the plan is approved. In such a case, compare the
 planning plus execution time of the plan to the planning plus execution time of
 using no plan.

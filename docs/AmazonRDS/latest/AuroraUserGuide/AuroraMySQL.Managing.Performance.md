@@ -34,10 +34,10 @@ value for the `max_connections` parameter in the DB parameter group for your ins
 
 If your applications frequently open and close connections, or keep a large number of long-lived connections open, we recommend that you use Amazon RDS Proxy.
 RDS Proxy is a fully managed, highly available database proxy that uses connection pooling to share database connections securely and efficiently. To learn more
-about RDS Proxy, see [Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md").
+about RDS Proxy, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
 
-For details about how Aurora Serverless v2 instances handle this parameter, see
-[Maximum connections for Aurora Serverless v2](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.max-connections "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.max-connections").
+For details about how Aurora serverless instances handle this parameter, see
+[Maximum connections for Aurora serverless](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.max-connections "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.max-connections").
 
 | Instance class  | max_connections default value |
 | --------------- | ----------------------------- |
@@ -265,4 +265,4 @@ You can monitor the temporary storage available for a specific DB instance with 
 at the present time. You can also chart the amount of free storage over time. Monitoring the free storage over time helps you to determine
 whether the value is increasing or decreasing, or to find the minimum, maximum, or average values.
 
-(This doesn't apply to Aurora Serverless v2.)
+(This doesn't apply to Aurora serverless.)

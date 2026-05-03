@@ -33,8 +33,8 @@ Aurora Global Database, see
 
 - **Naming requirements** – The names you choose for each of your Aurora DB clusters must be unique, across all AWS Regions. You can't
   use the same name for different Aurora DB clusters even though they're in different Regions.
-- **Capacity requirements for Aurora Serverless v2** – For a global database with
-  Aurora Serverless v2, the [minimum recommended capacity](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.min_capacity_considerations "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.min_capacity_considerations")
+- **Capacity requirements for Aurora serverless** – For a global database with
+  Aurora serverless, the [minimum recommended capacity](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.min_capacity_considerations "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.min_capacity_considerations")
   for the DB cluster in the primary AWS Region is 8 ACUs.
   Before you can follow the procedures in this section, you need an AWS account. Complete the setup tasks for
   working with Amazon Aurora. For more information, see [Setting up your environment for Amazon Aurora](CHAP_SettingUp_Aurora.md "CHAP_SettingUp_Aurora.md"). You also need to complete other

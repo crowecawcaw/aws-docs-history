@@ -8,7 +8,7 @@ see [What is AWS Lambda?](../../../lambda/latest/dg/welcome.md "../../../lambda/
 
 ###### Note
 
-Invoking AWS Lambda functions is supported in Aurora PostgreSQL 11.9 and higher (including Aurora Serverless v2).
+Invoking AWS Lambda functions is supported in Aurora PostgreSQL 11.9 and higher (including Aurora serverless).
 
 Setting up Aurora PostgreSQL
 to work with Lambda functions is a multi-step process involving AWS Lambda, IAM, your VPC, and

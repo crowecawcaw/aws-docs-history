@@ -55,8 +55,8 @@ changes, see [Inclusive language changes for Aurora MySQL version 3](AuroraMySQL
 
 ## Aurora MySQL version 3 prerequisite for Aurora MySQL Serverless v2
 
-Aurora MySQL version 3 is a prerequisite for all DB instances in an Aurora MySQL Serverless v2 cluster.
-Aurora MySQL Serverless v2 includes support for reader instances in a DB cluster, and other Aurora features
+Aurora MySQL version 3 is a prerequisite for all DB instances in an Aurora MySQL Aurora serverless cluster.
+Aurora MySQL Aurora serverless includes support for reader instances in a DB cluster, and other Aurora features
 that aren't available for Aurora MySQL Serverless v1. It also has faster and more granular scaling than
 Aurora MySQL Serverless v1.
 

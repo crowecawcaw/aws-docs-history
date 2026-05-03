@@ -30,11 +30,11 @@ Performance Schema is enabled, the instance might run out of memory.
 ###### Tip
 
 If your database is sometimes idle but at other times has a substantial workload,
-you can use Aurora Serverless v2 as an alternative to T instances. With Aurora Serverless v2, you
+you can use Aurora serverless as an alternative to T instances. With Aurora serverless, you
 define a capacity range and Aurora automatically scales your database up or down depending on
-the current workload. For usage details, see [Using Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md").
-For the database engine versions that you can use with Aurora Serverless v2, see
-[Requirements and limitations for Aurora Serverless v2](aurora-serverless-v2.requirements.md "aurora-serverless-v2.requirements.md").
+the current workload. For usage details, see [Using Aurora serverless](aurora-serverless-v2.md "aurora-serverless-v2.md").
+For the database engine versions that you can use with Aurora serverless, see
+[Requirements and limitations for Aurora serverless](aurora-serverless-v2.requirements.md "aurora-serverless-v2.requirements.md").
 
 When you use a T instance as a DB instance in an Aurora MySQL DB cluster, we recommend the
 following:

@@ -6,15 +6,15 @@ commands against an HTTPS endpoint. For more information, see [Using the Amazon 
 
 ###### Topics
 
-- [Data API with Aurora PostgreSQL Serverless v2 and provisioned](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.apg "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.apg")
-- [Data API with Aurora MySQL Serverless v2 and provisioned](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.ams "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.ams")
+- [Data API with Aurora PostgreSQL Aurora serverless and provisioned](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.apg "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.apg")
+- [Data API with Aurora MySQL Aurora serverless and provisioned](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.ams "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.ams")
 - [Data API with Aurora PostgreSQL Serverless v1](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.apg-sv1 "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.apg-sv1")
 - [Data API with Aurora MySQL Serverless v1](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.amy "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.amy")
 
-## Data API with Aurora PostgreSQL Serverless v2 and provisioned
+## Data API with Aurora PostgreSQL Aurora serverless and provisioned
 
 The following Regions and engine versions are available for Data API with
-Aurora PostgreSQL Serverless v2 and provisioned DB clusters.
+Aurora PostgreSQL Aurora serverless and provisioned DB clusters.
 
 | Region                     | Aurora PostgreSQL 17    | Aurora PostgreSQL 16    | Aurora PostgreSQL 15    | Aurora PostgreSQL 14    | Aurora PostgreSQL 13     |
 | -------------------------- | ----------------------- | ----------------------- | ----------------------- | ----------------------- | ------------------------ |
@@ -57,10 +57,10 @@ Aurora PostgreSQL Serverless v2 and provisioned DB clusters.
 | AWS GovCloud (US-East)     | Not available           | Not available           | Not available           | Not available           | Not available            |
 | AWS GovCloud (US-West)     | Not available           | Not available           | Not available           | Not available           | Not available            |
 
-## Data API with Aurora MySQL Serverless v2 and provisioned
+## Data API with Aurora MySQL Aurora serverless and provisioned
 
 The following Regions and engine versions are available for Data API with
-Aurora MySQL Serverless v2 and provisioned DB clusters.
+Aurora MySQL Aurora serverless and provisioned DB clusters.
 
 | Region                     | Aurora MySQL version 3  |
 | -------------------------- | ----------------------- |

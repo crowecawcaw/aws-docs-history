@@ -3,7 +3,7 @@
 In the dashboard, the **Database load** chart collects, aggregates, and displays session information.
 To see whether active sessions are exceeding the maximum CPU, look at their relationship to the **Max
 vCPU** line. Performance Insights determines the **Max vCPU** value by the number of vCPU (virtual CPU)
-cores for your DB instance. For Aurora Serverless v2, **Max vCPU**
+cores for your DB instance. For Aurora serverless, **Max vCPU**
 represents the estimated number of vCPUs.
 
 One process can run on a vCPU at a time. If the number of processes exceeds the number of

@@ -125,9 +125,9 @@ instance.
 Suppose that the primary instance in your cluster is unavailable because of an outage that affects an entire AZ. In this case,
 the way to bring a new primary instance online depends on whether your cluster uses a Multi-AZ configuration:
 
-- If your provisioned or Aurora Serverless v2 cluster contains any reader instances in other AZs, Aurora uses the failover
+- If your provisioned or Aurora serverless cluster contains any reader instances in other AZs, Aurora uses the failover
   mechanism to promote one of those reader instances to be the new primary instance.
-- If your provisioned or Aurora Serverless v2 cluster only contains a single DB instance, or if the primary instance and all
+- If your provisioned or Aurora serverless cluster only contains a single DB instance, or if the primary instance and all
   reader instances are in the same AZ, make sure to manually create one or more new DB instances in another AZ.
 
 ###### Note
@@ -143,4 +143,4 @@ to a new database instance while preserving application connections. It also byp
 Name System (DNS) caches to reduce failover times by up to 66% for Aurora
 Multi-AZ databases.
 
-For more information, see [Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md").
+For more information, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").

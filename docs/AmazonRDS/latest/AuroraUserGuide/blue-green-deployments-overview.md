@@ -16,7 +16,7 @@ a minute with no data loss and no need for application changes.
 
 Because the green environment is a copy of the topology of the production environment, the DB cluster
 and all of its DB instances are copied in the deployment. The green environment also includes the features used by the DB cluster,
-such as DB cluster snapshots, Performance Insights, Enhanced Monitoring, and Aurora Serverless v2.
+such as DB cluster snapshots, Performance Insights, Enhanced Monitoring, and Aurora serverless.
 
 Amazon Aurora Blue/Green Deployments support Amazon RDS Proxy and smart drivers. These solutions reduce writer node upgrade downtime during
 switchover by detecting the topology change and redirecting connections to the new production

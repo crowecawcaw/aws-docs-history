@@ -95,7 +95,7 @@ If concurrency is the issue, try one of the following techniques:
 
 - Lower the concurrency in the application. For example, decrease the number of active
   sessions.
-- Implement a connection pool. To learn how to pool connections with RDS Proxy, see [Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md").
+- Implement a connection pool. To learn how to pool connections with RDS Proxy, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
 - Design the application or data model to avoid contending `UPDATE` and `SELECT … FOR
 UPDATE` statements. You can also decrease the number of foreign keys accessed by
   `SELECT … FOR KEY SHARE` statements.

@@ -135,4 +135,4 @@ To learn how to turn on auditing, see [Using Advanced Auditing with an Amazon Au
 Consider using Amazon RDS Proxy for connection management. By using RDS Proxy, you can allow your applications
 to pool and share database connections to improve their ability to scale. RDS Proxy makes applications more
 resilient to database failures by automatically connecting to a standby DB instance while preserving
-application connections. For more information, see [Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md").
+application connections. For more information, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").

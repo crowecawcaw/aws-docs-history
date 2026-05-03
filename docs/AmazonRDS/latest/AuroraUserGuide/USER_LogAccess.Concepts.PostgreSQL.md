@@ -33,7 +33,7 @@ requirements. For information about installing and using pgAudit, see [Using pgA
 Aurora creates a separate log file for DB instances that have auto-pause
 enabled. This instance.log file records any reasons why these DB instances couldn't be paused when
 expected. For more information on instance log file behavior and Aurora auto-pause
-capability, see [Monitoring Aurora Serverless v2 pause and resume activity](aurora-serverless-v2-administration.md#autopause-logging-instance-log "aurora-serverless-v2-administration.md#autopause-logging-instance-log").
+capability, see [Monitoring Aurora serverless pause and resume activity](aurora-serverless-v2-administration.md#autopause-logging-instance-log "aurora-serverless-v2-administration.md#autopause-logging-instance-log").
 
 ###### Topics
 

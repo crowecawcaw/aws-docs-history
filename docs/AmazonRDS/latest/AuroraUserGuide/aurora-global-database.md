@@ -40,7 +40,7 @@ In the following diagram, you can find an example Aurora global database that sp
 ![An Aurora global database has a single primary and at least one secondary Aurora DB clusters.](images/aurora-global-databases-conceptual-illo.png)
 
 You can scale up each secondary cluster independently, by adding one or more Aurora reader instances
-to serve read-only workloads. You can use Aurora Serverless v2 for the reader instances for even more granular and flexible scaling.
+to serve read-only workloads. You can use Aurora serverless for the reader instances for even more granular and flexible scaling.
 
 Only the primary cluster performs write operations. Clients that perform write operations
 connect to the Aurora Global Database writer endpoint, which always points to the writer DB instance of the

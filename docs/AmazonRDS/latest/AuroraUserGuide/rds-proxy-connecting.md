@@ -1,7 +1,7 @@
 # Connecting to a database through RDS Proxy
 
 You connect to an Aurora DB cluster or cluster that uses
-Aurora Serverless v2 through a proxy in generally the same way as you connect directly to the
+Aurora serverless through a proxy in generally the same way as you connect directly to the
 database. The main difference is that you specify the proxy endpoint instead of the cluster
 endpoint. By default all proxy connections have read/write capability and use the writer
 instance. If you normally use the reader endpoint for read-only connections, you can create

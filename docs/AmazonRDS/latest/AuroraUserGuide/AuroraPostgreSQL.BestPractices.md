@@ -18,6 +18,7 @@ cluster. Be sure to also review basic maintenance tasks. For more information, s
 - [Using logical replication to perform a major version upgrade for Aurora PostgreSQL](AuroraPostgreSQL.MajorVersionUpgrade.md "AuroraPostgreSQL.MajorVersionUpgrade.md")
 - [Managing custom casts in Aurora PostgreSQL](PostgreSQL.CustomCasts.md "PostgreSQL.CustomCasts.md")
 - [Best Practices for Parallel Queries in Aurora PostgreSQL](PostgreSQL.ParallelQueries.md "PostgreSQL.ParallelQueries.md")
+- [Avoiding performance issues with REPLICA IDENTITY FULL in Aurora PostgreSQL](PostgreSQL.ReplicaIdentityFull.md "PostgreSQL.ReplicaIdentityFull.md")
 - [Troubleshooting storage issues in Aurora PostgreSQL](AuroraPostgreSQL.BestPractices.TroubleshootingStorage.md "AuroraPostgreSQL.BestPractices.TroubleshootingStorage.md")
 
 ## Avoiding slow performance, automatic restart, and failover for Aurora PostgreSQL DB instances

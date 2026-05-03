@@ -82,7 +82,7 @@ The **Create database** page displays. 3. For **Engine type**, choose **Aurora (
 
    If you create your Limitless Database DB cluster in the US East (N. Virginia) Region, don't include the
    `us-east-1e` Availability Zone (AZ) in your DB subnet group. Because of resource limitations,
-   Aurora Serverless v2—and therefore Limitless Database—isn't supported in the `us-east-1e` AZ. 4. Choose the **VPC security group (firewall)**, or use the default setting.
+   Aurora serverless—and therefore Limitless Database—isn't supported in the `us-east-1e` AZ. 4. Choose the **VPC security group (firewall)**, or use the default setting.
 
 7. For **Database authentication**, choose either **Password authentication** or **Password
    and IAM database authentication**.
@@ -136,7 +136,7 @@ The following parameters are optional:
 ###### Note
 
 If you create your Limitless Database DB cluster in the US East (N. Virginia) Region, don't include the `us-east-1e`
-Availability Zone (AZ) in your DB subnet group. Because of resource limitations, Aurora Serverless v2—and therefore
+Availability Zone (AZ) in your DB subnet group. Because of resource limitations, Aurora serverless—and therefore
 Limitless Database—isn't supported in the `us-east-1e` AZ.
 
 - `--vpc-security-group-ids` – A list of VPC security groups to associate with the DB cluster.

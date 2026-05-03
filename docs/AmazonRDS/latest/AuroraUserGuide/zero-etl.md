@@ -80,7 +80,7 @@ warehouse or catalog.
 
 The Aurora DB cluster where data is replicated from.
 You can specify a DB cluster that
-uses provisioned DB instances or Aurora Serverless v2 DB instances as the
+uses provisioned DB instances or Aurora serverless DB instances as the
 source.
 
 **Target**

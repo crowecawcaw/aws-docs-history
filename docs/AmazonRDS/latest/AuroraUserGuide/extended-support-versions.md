@@ -9,7 +9,7 @@ information, see [Release calendar for Aurora MySQL](../AuroraMySQLReleaseNotes/
 Notes_ and [Release calendar for Aurora PostgreSQL](../AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.md "../AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.md") in the _Aurora PostgreSQL Release
 Notes_.
 
-RDS Extended Support is only available on Aurora Serverless v2. It isn't
+RDS Extended Support is only available on Aurora serverless. It isn't
 available on Aurora Serverless v1.
 
 You can also view information about support dates for engine versions by using

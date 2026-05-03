@@ -270,8 +270,8 @@ You can also change the memory settings. For example, on Aurora MySQL
 75 percent of physical memory. For more MySQL troubleshooting tips, see [How can I troubleshoot low freeable memory in an Amazon RDS for MySQL
 database?](https://aws.amazon.com/premiumsupport/knowledge-center/low-freeable-memory-rds-mysql-mariadb/ "https://aws.amazon.com/premiumsupport/knowledge-center/low-freeable-memory-rds-mysql-mariadb/")
 
-For Aurora Serverless v2, `FreeableMemory` represents the
-amount of unused memory that's available when the Aurora Serverless v2 DB instance is
+For Aurora serverless, `FreeableMemory` represents the
+amount of unused memory that's available when the Aurora serverless DB instance is
 scaled to its maximum capacity. You might have the instance scaled down to relatively
 low capacity, but it still reports a high value for `FreeableMemory`, because
 the instance can scale up. That memory isn't available right now, but you can get
@@ -288,7 +288,7 @@ memory. Consider increasing the maximum ACU setting for the cluster. If this met
 approaches a value of `0` on a reader DB instance, consider adding additional
 reader DB instances to the cluster. That way, the read-only part of the workload can be
 spread across more DB instances, reducing the memory usage on each reader DB instance.
-For more information, see [Important Amazon CloudWatch metrics for Aurora Serverless v2](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring").
+For more information, see [Important Amazon CloudWatch metrics for Aurora serverless](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring").
 
 ## Amazon Aurora MySQL replication issues
 

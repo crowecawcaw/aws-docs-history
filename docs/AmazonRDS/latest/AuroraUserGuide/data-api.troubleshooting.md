@@ -84,7 +84,7 @@ application makes asynchronous requests, using a mechanism such as "promises" in
 To solve this issue, wait until the previous request finishes and then retry the request. You can keep retrying until
 the error no longer occurs, or the application receives some different kind of error.
 
-This condition can happen with Data API for Aurora Serverless v2 and provisioned instances.
+This condition can happen with Data API for Aurora serverless and provisioned instances.
 
 ## Unsupported result exception
 
@@ -102,7 +102,7 @@ SELECT custom_type::TEXT FROM my_table;
 
 ## Multi-statements aren't supported
 
-Multi-statements are not supported in the Data API for Aurora Serverless v2 and
+Multi-statements are not supported in the Data API for Aurora serverless and
 provisioned clusters. Attempting to execute multiple statements in a single API call
 results in this error.
 
@@ -112,11 +112,11 @@ calls or use the `BatchExecuteStatement` API for batch processing.
 ## Schema parameter isn't supported
 
 Aurora Serverless v1 silently ignores the schema parameter. However, Aurora
-Serverless v2 and provisioned clusters explicitly reject API calls that include the
+Aurora serverless and provisioned clusters explicitly reject API calls that include the
 schema parameter.
 
 To solve this issue, remove the schema parameter from all calls to the Data API
-when you use Aurora Serverless v2 or provisioned clusters.
+when you use Aurora serverless or provisioned clusters.
 
 ## IPv6 connectivity issues
 

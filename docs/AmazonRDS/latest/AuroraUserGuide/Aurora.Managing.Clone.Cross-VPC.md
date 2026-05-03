@@ -426,14 +426,14 @@ aws rds restore-db-cluster-to-point-in-time \
 
 ```
 
-If you intend to use Aurora Serverless v2 instances in the clone, include a
+If you intend to use Aurora serverless instances in the clone, include a
 `--serverless-v2-scaling-configuration` option when you create the clone,
 as shown. Doing so lets you use the `db.serverless` class when creating DB
 instances in the clone. You can also modify the clone later to add this scaling
-configuration attribute. The capacity numbers in this example allow each Serverless v2
+configuration attribute. The capacity numbers in this example allow each Aurora serverless
 instance in the cluster to scale between 2 and 32 Aurora Capacity Units (ACUs). For
-information about the Aurora Serverless v2 feature and how to choose the capacity range, see
-[Using Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md").
+information about the Aurora serverless feature and how to choose the capacity range, see
+[Using Aurora serverless](aurora-serverless-v2.md "aurora-serverless-v2.md").
 
 ```
 aws rds restore-db-cluster-to-point-in-time \
@@ -527,8 +527,8 @@ The following example shows partial output from such a command.
 
 ```
 
-The following example adds an Aurora Serverless v2 DB instance to an Aurora MySQL clone that
-uses a custom DB subnet group. To be able to use Serverless v2 instances, make sure to
+The following example adds an Aurora serverless DB instance to an Aurora MySQL clone that
+uses a custom DB subnet group. To be able to use Aurora serverless instances, make sure to
 specify the `--serverless-v2-scaling-configuration` option for the
 `restore-db-cluster-to-point-in-time` command, as shown in preceding
 examples.
@@ -564,7 +564,7 @@ the same client systems, or new ones that you create in the destination VPC, set
 equivalent DB subnet groups and VPC security groups as in the VPC. Then specify the subnet
 group and security groups when you create the clone.
 
-The following examples set up an Aurora Serverless v2 clone. That configuration is based on
+The following examples set up an Aurora serverless clone. That configuration is based on
 the combination of `--engine-mode provisioned` and
 `--serverless-v2-scaling-configuration` when creating the DB cluster, and
 then `--db-instance-class db.serverless` when creating each DB instance in

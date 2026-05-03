@@ -7,7 +7,7 @@ workloads from the primary DB instance. For more information, see [Aurora Replic
 
 Amazon Aurora Replicas have the following limitations:
 
-- However, you can add reader instances to Aurora Serverless v2 DB clusters. For more information, see [Adding an Aurora Serverless v2 reader](aurora-serverless-v2-administration.md#aurora-serverless-v2-adding-reader "aurora-serverless-v2-administration.md#aurora-serverless-v2-adding-reader").
+- However, you can add reader instances to Aurora serverless DB clusters. For more information, see [Adding an Aurora serverless reader](aurora-serverless-v2-administration.md#aurora-serverless-v2-adding-reader "aurora-serverless-v2-administration.md#aurora-serverless-v2-adding-reader").
   We recommend that you distribute the primary instance and Aurora Replicas of your Aurora DB cluster
   over multiple Availability Zones to improve the availability of your DB
   cluster. For more information, see [Region availability](Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability "Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability").

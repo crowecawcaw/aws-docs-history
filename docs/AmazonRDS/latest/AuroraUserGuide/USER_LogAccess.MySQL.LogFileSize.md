@@ -106,7 +106,7 @@ For more information, see [Using Advanced Auditing with an Amazon Aurora MySQL D
 
 Aurora creates a separate log file for DB instances that have auto-pause enabled. This instance.log file records any reasons why these
 DB instances couldn't be paused when expected. For more information on instance log file behavior and Aurora auto-pause capability,
-see [Monitoring Aurora Serverless v2 pause and resume activity](aurora-serverless-v2-administration.md#autopause-logging-instance-log "aurora-serverless-v2-administration.md#autopause-logging-instance-log").
+see [Monitoring Aurora serverless pause and resume activity](aurora-serverless-v2-administration.md#autopause-logging-instance-log "aurora-serverless-v2-administration.md#autopause-logging-instance-log").
 
 ## Log rotation and retention for Aurora MySQL
 

@@ -106,7 +106,7 @@ $ aws rds describe-db-instances --db-instance-identifier `my_instance_id` --quer
 
 RDS Proxy automatically adjusts its capacity based on the configuration of DB instances
 registered with it. For provisioned instances, this is determined by the instance
-size and for Aurora Serverless v2 instances, this is
+size and for Aurora serverless instances, this is
 determined by the maximum ACU capacity. Certain operations might also require
 additional capacity such as increasing the size of a registered database or internal
 RDS Proxy maintenance operations. During these operations, your proxy might need more IP
@@ -130,7 +130,7 @@ proxy, based on DB instance class sizes.
 | db.\*.16xlarge          | 75                        |
 | db.\*.24xlarge          | 110                       |
 
-For Aurora Serverless v2, reserve the following minimum numbers of
+For Aurora serverless, reserve the following minimum numbers of
 free IP addresses in your subnets for your proxy, based on maximum ACU capacity.
 
 | `Maximum ACU Capacity` | Minimum free IP addresses |
@@ -154,7 +154,7 @@ RDS Proxy requires a minimum of 10 IP addresses for your Aurora database. These 
 proxy with only the default endpoint. For each additional custom endpoint, we recommend
 reserving three more IP addresses. For each Aurora
 reader instance, we recommend that you reserve additional IP addresses as specified in the table based on that
-reader’s maximum ACUs for Aurora Serverless v2 target
+reader’s maximum ACUs for Aurora serverless target
 or DB instance size for a provisioned target.
 
 To estimate the required IP addresses for a proxy that's associated with
@@ -169,8 +169,8 @@ for reader instance, and 3 for the additional custom endpoint).
 
 To estimate the required IP addresses for a proxy that's associated with an Aurora DB cluster that has:
 
-- 1 Aurora Serverless v2 writer instance
-  with maximum capacity of 256 ACUs and 1 Serverless v2 reader instance with maximum capacity of 192 ACUs.
+- 1 Aurora serverless writer instance
+  with maximum capacity of 256 ACUs and 1 Aurora serverless reader instance with maximum capacity of 192 ACUs.
 - The proxy that's attached to this cluster has the default endpoint and 1 custom endpoint with the read-only role.
 
 In this case, the proxy needs approximately
@@ -178,7 +178,7 @@ In this case, the proxy needs approximately
 
 To estimate the required IP addresses for a proxy that's associated with an Aurora cluster that has:
 
-- 1 provisioned writer instance with DB instance size of db.r5.4xlarge and 1 Serverless v2 reader instance with maximum capacity of 64 ACUs.
+- 1 provisioned writer instance with DB instance size of db.r5.4xlarge and 1 Aurora serverless reader instance with maximum capacity of 64 ACUs.
 - The proxy that's attached to this cluster has the default endpoint and 1 custom endpoint with the read-only role.
   In this case, the proxy needs approximately 53 free IP addresses (25 for the writer instance, 25 for reader instance, and 3 for the additional custom endpoint).
 

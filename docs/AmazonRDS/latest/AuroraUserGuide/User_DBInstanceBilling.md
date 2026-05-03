@@ -37,13 +37,13 @@ For more information, see [Backing up and restoring an Amazon Aurora DB cluster]
   DB instance pricing. With Reserved Instance usage, you can launch, delete, start, or
   stop multiple instances within an hour and get the Reserved Instance benefit for all
   of the instances.
-- **Aurora Serverless v2** – Aurora Serverless v2 provides
+- **Aurora serverless** – Aurora serverless provides
   on-demand capacity where the billing unit is Aurora capacity unit (ACU) hours instead
-  of DB instance hours. Aurora Serverless v2 capacity increases and decreases, within a
+  of DB instance hours. Aurora serverless capacity increases and decreases, within a
   range that you specify, depending on the load on your database. You can configure a
-  cluster where all the capacity is Aurora Serverless v2. Or you can configure a
-  combination of Aurora Serverless v2 and on-demand or reserved provisioned instances.
-  For information about how Aurora Serverless v2 ACUs work, see [How Aurora Serverless v2 works](aurora-serverless-v2.how-it-works.md "aurora-serverless-v2.how-it-works.md").
+  cluster where all the capacity is Aurora serverless. Or you can configure a
+  combination of Aurora serverless and on-demand or reserved provisioned instances.
+  For information about how Aurora serverless ACUs work, see [How Aurora serverless works](aurora-serverless-v2.how-it-works.md "aurora-serverless-v2.how-it-works.md").
 - **Aurora PostgreSQL Limitless Database** – Aurora PostgreSQL Limitless Database is an automated, horizontal scaling capability that scales beyond the write throughput and
   storage limits of a single DB instance. Limitless Database distributes the workload over multiple Aurora writer instances, while maintaining the ease of
   operating as a single database. Limitless Database provides on-demand capacity where the billing unit is Aurora capacity unit (ACU) hours in a DB

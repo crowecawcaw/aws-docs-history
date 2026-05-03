@@ -3,20 +3,20 @@
 Amazon Aurora
 supports DB instance classes for the following use cases:
 
-- [Aurora Serverless v2](#Concepts.DBInstanceClass.Types.serverless-v2 "#Concepts.DBInstanceClass.Types.serverless-v2")
+- [Aurora serverless](#Concepts.DBInstanceClass.Types.serverless-v2 "#Concepts.DBInstanceClass.Types.serverless-v2")
 - [Memory-optimized](#Concepts.DBInstanceClass.Types.memory "#Concepts.DBInstanceClass.Types.memory")
 - [Burstable-performance](#Concepts.DBInstanceClass.Types.burstable "#Concepts.DBInstanceClass.Types.burstable")
 - [Optimized Reads](#Concepts.DBInstanceClass.Types.optimized-reads "#Concepts.DBInstanceClass.Types.optimized-reads")
   For more information about Amazon EC2 instance types, see [Instance types](../../../AWSEC2/latest/UserGuide/instance-types.md "../../../AWSEC2/latest/UserGuide/instance-types.md") in the Amazon EC2
   documentation.
 
-## Aurora Serverless v2 instance class type
+## Aurora serverless instance class type
 
-The following Aurora Serverless v2 type is available:
+The following Aurora serverless type is available:
 
 - db.serverless – A special DB instance class type
-  used by Aurora Serverless v2. Aurora adjusts the compute, memory, and network resources
-  dynamically as the workload changes. For usage details, see [Using Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md").
+  used by Aurora serverless. Aurora adjusts the compute, memory, and network resources
+  dynamically as the workload changes. For usage details, see [Using Aurora serverless](aurora-serverless-v2.md "aurora-serverless-v2.md").
 
 ## Memory-optimized instance class types
 

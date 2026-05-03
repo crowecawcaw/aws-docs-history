@@ -34,11 +34,11 @@ billed storage space depends on the version of your Aurora cluster.
   are the Aurora versions where the cluster volume dynamically resizes as you
   remove data:
 
-| Database engine      | Versions with dynamic resizing                                                                                                    |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Aurora MySQL         | + Version 3 (compatible with MySQL 8.0): all<br>supported versions<br>+ Version 2 (compatible with MySQL 5.7): 2.11 and<br>higher |
-| Aurora PostgreSQL    | All supported versions                                                                                                            |
-| Aurora Serverless v2 | All supported versions                                                                                                            |
+| Database engine   | Versions with dynamic resizing                                                                                                    |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Aurora MySQL      | + Version 3 (compatible with MySQL 8.0): all<br>supported versions<br>+ Version 2 (compatible with MySQL 5.7): 2.11 and<br>higher |
+| Aurora PostgreSQL | All supported versions                                                                                                            |
+| Aurora serverless | All supported versions                                                                                                            |
 
 - In Aurora versions lower than those in the preceding list, the cluster volume
   can reuse space that's freed up when you remove data, but the volume itself
@@ -349,7 +349,7 @@ If your applications frequently open and close connections, or keep a large numb
 of long-lived connections open, we recommend that you use Amazon RDS Proxy. RDS Proxy is a
 fully managed, highly available database proxy that uses connection pooling to share
 database connections securely and efficiently. To learn more about RDS Proxy, see
-[Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md").
+[Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
 
 ## Managing query execution plans
 

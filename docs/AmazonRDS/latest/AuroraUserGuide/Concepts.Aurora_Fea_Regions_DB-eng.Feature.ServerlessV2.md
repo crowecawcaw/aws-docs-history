@@ -1,20 +1,20 @@
-# Supported Regions and Aurora DB engines for Aurora Serverless v2
+# Supported Regions and Aurora DB engines for Aurora serverless
 
-Aurora Serverless v2 is an on-demand, auto-scaling feature designed to be a
+Aurora serverless is an on-demand, auto-scaling feature designed to be a
 cost-effective approach to running intermittent or unpredictable workloads on Amazon Aurora.
-It automatically scales capacity up or down as needed by your applications. With Aurora Serverless v2, each
+It automatically scales capacity up or down as needed by your applications. With Aurora serverless, each
 cluster can contain a writer DB instance and multiple reader DB instances. You can
-combine Aurora Serverless v2 and traditional provisioned DB instances within the same
-cluster. For more information, see [Using Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md").
+combine Aurora serverless and traditional provisioned DB instances within the same
+cluster. For more information, see [Using Aurora serverless](aurora-serverless-v2.md "aurora-serverless-v2.md").
 
 ###### Topics
 
-- [Aurora Serverless v2 with Aurora MySQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.amy "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.amy")
-- [Aurora Serverless v2 with Aurora PostgreSQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.apg "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.apg")
+- [Aurora serverless with Aurora MySQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.amy "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.amy")
+- [Aurora serverless with Aurora PostgreSQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.apg "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.apg")
 
-## Aurora Serverless v2 with Aurora MySQL
+## Aurora serverless with Aurora MySQL
 
-The following Regions and engine versions are available for Aurora Serverless v2
+The following Regions and engine versions are available for Aurora serverless
 with Aurora MySQL.
 
 | Region                     | Aurora MySQL version 3                              |
@@ -58,12 +58,12 @@ with Aurora MySQL.
 | AWS GovCloud (US-East)     | Version 3.02.2 and higher                           |
 | AWS GovCloud (US-West)     | Version 3.02.2 and higher                           |
 
-The upper and lower ACU limits for Aurora Serverless v2 capacity might vary
-depending on your engine version. For details, see [Aurora Serverless v2 capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity").
+The upper and lower ACU limits for Aurora serverless capacity might vary
+depending on your engine version. For details, see [Aurora serverless capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity").
 
-## Aurora Serverless v2 with Aurora PostgreSQL
+## Aurora serverless with Aurora PostgreSQL
 
-The following Regions and engine versions are available for Aurora Serverless v2
+The following Regions and engine versions are available for Aurora serverless
 with Aurora PostgreSQL.
 
 | Region                     | Aurora PostgreSQL 17    | Aurora PostgreSQL 16    | Aurora PostgreSQL 15     | Aurora PostgreSQL 14          | Aurora PostgreSQL 13           |
@@ -107,5 +107,5 @@ with Aurora PostgreSQL.
 | AWS GovCloud (US-East)     | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher  | Version 14.3 and higher       | Version 13.6 and higher        |
 | AWS GovCloud (US-West)     | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher  | Version 14.3 and higher       | Version 13.6 and higher        |
 
-The upper and lower ACU limits for Aurora Serverless v2 capacity might vary
-depending on your engine version. For details, see [Aurora Serverless v2 capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity").
+The upper and lower ACU limits for Aurora serverless capacity might vary
+depending on your engine version. For details, see [Aurora serverless capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity").

@@ -85,10 +85,10 @@ After you create a custom DB cluster parameter
 group, choose or create an
 Aurora DB cluster. This cluster will be the source of
 data replication to the target data warehouse. You can
-specify a DB cluster that uses provisioned DB instances or Aurora Serverless v2 DB instances as the
+specify a DB cluster that uses provisioned DB instances or Aurora serverless DB instances as the
 source. For instructions to create a DB cluster, see
 [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md") or
-[Creating a DB cluster that uses Aurora Serverless v2](aurora-serverless-v2.create.md "aurora-serverless-v2.create.md").
+[Creating a DB cluster that uses Aurora serverless](aurora-serverless-v2.create.md "aurora-serverless-v2.create.md").
 
 The database must be running a supported DB engine version. For a list of supported
 versions, see [Supported Regions and Aurora DB engines for zero-ETL integrations](Concepts.Aurora_Fea_Regions_DB-eng.Feature.Zero-ETL.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.Zero-ETL.md").

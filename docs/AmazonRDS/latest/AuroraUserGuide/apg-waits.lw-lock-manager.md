@@ -167,7 +167,7 @@ Instance Types](https://aws.amazon.com/rds/instance-types/ "https://aws.amazon.c
 
 For more information about connection pooling, see the following resources:
 
-- [Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md")
+- [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md")
 - [pgbouncer](http://www.pgbouncer.org/usage.html "http://www.pgbouncer.org/usage.html")
 - [Connection Pools and Data
   Sources](https://www.postgresql.org/docs/7.4/jdbc-datasource.html "https://www.postgresql.org/docs/7.4/jdbc-datasource.html") in the _PostgreSQL Documentation_

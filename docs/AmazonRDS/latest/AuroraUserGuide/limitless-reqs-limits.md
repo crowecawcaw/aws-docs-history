@@ -17,7 +17,7 @@ Make sure to follow these requirements for Aurora PostgreSQL Limitless Database.
 ###### Note
 
 If you create your Aurora PostgreSQL Limitless Database DB cluster in US East (N. Virginia), don't include the `us-east-1e` Availability Zone
-(AZ) in your DB subnet group. Because of resource limitations, Aurora Serverless v2 (and therefore
+(AZ) in your DB subnet group. Because of resource limitations, Aurora serverless (and therefore
 Aurora PostgreSQL Limitless Database) isn't supported in the `us-east-1e` AZ.
 
 - Aurora PostgreSQL Limitless Database supports only the Aurora I/O-Optimized DB cluster storage configuration. For more information, see [Storage configurations for Amazon Aurora DB clusters](Aurora.Overview.StorageReliability.md#aurora-storage-type "Aurora.Overview.StorageReliability.md#aurora-storage-type").

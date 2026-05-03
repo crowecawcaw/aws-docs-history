@@ -421,7 +421,7 @@ If your application doesn't use a connection pool feature, considering using Ama
 an alternative. This approach lets your application open multiple connections with the load balancer.
 The balancer can then open a restricted number of connections with the database. As fewer connections
 are running in parallel, your DB instance performs less context switching in the kernel. Queries
-should progress faster, leading to fewer wait events. For more information, see [Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md").
+should progress faster, leading to fewer wait events. For more information, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
 
 - Whenever possible, take advantage of reader nodes for Aurora PostgreSQL and read replicas for
   RDS for PostgreSQL. When your application runs a read-only operation, send these requests to the

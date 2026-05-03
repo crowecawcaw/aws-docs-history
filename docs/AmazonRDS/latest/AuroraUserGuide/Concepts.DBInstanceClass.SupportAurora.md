@@ -2,11 +2,11 @@
 
 The following tables show the supported DB instance classes for the Amazon Aurora DB engines.
 
-**db.serverless – Aurora Serverless v2 instance class with automatic capacity scaling**
+**db.serverless – Aurora serverless instance class with automatic capacity scaling**
 
-| Instance class | Aurora MySQL                                                                                                                                                                                     | Aurora PostgreSQL                                                                                                                                                                                |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| db.serverless  | See [Supported Regions and Aurora DB engines for Aurora Serverless v2](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md"). | See [Supported Regions and Aurora DB engines for Aurora Serverless v2](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md"). |
+| Instance class | Aurora MySQL                                                                                                                                                                                  | Aurora PostgreSQL                                                                                                                                                                             |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| db.serverless  | See [Supported Regions and Aurora DB engines for Aurora serverless](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md"). | See [Supported Regions and Aurora DB engines for Aurora serverless](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md"). |
 
 **db.x2g – memory-optimized instance classes powered by AWS Graviton2 processors**
 

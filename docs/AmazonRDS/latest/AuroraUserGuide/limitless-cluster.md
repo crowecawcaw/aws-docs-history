@@ -3,7 +3,7 @@
 You create a new Aurora DB cluster using the Limitless Database version of Aurora PostgreSQL, and add a DB shard group to the cluster. When adding a DB shard
 group, you specify the maximum compute capacity for the entire DB shard group (sum of the capacities for all routers and shards) in Aurora capacity units
 (ACUs). Each ACU is a combination of approximately 2 gibibytes (GiB) of memory, corresponding CPU, and networking. Scaling increases or decreases
-capacity for your DB shard group, depending on your application workload, similar to how [Aurora Serverless v2](aurora-serverless-v2.how-it-works.md "aurora-serverless-v2.how-it-works.md") works.
+capacity for your DB shard group, depending on your application workload, similar to how [Aurora serverless](aurora-serverless-v2.how-it-works.md "aurora-serverless-v2.how-it-works.md") works.
 
 ###### Topics
 

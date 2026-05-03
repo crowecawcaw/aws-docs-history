@@ -1,6 +1,6 @@
 # Creating a Babelfish for Aurora PostgreSQL DB cluster
 
-Babelfish for Aurora PostgreSQL is supported on Aurora PostgreSQL version 13.4 and higher.
+Babelfish for Aurora PostgreSQL is supported on all supported Aurora PostgreSQL versions, 13 and higher.
 
 You can use the AWS Management Console or the AWS CLI to create an Aurora PostgreSQL cluster with
 Babelfish.
@@ -30,7 +30,7 @@ the following:
 4. For **Available versions**, choose an Aurora PostgreSQL
    version. To get the latest Babelfish features, choose the highest
    Aurora PostgreSQL major version. Babelfish is supported on
-   Aurora PostgreSQL 13.4 and higher versions.
+   all supported Aurora PostgreSQL versions, 13 and higher.
 
 ![Choose an Aurora PostgreSQL version.](images/bbf_create_cluster_3.png) 5. For **Templates**, choose the template that matches
 your use case. 6. For **DB cluster identifier**, enter a name that you
@@ -100,20 +100,18 @@ migration mode.
 locale. The default is `en-US`. For detailed information
 about collations, see [Understanding Collations in Babelfish for Aurora PostgreSQL](babelfish-collations.md "babelfish-collations.md"). 14. For **Collation name** field, enter your default
 collation. The default is `sql_latin1_general_cp1_ci_as`. For
-detailed information, see [Understanding Collations in Babelfish for Aurora PostgreSQL](babelfish-collations.md "babelfish-collations.md"). 15. For **Babelfish TDS port**, enter the default
-port `1433`. Currently, Babelfish only supports port
-`1433` for your DB cluster. 16. For **DB parameter group**, choose a parameter group
-or have Aurora create a new group for you with default settings. 17. For **Failover priority**, choose a failover priority
+detailed information, see [Understanding Collations in Babelfish for Aurora PostgreSQL](babelfish-collations.md "babelfish-collations.md"). 15. For **DB parameter group**, choose a parameter group
+or have Aurora create a new group for you with default settings. 16. For **Failover priority**, choose a failover priority
 for the instance. If you don't choose a value, the default is
 `tier-1`. This priority determines the order in which
 replicas are promoted when recovering from a primary instance failure.
-For more information, see [Fault tolerance for an Aurora DB cluster](Concepts.AuroraHighAvailability.md#Aurora.Managing.FaultTolerance "Concepts.AuroraHighAvailability.md#Aurora.Managing.FaultTolerance"). 18. For **Backup retention period**, choose the length of
+For more information, see [Fault tolerance for an Aurora DB cluster](Concepts.AuroraHighAvailability.md#Aurora.Managing.FaultTolerance "Concepts.AuroraHighAvailability.md#Aurora.Managing.FaultTolerance"). 17. For **Backup retention period**, choose the length of
 time (1–35 days) that Aurora retains backup copies of the
 database. You can use backup copies for point-in-time restores (PITR) of
 your database down to the second. The default retention period is seven
 days.
 
-![Choose an Aurora PostgreSQL version.](images/bbf_create_cluster_7.png) 19. Choose **Copy tags to snapshots** to copy any DB
+![Choose an Aurora PostgreSQL version.](images/bbf_create_cluster_7.png) 18. Choose **Copy tags to snapshots** to copy any DB
 instance tags to a DB snapshot when you create a snapshot.
 
 ###### Note
@@ -122,28 +120,28 @@ When restoring a DB cluster from a snapshot, it does not restore as a
 Babelfish for Aurora PostgreSQL DB cluster. You need to turn on the parameters that
 control Babelfish preferences in the DB cluster parameter group to
 enable Babelfish again. For more information on the
-Babelfish parameters, see [DB cluster parameter group settings for Babelfish](babelfish-configuration.md "babelfish-configuration.md"). 20. Choose **Enable encryption** to turn on encryption at
-rest (Aurora storage encryption) for this DB cluster. 21. Choose **Enable Performance Insights** to turn on
-Amazon RDS Performance Insights. 22. Choose **Enable Enhanced monitoring** to start
+Babelfish parameters, see [DB cluster parameter group settings for Babelfish](babelfish-configuration.md "babelfish-configuration.md"). 19. Choose **Enable encryption** to turn on encryption at
+rest (Aurora storage encryption) for this DB cluster. 20. Choose **Enable Performance Insights** to turn on
+Amazon RDS Performance Insights. 21. Choose **Enable Enhanced monitoring** to start
 gathering metrics in real time for the operating system that your DB
-cluster runs on. 23. Choose **PostgreSQL log** to publish the log files to
-Amazon CloudWatch Logs. 24. Choose **Enable auto minor version upgrade** to
+cluster runs on. 22. Choose **PostgreSQL log** to publish the log files to
+Amazon CloudWatch Logs. 23. Choose **Enable auto minor version upgrade** to
 automatically update your Aurora DB cluster when a minor version upgrade
-is available. 25. For **Maintenance window**, do the following:
+is available. 24. For **Maintenance window**, do the following:
 
     * To choose a time for Amazon RDS to make modifications or perform
      maintenance, choose **Select window**.
     * To perform Amazon RDS maintenance at an unscheduled time, choose
      **No preference**.
 
-26. Select the **Enable deletion protection** box to
+25. Select the **Enable deletion protection** box to
     protect your database from being deleted by accident.
 
 If you turn on this feature, you can't directly delete the
 database. Instead, you need to modify the database cluster and turn off
 this feature before deleting the database.
 
-![Choose from additional Aurora PostgreSQL administrative features.](images/bbf_create_cluster_9.png) 27. Choose **Create database**.
+![Choose from additional Aurora PostgreSQL administrative features.](images/bbf_create_cluster_9.png) 26. Choose **Create database**.
 You can find your new database set up for Babelfish in the
 **Databases** listing. The **Status**
 column displays **Available** when the deployment is

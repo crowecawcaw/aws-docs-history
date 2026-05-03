@@ -12,7 +12,7 @@ You can set up the connection between your Lambda function and your DB cluster t
 and resiliency. Often, Lambda functions make frequent, short database connections that benefit from connection
 pooling that RDS Proxy offers. You can take advantage of any AWS Identity and Access Management (IAM) authentication that you already have
 for Lambda functions, instead of managing database credentials in your Lambda application code. For more
-information, see [Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md").
+information, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
 
 When you use the console to connect with an existing proxy, Amazon RDS updates the proxy security group to allow
 connections from your DB cluster and

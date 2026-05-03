@@ -321,7 +321,7 @@ GRANT USAGE ON *.* TO 'encrypted_user'@'%' REQUIRE SSL;
 When you use an RDS Proxy, you connect to the proxy endpoint instead of the usual
 cluster endpoint. You can make SSL/TLS required or optional for connections to the
 proxy, in the same way as for connections directly to the Aurora DB cluster. For
-information about using RDS Proxy, see [Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md").
+information about using RDS Proxy, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
 
 ###### Note
 

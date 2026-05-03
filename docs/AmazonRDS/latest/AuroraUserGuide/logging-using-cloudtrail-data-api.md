@@ -62,7 +62,7 @@ DB cluster at a given time can help to detect anomalous access patterns.
 
 ### Including Data API events in an AWS CloudTrail trail
 
-For Aurora PostgreSQL Serverless v2 and provisioned databases, the following Data API
+For Aurora PostgreSQL Aurora serverless and provisioned databases, the following Data API
 operations are logged to AWS CloudTrail as _data events_. [Data
 events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") are high-volume data-plane API operations that CloudTrail doesn't log by default.
 Additional charges apply for data events. For information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
@@ -114,10 +114,10 @@ source and includes information about the requested action, the date and time of
 request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public
 API calls, so they don't appear in any specific order.
 
-**Aurora PostgreSQL Serverless v2 and provisioned**
+**Aurora PostgreSQL Aurora serverless and provisioned**
 
 The following example shows a CloudTrail log entry that demonstrates the
-`ExecuteStatement` operation for Aurora PostgreSQL Serverless v2 and provisioned databases. For these databases,
+`ExecuteStatement` operation for Aurora PostgreSQL Aurora serverless and provisioned databases. For these databases,
 all Data API events are data events where the event source is **rdsdataapi.amazonaws.com** and the event type is
 **Rds Data Service**.
 

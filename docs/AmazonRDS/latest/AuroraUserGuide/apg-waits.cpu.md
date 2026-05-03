@@ -167,7 +167,7 @@ might still try to reduce CPU utilization.
 In this case, consider the following options:
 
     + Decrease the number of backend processes connected to your database. For example,
-     implement a connection pooling solution such as RDS Proxy. To learn more, see [Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md").
+     implement a connection pooling solution such as RDS Proxy. To learn more, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
     + Upgrade your instance size to get a higher number of
      vCPUs.
     + Redirect some read-only workloads to reader nodes, if applicable.

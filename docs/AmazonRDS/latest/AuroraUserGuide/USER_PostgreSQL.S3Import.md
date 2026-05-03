@@ -24,7 +24,7 @@ You can use the customer managed key for encryption while importing data from S3
 
 ###### Note
 
-Importing data from Amazon S3 isn't supported for Aurora Serverless v1. It is supported for Aurora Serverless v2.
+Importing data from Amazon S3 isn't supported for Aurora Serverless v1. It is supported for Aurora serverless.
 
 ###### Topics
 

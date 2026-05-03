@@ -6,7 +6,7 @@ enable Data API when you create or modify the DB cluster.
 ###### Note
 
 Whether Data API is available for your cluster depends on your Aurora version, database engine, and AWS Region.
-For Aurora, Data API works with clusters that use both provisioned and Aurora Serverless v2 instances.
+For Aurora, Data API works with clusters that use both provisioned and Aurora serverless instances.
 To check whether your cluster can use Data API, see
 [Supported Regions and Aurora DB engines for RDS Data API](Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.md").
 
@@ -30,7 +30,7 @@ database** page, as in the following screenshot.
 For instructions on how to create an Aurora DB cluster that can use the RDS Data API, see the
 following:
 
-- For Aurora Serverless v2 and provisioned clusters – [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md")
+- For Aurora serverless and provisioned clusters – [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md")
   To enable Data API while you're creating an Aurora DB cluster, run the
   [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md") AWS CLI command with the
   `--enable-http-endpoint` option.
@@ -67,11 +67,11 @@ disable this feature.
 
 ###### Topics
 
-- [Enabling or disabling Data API (Aurora Serverless v2 and provisioned)](#data-api.enabling.modifying.all "#data-api.enabling.modifying.all")
+- [Enabling or disabling Data API (Aurora serverless and provisioned)](#data-api.enabling.modifying.all "#data-api.enabling.modifying.all")
 
-### Enabling or disabling Data API (Aurora Serverless v2 and provisioned)
+### Enabling or disabling Data API (Aurora serverless and provisioned)
 
-Use the following procedures to enable or disable Data API on Aurora Serverless v2 and provisioned databases.
+Use the following procedures to enable or disable Data API on Aurora serverless and provisioned databases.
 
 You can enable or disable Data API by using the RDS console for a
 DB cluster that supports this feature. To do so, open the cluster

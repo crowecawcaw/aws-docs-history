@@ -98,27 +98,27 @@ Learn how to enable Quick access to an Amazon RDS DB instance in a VPC.
 The following tutorials and sample code in GitHub show you how to perform common tasks with
 Amazon Aurora:
 
-- [Creating an Aurora Serverless v2 lending library](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/aurora_rest_lending_library "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/aurora_rest_lending_library")
+- [Creating an Aurora serverless lending library](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/aurora_rest_lending_library "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/aurora_rest_lending_library")
 
 Learn how to create a lending library application where patrons can borrow and return books. The example uses
-Aurora Serverless v2 and AWS SDK for Python (Boto3).
+Aurora serverless and AWS SDK for Python (Boto3).
 
-- [Creating an Amazon Aurora item tracker application with a Spring REST API that queries Aurora Serverless v2 data using
+- [Creating an Amazon Aurora item tracker application with a Spring REST API that queries Aurora serverless data using
   SDK for Java 2.x](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/Creating_Spring_RDS_Rest "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/Creating_Spring_RDS_Rest")
 
-Learn how to create a Spring REST API that queries Aurora Serverless v2 data. It's for use by a React application using
+Learn how to create a Spring REST API that queries Aurora serverless data. It's for use by a React application using
 SDK for Java 2.x.
 
 - [Creating
-  an Amazon Aurora item tracker application that queries Aurora Serverless v2 data using AWS SDK for PHP](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/cross_service/aurora_item_tracker "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/cross_service/aurora_item_tracker")
+  an Amazon Aurora item tracker application that queries Aurora serverless data using AWS SDK for PHP](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/cross_service/aurora_item_tracker "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/cross_service/aurora_item_tracker")
 
-Learn how to create an application that uses the `RdsDataClient` of the Data API and Aurora Serverless v2 to
+Learn how to create an application that uses the `RdsDataClient` of the Data API and Aurora serverless to
 track and report on work items. The example uses AWS SDK for PHP.
 
-- [Creating an Amazon Aurora item tracker application that queries Aurora Serverless v2 data using
+- [Creating an Amazon Aurora item tracker application that queries Aurora serverless data using
   AWS SDK for Python (Boto3)](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/aurora_item_tracker "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/aurora_item_tracker")
 
-Learn how to create an application that uses the `RdsDataClient` of the Data API and Aurora Serverless v2 to
+Learn how to create an application that uses the `RdsDataClient` of the Data API and Aurora serverless to
 track and report on work items. The example uses AWS SDK for Python (Boto3).
 
 ## AWS Database Cookbook
@@ -188,9 +188,9 @@ Learn about Aurora Global Database.
 
 Learn about Aurora Machine Learning.
 
-- [Aurora Serverless v2](https://catalog.workshops.aws/apgimmday/en-US/performance-and-scalability/aurora-serverless-v2 "https://catalog.workshops.aws/apgimmday/en-US/performance-and-scalability/aurora-serverless-v2")
+- [Aurora serverless](https://catalog.workshops.aws/apgimmday/en-US/performance-and-scalability/aurora-serverless-v2 "https://catalog.workshops.aws/apgimmday/en-US/performance-and-scalability/aurora-serverless-v2")
 
-Learn about Aurora Serverless v2.
+Learn about Aurora serverless.
 
 - [Trusted Language Extensions for Aurora PostgreSQL](https://catalog.workshops.aws/apgimmday/en-US/developer-productivity/trustedlanguageextension "https://catalog.workshops.aws/apgimmday/en-US/developer-productivity/trustedlanguageextension")
 
@@ -241,9 +241,9 @@ Learn about high availability and fault tolerance features in Aurora MySQL.
 
 Learn about Aurora Global Database.
 
-- [Aurora Serverless v2](https://catalog.workshops.aws/awsauroramysql/en-US/sv2 "https://catalog.workshops.aws/awsauroramysql/en-US/sv2")
+- [Aurora serverless](https://catalog.workshops.aws/awsauroramysql/en-US/sv2 "https://catalog.workshops.aws/awsauroramysql/en-US/sv2")
 
-Learn about Aurora Serverless v2.
+Learn about Aurora serverless.
 
 - [Using Machine Learning](https://catalog.workshops.aws/awsauroramysql/en-US/ml "https://catalog.workshops.aws/awsauroramysql/en-US/ml")
 

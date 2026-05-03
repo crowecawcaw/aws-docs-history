@@ -5,7 +5,7 @@ and export it directly into files stored in an Amazon S3 bucket. To do this, you
 `aws_s3` extension. This extension provides you with
 the functions that you use to export the results of queries to Amazon S3. Following, you can find out how to install the extension and how to export data to Amazon S3.
 
-You can export from a provisioned or an Aurora Serverless v2 DB instance. These steps aren't supported for Aurora Serverless v1.
+You can export from a provisioned or an Aurora serverless DB instance. These steps aren't supported for Aurora Serverless v1.
 
 ###### Note
 
