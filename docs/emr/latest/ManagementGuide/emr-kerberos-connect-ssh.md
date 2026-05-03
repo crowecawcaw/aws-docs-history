@@ -76,4 +76,4 @@ ssh -K `user1`@`MasterPublicDNS`
 Make sure that the GSSAPI authentication option for the session is
 enabled as shown:
 
-![PuTTY Configuration window showing GSSAPI authentication options and library preferences.](images/kerb-gssapi-putty.png)
+![PuTTY Configuration window with GSSAPI section showing Attempt GSSAPI authentication checkbox selected.](images/kerb-gssapi-putty.png)

@@ -113,7 +113,7 @@ Linux line continuation characters (\) are included for readability. They can be
 
 ```
 aws emr create-cluster --name "`MySpotCluster`" \
-  --release-label `emr-7.12.0` \
+  --release-label `emr-7.13.0` \
   --use-default-roles \
   --ec2-attributes KeyName=`myKey` \
   --instance-groups \

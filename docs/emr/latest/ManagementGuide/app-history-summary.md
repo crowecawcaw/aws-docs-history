@@ -47,7 +47,7 @@ show the diagnostic summary for a Spark application or select an
 **Application ID** link to view details about a different
 application.
 
-![Application user interfaces tab showing persistent and on-cluster UIs, with YARN application history.](images/app-history-app.png)
+![YARN applications table with expanded row showing Diagnostics: Succeeded for a Spark application.](images/app-history-app.png)
 
 When you select an **Application ID** link, the UI changes to
 show the **YARN application** details for that application. In the
@@ -55,16 +55,16 @@ show the **YARN application** details for that application. In the
 you can choose the **Description** link for a job to display
 details for that job.
 
-![YARN application details showing job history with completed Spark tasks and their statuses.](images/app-history-job-1.png)
+![Job details page showing description link highlighted for a succeeded Spark job.](images/app-history-job-1.png)
 
 On the job details page, you can expand information about individual job stages,
 and then select the **Description** link to see stage
 details.
 
-![EMR cluster interface showing persistent and on-cluster application UIs, with job details and stages.](images/app-history-job-2.png)
+![Job stage details showing completed status with expandable stage information and descriptions.](images/app-history-job-2.png)
 
 On the stage details page, you can view key metrics for stage tasks and executors.
 You can also view task and executor logs using the **View logs**
 links.
 
-![Application history page showing task metrics, executor details, and log access links for a Spark job.](images/app-history-job-3.png)
+![Stage details page showing executor and task metrics with View logs links highlighted.](images/app-history-job-3.png)

@@ -114,7 +114,7 @@ CLI
 ```
 aws emr create-cluster \
 --name "Outpost cluster" \
---release-label `emr-7.12.0` \
+--release-label `emr-7.13.0` \
 --applications Name=Spark \
 --ec2-attributes KeyName=myKey SubnetId=`subnet-22XXXX01` \
 --instance-type m5.xlarge --instance-count 3 --use-default-roles

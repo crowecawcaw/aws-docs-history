@@ -32,7 +32,7 @@ aws emr create-security-configuration --name `MyKerberosConfig` \
 
 ```
 aws emr create-cluster --name "`MyKerberosCluster`" \
---release-label `emr-7.12.0` \
+--release-label `emr-7.13.0` \
 --instance-type `m5.xlarge` \
 --instance-count `3` \
 --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,KeyName=`MyEC2KeyPair` \

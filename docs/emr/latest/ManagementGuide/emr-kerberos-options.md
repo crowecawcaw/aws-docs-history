@@ -12,7 +12,7 @@ configurations for each architecture, see [Configuring Kerberos on Amazon EMR](e
 
 This configuration is available with Amazon EMR releases 5.10.0 and higher.
 
-![Amazon EMRcluster architecture with master node, core nodes, and task node within a Kerberos realm.](images/kerb-cluster-dedicated-kdc.png)
+![Amazon EMR cluster with master node using KDC for authentication with core and task nodes.](images/kerb-cluster-dedicated-kdc.png)
 
 ###### Advantages
 
@@ -51,7 +51,7 @@ Cross-realm trusts are most common with Active Directory implementations, as
 shown in the following diagram. Cross-realm trusts with an external MIT KDC or a
 KDC on another Amazon EMR cluster are also supported.
 
-![Amazon EMR clusters in different Kerberos realms with cross-realm trust to Active Directory.](images/kerb-cross-realm-trust.png)
+![Two EMR clusters with cross-realm trust to Active Directory Domain Controller via Kerberos.](images/kerb-cross-realm-trust.png)
 
 ###### Advantages
 
@@ -95,7 +95,7 @@ later.
 This configuration allows one or more EMR clusters to use principals
 defined and maintained in an MIT KDC server.
 
-![Amazon EMRcluster architecture with Kerberos realm, showing master, core, and task nodes.](images/kerb-external-kdc.png)
+![KDC with Kerberos principals connecting to EMR cluster with master, core, and task nodes.](images/kerb-external-kdc.png)
 
 ###### Advantages
 
@@ -130,7 +130,7 @@ This configuration is nearly identical to the external MIT KDC
 implementation above, except that the KDC is on the primary node of an EMR
 cluster. For more information, see [Cluster-dedicated KDC (KDC on primary node)](#emr-kerberos-localkdc-summary "#emr-kerberos-localkdc-summary") and [Tutorial: Configure a cross-realm trust with an Active Directory domain](emr-kerberos-cross-realm.md "emr-kerberos-cross-realm.md").
 
-![Diagram of Amazon EMR clusters with Kerberos realm, showing master and core nodes.](images/kerb-external-cluster-kdc.png)
+![Two EMR clusters in Kerberos realm with cluster B having KDC on master node for cross-realm trust.](images/kerb-external-cluster-kdc.png)
 
 ###### Advantages
 
@@ -167,7 +167,7 @@ For an example, see [External cluster KDC with Active Directory cross-realm trus
 Amazon EMR cluster that uses the external KDC to authenticate principals defined
 and maintained in a Microsoft Active Directory domain.
 
-![Amazon EMR clusters with Kerberos authentication and Active Directory integration diagram.](images/kerb-external-ad-trust-kdc.png)
+![Two EMR clusters with Kerberos authentication connecting to Active Directory domain controller.](images/kerb-external-ad-trust-kdc.png)
 
 ###### Advantages
 
