@@ -21,7 +21,7 @@ Methods](console-authentication.md "console-authentication.md") for more informa
 On the bottom part of the screen, the details for the selected user is displayed.
 This graphic shows which details are displayed.
 
-![User profile details showing name, user ID, role, last active time, and other metadata.](images/user-details.png)
+![User details panel showing Name, User ID, Role, Last time active, Date Created, Date Modified, and Imported fields.](images/user-details.png)
 
 | Property         | Description                                                                       |
 | ---------------- | --------------------------------------------------------------------------------- |
@@ -38,7 +38,7 @@ This graphic shows which details are displayed.
 These are the active sessions that the user has created. Its parameters are
 listed below.
 
-![Sessions interface showing no active sessions available for the user.](images/user-sessions.png)
+![Sessions table showing Name, Level of access, and Status columns with no sessions available.](images/user-sessions.png)
 
 | Property        | Description                                       |
 | --------------- | ------------------------------------------------- |
@@ -51,7 +51,7 @@ listed below.
 These are the session templates that are available for the user. Its
 parameters are listed below.
 
-![Empty session templates table with columns for Name, Description, and OS.](images/user-session-templates.png)
+![Session templates table showing Name, Description , and OS columns with no templates available.](images/user-session-templates.png)
 
 | Property    | Description                                   |
 | ----------- | --------------------------------------------- |

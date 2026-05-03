@@ -24,14 +24,14 @@ Then select the caret (^) icon at the bottom-right corner of the page.
 By default, sessions that have been closed are hidden with a filter. You can remove
 the filter to see previously closed sessions.
 
-![Sessions management interface showing three available virtual desktop sessions with status and owner details.](images/console-dashboard.png)
+![Sessions table filtered to exclude deleted sessions, showing three available sessions.](images/console-dashboard.png)
 
 ## Session details
 
 This includes the session parameters themselves. For more information, see [DescribeSessions](../sm-dev/DescribeSessions.md "../sm-dev/DescribeSessions.md"). The details also include the Amazon DCV server information
 that the session is placed on. For more information, see [DescribeServers](../sm-dev/DescribeServers.md "../sm-dev/DescribeServers.md").
 
-![Session details showing status, specifications, and connection information for a Linux instance.](images/session-details.png)
+![Session details panel showing configuration including CPU, GPU, memory, hostname, and status.](images/session-details.png)
 
 | Property                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

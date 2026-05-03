@@ -8,7 +8,7 @@ existing session template and change its parameters to your specifications.
 3. Select **Duplicate** from the drop-down menu. This will
    take you to the **Configure template details** page.
 
-![Session templates interface showing list of templates with options to manage and create.](images/session-templates-actions-duplicate.png) 4. Change any of the information in the **Configure template
+![Actions dropdown menu expanded showing Assign users and groups, Duplicate, Edit, and Delete options.](images/session-templates-actions-duplicate.png) 4. Change any of the information in the **Configure template
 details** page.
 
 This page chooses the parameters of your session template. These

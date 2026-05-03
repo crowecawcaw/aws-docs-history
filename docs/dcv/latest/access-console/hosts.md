@@ -13,7 +13,7 @@ You can configure the visible fields in the top navigation bar by selecting the 
 icon. To view more details in a split panel view, select a session and then click the
 caret (**^**) icon at the bottom-right corner of the page.
 
-![Host management interface showing Windows and Linux servers with memory usage and availability status.](images/hosts.png)
+![Hosts table showing 12 servers with operating system, hostname, memory, CPU, and availability columns.](images/hosts.png)
 
 ## Host information
 
@@ -22,7 +22,7 @@ Amazon DCV Servers and DescribeServers.
 
 ### Host Details
 
-![Host details showing Windows 10 OS information, memory usage, and swap space allocation.](images/hosts-operating-sys.png)
+![Host Details panel showing Windows 10 system information, memory usage of 1.4 GB, and swap details.](images/hosts-operating-sys.png)
 
 | Property                | Description                                                                                                                                                                                                                                                  |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -41,7 +41,7 @@ Amazon DCV Servers and DescribeServers.
 
 ### AWS information
 
-![AWS EC2 instance details showing region, instance type, ID, and image ID.](images/hosts-aws.png)
+![AWS instance details showing region us-west-2, t2.large instance type, instance ID, and AMI ID.](images/hosts-aws.png)
 
 | Property          | Description                                                                                                                                                                                                             |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -51,7 +51,7 @@ Amazon DCV Servers and DescribeServers.
 
 ### Amazon DCV server
 
-![DCV server details showing name, ID, IP, version, and session information.](images/hosts-dcv-server.png)
+![DCV server details showing name, ID, IP address, version, and session counts.](images/hosts-dcv-server.png)
 
 | Property                      | Description                                                                                                                                                                                                                                                                                         |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -64,7 +64,7 @@ Amazon DCV Servers and DescribeServers.
 
 ### CPU
 
-![CPU info showing GenuineIntel Xeon E5-2686 v4 processor with 2 CPUs, 2 cores each, and 0% load.](images/hosts-cpu.png)
+![CPU information panel showing Intel Xeon E5-2686 v4 processor details and load averages at 0.00%.](images/hosts-cpu.png)
 
 | Property                         | Description                                                                                                                                       |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -79,7 +79,7 @@ Amazon DCV Servers and DescribeServers.
 
 ### GPU
 
-![Table showing GPU information with "No GPUs found" message displayed.](images/hosts-gpu.png)
+![GPU table showing Vendor and Model columns with No GPUs found message displayed.](images/hosts-gpu.png)
 
 | Property | Description                                                                                         |
 | -------- | --------------------------------------------------------------------------------------------------- |
@@ -88,7 +88,7 @@ Amazon DCV Servers and DescribeServers.
 
 ### Server endpoints
 
-![Server endpoints table showing IP, Protocol, Port, and Web URL Path for HTTP and QUIC connections.](images/hosts-server-endpoints.png)
+![Server endpoints table showing IP 0.0.0.0 with HTTP and QUIC protocols on ports 8443 and 9443.](images/hosts-server-endpoints.png)
 
 | Property     | Description                                                                                                                                                                                                                                                                 |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

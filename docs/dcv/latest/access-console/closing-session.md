@@ -14,4 +14,4 @@ Closing a session doesn't shut down the underlying host server.
    window.
 4. Select **Close** from the menu.
 
-![Sessions management interface showing available virtual desktop sessions and action options.](images/close-session.png) 5. Select **Close** from the window that appears.
+![Actions menu expanded with Close option highlighted.](images/close-session.png) 5. Select **Close** from the window that appears.
