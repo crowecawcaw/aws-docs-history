@@ -15,7 +15,7 @@ users), they will see the following unclassified warnings displayed:
 - An unclassified acknowledgment on the message screen
 - An unclassified banner on top of the conversation
 
-![Messaging app interface showing rooms list, chat window, and security notice for Finance Room.](images/gov-cloud-cross-boundary.png)
+![Three mobile screens showing a chat room interface with message threads and security warnings.](images/gov-cloud-cross-boundary.png)
 
 ###### Note
 
