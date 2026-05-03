@@ -545,6 +545,10 @@ field, except in the following cases:
     	 error type doesn't fit any of the other categories. This
     	 error type can occur when the server serves an error response
     	 from the cache.
+    	+ `InternalError` – An internal CloudFront
+    	 error occurred. This typically indicates that the error
+    	 originated within CloudFront infrastructure, not from the
+    	 origin or the viewer.
     	+ `InvalidRequest` – The server received an
     	 invalid request from the viewer.
     	+ `InvalidRequestBlocked` – Access to the
@@ -558,6 +562,8 @@ field, except in the following cases:
     	 not configured to handle the HTTP request method that was used.
     	 This can happen when the distribution supports only cacheable
     	 requests.
+    	+ `LambdaLimitExceeded` – The request
+    	 exceeded a Lambda@Edge function limit.
     	+ `OriginCommError` – The request timed out
     	 while connecting to the origin, or reading data from the
     	 origin.

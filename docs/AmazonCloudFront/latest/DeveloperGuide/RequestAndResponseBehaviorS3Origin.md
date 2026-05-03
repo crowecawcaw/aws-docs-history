@@ -290,11 +290,6 @@ the load on your origin and introduce additional latency for the simultaneous
 requests that are paused while CloudFront waits for the response to the first
 request.
 
-###### Important
-
-Currently, CloudFront doesn't support request collapsing if you enable cookie forwarding in the [cache policy](controlling-the-cache-key.md "controlling-the-cache-key.md"), the [origin request
-policy](controlling-origin-requests.md "controlling-origin-requests.md"), or the legacy cache settings.
-
 ## How CloudFront processes responses from your Amazon S3 origin
 
 Learn about how CloudFront processes responses from your Amazon S3 origin.

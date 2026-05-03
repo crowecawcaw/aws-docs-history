@@ -1,13 +1,12 @@
-# What you need to know when invalidating files
+# What you need to know when invalidating paths
 
 When you specify a file to invalidate, refer to the following information:
 
 **Case
 sensitivity**
 
-Invalidation paths are case sensitive. For example,
-`/images/image.jpg` and `/images/Image.jpg`
-specify two different files.
+Invalidation paths are case sensitive. For example, `/images/image.jpg` and `/images/Image.jpg` specify two
+different files.
 
 **Changing the URI by using a Lambda function**
 
@@ -36,7 +35,8 @@ paths:
 - `/index.html`
 - `/en/index.html`
 
-For more information, see [Invalidation paths](#invalidation-specifying-objects-paths "#invalidation-specifying-objects-paths").
+For
+more information, see [Invalidation paths](#invalidation-specifying-objects-paths "#invalidation-specifying-objects-paths").
 
 **Default root object**
 
@@ -61,8 +61,7 @@ contain several versions of the file. When you invalidate a file, CloudFront
 invalidates every cached version of the file regardless of the header
 values. You can’t selectively invalidate some versions and not others
 based on header values. (If you configure CloudFront to forward all headers to
-your origin, CloudFront doesn't cache your files.) For more information, see
-[Cache content based on request headers](header-caching.md "header-caching.md").
+your origin, CloudFront doesn't cache your files.) For more information, see [Cache content based on request headers](header-caching.md "header-caching.md").
 
 **Forwarding query strings**
 
@@ -91,7 +90,7 @@ logging. For more information, see [Access logs (standard logs)](AccessLogs.md "
 **Maximum allowed**
 
 For more information about the maximum number of invalidations
-allowed, see [Concurrent invalidation request maximum](InvalidationLimits.md "InvalidationLimits.md").
+allowed, see [Quotas on invalidations](cloudfront-limits.md#limits-invalidations "cloudfront-limits.md#limits-invalidations").
 
 **Microsoft Smooth Streaming files**
 
@@ -127,17 +126,18 @@ console](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.
 like this: `images/image2.jpg`. When you use the CloudFront API
 directly, invalidation paths must begin with a leading slash.
 
-You can also invalidate multiple files simultaneously by using the
-`*` wildcard. The `*`, which replaces 0 or
-more characters, must be the last character in the invalidation path.
+You can also invalidate multiple files simultaneously by using the `*` wildcard. The `*`, which replaces 0 or more
+characters, must be the last character in the invalidation path.
 
 ###### Important
 
-To use wildcards (\*) in the invalidation, you must put the wildcard at the end of the path. Asterisks (\*) inserted anywhere else are treated as a literal character match instead of a wildcard invalidation.
+To use wildcards (\*) in the invalidation, you must put the
+wildcard at the end of the path. Asterisks (\*) inserted anywhere
+else are treated as a literal character match instead of a wildcard
+invalidation.
 
 If you use the AWS Command Line Interface (AWS CLI) to invalidate files and you specify a
-path that includes the `*` wildcard, you must use quotes
-(`"`) around the path like `"/*"`.
+path that includes the `*` wildcard, you must use quotes (`"`) around the path like `"/*"`.
 
 The maximum length of a path is 4,000 characters.
 
@@ -145,31 +145,49 @@ The maximum length of a path is 4,000 characters.
 
 - To invalidate all files in a directory:
 
-`/``directory-path``/*`
+`/`
+`directory-path`
+`/*`
 
 - To invalidate a directory, all of its subdirectories, and
   all files in the directory and subdirectories:
 
-`/``directory-path``*`
+`/`
+`directory-path`
+`*`
 
 - To invalidate all files that have the same name but
   different file name extensions, such as logo.jpg, logo.png,
   and logo.gif:
 
-`/``directory-path``/``file-name``.*`
+`/`
+`directory-path`
+`/`
+`file-name`
+`.*`
 
 - To invalidate all of the files in a directory for which
   the file name starts with the same characters (such as all
   of the files for a video in HLS format), regardless of the
   file name extension:
 
-`/``directory-path``/``initial-characters-in-file-name``*`
+`/`
+`directory-path`
+`/`
+`initial-characters-in-file-name`
+`*`
 
 - When you configure CloudFront to cache based on query string
   parameters and you want to invalidate every version of a
   file:
 
-`/``directory-path``/``file-name``.``file-name-extension``*`
+`/`
+`directory-path`
+`/`
+`file-name`
+`.`
+`file-name-extension`
+`*`
 
 - To invalidate all files in a distribution:
 
@@ -181,8 +199,7 @@ to change the URI, see [Changing the URI Using a Lambda Function](#invalidation-
 If the invalidation path is a directory and if you have not
 standardized on a method for specifying directories—with or
 without a trailing slash (/)—we recommend that you invalidate the
-directory both with and without a trailing slash, for example,
-`/images` and `/images/`.
+directory both with and without a trailing slash, for example, `/images` and `/images/`.
 
 **Signed
 URLs**

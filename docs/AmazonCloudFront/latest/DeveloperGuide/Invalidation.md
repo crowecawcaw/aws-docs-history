@@ -11,10 +11,11 @@ of the following:
 ###### Topics
 
 - [Choose between invalidating files and using versioned file names](#Invalidation_Expiration "#Invalidation_Expiration")
-- [Determine which files to invalidate](invalidation-access-logs.md "invalidation-access-logs.md")
-- [What you need to know when invalidating files](invalidation-specifying-objects.md "invalidation-specifying-objects.md")
+- [Determine which paths to invalidate](invalidation-access-logs.md "invalidation-access-logs.md")
+- [What you need to know when invalidating paths](invalidation-specifying-objects.md "invalidation-specifying-objects.md")
+- [Invalidating content by cache tags](invalidation-by-tags.md "invalidation-by-tags.md")
+- [What you need to know when invalidating tags](invalidation-specifying-tags.md "invalidation-specifying-tags.md")
 - [Invalidate files](Invalidation_Requests.md "Invalidation_Requests.md")
-- [Concurrent invalidation request maximum](InvalidationLimits.md "InvalidationLimits.md")
 - [Pay for file invalidation](PayingForInvalidation.md "PayingForInvalidation.md")
 
 ## Choose between invalidating files and using versioned file names

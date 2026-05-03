@@ -35,7 +35,7 @@ endpoint.
   `arn:aws:cloudfront::123456789012:connection-group/cg_2uVbA9KeWaADTbKzhj9lcKDoM25`
 - The endpoint looks like the following example: d111111abcdef8.cloudfront.net
 
-You can edit or delete your custom connection group after you create it. Before you can delete a connection group, you must first delete all associated distribution tenants from it. You can't delete the default connection group that CloudFront created for you when you created your multi-tenant distribution.
+You can edit or delete your custom connection group after you create it. Before you can delete a connection group, you must first delete all associated distribution tenants from it. You can't disable or delete the default connection group that CloudFront created for you when you created your multi-tenant distribution.
 
 ###### Important
 
