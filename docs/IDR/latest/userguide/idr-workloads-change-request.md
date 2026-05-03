@@ -24,7 +24,7 @@ Failure to add email IDs in the **Additional contacts - optional** section might
 
 After you submit the change request, you can add additional emails from your organization. To add emails, choose **Reply** in **Case details**, as shown in the following example:
 
-![The Details page showing the Reply button highlighted.](images/workload-change-request3.png)
+![The Details page showing the Reply button highlighted.](/images/IDR/latest/userguide/images/workload-change-request3.png)
 
 Then, add the email IDs in the **Additional contacts - optional** section.
 
