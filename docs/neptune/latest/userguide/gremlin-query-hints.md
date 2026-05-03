@@ -3,7 +3,7 @@
 You can use query hints to specify optimization and evaluation strategies for a particular
 Gremlin query in Amazon Neptune.
 
-Query hints are specified by adding a `withSideEffect` step to the query with
+Most query hints are specified by adding a `withSideEffect` step to the query with
 the following syntax.
 
 ```
@@ -19,7 +19,7 @@ g.withSideEffect(`hint`, `value`)
 
 ###### Note
 
-All Gremlin query hints side effects are prefixed with `Neptune#`.
+Query hints that use `withSideEffect` are always prefixed with `Neptune#`.
 
 ```
 g.withSideEffect('Neptune#repeatMode', 'DFS').V("3").repeat(out()).times(10).limit(1).path()
@@ -27,6 +27,12 @@ g.withSideEffect('Neptune#repeatMode', 'DFS').V("3").repeat(out()).times(10).lim
 
 The preceding query instructs the Neptune engine to traverse the graph _Depth First_ (`DFS`) rather than the default Neptune,
 _Breadth First_ (`BFS`).
+
+###### Important
+
+Some query hints use the `with` step instead of
+`withSideEffect`. The two are not interchangeable. Each query hint section
+on this page shows the correct syntax to use.
 
 The following sections provide more information about the available query hints and their
 usage.
@@ -37,4 +43,5 @@ usage.
 - [Gremlin noReordering query hint](gremlin-query-hints-noReordering.md "gremlin-query-hints-noReordering.md")
 - [Gremlin typePromotion query hint](gremlin-query-hints-typePromotion.md "gremlin-query-hints-typePromotion.md")
 - [Gremlin useDFE query hint](gremlin-query-hints-useDFE.md "gremlin-query-hints-useDFE.md")
+- [Gremlin evaluationTimeoutBehavior query hint](gremlin-query-hints-evaluationTimeoutBehavior.md "gremlin-query-hints-evaluationTimeoutBehavior.md")
 - [Gremlin query hints for using the results cache](gremlin-query-hints-results-cache.md "gremlin-query-hints-results-cache.md")

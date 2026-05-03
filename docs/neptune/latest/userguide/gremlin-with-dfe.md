@@ -1,11 +1,18 @@
 # Using Gremlin with the Neptune DFE query engine
 
-If you enable Neptune's [alternative
-query engine](neptune-dfe-engine.md "neptune-dfe-engine.md") known as the DFE (by setting the
-[neptune_dfe_query_engine](parameters.md#parameters-instance-parameters-neptune_dfe_query_engine "parameters.md#parameters-instance-parameters-neptune_dfe_query_engine")
-instance parameter to `enabled`), then Neptune translates read-only Gremlin
-queries/traversals into an intermediate logical representation and runs them on the DFE
-engine whenever possible.
+You can enable Neptune's [alternative
+query engine](neptune-dfe-engine.md "neptune-dfe-engine.md"), known as the DFE, in two ways:
+
+- Set the
+  [neptune_dfe_query_engine](parameters.md#parameters-instance-parameters-neptune_dfe_query_engine "parameters.md#parameters-instance-parameters-neptune_dfe_query_engine")
+  instance parameter to `enabled` for all queries on the instance.
+- Use the
+  [useDFE query hint](gremlin-query-hints-useDFE.md "gremlin-query-hints-useDFE.md")
+  on individual queries (requires `neptune_dfe_query_engine` to be set to
+  its default value of `viaQueryHint`).
+  When DFE is enabled, Neptune translates read-only Gremlin
+  queries and traversals into an intermediate logical representation
+  and runs them on the DFE engine whenever possible.
 
 However, the DFE does not yet support all Gremlin steps. When a step can't
 be run natively on the DFE, Neptune falls back on TinkerPop to run the

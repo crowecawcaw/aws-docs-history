@@ -26,8 +26,9 @@ is not the case on T3 and T4g instance types.
   in highly durable storage. See [Neptune CloudWatch Logs](cloudwatch-logs.md "cloudwatch-logs.md").
 - **AWS CloudTrail** – Neptune supports API logging using CloudTrail.
   For more information, see [Logging Amazon Neptune API Calls with AWS CloudTrail](cloudtrail.md "cloudtrail.md").
-- **Event notification subscriptions** –
-  Subscribe to Neptune events to stay informed about what is happening. For more information, see [Using Neptune Event Notification](events.md "events.md").
+- **Events** –
+  View Neptune events in the console, AWS CLI, or API, and subscribe to event notifications
+  using Amazon SNS. For more information, see [Amazon Neptune events](events.md "events.md").
 - **Tagging** – Use tags to add metadata to your
   Neptune resources and track usage based on tags. For more information, see [Tagging Amazon Neptune resources](tagging.md "tagging.md").
 
@@ -40,5 +41,5 @@ is not the case on T3 and T4g instance types.
 - [Enabling Amazon CloudWatch Logs for a Neptune notebook](notebook-logs.md "notebook-logs.md")
 - [Using Amazon Neptune slow-query logging](slow-query-logs.md "slow-query-logs.md")
 - [Logging Amazon Neptune API Calls with AWS CloudTrail](cloudtrail.md "cloudtrail.md")
-- [Using Neptune Event Notification](events.md "events.md")
+- [Amazon Neptune events](events.md "events.md")
 - [Tagging Amazon Neptune resources](tagging.md "tagging.md")

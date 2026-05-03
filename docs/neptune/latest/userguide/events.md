@@ -1,8 +1,9 @@
-# Using Neptune Event Notification
+# Amazon Neptune events
 
 ###### Topics
 
 - [Amazon Neptune event categories and event messages](event-lists.md "event-lists.md")
+- [Viewing Neptune events](viewing-events.md "viewing-events.md")
 - [Subscribing to Neptune event notification](events-subscribing.md "events-subscribing.md")
 - [Managing Neptune event notification subscriptions](events-manage.md "events-manage.md")
   Amazon Neptune uses Amazon Simple Notification Service (Amazon SNS) to provide notifications when a Neptune event occurs.

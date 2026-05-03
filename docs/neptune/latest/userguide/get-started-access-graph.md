@@ -1,30 +1,46 @@
 # Accessing graph data in Amazon Neptune
 
-You can interact with a Amazon Neptune DB cluster after creating a connection. This involves loading data, executing queries, and performing other operations.
-Most users leverage the `curl` or `awscurl` command-line tools to communicate with the Neptune DB cluster effectively.
-These tools enable you to send requests, load data, and retrieve results from the graph database, facilitating seamless data management and querying capabilities.
+You can interact with a Amazon Neptune DB cluster after establishing network connectivity.
+If you have not set up access to your cluster yet, see
+[Connect to a cluster](get-started-connecting.md "get-started-connecting.md").
+The following sections describe the tools and query languages you can use
+to load data, run queries, and manage your graph.
 
-## Setting up `curl` to communicate with your Neptune endpoint
+## Tools for accessing Neptune
 
-As illustrated in many of the examples in this documentation, the [curl](https://curl.haxx.se/ "https://curl.haxx.se/") command line tool is a handy option for
-communicating with your Neptune endpoint. For information about the tool, see the [curl man page](https://curl.haxx.se/docs/manpage.html "https://curl.haxx.se/docs/manpage.html"), and the book
-_[Everything curl](https://ec.haxx.se/ "https://ec.haxx.se/")_.
+Neptune supports several tools for submitting queries and managing your
+graph data:
 
-To connect using HTTPS (as we recommend and as Neptune requires in most Regions),
-`curl` needs access to appropriate certificates. To learn how to obtain these
-certificates and how to format them properly into a certificate authority (CA) certificate
-store that `curl` can use, see [SSL Certificate Verification](https://curl.haxx.se/docs/sslcerts.html "https://curl.haxx.se/docs/sslcerts.html") in the `curl` documentation.
-
-You can then specify the location of this CA certificate store using the
-`CURL_CA_BUNDLE` environment variable. On Windows, `curl`
-automatically looks for it in a file named `curl-ca-bundle.crt`. It looks first in
-the same directory as `curl.exe` and then elsewhere on the path. For more
-information, see [SSL Certificate
-Verification](https://curl.haxx.se/docs/sslcerts.html "https://curl.haxx.se/docs/sslcerts.html").
-
-As long as `curl` can locate the appropriate certificates,
-it handles HTTPS connections just like HTTP connections, without extra
-parameters. Examples in this documentation are based on that scenario.
+- **AWS CLI**   –  
+  Use the `aws neptunedata` commands to run Gremlin and openCypher queries,
+  check engine status, manage bulk loads, and more. For more information, see
+  [neptunedata](../../../cli/latest/reference/neptunedata.md "../../../cli/latest/reference/neptunedata.md")
+  in the AWS CLI Command Reference.
+- **AWS SDKs**   –  
+  Use the Neptune Data API through the AWS SDKs to run queries programmatically.
+  SDKs are available for
+  [Gremlin](access-graph-gremlin-sdk.md "access-graph-gremlin-sdk.md") and
+  [openCypher](access-graph-opencypher-sdk.md "access-graph-opencypher-sdk.md").
+- **`curl` and `awscurl`**   –  
+  Use `curl` to submit HTTP requests directly to the Neptune endpoints.
+  If IAM authentication is enabled, use
+  [awscurl](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl") or
+  `curl` 7.75.0+ with the `--aws-sigv4` option to sign requests.
+  For more information, see
+  [Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl").
+- **Neptune notebooks**   –  
+  Use Neptune notebooks to run interactive queries in a Jupyter environment with
+  built-in visualizations. For more information, see
+  [Using Neptune with graph notebooks](graph-notebooks.md "graph-notebooks.md").
+- **Drivers**   –  
+  Connect using language-specific drivers for each query language.
+  For Gremlin, use TinkerPop-compliant drivers available from the
+  [Apache
+  TinkerPop project](https://tinkerpop.apache.org/docs/current/reference/#gremlin-drivers-variants "https://tinkerpop.apache.org/docs/current/reference/#gremlin-drivers-variants").
+  For openCypher, use Bolt protocol drivers as described in
+  [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-opencypher-bolt.md").
+  For SPARQL, use compatible tools such as RDF4J for Java as described in
+  [Java](access-graph-sparql-java.md "access-graph-sparql-java.md").
 
 ## Using a query language to access graph data in your Neptune DB cluster
 
@@ -43,17 +59,27 @@ The Neptune implementation of Gremlin has some differences from other implementa
 especially when you are using Gremlin-Groovy (Gremlin queries sent as serialized text). For
 more information, see [Gremlin standards compliance in Amazon Neptune](access-graph-gremlin-differences.md "access-graph-gremlin-differences.md").
 
+To get started, see
+[Using Gremlin](get-started-graph-gremlin.md "get-started-graph-gremlin.md").
+
 - [openCypher](access-graph-opencypher.md "access-graph-opencypher.md") is a declarative
   query language for property graphs that was originally developed by Neo4j, then open-sourced
   in 2015, and contributed to the [openCypher](http://www.opencypher.org/ "http://www.opencypher.org/")
   project under an Apache 2 open-source license. Its syntax is documented in the [Cypher Query
   Language Reference, Version 9](https://s3.amazonaws.com/artifacts.opencypher.org/openCypher9.pdf "https://s3.amazonaws.com/artifacts.opencypher.org/openCypher9.pdf").
+
+To get started, see
+[Using openCypher](get-started-graph-opencypher.md "get-started-graph-opencypher.md").
+
 - [SPARQL](access-graph-sparql.md "access-graph-sparql.md") is a declarative query
   language for [RDF](https://www.w3.org/2001/sw/wiki/RDF "https://www.w3.org/2001/sw/wiki/RDF") data, based
   on the graph pattern matching that is standardized by the World Wide Web Consortium (W3C)
   and described in [SPARQL 1.1
-  Overview](https://www.w3.org/TR/sparql11-overview/ "https://www.w3.org/TR/sparql11-overview/")) and the [SPARQL
+  Overview](https://www.w3.org/TR/sparql11-overview/ "https://www.w3.org/TR/sparql11-overview/") and the [SPARQL
   1.1 Query Language](https://www.w3.org/TR/sparql11-query/ "https://www.w3.org/TR/sparql11-query/") specification.
+
+To get started, see
+[Using SPARQL](get-started-graph-sparql.md "get-started-graph-sparql.md").
 
 ###### Note
 

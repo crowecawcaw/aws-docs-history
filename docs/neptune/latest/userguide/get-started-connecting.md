@@ -1,52 +1,109 @@
 # Connecting to an Amazon Neptune cluster
 
-After creating a Neptune cluster, you can configure the connection methods to access it.
+After creating a Neptune cluster, you must set up network access so that
+your applications can reach the cluster endpoint. The following sections describe
+the network connectivity options. For more information about querying your data after
+you connect, see [Accessing graph data](get-started-access-graph.md "get-started-access-graph.md").
 
-## Setting up `curl` or awscurl to communicate with your Neptune endpoint
-
-Having a command-line tool for submitting queries to your Neptune DB cluster
-is very handy, as illustrated in many of the examples in this documentation. The [curl](https://curl.haxx.se/ "https://curl.haxx.se/") command line tool is an excellent option for
-communicating with Neptune endpoints when IAM authentication is not enabled.
-Versions starting with 7.75.0 support the `--aws-sigv4` option for
-signing requests when IAM authentication is enabled.
-
-For endpoints where IAM authentication _is_ enabled, you can
-also use [awscurl](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl"), which uses almost
-exactly the same syntax as `curl` but supports signing requests as required
-for IAM authentication. Because of the added security that IAM authentication
-provides, it is generally a good idea to enable it.
-
-For information about how to use `curl` (or `awscurl`),
-see the [curl man page](https://curl.haxx.se/docs/manpage.html "https://curl.haxx.se/docs/manpage.html"),
-and the book _[Everything curl](https://ec.haxx.se/ "https://ec.haxx.se/")_.
-
-To connect using HTTPS (which Neptune requires), `curl` needs access
-to appropriate certificates. As long as `curl` can locate the appropriate
-certificates, it handles HTTPS connections just like HTTP connections, without extra
-parameters. The same is true for `awscurl`. Examples in this documentation
-are based on that scenario.
-
-To learn how to obtain such certificates and how to format them properly into
-a certificate authority (CA) certificate store that `curl` can use, see
-[SSL Certificate Verification](https://curl.haxx.se/docs/sslcerts.html "https://curl.haxx.se/docs/sslcerts.html")
-in the `curl` documentation.
-
-You can then specify the location of this CA certificate store using the
-`CURL_CA_BUNDLE` environment variable. On Windows, `curl`
-automatically looks for it in a file named `curl-ca-bundle.crt`. It looks first in
-the same directory as `curl.exe` and then elsewhere on the path. For more
-information, see [SSL Certificate
-Verification](https://curl.haxx.se/docs/sslcerts.html "https://curl.haxx.se/docs/sslcerts.html").
-
-## Different ways to connect to a Neptune DB cluster
+## Network connectivity options
 
 An Amazon Neptune DB cluster can _only_ be created in an Amazon Virtual Private Cloud
 (Amazon VPC). Its endpoints are accessible only within that VPC unless you enable and set up [Neptune public endpoints](neptune-public-endpoints.md "neptune-public-endpoints.md") for the DB cluster.
 
-There are several different ways to set up access to your Neptune DB cluster in
-its VPC:
+You can set up network access to your Neptune DB cluster in its VPC in
+several ways:
 
 - [Connecting from an Amazon EC2 instance in the same VPC](get-started-connect-ec2-same-vpc.md "get-started-connect-ec2-same-vpc.md")
 - [Connecting from an Amazon EC2 instance in another VPC](get-started-connect-ec2-other-vpc.md "get-started-connect-ec2-other-vpc.md")
 - [Connecting from a private network](get-started-connect-private-net.md "get-started-connect-private-net.md")
 - [Connecting from a public endpoint](neptune-public-endpoints.md "neptune-public-endpoints.md")
+
+## Verify your connection
+
+After you set up network access, you can verify that your connection works by
+calling the instance status endpoint. A successful response confirms that your
+client can reach the Neptune cluster.
+
+AWS CLI
+Run the following command:
+
+```
+aws neptunedata get-engine-status \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --region `us-east-1`
+```
+
+For more information, see [get-engine-status](../../../cli/latest/reference/neptunedata/get-engine-status.md "../../../cli/latest/reference/neptunedata/get-engine-status.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=10, retries={'total_max_attempts': 1})
+)
+
+response = client.get_engine_status()
+
+print(response)
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/status \
+  --region `us-east-1` \
+  --service neptune-db
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+For more information about using **awscurl** with IAM authentication, see
+[Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl").
+
+curl
+Run the following command:
+
+```
+curl -G https://`your-neptune-endpoint`:`port`/status
+```
+
+###### Note
+
+This command works only when IAM authentication is not enabled on
+your cluster. If IAM authentication is enabled, use **awscurl**
+or the AWS CLI instead.
+
+A healthy cluster returns a JSON response that includes
+`"status": "healthy"`. For example:
+
+```
+{
+    "status": "healthy",
+    "startTime": "Thu Aug 24 21:07:13 UTC 2023",
+    "dbEngineVersion": "`1.3.1.0.R1`",
+    "role": "writer",
+    "dfeQueryEngine": "viaQueryHint",
+    "gremlin": { "version": "tinkerpop-`3.7.2`" },
+    "sparql": { "version": "sparql-1.1" },
+    "opencypher": { "version": "Neptune-9.0.20190305-1.0" },
+    "labMode": { ... },
+    "features": { ... },
+    "settings": { ... }
+}
+```
+
+If you cannot reach the endpoint, verify that your network configuration
+allows traffic on port 8182 (or your configured port) and that your security
+group rules permit inbound connections from your client. For more information,
+see [Securing access to Neptune](get-started-security.md "get-started-security.md").
+For help setting up the AWS CLI, SDKs, or `curl`, see
+[Using command-line tools](get-started-cli-tools.md "get-started-cli-tools.md").

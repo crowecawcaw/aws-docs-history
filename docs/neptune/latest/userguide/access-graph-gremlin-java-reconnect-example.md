@@ -115,6 +115,7 @@ private static Function<Exception, Boolean> getRetryLogic() {
     Class<? extends Exception> exceptionClass = e.getClass();
 
     StringWriter stringWriter = new StringWriter();
+    e.printStackTrace(new PrintWriter(stringWriter));
     String message = stringWriter.toString();
 
 

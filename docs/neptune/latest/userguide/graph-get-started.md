@@ -6,10 +6,10 @@ low cost for that kind of capacity.
 
 If you're looking for more detailed information about Neptune, see [Overview of Amazon Neptune features](feature-overview.md "feature-overview.md").
 
-If you know about graphs already, jump ahead to [Using Neptune with graph notebooks](graph-notebooks.md "graph-notebooks.md"). Or, if you want to
+If you know about graphs already, jump ahead to [Quick start using CloudShell](get-started-quickstart.md "get-started-quickstart.md") or [Using Neptune with graph notebooks](graph-notebooks.md "graph-notebooks.md"). Or, if you want to
 create a Neptune database right away, see [Creating an Amazon Neptune cluster using AWS CloudFormation](get-started-cfn-create.md "get-started-cfn-create.md").
 
-Otherwise, you may want to know a little more about graph databases before you start.
+Otherwise, you might want to know a little more about graph databases before you start.
 
 ## Graph database key concepts
 
