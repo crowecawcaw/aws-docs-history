@@ -71,7 +71,7 @@ runtime-configuration parameter when [creating an EMR Serverless application](ge
 
 ```
 aws emr-serverless create-application \
-    --release-label emr-7.12.0 \
+    --release-label emr-7.13.0 \
     --runtime-configuration '{
      "classification": "spark-defaults",
      "properties": {

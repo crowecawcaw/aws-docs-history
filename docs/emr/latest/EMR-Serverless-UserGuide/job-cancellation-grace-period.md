@@ -4,6 +4,10 @@ In data processing systems, abrupt terminations can lead to resource waste, inco
 you to specify a grace period when canceling job runs. This feature allows time for proper cleanup and completion of in-progress
 work before job termination.
 
+###### Note
+
+This feature is supported with Amazon EMR releases 7.9.0 and higher.
+
 When cancelling a job run, specify a grace period (in seconds) using the parameter `shutdownGracePeriodInSeconds` during which the job can
 perform cleanup operations prior to final termination. The behavior and default settings vary between
 batch and streaming jobs.
