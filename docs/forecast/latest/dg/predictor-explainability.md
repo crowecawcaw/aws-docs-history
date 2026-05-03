@@ -39,7 +39,7 @@ Impact scores also provide information on whether attributes increase or decreas
 forecast values. In the console, this is denoted by the two graphs. Attributes with blue
 bars increase forecast values, while attributes with red bars decrease forecast values.
 
-![Bar graphs showing Price and Promo increasing impact scores, StoreLocation decreasing impact score.](images/quicksight-unfiltered.png)
+![Price increases impact score by 1, Promo by 0.176, while StoreLocation decreases it by 0.5442.](images/quicksight-unfiltered.png)
 
 In the console, Impact scores range from 0 to 1, where a score of 0 denotes no impact
 and a score close to 1 denotes a significant impact. In the SDKs, Impact scores range
@@ -183,7 +183,7 @@ Forecast enables you to export a CSV or Parquet file of Impact scores to an S3 l
 range from -1 to 1, where the sign denotes the direction of the impact. You can export Impact scores using the
 Amazon Forecast Software Development Kit (SDK) and the Amazon Forecast console.
 
-![Table showing normalized impact scores for price, promotion, weather index, and US holidays.](images/explainability-global.png)
+![Table showing normalized impact scores for price, promotion, weather index, and holiday factors.](images/explainability-global.png)
 
 Console
 **To export Predictor Explainability**

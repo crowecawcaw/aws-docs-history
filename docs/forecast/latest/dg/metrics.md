@@ -88,7 +88,7 @@ automatically incorporate differing penalties for underpredicting and overpredic
 
 The loss function is calculated as follows.
 
-![Mathematical equation for weighted quantile loss function with tau parameter.](images/metrics-quantile-loss.png)
+![Formula for weighted quantile loss with tau parameter, max functions, and summations.](images/metrics-quantile-loss.png)
 
 Where:
 
@@ -119,7 +119,7 @@ than forecasting at the median quantile (P50). In these cases, wQL[0.75] assigns
 penalty weight to underforecasting (0.75) and a smaller penalty weight to overforecasting
 (0.25).
 
-![Two probability distribution curves showing demand forecasting at P50 and P75 quantiles.](images/p50-p75-prediction.jpg)
+![Probability distributions showing 50% probability at P50 and 75% probability at P75 demand levels.](images/p50-p75-prediction.jpg)
 
 The figure above shows the differing demand forecasts at wQL[0.50] and wQL[0.75]. The
 forecasted value at P75 is significantly higher than the forecasted value at P50 because the
@@ -145,7 +145,7 @@ indicates a more accurate model.
 When the sum of observed values for all time points and all items is approximately zero in a given backtest window,
 the weighted absolute percentage error expression is undefined. In these cases, Forecast outputs the unweighted absolute error sum, which is the numerator in the WAPE expression.
 
-![Mathematical formula for WAPE showing summation of absolute differences divided by sum of absolute values.](images/WAPE.png)
+![WAPE formula showing sum of absolute differences between actual and predicted values divided by sum of actual values.](images/WAPE.png)
 
 Where:
 
@@ -163,7 +163,7 @@ Amazon Forecast previously referred to the WAPE metric as the Mean Absolute Perc
 forecast to calculate WAPE. The wQL[0.5] metric is equivalent to the WAPE[median] metric, as
 shown below:
 
-![Mathematical equation showing the equivalence of wQL[0.5] and WAPE[median] metrics.](images/wql-to-wape.PNG)
+![Mathematical formula showing wQL[0.5] equals twice the sum of absolute differences divided by sum of absolute actual values.](images/wql-to-wape.PNG)
 
 ## Root Mean Square Error (RMSE)
 
@@ -171,7 +171,7 @@ Root Mean Square Error (RMSE) is the square root of the average of squared error
 therefore more sensitive to outliers than other accuracy metrics. A lower value indicates a
 more accurate model.
 
-![Mathematical formula for Root Mean Square Error (RMSE) with summation and square root.](images/metrics-rmse.png)
+![RMSE formula showing square root of sum of squared differences between predicted and actual values.](images/metrics-rmse.png)
 
 Where:
 
@@ -197,7 +197,7 @@ Mean Absolute Percentage Error (MAPE) takes the absolute value of the percentage
 between observed and predicted values for each unit of time, then averages those values. A
 lower value indicates a more accurate model.
 
-![Mathematical formula for Mean Absolute Percentage Error (MAPE) calculation.](images/mape.png)
+![MAPE formula showing one over n times the sum of absolute value of A sub t minus F sub t divided by A sub t.](images/mape.png)
 
 Where:
 
@@ -218,7 +218,7 @@ Mean Absolute Scaled Error (MASE) is calculated by dividing the average error by
 factor. This scaling factor is dependent on the seasonality value, _m_, which is selected based on the forecast frequency. A lower value indicates a
 more accurate model.
 
-![Mathematical formula for Mean Absolute Scaled Error (MASE) with summation and absolute value notations.](images/mase.png)
+![MASE formula showing mean of absolute errors divided by scaled mean absolute error.](images/mase.png)
 
 Where:
 
@@ -306,7 +306,7 @@ set the **Export name**, **IAM
 Role**, and **S3 predictor backtest export
 location** fields.
 
-![Form for exporting predictor backtest data to S3, with fields for name, IAM role, and location.](images/console-export-screen.PNG)
+![Create predictor backtest export page with fields for export name, IAM role, and S3 location.](images/console-export-screen.PNG)
 
 ## Choosing Forecast Types
 
@@ -334,7 +334,7 @@ of the time. By generating forecasts at p10 and P90, you can expect the true val
 between those bounds 80% of the time. This range of values is depicted by the shaded region
 between P10 and P90 in the figure below.
 
-![Graph showing forecast quantiles with P99, P90, P50, P10, and P1 lines over time.](images/quantiles-intervals.png)
+![Time series forecast showing P50 median with shaded confidence intervals for P10, P90, P1, and P99.](images/quantiles-intervals.png)
 
 You can also use a quantile forecast as a point forecast when the cost of underpredicting
 differs from the cost of overpredicting. For example, in some retail cases the cost of being
@@ -368,7 +368,7 @@ For example, to create a predictor using the `0.01`, `mean`,
 `0.65`, and `0.99` forecast types, enter the following values in
 the **Forecast types** fields shown below.
 
-![Form for entering forecast types with fields for type names and quantile values between .01 and .99.](images/predictor-custom-quantiles.png)
+![Four forecast type fields with values .01, mean, .65, and .99 entered respectively.](images/predictor-custom-quantiles.png)
 
 ## Working With Legacy Predictors
 
@@ -390,7 +390,7 @@ The backtest window must be at least as large as the forecast horizon, and small
 half the length of the entire target time-series dataset. You can choose from between 1 and
 5 backtests.
 
-![Graph showing training and testing periods for four backtest scenarios over time.](images/evaluation-backtests.png)
+![Four backtest scenarios showing training and testing periods between start and end dates.](images/evaluation-backtests.png)
 
 Generally, increasing the number of backtests produces more reliable accuracy metrics,
 since a larger portion of the time series is used during testing and Forecast is able to take
@@ -425,7 +425,7 @@ offset** field, and the number of backtest windows with the
 For example, to run 2 backtests with a testing set of 10 time points, set the
 following values.
 
-![Input fields for number of backtest windows and backtest window offset with example values.](images/predictor-backtest-windows.png)
+![Number of backtest windows field set to 2 and Backtest window offset field set to 10.](images/predictor-backtest-windows.png)
 
 ### HPO and AutoML
 

@@ -23,7 +23,7 @@ automation stack to generate forecasts with your own datasets.
 
 The following diagram shows the components used in this tutorial.
 
-![AWS data pipeline for Amazon Forecast, showing data preparation, ingestion, forecasting, and evaluation stages.](images/cloudformationautomation-architecture.png)
+![Architecture diagram showing data flow from preparation through ingestion, forecasting, and evaluation stages.](images/cloudformationautomation-architecture.png)
 
 ## Prerequisites
 
@@ -58,12 +58,12 @@ deploy the CloudFormation template using the NYC Taxi Dataset
 **Step 1**: Accept the defaults and choose
 **Next**.
 
-![Create stack interface showing template options and Amazon S3 URL input field.](images/cloudformationautomation-step1.png)
+![Create stack wizard showing template preparation options and Amazon S3 URL field.](images/cloudformationautomation-step1.png)
 
 **Step 2**: Provide an email address for notifications
 and choose **Next**.
 
-![Datasets configuration form with URL fields for time series data and email input for forecast results.](images/cloudformationautomation-step2.png)
+![Datasets Configuration page showing email field with youremail@sample.com entered.](images/cloudformationautomation-step2.png)
 
 **Step 3**: Accept defaults and choose
 **Next**.
@@ -72,7 +72,7 @@ and choose **Next**.
 allow CloudFormation to create AWS Identity and Access Management (IAM) resources and nested stacks. Choose
 **Create stack**.
 
-![Capabilities section with checkboxes for IAM resources and CloudFormation capability acknowledgments.](images/cloudformationautomation-step4.png)
+![Capabilities section with two checkboxes selected for IAM resources and CAPABILITY_AUTO_EXPAND.](images/cloudformationautomation-step4.png)
 
 You have deployed an CloudFormation template in Forecast.
 

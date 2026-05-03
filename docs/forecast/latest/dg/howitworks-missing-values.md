@@ -26,7 +26,7 @@ Forecast supports the following filling methods:
   forecast horizon.
   The following image provides a visual representation of different filling methods.
 
-![Timeline showing three items with varying durations and fill methods between global start and end dates.](images/Filling_types.PNG)
+![Timeline showing three items with front fill, middle fill, back fill, and future fill periods between global start and end dates.](images/Filling_types.PNG)
 
 ## Choosing Filling Logic
 
@@ -46,7 +46,7 @@ under-biased predictions (represented by the dotted lines) in A2. Similarly, mis
 values in B1 are filled with `NaN`, which leads to predictions that are more
 exact in B2.
 
-![Time-series graphs comparing item demand predictions with different filling values for missing data.](images/filling_values.PNG)
+![Two time-series graphs comparing zero-filled versus NaN-filled missing values and their predictions.](images/filling_values.PNG)
 
 For a list of supported filling logic, see the following section.
 

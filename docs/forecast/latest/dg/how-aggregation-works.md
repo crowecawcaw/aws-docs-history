@@ -42,4 +42,4 @@ boundary: Each hour begins at the top of the hour.
 
 The following figure shows how Forecast transforms data to fit the default weekly time boundary.
 
-![Raw sales data points transformed into a smooth demand time series curve over weekly intervals.](images/data-alignment.png)
+![Raw CSV data points transformed into a smooth demand time series curve with weekly boundaries.](images/data-alignment.png)

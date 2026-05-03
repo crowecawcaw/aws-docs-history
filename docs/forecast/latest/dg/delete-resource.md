@@ -84,7 +84,7 @@ Console
    `delete`.
 5. Choose **Delete**.
 
-![Confirmation dialog for deleting DatasetGroup1, with text field to type "delete" for confirmation.](images/resource-delete.PNG)
+![Delete DatasetGroup1 dialog box with confirmation field requiring delete to be typed.](images/resource-delete.PNG)
 
 SDK
 **To delete a resource**
@@ -134,7 +134,7 @@ Console
    `delete`.
 5. Choose **Delete**.
 
-![Confirmation dialog for deleting DatasetGroup1, showing affected resources and input field.](images/resource-tree-delete.PNG)
+![Delete DatasetGroup1 dialog box with confirmation field requiring delete to be typed.](images/resource-tree-delete.PNG)
 
 SDK
 **To delete a resource tree**

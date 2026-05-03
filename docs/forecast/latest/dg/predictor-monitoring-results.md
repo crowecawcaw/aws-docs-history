@@ -37,7 +37,7 @@ wQL` score for a predictor has changed over time. In this
      decreasing. Use this information to determine whether you need to
      revalidate the model and take action.
 
-![Graph showing increasing Avg wQL score over time, indicating decreasing predictor accuracy.](images/predictor-drift.png)
+![Graph showing Avg wQL increasing from 0.15 to 0.27 while baseline remains flat at 0.22.](images/predictor-drift.png)
 
 SDK for Python (Boto3)
 

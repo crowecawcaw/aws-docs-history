@@ -49,7 +49,7 @@ and instructions.
 
     Leave the **Tags** section unchanged. Your screen should look similar to the following:
 
-![Dataset group creation form with name field and forecasting domain dropdown.](images/gs-step1-create-dsgroup.png) 4. Choose **Next**. 5. On the **Create target time series dataset** page, for
+![Create dataset group page with Dataset group name field showing my_dsgroup and Forecasting domain set to Custom.](images/gs-step1-create-dsgroup.png) 4. Choose **Next**. 5. On the **Create target time series dataset** page, for
 **Dataset details**, provide the following information:
 
     * **Dataset name** – Enter a name for your dataset.
@@ -76,7 +76,7 @@ and instructions.
 
 The **Dataset details** panel should look similar to the following:
 
-![Dataset details form with name, frequency, and schema builder sections for data configuration.](images/gs-step1-create-dataset.png) 6. For **Dataset import details**, provide the following information:
+![Dataset details panel with schema builder showing timestamp, target_value, and item_id attributes.](images/gs-step1-create-dataset.png) 6. For **Dataset import details**, provide the following information:
 
     * **Dataset import name** – Enter a name for your dataset.
     * **Select time zone** – Leave the default selected (**Do not use time zone**).
@@ -98,11 +98,11 @@ The **Dataset details** panel should look similar to the following:
 
 The **Dataset import details** panel should look similar to the following:
 
-![Dataset import details form with fields for name, time zone, data location, and IAM role.](images/gs-step1-import-data.png) 7. Choose **Start**. If you are returned to the Amazon Forecast home page, choose
+![Dataset import details panel with fields for import name, time zone, data location, and IAM role.](images/gs-step1-import-data.png) 7. Choose **Start**. If you are returned to the Amazon Forecast home page, choose
 **View dataset group**. 8. Click the name of the dataset group that you just created. The dataset group's
 **Dashboard** page is displayed. Your screen should look similar to the following:
 
-![Dashboard overview showing steps: import data, train predictor, generate forecasts, explore insights.](images/gs-step1-importing.png)
+![Dashboard overview showing workflow: import data, train predictor, generate forecasts, explore insights.](images/gs-step1-importing.png)
 
 Next to **Target time series data**, you will see the status of the
 import job. Wait for Amazon Forecast to finish importing your time series data. The process
@@ -125,7 +125,7 @@ you can configure, see [Training Predictors](howitworks-predictor.md "howitworks
 1. After your target time series dataset has finished importing, your dataset group's
    **Dashboard** should look similar to the following:
 
-![Dashboard overview showing steps: import data, train predictor, generate forecasts, explore insights.](images/gs-step2-start.png)
+![Dashboard showing workflow from importing data through training predictor to generating forecasts and exploring insights.](images/gs-step2-start.png)
 
 Under **Train a predictor**, choose **Start**. The
 **Train predictor** page is displayed.
@@ -157,14 +157,14 @@ The remaining **Input data configuration** and **Tags** sections are optional, s
 The **Predictor settings** sections should
 look similar to the following:
 
-![Predictor settings interface showing name, forecast configuration, and quantile options.](images/gs-step2-predictor-details.png) 3. Choose **Create**. Your dataset group's
+![Predictor settings showing forecast configuration with quantiles 0.10, 0.50, 0.90 and optimization metric options.](images/gs-step2-predictor-details.png) 3. Choose **Create**. Your dataset group's
 **Dashboard** page is displayed. Your screen should look similar to
 the following:
 
-![Dashboard overview showing steps: import data, train predictor, generate forecasts, explore insights.](images/gs-step2-predictor-dashboard.png) 4. To find the status of your predictor, choose **View predictors**. 5. On the **Predictors** page find the status of your predictor in the **Training status**
+![Dashboard showing workflow from importing data, training predictor, generating forecasts, to exploring insights.](images/gs-step2-predictor-dashboard.png) 4. To find the status of your predictor, choose **View predictors**. 5. On the **Predictors** page find the status of your predictor in the **Training status**
 column. Your screen should look similar to the following:
 
-![Predictors page showing one predictor in progress with training status and other details.](images/gs-step2-predictor-status.png)
+![Predictors page showing gs_predictor with Create in progress status and estimated time remaining.](images/gs-step2-predictor-status.png)
 
 Wait for Amazon Forecast to finish training the predictor. The process can take several
 minutes or longer. When your predictor has been trained, the status transitions to
@@ -193,12 +193,12 @@ details**, provide the following information:
 The **Forecast quantiles** and **Tags** fields are optional, so leave the default value. Your screen should
 look similar to the following:
 
-![Forecast details form with fields for name, predictor info, and optional forecast types.](images/gs-step3-forecast-details.png)
+![Forecast details form with fields for forecast name, predictor selection, and forecast types.](images/gs-step3-forecast-details.png)
 
 Click **Start**. 3. The **Forecasts** page is displayed. Your screen should look similar to the
 following:
 
-![Forecasts page interface showing a single forecast in progress with status and creation details.](images/gs-step3-creating-forecast.png)
+![Forecasts page showing one forecast named gs_forecast with status Create in progress.](images/gs-step3-creating-forecast.png)
 
 The **Status** column lists the status of your forecast.. Wait for Amazon Forecast to finish creating the forecast. The process can
 take several minutes or longer. When your forecast has been created, the status
@@ -245,10 +245,10 @@ Create a Forecast`.
 
     Your screen should look similar to the following:
 
-![Form for creating a forecast export with fields for export details and AWS configurations.](images/createForecastExport.png) 6. Click **Start**. The **Forecasts** page is displayed. 7. Click the forecast that you created in `Step 3: Create a Forecast`. Find the
+![Create forecast export page with fields for export name, IAM role, KMS key , file type, and S3 location.](images/createForecastExport.png) 6. Click **Start**. The **Forecasts** page is displayed. 7. Click the forecast that you created in `Step 3: Create a Forecast`. Find the
 **Exports** section. Your screen should look similar to the following:
 
-![Exports section showing a single forecast export job in progress with location and creation date.](images/gs-step4-exporting.png)
+![Exports table showing one forecast export job in progress with name, status, and location.](images/gs-step4-exporting.png)
 
 You should see the status progress. Wait for Amazon Forecast to finish
 exporting the forecast. The process can take several minutes or longer. When your forecast has been

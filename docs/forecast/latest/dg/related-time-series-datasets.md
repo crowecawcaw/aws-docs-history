@@ -45,7 +45,7 @@ Historical related time series contain data points up to the forecast horizon, a
 contain any data points within the forecast horizon. Forward-looking related time series
 contain data points up to _and_ within the forecast horizon.
 
-![Time series graph showing target, forward-looking, and historical related data with forecast window.](images/short-long-rts.png)
+![Three time series graphs showing target, forward-looking related, and historical related data with forecast window highlighted.](images/short-long-rts.png)
 
 ## Related Time Series Dataset Validation
 

@@ -46,7 +46,7 @@ forecast values. In the console, this is denoted by the two graphs. Attributes w
 bars increase forecast values, while attributes with red bars decrease forecast
 values.
 
-![Bar graphs showing attributes' impact on forecast: price and promo increase, store location decreases.](images/quicksightwithfilters.png)
+![Two bar charts showing Price and Promo increasing impact scores, StoreLocation decreasing impact score.](images/quicksightwithfilters.png)
 
 It is important to note that Impact scores measure the relative impact of attributes,
 not the absolute impact. Therefore, Impact scores cannot be used to determine whether
@@ -334,7 +334,7 @@ well as normalized aggregated impact scores for all specified time series and al
 specified time points. If you didn’t specify time points, the impact scores are already
 aggregated for all time points in your forecast horizon.
 
-![Spreadsheet showing raw and normalized impact scores for various items and metrics over time.](images/explainability-export.png)
+![Table showing raw and normalized impact scores across price, promo, store location, and holiday dimensions.](images/explainability-export.png)
 
 You can export Forecast Explainability using the Amazon Forecast Software Development
 Kit (SDK) and the Amazon Forecast console.

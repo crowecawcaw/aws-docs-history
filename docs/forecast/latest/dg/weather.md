@@ -113,37 +113,37 @@ US Region
 **Bounds**: latitude (24.6, 50.0),
 longitude (-126.0, -66.4).
 
-![Map of North America showing United States, parts of Canada and Mexico with major cities.](images/weather-us-bounds.png)
+![Map showing the United States, parts of Canada and Mexico with geographic boundaries marked.](images/weather-us-bounds.png)
 
 Canada Region
 **Bounds**: latitude (41.0, 75.0),
 longitude (-142.0, -52.0).
 
-![Map showing northern Canada and parts of the US, highlighting territories and major cities.](images/weather-can-bounds.PNG)
+![Map of Canada showing provinces, territories, and major cities with surrounding waters.](images/weather-can-bounds.PNG)
 
 Europe Region
 **Bounds**: latitude (34.8, 71.8),
 longitude (-12.6, 44.8).
 
-![Map of Northern Europe and surrounding regions showing countries and major cities.](images/weather-euro-bounds.png)
+![Map of Europe showing countries, major cities, and surrounding bodies of water.](images/weather-euro-bounds.png)
 
 South America Region
 **Bounds**: latitude (-56.6, 14.0),
 longitude (-82.4, -33.00).
 
-![Map of South America showing countries, major cities, and Brazilian states.](images/weather-sa-bounds.PNG)
+![Map of South America showing countries, major cities, and Brazilian states with coordinate boundaries.](images/weather-sa-bounds.PNG)
 
 Asia Pacific Region
 **Bounds**: latitude (-47.8, 55.0),
 longitude (67.0, 180.60).
 
-![Map showing East Asia, Southeast Asia, and Australia with country names and ocean labels.](images/weather-apac-bounds.png)
+![Map showing Asia-Pacific region including countries from India to New Zealand and Australia.](images/weather-apac-bounds.png)
 
 Central America Region
 **Bounds**: latitude (6.80, 33.20),
 longitude (-118.80, -58.20).
 
-![Map showing southern US, Mexico, Central America, and Caribbean with major cities and bodies of water.](images/weather-ca-bounds.png)
+![Map showing Mexico, Central America, Caribbean islands, and parts of North and South America.](images/weather-ca-bounds.png)
 
 Africa & Middle East Region
 **Bounds**: latitude (-35.60, 43.40),
@@ -200,7 +200,7 @@ dataset**
 4. In the **Geolocation format** drop-down,
    choose your location format.
 
-![Dataset details form with name, frequency, and schema builder for attribute specification.](images/schema-builder-geolocation.png)
+![Schema builder interface showing four attributes: item_id, timestamp, target_value, and location with their respective types.](images/schema-builder-geolocation.png)
 
 You can also define your attributes in JSON format and select a
 location format from the **Geolocation format**
@@ -259,7 +259,7 @@ attribute**
 3. In **Dataset import details**, choose
    **Sync time zone with location**.
 
-![Dataset import form with fields for name, time zone, S3 data location, and IAM role.](images/sync-timezone-with-geolocation.PNG)
+![Dataset import details form with fields for name, time zone, data location, and IAM role.](images/sync-timezone-with-geolocation.PNG)
 
 SDK
 **To sync time zones with the geolocation
@@ -386,7 +386,7 @@ dataset**
 For example, use the following to apply Los Angeles time (Pacific
 Standard Time) to your datasets.
 
-![Dataset import form with fields for name, time zone, data location, and IAM role.](images/select-timezone.PNG)
+![Dataset import details form with America/Los_Angeles selected as the time zone.](images/select-timezone.PNG)
 
 SDK
 **To select a single time zone for your
