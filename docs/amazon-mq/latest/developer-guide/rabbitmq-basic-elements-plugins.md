@@ -12,6 +12,7 @@ Amazon MQ for RabbitMQ also supports the following plugins.
 - [SSL certificate plugin](#rabbitmq-ssl-plugin "#rabbitmq-ssl-plugin")
 - [aws plugin](#rabbitmq-aws-plugin "#rabbitmq-aws-plugin")
 - [JMS Topic Exchange plugin](#rabbitmq-jms-topic-exchange-plugin "#rabbitmq-jms-topic-exchange-plugin")
+- [Prometheus plugin](#rabbitmq-prometheus-plugin "#rabbitmq-prometheus-plugin")
 
 ## RabbitMQ management plugin
 
@@ -165,3 +166,20 @@ JMS applications to connect to Amazon MQ for RabbitMQ.
 ###### Note
 
 The JMS Topic Exchange plugin is only available for Amazon MQ for RabbitMQ version 4 and above. It is enabled by default but only activates when the RabbitMQ JMS client is used to run JMS workloads.
+
+## Prometheus plugin
+
+The [Prometheus plugin](https://www.rabbitmq.com/docs/prometheus "https://www.rabbitmq.com/docs/prometheus") is
+built into RabbitMQ and is always enabled on Amazon MQ for RabbitMQ brokers. Starting with
+RabbitMQ 4.2, Amazon MQ aligns with the RabbitMQ open source strategy of using Prometheus for
+per-node metrics instead of the management plugin for long-term monitoring.
+
+The plugin exposes metrics through the `/metrics`,
+`/metrics/detailed`, and `/metrics/memory-breakdown` endpoints in
+Prometheus text format. You can scrape these endpoints with Prometheus or compatible
+monitoring tools to build dashboards and set up alerting.
+
+Amazon MQ also publishes a curated subset of these Prometheus metrics to CloudWatch. For more
+information about CloudWatch metrics, see [Available CloudWatch metrics for Amazon MQ for RabbitMQ brokers](rabbitmq-logging-monitoring.md "rabbitmq-logging-monitoring.md").
+
+For endpoint details, authentication, and scraping configuration, see [Accessing Prometheus metrics](rabbitmq-prometheus-metrics.md "rabbitmq-prometheus-metrics.md").
