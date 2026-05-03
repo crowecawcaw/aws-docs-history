@@ -18,7 +18,7 @@ is referred to as a _tumbling window_. In this case, each record on
 an in-application stream belongs to a specific window. It is processed only once (when
 the query processes the window to which the record belongs).
 
-![Timeline showing non-overlapping windows processing data streams at distinct time intervals.](images/window-tumbling-20.png)
+![Timeline showing stream data divided into non-overlapping tumbling windows at regular intervals.](images/window-tumbling-20.png)
 For example, an aggregation query using a `GROUP BY` clause processes rows
 in a tumbling window. The demo stream in the [getting started exercise](get-started-exercise.md "get-started-exercise.md")
 receives stock price data that is mapped to the in-application stream

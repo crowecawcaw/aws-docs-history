@@ -1338,7 +1338,7 @@ Alternatively you can launch the CloudFormation template [here](https://github.c
 
 Here is the Amazon Kinesis Data Analytics SQL architectural flow:
 
-![Architectural flow diagram showing data movement through Amazon Kinesis services to Amazon S3.](images/legacy-sql.png)
+![Data flow from Producer through Kinesis Data Streams, Firehose, Analytics SQL, and to S3.](images/legacy-sql.png)
 
 We first examine the setup of a legacy Amazon Kinesis Data Analytics-SQL and Amazon Kinesis Data
 Firehose. The use case is a trading market where trading data, including stock ticker
@@ -1480,7 +1480,7 @@ following:
 
 Here is the Amazon Managed Service for Apache Flink Studio architectural flow:
 
-![Data flow from Producer through Kinesis streams to Analytics Studio and S3 storage.](images/kda-studio.png)
+![Producer sends data through Kinesis Data Streams to Kinesis Data Analytics Studio, then to S3.](images/kda-studio.png)
 
 #### Create a Kinesis Data Stream
 
@@ -1674,7 +1674,7 @@ CloudFormation will create the following resources in your AWS account:
 Import the notebook and change the Amazon S3 bucket name with the new Amazon S3 bucket
 created by CloudFormation.
 
-![SQL code snippet creating a table with timestamp, ticker, volume, and price fields.](images/kda-studio-cfn.png)
+![Flink SQL code creating TRADE_DESTINATION_S3 table with trade window start timestamp and ticker fields.](images/kda-studio-cfn.png)
 
 ##### See more
 
@@ -1709,11 +1709,11 @@ for Apache Flink](../../../managed-flink/latest/java/how-notebook.md "../../../m
 
 Lambda functions used for pre/post processing of data in KDA-SQL applications:
 
-![](images/sql-udf-1.png)
+![Data flow from source stream through pre-processing Lambda, SQL App with database, post-processing Lambda, to destination stream.](images/sql-udf-1.png)
 User-defined functions for pre/post processing of data using KDA-Studio Zeppelin
 notebooks
 
-![](images/sql-udf.png)
+![Data flows from source stream through Flink Studio Zeppelin Notebook with in-memory tables and preprocessing functions to destination stream.](images/sql-udf.png)
 
 ## User-defined functions (UDFs)
 

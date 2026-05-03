@@ -28,7 +28,7 @@ t1, t2, t6, and
 t7, and three records arrive at time t8
 seconds.
 
-![Timeline showing record arrivals at t1, t2, t6, t7, and multiple at t8 within a 5-second window.](images/sliding-10.png)
+![Timeline showing records arriving at times t1, t2, t6, t7, and t8 along a stream.](images/sliding-10.png)
 Keep the following in mind:
 
 - The example assumes a 5-second window. The 5-second window slides
@@ -48,12 +48,12 @@ Keep the following in mind:
 1. At the time t0, the query starts. The query doesn't emit
    output (count value) because there are no records at this time.
 
-![Timeline showing a stream starting at t0 with no output initially indicated.](images/sliding-t0.png) 2. At time t1, a new record appears on the stream, and the
+![Timeline showing stream at top and time axis below with marker at t0.](images/sliding-t0.png) 2. At time t1, a new record appears on the stream, and the
 query emits count value 1.
 
-![Timeline showing a stream with a record appearing at time t1, and an arrow pointing to t0.](images/sliding-t1.png) 3. At time t2, another record appears, and the query emits count 2.
+![Timeline showing a stream with a record at time t1 and subsequent time points t2 and t3.](images/sliding-t1.png) 3. At time t2, another record appears, and the query emits count 2.
 
-![Timeline showing stream events at different time points, with two vertical bars at the end.](images/sliding-t2.png) 4. The 5-second window slides with time:
+![Timeline showing stream with two records appearing at times t2 and t3.](images/sliding-t2.png) 4. The 5-second window slides with time:
 
     * At t3, the sliding window
      t3 to t0
@@ -65,22 +65,22 @@ query emits count value 1.
 At all of these times, the 5-second window has the same records—there
 are no new records. Therefore, the query doesn't emit any output.
 
-![Timeline showing stream with multiple time points and colored rectangles representing data windows.](images/sliding-t3-4-5.png) 5. At time t6, the 5-second window is
+![Stream timeline showing a 5-second window at multiple time points with two records remaining constant.](images/sliding-t3-4-5.png) 5. At time t6, the 5-second window is
 (t6 to t1). The query detects one
 new record at t6 so it emits output 2. The record at
 t1 is no longer in the window and doesn't count.
 
-![Timeline showing stream events at different time points with a sliding 5-second window.](images/sliding-t6.png) 6. At time t7, the 5-second window is
+![Timeline showing stream with records at t1 and t6, illustrating a 5-second sliding window.](images/sliding-t6.png) 6. At time t7, the 5-second window is
 t7 to t2. The query detects one
 new record at t7 so it emits output 2. The record at
 t2 is no longer in the 5-second window, and therefore
 isn't counted.
 
-![Timeline showing stream events and time points from t0 to t7, with a 5-second window highlighted.](images/sliding-t7.png) 7. At time t8, the 5-second window is
+![Timeline showing a stream with time points t2 through t7, illustrating a sliding window.](images/sliding-t7.png) 7. At time t8, the 5-second window is
 t8 to t3. The query detects three
 new records, and therefore emits record count 5.
 
-![Timeline showing stream events with orange bars representing record counts at different time intervals.](images/sliding-t8.png)
+![Timeline showing stream with three records appearing at different time points t6, t5, and t4.](images/sliding-t8.png)
 In summary, the window is a fixed size and slides with time. The query emits output
 when new records appear.
 

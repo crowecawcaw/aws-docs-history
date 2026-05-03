@@ -62,7 +62,7 @@ other. It groups the records by row time, event time, and ticker symbol. Because
 the records arrive after the first tumbling window ends, the records do not all fall
 within the same one-minute tumbling window.
 
-![Tumbling windows diagram showing data grouping by row time, event time, and ticker symbol over two minutes.](images/stagger_0.png)
+![Tumbling windows showing records grouped by event time with EMIT RESULT markers at 11:01 and 11:02.](images/stagger_0.png)
 
 The preceding diagram has the following events.
 
@@ -126,7 +126,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 In the following diagram, events are aggregated by event time and ticker symbol into stagger windows.
 
-![Diagram showing event aggregation into stagger windows by event time and ticker symbol.](images/stagger_1.png)
+![Timeline showing AMZN events aggregated into 1-minute stagger windows by event time and ticker.](images/stagger_1.png)
 
 The preceding diagram has the following events, which are the same events as the tumbling window application analyzed:
 

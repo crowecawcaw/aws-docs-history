@@ -170,7 +170,7 @@ GROUP BY STEP(source_sql_stream_002.rowtime BY INTERVAL '60' SECOND),
 
 The preceding code example produces output in `in_application_stream001` similar to the following:
 
-![Table showing ROWTIME, TICKER, and TICKER_COUNT columns with sample data entries.](images/input-parallelism-results.png)
+![Table showing ROWTIME, TICKER, and TICKER_COUNT columns with stock data for QAZ, SAC, PLM, and AMZN.](images/input-parallelism-results.png)
 
 ## Additional Considerations
 
