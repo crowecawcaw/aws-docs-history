@@ -16,7 +16,7 @@ For Grafana workspaces that support Grafana version 9.x, see
 The WindRose panel receives raw time series data converts the data and maps it in a
 WindRose chart.
 
-![WindRose panel with two circular charts showing wind direction and speed data distribution.](images/windrose.png)
+![WindRose panel showing wind direction and speed data with configuration options for display settings.](images/windrose.png)
 
 ## Options
 

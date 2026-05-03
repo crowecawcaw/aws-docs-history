@@ -38,7 +38,7 @@ access the workspace using the tag. For more information on tag-based access
 control, see [Controlling access to AWS resources using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in IAM User
 Guide.
 
-![Workspace details form with name field and optional tags section highlighted.](images/tagworkspace.png) 4. Choose a **Grafana version** for the workspace. You can
+![Workspace details form showing name field with bigbankplatform, optional description field, and Tags section with owner key and user@amazon.com value.](images/tagworkspace.png) 4. Choose a **Grafana version** for the workspace. You can
 choose version 9, 10, or 12. To understand the differences between the
 versions, see [Differences between Grafana versions](version-differences.md "version-differences.md"). 5. Choose **Next**. 6. For **Authentication access**, select **AWS IAM Identity Center** , **Security Assertion Markup Language (SAML)**,
 or both. For more information, see [Authenticate users in Amazon Managed Grafana workspaces](authentication-in-AMG.md "authentication-in-AMG.md").
