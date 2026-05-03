@@ -1,7 +1,7 @@
 # Creating a directory bucket in a Local Zone
 
-In Dedicated Local Zones, you can create directory buckets to store and retrieve objects in a specific
-data perimeter to help meet your data residency and data isolation use cases. S3
+In Local Zones, you can create directory buckets to store and retrieve objects in a specific
+data perimeter to help meet your data residency use cases. S3
 directory buckets are the only supported bucket type in Local Zones, and contain a bucket
 location type called `LocalZone`. A directory bucket name consists of a base
 name that you provide and a suffix that contains the Zone ID of your bucket location and

@@ -1,11 +1,19 @@
 # Enable accounts for Local Zones
 
-The following topic describes how accounts are enabled for Dedicated Local Zones.
+The following topics describe how accounts are enabled for AWS Local Zones:
+
+## AWS Local Zones
+
+To get started using AWS Local Zones, you must first opt in to a Local Zone through the AWS Global View console or the AWS CLI. To learn more, see [Getting started with AWS Local Zones](../../../local-zones/latest/ug/getting-started.md "../../../local-zones/latest/ug/getting-started.md"). You can use the
+[DescribeAvailabilityZones](../../../AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.md "../../../AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.md") API operation to confirm your account ID access to a list of AWS Local Zones.
+
+## AWS Dedicated Local Zones
 
 For all the services in AWS Dedicated Local Zones (Dedicated Local Zones), including Amazon S3, your administrator must
-enable your AWS account before you can create or access any resource in the Dedicated Local Zone.
-You can use the
+enable your AWS account before you can create or access any resource in the Dedicated Local Zone. You can use the
 [DescribeAvailabilityZones](../../../AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.md "../../../AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.md") API operation to confirm your account ID access to a Local Zone.
+
+## Data protection for directory buckets in Local Zones
 
 To further protect your data in Amazon S3, by default, you only have access to the S3 resources
 that you create. Buckets in Local Zones have all S3 Block Public Access settings enabled by

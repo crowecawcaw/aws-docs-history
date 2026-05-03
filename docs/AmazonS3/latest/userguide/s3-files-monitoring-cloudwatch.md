@@ -15,8 +15,8 @@ CloudWatch dashboard](../../../AmazonCloudWatch/latest/monitoring/create_dashboa
 
 ## S3 Files CloudWatch metrics
 
-S3 Files metrics use the `AWS/S3Files` namespace. All metrics are reported
-for a single dimension `FileSystemId`. The `AWS/S3Files` namespace
+S3 Files metrics use the `AWS/S3/Files` namespace. All metrics are reported
+for a single dimension `FileSystemId`. The `AWS/S3/Files` namespace
 includes the following metrics:
 
 | Metric               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Units and valid statistics                                         |
@@ -74,7 +74,7 @@ Use the `get-metric-statistics` command. For example, to view
 
 ```
 aws cloudwatch get-metric-statistics \
-  --namespace AWS/S3Files \
+  --namespace AWS/S3/Files \
   --metric-name DataReadBytes \
   --dimensions Name=FileSystemId,Value=`file-system-id` \
   --start-time 2025-01-20T00:00:00Z \

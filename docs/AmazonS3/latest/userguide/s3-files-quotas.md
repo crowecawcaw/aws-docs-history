@@ -31,6 +31,11 @@ This page describes the limitations and quotas when using S3 Files.
   key. For example, the key `dir1/dir2/file.txt` has three path
   components: `dir1`, `dir2`, and
   `file.txt`.
+- **Incompatible S3 object key names** –
+  S3 Files does not support accessing S3 key names that do not map to valid POSIX
+  file paths, including empty path components (`foo//bar`), relative
+  path components (`foo/./bar`, `foo/../bar`), and key names containing null
+  bytes.
 - **S3 key size limit** – Files or
   directories whose full path name exceeds the 1,024-byte S3 object key size limit
   cannot be exported to S3.

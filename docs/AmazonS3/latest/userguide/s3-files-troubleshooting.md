@@ -7,6 +7,7 @@ This page helps you diagnose and resolve common issues with S3 Files.
 - [Intelligent read routing is not working](#s3-files-troubleshooting-read-routing "#s3-files-troubleshooting-read-routing")
 - [File system consistently returns NFS server error](#s3-files-troubleshooting-encrypted-fs "#s3-files-troubleshooting-encrypted-fs")
 - [Missing object in S3 bucket after file system write](#s3-files-troubleshooting-missing-object "#s3-files-troubleshooting-missing-object")
+- [S3 object not visible in the file system](#s3-files-troubleshooting-object-not-visible "#s3-files-troubleshooting-object-not-visible")
 - [Files appearing in the lost and found directory](#s3-files-troubleshooting-lost-found "#s3-files-troubleshooting-lost-found")
 - [Synchronization falling behind](#s3-files-troubleshooting-sync-behind "#s3-files-troubleshooting-sync-behind")
 - [Enabling client debug logs](#s3-files-troubleshooting-debug-logs "#s3-files-troubleshooting-debug-logs")
@@ -179,6 +180,15 @@ The following table lists all possible `ExportError` values:
 
 S3 Files automatically retries failed exports. `ExportError` is shown only
 for non-retryable errors.
+
+## S3 object not visible in the file system
+
+An object exists in your S3 bucket but does not appear in the file system. The object
+key name may not map to a valid POSIX file path. S3 Files does not support accessing S3
+key names with empty path components (`foo//bar`), relative path components
+(`foo/./bar`, `foo/../bar`), key names containing null bytes, or key names where any path
+component exceeds 255 bytes. Objects with incompatible key names are not imported into
+the file system.
 
 ## Files appearing in the lost and found directory
 
