@@ -17,9 +17,12 @@ Benefits of using adaptive sampling:
 
 ## Supported SDKs and platforms
 
-**Supported SDK** – Adaptive sampling requires the latest version of the ADOT SDK.
+**Supported SDK** – Adaptive sampling requires the AWS Distro for OpenTelemetry (ADOT) SDK.
 
-**Supported language** – Java (version [v2.11.5](https://github.com/aws-observability/aws-otel-java-instrumentation/releases/tag/v2.11.5 "https://github.com/aws-observability/aws-otel-java-instrumentation/releases/tag/v2.11.5") or higher)
+**Supported languages**
+
+- Java (version [v2.11.5](https://github.com/aws-observability/aws-otel-java-instrumentation/releases/tag/v2.11.5 "https://github.com/aws-observability/aws-otel-java-instrumentation/releases/tag/v2.11.5") or higher)
+- Python (version [v0.15.0](https://github.com/aws-observability/aws-otel-python-instrumentation/releases/tag/v0.15.0 "https://github.com/aws-observability/aws-otel-python-instrumentation/releases/tag/v0.15.0") or higher)
 
 Your application must be instrumented with the supported ADOT SDK and executed together with either the Amazon CloudWatch Agent or the OpenTelemetry Collector.
 
@@ -88,7 +91,8 @@ The `SamplingRateBoost` field defines the upper bound and behavior for anomaly-d
 
 "SamplingRateBoost": {
   "MaxRate": 0.25,
-  "CooldownWindowMinutes": 10
+  "CooldownWindowMinutes": 10,
+  "DisableDefaultAnomalyDetection": false
 }
 
 ```
@@ -97,6 +101,10 @@ The `MaxRate` defines the maximum sampling rate X-Ray will apply when it detects
 X-Ray determines the appropriate rate between your baseline and the maximum, depending on anomaly activity.
 
 The `CooldownWindowMinutes` defines time window (in minutes) in which only one sampling rate boost can be triggered. After a boost occurs, no further boosts are allowed until the next window. The Value type is _integer (minutes)_.
+
+The `DisableDefaultAnomalyDetection` controls whether the ADOT SDK uses the built-in default anomaly condition (HTTP 5xx fault responses) to trigger a sampling boost. The value type is _boolean_ and the default is `false`.
+When set to `true`, the SDK will no longer boost sampling on HTTP 5xx responses by default. In that case, a boost is only triggered by anomaly conditions that you define explicitly through the [Local SDK configuration](#local-sdk-configuration "#local-sdk-configuration").
+Use this when you want full control over what constitutes an anomaly (for example, only specific error codes or latency thresholds) and want to avoid boosts on all 5xx responses.
 
 **Example rule with adaptive sampling**
 
@@ -124,7 +132,7 @@ In this example, baseline sampling is 5% (`FixedRate: 0.05`). During anomalies, 
 
 **Anomaly condition configuration**
 
-When no anomaly condition configuration is provided, the ADOT SDK uses **HTTP 5xx error codes** as the default anomaly condition to trigger sampling boost.
+When no anomaly condition configuration is provided, the ADOT SDK uses **HTTP 5xx error codes** as the default anomaly condition to trigger sampling boost. You can disable this default by setting `DisableDefaultAnomalyDetection` to `true` on the `SamplingRateBoost` field.
 
 You can also fine tune anomaly conditions locally in the supported ADOT SDK using environment variables. For more information, see [Local SDK configuration](#local-sdk-configuration "#local-sdk-configuration").
 
