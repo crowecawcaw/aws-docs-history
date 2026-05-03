@@ -15,7 +15,7 @@ and an MSS output. You want the DASH output to include the TTML captions in both
 Portuguese and the MSS output to also include the TTML captions in both Spanish and
 Portuguese.
 
-![Diagram showing input TTML captions in Spanish and Portuguese with corresponding outputs.](images/example-one-to-several-1.png)
+![Diagram showing input captions flowing to output captions, then to DASH and MSS outputs.](images/example-one-to-several-1.png)
 
 # To set up a job for this example
 
@@ -23,7 +23,7 @@ Portuguese.
    - One for TTML Spanish.
    - One for TTML Portuguese.
 
-![Caption selector interface with two rows for TTML sources and external caption file paths.](images/example-one-to-several-2.png) 2. Create a stream (for example, Stream 1) and set up the video and audio. 3. Create a captions-only stream (for example, Stream 2) following the procedure for sidecar
+![Two caption selector rows showing source dropdown, external caption file path, browse button, and time delta fields.](images/example-one-to-several-2.png) 2. Create a stream (for example, Stream 1) and set up the video and audio. 3. Create a captions-only stream (for example, Stream 2) following the procedure for sidecar
 captions in the topic [Setting Up Output Captions in a Sidecar Format (SCC, SMI, SRT, TTML, WebVTT)](setting-up-output-captions-sidecar.md "setting-up-output-captions-sidecar.md"). Specify the captions settings as
 follows:
 
@@ -40,7 +40,7 @@ follows:
    - **Language**: Portuguese.
    - Other fields: Same as the first caption stream.
 
-![Stream configuration interface showing three streams with caption, language, and destination settings.](images/example-one-to-several-3.png) 5. In the DASH output group, create three outputs:
+![Stream configuration interface showing three caption streams with language and destination settings.](images/example-one-to-several-3.png) 5. In the DASH output group, create three outputs:
 
     * In the first output, set the Stream field in that output to Stream 1.
     * In the second output, set the Stream field in that output to Stream 2.
@@ -49,7 +49,7 @@ follows:
 Although there are three outputs, they are all in the same output group, so the
 video/audio and two captions are kept together.
 
-![Output settings interface showing three streams with name modifiers and optional checkboxes.](images/example-one-to-several-4.png) 6. In the MSS output group, create three outputs:
+![Three output streams with name modifiers av, ES, and PT shown in the Outputs interface.](images/example-one-to-several-4.png) 6. In the MSS output group, create three outputs:
 
     * In the first output, set the Stream field in that output to Stream 1.
     * In the second output, set the Stream field in that output to Stream 2.
@@ -57,4 +57,4 @@ video/audio and two captions are kept together.
 
 Notice that the streams in this output are also associated with the DASH output.
 
-![Output streams interface showing three streams with name modifiers and configuration options.](images/example-one-to-several-5.png) 7. Save the job.
+![Three output streams with name modifiers ab, ES, and PT, each showing preset settings.](images/example-one-to-several-5.png) 7. Save the job.

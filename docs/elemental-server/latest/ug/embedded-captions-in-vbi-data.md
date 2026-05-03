@@ -21,6 +21,6 @@ associate them with the desired output. Instead, follow this procedure:
 3. Display the Video fields for this stream. Click **Advanced**. More
    fields appear.
 
-![Stream 1 settings interface showing video and audio options with advanced features.](images/appendix-b.png) 4. Check the **VBI Passthrough** field. 5. Do not create a captions tab in this stream.
+![Stream 1 settings showing Video, Audio, Caption sections with Advanced options expanded.](images/appendix-b.png) 4. Check the **VBI Passthrough** field. 5. Do not create a captions tab in this stream.
 All the VBI data (including embedded captions) from the input is included in the output
 that is associated with this stream.

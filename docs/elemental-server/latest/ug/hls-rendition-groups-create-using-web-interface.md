@@ -105,9 +105,9 @@ After these steps, you have:
 
 Here is the Output section.
 
-![Audio stream configuration interface with multiple output streams and advanced settings.](images/hls-rendition-groups-create-example-output.png)
+![Output section showing six stream configurations with name and segment modifiers.](images/hls-rendition-groups-create-example-output.png)
 
 Here is the Streams section.
 
-![Stream configuration interface showing settings for video, audio, and encoding options.](images/hls-rendition-groups-create-example-streams-1.png)
-![Stream configuration interface showing settings for video, audio, and encoding options.](images/hls-rendition-groups-create-example-streams-2.png)
+![Four stream configurations showing video and audio encoding settings with codec and bitrate options.](images/hls-rendition-groups-create-example-streams-1.png)
+![Four stream configurations showing video and audio encoding settings with codec and bitrate options.](images/hls-rendition-groups-create-example-streams-2.png)

@@ -15,7 +15,7 @@ output and an HLS output. In the DASH output, you want to convert the same Telet
 TTML and include both languages. In the HLS output, you want to convert the same SRT captions
 to WebVTT and include both languages.
 
-![Flowchart showing input captions converted to output captions for DASH and HLS formats.](images/example-one-to-different-one-each-1.png)
+![Workflow showing input captions converted to TTML and WebVTT formats for DASH and HLS outputs.](images/example-one-to-different-one-each-1.png)
 
 This example illustrates an important feature of setting up streams. The two output
 captions are TTML and WebVTT. WebVTT cannot be associated with the DASH output, which means
@@ -34,7 +34,7 @@ captions are, of course, processed twice.
    - One for Teletext Czech. Specify the page that holds the Czech captions.
    - One for Teletext Polish. Specify the page that holds the Polish captions.
 
-![Caption selector interface with dropdown menus for Source and Page Number inputs.](images/example-one-to-different-one-each-2.png) 2. Create a stream (for example, Stream 1) and set up the video and audio. This stream is
+![Caption Selector interface showing two selectors with Source dropdown set to Teletext and Page Numbers 890 and 896.](images/example-one-to-different-one-each-2.png) 2. Create a stream (for example, Stream 1) and set up the video and audio. This stream is
 associated with the DASH output. 3. Create a second stream (for example, Stream 2) and set up the video and audio in exactly
 the same way as Stream 1. This stream is associated with the HLS output. 4. Create one caption stream (for example, Stream 3) following the procedure for sidecar
 captions in the topic [Setting Up Output Captions in a Sidecar Format (SCC, SMI, SRT, TTML, WebVTT)](setting-up-output-captions-sidecar.md "setting-up-output-captions-sidecar.md"). Specify the captions settings as
@@ -67,7 +67,7 @@ follows:
    - **Language**: Polish.
    - Other fields: Same as the third caption stream.
 
-![Stream configuration interface showing video, audio, and caption settings for multiple streams.](images/example-one-to-different-one-each-3.png) 8. In the DASH output group, create three outputs:
+![Streams configuration interface showing six streams with video, audio, and caption settings.](images/example-one-to-different-one-each-3.png) 8. In the DASH output group, create three outputs:
 
     * In the first output, set the Stream field in that output to Stream 1 (the first
      video/audio stream).
@@ -77,7 +77,7 @@ follows:
 Although there are three outputs, they are all in the same output group, so the
 video/audio and two captions are kept together.
 
-![Output configuration interface showing three streams with name modifiers and optional settings.](images/example-one-to-different-one-each-4.png) 9. In the HLS output group, create three outputs:
+![Three output streams showing Stream 1 with av modifier, Stream 3 with CZ modifier, and Stream 4 with POL modifier.](images/example-one-to-different-one-each-4.png) 9. In the HLS output group, create three outputs:
 
     * In the first output, set the Stream field in that output to Stream 2 (the second
      video/audio stream).
@@ -87,4 +87,4 @@ video/audio and two captions are kept together.
 Again, although there are three outputs, they are all in the same output group, so the
 video/audio and two captions are kept together.
 
-![Output settings interface showing three streams with name modifiers av, CZ, and POL.](images/example-one-to-different-one-each-5.png)
+![Three output streams with name modifiers av, CZ, and POL configured in the Outputs section.](images/example-one-to-different-one-each-5.png)

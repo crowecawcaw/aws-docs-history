@@ -13,7 +13,7 @@ output and include all the languages in that output.
 The input has SRT captions in German and French. You want to convert the captions to TTML
 and include these captions in both languages in a DASH output.
 
-![Diagram showing SRT input captions converted to TTML output captions for German and French.](images/example-easy-workflow-1.png)
+![Workflow diagram showing SRT German and French inputs converting to TTML outputs for DASH.](images/example-easy-workflow-1.png)
 
 # To set up a job for this example
 
@@ -21,7 +21,7 @@ and include these captions in both languages in a DASH output.
    - One for the German SRT file.
    - One for the French SRT file.
 
-![Caption Selector interface with two rows for selecting SRT sources and external caption files.](images/example-easy-workflow-2.png) 2. Create a stream (for example, Stream 1) and set up the video and audio. 3. Create one caption stream (for example, Stream 2) following the procedure for sidecar
+![Two caption selectors with source dropdown set to SRT and external caption file paths.](images/example-easy-workflow-2.png) 2. Create a stream (for example, Stream 1) and set up the video and audio. 3. Create one caption stream (for example, Stream 2) following the procedure for sidecar
 captions in the topic [Setting Up Output Captions in a Sidecar Format (SCC, SMI, SRT, TTML, WebVTT)](setting-up-output-captions-sidecar.md "setting-up-output-captions-sidecar.md"). Specify the captions settings as
 follows:
 
@@ -39,7 +39,7 @@ follows:
    - **Language**: French.
    - Other fields: same as the first caption stream.
 
-![Stream configuration interface with video and caption settings for multiple streams.](images/example-easy-workflow-3.png) 5. In the DASH output group, create three outputs:
+![Stream configuration interface showing video, audio, and caption settings for three streams.](images/example-easy-workflow-3.png) 5. In the DASH output group, create three outputs:
 
     * In the first output, set the Stream field in that output to Stream 1.
     * In the second output, set the Stream field in that output to Stream 2.
@@ -48,4 +48,4 @@ follows:
 Although there are three outputs, they are all in the same output group, so the
 video/audio and two captions are kept together.
 
-![Output configuration showing three streams with name modifiers av, DE, and FR.](images/example-easy-workflow-4.png)
+![Three output streams with name modifiers av, DE, and FR in a single output group.](images/example-easy-workflow-4.png)
