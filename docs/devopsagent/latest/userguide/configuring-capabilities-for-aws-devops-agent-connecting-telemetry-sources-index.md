@@ -17,7 +17,7 @@ To learn about 2-way integrations, see
 
 ## Built-in, 1-way integration
 
-Currently, AWS DevOps Agent supports AWS CloudWatch, Datadog, Grafana, New Relic, and Splunk users with built-in, 1 way integrations.
+Currently, AWS DevOps Agent supports AWS CloudWatch, Amazon S3, Datadog, Grafana, New Relic, and Splunk users with built-in, 1 way integrations.
 
 **Security best practice:** When configuring credentials for built-in 1-way integrations, we recommend scoping API keys and tokens to read-only access. AWS DevOps Agent uses these credentials for telemetry introspection only and does not require write access to your telemetry provider.
 
@@ -26,7 +26,13 @@ The AWS CloudWatch built-in, 1-way integration requires no additional setup and 
 - **Topology resource mapping** - AWS DevOps Agent will augment your DevOps Agent Space Topology with entities and relationships available to it via your configured primary and secondary AWS cloud accounts.
 - **Telemetry introspection** - AWS DevOps Agent can introspect AWS CloudWatch telemetry as it investigates an issue via the IAM role(s) provided during primary and secondary AWS cloud account configuration.
 
-The Datadog, Grafana, New Relic, and Splunk built-in, 1 way integrations require setup and enable the following:
+The Amazon S3 built-in, 1-way integration enables the following:
+
+- **Telemetry introspection** - AWS DevOps Agent can read objects from Amazon S3 buckets as it investigates an issue. This is useful for accessing logs, configuration files, and other artifacts stored in S3.
+
+To use the Amazon S3 integration, add the `s3:GetObject` and `s3:ListBucket` permissions to the DevOps Agent's IAM role. Following the principle of least privilege, scope these permissions to only the specific S3 buckets that the agent needs to access. For more information about configuring IAM permissions, see [DevOps Agent IAM permissions](aws-devops-agent-security-devops-agent-iam-permissions.md "aws-devops-agent-security-devops-agent-iam-permissions.md").
+
+The Datadog, Grafana, New Relic, and Splunk built-in, 1-way integrations require setup and enable the following:
 
 - **Automated Investigation triggering** - Datadog, Grafana, New Relic, and Splunk events can be configured to trigger AWS DevOps Agent incident resolution Investigations via AWS DevOps Agent webhooks.
 - **Telemetry introspection** - AWS DevOps Agent can introspect Datadog, Grafana, New Relic, and Splunk telemetry as it investigates an issue via each provider's remote MCP server.

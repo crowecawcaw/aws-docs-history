@@ -16,8 +16,6 @@ At any point during the incident lifecycle, you can interact with DevOps Agent t
 
 After resolving incidents, DevOps Agent analyzes patterns across your investigation history to generate recommendations that prevent future incidents and reduce mean time to detection. Recommendations span four areas: observability posture, testing gaps, code changes, and infrastructure architecture. The agent runs evaluations weekly and updates recommendations as new incidents occur. You can accept, reject, or track recommendations, and the agent learns from your feedback to refine future suggestions. For more information, see [Proactive incident prevention](working-with-devops-agent-proactive-incident-prevention.md "working-with-devops-agent-proactive-incident-prevention.md").
 
-## Engaging DevOps Agent via MCP
+## Interfacing with the DevOps Agent
 
-You can access AWS DevOps Agent capabilities directly from MCP-compatible clients and IDEs using the [AWS MCP Server](../../../aws-mcp/latest/userguide/what-is-mcp-server.md "../../../aws-mcp/latest/userguide/what-is-mcp-server.md"). This enables you to investigate incidents, optimize costs, review architecture, map topology, and get remediation guidance through DevOps Agent APIs without leaving your development environment.
-
-For [Kiro](https://kiro.dev/ "https://kiro.dev/") users, a dedicated **aws-devops-agent** power is available in the [Kiro powers repository](https://github.com/kirodotdev/powers "https://github.com/kirodotdev/powers"). This power provides a pre-configured setup that connects Kiro to AWS DevOps Agent through the AWS MCP Server, giving you AI-powered operational intelligence directly in your IDE.
+AWS DevOps Agent supports multiple access methods including the web app console, MCP integration for IDEs, Agent Client Protocol (ACP), webhooks for event-driven automation, and direct API access. For more information, see [Interfacing with the DevOps Agent](working-with-devops-agent-interfacing-with-the-devops-agent.md "working-with-devops-agent-interfacing-with-the-devops-agent.md").

@@ -7,7 +7,7 @@ Model Context Protocol (MCP) servers extend AWS DevOps Agent's investigation cap
 Before connecting an MCP server, ensure your server meets these requirements:
 
 - **Streamable HTTP transport protocol** – Only MCP servers that implement the Streamable HTTP transport protocol are supported.
-- **Authentication support** – Your MCP server must support OAuth 2.0 authentication flows or API key/token-based authentication.
+- **Authentication support** – Your MCP server must support one of the following authentication methods: OAuth 2.0 (Client Credentials or 3LO), API key/token-based authentication, or AWS Signature Version 4 (SigV4).
 
 ## Security considerations
 
@@ -41,6 +41,7 @@ MCP servers are registered at the AWS account level and shared among all Agent S
    - **Endpoint URL** – Enter the full HTTPS URL of your MCP server endpoint
    - **Description** (optional) – Add a description to help identify the server's purpose
    - **Enable Dynamic Client Registration** – Select this checkbox if you want to allow AWS DevOps Agent to automatically register with your MCP server's authorization server
+   - **Connect to endpoint using private connection** – Select this checkbox if you want AWS DevOps Agent to make requests to your MCP server privately. You may select an existing private connection or create a new one. If you use OAuth authentication, the private connection applies to both the MCP server endpoint and the token exchange endpoint. Ensure the private connection is configured with a host address that can route traffic to both endpoints. For more information, see [Connecting to privately hosted tools](configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md "configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md").
 
 6. Click **Next**
 
@@ -65,6 +66,11 @@ Select the authentication method for your MCP server:
 **API Key** – If your MCP server uses API key authentication:
 
 1. Select **API Key**
+2. Click **Next**
+
+**AWS SigV4** – If your MCP server uses AWS Signature Version 4 authentication:
+
+1. Select **AWS SigV4**
 2. Click **Next**
 
 ### Step 3: Authorization configuration
@@ -97,6 +103,19 @@ Configure additional authorization parameters based on the selected authenticati
 3. Enter your API key value
 4. Click **Next**
 
+**For AWS SigV4:**
+
+AWS SigV4 authentication allows AWS DevOps Agent to connect to MCP servers that use AWS Signature Version 4 for request signing. This is useful for MCP servers hosted behind Amazon API Gateway or other AWS services that support SigV4 authentication.
+
+1. **Configure IAM role** – Choose one of the following options:
+   - **Use an existing role** – Select an existing IAM role from the dropdown. The role must have a trust policy that allows the AWS DevOps Agent service principal to assume it (see [Creating an IAM role for SigV4 authentication](configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md "configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md")).
+   - **Create a new role manually** – Follow the step-by-step instructions displayed in the console to create a new IAM role with the correct trust policy.
+
+2. **AWS Region** – Enter the AWS Region for SigV4 signing (for example, `us-east-1`). To use SigV4a multi-region signing, enter `*`.
+3. **Service Name** – Enter the AWS service name for SigV4 signing (for example, `execute-api` for API Gateway).
+4. **Custom Headers** (optional) – Add up to 10 custom key-value header pairs to include with each signed request.
+5. Click **Next**
+
 ### Step 4: Review and submit
 
 1. Review all the MCP server configuration details
@@ -127,6 +146,50 @@ AWS DevOps Agent will now be able to use the allowlisted tools from your MCP ser
 **Viewing connected MCP servers** – To see all MCP servers connected to your Agent Space, select your Agent Space, go to the **Capabilities** tab, and check the **MCP Servers** section. You can also update selected tools here.
 
 **Removing MCP server connections** – To disconnect an MCP server from an Agent Space, select the server in the **MCP Servers** section and click **Remove**. To completely delete an MCP server registration, remove it from all Agent Spaces first, then delete the account-level registration.
+
+## Creating an IAM role for SigV4 authentication
+
+When using AWS SigV4 authentication, AWS DevOps Agent assumes an IAM role in your account to sign requests to your MCP server. This role must have a trust policy that allows the AWS DevOps Agent service principal (`aidevops.amazonaws.com`) to assume it, with confused deputy protection.
+
+### Trust policy
+
+Create an IAM role with the following trust policy. Replace `REGION` with your AWS Region (for example, `us-east-1`) and `ACCOUNT_ID` with your AWS account ID.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "aidevops.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "ACCOUNT_ID"
+        },
+        "ArnLike": {
+          "aws:SourceArn": "arn:aws:aidevops:REGION:ACCOUNT_ID:service/*"
+        }
+      }
+    }
+  ]
+}
+```
+
+The trust policy includes the following conditions to prevent the [confused deputy problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") :
+
+- `aws:SourceAccount` – Restricts role assumption to requests originating from your AWS account.
+- `aws:SourceArn` – Restricts role assumption to requests originating from AWS DevOps Agent service resources in your account.
+
+### Permissions policy
+
+Attach a permissions policy to the role that grants the minimum permissions required to invoke your MCP server. For example, if your MCP server is hosted behind Amazon API Gateway, the role should have `execute-api:Invoke` permission on the API Gateway resource.
+
+### Multi-region signing (SigV4a)
+
+If your MCP server is deployed across multiple AWS Regions, you can use [SigV4a (Signature Version 4a)](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") for multi-region signing. To enable this, enter `*` as the AWS Region when configuring the SigV4 authorization. SigV4a uses asymmetric signing, which allows a single signed request to be valid across multiple Regions.
 
 ## Related topics
 

@@ -15,7 +15,7 @@ AWS DevOps Agent sends events to the EventBridge default event bus. EventBridge 
 
 The following diagram shows how EventBridge routes AWS DevOps Agent events.
 
-![](images/eventbridge-integration-how-it-works.png)
+![Amazon EventBridge routing events from AWS source through rules to targets such as AWS services.](images/eventbridge-integration-how-it-works.png)
 
 1. AWS DevOps Agent sends an event to the EventBridge default event bus when an investigation or mitigation lifecycle state changes.
 2. EventBridge evaluates the event against the rules that you created.

@@ -188,11 +188,11 @@ If you created your Agent Space before Chat was released, you must enable the re
 
 Navigate to the AWS DevOps Agent Admin Console, locate the Action dropdown in the top right corner, and disable the current operator access configuration.
 
-![](images/6f3b13aeccc7.png)
+![Actions dropdown menu showing options including Disable Operator Access highlighted.](images/6f3b13aeccc7.png)
 
 Then enable the auto-create option for operator access.
 
-![](images/1446286ed5e6.png)
+![Operator access section with Auto-create a new AWS DevOps Agent role option selected.](images/1446286ed5e6.png)
 
 This automatically applies the required IAM permissions for Chat along with all other current operator permissions.
 

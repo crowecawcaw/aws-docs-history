@@ -6,7 +6,7 @@ The following table describes the quotas for AWS DevOps Agent.
 
 | Name                                             | Default | Adjustable | Description                                                                                                 |
 | ------------------------------------------------ | ------- | ---------- | ----------------------------------------------------------------------------------------------------------- |
-| Agent spaces per account per Region              | 10      | Yes        | The maximum number of agent spaces that you can create per account in each AWS Region.                      |
+| Agent spaces per account per Region              | 100     | Yes        | The maximum number of agent spaces that you can create per account in each AWS Region.                      |
 | Concurrent investigations per agent space        | 3       | Yes        | The maximum number of incident resolution investigations that can run concurrently in a single agent space. |
 | Concurrent evaluations per agent space           | 1       | No         | The maximum number of incident prevention evaluations that can run concurrently in a single agent space.    |
 | Concurrent on-demand invocations per agent space | 10      | Yes        | The maximum number of on-demand DevOps invocations that can run concurrently in a single agent space.       |

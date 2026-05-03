@@ -11,7 +11,7 @@ Slack needs to be registered with DevOps Agent before it can be added to an Agen
 
 ## Register Slack integration with AWS DevOps Agent
 
-![](images/4034f56fad96.png)
+![Register Slack with AWS DevOps Agent page showing installation steps and authorization section.](images/4034f56fad96.png)
 
 1. From the **Capability Providers** page in the AWS DevOps Agent console, find **Slack** in the **Available** providers section under **Communication** and click **Register**.
 2. Choose the **Register** button.

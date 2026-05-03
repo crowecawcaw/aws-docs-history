@@ -162,6 +162,10 @@ In the AWS DevOps Agent console, private connections can be linked to a capabili
 6. Either select an existing private connection that corresponds to the Endpoint URL you want to connect to, or select **Create a new private connection** to create one.
 7. Complete the registration process for the capability provider.
 
+###### Note
+
+When you select a private connection for a capability provider that uses OAuth authentication (Client Credentials or 3LO), the private connection applies to both the capability provider endpoint and the token exchange endpoint. Ensure the private connection is configured with a host address that can route traffic to both endpoints.
+
 ### Use a private connection with a capability provider using the AWS CLI
 
 You can register capabilities with a private connection by including the `private-connection-name` argument. Below is an example of registering an MCP Server with API Key authorization using the `my-mcp-tool-connection` private connection. Replace the placeholder values with your own.
