@@ -2,9 +2,8 @@
 
 ###### Note
 
-Amazon Comprehend topic modeling, event detection, and prompt safety classification features will no longer be
-available to new customers, effective April 30, 2026. If you would like to use these features with new accounts,
-please do so before this date. No action is required for accounts that have used these features within the last
+Amazon Comprehend topic modeling, event detection, and prompt safety classification features are no longer
+available to new customers. No action is required for accounts that have used these features within the last
 12 months. For more information, see [Amazon Comprehend feature availability change](comprehend-availability-change.md "comprehend-availability-change.md").
 
 Use _event detection_ to analyze text documents for speciﬁc types of events
