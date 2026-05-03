@@ -105,7 +105,7 @@ To change the key bindings, use the following procedure.
 2. On the **Preferences** tab, select **Keybindings**.
 3. In the keybindings search box, enter Amazon Q.
 
-![Keybindings settings in AWS Cloud9 IDE with Amazon CodeWhisperer option highlighted.](images/CWSPR-Lambda-keybinding-settings.png)
+![Keybindings settings panel with Amazon CodeWhisperer highlighted in the table.](images/CWSPR-Lambda-keybinding-settings.png)
 
 AWS Cloud9
 
@@ -121,4 +121,4 @@ AWS Cloud9
 4. In the Keystroke column, double-click the space corresponding to the function you're interested in.
 5. Enter the keys that you want to bind the function to.
 
-![AWS Cloud9 interface showing Keybindings settings with options for keyboard mode and custom keybindings.](images/CWSPR-C9-keybinding-settings.png)
+![Keybindings section selected in User Settings with keyboard mode dropdown highlighted.](images/CWSPR-C9-keybinding-settings.png)

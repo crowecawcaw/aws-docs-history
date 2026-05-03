@@ -1,5 +1,11 @@
 # Adding workspace context to Amazon Q Developer chat in the IDE
 
+###### Important
+
+The `@workspace` feature is deprecated. You can still add
+context by using `@file`, `@folder`, or
+`@code`.
+
 When you chat with Amazon Q in the integrated development environment (IDE), you can add
 `@workspace` to your question to
 automatically include the most relevant chunks of your workspace code as context. Amazon Q Developer

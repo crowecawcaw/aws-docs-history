@@ -75,7 +75,7 @@ suggestion based on the comment.
 C#
 In the following example, Amazon Q recommends a full function.
 
-![Function declaration for ListTables with AmazonDynamoDBClient parameter in code editor.](images/c-sharp-full-function.gif)
+![Code editor showing a public static async Task function signature for ListTables method.](images/c-sharp-full-function.gif)
 
 TypeScript
 In the following example, Amazon Q generates a function based on the user's docstrings.

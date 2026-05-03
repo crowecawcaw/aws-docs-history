@@ -47,11 +47,11 @@ required) to sign in for free.
 
 [Download Amazon Q in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.amazon-q-vscode "https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.amazon-q-vscode")
 
-![Colorful cube shape with three visible faces in magenta, orange, and yellow.](images/jetbrains.png)
+![The JetBrains logo.](images/jetbrains.png)
 
 [Download Amazon Q in JetBrains IDEs](https://plugins.jetbrains.com/plugin/24267-amazon-q/ "https://plugins.jetbrains.com/plugin/24267-amazon-q/")
 
-![Purple hexagonal logo with interlocking N shapes forming a continuous pattern.](images/visual-studio.png)
+![The Visual Studio logo.](images/visual-studio.png)
 
 [Download Amazon Q in the AWS Toolkit for Visual Studio](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.AWSToolkitforVisualStudio2022 "https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.AWSToolkitforVisualStudio2022")
 
