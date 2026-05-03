@@ -91,9 +91,9 @@ create your project.
    available only in the US East (N. Virginia), Europe (Ireland), and
    Asia Pacific (Sydney) Regions.
 
-![Dropdown menu showing AWS region options including US East, US West, and their corresponding codes.](images/gs-project-select-region.png) 2. Open the Amazon Monitron console at [https://console.aws.amazon.com/monitron](https://console.aws.amazon.com/monitron/ "https://console.aws.amazon.com/monitron/"). 3. Choose **Create project**.
+![Region selector dropdown menu showing available AWS Regions such as US East N. Virginia.](images/gs-project-select-region.png) 2. Open the Amazon Monitron console at [https://console.aws.amazon.com/monitron](https://console.aws.amazon.com/monitron/ "https://console.aws.amazon.com/monitron/"). 3. Choose **Create project**.
 
-![Getting started dialog box with a link to documentation and a Create project button.](images/gs-project-monitron-create-project.png) 4. Under **Project Details**, for **Project
+![Getting started container with Documentation link and Create project button.](images/gs-project-monitron-create-project.png) 4. Under **Project Details**, for **Project
 name**, enter a name for the project. 5. (Optional) Under **Data encryption**, you can check
 **Custom encryption settings (advanced)** if you have an
 AWS KMS key in AWS Key Management Service. Amazon Monitron encrypts all data at rest and in transit.
@@ -107,7 +107,7 @@ tag**.
 For more information about tags, see [Tags in
 Amazon Monitron](../user-guide/tagging.md "../user-guide/tagging.md"). 7. Choose **Next** to create the project.
 
-![Project details form with project name field and data encryption information.](images/gs-project-monitron-project-details.png)
+![Project details page with Site1 as project name and default data encryption settings.](images/gs-project-monitron-project-details.png)
 
 When you create your first project, the owner of the AWS account will get an email
 from _AWS Organizations_. No action needs to be taken based on this
@@ -143,7 +143,7 @@ are ready to assign the admin role to them.
 3. In the **Create user** section, enter the admin user's email
    address and name.
 
-![User creation form with fields for email address, first name, and last name.](images/create-user.png) 4. Choose **Create user**.
+![Create a user form with fields for email address, first name, and last name.](images/create-user.png) 4. Choose **Create user**.
 
 Amazon Monitron creates a user in IAM Identity Center. IAM Identity Center sends the user an email that contains a
 link to activate the account. The link is valid for up to seven days. Within
@@ -189,7 +189,7 @@ Otherwise, add your users to IAM Identity Center by completing the following ste
       **Send an email to the user with password setup
       instructions**.
 
-   ![User details form with fields for username, email, name, and password setup option.](images/gs-project-sso-user-details.png) 3. Choose **Next: Groups**. 4. Choose **Add user**. IAM Identity Center sends the user an email
+   ![User details form with username, email, name fields, and password setup option selected.](images/gs-project-sso-user-details.png) 3. Choose **Next: Groups**. 4. Choose **Add user**. IAM Identity Center sends the user an email
    that contains a link to activate the IAM Identity Center user. The link is valid for
    up to seven days. Each user must open the email and accept the
    invitation before accessing your project in the Amazon Monitron mobile app.
@@ -199,7 +199,7 @@ Otherwise, add your users to IAM Identity Center by completing the following ste
    then to the **Users** list.
 6. Choose **Add user**.
 
-![User interface showing a list of users and an "Add user" button in the top right corner.](images/user-list-add.png) 4. Enter a user name.
+![Users page with Add user button highlighted in the upper right corner.](images/user-list-add.png) 4. Enter a user name.
 
 Amazon Monitron searches the user directory for the user. 5. Choose the user from the list. 6. Choose the role that you want to assign the user:
 **Admin**, **Technician**, or
@@ -213,7 +213,7 @@ email invitation](../user-guide/resending-email.md "../user-guide/resending-emai
 1. Select **Users** from the navigation pane.
 2. Choose **Add user**.
 
-![User management interface showing a list of users with their roles and sites.](images/webapp_add-user.png) 3. Enter a user name.
+![Add user button highlighted in the Users page toolbar.](images/webapp_add-user.png) 3. Enter a user name.
 
 Amazon Monitron searches the user directory for the user. 4. Choose the user from the list. 5. Choose the role that you want to assign the user:
 **Admin**, **Technician**, or
@@ -224,7 +224,7 @@ project and downloading the Amazon Monitron mobile app. For more information,
 see [Sending an
 email invitation](../user-guide/resending-email.md "../user-guide/resending-email.md").
 
-![User management interface showing a list of 10 users with their names, roles, and assigned sites.](images/users-table.png)
+![Users table showing display names, roles such as Admin and Technician, and site assignments.](images/users-table.png)
 
 ## Step 5: Invite users to your project
 

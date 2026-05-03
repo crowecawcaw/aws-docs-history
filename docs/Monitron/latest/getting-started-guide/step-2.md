@@ -33,16 +33,16 @@ To add a Wi-Fi gateway
 1. Choose the menu icon (☰), and then choose **Getting
    Started**.
 
-![Menu options including Assets, Gateways, Users, Sites, with Getting started highlighted.](images/getting-started.png) 2. Choose **Add gateway**.
+![Navigation menu with Getting started option highlighted.](images/getting-started.png) 2. Choose **Add gateway**.
 
-![Step 1 of getting started shows icons for gateways and instructions to connect them.](images/gs-gateway.png) 3. In your factory, position your gateway in the location that works best for
+![Getting started dialog showing Step 1 to install gateways with Add gateway button.](images/gs-gateway.png) 3. In your factory, position your gateway in the location that works best for
 communicating with your sensors.
 
 The best place to mount your gateway is higher than the sensors and no more than 20 to
 30 meters away. For more information about locating gateways, see [Where to Install Your Gateway](../user-guide/installing-gateway.md#where-gateway "../user-guide/installing-gateway.md#where-gateway") in the _Amazon Monitron User Guide_. 4. Plug the gateway in and make sure that the LED lights on the top alternatively blink
 yellow and blue.
 
-![Orange rectangular device with a smiling face and a hand pointing to it.](images/gs-gateway-turnon.png) 5. Push the button on the side of the gateway to put it into commissioning mode. The
+![Hand plugging a device with a cable into an electrical outlet.](images/gs-gateway-turnon.png) 5. Push the button on the side of the gateway to put it into commissioning mode. The
 lights will start blinking rapidly. 6. In the mobile app, choose **Next**. 7. Choose **Add gateway**.
 
 Amazon Monitron searches for the gateway, which can take a few moments. When it finds it, the
@@ -54,7 +54,7 @@ solutions. 8. When you see the new gateway in the list, choose it.
 
 It can take a few moments for Amazon Monitron to connect to the new gateway.
 
-![Smartphone connecting to AWS service via Bluetooth, represented by icons and symbols.](images/gs-gateway-bluetooth.png) 9. After it connects to the gateway, Amazon Monitron scans for Wi-Fi networks. Choose the Wi-Fi
+![Mobile phone connecting via Bluetooth to AWS gateway.](images/gs-gateway-bluetooth.png) 9. After it connects to the gateway, Amazon Monitron scans for Wi-Fi networks. Choose the Wi-Fi
 network that you want to use. 10. Enter your Wi-Fi password, and then choose **Connect**.
 
 It can take a few minutes for the gateway to be commissioned.
@@ -70,7 +70,7 @@ The best place to mount your gateway is higher than the sensors and no more than
 (blue) on the front of your gateway are blinking alternatively. 4. Push the **Config** button on the gateway to put it into commissioning
 mode. the Bluetooth and network LED lights will start flashing rapidly.
 
-![Button labeled "CONFIG" with a circular icon next to it.](images/ethernet-config-button.png) 5. Open the mobile app on your smartphone. 6. On the **Getting started** page or the **Gateways**
+![CONFIG button with orange LED indicator light.](images/ethernet-config-button.png) 5. Open the mobile app on your smartphone. 6. On the **Getting started** page or the **Gateways**
 page, choose **Add gateway**.
 
 Amazon Monitron scans for the gateway. This can take a few moments. when Amazon Monitron finds the
@@ -78,10 +78,10 @@ gateway, it displays it in the gateway list. 7. Choose the gateway.
 
 It can take a few moments for Amazon Monitron to connect to the new gateway.
 
-![Smartphone connecting via Bluetooth to an Amazon device with a smile logo.](images/phone-bluetooth-ethernet-gateway.png) 8. After it connects to the gateway, Amazon Monitron will provide two options for you to
+![Mobile device connecting via Bluetooth to Amazon Monitron gateway device.](images/phone-bluetooth-ethernet-gateway.png) 8. After it connects to the gateway, Amazon Monitron will provide two options for you to
 configure the network connection for your gateway.
 
-![Network configuration options for Monitron Gateway: Automatic (DHCP) or Manual.](images/ethernet-network-configuration.png) 9. Choose your network configuation.
+![Network configuration dialog with Automatic DHCP and Manual options for Monitron Gateway.](images/ethernet-network-configuration.png) 9. Choose your network configuation.
 
 It can take a few minutes for the gateway to be commissioned and to connect to the
 network.
@@ -92,7 +92,7 @@ network.
      router, preferred DNS server, and alternate DNS server (optional) information. then choose
      **connect**.
 
-![Network configuration form with fields for IP address, subnet mask, router, and DNS servers.](images/ethernet-IP-DNS-settings.png)
+![Configure network dialog with fields for IP Address, Subnet mask, Router, and DNS servers.](images/ethernet-IP-DNS-settings.png)
 
 ## Step 2: Adding Assets
 
@@ -105,7 +105,7 @@ failures.
 
 1. On the **Getting Started** page, choose **Add asset**.
 
-![Step 2: Add assets interface with an icon and an Add asset button.](images/gs-assets.png) 2. For **Asset name**, enter a name for the asset that you want to create. 3. For **Machine class**, choose the machine class of the asset.
+![Step 2 Add assets interface with industrial equipment icons and Add asset button.](images/gs-assets.png) 2. For **Asset name**, enter a name for the asset that you want to create. 3. For **Machine class**, choose the machine class of the asset.
 
 Asset machine class is based on ISO 20816 Standards. For more information about machine
 classes, see [Assets](../user-guide/assets-chapter.md "../user-guide/assets-chapter.md").
@@ -116,7 +116,7 @@ Asset machine class is based on ISO 20816 Standards. Amazon Monitron administrat
 custom machine asset classes for all positions within a project. For more information about
 machine classes and customizing them, see [Assets](../user-guide/assets-chapter.md "../user-guide/assets-chapter.md").
 
-![Form for adding an asset with fields for name and machine class selection.](images/add_asset1.png) 4. Choose **Add**.
+![Add asset dialog with Asset name 1 field and Machine class dropdown set to Class I.](images/add_asset1.png) 4. Choose **Add**.
 
 When you've added your first asset, it's displayed on the **Assets list**
 page.
@@ -150,11 +150,11 @@ vibration transmission path length that can reduce the transmission path length 
 The following examples show where to place sensors. For more information and examples, see
 [Where to Place Your Sensors](../user-guide/as-sensor-positions.md#as-where-sensors "../user-guide/as-sensor-positions.md#as-where-sensors") in the _Amazon Monitron User Guide_.
 
-![Simplified diagram of a motor connected to a pump, labeled with their respective names.](images/mounting_sensor1.png)
+![Diagram showing motor and pump assembly with sensor placement locations marked.](images/mounting_sensor1.png)
 
-![Diagram showing a motor connected to a pump via a coupling, with labeled components.](images/mounting_sensor2.png)
+![Motor connected to pump through coupling component in mechanical system diagram.](images/mounting_sensor2.png)
 
-![Diagram showing a gearbox connected to two pillar bearings on a shaft.](images/mounting_sensor3.png)
+![Diagram showing motor connected to gearbox, with pillar bearings supporting a shaft assembly.](images/mounting_sensor3.png)
 
 ### How to Place Sensors
 
@@ -163,7 +163,7 @@ one-third of the sensor base is fixed to the asset. The sensors can pick up vibr
 temperature measurements across the entire base of the sensor, but it's important to have the
 asset target area centered as much as possible on the sensor as shown in the following image.
 
-![Yellow sensor device with arrow indicating target contact area and minimum contact dimensions.](images/sensor_mounting.png)
+![Sensor showing target contact area centered on base with minimum contact area of 30 x 25 mm.](images/sensor_mounting.png)
 
 Attach the sensor with an industrial adhesive. We recommend a cyanoacrylate-type epoxy. For
 additional information about attaching the sensor to your asset, see [How
@@ -225,7 +225,7 @@ can later determine abnormalities.
 After you pair the sensor, you can't change the position type. 7. Hold your phone close to the sensor to register it. A progress bar shows when
 registration is complete.
 
-![Hand holding a smartphone near a small orange square, likely representing a sensor.](images/gs-sensor.png)
+![Hand holding phone near a sensor device to register it.](images/gs-sensor.png)
 
 It can take a few moments for the sensor to be commissioned. If you have trouble pairing
 the sensor, see [Pairing Your Sensor](../user-guide/as-sensor-positions1.md#as-add-sensors "../user-guide/as-sensor-positions1.md#as-add-sensors") for more information.

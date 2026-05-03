@@ -33,7 +33,7 @@ time and connect to your project.
 To monitor assets using the Amazon Monitron mobile app, start with the **Assets**
 list. This list is displayed when you open the mobile app.
 
-![Asset list interface showing various equipment statuses, including sorters and conveyor belts.](images/asset_list.png)
+![Assets list showing sorters, conveyor belts, and motors with status indicators.](images/asset_list.png)
 
 Each asset in your project or site is listed in the **Assets** list.
 
@@ -51,7 +51,7 @@ health. The following table describes these icons.
 When you choose an asset, the app displays the health status of each underlying sensor
 position.
 
-![Mobile app interface showing Sorter 1 status with two positions, one in alarm and one healthy.](images/unhealthy_asset.png)
+![Sorter 1 asset details showing two positions: Pos.1 with Alarm status and Pos.2 with Healthy status.](images/unhealthy_asset.png)
 
 The following table describes the position status indicators.
 
@@ -81,9 +81,9 @@ health status. It is often useful to see the data collected by the sensors yours
 You can choose separate versions for different time periods (1 day, 1 week, 2 weeks, 1
 month, and so on).
 
-|                                                                                                                                  |                                                                                         |
-| -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| Two graphs showing total vibration and single axis vibration measurements over time with ISO warning and alarm levels indicated. | Pump monitoring interface showing vibration and temperature alarms with graphical data. |
+|                                                                                                                                        |                                                                                              |
+| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Two vibration monitoring charts showing total and single axis measurements from Dec 7-20, 2022, with ISO alarm and warning thresholds. | Vibration monitoring dashboard showing alarm status and total vibration chart for pump main. |
 
 ## Step 3: Viewing and acknowledging a machine abnormality
 
@@ -99,7 +99,7 @@ screen (
 Choosing the notification icon opens the **Notifications** page, which
 lists all pending notifications.
 
-![Notifications panel showing an alarm detected in Pump - Position 1 (Site 1) on 11/02/2020.](images/notification1.png)
+![Notifications page showing an alarm notification for Pump Position 1 dated 11/02/2020.](images/notification1.png)
 
 When you receive a notification, you must view and acknowledge it. This doesn't fix the
 issue with the asset, it just lets Amazon Monitron know that you are aware of it.
@@ -108,11 +108,11 @@ issue with the asset, it just lets Amazon Monitron know that you are aware of it
 
 1. On the **Assets** list, choose the asset with the alarm.
 
-![Asset list showing various items with status indicators, including alarms on Sorter 1 and 2.](images/asset_list2.png) 2. Choose the position with the alarm to view the issue.
+![Assets list showing Sorter 1 with error icon, Sorter 2 with warning icon, and multiple items with success icons.](images/asset_list2.png) 2. Choose the position with the alarm to view the issue.
 
-|                                                                                   |                                                                                 |
-| --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Sorter 2 interface showing positions, warnings, and asset details for AnyCompany. | Sorter 1 interface showing positions with alarm, warning, and healthy statuses. |
+|                                                                                          |                                                                                               |
+| ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Sorter 2 asset details showing two positions with Warning and Healthy status indicators. | Sorter 1 interface showing four positions with alarm, warning, and healthy status indicators. |
 
 3. To confirm that you are aware of the issue, choose **Acknowledge**.
 
@@ -162,4 +162,4 @@ mode’ while closing the alert. Note that Amazon Monitron will continue to noti
 failures detected based on Machine Learning, even when notifications based on ISO thresholds are
 muted.
 
-![Issue resolution feedback form with failure mode, cause, and action taken fields.](images/mute-screen.png)
+![Issue resolution feedback dialog with Failure mode dropdown set to No failure detected.](images/mute-screen.png)
