@@ -74,11 +74,11 @@ TLD indicates any restrictions.
 **A**
 
 [.ac](ac-xref.md "ac-xref.md"), [.academy](academy.md "academy.md"), [.accountants](accountants.md "accountants.md"),
-[.actor](actor.md "actor.md"), [.adult](adult.md "adult.md"), [.agency](agency.md "agency.md"), [.airforce](airforce.md "airforce.md"), [.apartments](apartments.md "apartments.md"), [.associates](associates.md "associates.md"), [.auction](auction.md "auction.md"), [.audio](audio.md "audio.md")
+[.actor](actor.md "actor.md"), [.adult](adult.md "adult.md"), [.agency](agency.md "agency.md"), [.airforce](airforce.md "airforce.md"), [.apartments](apartments.md "apartments.md"), [.art](art.md "art.md"), [.associates](associates.md "associates.md"), [.auction](auction.md "auction.md"), [.audio](audio.md "audio.md")
 
 **B**
 
-[.band](band.md "band.md"), [.bargains](bargains.md "bargains.md"), [.beer](beer.md "beer.md"),[.bet](bet.md "bet.md"), [.bid](bid.md "bid.md"), [.bike](bike.md "bike.md"), [.bingo](bingo.md "bingo.md"), [.bio](bio.md "bio.md"), [.biz](biz.md "biz.md"), [.black](black.md "black.md"), [.blue](blue.md "blue.md"), [.bot](bot.md "bot.md"), [.boutique](boutique.md "boutique.md"), [.builders](builders.md "builders.md"), [.business](business.md "business.md"), [.buzz](buzz.md "buzz.md")
+[.band](band.md "band.md"), [.bar](bar.md "bar.md"), [.bargains](bargains.md "bargains.md"), [.beer](beer.md "beer.md"),[.bet](bet.md "bet.md"), [.bid](bid.md "bid.md"), [.bike](bike.md "bike.md"), [.bingo](bingo.md "bingo.md"), [.bio](bio.md "bio.md"), [.biz](biz.md "biz.md"), [.black](black.md "black.md"), [.blue](blue.md "blue.md"), [.bot](bot.md "bot.md"), [.boutique](boutique.md "boutique.md"), [.build](build.md "build.md"), [.builders](builders.md "builders.md"), [.business](business.md "business.md"), [.buzz](buzz.md "buzz.md")
 
 **C**
 
@@ -87,15 +87,15 @@ TLD indicates any restrictions.
 
 **D**
 
-[.dance](dance.md "dance.md"), [.dating](dating.md "dating.md"), [.deal](deal.md "deal.md"), [.deals](deals.md "deals.md"), [.degree](degree.md "degree.md"), [.delivery](delivery.md "delivery.md"), [.democrat](democrat.md "democrat.md"), [.dental](dental.md "dental.md"), [.design](design.md "design.md"), [.diamonds](diamonds.md "diamonds.md"), [.diet](diet.md "diet.md"), [.digital](digital.md "digital.md"), [.direct](direct.md "direct.md"), [.directory](directory.md "directory.md"), [.discount](discount.md "discount.md"), [.dog](dog.md "dog.md"), [.domains](domains.md "domains.md")
+[.dance](dance.md "dance.md"), [.dating](dating.md "dating.md"), [.deal](deal.md "deal.md"), [.deals](deals.md "deals.md"), [.degree](degree.md "degree.md"), [.delivery](delivery.md "delivery.md"), [.democrat](democrat.md "democrat.md"), [.dental](dental.md "dental.md"), [.design](design.md "design.md"), [.diamonds](diamonds.md "diamonds.md"), [.diet](diet.md "diet.md"), [.digital](digital.md "digital.md"), [.direct](direct.md "direct.md"), [.directory](directory.md "directory.md"), [.discount](discount.md "discount.md"), [.diy](diy.md "diy.md"), [.dog](dog.md "dog.md"), [.domains](domains.md "domains.md")
 
 **E**
 
-[.education](education.md "education.md"), [.email](email.md "email.md"), [.energy](energy.md "energy.md"), [.engineering](engineering.md "engineering.md"), [.enterprises](enterprises.md "enterprises.md"), [.equipment](equipment.md "equipment.md"), [.estate](estate.md "estate.md"), [.events](events.md "events.md"), [.exchange](exchange.md "exchange.md"), [.expert](expert.md "expert.md"), [.exposed](exposed.md "exposed.md"), [.express](express.md "express.md")
+[.earth](earth.md "earth.md"), [.education](education.md "education.md"), [.email](email.md "email.md"), [.energy](energy.md "energy.md"), [.engineering](engineering.md "engineering.md"), [.enterprises](enterprises.md "enterprises.md"), [.equipment](equipment.md "equipment.md"), [.estate](estate.md "estate.md"), [.events](events.md "events.md"), [.exchange](exchange.md "exchange.md"), [.expert](expert.md "expert.md"), [.exposed](exposed.md "exposed.md"), [.express](express.md "express.md")
 
 **F**
 
-[.fail](fail.md "fail.md"), [.fan](fan.md "fan.md"), [.farm](farm.md "farm.md"), [.finance](finance.md "finance.md"), [.financial](financial.md "financial.md"), [.fish](fish.md "fish.md"), [.fitness](fitness.md "fitness.md"), [.flights](flights.md "flights.md"), [.florist](florist.md "florist.md"), [.flowers](flowers.md "flowers.md"), [.fm](fm-xref.md "fm-xref.md"), [.football](football.md "football.md"), [.forsale](forsale.md "forsale.md"), [.foundation](foundation.md "foundation.md"), [.free](free.md "free.md"), [.fun](fun.md "fun.md"), [.fund](fund.md "fund.md"), [.furniture](furniture.md "furniture.md"), [.futbol](futbol.md "futbol.md"), [.fyi](fyi.md "fyi.md")
+[.fail](fail.md "fail.md"), [.fan](fan.md "fan.md"), [.farm](farm.md "farm.md"), [.finance](finance.md "finance.md"), [.financial](financial.md "financial.md"), [.fish](fish.md "fish.md"), [.fit](fit.md "fit.md"), [.fitness](fitness.md "fitness.md"), [.flights](flights.md "flights.md"), [.florist](florist.md "florist.md"), [.flowers](flowers.md "flowers.md"), [.fm](fm-xref.md "fm-xref.md"), [.food](food.md "food.md"), [.football](football.md "football.md"), [.forsale](forsale.md "forsale.md"), [.forum](forum.md "forum.md"), [.foundation](foundation.md "foundation.md"), [.free](free.md "free.md"), [.fun](fun.md "fun.md"), [.fund](fund.md "fund.md"), [.furniture](furniture.md "furniture.md"), [.futbol](futbol.md "futbol.md"), [.fyi](fyi.md "fyi.md")
 
 **G**
 
@@ -104,7 +104,7 @@ TLD indicates any restrictions.
 
 **H**
 
-[.haus](haus.md "haus.md"), [.healthcare](healthcare.md "healthcare.md"), [.help](help.md "help.md"), [.hiv](hiv.md "hiv.md"), [.hockey](hockey.md "hockey.md"), [.holdings](holdings.md "holdings.md"), [.holiday](holiday.md "holiday.md"), [.host](host.md "host.md"), [.hosting](hosting.md "hosting.md"), [.hot](hot.md "hot.md"), [.house](house.md "house.md")
+[.haus](haus.md "haus.md"), [.health](health.md "health.md"), [.healthcare](healthcare.md "healthcare.md"), [.help](help.md "help.md"), [.hiv](hiv.md "hiv.md"), [.hockey](hockey.md "hockey.md"), [.holdings](holdings.md "holdings.md"), [.holiday](holiday.md "holiday.md"), [.host](host.md "host.md"), [.hosting](hosting.md "hosting.md"), [.hot](hot.md "hot.md"), [.house](house.md "house.md")
 
 **I**
 
@@ -121,12 +121,12 @@ TLD indicates any restrictions.
 
 **L**
 
-[.land](land.md "land.md"), [.law](law.md "law.md"), [.lease](lease.md "lease.md"), [.legal](legal.md "legal.md"), [.lgbt](lgbt.md "lgbt.md"), [.life](life.md "life.md"), [.lighting](lighting.md "lighting.md"), [.limited](limited.md "limited.md"), [.limo](limo.md "limo.md"), [.link](link.md "link.md"), [.live](live.md "live.md"), [.llc](llc.md "llc.md"), [.loan](loan.md "loan.md"),
-[.loans](loans.md "loans.md"), [.lol](lol.md "lol.md"), [.ltd](ltd.md "ltd.md")
+[.land](land.md "land.md"), [.law](law.md "law.md"), [.lease](lease.md "lease.md"), [.legal](legal.md "legal.md"), [.lgbt](lgbt.md "lgbt.md"), [.life](life.md "life.md"), [.lifestyle](lifestyle.md "lifestyle.md"), [.lighting](lighting.md "lighting.md"), [.limited](limited.md "limited.md"), [.limo](limo.md "limo.md"), [.link](link.md "link.md"), [.live](live.md "live.md"), [.living](living.md "living.md"), [.llc](llc.md "llc.md"), [.loan](loan.md "loan.md"),
+[.loans](loans.md "loans.md"), [.lol](lol.md "lol.md"), [.love](love.md "love.md"), [.ltd](ltd.md "ltd.md")
 
 **M**
 
-[.maison](maison.md "maison.md"), [.management](management.md "management.md"), [.marketing](marketing.md "marketing.md"), [.mba](mba.md "mba.md"), [.media](media.md "media.md"), [.memorial](memorial.md "memorial.md"), [.mobi](mobi.md "mobi.md"), [.moda](moda.md "moda.md"), [.moi](moi.md "moi.md"), [.money](money.md "money.md"), [.mortgage](mortgage.md "mortgage.md"), [.movie](movie.md "movie.md")
+[.maison](maison.md "maison.md"), [.management](management.md "management.md"), [.marketing](marketing.md "marketing.md"), [.mba](mba.md "mba.md"), [.media](media.md "media.md"), [.memorial](memorial.md "memorial.md"), [.menu](menu.md "menu.md"), [.mobi](mobi.md "mobi.md"), [.moda](moda.md "moda.md"), [.moi](moi.md "moi.md"), [.money](money.md "money.md"), [.mortgage](mortgage.md "mortgage.md"), [.movie](movie.md "movie.md")
 
 **N**
 
@@ -134,7 +134,7 @@ TLD indicates any restrictions.
 
 **O**
 
-[.onl](onl.md "onl.md"), [.online](online.md "online.md"), [.org](org.md "org.md")
+[.one](one.md "one.md"), [.onl](onl.md "onl.md"), [.online](online.md "online.md"), [.org](org.md "org.md")
 
 **P**
 
@@ -146,7 +146,7 @@ TLD indicates any restrictions.
 
 **R**
 
-[.recipes](recipes.md "recipes.md"), [.red](red.md "red.md"), [.reise](reise.md "reise.md"), [.reisen](reisen.md "reisen.md"), [.rentals](rentals.md "rentals.md"), [.repair](repair.md "repair.md"), [.report](report.md "report.md"), [.republican](republican.md "republican.md"), [.restaurant](restaurant.md "restaurant.md"), [.reviews](reviews.md "reviews.md"), [.rip](rip.md "rip.md"), [.rocks](rocks.md "rocks.md"), [.run](run.md "run.md")
+[.realty](realty.md "realty.md"), [.recipes](recipes.md "recipes.md"), [.red](red.md "red.md"), [.reise](reise.md "reise.md"), [.reisen](reisen.md "reisen.md"), [.rentals](rentals.md "rentals.md"), [.repair](repair.md "repair.md"), [.report](report.md "report.md"), [.republican](republican.md "republican.md"), [.rest](rest.md "rest.md"), [.restaurant](restaurant.md "restaurant.md"), [.reviews](reviews.md "reviews.md"), [.rip](rip.md "rip.md"), [.rocks](rocks.md "rocks.md"), [.run](run.md "run.md")
 
 **S**
 
@@ -171,7 +171,7 @@ TLD indicates any restrictions.
 
 **WXYZ**
 
-[.watch](watch.md "watch.md"), [.website](website.md "website.md"), [.wedding](wedding.md "wedding.md"), [.wiki](wiki.md "wiki.md"), [.wine](wine.md "wine.md"), [.work](work.md "work.md"), [.works](works.md "works.md"), [.world](world.md "world.md"), [.wtf](wtf.md "wtf.md"), [.xxx](xxx.md "xxx.md"),
+[.watch](watch.md "watch.md"), [.website](website.md "website.md"), [.wedding](wedding.md "wedding.md"), [.wiki](wiki.md "wiki.md"), [.win](win.md "win.md"), [.wine](wine.md "wine.md"), [.work](work.md "work.md"), [.works](works.md "works.md"), [.world](world.md "world.md"), [.wtf](wtf.md "wtf.md"), [.xxx](xxx.md "xxx.md"),
 [.xyz](xyz.md "xyz.md"), [.zone](zone.md "zone.md")
 
 ### Geographic top-level domains
@@ -188,7 +188,7 @@ TLD indicates any restrictions.
 **Asia/Oceania**
 
 [.au (Australia)](au.md "au.md"), [.cc (Cocos (Keeling) Islands)](cc.md "cc.md"), [.co.nz (New Zealand)](co.nz.md "co.nz.md"),
-[.com.au (Australia)](com.au.md "com.au.md"), [.com.sg (Republic of Singapore)](com.sg.md "com.sg.md"), [.fm (Federated States of Micronesia)](fm.md "fm.md"), [.in (India)](in.md "in.md"), [.jp (Japan)](jp.md "jp.md"), [.io (British Indian Ocean Territory)](io.md "io.md"), [.net.au (Australia)](net.au.md "net.au.md"), [.net.nz (New Zealand)](net.nz.md "net.nz.md"), [.nz (New Zealand)](nz.md "nz.md"), [.org.nz (New Zealand)](org.nz.md "org.nz.md"),
+[.com.au (Australia)](com.au.md "com.au.md"), [.com.sg (Republic of Singapore)](com.sg.md "com.sg.md"), [.fm (Federated States of Micronesia)](fm.md "fm.md"), [.in (India)](in.md "in.md"), [.jp (Japan)](jp.md "jp.md"), [.io (British Indian Ocean Territory)](io.md "io.md"), [.my (Malaysia)](my.md "my.md"), [.net.au (Australia)](net.au.md "net.au.md"), [.net.nz (New Zealand)](net.nz.md "net.nz.md"), [.nz (New Zealand)](nz.md "nz.md"), [.org.nz (New Zealand)](org.nz.md "org.nz.md"),
 [.pw (Palau)](pw.md "pw.md"), [.qa (Qatar)](qa.md "qa.md"), [.ru (Russian Federation)](ru.md "ru.md"), [.sg (Republic of Singapore)](sg.md "sg.md")
 
 **Europe**
