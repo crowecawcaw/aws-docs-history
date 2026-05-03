@@ -37,7 +37,7 @@ activate the licenses manually or using post-launch scripts.
 When installing the DRS agent on an EC2 Instance with Instance Store volumes attached, device name conflicts can arise in the Recovery Instance's EC2 Launch Template
 if the template also specifies Instance Store volumes.
 
-![](images/troubleshooting-4.png)
+![Storage configuration interface showing EBS volumes and instance store volumes with device name conflict warning.](images/troubleshooting-4.png)
 
 You can resolve this error in one of two ways:
 

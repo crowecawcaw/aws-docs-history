@@ -49,7 +49,7 @@ This only happens if:
    in region 2 on recovery instance **RI2** (marked by the solid green arrow),
    replicating the data of EC2 instance **EI2**.
 
-![AWS multi-region setup with EC2 instances and DRS servers for disaster recovery.](images/recover-into-source-instance-cross-regions.png)
+![DRS replication from EC2 instance in Region 1 to source and recovery servers in Region 2.](images/recover-into-source-instance-cross-regions.png)
 
 ## Cross Availability Zone
 
@@ -76,4 +76,4 @@ This only happens if:
    **RI** (marked by the solid green arrow), by calling Protect recovered instance,
    replicating the data of EC2 instance EI2.
 
-![AWS Region diagram showing DRS Source Server S, Recovery Instance RI, and EC2 instances in two Availability Zones.](images/recover-into-source-instance-cross-az.png)
+![DRS replication between source server in Availability Zone 1 and recovery instance in Zone 2.](images/recover-into-source-instance-cross-az.png)

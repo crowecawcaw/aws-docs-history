@@ -19,7 +19,7 @@ account.
 
 To edit or delete these roles, go to the IAM console. Deleting the IAM role will automatically remove the trusted account from the AWS Elastic Disaster Recovery console.
 
-![Table showing 5 trusted AWS accounts with their associated roles and permissions.](images/trusted-accounts-main.png)
+![Table showing five trusted accounts with their staging, network, and failback roles.](images/trusted-accounts-main.png)
 
 ###### Note
 

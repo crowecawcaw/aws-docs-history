@@ -158,7 +158,7 @@ available disk space on the /tmp directory run the following command: df -h /tm
 After you have entered the above commands for checking the available disk space, the
 results will be displayed as follows:
 
-![](images/troubleshooting-25-re.png) 2. **The format of the list of disks to replicate**
+![Terminal output showing disk space usage for root and tmp directories on Ubuntu Linux system.](images/troubleshooting-25-re.png) 2. **The format of the list of disks to replicate**
 
 During the installation, when you are asked to enter the disks you
 want to replicate, do NOT use apostrophes, brackets, or disk paths that
@@ -184,7 +184,7 @@ number of the kernel. To handle this issue, follow these steps:
 
 
 
-    ![](images/troubleshooting-26-re.png)
+    ![Terminal output showing Linux kernel version 4.4.41-36.55.amzn1.x86_64.](images/troubleshooting-26-re.png)
 
     The 'uname -r' output version should match the version of one of the installed
      kernel
@@ -205,7 +205,7 @@ number of the kernel. To handle this issue, follow these steps:
 
 
 
-    ![](images/troubleshooting-27-re.png)
+    ![Terminal output showing kernel-related packages installed on an Amazon Linux system.](images/troubleshooting-27-re.png)
 
     **Note**: This command looks for kernel-devel.
 
@@ -215,7 +215,7 @@ number of the kernel. To handle this issue, follow these steps:
 
 
 
-    ![](images/troubleshooting-28-re.png)
+    ![Terminal output showing search results for Linux kernel headers packages.](images/troubleshooting-28-re.png)
     3. **Verifying that the folder that contains
      the kernel-devel/linux-headers is not a symbolic
      link.**
@@ -248,7 +248,7 @@ number of the kernel. To handle this issue, follow these steps:
 
 
 
-    ![](images/troubleshooting-29-re.png)
+    ![Terminal output showing directory listing of /usr/src with Linux kernel headers.](images/troubleshooting-29-re.png)
 
     In the above example, the results show that the linux-headers are not a symbolic
      link.
@@ -354,23 +354,23 @@ For example, to locate the make package:
 
 which make
 
-![](images/troubleshooting-30-re.png) 5. **Error: urlopen error [Errno 110] Connection times
+![Terminal command output showing the result of the 'which make' command.](images/troubleshooting-30-re.png) 5. **Error: urlopen error [Errno 110] Connection times
 out**
 
 This error occurs when outbound traffic is not allowed over TCP Port 443. Port 443 needs
 to be open outbound to the AWS Elastic Disaster Recovery Manager.
 
-![](images/troubleshooting-31-re.png) 6. **Powerpath support**
+![Error message showing download failure for CloudEndure Installer with connection timeout.](images/troubleshooting-31-re.png) 6. **Powerpath support**
 
 powermt check
 
-![](images/troubleshooting-32-re.png)
+![Command output showing multipath configuration with two active paths for storage devices.](images/troubleshooting-32-re.png)
 
 If so, contact AWS Support for instructions on how to install the AWS Replication Agent on
 such machines. 7. **Error: You need to have root privileges to run
 this script**
 
-![](images/troubleshooting-33-re.png)
+![Terminal window showing CloudEndure Installer Downloader starting for a 64-bit system.](images/troubleshooting-33-re.png)
 
 Make sure you run the installer either as root or by adding sudo at the
 beginning:
@@ -404,14 +404,14 @@ Variable**.
 
 
 
-    ![](images/troubleshooting-35-re.png)
+    ![System Properties dialog box showing Advanced tab with Environment Variables button highlighted.](images/troubleshooting-35-re.png)
     3. On the **System Variables**
      section of the **Environment
      Variables** pane, select the **Path** variable. Then, click the **Edit** button to view its contents.
 
 
 
-    ![](images/troubleshooting-36-re.png)
+    ![Environment Variables dialog showing user and system variables, with Path variable selected.](images/troubleshooting-36-re.png)
     4. On the **Edit System Variable**
      pane, review the defined paths in the **Variable value** field. If the path of the net.exe
      and/or sc.exe files does not appear there, manually add it to
@@ -420,7 +420,7 @@ Variable**.
 
 
 
-    ![](images/troubleshooting-37-re.png)
+    ![Edit System Variable dialog showing Variable name "Path" and Variable value field with text input.](images/troubleshooting-37-re.png)
 
 ## Windows – Installation Failed - Request Signature
 

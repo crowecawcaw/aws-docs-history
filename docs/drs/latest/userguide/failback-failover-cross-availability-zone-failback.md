@@ -26,14 +26,14 @@ hosts it, can be found on the Amazon VPC console.
 
 **Replication settings**
 
-![Replication server configuration panel showing staging area subnet selection dropdown.](images/drs-cross-az-failback-2.png)
+![Replication server configuration section with Staging area subnet dropdown showing selected subnet.](images/drs-cross-az-failback-2.png)
 
 **Launch settings**
 
 Learn how to modify the
 [launch template](launching-target-servers.md "launching-target-servers.md").
 
-![Subnet info dropdown showing details like VPC, CIDR, and availability zone.](images/drs-cross-az-failback-network-settings.png)
+![Subnet info section showing subnet ID, VPC, owner, availability zone, and IP addresses.](images/drs-cross-az-failback-network-settings.png)
 
 ### Launching a Recovery Instance
 
@@ -63,7 +63,7 @@ on availability zone "eu-west-1**a**".
 **Modify the replication settings to replicate to the original
 availability zone.**
 
-![Replication server configuration dropdown showing multiple AZ options for staging area subnet.](images/drs-cross-az-failback-replication-settings.png)
+![Staging area subnet dropdown menu showing availability zones AZ-a, AZ-b, and AZ-c options.](images/drs-cross-az-failback-replication-settings.png)
 
 **Modify the launch settings to the original availability zone.**
 
@@ -71,7 +71,7 @@ In order to modify the launch template follow these [instructions](launching-tar
 
 **Protect your recovered instance.**
 
-![Dropdown menu option to protect a recovered instance in a cloud management interface.](images/drs-cross-az-failback-source-service-1.png)
+![Replication dropdown menu with Protect recovered instance option highlighted.](images/drs-cross-az-failback-source-service-1.png)
 
 Protecting your recovered instance also stops the replication of the original EC2 instance.
 For example, if the original EC2 instance is hosted in availability zone "eu-west-1a" and is

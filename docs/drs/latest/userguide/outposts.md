@@ -34,7 +34,7 @@ selector drop down.
 Once the Subnet is chosen, you will have to select the replication server instance type. Only instance
 types that are supported by the chosen Outpost will be shown.
 
-![Edit default replication settings interface for AWS Elastic Disaster Recovery configuration.](images/drs-replicationsettings-outposts.png)
+![EBS volume type dropdown menu showing Faster, general purpose SSD (gp2) selected.](images/drs-replicationsettings-outposts.png)
 
 Outposts only support GP2 disks. As such, you will not be able to change the default disk type in the
 replication settings.
@@ -64,7 +64,7 @@ selector drop down.
 Once the Subnet is chosen, you will have to select the replication server instance type. Only instance
 types that are supported by the chosen Outpost will be shown.
 
-![Replication settings interface showing server configuration options and EBS volume settings.](images/drs-replicationsettingsmultipleservers-outposts.png)
+![Replication server instance type dropdown showing r5.large selected.](images/drs-replicationsettingsmultipleservers-outposts.png)
 
 Outposts only support GP2 disks. As such, you will not be able to change the default disk type in the
 replication settings.
@@ -107,7 +107,7 @@ Network replication and recovery does not create a subnet within the Outpost.
 Outposts only support GP2 disks. As such, you will not be able to change the default disk type per volume
 in the default launch template.
 
-![EC2 launch template settings with instance type r5.large and EBS volume type gp2 highlighted.](images/drs-launchtemplate-default-outposts.png)
+![Instance type and EBS volume type fields highlighted in the EC2 launch template settings.](images/drs-launchtemplate-default-outposts.png)
 
 ## Source Server Launch Templates
 
@@ -123,7 +123,7 @@ Network replication and recovery does not create a subnet within the Outpost.
 Outposts only support GP2 disks. As such, you will not be able to change the default disk type per volume in
 the default launch template.
 
-![EC2 launch template edit page showing instance type selection dropdown with various options.](images/drs-launchtemplatemultipleservers-outposts.png)
+![Instance type dropdown menu expanded showing options such as c5d.4xlarge and r5.large.](images/drs-launchtemplatemultipleservers-outposts.png)
 
 ###### Note
 
@@ -139,22 +139,22 @@ options for source servers replicating to an Outpost:
 - You can enter the text "_Outpost_" in the search field to only
   display source servers that are replicating to an AWS Outpost rack.
 
-![Search field with "Outposts" entered, showing filtering functionality for source servers.](images/drs-sourceservers-keyword-outposts.png)
+![Source servers search field with Outposts entered as the search term.](images/drs-sourceservers-keyword-outposts.png)
 
 - You can enter the text "_!Outpost_" to only display source servers
   that are not replicating to an AWS Outpost rack.
 
-![Search bar with "!Outposts" entered and a cancel icon, filtering source servers.](images/drs-sourceservers-keyword-notoutposts.png)
+![Source servers search field with exclamation mark Outposts filter text entered.](images/drs-sourceservers-keyword-notoutposts.png)
 
 - You can enter "_Replicating to: Outpost_" in the search field to
   only display source servers that are replicating to an AWS Outpost rack.
 
-![Search field with "Replicating to: Outposts" entered, filtering source servers.](images/drs-sourceservers-replicatingto-field-outposts.png)
+![Search field with Replicating to : Outposts entered as the filter text.](images/drs-sourceservers-replicatingto-field-outposts.png)
 
 - You can enter "_Replicating to !: Outpost_" in the search field to
   only display source servers that are not replicating to an AWS Outpost rack.
 
-![Search field with "Replicating to !: Outposts" entered, showing filter functionality.](images/drs-sourceservers-replicatingto-field-notoutposts.png)
+![Search field with text Replicating to !: Outposts in the Source servers interface.](images/drs-sourceservers-replicatingto-field-notoutposts.png)
 
 ## Important Outpost Notes
 

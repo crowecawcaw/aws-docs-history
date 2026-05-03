@@ -157,9 +157,9 @@ Use this command to execute the installation script:
 
 `bash drs_failback_automation_installer.sh`
 
-![Terminal output showing HTTP request, file saving, and installation of DRS Mass Failback Automation.](images/drsfa10.png)
+![Terminal output showing successful download and installation of DRS Mass Failback Automation.](images/drsfa10.png)
 
-![Terminal window showing ls command output with three drs_failback_automation files listed.](images/drsfa11.png)
+![Terminal output showing directory listing with DRS failback automation files.](images/drsfa11.png)
 
 ###### Note
 
@@ -169,7 +169,7 @@ command as sudo.
 
 `source ~/.profile`
 
-![Terminal window showing command to source the .profile file.](images/drsfa12.png)
+![Terminal showing the source ~/.profile command being executed at the command prompt.](images/drsfa12.png)
 
 The DRSFA client has a one-time installation. The DRSFA client will be
 installed in the `drs_failback_automation_client` directory. Once
@@ -179,7 +179,7 @@ command:
 
 `rm drs_failback_automation_installer.sh`
 
-![Terminal commands showing removal of an installer file and listing remaining files.](images/drsfa13.png)
+![Terminal showing ls command output and removal of drs_failback_automation_installer.sh file.](images/drsfa13.png)
 
 Once installation is complete, you will need to set up a password for the
 VM on which the DRSFA client is run. This is done by generating a seed.iso
@@ -206,7 +206,7 @@ you can run this command to delete the seed creator:
 
 `rm drs_failback_automation_seed_creator.sh`
 
-![Terminal command removing a file and listing directory contents showing remaining files.](images/drsfa17.png)
+![Terminal showing ls command output with client file, seed ISO file, and SHA512 checksum file.](images/drsfa17.png)
 
 Once you have completed the initial installation, you can generate the
 required credentials and run the DRSFA client.
@@ -249,7 +249,7 @@ environment variables one by one, replace the defaults with your specific
 parameters and paths followed by the `python
  drs_failback_automation_init.pyc` command and press enter.
 
-![Terminal commands showing directory navigation and file listing in a Linux environment.](images/drsfa18.png)
+![Terminal showing directory contents including init file, License.txt, and requirements.txt.](images/drsfa18.png)
 
 - AWS_REGION=XXXXX – The AWS Region in which your Recovery instances
   are located.
@@ -285,7 +285,7 @@ press enter. The full parameters and command should look like this example:
  VCENTER_PASSWORD=XXXX VCENTER_DATASTORE=XXXX VCENTER_FAILBACK_CLIENT_PATH=XXXX
  VCENTER_SEED_ISO_PATH=XXXX python drs_failback_automation_init.pyc`
 
-![Terminal output showing successful update of DRS Mass Failback Automation Client.](images/drsfa52.png)
+![Terminal output showing DRS Mass Fallback Automation Client successfully updated message.](images/drsfa52.png)
 
 ###### Note
 
@@ -301,7 +301,7 @@ Once the client has connected successfully and finished verification,
 select the **One-Click Failback** option under
 **What would you like to do?**
 
-![CLI menu for DRS Mass Failback Automation with options numbered 1 to 6.](images/drsfa20.png)
+![DRS Mass Failback Automation CLI menu with One-Click Failback option selected as choice 1.](images/drsfa20.png)
 
 Enter a custom prefix for the results output for this failback operation.
 This file is saved in the
@@ -314,18 +314,18 @@ instances, the console prompts you to decide if you want to skip the
 instances that are already in failback or restart replication for those
 instances.
 
-![Console prompt asking whether to restart machines, with options to skip or restart all instances.](images/drsfa22.png)
+![Prompt asking whether to skip instances or restart all, with options 1 for No and 2 for Yes.](images/drsfa22.png)
 
 The DRSFA client will list the Recovery instances that are currently present in your AWS
 Account. The client will then prompt you **Would you like to continue?** . Enter **Y** to continue.
 
-![Command prompt showing Recovery instances to be failed back and a confirmation prompt.](images/drsfa23.png)
+![Command line prompt asking Would you like to continue with Y or N response options.](images/drsfa23.png)
 
 The client will initiate failback. You can see the failback progress on
 the **Recovery instances** page in the DRS
 Console.
 
-![Console output showing server replication progress over time in the eu-west-1 region.](images/drsfa24.png)
+![Console output showing replication status progressing from 0 to 2 currently replicating servers.](images/drsfa24.png)
 
 Once the failback has been completed, the DRSFA client displays the results
 of the failback, including the number of servers for which replication has
@@ -372,7 +372,7 @@ connected successfully and finished verification, select the **Generate a defaul
 file** option under **What would you
 like to do?**
 
-![CLI menu showing options for DRS Mass Failback Automation, with cursor on option 3.](images/drsfa26.png)
+![DRS Mass Failback Automation CLI menu showing six options with prompt to enter number 1-6.](images/drsfa26.png)
 
 Enter a custom prefix for the configuration file name. The
 configuration file will be created as a JSON file in the
@@ -473,12 +473,12 @@ Once you are done editing your configuration file, rerun the DRSFA
 client and select the **Perform a Custom
 Failback** option.
 
-![CLI menu for DRS Mass Failback Automation with 6 numbered options.](images/drsfa28.png)
+![DRS Mass Failback Automation CLI menu with six options including Perform a Custom Failback.](images/drsfa28.png)
 
 Select your configuration file. You can either define a custom path or select the default
 path that's automatically displayed by the client.
 
-![CLI menu for DRS Mass Failback Automation with options and configuration file selection.](images/drsfa29.png)
+![DRS Mass Failback Automation CLI showing custom failback menu with configuration file path options.](images/drsfa29.png)
 
 ![DRS Mass Failback Automation CLI menu with options for failback operations and configuration.](images/drsfa30.png)
 
@@ -548,7 +548,7 @@ failback.
 
 Enter a name to filter or press Enter to see all results. Choose **Yes** to print your results.
 
-![Command-line interface showing options for failback operations and VM search results.](images/drsfa33.png)
+![Terminal showing VM finder results with Windows filter and prompt to print results.](images/drsfa33.png)
 
 The results will be exported to the `Results/VMFinder` folder in the DRSFA client
 folder. The
@@ -561,7 +561,7 @@ These are displayed for each server:
 - UUID
 - Disk and volume info
 
-![Virtual machine details showing Windows 2019 20GB with disk information and specifications.](images/drsfa34.png)
+![Terminal output showing Windows 2019 20GB VM details including hard disk configuration.](images/drsfa34.png)
 
 ## Upgrading the DRSFA Client
 

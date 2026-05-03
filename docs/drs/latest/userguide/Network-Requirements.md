@@ -157,13 +157,13 @@ the documentation of any third-party local firewall you use to learn how to enab
 2. On the console, select the **Outbound Rules** option from
    the tree.
 
-![Outbound Rules table showing network configurations, with BranchCache entries highlighted.](images/network-requirements-1-re.png) 3. On the **Outbound Rules** table,
+![Outbound Rules table showing rule names, groups, protocols, and port configurations.](images/network-requirements-1-re.png) 3. On the **Outbound Rules** table,
 select the rule that relates to the connectivity to Remote Port - 443. Check if the **Enabled** status is
 **Yes**.
 
-![Outbound Rules table showing network rules with Enabled status highlighted.](images/network-requirements-2-re.png) 4. If the Enabled status of the rule is **No**, right-click it and select **Enable Rule** from the pop-up menu.
+![Outbound Rules table with BranchCache Hosted Cache Client rule highlighted showing Enabled status and Remote Port 443.](images/network-requirements-2-re.png) 4. If the Enabled status of the rule is **No**, right-click it and select **Enable Rule** from the pop-up menu.
 
-![Outbound Rules table with BranchCache Hosted Cache Client rule highlighted and Enable Rule option.](images/network-requirements-3-re.png)
+![Context menu showing Enable Rule option highlighted for a disabled outbound rule.](images/network-requirements-3-re.png)
 
 #### Enabling Linux Firewall for TCP port 443 connectivity
 

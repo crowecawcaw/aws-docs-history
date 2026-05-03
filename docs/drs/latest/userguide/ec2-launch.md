@@ -6,7 +6,7 @@ instances for each source server. You can edit those templates for each source s
 The EC2 launch template is created automatically for each source server that is
 added to AWS DRS upon the installation of the AWS Replication Agent.
 
-![EC2 launch template configuration with subnet, instance type, and advanced settings options.](images/ec2launchtemplate.png)
+![EC2 launch template info page showing subnet-1, lt-1 template, and right-sizing instance type.](images/ec2launchtemplate.png)
 
 ###### Topics
 

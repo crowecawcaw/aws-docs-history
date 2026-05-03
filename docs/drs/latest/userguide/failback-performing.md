@@ -161,15 +161,15 @@ role and attach the policy to that role to obtain temporary
 credentials. [Learn
 more about Elastic Disaster Recovery credentials.](#failback-performing-credentials "#failback-performing-credentials")
 
-![AWS credentials input fields for Failback Client, including Access Key ID, Secret Key, and Region.](images/drs-failback-credentials.png) 7. Enter the custom endpoint or press Enter to use the default endpoint. You should enter
+![Terminal showing Failback Client prompts for AWS Access Key ID, Secret Access Key, Session Token, and Region.](images/drs-failback-credentials.png) 7. Enter the custom endpoint or press Enter to use the default endpoint. You should enter
 a
 custom endpoint if you want to use a VPC Endpoint (PrivateLink).
 
-![Text input field for entering a custom endpoint or leaving blank for default.](images/drs-failback-credentials2.png) 8. If you are failing back to the original source machine, the
+![Command line prompt requesting custom endpoint input or Enter key for default endpoint.](images/drs-failback-credentials2.png) 8. If you are failing back to the original source machine, the
 Failback Client will automatically choose the correct corresponding
 recovery instance.
 
-![Command line output showing automated instance detection matching Recovery instance with Failback Client.](images/drs-failback-failbackclient1.png) 9. If the Failback Client is unable to automatically map the
+![Console output showing recovery instance i-02 matched with Failback Client 4221a.](images/drs-failback-failbackclient1.png) 9. If the Failback Client is unable to automatically map the
 instance, then you will be prompted to select the recovery instance
 to fail back from. The Failback Client displays a list with all
 recovery instances. Select the correct recovery instance by either
@@ -177,7 +177,7 @@ entering the numerical choice from the list that corresponds to the
 correct recovery instance or by typing in the full recovery instance
 ID.
 
-![Command line interface showing manual selection of a recovery instance for failback.](images/drs-failback-failbackclient3.png)
+![Terminal output showing manual instance mapping prompt with recovery instance i-08b matched to Failback Client.](images/drs-failback-failbackclient3.png)
 
 ###### Note
 
@@ -189,7 +189,7 @@ failing back to, then these Recovery instances will not be
 displayed. 10. If you are failing back to the original source server, then the Failback Client will
 attempt to automatically map the volumes of the instance.
 
-![Output showing local and remote devices with 8.0 GB storage capacity each.](images/drs-failback-failbackclient2.png) 11. If the Failback Client is unable to automatically map the volumes,
+![Terminal output showing local device /dev/sda and remote device /dev/xvda, both 8.0 GB.](images/drs-failback-failbackclient2.png) 11. If the Failback Client is unable to automatically map the volumes,
 you will need to manually enter a local block device (example
 /dev/sdg) to replicate to from the remote block device. Enter the
 `EXCLUDE` command to specifically exclude Recovery
@@ -203,7 +203,7 @@ The full volume mapping should be provided as single CSV or JSON line in the for
 
 [Learn more about using --device-mapping program argument](#failback-failover-program-arg-device-mapping "#failback-failover-program-arg-device-mapping")
 
-![Terminal output showing manual volume mapping process with successful result.](images/drs-failback-failbackclient4.png)
+![Terminal output showing manual volume mapping prompt and successful mapping of /dev/sda.](images/drs-failback-failbackclient4.png)
 
 ###### Important
 
@@ -213,27 +213,27 @@ recovery instance volumes.
 The valid special case is when original local volume has fractional GiB size (e.g. 9.75 GiB). Then the recovery instance volume
 size will be larger because of rounding to nearest GiB (e.g. 10 GiB). 12. The Failback Client will verify connectivity between the recovery instance and AWS Elastic Disaster Recovery.
 
-![Command line interface showing successful connectivity establishment to Dirrus service.](images/drs-failback-failbackclient5.png) 13. The Failback Client will download the replication software from a public S3 bucket
+![Console output showing connectivity established message in green text.](images/drs-failback-failbackclient5.png) 13. The Failback Client will download the replication software from a public S3 bucket
 onto
 the source server.
 
-![Terminal output showing successful download of AWS Replication Software.](images/drs-failback-failbackclient6.png)
+![Console output showing successful download of AWS Replication Software at 113 MB.](images/drs-failback-failbackclient6.png)
 
 ###### Important
 
 You must allow traffic to S3 from the source server for this step to succeed. 14. The Failback Client will configure the replication software.
 
-![Console output showing AWS Replication Software configuration completed successfully.](images/drs-failback-failbackclient7.png) 15. The Failback Client will pair with the AWS Replication Agent
+![Terminal output showing AWS Replication Software configuration completing successfully.](images/drs-failback-failbackclient7.png) 15. The Failback Client will pair with the AWS Replication Agent
 running on the recovery instance and will establish a connection.
 
-![Console output showing successful pairing and connection establishment between Failback Client and AWS Replication Agent.](images/drs-failback-failbackclient8.png)
+![Console output showing pairing completion and connection establishment on port 1500.](images/drs-failback-failbackclient8.png)
 
 ###### Important
 
 TCP Port 1500 inbound must be open on the recovery instance
 for the pairing to succeed. 16. Data replication will begin.
 
-![Terminal window showing text "Connection established. Replication in progress..."](images/drs-failback-failbackclient9.png)
+![Console output showing connection established and replication in progress status.](images/drs-failback-failbackclient9.png)
 
 You can monitor data replication progress on the **Recovery instances** page in the AWS Elastic Disaster Recovery Console. 17. Once data replication has been completed, the Recovery instance on
 the **Recovery instances** page will

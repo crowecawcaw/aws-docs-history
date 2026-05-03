@@ -78,7 +78,7 @@ To fix and remove the noexec option from the mounted /tmp directory, run the `su
 
 **Example of the troubleshooting procedure:**
 
-![Terminal commands showing mount operations and grep searches for "/tmp" directory.](images/agent66.png)
+![Terminal commands showing mount command output filtered for tmp directory entries.](images/agent66.png)
 
 - The AWS Elastic Disaster Recovery user needs to be a user in the
   sudoers list - a user who can perform sudo.
@@ -126,7 +126,7 @@ number of the kernel. Follow these steps:
 
 
 
-    ![Terminal output showing directory listing with linux-headers files and their details.](images/agent5.png)
+    ![Terminal output showing ls -l command results for /usr/src with linux-headers as directories.](images/agent5.png)
     4. If the content of the kernel-devel/linux-headers, which match the
      version of the kernel, is a symbolic link, you need to delete the link using the `rm /usr/src/<LINK NAME>` command.
 

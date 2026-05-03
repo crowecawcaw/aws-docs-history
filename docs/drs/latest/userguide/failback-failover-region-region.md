@@ -21,7 +21,7 @@ AWS DRS allows you to replace the EC2 source instance (A1) with the EC2
 recovered instance (B3). The current AWS resource state is illustrated in this
 diagram:
 
-![AWS diagram showing EC2 source instances in one region and DRS recovery setup in another.](images/drs-after-failover-resources-state.png)
+![EC2 source instances in Source AWS Region replicate to DRS source servers and recovery instances in Recovery AWS Region via Amazon Route 53.](images/drs-after-failover-resources-state.png)
 
 After performing a recovery,
 your applications are running on EC2 instances in the recovery region.
@@ -65,7 +65,7 @@ assuming DRS has been initialized in the source region.
    5. A Source server (A2) will be created in the source region, as
       shown in this diagram.
 
-   ![AWS disaster recovery setup with source and recovery regions, EC2 instances, and DRS servers.](images/drs-failback-initiate-data-replication-1.png)
+   ![Data replication flow from source EC2 instances through DRS servers to recovery instances via Route 53.](images/drs-failback-initiate-data-replication-1.png)
 
    ###### Note
 
@@ -116,7 +116,7 @@ state** is marked as **Ready**, take these steps to complete the failback:
 
 
 
-    ![AWS disaster recovery setup with source and recovery regions connected via Route 53.](images/drs-failback-diagram-2.png)
+    ![AWS DRS replication from source region EC2 instances to recovery region via source servers.](images/drs-failback-diagram-2.png)
     3. Redirect traffic to failed back instances (A4), which will now become your new
      primary instances.
      Traffic redirection is not conducted using DRS.
@@ -139,7 +139,7 @@ order to protect them, follow these steps:
      replication**. This step will replace the Instances
      that the Source Server (B1) protects (A4 instead of A1).
 
-![AWS disaster recovery setup with source and recovery regions, EC2 instances, and DRS servers.](images/drs-after-failback-resources-state.png) 4. **Clean your environment.**
+![Disaster recovery architecture showing failback from recovery region EC2 instances to source region via DRS and Route 53.](images/drs-after-failback-resources-state.png) 4. **Clean your environment.**
 
 After the failover to failback cycle is complete, you may be left
 with multiple AWS resources that you no longer need and that are costly
@@ -224,7 +224,7 @@ and then perform a different cleanup process as described below.
 
 After a successful drill your AWS environment should look like this:
 
-![AWS disaster recovery setup with source and recovery regions, EC2 instances, and DRS servers.](images/drs-after-drill-resources-state.png)
+![DRS architecture showing source instances in one region replicated to recovery instances in another region via Amazon Route 53.](images/drs-after-drill-resources-state.png)
 
 The only two AWS resources that need to remain are your actual production environment
 (A1) and its replication backup (B1).

@@ -17,7 +17,7 @@ The **Source networks** page automatically presents all of
 the available source networks. This page allows you to manage your source networks, view their
 specifications, and perform updates.
 
-![Source networks table showing one network with replication status and details.](images/source-networks-main.png)
+![Source networks page showing one network with replication status, VPC, region, and account details.](images/source-networks-main.png)
 
 Each row represents a specific network. It includes various network parameters
 including:
