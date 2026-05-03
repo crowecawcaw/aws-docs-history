@@ -572,6 +572,54 @@ The full path to the folder where the driver saves log files when
 
 This parameter is optional.
 
+## MaxLongVarcharSize
+
+- Default Value – 65535
+- Data Type – Integer
+
+The column size that the driver reports for columns reclassified as large
+text (`SQL_LONGVARCHAR`) by **MaxVarcharSize**. This
+value replaces the column's actual declared size in metadata responses.
+
+The default of 65,535 is recommended because some middleware layers, such as
+MSDASQL, reject large-text columns whose reported size falls between 8,001 and
+32,768 bytes. By reporting 65,535, the driver ensures that reclassified columns are
+accepted without errors. Most users do not need to change this value.
+
+This parameter has no effect when **MaxVarcharSize** is set to
+`0` (reclassification disabled).
+
+This parameter is optional. It is available in driver versions 2.1.16 and later.
+
+## MaxVarcharSize
+
+- Default Value – 255
+- Data Type – Integer
+
+The maximum column size that the driver reports as a regular
+text column (`SQL_VARCHAR`). The driver reclassifies any
+`CHAR` and `VARCHAR` column larger than this value as large text
+(`SQL_LONGVARCHAR` or `SQL_WLONGVARCHAR` when
+**[UseUnicode](#odbc20-useunicode-option "#odbc20-useunicode-option")** is enabled).
+
+This reclassification prevents errors in applications or middleware layers that
+cannot process regular-text columns beyond a certain size. For example, SQL Server
+linked servers that access Amazon Redshift through MSDASQL (OLE DB) cannot process
+`SQL_VARCHAR` columns larger than approximately 8,000 bytes, so
+reclassifying oversized columns as large text avoids conversion failures.
+
+- `255` (default): Columns larger than 255 characters are
+  reported as `SQL_LONGVARCHAR`.
+- `0`: Disables reclassification. All columns are reported as
+  `SQL_VARCHAR` regardless of size.
+- Custom value: Any positive integer. Columns larger than the specified
+  value are reported as `SQL_LONGVARCHAR`.
+
+When a column is reclassified, the driver reports its size using the value
+specified in **MaxLongVarcharSize**.
+
+This parameter is optional. It is available in driver versions 2.1.16 and later.
+
 ## Min_TLS
 
 - Default Value – 1.2

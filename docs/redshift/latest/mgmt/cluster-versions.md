@@ -88,7 +88,7 @@ Cluster versions in this patch:
 - Improved time-travel query results for zero-ETL tables with frequently updated rows to ensure each historical row version reflects its individual deletion timestamp.
 - Fixed some edge cases where the main cluster was not properly resized by AI-driven scaling.
 - Fixed an issue where Amazon CloudWatch metrics could report duplicate failed query counts when queries were evicted and retried by workload management (WLM).
-- Fixed an issue where COPY with Redshift Table Copy could produce a distribution style mismatch on the pristine path.
+- Fixed an issue where COPY with Redshift Table Copy could produce a distribution style mismatch.
 - Fixed an issue with incorrect partition sort end row calculation that could affect range-restricted scan results.
 - Fixed an issue where automatic vacuum operations could fail when a table was dropped concurrently.
 - Fixed an issue where VACUUM could use a stale table version when acquiring the relation, potentially leading to errors.
@@ -105,6 +105,10 @@ Cluster versions in this patch:
 
 Cluster versions in this patch:
 
+- 1.0.293472 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released on April 30, 2026
+- 1.0.266483 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released on April 9, 2026
 - 1.0.257586 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
   workgroup version – Released on March 27, 2026
 
@@ -155,6 +159,8 @@ Cluster versions in this patch:
 
 Cluster versions in this patch:
 
+- 1.0.266409 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released on April 20, 2026
 - 1.0.252420 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
   workgroup version – Released on March 25, 2026
 - 1.0.232773 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless

@@ -108,7 +108,7 @@ To access the Query and Database Monitoring page, do the following:
 
 The **Query and database monitoring** console page appears as follows:
 
-![Query and database monitoring dashboard showing data warehouse overview, performance summary, and profiler sections.](images/metrics_eqm_homepage.png)
+![Query and database monitoring console showing data warehouses table with metrics.](images/metrics_eqm_homepage.png)
 
 The **Query and database monitoring** page has the following components:
 
@@ -133,7 +133,7 @@ When you choose **Query performance summary** from the
 **Data warehouse overview** page, the console shows a summary of the performance for an
 individual provisioned cluster or serverless workgroup.
 
-![Query and database monitoring interface showing performance graph and query history for redshift-cluster-1.](images/metrics_eqm_clusterdetails.png)
+![Query history graph showing lock wait, queue, planning, compile, execution, and elapsed times.](images/metrics_eqm_clusterdetails.png)
 
 This page has the following components:
 
@@ -170,7 +170,7 @@ one day. Choosing **Drill down** again changes the range of the graph to one hou
 When you choose a query from the **Data warehouse performance** or **Query history**
 pane of the cluster or workgroup detail page, the **Query details** page opens.
 
-![Query details page showing query information, elapsed time breakdown, and SQL details.](images/metrics_eqm_querydetails.png)
+![Query details page showing query metadata, execution timeline bar chart, and SQL code.](images/metrics_eqm_querydetails.png)
 
 For information about the **Query details** page, see
 [Query details page](using-query-plan-profiler.md#using-query-plan-profiler-ui-query-details "using-query-plan-profiler.md#using-query-plan-profiler-ui-query-details").
@@ -182,7 +182,7 @@ button in the **Query history** pane of the **Query performance summary** page.
 The **Query pattern** page shows all of the queries from the past week that are retrieved by a SQL
 statement that you specify.
 
-![Query pattern page showing performance trend graph and history table of queries.](images/metrics_eqm_querypattern.png)
+![Query pattern page showing performance trend graph and table of queries with execution details.](images/metrics_eqm_querypattern.png)
 
 The **Query pattern** page has the following components:
 

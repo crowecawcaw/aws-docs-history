@@ -100,36 +100,33 @@ integration to replicate live data from the source into Amazon Redshift.
 
 The following is a sample resource policy.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "redshift.amazonaws.com"
- },
- "Action": "redshift:AuthorizeInboundIntegration",
- "Resource": "arn:aws:redshift:*:*:integration:*",
- "Condition": {
- "StringEquals": {
- "aws:SourceArn": "arn:aws:rds:*:111122223333:cluster:*"
- }
- }
- },
- {
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::111122223333:root"
- },
- "Action": "redshift:CreateInboundIntegration",
- "Resource": "arn:aws:redshift:*:*:integration:*"
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "redshift.amazonaws.com"
+      },
+      "Action": "redshift:AuthorizeInboundIntegration",
+      "Resource": "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/cc4ffe56-ad2c-4fd1-a5a2-f29124a56433",
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceArn": "arn:aws:rds:us-east-1:111122223333:cluster:foo"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:root"
+      },
+      "Action": "redshift:CreateInboundIntegration",
+      "Resource": "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/cc4ffe56-ad2c-4fd1-a5a2-f29124a56433"
+    }
+  ]
+}
 ```
 
 The following summarizes the Amazon Redshift API operations applicable to configuring resource

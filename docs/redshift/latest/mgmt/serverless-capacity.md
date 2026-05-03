@@ -168,9 +168,9 @@ price-performance targets.
 To keep costs predictable, set a limit of maximum capacity that Amazon Redshift Serverless is allowed to allocate to
 your workloads.
 
-To configure price-performance targets, use the AWS console. You must enable your price-performance target
-explicitly when you create your Serverless workgroup. You can also modify the price-performance target after you
-create the Serverless workgroup. When you enable the price-performance target, it is set to **Balanced** by default.
+To configure price-performance targets, use the AWS console. The price-performance target is enabled by default
+for all new Serverless workgroups and is set to **Balanced**. You can modify the price-performance target after you
+create the Serverless workgroup.
 .
 
 ###### To edit the price-performance target for your workgroup
@@ -288,9 +288,9 @@ For step-by-step instructions for using these features, see
 
 Consider the following when using AI-driven scaling and optimization:
 
-- For existing workloads on Amazon Redshift Serverless requiring 32 to 512 Base RPU,
+- For existing workloads on Amazon Redshift Serverless requiring 8 to 512 Base RPU,
   we recommend using Amazon Redshift Serverless AI-driven scaling and optimization for optimal results.
-  We do not recommend using this feature for less than 32 Base RPU or more than 512 Base RPU workloads.
+  We do not recommend using this feature for 4 Base RPU or more than 512 Base RPU workloads.
 - Price-performance targets automatically optimize the workload, though results may vary.
   We recommend using this feature over time so the system can learn your specific patterns by running a
   representative workload.

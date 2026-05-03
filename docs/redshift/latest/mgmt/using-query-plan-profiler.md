@@ -214,7 +214,7 @@ Query profiler uses the following pages to display information about your query:
 
 ### Query details page
 
-![Query details interface showing execution time, data returned, and performance breakdown for query 4960.](images/metrics_qp_query_details.png)
+![Query details page showing execution breakdown with planning time taking majority of 42 seconds.](images/metrics_qp_query_details.png)
 
 The Query details page has the following components:
 
@@ -252,7 +252,7 @@ You can add or remove columns from the **Child queries** list using the Preferen
 
 ### Child query page
 
-![Query execution plan showing stages from Distribute to Aggregate with execution times.](images/metrics_qp_child_query_plan.png)
+![Query execution plan showing scan, hash, distribute, hashjoin, and aggregate operations with row counts.](images/metrics_qp_child_query_plan.png)
 
 The Child query page has the following components:
 
@@ -301,7 +301,7 @@ between the steps. For example, if a step joins the output from two other steps,
 pane shows the step
 as a tree node with two nodes feeding into it:
 
-![Tree diagram showing Hashjoin step with Scan + Item and Hash steps as child nodes.](images/metrics_qp_hashjoin.png)
+![Hashjoin step with two input nodes: Scan-Item with 18,000 rows and Hash step.](images/metrics_qp_hashjoin.png)
 
 The **Child query** pane doesn't show the streams that contain the steps by default. To show the
 streams that Amazon Redshift uses to logically partition the steps in the child query, choose **View streams**.
@@ -345,7 +345,7 @@ to that stream or step if you have **Pan & Zoom** selected in the upper right co
 workspace. You can restrict this behavior to panning and zooming, panning only, or no
 movement by choosing the appropriate setting in the pulldown.
 
-![Dropdown menu showing pan and zoom options for workspace navigation control.](images/metrics_qp_pan_zoom.png)
+![Pan and zoom dropdown menu with options: Pan and zoom, Pan only, and No motion.](images/metrics_qp_pan_zoom.png)
 
 ## Troubleshooting queries with Query profiler
 

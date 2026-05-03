@@ -102,7 +102,7 @@ you use over time. This section shows you how to determine your capacity and res
 
 To start, in the Redshift console, choose **Serverless**, and then **Serverless reservations** from the menu.
 
-![Amazon Redshift console showing Serverless dashboard with Serverless reservations option highlighted.](images/capacity-reservations-menu-selection.png)
+![Serverless reservations menu item highlighted in the Amazon Redshift navigation panel.](images/capacity-reservations-menu-selection.png)
 
 The console shows a description of the feature and a list of existing reservations.
 From
@@ -114,10 +114,10 @@ To purchase a reservation, complete the following steps:
 
 1. Choose **Purchase serverless reservations**.
 
-![Reservation overview showing 1 RPU total, 0 expiring, with option to purchase Serverless reservations.](images/capacity-reservations-list-purchase.png) 2. A walk through appears, which has a series of selections. Enter the **Serverless reservation** RPU level to reserve. If you are unsure what this level should be, you can use the tools described further along in this
+![Reservation overview page showing 1 RPU total with Purchase Serverless reservations button.](images/capacity-reservations-list-purchase.png) 2. A walk through appears, which has a series of selections. Enter the **Serverless reservation** RPU level to reserve. If you are unsure what this level should be, you can use the tools described further along in this
 section.
 
-![Input field for entering reserved RPU capacity, with a range from 1 to any number.](images/capacity-reservations-RPU-level.png) 3. Set the payment type. You can choose to pay upfront for your reserved RPUs,
+![Serverless reservation input field for entering reserved RPU capacity with validation message.](images/capacity-reservations-RPU-level.png) 3. Set the payment type. You can choose to pay upfront for your reserved RPUs,
 or you can pay monthly. If you choose to
 pay up front, you get a bigger discount.
 
@@ -125,7 +125,7 @@ pay up front, you get a bigger discount.
 
 After you confirm the reservation, it appears in the list of reservations.
 
-![Serverless reservations table showing one payment-pending reservation with details.](images/capacity-reservations-list-created.png)
+![Serverless reservations table showing one payment-pending reservation with expiration date and costs.](images/capacity-reservations-list-created.png)
 
 ## Usage notes
 
@@ -161,7 +161,7 @@ per-hour billing details are as follows:
 
 See the following diagram for workgroup usage evolution, and on-demand and serverless reservation rates billing details:
 
-![Graph showing total account usage, on-demand usage, and workgroup trends over three time periods.](images/capacity-reservation-example.png)
+![Stacked area chart showing RPU usage over time with workgroup and reservation metrics.](images/capacity-reservation-example.png)
 
 ## Purchasing a serverless reservation using the AWS CLI or Amazon Redshift API
 
