@@ -38,6 +38,15 @@ aws cloudformation create-change-set \
   --import-existing-resources
 ```
 
+## Troubleshooting
+
+If auto-import fails, do the following to troubleshoot:
+
+- Verify the resource name in your template matches the name of the resource exactly
+- Verify that the resource isn't already managed by another stack
+- Make sure the resource type supports auto import
+- Verify your template includes all the required properties for the resource type
+
 ## Supported resource types
 
 The following table lists AWS resource types that currently support auto-import.
@@ -271,10 +280,6 @@ The following table lists AWS resource types that currently support auto-import.
 | [`AWS::IoT::ThingGroup`](../TemplateReference/aws-resource-iot-thinggroup.md "../TemplateReference/aws-resource-iot-thinggroup.md")                                                                                                                                              |
 | [`AWS::IoT::ThingType`](../TemplateReference/aws-resource-iot-thingtype.md "../TemplateReference/aws-resource-iot-thingtype.md")                                                                                                                                                 |
 | [`AWS::IoT::TopicRule`](../TemplateReference/aws-resource-iot-topicrule.md "../TemplateReference/aws-resource-iot-topicrule.md")                                                                                                                                                 |
-| [`AWS::IoTAnalytics::Channel`](../TemplateReference/aws-resource-iotanalytics-channel.md "../TemplateReference/aws-resource-iotanalytics-channel.md")                                                                                                                            |
-| [`AWS::IoTAnalytics::Dataset`](../TemplateReference/aws-resource-iotanalytics-dataset.md "../TemplateReference/aws-resource-iotanalytics-dataset.md")                                                                                                                            |
-| [`AWS::IoTAnalytics::Datastore`](../TemplateReference/aws-resource-iotanalytics-datastore.md "../TemplateReference/aws-resource-iotanalytics-datastore.md")                                                                                                                      |
-| [`AWS::IoTAnalytics::Pipeline`](../TemplateReference/aws-resource-iotanalytics-pipeline.md "../TemplateReference/aws-resource-iotanalytics-pipeline.md")                                                                                                                         |
 | [`AWS::IoTEvents::AlarmModel`](../TemplateReference/aws-resource-iotevents-alarmmodel.md "../TemplateReference/aws-resource-iotevents-alarmmodel.md")                                                                                                                            |
 | [`AWS::IoTEvents::DetectorModel`](../TemplateReference/aws-resource-iotevents-detectormodel.md "../TemplateReference/aws-resource-iotevents-detectormodel.md")                                                                                                                   |
 | [`AWS::IoTEvents::Input`](../TemplateReference/aws-resource-iotevents-input.md "../TemplateReference/aws-resource-iotevents-input.md")                                                                                                                                           |
@@ -538,7 +543,6 @@ The following table lists AWS resource types that currently support auto-import.
 | [`AWS::ServiceCatalogAppRegistry::Application`](../TemplateReference/aws-resource-servicecatalogappregistry-application.md "../TemplateReference/aws-resource-servicecatalogappregistry-application.md")                                                                         |
 | [`AWS::ServiceCatalogAppRegistry::AttributeGroup`](../TemplateReference/aws-resource-servicecatalogappregistry-attributegroup.md "../TemplateReference/aws-resource-servicecatalogappregistry-attributegroup.md")                                                                |
 | [`AWS::Signer::ProfilePermission`](../TemplateReference/aws-resource-signer-profilepermission.md "../TemplateReference/aws-resource-signer-profilepermission.md")                                                                                                                |
-| [`AWS::SimSpaceWeaver::Simulation`](../TemplateReference/aws-resource-simspaceweaver-simulation.md "../TemplateReference/aws-resource-simspaceweaver-simulation.md")                                                                                                             |
 | [`AWS::StepFunctions::StateMachine`](../TemplateReference/aws-resource-stepfunctions-statemachine.md "../TemplateReference/aws-resource-stepfunctions-statemachine.md")                                                                                                          |
 | [`AWS::SupportApp::SlackChannelConfiguration`](../TemplateReference/aws-resource-supportapp-slackchannelconfiguration.md "../TemplateReference/aws-resource-supportapp-slackchannelconfiguration.md")                                                                            |
 | [`AWS::SupportApp::SlackWorkspaceConfiguration`](../TemplateReference/aws-resource-supportapp-slackworkspaceconfiguration.md "../TemplateReference/aws-resource-supportapp-slackworkspaceconfiguration.md")                                                                      |
@@ -562,12 +566,3 @@ The following table lists AWS resource types that currently support auto-import.
 | [`AWS::WAFv2::WebACLAssociation`](../TemplateReference/aws-resource-wafv2-webaclassociation.md "../TemplateReference/aws-resource-wafv2-webaclassociation.md")                                                                                                                   |
 | [`AWS::WorkspacesInstances::VolumeAssociation`](../TemplateReference/aws-resource-workspacesinstances-volumeassociation.md "../TemplateReference/aws-resource-workspacesinstances-volumeassociation.md")                                                                         |
 | [`AWS::XRay::ResourcePolicy`](../TemplateReference/aws-resource-xray-resourcepolicy.md "../TemplateReference/aws-resource-xray-resourcepolicy.md")                                                                                                                               |
-
-## Troubleshooting
-
-If auto-import fails, do the following to troubleshoot:
-
-- Verify the resource name in your template matches the name of the resource exactly
-- Verify that the resource isn't already managed by another stack
-- Make sure the resource type supports import operations
-- Verify your template includes all the required properties for the resource type
