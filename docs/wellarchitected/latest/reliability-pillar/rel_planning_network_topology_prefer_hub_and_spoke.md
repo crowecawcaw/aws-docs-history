@@ -17,7 +17,7 @@ both cloud and on-premises environments. The following figure
 illustrates how you can use AWS Transit Gateway to build your
 hub-and-spoke topology.
 
-![AWS Transit Gateway connecting various services like VPCs, Direct Connect, and third-party appliances.](images/hub-and-spoke.png)
+![AWS Transit Gateway connecting to VPCs, customer gateway via VPN, Direct Connect , peering, and SDWAN.](images/hub-and-spoke.png)
 
 **Desired outcome:** You have
 connected your Virtual Private Clouds (VPCs) and on-premises

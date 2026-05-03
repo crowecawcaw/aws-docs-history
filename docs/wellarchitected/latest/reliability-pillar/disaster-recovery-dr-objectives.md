@@ -17,7 +17,7 @@ RPO is the maximum acceptable amount of time since the last data recovery point.
 determines what is considered an acceptable loss of data between the last recovery point and
 the interruption of service.
 
-![Business continuity timeline showing RPO, disaster event, and RTO with data loss and downtime periods.](images/business-continuity.png)
+![Timeline showing RPO before disaster, data loss period, RTO after disaster, and downtime period.](images/business-continuity.png)
 _The relationship of RPO (Recovery Point Objective), RTO (Recovery Time
 Objective), and the disaster event._
 
