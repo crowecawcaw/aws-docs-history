@@ -63,8 +63,9 @@ When you are creating a Sender ID you should consider the following:
   - No special characters except for dashes (-)
   - No spaces
   - Valid characters: a-z, A-Z, 0-9
-  - Minimum of 3 characters
-  - Maximum of 11 characters
+  - Must contain at least one letter
+  - Cannot start or end with a hyphen
+  - Minimum of 1 character, maximum of 11 characters (minimum of 3 characters recommended)
 
 - Some countries have additional character restrictions beyond the general rules listed above. For example, France does not support the dash character (-) in sender IDs. For country-specific requirements, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
 - If the country you're sending to requires registration you must submit a registration for each AWS Region you plan on sending from

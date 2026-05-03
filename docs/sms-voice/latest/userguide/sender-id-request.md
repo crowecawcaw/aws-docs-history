@@ -61,7 +61,7 @@ If sender ID isn't available then choose **Previous** to go back and
 modify your use case. Also check the [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md") to sender IDs are supported in the destination
 country.
 
-In the **Sender ID** field enter a sender ID. The sender ID must be 1-11 alphanumeric characters including letters (A-Z), numbers (0-9), or hyphens (-). The sender ID must begin with a letter. 10. Use **Resource policy** to share the sender ID with other
+In the **Sender ID** field enter a sender ID. The sender ID must be 1-11 alphanumeric characters including letters (A-Z), numbers (0-9), or hyphens (-). The sender ID must contain at least one letter and cannot start or end with a hyphen. A minimum of 3 characters is recommended. 10. Use **Resource policy** to share the sender ID with other
 AWS accounts or AWS services. To share the sender ID at a later time, see [Sharing a phone number, pool, opt-out list, or sender ID](shared-resources.md#sharing-share "shared-resources.md#sharing-share"). For more information on
 **Resource policy**, see [Working with shared resources in AWS End User Messaging SMS](shared-resources.md "shared-resources.md").
 

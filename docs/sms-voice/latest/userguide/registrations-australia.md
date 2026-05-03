@@ -1,5 +1,12 @@
 # Australia sender ID registration in AWS End User Messaging SMS
 
+Starting July 1, 2026, the Australian Communications and Media Authority (ACMA) requires
+all alphanumeric SMS sender IDs used to send messages to Australian recipients to be
+registered in the ACMA SMS Sender ID Register. Messages sent using an unregistered sender ID
+will be labeled as "Unverified" or may be blocked by Australian carriers. Please
+submit your registration as soon as possible to allow time for processing before the
+enforcement date.
+
 Follow these directions to register your sender ID in Australia.
 
 1. Open the AWS End User Messaging SMS console at
@@ -22,17 +29,24 @@ Choose **Next**. 3. In the **Sender ID info** section, enter the following:
 
 Choose **Next**. 4. In the **Australia specific info** section, enter the following:
 
-    * For **Letter of authorization**, download, complete, and attach the [letter of authorization](samples/Australia_SenderId_LetterOfAuthorization.zip.md "samples/Australia_SenderId_LetterOfAuthorization.zip.md"). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
-    * For **Company registration documentation**, if your company is not local to Australia, then you are required to provide a copy of your company's registration documentation. Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
+    * For **Australian Business Number (ABN)**, enter your 11-digit Australian Business Number as registered with the Australian Business Register (ABR). If you do not have an ABN, enter your international business registration number.
+    * For **Entity type**, select the entity type that matches your registration. Options include: Individual, Body corporate, Corporation sole, Body politic, Government entity, Partnership, Unincorporated association, Trust, and Superannuation fund.
+    * For **Authorized representative first name** and **Authorized representative last name**, enter the full name of the authorized representative for this registration. This person must be a Director or Officer listed on your business registry, or you must provide a letter of authorization.
+    * For **Authorized representative email**, enter the corporate email address of the authorized representative. Freemail addresses (such as Gmail or Yahoo) are not accepted.
+    * For **Authorized representative phone number**, enter the phone number of the authorized representative.
+    * For **Global headquarters country** (optional), select the country where your company's global headquarters is located, if different from your business address.
+    * For **Government-issued photo ID**, upload a government-issued photo ID of the authorized representative (such as a driver's license or passport). This is required for ACMA verification. Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
+    * For **Letter of authorization** (optional), if your authorized representative is not listed as a Director or Officer on your business registry, download, complete, and attach the [letter of authorization](samples/Australia_SenderId_LetterOfAuthorization.zip.md "samples/Australia_SenderId_LetterOfAuthorization.zip.md"). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
+    * For **Company registration documentation**, provide a copy of your company's registration documentation showing officers and directors (for example, an ASIC company extract for Australian entities, or equivalent documentation for international entities). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
+    * For **Proof of sender ID connection**, provide evidence of your intellectual property rights to the sender ID (for example, business registration, trademark certificate, or domain certification). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
 
 Choose **Next**. 5. In the **Company info** section, enter the following:
 
     * For **Company Name**, enter the name of your company.
-    * For **Company identification number**, enter your tax ID, like EIN or VAT.
+    * For **Company identification number**, enter the identification number of your company. For Australian entities, provide your Australian Business Number (ABN). For international entities, provide your business/trade license number, VAT number, or other legal identification number.
     * For **Doing Business As (DBA)**, enter your DBA or brand name if different from the legal name of your company.
     * For **Company website**, enter the URL for your company's
      website.
-    * For **Company identification number**, enter the identification number of your company, such as ABN/ACN/ARBN/ICN if you are headquartered in Australia, or EIN/VAT if international.
 
 Choose **Next**. 6. In the **Company address** section, enter the following:
 
