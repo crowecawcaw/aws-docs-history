@@ -328,7 +328,7 @@ Related resources:
 
 Lambda SnapStart for Java can improve startup performance by up to 10x at no extra cost, typically with no changes to your function code. The largest contributor to startup latency (often referred to as cold start time) is the time that Lambda spends initializing the function, which includes loading the function's code, starting the runtime, and initializing the function code.
 
-![Lambda logo with checkmark and performance meter indicating optimization.](images/s_lambda/snapstart-logo.png)
+![Lambda function icon with performance monitoring dashboard showing metrics and gauges.](images/s_lambda/snapstart-logo.png)
 
 With SnapStart, Lambda initializes your function when you publish a function version. Lambda takes a [Firecracker microVM](http://aws.amazon.com/blogs/opensource/firecracker-open-source-secure-fast-microvm-serverless/ "http://aws.amazon.com/blogs/opensource/firecracker-open-source-secure-fast-microvm-serverless/") snapshot of the memory and disk state of the initialized [execution environment](../../../lambda/latest/dg/lambda-runtime-environment.md "../../../lambda/latest/dg/lambda-runtime-environment.md"), encrypts the snapshot, and caches it for low-latency access.
 

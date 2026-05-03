@@ -16,7 +16,7 @@ such as a provisioned Amazon EC2 instance. AWS serverless
 technologies are pay-as-you-go, can scale up and down as your application needs change,
 and are built to expand across AWS Regions to ensure resiliency.
 
-![Flowchart showing serverless development steps, from prerequisites to building applications with AWS services.](images/path-serverless-overview.png)
+![Diagram showing serverless development workflow from prerequisites through building applications.](images/path-serverless-overview.png)
 This guide will highlight what you need to know right away and link to service
 documentation for more service-specific details.
 
