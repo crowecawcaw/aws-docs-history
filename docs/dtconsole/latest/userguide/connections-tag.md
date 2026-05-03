@@ -80,7 +80,7 @@ to the host, use the steps here.
    **Value**, enter
    `ProjectA`.
 
-![Connection tags interface with fields for Key and Value, and buttons to Add tag and Remove tag.](images/connections-tags.png) 6. (Optional) Choose **Add tag** to add more rows and enter
+![Edit Connection tags interface with Key and Value input fields, Add tag, Remove tag, Cancel, and Submit buttons.](images/connections-tags.png) 6. (Optional) Choose **Add tag** to add more rows and enter
 more tags. 7. Choose **Submit**. The tags are listed under connection
 settings.
 
@@ -101,7 +101,7 @@ settings.
    **Value**, enter
    `ProjectA`.
 
-![Edit Host tags interface with fields for Key and Value, and buttons to Add tag and Remove tag.](images/hosts-tag.png) 6. (Optional) Choose **Add tag** to add more rows and enter
+![Edit Host tags interface with Key and Value input fields, Add tag and Remove tag buttons.](images/hosts-tag.png) 6. (Optional) Choose **Add tag** to add more rows and enter
 more tags for a host. 7. Choose **Submit**. The tags are listed under host
 settings.
 

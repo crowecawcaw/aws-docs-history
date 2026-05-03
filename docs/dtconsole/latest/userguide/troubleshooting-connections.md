@@ -390,7 +390,7 @@ the GitHub app owner.
    choose **Read-only** from the **Access**
    drop-down.
 
-![Organization permissions interface showing Members access set to Read-only from dropdown menu.](images/ghes-app-permissions.png) 5. In **Add a note to users**, add a description of the reason for the
+![Organization permissions interface showing Members set to Read-only access level.](images/ghes-app-permissions.png) 5. In **Add a note to users**, add a description of the reason for the
 update. Choose **Save changes**.
 
 ## Connections error when connecting to GitHub: "A problem occurred, make sure cookies are enabled in your browser" or "An organization owner must install the GitHub app"
