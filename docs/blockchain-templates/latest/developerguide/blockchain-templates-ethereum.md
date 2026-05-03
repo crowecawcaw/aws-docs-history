@@ -41,7 +41,7 @@ using the Amazon ECS configuration, see the [Getting Started with AWS Blockchain
 
 The following diagram depicts an Ethereum network created using the template with the ECS container platform option:
 
-![AWS diagram showing VPC with public and private subnets, load balancers, and Ethereum nodes in ECS containers.](images/ethereum-ecs-arch.png)
+![VPC with two availability zones containing public and private subnets with ECS container instances.](images/ethereum-ecs-arch.png)
 
 #### Using the Docker-Local Platform
 
@@ -50,7 +50,7 @@ containers run on a single EC2 instance. This is a simplified setup.
 
 The following diagram depicts an Ethereum network created using the template with the docker-local container platform option:
 
-![Diagram of Ethereum network on AWS with VPC, EC2 instance, containers, and ECR registry.](images/ethereum-docker-local-arch.png)
+![EC2 instance in public subnet running four containers connected to ECR registry via internet gateway.](images/ethereum-docker-local-arch.png)
 
 ### Choosing a Private or Public Ethereum Network
 
@@ -184,17 +184,17 @@ For the permissions attached to the ECS role, we recommend that you start with t
 5. Under **Select your use case**, choose **Elastic Container
    Service**, **Next:Permissions**.
 
-![AWS console interface for creating a role, with Elastic Container Service selected as the use case.](images/ecs-role.png) 6. For **Permissions policy**, leave the default policy
+![AWS console interface for creating a role, with Elastic Container Service selected as the use case.](/images/blockchain-templates/latest/developerguide/images/ecs-role.png) 6. For **Permissions policy**, leave the default policy
 (**AmazonEC2ContainerServiceRole**) selected, and choose
 **Next:Review**. 7. For **Role name**, enter a value that helps you identify the role,
 such as _ECSRoleForEthereum_. For **Role Description**,
 enter a brief summary. Note the role name for later. 8. Choose **Create role**. 9. Select the role that you just created from the list. If your account has many roles,
 you can search for the role name.
 
-![AWSIAM console showing a role named "ECSRoleForEtherum" with its description.](images/ecs-role-list.png) 10. Copy the **Role ARN** value and save it so that you can copy it again.
+![IAM console showing ECSRoleForEtherium role selected in the roles list with search filter.](images/ecs-role-list.png) 10. Copy the **Role ARN** value and save it so that you can copy it again.
 You need this ARN when you create the Ethereum network.
 
-![AWSIAM role summary page showing role ARN, description, and attached policies.](images/ecs-role-arn.png)
+![AWS IAM role summary page showing role ARN, description, and attached policies.](images/ecs-role-arn.png)
 
 ## Connecting to Ethereum Resources
 

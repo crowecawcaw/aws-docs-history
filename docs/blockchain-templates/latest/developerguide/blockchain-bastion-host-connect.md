@@ -30,7 +30,7 @@ ssh -i `/path/my-template-key-pair.pem` ec2-user@`bastion-host-dns` -D 9001
    3. Select **Dynamic**.
    4. Choose **Add**.For **Forwarded ports**, **D9001** should appear as shown below.
 
-![PuTTY Configuration window showing SSH port forwarding options with D9001 listed.](images/putty.png) 5. Choose **Open** and then authenticate to the bastion host as required by your key configuration. Leave the connection open.
+![PuTTY Configuration window showing SSH Tunnels section with D9001 listed in Forwarded ports.](images/putty.png) 5. Choose **Open** and then authenticate to the bastion host as required by your key configuration. Leave the connection open.
 With the PuTTY connection open, you now configure your system or a browser extension to use the forwarded port for your Ethereum network URLs. The following instructions are based on using FoxyProxy Standard to forward connections based on the URL pattern of EthStats and EthExplorer and port 9001, which you established earlier as the forwarded port, but you can use any method that you prefer.
 
 ###### To configure FoxyProxy to use the SSH tunnel for Ethereum network URLs
