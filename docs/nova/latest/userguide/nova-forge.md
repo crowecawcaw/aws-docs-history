@@ -8,6 +8,9 @@ proprietary data with Amazon-curated data sets at every stage of model training.
 the models to maximize learning from proprietary data while minimizing risk of forgetting
 foundational skills like reasoning.
 
+Nova Forge is available in multiple AWS Regions. For detailed information about
+supported Regions, see [Nova Forge Region Availability](nova-forge-region-availability.md "nova-forge-region-availability.md").
+
 Nova Forge provides the following key capabilities:
 
 - Access checkpoints across all phases of model development, and leverage new Nova models before they are widely available

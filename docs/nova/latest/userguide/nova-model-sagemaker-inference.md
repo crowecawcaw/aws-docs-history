@@ -41,23 +41,23 @@ When creating your SageMaker inference endpoints, you can set two environment va
 
 The following table lists the supported Amazon Nova models, instance types, and supported configurations. The MAX_CONCURRENCY values represent the maximum supported concurrency for each CONTEXT_LENGTH setting:
 
-| Model             | Instance Type                                                                                                                           | Supported Configurations                                                              | FP8 Quantization Required   |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | --------------------------- |
-| Amazon Nova Micro | ml.g5.12xlarge                                                                                                                          | CONTEXT_LENGTH: 4000, MAX_CONCURRENCY: 12<br>CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 6 | No                          |
-| ml.g5.24xlarge    | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 8                                                                                                | No                                                                                    |
-| ml.g6e.xlarge     | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 2                                                                                                | No                                                                                    |
-| ml.g6e.2xlarge    | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 2                                                                                                | No                                                                                    |
-| ml.g6e.4xlarge    | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 4                                                                                                | No                                                                                    |
-| ml.g6.12xlarge    | CONTEXT_LENGTH: 4000, MAX_CONCURRENCY: 12<br>CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 6                                                   | No                                                                                    |
-| ml.g6.24xlarge    | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 8                                                                                                | No                                                                                    |
-| ml.g6.48xlarge    | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 12                                                                                               | No                                                                                    |
-| ml.p5.48xlarge    | CONTEXT_LENGTH: 16000, MAX_CONCURRENCY: 128<br>CONTEXT_LENGTH: 64000, MAX_CONCURRENCY: 32<br>CONTEXT_LENGTH: 128000, MAX_CONCURRENCY: 8 | No                                                                                    |
-| Amazon Nova Lite  | ml.g6.12xlarge                                                                                                                          | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 2                                              | Yes<br>• Enabled By Default |
-| ml.g6.24xlarge    | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 4                                                                                                | Yes<br>• Enabled By Default                                                           |
-| ml.g6.48xlarge    | CONTEXT_LENGTH: 4000, MAX_CONCURRENCY: 16<br>CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 8                                                   | No                                                                                    |
-| ml.p5.48xlarge    | CONTEXT_LENGTH: 16000, MAX_CONCURRENCY: 128<br>CONTEXT_LENGTH: 60000, MAX_CONCURRENCY: 8                                                | No                                                                                    |
-| Nova 2 Lite       | ml.g6.48xlarge                                                                                                                          | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 8                                              | Yes<br>• Enabled By Default |
-| ml.p5.48xlarge    | CONTEXT_LENGTH: 16000, MAX_CONCURRENCY: 128<br>CONTEXT_LENGTH: 64000, MAX_CONCURRENCY: 32<br>CONTEXT_LENGTH: 128000, MAX_CONCURRENCY: 8 | No                                                                                    |
+| Model             | Instance Type                                                                                                                                                                         | Supported Configurations                                                              | FP8 Quantization Required   |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | --------------------------- |
+| Amazon Nova Micro | ml.g5.12xlarge                                                                                                                                                                        | CONTEXT_LENGTH: 4000, MAX_CONCURRENCY: 12<br>CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 6 | No                          |
+| ml.g5.24xlarge    | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 8                                                                                                                                              | No                                                                                    |
+| ml.g6e.xlarge     | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 2                                                                                                                                              | No                                                                                    |
+| ml.g6e.2xlarge    | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 2                                                                                                                                              | No                                                                                    |
+| ml.g6e.4xlarge    | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 4                                                                                                                                              | No                                                                                    |
+| ml.g6.12xlarge    | CONTEXT_LENGTH: 4000, MAX_CONCURRENCY: 12<br>CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 6                                                                                                 | No                                                                                    |
+| ml.g6.24xlarge    | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 8                                                                                                                                              | No                                                                                    |
+| ml.g6.48xlarge    | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 12                                                                                                                                             | No                                                                                    |
+| ml.p5.48xlarge    | CONTEXT_LENGTH: 16000, MAX_CONCURRENCY: 128<br>CONTEXT_LENGTH: 64000, MAX_CONCURRENCY: 32<br>CONTEXT_LENGTH: 128000, MAX_CONCURRENCY: 8                                               | No                                                                                    |
+| Amazon Nova Lite  | ml.g6.12xlarge                                                                                                                                                                        | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 2                                              | Yes<br>• Enabled By Default |
+| ml.g6.24xlarge    | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 4                                                                                                                                              | Yes<br>• Enabled By Default                                                           |
+| ml.g6.48xlarge    | CONTEXT_LENGTH: 4000, MAX_CONCURRENCY: 16<br>CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 8                                                                                                 | No                                                                                    |
+| ml.p5.48xlarge    | CONTEXT_LENGTH: 16000, MAX_CONCURRENCY: 128<br>CONTEXT_LENGTH: 60000, MAX_CONCURRENCY: 8                                                                                              | No                                                                                    |
+| Nova 2 Lite       | ml.g6.48xlarge                                                                                                                                                                        | CONTEXT_LENGTH: 8000, MAX_CONCURRENCY: 8                                              | Yes<br>• Enabled By Default |
+| ml.p5.48xlarge    | CONTEXT_LENGTH: 16000, MAX_CONCURRENCY: 128<br>CONTEXT_LENGTH: 64000, MAX_CONCURRENCY: 32<br>CONTEXT_LENGTH: 128000, MAX_CONCURRENCY: 8<br>CONTEXT_LENGTH: 256000, MAX_CONCURRENCY: 2 | No                                                                                    |
 
 ###### Note
 
@@ -75,7 +75,7 @@ For example, on Amazon Nova Micro with a ml.g5.12xlarge:
 
 ## Inference components
 
-You can deploy Amazon Nova models using [SageMaker inference components](../../../sagemaker/latest/dg/inference-components.md "../../../sagemaker/latest/dg/inference-components.md"), which allow you to host multiple models on a single endpoint and optimize resource utilization. Inference components let you specify the compute resources (CPU, memory, GPU) required for each model, enabling efficient multi-model hosting on shared infrastructure.
+You can deploy Amazon Nova models using SageMaker inference components, which allow you to host multiple models on a single endpoint and optimize resource utilization. Inference components let you specify the compute resources (CPU, memory, GPU) required for each model, enabling efficient multi-model hosting on shared infrastructure.
 
 The following table lists the minimum compute resource requirements for each Amazon Nova model when using inference components:
 
@@ -110,7 +110,7 @@ The following table lists the AWS Regions where Amazon Nova models are available
 
 ## Supported Container Images
 
-The following table lists the container image URIs for Amazon Nova models on SageMaker inference by region.
+The following table lists the container image URIs for Amazon Nova models on SageMaker inference by region. The `SM-Inference-latest` tag currently points to `v1.4`.
 
 | Region    | Container Image URIs                                                                   |
 | --------- | -------------------------------------------------------------------------------------- |
@@ -128,6 +128,7 @@ For issues and support with Amazon Nova models on SageMaker inference, contact A
 ###### Topics
 
 - [Getting Started](nova-sagemaker-inference-getting-started.md "nova-sagemaker-inference-getting-started.md")
+- [Inference Container Features](nova-sagemaker-inference-container-features.md "nova-sagemaker-inference-container-features.md")
 - [API Reference](nova-sagemaker-inference-api-reference.md "nova-sagemaker-inference-api-reference.md")
 - [Evaluate Models Hosted on SageMaker Inference](nova-eval-on-sagemaker-inference.md "nova-eval-on-sagemaker-inference.md")
 - [Deployment of Amazon Nova Forge Models in Amazon SageMaker Inference abuse detection](nova-sagemaker-inference-abuse-detection.md "nova-sagemaker-inference-abuse-detection.md")

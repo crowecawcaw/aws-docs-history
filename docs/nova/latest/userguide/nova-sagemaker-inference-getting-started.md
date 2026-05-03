@@ -164,21 +164,13 @@ For more information about SageMaker execution roles, see [SageMaker Roles](../.
 
 ## Step 3: Configure model parameters
 
-Configure the deployment parameters for your Amazon Nova model. These settings control model behavior, resource allocation, and inference characteristics. For a list of supported instance types and supported CONTEXT_LENGTH and MAX_CONCURRENCY values for each, see [Supported models and instances](nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported "nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported").
+Configure the deployment parameters for your Amazon Nova model. These settings control model behavior, resource allocation, and inference characteristics. For a list of supported instance types and supported CONTEXT_LENGTH and MAX_CONCURRENCY values for each, see [Supported models and instances](nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported "nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported"). For a complete list of additional container features such as sampling defaults, speculative decoding, and quantization, see [Inference Container Features](nova-sagemaker-inference-container-features.md "nova-sagemaker-inference-container-features.md").
 
 **Required parameters**
 
 - `IMAGE`: The Docker container image URI for Amazon Nova inference container. This will be provided by AWS.
 - `CONTEXT_LENGTH`: Model context length.
 - `MAX_CONCURRENCY`: Maximum number of sequences per iteration; sets the limit on how many individual user requests (prompts) can be processed concurrently within a single batch on the GPU. Range: integer greater than 0.
-
-**Optional generation parameters**
-
-- `DEFAULT_TEMPERATURE`: Controls randomness in generation. Range: 0.0 to 2.0 (0.0 = deterministic, higher = more random).
-- `DEFAULT_TOP_P`: Nucleus sampling threshold for token selection. Range: 1e-10 to 1.0.
-- `DEFAULT_TOP_K`: Limits token selection to top K most likely tokens. Range: integer -1 or greater (-1 = no limit).
-- `DEFAULT_MAX_NEW_TOKENS`: Maximum number of tokens to generate in response (i.e. max output tokens). Range: integer 1 or greater.
-- `DEFAULT_LOGPROBS`: Number of log probabilities to return per token. Range: integer 1 to 20.
 
 **Configure your deployment**
 
@@ -196,34 +188,21 @@ ECR_ACCOUNT_MAP = {
 IMAGE = f"{ECR_ACCOUNT_MAP[REGION]}.dkr.ecr.{REGION}.amazonaws.com/nova-inference-repo:SM-Inference-latest"
 print(f"IMAGE = {IMAGE}")
 
-# Model Parameters
+# Required parameters
 CONTEXT_LENGTH = "8000"        # Maximum total context length
-MAX_CONCURRENCY = "8"         # Maximum concurrent sequences
-
-# Optional: Default generation parameters (uncomment to use)
-DEFAULT_TEMPERATURE = "0.0"   # Deterministic output
-DEFAULT_TOP_P = "1.0"         # Consider all tokens
-# DEFAULT_TOP_K = "50"        # Uncomment to limit to top 50 tokens
-# DEFAULT_MAX_NEW_TOKENS = "2048"  # Uncomment to set max output tokens
-# DEFAULT_LOGPROBS = "1"      # Uncomment to enable log probabilities
+MAX_CONCURRENCY = "8"          # Maximum concurrent sequences
 
 # Build environment variables for the container
 environment = {
     'CONTEXT_LENGTH': CONTEXT_LENGTH,
     'MAX_CONCURRENCY': MAX_CONCURRENCY,
+    # Optional: add container feature environment variables here.
+    # See "Inference Container Features" for the full list.
+    # Examples:
+    # 'DEFAULT_TEMPERATURE': '0.7',
+    # 'DEFAULT_MAX_NEW_TOKENS': '512',
+    # 'QUANTIZATION_DTYPE': 'fp8',
 }
-
-# Add optional parameters if defined
-if 'DEFAULT_TEMPERATURE' in globals():
-    environment['DEFAULT_TEMPERATURE'] = DEFAULT_TEMPERATURE
-if 'DEFAULT_TOP_P' in globals():
-    environment['DEFAULT_TOP_P'] = DEFAULT_TOP_P
-if 'DEFAULT_TOP_K' in globals():
-    environment['DEFAULT_TOP_K'] = DEFAULT_TOP_K
-if 'DEFAULT_MAX_NEW_TOKENS' in globals():
-    environment['DEFAULT_MAX_NEW_TOKENS'] = DEFAULT_MAX_NEW_TOKENS
-if 'DEFAULT_LOGPROBS' in globals():
-    environment['DEFAULT_LOGPROBS'] = DEFAULT_LOGPROBS
 
 print("Environment configuration:")
 for key, value in environment.items():
