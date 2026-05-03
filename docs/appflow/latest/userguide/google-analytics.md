@@ -67,7 +67,7 @@ API - Authorization](https://developers.google.com/analytics/devguides/config/mg
         5. Under **Connection name**, specify a name for your connection.
         6. Choose **Continue**.
 
-    ![Google Analytics connection form with fields for client ID, secret, data encryption, and connection name.](images/connection_setup-googleanalytics-console.png)
+    ![Connect to Google Analytics dialog with fields for client ID, client secret, encryption key, and connection name.](images/connection_setup-googleanalytics-console.png)
 
 9.  You will be redirected to the Google Analytics login page. When prompted, grant Amazon AppFlow
     permissions to access your Google Analytics account.

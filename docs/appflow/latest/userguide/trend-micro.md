@@ -44,7 +44,7 @@ documentation.
         3. Under **Connection name**, specify a name for your connection.
         4. Choose **Connect**.
 
-    ![Connect to Trend Micro dialog with fields for API secret key, data encryption, and connection name.](images/connection_setup-trendmicro-console.png)
+    ![Connect to Trend Micro dialog with fields for API secret key, AWS KMS key, and connection name.](images/connection_setup-trendmicro-console.png)
 
 Now that you are connected to your Trend Micro account, you can continue with the flow
 creation steps as described in [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").

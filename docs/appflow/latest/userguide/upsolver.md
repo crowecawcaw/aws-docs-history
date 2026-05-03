@@ -41,7 +41,7 @@ You can use Upsolver as a destination only.
    bucket where your source files are located or records are to be written to the
    destination.
 
-![Destination name field showing Upsolver selected, with bucket details section below.](images/connection_setup-upsolver-console.png)
+![Destination name field showing Upsolver selected, and Bucket details section with S3 bucket dropdown and prefix input field.](images/connection_setup-upsolver-console.png)
 
 Now that you are connected to your Amazon S3 bucket, you can continue with the flow creation
 steps as described in [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").

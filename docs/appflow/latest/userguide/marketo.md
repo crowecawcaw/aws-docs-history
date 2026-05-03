@@ -46,7 +46,7 @@ about how to retrieve your client ID and client secret, see [Credentials for API
         5. Under **Connection name**, specify a name for your connection.
         6. Choose **Connect**.
 
-    ![Marketo connection form with fields for client ID, secret, account ID, and connection name.](images/connection_setup-marketo-console.png)
+    ![Connect to Marketo dialog with fields for Client ID, Client secret, Account/Munchkin ID, and Connection name.](images/connection_setup-marketo-console.png)
 
 9.  You will be redirected to the Marketo login page. When prompted, grant Amazon AppFlow
     permissions to access your Marketo account.

@@ -47,7 +47,7 @@ You can use Veeva as a source only.
         5. Under **Connection name**, specify a name for your connection.
         6. Choose **Connect**.
 
-    ![Veeva connection form with fields for user name, password, instance name, and connection name.](images/connection_setup-veeva-console.png)
+    ![Connect to Veeva dialog with fields for user name, password, instance name, encryption, and connection name.](images/connection_setup-veeva-console.png)
 
 Now that you are connected to your Veeva account, you can continue with the flow creation
 steps as described in [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").
@@ -92,7 +92,7 @@ configure a flow to extract documents.
         2. Choose **Renditions** options if required, By default Renditions are
          not included.
 
-    ![Configure flow interface for Veeva connection with source details and download options.](images/flow_setup_veeva-document_extraction.png)
+    ![Configure flow page showing Veeva source settings with document type, download options, and version selections.](images/flow_setup_veeva-document_extraction.png)
 
 7.  Choose a destination from drop down menu.
 

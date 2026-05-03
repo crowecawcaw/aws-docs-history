@@ -35,12 +35,12 @@ requirements:
   - **OData V2.0:** The OData V2.0 catalog service(s) can be
     enabled in your SAP Gateway via transaction **/IWFND/MAINT_SERVICE** .
 
-  ![Service catalog interface showing two catalog services with version and description details.](images/sapodata-odatav2-catalog-service-enablement.png)
+  ![Service Catalog showing two catalog services with namespace, OAuth scope, and soft state status.](images/sapodata-odatav2-catalog-service-enablement.png)
   - **OData V4.0:** The OData V4.0 catalog services can be
     enabled in your SAP Gateway environment by publishing the service groups **/IWFND/CONFIG** or as described in the SAP documentation relevant to
     your gateway version.
 
-  ![Service group configuration interface showing available system aliases and services.](images/sapodata-odatav4-catalog-service-enablement.png)
+  ![Service Group /IWFND/CONFIG showing LOCAL system alias with two available catalog services.](images/sapodata-odatav4-catalog-service-enablement.png)
 
 - You must enable OData V2.0/V4.0 services in your SAP Gateway. The OData V2.0 services can
   be enabled via transaction **/IWFND/MAINT_SERVICE** and V4.0
@@ -176,7 +176,7 @@ service for Amazon AppFlow integration, see [Before you begin](#sapodata-require
         11. If using OAuth, you will be redirected to the SAP login page. When prompted, grant
          Amazon AppFlow permissions to access your SAP account.
 
-    ![Form to connect SAP OData with AWS PrivateLink, showing fields for configuration and OAuth2 authentication.](images/connection_setup-sapodata-console.png)
+    ![Connect to SAP OData with AWS PrivateLink dialog showing OAuth2 authentication fields.](images/connection_setup-sapodata-console.png)
 
 On the **Manage connections** page, your new connection appears in the
 **Connections** table. When you create a flow
@@ -415,7 +415,7 @@ transfers of data that comes from an ODP provider, the maximum page size is 10,0
 The maximum number of processes that Amazon AppFlow runs at the same time when it retrieves
 your data. The default value is one. You can specify up to 10.
 
-![Additional settings panel with batch size and concurrent processes options for SAP data transfer.](images/sapodata-concurrent-processes.png)
+![Additional settings section showing Batch size field set to 1000 and Maximum number of concurrent processes field set to 1.](images/sapodata-concurrent-processes.png)
 
 When the flow runs, Amazon AppFlow calculates how many processes it needs by dividing the number of
 records in your instance with the batch size. If the number is less than the maximum, the flow

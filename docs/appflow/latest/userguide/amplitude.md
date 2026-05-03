@@ -45,7 +45,7 @@ dashboard. For more information about how to retrieve this information from Ampl
         4. Under **Connection name**, specify a name for your connection.
         5. Choose **Connect**.
 
-    ![Connection form for Amplitude with fields for API key, secret key, and connection name.](images/connection_setup-amplitude-console.png)
+    ![Connect to Amplitude dialog with fields for API key, secret key, AWS KMS key, and connection name.](images/connection_setup-amplitude-console.png)
 
 9.  You will be redirected to the Amplitude login page. When prompted, grant Amazon AppFlow
     permissions to access your Amplitude account.

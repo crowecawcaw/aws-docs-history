@@ -70,7 +70,7 @@ source at _T2_.
 The total offset value can be longer than the schedule interval (for example, _t_ can be longer than _T1 minus T0_),
 but it must be less than 10 hours. The default value is 0.
 
-![Timeline showing flow run times T0 to T3 and corresponding timestamps used for change detection.](images/time_offset.png)
+![Timeline showing flow run times at T0 through T3, with timestamps T0-t through T3-t used to query source records.](images/time_offset.png)
 
 - The flow run at _T0_ transfers records that changed
   between _T0 minus 30 days_ and _T0

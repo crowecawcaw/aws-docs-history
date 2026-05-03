@@ -45,7 +45,7 @@ You can use Singular as a source only.
         3. Under **Connection name**, specify a name for your connection.
         4. Choose **Connect**.
 
-    ![Connect to Singular dialog with fields for API key, data encryption, and connection name.](images/connection_setup-singular-console.png)
+    ![Connect to Singular dialog with fields for API key, AWS KMS key, and connection name.](images/connection_setup-singular-console.png)
 
 9.  You will be redirected to the Singular login page. When prompted, grant Amazon AppFlow
     permissions to access your Singular account.
