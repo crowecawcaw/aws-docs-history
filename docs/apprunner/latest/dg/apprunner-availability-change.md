@@ -1,11 +1,10 @@
-AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use
-App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS App Runner availability
 change](apprunner-availability-change.md "apprunner-availability-change.md").
 
 # AWS App Runner availability change
 
-After careful consideration, we decided to close AWS App Runner to new customers starting April 30, 2026. Existing AWS App Runner
+After careful consideration, we decided to close AWS App Runner to new customers. Existing AWS App Runner
 customers can continue to use the service as normal, including creating new resources and services. AWS continues to invest
 in security and availability for AWS App Runner, but we do not plan to introduce new features.
 
