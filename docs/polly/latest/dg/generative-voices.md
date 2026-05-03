@@ -100,9 +100,10 @@ _Support for generating speech marks is currently not available._
 ###### Note
 
 Currently Europe (London) and Canada (Central) regions only support the following Generative voices:
-Tiffany (en-US), Amy (en-GB), Brian (en-GB), Florian (fr-FR), Ambre (fr-FR), Lorenzo (it-IT), Beatrice (it-IT),
-Jasmine (en-SG), Aria (en-NZ), Sabrina (de-CH), Hannah (de-AT), Niamh (en-IE),
-Camila (pt-BR), Lisa (nl-BE), and Seoyeon (ko-KR)
+Joanna (en-US), Ruth (en-US), Salli (en-US), Stephen (en-US), Tiffany (en-US), Amy (en-GB), Brian (en-GB),
+Olivia (en-AU), Florian (fr-FR), Ambre (fr-FR), Lorenzo (it-IT), Beatrice (it-IT), Jasmine (en-SG), Aria (en-NZ),
+Lennart (de-DE), Vicki (de-DE), Sabrina (de-CH), Hannah (de-AT), Niamh (en-IE), Camila (pt-BR), Lisa (nl-BE),
+and Seoyeon (ko-KR)
 
 ###### Note
 
