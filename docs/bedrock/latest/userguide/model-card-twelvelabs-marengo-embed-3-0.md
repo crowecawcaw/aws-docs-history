@@ -61,7 +61,7 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 | **Region**                | **In-Region** | **Geo** | **Global** |
 | ------------------------- | ------------- | ------- | ---------- |
 | `us-east-1` (N. Virginia) | Yes           | Yes     | No         |
-| `eu-west-1` (Ireland)     | No            | Yes     | No         |
+| `eu-west-1` (Ireland)     | Yes           | Yes     | No         |
 | `ap-northeast-2` (Seoul)  | Yes           | No      | No         |
 
 **Geo inference details**

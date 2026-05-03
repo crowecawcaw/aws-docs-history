@@ -392,13 +392,17 @@ management strategy. All are optional or have defaults:
 Tool clearing will invalidate your cache if your prefixes contain your
 tools.
 
-###### Note
+###### Important
 
 The Anthropic `web_search_20250305` server tool is not supported on Amazon Bedrock.
 
 Request
 
 ```
+from anthropic import AnthropicBedrock
+
+client = AnthropicBedrock()
+
 response = client.beta.messages.create(
     betas=["context-management-2025-06-27"],
     model="claude-sonnet-4-20250514",

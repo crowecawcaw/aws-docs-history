@@ -1,4 +1,3 @@
 # Feature support by AWS Region in Amazon Bedrock
 
-To see which features are supported for which models, please go to
-[models at a glance](model-cards.md "model-cards.md") and choose the model you are interested in.
+Information previously on this page has moved. To see which features are available in a specific Region, visit [models at a glance](model-cards.md "model-cards.md") and select the model to view its Regional availability and supported features.

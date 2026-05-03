@@ -10,7 +10,7 @@ Qwen3 Next 80B A3B is Qwen's efficient mixture-of-experts model with 80B total a
 - **Model EOL date:** N/A
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
 - **Model lifecycle:** Active
-- **Context window:** 128K tokens
+- **Context window:** 256K tokens
 - **Max output tokens:** 8K
 - **Reasoning:** Supported
 
@@ -96,7 +96,7 @@ Your AWS account has default quotas to maintain the performance of the service a
 
 **Step 3 - Get the SDK:** To use this getting started guide, you must have Python already installed. Then install the relevant software depending on the APIs you are using.
 
-Responses/Chat Completions API
+Chat Completions API
 
 ```
 pip install boto3 openai
@@ -110,7 +110,7 @@ pip install boto3
 
 **Step 4 - Set environment variables:** Configure your environment to use the API key for authentication.
 
-Responses/Chat Completions API
+Chat Completions API
 
 ```
 OPENAI_API_KEY="<provide your Bedrock API key>"
@@ -124,20 +124,6 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ```
 
 **Step 5 - Run your first inference request:** Save the file as `bedrock-first-request.py`
-
-Responses API
-
-```
-from openai import OpenAI
-
-client = OpenAI()
-
-response = client.responses.create(
-    model="qwen.qwen3-next-80b-a3b-instruct",
-    input="Can you explain the features of Amazon Bedrock?"
-    )
-print(response)
-```
 
 Chat Completions API
 

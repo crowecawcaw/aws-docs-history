@@ -1,4 +1,3 @@
 # Model support by feature in Amazon Bedrock
 
-For detailed information on features per model, please refer to individual model pages
-in [models at a glance](model-cards.md "model-cards.md").
+Information previously on this page has moved. To see which features a specific model supports, visit [models at a glance](model-cards.md "model-cards.md") and select the model to view its capabilities.

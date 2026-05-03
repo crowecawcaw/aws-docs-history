@@ -49,10 +49,10 @@ For pricing, please refer to the [Amazon Bedrock Pricing](https://aws.amazon.com
 
 Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
 
-| **Endpoint**      | **Model ID**             | **In-Region endpoint URL**                       | **Geo inference ID** | **Global inference ID** |
-| ----------------- | ------------------------ | ------------------------------------------------ | -------------------- | ----------------------- |
-| `bedrock-runtime` | `openai.gpt-oss-20b-1:0` | `https://bedrock-runtime.{region}.amazonaws.com` | Not supported        | Not supported           |
-| `bedrock-mantle`  | `openai.gpt-oss-20b`     | `https://bedrock-mantle.{region}.api.aws/v1`     | Not supported        | Not supported           |
+| **Endpoint**      | **Model ID**             | **In-Region endpoint URL**                       | **Geo inference ID**            | **Global inference ID** |
+| ----------------- | ------------------------ | ------------------------------------------------ | ------------------------------- | ----------------------- |
+| `bedrock-runtime` | `openai.gpt-oss-20b-1:0` | `https://bedrock-runtime.{region}.amazonaws.com` | `us-gov.openai.gpt-oss-20b-1:0` | Not supported           |
+| `bedrock-mantle`  | `openai.gpt-oss-20b`     | `https://bedrock-mantle.{region}.api.aws/v1`     | Not supported                   | Not supported           |
 
 _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/v1"._
 
@@ -70,21 +70,34 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**                 | **In-Region** | **Geo** | **Global** |
-| -------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia)  | Yes           | No      | No         |
-| `us-east-2` (Ohio)         | Yes           | No      | No         |
-| `us-west-2` (Oregon)       | Yes           | No      | No         |
-| `eu-central-1` (Frankfurt) | Yes           | No      | No         |
-| `eu-north-1` (Stockholm)   | Yes           | No      | No         |
-| `eu-south-1` (Milan)       | Yes           | No      | No         |
-| `eu-west-1` (Ireland)      | Yes           | No      | No         |
-| `eu-west-2` (London)       | Yes           | No      | No         |
-| `ap-northeast-1` (Tokyo)   | Yes           | No      | No         |
-| `ap-south-1` (Mumbai)      | Yes           | No      | No         |
-| `ap-southeast-2` (Sydney)  | Yes           | No      | No         |
-| `ap-southeast-3` (Jakarta) | Yes           | No      | No         |
-| `sa-east-1` (São Paulo)    | Yes           | No      | No         |
+| **Region**                   | **In-Region** | **Geo** | **Global** |
+| ---------------------------- | ------------- | ------- | ---------- |
+| `us-east-1` (N. Virginia)    | Yes           | No      | No         |
+| `us-east-2` (Ohio)           | Yes           | No      | No         |
+| `us-west-2` (Oregon)         | Yes           | No      | No         |
+| `eu-central-1` (Frankfurt)   | Yes           | No      | No         |
+| `eu-north-1` (Stockholm)     | Yes           | No      | No         |
+| `eu-south-1` (Milan)         | Yes           | No      | No         |
+| `eu-west-1` (Ireland)        | Yes           | No      | No         |
+| `eu-west-2` (London)         | Yes           | No      | No         |
+| `ap-northeast-1` (Tokyo)     | Yes           | No      | No         |
+| `ap-south-1` (Mumbai)        | Yes           | No      | No         |
+| `ap-southeast-2` (Sydney)    | Yes           | No      | No         |
+| `ap-southeast-3` (Jakarta)   | Yes           | No      | No         |
+| `sa-east-1` (São Paulo)      | Yes           | No      | No         |
+| `ap-southeast-4` (Melbourne) | Yes           | No      | No         |
+| `us-gov-west-1` (GovCloud)   | Yes           | No      | No         |
+
+**Geo CRIS inference details**
+
+**US GovCloud CRIS**
+
+US GovCloud CRIS Inference ID: `us-gov.openai.gpt-oss-20b-1:0`
+
+| **Source Region**             | **Destination Regions**                                      |
+| ----------------------------- | ------------------------------------------------------------ |
+| us-gov-west-1 (GovCloud West) | us-gov-west-1 (GovCloud West), us-gov-east-1 (GovCloud East) |
+| us-gov-east-1 (GovCloud East) | us-gov-west-1 (GovCloud West), us-gov-east-1 (GovCloud East) |
 
 ## Quotas and Limits
 

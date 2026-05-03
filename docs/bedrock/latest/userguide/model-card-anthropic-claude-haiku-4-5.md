@@ -19,22 +19,28 @@ Claude Haiku 4.5 is Anthropic's lightweight model optimized for speed and effici
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
 | No Audio             | No Embedding          | No `Responses`                          | Yes `bedrock-runtime`                                  |
-| Yes Image            | No Image              | No `Chat Completions`                   | No `bedrock-mantle`                                    |
+| Yes Image            | No Image              | No `Chat Completions`                   | Yes `bedrock-mantle`                                   |
 | No Speech            | No Speech             | Yes `Invoke`                            |                                                        |
 | Yes Text             | Yes Text              | Yes `Converse`                          |                                                        |
-| No Video             | No Video              |                                         |                                                        |
+| No Video             | No Video              | Yes `Messages`                          |                                                        |
 
 ## Capabilities and Features
 
 **Bedrock Features**
 
+**Features supported using `bedrock-mantle` endpoint**
+
+| **Supported**                                                                                                                                                                                                                                                                          | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• Yes [Count tokens](count-tokens.md "count-tokens.md") | • No [Guardrails](guardrails.md "guardrails.md")<br>• No [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• No [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• No [Model evaluation](evaluation.md "evaluation.md")<br>• No [Prompt management](prompt-management.md "prompt-management.md")<br>• No [Flows](flows.md "flows.md")<br>• No [Agents](agents.md "agents.md")<br>• No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md") |
+
 **Features supported using `bedrock-runtime` endpoint**
 
-| **Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | **Not Supported**                                                        |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• Yes [Count tokens](count-tokens.md "count-tokens.md")<br>• Yes [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• Yes [Model evaluation](evaluation.md "evaluation.md")<br>• Yes [Prompt management](prompt-management.md "prompt-management.md")<br>• Yes [Flows](flows.md "flows.md")<br>• Yes [Agents](agents.md "agents.md")<br>• Yes [Structured outputs](structured-outputs.md "structured-outputs.md") | • No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md") |
+| **Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | **Not Supported**                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• Yes [Count tokens](count-tokens.md "count-tokens.md")<br>• Yes [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• Yes [Model evaluation](evaluation.md "evaluation.md")<br>• Yes [Prompt management](prompt-management.md "prompt-management.md")<br>• Yes [Flows](flows.md "flows.md")<br>• Yes [Agents](agents.md "agents.md")<br>• Yes [Structured outputs](structured-outputs.md "structured-outputs.md")<br>• Yes [Client-side tool calling](tool-use.md "tool-use.md") | • No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md") |
 
-**Prompt caching using `bedrock-runtime` endpoint**
+**Prompt caching**
 
 For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
 
@@ -50,9 +56,10 @@ For pricing, please refer to the [Amazon Bedrock Pricing](https://aws.amazon.com
 
 Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
 
-| **Endpoint**      | **Model ID**                               | **In-Region endpoint URL**                       | **Geo inference ID**                                                                                                                    | **Global inference ID**                           |
-| ----------------- | ------------------------------------------ | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| `bedrock-runtime` | `anthropic.claude-haiku-4-5-20251001-v1:0` | `https://bedrock-runtime.{region}.amazonaws.com` | `us.anthropic.claude-haiku-4-5-20251001-v1:0``eu.anthropic.claude-haiku-4-5-20251001-v1:0``au.anthropic.claude-haiku-4-5-20251001-v1:0` | `global.anthropic.claude-haiku-4-5-20251001-v1:0` |
+| **Endpoint**      | **Model ID**                               | **In-Region endpoint URL**                                      | **Geo inference ID**                                                                                                                    | **Global inference ID**                           |
+| ----------------- | ------------------------------------------ | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| `bedrock-runtime` | `anthropic.claude-haiku-4-5-20251001-v1:0` | `https://bedrock-runtime.{region}.amazonaws.com`                | `us.anthropic.claude-haiku-4-5-20251001-v1:0``eu.anthropic.claude-haiku-4-5-20251001-v1:0``au.anthropic.claude-haiku-4-5-20251001-v1:0` | `global.anthropic.claude-haiku-4-5-20251001-v1:0` |
+| `bedrock-mantle`  | `anthropic.claude-haiku-4-5`               | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | N/A                                                                                                                                     | N/A                                               |
 
 _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/v1"._
 
@@ -72,7 +79,7 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 | **Region**                     | **In-Region** | **Geo** | **Global** |
 | ------------------------------ | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia)      | No            | Yes     | Yes        |
+| `us-east-1` (N. Virginia)      | Yes           | Yes     | Yes        |
 | `us-east-2` (Ohio)             | No            | Yes     | Yes        |
 | `us-west-1` (N. California)    | No            | Yes     | Yes        |
 | `us-west-2` (Oregon)           | No            | Yes     | Yes        |
@@ -80,14 +87,14 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 | `ca-west-1` (Calgary)          | No            | No      | Yes        |
 | `eu-central-1` (Frankfurt)     | No            | Yes     | Yes        |
 | `eu-central-2` (Zurich)        | No            | Yes     | Yes        |
-| `eu-north-1` (Stockholm)       | No            | Yes     | Yes        |
+| `eu-north-1` (Stockholm)       | Yes           | Yes     | Yes        |
 | `eu-south-1` (Milan)           | No            | Yes     | Yes        |
 | `eu-south-2` (Spain)           | No            | Yes     | Yes        |
-| `eu-west-1` (Ireland)          | No            | Yes     | Yes        |
+| `eu-west-1` (Ireland)          | Yes           | Yes     | Yes        |
 | `eu-west-2` (London)           | No            | Yes     | Yes        |
 | `eu-west-3` (Paris)            | No            | Yes     | Yes        |
 | `ap-east-2` (Taipei)           | No            | No      | Yes        |
-| `ap-northeast-1` (Tokyo)       | No            | No      | Yes        |
+| `ap-northeast-1` (Tokyo)       | Yes           | No      | Yes        |
 | `ap-northeast-2` (Seoul)       | No            | No      | Yes        |
 | `ap-northeast-3` (Osaka)       | No            | No      | Yes        |
 | `ap-south-1` (Mumbai)          | No            | No      | Yes        |
@@ -95,7 +102,7 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 | `ap-southeast-1` (Singapore)   | No            | No      | Yes        |
 | `ap-southeast-2` (Sydney)      | No            | Yes     | Yes        |
 | `ap-southeast-3` (Jakarta)     | No            | No      | Yes        |
-| `ap-southeast-4` (Melbourne)   | No            | Yes     | Yes        |
+| `ap-southeast-4` (Melbourne)   | Yes           | Yes     | Yes        |
 | `ap-southeast-5` (Malaysia)    | No            | No      | Yes        |
 | `ap-southeast-6` (New Zealand) | No            | Yes     | Yes        |
 | `ap-southeast-7` (Thailand)    | No            | No      | Yes        |
@@ -163,17 +170,49 @@ Your AWS account has default quotas to maintain the performance of the service a
 
 **Step 3 - Get the SDK:** To use this getting started guide, you must have Python already installed. Then install the relevant software depending on the APIs you are using.
 
+Messages API
+
+```
+pip install -U "anthropic[bedrock]"
+```
+
+Invoke/Converse API
+
 ```
 pip install boto3
 ```
 
 **Step 4 - Set environment variables:** Configure your environment to use the API key for authentication.
 
+Messages API
+
+```
+AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
+```
+
+Invoke/Converse API
+
 ```
 AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ```
 
 **Step 5 - Run your first inference request:** Save the file as `bedrock-first-request.py`
+
+Messages API
+
+```
+from anthropic import AnthropicBedrockMantle
+
+client = AnthropicBedrockMantle(aws_region="us-east-1")
+
+message = client.messages.create(
+    model="anthropic.claude-haiku-4-5",
+    max_tokens=1024,
+    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}],
+)
+
+print(message.content[0].text)
+```
 
 Invoke API
 

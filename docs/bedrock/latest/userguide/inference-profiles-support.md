@@ -50,8 +50,10 @@ The Global cross-region inference profile is currently only supported on Anthrop
 US West (Oregon), US East (N. Virginia), US East (Ohio), Europe (Ireland), and Asia Pacific (Tokyo). The destination Regions for Global inference profile
 include all commercial AWS Regions.
 
-To see which models support Geo and Global inference profiles, please visit
-[models at a glance](model-cards.md "model-cards.md") and choose the model you are interested in.
+###### Important
+
+To find the inference profile IDs and supported Regions for a specific model, visit
+[models at a glance](model-cards.md "model-cards.md") and choose the model you are interested in. Each model page lists its available inference profile IDs and a Regional availability table showing In-Region, Geo, and Global support.
 
 ## Supported Regions and models for application inference profiles
 

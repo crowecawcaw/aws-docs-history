@@ -69,18 +69,22 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**                | **In-Region** | **Geo** | **Global** |
-| ------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia) | Yes           | No      | No         |
-| `us-east-2` (Ohio)        | Yes           | No      | No         |
-| `us-west-2` (Oregon)      | Yes           | No      | No         |
-| `eu-south-1` (Milan)      | Yes           | No      | No         |
-| `eu-west-1` (Ireland)     | Yes           | No      | No         |
-| `eu-west-2` (London)      | Yes           | No      | No         |
-| `ap-northeast-1` (Tokyo)  | Yes           | No      | No         |
-| `ap-south-1` (Mumbai)     | Yes           | No      | No         |
-| `ap-southeast-2` (Sydney) | Yes           | No      | No         |
-| `sa-east-1` (São Paulo)   | Yes           | No      | No         |
+| **Region**                   | **In-Region** | **Geo** | **Global** |
+| ---------------------------- | ------------- | ------- | ---------- |
+| `us-east-1` (N. Virginia)    | Yes           | No      | No         |
+| `us-east-2` (Ohio)           | Yes           | No      | No         |
+| `us-west-2` (Oregon)         | Yes           | No      | No         |
+| `eu-south-1` (Milan)         | Yes           | No      | No         |
+| `eu-west-1` (Ireland)        | Yes           | No      | No         |
+| `eu-west-2` (London)         | Yes           | No      | No         |
+| `ap-northeast-1` (Tokyo)     | Yes           | No      | No         |
+| `ap-south-1` (Mumbai)        | Yes           | No      | No         |
+| `ap-southeast-2` (Sydney)    | Yes           | No      | No         |
+| `sa-east-1` (São Paulo)      | Yes           | No      | No         |
+| `ap-southeast-3` (Jakarta)   | Yes           | No      | No         |
+| `ap-southeast-4` (Melbourne) | Yes           | No      | No         |
+| `eu-central-1` (Frankfurt)   | Yes           | No      | No         |
+| `eu-north-1` (Stockholm)     | Yes           | No      | No         |
 
 ## Quotas and Limits
 

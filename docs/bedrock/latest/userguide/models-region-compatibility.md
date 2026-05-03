@@ -401,7 +401,7 @@ Now, let us look at Regional availability across all the models supported by Ama
 
 | [Claude Haiku 4.5](model-card-anthropic-claude-haiku-4-5.md "model-card-anthropic-claude-haiku-4-5.md") | Region | In-Region | Geo | Global |
 | ------------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                                               | No     | Yes       | Yes |
+| `us-east-1` (N. Virginia)                                                                               | Yes    | Yes       | Yes |
 | `us-east-2` (Ohio)                                                                                      | No     | Yes       | Yes |
 | `us-west-1` (N. California)                                                                             | No     | Yes       | Yes |
 | `us-west-2` (Oregon)                                                                                    | No     | Yes       | Yes |
@@ -409,14 +409,14 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `ca-west-1` (Calgary)                                                                                   | No     | No        | Yes |
 | `eu-central-1` (Frankfurt)                                                                              | No     | Yes       | Yes |
 | `eu-central-2` (Zurich)                                                                                 | No     | Yes       | Yes |
-| `eu-north-1` (Stockholm)                                                                                | No     | Yes       | Yes |
+| `eu-north-1` (Stockholm)                                                                                | Yes    | Yes       | Yes |
 | `eu-south-1` (Milan)                                                                                    | No     | Yes       | Yes |
 | `eu-south-2` (Spain)                                                                                    | No     | Yes       | Yes |
-| `eu-west-1` (Ireland)                                                                                   | No     | Yes       | Yes |
+| `eu-west-1` (Ireland)                                                                                   | Yes    | Yes       | Yes |
 | `eu-west-2` (London)                                                                                    | No     | Yes       | Yes |
 | `eu-west-3` (Paris)                                                                                     | No     | Yes       | Yes |
 | `ap-east-2` (Taipei)                                                                                    | No     | No        | Yes |
-| `ap-northeast-1` (Tokyo)                                                                                | No     | No        | Yes |
+| `ap-northeast-1` (Tokyo)                                                                                | Yes    | No        | Yes |
 | `ap-northeast-2` (Seoul)                                                                                | No     | No        | Yes |
 | `ap-northeast-3` (Osaka)                                                                                | No     | No        | Yes |
 | `ap-south-1` (Mumbai)                                                                                   | No     | No        | Yes |
@@ -424,7 +424,7 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `ap-southeast-1` (Singapore)                                                                            | No     | No        | Yes |
 | `ap-southeast-2` (Sydney)                                                                               | No     | Yes       | Yes |
 | `ap-southeast-3` (Jakarta)                                                                              | No     | No        | Yes |
-| `ap-southeast-4` (Melbourne)                                                                            | No     | Yes       | Yes |
+| `ap-southeast-4` (Melbourne)                                                                            | Yes    | Yes       | Yes |
 | `ap-southeast-5` (Malaysia)                                                                             | No     | No        | Yes |
 | `ap-southeast-6` (New Zealand)                                                                          | No     | Yes       | Yes |
 | `ap-southeast-7` (Thailand)                                                                             | No     | No        | Yes |
@@ -1005,21 +1005,6 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `ap-southeast-2` (Sydney)                                                                              | Yes    | No        | No  |
 | `ap-southeast-3` (Jakarta)                                                                             | Yes    | No        | No  |
 | `sa-east-1` (São Paulo)                                                                                | Yes    | No        | No  |
-
-## Moonshot AI
-
-| [Kimi K2.5](model-card-moonshot-ai-kimi-k2-5.md "model-card-moonshot-ai-kimi-k2-5.md") | Region | In-Region | Geo | Global |
-| -------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
-| `us-east-1` (N. Virginia)                                                              | Yes    | No        | No  |
-| `us-east-2` (Ohio)                                                                     | Yes    | No        | No  |
-| `us-west-2` (Oregon)                                                                   | Yes    | No        | No  |
-| `eu-north-1` (Stockholm)                                                               | Yes    | No        | No  |
-| `eu-west-2` (London)                                                                   | Yes    | No        | No  |
-| `ap-northeast-1` (Tokyo)                                                               | Yes    | No        | No  |
-| `ap-south-1` (Mumbai)                                                                  | Yes    | No        | No  |
-| `ap-southeast-2` (Sydney)                                                              | Yes    | No        | No  |
-| `ap-southeast-3` (Jakarta)                                                             | Yes    | No        | No  |
-| `sa-east-1` (São Paulo)                                                                | Yes    | No        | No  |
 
 ## Moonshot AI
 

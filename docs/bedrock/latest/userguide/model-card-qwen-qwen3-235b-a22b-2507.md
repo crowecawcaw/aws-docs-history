@@ -38,9 +38,9 @@ Whenever possible, we recommend you use the `bedrock-mantle` endpoint.
 
 **Features supported using `bedrock-runtime` endpoint**
 
-| **Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | **Not Supported**                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Model evaluation](evaluation.md "evaluation.md")<br>• Yes [Prompt management](prompt-management.md "prompt-management.md")<br>• Yes [Flows](flows.md "flows.md")<br>• Yes [Agents](agents.md "agents.md")<br>• Yes [Structured outputs](structured-outputs.md "structured-outputs.md") | • No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• No [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• No [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• No [Count tokens](count-tokens.md "count-tokens.md")<br>• No [Knowledge base](knowledge-base.md "knowledge-base.md") |
+| **Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | **Not Supported**                                                                                                                                                                                                                                                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Model evaluation](evaluation.md "evaluation.md")<br>• Yes [Prompt management](prompt-management.md "prompt-management.md")<br>• Yes [Flows](flows.md "flows.md")<br>• Yes [Agents](agents.md "agents.md")<br>• Yes [Structured outputs](structured-outputs.md "structured-outputs.md")<br>• Yes [Client-side tool calling](tool-use.md "tool-use.md") | • No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• No [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• No [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• No [Count tokens](count-tokens.md "count-tokens.md")<br>• No [Knowledge base](knowledge-base.md "knowledge-base.md") |
 
 ## Pricing
 
@@ -71,18 +71,22 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**                 | **In-Region** | **Geo** | **Global** |
-| -------------------------- | ------------- | ------- | ---------- |
-| `us-east-2` (Ohio)         | Yes           | No      | No         |
-| `us-west-2` (Oregon)       | Yes           | No      | No         |
-| `eu-central-1` (Frankfurt) | Yes           | No      | No         |
-| `eu-north-1` (Stockholm)   | Yes           | No      | No         |
-| `eu-south-1` (Milan)       | Yes           | No      | No         |
-| `eu-west-2` (London)       | Yes           | No      | No         |
-| `ap-northeast-1` (Tokyo)   | Yes           | No      | No         |
-| `ap-south-1` (Mumbai)      | Yes           | No      | No         |
-| `ap-southeast-2` (Sydney)  | Yes           | No      | No         |
-| `ap-southeast-3` (Jakarta) | Yes           | No      | No         |
+| **Region**                   | **In-Region** | **Geo** | **Global** |
+| ---------------------------- | ------------- | ------- | ---------- |
+| `us-east-2` (Ohio)           | Yes           | No      | No         |
+| `us-west-2` (Oregon)         | Yes           | No      | No         |
+| `eu-central-1` (Frankfurt)   | Yes           | No      | No         |
+| `eu-north-1` (Stockholm)     | Yes           | No      | No         |
+| `eu-south-1` (Milan)         | Yes           | No      | No         |
+| `eu-west-2` (London)         | Yes           | No      | No         |
+| `ap-northeast-1` (Tokyo)     | Yes           | No      | No         |
+| `ap-south-1` (Mumbai)        | Yes           | No      | No         |
+| `ap-southeast-2` (Sydney)    | Yes           | No      | No         |
+| `ap-southeast-3` (Jakarta)   | Yes           | No      | No         |
+| `ap-southeast-4` (Melbourne) | Yes           | No      | No         |
+| `eu-west-1` (Ireland)        | Yes           | No      | No         |
+| `sa-east-1` (São Paulo)      | Yes           | No      | No         |
+| `us-east-1` (N. Virginia)    | Yes           | No      | No         |
 
 ## Sample Code
 
@@ -92,7 +96,7 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 **Step 3 - Get the SDK:** To use this getting started guide, you must have Python already installed. Then install the relevant software depending on the APIs you are using.
 
-Responses/Chat Completions API
+Chat Completions API
 
 ```
 pip install boto3 openai
@@ -106,7 +110,7 @@ pip install boto3
 
 **Step 4 - Set environment variables:** Configure your environment to use the API key for authentication.
 
-Responses/Chat Completions API
+Chat Completions API
 
 ```
 OPENAI_API_KEY="<provide your Bedrock API key>"
@@ -120,20 +124,6 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ```
 
 **Step 5 - Run your first inference request:** Save the file as `bedrock-first-request.py`
-
-Responses API
-
-```
-from openai import OpenAI
-
-client = OpenAI()
-
-response = client.responses.create(
-    model="qwen.qwen3-235b-a22b-2507",
-    input="Can you explain the features of Amazon Bedrock?"
-    )
-print(response)
-```
 
 Chat Completions API
 

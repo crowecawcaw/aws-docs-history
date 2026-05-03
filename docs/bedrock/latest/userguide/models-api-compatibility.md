@@ -46,7 +46,7 @@ We will now look at the list of APIs supported by each model.
 | **[Claude Mythos Preview](model-card-anthropic-claude-mythos-preview.md "model-card-anthropic-claude-mythos-preview.md")** | No     | No       | No               | No        | Yes      |
 | **[Claude 3 Haiku](model-card-anthropic-claude-3-haiku.md "model-card-anthropic-claude-3-haiku.md")\***                    | Yes    | Yes      | No               | No        | No       |
 | **[Claude 3.5 Haiku](model-card-anthropic-claude-3-5-haiku.md "model-card-anthropic-claude-3-5-haiku.md")\***              | Yes    | Yes      | No               | No        | No       |
-| **[Claude Haiku 4.5](model-card-anthropic-claude-haiku-4-5.md "model-card-anthropic-claude-haiku-4-5.md")\***              | Yes    | Yes      | No               | No        | No       |
+| **[Claude Haiku 4.5](model-card-anthropic-claude-haiku-4-5.md "model-card-anthropic-claude-haiku-4-5.md")\***              | Yes    | Yes      | No               | No        | Yes      |
 | **[Claude Opus 4.1](model-card-anthropic-claude-opus-4-1.md "model-card-anthropic-claude-opus-4-1.md")\***                 | Yes    | Yes      | No               | No        | No       |
 | **[Claude Opus 4.5](model-card-anthropic-claude-opus-4-5.md "model-card-anthropic-claude-opus-4-5.md")\***                 | Yes    | Yes      | No               | No        | No       |
 | **[Claude Opus 4.6](model-card-anthropic-claude-opus-4-6.md "model-card-anthropic-claude-opus-4-6.md")\***                 | Yes    | Yes      | No               | No        | No       |

@@ -553,8 +553,8 @@ JSON
 
 This stack creates the following [guardrails](guardrails.md "guardrails.md")-related resources:
 
-- AgentGuardrail ([AWS::Bedrock::Guardrail](../../../AWSCloudFormation/latest/UserGuide /aws-resource-bedrock-guardrail.md "../../../AWSCloudFormation/latest/UserGuide /aws-resource-bedrock-guardrail.md")) – A guardrail that provides content filtering, topic policy, and PII protection. This guardrail will be attached to the agent in the Agent stack.
-- AgentGuardrailVersion ([AWS::Bedrock::GuardrailVersion](../../../AWSCloudFormation/latest/UserGuide /aws-resource-bedrock-guardrailversion.md "../../../AWSCloudFormation/latest/UserGuide /aws-resource-bedrock-guardrailversion.md")) – The version of the `AgentGuardrail` resource applied to the agent.
+- AgentGuardrail ([AWS::Bedrock::Guardrail](../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.md")) – A guardrail that provides content filtering, topic policy, and PII protection. This guardrail will be attached to the agent in the Agent stack.
+- AgentGuardrailVersion ([AWS::Bedrock::GuardrailVersion](../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrailversion.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrailversion.md")) – The version of the `AgentGuardrail` resource applied to the agent.
 
 YAML
 
@@ -785,7 +785,7 @@ JSON
 
 ## Amazon Bedrock Prompt management stack
 
-This stack creates the following [prompt](prompt-management.md "prompt-management.md") ([AWS::IAM::Prompt](../../../AWSCloudFormation/latest/UserGuide /aws-resource-bedrock-prompt.md "../../../AWSCloudFormation/latest/UserGuide /aws-resource-bedrock-prompt.md")) resources, which are added to the flow:
+This stack creates the following [prompt](prompt-management.md "prompt-management.md") ([AWS::IAM::Prompt](../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-prompt.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-prompt.md")) resources, which are added to the flow:
 
 - RejectionPrompt – A prompt that returns a generated rejection letter based on financial information.
 - ProcessApplicationPrompt – A prompt that sends a customer's financial information to an agent and prompts the agent to assess whether the customer qualifies for a loan.
@@ -1015,8 +1015,8 @@ JSON
 
 This template creates the [knowledge base](knowledge-base.md "knowledge-base.md") and its data source containing the loan guidelines:
 
-- KnowledgeBase ([AWS::Bedrock::KnowledgeBase](../../../AWSCloudFormation/latest/UserGuide /aws-resource-bedrock-knowledgebase.md "../../../AWSCloudFormation/latest/UserGuide /aws-resource-bedrock-knowledgebase.md"))
-- KnowledgeBaseDataSource ([AWS::Bedrock::DataSource](../../../AWSCloudFormation/latest/UserGuide /aws-resource-bedrock-datasource.md "../../../AWSCloudFormation/latest/UserGuide /aws-resource-bedrock-datasource.md"))
+- KnowledgeBase ([AWS::Bedrock::KnowledgeBase](../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.md"))
+- KnowledgeBaseDataSource ([AWS::Bedrock::DataSource](../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.md"))
 
 YAML
 

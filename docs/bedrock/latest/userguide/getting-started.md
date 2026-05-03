@@ -1,6 +1,6 @@
 # Quickstart
 
-In this section, we will show you how to get started with Amazon Bedrock within a few minutes. We will use the OpenAI-compatible APIs: [Responses API](bedrock-mantle.md "bedrock-mantle.md") and [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md"), and the [Invoke](inference-invoke.md "inference-invoke.md") and [Converse API](conversation-inference.md "conversation-inference.md") to show you how run an inference request. See [Build](build.md "build.md") for list of complete APIs.
+In this section, we will show you how to get started with Amazon Bedrock within a few minutes. We will use the OpenAI-compatible APIs: [Responses API](bedrock-mantle.md "bedrock-mantle.md") and [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md"), the Anthropic-native [Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md"), and the [Invoke](inference-invoke.md "inference-invoke.md") and [Converse API](conversation-inference.md "conversation-inference.md") to show you how run an inference request. See [Build](build.md "build.md") for list of complete APIs.
 
 **Step 1 - AWS Account:** If you have an AWS account already, skip this step and go to step 2. If you are new to AWS, sign up for an [AWS account](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup") and follow instructions.
 
@@ -12,6 +12,12 @@ Responses/Chat Completions API
 
 ```
 pip install boto3 openai
+```
+
+Messages API
+
+```
+pip install boto3 anthropic
 ```
 
 Invoke/Converse API
@@ -27,6 +33,13 @@ Responses/Chat Completions API
 ```
 OPENAI_API_KEY="<provide your Bedrock API key>"
 OPENAI_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/v1"
+```
+
+Messages API
+
+```
+ANTHROPIC_API_KEY="<provide your Bedrock API key>"
+ANTHROPIC_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/anthropic"
 ```
 
 Invoke/Converse API
@@ -62,6 +75,21 @@ response = client.chat.completions.create(
     model="openai.gpt-oss-120b",
     messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
     )
+print(response)
+```
+
+Messages API
+
+```
+import anthropic
+
+client = anthropic.Anthropic()
+
+response = client.messages.create(
+    model="anthropic.claude-opus-4-7",
+    max_tokens=1024,
+    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
+)
 print(response)
 ```
 

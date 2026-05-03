@@ -53,7 +53,7 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 | **Standard** | **Priority** | **Flex** | **Reserved** |
 | ------------ | ------------ | -------- | ------------ |
-| Yes          | No           | No       | No           |
+| Yes          | Yes          | Yes      | No           |
 
 ## Regional Availability
 

@@ -4,21 +4,22 @@ To start building models using Amazon Bedrock, first, start from your use-case. 
 
 **Choose API based on your use-case**
 
-Amazon Bedrock provide four main API patterns to perform inference in Amazon Bedrock. [Responses](bedrock-mantle.md "bedrock-mantle.md"), [Chat Completions](bedrock-mantle.md "bedrock-mantle.md"), [Invoke](inference-invoke.md "inference-invoke.md"), and [Converse](conversation-inference.md "conversation-inference.md"). Read more about the APIs supported.
+Amazon Bedrock provide five main API patterns to perform inference in Amazon Bedrock. [Responses](bedrock-mantle.md "bedrock-mantle.md"), [Chat Completions](bedrock-mantle.md "bedrock-mantle.md"), [Messages](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md"), [Invoke](inference-invoke.md "inference-invoke.md"), and [Converse](conversation-inference.md "conversation-inference.md"). Read more about the APIs supported.
 
 | **Scenario**                                                | **Recommended API**                                                                                                                                                                                                                                                                                   |
 | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Migrating from OpenAI API-compatible endpoint               | Use OpenAI-compatible APIs: [Responses API](https://platform.openai.com/docs/api-reference/responses "https://platform.openai.com/docs/api-reference/responses") or [Chat Completions API](https://platform.openai.com/docs/api-reference/chat "https://platform.openai.com/docs/api-reference/chat") |
+| Migrating from Anthropic API                                | Use the Anthropic-native [Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md") via the `bedrock-mantle` endpoint                                                                                                                              |
 | Using models not compatible with OpenAI-compatible endpoint | Use native Amazon Bedrock APIs: [Converse](conversation-inference.md "conversation-inference.md") and [Invoke](inference-invoke.md "inference-invoke.md"). Read more on choosing the right APIs for your use-case.                                                                                    |
 
 **Choosing end-point for Amazon Bedrock**
 
 Once you have identified which API to use, you can then identify the endpoint to use to interact programmatically with Amazon Bedrock. Read more about the APIs supported.
 
-| **Endpoint**        | **Supported APIs**                                                                                                                                                                                                    |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `bedrock-mantle.*`  | [Responses API](bedrock-mantle.md "bedrock-mantle.md"), [Chat Completions API](bedrock-mantle.md "bedrock-mantle.md")                                                                                                 |
-| `bedrock-runtime.*` | [Invoke API](inference-invoke.md "inference-invoke.md"), [Converse API](conversation-inference.md "conversation-inference.md"), [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md") |
+| **Endpoint**        | **Supported APIs**                                                                                                                                                                                                                   |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `bedrock-mantle.*`  | [Responses API](bedrock-mantle.md "bedrock-mantle.md"), [Chat Completions API](bedrock-mantle.md "bedrock-mantle.md"), [Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md") |
+| `bedrock-runtime.*` | [Invoke API](inference-invoke.md "inference-invoke.md"), [Converse API](conversation-inference.md "conversation-inference.md"), [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md")                |
 
 **Choosing a model**
 

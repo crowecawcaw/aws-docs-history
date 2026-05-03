@@ -30,9 +30,9 @@ Claude Sonnet 4 is Anthropic's balanced model with strong coding and reasoning c
 
 **Features supported using `bedrock-runtime` endpoint**
 
-| **Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | **Not Supported**                                                                                                                                     |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• Yes [Count tokens](count-tokens.md "count-tokens.md")<br>• Yes [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• Yes [Model evaluation](evaluation.md "evaluation.md")<br>• Yes [Prompt management](prompt-management.md "prompt-management.md") | • No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• No [Flows](flows.md "flows.md")<br>• No [Agents](agents.md "agents.md") |
+| **Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | **Not Supported**                                                                                                                                     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• Yes [Count tokens](count-tokens.md "count-tokens.md")<br>• Yes [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• Yes [Model evaluation](evaluation.md "evaluation.md")<br>• Yes [Prompt management](prompt-management.md "prompt-management.md")<br>• Yes [Client-side tool calling](tool-use.md "tool-use.md") | • No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• No [Flows](flows.md "flows.md")<br>• No [Agents](agents.md "agents.md") |
 
 **Prompt caching using `bedrock-runtime` endpoint**
 
@@ -70,20 +70,32 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**                  | **In-Region** | **Geo** | **Global** |
-| --------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia)   | No            | Yes     | Yes        |
-| `us-east-2` (Ohio)          | No            | Yes     | Yes        |
-| `us-west-1` (N. California) | No            | Yes     | No         |
-| `us-west-2` (Oregon)        | No            | Yes     | Yes        |
-| `eu-central-1` (Frankfurt)  | No            | Yes     | No         |
-| `eu-north-1` (Stockholm)    | No            | Yes     | No         |
-| `eu-south-1` (Milan)        | No            | Yes     | No         |
-| `eu-south-2` (Spain)        | No            | Yes     | No         |
-| `eu-west-1` (Ireland)       | No            | Yes     | Yes        |
-| `eu-west-3` (Paris)         | No            | Yes     | No         |
-| `ap-northeast-1` (Tokyo)    | No            | No      | Yes        |
-| `il-central-1` (Tel Aviv)   | No            | Yes     | No         |
+| **Region**                   | **In-Region** | **Geo** | **Global** |
+| ---------------------------- | ------------- | ------- | ---------- |
+| `us-east-1` (N. Virginia)    | No            | Yes     | Yes        |
+| `us-east-2` (Ohio)           | No            | Yes     | Yes        |
+| `us-west-1` (N. California)  | No            | Yes     | No         |
+| `us-west-2` (Oregon)         | No            | Yes     | Yes        |
+| `eu-central-1` (Frankfurt)   | No            | Yes     | No         |
+| `eu-north-1` (Stockholm)     | No            | Yes     | No         |
+| `eu-south-1` (Milan)         | No            | Yes     | No         |
+| `eu-south-2` (Spain)         | No            | Yes     | No         |
+| `eu-west-1` (Ireland)        | No            | Yes     | Yes        |
+| `eu-west-3` (Paris)          | No            | Yes     | No         |
+| `ap-northeast-1` (Tokyo)     | No            | No      | Yes        |
+| `il-central-1` (Tel Aviv)    | No            | Yes     | No         |
+| `ap-east-2` (Osaka)          | Yes           | No      | No         |
+| `ap-northeast-2` (Seoul)     | Yes           | No      | No         |
+| `ap-northeast-3` (Osaka)     | Yes           | No      | No         |
+| `ap-south-1` (Mumbai)        | Yes           | No      | No         |
+| `ap-south-2` (Hyderabad)     | Yes           | No      | No         |
+| `ap-southeast-1` (Singapore) | Yes           | No      | No         |
+| `ap-southeast-2` (Sydney)    | Yes           | No      | No         |
+| `ap-southeast-3` (Jakarta)   | Yes           | No      | No         |
+| `ap-southeast-4` (Melbourne) | Yes           | No      | No         |
+| `ap-southeast-5` (Malaysia)  | Yes           | No      | No         |
+| `ap-southeast-7` (Thailand)  | Yes           | No      | No         |
+| `me-central-1` (UAE)         | Yes           | No      | No         |
 
 **Geo inference details**
 
