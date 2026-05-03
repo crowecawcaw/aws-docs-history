@@ -11,6 +11,33 @@ Amazon ECS Managed Instances implements a comprehensive security model that bala
 - **Multi-task placement** - By default, Amazon ECS Managed Instances places multiple tasks on a single instance to optimize cost and utilization, which relaxes the workload-isolation constraint compared to Fargate.
 - **Data isolation** - Although AWS controls instance lifecycle and task placement, AWS cannot login to managed instances or access customer data.
 
+## Understanding managed instances
+
+Amazon ECS Managed Instances provisions EC2 managed instances in your account. As the
+designated operator, Amazon ECS manages the full lifecycle of these instances on your behalf,
+including provisioning, scaling, patching, and termination. You do not have permissions
+to directly terminate these instances or modify instance settings. For more information,
+see [Amazon EC2 managed instances](../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md "../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md").
+
+### Identifying managed instances
+
+You can identify Amazon ECS Managed Instances in your account by using the following
+indicators:
+
+- The `Operator` field in the Amazon EC2
+  `DescribeInstances` response, with a value of
+  `ecs.amazonaws.com`.
+- The `aws:ec2:managed-launch` tag on the instance, with a
+  value of `ecs-managed-instances`.
+
+### Managed resource visibility
+
+Beginning April 22, 2026, Amazon EC2 hides new managed instances from your Amazon EC2
+console views and API list operations by default. Visibility settings do not affect
+billing or resource operation, and managed instances remain fully operational and
+billable regardless of visibility configuration. You can adjust this behavior at any
+time. For more information, see [Managed resource visibility settings](../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md#managed-resource-visibility-settings "../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md#managed-resource-visibility-settings").
+
 ## Security features
 
 Amazon ECS Managed Instances includes several built-in security features designed to protect your workloads and maintain a strong security posture. These features range from automated security patching to support for privileged Linux capabilities when needed.

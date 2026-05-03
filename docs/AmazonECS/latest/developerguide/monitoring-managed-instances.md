@@ -19,6 +19,19 @@ The metrics are available in CloudWatch dashboards and can be used to create ala
 
 Container Insights comes at an additional cost. For more information about pricing, see [CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
+## GPU monitoring
+
+For Amazon ECS Managed Instances running NVIDIA GPU-enabled Amazon EC2 instance types, Container Insights with
+enhanced observability collects GPU metrics from NVIDIA Data Center GPU Manager (DCGM)
+at the container, task, and instance levels. GPU metrics are not collected with basic
+Container Insights; enable enhanced observability to access GPU telemetry.
+
+No additional agent installation is required. GPU metrics are collected automatically
+on supported instance types when Container Insights with enhanced observability is enabled on the
+cluster.
+
+For the list of GPU metrics and dimensions, see [Amazon ECS Container Insights with enhanced observability metrics](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-enhanced-observability-metrics-ECS.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-enhanced-observability-metrics-ECS.md").
+
 ## Instance monitoring
 
 For monitoring the underlying infrastructure that supports your Amazon ECS Managed Instances workloads,
