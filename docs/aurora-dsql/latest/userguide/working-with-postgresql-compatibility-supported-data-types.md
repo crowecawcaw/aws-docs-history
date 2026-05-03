@@ -61,16 +61,58 @@ Aurora DSQL supports the following PostgreSQL date and time data types.
 
 Aurora DSQL supports the following miscellaneous PostgreSQL data types.
 
-| Name      | Aliases | Description                   | Aurora DSQL limit | Storage size               | Index support |
-| --------- | ------- | ----------------------------- | ----------------- | -------------------------- | ------------- |
-| `boolean` | `bool`  | Logical Boolean (true/false)  |                   | 1 byte                     | Yes           |
-| `bytea`   |         | Binary data ("byte array")    | 1 MiB1            | Variable up to 1 MiB limit | No            |
-| `UUID`    |         | Universally unique identifier |                   | 16 bytes                   | Yes           |
+| Name      | Aliases | Description                   | Aurora DSQL limit | Storage size                 | Index support |
+| --------- | ------- | ----------------------------- | ----------------- | ---------------------------- | ------------- |
+| `boolean` | `bool`  | Logical Boolean (true/false)  |                   | 1 byte                       | Yes           |
+| `bytea`   |         | Binary data ("byte array")    | 1 MiB1            | Variable up to 1 MiB limit   | No            |
+| `UUID`    |         | Universally unique identifier |                   | 16 bytes                     | Yes           |
+| `json`    |         | JSON data                     | 1 MiB2            | Variable up to 1 MiB limit.2 | No            |
 
 1 – If you don't explicitly specify a size when you run
 `CREATE TABLE` or `ALTER TABLE ADD COLUMN`, then Aurora DSQL enforces
 the defaults. Aurora DSQL applies limits when you run `INSERT` or
 `UPDATE` statements.
+
+2 – Aurora DSQL automatically applies compression to `json` columns and
+by default compresses large `json` values during `INSERT` and `UPDATE` operations.
+The 1 MiB limit applies to the compressed size, so you can store `json` values significantly larger than 1 MiB
+as long as they compress below the limit.
+
+To disable compression, use the `STORAGE` keyword. For more information, see [CREATE TABLE](create-table-syntax-support.md#create-table-storage "create-table-syntax-support.md#create-table-storage") and [ALTER TABLE](alter-table-syntax-support.md#alter-table-storage "alter-table-syntax-support.md#alter-table-storage").
+
+### JSON functions and operators
+
+Aurora DSQL supports all PostgreSQL JSON functions and operators from [section 9.16 JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html "https://www.postgresql.org/docs/current/functions-json.html") with identical behavior.
+
+###### Note
+
+The functions `json_populate_record` and `json_populate_recordset` work with table and view row types, but not with custom composite types as Aurora DSQL doesn't currently support `CREATE TYPE`.
+
+The following examples show `json_populate_record` and `json_populate_recordset` used with a table row type:
+
+```
+CREATE TABLE tt (c1 INT, c2 INT);
+SELECT * FROM json_populate_record(null::tt, '{"c1": 1, "c2": 2}');
+```
+
+```
+ c1 | c2
+----+----
+  1 |  2
+(1 row)
+```
+
+```
+SELECT * FROM json_populate_recordset(null::tt, '[{"c1":1,"c2":2}, {"c1":3,"c2":4}]');
+```
+
+```
+ c1 | c2
+----+----
+  1 |  2
+  3 |  4
+(2 rows)
+```
 
 ## Query runtime data types
 
@@ -108,23 +150,9 @@ The data type represents IPv4, IPv6 host addresses, and their subnets. This type
 is useful when parsing logs, filtering on IP subnets, or doing network calculations
 within a query. For more information, see [inet in the PostgreSQL documentation](https://www.PostgreSQL.org/docs/16/datatype-net-types.html#DATATYPE-INET "https://www.PostgreSQL.org/docs/16/datatype-net-types.html#DATATYPE-INET").
 
-**JSON runtime functions**
+**JSONB type**
 
-Aurora DSQL supports JSON and JSONB as runtime data types for query processing. Store JSON data as `text` columns and cast to JSON during query execution to use PostgreSQL JSON functions and operators.
+Aurora DSQL supports JSONB as a runtime data type for query processing. To store JSON data, use the `json` type.
 
-Aurora DSQL supports most PostgreSQL JSON functions from [section 9.1.6 JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html "https://www.postgresql.org/docs/current/functions-json.html") with identical behavior.
-
-Functions that return JSON or JSONB types may require additional casting to `text` for proper display.
-
-```
-SELECT json_build_array(1, 2, 'foo', 4, 5)::text;
-```
-
-The function returns a response similar to the following:
-
-```
-     json_build_array
- ---------------------
-   [1, 2, "foo", 4, 5]
- (1 row)
-```
+Aurora DSQL supports all PostgreSQL JSONB functions from [section 9.16 JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html "https://www.postgresql.org/docs/current/functions-json.html") with identical behavior.
+The same composite type limitation described in [JSON functions and operators](#json-functions-and-operators "#json-functions-and-operators") applies to `jsonb_populate_record` and `jsonb_populate_recordset`.

@@ -4,7 +4,7 @@
 
 ```
 CREATE TABLE [ IF NOT EXISTS ] table_name ( [
-  { column_name data_type [ column_constraint [ ... ] ]
+  { column_name data_type [ STORAGE { PLAIN | EXTERNAL | EXTENDED | MAIN | DEFAULT } ] [ column_constraint [ ... ] ]
     | table_constraint
     | LIKE source_table [ like_option ... ] }
     [, ... ]
@@ -71,3 +71,30 @@ parameters of the sequence. The available options include those shown for
 [CREATE SEQUENCE](create-sequence-syntax-support.md "create-sequence-syntax-support.md"), plus `SEQUENCE NAME
  `name``. Without `SEQUENCE NAME`, the system chooses
 an unused name for the sequence.
+
+## Storage mode
+
+The optional `STORAGE` clause sets the storage mode for the column. Use
+these options to control the behavior of compression for variable-length data types such as
+`JSON`.
+
+Amazon Aurora DSQL compresses some data types when they exceed a certain size. To disable
+this behavior, use the `PLAIN` or `EXTERNAL` options.
+
+**`PLAIN`**
+
+Aurora DSQL stores data inline without compression. This is the only option for
+fixed-length data types such as `integer`. Use this option to
+disable compression on some variable-length types.
+
+**`MAIN` | `EXTENDED` | `DEFAULT`**
+
+`MAIN` and `EXTENDED` allow optional compression of the
+column if the underlying data type supports compression. `DEFAULT` sets the
+storage mode to the default mode for the column's data type.
+
+**`EXTERNAL`**
+
+Aurora DSQL does not currently support TOAST tables, however
+`EXTERNAL` disables compression on data types that support
+compression.

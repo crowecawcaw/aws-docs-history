@@ -16,8 +16,9 @@ ALTER TABLE [ IF EXISTS ] name
 
 where action is one of:
 
-    ADD [ COLUMN ] [ IF NOT EXISTS ] column_name data_type
+    ADD [ COLUMN ] [ IF NOT EXISTS ] column_name data_type [ STORAGE { PLAIN | EXTERNAL | EXTENDED | MAIN | DEFAULT } ]
     ADD table_constraint_using_index
+    ALTER [ COLUMN ] column_name SET STORAGE { PLAIN | EXTERNAL | EXTENDED | MAIN | DEFAULT }
     ALTER [ COLUMN ] column_name { SET GENERATED { ALWAYS | BY DEFAULT } | SET sequence_option | RESTART [ [ WITH ] restart ] } [...]
     ALTER [ COLUMN ] column_name DROP IDENTITY [ IF EXISTS ]
     OWNER TO { new_owner | CURRENT_ROLE | CURRENT_USER | SESSION_USER }
@@ -27,6 +28,13 @@ and table_constraint_using_index is:
     [ CONSTRAINT constraint_name ]
     UNIQUE USING INDEX index_name
 ```
+
+## Storage mode
+
+**`SET STORAGE`**
+
+This form sets the storage mode for a column. For details on the available storage
+modes, see [Storage mode](create-table-syntax-support.md#create-table-storage "create-table-syntax-support.md#create-table-storage") on the [CREATE TABLE](create-table-syntax-support.md "create-table-syntax-support.md") page.
 
 ## Identity column actions
 
