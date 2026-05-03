@@ -413,9 +413,9 @@ base64.
 
 ### Export symmetric keys using a pre-established key exchange key (TR-31)
 
-When exchanging multiple keys or supporting key rotation, you typically first exchange
-an initial key encryption key (KEK) using paper key components or, with AWS Payment Cryptography, using
-[TR-34](#keys-export-tr34 "#keys-export-tr34"). After establishing a KEK, you can use it to
+When exchanging multiple keys or supporting key rotation, partners typically first
+exchange an initial key encryption key (KEK). You can exchange KEK with AWS Payment Cryptography, using
+techniques such as [TR-34](keys-import.md#keys-import-tr34 "keys-import.md#keys-import-tr34") or [Physical Key Exchange](keys-physicalkeyexchange.md "keys-physicalkeyexchange.md"). After establishing a KEK, you can use it to
 transport subsequent keys, including other KEKs. We support this key exchange using ANSI
 TR-31, which is widely supported by HSM vendors.
 

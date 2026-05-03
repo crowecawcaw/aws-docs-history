@@ -227,10 +227,11 @@ A Key Custodian As A Service (KCAAS) provides a variety of services relating to 
 management. For payment keys, they can typically convert paper-based key components to
 electronic forms supported by AWS Payment Cryptography or convert electronically protected keys to
 paper-based components that might be required by certain vendors. They may also provide
-key escrow services for keys whose loss would be detrimental to your ongoing opeations.
+key escrow services for keys whose loss would be detrimental to your ongoing operations.
 KCAAS vendors are able to help customers offload the operational burden of managing key
 material outside a secure service such as AWS Payment Cryptography in a way compliant with PCI DSS, PCI
-PIN, and PCI P2PE standards.
+PIN, and PCI P2PE standards. AWS Payment Cryptography offers [Physical Key Exchange](keys-physicalkeyexchange.md "keys-physicalkeyexchange.md") as a built-in KCAAS capability for
+converting paper-based key components into electronic format.
 
 **KCV**
 

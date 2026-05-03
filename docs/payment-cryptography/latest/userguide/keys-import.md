@@ -488,8 +488,8 @@ for cryptographic operations.
 ![AWS Payment Cryptography symmetric key import process](images/keyimport-process-wk-import.png)
 
 When exchanging multiple keys or supporting key rotation, partners typically first
-exchange an initial key encryption key (KEK). You can do this using techniques such as paper
-key components or, for AWS Payment Cryptography, using [TR-34](#keys-import-tr34 "#keys-import-tr34").
+exchange an initial key encryption key (KEK). You can exchange KEK with AWS Payment Cryptography, using
+techniques such as [TR-34](#keys-import-tr34 "#keys-import-tr34") or [Physical Key Exchange](keys-physicalkeyexchange.md "keys-physicalkeyexchange.md").
 
 After establishing a KEK, you can use it to transport subsequent keys (including other
 KEKs). AWS Payment Cryptography supports this key exchange using ANSI TR-31, which is widely used and

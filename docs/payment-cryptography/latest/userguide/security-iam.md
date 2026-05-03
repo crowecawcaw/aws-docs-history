@@ -12,6 +12,8 @@ use with no additional charge.
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
 - [How AWS Payment Cryptography works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
 - [AWS Payment Cryptography identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Resource-based policies for AWS Payment Cryptography](security_iam_resource-based-policies.md "security_iam_resource-based-policies.md")
+- [Multi-party approval for AWS Payment Cryptography](mpa.md "mpa.md")
 - [Troubleshooting AWS Payment Cryptography identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience

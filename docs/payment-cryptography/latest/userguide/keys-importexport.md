@@ -4,7 +4,7 @@ You can import AWS Payment Cryptography keys from other solutions and export the
 as HSMs. Many customers exchange keys with service providers using import and export
 functionality. We designed AWS Payment Cryptography to use a modern, electronic approach to key management that
 helps you maintain compliance and controls. We recommend using standards-based electronic key
-exchange instead of paper-based key components.
+exchange instead of paper-based key components. If you need to continue processing paper key components until all partners support electronic key exchange, you can use [Physical Key Exchange](keys-physicalkeyexchange.md "keys-physicalkeyexchange.md").
 
 **Minimum key strengths and the effect on import and export functions**
 
@@ -35,9 +35,6 @@ We recommend using [ANSI X9.24 TR-34](terminology.md#terms.tr34 "terminology.md#
 be called a Key Encryption Key (KEK), Zone Master Key (ZMK), or Zone Control Master Key
 (ZCMK). If your systems or partners don't support TR-34 yet you can use [RSA Wrap/Unwrap](terminology.md#terms.rsawrap "terminology.md#terms.rsawrap"). If your needs include exchanging AES-256
 keys, you can use [ECDH](terminology.md#terms.ecdh "terminology.md#terms.ecdh").
-
-If you need to continue processing paper key components until all partners support
-electronic key exchange, consider using an offline HSM or utilizing a 3rd party [key custodian as a service](terminology.md#terms.kcaas "terminology.md#terms.kcaas").
 
 ###### Note
 
