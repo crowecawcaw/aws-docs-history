@@ -38,5 +38,5 @@ following diagram shows a typical risk matrix. The likelihood is based on freque
 previous occurrences and the consequence is based on the financial, reputational and time
 cost of the event.
 
-![Risk matrix showing likelihood vs. consequence, with risk levels from low to critical.](images/risk-matrix.png)
+![Risk matrix showing likelihood levels from very unlikely to very likely against consequence levels from minimal to severe.](images/risk-matrix.png)
 _Figure 2: Risk level likelihood matrix_

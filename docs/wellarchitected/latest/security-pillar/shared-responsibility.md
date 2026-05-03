@@ -33,7 +33,7 @@ customers access the endpoints to store and retrieve data. Customers are respons
 managing their data (including encryption options), classifying their assets, and using IAM
 tools to apply the appropriate permissions.
 
-![Shared responsibility model diagram showing customer and AWS security roles in cloud services.](images/aws-shared-responsibility.png)
+![Shared responsibility model showing customer responsibilities above AWS infrastructure layers.](images/aws-shared-responsibility.png)
 _Figure 1: AWS Shared Responsibility Model._
 
 This customer/AWS shared responsibility model also extends to IT controls. Just as the
