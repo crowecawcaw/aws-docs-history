@@ -29,7 +29,7 @@ You can use the same Amazon S3 bucket or a different one. If you use the same on
 
 - In the Lookout for Equipment console, on the **Provide data labels** page, indicate the location of your data labels.
 
-![AWSLookout for Equipment console page for providing optional data labels with S3 location input.](images/provide-data-labels.png)
+![AWS Lookout for Equipment console page for providing optional data labels with S3 location input.](images/provide-data-labels.png)
 
 - Choose your IAM role.
 
