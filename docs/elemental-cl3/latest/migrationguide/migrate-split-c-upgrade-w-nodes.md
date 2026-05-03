@@ -20,7 +20,7 @@ node that is controlling the original cluster).See [Removing a worker node from 
 The deployment now looks like the following diagram. Note that the worker node is
 standalone. It isn't being controlled by any Conductor.
 
-![Diagram showing original cluster with worker nodes, two conductors, and a standalone worker node.](images/split_cluster_3removeW.png)
+![Original cluster with conductor nodes and worker nodes, plus standalone worker node outside cluster .](images/split_cluster_3removeW.png)
 
 ## Step E2: Upgrade the worker node
 

@@ -12,4 +12,4 @@ version.
 
 The deployment now looks like the following diagram.
 
-![Diagram showing a new cluster with two conductor nodes and multiple worker nodes.](images/split_cluster_6newcluster.png)
+![Cluster diagram with two conductor nodes (Node X and Node Y) and multiple worker nodes.](images/split_cluster_6newcluster.png)

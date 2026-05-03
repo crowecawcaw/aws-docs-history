@@ -4,7 +4,7 @@ After you remove the last worker node, the original cluster no longer exists. No
 is no longer controlling any worker nodes. The deployment now looks like the following
 diagram.
 
-![Diagram showing a new cluster with Node X as conductor and multiple worker nodes, alongside Node Y without workers.](images/split_cluster_5Yorphaned.png)
+![Node Y conductor isolated on left, Node X conductor with worker nodes in new cluster .](images/split_cluster_5Yorphaned.png)
 You can now upgrade node Y. Perform all the following steps on node Y.
 
 1. On node Y, which will soon be the secondary Conductor in the new cluster, you must
