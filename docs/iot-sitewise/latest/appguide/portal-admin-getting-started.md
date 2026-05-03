@@ -47,7 +47,7 @@ See the following areas of the page.
 2. Choose an asset in the **Assets** hierarchy, and then choose
    **Add asset to project**.
 
-![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](/images/iot-sitewise/latest/appguide/images/asset-library-add-asset-to-project-console.png)
+![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](images/asset-library-add-asset-to-project-console.png)
 
 ###### Note
 
@@ -56,7 +56,7 @@ to that asset) to a project. To create a dashboard to compare two assets that ar
 of a common parent asset, add that common parent to the project. 3. In the **Add assets to project** dialog box, choose **Create
 new project**, then choose **Next**.
 
-![Add assets to project dialog, step 1 of 2.](images/asset-library-add-assets-to-new-project-console.png) 4. In **Project name**, enter a name for your project. If you plan to
+![Add assets to project dialog, step 1 of 2.](/images/iot-sitewise/latest/appguide/images/asset-library-add-assets-to-new-project-console.png) 4. In **Project name**, enter a name for your project. If you plan to
 create multiple projects, each with a distinct set of assets, choose a descriptive
 name.
 
@@ -84,11 +84,11 @@ them to work with the project.
 ![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project to which to assign project
 owners.
 
-![The "Projects" page with "Create project" highlighted.](images/projects-portal-admin-choose-project-console.png) 3. In the **Project owners** section of the project details page, choose
+![The "Projects" page with "Create project" highlighted.](/images/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png) 3. In the **Project owners** section of the project details page, choose
 **Add owners** if the project has no owners, or **Edit
 owners**.
 
-![The "Project owners" section of the project details page.](/images/iot-sitewise/latest/appguide/images/project-add-owners-console.png) 4. In the **Project owners** dialog box, select the check boxes for the
+![The "Project owners" section of the project details page.](images/project-add-owners-console.png) 4. In the **Project owners** dialog box, select the check boxes for the
 users to be owners for this project.
 
 ![Shows the "Project owners" dialog.](images/project-choose-owners-console.png)
