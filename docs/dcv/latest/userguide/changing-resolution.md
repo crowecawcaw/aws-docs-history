@@ -35,7 +35,7 @@ This functionality is available on the Windows client, web browser client, Linux
 3. Go to the **Display** tab.
 4. Select your preferred resolution from the **Display Resolution** menu.
 
-![Display resolution options with "Adapt Automatically" selected and various resolution choices.](images/mac-preferences-display-resolution.png)
+![Display resolution options including Adapt Automatically, 2560x1386, 1920x1080, 1280x720, 1024x768, and 800x600.](images/mac-preferences-display-resolution.png)
 
 ###### Changing display resolution on Linux clients
 
@@ -44,4 +44,4 @@ This functionality is available on the Windows client, web browser client, Linux
 3. Go to the **Display** tab.
 4. Select your preferred resolution from the **Display Resolution** menu.
 
-![Display resolution options in preferences menu, with "Adapt Automatically" selected.](images/linux-pref-display-resolution.png)
+![Display resolution options with Adapt Automatically selected, showing resolutions from 1848x1006 to 800x600.](images/linux-pref-display-resolution.png)

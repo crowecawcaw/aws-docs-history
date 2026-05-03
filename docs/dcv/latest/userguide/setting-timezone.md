@@ -22,7 +22,7 @@ To set your time zone, do one of the following depending on your client:
 
   It will indicate if the feature is **Enabled** or **Disabled** under the menu item.
 
-  ![Dropdown menu showing "Time Zone Redirection Disabled" option circled in red.](images/TZR_windows_circle.png)
+  ![Time Zone Redirection Disable option highlighted in a settings menu.](images/TZR_windows_circle.png)
 
 - **For macOS**
   1.  Go to the **DCV Viewer** icon from the toolbar at the top.
@@ -30,7 +30,7 @@ To set your time zone, do one of the following depending on your client:
   3.  Select the **General** tab.
   4.  Check the box for **Enable timezone redirection**.
 
-  ![Preferences window with "Enable timezone redirection" checkbox selected in General tab.](images/mac-preferences-general-timezone.png)
+  ![Preferences window with General tab showing Enable timezone redirection checkbox selected.](images/mac-preferences-general-timezone.png)
 
 - **For Linux**
   1.  Go to the **Settings** icon.
@@ -38,10 +38,10 @@ To set your time zone, do one of the following depending on your client:
   3.  Select the **General** tab in the **Preferences** windows.
   4.  Check the box for **Timezone Redirection**.
 
-  ![Preferences window with unchecked "Enable timezone redirection" option highlighted.](images/linux-pref-general-timezone.png)
+  ![Preferences dialog with General tab showing Enable timezone redirection checkbox circled.](images/linux-pref-general-timezone.png)
 
 - **For web based clients**
   1.  Go to **Preferences**.
   2.  Click on the switch for **Time Zone Redirection**.
 
-  ![Preferences window showing Time Zone Redirection option enabled in General settings.](images/TZR_web_circle.png)
+  ![Preferences dialog with General tab showing Time Zone Redirection toggle set to Enabled.](images/TZR_web_circle.png)

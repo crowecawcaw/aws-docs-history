@@ -42,7 +42,7 @@ This option is only available for session owners.
 
 1. Go to **View** on the top toolbar.
 
-![Dropdown menu showing options for Full Screen, Collaborators, and Notifications.](images/mac-view-collaborators.png) 2. Choose **Collaborators** from the drop-down menu.
+![View menu dropdown showing Full Screen options, Collaborators, and Notifications items.](images/mac-view-collaborators.png) 2. Choose **Collaborators** from the drop-down menu.
 
 A **Collaborators Window** will open showing all of the connected
 Amazon DCV sessions available.

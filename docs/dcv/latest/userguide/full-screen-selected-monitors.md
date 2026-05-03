@@ -27,13 +27,13 @@ If your monitors are not set adjacent in your Windows display configuration, you
 
   The **Full Screen** drop-down menu will appear.
 
-  ![Display settings menu showing options for monitor configuration, with "Across selected monitors" highlighted.](images/Full_screen_selected_windows.png) 3. Select **Across selected monitors** from the drop down menu.
+  ![Display options menu showing Across single monitor, Across selected monitors, and Across all monitors.](images/Full_screen_selected_windows.png) 3. Select **Across selected monitors** from the drop down menu.
 
   ###### Note
 
   The **Across selected monitors** window will appear displaying your current monitor layout.
 
-  ![Monitor configuration interface showing four displays with one highlighted as Internal Display.](images/Windows_client_mulitple_monitors.png) 4. Select which monitors you want DCV to be displayed full screen. 5. Click **Apply**.
+  ![Monitor arrangement diagram showing internal display 1 at bottom, monitor 2 at left, and monitors 3 and 4 at top right.](images/Windows_client_mulitple_monitors.png) 4. Select which monitors you want DCV to be displayed full screen. 5. Click **Apply**.
 
 - **macOS client**
   1.  Go to the top menu.
@@ -43,13 +43,13 @@ If your monitors are not set adjacent in your Windows display configuration, you
 
   The **View** drop-down menu will appear.
 
-  ![DCV Viewer menu with "Full Screen Selected Monitors" option highlighted.](images/mac-monitor-menu.png) 3. Select **Full Screen Selected Monitors** from the drop down menu.
+  ![View menu with Full Screen Selected Monitors option highlighted.](images/mac-monitor-menu.png) 3. Select **Full Screen Selected Monitors** from the drop down menu.
 
   ###### Note
 
   The **Full Screen Selected Monitors** window will appear displaying your current monitor layout.
 
-  ![Monitor configuration interface showing four displays numbered 1 to 4 in different sizes and arrangements.](images/mac-multi-screen1.png) 4. Select which monitors you want DCV to be displayed full screen. 5. Click **Apply**.
+  ![Monitor configuration interface showing four displays with monitor 4 selected.](images/mac-multi-screen1.png) 4. Select which monitors you want DCV to be displayed full screen. 5. Click **Apply**.
 
 - **Linux client**
   1.  Go to the top menu.
@@ -59,10 +59,10 @@ If your monitors are not set adjacent in your Windows display configuration, you
 
   The **Full Screen** drop-down menu will appear.
 
-  ![Dropdown menu showing options for displaying content across different monitor configurations.](images/linux-monitor-menu.png) 3. Select **Across selected monitors** from the drop down menu.
+  ![Dropdown menu with Across selected monitors option highlighted in red.](images/linux-monitor-menu.png) 3. Select **Across selected monitors** from the drop down menu.
 
   ###### Note
 
   The **Across selected monitors** window will appear displaying your current monitor layout.
 
-  ![Dialog for selecting monitors to make full screen, with three monitor options shown.](images/linux1.png) 4. Select which monitors you want DCV to be displayed full screen. 5. Click **Apply**.
+  ![Dialog showing three monitors where monitors 1 and 2 are selected with blue outlines.](images/linux1.png) 4. Select which monitors you want DCV to be displayed full screen. 5. Click **Apply**.

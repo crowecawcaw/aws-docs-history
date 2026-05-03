@@ -33,10 +33,10 @@ and in the _Amazon DCV Administrator Guide_.
 2. Go to your DCV client session.
 3. Choose the **Settings** icon located in the upper left of the window.
 
-![Settings gear icon for accessing configuration options.](images/dcv-settings-icon.jpg) 4. Select **Removable Devices...** from the dropdown menu.
+![Settings icon highlighted in toolbar with other control icons.](images/dcv-settings-icon.jpg) 4. Select **Removable Devices...** from the dropdown menu.
 
-![Dropdown menu with "Removable Devices..." option highlighted by a red oval.](images/dcv-settings-dropdown.jpg) 5. Move the slider next to the USB device in the list.
+![Removable Devices option highlighted in dropdown menu.](images/dcv-settings-dropdown.jpg) 5. Move the slider next to the USB device in the list.
 
-![Removable Devices menu showing Smart Card disabled and Yubikey 4 OTP+U2F enabled.](images/dcv-settings-removable-devices.png)
+![Removable Devices dialog with toggle slider next to Yubikey 4 OTP plus U2F device.](images/dcv-settings-removable-devices.png)
 
 Your USB device is ready to use now.
