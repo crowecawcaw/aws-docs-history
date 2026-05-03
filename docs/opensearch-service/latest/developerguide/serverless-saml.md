@@ -25,7 +25,7 @@ then include one or more users from that IdP in a [data access policy](serverles
 and/or indexes. A user can then sign in to OpenSearch Dashboards and perform the actions that are
 allowed in the data access policy.
 
-![SAML authentication flow with data access policy, OpenSearch interface, and JSON configuration.](images/serverless-saml-flow.png)
+![SAML provider authentication flow showing identity provider, data access policy, and user login.](images/serverless-saml-flow.png)
 
 ###### Topics
 
@@ -213,7 +213,7 @@ If you have SAML enabled, selecting the link in the AWS Management Console direc
 selection page, where you can sign in using your SAML credentials. First, use the
 dropdown to select an identity provider:
 
-![OpenSearch login page with dropdown menu for selecting SAML Identity Provider options.](images/idpList.png)
+![Dropdown menu showing SAML identity provider options including IAM , OKTA, OneLogin, Keycloak, and Auth0.](images/idpList.png)
 
 Then sign in using your IdP credentials.
 

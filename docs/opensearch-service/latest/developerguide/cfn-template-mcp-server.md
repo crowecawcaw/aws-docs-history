@@ -78,7 +78,7 @@ Guide_.
 **Developer Integration**
 
 You can add the MCP server endpoint to your agent configuration.
-You can also use it with the Amazon Q Developer CLI, custom agents, or other
+You can also use it with the Kiro CLI, custom agents, or other
 MCP-compatible agents.
 
 **Enterprise Deployment**

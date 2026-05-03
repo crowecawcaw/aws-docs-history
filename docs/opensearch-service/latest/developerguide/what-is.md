@@ -15,7 +15,7 @@ detects and replaces failed OpenSearch Service nodes, reducing the overhead asso
 infrastructures. You can scale your cluster with a single API call or a few clicks in the
 console.
 
-![Diagram showing data flow from input sources through Amazon OpenSearch Service to output applications.](images/whatis.png)
+![Data sources flow into OpenSearch Service , which outputs to monitoring, SIEM, and search uses.](images/whatis.png)
 To get started using OpenSearch Service, you create an OpenSearch Service _domain_,
 which is equivalent to an OpenSearch _cluster_. Each EC2 instance in
 the cluster acts as one OpenSearch Service node.

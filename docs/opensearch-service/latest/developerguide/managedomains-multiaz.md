@@ -108,7 +108,7 @@ Availability Zones. Fortunately, the default configuration for any index is a re
 of 1. As the following diagram shows, OpenSearch Service makes a best effort to distribute primary shards
 and their corresponding replica shards to different zones.
 
-![Diagram showing three Availability Zones, each with primary and replica shards distributed across them.](images/za-3-az.png)
+![Three availability zones each containing two data nodes with primary shards and replicas distributed across zones.](images/za-3-az.png)
 
 In addition to distributing shards by Availability Zone, OpenSearch Service distributes them by node.
 Still, certain domain configurations can result in imbalanced shard counts. Consider the
@@ -122,7 +122,7 @@ following domain:
 In this situation, OpenSearch Service has to overload one node in order to distribute the primary and
 replica shards across the zones, as shown in the following diagram.
 
-![Diagram showing distribution of primary and replica shards across three availability zones.](images/za-3-az-imbal.png)
+![Three availability zones with data nodes containing primary shards and replicas distributed across zones.](images/za-3-az-imbal.png)
 
 To avoid these kinds of situations, which can strain individual nodes and hurt
 performance, we recommend that you choose multi-AZ with Standby, or choose an instance count
@@ -138,7 +138,7 @@ three dedicated master nodes and one Availability Zone goes down, your cluster s
 quorum (2) of dedicated master nodes and can elect a new master. The following diagram
 demonstrates this configuration.
 
-![Diagram showing distribution of primary and replica nodes across three Availability Zones.](images/za-2-az.png)
+![Four data nodes with primary and replica shards distributed across two availability zones with dedicated master nodes in three zones.](images/za-2-az.png)
 
 If you choose an older-generation instance type that is not available in three
 Availability Zones, the following scenarios apply:

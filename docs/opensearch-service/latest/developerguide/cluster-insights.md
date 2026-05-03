@@ -23,7 +23,7 @@ Review performance and resilience recommendations and make necessary configurati
 
 Screen-1: Cluster Insights under the Cluster Health tab
 
-![](images/ci_console_cluster_health.png)
+![Insights panel showing Incorrect Cluster Manager Configuration recommendation with medium severity and active status.](images/ci_console_cluster_health.png)
 
 ## Access Cluster Insights and detailed metrics through OpenSearch UI
 
@@ -46,11 +46,11 @@ Accessing Cluster Insights requires an administrative role in the OpenSearch UI 
 
 Screen-2: Access Data Administrator from OpenSearch UI
 
-![](images/ci_data_admin.png)
+![Data administration option highlighted in the left navigation menu.](images/ci_data_admin.png)
 
 Screen-3: Cluster Insights under the Manage data section
 
-![](images/ci_manage_data.png)
+![Cluster insights card highlighted in the Manage data section of the data administration overview.](images/ci_manage_data.png)
 
 ## Understanding Cluster Insights
 
@@ -62,7 +62,7 @@ The **Cluster Insights Overview** page, as shown in the following screenshot, pr
 
 Screen-4: Cluster Insights landing page in OpenSearch UI application.
 
-![](images/ci_overview.png)
+![Cluster Insights overview page showing cluster health status, insights trends, and severity-based insights table.](images/ci_overview.png)
 
 ### Current cluster status
 
@@ -117,13 +117,13 @@ A table lists recent insights generated for the cluster, with the same detailed 
 
 Screen-5: Cluster Health overview provides key metrics, best practices, and Insights
 
-![](images/ci_cluster_health.png)
+![Cluster health dashboard showing metrics, configuration scores, and severity-based insights.](images/ci_cluster_health.png)
 
 When you click on any insights, you can see details and impacted resources, recommendations. In addition, you can also see history of fixed resources.
 
 Screen-6: Insight details. Provides you details, recommendations, and historical timeline.
 
-![](images/ci_large_shard_size.png)
+![Large shard size insight showing 10 shards exceeding 50GB across 200 total shards.](images/ci_large_shard_size.png)
 
 ### Metrics Section
 
@@ -145,7 +145,7 @@ The **Node**, **Index**, and **Shard views** use OpenSearch stats to provide det
 
 Screen-7: Node, Index, and Shard level metrics
 
-![](images/ci_shard_view.png)
+![Shard view table showing CPU utilization, heap allocation, indexing metrics, and search latency for cluster shards.](images/ci_shard_view.png)
 
 ### Query View
 
@@ -191,7 +191,7 @@ Double-click any query to see:
 
 Screen-8: In-flight live view. You can also view Top-N queries
 
-![](images/ci_query_view.png)
+![Query view dashboard showing active queries, performance metrics, distribution charts, and query details table.](images/ci_query_view.png)
 
 ### Access Insights through Amazon EventBridge events
 

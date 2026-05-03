@@ -40,7 +40,7 @@ precedence over any matching security policies. With this approach, you have the
 flexibility to override policy-based encryption settings for specific collections
 when needed.
 
-![Encryption policy creation process with rules and collection matching to KMS key.](images/serverless-encryption.png)
+![Encryption policy with rules matching MyLogs pattern to collection using my_kms_key.](images/serverless-encryption.png)
 
 Encryption policies contain the following elements:
 

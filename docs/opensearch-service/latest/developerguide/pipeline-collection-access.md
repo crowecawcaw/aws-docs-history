@@ -23,7 +23,7 @@ pipeline and the OpenSearch Serverless collection. All traffic from the pipeline
 endpoint and is routed to the collection. In order to reach the collection, the endpoint
 must be granted access to the collection through a network access policy.
 
-![OpenSearch Ingestion pipeline connecting to OpenSearch Serverless collection via PrivateLink VPC endpoint.](images/osis-aoss-permissions.png)
+![Pipeline connects to PrivateLink VPC endpoint, then network policy evaluation, then collection.](images/osis-aoss-permissions.png)
 
 ###### Topics
 
@@ -166,7 +166,7 @@ For example:
 In the console, any rules that OpenSearch Ingestion adds to your network policies are
 named **Created by Data Prepper**:
 
-![Configuration details for OpenSearch endpoint access, including VPC endpoint and resources.](images/osis-aoss-network.png)
+![Created by Data Prepper section showing access type, VPC endpoints, and resource settings.](images/osis-aoss-network.png)
 
 ###### Note
 

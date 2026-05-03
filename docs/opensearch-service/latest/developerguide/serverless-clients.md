@@ -659,4 +659,4 @@ The following image shows how to send a requests to a collection using Postman.
 For instructions to authenticate, see [Authenticate with AWS Signature authentication workflow in
 Postman](https://learning.postman.com/docs/sending-requests/authorization/aws-signature/ "https://learning.postman.com/docs/sending-requests/authorization/aws-signature/").
 
-![JSON response showing creation of a "movies-index" with successful result and no shards.](images/ServerlessPostman.png)
+![Postman interface showing POST request with JSON body containing title field set to Shawshank Redemption.](images/ServerlessPostman.png)

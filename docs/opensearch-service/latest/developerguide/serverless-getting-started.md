@@ -124,7 +124,7 @@ examples use **Dev Tools** within the OpenSearch Dashboards console.
 PUT movies-index
 ```
 
-![OpenSearch Dashboards console showing PUT request for movies-index with JSON response.](images/serverless-gsg-create.png) 5. To index a single document into _movies-index_, send the
+![OpenSearch Dashboards console showing PUT request to movies-index with response status 200.](images/serverless-gsg-create.png) 5. To index a single document into _movies-index_, send the
 following request:
 
 ```

@@ -63,7 +63,7 @@ you will find the create index button at the top of the console. Once you click 
 you will find options to define automatic semantic enrichment fields. In one index, you can have combinations of
 automatic semantic enrichment for English and multilingual, as well as lexical fields.
 
-![](images/ase-console-exp-serverless.png)
+![Create index page showing index name field, semantic enrichment fields, and lexical search fields.](images/ase-console-exp-serverless.png)
 
 API experience - To create an automatic semantic enrichment index using the AWS Command Line Interface (AWS CLI), use the create-index command:
 

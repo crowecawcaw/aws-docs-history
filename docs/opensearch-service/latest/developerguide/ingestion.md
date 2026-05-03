@@ -16,7 +16,7 @@ As a component of Amazon OpenSearch Service, OpenSearch Ingestion is powered by 
 collector that filters, enriches, transforms, normalizes, and aggregates data for downstream
 analysis and visualization.
 
-![OpenSearch Ingestion pipelines showing data flow from sources to Amazon OpenSearch Service domains.](images/Ingestion.png)
+![Data sources flow through ingest pipelines to store data in OpenSearch Service domains.](images/Ingestion.png)
 
 ## Benefits of Amazon OpenSearch Ingestion
 

@@ -24,4 +24,5 @@ OpenSearch domains. Neither approach supports OpenSearch Serverless collections.
 ###### Topics
 
 - [Cross-account data access to OpenSearch domains](application-cross-account-data-access-domains.md "application-cross-account-data-access-domains.md")
+- [Cross-region data access to OpenSearch domains](application-cross-region-data-access-domains.md "application-cross-region-data-access-domains.md")
 - [Cross-cluster search](application-cross-cluster-search.md "application-cross-cluster-search.md")

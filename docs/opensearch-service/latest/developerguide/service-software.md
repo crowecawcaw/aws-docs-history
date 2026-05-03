@@ -310,8 +310,7 @@ using a blue/green deployment.
 
 ###### Note
 
-Rollback is supported only for service software updates. Engine version upgrades cannot
-be rolled back.
+Rollback is supported only for service software updates applied on or after April 24, 2026. Engine version upgrades cannot be rolled back.
 
 ### Rollback eligibility and considerations
 
@@ -342,14 +341,19 @@ available:
 - **Only one rollback is permitted per update** –
   Once a rollback is complete, the domain is considered to be in a rolled-back state. You
   cannot roll back again until a new software update has been successfully applied.
-- **Software update was not applied with configuration changes in
-  the same blue/green deployment** – If the setting
-  `UseLatestServiceSoftwareForBlueGreen` is enabled, OpenSearch Service applies the latest
-  available software update along with configuration changes submitted during an update
-  domain configuration operation. Software updates that are applied along with
-  configuration changes in the same blue/green deployment cannot be rolled back. You have
-  the option to disable the `UseLatestServiceSoftwareForBlueGreen`
-  setting.
+- **Software update was explicitly initiated** –
+  Rollback is only available when the software update was explicitly initiated by you or
+  automatically scheduled by OpenSearch Service as part of a mandatory or optional update. Rollback is
+  not available when:
+  - The software update was applied during a blue/green deployment triggered by a
+    configuration change. This includes cases where the
+    `UseLatestServiceSoftwareForBlueGreen` setting is enabled, which
+    bundles the latest software update with configuration changes. You have the option
+    to disable this setting.
+  - The update was applied during a service-initiated maintenance operation on your
+    domain, such as infrastructure recovery, automated remediation, or other internal
+    operations performed by OpenSearch Service to maintain the health and availability of your
+    domain.
 
 ### Rollback time windows
 
@@ -418,9 +422,25 @@ Response fields:
 | `InternalException`          | The service encountered an internal error. Retry the request.                                          |
 | `DisabledOperationException` | The rollback operation is not supported for this domain.                                               |
 
-#### Example responses
+#### Response messages
 
-**Rollback initiated successfully:**
+The following table describes the possible response messages returned by the
+`RollbackServiceSoftwareUpdate` API.
+
+| Case                                  | Description                                                                                                                                                                                                                    |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Success                               | Rollback initiated successfully. The domain will be rolled back from<br>`current-version` to<br>`previous-version`.                                                                                                            |
+| Feature not enabled                   | Rollback is not available. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for assistance.                                                                        |
+| Previous software not available       | No previous software version available for rollback. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for assistance.                                              |
+| Previous software is same as current  | Rollback is not available. No previous software version available for<br>rollback. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for<br>assistance.             |
+| Domain is already rolled back         | Domain is already in a rolled-back state.                                                                                                                                                                                      |
+| Cluster is on pinned software version | Software override is currently applied to the domain.                                                                                                                                                                          |
+| Outside the time window               | Rollback is not available. The 15-day rollback window has expired. Contact<br>[Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for<br>assistance.                          |
+| Mandatory service update auto-applied | Rollback is not available. The current version was applied through a<br>mandatory service update. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for assistance. |
+| Engine version upgrade                | Rollback is not available. Engine version upgrades are irreversible. Contact<br>[Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for<br>assistance.                        |
+| Configuration changed after update    | Rollback is not available. Cluster configuration has changed since last<br>software update. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home")<br>for assistance.    |
+
+**Example response:**
 
 ```
 {
@@ -433,58 +453,6 @@ Response fields:
 }
 ```
 
-**Rollback unavailable, outside the time
-window:**
-
-```
-{
-    "RollbackServiceSoftwareOptions": {
-        "CurrentVersion": "OpenSearch_2_11_R20240115",
-        "NewVersion": null,
-        "RollbackAvailable": false,
-        "Description": "Rollback is not available. The 15-day rollback window has expired. Please contact AWS Support for assistance."
-    }
-}
-```
-
-**Rollback unavailable, mandatory update auto-applied by
-service:**
-
-```
-{
-    "RollbackServiceSoftwareOptions": {
-        "CurrentVersion": "OpenSearch_2_11_R20240215",
-        "NewVersion": null,
-        "RollbackAvailable": false,
-        "Description": "Rollback is not available. The current version was applied through a mandatory service update. Please contact AWS Support for assistance."
-    }
-}
-```
-
-**Rollback unavailable, engine version
-upgrade:**
-
-```
-{
-    "RollbackServiceSoftwareOptions": {
-        "CurrentVersion": "OpenSearch_2_11_R20240215",
-        "NewVersion": null,
-        "RollbackAvailable": false,
-        "Description": "Rollback is not available. Engine version upgrades are irreversible. Please contact AWS Support for assistance."
-    }
-}
-```
-
-**Rollback unavailable, domain already in rolled-back
-state:**
-
-```
-{
-    "RollbackServiceSoftwareOptions": {
-        "CurrentVersion": "OpenSearch_2_11_R20231023",
-        "NewVersion": null,
-        "RollbackAvailable": false,
-        "Description": "Domain is already in a rolled-back state."
-    }
-}
-```
+When rollback is not available, `RollbackAvailable` returns
+`false` and the `Description` field contains the reason from the
+table above.

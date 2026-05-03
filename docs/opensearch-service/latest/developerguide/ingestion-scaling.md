@@ -16,7 +16,7 @@ You specify the following values when you create a pipeline:
 - **Maximum capacity** – The pipeline can
   increase capacity up to this number of Ingestion OCUs.
 
-![Edit capacity interface for pipeline capacity with min and max OCU settings.](images/pipeline-scaling.png)
+![Edit capacity dialog showing Min capacity set to 1 and Max capacity set to 4 Ingestion-OCU.](images/pipeline-scaling.png)
 Make sure that the maximum capacity for a pipeline is high enough to handle spikes in
 workload, and the minimum capacity is low enough to minimize costs when the pipeline
 isn't busy. Based on your settings, OpenSearch Ingestion automatically scales the number of

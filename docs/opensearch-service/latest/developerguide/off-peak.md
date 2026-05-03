@@ -35,7 +35,7 @@ When you initiate an _optional_ update, you have the choice to apply
 the update immediately, schedule it for a subsequent off-peak window, or specify a custom date
 and time to apply it.
 
-![Software update dialog with options to apply now, schedule off-peak, or set specific time.](images/off-peak-sso.png)
+![Dialog box with three radio button options for scheduling a service software update.](images/off-peak-sso.png)
 
 For _required_ updates, OpenSearch Service automatically schedules a date and time
 during off-peak hours to perform the update. You receive a notification three days before the

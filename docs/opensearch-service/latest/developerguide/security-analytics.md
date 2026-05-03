@@ -27,7 +27,7 @@ A number of tools and features provide the foundation to the operation of Securi
 Analytics. The major components that compose the plugin include detectors, log types,
 rules, findings, and alerts.
 
-![Workflow diagram showing steps from source ingestion to generating findings and alerts.](images/sa-diagram.png)
+![Workflow showing five steps: identify sources, create detector, configure rules, configure alerts, and respond to findings.](images/sa-diagram.png)
 
 ### Log types
 
@@ -81,22 +81,22 @@ detection rules, and a list of your detectors. You can see a summary view compri
 multiple visualizations. The following chart, for example, shows the findings and alerts
 trend for various log types over a given period of time.
 
-![Chart showing findings and alert trends for network and windows log types over time.](images/sa-findings-alerts-chart.png)
+![Chart showing findings and alert counts with network and windows log types over time.](images/sa-findings-alerts-chart.png)
 
 Further down the page, you can review your most recent findings and alerts.
 
-![Recent alerts and findings tables showing security events and their severity levels.](images/sa-findings-alerts.png)
+![Two tables showing Recent alerts and Recent findings with timestamps, severity levels, and detectors.](images/sa-findings-alerts.png)
 
 Additionally, you can see a distribution of the most frequently triggered rules across
 all the active detectors. This can help you detect and investigate different types of
 malicious activities across log types.
 
-![Donut chart showing distribution of four most frequent detection rules in different colors.](images/sa-detection-rules.png)
+![Donut chart showing distribution of four detection rules with roughly equal proportions.](images/sa-detection-rules.png)
 
 Finally, you can view the status of configured detectors. From this panel, you can
 also navigate to the create detector workflow.
 
-![Table showing 6 detectors with their names, status, and log types.](images/sa-detectors.png)
+![Detectors table showing six active detectors with names, status, and log types such as Windows, Cloudtrail, and Network.](images/sa-detectors.png)
 
 To configure your Security Analytics setup, create rules with the **Rules** page and use those rules to write detectors in the
 **Detectors** page. For a more focused view of your

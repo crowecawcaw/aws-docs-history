@@ -76,6 +76,99 @@ fields
 
 After you've made your changes, save your domain.
 
+## Using a JWKS endpoint to validate a JWT
+
+Instead of configuring a static public key, you can configure a JSON Web Key Set
+(JWKS) endpoint URL to dynamically retrieve public keys from your identity provider.
+When a JWKS endpoint is configured, OpenSearch Service automatically fetches and caches the public
+keys used to validate JWT signatures, eliminating the need to manually update keys when
+your identity provider rotates signing keys.
+
+JWKS endpoint configuration requires OpenSearch version 3.3 or later.
+
+###### Note
+
+When both a JWKS URL and a static public key are configured, the JWKS URL takes
+precedence and the static public key is ignored.
+
+### Backward compatibility
+
+This feature maintains full backward compatibility:
+
+- When `JwksUrl` is not specified or set to null, the system uses
+  the existing static public key mechanism.
+- Existing JWT configurations continue to work without modification.
+- You can switch between static keys and JWKS by updating the domain
+  configuration.
+
+### Configuring a JWKS endpoint
+
+You can configure a JWKS endpoint using the OpenSearch Service console, the AWS CLI, or the
+configuration API.
+
+###### To configure a JWKS endpoint
+
+1. Under **Domain configuration**,
+   navigate to **JWT authentication and
+   authorization for OpenSearch**.
+2. Select **Enable JWT authentication and
+   authorization**.
+3. For **Key source**, select **JWKS URL**.
+4. Enter the JWKS endpoint URL provided by your identity provider
+   (for example,
+   `https://example.com/.well-known/jwks.json`).
+5. (Optional) Configure the **Subject
+   key** and **Roles key**
+   fields under **Additional
+   settings**.
+6. Choose **Save changes**.
+   The following AWS CLI command configures a JWKS endpoint for JWT
+   authentication on an existing domain:
+
+```
+aws opensearch update-domain-config \
+  --domain-name `my-domain` \
+  --advanced-security-options '{"JWTOptions":{"Enabled":true, "JwksUrl":"`https://example.com/.well-known/jwks.json`", "SubjectKey":"`sub`", "RolesKey":"`roles`"}}'
+```
+
+The following request to the configuration API configures a JWKS endpoint
+for JWT authentication on an existing domain:
+
+```
+POST https://es.`us-east-1`.amazonaws.com/2021-01-01/opensearch/domain/`my-domain`/config
+{
+  "AdvancedSecurityOptions": {
+    "JWTOptions": {
+      "Enabled": true,
+      "JwksUrl": "`https://example.com/.well-known/jwks.json`",
+      "RolesKey": "`optional-roles-key`",
+      "SubjectKey": "`optional-subject-key`"
+    }
+  }
+}
+```
+
+### JWT header requirements
+
+When using a JWKS endpoint, your JWT header must include a key ID
+(`kid`) that identifies the specific key to use for
+verification:
+
+```
+{
+  "alg": "RS256",
+  "typ": "JWT",
+  "kid": "V-diposfUJIk5jDBFi_QRouiVinG5PowskcSWy5EuCo"
+}
+```
+
+The `kid` value must match a key identifier in the JWKS endpoint
+response.
+
+For more information about JWKS configuration options and security settings, see
+[Using a JWKS endpoint to validate a JWT](https://docs.opensearch.org/latest/security/authentication-backends/jwt/#using-a-jwks-endpoint-to-validate-a-jwt "https://docs.opensearch.org/latest/security/authentication-backends/jwt/#using-a-jwks-endpoint-to-validate-a-jwt") in the OpenSearch
+documentation.
+
 ## Using a JWT to send a test request
 
 After creating a new JWT with a specified a subject and role pair, you can send a test

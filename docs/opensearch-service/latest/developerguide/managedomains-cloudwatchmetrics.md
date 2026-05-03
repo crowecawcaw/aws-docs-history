@@ -67,7 +67,7 @@ To view metrics in OpenSearch Service, use the **Cluster health** and
 tab uses box charts to provide at-a-glance visibility into the health of each OpenSearch
 node:
 
-![Chart showing search rate and CPU utilization for different instances with varying percentages.](images/box-charts.png)
+![Box charts showing search rate and CPU utilization metrics for three OpenSearch nodes.](images/box-charts.png)
 
 - Each colored box shows the range of values for the node over the specified
   time period.

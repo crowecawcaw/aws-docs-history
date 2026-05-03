@@ -8,7 +8,7 @@ _limited_ IAM role, which we'll then associate with users in Amazon Cognito. The
 master user can then sign in to OpenSearch Dashboards, map the limited user to a role, and use
 fine-grained access control to limit the user's permissions.
 
-![IAM roles and Amazon Cognito integration with OpenSearch Dashboards access control.](images/fgac-cognito.png)
+![IAM roles flow through Amazon Cognito to OpenSearch Dashboards for access control.](images/fgac-cognito.png)
 Although these steps use the Amazon Cognito user pool for authentication, this same basic process
 works for any Cognito authentication provider that lets you assign different IAM roles to
 different users.

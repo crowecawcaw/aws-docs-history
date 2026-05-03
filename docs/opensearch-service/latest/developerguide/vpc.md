@@ -61,12 +61,12 @@ subnet.
 The following illustration shows the VPC architecture for one Availability
 Zone:
 
-![VPC architecture showing subnet with security group connecting to OpenSearch Service data nodes.](images/VPCNoZoneAwareness.png)
+![VPC with subnet containing security group connecting to OpenSearch data and master nodes.](images/VPCNoZoneAwareness.png)
 
 The following illustration shows the VPC architecture for two Availability
 Zones:
 
-![VPC architecture with two Availability Zones, showing security groups, data nodes, and master nodes.](images/VPCZoneAwareness.png)
+![VPC with subnets across two availability zones connecting to OpenSearch Service nodes.](images/VPCZoneAwareness.png)
 
 OpenSearch Service also places an _elastic network interface_ (ENI) in the VPC
 for each of your data nodes. OpenSearch Service assigns each ENI a private IP address from the IPv4

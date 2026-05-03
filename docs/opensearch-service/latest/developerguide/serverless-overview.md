@@ -73,7 +73,7 @@ operations, and perform aggregations.
 
 The following image illustrates this decoupled architecture:
 
-![Diagram showing indexing and search processes using compute units and Amazon S3 storage.](images/Serverless.png)
+![Indexing compute units process data and store indexes in Amazon S3 for search compute units.](images/Serverless.png)
 
 OpenSearch Serverless compute capacity for data ingestion, searching, and querying are measured
 in OpenSearch Compute Units (OCUs). Each OCU is a combination of 6 GiB of memory and
@@ -116,7 +116,7 @@ assistants, and fraud detection.
 
 You choose a collection type when you first create a collection:
 
-![Three collection type options: Time series, Search, and Vector search for different data use cases.](images/serverless-collection-type.png)
+![Collection type options: Time series, Search, and Vector search with their descriptions.](images/serverless-collection-type.png)
 
 The collection type that you choose depends on the kind of data that you plan to
 ingest into the collection, and how you plan to query it. You can't change the

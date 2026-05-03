@@ -93,7 +93,7 @@ To configure capacity settings in the OpenSearch Serverless console, expand
 **Dashboard**. Specify the maximum indexing and search capacity
 under **Capacity management**:
 
-![Capacity management dashboard showing indexing and search capacity graphs with 10 OCU limits.](images/ServerlessCapacity.png)
+![Capacity management dashboard showing maximum capacity set to 10 OCUs for both indexing and search.](images/ServerlessCapacity.png)
 
 To configure capacity using the AWS CLI, send an [UpdateAccountSettings](../ServerlessAPIReference/API_UpdateAccountSettings.md "../ServerlessAPIReference/API_UpdateAccountSettings.md") request:
 

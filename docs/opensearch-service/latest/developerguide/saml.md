@@ -211,7 +211,7 @@ If you're enabling SAML authentication on an existing domain, copy the service
 provider entity ID and one of the SSO URLs. For guidance on which URL to use,
 see [SAML configuration overview](#saml-overview "#saml-overview").
 
-![Service provider entity ID and SSO URLs for SAML authentication configuration.](images/SAML.png)
+![Service provider entity ID, IdP-initiated SSO URL, and SP-initiated SSO URL fields with values.](images/SAML.png)
 
 Use the values to configure your identity provider. This is the most complex
 part of the process, and unfortunately, terminology and steps vary wildly by

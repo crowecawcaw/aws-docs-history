@@ -5,16 +5,13 @@ OpenSearch domains in different accounts. When you create an OpenSearch UI appli
 with cross-account data sources, you provide an `iamRoleForDataSourceArn`
 that points to an IAM role in the target account. OpenSearch UI validates the request
 by assuming this role and calling `es:DescribeDomain` to verify domain
-accessibility. The cross-account role is used only for control plane validation. Data
+accessibility. The cross-account role is used only during data source association. Data
 plane access is controlled separately by the target domain's access policy.
 
-###### Sample code
-
-The code examples in this topic are for illustration purposes only. They
-demonstrate basic functionality and may not include error handling, security best
-practices, or production-ready features. Before using sample code in production,
-review and modify it to meet your specific requirements, and test thoroughly in your
-environment.
+Cross-account data source support requires fine-grained access control to be
+enabled on the target domain. Fine-grained access control provides an additional
+authorization layer beyond the domain access policy, allowing you to control access to
+individual indices, documents, and fields.
 
 ## Key concepts
 
@@ -28,14 +25,44 @@ The AWS account where the OpenSearch domain resides.
 
 Cross-account role
 
-An IAM role in the target account that is used for control plane
-validation only. This role requires only the
-`es:DescribeDomain` permission.
+An IAM role in the target account that is used during data source
+association only. OpenSearch UI assumes this role to call
+`es:DescribeDomain`, which retrieves the domain endpoint and
+verifies that fine-grained access control is enabled. This is a discovery
+and validation step, not a security boundary. The cross-account role is
+never used for data plane access. After association, all data plane
+requests are authorized by the domain's access policy and backend role
+mappings, independent of the cross-account role.
 
 IAM Identity Center application role
 
 An IAM role in the source account that is used for IAM Identity Center user data
 plane access.
+
+## How cross-account role assumption works
+
+When you create or update an OpenSearch UI application with a cross-account data
+source, OpenSearch UI assumes the cross-account role in the target account using
+Forwarded Access Sessions ([FAS](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md")). FAS propagates the calling principal's own IAM
+identity to the `sts:AssumeRole` call. This means:
+
+- The target account's trust policy controls which source account principals
+  can assume the cross-account role.
+- The assumed role session carries the identity of the caller who initiated
+  the `CreateApplication` or `UpdateApplication`
+  request.
+- The cross-account role is assumed only during association to call
+  `es:DescribeDomain`. It is not used for any subsequent data plane
+  operations.
+
+For data plane access:
+
+- IAM users sign requests with their own IAM credentials. The target
+  domain's access policy authorizes these requests directly.
+- IAM Identity Center users have their requests signed with the IAM Identity Center application role
+  (`iamRoleForIdentityCenterApplicationArn`) in the source account.
+  The target domain's access policy and backend role mappings authorize these
+  requests.
 
 ## Prerequisites
 
@@ -44,6 +71,9 @@ following:
 
 - AWS CLI installed and configured
 - Access to both the source and target AWS accounts
+- OpenSearch domains with [fine-grained access control](fgac.md "fgac.md") enabled.
+  Cross-account data source association is not supported for domains without
+  fine-grained access control.
 - For IAM Identity Center flows: An AWS IAM Identity Center organization instance
 
 ## Scenarios
@@ -127,9 +157,17 @@ aws opensearch create-domain \
   --node-to-node-encryption-options '{"Enabled":true}' \
   --encryption-at-rest-options '{"Enabled":true}' \
   --domain-endpoint-options '{"EnforceHTTPS":true,"TLSSecurityPolicy":"Policy-Min-TLS-1-2-2019-07"}' \
-  --access-policies '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"*"},"Action":"es:ESHttp*","Resource":"arn:aws:es:`region`:`target-account-id`:domain/`domain-name`/*"}]}' \
+  --access-policies '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::`source-account-id`:root"},"Action":"es:ESHttp*","Resource":"arn:aws:es:`region`:`target-account-id`:domain/`domain-name`/*"}]}' \
   --region `region`
 ```
+
+###### Note
+
+This access policy scopes data plane access to IAM principals from the
+source account. For more restrictive access, replace the account root
+principal with specific IAM user or role ARNs. Fine-grained access control
+provides an additional authorization layer for controlling access to
+indices and documents.
 
 Wait for the domain status to become `Active` before
 proceeding.
@@ -507,9 +545,17 @@ aws opensearch create-domain \
   --node-to-node-encryption-options '{"Enabled":true}' \
   --encryption-at-rest-options '{"Enabled":true}' \
   --domain-endpoint-options '{"EnforceHTTPS":true,"TLSSecurityPolicy":"Policy-Min-TLS-1-2-2019-07"}' \
-  --access-policies '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"*"},"Action":"es:ESHttp*","Resource":"arn:aws:es:`region`:`target-account-id`:domain/`vpc-domain-name`/*"}]}' \
+  --access-policies '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::`source-account-id`:root"},"Action":"es:ESHttp*","Resource":"arn:aws:es:`region`:`target-account-id`:domain/`vpc-domain-name`/*"}]}' \
   --region `region`
 ```
+
+###### Note
+
+This access policy scopes data plane access to IAM principals from the
+source account. For more restrictive access, replace the account root
+principal with specific IAM user or role ARNs. Fine-grained access control
+provides an additional authorization layer for controlling access to
+indices and documents.
 
 Wait for the domain status to become `Active` before
 proceeding.
@@ -967,6 +1013,8 @@ authentication methods.
 - For VPC domains, both the IAM policy and VPC endpoint authorization
   must be configured.
 - Supported engine versions: OpenSearch 1.3 and above.
+- Cross-account data source association requires fine-grained access control
+  to be enabled on the target domain.
 
 ## Troubleshooting
 

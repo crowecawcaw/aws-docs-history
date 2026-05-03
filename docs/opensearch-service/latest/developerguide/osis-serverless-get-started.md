@@ -182,7 +182,7 @@ permission.
 First, get the ingestion URL from the **Pipeline settings**
 page:
 
-![Pipeline settings page showing ingestion URL and other configuration details.](images/pipeline-endpoint.png)
+![Pipeline settings page with Ingestion URL field highlighted showing the endpoint URL.](images/pipeline-endpoint.png)
 
 Then, send some sample data to the ingestion path. The following sample request uses
 [awscurl](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl") to send a single log

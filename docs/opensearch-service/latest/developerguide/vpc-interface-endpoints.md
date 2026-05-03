@@ -12,7 +12,7 @@ enables you to add an additional layer of security to access your domains regard
 where they run, with no infrastructure to manage. The following diagram illustrates
 OpenSearch Service-managed VPC endpoints within the same VPC:
 
-![VPC diagram showing Amazon PrivateLink in public subnet connecting to OpenSearch Service in private subnet.](images/Privatelink-Diagram.png)
+![PrivateLink in public subnet connecting to OpenSearch Service in private subnet via VPC.](images/Privatelink-Diagram.png)
 You establish this private connection by creating an OpenSearch Service-managed _interface
 VPC endpoint_, powered by AWS PrivateLink. We create an endpoint network
 interface in each subnet that you enable for the interface VPC endpoint. These are

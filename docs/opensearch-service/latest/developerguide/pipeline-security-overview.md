@@ -17,7 +17,7 @@ Amazon S3 or Fluent Bit is writing to a pipeline in a different account. In this
 needs to assume the ingestion role in order to access the pipeline. For more information,
 see [Cross-account ingestion](#pipeline-security-different-account "#pipeline-security-different-account").
 
-![Cross-account data ingestion pipeline showing client application, roles, and OpenSearch sink.](images/pipeline-security.png)
+![Cross-account data flow from Fluent Bit through STS assume role, ingestion role, pipeline, to OpenSearch sink.](images/pipeline-security.png)
 For a simple setup guide, see [Tutorial: Ingesting data into a domain using Amazon OpenSearch Ingestion](osis-get-started.md "osis-get-started.md").
 
 **Topics**
@@ -40,7 +40,7 @@ that you manually created, or having OpenSearch Ingestion automatically create t
 role based on the source and the sink that you selected. The following image shows how
 to specify the pipeline role in the AWS Management Console.
 
-![Pipeline role selection interface with options to create new or use existing IAM role.](images/pipeline-role.png)
+![Pipeline role section with Use an existing IAM role selected and Choose an existing role dropdown.](images/pipeline-role.png)
 
 ###### Topics
 
