@@ -1,6 +1,6 @@
 # cloudfront-distribution-key-group-enabled
 
-Checks if Amazon CloudFront distributions are configured to use only trusted key groups for signed URL or signed cookie authentication for all cache behaviors. The rule is NON_COMPLIANT if any cache behavior in the distribution is using trusted signers.
+Checks whether Amazon CloudFront distributions use only trusted key groups for signed URL or signed cookie authentication for all cache behaviors. The rule is NON_COMPLIANT if cache behaviors use trusted signers or no authentication is configured.
 
 **Identifier:** CLOUDFRONT_DISTRIBUTION_KEY_GROUP_ENABLED
 

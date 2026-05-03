@@ -1,0 +1,19 @@
+# bedrockagentcore-runtime-private-network-required
+
+Checks if an Amazon Bedrock AgentCore runtime is configured with public network access. The rule is NON_COMPLIANT if the runtime has NetworkMode set to PUBLIC.
+
+**Identifier:** BEDROCKAGENTCORE_RUNTIME_PRIVATE_NETWORK_REQUIRED
+
+**Resource Types:** AWS::BedrockAgentCore::Runtime
+
+**Trigger type:** Configuration changes
+
+**AWS Region:** Only available in Europe (Stockholm), Asia Pacific (Mumbai), Europe (Paris), US East (Ohio), Europe (Ireland), Europe (Frankfurt), US East (N. Virginia), Asia Pacific (Seoul), Europe (London), Asia Pacific (Tokyo), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Canada (Central) Region
+
+**Parameters:**
+
+None
+
+## AWS CloudFormation template
+
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").

@@ -100,6 +100,7 @@ AWS Config](../../../apigateway/latest/developerguide/apigateway-config.md "../.
 | `AWS::BedrockAgentCore::Gateway`               | NA                                          | NA           |                                                                                             |
 | `AWS::BedrockAgentCore::Memory`                | NA                                          | NA           |                                                                                             |
 | `AWS::BedrockAgentCore::Runtime`               | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::WorkloadIdentity`      | NA                                          | NA           |                                                                                             |
 
 ## Amazon CloudFront
 
@@ -147,7 +148,10 @@ AWS Config](../../../apigateway/latest/developerguide/apigateway-config.md "../.
 | `AWS::Cognito::LogDeliveryConfiguration`          | NA                           | NA           |                  |
 | `AWS::Cognito::UserPool`                          | NA                           | NA           |                  |
 | `AWS::Cognito::UserPoolClient`                    | NA                           | NA           |                  |
+| `AWS::Cognito::UserPoolDomain`                    | NA                           | NA           |                  |
 | `AWS::Cognito::UserPoolGroup`                     | NA                           | NA           |                  |
+| `AWS::Cognito::UserPoolIdentityProvider`          | NA                           | NA           |                  |
+| `AWS::Cognito::UserPoolResourceServer`            | NA                           | NA           |                  |
 | `AWS::Cognito::UserPoolUICustomizationAttachment` | NA                           | NA           |                  |
 
 ## Amazon Comprehend
@@ -162,6 +166,7 @@ AWS Config](../../../apigateway/latest/developerguide/apigateway-config.md "../.
 | ----------------------------------- | ------------------------------- | ------------ | ------------------------------------------------------------------------------------------- | ----- |
 | Amazon Connect                      | `AWS::Connect::Instance`        | NA           | NA                                                                                          |       |
 | `AWS::Connect::PhoneNumber`         | NA                              | NA           |                                                                                             |
+| `AWS::Connect::PredefinedAttribute` | NA                              | NA           |                                                                                             |
 | `AWS::Connect::Prompt`              | NA                              | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
 | `AWS::Connect::QuickConnect`        | NA                              | NA           |                                                                                             |
 | `AWS::Connect::RoutingProfile`      | NA                              | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
@@ -902,11 +907,14 @@ backup vaults](../../../aws-backup/latest/devguide/vaults.md "../../../aws-backu
 
 ## AWS Clean Rooms
 
-| AWS Service                   | Resource Type Value                  | Relationship | Related Resource | Notes |
-| ----------------------------- | ------------------------------------ | ------------ | ---------------- | ----- |
-| AWS Clean Rooms               | `AWS::CleanRooms::ConfiguredTable`   | NA           | NA               |       |
-| `AWS::CleanRooms::Membership` | NA                                   | NA           |                  |
-| AWS Clean Rooms ML            | `AWS::CleanRoomsML::TrainingDataset` | NA           | NA               |       |
+| AWS Service                              | Resource Type Value                  | Relationship | Related Resource | Notes |
+| ---------------------------------------- | ------------------------------------ | ------------ | ---------------- | ----- |
+| AWS Clean Rooms                          | `AWS::CleanRooms::AnalysisTemplate`  | NA           | NA               |       |
+| `AWS::CleanRooms::Collaboration`         | NA                                   | NA           |                  |
+| `AWS::CleanRooms::ConfiguredTable`       | NA                                   | NA           |                  |
+| `AWS::CleanRooms::Membership`            | NA                                   | NA           |                  |
+| `AWS::CleanRooms::PrivacyBudgetTemplate` | NA                                   | NA           |                  |
+| AWS Clean Rooms ML                       | `AWS::CleanRoomsML::TrainingDataset` | NA           | NA               |       |
 
 ## AWS CloudFormation
 
@@ -1051,6 +1059,12 @@ Recording for the `AWS::Config::ConformancePackCompliance` and `AWS::Config::Con
 | `AWS::DataSync::LocationObjectStorage` | NA                     | NA           |                  |
 | `AWS::DataSync::Task`                  | NA                     | NA           |                  |
 
+## Amazon Aurora DSQL
+
+| AWS Service        | Resource Type Value  | Relationship | Related Resource | Notes |
+| ------------------ | -------------------- | ------------ | ---------------- | ----- |
+| Amazon Aurora DSQL | `AWS::DSQL::Cluster` | NA           | NA               |       |
+
 ## AWS Deadline Cloud
 
 | AWS Service                            | Resource Type Value    | Relationship | Related Resource                                                                            | Notes |
@@ -1060,6 +1074,7 @@ Recording for the `AWS::Config::ConformancePackCompliance` and `AWS::Config::Con
 | `AWS::Deadline::Monitor`               | NA                     | NA           |                                                                                             |
 | `AWS::Deadline::QueueEnvironment`      | NA                     | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
 | `AWS::Deadline::QueueFleetAssociation` | NA                     | NA           |                                                                                             |
+| `AWS::Deadline::StorageProfile`        | NA                     | NA           |                                                                                             |
 
 ## AWS Device Farm
 
@@ -1094,9 +1109,10 @@ Recording for the `AWS::Config::ConformancePackCompliance` and `AWS::Config::Con
 
 ## AWS Fault Injection Service
 
-| AWS Service                 | Resource Type Value            | Relationship | Related Resource | Notes |
-| --------------------------- | ------------------------------ | ------------ | ---------------- | ----- |
-| AWS Fault Injection Service | `AWS::FIS::ExperimentTemplate` | NA           | NA               |       |
+| AWS Service                            | Resource Type Value            | Relationship | Related Resource | Notes |
+| -------------------------------------- | ------------------------------ | ------------ | ---------------- | ----- |
+| AWS Fault Injection Service            | `AWS::FIS::ExperimentTemplate` | NA           | NA               |       |
+| `AWS::FIS::TargetAccountConfiguration` | NA                             | NA           |                  |
 
 ## AWS Global Accelerator
 
@@ -1319,6 +1335,12 @@ and inline policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-in
 | ------------------- | ---------------------------- | ------------ | ---------------- | ----- |
 | AWS Resource Groups | `AWS::ResourceGroups::Group` | NA           | NA               |       |
 
+## AWS Resource Access Manager
+
+| AWS Service                 | Resource Type Value       | Relationship | Related Resource | Notes |
+| --------------------------- | ------------------------- | ------------ | ---------------- | ----- |
+| AWS Resource Access Manager | `AWS::RAM::ResourceShare` | NA           | NA               |       |
+
 ## AWS RoboMaker
 
 | AWS Service                             | Resource Type Value                       | Relationship | Related Resource | Notes |
@@ -1474,6 +1496,15 @@ remains trackable through the AWS Config interfaces.
 | `AWS::MediaConnect::FlowSource`       | NA                                   | NA           |                  |
 | `AWS::MediaConnect::Gateway`          | NA                                   | NA           |                  |
 
+## AWS Elemental MediaLive
+
+| AWS Service                                    | Resource Type Value                       | Relationship | Related Resource | Notes |
+| ---------------------------------------------- | ----------------------------------------- | ------------ | ---------------- | ----- |
+| AWS Elemental MediaLive                        | `AWS::MediaLive::CloudWatchAlarmTemplate` | NA           | NA               |       |
+| `AWS::MediaLive::CloudWatchAlarmTemplateGroup` | NA                                        | NA           |                  |
+| `AWS::MediaLive::EventBridgeRuleTemplate`      | NA                                        | NA           |                  |
+| `AWS::MediaLive::EventBridgeRuleTemplateGroup` | NA                                        | NA           |                  |
+
 ## AWS Elemental MediaPackage
 
 | AWS Service                                 | Resource Type Value                 | Relationship | Related Resource | Notes |
@@ -1491,7 +1522,9 @@ remains trackable through the AWS Config interfaces.
 
 ## AWS Elemental MediaTailor
 
-| AWS Service                               | Resource Type Value            | Relationship | Related Resource | Notes |
-| ----------------------------------------- | ------------------------------ | ------------ | ---------------- | ----- |
-| AWS Elemental MediaTailor                 | `AWS::MediaTailor::LiveSource` | NA           | NA               |       |
-| `AWS::MediaTailor::PlaybackConfiguration` | NA                             | NA           |                  |
+| AWS Service                               | Resource Type Value         | Relationship | Related Resource | Notes |
+| ----------------------------------------- | --------------------------- | ------------ | ---------------- | ----- |
+| AWS Elemental MediaTailor                 | `AWS::MediaTailor::Channel` | NA           | NA               |       |
+| `AWS::MediaTailor::LiveSource`            | NA                          | NA           |                  |
+| `AWS::MediaTailor::PlaybackConfiguration` | NA                          | NA           |                  |
+| `AWS::MediaTailor::SourceLocation`        | NA                          | NA           |                  |
